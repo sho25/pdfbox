@@ -1422,7 +1422,6 @@ name|firstChar
 init|=
 literal|0
 decl_stmt|;
-comment|/**             for( int i=0; i<glyphToCCode.length; i++ )             {                 if( glyphToCCode[i] != 0 )                 {                     firstChar = Math.min( glyphToCCode[i], firstChar );                 }             }*/
 name|int
 name|maxWidths
 init|=
@@ -1451,9 +1450,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|(
-name|widthValues
-operator|.
-name|length
+name|maxWidths
 argument_list|)
 decl_stmt|;
 name|Integer
@@ -1472,12 +1469,6 @@ name|i
 init|=
 literal|0
 init|;
-name|i
-operator|<
-name|widthValues
-operator|.
-name|length
-operator|&&
 name|i
 operator|<
 name|maxWidths

@@ -1853,17 +1853,6 @@ operator|.
 name|getHeight
 argument_list|()
 decl_stmt|;
-comment|//PATCH SUGGESTION: 	Jim Lynch
-comment|//Patch: 1607074
-comment|//					Friday, December 01, 2006
-comment|//      OLD CODE
-comment|//      if( width> height )
-comment|//      {
-comment|//          format.setOrientation( PageFormat.LANDSCAPE );
-comment|//          width=mediaBox.getHeight();
-comment|//          height=mediaBox.getWidth();
-comment|//      }
-comment|// OLD CODE
 name|int
 name|rotation
 init|=
@@ -1877,14 +1866,8 @@ condition|(
 name|rotation
 operator|==
 literal|90
-operator|||
-name|rotation
-operator|==
-literal|270
 condition|)
 block|{
-comment|//Only if there IS a rotation and its set to 90 or 270
-comment|//Do I need to differentiate between LANDSCAPE and REVERSE_LANDSCAPE??
 name|format
 operator|.
 name|setOrientation
@@ -1892,6 +1875,24 @@ argument_list|(
 name|PageFormat
 operator|.
 name|LANDSCAPE
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|rotation
+operator|==
+literal|270
+condition|)
+block|{
+name|format
+operator|.
+name|setOrientation
+argument_list|(
+name|PageFormat
+operator|.
+name|REVERSE_LANDSCAPE
 argument_list|)
 expr_stmt|;
 block|}
@@ -1907,6 +1908,43 @@ name|PORTRAIT
 argument_list|)
 expr_stmt|;
 block|}
+comment|// If there is rotation> 0, we have to exchange the pagedimension for the printer
+if|if
+condition|(
+name|rotation
+operator|==
+literal|90
+operator|||
+name|rotation
+operator|==
+literal|270
+condition|)
+block|{
+name|paper
+operator|.
+name|setImageableArea
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|height
+argument_list|,
+name|width
+argument_list|)
+expr_stmt|;
+name|paper
+operator|.
+name|setSize
+argument_list|(
+name|height
+argument_list|,
+name|width
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|paper
 operator|.
 name|setImageableArea
@@ -1929,6 +1967,7 @@ argument_list|,
 name|height
 argument_list|)
 expr_stmt|;
+block|}
 name|format
 operator|.
 name|setPaper

@@ -1566,6 +1566,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|//System.out.println( "parsed=" + object );
+comment|//logger().fine( "parsed=" + object );
 return|return
 name|object
 return|;

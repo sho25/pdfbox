@@ -1215,6 +1215,13 @@ literal|"Nums"
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|srcNums
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|int
@@ -1287,6 +1294,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|COSName

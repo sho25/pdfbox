@@ -269,6 +269,18 @@ name|org
 operator|.
 name|pdfbox
 operator|.
+name|exceptions
+operator|.
+name|LoggingObject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|pdfbox
+operator|.
 name|util
 operator|.
 name|ResourceLoader
@@ -384,6 +396,8 @@ specifier|public
 specifier|abstract
 class|class
 name|PDFont
+extends|extends
+name|LoggingObject
 implements|implements
 name|COSObjectable
 block|{

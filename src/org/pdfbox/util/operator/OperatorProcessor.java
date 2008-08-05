@@ -41,6 +41,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|LoggingObject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -68,6 +80,8 @@ specifier|public
 specifier|abstract
 class|class
 name|OperatorProcessor
+extends|extends
+name|LoggingObject
 block|{
 comment|/**      * The stream engine processing context.      */
 specifier|protected

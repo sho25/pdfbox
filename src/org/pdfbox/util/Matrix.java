@@ -555,6 +555,19 @@ operator|new
 name|Matrix
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|b
+operator|!=
+literal|null
+operator|&&
+name|b
+operator|.
+name|single
+operator|!=
+literal|null
+condition|)
+block|{
 name|float
 index|[]
 name|bMatrix
@@ -886,6 +899,7 @@ index|[
 literal|8
 index|]
 expr_stmt|;
+block|}
 return|return
 name|result
 return|;

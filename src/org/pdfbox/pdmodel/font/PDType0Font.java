@@ -94,7 +94,8 @@ specifier|public
 class|class
 name|PDType0Font
 extends|extends
-name|PDFont
+comment|/*PDFont following is a hack ...*/
+name|PDType1Font
 block|{
 comment|/**      * Constructor.      */
 specifier|public
@@ -161,14 +162,37 @@ parameter_list|,
 name|float
 name|y
 parameter_list|)
+throws|throws
+name|IOException
 block|{
-throw|throw
-operator|new
-name|RuntimeException
+comment|//throw new RuntimeException( "Not yet implemented" );
+name|super
+operator|.
+name|drawString
 argument_list|(
-literal|"Not yet implemented"
+name|string
+argument_list|,
+name|g
+argument_list|,
+name|fontSize
+argument_list|,
+name|xScale
+argument_list|,
+name|yScale
+argument_list|,
+name|x
+argument_list|,
+name|y
 argument_list|)
-throw|;
+expr_stmt|;
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Called Type1Font.drawString since Type0 is not yet implemented"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * This will get the fonts bouding box.      *      * @return The fonts bouding box.      *       * @throws IOException If there is an error getting the bounding box.      */
 specifier|public

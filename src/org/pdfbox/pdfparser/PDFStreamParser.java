@@ -348,6 +348,7 @@ argument_list|(
 name|token
 argument_list|)
 expr_stmt|;
+comment|//logger().fine( "parsed=" + token );
 block|}
 block|}
 finally|finally

@@ -267,6 +267,18 @@ name|COSObjectKey
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|LoggingObject
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class is used to contain parsing logic that will be used by both the  * PDFParser and the COSStreamParser.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.61 $  */
 end_comment
@@ -276,6 +288,14 @@ specifier|public
 specifier|abstract
 class|class
 name|BaseParser
+extends|extends
+name|org
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|LoggingObject
 block|{
 comment|/**      * This is a byte array that will be used for comparisons.      */
 specifier|public

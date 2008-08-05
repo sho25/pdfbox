@@ -29,6 +29,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|pdfbox
@@ -87,6 +97,8 @@ parameter_list|,
 name|List
 name|arguments
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|PageDrawer
 name|drawer
@@ -113,8 +125,24 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-comment|//System.out.println( "Close Path Failed");
-comment|//ignore for today
+name|logger
+argument_list|()
+operator|.
+name|warning
+argument_list|(
+name|t
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|"\n at\n"
+operator|+
+name|FullStackTrace
+argument_list|(
+name|t
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

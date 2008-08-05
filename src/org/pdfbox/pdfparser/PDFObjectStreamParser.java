@@ -317,6 +317,16 @@ argument_list|(
 name|object
 argument_list|)
 expr_stmt|;
+name|logger
+argument_list|()
+operator|.
+name|fine
+argument_list|(
+literal|"parsed="
+operator|+
+name|object
+argument_list|)
+expr_stmt|;
 name|objectCounter
 operator|++
 expr_stmt|;

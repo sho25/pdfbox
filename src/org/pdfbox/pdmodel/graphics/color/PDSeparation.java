@@ -206,13 +206,78 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|//throw new IOException( "Not implemented" );
+try|try
+block|{
+comment|///dump some information to help figure these things out
+comment|//logger().info( array.toString());
+name|PDColorSpace
+name|alt
+init|=
+name|getAlternateColorSpace
+argument_list|()
+decl_stmt|;
+comment|//logger().info(alt.toString());
+name|ColorSpace
+name|CS
+init|=
+name|alt
+operator|.
+name|createColorSpace
+argument_list|()
+decl_stmt|;
+comment|///dwilson 12/15/07
+comment|//logger().info(CS.toString() + " reporting type " + CS.getType() + " and having component count of " + CS.getNumComponents());
+return|return
+name|CS
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|IOe
+parameter_list|)
+block|{
+name|logger
+argument_list|()
+operator|.
+name|severe
+argument_list|(
+name|FullStackTrace
+argument_list|(
+name|IOe
+argument_list|)
+argument_list|)
+expr_stmt|;
+throw|throw
+name|IOe
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+argument_list|()
+operator|.
+name|severe
+argument_list|(
+name|FullStackTrace
+argument_list|(
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Not implemented"
+literal|"Failed to Create ColorSpace"
 argument_list|)
 throw|;
+block|}
 block|}
 comment|/**      * Create a Java color model for this colorspace.      *      * @param bpc The number of bits per component.      *       * @return A color model that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color model.      */
 specifier|public
@@ -225,13 +290,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-throw|throw
-operator|new
-name|IOException
+comment|//throw new IOException( "Not implemented" );
+return|return
+name|getAlternateColorSpace
+argument_list|()
+operator|.
+name|createColorModel
 argument_list|(
-literal|"Not implemented"
+name|bpc
 argument_list|)
-throw|;
+return|;
 block|}
 comment|/**      * This will get the separation name.      *      * @return The name in the separation.      */
 specifier|public
@@ -301,13 +369,19 @@ argument_list|(
 literal|2
 argument_list|)
 decl_stmt|;
-return|return
+name|PDColorSpace
+name|cs
+init|=
 name|PDColorSpaceFactory
 operator|.
 name|createColorSpace
 argument_list|(
 name|alternate
 argument_list|)
+decl_stmt|;
+comment|//logger().info("Returning " + cs.toString() + " for input " + alternate.toString());
+return|return
+name|cs
 return|;
 block|}
 comment|/**      * This will set the alternate color space.      *      * @param cs The alternate color space.      */

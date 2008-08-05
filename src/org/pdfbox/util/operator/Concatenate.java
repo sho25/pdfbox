@@ -27,6 +27,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|pdfbox
@@ -61,6 +71,18 @@ name|PDFOperator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|pdfbox
+operator|.
+name|pdfviewer
+operator|.
+name|PageDrawer
+import|;
+end_import
+
 begin_comment
 comment|/**  *  *<p>Titre : PDFEngine Modification.</p>  *<p>Description : Structal modification of the PDFEngine class : * the long sequence of conditions in processOperator is remplaced by * this strategy pattern</p>  *<p>Copyright : Copyright (c) 2004</p>  *<p>Société : DBGS</p>  * @author Huault : huault@free.fr  * @version $Revision: 1.5 $  */
 end_comment
@@ -83,6 +105,8 @@ parameter_list|,
 name|List
 name|arguments
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|//concatenate matrix to current transformation matrix
 name|COSNumber

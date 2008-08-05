@@ -251,6 +251,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|logger
+argument_list|()
+operator|.
+name|warning
+argument_list|(
+literal|"This looks like a test case for sector9's patch!!!  We need one of these!!!"
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|IOException
