@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -206,7 +206,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An image class for JPegs.   *   * @author mathiak  * @version $Revision: 1.5 $  */
+comment|/**  * An image class for JPegs.  *  * @author mathiak  * @version $Revision: 1.5 $  */
 end_comment
 
 begin_class
@@ -253,7 +253,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Standard constructor.      *       * @param jpeg The COSStream from which to extract the JPeg      */
+comment|/**      * Standard constructor.      *      * @param jpeg The COSStream from which to extract the JPeg      */
 specifier|public
 name|PDJpeg
 parameter_list|(
@@ -269,7 +269,7 @@ literal|"jpg"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Construct from a stream.      *       * @param doc The document to create the image as part of.      * @param is The stream that contains the jpeg data.      * @throws IOException If there is an error reading the jpeg data.      */
+comment|/**      * Construct from a stream.      *      * @param doc The document to create the image as part of.      * @param is The stream that contains the jpeg data.      * @throws IOException If there is an error reading the jpeg data.      */
 specifier|public
 name|PDJpeg
 parameter_list|(
@@ -388,7 +388,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Construct from a buffered image.      *       * @param doc The document to create the image as part of.      * @param bi The image to convert to a jpeg      * @throws IOException If there is an error processing the jpeg data.      */
+comment|/**      * Construct from a buffered image.      *      * @param doc The document to create the image as part of.      * @param bi The image to convert to a jpeg      * @throws IOException If there is an error processing the jpeg data.      */
 specifier|public
 name|PDJpeg
 parameter_list|(
@@ -720,7 +720,7 @@ return|return
 name|bi
 return|;
 block|}
-comment|/**      * This writes the JPeg to out.       * {@inheritDoc}      */
+comment|/**      * This writes the JPeg to out.      * {@inheritDoc}      */
 specifier|public
 name|void
 name|write2OutputStream

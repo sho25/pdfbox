@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -440,7 +440,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * This will export all FDF form data.      *       * @return An FDF document used to export the document.      * @throws IOException If there is an error when exporting the document.      */
+comment|/**      * This will export all FDF form data.      *      * @return An FDF document used to export the document.      * @throws IOException If there is an error when exporting the document.      */
 specifier|public
 name|FDFDocument
 name|exportFDF
@@ -830,7 +830,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the fields that are part of this AcroForm.      *       * @param fields The fields that are part of this form.      */
+comment|/**      * Set the fields that are part of this AcroForm.      *      * @param fields The fields that are part of this form.      */
 specifier|public
 name|void
 name|setFields
@@ -943,7 +943,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * This will get a field by name, possibly using the cache if setCache is true.      *      * @param name The name of the field to get.      *      * @return The field with that name of null if one was not found.      *       * @throws IOException If there is an error getting the field type.      */
+comment|/**      * This will get a field by name, possibly using the cache if setCache is true.      *      * @param name The name of the field to get.      *      * @return The field with that name of null if one was not found.      *      * @throws IOException If there is an error getting the field type.      */
 specifier|public
 name|PDField
 name|getField
@@ -1267,7 +1267,7 @@ return|return
 name|acroForm
 return|;
 block|}
-comment|/**      * Get the XFA resource, the XFA resource is only used for PDF 1.5+ forms.      *       * @return The xfa resource or null if it does not exist.      */
+comment|/**      * Get the XFA resource, the XFA resource is only used for PDF 1.5+ forms.      *      * @return The xfa resource or null if it does not exist.      */
 specifier|public
 name|PDXFA
 name|getXFA
@@ -1308,7 +1308,7 @@ return|return
 name|xfa
 return|;
 block|}
-comment|/**      * Set the XFA resource, this is only used for PDF 1.5+ forms.      *       * @param xfa The xfa resource.      */
+comment|/**      * Set the XFA resource, this is only used for PDF 1.5+ forms.      *      * @param xfa The xfa resource.      */
 specifier|public
 name|void
 name|setXFA

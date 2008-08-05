@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -97,7 +97,7 @@ name|TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor from an existing destination array.      *       * @param arr The destination array.      */
+comment|/**      * Constructor from an existing destination array.      *      * @param arr The destination array.      */
 specifier|public
 name|PDPageFitWidthDestination
 parameter_list|(
@@ -111,7 +111,7 @@ name|arr
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the top y coordinate.  A return value of -1 implies that the current y-coordinate      * will be used.      *       * @return The top y coordinate.      */
+comment|/**      * Get the top y coordinate.  A return value of -1 implies that the current y-coordinate      * will be used.      *      * @return The top y coordinate.      */
 specifier|public
 name|int
 name|getTop
@@ -126,7 +126,7 @@ literal|2
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the top y-coordinate, a value of -1 implies that the current y-coordinate      * will be used.       * @param y The top ycoordinate.      */
+comment|/**      * Set the top y-coordinate, a value of -1 implies that the current y-coordinate      * will be used.      * @param y The top ycoordinate.      */
 specifier|public
 name|void
 name|setTop
@@ -176,7 +176,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A flag indicating if this page destination should just fit bounding box of the PDF.      *       * @return true If the destination should fit just the bounding box.      */
+comment|/**      * A flag indicating if this page destination should just fit bounding box of the PDF.      *      * @return true If the destination should fit just the bounding box.      */
 specifier|public
 name|boolean
 name|fitBoundingBox
@@ -196,7 +196,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if this page destination should just fit the bounding box.  The default is false.      *       * @param fitBoundingBox A flag indicating if this should fit the bounding box.      */
+comment|/**      * Set if this page destination should just fit the bounding box.  The default is false.      *      * @param fitBoundingBox A flag indicating if this should fit the bounding box.      */
 specifier|public
 name|void
 name|setFitBoundingBox

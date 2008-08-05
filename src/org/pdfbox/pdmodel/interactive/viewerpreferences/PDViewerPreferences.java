@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -202,7 +202,7 @@ return|return
 name|prefs
 return|;
 block|}
-comment|/**      * Get the toolbar preference.      *       * @return the toolbar preference.      */
+comment|/**      * Get the toolbar preference.      *      * @return the toolbar preference.      */
 specifier|public
 name|boolean
 name|hideToolbar
@@ -219,7 +219,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the toolbar preference.      *       * @param value Set the toolbar preference.      */
+comment|/**      * Set the toolbar preference.      *      * @param value Set the toolbar preference.      */
 specifier|public
 name|void
 name|setHideToolbar
@@ -238,7 +238,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the menubar preference.      *       * @return the menubar preference.      */
+comment|/**      * Get the menubar preference.      *      * @return the menubar preference.      */
 specifier|public
 name|boolean
 name|hideMenubar
@@ -255,7 +255,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the menubar preference.      *       * @param value Set the menubar preference.      */
+comment|/**      * Set the menubar preference.      *      * @param value Set the menubar preference.      */
 specifier|public
 name|void
 name|setHideMenubar
@@ -274,7 +274,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the window UI preference.      *       * @return the window UI preference.      */
+comment|/**      * Get the window UI preference.      *      * @return the window UI preference.      */
 specifier|public
 name|boolean
 name|hideWindowUI
@@ -291,7 +291,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the window UI preference.      *       * @param value Set the window UI preference.      */
+comment|/**      * Set the window UI preference.      *      * @param value Set the window UI preference.      */
 specifier|public
 name|void
 name|setHideWindowUI
@@ -310,7 +310,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the fit window preference.      *       * @return the fit window preference.      */
+comment|/**      * Get the fit window preference.      *      * @return the fit window preference.      */
 specifier|public
 name|boolean
 name|fitWindow
@@ -327,7 +327,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the fit window preference.      *       * @param value Set the fit window preference.      */
+comment|/**      * Set the fit window preference.      *      * @param value Set the fit window preference.      */
 specifier|public
 name|void
 name|setFitWindow
@@ -346,7 +346,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the center window preference.      *       * @return the center window preference.      */
+comment|/**      * Get the center window preference.      *      * @return the center window preference.      */
 specifier|public
 name|boolean
 name|centerWindow
@@ -363,7 +363,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the center window preference.      *       * @param value Set the center window preference.      */
+comment|/**      * Set the center window preference.      *      * @param value Set the center window preference.      */
 specifier|public
 name|void
 name|setCenterWindow
@@ -382,7 +382,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the display doc title preference.      *       * @return the display doc title preference.      */
+comment|/**      * Get the display doc title preference.      *      * @return the display doc title preference.      */
 specifier|public
 name|boolean
 name|displayDocTitle
@@ -399,7 +399,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the display doc title preference.      *       * @param value Set the display doc title preference.      */
+comment|/**      * Set the display doc title preference.      *      * @param value Set the display doc title preference.      */
 specifier|public
 name|void
 name|setDisplayDocTitle
@@ -418,7 +418,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the non full screen page mode preference.      *       * @return the non full screen page mode preference.      */
+comment|/**      * Get the non full screen page mode preference.      *      * @return the non full screen page mode preference.      */
 specifier|public
 name|String
 name|getNonFullScreenPageMode
@@ -435,7 +435,7 @@ name|NON_FULL_SCREEN_PAGE_MODE_USE_NONE
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the non full screen page mode preference.      *       * @param value Set the non full screen page mode preference.      */
+comment|/**      * Set the non full screen page mode preference.      *      * @param value Set the non full screen page mode preference.      */
 specifier|public
 name|void
 name|setNonFullScreenPageMode
@@ -454,7 +454,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the reading direction preference.      *       * @return the reading direction preference.      */
+comment|/**      * Get the reading direction preference.      *      * @return the reading direction preference.      */
 specifier|public
 name|String
 name|getReadingDirection
@@ -471,7 +471,7 @@ name|READING_DIRECTION_L2R
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the reading direction preference.      *       * @param value Set the reading direction preference.      */
+comment|/**      * Set the reading direction preference.      *      * @param value Set the reading direction preference.      */
 specifier|public
 name|void
 name|setReadingDirection
@@ -490,7 +490,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the ViewArea preference.  See BOUNDARY_XXX constants.      *       * @return the ViewArea preference.      */
+comment|/**      * Get the ViewArea preference.  See BOUNDARY_XXX constants.      *      * @return the ViewArea preference.      */
 specifier|public
 name|String
 name|getViewArea
@@ -507,7 +507,7 @@ name|BOUNDARY_CROP_BOX
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the ViewArea preference.  See BOUNDARY_XXX constants.      *       * @param value Set the ViewArea preference.      */
+comment|/**      * Set the ViewArea preference.  See BOUNDARY_XXX constants.      *      * @param value Set the ViewArea preference.      */
 specifier|public
 name|void
 name|setViewArea
@@ -526,7 +526,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the ViewClip preference.  See BOUNDARY_XXX constants.      *       * @return the ViewClip preference.      */
+comment|/**      * Get the ViewClip preference.  See BOUNDARY_XXX constants.      *      * @return the ViewClip preference.      */
 specifier|public
 name|String
 name|getViewClip
@@ -543,7 +543,7 @@ name|BOUNDARY_CROP_BOX
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the ViewClip preference.  See BOUNDARY_XXX constants.      *       * @param value Set the ViewClip preference.      */
+comment|/**      * Set the ViewClip preference.  See BOUNDARY_XXX constants.      *      * @param value Set the ViewClip preference.      */
 specifier|public
 name|void
 name|setViewClip
@@ -562,7 +562,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the PrintArea preference.  See BOUNDARY_XXX constants.      *       * @return the PrintArea preference.      */
+comment|/**      * Get the PrintArea preference.  See BOUNDARY_XXX constants.      *      * @return the PrintArea preference.      */
 specifier|public
 name|String
 name|getPrintArea
@@ -579,7 +579,7 @@ name|BOUNDARY_CROP_BOX
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the PrintArea preference.  See BOUNDARY_XXX constants.      *       * @param value Set the PrintArea preference.      */
+comment|/**      * Set the PrintArea preference.  See BOUNDARY_XXX constants.      *      * @param value Set the PrintArea preference.      */
 specifier|public
 name|void
 name|setPrintArea
@@ -598,7 +598,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the PrintClip preference.  See BOUNDARY_XXX constants.      *       * @return the PrintClip preference.      */
+comment|/**      * Get the PrintClip preference.  See BOUNDARY_XXX constants.      *      * @return the PrintClip preference.      */
 specifier|public
 name|String
 name|getPrintClip
@@ -615,7 +615,7 @@ name|BOUNDARY_CROP_BOX
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the PrintClip preference.  See BOUNDARY_XXX constants.      *       * @param value Set the PrintClip preference.      */
+comment|/**      * Set the PrintClip preference.  See BOUNDARY_XXX constants.      *      * @param value Set the PrintClip preference.      */
 specifier|public
 name|void
 name|setPrintClip

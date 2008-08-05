@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -224,7 +224,7 @@ name|QUADDING_RIGHT
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * @see PDField#PDField(PDAcroForm,COSDictionary)      *       * @param theAcroForm The acroform.      */
+comment|/**      * @see PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroform.      */
 specifier|public
 name|PDVariableText
 parameter_list|(
@@ -380,7 +380,7 @@ name|FLAG_MULTILINE
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the multiline bit.      *       * @param multiline The value for the multiline.      */
+comment|/**      * Set the multiline bit.      *      * @param multiline The value for the multiline.      */
 specifier|public
 name|void
 name|setMultiline
@@ -424,7 +424,7 @@ name|FLAG_PASSWORD
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the password bit.      *       * @param password The value for the password.      */
+comment|/**      * Set the password bit.      *      * @param password The value for the password.      */
 specifier|public
 name|void
 name|setPassword
@@ -468,7 +468,7 @@ name|FLAG_FILE_SELECT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the file select bit.      *       * @param fileSelect The value for the fileSelect.      */
+comment|/**      * Set the file select bit.      *      * @param fileSelect The value for the fileSelect.      */
 specifier|public
 name|void
 name|setFileSelect
@@ -512,7 +512,7 @@ name|FLAG_DO_NOT_SPELL_CHECK
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the doNotSpellCheck bit.      *       * @param doNotSpellCheck The value for the doNotSpellCheck.      */
+comment|/**      * Set the doNotSpellCheck bit.      *      * @param doNotSpellCheck The value for the doNotSpellCheck.      */
 specifier|public
 name|void
 name|setDoNotSpellCheck
@@ -556,7 +556,7 @@ name|FLAG_DO_NOT_SCROLL
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the doNotScroll bit.      *       * @param doNotScroll The value for the doNotScroll.      */
+comment|/**      * Set the doNotScroll bit.      *      * @param doNotScroll The value for the doNotScroll.      */
 specifier|public
 name|void
 name|setDoNotScroll
@@ -600,7 +600,7 @@ name|FLAG_COMB
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the comb bit.      *       * @param comb The value for the comb.      */
+comment|/**      * Set the comb bit.      *      * @param comb The value for the comb.      */
 specifier|public
 name|void
 name|setComb
@@ -644,7 +644,7 @@ name|FLAG_RICH_TEXT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the richText bit.      *       * @param richText The value for the richText.      */
+comment|/**      * Set the richText bit.      *      * @param richText The value for the richText.      */
 specifier|public
 name|void
 name|setRichText

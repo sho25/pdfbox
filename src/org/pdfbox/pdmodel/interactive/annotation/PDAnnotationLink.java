@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -207,7 +207,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the destination to be displayed when the annotation is activated.  Either      * this or the A should be set but not both.      *       * @return The destination for this annotation.      *       * @throws IOException If there is an error creating the destination.      */
+comment|/**      * Get the destination to be displayed when the annotation is activated.  Either      * this or the A should be set but not both.      *      * @return The destination for this annotation.      *      * @throws IOException If there is an error creating the destination.      */
 specifier|public
 name|PDDestination
 name|getDestination
@@ -242,7 +242,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * The new destination value.      *       * @param dest The updated destination.      */
+comment|/**      * The new destination value.      *      * @param dest The updated destination.      */
 specifier|public
 name|void
 name|setDestination
@@ -264,7 +264,7 @@ name|dest
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the highlight mode for when the mouse is depressed.        * See the HIGHLIGHT_MODE_XXX constants.      *       * @return The string representation of the highlight mode.      */
+comment|/**      * Set the highlight mode for when the mouse is depressed.      * See the HIGHLIGHT_MODE_XXX constants.      *      * @return The string representation of the highlight mode.      */
 specifier|public
 name|String
 name|getHighlightMode
@@ -284,7 +284,7 @@ name|HIGHLIGHT_MODE_INVERT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the highlight mode.  See the HIGHLIGHT_MODE_XXX constants.      *       * @param mode The new highlight mode.      */
+comment|/**      * Set the highlight mode.  See the HIGHLIGHT_MODE_XXX constants.      *      * @param mode The new highlight mode.      */
 specifier|public
 name|void
 name|setHighlightMode
@@ -306,7 +306,7 @@ name|mode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the previous URI action, in case it      * needs to be retrieved at later date.      *       * @param pa The previous URI.      */
+comment|/**      * This will set the previous URI action, in case it      * needs to be retrieved at later date.      *      * @param pa The previous URI.      */
 specifier|public
 name|void
 name|setPreviousURI
@@ -326,7 +326,7 @@ name|pa
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the previous URI action, in case it's      * needed.      *       * @return The previous URI.      */
+comment|/**      * This will set the previous URI action, in case it's      * needed.      *      * @return The previous URI.      */
 specifier|public
 name|PDActionURI
 name|getPreviousURI
@@ -368,7 +368,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * This will set the set of quadpoints which encompass the areas of this      * annotation which will activate.      *       * @param quadPoints      *            an array representing the set of area covered.      */
+comment|/**      * This will set the set of quadpoints which encompass the areas of this      * annotation which will activate.      *      * @param quadPoints      *            an array representing the set of area covered.      */
 specifier|public
 name|void
 name|setQuadPoints
@@ -403,7 +403,7 @@ name|newQuadPoints
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the set of quadpoints which encompass the areas of      * this annotation which will activate.      *       * @return An array of floats representing the quad points.      */
+comment|/**      * This will retrieve the set of quadpoints which encompass the areas of      * this annotation which will activate.      *      * @return An array of floats representing the quad points.      */
 specifier|public
 name|float
 index|[]

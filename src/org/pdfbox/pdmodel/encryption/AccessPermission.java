@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This class represents the access permissions to a document.  * These permissions are specified in the PDF format specifications, they include:  *<ul>  *<li>print the document</li>  *<li>modify the content of the document</li>  *<li>copy or extract content of the document</li>  *<li>add or modify annotations</li>  *<li>fill in interactive form fields</li>  *<li>extract text and graphics for accessibility to visually impaired people</li>  *<li>assemble the document</li>  *<li>print in degraded quality</li>  *</ul>  *   * This class can be used to protect a document by assigning access permissions to recipients.   * In this case, it must be used with a specific ProtectionPolicy.  *    *    * When a document is decrypted, it has a currentAccessPermission property which is the access permissions  * granted to the user who decrypted the document.  *  * @see ProtectionPolicy  * @see org.pdfbox.pdmodel.PDDocument#getCurrentAccessPermission()  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  * @version $Revision: 1.4 $  */
+comment|/**  * This class represents the access permissions to a document.  * These permissions are specified in the PDF format specifications, they include:  *<ul>  *<li>print the document</li>  *<li>modify the content of the document</li>  *<li>copy or extract content of the document</li>  *<li>add or modify annotations</li>  *<li>fill in interactive form fields</li>  *<li>extract text and graphics for accessibility to visually impaired people</li>  *<li>assemble the document</li>  *<li>print in degraded quality</li>  *</ul>  *  * This class can be used to protect a document by assigning access permissions to recipients.  * In this case, it must be used with a specific ProtectionPolicy.  *  *  * When a document is decrypted, it has a currentAccessPermission property which is the access permissions  * granted to the user who decrypted the document.  *  * @see ProtectionPolicy  * @see org.pdfbox.pdmodel.PDDocument#getCurrentAccessPermission()  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  * @version $Revision: 1.4 $  */
 end_comment
 
 begin_class
@@ -111,7 +111,7 @@ name|readOnly
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Create a new access permission object.       * By default, all permissions are granted.      */
+comment|/**      * Create a new access permission object.      * By default, all permissions are granted.      */
 specifier|public
 name|AccessPermission
 parameter_list|()
@@ -121,7 +121,7 @@ operator|=
 name|DEFAULT_PERMISSIONS
 expr_stmt|;
 block|}
-comment|/**      * Create a new access permission object from a byte array.       * Bytes are ordered most significant byte first.      *       * @param b the bytes as defined in PDF specs      */
+comment|/**      * Create a new access permission object from a byte array.      * Bytes are ordered most significant byte first.      *      * @param b the bytes as defined in PDF specs      */
 specifier|public
 name|AccessPermission
 parameter_list|(
@@ -183,7 +183,7 @@ operator|&
 literal|0xFF
 expr_stmt|;
 block|}
-comment|/**      * Creates a new access permission object from a single integer.      *       * @param permissions The permission bits.      */
+comment|/**      * Creates a new access permission object from a single integer.      *      * @param permissions The permission bits.      */
 specifier|public
 name|AccessPermission
 parameter_list|(
@@ -301,7 +301,7 @@ operator|!=
 literal|0
 return|;
 block|}
-comment|/**      * This will tell if the access permission corresponds to owner       * access permission (no restriction).      *        * @return true if the access permission does not restrict the use of the document      */
+comment|/**      * This will tell if the access permission corresponds to owner      * access permission (no restriction).      *      * @return true if the access permission does not restrict the use of the document      */
 specifier|public
 name|boolean
 name|isOwnerPermission
@@ -351,7 +351,7 @@ argument_list|()
 operator|)
 return|;
 block|}
-comment|/**      * returns an access permission object for a document owner.      *       * @return A standard owner access permission set.      */
+comment|/**      * returns an access permission object for a document owner.      *      * @return A standard owner access permission set.      */
 specifier|public
 specifier|static
 name|AccessPermission
@@ -425,7 +425,7 @@ return|return
 name|ret
 return|;
 block|}
-comment|/**      * This returns an integer representing the access permissions.       * This integer can be used for public key encryption. This format       * is not documented in the PDF specifications but is necessary for compatibility      * with Adobe Acrobat and Adobe Reader.      *       * @return the integer representing access permissions      */
+comment|/**      * This returns an integer representing the access permissions.      * This integer can be used for public key encryption. This format      * is not documented in the PDF specifications but is necessary for compatibility      * with Adobe Acrobat and Adobe Reader.      *      * @return the integer representing access permissions      */
 specifier|public
 name|int
 name|getPermissionBytesForPublicKey
@@ -479,7 +479,7 @@ return|return
 name|bytes
 return|;
 block|}
-comment|/**      * The returns an integer representing the access permissions.      * This integer can be used for standard PDF encryption as specified      * in the PDF specifications.      *       * @return the integer representing the access permissions      */
+comment|/**      * The returns an integer representing the access permissions.      * This integer can be used for standard PDF encryption as specified      * in the PDF specifications.      *      * @return the integer representing the access permissions      */
 specifier|public
 name|int
 name|getPermissionBytes
@@ -761,7 +761,7 @@ name|DEGRADED_PRINT_BIT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if the user can print the document in a degraded format.      * This method will have no effect if the object is in read only mode       *      * @param allowAssembly A boolean determining if the user can print the      *        document in a degraded format.      */
+comment|/**      * Set if the user can print the document in a degraded format.      * This method will have no effect if the object is in read only mode      *      * @param allowAssembly A boolean determining if the user can print the      *        document in a degraded format.      */
 specifier|public
 name|void
 name|setCanPrintDegraded
@@ -796,7 +796,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * This will tell if the object has been set as read only.      *       * @return true if the object is in read only mode.      */
+comment|/**      * This will tell if the object has been set as read only.      *      * @return true if the object is in read only mode.      */
 specifier|public
 name|boolean
 name|isReadOnly

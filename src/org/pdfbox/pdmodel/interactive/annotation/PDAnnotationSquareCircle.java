@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a rectangular or eliptical annotation  * Introduced in PDF 1.3 specification .  *   * @author Paul King  * @version $Revision: 1.1 $  */
+comment|/**  * This is the class that represents a rectangular or eliptical annotation  * Introduced in PDF 1.3 specification .  *  * @author Paul King  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -118,7 +118,7 @@ parameter_list|()
 block|{
 comment|// Must be constructed with a subType or dictionary parameter
 block|}
-comment|/**      * Creates a Circle or Square annotation of the specified sub type.      *       * @param subType the subtype the annotation represents.          */
+comment|/**      * Creates a Circle or Square annotation of the specified sub type.      *      * @param subType the subtype the annotation represents.          */
 specifier|public
 name|PDAnnotationSquareCircle
 parameter_list|(
@@ -135,7 +135,7 @@ name|subType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a Line annotation from a COSDictionary, expected to be a correct      * object definition.      *       * @param field      *            the PDF objet to represent as a field.      */
+comment|/**      * Creates a Line annotation from a COSDictionary, expected to be a correct      * object definition.      *      * @param field      *            the PDF objet to represent as a field.      */
 specifier|public
 name|PDAnnotationSquareCircle
 parameter_list|(
@@ -149,7 +149,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set interior colour of the drawn area      * Colour is in DeviceRGB colourspace.      *       * @param ic      *            colour in the DeviceRGB colourspace.      *       */
+comment|/**      * This will set interior colour of the drawn area      * Colour is in DeviceRGB colourspace.      *      * @param ic      *            colour in the DeviceRGB colourspace.      *      */
 specifier|public
 name|void
 name|setInteriorColour
@@ -169,7 +169,7 @@ name|ic
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the interior colour of the drawn area      * Colour is in DeviceRGB colourspace.      *       *       * @return PDGamma object representing the colour.      *       */
+comment|/**      * This will retrieve the interior colour of the drawn area      * Colour is in DeviceRGB colourspace.      *      *      * @return PDGamma object representing the colour.      *      */
 specifier|public
 name|PDGamma
 name|getInteriorColour
@@ -216,7 +216,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * This will set the border effect dictionary, specifying effects to be applied      * when drawing the line.      *       * @param be The border effect dictionary to set.      *       */
+comment|/**      * This will set the border effect dictionary, specifying effects to be applied      * when drawing the line.      *      * @param be The border effect dictionary to set.      *      */
 specifier|public
 name|void
 name|setBorderEffect
@@ -236,7 +236,7 @@ name|be
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border effect dictionary, specifying effects to be      * applied used in drawing the line.      *       * @return The border effect dictionary      */
+comment|/**      * This will retrieve the border effect dictionary, specifying effects to be      * applied used in drawing the line.      *      * @return The border effect dictionary      */
 specifier|public
 name|PDBorderEffectDictionary
 name|getBorderEffect
@@ -278,7 +278,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * This will set the rectangle difference rectangle. Giving the difference      * between the annotations rectangle and where the drawing occurs.          * (To take account of any effects applied through the BE entry forexample)      *       * @param rd the rectangle difference      *       */
+comment|/**      * This will set the rectangle difference rectangle. Giving the difference      * between the annotations rectangle and where the drawing occurs.          * (To take account of any effects applied through the BE entry forexample)      *      * @param rd the rectangle difference      *      */
 specifier|public
 name|void
 name|setRectDifference
@@ -298,7 +298,7 @@ name|rd
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the rectangle difference rectangle. Giving the difference      * between the annotations rectangle and where the drawing occurs.          * (To take account of any effects applied through the BE entry forexample)      *       * @return the rectangle difference      */
+comment|/**      * This will get the rectangle difference rectangle. Giving the difference      * between the annotations rectangle and where the drawing occurs.          * (To take account of any effects applied through the BE entry forexample)      *      * @return the rectangle difference      */
 specifier|public
 name|PDRectangle
 name|getRectDifference
@@ -340,7 +340,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For      * this annotation. See the SUB_TYPE_XXX constants for valid values.      *       * @param subType The subtype of the annotation      */
+comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For      * this annotation. See the SUB_TYPE_XXX constants for valid values.      *      * @param subType The subtype of the annotation      */
 specifier|public
 name|void
 name|setSubtype
@@ -362,7 +362,7 @@ name|subType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence)      * For this annotation.       *       * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
+comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence)      * For this annotation.      *      * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
 specifier|public
 name|String
 name|getSubtype

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -612,7 +612,7 @@ return|return
 name|acroForm
 return|;
 block|}
-comment|/**      * Set the acro form for this catalog.      *       * @param acro The new acro form.      */
+comment|/**      * Set the acro form for this catalog.      *      * @param acro The new acro form.      */
 specifier|public
 name|void
 name|setAcroForm
@@ -689,7 +689,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Get the viewer preferences associated with this document or null if they      * do not exist.      *       * @return The document's viewer preferences.      */
+comment|/**      * Get the viewer preferences associated with this document or null if they      * do not exist.      *      * @return The document's viewer preferences.      */
 specifier|public
 name|PDViewerPreferences
 name|getViewerPreferences
@@ -733,7 +733,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the viewer preferences.      *       * @param prefs The new viewer preferences.      */
+comment|/**      * Set the viewer preferences.      *      * @param prefs The new viewer preferences.      */
 specifier|public
 name|void
 name|setViewerPreferences
@@ -752,7 +752,7 @@ name|prefs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the outline associated with this document or null if it      * does not exist.      *       * @return The document's outline.      */
+comment|/**      * Get the outline associated with this document or null if it      * does not exist.      *      * @return The document's outline.      */
 specifier|public
 name|PDDocumentOutline
 name|getDocumentOutline
@@ -796,7 +796,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the document outlines.      *       * @param outlines The new document outlines.      */
+comment|/**      * Set the document outlines.      *      * @param outlines The new document outlines.      */
 specifier|public
 name|void
 name|setDocumentOutline
@@ -815,7 +815,7 @@ name|outlines
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the list threads for this pdf document.      *       * @return A list of PDThread objects.      */
+comment|/**      * Get the list threads for this pdf document.      *      * @return A list of PDThread objects.      */
 specifier|public
 name|List
 name|getThreads
@@ -912,7 +912,7 @@ name|array
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the list of threads for this pdf document.      *       * @param threads The list of threads, or null to clear it.      */
+comment|/**      * Set the list of threads for this pdf document.      *      * @param threads The list of threads, or null to clear it.      */
 specifier|public
 name|void
 name|setThreads
@@ -936,7 +936,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the metadata that is part of the document catalog.  This will       * return null if there is no meta data for this object.      *       * @return The metadata for this object.      */
+comment|/**      * Get the metadata that is part of the document catalog.  This will      * return null if there is no meta data for this object.      *      * @return The metadata for this object.      */
 specifier|public
 name|PDMetadata
 name|getMetadata
@@ -980,7 +980,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the metadata for this object.  This can be null.      *       * @param meta The meta data for this object.      */
+comment|/**      * Set the metadata for this object.  This can be null.      *      * @param meta The meta data for this object.      */
 specifier|public
 name|void
 name|setMetadata
@@ -999,7 +999,7 @@ name|meta
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the Document Open Action for this object.      *       * @param action The action you want to perform.      */
+comment|/**      * Set the Document Open Action for this object.      *      * @param action The action you want to perform.      */
 specifier|public
 name|void
 name|setOpenAction
@@ -1023,7 +1023,7 @@ name|action
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the Document Open Action for this object.      *      * @return The action to perform when the document is opened.      *       * @throws IOException If there is an error creating the destination      * or action.      */
+comment|/**      * Get the Document Open Action for this object.      *      * @return The action to perform when the document is opened.      *      * @throws IOException If there is an error creating the destination      * or action.      */
 specifier|public
 name|PDDestinationOrAction
 name|getOpenAction
@@ -1110,7 +1110,7 @@ return|return
 name|action
 return|;
 block|}
-comment|/**      * @return The Additional Actions for this Document       */
+comment|/**      * @return The Additional Actions for this Document      */
 specifier|public
 name|PDDocumentCatalogAdditionalActions
 name|getActions
@@ -1160,7 +1160,7 @@ name|addAct
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the additional actions for the document.      *       * @param actions The actions that are associated with this document.      */
+comment|/**      * Set the additional actions for the document.      *      * @param actions The actions that are associated with this document.      */
 specifier|public
 name|void
 name|setActions
@@ -1225,7 +1225,7 @@ return|return
 name|nameDic
 return|;
 block|}
-comment|/**      * Set the names dictionary for the document.      *       * @param names The names dictionary that is associated with this document.      */
+comment|/**      * Set the names dictionary for the document.      *      * @param names The names dictionary that is associated with this document.      */
 specifier|public
 name|void
 name|setNames
@@ -1244,7 +1244,7 @@ name|names
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get info about doc's usage of tagged features.  This will return      * null if there is no information.      *       * @return The new mark info.       */
+comment|/**      * Get info about doc's usage of tagged features.  This will return      * null if there is no information.      *      * @return The new mark info.      */
 specifier|public
 name|PDMarkInfo
 name|getMarkInfo
@@ -1288,7 +1288,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set information about the doc's usage of tagged features.      *       * @param markInfo The new MarkInfo data.      */
+comment|/**      * Set information about the doc's usage of tagged features.      *      * @param markInfo The new MarkInfo data.      */
 specifier|public
 name|void
 name|setMarkInfo
@@ -1442,7 +1442,7 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the document's structure tree root.      *       * @return The document's structure tree root or null if none exists.      */
+comment|/**      * Get the document's structure tree root.      *      * @return The document's structure tree root or null if none exists.      */
 specifier|public
 name|PDStructureTreeRoot
 name|getStructureTreeRoot
@@ -1486,7 +1486,7 @@ return|return
 name|treeRoot
 return|;
 block|}
-comment|/**      * Set the document's structure tree root.      *       * @param treeRoot The new structure tree.      */
+comment|/**      * Set the document's structure tree root.      *      * @param treeRoot The new structure tree.      */
 specifier|public
 name|void
 name|setStructureTreeRoot
@@ -1505,7 +1505,7 @@ name|treeRoot
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The language for the document.      *       * @return The language for the document.      */
+comment|/**      * The language for the document.      *      * @return The language for the document.      */
 specifier|public
 name|String
 name|getLanguage
@@ -1520,7 +1520,7 @@ literal|"Lang"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the Language for the document.      *       * @param language The new document language.      */
+comment|/**      * Set the Language for the document.      *      * @param language The new document language.      */
 specifier|public
 name|void
 name|setLanguage

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -168,7 +168,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The prototype for all PDImages.   *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @version $Revision: 1.9 $  */
+comment|/**  * The prototype for all PDImages.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @version $Revision: 1.9 $  */
 end_comment
 
 begin_class
@@ -193,7 +193,7 @@ specifier|private
 name|String
 name|suffix
 decl_stmt|;
-comment|/**      * Standard constuctor.       *       * @param imageStream The XObject is passed as a COSStream.      * @param fileSuffix The file suffix, jpg/png.      */
+comment|/**      * Standard constuctor.      *      * @param imageStream The XObject is passed as a COSStream.      * @param fileSuffix The file suffix, jpg/png.      */
 specifier|public
 name|PDXObjectImage
 parameter_list|(
@@ -214,7 +214,7 @@ operator|=
 name|fileSuffix
 expr_stmt|;
 block|}
-comment|/**      * Standard constuctor.       *       * @param doc The document to store the stream in.      * @param fileSuffix The file suffix, jpg/png.      */
+comment|/**      * Standard constuctor.      *      * @param doc The document to store the stream in.      * @param fileSuffix The file suffix, jpg/png.      */
 specifier|public
 name|PDXObjectImage
 parameter_list|(
@@ -247,7 +247,7 @@ operator|=
 name|fileSuffix
 expr_stmt|;
 block|}
-comment|/**      * Returns an java.awt.Image, that can be used for display etc.        *       * @return This PDF object as an AWT image.      *       * @throws IOException If there is an error creating the image.      */
+comment|/**      * Returns an java.awt.Image, that can be used for display etc.      *      * @return This PDF object as an AWT image.      *      * @throws IOException If there is an error creating the image.      */
 specifier|public
 specifier|abstract
 name|BufferedImage
@@ -256,7 +256,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Writes the Image to out.       * @param out the OutputStream that the Image is written to.       * @throws IOException when somethings wrong with out      */
+comment|/**      * Writes the Image to out.      * @param out the OutputStream that the Image is written to.      * @throws IOException when somethings wrong with out      */
 specifier|public
 specifier|abstract
 name|void
@@ -268,7 +268,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Writes the image to a file with the filename + an appropriate suffix, like "Image.jpg".       * The suffix is automatically set by the         * @param filename the filename      * @throws IOException When somethings wrong with the corresponding file.       */
+comment|/**      * Writes the image to a file with the filename + an appropriate suffix, like "Image.jpg".      * The suffix is automatically set by the      * @param filename the filename      * @throws IOException When somethings wrong with the corresponding file.      */
 specifier|public
 name|void
 name|write2file
@@ -380,7 +380,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Get the height of the image.      *       * @return The height of the image.      */
+comment|/**      * Get the height of the image.      *      * @return The height of the image.      */
 specifier|public
 name|int
 name|getHeight
@@ -399,7 +399,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the height of the image.      *       * @param height The height of the image.      */
+comment|/**      * Set the height of the image.      *      * @param height The height of the image.      */
 specifier|public
 name|void
 name|setHeight
@@ -419,7 +419,7 @@ name|height
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the width of the image.      *       * @return The width of the image.      */
+comment|/**      * Get the width of the image.      *      * @return The width of the image.      */
 specifier|public
 name|int
 name|getWidth
@@ -438,7 +438,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the width of the image.      *       * @param width The width of the image.      */
+comment|/**      * Set the width of the image.      *      * @param width The width of the image.      */
 specifier|public
 name|void
 name|setWidth
@@ -645,7 +645,7 @@ name|base
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the suffix for this image type, jpg/png.      *       * @return The image suffix.      */
+comment|/**      * This will get the suffix for this image type, jpg/png.      *      * @return The image suffix.      */
 specifier|public
 name|String
 name|getSuffix

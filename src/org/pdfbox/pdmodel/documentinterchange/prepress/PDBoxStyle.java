@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -170,7 +170,7 @@ name|COSDictionary
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor for an existing BoxStyle element.      *       * @param dic The existing dictionary.      */
+comment|/**      * Constructor for an existing BoxStyle element.      *      * @param dic The existing dictionary.      */
 specifier|public
 name|PDBoxStyle
 parameter_list|(
@@ -203,7 +203,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Get the color to be used for the guidelines.  This is guaranteed to       * not return null.  The color space will always be DeviceRGB and the       * default color is [0,0,0].      *       *@return The guideline color.      */
+comment|/**      * Get the color to be used for the guidelines.  This is guaranteed to      * not return null.  The color space will always be DeviceRGB and the      * default color is [0,0,0].      *      *@return The guideline color.      */
 specifier|public
 name|PDColorSpaceInstance
 name|getGuidelineColor
@@ -294,7 +294,7 @@ return|return
 name|instance
 return|;
 block|}
-comment|/**      * Set the color space instance for this box style.  This must be a       * PDDeviceRGB!      *       * @param color The new colorspace value.      */
+comment|/**      * Set the color space instance for this box style.  This must be a      * PDDeviceRGB!      *      * @param color The new colorspace value.      */
 specifier|public
 name|void
 name|setGuideLineColor
@@ -333,7 +333,7 @@ name|values
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the width of the of the guideline in default user space units.        * The default is 1.      *       * @return The width of the guideline.      */
+comment|/**      * Get the width of the of the guideline in default user space units.      * The default is 1.      *      * @return The width of the guideline.      */
 specifier|public
 name|float
 name|getGuidelineWidth
@@ -350,7 +350,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the guideline width.      *       * @param width The width in default user space units.      */
+comment|/**      * Set the guideline width.      *      * @param width The width in default user space units.      */
 specifier|public
 name|void
 name|setGuidelineWidth
@@ -369,7 +369,7 @@ name|width
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the style for the guideline.  The default is "S" for solid.      *       * @return The guideline style.      * @see PDBoxStyle#GUIDELINE_STYLE_DASHED      * @see PDBoxStyle#GUIDELINE_STYLE_SOLID      */
+comment|/**      * Get the style for the guideline.  The default is "S" for solid.      *      * @return The guideline style.      * @see PDBoxStyle#GUIDELINE_STYLE_DASHED      * @see PDBoxStyle#GUIDELINE_STYLE_SOLID      */
 specifier|public
 name|String
 name|getGuidelineStyle
@@ -386,7 +386,7 @@ name|GUIDELINE_STYLE_SOLID
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the style for the box.      *       * @param style The style for the box line.      * @see PDBoxStyle#GUIDELINE_STYLE_DASHED      * @see PDBoxStyle#GUIDELINE_STYLE_SOLID      */
+comment|/**      * Set the style for the box.      *      * @param style The style for the box line.      * @see PDBoxStyle#GUIDELINE_STYLE_DASHED      * @see PDBoxStyle#GUIDELINE_STYLE_SOLID      */
 specifier|public
 name|void
 name|setGuidelineStyle
@@ -405,7 +405,7 @@ name|style
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the line dash pattern for this box style.  This is guaranteed to not      * return null.  The default is [3],0.      *       * @return The line dash pattern.      */
+comment|/**      * Get the line dash pattern for this box style.  This is guaranteed to not      * return null.  The default is [3],0.      *      * @return The line dash pattern.      */
 specifier|public
 name|PDLineDashPattern
 name|getLineDashPattern
@@ -501,7 +501,7 @@ return|return
 name|pattern
 return|;
 block|}
-comment|/**      * Set the line dash pattern associated with this box style.      *       * @param pattern The patter for this box style.      */
+comment|/**      * Set the line dash pattern associated with this box style.      *      * @param pattern The patter for this box style.      */
 specifier|public
 name|void
 name|setLineDashPattern

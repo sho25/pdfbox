@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -48,7 +48,7 @@ name|io
 operator|.
 name|PushbackInputStream
 block|{
-comment|/**      * Constructor.      *      * @param input The input stream.      * @param size The size of the push back buffer.      *       * @throws IOException If there is an error with the stream.       */
+comment|/**      * Constructor.      *      * @param input The input stream.      * @param size The size of the push back buffer.      *      * @throws IOException If there is an error with the stream.      */
 specifier|public
 name|PushBackInputStream
 parameter_list|(
@@ -137,7 +137,7 @@ operator|-
 literal|1
 return|;
 block|}
-comment|/**      * This is a method used to fix PDFBox issue 974661, the PDF parsing code needs      * to know if there is at least x amount of data left in the stream, but the available()      * method returns how much data will be available without blocking.  PDFBox is willing to      * block to read the data, so we will first fill the internal buffer.      *       * @throws IOException If there is an error filling the buffer.      */
+comment|/**      * This is a method used to fix PDFBox issue 974661, the PDF parsing code needs      * to know if there is at least x amount of data left in the stream, but the available()      * method returns how much data will be available without blocking.  PDFBox is willing to      * block to read the data, so we will first fill the internal buffer.      *      * @throws IOException If there is an error filling the buffer.      */
 specifier|public
 name|void
 name|fillBuffer

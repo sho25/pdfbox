@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -246,7 +246,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a security handler as described in the PDF specifications.  * A security handler is responsible of documents protection.    *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *   * @version $Revision: 1.4 $  */
+comment|/**  * This class represents a security handler as described in the PDF specifications.  * A security handler is responsible of documents protection.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  * @version $Revision: 1.4 $  */
 end_comment
 
 begin_class
@@ -319,7 +319,7 @@ name|currentAccessPermission
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Prepare the document for encryption.      *       * @param doc The document that will be encrypted.      *       * @throws CryptographyException If there is an error while preparing.      * @throws IOException If there is an error with the document.      */
+comment|/**      * Prepare the document for encryption.      *      * @param doc The document that will be encrypted.      *      * @throws CryptographyException If there is an error while preparing.      * @throws IOException If there is an error with the document.      */
 specifier|public
 specifier|abstract
 name|void
@@ -333,7 +333,7 @@ name|CryptographyException
 throws|,
 name|IOException
 function_decl|;
-comment|/**      * Prepare the document for decryption.      *       * @param doc The document to decrypt.      * @param mat Information required to decrypt the document.      * @throws CryptographyException If there is an error while preparing.      * @throws IOException If there is an error with the document.      */
+comment|/**      * Prepare the document for decryption.      *      * @param doc The document to decrypt.      * @param mat Information required to decrypt the document.      * @throws CryptographyException If there is an error while preparing.      * @throws IOException If there is an error with the document.      */
 specifier|public
 specifier|abstract
 name|void
@@ -350,7 +350,7 @@ name|CryptographyException
 throws|,
 name|IOException
 function_decl|;
-comment|/**      * This method must be called by an implementation of this class to really proceed       * to decryption.      *      * @throws IOException If there is an error in the decryption.      * @throws CryptographyException If there is an error in the decryption.      */
+comment|/**      * This method must be called by an implementation of this class to really proceed      * to decryption.      *      * @throws IOException If there is an error in the decryption.      * @throws CryptographyException If there is an error in the decryption.      */
 specifier|protected
 name|void
 name|proceedDecryption
@@ -578,7 +578,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Encrypt a set of data.      *       * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      *       * @throws CryptographyException If there is an error during the encryption.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Encrypt a set of data.      *      * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      *      * @throws CryptographyException If there is an error during the encryption.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
 name|encryptData
@@ -1296,7 +1296,7 @@ return|return
 name|keyLength
 return|;
 block|}
-comment|/**      * Setter of the property<tt>keyLength</tt>.      *       * @param keyLen  The keyLength to set.      */
+comment|/**      * Setter of the property<tt>keyLength</tt>.      *      * @param keyLen  The keyLength to set.      */
 specifier|public
 name|void
 name|setKeyLength
@@ -1312,7 +1312,7 @@ operator|=
 name|keyLen
 expr_stmt|;
 block|}
-comment|/**      * Returns the access permissions that were computed during document decryption.      * The returned object is in read only mode.      *       * @return the access permissions or null if the document was not decrypted.      */
+comment|/**      * Returns the access permissions that were computed during document decryption.      * The returned object is in read only mode.      *      * @return the access permissions or null if the document was not decrypted.      */
 specifier|public
 name|AccessPermission
 name|getCurrentAccessPermission

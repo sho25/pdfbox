@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -200,7 +200,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class contains a PixelMap Image.   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @version $Revision: 1.10 $  */
+comment|/**  * This class contains a PixelMap Image.  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @version $Revision: 1.10 $  */
 end_comment
 
 begin_class
@@ -216,7 +216,7 @@ name|image
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Standard constructor. Basically does nothing.       * @param pdStream The stream that holds the pixel map.      */
+comment|/**      * Standard constructor. Basically does nothing.      * @param pdStream The stream that holds the pixel map.      */
 specifier|public
 name|PDPixelMap
 parameter_list|(
@@ -232,9 +232,9 @@ literal|"png"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Construct a pixel map image from an AWT image.      *       * @param doc The PDF document to embed the image in.      * @param awtImage The image to read data from.      *       * @throws IOException If there is an error while embedding this image.      */
-comment|/*      * This method is broken and needs to be implemented, any takers?     public PDPixelMap(PDDocument doc, BufferedImage awtImage) throws IOException     {         super( doc, "png");         image = awtImage;         setWidth( image.getWidth() );         setHeight( image.getHeight() );                  ColorModel cm = image.getColorModel();         ColorSpace cs = cm.getColorSpace();         PDColorSpace pdColorSpace = PDColorSpaceFactory.createColorSpace( doc, cs );         setColorSpace( pdColorSpace );         //setColorSpace( )                  PDStream stream = getPDStream();         OutputStream output = null;         try         {             output = stream.createOutputStream();             DataBuffer buffer = awtImage.getRaster().getDataBuffer();             if( buffer instanceof DataBufferByte )             {                 DataBufferByte byteBuffer = (DataBufferByte)buffer;                 byte[] data = byteBuffer.getData();                 output.write( data );             }             setBitsPerComponent( cm.getPixelSize() );         }         finally         {             if( output != null )             {                 output.close();             }         }     }*/
-comment|/**      * Returns a {@link java.awt.image.BufferedImage} of the COSStream       * set in the constructor or null if the COSStream could not be encoded.         *       * @return {@inheritDoc}      *       * @throws IOException {@inheritDoc}      */
+comment|/**      * Construct a pixel map image from an AWT image.      *      * @param doc The PDF document to embed the image in.      * @param awtImage The image to read data from.      *      * @throws IOException If there is an error while embedding this image.      */
+comment|/*      * This method is broken and needs to be implemented, any takers?     public PDPixelMap(PDDocument doc, BufferedImage awtImage) throws IOException     {         super( doc, "png");         image = awtImage;         setWidth( image.getWidth() );         setHeight( image.getHeight() );          ColorModel cm = image.getColorModel();         ColorSpace cs = cm.getColorSpace();         PDColorSpace pdColorSpace = PDColorSpaceFactory.createColorSpace( doc, cs );         setColorSpace( pdColorSpace );         //setColorSpace( )          PDStream stream = getPDStream();         OutputStream output = null;         try         {             output = stream.createOutputStream();             DataBuffer buffer = awtImage.getRaster().getDataBuffer();             if( buffer instanceof DataBufferByte )             {                 DataBufferByte byteBuffer = (DataBufferByte)buffer;                 byte[] data = byteBuffer.getData();                 output.write( data );             }             setBitsPerComponent( cm.getPixelSize() );         }         finally         {             if( output != null )             {                 output.close();             }         }     }*/
+comment|/**      * Returns a {@link java.awt.image.BufferedImage} of the COSStream      * set in the constructor or null if the COSStream could not be encoded.      *      * @return {@inheritDoc}      *      * @throws IOException {@inheritDoc}      */
 specifier|public
 name|BufferedImage
 name|getRGBImage
@@ -352,7 +352,7 @@ operator|.
 name|getFilters
 argument_list|()
 decl_stmt|;
-comment|/**          * PDF Spec 1.6 3.3.3 LZW and Flate predictor function          *           * Basically if predictor> 10 and LZW or Flate is being used then the          * predictor is not used.          *            * "For LZWDecode and FlateDecode, a Predictor value greater than or equal to 10          * merely indicates that a PNG predictor is in use; the specific predictor function          * used is explicitly encoded in the incoming data. The value of Predictor supplied          * by the decoding filter need not match the value used when the data was encoded          * if they are both greater than or equal to 10."          */
+comment|/**          * PDF Spec 1.6 3.3.3 LZW and Flate predictor function          *          * Basically if predictor> 10 and LZW or Flate is being used then the          * predictor is not used.          *          * "For LZWDecode and FlateDecode, a Predictor value greater than or equal to 10          * merely indicates that a PNG predictor is in use; the specific predictor function          * used is explicitly encoded in the incoming data. The value of Predictor supplied          * by the decoding filter need not match the value used when the data was encoded          * if they are both greater than or equal to 10."          */
 if|if
 condition|(
 name|predictor
@@ -476,7 +476,7 @@ return|return
 name|image
 return|;
 block|}
-comment|/**      * Writes the image as .png.      *       * {@inheritDoc}      */
+comment|/**      * Writes the image as .png.      *      * {@inheritDoc}      */
 specifier|public
 name|void
 name|write2OutputStream
@@ -510,7 +510,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * DecodeParms is an optional parameter for filters.      *       * It is provided if any of the filters has nondefault parameters. If there      * is only one filter it is a dictionary, if there are multiple filters it      * is an array with an entry for each filter. An array entry can hold a null      * value if only the default values are used or a dictionary with      * parameters.      *       * @return The decoding parameters.      *        */
+comment|/**      * DecodeParms is an optional parameter for filters.      *      * It is provided if any of the filters has nondefault parameters. If there      * is only one filter it is a dictionary, if there are multiple filters it      * is an array with an entry for each filter. An array entry can hold a null      * value if only the default values are used or a dictionary with      * parameters.      *      * @return The decoding parameters.      *      */
 specifier|public
 name|COSDictionary
 name|getDecodeParams
@@ -573,7 +573,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * A code that selects the predictor algorithm.      *       *<ul>      *<li>1 No prediction (the default value)      *<li>2 TIFF Predictor 2      *<li>10 PNG prediction (on encoding, PNG None on all rows)      *<li>11 PNG prediction (on encoding, PNG Sub on all rows)      *<li>12 PNG prediction (on encoding, PNG Up on all rows)      *<li>13 PNG prediction (on encoding, PNG Average on all rows)      *<li>14 PNG prediction (on encoding, PNG Paeth on all rows)      *<li>15 PNG prediction (on encoding, PNG optimum)      *</ul>      *       * Default value: 1.      *       * @return predictor algorithm code      */
+comment|/**      * A code that selects the predictor algorithm.      *      *<ul>      *<li>1 No prediction (the default value)      *<li>2 TIFF Predictor 2      *<li>10 PNG prediction (on encoding, PNG None on all rows)      *<li>11 PNG prediction (on encoding, PNG Sub on all rows)      *<li>12 PNG prediction (on encoding, PNG Up on all rows)      *<li>13 PNG prediction (on encoding, PNG Average on all rows)      *<li>14 PNG prediction (on encoding, PNG Paeth on all rows)      *<li>15 PNG prediction (on encoding, PNG optimum)      *</ul>      *      * Default value: 1.      *      * @return predictor algorithm code      */
 specifier|public
 name|int
 name|getPredictor

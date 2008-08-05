@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -18,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * From http://www.w3.org/TR/PNG-Filters.html: The Paeth filter computes a  * simple linear function of the three neighboring pixels (left, above, upper  * left), then chooses as predictor the neighboring pixel closest to the  * computed value. This technique is due to Alan W. Paeth [PAETH].  *   * To compute the Paeth filter, apply the following formula to each byte of the  * scanline:  *   *<code>Paeth(i,j) = Raw(i,j) - PaethPredictor(Raw(i-1,j), Raw(i,j-1), Raw(i-1,j-1))</code>  *   * To decode the Paeth filter  *   *<code>Raw(i,j) = Paeth(i,j) - PaethPredictor(Raw(i-1,j), Raw(i,j-1), Raw(i-1,j-1))</code>  *   * @author xylifyx@yahoo.co.uk  * @version $Revision: 1.3 $  */
+comment|/**  * From http://www.w3.org/TR/PNG-Filters.html: The Paeth filter computes a  * simple linear function of the three neighboring pixels (left, above, upper  * left), then chooses as predictor the neighboring pixel closest to the  * computed value. This technique is due to Alan W. Paeth [PAETH].  *  * To compute the Paeth filter, apply the following formula to each byte of the  * scanline:  *  *<code>Paeth(i,j) = Raw(i,j) - PaethPredictor(Raw(i-1,j), Raw(i,j-1), Raw(i-1,j-1))</code>  *  * To decode the Paeth filter  *  *<code>Raw(i,j) = Paeth(i,j) - PaethPredictor(Raw(i-1,j), Raw(i,j-1), Raw(i-1,j-1))</code>  *  * @author xylifyx@yahoo.co.uk  * @version $Revision: 1.3 $  */
 end_comment
 
 begin_class
@@ -28,7 +28,7 @@ name|Paeth
 extends|extends
 name|PredictorAlgorithm
 block|{
-comment|/**      * The paeth predictor function.      *       * This function is taken almost directly from the PNG definition on      * http://www.w3.org/TR/PNG-Filters.html      *       * @param a      *            left      * @param b      *            above      * @param c      *            upper left      * @return The result of the paeth predictor.      */
+comment|/**      * The paeth predictor function.      *      * This function is taken almost directly from the PNG definition on      * http://www.w3.org/TR/PNG-Filters.html      *      * @param a      *            left      * @param b      *            above      * @param c      *            upper left      * @return The result of the paeth predictor.      */
 specifier|public
 name|int
 name|paethPredictor

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a PDF /BE entry the border effect dictionary.  *   * @author Paul King  * @version $Revision: 1.1 $  */
+comment|/**  * This class represents a PDF /BE entry the border effect dictionary.  *  * @author Paul King  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -101,7 +101,7 @@ name|COSDictionary
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param dict      *            a border style dictionary.      */
+comment|/**      * Constructor.      *      * @param dict      *            a border style dictionary.      */
 specifier|public
 name|PDBorderEffectDictionary
 parameter_list|(
@@ -114,7 +114,7 @@ operator|=
 name|dict
 expr_stmt|;
 block|}
-comment|/**      * returns the dictionary.      *       * @return the dictionary      */
+comment|/**      * returns the dictionary.      *      * @return the dictionary      */
 specifier|public
 name|COSDictionary
 name|getDictionary
@@ -124,7 +124,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * returns the dictionary.      *       * @return the dictionary      */
+comment|/**      * returns the dictionary.      *      * @return the dictionary      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -134,7 +134,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * This will set the intensity of the applied effect.      *       * @param i      *            the intensity of the effect values 0 to 2      */
+comment|/**      * This will set the intensity of the applied effect.      *      * @param i      *            the intensity of the effect values 0 to 2      */
 specifier|public
 name|void
 name|setIntensity
@@ -154,7 +154,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the intensity of the applied effect.      *       * @return the intensity value 0 to 2      */
+comment|/**      * This will retrieve the intensity of the applied effect.      *      * @return the intensity value 0 to 2      */
 specifier|public
 name|float
 name|getIntensity
@@ -172,7 +172,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the border effect, see the STYLE_* constants for valid values.      *       * @param s      *            the border effect to use      */
+comment|/**      * This will set the border effect, see the STYLE_* constants for valid values.      *      * @param s      *            the border effect to use      */
 specifier|public
 name|void
 name|setStyle
@@ -192,7 +192,7 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border effect, see the STYLE_* constants for valid      * values.      *       * @return the effect of the border      */
+comment|/**      * This will retrieve the border effect, see the STYLE_* constants for valid      * values.      *      * @return the effect of the border      */
 specifier|public
 name|String
 name|getStyle

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -102,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of content stream operator for page drawer.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
 end_comment
 
 begin_class
@@ -200,7 +200,7 @@ operator|.
 name|getCurrentPoint
 argument_list|()
 decl_stmt|;
-comment|/*         float x2f = x2.floatValue();         float y2f = (float)drawer.fixY( x2f, y2.floatValue() );         float x3f = x3.floatValue();         float y3f = (float)drawer.fixY( x3f, y3.floatValue() );                  float currentX = (float)currentPoint.getX();         float currentY = (float)currentPoint.getY();         drawer.getLinePath().curveTo(currentX,currentY,x2f,y2f,x3f,y3f);         */
+comment|/*         float x2f = x2.floatValue();         float y2f = (float)drawer.fixY( x2f, y2.floatValue() );         float x3f = x3.floatValue();         float y3f = (float)drawer.fixY( x3f, y3.floatValue() );          float currentX = (float)currentPoint.getX();         float currentY = (float)currentPoint.getY();         drawer.getLinePath().curveTo(currentX,currentY,x2f,y2f,x3f,y3f);         */
 name|Point2D
 name|P2
 init|=

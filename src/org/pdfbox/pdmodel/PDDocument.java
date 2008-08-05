@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -704,7 +704,7 @@ name|updateCount
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Remove the page from the document.      *      * @param page The page to remove from the document.      *       * @return true if the page was found false otherwise.      */
+comment|/**      * Remove the page from the document.      *      * @param page The page to remove from the document.      *      * @return true if the page was found false otherwise.      */
 specifier|public
 name|boolean
 name|removePage
@@ -755,7 +755,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Remove the page from the document.      *       * @param pageNumber 0 based index to page number.      * @return true if the page was found false otherwise.      */
+comment|/**      * Remove the page from the document.      *      * @param pageNumber 0 based index to page number.      * @return true if the page was found false otherwise.      */
 specifier|public
 name|boolean
 name|removePage
@@ -1254,7 +1254,7 @@ operator|=
 name|encDictionary
 expr_stmt|;
 block|}
-comment|/**      * This will determine if this is the user password.  This only applies when      * the document is encrypted and uses standard encryption.      *      * @param password The plain text user password.      *      * @return true If the password passed in matches the user password used to encrypt the document.      *      * @throws IOException If there is an error determining if it is the user password.      * @throws CryptographyException If there is an error in the encryption algorithms.      *       * @deprecated      */
+comment|/**      * This will determine if this is the user password.  This only applies when      * the document is encrypted and uses standard encryption.      *      * @param password The plain text user password.      *      * @return true If the password passed in matches the user password used to encrypt the document.      *      * @throws IOException If there is an error determining if it is the user password.      * @throws CryptographyException If there is an error in the encryption algorithms.      *      * @deprecated      */
 specifier|public
 name|boolean
 name|isUserPassword
@@ -1272,7 +1272,7 @@ literal|false
 return|;
 comment|/*boolean retval = false;         if( password == null )         {             password = "";         }         PDFEncryption encryptor = new PDFEncryption();         PDEncryptionDictionary encryptionDictionary = getEncryptionDictionary();         if( encryptionDictionary == null )         {             throw new IOException( "Error: Document is not encrypted" );         }         else         {             if( encryptionDictionary instanceof PDStandardEncryption )             {                 COSString documentID = (COSString)document.getDocumentID().get(0);                 PDStandardEncryption standard = (PDStandardEncryption)encryptionDictionary;                 retval = encryptor.isUserPassword(                     password.getBytes(),                     standard.getUserKey(),                     standard.getOwnerKey(),                     standard.getPermissions(),                     documentID.getBytes(),                     standard.getRevision(),                     standard.getLength()/8 );             }             else             {                 throw new IOException( "Error: Encyption dictionary is not 'Standard'" +                     encryptionDictionary.getClass().getName() );             }         }         return retval;*/
 block|}
-comment|/**      * This will determine if this is the owner password.  This only applies when      * the document is encrypted and uses standard encryption.      *      * @param password The plain text owner password.      *      * @return true If the password passed in matches the owner password used to encrypt the document.      *      * @throws IOException If there is an error determining if it is the user password.      * @throws CryptographyException If there is an error in the encryption algorithms.      *       * @deprecated      */
+comment|/**      * This will determine if this is the owner password.  This only applies when      * the document is encrypted and uses standard encryption.      *      * @param password The plain text owner password.      *      * @return true If the password passed in matches the owner password used to encrypt the document.      *      * @throws IOException If there is an error determining if it is the user password.      * @throws CryptographyException If there is an error in the encryption algorithms.      *      * @deprecated      */
 specifier|public
 name|boolean
 name|isOwnerPassword
@@ -1290,7 +1290,7 @@ literal|false
 return|;
 comment|/*boolean retval = false;         if( password == null )         {             password = "";         }         PDFEncryption encryptor = new PDFEncryption();         PDEncryptionDictionary encryptionDictionary = getEncryptionDictionary();         if( encryptionDictionary == null )         {             throw new IOException( "Error: Document is not encrypted" );         }         else         {             if( encryptionDictionary instanceof PDStandardEncryption )             {                 COSString documentID = (COSString)document.getDocumentID().get( 0 );                 PDStandardEncryption standard = (PDStandardEncryption)encryptionDictionary;                 retval = encryptor.isOwnerPassword(                     password.getBytes(),                     standard.getUserKey(),                     standard.getOwnerKey(),                     standard.getPermissions(),                     documentID.getBytes(),                     standard.getRevision(),                     standard.getLength()/8 );             }             else             {                 throw new IOException( "Error: Encyption dictionary is not 'Standard'" +                     encryptionDictionary.getClass().getName() );             }         }         return retval;*/
 block|}
-comment|/**      * This will decrypt a document. This method is provided for compatibility reasons only. User should use      * the new security layer instead and the openProtection method especially.       *      * @param password Either the user or owner password.      *      * @throws CryptographyException If there is an error decrypting the document.      * @throws IOException If there is an error getting the stream data.      * @throws InvalidPasswordException If the password is not a user or owner password.      *       */
+comment|/**      * This will decrypt a document. This method is provided for compatibility reasons only. User should use      * the new security layer instead and the openProtection method especially.      *      * @param password Either the user or owner password.      *      * @throws CryptographyException If there is an error decrypting the document.      * @throws IOException If there is an error getting the stream data.      * @throws InvalidPasswordException If the password is not a user or owner password.      *      */
 specifier|public
 name|void
 name|decrypt
@@ -1344,7 +1344,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * This will tell if the document was decrypted with the master password.  This      * entry is invalid if the PDF was not decrypted.      *       * @return true if the pdf was decrypted with the master password.      *       * @deprecated use<code>getCurrentAccessPermission</code> instead      */
+comment|/**      * This will tell if the document was decrypted with the master password.  This      * entry is invalid if the PDF was not decrypted.      *      * @return true if the pdf was decrypted with the master password.      *      * @deprecated use<code>getCurrentAccessPermission</code> instead      */
 specifier|public
 name|boolean
 name|wasDecryptedWithOwnerPassword
@@ -1354,7 +1354,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * This will<b>mark</b> a document to be encrypted.  The actual encryption      * will occur when the document is saved.      * This method is provided for compatibility reasons only. User should use      * the new security layer instead and the openProtection method especially.      *      * @param ownerPassword The owner password to encrypt the document.      * @param userPassword The user password to encrypt the document.      *      * @throws CryptographyException If an error occurs during encryption.      * @throws IOException If there is an error accessing the data.      *       */
+comment|/**      * This will<b>mark</b> a document to be encrypted.  The actual encryption      * will occur when the document is saved.      * This method is provided for compatibility reasons only. User should use      * the new security layer instead and the openProtection method especially.      *      * @param ownerPassword The owner password to encrypt the document.      * @param userPassword The user password to encrypt the document.      *      * @throws CryptographyException If an error occurs during encryption.      * @throws IOException If there is an error accessing the data.      *      */
 specifier|public
 name|void
 name|encrypt
@@ -1410,7 +1410,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * The owner password that was passed into the encrypt method. You should      * never use this method.  This will not longer be valid once encryption      * has occured.      *       * @return The owner password passed to the encrypt method.      *       * @deprecated Do not rely on this method anymore.       */
+comment|/**      * The owner password that was passed into the encrypt method. You should      * never use this method.  This will not longer be valid once encryption      * has occured.      *      * @return The owner password passed to the encrypt method.      *      * @deprecated Do not rely on this method anymore.      */
 specifier|public
 name|String
 name|getOwnerPasswordForEncryption
@@ -1420,7 +1420,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * The user password that was passed into the encrypt method.  You should      * never use this method.  This will not longer be valid once encryption      * has occured.      *       * @return The user password passed to the encrypt method.      *       * @deprecated Do not rely on this method anymore.      */
+comment|/**      * The user password that was passed into the encrypt method.  You should      * never use this method.  This will not longer be valid once encryption      * has occured.      *      * @return The user password passed to the encrypt method.      *      * @deprecated Do not rely on this method anymore.      */
 specifier|public
 name|String
 name|getUserPasswordForEncryption
@@ -1430,7 +1430,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Internal method do determine if the document will be encrypted when it is saved.      *       * @return True if encrypt has been called and the document       *              has not been saved yet.      *                    * @deprecated Do not rely on this method anymore. It is the responsibility of       * COSWriter to hold this state             */
+comment|/**      * Internal method do determine if the document will be encrypted when it is saved.      *      * @return True if encrypt has been called and the document      *              has not been saved yet.      *      * @deprecated Do not rely on this method anymore. It is the responsibility of      * COSWriter to hold this state      */
 specifier|public
 name|boolean
 name|willEncryptWhenSaving
@@ -1440,7 +1440,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * This shoule only be called by the COSWriter after encryption has completed.      *       * @deprecated Do not rely on this method anymore. It is the responsability of      * COSWriter to hold this state.      */
+comment|/**      * This shoule only be called by the COSWriter after encryption has completed.      *      * @deprecated Do not rely on this method anymore. It is the responsability of      * COSWriter to hold this state.      */
 specifier|public
 name|void
 name|clearWillEncryptWhenSaving
@@ -2004,7 +2004,7 @@ name|pageIndex
 argument_list|)
 return|;
 block|}
-comment|/**      * @see PDDocument#print()      *       * @param printJob The printer job.      *       * @throws PrinterException If there is an error while sending the PDF to      * the printer, or you do not have permissions to print this document.      */
+comment|/**      * @see PDDocument#print()      *      * @param printJob The printer job.      *      * @throws PrinterException If there is an error while sending the PDF to      * the printer, or you do not have permissions to print this document.      */
 specifier|public
 name|void
 name|print
@@ -2062,7 +2062,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will send the PDF document to a printer.  The printing functionality      * depends on the org.pdfbox.pdfviewer.PageDrawer functionality.  The PageDrawer      * is a work in progress and some PDFs will print correctly and some will      * not.  This is a convenience method to create the java.awt.print.PrinterJob.        * The PDDocument implements the java.awt.print.Pageable interface and       * PDPage implementes the java.awt.print.Printable interface, so advanced printing      * capabilities can be done by using those interfaces instead of this method.       *       * @throws PrinterException If there is an error while sending the PDF to      * the printer, or you do not have permissions to print this document.      */
+comment|/**      * This will send the PDF document to a printer.  The printing functionality      * depends on the org.pdfbox.pdfviewer.PageDrawer functionality.  The PageDrawer      * is a work in progress and some PDFs will print correctly and some will      * not.  This is a convenience method to create the java.awt.print.PrinterJob.      * The PDDocument implements the java.awt.print.Pageable interface and      * PDPage implementes the java.awt.print.Printable interface, so advanced printing      * capabilities can be done by using those interfaces instead of this method.      *      * @throws PrinterException If there is an error while sending the PDF to      * the printer, or you do not have permissions to print this document.      */
 specifier|public
 name|void
 name|print
@@ -2079,7 +2079,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will send the PDF to the default printer without prompting the user      * for any printer settings.       *       * @see PDDocument#print()      *       * @throws PrinterException If there is an error while printing.      */
+comment|/**      * This will send the PDF to the default printer without prompting the user      * for any printer settings.      *      * @see PDDocument#print()      *      * @throws PrinterException If there is an error while printing.      */
 specifier|public
 name|void
 name|silentPrint
@@ -2096,7 +2096,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will send the PDF to the default printer without prompting the user      * for any printer settings.       *       * @param job A printer job definition.      * @see PDDocument#print()      *       * @throws PrinterException If there is an error while printing.      */
+comment|/**      * This will send the PDF to the default printer without prompting the user      * for any printer settings.      *      * @param job A printer job definition.      * @see PDDocument#print()      *      * @throws PrinterException If there is an error while printing.      */
 specifier|public
 name|void
 name|silentPrint
@@ -2167,7 +2167,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Protects the document with the protection policy pp. The document content will be really encrypted      * when it will be saved. This method only marks the document for encryption.      *       * @see org.pdfbox.pdmodel.encryption.StandardProtectionPolicy      * @see org.pdfbox.pdmodel.encryption.PublicKeyProtectionPolicy      *       * @param pp The protection policy.      *       * @throws BadSecurityHandlerException If there is an error during protection.      */
+comment|/**      * Protects the document with the protection policy pp. The document content will be really encrypted      * when it will be saved. This method only marks the document for encryption.      *      * @see org.pdfbox.pdmodel.encryption.StandardProtectionPolicy      * @see org.pdfbox.pdmodel.encryption.PublicKeyProtectionPolicy      *      * @param pp The protection policy.      *      * @throws BadSecurityHandlerException If there is an error during protection.      */
 specifier|public
 name|void
 name|protect
@@ -2196,7 +2196,7 @@ operator|=
 name|handler
 expr_stmt|;
 block|}
-comment|/**      * Tries to decrypt the document in memory using the provided decryption material.      *       *  @see org.pdfbox.pdmodel.encryption.StandardDecryptionMaterial      *  @see org.pdfbox.pdmodel.encryption.PublicKeyDecryptionMaterial      *       * @param pm The decryption material (password or certificate).      *       * @throws BadSecurityHandlerException If there is an error during decryption.      * @throws IOException If there is an error reading cryptographic information.      * @throws CryptographyException If there is an error during decryption.      */
+comment|/**      * Tries to decrypt the document in memory using the provided decryption material.      *      *  @see org.pdfbox.pdmodel.encryption.StandardDecryptionMaterial      *  @see org.pdfbox.pdmodel.encryption.PublicKeyDecryptionMaterial      *      * @param pm The decryption material (password or certificate).      *      * @throws BadSecurityHandlerException If there is an error during decryption.      * @throws IOException If there is an error reading cryptographic information.      * @throws CryptographyException If there is an error during decryption.      */
 specifier|public
 name|void
 name|openProtection
@@ -2282,7 +2282,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns the access permissions granted when the document was decrypted.      * If the document was not decrypted this method returns the access permission       * for a document owner (ie can do everything).      * The returned object is in read only mode so that permissions cannot be changed.      * Methods providing access to content should rely on this object to verify if the current      * user is allowed to proceed.      *       * @return the access permissions for the current user on the document.      */
+comment|/**      * Returns the access permissions granted when the document was decrypted.      * If the document was not decrypted this method returns the access permission      * for a document owner (ie can do everything).      * The returned object is in read only mode so that permissions cannot be changed.      * Methods providing access to content should rely on this object to verify if the current      * user is allowed to proceed.      *      * @return the access permissions for the current user on the document.      */
 specifier|public
 name|AccessPermission
 name|getCurrentAccessPermission
@@ -2311,7 +2311,7 @@ name|getCurrentAccessPermission
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the security handler that is used for document encryption.      *       * @return The handler used to encrypt/decrypt the document.      */
+comment|/**      * Get the security handler that is used for document encryption.      *      * @return The handler used to encrypt/decrypt the document.      */
 specifier|public
 name|SecurityHandler
 name|getSecurityHandler

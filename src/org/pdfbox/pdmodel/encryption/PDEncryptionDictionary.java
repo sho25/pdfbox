@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -74,7 +74,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is a specialized view of the encryption dictionary of a PDF document.   * It contains a low level dictionary (COSDictionary) and provides the methods to   * manage its fields.   *    * The available fields are the ones who are involved by standard security handler  * and public key security handler.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *   * @version $Revision: 1.7 $  */
+comment|/**  * This class is a specialized view of the encryption dictionary of a PDF document.  * It contains a low level dictionary (COSDictionary) and provides the methods to  * manage its fields.  *  * The available fields are the ones who are involved by standard security handler  * and public key security handler.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  * @version $Revision: 1.7 $  */
 end_comment
 
 begin_class
@@ -196,7 +196,7 @@ return|return
 name|encryptionDictionary
 return|;
 block|}
-comment|/**      * Sets the filter entry of the encryption dictionary.      *       * @param filter The filter name.      */
+comment|/**      * Sets the filter entry of the encryption dictionary.      *      * @param filter The filter name.      */
 specifier|public
 name|void
 name|setFilter
@@ -222,7 +222,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the name of the filter.      *       * @return The filter name contained in this encryption dictionary.      */
+comment|/**      * Get the name of the filter.      *      * @return The filter name contained in this encryption dictionary.      */
 specifier|public
 name|String
 name|getFilter
@@ -239,7 +239,7 @@ name|FILTER
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the subfilter entry of the encryption dictionary.      *       * @param subfilter The value of the subfilter field.      */
+comment|/**      * Set the subfilter entry of the encryption dictionary.      *      * @param subfilter The value of the subfilter field.      */
 specifier|public
 name|void
 name|setSubFilter
@@ -407,7 +407,7 @@ name|owner
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the O entry in the standard encryption dictionary.      *      * @return A 32 byte array or null if there is no owner key.      *       * @throws IOException If there is an error accessing the data.      */
+comment|/**      * This will get the O entry in the standard encryption dictionary.      *      * @return A 32 byte array or null if there is no owner key.      *      * @throws IOException If there is an error accessing the data.      */
 specifier|public
 name|byte
 index|[]
@@ -500,7 +500,7 @@ name|user
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the U entry in the standard encryption dictionary.      *      * @return A 32 byte array or null if there is no user key.      *       * @throws IOException If there is an error accessing the data.      */
+comment|/**      * This will get the U entry in the standard encryption dictionary.      *      * @return A 32 byte array or null if there is no user key.      *      * @throws IOException If there is an error accessing the data.      */
 specifier|public
 name|byte
 index|[]
@@ -672,7 +672,7 @@ name|array
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the number of recipients contained in the Recipients field of the dictionary.      *       * @return the number of recipients contained in the Recipients field.      */
+comment|/**      * Returns the number of recipients contained in the Recipients field of the dictionary.      *      * @return the number of recipients contained in the Recipients field.      */
 specifier|public
 name|int
 name|getRecipientsLength
@@ -703,7 +703,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * returns the COSString contained in the Recipients field at position i.        *       * @param i the position in the Recipients field array.      *       * @return a COSString object containing information about the recipient number i.      */
+comment|/**      * returns the COSString contained in the Recipients field at position i.      *      * @param i the position in the Recipients field array.      *      * @return a COSString object containing information about the recipient number i.      */
 specifier|public
 name|COSString
 name|getRecipientStringAt

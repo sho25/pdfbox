@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -258,7 +258,7 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tell if the underlying file is volatile and should not be cached by the      * reader application.  Default: false      *       * @param fileIsVolatile The new value for the volatility of the file.      */
+comment|/**      * Tell if the underlying file is volatile and should not be cached by the      * reader application.  Default: false      *      * @param fileIsVolatile The new value for the volatility of the file.      */
 specifier|public
 name|void
 name|setVolatile
@@ -277,7 +277,7 @@ name|fileIsVolatile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get if the file is volatile.  Default: false      *       * @return True if the file is volatile attribute is set.      */
+comment|/**      * Get if the file is volatile.  Default: false      *      * @return True if the file is volatile attribute is set.      */
 specifier|public
 name|boolean
 name|isVolatile
@@ -294,7 +294,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the embedded file.      *       * @return The embedded file for this file spec.      */
+comment|/**      * Get the embedded file.      *      * @return The embedded file for this file spec.      */
 specifier|public
 name|PDEmbeddedFile
 name|getEmbeddedFile
@@ -338,7 +338,7 @@ return|return
 name|file
 return|;
 block|}
-comment|/**      * Set the embedded file for this spec.      *       * @param file The file to be embedded.      */
+comment|/**      * Set the embedded file for this spec.      *      * @param file The file to be embedded.      */
 specifier|public
 name|void
 name|setEmbeddedFile
@@ -405,7 +405,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the embedded dos file.      *       * @return The embedded file for this file spec.      */
+comment|/**      * Get the embedded dos file.      *      * @return The embedded file for this file spec.      */
 specifier|public
 name|PDEmbeddedFile
 name|getEmbeddedFileDos
@@ -449,7 +449,7 @@ return|return
 name|file
 return|;
 block|}
-comment|/**      * Set the embedded dos file for this spec.      *       * @param file The dos file to be embedded.      */
+comment|/**      * Set the embedded dos file for this spec.      *      * @param file The dos file to be embedded.      */
 specifier|public
 name|void
 name|setEmbeddedFileDos
@@ -516,7 +516,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the embedded Mac file.      *       * @return The embedded file for this file spec.      */
+comment|/**      * Get the embedded Mac file.      *      * @return The embedded file for this file spec.      */
 specifier|public
 name|PDEmbeddedFile
 name|getEmbeddedFileMac
@@ -560,7 +560,7 @@ return|return
 name|file
 return|;
 block|}
-comment|/**      * Set the embedded Mac file for this spec.      *       * @param file The Mac file to be embedded.      */
+comment|/**      * Set the embedded Mac file for this spec.      *      * @param file The Mac file to be embedded.      */
 specifier|public
 name|void
 name|setEmbeddedFileMac
@@ -627,7 +627,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the embedded Unix file.      *       * @return The embedded file for this file spec.      */
+comment|/**      * Get the embedded Unix file.      *      * @return The embedded file for this file spec.      */
 specifier|public
 name|PDEmbeddedFile
 name|getEmbeddedFileUnix
@@ -671,7 +671,7 @@ return|return
 name|file
 return|;
 block|}
-comment|/**      * Set the embedded Unix file for this spec.      *       * @param file The Unix file to be embedded.      */
+comment|/**      * Set the embedded Unix file for this spec.      *      * @param file The Unix file to be embedded.      */
 specifier|public
 name|void
 name|setEmbeddedFileUnix

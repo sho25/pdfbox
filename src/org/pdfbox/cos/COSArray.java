@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -445,7 +445,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the value of the array as an integer.      *       * @param index The index into the list.      *       * @return The value at that index or -1 if it is null.      */
+comment|/**      * Get the value of the array as an integer.      *      * @param index The index into the list.      *      * @return The value at that index or -1 if it is null.      */
 specifier|public
 name|int
 name|getInt
@@ -464,7 +464,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the value of the array as an integer, return the default if it does      * not exist.      *       * @param index The value of the array.      * @param defaultValue The value to return if the value is null.      * @return The value at the index or the defaultValue.      */
+comment|/**      * Get the value of the array as an integer, return the default if it does      * not exist.      *      * @param index The value of the array.      * @param defaultValue The value to return if the value is null.      * @return The value at the index or the defaultValue.      */
 specifier|public
 name|int
 name|getInt
@@ -520,7 +520,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the value in the array as an integer.      *       * @param index The index into the array.      * @param value The value to set.      */
+comment|/**      * Set the value in the array as an integer.      *      * @param index The index into the array.      * @param value The value to set.      */
 specifier|public
 name|void
 name|setInt
@@ -569,7 +569,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the value of the array as a string.      *       * @param index The index into the array.      * @return The name converted to a string or null if it does not exist.      */
+comment|/**      * Get the value of the array as a string.      *      * @param index The index into the array.      * @return The name converted to a string or null if it does not exist.      */
 specifier|public
 name|String
 name|getName
@@ -667,7 +667,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the value of the array as a string.      *       * @param index The index into the array.      * @return The string or null if it does not exist.      */
+comment|/**      * Get the value of the array as a string.      *      * @param index The index into the array.      * @return The string or null if it does not exist.      */
 specifier|public
 name|String
 name|getString
@@ -878,7 +878,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will add null values until the size of the array is at least       * as large as the parameter.  If the array is already larger than the      * parameter then nothing is done.      *       * @param size The desired size of the array.      */
+comment|/**      * This will add null values until the size of the array is at least      * as large as the parameter.  If the array is already larger than the      * parameter then nothing is done.      *      * @param size The desired size of the array.      */
 specifier|public
 name|void
 name|growToSize
@@ -895,7 +895,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add the object until the size of the array is at least       * as large as the parameter.  If the array is already larger than the      * parameter then nothing is done.      *       * @param size The desired size of the array.      * @param object The object to fill the array with.      */
+comment|/**      * This will add the object until the size of the array is at least      * as large as the parameter.  If the array is already larger than the      * parameter then nothing is done.      *      * @param size The desired size of the array.      * @param object The object to fill the array with.      */
 specifier|public
 name|void
 name|growToSize
@@ -942,7 +942,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * This will take an COSArray of numbers and convert it to a float[].      *       * @return This COSArray as an array of float numbers.      */
+comment|/**      * This will take an COSArray of numbers and convert it to a float[].      *      * @return This COSArray as an array of float numbers.      */
 specifier|public
 name|float
 index|[]
@@ -999,7 +999,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Clear the current contents of the COSArray and set it with the float[].      *       * @param value The new value of the float array.      */
+comment|/**      * Clear the current contents of the COSArray and set it with the float[].      *      * @param value The new value of the float array.      */
 specifier|public
 name|void
 name|setFloatArray

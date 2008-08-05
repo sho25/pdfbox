@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -2033,7 +2033,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * The will set the encoding for this font.      *       * @param enc The font encoding.      */
+comment|/**      * The will set the encoding for this font.      *      * @param enc The font encoding.      */
 specifier|public
 name|void
 name|setEncoding
@@ -2266,7 +2266,7 @@ return|return
 name|fontEncoding
 return|;
 block|}
-comment|/**      * This will always return "Font" for fonts.      *       * @return The type of object that this is.      */
+comment|/**      * This will always return "Font" for fonts.      *      * @return The type of object that this is.      */
 specifier|public
 name|String
 name|getType
@@ -2283,7 +2283,7 @@ name|TYPE
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the subtype of font, Type1, Type3, ...      *       * @return The type of font that this is.      */
+comment|/**      * This will get the subtype of font, Type1, Type3, ...      *      * @return The type of font that this is.      */
 specifier|public
 name|String
 name|getSubType
@@ -2300,7 +2300,7 @@ name|SUBTYPE
 argument_list|)
 return|;
 block|}
-comment|/**      * The PostScript name of the font.      *       * @return The postscript name of the font.      */
+comment|/**      * The PostScript name of the font.      *      * @return The postscript name of the font.      */
 specifier|public
 name|String
 name|getBaseFont
@@ -2317,7 +2317,7 @@ name|BASE_FONT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the PostScript name of the font.      *       * @param baseFont The postscript name for the font.      */
+comment|/**      * Set the PostScript name of the font.      *      * @param baseFont The postscript name for the font.      */
 specifier|public
 name|void
 name|setBaseFont
@@ -2338,7 +2338,7 @@ name|baseFont
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The code for the first char or -1 if there is none.      *       * @return The code for the first character.      */
+comment|/**      * The code for the first char or -1 if there is none.      *      * @return The code for the first character.      */
 specifier|public
 name|int
 name|getFirstChar
@@ -2358,7 +2358,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the first character this font supports.      *       * @param firstChar The first character.      */
+comment|/**      * Set the first character this font supports.      *      * @param firstChar The first character.      */
 specifier|public
 name|void
 name|setFirstChar
@@ -2379,7 +2379,7 @@ name|firstChar
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The code for the last char or -1 if there is none.      *       * @return The code for the last character.      */
+comment|/**      * The code for the last char or -1 if there is none.      *      * @return The code for the last character.      */
 specifier|public
 name|int
 name|getLastChar
@@ -2399,7 +2399,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the last character this font supports.      *       * @param lastChar The last character.      */
+comment|/**      * Set the last character this font supports.      *      * @param lastChar The last character.      */
 specifier|public
 name|void
 name|setLastChar
@@ -2420,7 +2420,7 @@ name|lastChar
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The widths of the characters.  This will be null for the standard 14 fonts.      *       * @return The widths of the characters.      */
+comment|/**      * The widths of the characters.  This will be null for the standard 14 fonts.      *      * @return The widths of the characters.      */
 specifier|public
 name|List
 name|getWidths
@@ -2450,7 +2450,7 @@ name|array
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the widths of the characters code.      *       * @param widths The widths of the character codes.      */
+comment|/**      * Set the widths of the characters code.      *      * @param widths The widths of the character codes.      */
 specifier|public
 name|void
 name|setWidths
@@ -2476,7 +2476,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the matrix that is used to transform glyph space to      * text space.  By default there are 1000 glyph units to 1 text space      * unit, but type3 fonts can use any value.        *       * Note:If this is a type3 font then it can be modified via the PDType3Font.setFontMatrix, otherwise this      * is a read-only property.      *       * @return The matrix to transform from glyph space to text space.      */
+comment|/**      * This will get the matrix that is used to transform glyph space to      * text space.  By default there are 1000 glyph units to 1 text space      * unit, but type3 fonts can use any value.      *      * Note:If this is a type3 font then it can be modified via the PDType3Font.setFontMatrix, otherwise this      * is a read-only property.      *      * @return The matrix to transform from glyph space to text space.      */
 specifier|public
 name|PDMatrix
 name|getFontMatrix
@@ -2586,7 +2586,7 @@ return|return
 name|matrix
 return|;
 block|}
-comment|/**      * Try to get the encoding for the font and add it to the target      * the target must be an an Encoding Dictionary.      *      * added by Christophe Huault : DGBS Strasbourg huault@free.fr october 2004      *      * @return The encoding from the font.      *       * @throws IOException If there is an error reading the file.      */
+comment|/**      * Try to get the encoding for the font and add it to the target      * the target must be an an Encoding Dictionary.      *      * added by Christophe Huault : DGBS Strasbourg huault@free.fr october 2004      *      * @return The encoding from the font.      *      * @throws IOException If there is an error reading the file.      */
 specifier|private
 name|COSName
 name|getEncodingFromFont
@@ -2835,7 +2835,7 @@ return|return
 name|retvalue
 return|;
 block|}
-comment|/**      * This will get the fonts bouding box.      *      * @return The fonts bouding box.      *       * @throws IOException If there is an error getting the bounding box.      */
+comment|/**      * This will get the fonts bouding box.      *      * @return The fonts bouding box.      *      * @throws IOException If there is an error getting the bounding box.      */
 specifier|public
 specifier|abstract
 name|PDRectangle

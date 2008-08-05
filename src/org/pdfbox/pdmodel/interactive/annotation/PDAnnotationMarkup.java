@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents the additonal fields of a Markup type Annotation.  *   *   * @author Paul King  * @version $Revision: 1.1 $  */
+comment|/**  * This class represents the additonal fields of a Markup type Annotation.  *  *  * @author Paul King  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -115,7 +115,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param dict      *            The annotations dictionary.      */
+comment|/**      * Constructor.      *      * @param dict      *            The annotations dictionary.      */
 specifier|public
 name|PDAnnotationMarkup
 parameter_list|(
@@ -129,7 +129,7 @@ name|dict
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Retrieve the string used as the title of the popup window shown when open      * and active (by convention this identifies who added the annotation).      *       * @return The title of the popup.      */
+comment|/**      * Retrieve the string used as the title of the popup window shown when open      * and active (by convention this identifies who added the annotation).      *      * @return The title of the popup.      */
 specifier|public
 name|String
 name|getTitlePopup
@@ -145,7 +145,7 @@ literal|"T"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the string used as the title of the popup window shown when open and      * active (by convention this identifies who added the annotation).      *       * @param t      *            The title of the popup.      */
+comment|/**      * Set the string used as the title of the popup window shown when open and      * active (by convention this identifies who added the annotation).      *      * @param t      *            The title of the popup.      */
 specifier|public
 name|void
 name|setTitlePopup
@@ -165,7 +165,7 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the popup annotation used for entering/editing the      * text for this annotation.      *       * @return the popup annotation.      */
+comment|/**      * This will retrieve the popup annotation used for entering/editing the      * text for this annotation.      *      * @return the popup annotation.      */
 specifier|public
 name|PDAnnotationPopup
 name|getPopup
@@ -207,7 +207,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * This will set the popup annotation used for entering/editing the text for      * this annotation.      *       * @param popup      *            the popup annotation.      */
+comment|/**      * This will set the popup annotation used for entering/editing the text for      * this annotation.      *      * @param popup      *            the popup annotation.      */
 specifier|public
 name|void
 name|setPopup
@@ -227,7 +227,7 @@ name|popup
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the constant opacity value used when rendering the      * annotation (excluing any popup).      *       * @return the constant opacity value.      */
+comment|/**      * This will retrieve the constant opacity value used when rendering the      * annotation (excluing any popup).      *      * @return the constant opacity value.      */
 specifier|public
 name|float
 name|getConstantOpacity
@@ -245,7 +245,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the constant opacity value used when rendering the      * annotation (excluing any popup).      *       * @param ca      *            the constant opacity value.      */
+comment|/**      * This will set the constant opacity value used when rendering the      * annotation (excluing any popup).      *      * @param ca      *            the constant opacity value.      */
 specifier|public
 name|void
 name|setConstantOpacity
@@ -265,7 +265,7 @@ name|ca
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the rich text stream which is displayed in the popup      * window.      *       * @return the rich text stream.      */
+comment|/**      * This will retrieve the rich text stream which is displayed in the popup      * window.      *      * @return the rich text stream.      */
 specifier|public
 name|PDTextStream
 name|getRichContents
@@ -305,7 +305,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * This will set the rich text stream which is displayed in the popup window.      *       * @param rc      *            the rich text stream.      */
+comment|/**      * This will set the rich text stream which is displayed in the popup window.      *      * @param rc      *            the rich text stream.      */
 specifier|public
 name|void
 name|setRichContents
@@ -325,7 +325,7 @@ name|rc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the date and time the annotation was created.      *       * @return the creation date/time.      * @throws IOException      *             if there is a format problem when converting the date.      */
+comment|/**      * This will retrieve the date and time the annotation was created.      *      * @return the creation date/time.      * @throws IOException      *             if there is a format problem when converting the date.      */
 specifier|public
 name|Calendar
 name|getCreationDate
@@ -343,7 +343,7 @@ literal|"CreationDate"
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the the date and time the annotation was created.      *       * @param creationDate      *            the date and time the annotation was created.      */
+comment|/**      * This will set the the date and time the annotation was created.      *      * @param creationDate      *            the date and time the annotation was created.      */
 specifier|public
 name|void
 name|setCreationDate
@@ -363,7 +363,7 @@ name|creationDate
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the annotation to which this one is "In Reply To" the      * actual relationship is specified by the RT entry.      *       * @return the other annotation.      * @throws IOException      *             if there is an error with the annotation.      */
+comment|/**      * This will retrieve the annotation to which this one is "In Reply To" the      * actual relationship is specified by the RT entry.      *      * @return the other annotation.      * @throws IOException      *             if there is an error with the annotation.      */
 specifier|public
 name|PDAnnotation
 name|getInReplyTo
@@ -391,7 +391,7 @@ name|irt
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the annotation to which this one is "In Reply To" the      * actual relationship is specified by the RT entry.      *       * @param irt      *            the annotation this one is "In Reply To".      */
+comment|/**      * This will set the annotation to which this one is "In Reply To" the      * actual relationship is specified by the RT entry.      *      * @param irt      *            the annotation this one is "In Reply To".      */
 specifier|public
 name|void
 name|setInReplyTo
@@ -411,7 +411,7 @@ name|irt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the short description of the subject of the annotation.      *       * @return the subject.      */
+comment|/**      * This will retrieve the short description of the subject of the annotation.      *      * @return the subject.      */
 specifier|public
 name|String
 name|getSubject
@@ -427,7 +427,7 @@ literal|"Subj"
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the short description of the subject of the annotation.      *       * @param subj      *            short description of the subject.      */
+comment|/**      * This will set the short description of the subject of the annotation.      *      * @param subj      *            short description of the subject.      */
 specifier|public
 name|void
 name|setSubject
@@ -447,7 +447,7 @@ name|subj
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the Reply Type (relationship) with the annotation in      * the IRT entry See the RT_* constants for the available values.      *       * @return the relationship.      */
+comment|/**      * This will retrieve the Reply Type (relationship) with the annotation in      * the IRT entry See the RT_* constants for the available values.      *      * @return the relationship.      */
 specifier|public
 name|String
 name|getReplyType
@@ -465,7 +465,7 @@ name|RT_REPLY
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the Reply Type (relationship) with the annotation in the      * IRT entry See the RT_* constants for the available values.      *       * @param rt      *            the reply type.      */
+comment|/**      * This will set the Reply Type (relationship) with the annotation in the      * IRT entry See the RT_* constants for the available values.      *      * @param rt      *            the reply type.      */
 specifier|public
 name|void
 name|setReplyType
@@ -485,7 +485,7 @@ name|rt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the intent of the annotation The values and meanings      * are specific to the actual annotation See the IT_* constants for the      * annotation classes.      *       * @return the intent      */
+comment|/**      * This will retrieve the intent of the annotation The values and meanings      * are specific to the actual annotation See the IT_* constants for the      * annotation classes.      *      * @return the intent      */
 specifier|public
 name|String
 name|getIntent
@@ -501,7 +501,7 @@ literal|"IT"
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the intent of the annotation The values and meanings are      * specific to the actual annotation See the IT_* constants for the      * annotation classes.      *       * @param it      *            the intent      */
+comment|/**      * This will set the intent of the annotation The values and meanings are      * specific to the actual annotation See the IT_* constants for the      * annotation classes.      *      * @param it      *            the intent      */
 specifier|public
 name|void
 name|setIntent

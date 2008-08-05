@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -229,7 +229,7 @@ parameter_list|()
 block|{
 comment|//should only be called by PDMemoryStream
 block|}
-comment|/**      * This will create a new PDStream object.      *       * @param document The document that the stream will be part of.      */
+comment|/**      * This will create a new PDStream object.      *      * @param document The document that the stream will be part of.      */
 specifier|public
 name|PDStream
 parameter_list|(
@@ -565,7 +565,7 @@ return|return
 name|stream
 return|;
 block|}
-comment|/**      * This will get a stream that can be written to.      *       * @return An output stream to write data to.      *       * @throws IOException If an IO error occurs during writing.      */
+comment|/**      * This will get a stream that can be written to.      *      * @return An output stream to write data to.      *      * @throws IOException If an IO error occurs during writing.      */
 specifier|public
 name|OutputStream
 name|createOutputStream
@@ -580,7 +580,7 @@ name|createUnfilteredStream
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get a stream that can be read from.      *       * @return An input stream that can be read from.      *       * @throws IOException If an IO error occurs during reading.      */
+comment|/**      * This will get a stream that can be read from.      *      * @return An input stream that can be read from.      *      * @throws IOException If an IO error occurs during reading.      */
 specifier|public
 name|InputStream
 name|createInputStream
@@ -595,7 +595,7 @@ name|getUnfilteredStream
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get a stream with some filters applied but not others.  This is useful      * when doing images, ie filters = [flate,dct], we want to remove flate but leave dct      *       * @param stopFilters A list of filters to stop decoding at.      * @return A stream with decoded data.      * @throws IOException If there is an error processing the stream.      */
+comment|/**      * This will get a stream with some filters applied but not others.  This is useful      * when doing images, ie filters = [flate,dct], we want to remove flate but leave dct      *      * @param stopFilters A list of filters to stop decoding at.      * @return A stream with decoded data.      * @throws IOException If there is an error processing the stream.      */
 specifier|public
 name|InputStream
 name|getPartiallyFilteredStream
@@ -755,7 +755,7 @@ return|return
 name|stream
 return|;
 block|}
-comment|/**      * This will get the length of the filtered/compressed stream.  This is readonly in the       * PD Model and will be managed by this class.      *       * @return The length of the filtered stream.      */
+comment|/**      * This will get the length of the filtered/compressed stream.  This is readonly in the      * PD Model and will be managed by this class.      *      * @return The length of the filtered stream.      */
 specifier|public
 name|int
 name|getLength
@@ -849,7 +849,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the filters that are part of this stream.      *       * @param filters The filters that are part of this stream.      */
+comment|/**      * This will set the filters that are part of this stream.      *      * @param filters The filters that are part of this stream.      */
 specifier|public
 name|void
 name|setFilters
@@ -878,7 +878,7 @@ name|obj
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the list of decode parameters.  Each entry in the list will refer to       * an entry in the filters list.      *       * @return The list of decode parameters.      *       * @throws IOException if there is an error retrieving the parameters.      */
+comment|/**      * Get the list of decode parameters.  Each entry in the list will refer to      * an entry in the filters list.      *      * @return The list of decode parameters.      *      * @throws IOException if there is an error retrieving the parameters.      */
 specifier|public
 name|List
 name|getDecodeParams
@@ -1031,7 +1031,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of decode params.      *       * @param decodeParams The list of decode params.      */
+comment|/**      * This will set the list of decode params.      *      * @param decodeParams The list of decode params.      */
 specifier|public
 name|void
 name|setDecodeParams
@@ -1055,7 +1055,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the file specification for this stream.  This is only      * required for external files.      *       * @return The file specification.      *       * @throws IOException If there is an error creating the file spec.      */
+comment|/**      * This will get the file specification for this stream.  This is only      * required for external files.      *      * @return The file specification.      *      * @throws IOException If there is an error creating the file spec.      */
 specifier|public
 name|PDFileSpecification
 name|getFile
@@ -1185,7 +1185,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the filters that are part of this stream.      *       * @param filters The filters that are part of this stream.      */
+comment|/**      * This will set the filters that are part of this stream.      *      * @param filters The filters that are part of this stream.      */
 specifier|public
 name|void
 name|setFileFilters
@@ -1214,7 +1214,7 @@ name|obj
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the list of decode parameters.  Each entry in the list will refer to       * an entry in the filters list.      *       * @return The list of decode parameters.      *       * @throws IOException if there is an error retrieving the parameters.      */
+comment|/**      * Get the list of decode parameters.  Each entry in the list will refer to      * an entry in the filters list.      *      * @return The list of decode parameters.      *      * @throws IOException if there is an error retrieving the parameters.      */
 specifier|public
 name|List
 name|getFileDecodeParams
@@ -1349,7 +1349,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of decode params.      *       * @param decodeParams The list of decode params.      */
+comment|/**      * This will set the list of decode params.      *      * @param decodeParams The list of decode params.      */
 specifier|public
 name|void
 name|setFileDecodeParams
@@ -1373,7 +1373,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will copy the stream into a byte array.       *       * @return The byte array of the filteredStream      * @throws IOException When getFilteredStream did not work      */
+comment|/**      * This will copy the stream into a byte array.      *      * @return The byte array of the filteredStream      * @throws IOException When getFilteredStream did not work      */
 specifier|public
 name|byte
 index|[]
@@ -1470,7 +1470,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * A convenience method to get this stream as a string.  Uses      * the default system encoding.       *       * @return a String representation of this (input) stream, with the      * platform default encoding.      *       * @throws IOException if there is an error while converting the stream       *                     to a string.      */
+comment|/**      * A convenience method to get this stream as a string.  Uses      * the default system encoding.      *      * @return a String representation of this (input) stream, with the      * platform default encoding.      *      * @throws IOException if there is an error while converting the stream      *                     to a string.      */
 specifier|public
 name|String
 name|getInputStreamAsString
@@ -1493,7 +1493,7 @@ name|bStream
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the metadata that is part of the document catalog.  This will       * return null if there is no meta data for this object.      *       * @return The metadata for this object.      */
+comment|/**      * Get the metadata that is part of the document catalog.  This will      * return null if there is no meta data for this object.      *      * @return The metadata for this object.      */
 specifier|public
 name|PDMetadata
 name|getMetadata
@@ -1537,7 +1537,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the metadata for this object.  This can be null.      *       * @param meta The meta data for this object.      */
+comment|/**      * Set the metadata for this object.  This can be null.      *      * @param meta The meta data for this object.      */
 specifier|public
 name|void
 name|setMetadata

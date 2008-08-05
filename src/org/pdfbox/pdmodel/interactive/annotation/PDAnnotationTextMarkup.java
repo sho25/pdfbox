@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the abstract class that represents a text markup annotation  * Introduced in PDF 1.3 specification, except Squiggly lines in 1.4.  *   * @author Paul King  * @version $Revision: 1.1 $  */
+comment|/**  * This is the abstract class that represents a text markup annotation  * Introduced in PDF 1.3 specification, except Squiggly lines in 1.4.  *  * @author Paul King  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -106,7 +106,7 @@ parameter_list|()
 block|{
 comment|// Must be constructed with a subType or dictionary parameter
 block|}
-comment|/**      * Creates a TextMarkup annotation of the specified sub type.      *       * @param subType the subtype the annotation represents      */
+comment|/**      * Creates a TextMarkup annotation of the specified sub type.      *      * @param subType the subtype the annotation represents      */
 specifier|public
 name|PDAnnotationTextMarkup
 parameter_list|(
@@ -133,7 +133,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a TextMarkup annotation from a COSDictionary, expected to be a      * correct object definition.      *       * @param field the PDF objet to represent as a field.      */
+comment|/**      * Creates a TextMarkup annotation from a COSDictionary, expected to be a      * correct object definition.      *      * @param field the PDF objet to represent as a field.      */
 specifier|public
 name|PDAnnotationTextMarkup
 parameter_list|(
@@ -147,7 +147,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the set of quadpoints which encompass the areas of this      * annotation.      *       * @param quadPoints      *            an array representing the set of area covered      */
+comment|/**      * This will set the set of quadpoints which encompass the areas of this      * annotation.      *      * @param quadPoints      *            an array representing the set of area covered      */
 specifier|public
 name|void
 name|setQuadPoints
@@ -182,7 +182,7 @@ name|newQuadPoints
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the set of quadpoints which encompass the areas of      * this annotation.      *       * @return An array of floats representing the quad points.      */
+comment|/**      * This will retrieve the set of quadpoints which encompass the areas of      * this annotation.      *      * @return An array of floats representing the quad points.      */
 specifier|public
 name|float
 index|[]
@@ -225,7 +225,7 @@ return|;
 comment|// Should never happen as this is a required item
 block|}
 block|}
-comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For      * this annotation. See the SUB_TYPE_XXX constants for valid values.      *       * @param subType The subtype of the annotation      */
+comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For      * this annotation. See the SUB_TYPE_XXX constants for valid values.      *      * @param subType The subtype of the annotation      */
 specifier|public
 name|void
 name|setSubtype
@@ -247,7 +247,7 @@ name|subType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence)      * For this annotation.       *       * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
+comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence)      * For this annotation.      *      * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
 specifier|public
 name|String
 name|getSubtype

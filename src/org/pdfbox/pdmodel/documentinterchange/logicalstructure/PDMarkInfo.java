@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -82,7 +82,7 @@ name|COSDictionary
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor for an existing MarkInfo element.      *       * @param dic The existing dictionary.      */
+comment|/**      * Constructor for an existing MarkInfo element.      *      * @param dic The existing dictionary.      */
 specifier|public
 name|PDMarkInfo
 parameter_list|(
@@ -115,7 +115,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Tells if this is a tagged PDF.      *       * @return true If this is a tagged PDF.      */
+comment|/**      * Tells if this is a tagged PDF.      *      * @return true If this is a tagged PDF.      */
 specifier|public
 name|boolean
 name|isMarked
@@ -132,7 +132,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if this is a tagged PDF.      *       * @param value The new marked value.      */
+comment|/**      * Set if this is a tagged PDF.      *      * @param value The new marked value.      */
 specifier|public
 name|void
 name|setMarked
@@ -151,7 +151,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tells if structure elements use user properties.      *       * @return A boolean telling if the structure elements use user properties.      */
+comment|/**      * Tells if structure elements use user properties.      *      * @return A boolean telling if the structure elements use user properties.      */
 specifier|public
 name|boolean
 name|usesUserProperties
@@ -168,7 +168,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if the structure elements contain user properties.      *       * @param userProps The new value for this property.      */
+comment|/**      * Set if the structure elements contain user properties.      *      * @param userProps The new value for this property.      */
 specifier|public
 name|void
 name|setUserProperties
@@ -187,7 +187,7 @@ name|userProps
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tells if this PDF contain 'suspect' tags.  See PDF Reference 1.6       * section 10.6 "Logical Structure" for more information about this property.      *        * @return true if the suspect flag has been set.      */
+comment|/**      * Tells if this PDF contain 'suspect' tags.  See PDF Reference 1.6      * section 10.6 "Logical Structure" for more information about this property.      *      * @return true if the suspect flag has been set.      */
 specifier|public
 name|boolean
 name|isSuspect
@@ -204,7 +204,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the value of the suspects property.  See PDF Reference 1.6       * section 10.6 "Logical Structure" for more information about this       * property.      *       * @param suspect The new "Suspects" value.      */
+comment|/**      * Set the value of the suspects property.  See PDF Reference 1.6      * section 10.6 "Logical Structure" for more information about this      * property.      *      * @param suspect The new "Suspects" value.      */
 specifier|public
 name|void
 name|setSuspect

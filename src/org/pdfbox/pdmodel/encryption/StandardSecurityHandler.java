@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -136,7 +136,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   * The class implements the standard security handler as decribed  * in the PDF specifications. This security handler protects document  * with password.  *   * @see StandardProtectionPolicy to see how to protect document with this security handler.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  * @version $Revision: 1.5 $  */
+comment|/**  *  * The class implements the standard security handler as decribed  * in the PDF specifications. This security handler protects document  * with password.  *  * @see StandardProtectionPolicy to see how to protect document with this security handler.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  * @version $Revision: 1.5 $  */
 end_comment
 
 begin_class
@@ -374,8 +374,8 @@ comment|/**      * Constructor.      */
 specifier|public
 name|StandardSecurityHandler
 parameter_list|()
-block|{             }
-comment|/**      * Constructor used for encryption.      *       * @param p The protection policy.      */
+block|{     }
+comment|/**      * Constructor used for encryption.      *      * @param p The protection policy.      */
 specifier|public
 name|StandardSecurityHandler
 parameter_list|(
@@ -395,7 +395,7 @@ name|getEncryptionKeyLength
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Computes the version number of the StandardSecurityHandler       * regarding the encryption key length.      * See PDF Spec 1.6 p 93      *        * @return The computed cersion number.      */
+comment|/**      * Computes the version number of the StandardSecurityHandler      * regarding the encryption key length.      * See PDF Spec 1.6 p 93      *      * @return The computed cersion number.      */
 specifier|private
 name|int
 name|computeVersionNumber
@@ -416,7 +416,7 @@ return|return
 literal|2
 return|;
 block|}
-comment|/**      * Computes the revision version of the StandardSecurityHandler to      * use regarding the version number and the permissions bits set.      * See PDF Spec 1.6 p98      *       * @return The computed revision number.      */
+comment|/**      * Computes the revision version of the StandardSecurityHandler to      * use regarding the version number and the permissions bits set.      * See PDF Spec 1.6 p98      *      * @return The computed revision number.      */
 specifier|private
 name|int
 name|computeRevisionNumber
@@ -464,7 +464,7 @@ return|return
 literal|3
 return|;
 block|}
-comment|/**      * Decrypt the document.      *       * @param doc The document to be decrypted.      * @param decryptionMaterial Information used to decrypt the document.      *       * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
+comment|/**      * Decrypt the document.      *      * @param doc The document to be decrypted.      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
 specifier|public
 name|void
 name|decryptDocument
@@ -792,7 +792,7 @@ name|proceedDecryption
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Prepare document for encryption.      *       * @param doc The documeent to encrypt.      *       * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
+comment|/**      * Prepare document for encryption.      *      * @param doc The documeent to encrypt.      *      * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
 specifier|public
 name|void
 name|prepareDocumentForEncryption
@@ -1248,7 +1248,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check for owner password.      *       * @param ownerPassword The owner password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      *       * @return True If the ownerPassword param is the owner password.      *       * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check for owner password.      *      * @param ownerPassword The owner password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      *      * @return True If the ownerPassword param is the owner password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -1318,7 +1318,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the user password based on the owner password.      *       * @param ownerPassword The plaintext owner password.      * @param o The o entry of the encryption dictionary.      * @param encRevision The encryption revision number.      * @param length The key length.      *       * @return The u entry of the encryption dictionary.      *       * @throws CryptographyException If there is an error generating the user password.      * @throws IOException If there is an error accessing data while generating the user password.      */
+comment|/**      * Get the user password based on the owner password.      *      * @param ownerPassword The plaintext owner password.      * @param o The o entry of the encryption dictionary.      * @param encRevision The encryption revision number.      * @param length The key length.      *      * @return The u entry of the encryption dictionary.      *      * @throws CryptographyException If there is an error generating the user password.      * @throws IOException If there is an error accessing data while generating the user password.      */
 specifier|public
 specifier|final
 name|byte
@@ -1707,7 +1707,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Compute the encryption key.      *       * @param password The password to compute the encrypted key.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions for the document.      * @param id The document id.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      *       * @return The encrypted key bytes.      *       * @throws CryptographyException If there is an error with encryption.      */
+comment|/**      * Compute the encryption key.      *      * @param password The password to compute the encrypted key.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions for the document.      * @param id The document id.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      *      * @return The encrypted key bytes.      *      * @throws CryptographyException If there is an error with encryption.      */
 specifier|public
 specifier|final
 name|byte
@@ -2318,7 +2318,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * Compute the owner entry in the encryption dictionary.      *       * @param ownerPassword The plaintext owner password.      * @param userPassword The plaintext user password.      * @param encRevision The revision number of the encryption algorithm.      * @param length The length of the encryption key.      *       * @return The o entry of the encryption dictionary.      *       * @throws CryptographyException If there is an error with encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Compute the owner entry in the encryption dictionary.      *      * @param ownerPassword The plaintext owner password.      * @param userPassword The plaintext user password.      * @param encRevision The revision number of the encryption algorithm.      * @param length The length of the encryption key.      *      * @return The o entry of the encryption dictionary.      *      * @throws CryptographyException If there is an error with encryption.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|byte
@@ -2753,7 +2753,7 @@ return|return
 name|padded
 return|;
 block|}
-comment|/**      * Check if a plaintext password is the user password.      *       * @param password The plaintext password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      *       * @return true If the plaintext password is the user password.      *       * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      *      * @return true If the plaintext password is the user password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean

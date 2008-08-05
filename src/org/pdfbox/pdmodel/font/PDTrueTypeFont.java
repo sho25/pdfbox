@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -537,7 +537,7 @@ name|fontDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will load a TTF font from a font file.      *       * @param doc The PDF document that will hold the embedded font.      * @param file The file on the filesystem that holds the font file.      * @return A true type font.      * @throws IOException If there is an error loading the file data.      */
+comment|/**      * This will load a TTF font from a font file.      *      * @param doc The PDF document that will hold the embedded font.      * @param file The file on the filesystem that holds the font file.      * @return A true type font.      * @throws IOException If there is an error loading the file data.      */
 specifier|public
 specifier|static
 name|PDTrueTypeFont
@@ -565,7 +565,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a TTF to be embedding into a document.      *       * @param doc The PDF document that will hold the embedded font.       * @param file A TTF file stream.      * @return A PDF TTF.      * @throws IOException If there is an error loading the data.      */
+comment|/**      * This will load a TTF to be embedding into a document.      *      * @param doc The PDF document that will hold the embedded font.      * @param file A TTF file stream.      * @return A PDF TTF.      * @throws IOException If there is an error loading the data.      */
 specifier|public
 specifier|static
 name|PDTrueTypeFont
@@ -1852,7 +1852,7 @@ name|y
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Permit to load an external TTF Font program file      *      * Created by Pascal Allain      * Vertical7 Inc.      *      * @param fd The font descriptor currently used        *      * @return A PDStream with the Font File program, null if fd is null      *      * @throws IOException If the font is not found      */
+comment|/**      * Permit to load an external TTF Font program file      *      * Created by Pascal Allain      * Vertical7 Inc.      *      * @param fd The font descriptor currently used      *      * @return A PDStream with the Font File program, null if fd is null      *      * @throws IOException If the font is not found      */
 specifier|private
 name|TrueTypeFont
 name|getExternalFontFile2

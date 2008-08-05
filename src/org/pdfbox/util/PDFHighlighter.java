@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -102,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Highlighting of words in a PDF document with an XML file.  *   * @author slagraulet (slagraulet@cardiweb.com)  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  *   * @see<a href="http://partners.adobe.com/public/developer/en/pdf/HighlightFileFormat.pdf">  *      Adobe Highlight File Format</a>  */
+comment|/**  * Highlighting of words in a PDF document with an XML file.  *  * @author slagraulet (slagraulet@cardiweb.com)  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  *  * @see<a href="http://partners.adobe.com/public/developer/en/pdf/HighlightFileFormat.pdf">  *      Adobe Highlight File Format</a>  */
 end_comment
 
 begin_class
@@ -136,7 +136,7 @@ name|textWriter
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Default constructor.      *       * @throws IOException If there is an error constructing this class.      */
+comment|/**      * Default constructor.      *      * @throws IOException If there is an error constructing this class.      */
 specifier|public
 name|PDFHighlighter
 parameter_list|()
@@ -182,7 +182,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Generate an XML highlight string based on the PDF.      *       * @param pdDocument The PDF to find words in.      * @param highlightWord The word to search for.      * @param xmlOutput The resulting output xml file.      *       * @throws IOException If there is an error reading from the PDF, or writing to the XML.      */
+comment|/**      * Generate an XML highlight string based on the PDF.      *      * @param pdDocument The PDF to find words in.      * @param highlightWord The word to search for.      * @param xmlOutput The resulting output xml file.      *      * @throws IOException If there is an error reading from the PDF, or writing to the XML.      */
 specifier|public
 name|void
 name|generateXMLHighlight
@@ -214,7 +214,7 @@ name|xmlOutput
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Generate an XML highlight string based on the PDF.      *       * @param pdDocument The PDF to find words in.      * @param sWords The words to search for.      * @param xmlOutput The resulting output xml file.      *       * @throws IOException If there is an error reading from the PDF, or writing to the XML.      */
+comment|/**      * Generate an XML highlight string based on the PDF.      *      * @param pdDocument The PDF to find words in.      * @param sWords The words to search for.      * @param xmlOutput The resulting output xml file.      *      * @throws IOException If there is an error reading from the PDF, or writing to the XML.      */
 specifier|public
 name|void
 name|generateXMLHighlight
@@ -455,7 +455,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Command line application.      *       * @param args The command line arguments to the application.      *       * @throws IOException If there is an error generating the highlight file.      */
+comment|/**      * Command line application.      *      * @param args The command line arguments to the application.      *      * @throws IOException If there is an error generating the highlight file.      */
 specifier|public
 specifier|static
 name|void
@@ -605,14 +605,14 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the color to highlight the strings with.  Default is Color.YELLOW.      *       * @return The color to highlight strings with.      */
+comment|/**      * Get the color to highlight the strings with.  Default is Color.YELLOW.      *      * @return The color to highlight strings with.      */
 comment|/*public Color getHighlightColor()     {         return highlightColor;     }**/
-comment|/**      * Get the color to highlight the strings with.  Default is Color.YELLOW.      *       * @param color The color to highlight strings with.      */
+comment|/**      * Get the color to highlight the strings with.  Default is Color.YELLOW.      *      * @param color The color to highlight strings with.      */
 comment|/*public void setHighlightColor(Color color)     {         this.highlightColor = color;     }**/
-comment|/**      * Set the highlight color using HTML like rgb string.  The string must be 6 characters long.      *       * @param color The color to use for highlighting.  Should be in the format of "FF0000".      */
+comment|/**      * Set the highlight color using HTML like rgb string.  The string must be 6 characters long.      *      * @param color The color to use for highlighting.  Should be in the format of "FF0000".      */
 comment|/*public void setHighlightColor( String color )     {         highlightColor = Color.decode( color );     }**/
-comment|/**      * Get the highlight color as an HTML like string.  This will return a string of six characters.      *       * @return The current highlight color.  For example FF0000      */
-comment|/*public String getHighlightColorAsString()     {         //BJL: kudos to anyone that has a cleaner way of doing this!         String red = Integer.toHexString( highlightColor.getRed() );         String green = Integer.toHexString( highlightColor.getGreen() );         String blue = Integer.toHexString( highlightColor.getBlue() );                  return (red.length()< 2 ? "0" + red : red) +                 (green.length()< 2 ? "0" + green : green) +                 (blue.length()< 2 ? "0" + blue : blue);      }**/
+comment|/**      * Get the highlight color as an HTML like string.  This will return a string of six characters.      *      * @return The current highlight color.  For example FF0000      */
+comment|/*public String getHighlightColorAsString()     {         //BJL: kudos to anyone that has a cleaner way of doing this!         String red = Integer.toHexString( highlightColor.getRed() );         String green = Integer.toHexString( highlightColor.getGreen() );         String blue = Integer.toHexString( highlightColor.getBlue() );          return (red.length()< 2 ? "0" + red : red) +                (green.length()< 2 ? "0" + green : green) +                (blue.length()< 2 ? "0" + blue : blue);     }**/
 block|}
 end_class
 

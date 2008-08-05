@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -365,7 +365,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor for an existing outline item.      *       * @param dic The storage dictionary.      */
+comment|/**      * Constructor for an existing outline item.      *      * @param dic The storage dictionary.      */
 specifier|public
 name|PDOutlineItem
 parameter_list|(
@@ -379,7 +379,7 @@ name|dic
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Insert a sibling after this node.      *       * @param item The item to insert.      */
+comment|/**      * Insert a sibling after this node.      *      * @param item The item to insert.      */
 specifier|public
 name|void
 name|insertSiblingAfter
@@ -442,7 +442,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Return the previous sibling or null if there is no sibling.      *       * @return The previous sibling.      */
+comment|/**      * Return the previous sibling or null if there is no sibling.      *      * @return The previous sibling.      */
 specifier|public
 name|PDOutlineItem
 name|getPreviousSibling
@@ -486,7 +486,7 @@ return|return
 name|last
 return|;
 block|}
-comment|/**      * Set the previous sibling, this will be maintained by this class.      *       * @param outlineNode The new previous sibling.      */
+comment|/**      * Set the previous sibling, this will be maintained by this class.      *      * @param outlineNode The new previous sibling.      */
 specifier|protected
 name|void
 name|setPreviousSibling
@@ -505,7 +505,7 @@ name|outlineNode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Return the next sibling or null if there is no next sibling.      *       * @return The next sibling.      */
+comment|/**      * Return the next sibling or null if there is no next sibling.      *      * @return The next sibling.      */
 specifier|public
 name|PDOutlineItem
 name|getNextSibling
@@ -549,7 +549,7 @@ return|return
 name|last
 return|;
 block|}
-comment|/**      * Set the next sibling, this will be maintained by this class.      *       * @param outlineNode The new next sibling.      */
+comment|/**      * Set the next sibling, this will be maintained by this class.      *      * @param outlineNode The new next sibling.      */
 specifier|protected
 name|void
 name|setNextSibling
@@ -568,7 +568,7 @@ name|outlineNode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the title of this node.      *       * @return The title of this node.      */
+comment|/**      * Get the title of this node.      *      * @return The title of this node.      */
 specifier|public
 name|String
 name|getTitle
@@ -583,7 +583,7 @@ literal|"Title"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the title for this node.      *       * @param title The new title for this node.      */
+comment|/**      * Set the title for this node.      *      * @param title The new title for this node.      */
 specifier|public
 name|void
 name|setTitle
@@ -602,7 +602,7 @@ name|title
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the page destination of this node.      *       * @return The page destination of this node.      * @throws IOException If there is an error creating the destination.      */
+comment|/**      * Get the page destination of this node.      *      * @return The page destination of this node.      * @throws IOException If there is an error creating the destination.      */
 specifier|public
 name|PDDestination
 name|getDestination
@@ -624,7 +624,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the page destination for this node.      *       * @param dest The new page destination for this node.      */
+comment|/**      * Set the page destination for this node.      *      * @param dest The new page destination for this node.      */
 specifier|public
 name|void
 name|setDestination
@@ -643,7 +643,7 @@ name|dest
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A convenience method that will create an XYZ destination using only the defaults.      *       * @param page The page to refer to.      */
+comment|/**      * A convenience method that will create an XYZ destination using only the defaults.      *      * @param page The page to refer to.      */
 specifier|public
 name|void
 name|setDestination
@@ -684,7 +684,7 @@ name|dest
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method will attempt to find the page in this PDF document that this outline points to.      * If the outline does not point to anything then this method will return null.  If the outline      * is an action that is not a GoTo action then this methods will throw the OutlineNotLocationException      *       * @param doc The document to get the page from.      *       * @return The page that this outline will go to when activated or null if it does not point to anything.      * @throws IOException If there is an error when trying to find the page.      */
+comment|/**      * This method will attempt to find the page in this PDF document that this outline points to.      * If the outline does not point to anything then this method will return null.  If the outline      * is an action that is not a GoTo action then this methods will throw the OutlineNotLocationException      *      * @param doc The document to get the page from.      *      * @return The page that this outline will go to when activated or null if it does not point to anything.      * @throws IOException If there is an error when trying to find the page.      */
 specifier|public
 name|PDPage
 name|findDestinationPage
@@ -938,7 +938,7 @@ return|return
 name|page
 return|;
 block|}
-comment|/**      * Get the action of this node.      *       * @return The action of this node.      */
+comment|/**      * Get the action of this node.      *      * @return The action of this node.      */
 specifier|public
 name|PDAction
 name|getAction
@@ -961,7 +961,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the action for this node.      *       * @param action The new action for this node.      */
+comment|/**      * Set the action for this node.      *      * @param action The new action for this node.      */
 specifier|public
 name|void
 name|setAction
@@ -980,7 +980,7 @@ name|action
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the structure element of this node.      *       * @return The structure element of this node.      */
+comment|/**      * Get the structure element of this node.      *      * @return The structure element of this node.      */
 specifier|public
 name|PDStructureElement
 name|getStructureElement
@@ -1024,7 +1024,7 @@ return|return
 name|se
 return|;
 block|}
-comment|/**      * Set the structure element for this node.      *       * @param structureElement The new structure element for this node.      */
+comment|/**      * Set the structure element for this node.      *      * @param structureElement The new structure element for this node.      */
 specifier|public
 name|void
 name|setStructuredElement
@@ -1043,7 +1043,7 @@ name|structureElement
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the text color of this node.  Default is black and this method      * will never return null.      *       * @return The structure element of this node.      */
+comment|/**      * Get the text color of this node.  Default is black and this method      * will never return null.      *      * @return The structure element of this node.      */
 specifier|public
 name|PDColorSpaceInstance
 name|getTextColor
@@ -1124,7 +1124,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the text color for this node.  The colorspace must be a PDDeviceRGB.      *       * @param textColor The text color for this node.      */
+comment|/**      * Set the text color for this node.  The colorspace must be a PDDeviceRGB.      *      * @param textColor The text color for this node.      */
 specifier|public
 name|void
 name|setTextColor
@@ -1146,7 +1146,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the text color for this node.  The colorspace must be a PDDeviceRGB.      *       * @param textColor The text color for this node.      */
+comment|/**      * Set the text color for this node.  The colorspace must be a PDDeviceRGB.      *      * @param textColor The text color for this node.      */
 specifier|public
 name|void
 name|setTextColor
@@ -1220,7 +1220,7 @@ name|array
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A flag telling if the text should be italic.      *       * @return The italic flag.      */
+comment|/**      * A flag telling if the text should be italic.      *      * @return The italic flag.      */
 specifier|public
 name|boolean
 name|isItalic
@@ -1239,7 +1239,7 @@ name|ITALIC_FLAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the italic property of the text.      *       * @param italic The new italic flag.      */
+comment|/**      * Set the italic property of the text.      *      * @param italic The new italic flag.      */
 specifier|public
 name|void
 name|setItalic
@@ -1262,7 +1262,7 @@ name|italic
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A flag telling if the text should be bold.      *       * @return The bold flag.      */
+comment|/**      * A flag telling if the text should be bold.      *      * @return The bold flag.      */
 specifier|public
 name|boolean
 name|isBold
@@ -1281,7 +1281,7 @@ name|BOLD_FLAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the bold property of the text.      *       * @param bold The new bold flag.      */
+comment|/**      * Set the bold property of the text.      *      * @param bold The new bold flag.      */
 specifier|public
 name|void
 name|setBold

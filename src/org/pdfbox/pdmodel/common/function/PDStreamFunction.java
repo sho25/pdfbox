@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -135,7 +135,7 @@ name|function
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor to create a new blank function, should only be called by       * subclasses.      *       *  @param doc The document that this function is part of.      *  @param functionType An integer describing the function type, only 0,2,3,4      *  are defined by the PDF sepc.      */
+comment|/**      * Constructor to create a new blank function, should only be called by      * subclasses.      *      *  @param doc The document that this function is part of.      *  @param functionType An integer describing the function type, only 0,2,3,4      *  are defined by the PDF sepc.      */
 specifier|protected
 name|PDStreamFunction
 parameter_list|(
@@ -303,7 +303,7 @@ return|return
 name|rangeArray
 return|;
 block|}
-comment|/**      * This will get the number of output parameters that      * have a range specified.  A range for output parameters      * is optional so this may return zero for a function      * that does have output parameters, this will simply return the      * number that have the rnage specified.      *       * @return The number of input parameters that have a range      * specified.      */
+comment|/**      * This will get the number of output parameters that      * have a range specified.  A range for output parameters      * is optional so this may return zero for a function      * that does have output parameters, this will simply return the      * number that have the rnage specified.      *      * @return The number of input parameters that have a range      * specified.      */
 specifier|public
 name|int
 name|getNumberOfOutputParameters
@@ -418,7 +418,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the number of input parameters that      * have a domain specified.      *       * @return The number of input parameters that have a domain      * specified.      */
+comment|/**      * This will get the number of input parameters that      * have a domain specified.      *      * @return The number of input parameters that have a domain      * specified.      */
 specifier|public
 name|int
 name|getNumberOfInputParameters

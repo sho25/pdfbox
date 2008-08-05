@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -128,7 +128,7 @@ name|PDFunctionType0
 extends|extends
 name|PDStreamFunction
 block|{
-comment|/**      * Constructor to create a new blank type 0 function.      *       * @param doc The document that the function will be part of.      */
+comment|/**      * Constructor to create a new blank type 0 function.      *      * @param doc The document that the function will be part of.      */
 specifier|protected
 name|PDFunctionType0
 parameter_list|(
@@ -158,7 +158,7 @@ name|functionDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The "Size" entry, which is the number of samples in       * each input dimension of the sample table.      *       * @return A List of java.lang.Integer objects.      */
+comment|/**      * The "Size" entry, which is the number of samples in      * each input dimension of the sample table.      *      * @return A List of java.lang.Integer objects.      */
 specifier|public
 name|List
 name|getNumberOfSamples
@@ -204,7 +204,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the samples data, the "Size" entry in the type 0 function.      *       * @param samples The samples data.      */
+comment|/**      * Set the samples data, the "Size" entry in the type 0 function.      *      * @param samples The samples data.      */
 specifier|public
 name|void
 name|setNumberOfSamples
@@ -229,7 +229,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the number of bits that the output value will take up.  Valid values      * are 1,2,4,8,12,16,24,32.      *       * @return Number of bits for each output value.      */
+comment|/**      * Get the number of bits that the output value will take up.  Valid values      * are 1,2,4,8,12,16,24,32.      *      * @return Number of bits for each output value.      */
 specifier|public
 name|int
 name|getBitsPerSample
@@ -245,7 +245,7 @@ literal|"BitsPerSample"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of bits that the output value will take up.  Valid values      * are 1,2,4,8,12,16,24,32.      *       * @param bps The number of bits for each output value.      */
+comment|/**      * Set the number of bits that the output value will take up.  Valid values      * are 1,2,4,8,12,16,24,32.      *      * @param bps The number of bits for each output value.      */
 specifier|public
 name|void
 name|setBitsPerSample
@@ -265,7 +265,7 @@ name|bps
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the encode for the input parameter.      *       * @param paramNum The function parameter number.      *       * @return The encode parameter range or null if none is set.      */
+comment|/**      * Get the encode for the input parameter.      *      * @param paramNum The function parameter number.      *      * @return The encode parameter range or null if none is set.      */
 specifier|public
 name|PDRange
 name|getEncodeForParameter
@@ -326,7 +326,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the encode range for the param number.      *       * @param paramNum The parameter number to set then encode values.      *       * @param range The range value to set.      */
+comment|/**      * Set the encode range for the param number.      *      * @param paramNum The parameter number to set then encode values.      *      * @param range The range value to set.      */
 specifier|public
 name|void
 name|setEncodeForParameter
@@ -437,7 +437,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the decode for the input parameter.      *       * @param paramNum The function parameter number.      *       * @return The decode parameter range or null if none is set.      */
+comment|/**      * Get the decode for the input parameter.      *      * @param paramNum The function parameter number.      *      * @return The decode parameter range or null if none is set.      */
 specifier|public
 name|PDRange
 name|getDecodeForParameter
@@ -498,7 +498,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the decode range for the param number.      *       * @param paramNum The parameter number to set then decode values.      *       * @param range The range value to set.      */
+comment|/**      * Set the decode range for the param number.      *      * @param paramNum The parameter number to set then decode values.      *      * @param range The range value to set.      */
 specifier|public
 name|void
 name|setDecodeForParameter

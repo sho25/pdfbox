@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -108,7 +108,7 @@ name|PDEmbeddedFile
 extends|extends
 name|PDStream
 block|{
-comment|/**      * Constructor.      *       * @param document {@inheritDoc}      */
+comment|/**      * Constructor.      *      * @param document {@inheritDoc}      */
 specifier|public
 name|PDEmbeddedFile
 parameter_list|(
@@ -146,7 +146,7 @@ name|str
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param doc {@inheritDoc}      * @param str {@inheritDoc}      *       * @throws IOException {@inheritDoc}      */
+comment|/**      * Constructor.      *      * @param doc {@inheritDoc}      * @param str {@inheritDoc}      *      * @throws IOException {@inheritDoc}      */
 specifier|public
 name|PDEmbeddedFile
 parameter_list|(
@@ -177,7 +177,7 @@ literal|"EmbeddedFile"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param doc {@inheritDoc}      * @param str {@inheritDoc}      * @param filtered {@inheritDoc}      *       * @throws IOException {@inheritDoc}      */
+comment|/**      * Constructor.      *      * @param doc {@inheritDoc}      * @param str {@inheritDoc}      * @param filtered {@inheritDoc}      *      * @throws IOException {@inheritDoc}      */
 specifier|public
 name|PDEmbeddedFile
 parameter_list|(
@@ -213,7 +213,7 @@ literal|"EmbeddedFile"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the subtype for this embedded file.  This should be a mime type value.  Optional.      *       * @param mimeType The mimeType for the file.      */
+comment|/**      * Set the subtype for this embedded file.  This should be a mime type value.  Optional.      *      * @param mimeType The mimeType for the file.      */
 specifier|public
 name|void
 name|setSubtype
@@ -233,7 +233,7 @@ name|mimeType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the subtype(mimetype) for the embedded file.      *       * @return The type of embedded file.      */
+comment|/**      * Get the subtype(mimetype) for the embedded file.      *      * @return The type of embedded file.      */
 specifier|public
 name|String
 name|getSubtype
@@ -249,7 +249,7 @@ literal|"Subtype"
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the size of the embedded file.      *       * @return The size of the embedded file.      */
+comment|/**      * Get the size of the embedded file.      *      * @return The size of the embedded file.      */
 specifier|public
 name|int
 name|getSize
@@ -267,7 +267,7 @@ literal|"Size"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the size of the embedded file.      *       * @param size The size of the embedded file.      */
+comment|/**      * Set the size of the embedded file.      *      * @param size The size of the embedded file.      */
 specifier|public
 name|void
 name|setSize
@@ -289,7 +289,7 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the creation date of the embedded file.      *       * @return The Creation date.      * @throws IOException If there is an error while constructing the date.      */
+comment|/**      * Get the creation date of the embedded file.      *      * @return The Creation date.      * @throws IOException If there is an error while constructing the date.      */
 specifier|public
 name|Calendar
 name|getCreationDate
@@ -309,7 +309,7 @@ literal|"CreationDate"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the creation date.      *       * @param creation The new creation date.      */
+comment|/**      * Set the creation date.      *      * @param creation The new creation date.      */
 specifier|public
 name|void
 name|setCreationDate
@@ -331,7 +331,7 @@ name|creation
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the mod date of the embedded file.      *       * @return The mod date.      * @throws IOException If there is an error while constructing the date.      */
+comment|/**      * Get the mod date of the embedded file.      *      * @return The mod date.      * @throws IOException If there is an error while constructing the date.      */
 specifier|public
 name|Calendar
 name|getModDate
@@ -351,7 +351,7 @@ literal|"ModDate"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the mod date.      *       * @param mod The new creation mod.      */
+comment|/**      * Set the mod date.      *      * @param mod The new creation mod.      */
 specifier|public
 name|void
 name|setModDate
@@ -373,7 +373,7 @@ name|mod
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the check sum of the embedded file.      *       * @return The check sum of the file.      */
+comment|/**      * Get the check sum of the embedded file.      *      * @return The check sum of the file.      */
 specifier|public
 name|String
 name|getCheckSum
@@ -391,7 +391,7 @@ literal|"CheckSum"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the check sum.      *       * @param checksum The checksum of the file.      */
+comment|/**      * Set the check sum.      *      * @param checksum The checksum of the file.      */
 specifier|public
 name|void
 name|setCheckSum
@@ -413,7 +413,7 @@ name|checksum
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the mac subtype.      *       * @return The mac subtype.      */
+comment|/**      * Get the mac subtype.      *      * @return The mac subtype.      */
 specifier|public
 name|String
 name|getMacSubtype
@@ -461,7 +461,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the mac subtype.      *       * @param macSubtype The mac subtype.      */
+comment|/**      * Set the mac subtype.      *      * @param macSubtype The mac subtype.      */
 specifier|public
 name|void
 name|setMacSubtype
@@ -532,7 +532,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the mac Creator.      *       * @return The mac Creator.      */
+comment|/**      * Get the mac Creator.      *      * @return The mac Creator.      */
 specifier|public
 name|String
 name|getMacCreator
@@ -580,7 +580,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the mac Creator.      *       * @param macCreator The mac Creator.      */
+comment|/**      * Set the mac Creator.      *      * @param macCreator The mac Creator.      */
 specifier|public
 name|void
 name|setMacCreator
@@ -651,7 +651,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the mac ResFork.      *       * @return The mac ResFork.      */
+comment|/**      * Get the mac ResFork.      *      * @return The mac ResFork.      */
 specifier|public
 name|String
 name|getMacResFork
@@ -699,7 +699,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the mac ResFork.      *       * @param macResFork The mac ResFork.      */
+comment|/**      * Set the mac ResFork.      *      * @param macResFork The mac ResFork.      */
 specifier|public
 name|void
 name|setMacResFork

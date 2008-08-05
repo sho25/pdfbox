@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -28,7 +28,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements different PNG predictor algorithms that is used in PDF files.  *   * @author xylifyx@yahoo.co.uk  * @version $Revision: 1.4 $  * @see<a href="http://www.w3.org/TR/PNG-Filters.html">PNG Filters</a>  */
+comment|/**  * Implements different PNG predictor algorithms that is used in PDF files.  *  * @author xylifyx@yahoo.co.uk  * @version $Revision: 1.4 $  * @see<a href="http://www.w3.org/TR/PNG-Filters.html">PNG Filters</a>  */
 end_comment
 
 begin_class
@@ -49,7 +49,7 @@ specifier|private
 name|int
 name|bpp
 decl_stmt|;
-comment|/**      * check that buffer sizes matches width,height,bpp. This implementation is      * used by most of the filters, but not Uptimum.      *       * @param src The source buffer.      * @param dest The destination buffer.      */
+comment|/**      * check that buffer sizes matches width,height,bpp. This implementation is      * used by most of the filters, but not Uptimum.      *      * @param src The source buffer.      * @param dest The destination buffer.      */
 specifier|public
 name|void
 name|checkBufsiz
@@ -107,7 +107,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * encode line of pixel data in src from srcOffset and width*bpp bytes      * forward, put the decoded bytes into dest.      *       * @param src      *            raw image data      * @param dest      *            encoded data      * @param srcDy      *            byte offset between lines      * @param srcOffset      *            beginning of line data      * @param destDy      *            byte offset between lines      * @param destOffset      *            beginning of line data      */
+comment|/**      * encode line of pixel data in src from srcOffset and width*bpp bytes      * forward, put the decoded bytes into dest.      *      * @param src      *            raw image data      * @param dest      *            encoded data      * @param srcDy      *            byte offset between lines      * @param srcOffset      *            beginning of line data      * @param destDy      *            byte offset between lines      * @param destOffset      *            beginning of line data      */
 specifier|public
 specifier|abstract
 name|void
@@ -134,7 +134,7 @@ name|int
 name|destOffset
 parameter_list|)
 function_decl|;
-comment|/**      * decode line of pixel data in src from src_offset and width*bpp bytes      * forward, put the decoded bytes into dest.      *       * @param src      *            encoded image data      * @param dest      *            raw data      * @param srcDy      *            byte offset between lines      * @param srcOffset      *            beginning of line data      * @param destDy      *            byte offset between lines      * @param destOffset      *            beginning of line data      */
+comment|/**      * decode line of pixel data in src from src_offset and width*bpp bytes      * forward, put the decoded bytes into dest.      *      * @param src      *            encoded image data      * @param dest      *            raw data      * @param srcDy      *            byte offset between lines      * @param srcOffset      *            beginning of line data      * @param destDy      *            byte offset between lines      * @param destOffset      *            beginning of line data      */
 specifier|public
 specifier|abstract
 name|void
@@ -161,7 +161,7 @@ name|int
 name|destOffset
 parameter_list|)
 function_decl|;
-comment|/**      * Simple command line program to test the algorithm.      *       * @param args The command line arguments.      */
+comment|/**      * Simple command line program to test the algorithm.      *      * @param args The command line arguments.      */
 specifier|public
 specifier|static
 name|void
@@ -343,7 +343,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the left pixel from the buffer.      *       * @param buf The buffer.      * @param offset The offset into the buffer.      * @param dy The dy value.      * @param x The x value.      *       * @return The left pixel.      */
+comment|/**      * Get the left pixel from the buffer.      *      * @param buf The buffer.      * @param offset The offset into the buffer.      * @param dy The dy value.      * @param x The x value.      *      * @return The left pixel.      */
 specifier|public
 name|int
 name|leftPixel
@@ -381,7 +381,7 @@ else|:
 literal|0
 return|;
 block|}
-comment|/**      * Get the above pixel from the buffer.      *       * @param buf The buffer.      * @param offset The offset into the buffer.      * @param dy The dy value.      * @param x The x value.      *       * @return The above pixel.      */
+comment|/**      * Get the above pixel from the buffer.      *      * @param buf The buffer.      * @param offset The offset into the buffer.      * @param dy The dy value.      * @param x The x value.      *      * @return The above pixel.      */
 specifier|public
 name|int
 name|abovePixel
@@ -417,7 +417,7 @@ else|:
 literal|0
 return|;
 block|}
-comment|/**      * Get the above-left pixel from the buffer.      *       * @param buf The buffer.      * @param offset The offset into the buffer.      * @param dy The dy value.      * @param x The x value.      *       * @return The above-left pixel.      */
+comment|/**      * Get the above-left pixel from the buffer.      *      * @param buf The buffer.      * @param offset The offset into the buffer.      * @param dy The dy value.      * @param x The x value.      *      * @return The above-left pixel.      */
 specifier|public
 name|int
 name|aboveLeftPixel
@@ -461,7 +461,7 @@ else|:
 literal|0
 return|;
 block|}
-comment|/**      * Simple helper to print out a buffer.      *       * @param raw The bytes to print out.      */
+comment|/**      * Simple helper to print out a buffer.      *      * @param raw The bytes to print out.      */
 specifier|private
 specifier|static
 name|void
@@ -586,7 +586,7 @@ operator|=
 name|newWidth
 expr_stmt|;
 block|}
-comment|/**      * encode a byte array full of image data using the filter that this object      * implements.      *       * @param src      *            buffer      * @param dest      *            buffer      */
+comment|/**      * encode a byte array full of image data using the filter that this object      * implements.      *      * @param src      *            buffer      * @param dest      *            buffer      */
 specifier|public
 name|void
 name|encode
@@ -655,7 +655,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * decode a byte array full of image data using the filter that this object      * implements.      *       * @param src      *            buffer      * @param dest      *            buffer      */
+comment|/**      * decode a byte array full of image data using the filter that this object      * implements.      *      * @param src      *            buffer      * @param dest      *            buffer      */
 specifier|public
 name|void
 name|decode
@@ -722,7 +722,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @param predictor      *<ul>      *<li>1 No prediction (the default value)      *<li>2 TIFF Predictor 2      *<li>10 PNG prediction (on encoding, PNG None on all rows)      *<li>11 PNG prediction (on encoding, PNG Sub on all rows)      *<li>12 PNG prediction (on encoding, PNG Up on all rows)      *<li>13 PNG prediction (on encoding, PNG Average on all rows)      *<li>14 PNG prediction (on encoding, PNG Paeth on all rows)      *<li>15 PNG prediction (on encoding, PNG optimum)      *</ul>      *       * @return The predictor class based on the predictor code.      */
+comment|/**      * @param predictor      *<ul>      *<li>1 No prediction (the default value)      *<li>2 TIFF Predictor 2      *<li>10 PNG prediction (on encoding, PNG None on all rows)      *<li>11 PNG prediction (on encoding, PNG Sub on all rows)      *<li>12 PNG prediction (on encoding, PNG Up on all rows)      *<li>13 PNG prediction (on encoding, PNG Average on all rows)      *<li>14 PNG prediction (on encoding, PNG Paeth on all rows)      *<li>15 PNG prediction (on encoding, PNG optimum)      *</ul>      *      * @return The predictor class based on the predictor code.      */
 specifier|public
 specifier|static
 name|PredictorAlgorithm

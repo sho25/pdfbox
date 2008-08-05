@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -136,7 +136,7 @@ return|return
 name|thread
 return|;
 block|}
-comment|/**      * Get info about the thread, or null if there is nothing.      *       * @return The thread information.      */
+comment|/**      * Get info about the thread, or null if there is nothing.      *      * @return The thread information.      */
 specifier|public
 name|PDDocumentInformation
 name|getThreadInfo
@@ -180,7 +180,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the thread info, can be null.      *       * @param info The info dictionary about this thread.      */
+comment|/**      * Set the thread info, can be null.      *      * @param info The info dictionary about this thread.      */
 specifier|public
 name|void
 name|setThreadInfo
@@ -199,7 +199,7 @@ name|info
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the first bead in the thread, or null if it has not been set yet.  This      * is a required field for this object.      *       * @return The first bead in the thread.      */
+comment|/**      * Get the first bead in the thread, or null if it has not been set yet.  This      * is a required field for this object.      *      * @return The first bead in the thread.      */
 specifier|public
 name|PDThreadBead
 name|getFirstBead
@@ -243,7 +243,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the first bead in the thread.  When this is set it will      * also set the thread property of the bead object.        *       * @param bead The first bead in the thread.      */
+comment|/**      * This will set the first bead in the thread.  When this is set it will      * also set the thread property of the bead object.      *      * @param bead The first bead in the thread.      */
 specifier|public
 name|void
 name|setFirstBead

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The base class for all XObjects in the PDF document.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @author Marcel Kammer  * @version $Revision: 1.14 $  */
+comment|/**  * The base class for all XObjects in the PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @author Marcel Kammer  * @version $Revision: 1.14 $  */
 end_comment
 
 begin_class
@@ -143,7 +143,7 @@ specifier|private
 name|PDStream
 name|xobject
 decl_stmt|;
-comment|/**      * Standard constuctor.       *       * @param xobj The XObject dictionary.      */
+comment|/**      * Standard constuctor.      *      * @param xobj The XObject dictionary.      */
 specifier|public
 name|PDXObject
 parameter_list|(
@@ -174,7 +174,7 @@ literal|"XObject"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Standard constuctor.       *       * @param xobj The XObject dictionary.      */
+comment|/**      * Standard constuctor.      *      * @param xobj The XObject dictionary.      */
 specifier|public
 name|PDXObject
 parameter_list|(
@@ -201,7 +201,7 @@ literal|"XObject"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Standard constuctor.       *       * @param doc The doc to store the object contents.      */
+comment|/**      * Standard constuctor.      *      * @param doc The doc to store the object contents.      */
 specifier|public
 name|PDXObject
 parameter_list|(
@@ -232,7 +232,7 @@ literal|"XObject"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the stream.       *       * {@inheritDoc}      */
+comment|/**      * Returns the stream.      *      * {@inheritDoc}      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -245,7 +245,7 @@ name|getCOSObject
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the stream.       * @return The stream for this object.      */
+comment|/**      * Returns the stream.      * @return The stream for this object.      */
 specifier|public
 name|COSStream
 name|getCOSStream
@@ -258,7 +258,7 @@ name|getStream
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the stream.       * @return The stream for this object.      */
+comment|/**      * Returns the stream.      * @return The stream for this object.      */
 specifier|public
 name|PDStream
 name|getPDStream
@@ -268,7 +268,7 @@ return|return
 name|xobject
 return|;
 block|}
-comment|/**      * Create the correct xobject from the cos base.      *       * @param xobject The cos level xobject to create.      *       * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
+comment|/**      * Create the correct xobject from the cos base.      *      * @param xobject The cos level xobject to create.      *      * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
 specifier|public
 specifier|static
 name|PDXObject
@@ -514,7 +514,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Get the metadata that is part of the document catalog.  This will       * return null if there is no meta data for this object.      *       * @return The metadata for this object.      */
+comment|/**      * Get the metadata that is part of the document catalog.  This will      * return null if there is no meta data for this object.      *      * @return The metadata for this object.      */
 specifier|public
 name|PDMetadata
 name|getMetadata
@@ -561,7 +561,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the metadata for this object.  This can be null.      *       * @param meta The meta data for this object.      */
+comment|/**      * Set the metadata for this object.  This can be null.      *      * @param meta The meta data for this object.      */
 specifier|public
 name|void
 name|setMetadata

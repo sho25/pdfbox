@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -296,7 +296,7 @@ specifier|private
 name|COSDictionary
 name|dictionary
 decl_stmt|;
-comment|/**      * Create the correct annotation from the base COS object.      *       * @param base The COS object that is the annotation.      * @return The correctly typed annotation object.      * @throws IOException If there is an error while creating the annotation.      */
+comment|/**      * Create the correct annotation from the base COS object.      *      * @param base The COS object that is the annotation.      * @return The correctly typed annotation object.      * @throws IOException If there is an error while creating the annotation.      */
 specifier|public
 specifier|static
 name|PDAnnotation
@@ -623,7 +623,7 @@ return|return
 name|annot
 return|;
 block|}
-comment|/**       * Constructor.      */
+comment|/**      * Constructor.      */
 specifier|public
 name|PDAnnotation
 parameter_list|()
@@ -995,7 +995,7 @@ name|ap
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the invisible flag.      *       * @return The invisible flag.      */
+comment|/**      * Get the invisible flag.      *      * @return The invisible flag.      */
 specifier|public
 name|boolean
 name|isInvisible
@@ -1015,7 +1015,7 @@ name|FLAG_INVISIBLE
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the invisible flag.      *       * @param invisible The new invisible flag.      */
+comment|/**      * Set the invisible flag.      *      * @param invisible The new invisible flag.      */
 specifier|public
 name|void
 name|setInvisible
@@ -1039,7 +1039,7 @@ name|invisible
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the hidden flag.      *       * @return The hidden flag.      */
+comment|/**      * Get the hidden flag.      *      * @return The hidden flag.      */
 specifier|public
 name|boolean
 name|isHidden
@@ -1059,7 +1059,7 @@ name|FLAG_HIDDEN
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the hidden flag.      *       * @param hidden The new hidden flag.      */
+comment|/**      * Set the hidden flag.      *      * @param hidden The new hidden flag.      */
 specifier|public
 name|void
 name|setHidden
@@ -1083,7 +1083,7 @@ name|hidden
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the printed flag.      *       * @return The printed flag.      */
+comment|/**      * Get the printed flag.      *      * @return The printed flag.      */
 specifier|public
 name|boolean
 name|isPrinted
@@ -1103,7 +1103,7 @@ name|FLAG_PRINTED
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the printed flag.      *       * @param printed The new printed flag.      */
+comment|/**      * Set the printed flag.      *      * @param printed The new printed flag.      */
 specifier|public
 name|void
 name|setPrinted
@@ -1127,7 +1127,7 @@ name|printed
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the noZoom flag.      *       * @return The noZoom flag.      */
+comment|/**      * Get the noZoom flag.      *      * @return The noZoom flag.      */
 specifier|public
 name|boolean
 name|isNoZoom
@@ -1147,7 +1147,7 @@ name|FLAG_NO_ZOOM
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the noZoom flag.      *       * @param noZoom The new noZoom flag.      */
+comment|/**      * Set the noZoom flag.      *      * @param noZoom The new noZoom flag.      */
 specifier|public
 name|void
 name|setNoZoom
@@ -1171,7 +1171,7 @@ name|noZoom
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the noRotate flag.      *       * @return The noRotate flag.      */
+comment|/**      * Get the noRotate flag.      *      * @return The noRotate flag.      */
 specifier|public
 name|boolean
 name|isNoRotate
@@ -1191,7 +1191,7 @@ name|FLAG_NO_ROTATE
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the noRotate flag.      *       * @param noRotate The new noRotate flag.      */
+comment|/**      * Set the noRotate flag.      *      * @param noRotate The new noRotate flag.      */
 specifier|public
 name|void
 name|setNoRotate
@@ -1215,7 +1215,7 @@ name|noRotate
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the noView flag.      *       * @return The noView flag.      */
+comment|/**      * Get the noView flag.      *      * @return The noView flag.      */
 specifier|public
 name|boolean
 name|isNoView
@@ -1235,7 +1235,7 @@ name|FLAG_NO_VIEW
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the noView flag.      *       * @param noView The new noView flag.      */
+comment|/**      * Set the noView flag.      *      * @param noView The new noView flag.      */
 specifier|public
 name|void
 name|setNoView
@@ -1259,7 +1259,7 @@ name|noView
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the readOnly flag.      *       * @return The readOnly flag.      */
+comment|/**      * Get the readOnly flag.      *      * @return The readOnly flag.      */
 specifier|public
 name|boolean
 name|isReadOnly
@@ -1279,7 +1279,7 @@ name|FLAG_READ_ONLY
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the readOnly flag.      *       * @param readOnly The new readOnly flag.      */
+comment|/**      * Set the readOnly flag.      *      * @param readOnly The new readOnly flag.      */
 specifier|public
 name|void
 name|setReadOnly
@@ -1303,7 +1303,7 @@ name|readOnly
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the locked flag.      *       * @return The locked flag.      */
+comment|/**      * Get the locked flag.      *      * @return The locked flag.      */
 specifier|public
 name|boolean
 name|isLocked
@@ -1323,7 +1323,7 @@ name|FLAG_LOCKED
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the locked flag.      *       * @param locked The new locked flag.      */
+comment|/**      * Set the locked flag.      *      * @param locked The new locked flag.      */
 specifier|public
 name|void
 name|setLocked
@@ -1347,7 +1347,7 @@ name|locked
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the toggleNoView flag.      *       * @return The toggleNoView flag.      */
+comment|/**      * Get the toggleNoView flag.      *      * @return The toggleNoView flag.      */
 specifier|public
 name|boolean
 name|isToggleNoView
@@ -1367,7 +1367,7 @@ name|FLAG_TOGGLE_NO_VIEW
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the toggleNoView flag.      *       * @param toggleNoView The new toggleNoView flag.      */
+comment|/**      * Set the toggleNoView flag.      *      * @param toggleNoView The new toggleNoView flag.      */
 specifier|public
 name|void
 name|setToggleNoView
@@ -1391,7 +1391,7 @@ name|toggleNoView
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the action to be performed when this annotation is to be activated.      *       * @return The action to be performed when this annotation is activated.      *       * @throws IOException If there is an error creating the action.      */
+comment|/**      * Get the action to be performed when this annotation is to be activated.      *      * @return The action to be performed when this annotation is activated.      *      * @throws IOException If there is an error creating the action.      */
 specifier|public
 name|PDAction
 name|getAction
@@ -1424,7 +1424,7 @@ name|action
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the annotation action.      * As of PDF 1.6 this is only used for Widget Annotations       * @param action The annotation action.      */
+comment|/**      * Set the annotation action.      * As of PDF 1.6 this is only used for Widget Annotations      * @param action The annotation action.      */
 specifier|public
 name|void
 name|setAction
@@ -1446,7 +1446,7 @@ name|action
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the additional actions for this field.  This will return null      * if there are no additional actions for this field.      * As of PDF 1.6 this is only used for Widget Annotations.      *       * @return The actions of the field.      */
+comment|/**      * Get the additional actions for this field.  This will return null      * if there are no additional actions for this field.      * As of PDF 1.6 this is only used for Widget Annotations.      *      * @return The actions of the field.      */
 specifier|public
 name|PDAnnotationAdditionalActions
 name|getActions
@@ -1490,7 +1490,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the actions of the field.      *       * @param actions The field actions.      */
+comment|/**      * Set the actions of the field.      *      * @param actions The field actions.      */
 specifier|public
 name|void
 name|setActions
@@ -1509,7 +1509,7 @@ name|actions
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the "contents" of the field.      *       * @return the value of the contents.      */
+comment|/**      * Get the "contents" of the field.      *      * @return the value of the contents.      */
 specifier|public
 name|String
 name|getContents
@@ -1526,7 +1526,7 @@ name|CONTENTS
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the "contents" of the field.      *       * @param value the value of the contents.      */
+comment|/**      * Set the "contents" of the field.      *      * @param value the value of the contents.      */
 specifier|public
 name|void
 name|setContents
@@ -1547,7 +1547,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the border style dictionary, specifying the width and dash      * pattern used in drawing the line.      *       * @param bs the border style dictionary to set.      *       */
+comment|/**      * This will set the border style dictionary, specifying the width and dash      * pattern used in drawing the line.      *      * @param bs the border style dictionary to set.      *      */
 specifier|public
 name|void
 name|setBorderStyle
@@ -1567,7 +1567,7 @@ name|bs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border style dictionary, specifying the width and      * dash pattern used in drawing the line.      *       * @return the border style dictionary.      */
+comment|/**      * This will retrieve the border style dictionary, specifying the width and      * dash pattern used in drawing the line.      *      * @return the border style dictionary.      */
 specifier|public
 name|PDBorderStyleDictionary
 name|getBoderStyle
@@ -1614,7 +1614,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * This will retrieve the date and time the annotation was modified.      *       * @return the modified date/time (often in date format, but can be an arbitary string).      */
+comment|/**      * This will retrieve the date and time the annotation was modified.      *      * @return the modified date/time (often in date format, but can be an arbitary string).      */
 specifier|public
 name|String
 name|getModifiedDate
@@ -1630,7 +1630,7 @@ literal|"M"
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the the date and time the annotation was modified.      *       * @param m      *            the date and time the annotation was created.      */
+comment|/**      * This will set the the date and time the annotation was modified.      *      * @param m      *            the date and time the annotation was created.      */
 specifier|public
 name|void
 name|setModifiedDate
@@ -1650,7 +1650,7 @@ name|m
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the name, a string intended to uniquely identify each annotatoin      * within a page. Not to be confused with some annotations Name entry which       * impact the default image drawn for them.      *       * @return The identifying name for the Annotion.      */
+comment|/**      * This will get the name, a string intended to uniquely identify each annotatoin      * within a page. Not to be confused with some annotations Name entry which      * impact the default image drawn for them.      *      * @return The identifying name for the Annotion.      */
 specifier|public
 name|String
 name|getAnnotationName
@@ -1666,7 +1666,7 @@ literal|"NM"
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the name, a string intended to uniquely identify each annotatoin      * within a page. Not to be confused with some annotations Name entry which       * impact the default image drawn for them.      *      * @param nm The identifying name for the annotation.      */
+comment|/**      * This will set the name, a string intended to uniquely identify each annotatoin      * within a page. Not to be confused with some annotations Name entry which      * impact the default image drawn for them.      *      * @param nm The identifying name for the annotation.      */
 specifier|public
 name|void
 name|setAnnotationName
@@ -1686,7 +1686,7 @@ name|nm
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the colour used in drawing various elements.      * As of PDF 1.6 these are : Background of icon when closed      *                           Title bar of popup window      *                           Border of a link annotation      *                * Colour is in DeviceRGB colourspace      *       * @param c      *            colour in the DeviceRGB colourspace      *       */
+comment|/**      * This will set the colour used in drawing various elements.      * As of PDF 1.6 these are : Background of icon when closed      *                           Title bar of popup window      *                           Border of a link annotation      *      * Colour is in DeviceRGB colourspace      *      * @param c      *            colour in the DeviceRGB colourspace      *      */
 specifier|public
 name|void
 name|setColour
@@ -1706,7 +1706,7 @@ name|c
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the colour used in drawing various elements.      * As of PDF 1.6 these are : Background of icon when closed      *                           Title bar of popup window      *                           Border of a link annotation      *                * Colour is in DeviceRGB colourspace      *       * @return PDGamma object representing the colour      *       */
+comment|/**      * This will retrieve the colour used in drawing various elements.      * As of PDF 1.6 these are : Background of icon when closed      *                           Title bar of popup window      *                           Border of a link annotation      *      * Colour is in DeviceRGB colourspace      *      * @return PDGamma object representing the colour      *      */
 specifier|public
 name|PDGamma
 name|getColour

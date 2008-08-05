@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -64,7 +64,7 @@ name|str
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will create a new PDStream object.      *       * @param document The document that the stream will be part of.      * @return A new stream object.      */
+comment|/**      * This will create a new PDStream object.      *      * @param document The document that the stream will be part of.      * @return A new stream object.      */
 specifier|public
 specifier|static
 name|PDObjectStream
@@ -114,7 +114,7 @@ return|return
 name|strm
 return|;
 block|}
-comment|/**      * Get the type of this object, should always return "ObjStm".      *       * @return The type of this object.      */
+comment|/**      * Get the type of this object, should always return "ObjStm".      *      * @return The type of this object.      */
 specifier|public
 name|String
 name|getType
@@ -130,7 +130,7 @@ literal|"Type"
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the number of compressed object.      *       * @return The number of compressed objects.      */
+comment|/**      * Get the number of compressed object.      *      * @return The number of compressed objects.      */
 specifier|public
 name|int
 name|getNumberOfObjects
@@ -148,7 +148,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of objects.      *       * @param n The new number of objects.      */
+comment|/**      * Set the number of objects.      *      * @param n The new number of objects.      */
 specifier|public
 name|void
 name|setNumberOfObjects
@@ -168,7 +168,7 @@ name|n
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The byte offset (in the decoded stream) of the first compressed object.      *       * @return The byte offset to the first object.      */
+comment|/**      * The byte offset (in the decoded stream) of the first compressed object.      *      * @return The byte offset to the first object.      */
 specifier|public
 name|int
 name|getFirstByteOffset
@@ -186,7 +186,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * The byte offset (in the decoded stream) of the first compressed object.      *       * @param n The byte offset to the first object.      */
+comment|/**      * The byte offset (in the decoded stream) of the first compressed object.      *      * @param n The byte offset to the first object.      */
 specifier|public
 name|void
 name|setFirstByteOffset
@@ -206,7 +206,7 @@ name|n
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A reference to an object stream, of which the current object stream is       * considered an extension.      *       * @return The object that this stream is an extension.      */
+comment|/**      * A reference to an object stream, of which the current object stream is      * considered an extension.      *      * @return The object that this stream is an extension.      */
 specifier|public
 name|PDObjectStream
 name|getExtends
@@ -251,7 +251,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * A reference to an object stream, of which the current object stream is      * considered an extension.      *       * @param stream The object stream extension.      */
+comment|/**      * A reference to an object stream, of which the current object stream is      * considered an extension.      *      * @param stream The object stream extension.      */
 specifier|public
 name|void
 name|setExtends

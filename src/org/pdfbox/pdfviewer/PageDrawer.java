@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -350,7 +350,7 @@ operator|new
 name|GeneralPath
 argument_list|()
 decl_stmt|;
-comment|/**      * Default constructor, loads properties from file.      *       * @throws IOException If there is an error loading properties from the file.      */
+comment|/**      * Default constructor, loads properties from file.      *      * @throws IOException If there is an error loading properties from the file.      */
 specifier|public
 name|PageDrawer
 parameter_list|()
@@ -617,7 +617,7 @@ comment|// 1 - Translate
 comment|// 2 - Rotate
 comment|// 3 - Scale
 comment|// Refer to PDFReference p176 (or 188 in xpdf)
-comment|/*AffineTransform transform = graphics.getTransform();                 transform.setToTranslation( 0, page.findMediaBox().getHeight()/2 );         transform.setToRotation((double)p.getRotation());         transform.setTransform( 1, 0, 0, 1, 0, 0 );                 transform.setToScale( 1, 1 );                  AffineTransform rotation = graphics.getTransform();         rotation.rotate( (page.findRotation() * Math.PI) / 180d );         graphics.setTransform( rotation );*/
+comment|/*AffineTransform transform = graphics.getTransform();         transform.setToTranslation( 0, page.findMediaBox().getHeight()/2 );         transform.setToRotation((double)p.getRotation());         transform.setTransform( 1, 0, 0, 1, 0, 0 );         transform.setToScale( 1, 1 );          AffineTransform rotation = graphics.getTransform();         rotation.rotate( (page.findRotation() * Math.PI) / 180d );         graphics.setTransform( rotation );*/
 block|}
 comment|/**      * You should override this method if you want to perform an action when a      * string is being shown.      *      * @param text The string to display.      */
 specifier|protected
@@ -766,7 +766,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the graphics that we are currently drawing on.      *       * @return The graphics we are drawing on.      */
+comment|/**      * Get the graphics that we are currently drawing on.      *      * @return The graphics we are drawing on.      */
 specifier|public
 name|Graphics2D
 name|getGraphics
@@ -776,7 +776,7 @@ return|return
 name|graphics
 return|;
 block|}
-comment|/**      * Get the page that is currently being drawn.      *       * @return The page that is being drawn.      */
+comment|/**      * Get the page that is currently being drawn.      *      * @return The page that is being drawn.      */
 specifier|public
 name|PDPage
 name|getPage
@@ -786,7 +786,7 @@ return|return
 name|page
 return|;
 block|}
-comment|/**      * Get the size of the page that is currently being drawn.      *       * @return The size of the page that is being drawn.      */
+comment|/**      * Get the size of the page that is currently being drawn.      *      * @return The size of the page that is being drawn.      */
 specifier|public
 name|Dimension
 name|getPageSize
@@ -796,7 +796,7 @@ return|return
 name|pageSize
 return|;
 block|}
-comment|/**      * Fix the y coordinate based on page rotation.      *       * @param x The x coordinate.      * @param y The y coordinate.      * @return The updated y coordinate.      */
+comment|/**      * Fix the y coordinate based on page rotation.      *      * @param x The x coordinate.      * @param y The y coordinate.      * @return The updated y coordinate.      */
 specifier|public
 name|double
 name|fixY
@@ -817,7 +817,7 @@ operator|-
 name|y
 return|;
 block|}
-comment|/**      * Get the current line path to be drawn.      *       * @return The current line path to be drawn.      */
+comment|/**      * Get the current line path to be drawn.      *      * @return The current line path to be drawn.      */
 specifier|public
 name|GeneralPath
 name|getLinePath
@@ -827,7 +827,7 @@ return|return
 name|linePath
 return|;
 block|}
-comment|/**      * Set the line path to draw.      *       * @param newLinePath Set the line path to draw.      */
+comment|/**      * Set the line path to draw.      *      * @param newLinePath Set the line path to draw.      */
 specifier|public
 name|void
 name|setLinePath
@@ -868,7 +868,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the current list of line paths to be drawn.      *       * @return The current list of line paths to be drawn.      */
+comment|/**      * Get the current list of line paths to be drawn.      *      * @return The current list of line paths to be drawn.      */
 specifier|public
 name|List
 name|getLineSubPaths
@@ -878,7 +878,7 @@ return|return
 name|lineSubPaths
 return|;
 block|}
-comment|/**      * Set the list of line paths to draw.      *       * @param newLineSubPaths Set the list of line paths to draw.      */
+comment|/**      * Set the list of line paths to draw.      *      * @param newLineSubPaths Set the list of line paths to draw.      */
 specifier|public
 name|void
 name|setLineSubPaths
@@ -892,7 +892,7 @@ operator|=
 name|newLineSubPaths
 expr_stmt|;
 block|}
-comment|/**      *      * Fill the path      *       * @param windingRule The winding rule this path will use.      */
+comment|/**      *      * Fill the path      *      * @param windingRule The winding rule this path will use.      */
 specifier|public
 name|void
 name|fillPath

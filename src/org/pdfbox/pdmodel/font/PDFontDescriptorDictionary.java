@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -1135,7 +1135,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A stream containing a Type 1 font program.      *       * @return A stream containing a Type 1 font program.      */
+comment|/**      * A stream containing a Type 1 font program.      *      * @return A stream containing a Type 1 font program.      */
 specifier|public
 name|PDStream
 name|getFontFile
@@ -1179,7 +1179,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the type 1 font program.      *       * @param type1Stream The type 1 stream.      */
+comment|/**      * Set the type 1 font program.      *      * @param type1Stream The type 1 stream.      */
 specifier|public
 name|void
 name|setFontFile
@@ -1198,7 +1198,7 @@ name|type1Stream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A stream containing a true type font program.      *       * @return A stream containing a true type font program.      */
+comment|/**      * A stream containing a true type font program.      *      * @return A stream containing a true type font program.      */
 specifier|public
 name|PDStream
 name|getFontFile2
@@ -1242,7 +1242,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the true type font program.      *       * @param ttfStream The true type stream.      */
+comment|/**      * Set the true type font program.      *      * @param ttfStream The true type stream.      */
 specifier|public
 name|void
 name|setFontFile2
@@ -1261,7 +1261,7 @@ name|ttfStream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A stream containing a font program that is not true type or type 1.      *       * @return A stream containing a font program.      */
+comment|/**      * A stream containing a font program that is not true type or type 1.      *      * @return A stream containing a font program.      */
 specifier|public
 name|PDStream
 name|getFontFile3
@@ -1305,7 +1305,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set a stream containing a font program that is not true type or type 1.      *       * @param stream The font program stream.      */
+comment|/**      * Set a stream containing a font program that is not true type or type 1.      *      * @param stream The font program stream.      */
 specifier|public
 name|void
 name|setFontFile3

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -248,7 +248,7 @@ operator|=
 name|a
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param element An XFDF element.      *       * @throws IOException If there is an error extracting data from the element.      */
+comment|/**      * Constructor.      *      * @param element An XFDF element.      *      * @throws IOException If there is an error extracting data from the element.      */
 specifier|public
 name|FDFAnnotation
 parameter_list|(
@@ -762,7 +762,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create the correct FDFAnnotation.      *       * @param fdfDic The FDF dictionary.      *       * @return A newly created FDFAnnotation      *       * @throws IOException If there is an error accessing the FDF information.      */
+comment|/**      * Create the correct FDFAnnotation.      *      * @param fdfDic The FDF dictionary.      *      * @return A newly created FDFAnnotation      *      * @throws IOException If there is an error accessing the FDF information.      */
 specifier|public
 specifier|static
 name|FDFAnnotation
@@ -932,7 +932,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the annotation color.      *       * @return The annotation color, or null if there is none.      */
+comment|/**      * Get the annotation color.      *      * @return The annotation color, or null if there is none.      */
 specifier|public
 name|Color
 name|getColor
@@ -1008,7 +1008,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the annotation color.      *       * @param c The annotation color.      */
+comment|/**      * Set the annotation color.      *      * @param c The annotation color.      */
 specifier|public
 name|void
 name|setColor
@@ -1064,7 +1064,7 @@ name|color
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Modification date.      *       * @return The date as a string.      */
+comment|/**      * Modification date.      *      * @return The date as a string.      */
 specifier|public
 name|String
 name|getDate
@@ -1079,7 +1079,7 @@ literal|"date"
 argument_list|)
 return|;
 block|}
-comment|/**      * The annotation modification date.      *       * @param date The date to store in the FDF annotation.      */
+comment|/**      * The annotation modification date.      *      * @param date The date to store in the FDF annotation.      */
 specifier|public
 name|void
 name|setDate
@@ -1098,7 +1098,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the invisible flag.      *       * @return The invisible flag.      */
+comment|/**      * Get the invisible flag.      *      * @return The invisible flag.      */
 specifier|public
 name|boolean
 name|isInvisible
@@ -1119,7 +1119,7 @@ name|FLAG_INVISIBLE
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the invisible flag.      *       * @param invisible The new invisible flag.      */
+comment|/**      * Set the invisible flag.      *      * @param invisible The new invisible flag.      */
 specifier|public
 name|void
 name|setInvisible
@@ -1144,7 +1144,7 @@ name|invisible
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the hidden flag.      *       * @return The hidden flag.      */
+comment|/**      * Get the hidden flag.      *      * @return The hidden flag.      */
 specifier|public
 name|boolean
 name|isHidden
@@ -1165,7 +1165,7 @@ name|FLAG_HIDDEN
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the hidden flag.      *       * @param hidden The new hidden flag.      */
+comment|/**      * Set the hidden flag.      *      * @param hidden The new hidden flag.      */
 specifier|public
 name|void
 name|setHidden
@@ -1190,7 +1190,7 @@ name|hidden
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the printed flag.      *       * @return The printed flag.      */
+comment|/**      * Get the printed flag.      *      * @return The printed flag.      */
 specifier|public
 name|boolean
 name|isPrinted
@@ -1211,7 +1211,7 @@ name|FLAG_PRINTED
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the printed flag.      *       * @param printed The new printed flag.      */
+comment|/**      * Set the printed flag.      *      * @param printed The new printed flag.      */
 specifier|public
 name|void
 name|setPrinted
@@ -1236,7 +1236,7 @@ name|printed
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the noZoom flag.      *       * @return The noZoom flag.      */
+comment|/**      * Get the noZoom flag.      *      * @return The noZoom flag.      */
 specifier|public
 name|boolean
 name|isNoZoom
@@ -1257,7 +1257,7 @@ name|FLAG_NO_ZOOM
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the noZoom flag.      *       * @param noZoom The new noZoom flag.      */
+comment|/**      * Set the noZoom flag.      *      * @param noZoom The new noZoom flag.      */
 specifier|public
 name|void
 name|setNoZoom
@@ -1282,7 +1282,7 @@ name|noZoom
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the noRotate flag.      *       * @return The noRotate flag.      */
+comment|/**      * Get the noRotate flag.      *      * @return The noRotate flag.      */
 specifier|public
 name|boolean
 name|isNoRotate
@@ -1303,7 +1303,7 @@ name|FLAG_NO_ROTATE
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the noRotate flag.      *       * @param noRotate The new noRotate flag.      */
+comment|/**      * Set the noRotate flag.      *      * @param noRotate The new noRotate flag.      */
 specifier|public
 name|void
 name|setNoRotate
@@ -1328,7 +1328,7 @@ name|noRotate
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the noView flag.      *       * @return The noView flag.      */
+comment|/**      * Get the noView flag.      *      * @return The noView flag.      */
 specifier|public
 name|boolean
 name|isNoView
@@ -1349,7 +1349,7 @@ name|FLAG_NO_VIEW
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the noView flag.      *       * @param noView The new noView flag.      */
+comment|/**      * Set the noView flag.      *      * @param noView The new noView flag.      */
 specifier|public
 name|void
 name|setNoView
@@ -1374,7 +1374,7 @@ name|noView
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the readOnly flag.      *       * @return The readOnly flag.      */
+comment|/**      * Get the readOnly flag.      *      * @return The readOnly flag.      */
 specifier|public
 name|boolean
 name|isReadOnly
@@ -1395,7 +1395,7 @@ name|FLAG_READ_ONLY
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the readOnly flag.      *       * @param readOnly The new readOnly flag.      */
+comment|/**      * Set the readOnly flag.      *      * @param readOnly The new readOnly flag.      */
 specifier|public
 name|void
 name|setReadOnly
@@ -1420,7 +1420,7 @@ name|readOnly
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the locked flag.      *       * @return The locked flag.      */
+comment|/**      * Get the locked flag.      *      * @return The locked flag.      */
 specifier|public
 name|boolean
 name|isLocked
@@ -1441,7 +1441,7 @@ name|FLAG_LOCKED
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the locked flag.      *       * @param locked The new locked flag.      */
+comment|/**      * Set the locked flag.      *      * @param locked The new locked flag.      */
 specifier|public
 name|void
 name|setLocked
@@ -1466,7 +1466,7 @@ name|locked
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the toggleNoView flag.      *       * @return The toggleNoView flag.      */
+comment|/**      * Get the toggleNoView flag.      *      * @return The toggleNoView flag.      */
 specifier|public
 name|boolean
 name|isToggleNoView
@@ -1487,7 +1487,7 @@ name|FLAG_TOGGLE_NO_VIEW
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the toggleNoView flag.      *       * @param toggleNoView The new toggleNoView flag.      */
+comment|/**      * Set the toggleNoView flag.      *      * @param toggleNoView The new toggleNoView flag.      */
 specifier|public
 name|void
 name|setToggleNoView
@@ -1512,7 +1512,7 @@ name|toggleNoView
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set a unique name for an annotation.      *       * @param name The unique annotation name.      */
+comment|/**      * Set a unique name for an annotation.      *      * @param name The unique annotation name.      */
 specifier|public
 name|void
 name|setName
@@ -1531,7 +1531,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the annotation name.      *       * @return The unique name of the annotation.      */
+comment|/**      * Get the annotation name.      *      * @return The unique name of the annotation.      */
 specifier|public
 name|String
 name|getName
@@ -1546,7 +1546,7 @@ literal|"NM"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the rectangle associated with this annotation.      *       * @param rectangle The annotation rectangle.      */
+comment|/**      * Set the rectangle associated with this annotation.      *      * @param rectangle The annotation rectangle.      */
 specifier|public
 name|void
 name|setRectangle
@@ -1565,7 +1565,7 @@ name|rectangle
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The rectangle associated with this annotation.      *       * @return The annotation rectangle.      */
+comment|/**      * The rectangle associated with this annotation.      *      * @return The annotation rectangle.      */
 specifier|public
 name|PDRectangle
 name|getRectangle
@@ -1609,7 +1609,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set a unique title for an annotation.      *       * @param title The annotation title.      */
+comment|/**      * Set a unique title for an annotation.      *      * @param title The annotation title.      */
 specifier|public
 name|void
 name|setTitle
@@ -1628,7 +1628,7 @@ name|title
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the annotation title.      *       * @return The title of the annotation.      */
+comment|/**      * Get the annotation title.      *      * @return The title of the annotation.      */
 specifier|public
 name|String
 name|getTitle
@@ -1643,7 +1643,7 @@ literal|"T"
 argument_list|)
 return|;
 block|}
-comment|/**      * The annotation create date.      *       * @return The date of the creation of the annotation date      *       * @throws IOException If there is an error converting the string to a Calendar object.      */
+comment|/**      * The annotation create date.      *      * @return The date of the creation of the annotation date      *      * @throws IOException If there is an error converting the string to a Calendar object.      */
 specifier|public
 name|Calendar
 name|getCreationDate
@@ -1660,7 +1660,7 @@ literal|"CreationDate"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the creation date.      *       * @param date The date the annotation was created.      */
+comment|/**      * Set the creation date.      *      * @param date The date the annotation was created.      */
 specifier|public
 name|void
 name|setCreationDate
@@ -1679,7 +1679,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the annotation opacity.      *       * @param opacity The new opacity value.      */
+comment|/**      * Set the annotation opacity.      *      * @param opacity The new opacity value.      */
 specifier|public
 name|void
 name|setOpacity
@@ -1698,7 +1698,7 @@ name|opacity
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the opacity value.      *       * @return The opacity of the annotation.      */
+comment|/**      * Get the opacity value.      *      * @return The opacity of the annotation.      */
 specifier|public
 name|float
 name|getOpacity
@@ -1715,7 +1715,7 @@ literal|1f
 argument_list|)
 return|;
 block|}
-comment|/**      * A short description of the annotation.      *       * @param subject The annotation subject.      */
+comment|/**      * A short description of the annotation.      *      * @param subject The annotation subject.      */
 specifier|public
 name|void
 name|setSubject
@@ -1734,7 +1734,7 @@ name|subject
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the description of the annotation.      *       * @return The subject of the annotation.      */
+comment|/**      * Get the description of the annotation.      *      * @return The subject of the annotation.      */
 specifier|public
 name|String
 name|getSubject

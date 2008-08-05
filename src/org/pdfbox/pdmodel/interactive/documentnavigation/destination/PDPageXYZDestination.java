@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -88,7 +88,7 @@ name|TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor from an existing destination array.      *       * @param arr The destination array.      */
+comment|/**      * Constructor from an existing destination array.      *      * @param arr The destination array.      */
 specifier|public
 name|PDPageXYZDestination
 parameter_list|(
@@ -102,7 +102,7 @@ name|arr
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the left x coordinate.  A return value of -1 implies that the current x-coordinate      * will be used.      *       * @return The left x coordinate.      */
+comment|/**      * Get the left x coordinate.  A return value of -1 implies that the current x-coordinate      * will be used.      *      * @return The left x coordinate.      */
 specifier|public
 name|int
 name|getLeft
@@ -117,7 +117,7 @@ literal|2
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the left x-coordinate, a value of -1 implies that the current x-coordinate      * will be used.       * @param x The left x coordinate.      */
+comment|/**      * Set the left x-coordinate, a value of -1 implies that the current x-coordinate      * will be used.      * @param x The left x coordinate.      */
 specifier|public
 name|void
 name|setLeft
@@ -167,7 +167,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the top y coordinate.  A return value of -1 implies that the current y-coordinate      * will be used.      *       * @return The top y coordinate.      */
+comment|/**      * Get the top y coordinate.  A return value of -1 implies that the current y-coordinate      * will be used.      *      * @return The top y coordinate.      */
 specifier|public
 name|int
 name|getTop
@@ -182,7 +182,7 @@ literal|3
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the top y-coordinate, a value of -1 implies that the current y-coordinate      * will be used.       * @param y The top ycoordinate.      */
+comment|/**      * Set the top y-coordinate, a value of -1 implies that the current y-coordinate      * will be used.      * @param y The top ycoordinate.      */
 specifier|public
 name|void
 name|setTop
@@ -232,7 +232,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the zoom value.  A return value of -1 implies that the current zoom      * will be used.      *       * @return The zoom value for the page.      */
+comment|/**      * Get the zoom value.  A return value of -1 implies that the current zoom      * will be used.      *      * @return The zoom value for the page.      */
 specifier|public
 name|int
 name|getZoom
@@ -247,7 +247,7 @@ literal|4
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the zoom value for the page, a value of -1 implies that the current zoom      * will be used.       * @param zoom The zoom value.      */
+comment|/**      * Set the zoom value for the page, a value of -1 implies that the current zoom      * will be used.      * @param zoom The zoom value.      */
 specifier|public
 name|void
 name|setZoom

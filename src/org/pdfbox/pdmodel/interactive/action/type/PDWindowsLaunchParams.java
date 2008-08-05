@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -136,7 +136,7 @@ return|return
 name|params
 return|;
 block|}
-comment|/**      * The file to launch.      *       * @return The executable/document to launch.      */
+comment|/**      * The file to launch.      *      * @return The executable/document to launch.      */
 specifier|public
 name|String
 name|getFilename
@@ -151,7 +151,7 @@ literal|"F"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the file to launch.      *       * @param file The executable/document to launch.      */
+comment|/**      * Set the file to launch.      *      * @param file The executable/document to launch.      */
 specifier|public
 name|void
 name|setFilename
@@ -170,7 +170,7 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The dir to launch from.      *       * @return The dir of the executable/document to launch.      */
+comment|/**      * The dir to launch from.      *      * @return The dir of the executable/document to launch.      */
 specifier|public
 name|String
 name|getDirectory
@@ -185,7 +185,7 @@ literal|"D"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the dir to launch from.      *       * @param dir The dir of the executable/document to launch.      */
+comment|/**      * Set the dir to launch from.      *      * @param dir The dir of the executable/document to launch.      */
 specifier|public
 name|void
 name|setDirectory
@@ -204,7 +204,7 @@ name|dir
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the operation to perform on the file.  This method will not return null,       * OPERATION_OPEN is the default.      *       * @return The operation to perform for the file.      * @see PDWindowsLaunchParams#OPERATION_OPEN      * @see PDWindowsLaunchParams#OPERATION_PRINT      */
+comment|/**      * Get the operation to perform on the file.  This method will not return null,      * OPERATION_OPEN is the default.      *      * @return The operation to perform for the file.      * @see PDWindowsLaunchParams#OPERATION_OPEN      * @see PDWindowsLaunchParams#OPERATION_PRINT      */
 specifier|public
 name|String
 name|getOperation
@@ -221,7 +221,7 @@ name|OPERATION_OPEN
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the operation to perform..      *       * @param op The operation to perform on the file.      */
+comment|/**      * Set the operation to perform..      *      * @param op The operation to perform on the file.      */
 specifier|public
 name|void
 name|setOperation
@@ -240,7 +240,7 @@ name|op
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A parameter to pass the executable.      *       * @return The parameter to pass the executable.      */
+comment|/**      * A parameter to pass the executable.      *      * @return The parameter to pass the executable.      */
 specifier|public
 name|String
 name|getExecuteParam
@@ -255,7 +255,7 @@ literal|"P"
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the parameter to pass the executable.      *       * @param param The parameter for the executable.      */
+comment|/**      * Set the parameter to pass the executable.      *      * @param param The parameter for the executable.      */
 specifier|public
 name|void
 name|setExecuteParam

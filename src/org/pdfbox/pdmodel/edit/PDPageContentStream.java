@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -741,7 +741,7 @@ name|SPACE
 init|=
 literal|32
 decl_stmt|;
-comment|/**      * Create a new PDPage content stream.      *       * @param document The document the page is part of.      * @param sourcePage The page to write the contents to.      * @throws IOException If there is an error writing to the page contents.      */
+comment|/**      * Create a new PDPage content stream.      *      * @param document The document the page is part of.      * @param sourcePage The page to write the contents to.      * @throws IOException If there is an error writing to the page contents.      */
 specifier|public
 name|PDPageContentStream
 parameter_list|(
@@ -766,7 +766,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a new PDPage content stream.      *       * @param document The document the page is part of.      * @param sourcePage The page to write the contents to.      * @param appendContent Indicates whether content will be overwritten. If false all previous content is deleted.      * @param compress Tell if the content stream should compress the page contents.      * @throws IOException If there is an error writing to the page contents.      */
+comment|/**      * Create a new PDPage content stream.      *      * @param document The document the page is part of.      * @param sourcePage The page to write the contents to.      * @param appendContent Indicates whether content will be overwritten. If false all previous content is deleted.      * @param compress Tell if the content stream should compress the page contents.      * @throws IOException If there is an error writing to the page contents.      */
 specifier|public
 name|PDPageContentStream
 parameter_list|(
@@ -1052,7 +1052,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Begin some text operations.      *       * @throws IOException If there is an error writing to the stream or if you attempt to       *         nest beginText calls.      */
+comment|/**      * Begin some text operations.      *      * @throws IOException If there is an error writing to the stream or if you attempt to      *         nest beginText calls.      */
 specifier|public
 name|void
 name|beginText
@@ -1083,7 +1083,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * End some text operations.      *       * @throws IOException If there is an error writing to the stream or if you attempt to       *         nest endText calls.      */
+comment|/**      * End some text operations.      *      * @throws IOException If there is an error writing to the stream or if you attempt to      *         nest endText calls.      */
 specifier|public
 name|void
 name|endText
@@ -1115,7 +1115,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/**      * Set the font to draw text with.      *       * @param font The font to use.      * @param fontSize The font size to draw the text.      * @throws IOException If there is an error writing the font information.      */
+comment|/**      * Set the font to draw text with.      *      * @param font The font to use.      * @param fontSize The font size to draw the text.      * @throws IOException If there is an error writing the font information.      */
 specifier|public
 name|void
 name|setFont
@@ -1215,7 +1215,7 @@ name|SET_FONT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw an image at the x,y coordinates, with the default size of the image.      *       * @param image The image to draw.      * @param x The x-coordinate to draw the image.      * @param y The y-coordinate to draw the image.      *       * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * Draw an image at the x,y coordinates, with the default size of the image.      *      * @param image The image to draw.      * @param x The x-coordinate to draw the image.      * @param y The y-coordinate to draw the image.      *      * @throws IOException If there is an error writing to the stream.      */
 specifier|public
 name|void
 name|drawImage
@@ -1252,7 +1252,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw an xobject(form or image) at the x,y coordinates and a certain width and height.      *       * @param xobject The xobject to draw.      * @param x The x-coordinate to draw the image.      * @param y The y-coordinate to draw the image.      * @param width The width of the image to draw.      * @param height The height of the image to draw.      *       * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * Draw an xobject(form or image) at the x,y coordinates and a certain width and height.      *      * @param xobject The xobject to draw.      * @param x The x-coordinate to draw the image.      * @param y The y-coordinate to draw the image.      * @param width The width of the image to draw.      * @param height The height of the image to draw.      *      * @throws IOException If there is an error writing to the stream.      */
 specifier|public
 name|void
 name|drawXObject
@@ -1549,7 +1549,7 @@ name|MOVE_TEXT_POSITION
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will draw a string at the current location on the screen.      *       * @param text The text to draw.      * @throws IOException If an io exception occurs.      */
+comment|/**      * This will draw a string at the current location on the screen.      *      * @param text The text to draw.      * @throws IOException If an io exception occurs.      */
 specifier|public
 name|void
 name|drawString
@@ -1622,7 +1622,7 @@ name|SHOW_TEXT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color space.  This will add the colorspace to the PDResources      * if necessary.      *       * @param colorSpace The colorspace to write.      * @throws IOException If there is an error writing the colorspace.      */
+comment|/**      * Set the stroking color space.  This will add the colorspace to the PDResources      * if necessary.      *      * @param colorSpace The colorspace to write.      * @throws IOException If there is an error writing the colorspace.      */
 specifier|public
 name|void
 name|setStrokingColorSpace
@@ -1644,7 +1644,7 @@ name|SET_STROKING_COLORSPACE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color space.  This will add the colorspace to the PDResources      * if necessary.      *       * @param colorSpace The colorspace to write.      * @throws IOException If there is an error writing the colorspace.      */
+comment|/**      * Set the stroking color space.  This will add the colorspace to the PDResources      * if necessary.      *      * @param colorSpace The colorspace to write.      * @throws IOException If there is an error writing the colorspace.      */
 specifier|public
 name|void
 name|setNonStrokingColorSpace
@@ -1837,7 +1837,7 @@ name|SPACE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the color components of current stroking colorspace.      *       * @param components The components to set for the current color.      * @throws IOException If there is an error while writing to the stream.      */
+comment|/**      * Set the color components of current stroking colorspace.      *      * @param components The components to set for the current color.      * @throws IOException If there is an error while writing to the stream.      */
 specifier|public
 name|void
 name|setStrokingColor
@@ -1919,7 +1919,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Set the stroking color, specified as RGB.      *       * @param color The color to set.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the stroking color, specified as RGB.      *      * @param color The color to set.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setStrokingColor
@@ -2055,7 +2055,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the non stroking color, specified as RGB.      *       * @param color The color to set.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the non stroking color, specified as RGB.      *      * @param color The color to set.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -2191,7 +2191,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the stroking color, specified as RGB, 0-255.      *       * @param r The red value.      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the stroking color, specified as RGB, 0-255.      *      * @param r The red value.      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setStrokingColor
@@ -2265,7 +2265,7 @@ name|RG_STROKING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color, specified as CMYK, 0-255.      *       * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the stroking color, specified as CMYK, 0-255.      *      * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setStrokingColor
@@ -2359,7 +2359,7 @@ name|K_STROKING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color, specified as CMYK, 0.0-1.0.      *       * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the stroking color, specified as CMYK, 0.0-1.0.      *      * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setStrokingColor
@@ -2445,7 +2445,7 @@ name|K_STROKING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color, specified as grayscale, 0-255.      *       * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the stroking color, specified as grayscale, 0-255.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setStrokingColor
@@ -2479,7 +2479,7 @@ name|G_STROKING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color, specified as Grayscale 0.0-1.0.      *       * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the stroking color, specified as Grayscale 0.0-1.0.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setStrokingColor
@@ -2511,7 +2511,7 @@ name|G_STROKING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the color components of current non stroking colorspace.      *       * @param components The components to set for the current color.      * @throws IOException If there is an error while writing to the stream.      */
+comment|/**      * Set the color components of current non stroking colorspace.      *      * @param components The components to set for the current color.      * @throws IOException If there is an error while writing to the stream.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -2593,7 +2593,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Set the non stroking color, specified as RGB, 0-255.      *       * @param r The red value.      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the non stroking color, specified as RGB, 0-255.      *      * @param r The red value.      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -2667,7 +2667,7 @@ name|RG_NON_STROKING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the non stroking color, specified as CMYK, 0-255.      *       * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the non stroking color, specified as CMYK, 0-255.      *      * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -2761,7 +2761,7 @@ name|K_NON_STROKING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the non stroking color, specified as CMYK, 0.0-1.0.      *       * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the non stroking color, specified as CMYK, 0.0-1.0.      *      * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -2847,7 +2847,7 @@ name|K_NON_STROKING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the non stroking color, specified as grayscale, 0-255.      *       * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the non stroking color, specified as grayscale, 0-255.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -2881,7 +2881,7 @@ name|G_NON_STROKING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the non stroking color, specified as Grayscale 0.0-1.0.      *       * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the non stroking color, specified as Grayscale 0.0-1.0.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -2913,7 +2913,7 @@ name|G_NON_STROKING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw a rectangle on the page using the current non stroking color.      *       * @param x The lower left x coordinate.      * @param y The lower left y coordinate.      * @param width The width of the rectangle.      * @param height The height of the rectangle.      * @throws IOException If there is an error while drawing on the screen.      */
+comment|/**      * Draw a rectangle on the page using the current non stroking color.      *      * @param x The lower left x coordinate.      * @param y The lower left y coordinate.      * @param width The width of the rectangle.      * @param height The height of the rectangle.      * @throws IOException If there is an error while drawing on the screen.      */
 specifier|public
 name|void
 name|fillRect
@@ -3004,7 +3004,7 @@ name|FILL
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw a line on the page using the current non stroking color and the current line width.      *       * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while drawing on the screen.      */
+comment|/**      * Draw a line on the page using the current non stroking color and the current line width.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while drawing on the screen.      */
 specifier|public
 name|void
 name|drawLine
@@ -3103,7 +3103,7 @@ name|STROKE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set linewidth to the given value.      *       * @param lineWidth The width which is used for drwaing.      * @throws IOException If there is an error while drawing on the screen.      */
+comment|/**      * Set linewidth to the given value.      *      * @param lineWidth The width which is used for drwaing.      * @throws IOException If there is an error while drawing on the screen.      */
 specifier|public
 name|void
 name|setLineWidth
@@ -3135,7 +3135,7 @@ name|LINE_WIDTH
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will append raw commands to the content stream.      *       * @param commands The commands to append to the stream.      * @throws IOException If an error occurs while writing to the stream.      */
+comment|/**      * This will append raw commands to the content stream.      *      * @param commands The commands to append to the stream.      * @throws IOException If an error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|appendRawCommands
@@ -3157,7 +3157,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will append raw commands to the content stream.      *       * @param commands The commands to append to the stream.      * @throws IOException If an error occurs while writing to the stream.      */
+comment|/**      * This will append raw commands to the content stream.      *      * @param commands The commands to append to the stream.      * @throws IOException If an error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|appendRawCommands
@@ -3177,7 +3177,7 @@ name|commands
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will append raw commands to the content stream.      *       * @param data Append a raw byte to the stream.      *       * @throws IOException If an error occurs while writing to the stream.      */
+comment|/**      * This will append raw commands to the content stream.      *      * @param data Append a raw byte to the stream.      *      * @throws IOException If an error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|appendRawCommands

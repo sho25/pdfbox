@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -133,7 +133,7 @@ operator|=
 name|b
 expr_stmt|;
 block|}
-comment|/**      * Default constructor.      *       */
+comment|/**      * Default constructor.      *      */
 specifier|public
 name|PDThreadBead
 parameter_list|()
@@ -184,7 +184,7 @@ return|return
 name|bead
 return|;
 block|}
-comment|/**      * This will get the thread that this bead is part of.  This is only required      * for the first bead in a thread, so other beads 'may' return null.      *       * @return The thread that this bead is part of.      */
+comment|/**      * This will get the thread that this bead is part of.  This is only required      * for the first bead in a thread, so other beads 'may' return null.      *      * @return The thread that this bead is part of.      */
 specifier|public
 name|PDThread
 name|getThread
@@ -228,7 +228,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the thread that this bead is part of.  This is only required for the      * first bead in a thread.  Note: This property is set for you by the PDThread.setFirstBead() method.      *       * @param thread The thread that this bead is part of.      */
+comment|/**      * Set the thread that this bead is part of.  This is only required for the      * first bead in a thread.  Note: This property is set for you by the PDThread.setFirstBead() method.      *      * @param thread The thread that this bead is part of.      */
 specifier|public
 name|void
 name|setThread
@@ -247,7 +247,7 @@ name|thread
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the next bead.  If this bead is the last bead in the list then this      * will return the first bead.       *       * @return The next bead in the list or the first bead if this is the last bead.      */
+comment|/**      * This will get the next bead.  If this bead is the last bead in the list then this      * will return the first bead.      *      * @return The next bead in the list or the first bead if this is the last bead.      */
 specifier|public
 name|PDThreadBead
 name|getNextBead
@@ -269,7 +269,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the next bead in the thread.      *       * @param next The next bead.      */
+comment|/**      * Set the next bead in the thread.      *      * @param next The next bead.      */
 specifier|protected
 name|void
 name|setNextBead
@@ -288,7 +288,7 @@ name|next
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the previous bead.  If this bead is the first bead in the list then this      * will return the last bead.       *       * @return The previous bead in the list or the last bead if this is the first bead.      */
+comment|/**      * This will get the previous bead.  If this bead is the first bead in the list then this      * will return the last bead.      *      * @return The previous bead in the list or the last bead if this is the first bead.      */
 specifier|public
 name|PDThreadBead
 name|getPreviousBead
@@ -310,7 +310,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the previous bead in the thread.      *       * @param previous The previous bead.      */
+comment|/**      * Set the previous bead in the thread.      *      * @param previous The previous bead.      */
 specifier|protected
 name|void
 name|setPreviousBead
@@ -329,7 +329,7 @@ name|previous
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Append a bead after this bead.  This will correctly set the next/previous beads in the      * linked list.      *       * @param append The bead to insert.      */
+comment|/**      * Append a bead after this bead.  This will correctly set the next/previous beads in the      * linked list.      *      * @param append The bead to insert.      */
 specifier|public
 name|void
 name|appendBead
@@ -371,7 +371,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the page that this bead is part of.      *       * @return The page that this bead is part of.      */
+comment|/**      * Get the page that this bead is part of.      *      * @return The page that this bead is part of.      */
 specifier|public
 name|PDPage
 name|getPage
@@ -415,7 +415,7 @@ return|return
 name|page
 return|;
 block|}
-comment|/**      * Set the page that this bead is part of.  This is a required property and must be      * set when creating a new bead.  The PDPage object also has a list of beads in the natural      * reading order.  It is recommended that you add this object to that list as well.      *       * @param page The page that this bead is on.      */
+comment|/**      * Set the page that this bead is part of.  This is a required property and must be      * set when creating a new bead.  The PDPage object also has a list of beads in the natural      * reading order.  It is recommended that you add this object to that list as well.      *      * @param page The page that this bead is on.      */
 specifier|public
 name|void
 name|setPage
@@ -434,7 +434,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The rectangle on the page that this bead is part of.      *       * @return The part of the page that this bead covers.      */
+comment|/**      * The rectangle on the page that this bead is part of.      *      * @return The part of the page that this bead covers.      */
 specifier|public
 name|PDRectangle
 name|getRectangle
@@ -480,7 +480,7 @@ return|return
 name|rect
 return|;
 block|}
-comment|/**      * Set the rectangle on the page that this bead covers.      *       * @param rect The portion of the page that this bead covers.      */
+comment|/**      * Set the rectangle on the page that this bead covers.      *      * @param rect The portion of the page that this bead covers.      */
 specifier|public
 name|void
 name|setRectangle

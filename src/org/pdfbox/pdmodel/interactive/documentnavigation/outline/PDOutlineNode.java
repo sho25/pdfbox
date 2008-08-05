@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -85,7 +85,7 @@ name|COSDictionary
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Default Constructor.      *       * @param dict The dictionary storage.      */
+comment|/**      * Default Constructor.      *      * @param dict The dictionary storage.      */
 specifier|public
 name|PDOutlineNode
 parameter_list|(
@@ -118,7 +118,7 @@ return|return
 name|node
 return|;
 block|}
-comment|/**      * Get the parent of this object.  This will either be a DocumentOutline or an OutlineItem.      *       * @return The parent of this object, or null if this is the document outline and there      * is no parent.      */
+comment|/**      * Get the parent of this object.  This will either be a DocumentOutline or an OutlineItem.      *      * @return The parent of this object, or null if this is the document outline and there      * is no parent.      */
 specifier|public
 name|PDOutlineNode
 name|getParent
@@ -190,7 +190,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the parent of this object, this is maintained by these objects and should not      * be called by any clients of PDFBox code.      *       * @param parent The parent of this object.      */
+comment|/**      * Set the parent of this object, this is maintained by these objects and should not      * be called by any clients of PDFBox code.      *      * @param parent The parent of this object.      */
 specifier|protected
 name|void
 name|setParent
@@ -209,7 +209,7 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * append a child node to this node.      *       * @param outlineNode The node to add.      */
+comment|/**      * append a child node to this node.      *      * @param outlineNode The node to add.      */
 specifier|public
 name|void
 name|appendChild
@@ -318,7 +318,7 @@ name|outlineNode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Return the first child or null if there is no child.      *       * @return The first child.      */
+comment|/**      * Return the first child or null if there is no child.      *      * @return The first child.      */
 specifier|public
 name|PDOutlineItem
 name|getFirstChild
@@ -362,7 +362,7 @@ return|return
 name|last
 return|;
 block|}
-comment|/**      * Set the first child, this will be maintained by this class.      *       * @param outlineNode The new first child.      */
+comment|/**      * Set the first child, this will be maintained by this class.      *      * @param outlineNode The new first child.      */
 specifier|protected
 name|void
 name|setFirstChild
@@ -381,7 +381,7 @@ name|outlineNode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Return the last child or null if there is no child.      *       * @return The last child.      */
+comment|/**      * Return the last child or null if there is no child.      *      * @return The last child.      */
 specifier|public
 name|PDOutlineItem
 name|getLastChild
@@ -425,7 +425,7 @@ return|return
 name|last
 return|;
 block|}
-comment|/**      * Set the last child, this will be maintained by this class.      *       * @param outlineNode The new last child.      */
+comment|/**      * Set the last child, this will be maintained by this class.      *      * @param outlineNode The new last child.      */
 specifier|protected
 name|void
 name|setLastChild
@@ -444,7 +444,7 @@ name|outlineNode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the number of open nodes.  Or a negative number if this node      * is closed.  See PDF Reference for more details.  This value      * is updated as you append children and siblings.      *       * @return The Count attribute of the outline dictionary.      */
+comment|/**      * Get the number of open nodes.  Or a negative number if this node      * is closed.  See PDF Reference for more details.  This value      * is updated as you append children and siblings.      *      * @return The Count attribute of the outline dictionary.      */
 specifier|public
 name|int
 name|getOpenCount
@@ -461,7 +461,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the open count.  This number is automatically managed for you      * when you add items to the outline.      *       * @param openCount The new open cound.      */
+comment|/**      * Set the open count.  This number is automatically managed for you      * when you add items to the outline.      *      * @param openCount The new open cound.      */
 specifier|protected
 name|void
 name|setOpenCount
@@ -480,7 +480,7 @@ name|openCount
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set this node to be open when it is shown in the viewer.  By default, when       * a new node is created it will be closed.      * This will do nothing if the node is already open.      */
+comment|/**      * This will set this node to be open when it is shown in the viewer.  By default, when      * a new node is created it will be closed.      * This will do nothing if the node is already open.      */
 specifier|public
 name|void
 name|openNode
@@ -599,7 +599,7 @@ operator|>
 literal|0
 return|;
 block|}
-comment|/**      * The count parameter needs to be updated when you add or remove elements to       * the outline.  When you add an element at a lower level then you need to       * increase all of the parents.      *       * @param amount The amount to update by.      */
+comment|/**      * The count parameter needs to be updated when you add or remove elements to      * the outline.  When you add an element at a lower level then you need to      * increase all of the parents.      *      * @param amount The amount to update by.      */
 specifier|protected
 name|void
 name|updateParentOpenCount

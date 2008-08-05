@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -121,7 +121,7 @@ operator|=
 name|arr
 expr_stmt|;
 block|}
-comment|/**      * This will get the page for this destination.  A page destination      * can either reference a page or a page number(when doing a remote destination to       * another PDF).  If this object is referencing by page number then this method will      * return null and getPageNumber should be used.      *       * @return The page for this destination.      */
+comment|/**      * This will get the page for this destination.  A page destination      * can either reference a page or a page number(when doing a remote destination to      * another PDF).  If this object is referencing by page number then this method will      * return null and getPageNumber should be used.      *      * @return The page for this destination.      */
 specifier|public
 name|PDPage
 name|getPage
@@ -176,7 +176,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the page for this destination.      *       * @param page The page for the destination.      */
+comment|/**      * Set the page for this destination.      *      * @param page The page for the destination.      */
 specifier|public
 name|void
 name|setPage
@@ -195,7 +195,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the page number for this destination.  A page destination      * can either reference a page or a page number(when doing a remote destination to       * another PDF).  If this object is referencing by page number then this method will      * return that number, otherwise -1 will be returned.      *       * @return The page number for this destination.      */
+comment|/**      * This will get the page number for this destination.  A page destination      * can either reference a page or a page number(when doing a remote destination to      * another PDF).  If this object is referencing by page number then this method will      * return that number, otherwise -1 will be returned.      *      * @return The page number for this destination.      */
 specifier|public
 name|int
 name|getPageNumber
@@ -252,7 +252,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the page number for this destination.      *       * @param pageNumber The page for the destination.      */
+comment|/**      * Set the page number for this destination.      *      * @param pageNumber The page for the destination.      */
 specifier|public
 name|void
 name|setPageNumber

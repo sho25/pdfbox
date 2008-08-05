@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -334,7 +334,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the fully qualified name of the field, which is a concatenation of      * the names of all the parents fields.      *      * @return the name of the field      *       * @throws IOException If there is an error generating the fully qualified name.      */
+comment|/**      * Returns the fully qualified name of the field, which is a concatenation of      * the names of all the parents fields.      *      * @return the name of the field      *      * @throws IOException If there is an error generating the fully qualified name.      */
 specifier|public
 name|String
 name|getFullyQualifiedName
@@ -394,7 +394,7 @@ return|return
 name|finalName
 return|;
 block|}
-comment|/**      * Get the FT entry of the field.  This is a read only field and is set depending      * on the actual type.  The field type is an inheritable attribute.  This method will      * return only the direct value on this object.  Use the findFieldType for an upward       * recursive search.      *       * @return The Field type.      *       * @see PDField#findFieldType()      */
+comment|/**      * Get the FT entry of the field.  This is a read only field and is set depending      * on the actual type.  The field type is an inheritable attribute.  This method will      * return only the direct value on this object.  Use the findFieldType for an upward      * recursive search.      *      * @return The Field type.      *      * @see PDField#findFieldType()      */
 specifier|public
 name|String
 name|getFieldType
@@ -410,7 +410,7 @@ literal|"FT"
 argument_list|)
 return|;
 block|}
-comment|/**      * Find the field type and optionally do a recursive upward search.  Sometimes the fieldtype      * will be specified on the parent instead of the direct object.  This will look at this      * object for the field type, if none is specified then it will look to the parent if there      * is a parent.  If there is no parent and no field type has been found then this      * will return null.      *       * @return The field type or null if none was found.      */
+comment|/**      * Find the field type and optionally do a recursive upward search.  Sometimes the fieldtype      * will be specified on the parent instead of the direct object.  This will look at this      * object for the field type, if none is specified then it will look to the parent if there      * is a parent.  If there is no parent and no field type has been found then this      * will return null.      *      * @return The field type or null if none was found.      */
 specifier|public
 name|String
 name|findFieldType
@@ -1284,7 +1284,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Get the parent field to this field, or null if none exists.      *       * @return The parent field.      *       * @throws IOException If there is an error creating the parent field.      */
+comment|/**      * Get the parent field to this field, or null if none exists.      *      * @return The parent field.      *      * @throws IOException If there is an error creating the parent field.      */
 specifier|public
 name|PDField
 name|getParent
@@ -1335,7 +1335,7 @@ return|return
 name|parent
 return|;
 block|}
-comment|/**      * Set the parent of this field.      *       * @param parent The parent to this field.      */
+comment|/**      * Set the parent of this field.      *      * @param parent The parent to this field.      */
 specifier|public
 name|void
 name|setParent
@@ -1355,7 +1355,7 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will find one of the child elements.  The name array are the components      * of the name to search down the tree of names.  The nameIndex is where to      * start in that array.  This method is called recursively until it finds      * the end point based on the name array.      *       * @param name An array that picks the path to the field.      * @param nameIndex The index into the array.      * @return The field at the endpoint or null if none is found.      * @throws IOException If there is an error creating the field.      */
+comment|/**      * This will find one of the child elements.  The name array are the components      * of the name to search down the tree of names.  The nameIndex is where to      * start in that array.  This method is called recursively until it finds      * the end point based on the name array.      *      * @param name An array that picks the path to the field.      * @param nameIndex The index into the array.      * @return The field at the endpoint or null if none is found.      * @throws IOException If there is an error creating the field.      */
 specifier|public
 name|PDField
 name|findKid
@@ -1784,7 +1784,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Get the additional actions for this field.  This will return null      * if there are no additional actions for this field.      *       * @return The actions of the field.      */
+comment|/**      * Get the additional actions for this field.  This will return null      * if there are no additional actions for this field.      *      * @return The actions of the field.      */
 specifier|public
 name|PDFormFieldAdditionalActions
 name|getActions
@@ -1828,7 +1828,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the actions of the field.      *       * @param actions The field actions.      */
+comment|/**      * Set the actions of the field.      *      * @param actions The field actions.      */
 specifier|public
 name|void
 name|setActions

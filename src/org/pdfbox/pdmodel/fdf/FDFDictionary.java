@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -251,7 +251,7 @@ operator|=
 name|fdfDictionary
 expr_stmt|;
 block|}
-comment|/**      * This will create an FDF dictionary from an XFDF XML document.      *       * @param fdfXML The XML document that contains the XFDF data.      * @throws IOException If there is an error reading from the dom.      */
+comment|/**      * This will create an FDF dictionary from an XFDF XML document.      *      * @param fdfXML The XML document that contains the XFDF data.      * @throws IOException If there is an error reading from the dom.      */
 specifier|public
 name|FDFDictionary
 parameter_list|(
@@ -622,7 +622,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * This will write this element as an XML document.      *       * @param output The stream to write the xml to.      *       * @throws IOException If there is an error writing the XML.      */
+comment|/**      * This will write this element as an XML document.      *      * @param output The stream to write the xml to.      *      * @throws IOException If there is an error writing the XML.      */
 specifier|public
 name|void
 name|writeXML
@@ -825,7 +825,7 @@ return|return
 name|fdf
 return|;
 block|}
-comment|/**      * The source file or target file: the PDF document file that      * this FDF file was exported from or is intended to be imported into.      *      * @return The F entry of the FDF dictionary.      *       * @throws IOException If there is an error creating the file spec.      */
+comment|/**      * The source file or target file: the PDF document file that      * this FDF file was exported from or is intended to be imported into.      *      * @return The F entry of the FDF dictionary.      *      * @throws IOException If there is an error creating the file spec.      */
 specifier|public
 name|PDFileSpecification
 name|getFile
@@ -1218,7 +1218,7 @@ name|encoding
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the list of FDF Annotations.  This will return a list of FDFAnnotation objects      * or null if the entry is not set.      *      * @return A list of FDF annotations.      *       * @throws IOException If there is an error creating the annotation list.      */
+comment|/**      * This will get the list of FDF Annotations.  This will return a list of FDFAnnotation objects      * or null if the entry is not set.      *      * @return A list of FDF annotations.      *      * @throws IOException If there is an error creating the annotation list.      */
 specifier|public
 name|List
 name|getAnnotations
@@ -1407,7 +1407,7 @@ name|target
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the list of embedded FDF entries, or null if the entry is null.      * This will return a list of PDFileSpecification objects.      *      * @return A list of embedded FDF files.      *       * @throws IOException If there is an error creating the file spec.      */
+comment|/**      * This will get the list of embedded FDF entries, or null if the entry is null.      * This will return a list of PDFileSpecification objects.      *      * @return A list of embedded FDF files.      *      * @throws IOException If there is an error creating the file spec.      */
 specifier|public
 name|List
 name|getEmbeddedFDFs

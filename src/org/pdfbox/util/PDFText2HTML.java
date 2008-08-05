@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Wrap stripped text in simple HTML, trying to form HTML paragraphs.  * Paragraphs broken by pages, columns, or figures are not mended.  *   *   * @author jjb - http://www.johnjbarton.com  * @version  $Revision: 1.3 $  */
+comment|/**  * Wrap stripped text in simple HTML, trying to form HTML paragraphs.  * Paragraphs broken by pages, columns, or figures are not mended.  *  *  * @author jjb - http://www.johnjbarton.com  * @version  $Revision: 1.3 $  */
 end_comment
 
 begin_class
@@ -96,7 +96,7 @@ name|onFirstPage
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Constructor.      *       * @throws IOException If there is an error during initialization.      */
+comment|/**      * Constructor.      *      * @throws IOException If there is an error during initialization.      */
 specifier|public
 name|PDFText2HTML
 parameter_list|()
@@ -120,7 +120,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/**      * Write the header to the output document.      *       * @throws IOException If there is a problem writing out the header to the document.      */
+comment|/**      * Write the header to the output document.      *      * @throws IOException If there is a problem writing out the header to the document.      */
 specifier|protected
 name|void
 name|writeHeader
@@ -192,7 +192,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The guess to the document title.      *       * @return A string that is the title of this document.      */
+comment|/**      * The guess to the document title.      *      * @return A string that is the title of this document.      */
 specifier|protected
 name|String
 name|getTitleGuess
@@ -262,7 +262,7 @@ literal|"</body></html>"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method will attempt to guess the title of the document.      *       * @param textIter The characters on the first page.      * @return The text position that is guessed to be the title.      */
+comment|/**      * This method will attempt to guess the title of the document.      *      * @param textIter The characters on the first page.      * @return The text position that is guessed to be the title.      */
 specifier|protected
 name|TextPosition
 name|guessTitle
@@ -450,7 +450,7 @@ name|beginTitle
 return|;
 comment|// null
 block|}
-comment|/**      * Write out the paragraph separator.      *       * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * Write out the paragraph separator.      *      * @throws IOException If there is an error writing to the stream.      */
 specifier|protected
 name|void
 name|startParagraph
@@ -474,7 +474,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Write out the paragraph separator.      *       * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * Write out the paragraph separator.      *      * @throws IOException If there is an error writing to the stream.      */
 specifier|protected
 name|void
 name|endParagraph

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -68,7 +68,7 @@ parameter_list|()
 block|{
 comment|//default constructor
 block|}
-comment|/**      * Create an affine transform from this matrix's values.      *       * @return An affine transform with this matrix's values.      */
+comment|/**      * Create an affine transform from this matrix's values.      *      * @return An affine transform with this matrix's values.      */
 specifier|public
 name|AffineTransform
 name|createAffineTransform
@@ -115,7 +115,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the values of the matrix from the AffineTransform.      *       * @param af The transform to get the values from.      */
+comment|/**      * Set the values of the matrix from the AffineTransform.      *      * @param af The transform to get the values from.      */
 specifier|public
 name|void
 name|setFromAffineTransform
@@ -253,7 +253,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Return a single dimension array of all values in the matrix.      *       * @return The values ot this matrix.      */
+comment|/**      * Return a single dimension array of all values in the matrix.      *      * @return The values ot this matrix.      */
 specifier|public
 name|float
 index|[]
@@ -396,7 +396,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Return a single dimension array of all values in the matrix.      *       * @return The values ot this matrix.      */
+comment|/**      * Return a single dimension array of all values in the matrix.      *      * @return The values ot this matrix.      */
 specifier|public
 name|double
 index|[]
@@ -904,7 +904,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Create a new matrix with just the scaling operators.      *       * @return A new matrix with just the scaling operators.      */
+comment|/**      * Create a new matrix with just the scaling operators.      *      * @return A new matrix with just the scaling operators.      */
 specifier|public
 name|Matrix
 name|extractScaling
@@ -949,7 +949,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Convenience method to create a scaled instance.       *       * @param x The xscale operator.      * @param y The yscale operator.      * @return A new matrix with just the x/y scaling      */
+comment|/**      * Convenience method to create a scaled instance.      *      * @param x The xscale operator.      * @param y The yscale operator.      * @return A new matrix with just the x/y scaling      */
 specifier|public
 specifier|static
 name|Matrix
@@ -991,7 +991,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Create a new matrix with just the translating operators.      *       * @return A new matrix with just the translating operators.      */
+comment|/**      * Create a new matrix with just the translating operators.      *      * @return A new matrix with just the translating operators.      */
 specifier|public
 name|Matrix
 name|extractTranslating
@@ -1036,7 +1036,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Convenience method to create a translating instance.       *       * @param x The x translating operator.      * @param y The y translating operator.      * @return A new matrix with just the x/y translating.      */
+comment|/**      * Convenience method to create a translating instance.      *      * @param x The x translating operator.      * @param y The y translating operator.      * @return A new matrix with just the x/y translating.      */
 specifier|public
 specifier|static
 name|Matrix
@@ -1277,7 +1277,7 @@ index|[
 literal|0
 index|]
 decl_stmt|;
-comment|/**          * BM: if the trm is rotated, the calculation is a little more complicated           *           * The rotation matrix multiplied with the scaling matrix is:          * (   x   0   0)    ( cos  sin  0)    ( x*cos x*sin   0)          * (   0   y   0) *  (-sin  cos  0)  = (-y*sin y*cos   0)          * (   0   0   1)    (   0    0  1)    (     0     0   1)          *          * So, if you want to deduce x from the matrix you take          * M(0,0) = x*cos and M(0,1) = x*sin and use the theorem of Pythagoras          *           * sqrt(M(0,0)^2+M(0,1)^2) =          * sqrt(x2*cos2+x2*sin2) =          * sqrt(x2*(cos2+sin2)) =<- here is the trick cos2+sin2 is one          * sqrt(x2) =          * abs(x)           */
+comment|/**          * BM: if the trm is rotated, the calculation is a little more complicated          *          * The rotation matrix multiplied with the scaling matrix is:          * (   x   0   0)    ( cos  sin  0)    ( x*cos x*sin   0)          * (   0   y   0) *  (-sin  cos  0)  = (-y*sin y*cos   0)          * (   0   0   1)    (   0    0  1)    (     0     0   1)          *          * So, if you want to deduce x from the matrix you take          * M(0,0) = x*cos and M(0,1) = x*sin and use the theorem of Pythagoras          *          * sqrt(M(0,0)^2+M(0,1)^2) =          * sqrt(x2*cos2+x2*sin2) =          * sqrt(x2*(cos2+sin2)) =<- here is the trick cos2+sin2 is one          * sqrt(x2) =          * abs(x)          */
 if|if
 condition|(
 operator|!

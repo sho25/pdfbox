@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -204,7 +204,7 @@ name|keys
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @see java.util.Map#containsValue(java.lang.Object)      *       * @param value The value to find in the map.      *       * @return true if the map contains this value.      */
+comment|/**      * @see java.util.Map#containsValue(java.lang.Object)      *      * @param value The value to find in the map.      *      * @return true if the map contains this value.      */
 specifier|public
 name|boolean
 name|containsValue
@@ -255,7 +255,7 @@ return|return
 name|contains
 return|;
 block|}
-comment|/**      * Search in the map for the value that matches the parameter      * and return the first key that maps to that value.      *       * @param value The value to search for in the map.      * @return The key for the value in the map or null if it does not exist.      */
+comment|/**      * Search in the map for the value that matches the parameter      * and return the first key that maps to that value.      *      * @param value The value to search for in the map.      * @return The key for the value in the map or null if it does not exist.      */
 specifier|public
 name|COSName
 name|getKeyForValue
@@ -413,7 +413,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This is a special case of getDictionaryObject that takes multiple keys, it will handle      * the situation where multiple keys could get the same value, ie if either CS or ColorSpace      * is used to get the colorspace.      * This will get an object from this dictionary.  If the object is a reference then it will      * dereference it and get it from the document.  If the object is COSNull then      * null will be returned.        *      * @param firstKey The first key to try.      * @param secondKey The second key to try.      *      * @return The object that matches the key.      */
+comment|/**      * This is a special case of getDictionaryObject that takes multiple keys, it will handle      * the situation where multiple keys could get the same value, ie if either CS or ColorSpace      * is used to get the colorspace.      * This will get an object from this dictionary.  If the object is a reference then it will      * dereference it and get it from the document.  If the object is COSNull then      * null will be returned.      *      * @param firstKey The first key to try.      * @param secondKey The second key to try.      *      * @return The object that matches the key.      */
 specifier|public
 name|COSBase
 name|getDictionaryObject
@@ -462,7 +462,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This is a special case of getDictionaryObject that takes multiple keys, it will handle      * the situation where multiple keys could get the same value, ie if either CS or ColorSpace      * is used to get the colorspace.      * This will get an object from this dictionary.  If the object is a reference then it will      * dereference it and get it from the document.  If the object is COSNull then      * null will be returned.        *      * @param keyList The list of keys to find a value.      *      * @return The object that matches the key.      */
+comment|/**      * This is a special case of getDictionaryObject that takes multiple keys, it will handle      * the situation where multiple keys could get the same value, ie if either CS or ColorSpace      * is used to get the colorspace.      * This will get an object from this dictionary.  If the object is a reference then it will      * dereference it and get it from the document.  If the object is COSNull then      * null will be returned.      *      * @param keyList The list of keys to find a value.      *      * @return The object that matches the key.      */
 specifier|public
 name|COSBase
 name|getDictionaryObject
@@ -846,7 +846,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the value of a date entry in the dictionary.      *       * @param key The key to the date value.      * @param date The date value.      */
+comment|/**      * Set the value of a date entry in the dictionary.      *      * @param key The key to the date value.      * @param date The date value.      */
 specifier|public
 name|void
 name|setDate
@@ -871,7 +871,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the date object.      *       * @param key The key to the date.      * @param date The date to set.      */
+comment|/**      * Set the date object.      *      * @param key The key to the date.      * @param date The date to set.      */
 specifier|public
 name|void
 name|setDate
@@ -896,7 +896,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the value of a date entry in the dictionary.      *       * @param embedded The embedded dictionary.      * @param key The key to the date value.      * @param date The date value.      */
+comment|/**      * Set the value of a date entry in the dictionary.      *      * @param embedded The embedded dictionary.      * @param key The key to the date value.      * @param date The date value.      */
 specifier|public
 name|void
 name|setEmbeddedDate
@@ -926,7 +926,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the date object.      *       * @param embedded The embedded dictionary.      * @param key The key to the date.      * @param date The date to set.      */
+comment|/**      * Set the date object.      *      * @param embedded The embedded dictionary.      * @param key The key to the date.      * @param date The date to set.      */
 specifier|public
 name|void
 name|setEmbeddedDate
@@ -1160,7 +1160,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This is a convenience method that will convert the value to a COSInteger      * object.        *      * @param key The key to the object,      * @param value The int value for the name.      */
+comment|/**      * This is a convenience method that will convert the value to a COSInteger      * object.      *      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setInt
@@ -1218,7 +1218,7 @@ name|intVal
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This is a convenience method that will convert the value to a COSInteger      * object.        *      * @param key The key to the object,      * @param value The int value for the name.      */
+comment|/**      * This is a convenience method that will convert the value to a COSInteger      * object.      *      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setLong
@@ -1276,7 +1276,7 @@ name|intVal
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This is a convenience method that will convert the value to a COSInteger      * object.        *      * @param embeddedDictionary The embedded dictionary.      * @param key The key to the object,      * @param value The int value for the name.      */
+comment|/**      * This is a convenience method that will convert the value to a COSInteger      * object.      *      * @param embeddedDictionary The embedded dictionary.      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setEmbeddedInt
@@ -1363,7 +1363,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This is a convenience method that will convert the value to a COSFloat      * object.        *      * @param key The key to the object,      * @param value The int value for the name.      */
+comment|/**      * This is a convenience method that will convert the value to a COSFloat      * object.      *      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setFloat
@@ -1830,7 +1830,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that      * is expected to be a name and convert it to a string.  Null is returned      * if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      *       * @throws IOException If there is an error converting to a date.      */
+comment|/**      * This is a convenience method that will get the dictionary object that      * is expected to be a name and convert it to a string.  Null is returned      * if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      *      * @throws IOException If there is an error converting to a date.      */
 specifier|public
 name|Calendar
 name|getDate
@@ -1957,7 +1957,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that      * is expected to be a name and convert it to a string.  Null is returned      * if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      *       * @throws IOException If there is an error converting to a date.      */
+comment|/**      * This is a convenience method that will get the dictionary object that      * is expected to be a name and convert it to a string.  Null is returned      * if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      *      * @throws IOException If there is an error converting to a date.      */
 specifier|public
 name|Calendar
 name|getEmbeddedDate
@@ -2144,7 +2144,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Get an integer from an embedded dictionary.  Useful for 1-1 mappings.  default:-1      *       * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      *       * @return The value of the embedded integer.      */
+comment|/**      * Get an integer from an embedded dictionary.  Useful for 1-1 mappings.  default:-1      *      * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      *      * @return The value of the embedded integer.      */
 specifier|public
 name|int
 name|getEmbeddedInt
@@ -2170,7 +2170,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Get an integer from an embedded dictionary.  Useful for 1-1 mappings.  default:-1      *       * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      *       * @return The value of the embedded integer.      */
+comment|/**      * Get an integer from an embedded dictionary.  Useful for 1-1 mappings.  default:-1      *      * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      *      * @return The value of the embedded integer.      */
 specifier|public
 name|int
 name|getEmbeddedInt
@@ -2194,7 +2194,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Get an integer from an embedded dictionary.  Useful for 1-1 mappings.      *       * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      * @param defaultValue The value if there is no embedded dictionary or it does not contain the key.      *       * @return The value of the embedded integer.      */
+comment|/**      * Get an integer from an embedded dictionary.  Useful for 1-1 mappings.      *      * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      * @param defaultValue The value if there is no embedded dictionary or it does not contain the key.      *      * @return The value of the embedded integer.      */
 specifier|public
 name|int
 name|getEmbeddedInt
@@ -2225,7 +2225,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/**      * Get an integer from an embedded dictionary.  Useful for 1-1 mappings.      *       * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      * @param defaultValue The value if there is no embedded dictionary or it does not contain the key.      *       * @return The value of the embedded integer.      */
+comment|/**      * Get an integer from an embedded dictionary.  Useful for 1-1 mappings.      *      * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      * @param defaultValue The value if there is no embedded dictionary or it does not contain the key.      *      * @return The value of the embedded integer.      */
 specifier|public
 name|int
 name|getEmbeddedInt
@@ -2417,7 +2417,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that      * is expected to be an long.  -1 is returned if there is no value.      *      * @param key The key to the item in the dictionary.      *       * @return The long value.      */
+comment|/**      * This is a convenience method that will get the dictionary object that      * is expected to be an long.  -1 is returned if there is no value.      *      * @param key The key to the item in the dictionary.      *      * @return The long value.      */
 specifier|public
 name|long
 name|getLong
@@ -2814,7 +2814,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will add all of the dictionarys keys/values to this dictionary, but only      * if they don't already exist.  If a key already exists in this dictionary then       * nothing is changed.      *      * @param dic The dic to get the keys from.      */
+comment|/**      * This will add all of the dictionarys keys/values to this dictionary, but only      * if they don't already exist.  If a key already exists in this dictionary then      * nothing is changed.      *      * @param dic The dic to get the keys from.      */
 specifier|public
 name|void
 name|mergeInto

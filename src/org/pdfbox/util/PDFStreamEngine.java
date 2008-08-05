@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -287,7 +287,7 @@ operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
-comment|/**      * This is a simple internal class used by the Stream engine to handle the       * resources stack.      */
+comment|/**      * This is a simple internal class used by the Stream engine to handle the      * resources stack.      */
 specifier|private
 specifier|static
 class|class
@@ -321,7 +321,7 @@ parameter_list|()
 block|{
 comment|//default constructor
 block|}
-comment|/**      * Constructor with engine properties.  The property keys are all      * PDF operators, the values are class names used to execute those      * operators.      *       * @param properties The engine properties.      *       * @throws IOException If there is an error setting the engine properties.      */
+comment|/**      * Constructor with engine properties.  The property keys are all      * PDF operators, the values are class names used to execute those      * operators.      *      * @param properties The engine properties.      *      * @throws IOException If there is an error setting the engine properties.      */
 specifier|public
 name|PDFStreamEngine
 parameter_list|(
@@ -428,7 +428,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Register a custom operator processor with the engine.      *       * @param operator The operator as a string.      * @param op Processor instance.      */
+comment|/**      * Register a custom operator processor with the engine.      *      * @param operator The operator as a string.      * @param op Processor instance.      */
 specifier|public
 name|void
 name|registerOperatorProcessor
@@ -457,7 +457,7 @@ name|op
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method must be called between processing documents.  The       * PDFStreamEngine caches information for the document between pages      * and this will release the cached information.  This only needs      * to be called if processing a new document.      *      */
+comment|/**      * This method must be called between processing documents.  The      * PDFStreamEngine caches information for the document between pages      * and this will release the cached information.  This only needs      * to be called if processing a new document.      *      */
 specifier|public
 name|void
 name|resetEngine
@@ -469,7 +469,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will process the contents of the stream.      *      * @param aPage The page.      * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      *       *      * @throws IOException if there is an error accessing the stream.      */
+comment|/**      * This will process the contents of the stream.      *      * @param aPage The page.      * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      *      *      * @throws IOException if there is an error accessing the stream.      */
 specifier|public
 name|void
 name|processStream
@@ -520,7 +520,7 @@ name|cosStream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process a sub stream of the current stream.      *       * @param aPage The page used for drawing.      * @param resources The resources used when processing the stream.      * @param cosStream The stream to process.      *       * @throws IOException If there is an exception while processing the stream.      */
+comment|/**      * Process a sub stream of the current stream.      *      * @param aPage The page used for drawing.      * @param resources The resources used when processing the stream.      * @param cosStream The stream to process.      *      * @throws IOException If there is an exception while processing the stream.      */
 specifier|public
 name|void
 name|processSubStream
@@ -2243,7 +2243,7 @@ operator|.
 name|resources
 return|;
 block|}
-comment|/**      * Get the current page that is being processed.      *       * @return The page being processed.      */
+comment|/**      * Get the current page that is being processed.      *      * @return The page being processed.      */
 specifier|public
 name|PDPage
 name|getCurrentPage

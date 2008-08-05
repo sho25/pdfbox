@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a rubber stamp annotation.  * Introduced in PDF 1.3 specification  *   * @author Paul King  * @version $Revision: 1.2 $  */
+comment|/**  * This is the class that represents a rubber stamp annotation.  * Introduced in PDF 1.3 specification  *  * @author Paul King  * @version $Revision: 1.2 $  */
 end_comment
 
 begin_class
@@ -52,7 +52,7 @@ name|PDAnnotationRubberStamp
 extends|extends
 name|PDAnnotationMarkup
 block|{
-comment|/*      * The various values of the rubber stamp as defined in       * the PDF 1.6 reference Table 8.28      */
+comment|/*      * The various values of the rubber stamp as defined in      * the PDF 1.6 reference Table 8.28      */
 comment|/**      * Constant for the name of a rubber stamp.      */
 specifier|public
 specifier|static
@@ -250,7 +250,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the name (and hence appearance, AP taking precedence)      * For this annotation.  The default is DRAFT.      *       * @return The name of this rubber stamp, see the NAME_XXX constants.      */
+comment|/**      * This will retrieve the name (and hence appearance, AP taking precedence)      * For this annotation.  The default is DRAFT.      *      * @return The name of this rubber stamp, see the NAME_XXX constants.      */
 specifier|public
 name|String
 name|getName

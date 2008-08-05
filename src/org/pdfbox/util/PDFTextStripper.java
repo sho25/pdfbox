@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -354,7 +354,7 @@ name|pageArticles
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * The charactersByArticle is used to extract text by article divisions.  For example      * a PDF that has two columns like a newspaper, we want to extract the first column and      * then the second column.  In this example the PDF would have 2 beads(or articles), one for      * each column.  The size of the charactersByArticle would be 5, because not all text on the       * screen will fall into one of the articles.  The five divisions are shown below      *       * Text before first article      * first article text      * text between first article and second article      * second article text      * text after second article      *       * Most PDFs won't have any beads, so charactersByArticle will contain a single entry.      */
+comment|/**      * The charactersByArticle is used to extract text by article divisions.  For example      * a PDF that has two columns like a newspaper, we want to extract the first column and      * then the second column.  In this example the PDF would have 2 beads(or articles), one for      * each column.  The size of the charactersByArticle would be 5, because not all text on the      * screen will fall into one of the articles.  The five divisions are shown below      *      * Text before first article      * first article text      * text between first article and second article      * second article text      * text after second article      *      * Most PDFs won't have any beads, so charactersByArticle will contain a single entry.      */
 specifier|protected
 name|Vector
 name|charactersByArticle
@@ -424,7 +424,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Instantiate a new PDFTextStripper object.  Loading all of the operator mappings      * from the properties object that is passed in.      *       * @param props The properties containing the mapping of operators to PDFOperator       * classes.      *       * @throws IOException If there is an error reading the properties.      */
+comment|/**      * Instantiate a new PDFTextStripper object.  Loading all of the operator mappings      * from the properties object that is passed in.      *      * @param props The properties containing the mapping of operators to PDFOperator      * classes.      *      * @throws IOException If there is an error reading the properties.      */
 specifier|public
 name|PDFTextStripper
 parameter_list|(
@@ -832,7 +832,7 @@ return|return
 name|pageNumber
 return|;
 block|}
-comment|/**      * This method is available for subclasses of this class.  It will be called before processing      * of the document start.      *       * @param pdf The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
+comment|/**      * This method is available for subclasses of this class.  It will be called before processing      * of the document start.      *      * @param pdf The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
 specifier|protected
 name|void
 name|startDocument
@@ -845,7 +845,7 @@ name|IOException
 block|{
 comment|// no default implementation, but available for subclasses
 block|}
-comment|/**      * This method is available for subclasses of this class.  It will be called after processing      * of the document finishes.      *       * @param pdf The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
+comment|/**      * This method is available for subclasses of this class.  It will be called after processing      * of the document finishes.      *      * @param pdf The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
 specifier|protected
 name|void
 name|endDocument
@@ -1035,7 +1035,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Start a new paragraph.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *       * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * Start a new paragraph.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
 name|startParagraph
@@ -1045,7 +1045,7 @@ name|IOException
 block|{
 comment|//default is to do nothing.
 block|}
-comment|/**      * End a paragraph.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *       * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * End a paragraph.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
 name|endParagraph
@@ -1055,7 +1055,7 @@ name|IOException
 block|{
 comment|//default is to do nothing
 block|}
-comment|/**      * Start a new page.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *       * @param page The page we are about to process.      *       * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * Start a new page.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @param page The page we are about to process.      *      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
 name|startPage
@@ -1068,7 +1068,7 @@ name|IOException
 block|{
 comment|//default is to do nothing.
 block|}
-comment|/**      * End a page.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *       * @param page The page we are about to process.      *       * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * End a page.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @param page The page we are about to process.      *      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
 name|endPage
@@ -1666,7 +1666,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write the string to the output stream.      *        * @param text The text to write to the stream.      * @throws IOException If there is an error when writing the text.      */
+comment|/**      * Write the string to the output stream.      *      * @param text The text to write to the stream.      * @throws IOException If there is an error when writing the text.      */
 specifier|protected
 name|void
 name|writeCharacters
@@ -2388,7 +2388,7 @@ return|return
 name|suppressDuplicateOverlappingText
 return|;
 block|}
-comment|/**      * Get the current page number that is being processed.      *       * @return A 1 based number representing the current page.      */
+comment|/**      * Get the current page number that is being processed.      *      * @return A 1 based number representing the current page.      */
 specifier|protected
 name|int
 name|getCurrentPageNo
@@ -2398,7 +2398,7 @@ return|return
 name|currentPageNo
 return|;
 block|}
-comment|/**      * The output stream that is being written to.      *       * @return The stream that output is being written to.      */
+comment|/**      * The output stream that is being written to.      *      * @return The stream that output is being written to.      */
 specifier|protected
 name|Writer
 name|getOutput
@@ -2408,7 +2408,7 @@ return|return
 name|output
 return|;
 block|}
-comment|/**      * Character strings are grouped by articles.  It is quite common that there      * will only be a single article.  This returns a List that contains List objects,      * the inner lists will contain TextPosition objects.      *       * @return A double List of TextPositions for all text strings on the page.      */
+comment|/**      * Character strings are grouped by articles.  It is quite common that there      * will only be a single article.  This returns a List that contains List objects,      * the inner lists will contain TextPosition objects.      *      * @return A double List of TextPositions for all text strings on the page.      */
 specifier|protected
 name|List
 name|getCharactersByArticle
@@ -2418,7 +2418,7 @@ return|return
 name|charactersByArticle
 return|;
 block|}
-comment|/**      * By default the text stripper will attempt to remove text that overlapps each other.      * Word paints the same character several times in order to make it look bold.  By setting      * this to false all text will be extracted, which means that certain sections will be       * duplicated, but better performance will be noticed.      *       * @param suppressDuplicateOverlappingTextValue The suppressDuplicateOverlappingText to set.      */
+comment|/**      * By default the text stripper will attempt to remove text that overlapps each other.      * Word paints the same character several times in order to make it look bold.  By setting      * this to false all text will be extracted, which means that certain sections will be      * duplicated, but better performance will be noticed.      *      * @param suppressDuplicateOverlappingTextValue The suppressDuplicateOverlappingText to set.      */
 specifier|public
 name|void
 name|setSuppressDuplicateOverlappingText
@@ -2434,7 +2434,7 @@ operator|=
 name|suppressDuplicateOverlappingTextValue
 expr_stmt|;
 block|}
-comment|/**      * This will tell if the text stripper should separate by beads.      *       * @return If the text will be grouped by beads.      */
+comment|/**      * This will tell if the text stripper should separate by beads.      *      * @return If the text will be grouped by beads.      */
 specifier|public
 name|boolean
 name|shouldSeparateByBeads
@@ -2444,7 +2444,7 @@ return|return
 name|shouldSeparateByBeads
 return|;
 block|}
-comment|/**      * Set if the text stripper should group the text output by a list of beads.  The default value is true!      *       * @param aShouldSeparateByBeads The new grouping of beads.      */
+comment|/**      * Set if the text stripper should group the text output by a list of beads.  The default value is true!      *      * @param aShouldSeparateByBeads The new grouping of beads.      */
 specifier|public
 name|void
 name|setShouldSeparateByBeads
@@ -2460,7 +2460,7 @@ operator|=
 name|aShouldSeparateByBeads
 expr_stmt|;
 block|}
-comment|/**      * Get the bookmark where text extraction should end, inclusive.  Default is null.      *       * @return The ending bookmark.      */
+comment|/**      * Get the bookmark where text extraction should end, inclusive.  Default is null.      *      * @return The ending bookmark.      */
 specifier|public
 name|PDOutlineItem
 name|getEndBookmark
@@ -2470,7 +2470,7 @@ return|return
 name|endBookmark
 return|;
 block|}
-comment|/**      * Set the bookmark where the text extraction should stop.      *       * @param aEndBookmark The ending bookmark.      */
+comment|/**      * Set the bookmark where the text extraction should stop.      *      * @param aEndBookmark The ending bookmark.      */
 specifier|public
 name|void
 name|setEndBookmark
@@ -2484,7 +2484,7 @@ operator|=
 name|aEndBookmark
 expr_stmt|;
 block|}
-comment|/**      * Get the bookmark where text extraction should start, inclusive.  Default is null.      *       * @return The starting bookmark.      */
+comment|/**      * Get the bookmark where text extraction should start, inclusive.  Default is null.      *      * @return The starting bookmark.      */
 specifier|public
 name|PDOutlineItem
 name|getStartBookmark
@@ -2494,7 +2494,7 @@ return|return
 name|startBookmark
 return|;
 block|}
-comment|/**      * Set the bookmark where text extraction should start, inclusive.      *       * @param aStartBookmark The starting bookmark.      */
+comment|/**      * Set the bookmark where text extraction should start, inclusive.      *      * @param aStartBookmark The starting bookmark.      */
 specifier|public
 name|void
 name|setStartBookmark
@@ -2508,7 +2508,7 @@ operator|=
 name|aStartBookmark
 expr_stmt|;
 block|}
-comment|/**      * This will tell if the text stripper should sort the text tokens      * before writing to the stream.      *       * @return true If the text tokens will be sorted before being written.      */
+comment|/**      * This will tell if the text stripper should sort the text tokens      * before writing to the stream.      *      * @return true If the text tokens will be sorted before being written.      */
 specifier|public
 name|boolean
 name|shouldSortByPosition
@@ -2518,7 +2518,7 @@ return|return
 name|sortByPosition
 return|;
 block|}
-comment|/**      * The order of the text tokens in a PDF file may not be in the same      * as they appear visually on the screen.  For example, a PDF writer may      * write out all text by font, so all bold or larger text, then make a second      * pass and write out the normal text.<br/>      * The default is to<b>not</b> sort by position.<br/>      *<br/>      * A PDF writer could choose to write each character in a different order.  By      * default PDFBox does<b>not</b> sort the text tokens before processing them due to      * performance reasons.      *           * @param newSortByPosition Tell PDFBox to sort the text positions.      */
+comment|/**      * The order of the text tokens in a PDF file may not be in the same      * as they appear visually on the screen.  For example, a PDF writer may      * write out all text by font, so all bold or larger text, then make a second      * pass and write out the normal text.<br/>      * The default is to<b>not</b> sort by position.<br/>      *<br/>      * A PDF writer could choose to write each character in a different order.  By      * default PDFBox does<b>not</b> sort the text tokens before processing them due to      * performance reasons.      *      * @param newSortByPosition Tell PDFBox to sort the text positions.      */
 specifier|public
 name|void
 name|setSortByPosition

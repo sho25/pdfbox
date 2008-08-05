@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -156,7 +156,7 @@ name|valueType
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param valueClass The PD Model type of object that is the value.      */
+comment|/**      * Constructor.      *      * @param valueClass The PD Model type of object that is the value.      */
 specifier|public
 name|PDNameTreeNode
 parameter_list|(
@@ -215,7 +215,7 @@ return|return
 name|node
 return|;
 block|}
-comment|/**      * Return the children of this node.  This list will contain PDNameTreeNode objects.      *       * @return The list of children or null if there are no children.      */
+comment|/**      * Return the children of this node.  This list will contain PDNameTreeNode objects.      *      * @return The list of children or null if there are no children.      */
 specifier|public
 name|List
 name|getKids
@@ -305,7 +305,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the children of this named tree.      *       * @param kids The children of this named tree.      */
+comment|/**      * Set the children of this named tree.      *      * @param kids The children of this named tree.      */
 specifier|public
 name|void
 name|setKids
@@ -329,7 +329,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The name to retrieve.      *       * @param name The name in the tree.      *       * @return The value of the name in the tree.      *       * @throws IOException If an there is a problem creating the destinations.      */
+comment|/**      * The name to retrieve.      *      * @param name The name in the tree.      *      * @return The value of the name in the tree.      *      * @throws IOException If an there is a problem creating the destinations.      */
 specifier|public
 name|Object
 name|getValue
@@ -454,7 +454,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will return a map of names.  The key will be a java.lang.String the value will      * depend on where this class is being used.      *       * @return A map of cos objects.      *       * @throws IOException If there is an error while creating the sub types.      */
+comment|/**      * This will return a map of names.  The key will be a java.lang.String the value will      * depend on where this class is being used.      *      * @return A map of cos objects.      *      * @throws IOException If there is an error while creating the sub types.      */
 specifier|public
 name|Map
 name|getNames
@@ -572,7 +572,7 @@ return|return
 name|names
 return|;
 block|}
-comment|/**      * Method to convert the COS value in the name tree to the PD Model object.  The      * default implementation will simply use reflection to create the correct object      * type.  Subclasses can do whatever they want.      *       * @param base The COS object to convert.      * @return The converted PD Model object.      * @throws IOException If there is an error during creation.      */
+comment|/**      * Method to convert the COS value in the name tree to the PD Model object.  The      * default implementation will simply use reflection to create the correct object      * type.  Subclasses can do whatever they want.      *      * @param base The COS object to convert.      * @return The converted PD Model object.      * @throws IOException If there is an error during creation.      */
 specifier|protected
 name|Object
 name|convertCOSToPD
@@ -646,7 +646,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Create a child node object.      *       * @param dic The dictionary for the child node object to refer to.      * @return The new child node object.      */
+comment|/**      * Create a child node object.      *      * @param dic The dictionary for the child node object to refer to.      * @return The new child node object.      */
 specifier|protected
 name|PDNameTreeNode
 name|createChildNode
@@ -665,7 +665,7 @@ name|valueType
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the names of for this node.  The keys should be java.lang.String and the       * values must be a COSObjectable.  This method will set the appropriate upper and lower      * limits based on the keys in the map.      *       * @param names The map of names to objects.      */
+comment|/**      * Set the names of for this node.  The keys should be java.lang.String and the      * values must be a COSObjectable.  This method will set the appropriate upper and lower      * limits based on the keys in the map.      *      * @param names The map of names to objects.      */
 specifier|public
 name|void
 name|setNames
@@ -868,7 +868,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the highest value for a key in the name map.      *       * @return The highest value for a key in the map.      */
+comment|/**      * Get the highest value for a key in the name map.      *      * @return The highest value for a key in the map.      */
 specifier|public
 name|String
 name|getUpperLimit
@@ -913,7 +913,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the highest value for the key in the map.      *       * @param upper The new highest value for a key in the map.      */
+comment|/**      * Set the highest value for the key in the map.      *      * @param upper The new highest value for a key in the map.      */
 specifier|private
 name|void
 name|setUpperLimit
@@ -973,7 +973,7 @@ name|upper
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the lowest value for a key in the name map.      *       * @return The lowest value for a key in the map.      */
+comment|/**      * Get the lowest value for a key in the name map.      *      * @return The lowest value for a key in the map.      */
 specifier|public
 name|String
 name|getLowerLimit
@@ -1018,7 +1018,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the lowest value for the key in the map.      *       * @param lower The new lowest value for a key in the map.      */
+comment|/**      * Set the lowest value for the key in the map.      *      * @param lower The new lowest value for a key in the map.      */
 specifier|private
 name|void
 name|setLowerLimit

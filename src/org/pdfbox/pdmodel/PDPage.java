@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -1653,7 +1653,7 @@ name|contents
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get a list of PDThreadBead objects, which are article threads in the      * document.  This will return an empty list of there are no thread beads.      *       * @return A list of article threads on this page.      */
+comment|/**      * This will get a list of PDThreadBead objects, which are article threads in the      * document.  This will return an empty list of there are no thread beads.      *      * @return A list of article threads on this page.      */
 specifier|public
 name|List
 name|getThreadBeads
@@ -1766,7 +1766,7 @@ name|beads
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the list of thread beads.      *       * @param beads A list of PDThreadBead objects or null.      */
+comment|/**      * This will set the list of thread beads.      *      * @param beads A list of PDThreadBead objects or null.      */
 specifier|public
 name|void
 name|setThreadBeads
@@ -1792,7 +1792,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the metadata that is part of the document catalog.  This will       * return null if there is no meta data for this object.      *       * @return The metadata for this object.      */
+comment|/**      * Get the metadata that is part of the document catalog.  This will      * return null if there is no meta data for this object.      *      * @return The metadata for this object.      */
 specifier|public
 name|PDMetadata
 name|getMetadata
@@ -1838,7 +1838,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the metadata for this object.  This can be null.      *       * @param meta The meta data for this object.      */
+comment|/**      * Set the metadata for this object.  This can be null.      *      * @param meta The meta data for this object.      */
 specifier|public
 name|void
 name|setMetadata
@@ -1859,7 +1859,7 @@ name|meta
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convert this page to an output image.      *       * @return A graphical representation of this page.      *       * @throws IOException If there is an error drawing to the image.      */
+comment|/**      * Convert this page to an output image.      *      * @return A graphical representation of this page.      *      * @throws IOException If there is an error drawing to the image.      */
 specifier|public
 name|BufferedImage
 name|convertToImage
@@ -2141,7 +2141,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Get the page actions.      *       * @return The Actions for this Page       */
+comment|/**      * Get the page actions.      *      * @return The Actions for this Page      */
 specifier|public
 name|PDPageAdditionalActions
 name|getActions
@@ -2195,7 +2195,7 @@ name|addAct
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the page actions.      *       * @param actions The actions for the page.      */
+comment|/**      * Set the page actions.      *      * @param actions The actions for the page.      */
 specifier|public
 name|void
 name|setActions
@@ -2216,7 +2216,7 @@ name|actions
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return a list of the Annotations for this page.      *      * @return List of the PDAnnotation objects.      *       * @throws IOException If there is an error while creating the annotations.      */
+comment|/**      * This will return a list of the Annotations for this page.      *      * @return List of the PDAnnotation objects.      *      * @throws IOException If there is an error while creating the annotations.      */
 specifier|public
 name|List
 name|getAnnotations
@@ -2346,7 +2346,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of annotations.      *       * @param annots The new list of annotations.       */
+comment|/**      * This will set the list of annotations.      *      * @param annots The new list of annotations.      */
 specifier|public
 name|void
 name|setAnnotations

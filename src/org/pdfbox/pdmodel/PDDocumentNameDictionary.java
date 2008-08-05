@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -70,7 +70,7 @@ specifier|private
 name|PDDocumentCatalog
 name|catalog
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param cat The document catalog that this dictionary is part of.      */
+comment|/**      * Constructor.      *      * @param cat The document catalog that this dictionary is part of.      */
 specifier|public
 name|PDDocumentNameDictionary
 parameter_list|(
@@ -89,7 +89,7 @@ operator|=
 name|cat
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param cat The document that this dictionary is part of.      * @param names The names dictionary.      */
+comment|/**      * Constructor.      *      * @param cat The document that this dictionary is part of.      * @param names The names dictionary.      */
 specifier|public
 name|PDDocumentNameDictionary
 parameter_list|(
@@ -129,7 +129,7 @@ return|return
 name|nameDictionary
 return|;
 block|}
-comment|/**      * Get the destination named tree node.  The value in this name tree will be PDDestination      * objects.      *       * @return The destination name tree node.      */
+comment|/**      * Get the destination named tree node.  The value in this name tree will be PDDestination      * objects.      *      * @return The destination name tree node.      */
 specifier|public
 name|PDDestinationNameTreeNode
 name|getDests
@@ -198,7 +198,7 @@ return|return
 name|dests
 return|;
 block|}
-comment|/**      * Set the named destinations that are associated with this document.      *       * @param dests The destination names.      */
+comment|/**      * Set the named destinations that are associated with this document.      *      * @param dests The destination names.      */
 specifier|public
 name|void
 name|setDests
@@ -237,7 +237,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the embedded files named tree node.  The value in this name tree will be PDComplexFileSpecification      * objects.      *       * @return The embedded files name tree node.      */
+comment|/**      * Get the embedded files named tree node.  The value in this name tree will be PDComplexFileSpecification      * objects.      *      * @return The embedded files name tree node.      */
 specifier|public
 name|PDEmbeddedFilesNameTreeNode
 name|getEmbeddedFiles
@@ -281,7 +281,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the named embedded files that are associated with this document.      *       * @param ef The new embedded files      */
+comment|/**      * Set the named embedded files that are associated with this document.      *      * @param ef The new embedded files      */
 specifier|public
 name|void
 name|setEmbeddedFiles
@@ -300,7 +300,7 @@ name|ef
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the document level javascript entries.  The value in this name tree will be PDTextStream.      *       * @return The document level named javascript.      */
+comment|/**      * Get the document level javascript entries.  The value in this name tree will be PDTextStream.      *      * @return The document level named javascript.      */
 specifier|public
 name|PDJavascriptNameTreeNode
 name|getJavaScript
@@ -344,7 +344,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the named javascript entries that are associated with this document.      *       * @param js The new Javascript entries.      */
+comment|/**      * Set the named javascript entries that are associated with this document.      *      * @param js The new Javascript entries.      */
 specifier|public
 name|void
 name|setJavascript

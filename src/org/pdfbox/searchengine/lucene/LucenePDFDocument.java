@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -280,7 +280,7 @@ specifier|public
 name|LucenePDFDocument
 parameter_list|()
 block|{     }
-comment|/**      * Set the text stripper that will be used during extraction.      *       * @param aStripper The new pdf text stripper.      */
+comment|/**      * Set the text stripper that will be used during extraction.      *      * @param aStripper The new pdf text stripper.      */
 specifier|public
 name|void
 name|setTextStripper
@@ -294,7 +294,7 @@ operator|=
 name|aStripper
 expr_stmt|;
 block|}
-comment|/**      * Get the Lucene data time resolution.      *       * @return current date/time resolution      */
+comment|/**      * Get the Lucene data time resolution.      *      * @return current date/time resolution      */
 specifier|public
 name|DateTools
 operator|.
@@ -306,7 +306,7 @@ return|return
 name|dateTimeResolution
 return|;
 block|}
-comment|/**      * Set the Lucene data time resolution.      *       * @param resolution set new date/time resolution      */
+comment|/**      * Set the Lucene data time resolution.      *      * @param resolution set new date/time resolution      */
 specifier|public
 name|void
 name|setDateTimeResolution
@@ -647,7 +647,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Convert the PDF stream to a lucene document.      *       * @param is The input stream.      * @return The input stream converted to a lucene document.      * @throws IOException If there is an error converting the PDF.      */
+comment|/**      * Convert the PDF stream to a lucene document.      *      * @param is The input stream.      * @return The input stream converted to a lucene document.      * @throws IOException If there is an error converting the PDF.      */
 specifier|public
 name|Document
 name|convertDocument
@@ -678,7 +678,7 @@ return|return
 name|document
 return|;
 block|}
-comment|/**      * This will take a reference to a PDF document and create a lucene document.      *       * @param file A reference to a PDF document.      * @return The converted lucene document.      *       * @throws IOException If there is an exception while converting the document.      */
+comment|/**      * This will take a reference to a PDF document and create a lucene document.      *      * @param file A reference to a PDF document.      * @return The converted lucene document.      *      * @throws IOException If there is an exception while converting the document.      */
 specifier|public
 name|Document
 name|convertDocument
@@ -833,7 +833,7 @@ return|return
 name|document
 return|;
 block|}
-comment|/**      * Convert the document from a PDF to a lucene document.      *       * @param url A url to a PDF document.      * @return The PDF converted to a lucene document.      * @throws IOException If there is an error while converting the document.      */
+comment|/**      * Convert the document from a PDF to a lucene document.      *      * @param url A url to a PDF document.      * @return The PDF converted to a lucene document.      * @throws IOException If there is an error while converting the document.      */
 specifier|public
 name|Document
 name|convertDocument

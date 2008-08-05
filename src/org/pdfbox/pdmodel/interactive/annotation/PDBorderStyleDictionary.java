@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a PDF /BS entry the border style dictionary.  *   * @author Paul King  * @version $Revision: 1.1 $  */
+comment|/**  * This class represents a PDF /BS entry the border style dictionary.  *  * @author Paul King  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -166,7 +166,7 @@ name|COSDictionary
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param dict      *            a border style dictionary.      */
+comment|/**      * Constructor.      *      * @param dict      *            a border style dictionary.      */
 specifier|public
 name|PDBorderStyleDictionary
 parameter_list|(
@@ -179,7 +179,7 @@ operator|=
 name|dict
 expr_stmt|;
 block|}
-comment|/**      * returns the dictionary.      *       * @return the dictionary      */
+comment|/**      * returns the dictionary.      *      * @return the dictionary      */
 specifier|public
 name|COSDictionary
 name|getDictionary
@@ -189,7 +189,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * returns the dictionary.      *       * @return the dictionary      */
+comment|/**      * returns the dictionary.      *      * @return the dictionary      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -199,7 +199,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * This will set the border width in points, 0 = no border.      *       * @param w      *            float the width in points      */
+comment|/**      * This will set the border width in points, 0 = no border.      *      * @param w      *            float the width in points      */
 specifier|public
 name|void
 name|setWidth
@@ -219,7 +219,7 @@ name|w
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border width in points, 0 = no border.      *       * @return flaot the width of the border in points      */
+comment|/**      * This will retrieve the border width in points, 0 = no border.      *      * @return flaot the width of the border in points      */
 specifier|public
 name|float
 name|getWidth
@@ -237,7 +237,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the border style, see the STYLE_* constants for valid values.      *       * @param s      *            the border style to use      */
+comment|/**      * This will set the border style, see the STYLE_* constants for valid values.      *      * @param s      *            the border style to use      */
 specifier|public
 name|void
 name|setStyle
@@ -257,7 +257,7 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border style, see the STYLE_* constants for valid      * values.      *       * @return the style of the border      */
+comment|/**      * This will retrieve the border style, see the STYLE_* constants for valid      * values.      *      * @return the style of the border      */
 specifier|public
 name|String
 name|getStyle
@@ -275,7 +275,7 @@ name|STYLE_SOLID
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the dash style used for drawing the border.      *       * @param d      *            the dash style to use      */
+comment|/**      * This will set the dash style used for drawing the border.      *      * @param d      *            the dash style to use      */
 specifier|public
 name|void
 name|setDashStyle
@@ -315,7 +315,7 @@ name|array
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the dash style used for drawing the border.      *       * @return the dash style of the border      */
+comment|/**      * This will retrieve the dash style used for drawing the border.      *      * @return the dash style of the border      */
 specifier|public
 name|PDLineDashPattern
 name|getDashStyle

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *   *      http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -266,7 +266,7 @@ name|out
 init|=
 literal|null
 decl_stmt|;
-comment|/**       * Forces the string to be serialized in literal form but not hexa form.       */
+comment|/**      * Forces the string to be serialized in literal form but not hexa form.      */
 specifier|private
 name|boolean
 name|forceLiteralForm
@@ -481,7 +481,7 @@ expr_stmt|;
 comment|//should never happen
 block|}
 block|}
-comment|/**      * Forces the string to be written in literal form instead of hexadecimal form.       *       * @param v if v is true the string will be written in literal form, otherwise it will      * be written in hexa if necessary.      */
+comment|/**      * Forces the string to be written in literal form instead of hexadecimal form.      *      * @param v if v is true the string will be written in literal form, otherwise it will      * be written in hexa if necessary.      */
 specifier|public
 name|void
 name|setForceLiteralForm
@@ -495,7 +495,7 @@ operator|=
 name|v
 expr_stmt|;
 block|}
-comment|/**      * This will create a COS string from a string of hex characters.      *       * @param hex A hex string.      * @return A cos string with the hex characters converted to their actual bytes.      * @throws IOException If there is an error with the hex string.      */
+comment|/**      * This will create a COS string from a string of hex characters.      *      * @param hex A hex string.      * @return A cos string with the hex characters converted to their actual bytes.      * @throws IOException If there is an error with the hex string.      */
 specifier|public
 specifier|static
 name|COSString
@@ -624,7 +624,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will take this string and create a hex representation of the bytes that make the string.      *       * @return A hex string representing the bytes in this string.      */
+comment|/**      * This will take this string and create a hex representation of the bytes that make the string.      *      * @return A hex string representing the bytes in this string.      */
 specifier|public
 name|String
 name|getHexString
@@ -930,7 +930,7 @@ operator|+
 literal|"}"
 return|;
 block|}
-comment|/**      * This will output this string as a PDF object.      *        * @param output The stream to write to.      * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * This will output this string as a PDF object.      *      * @param output The stream to write to.      * @throws IOException If there is an error writing to the stream.      */
 specifier|public
 name|void
 name|writePDF
