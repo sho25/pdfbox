@@ -346,6 +346,15 @@ argument_list|(
 literal|"ZapfDingbats"
 argument_list|)
 decl_stmt|;
+comment|/**      * Hardcoded copy of the Font.TYPE1_FONT constant in Java 5. PDFBox should      * compile and work also with Java 1.4, so we can't rely on Java 5 features      * being always available. The code that uses this constant will fail      * gracefully if support for Type 1 fonts are not available.      *      * @see<a href="https://issues.apache.org/jira/browse/PDFBOX-379">PDFBOX-379</a>      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|TYPE1_FONT
+init|=
+literal|1
+decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
@@ -1141,8 +1150,6 @@ name|Font
 operator|.
 name|createFont
 argument_list|(
-name|Font
-operator|.
 name|TYPE1_FONT
 argument_list|,
 name|ffStream
