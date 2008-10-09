@@ -1721,6 +1721,15 @@ expr_stmt|;
 block|}
 block|}
 block|}
+else|else
+block|{
+comment|// PDFBOX-373: Replace a null entry with "?" so it is
+comment|// not printed as "(null)"
+name|c
+operator|=
+literal|"?"
+expr_stmt|;
+block|}
 name|totalStringWidth
 operator|+=
 name|width
