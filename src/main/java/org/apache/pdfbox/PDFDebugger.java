@@ -269,6 +269,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|swing
+operator|.
+name|UIManager
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1673,6 +1683,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|UIManager
+operator|.
+name|setLookAndFeel
+argument_list|(
+name|UIManager
+operator|.
+name|getSystemLookAndFeelClassName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|PDFDebugger
 name|viewer
 init|=
