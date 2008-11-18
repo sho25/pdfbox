@@ -1313,14 +1313,8 @@ name|drawString
 argument_list|(
 name|string
 argument_list|,
-operator|(
-name|int
-operator|)
 name|x
 argument_list|,
-operator|(
-name|int
-operator|)
 name|y
 argument_list|)
 expr_stmt|;
