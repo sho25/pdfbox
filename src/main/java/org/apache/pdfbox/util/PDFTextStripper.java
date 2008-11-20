@@ -1114,25 +1114,28 @@ throws|throws
 name|IOException
 block|{
 name|float
-name|currentY
+name|maxYForLine
 init|=
 operator|-
 literal|1
 decl_stmt|;
 name|float
-name|lastBaselineFontSize
+name|minYTopForLine
 init|=
-operator|-
-literal|1
+name|Float
+operator|.
+name|MAX_VALUE
 decl_stmt|;
+comment|//float lastBaselineFontSize = -1;
 name|float
 name|endOfLastTextX
 init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|//float endOfLastTextY = -1;
 name|float
-name|startOfNextWordX
+name|expectedStartOfNextWordX
 init|=
 operator|-
 literal|1
@@ -1149,8 +1152,9 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|//float lastHeightForLine = -1;
 name|TextPosition
-name|lastProcessedCharacter
+name|lastPosition
 init|=
 literal|null
 decl_stmt|;
@@ -1176,10 +1180,16 @@ name|startParagraph
 argument_list|()
 expr_stmt|;
 name|List
+argument_list|<
+name|TextPosition
+argument_list|>
 name|textList
 init|=
 operator|(
 name|List
+argument_list|<
+name|TextPosition
+argument_list|>
 operator|)
 name|charactersByArticle
 operator|.
@@ -1198,10 +1208,7 @@ name|comparator
 init|=
 operator|new
 name|TextPositionComparator
-argument_list|(
-name|getCurrentPage
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Collections
 operator|.
@@ -1214,6 +1221,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|Iterator
+argument_list|<
+name|TextPosition
+argument_list|>
 name|textIter
 init|=
 name|textList
@@ -1232,9 +1242,6 @@ block|{
 name|TextPosition
 name|position
 init|=
-operator|(
-name|TextPosition
-operator|)
 name|textIter
 operator|.
 name|next
@@ -1248,19 +1255,90 @@ operator|.
 name|getCharacter
 argument_list|()
 decl_stmt|;
-comment|//wordSpacing = position.getWordSpacing();
+name|float
+name|positionX
+decl_stmt|;
+name|float
+name|positionY
+decl_stmt|;
+name|float
+name|positionWidth
+decl_stmt|;
+name|float
+name|positionHeight
+decl_stmt|;
+comment|/* If we are sorting, then we need to use the text direction                   * adjusted coordinates, because they were used in the sorting. */
+if|if
+condition|(
+name|sortByPosition
+condition|)
+block|{
+name|positionX
+operator|=
+name|position
+operator|.
+name|getXDirAdj
+argument_list|()
+expr_stmt|;
+name|positionY
+operator|=
+name|position
+operator|.
+name|getYDirAdj
+argument_list|()
+expr_stmt|;
+name|positionWidth
+operator|=
+name|position
+operator|.
+name|getWidthDirAdj
+argument_list|()
+expr_stmt|;
+name|positionHeight
+operator|=
+name|position
+operator|.
+name|getHeightDir
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|positionX
+operator|=
+name|position
+operator|.
+name|getX
+argument_list|()
+expr_stmt|;
+name|positionY
+operator|=
+name|position
+operator|.
+name|getY
+argument_list|()
+expr_stmt|;
+name|positionWidth
+operator|=
+name|position
+operator|.
+name|getWidth
+argument_list|()
+expr_stmt|;
+name|positionHeight
+operator|=
+name|position
+operator|.
+name|getHeight
+argument_list|()
+expr_stmt|;
+block|}
 name|float
 name|wordSpacing
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
-name|wordSpacing
-operator|==
-literal|0
-condition|)
-block|{
+comment|/* float wordSpacing = position.getWordSpacing();	BC: When I re-enabled this for a a test, lots of extra spaces were added                 if( wordSpacing == 0 )                 {                 */
 comment|//try to get width of a space character
 name|wordSpacing
 operator|=
@@ -1280,13 +1358,10 @@ condition|)
 block|{
 name|wordSpacing
 operator|=
-name|position
-operator|.
-name|getWidth
-argument_list|()
+name|positionWidth
 expr_stmt|;
 block|}
-block|}
+comment|//}
 comment|// RDD - We add a conservative approximation for space determination.
 comment|// basically if there is a blank area between two characters that is
 comment|//equal to some percentage of the word spacing then that will be the
@@ -1298,7 +1373,7 @@ operator|<=
 literal|0
 condition|)
 block|{
-name|startOfNextWordX
+name|expectedStartOfNextWordX
 operator|=
 name|endOfLastTextX
 operator|+
@@ -1311,7 +1386,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|startOfNextWordX
+name|expectedStartOfNextWordX
 operator|=
 name|endOfLastTextX
 operator|+
@@ -1330,10 +1405,6 @@ literal|0.50f
 operator|)
 expr_stmt|;
 block|}
-name|lastWordSpacing
-operator|=
-name|wordSpacing
-expr_stmt|;
 comment|// RDD - We will suppress text that is very close to the current line
 comment|// and which overwrites previously rendered text on this line.
 comment|// This is done specifically to handle a reasonably common situation
@@ -1349,67 +1420,40 @@ comment|// case, and the size of the current font to handle the subscript case.
 comment|// Text must overlap with the last rendered baseline text by at least
 comment|// a small amount in order to be considered as being on the same line.
 comment|//
-name|int
-name|verticalScaling
-init|=
-literal|1
-decl_stmt|;
+comment|//int verticalScaling = 1;
+comment|//if( lastBaselineFontSize< 0 || position.getFontSize()< 0 )
+comment|//{
+comment|//    verticalScaling = -1;
+comment|//}
 if|if
 condition|(
-name|lastBaselineFontSize
-operator|<
-literal|0
-operator|||
-name|position
-operator|.
-name|getFontSize
-argument_list|()
-operator|<
-literal|0
-condition|)
-block|{
-name|verticalScaling
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|lastProcessedCharacter
+name|lastPosition
 operator|!=
 literal|null
 condition|)
 block|{
-name|float
-name|currentHeight
-init|=
-name|position
-operator|.
-name|getHeight
-argument_list|()
-decl_stmt|;
 comment|//if (currentY != -1&&
 comment|//    ((position.getY()< (currentY - (lastBaselineFontSize * 0.9f * verticalScaling))) ||
 comment|//     (position.getY()> (currentY + (position.getFontSize() * 0.9f * verticalScaling)))))
 comment|//{
+comment|/* XXX BC: In theory, this check should really check if the next char is in full range                       * seen in this line. This is what I tried to do with minYTopForLine, but this caused a lot                      * of regression test failures.  So, I'm leaving it be for now. */
 if|if
 condition|(
+operator|(
 operator|!
 name|overlap
 argument_list|(
-name|position
-operator|.
-name|getY
-argument_list|()
+name|positionY
 argument_list|,
-name|currentHeight
+name|positionHeight
 argument_list|,
-name|currentY
+name|maxYForLine
 argument_list|,
 name|maxHeightForLine
 argument_list|)
+operator|)
 condition|)
+comment|//maxYForLine - minYTopForLine)))
 block|{
 name|processLineSeparator
 argument_list|(
@@ -1421,12 +1465,12 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|startOfNextWordX
+name|expectedStartOfNextWordX
 operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|currentY
+name|maxYForLine
 operator|=
 operator|-
 literal|1
@@ -1436,33 +1480,28 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|lastBaselineFontSize
+comment|//lastBaselineFontSize = -1;
+name|minYTopForLine
 operator|=
-operator|-
-literal|1
+name|Float
+operator|.
+name|MAX_VALUE
 expr_stmt|;
-block|}
+comment|//lastHeightForLine = -1;
 block|}
 if|if
 condition|(
-name|startOfNextWordX
+name|expectedStartOfNextWordX
 operator|!=
 operator|-
 literal|1
 operator|&&
-name|startOfNextWordX
+name|expectedStartOfNextWordX
 operator|<
-name|position
-operator|.
-name|getX
-argument_list|()
-operator|&&
-name|lastProcessedCharacter
-operator|!=
-literal|null
+name|positionX
 operator|&&
 comment|//only bother adding a space if the last character was not a space
-name|lastProcessedCharacter
+name|lastPosition
 operator|.
 name|getCharacter
 argument_list|()
@@ -1470,7 +1509,7 @@ operator|!=
 literal|null
 operator|&&
 operator|!
-name|lastProcessedCharacter
+name|lastPosition
 operator|.
 name|getCharacter
 argument_list|()
@@ -1483,7 +1522,7 @@ condition|)
 block|{
 name|processWordSeparator
 argument_list|(
-name|lastProcessedCharacter
+name|lastPosition
 argument_list|,
 name|position
 argument_list|)
@@ -1491,55 +1530,31 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//System.out.println( "Not a word separtor " + position.getCharacter() +  " start=" + startOfNextWordX + " x=" + position.getX() );
+comment|//System.out.println( "Not a word separator " + position.getCharacter() +  " start=" + startOfNextWordX + " x=" + position.getX() );
 block|}
-name|currentY
-operator|=
-name|Math
-operator|.
-name|max
-argument_list|(
-name|currentY
-argument_list|,
-name|position
-operator|.
-name|getY
-argument_list|()
-argument_list|)
-expr_stmt|;
+block|}
 if|if
 condition|(
-name|currentY
-operator|==
-name|position
-operator|.
-name|getY
-argument_list|()
+name|positionY
+operator|>=
+name|maxYForLine
 condition|)
 block|{
-name|lastBaselineFontSize
+name|maxYForLine
 operator|=
-name|position
-operator|.
-name|getFontSize
-argument_list|()
+name|positionY
 expr_stmt|;
+comment|//lastBaselineFontSize = position.getFontSize();
 block|}
 comment|// RDD - endX is what PDF considers to be the x coordinate of the
 comment|// end position of the text.  We use it in computing our metrics below.
-comment|//
 name|endOfLastTextX
 operator|=
-name|position
-operator|.
-name|getX
-argument_list|()
+name|positionX
 operator|+
-name|position
-operator|.
-name|getWidth
-argument_list|()
+name|positionWidth
 expr_stmt|;
+comment|//endOfLastTextY = positionY;
 if|if
 condition|(
 name|characterValue
@@ -1565,15 +1580,30 @@ name|max
 argument_list|(
 name|maxHeightForLine
 argument_list|,
-name|position
-operator|.
-name|getHeight
-argument_list|()
+name|positionHeight
 argument_list|)
 expr_stmt|;
-name|lastProcessedCharacter
+name|minYTopForLine
+operator|=
+name|Math
+operator|.
+name|min
+argument_list|(
+name|minYTopForLine
+argument_list|,
+name|positionY
+operator|-
+name|positionHeight
+argument_list|)
+expr_stmt|;
+name|lastPosition
 operator|=
 name|position
+expr_stmt|;
+comment|//lastHeightForLine = position.getHeight();
+name|lastWordSpacing
+operator|=
+name|wordSpacing
 expr_stmt|;
 block|}
 name|endParagraph
