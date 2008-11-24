@@ -339,6 +339,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|awt
+operator|.
+name|geom
+operator|.
+name|AffineTransform
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|io
 operator|.
 name|BufferedReader
@@ -879,7 +891,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * This will draw a string on a canvas using the font.      *      * @param string The string to draw.      * @param g The graphics to draw onto.      * @param fontSize The size of the font to draw.      * @param xScale The x scaling percent.      * @param yScale The y scaling percent.      * @param x The x coordinate to draw at.      * @param y The y coordinate to draw at.      *      * @throws IOException If there is an error drawing the specific string.      */
+comment|/**      * This will draw a string on a canvas using the font.      *      * @param string The string to draw.      * @param g The graphics to draw onto.      * @param fontSize The size of the font to draw.      * @param at The transformation matrix with all infos for scaling and shearing of the font.      * @param x The x coordinate to draw at.      * @param y The y coordinate to draw at.      *      * @throws IOException If there is an error drawing the specific string.      */
 specifier|public
 specifier|abstract
 name|void
@@ -894,11 +906,8 @@ parameter_list|,
 name|float
 name|fontSize
 parameter_list|,
-name|float
-name|xScale
-parameter_list|,
-name|float
-name|yScale
+name|AffineTransform
+name|at
 parameter_list|,
 name|float
 name|x

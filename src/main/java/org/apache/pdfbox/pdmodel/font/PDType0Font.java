@@ -29,6 +29,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|geom
+operator|.
+name|AffineTransform
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -160,11 +172,8 @@ parameter_list|,
 name|float
 name|fontSize
 parameter_list|,
-name|float
-name|xScale
-parameter_list|,
-name|float
-name|yScale
+name|AffineTransform
+name|at
 parameter_list|,
 name|float
 name|x
@@ -186,9 +195,7 @@ name|g
 argument_list|,
 name|fontSize
 argument_list|,
-name|xScale
-argument_list|,
-name|yScale
+name|at
 argument_list|,
 name|x
 argument_list|,

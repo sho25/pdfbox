@@ -276,6 +276,16 @@ return|return
 name|str
 return|;
 block|}
+comment|/**      * Return the Matrix textPos stored in this object      *        * @return The Matrix containing all infos of the starting textposition      */
+specifier|public
+name|Matrix
+name|getTextPos
+parameter_list|()
+block|{
+return|return
+name|textPos
+return|;
+block|}
 comment|/**      * Return the direction/orientation of the string in this object      * based on its text matrix.      * @return The direction of the text (0, 90, 180, or 270)      */
 specifier|public
 name|float
