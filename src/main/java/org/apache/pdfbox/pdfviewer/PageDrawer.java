@@ -814,9 +814,11 @@ literal|0
 condition|)
 name|at
 operator|.
-name|quadrantRotate
+name|rotate
 argument_list|(
-literal|2
+name|Math
+operator|.
+name|PI
 argument_list|)
 expr_stmt|;
 name|font
