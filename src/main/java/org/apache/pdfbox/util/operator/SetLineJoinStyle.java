@@ -63,22 +63,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|PDLineDashPattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|util
 operator|.
 name|PDFOperator
@@ -96,13 +80,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.1 $  */
+comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:andreas@lehmi.de>Andreas Lehmkühler</a>  * @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|SetLineDashPattern
+name|SetLineJoinStyle
 extends|extends
 name|org
 operator|.
@@ -116,7 +100,7 @@ name|operator
 operator|.
 name|OperatorProcessor
 block|{
-comment|/**      * Set the line dash pattern.      * @param operator The operator that is being executed.      * @param arguments List      *      * @throws IOException If an error occurs while processing the font.      */
+comment|/**      * Set the line cap style      * @param operator The operator that is being executed.      * @param arguments List      *      * @throws IOException If an error occurs while processing the font.      */
 specifier|public
 name|void
 name|process
@@ -130,21 +114,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|COSArray
-name|dashArray
-init|=
-operator|(
-name|COSArray
-operator|)
-name|arguments
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
 name|int
-name|dashPhase
+name|lineJoinStyle
 init|=
 operator|(
 operator|(
@@ -154,32 +125,21 @@ name|arguments
 operator|.
 name|get
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 operator|)
 operator|.
 name|intValue
 argument_list|()
 decl_stmt|;
-name|PDLineDashPattern
-name|lineDash
-init|=
-operator|new
-name|PDLineDashPattern
-argument_list|(
-name|dashArray
-argument_list|,
-name|dashPhase
-argument_list|)
-decl_stmt|;
 name|context
 operator|.
 name|getGraphicsState
 argument_list|()
 operator|.
-name|setLineDashPattern
+name|setLineJoin
 argument_list|(
-name|lineDash
+name|lineJoinStyle
 argument_list|)
 expr_stmt|;
 block|}

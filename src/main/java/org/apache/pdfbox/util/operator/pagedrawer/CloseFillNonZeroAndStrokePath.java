@@ -98,7 +98,7 @@ name|util
 operator|.
 name|operator
 operator|.
-name|SetLineWidth
+name|OperatorProcessor
 block|{
 comment|/**      * fill and stroke the path.      * @param operator The operator that is being executed.      * @param arguments List      *      * @throws IOException If an error occurs while processing the font.      */
 specifier|public
