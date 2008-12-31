@@ -2277,9 +2277,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|SecurityHandler
-name|handler
-init|=
+name|securityHandler
+operator|=
 name|SecurityHandlersManager
 operator|.
 name|getInstance
@@ -2292,12 +2291,8 @@ operator|.
 name|getFilter
 argument_list|()
 argument_list|)
-decl_stmt|;
-name|securityHandler
-operator|=
-literal|null
 expr_stmt|;
-name|handler
+name|securityHandler
 operator|.
 name|decryptDocument
 argument_list|(
