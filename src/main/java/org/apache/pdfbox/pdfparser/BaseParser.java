@@ -77,6 +77,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Level
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -2182,6 +2194,24 @@ operator|instanceof
 name|COSObject
 condition|)
 block|{
+comment|// We have to check if the expected values are there or not PDFBOX-385
+if|if
+condition|(
+name|po
+operator|.
+name|get
+argument_list|(
+name|po
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+operator|instanceof
+name|COSInteger
+condition|)
+block|{
 name|COSInteger
 name|genNumber
 init|=
@@ -2200,6 +2230,23 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|po
+operator|.
+name|get
+argument_list|(
+name|po
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+operator|instanceof
+name|COSInteger
+condition|)
+block|{
 name|COSInteger
 name|number
 init|=
@@ -2245,6 +2292,19 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+comment|// the object reference is somehow wrong
+name|pbo
+operator|=
+literal|null
+expr_stmt|;
+block|}
+else|else
+name|pbo
+operator|=
+literal|null
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|pbo
@@ -2262,6 +2322,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|logger
+argument_list|()
+operator|.
+name|log
+argument_list|(
+name|Level
+operator|.
+name|WARNING
+argument_list|,
+literal|"Corrupt object reference"
+argument_list|)
+expr_stmt|;
 comment|//it could be a bad object in the array which is just skipped
 block|}
 name|skipSpaces
