@@ -365,15 +365,6 @@ operator|instanceof
 name|PDXObjectImage
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"JUHU PDXObjectImage"
-argument_list|)
-expr_stmt|;
 name|PDXObjectImage
 name|image
 init|=
