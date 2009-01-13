@@ -354,10 +354,10 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * A method provided as an event interface to allow a subclass to perform      * some specific functionality when a character needs to be displayed.      *      * @param text The character to be displayed.      */
+comment|/**      * A method provided as an event interface to allow a subclass to perform      * some specific functionality when text needs to be processed      *      * @param text The text to be processed      */
 specifier|protected
 name|void
-name|showCharacter
+name|processTextPosition
 parameter_list|(
 name|TextPosition
 name|text

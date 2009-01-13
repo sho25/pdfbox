@@ -290,7 +290,7 @@ condition|)
 block|{
 name|context
 operator|.
-name|showString
+name|processEncodedText
 argument_list|(
 operator|(
 operator|(

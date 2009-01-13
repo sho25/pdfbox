@@ -635,10 +635,10 @@ comment|// 3 - Scale
 comment|// Refer to PDFReference p176 (or 188 in xpdf)
 comment|/*AffineTransform transform = graphics.getTransform();         transform.setToTranslation( 0, page.findMediaBox().getHeight()/2 );         transform.setToRotation((double)p.getRotation());         transform.setTransform( 1, 0, 0, 1, 0, 0 );         transform.setToScale( 1, 1 );          AffineTransform rotation = graphics.getTransform();         rotation.rotate( (page.findRotation() * Math.PI) / 180d );         graphics.setTransform( rotation );*/
 block|}
-comment|/**      * You should override this method if you want to perform an action when a      * string is being shown.      *      * @param text The string to display.      */
+comment|/**      * You should override this method if you want to perform an action when a      * text is being processed.       *      * @param text The text to process       */
 specifier|protected
 name|void
-name|showCharacter
+name|processTextPosition
 parameter_list|(
 name|TextPosition
 name|text

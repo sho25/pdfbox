@@ -387,10 +387,25 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/**      * @deprecated      * {@inheritDoc}      */
 specifier|protected
 name|void
 name|showCharacter
+parameter_list|(
+name|TextPosition
+name|text
+parameter_list|)
+block|{
+name|processTextPosition
+argument_list|(
+name|text
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * {@inheritDoc}      */
+specifier|protected
+name|void
+name|processTextPosition
 parameter_list|(
 name|TextPosition
 name|text
@@ -471,7 +486,7 @@ argument_list|)
 expr_stmt|;
 name|super
 operator|.
-name|showCharacter
+name|processTextPosition
 argument_list|(
 name|text
 argument_list|)
@@ -479,10 +494,22 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will print the text to the output stream.      *      * @throws IOException If there is an error writing the text.      */
+comment|/**      * @deprecated      * {@inheritDoc}      */
 specifier|protected
 name|void
 name|flushText
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|writePage
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * This will print the processed page text to the output stream.      *      * @throws IOException If there is an error writing the text.      */
+specifier|protected
+name|void
+name|writePage
 parameter_list|()
 throws|throws
 name|IOException
@@ -543,7 +570,7 @@ argument_list|)
 expr_stmt|;
 name|super
 operator|.
-name|flushText
+name|writePage
 argument_list|()
 expr_stmt|;
 block|}
