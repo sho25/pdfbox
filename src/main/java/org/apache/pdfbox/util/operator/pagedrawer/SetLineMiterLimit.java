@@ -122,6 +122,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|process
+argument_list|(
+name|operator
+argument_list|,
+name|arguments
+argument_list|)
+expr_stmt|;
 name|float
 name|miterLimit
 init|=
