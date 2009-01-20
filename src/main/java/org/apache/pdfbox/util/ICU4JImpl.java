@@ -119,7 +119,7 @@ name|DO_MIRRORING
 argument_list|)
 return|;
 block|}
-comment|/**      * Normalize presentation forms of characters to the seperate parts.      * @see TextNormalize.normalizePres(String)      *       * @param a_str String to normalize      * @return Normalized form      */
+comment|/**      * Normalize presentation forms of characters to the separate parts.      * @see TextNormalize.normalizePres(String)      *       * @param a_str String to normalize      * @return Normalized form      */
 specifier|public
 name|String
 name|normalizePres
@@ -151,14 +151,14 @@ name|i
 operator|++
 control|)
 block|{
-comment|/* We only normalize if the codepoint is in a given range. Otherwise,               * NFKC converts too many things that would cause confusion. For example,              * it converts the micro symbol in extended latin to the value in the greek              * script.               */
+comment|/* We only normalize if the codepoint is in a given range. Otherwise,               * NFKC converts too many things that would cause confusion. For example,              * it converts the micro symbol in extended latin to the value in the greek              * script. We normalize the Unicode Alphabetic and Arabic A&B Presentation forms.              */
 if|if
 condition|(
 operator|(
 operator|(
 name|a_str
 operator|.
-name|codePointAt
+name|charAt
 argument_list|(
 name|i
 argument_list|)
@@ -169,7 +169,7 @@ operator|&&
 operator|(
 name|a_str
 operator|.
-name|codePointAt
+name|charAt
 argument_list|(
 name|i
 argument_list|)
@@ -182,7 +182,7 @@ operator|(
 operator|(
 name|a_str
 operator|.
-name|codePointAt
+name|charAt
 argument_list|(
 name|i
 argument_list|)
@@ -193,7 +193,7 @@ operator|&&
 operator|(
 name|a_str
 operator|.
-name|codePointAt
+name|charAt
 argument_list|(
 name|i
 argument_list|)
