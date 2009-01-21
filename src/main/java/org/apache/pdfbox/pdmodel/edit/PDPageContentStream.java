@@ -1677,6 +1677,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|currentStrokingColorSpace
+operator|=
+name|colorSpace
+expr_stmt|;
 name|writeColorSpace
 argument_list|(
 name|colorSpace
@@ -1699,6 +1703,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|currentNonStrokingColorSpace
+operator|=
+name|colorSpace
+expr_stmt|;
 name|writeColorSpace
 argument_list|(
 name|colorSpace
