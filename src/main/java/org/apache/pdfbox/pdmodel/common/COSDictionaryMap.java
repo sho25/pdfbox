@@ -767,7 +767,7 @@ name|Float
 argument_list|(
 operator|(
 operator|(
-name|COSInteger
+name|COSFloat
 operator|)
 name|cosObj
 operator|)
