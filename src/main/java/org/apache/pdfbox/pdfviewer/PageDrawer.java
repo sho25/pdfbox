@@ -721,7 +721,58 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//need to implement....
+comment|// TODO: need to implement....
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Unsupported RenderingMode "
+operator|+
+name|this
+operator|.
+name|getGraphicsState
+argument_list|()
+operator|.
+name|getTextState
+argument_list|()
+operator|.
+name|getRenderingMode
+argument_list|()
+operator|+
+literal|" in PageDrawer.processTextPosition()"
+argument_list|)
+expr_stmt|;
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Using RenderingMode "
+operator|+
+name|PDTextState
+operator|.
+name|RENDERING_MODE_FILL_TEXT
+operator|+
+literal|" instead"
+argument_list|)
+expr_stmt|;
+name|graphics
+operator|.
+name|setColor
+argument_list|(
+name|this
+operator|.
+name|getGraphicsState
+argument_list|()
+operator|.
+name|getNonStrokingColorSpace
+argument_list|()
+operator|.
+name|createColor
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|PDFont
 name|font
