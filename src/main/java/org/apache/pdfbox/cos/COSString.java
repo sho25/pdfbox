@@ -1279,7 +1279,7 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-name|getBytes
+name|getString
 argument_list|()
 operator|.
 name|hashCode
