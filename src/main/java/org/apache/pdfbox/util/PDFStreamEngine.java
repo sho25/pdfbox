@@ -307,6 +307,14 @@ operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
+specifier|private
+name|int
+name|validCharCnt
+decl_stmt|;
+specifier|private
+name|int
+name|totalCharCnt
+decl_stmt|;
 comment|/**      * This is a simple internal class used by the Stream engine to handle the      * resources stack.      */
 specifier|private
 specifier|static
@@ -340,6 +348,14 @@ name|PDFStreamEngine
 parameter_list|()
 block|{
 comment|//default constructor
+name|validCharCnt
+operator|=
+literal|0
+expr_stmt|;
+name|totalCharCnt
+operator|=
+literal|0
+expr_stmt|;
 block|}
 comment|/**      * Constructor with engine properties.  The property keys are all      * PDF operators, the values are class names used to execute those      * operators.      *      * @param properties The engine properties.      *      * @throws IOException If there is an error setting the engine properties.      */
 specifier|public
@@ -447,6 +463,14 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|validCharCnt
+operator|=
+literal|0
+expr_stmt|;
+name|totalCharCnt
+operator|=
+literal|0
+expr_stmt|;
 block|}
 comment|/**      * Register a custom operator processor with the engine.      *      * @param operator The operator as a string.      * @param op Processor instance.      */
 specifier|public
@@ -487,6 +511,14 @@ name|documentFontCache
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+name|validCharCnt
+operator|=
+literal|0
+expr_stmt|;
+name|totalCharCnt
+operator|=
+literal|0
 expr_stmt|;
 block|}
 comment|/**      * This will process the contents of the stream.      *      * @param aPage The page.      * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      *      *      * @throws IOException if there is an error accessing the stream.      */
@@ -1503,6 +1535,13 @@ name|widthOfEachCharacterForCode
 expr_stmt|;
 block|}
 block|}
+name|validCharCnt
+operator|+=
+name|c
+operator|.
+name|length
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1513,6 +1552,13 @@ operator|=
 literal|"?"
 expr_stmt|;
 block|}
+name|totalCharCnt
+operator|+=
+name|c
+operator|.
+name|length
+argument_list|()
+expr_stmt|;
 name|stringResult
 operator|.
 name|append
@@ -2072,6 +2118,26 @@ parameter_list|()
 block|{
 return|return
 name|page
+return|;
+block|}
+comment|/**       * Get the total number of valid characters in the doc       * that could be decoded in processEncodedText().       * @return The number of valid characters.       */
+specifier|public
+name|int
+name|getValidCharCnt
+parameter_list|()
+block|{
+return|return
+name|validCharCnt
+return|;
+block|}
+comment|/**      * Get the total number of characters in the doc      * (including ones that could not be mapped).        * @return The number of characters.       */
+specifier|public
+name|int
+name|getTotalCharCnt
+parameter_list|()
+block|{
+return|return
+name|totalCharCnt
 return|;
 block|}
 block|}
