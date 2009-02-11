@@ -205,18 +205,6 @@ return|return
 name|titleGuess
 return|;
 block|}
-comment|/**      * @deprecated      * {@inheritDoc}      */
-specifier|protected
-name|void
-name|flushText
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|writePage
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**      * {@inheritDoc}      */
 specifier|protected
 name|void

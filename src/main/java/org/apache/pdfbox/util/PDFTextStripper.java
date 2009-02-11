@@ -1112,18 +1112,6 @@ name|IOException
 block|{
 comment|//default is to do nothing
 block|}
-comment|/**      * @deprecated      * @see writePage().       */
-specifier|protected
-name|void
-name|flushText
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|writePage
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**      * This will print the text of the processed page to "output".      * It will estimate, based on the coordinates of the text, where      * newlines and word spacings should be placed. The text will be      * sorted only if that feature was enabled.       *      * @throws IOException If there is an error writing the text.      */
 specifier|protected
 name|void
@@ -2002,21 +1990,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated      * @see writeLineSeparator()      */
-specifier|protected
-name|void
-name|processLineSeparator
-parameter_list|(
-name|TextPosition
-name|currentText
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|writeLineSeparator
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**      * Write the word separator value to the output stream      * @throws IOException      */
 specifier|protected
 name|void
@@ -2032,24 +2005,6 @@ argument_list|(
 name|getWordSeparator
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * @deprecated      * @see writeWordSeparator()       */
-specifier|protected
-name|void
-name|processWordSeparator
-parameter_list|(
-name|TextPosition
-name|lastText
-parameter_list|,
-name|TextPosition
-name|currentText
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|writeWordSeparator
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Write the string in TextPosition to the output stream.      *      * @param text The text to write to the stream.      * @throws IOException If there is an error when writing the text.      */
@@ -2121,21 +2076,6 @@ name|first
 operator|+
 name|variance
 return|;
-block|}
-comment|/**      * @deprecated      * {@inheritDoc}      */
-specifier|protected
-name|void
-name|showCharacter
-parameter_list|(
-name|TextPosition
-name|text
-parameter_list|)
-block|{
-name|processTextPosition
-argument_list|(
-name|text
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * This will process a TextPosition object and add the      * text to the list of characters on a page.  It takes care of      * overlapping text.      *      * @param text The text to process.      */
 specifier|protected

@@ -387,21 +387,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @deprecated      * {@inheritDoc}      */
-specifier|protected
-name|void
-name|showCharacter
-parameter_list|(
-name|TextPosition
-name|text
-parameter_list|)
-block|{
-name|processTextPosition
-argument_list|(
-name|text
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * {@inheritDoc}      */
 specifier|protected
 name|void
@@ -493,18 +478,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-comment|/**      * @deprecated      * {@inheritDoc}      */
-specifier|protected
-name|void
-name|flushText
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|writePage
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * This will print the processed page text to the output stream.      *      * @throws IOException If there is an error writing the text.      */
 specifier|protected

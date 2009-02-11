@@ -798,21 +798,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * @deprecated      * @see processTextPosition(TextPosition)      */
-specifier|protected
-name|void
-name|showCharacter
-parameter_list|(
-name|TextPosition
-name|text
-parameter_list|)
-block|{
-name|processTextPosition
-argument_list|(
-name|text
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * A method provided as an event interface to allow a subclass to perform      * some specific functionality when text needs to be processed.      *      * @param text The text to be processed.      */
 specifier|protected
 name|void
@@ -823,24 +808,6 @@ name|text
 parameter_list|)
 block|{
 comment|//subclasses can override to provide specific functionality.
-block|}
-comment|/**      * @deprecated      * @see processEncodedText(byte[])      */
-specifier|public
-name|void
-name|showString
-parameter_list|(
-name|byte
-index|[]
-name|string
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|processEncodedText
-argument_list|(
-name|string
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Process encoded text from the PDF Stream.       * You should override this method if you want to perform an action when       * encoded text is being processed.      *      * @param string The encoded text      *      * @throws IOException If there is an error processing the string      */
 specifier|public
