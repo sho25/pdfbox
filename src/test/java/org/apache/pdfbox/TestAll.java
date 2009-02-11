@@ -236,16 +236,6 @@ name|suite
 operator|.
 name|addTest
 argument_list|(
-name|TestFDF
-operator|.
-name|suite
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|suite
-operator|.
-name|addTest
-argument_list|(
 name|TestCOSString
 operator|.
 name|suite
