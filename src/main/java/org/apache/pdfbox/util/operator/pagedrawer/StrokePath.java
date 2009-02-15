@@ -59,23 +59,17 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|awt
+name|apache
 operator|.
-name|Graphics2D
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|pdfbox
 operator|.
-name|awt
+name|util
 operator|.
-name|geom
+name|operator
 operator|.
-name|GeneralPath
+name|*
 import|;
 end_import
 
@@ -98,17 +92,7 @@ specifier|public
 class|class
 name|StrokePath
 extends|extends
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|operator
-operator|.
-name|SetLineWidth
+name|OperatorProcessor
 block|{
 comment|/**      * S stroke the path.      * @param operator The operator that is being executed.      * @param arguments List      *      * @throws IOException If an error occurs while processing the font.      */
 specifier|public
