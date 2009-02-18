@@ -816,7 +816,16 @@ name|float
 name|getCapHeight
 parameter_list|()
 block|{
+comment|/* We observed a negative value being returned with          * the Scheherazade font. PDFBOX-429 was logged for this.           * We are not sure if returning the absolute value          * is the correct fix, but it seems to work.  */
 return|return
+name|java
+operator|.
+name|lang
+operator|.
+name|Math
+operator|.
+name|abs
+argument_list|(
 name|dic
 operator|.
 name|getFloat
@@ -824,6 +833,7 @@ argument_list|(
 literal|"CapHeight"
 argument_list|,
 literal|0
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -852,7 +862,16 @@ name|float
 name|getXHeight
 parameter_list|()
 block|{
+comment|/* We observed a negative value being returned with          * the Scheherazade font. PDFBOX-429 was logged for this.           * We are not sure if returning the absolute value          * is the correct fix, but it seems to work.  */
 return|return
+name|java
+operator|.
+name|lang
+operator|.
+name|Math
+operator|.
+name|abs
+argument_list|(
 name|dic
 operator|.
 name|getFloat
@@ -860,6 +879,7 @@ argument_list|(
 literal|"XHeight"
 argument_list|,
 literal|0
+argument_list|)
 argument_list|)
 return|;
 block|}
