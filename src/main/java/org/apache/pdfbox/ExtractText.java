@@ -166,22 +166,6 @@ specifier|public
 class|class
 name|ExtractText
 block|{
-comment|/**      * This is the default encoding of the text to be output.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_ENCODING
-init|=
-literal|null
-decl_stmt|;
-comment|//"ISO-8859-1";
-comment|//"ISO-8859-6"; //arabic
-comment|//"US-ASCII";
-comment|//"UTF-8";
-comment|//"UTF-16";
-comment|//"UTF-16BE";
-comment|//"UTF-16LE";
 specifier|private
 specifier|static
 specifier|final
@@ -282,7 +266,7 @@ decl_stmt|;
 name|String
 name|encoding
 init|=
-name|DEFAULT_ENCODING
+literal|null
 decl_stmt|;
 name|String
 name|pdfFile
@@ -290,9 +274,15 @@ init|=
 literal|null
 decl_stmt|;
 name|String
-name|textFile
+name|outputFile
 init|=
 literal|null
+decl_stmt|;
+comment|// Defaults to text files
+name|String
+name|ext
+init|=
+literal|".txt"
 decl_stmt|;
 name|int
 name|startPage
@@ -459,6 +449,10 @@ name|toHTML
 operator|=
 literal|true
 expr_stmt|;
+name|ext
+operator|=
+literal|".html"
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -560,7 +554,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|textFile
+name|outputFile
 operator|=
 name|args
 index|[
@@ -627,7 +621,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|textFile
+name|outputFile
 operator|==
 literal|null
 operator|&&
@@ -639,9 +633,8 @@ operator|>
 literal|4
 condition|)
 block|{
-name|File
 name|outputFile
-init|=
+operator|=
 operator|new
 name|File
 argument_list|(
@@ -659,12 +652,8 @@ operator|-
 literal|4
 argument_list|)
 operator|+
-literal|".txt"
+name|ext
 argument_list|)
-decl_stmt|;
-name|textFile
-operator|=
-name|outputFile
 operator|.
 name|getName
 argument_list|()
@@ -688,7 +677,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|textFile
+name|outputFile
 operator|==
 literal|null
 operator|&&
@@ -700,7 +689,7 @@ operator|>
 literal|4
 condition|)
 block|{
-name|textFile
+name|outputFile
 operator|=
 name|pdfFile
 operator|.
@@ -716,7 +705,7 @@ operator|-
 literal|4
 argument_list|)
 operator|+
-literal|".txt"
+name|ext
 expr_stmt|;
 block|}
 block|}
@@ -773,6 +762,22 @@ block|}
 block|}
 if|if
 condition|(
+operator|(
+name|encoding
+operator|==
+literal|null
+operator|)
+operator|&&
+operator|(
+name|toHTML
+operator|)
+condition|)
+name|encoding
+operator|=
+literal|"UTF-8"
+expr_stmt|;
+if|if
+condition|(
 name|toConsole
 condition|)
 block|{
@@ -804,7 +809,7 @@ argument_list|(
 operator|new
 name|FileOutputStream
 argument_list|(
-name|textFile
+name|outputFile
 argument_list|)
 argument_list|,
 name|encoding
@@ -822,7 +827,7 @@ argument_list|(
 operator|new
 name|FileOutputStream
 argument_list|(
-name|textFile
+name|outputFile
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -842,7 +847,9 @@ name|stripper
 operator|=
 operator|new
 name|PDFText2HTML
-argument_list|()
+argument_list|(
+name|encoding
+argument_list|)
 expr_stmt|;
 block|}
 else|else

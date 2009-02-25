@@ -350,7 +350,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-specifier|private
+specifier|protected
 name|PDDocument
 name|document
 decl_stmt|;
@@ -395,7 +395,7 @@ operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
-specifier|private
+specifier|protected
 name|String
 name|lineSeparator
 init|=
@@ -1066,20 +1066,37 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Start a new paragraph.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * Start a new article, which is typically defined as a column      * on a single page (also referred to as a bead).  This assumes      * that the primary direction of text is left to right.        * Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
-name|startParagraph
+name|startArticle
 parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|startArticle
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Start a new article, which is typically defined as a column      * on a single page (also referred to as a bead).        * Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @param true if primary direction of text is left to right      * @throws IOException If there is any error writing to the stream.      */
+specifier|protected
+name|void
+name|startArticle
+parameter_list|(
+name|boolean
+name|isltr
+parameter_list|)
 throws|throws
 name|IOException
 block|{
 comment|//default is to do nothing.
 block|}
-comment|/**      * End a paragraph.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * End an article.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
-name|endParagraph
+name|endArticle
 parameter_list|()
 throws|throws
 name|IOException
@@ -1133,14 +1150,12 @@ name|Float
 operator|.
 name|MAX_VALUE
 decl_stmt|;
-comment|//float lastBaselineFontSize = -1;
 name|float
 name|endOfLastTextX
 init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|//float endOfLastTextY = -1;
 name|float
 name|expectedStartOfNextWordX
 init|=
@@ -1159,7 +1174,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|//float lastHeightForLine = -1;
 name|TextPosition
 name|lastPosition
 init|=
@@ -1197,9 +1211,6 @@ name|i
 operator|++
 control|)
 block|{
-name|startParagraph
-argument_list|()
-expr_stmt|;
 name|List
 name|textList
 init|=
@@ -1406,6 +1417,12 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+name|startArticle
+argument_list|(
+operator|!
+name|isRtlDominant
+argument_list|)
+expr_stmt|;
 comment|// we will later use this to skip reordering
 name|boolean
 name|hasRtl
@@ -1541,20 +1558,15 @@ name|getHeight
 argument_list|()
 expr_stmt|;
 block|}
+comment|//try to get width of a space character
 name|float
 name|wordSpacing
 init|=
-literal|0
-decl_stmt|;
-comment|/* float wordSpacing = position.getWordSpacing();	BC: When I re-enabled this for a a test, lots of extra spaces were added                 if( wordSpacing == 0 )                 {                 */
-comment|//try to get width of a space character
-name|wordSpacing
-operator|=
 name|position
 operator|.
 name|getWidthOfSpace
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 comment|//if still zero fall back to getting the width of the current
 comment|//character
 if|if
@@ -1569,7 +1581,6 @@ operator|=
 name|positionWidth
 expr_stmt|;
 block|}
-comment|//}
 comment|// RDD - We add a conservative approximation for space determination.
 comment|// basically if there is a blank area between two characters that is
 comment|//equal to some percentage of the word spacing then that will be the
@@ -1613,26 +1624,12 @@ literal|0.50f
 operator|)
 expr_stmt|;
 block|}
-comment|// RDD - We will suppress text that is very close to the current line
-comment|// and which overwrites previously rendered text on this line.
-comment|// This is done specifically to handle a reasonably common situation
-comment|// where an application (MS Word, in the case of my examples) renders
-comment|// text four times at small (1 point) offsets in order to accomplish
-comment|// bold printing.  You would not want to do this step if you were
-comment|// going to render the TextPosition objects graphically.
-comment|//
-comment|/*if ((endOfLastTextX != -1&& position.getX()< endOfLastTextX)&&                     (currentY != -1&& Math.abs(position.getY() - currentY)< 1))                 {                     if (log.isDebugEnabled())                     {                         log.debug("Suppressing text overwrite" +                                   " x: " + position.getX() +                                   " endOfLastTextX: " + endOfLastTextX +                                   " string: " + position.getCharacter());                     }                     continue;                 }*/
 comment|// RDD - Here we determine whether this text object is on the current
 comment|// line.  We use the lastBaselineFontSize to handle the superscript
 comment|// case, and the size of the current font to handle the subscript case.
 comment|// Text must overlap with the last rendered baseline text by at least
 comment|// a small amount in order to be considered as being on the same line.
 comment|//
-comment|//int verticalScaling = 1;
-comment|//if( lastBaselineFontSize< 0 || position.getFontSize()< 0 )
-comment|//{
-comment|//    verticalScaling = -1;
-comment|//}
 if|if
 condition|(
 name|lastPosition
@@ -1640,14 +1637,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//if (currentY != -1&&
-comment|//    ((position.getY()< (currentY - (lastBaselineFontSize * 0.9f * verticalScaling))) ||
-comment|//     (position.getY()> (currentY + (position.getFontSize() * 0.9f * verticalScaling)))))
-comment|//{
 comment|/* XXX BC: In theory, this check should really check if the next char is in full range                      * seen in this line. This is what I tried to do with minYTopForLine, but this caused a lot                      * of regression test failures.  So, I'm leaving it be for now. */
 if|if
 condition|(
-operator|(
 operator|!
 name|overlap
 argument_list|(
@@ -1659,9 +1651,7 @@ name|maxYForLine
 argument_list|,
 name|maxHeightForLine
 argument_list|)
-operator|)
 condition|)
-comment|//maxYForLine - minYTopForLine)))
 block|{
 comment|// If we have RTL text on the page, change the direction
 if|if
@@ -1721,14 +1711,12 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-comment|//lastBaselineFontSize = -1;
 name|minYTopForLine
 operator|=
 name|Float
 operator|.
 name|MAX_VALUE
 expr_stmt|;
-comment|//lastHeightForLine = -1;
 block|}
 if|if
 condition|(
@@ -1767,10 +1755,6 @@ name|getWordSeparator
 argument_list|()
 expr_stmt|;
 block|}
-else|else
-block|{
-comment|//System.out.println( "Not a word separator " + position.getCharacter() +  " start=" + startOfNextWordX + " x=" + position.getX() );
-block|}
 block|}
 if|if
 condition|(
@@ -1783,7 +1767,6 @@ name|maxYForLine
 operator|=
 name|positionY
 expr_stmt|;
-comment|//lastBaselineFontSize = position.getFontSize();
 block|}
 comment|// RDD - endX is what PDF considers to be the x coordinate of the
 comment|// end position of the text.  We use it in computing our metrics below.
@@ -1793,7 +1776,6 @@ name|positionX
 operator|+
 name|positionWidth
 expr_stmt|;
-comment|//endOfLastTextY = positionY;
 comment|// add it to the list
 if|if
 condition|(
@@ -1806,10 +1788,6 @@ name|lineStr
 operator|+=
 name|characterValue
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|//Position.getString() is null so not writing anything
 block|}
 name|maxHeightForLine
 operator|=
@@ -1839,7 +1817,6 @@ name|lastPosition
 operator|=
 name|position
 expr_stmt|;
-comment|//lastHeightForLine = position.getHeight();
 name|lastWordSpacing
 operator|=
 name|wordSpacing
@@ -1887,7 +1864,7 @@ name|lineStr
 argument_list|)
 expr_stmt|;
 block|}
-name|endParagraph
+name|endArticle
 argument_list|()
 expr_stmt|;
 block|}
