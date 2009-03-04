@@ -206,6 +206,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+name|retval
+operator|=
+name|PDFontFactory
+operator|.
+name|createFont
+argument_list|(
+name|dic
+argument_list|)
+expr_stmt|;
 return|return
 name|retval
 return|;
