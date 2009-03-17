@@ -1407,6 +1407,13 @@ operator|.
 name|available
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|mayRead
+operator|>
+literal|0
+condition|)
+block|{
 name|byte
 index|[]
 name|buffer
@@ -1463,6 +1470,7 @@ argument_list|,
 name|amountRead
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|out
 operator|.
