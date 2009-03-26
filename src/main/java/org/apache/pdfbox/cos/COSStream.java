@@ -693,6 +693,15 @@ operator|.
 name|getLength
 argument_list|()
 decl_stmt|;
+comment|// in case we need it later
+name|long
+name|writtenLength
+init|=
+name|unFilteredStream
+operator|.
+name|getLengthWritten
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|length
@@ -811,10 +820,7 @@ comment|//length of data that was actually read and not length
 comment|//defined in the dictionary
 name|length
 operator|=
-name|unFilteredStream
-operator|.
-name|getLengthWritten
-argument_list|()
+name|writtenLength
 expr_stmt|;
 for|for
 control|(
