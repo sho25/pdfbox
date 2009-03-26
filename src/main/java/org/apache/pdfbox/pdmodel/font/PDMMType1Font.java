@@ -74,10 +74,7 @@ name|SUBTYPE
 argument_list|,
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"MMType1"
-argument_list|)
+name|MM_TYPE1
 argument_list|)
 expr_stmt|;
 block|}

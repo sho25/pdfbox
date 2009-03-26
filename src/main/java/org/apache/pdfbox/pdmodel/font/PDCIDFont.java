@@ -346,10 +346,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"DW"
-argument_list|)
+name|DW
 argument_list|)
 decl_stmt|;
 if|if
@@ -386,10 +383,7 @@ name|setItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"DW"
-argument_list|)
+name|DW
 argument_list|,
 operator|new
 name|COSInteger
@@ -470,10 +464,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"W"
-argument_list|)
+name|W
 argument_list|)
 decl_stmt|;
 if|if
@@ -847,10 +838,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"W"
-argument_list|)
+name|W
 argument_list|)
 decl_stmt|;
 if|if

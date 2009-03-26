@@ -74,10 +74,7 @@ name|SUBTYPE
 argument_list|,
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"CIDFontType2"
-argument_list|)
+name|CID_FONT_TYPE2
 argument_list|)
 expr_stmt|;
 block|}

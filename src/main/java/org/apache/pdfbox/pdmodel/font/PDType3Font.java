@@ -175,10 +175,7 @@ name|SUBTYPE
 argument_list|,
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Type3"
-argument_list|)
+name|TYPE3
 argument_list|)
 expr_stmt|;
 block|}
@@ -248,10 +245,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"CharProcs"
-argument_list|)
+name|CHAR_PROCS
 argument_list|)
 decl_stmt|;
 name|COSStream

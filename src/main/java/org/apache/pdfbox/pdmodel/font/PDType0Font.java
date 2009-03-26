@@ -141,10 +141,7 @@ name|SUBTYPE
 argument_list|,
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Type0"
-argument_list|)
+name|TYPE0
 argument_list|)
 expr_stmt|;
 block|}
@@ -268,10 +265,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"DescendantFonts"
-argument_list|)
+name|DESCENDANT_FONTS
 argument_list|)
 decl_stmt|;
 name|COSDictionary
@@ -347,10 +341,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"DescendantFonts"
-argument_list|)
+name|DESCENDANT_FONTS
 argument_list|)
 decl_stmt|;
 name|COSDictionary
@@ -416,10 +407,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"DescendantFonts"
-argument_list|)
+name|DESCENDANT_FONTS
 argument_list|)
 decl_stmt|;
 name|COSDictionary

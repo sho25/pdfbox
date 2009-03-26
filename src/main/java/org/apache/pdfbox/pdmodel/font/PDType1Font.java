@@ -560,10 +560,7 @@ name|SUBTYPE
 argument_list|,
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Type1"
-argument_list|)
+name|TYPE1
 argument_list|)
 expr_stmt|;
 block|}

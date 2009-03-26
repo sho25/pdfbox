@@ -877,10 +877,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"FontDescriptor"
-argument_list|)
+name|FONT_DESC
 argument_list|)
 decl_stmt|;
 if|if
@@ -963,10 +960,7 @@ name|setItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"FontDescriptor"
-argument_list|)
+name|FONT_DESC
 argument_list|,
 name|dic
 argument_list|)

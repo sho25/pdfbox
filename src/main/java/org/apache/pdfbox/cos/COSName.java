@@ -51,7 +51,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|WeakHashMap
 import|;
 end_import
 
@@ -120,7 +120,7 @@ operator|.
 name|synchronizedMap
 argument_list|(
 operator|new
-name|HashMap
+name|WeakHashMap
 argument_list|(
 literal|8192
 argument_list|)
@@ -391,6 +391,58 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|CHAR_PROCS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CharProcs"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CHAR_SET
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CharSet"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CID_FONT_TYPE0
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CIDFontType0"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CID_FONT_TYPE2
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CIDFontType2"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|COLORSPACE
 init|=
 operator|new
@@ -573,6 +625,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|DW
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DW"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|ENCODING
 init|=
 operator|new
@@ -716,6 +781,32 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|FONT_BBOX
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"FontBBox"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|FONT_FAMILY
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"FontFamily"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|FONT_FILE
 init|=
 operator|new
@@ -774,6 +865,32 @@ operator|new
 name|COSName
 argument_list|(
 literal|"FontMatrix"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|FONT_NAME
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"FontName"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|FONT_STRETCH
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"FontStretch"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1047,6 +1164,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Metadata"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|MM_TYPE1
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"MMType1"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1353,6 +1483,32 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|TYPE1
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Type1"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|TYPE3
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Type3"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|V
 init|=
 operator|new
@@ -1374,7 +1530,20 @@ argument_list|(
 literal|"Version"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|W
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"W"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
