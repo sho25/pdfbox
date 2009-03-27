@@ -431,6 +431,17 @@ operator|.
 name|VALUE_ANTIALIAS_ON
 argument_list|)
 expr_stmt|;
+comment|// Only if there is some content, we have to process it. Otherwise we are done here and we will produce an empty page
+if|if
+condition|(
+name|page
+operator|.
+name|getContents
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|PDResources
 name|resources
 init|=
@@ -454,6 +465,7 @@ name|getStream
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|List
 name|annotations
 init|=
