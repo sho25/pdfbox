@@ -75,38 +75,6 @@ name|pdfbox
 operator|.
 name|encoding
 operator|.
-name|conversion
-operator|.
-name|EncodingConversionManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|encoding
-operator|.
-name|conversion
-operator|.
-name|EncodingConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|encoding
-operator|.
 name|AFMEncoding
 import|;
 end_import
@@ -150,22 +118,6 @@ operator|.
 name|encoding
 operator|.
 name|EncodingManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|encoding
-operator|.
-name|conversion
-operator|.
-name|CMapSubstitution
 import|;
 end_import
 
@@ -1549,15 +1501,6 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-name|cmapName
-operator|=
-name|CMapSubstitution
-operator|.
-name|substituteCMap
-argument_list|(
-name|cmapName
-argument_list|)
-expr_stmt|;
 name|String
 name|resourceRoot
 init|=
@@ -1782,86 +1725,6 @@ argument_list|,
 name|length
 argument_list|)
 expr_stmt|;
-block|}
-name|COSBase
-name|encoding_COS
-init|=
-name|font
-operator|.
-name|getDictionaryObject
-argument_list|(
-name|COSName
-operator|.
-name|ENCODING
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|encoding_COS
-operator|instanceof
-name|COSName
-condition|)
-block|{
-name|EncodingConverter
-name|converter
-init|=
-name|EncodingConversionManager
-operator|.
-name|getConverter
-argument_list|(
-operator|(
-operator|(
-name|COSName
-operator|)
-name|encoding_COS
-operator|)
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|converter
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|retval
-operator|!=
-literal|null
-condition|)
-name|retval
-operator|=
-name|converter
-operator|.
-name|convertString
-argument_list|(
-name|retval
-argument_list|)
-expr_stmt|;
-else|else
-name|retval
-operator|=
-name|converter
-operator|.
-name|convertBytes
-argument_list|(
-name|c
-argument_list|,
-name|offset
-argument_list|,
-name|length
-argument_list|,
-name|cmap
-argument_list|)
-expr_stmt|;
-return|return
-name|retval
-return|;
-block|}
 block|}
 comment|//if we havn't found a value yet and
 comment|//we are still on the first byte and
@@ -2321,7 +2184,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**              * Si la clï¿½ /Encoding existe dans le dictionnaire fonte il y a deux possibilitï¿½s :              * 1er cas : elle est associï¿½ ï¿½ une reference contenant un dictionnaire de type encoding.              * Ce dictionnaire PDF est reprï¿½sentï¿½ par un DictionaryEncoding.              * If the /Encoding Key does exist in the font dictionary, there are two cases :              * case one : The value associated with /Encoding is a reference to a dictionary.              * This dictionary is represented by an instance of DictionaryEncoding class              */
+comment|/**              * Si la clé /Encoding existe dans le dictionnaire fonte il y a deux possibilités :              * 1er cas : elle est associé à une reference contenant un dictionnaire de type encoding.              * Ce dictionnaire PDF est représenté par un DictionaryEncoding.              * If the /Encoding Key does exist in the font dictionary, there are two cases :              * case one : The value associated with /Encoding is a reference to a dictionary.              * This dictionary is represented by an instance of DictionaryEncoding class              */
 elseif|else
 if|if
 condition|(
@@ -2356,7 +2219,7 @@ operator|.
 name|BASE_ENCODING
 argument_list|)
 decl_stmt|;
-comment|//on ajoute une entrï¿½e /BaseEncoding dans /Encoding uniquement si elle en est absente
+comment|//on ajoute une entrée /BaseEncoding dans /Encoding uniquement si elle en est absente
 comment|//if not find in Encoding dictinary target, we try to find it from else where
 if|if
 condition|(
@@ -2786,8 +2649,8 @@ init|=
 literal|null
 decl_stmt|;
 comment|//recuperer le programme de fonte dans son stream qui doit se trouver
-comment|//dans le flux rï¿½fï¿½rencï¿½ par ï¿½ la clï¿½ FileFont lui mï¿½me situï¿½ dans
-comment|//le dictionnaire associï¿½ ï¿½ /FontDescriptor du dictionnaire de type /Font courrant
+comment|//dans le flux référencé par à la clé FileFont lui même situé dans
+comment|//le dictionnaire associé à /FontDescriptor du dictionnaire de type /Font courrant
 comment|//get the font program in the stream which should be located in
 comment|//the /FileFont Stream object himself in the /FontDescriptior of the current
 comment|//font dictionary
