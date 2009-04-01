@@ -1333,7 +1333,17 @@ comment|// get the X location before we update the text matrix
 name|float
 name|xPosBeforeText
 init|=
+name|initialMatrix
+operator|.
+name|multiply
+argument_list|(
 name|textMatrix
+argument_list|)
+operator|.
+name|multiply
+argument_list|(
+name|ctm
+argument_list|)
 operator|.
 name|getXPosition
 argument_list|()
@@ -1346,7 +1356,7 @@ name|adjustment
 init|=
 literal|0
 decl_stmt|;
-comment|/* todo: tx should be set for horizontal text and ty for vertical text, which              * seems to be specified in the font (not the direction in the matrix).               */
+comment|/* TODO: tx should be set for horizontal text and ty for vertical text, which              * seems to be specified in the font (not the direction in the matrix).               */
 name|float
 name|tx
 init|=
@@ -1414,14 +1424,22 @@ comment|// XXX: Note that if we handled vertical text, we should be using Y here
 name|float
 name|widthText
 init|=
-operator|(
+name|initialMatrix
+operator|.
+name|multiply
+argument_list|(
 name|textMatrix
+argument_list|)
+operator|.
+name|multiply
+argument_list|(
+name|ctm
+argument_list|)
 operator|.
 name|getXPosition
 argument_list|()
 operator|-
 name|xPosBeforeText
-operator|)
 decl_stmt|;
 comment|//there are several cases where one character code will
 comment|//output multiple characters.  For example "fi" or a

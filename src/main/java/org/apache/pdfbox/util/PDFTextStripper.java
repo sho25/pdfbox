@@ -372,6 +372,20 @@ name|sortByPosition
 init|=
 literal|false
 decl_stmt|;
+comment|// We will need to estimate where to add spaces.
+comment|// These are used to help guess.
+specifier|private
+name|float
+name|spacingTolerance
+init|=
+literal|.5f
+decl_stmt|;
+specifier|private
+name|float
+name|averageCharTolerance
+init|=
+literal|.3f
+decl_stmt|;
 specifier|private
 name|List
 name|pageArticles
@@ -1157,12 +1171,6 @@ operator|-
 literal|1
 decl_stmt|;
 name|float
-name|expectedStartOfNextWordX
-init|=
-operator|-
-literal|1
-decl_stmt|;
-name|float
 name|lastWordSpacing
 init|=
 operator|-
@@ -1453,6 +1461,14 @@ name|iterator
 argument_list|()
 expr_stmt|;
 comment|// start from the beginning again
+comment|/* PDF files don't always store spaces. We will need to guess where we should add              * spaces based on the distances between TextPositions. Historically, this was done              * based on the size of the space character provided by the font. In general, this worked              * but there were cases where it did not work. Calculating the average character width              * and using that as a metric works better in some cases but fails in some cases where the               * spacing worked. So we use both. NOTE: Adobe reader also fails on some of these examples.               */
+comment|//Keeps track of the previous average character width
+name|float
+name|previousAveCharWidth
+init|=
+operator|-
+literal|1
+decl_stmt|;
 while|while
 condition|(
 name|textIter
@@ -1480,6 +1496,47 @@ operator|.
 name|getCharacter
 argument_list|()
 decl_stmt|;
+comment|//Resets the average character width when we see a change in font
+comment|// or a change in the font size
+if|if
+condition|(
+name|lastPosition
+operator|!=
+literal|null
+operator|&&
+operator|(
+operator|(
+name|position
+operator|.
+name|getFont
+argument_list|()
+operator|!=
+name|lastPosition
+operator|.
+name|getFont
+argument_list|()
+operator|)
+operator|||
+operator|(
+name|position
+operator|.
+name|getFontSize
+argument_list|()
+operator|!=
+name|lastPosition
+operator|.
+name|getFontSize
+argument_list|()
+operator|)
+operator|)
+condition|)
+block|{
+name|previousAveCharWidth
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+block|}
 name|float
 name|positionX
 decl_stmt|;
@@ -1558,7 +1615,18 @@ name|getHeight
 argument_list|()
 expr_stmt|;
 block|}
-comment|//try to get width of a space character
+comment|//The current amount of characters in a word
+name|int
+name|wordCharCount
+init|=
+name|position
+operator|.
+name|getIndividualWidths
+argument_list|()
+operator|.
+name|length
+decl_stmt|;
+comment|/* Estimate the expected width of the space based on the                   * space character with some margin. */
 name|float
 name|wordSpacing
 init|=
@@ -1567,48 +1635,31 @@ operator|.
 name|getWidthOfSpace
 argument_list|()
 decl_stmt|;
-comment|//if still zero fall back to getting the width of the current
-comment|//character
-if|if
-condition|(
-name|wordSpacing
-operator|==
+name|float
+name|deltaSpace
+init|=
 literal|0
-condition|)
-block|{
-name|wordSpacing
-operator|=
-name|positionWidth
-expr_stmt|;
-block|}
-comment|// RDD - We add a conservative approximation for space determination.
-comment|// basically if there is a blank area between two characters that is
-comment|//equal to some percentage of the word spacing then that will be the
-comment|//start of the next word
+decl_stmt|;
 if|if
 condition|(
 name|lastWordSpacing
-operator|<=
+operator|<
 literal|0
 condition|)
 block|{
-name|expectedStartOfNextWordX
+name|deltaSpace
 operator|=
-name|endOfLastTextX
-operator|+
 operator|(
 name|wordSpacing
 operator|*
-literal|0.50f
+name|spacingTolerance
 operator|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|expectedStartOfNextWordX
+name|deltaSpace
 operator|=
-name|endOfLastTextX
-operator|+
 operator|(
 operator|(
 operator|(
@@ -1620,16 +1671,99 @@ operator|/
 literal|2f
 operator|)
 operator|*
-literal|0.50f
+name|spacingTolerance
 operator|)
 expr_stmt|;
 block|}
-comment|// RDD - Here we determine whether this text object is on the current
-comment|// line.  We use the lastBaselineFontSize to handle the superscript
-comment|// case, and the size of the current font to handle the subscript case.
-comment|// Text must overlap with the last rendered baseline text by at least
-comment|// a small amount in order to be considered as being on the same line.
-comment|//
+comment|/* Estimate the expected width of the space based on the                   * average character width with some margin. This calculation does not                  * make a true average (average of averages) but we found that it gave the                  * best results after numerous experiments. Based on experiments we also found that                  * .3 worked well. */
+name|float
+name|averageCharWidth
+init|=
+operator|-
+literal|1
+decl_stmt|;
+if|if
+condition|(
+name|previousAveCharWidth
+operator|<
+literal|0
+condition|)
+block|{
+name|averageCharWidth
+operator|=
+operator|(
+name|positionWidth
+operator|/
+name|wordCharCount
+operator|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|averageCharWidth
+operator|=
+operator|(
+name|previousAveCharWidth
+operator|+
+operator|(
+name|positionWidth
+operator|/
+name|wordCharCount
+operator|)
+operator|)
+operator|/
+literal|2f
+expr_stmt|;
+block|}
+name|float
+name|deltaCharWidth
+init|=
+operator|(
+name|averageCharWidth
+operator|*
+name|averageCharTolerance
+operator|)
+decl_stmt|;
+comment|//Compares the values obtained by the average method and the wordSpacing method and picks
+comment|//the smaller number.
+name|float
+name|expectedStartOfNextWordX
+init|=
+operator|-
+literal|1
+decl_stmt|;
+if|if
+condition|(
+name|endOfLastTextX
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+if|if
+condition|(
+name|deltaCharWidth
+operator|>
+name|deltaSpace
+condition|)
+block|{
+name|expectedStartOfNextWordX
+operator|=
+name|endOfLastTextX
+operator|+
+name|deltaSpace
+expr_stmt|;
+block|}
+else|else
+block|{
+name|expectedStartOfNextWordX
+operator|=
+name|endOfLastTextX
+operator|+
+name|deltaCharWidth
+expr_stmt|;
+block|}
+block|}
 if|if
 condition|(
 name|lastPosition
@@ -1637,6 +1771,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// RDD - Here we determine whether this text object is on the current
+comment|// line.  We use the lastBaselineFontSize to handle the superscript
+comment|// case, and the size of the current font to handle the subscript case.
+comment|// Text must overlap with the last rendered baseline text by at least
+comment|// a small amount in order to be considered as being on the same line.
 comment|/* XXX BC: In theory, this check should really check if the next char is in full range                      * seen in this line. This is what I tried to do with minYTopForLine, but this caused a lot                      * of regression test failures.  So, I'm leaving it be for now. */
 if|if
 condition|(
@@ -1718,6 +1857,7 @@ operator|.
 name|MAX_VALUE
 expr_stmt|;
 block|}
+comment|//Test if our TextPosition starts after a new word would be expected to start.
 if|if
 condition|(
 name|expectedStartOfNextWordX
@@ -1820,6 +1960,10 @@ expr_stmt|;
 name|lastWordSpacing
 operator|=
 name|wordSpacing
+expr_stmt|;
+name|previousAveCharWidth
+operator|=
+name|averageCharWidth
 expr_stmt|;
 block|}
 comment|// print the final line
@@ -2976,6 +3120,58 @@ block|{
 name|sortByPosition
 operator|=
 name|newSortByPosition
+expr_stmt|;
+block|}
+comment|/**      * Get the current space width-based tolerance value that is being used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.       *       * @return The current tolerance / scaling factor      */
+specifier|public
+name|float
+name|getSpacingTolerance
+parameter_list|()
+block|{
+return|return
+name|spacingTolerance
+return|;
+block|}
+comment|/**      * Set the space width-based tolerance value that is used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.      * Setting this value larger will reduce the number of spaces added.       *       * @param spacingTolerance tolerance / scaling factor to use      */
+specifier|public
+name|void
+name|setSpacingTolerance
+parameter_list|(
+name|float
+name|spacingTolerance
+parameter_list|)
+block|{
+name|this
+operator|.
+name|spacingTolerance
+operator|=
+name|spacingTolerance
+expr_stmt|;
+block|}
+comment|/**      * Get the current character width-based tolerance value that is being used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.      *       * @return The current tolerance / scaling factor      */
+specifier|public
+name|float
+name|getAverageCharTolerance
+parameter_list|()
+block|{
+return|return
+name|averageCharTolerance
+return|;
+block|}
+comment|/**      * Set the character width-based tolerance value that is used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.      * Setting this value larger will reduce the number of spaces added.       *       * @param spacingTolerance tolerance / scaling factor to use      */
+specifier|public
+name|void
+name|setAverageCharTolerance
+parameter_list|(
+name|float
+name|averageCharTolerance
+parameter_list|)
+block|{
+name|this
+operator|.
+name|averageCharTolerance
+operator|=
+name|averageCharTolerance
 expr_stmt|;
 block|}
 block|}
