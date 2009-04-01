@@ -269,6 +269,8 @@ return|return
 name|image
 return|;
 block|}
+try|try
+block|{
 comment|//byte[] index =
 comment|//ColorSpace cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);
 name|int
@@ -309,6 +311,26 @@ init|=
 name|getColorSpace
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|colorspace
+operator|==
+literal|null
+condition|)
+block|{
+comment|//throw new IOException("getColorSpace() returned NULL");
+name|logger
+argument_list|()
+operator|.
+name|severe
+argument_list|(
+literal|"getColorSpace() returned NULL"
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
 name|ColorModel
 name|cm
 init|=
@@ -368,7 +390,7 @@ operator|.
 name|getFilters
 argument_list|()
 decl_stmt|;
-comment|/**          * PDF Spec 1.6 3.3.3 LZW and Flate predictor function          *          * Basically if predictor> 10 and LZW or Flate is being used then the          * predictor is not used.          *          * "For LZWDecode and FlateDecode, a Predictor value greater than or equal to 10          * merely indicates that a PNG predictor is in use; the specific predictor function          * used is explicitly encoded in the incoming data. The value of Predictor supplied          * by the decoding filter need not match the value used when the data was encoded          * if they are both greater than or equal to 10."          */
+comment|/** 		 * PDF Spec 1.6 3.3.3 LZW and Flate predictor function 		 * 		 * Basically if predictor> 10 and LZW or Flate is being used then the 		 * predictor is not used. 		 * 		 * "For LZWDecode and FlateDecode, a Predictor value greater than or equal to 10 		 * merely indicates that a PNG predictor is in use; the specific predictor function 		 * used is explicitly encoded in the incoming data. The value of Predictor supplied 		 * by the decoding filter need not match the value used when the data was encoded 		 * if they are both greater than or equal to 10." 		 */
 if|if
 condition|(
 name|predictor
@@ -491,6 +513,37 @@ expr_stmt|;
 return|return
 name|image
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|IOe
+parameter_list|)
+block|{
+name|logger
+argument_list|()
+operator|.
+name|severe
+argument_list|(
+name|IOe
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"\n at\n"
+operator|+
+name|FullStackTrace
+argument_list|(
+name|IOe
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//A NULL return is caught in pagedrawer.Invoke.process() so don't re-throw.
+comment|//Returning the NULL falls through to Phlip Koch's TODO section.
+return|return
+literal|null
+return|;
+block|}
 block|}
 comment|/**      * Writes the image as .png.      *      * {@inheritDoc}      */
 specifier|public

@@ -143,6 +143,20 @@ name|PDStream
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|LoggingObject
+import|;
+end_import
+
 begin_comment
 comment|/**  * The base class for all XObjects in the PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @author Marcel Kammer  * @version $Revision: 1.14 $  */
 end_comment
@@ -152,6 +166,8 @@ specifier|public
 specifier|abstract
 class|class
 name|PDXObject
+extends|extends
+name|LoggingObject
 implements|implements
 name|COSObjectable
 block|{
