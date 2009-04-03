@@ -367,14 +367,6 @@ operator|.
 name|getLinePath
 argument_list|()
 operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|drawer
-operator|.
-name|getLinePath
-argument_list|()
-operator|.
 name|append
 argument_list|(
 name|rect
