@@ -109,6 +109,10 @@ name|float
 name|fontSize
 decl_stmt|;
 specifier|private
+name|int
+name|fontSizeInPt
+decl_stmt|;
+specifier|private
 name|float
 name|wordSpacing
 decl_stmt|;
@@ -117,7 +121,7 @@ specifier|protected
 name|TextPosition
 parameter_list|()
 block|{      }
-comment|/**      * Constructor.      *      * @param page Page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param textPositionEnd TextMatrix for end of text (in display units)      * @param maxFontH Maximum height of text (in display units)      * @param individualWidths The width of each individual character. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param currentFont The current for for this text position.      * @param fontSizeValue The new font size.      * @param ws The word spacing parameter (in display units)      */
+comment|/**      * Constructor.      *      * @param page Page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param textPositionEnd TextMatrix for end of text (in display units)      * @param maxFontH Maximum height of text (in display units)      * @param individualWidths The width of each individual character. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param currentFont The current for for this text position.      * @param fontSizeValue The new font size.      * @param fontSizeValue The font size in pt units.      * @param ws The word spacing parameter (in display units)      */
 specifier|public
 name|TextPosition
 parameter_list|(
@@ -148,6 +152,9 @@ name|currentFont
 parameter_list|,
 name|float
 name|fontSizeValue
+parameter_list|,
+name|int
+name|fontSizeInPt
 parameter_list|,
 name|float
 name|ws
@@ -258,6 +265,12 @@ operator|.
 name|fontSize
 operator|=
 name|fontSizeValue
+expr_stmt|;
+name|this
+operator|.
+name|fontSizeInPt
+operator|=
+name|fontSizeInPt
 expr_stmt|;
 name|this
 operator|.
@@ -922,6 +935,16 @@ parameter_list|()
 block|{
 return|return
 name|fontSize
+return|;
+block|}
+comment|/**      * This will get the font size in pt      * To get this size we have to multiply the pdf-fontsize and the scaling from the textmatrix      *      * @return The font size in pt.      */
+specifier|public
+name|float
+name|getFontSizeInPt
+parameter_list|()
+block|{
+return|return
+name|fontSizeInPt
 return|;
 block|}
 comment|/**      * This will get the font for the text being drawn.      *      * @return The font size.      */
