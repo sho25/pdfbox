@@ -1205,13 +1205,16 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Merge a single character TextPosition into the current object.      * This is to be used only for cases where we have a diacritic that      * overlaps an existing TextPosition.  In a graphical display, we could      * overlay them, but for text extraction we need to merge them. Use the      * contains() method to test if two objects overlap.       *       * @param diacritic TextPosition to merge into the current TextPosition.      */
+comment|/**      * Merge a single character TextPosition into the current object.      * This is to be used only for cases where we have a diacritic that      * overlaps an existing TextPosition.  In a graphical display, we could      * overlay them, but for text extraction we need to merge them. Use the      * contains() method to test if two objects overlap.       *       * @param diacritic TextPosition to merge into the current TextPosition.      * @param normalize Instance of TextNormalize class to be used to normalize diacritic      */
 specifier|public
 name|void
 name|mergeDiacritic
 parameter_list|(
 name|TextPosition
 name|diacritic
+parameter_list|,
+name|TextNormalize
+name|normalize
 parameter_list|)
 block|{
 if|if
@@ -1319,6 +1322,8 @@ argument_list|(
 name|i
 argument_list|,
 name|diacritic
+argument_list|,
+name|normalize
 argument_list|)
 expr_stmt|;
 block|}
@@ -1372,6 +1377,8 @@ argument_list|(
 name|i
 argument_list|,
 name|diacritic
+argument_list|,
+name|normalize
 argument_list|)
 expr_stmt|;
 block|}
@@ -1384,6 +1391,8 @@ operator|-
 literal|1
 argument_list|,
 name|diacritic
+argument_list|,
+name|normalize
 argument_list|)
 expr_stmt|;
 block|}
@@ -1412,6 +1421,8 @@ argument_list|(
 name|i
 argument_list|,
 name|diacritic
+argument_list|,
+name|normalize
 argument_list|)
 expr_stmt|;
 name|wasAdded
@@ -1438,6 +1449,8 @@ argument_list|(
 name|i
 argument_list|,
 name|diacritic
+argument_list|,
+name|normalize
 argument_list|)
 expr_stmt|;
 name|wasAdded
@@ -1471,6 +1484,8 @@ argument_list|(
 name|i
 argument_list|,
 name|diacritic
+argument_list|,
+name|normalize
 argument_list|)
 expr_stmt|;
 name|wasAdded
@@ -1488,7 +1503,7 @@ index|]
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Inserts the diacritic TextPosition to the str of this TextPosition      * and updates the widths array to include the extra character width.      * @param i current character      * @param diacritic The diacritic TextPosition      */
+comment|/**      * Inserts the diacritic TextPosition to the str of this TextPosition      * and updates the widths array to include the extra character width.      * @param i current character      * @param diacritic The diacritic TextPosition      * @param normalize Instance of TextNormalize class to be used to normalize diacritic      */
 specifier|private
 name|void
 name|insertDiacritic
@@ -1498,6 +1513,9 @@ name|i
 parameter_list|,
 name|TextPosition
 name|diacritic
+parameter_list|,
+name|TextNormalize
+name|normalize
 parameter_list|)
 block|{
 comment|/* we add the diacritic to the right or left of the character          * depending on the direction of the character.  Note that this          * is only required because the text is currently stored in           * presentation order and not in logical order.           */
@@ -1605,10 +1623,15 @@ name|buf
 operator|.
 name|append
 argument_list|(
+name|normalize
+operator|.
+name|normalizeDiac
+argument_list|(
 name|diacritic
 operator|.
 name|getCharacter
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|widths2
@@ -1671,10 +1694,15 @@ name|buf
 operator|.
 name|append
 argument_list|(
+name|normalize
+operator|.
+name|normalizeDiac
+argument_list|(
 name|diacritic
 operator|.
 name|getCharacter
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|widths2

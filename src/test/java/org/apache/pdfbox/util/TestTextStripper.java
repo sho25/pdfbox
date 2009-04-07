@@ -222,6 +222,13 @@ name|log
 init|=
 literal|null
 decl_stmt|;
+specifier|private
+specifier|final
+name|String
+name|encoding
+init|=
+literal|"UTF-16LE"
+decl_stmt|;
 comment|/**      * Test class constructor.      *      * @param name The name of the test class.      *      * @throws IOException If there is an error creating the test.      */
 specifier|public
 name|TestTextStripper
@@ -241,7 +248,9 @@ name|stripper
 operator|=
 operator|new
 name|PDFTextStripper
-argument_list|()
+argument_list|(
+name|encoding
+argument_list|)
 expr_stmt|;
 name|stripper
 operator|.
@@ -870,7 +879,7 @@ name|OutputStreamWriter
 argument_list|(
 name|os
 argument_list|,
-literal|"UTF-16LE"
+name|encoding
 argument_list|)
 expr_stmt|;
 comment|//Allows for sorted tests
@@ -963,7 +972,7 @@ argument_list|(
 name|expectedFile
 argument_list|)
 argument_list|,
-literal|"UTF-16LE"
+name|encoding
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -982,7 +991,7 @@ argument_list|(
 name|outFile
 argument_list|)
 argument_list|,
-literal|"UTF-16LE"
+name|encoding
 argument_list|)
 argument_list|)
 decl_stmt|;

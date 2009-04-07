@@ -858,7 +858,9 @@ name|stripper
 operator|=
 operator|new
 name|PDFTextStripper
-argument_list|()
+argument_list|(
+name|encoding
+argument_list|)
 expr_stmt|;
 block|}
 name|stripper

@@ -437,6 +437,11 @@ name|wordSeparator
 init|=
 literal|" "
 decl_stmt|;
+specifier|protected
+name|String
+name|encoding
+decl_stmt|;
+comment|// encoding that text will be written in (or null)
 comment|/**      * The stream to write the output to.      */
 specifier|protected
 name|Writer
@@ -449,7 +454,7 @@ name|normalize
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Instantiate a new PDFTextStripper object.  This object will load properties from      * Resources/PDFTextStripper.properties.      * @throws IOException If there is an error loading the properties.      */
+comment|/**      * Instantiate a new PDFTextStripper object.  This object will load properties from      * Resources/PDFTextStripper.properties and will not do anything special to       * convert the text to a more encoding-specific output.        * @throws IOException If there is an error loading the properties.      */
 specifier|public
 name|PDFTextStripper
 parameter_list|()
@@ -468,8 +473,24 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|encoding
+operator|=
+literal|null
+expr_stmt|;
+name|normalize
+operator|=
+operator|new
+name|TextNormalize
+argument_list|(
+name|this
+operator|.
+name|encoding
+argument_list|)
+expr_stmt|;
 block|}
-comment|/**      * Instantiate a new PDFTextStripper object.  Loading all of the operator mappings      * from the properties object that is passed in.      *      * @param props The properties containing the mapping of operators to PDFOperator      * classes.      *      * @throws IOException If there is an error reading the properties.      */
+comment|/**      * Instantiate a new PDFTextStripper object.  Loading all of the operator mappings      * from the properties object that is passed in.  Does not convert the text      * to more encoding-specific output.      *      * @param props The properties containing the mapping of operators to PDFOperator      * classes.      *      * @throws IOException If there is an error reading the properties.      */
 specifier|public
 name|PDFTextStripper
 parameter_list|(
@@ -482,6 +503,61 @@ block|{
 name|super
 argument_list|(
 name|props
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|encoding
+operator|=
+literal|null
+expr_stmt|;
+name|normalize
+operator|=
+operator|new
+name|TextNormalize
+argument_list|(
+name|this
+operator|.
+name|encoding
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Instantiate a new PDFTextStripper object. This object will load properties from      * Resources/PDFTextStripper.properties and will apply encoding-specific      * conversions to the output text.        *      * @param encoding The encoding that the output will be written in.      *      * @throws IOException If there is an error reading the properties.      */
+specifier|public
+name|PDFTextStripper
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|ResourceLoader
+operator|.
+name|loadProperties
+argument_list|(
+literal|"Resources/PDFTextStripper.properties"
+argument_list|,
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
+expr_stmt|;
+name|normalize
+operator|=
+operator|new
+name|TextNormalize
+argument_list|(
+name|this
+operator|.
+name|encoding
 argument_list|)
 expr_stmt|;
 block|}
@@ -1187,20 +1263,6 @@ name|lastPosition
 init|=
 literal|null
 decl_stmt|;
-if|if
-condition|(
-name|normalize
-operator|==
-literal|null
-condition|)
-block|{
-name|normalize
-operator|=
-operator|new
-name|TextNormalize
-argument_list|()
-expr_stmt|;
-block|}
 for|for
 control|(
 name|int
@@ -2042,7 +2104,6 @@ block|}
 name|writePageSeperator
 argument_list|()
 expr_stmt|;
-empty_stmt|;
 block|}
 specifier|private
 name|boolean
@@ -2815,6 +2876,8 @@ operator|.
 name|mergeDiacritic
 argument_list|(
 name|text
+argument_list|,
+name|normalize
 argument_list|)
 expr_stmt|;
 block|}
@@ -2840,6 +2903,8 @@ operator|.
 name|mergeDiacritic
 argument_list|(
 name|previousTextPosition
+argument_list|,
+name|normalize
 argument_list|)
 expr_stmt|;
 name|textList

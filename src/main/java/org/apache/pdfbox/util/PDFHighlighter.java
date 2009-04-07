@@ -142,6 +142,14 @@ name|textWriter
 init|=
 literal|null
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|encoding
+init|=
+literal|"UTF-16"
+decl_stmt|;
 comment|/**      * Default constructor.      *      * @throws IOException If there is an error constructing this class.      */
 specifier|public
 name|PDFHighlighter
@@ -150,7 +158,9 @@ throws|throws
 name|IOException
 block|{
 name|super
-argument_list|()
+argument_list|(
+name|encoding
+argument_list|)
 expr_stmt|;
 name|super
 operator|.
@@ -272,7 +282,7 @@ name|OutputStreamWriter
 argument_list|(
 name|textOS
 argument_list|,
-literal|"UTF-16"
+name|encoding
 argument_list|)
 expr_stmt|;
 name|writeText
@@ -322,7 +332,7 @@ operator|.
 name|toByteArray
 argument_list|()
 argument_list|,
-literal|"UTF-16"
+name|encoding
 argument_list|)
 decl_stmt|;
 name|textOS

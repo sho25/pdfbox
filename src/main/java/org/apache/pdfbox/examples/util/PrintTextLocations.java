@@ -373,14 +373,14 @@ literal|"String["
 operator|+
 name|text
 operator|.
-name|getX
+name|getXDirAdj
 argument_list|()
 operator|+
 literal|","
 operator|+
 name|text
 operator|.
-name|getY
+name|getYDirAdj
 argument_list|()
 operator|+
 literal|" fs="
@@ -401,7 +401,7 @@ literal|" height="
 operator|+
 name|text
 operator|.
-name|getHeight
+name|getHeightDir
 argument_list|()
 operator|+
 literal|" space="
@@ -415,7 +415,7 @@ literal|" width="
 operator|+
 name|text
 operator|.
-name|getWidth
+name|getWidthDirAdj
 argument_list|()
 operator|+
 literal|"]"

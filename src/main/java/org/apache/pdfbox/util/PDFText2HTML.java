@@ -84,10 +84,6 @@ name|onFirstPage
 init|=
 literal|true
 decl_stmt|;
-specifier|private
-name|String
-name|encoding
-decl_stmt|;
 comment|/**      * Constructor.      *       * @throws IOException      *             If there is an error during initialization.      */
 specifier|public
 name|PDFText2HTML
