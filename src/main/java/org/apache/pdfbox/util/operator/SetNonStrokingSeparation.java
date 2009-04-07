@@ -35,6 +35,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSNumber
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|graphics
@@ -55,7 +69,21 @@ name|pdfbox
 operator|.
 name|util
 operator|.
-name|*
+name|PDFOperator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdfviewer
+operator|.
+name|PageDrawer
 import|;
 end_import
 
@@ -70,17 +98,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Set the non stroking color space.</p>  *   * @author<a href="mailto:andreas@lehmi.de">Andreas Lehmkühler</a>  * @version $Revision: 1.0 $  */
+comment|/**  *   * @author<a href="mailto:WilliamstonConsulting@GMail.com">Daniel Wilson</a>  * @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|SetNonStrokingColor
+name|SetNonStrokingSeparation
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * sc,scn Set color space for non stroking operations.      * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If an error occurs while processing the font.      */
+comment|/**      * scn Set color space for non stroking operations.      * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If an error occurs while processing the font.      */
 specifier|public
 name|void
 name|process
@@ -94,8 +122,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDColorSpace
-name|colorSpace
+name|PDColorSpaceInstance
+name|colorInstance
 init|=
 name|context
 operator|.
@@ -104,10 +132,77 @@ argument_list|()
 operator|.
 name|getNonStrokingColorSpace
 argument_list|()
+decl_stmt|;
+name|PDColorSpace
+name|colorSpace
+init|=
+name|colorInstance
 operator|.
 name|getColorSpace
 argument_list|()
 decl_stmt|;
+comment|//.getAlternateColorSpace();
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"handling color space "
+operator|+
+name|colorSpace
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Arguments: "
+operator|+
+name|arguments
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|colorSpace
+operator|instanceof
+name|PDSeparation
+condition|)
+block|{
+name|PDSeparation
+name|sep
+init|=
+operator|(
+name|PDSeparation
+operator|)
+name|colorSpace
+decl_stmt|;
+name|colorSpace
+operator|=
+name|sep
+operator|.
+name|getAlternateColorSpace
+argument_list|()
+expr_stmt|;
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"now handling alternate color space "
+operator|+
+name|colorSpace
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|colorSpace
@@ -218,7 +313,13 @@ name|process
 argument_list|(
 name|operator
 argument_list|,
-name|arguments
+name|sep
+operator|.
+name|getColorValues
+argument_list|()
+operator|.
+name|toList
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -244,23 +345,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 else|else
-name|logger
-argument_list|()
-operator|.
-name|warning
+throw|throw
+operator|new
+name|IOException
 argument_list|(
-literal|"Colorspace not found in "
+literal|"Invalid attempt to process colorspace "
 operator|+
-name|getClass
-argument_list|()
+name|colorSpace
 operator|.
-name|getName
+name|toString
 argument_list|()
 operator|+
-literal|".process!!"
+literal|" in SetNonStrokingSeparation"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 end_class

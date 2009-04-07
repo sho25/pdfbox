@@ -103,6 +103,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSDictionary
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -204,8 +218,12 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|//return 1;
 return|return
-literal|1
+name|array
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color space.      */
@@ -227,7 +245,17 @@ init|=
 name|getAlternateColorSpace
 argument_list|()
 decl_stmt|;
-comment|//logger().info(alt.toString());
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+name|alt
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ColorSpace
 name|CS
 init|=
@@ -237,7 +265,31 @@ name|createColorSpace
 argument_list|()
 decl_stmt|;
 comment|///dwilson 12/15/07
-comment|//logger().info(CS.toString() + " reporting type " + CS.getType() + " and having component count of " + CS.getNumComponents());
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+name|CS
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|" reporting type "
+operator|+
+name|CS
+operator|.
+name|getType
+argument_list|()
+operator|+
+literal|" and having component count of "
+operator|+
+name|CS
+operator|.
+name|getNumComponents
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|CS
 return|;
@@ -253,6 +305,13 @@ argument_list|()
 operator|.
 name|severe
 argument_list|(
+name|IOe
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"\n at\n"
+operator|+
 name|FullStackTrace
 argument_list|(
 name|IOe
@@ -274,6 +333,13 @@ argument_list|()
 operator|.
 name|severe
 argument_list|(
+name|e
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"\n at\n"
+operator|+
 name|FullStackTrace
 argument_list|(
 name|e
@@ -300,7 +366,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//throw new IOException( "Not implemented" );
 return|return
 name|getAlternateColorSpace
 argument_list|()
@@ -473,6 +538,70 @@ argument_list|,
 name|tint
 argument_list|)
 expr_stmt|;
+block|}
+comment|/* 	Don't just tell me it's a Separation -- tell me its contents!     */
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+name|String
+name|RetVal
+init|=
+name|NAME
+operator|+
+literal|"{ "
+operator|+
+name|array
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|" }"
+decl_stmt|;
+return|return
+name|RetVal
+return|;
+block|}
+comment|/* 	Some of the key values are stored within the COSDictionary, item 3 in the array. 	I don't necessarily want to expose the entire dictionary publicly (except in toString()), 	but need access privately in order to expose the color values publicly.     */
+specifier|private
+name|COSDictionary
+name|getDictionary
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+operator|(
+name|COSDictionary
+operator|)
+name|array
+operator|.
+name|getObject
+argument_list|(
+literal|3
+argument_list|)
+return|;
+block|}
+specifier|public
+name|COSArray
+name|getColorValues
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+operator|(
+name|COSArray
+operator|)
+name|getDictionary
+argument_list|()
+operator|.
+name|getDictionaryObject
+argument_list|(
+literal|"C1"
+argument_list|)
+return|;
 block|}
 block|}
 end_class
