@@ -1796,10 +1796,65 @@ literal|"trailer"
 argument_list|)
 condition|)
 block|{
+comment|// in some cases the EOL is missing and the trailer immediately continues with "<<" or with a blank character
+comment|// even if this does not comply with PDF reference we want to support as many PDFs as possible
+comment|// Acrobat reader can also deal with this.
+if|if
+condition|(
+name|nextLine
+operator|.
+name|startsWith
+argument_list|(
+literal|"trailer"
+argument_list|)
+condition|)
+block|{
+name|byte
+index|[]
+name|b
+init|=
+name|nextLine
+operator|.
+name|getBytes
+argument_list|()
+decl_stmt|;
+name|int
+name|len
+init|=
+literal|"trailer"
+operator|.
+name|length
+argument_list|()
+decl_stmt|;
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
+name|b
+argument_list|,
+name|len
+argument_list|,
+name|b
+operator|.
+name|length
+operator|-
+name|len
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 return|return
 literal|false
 return|;
 block|}
+block|}
+comment|// in some cases the EOL is missing and the trailer continues with "<<"
+comment|// even if this does not comply with PDF reference we want to support as many PDFs as possible
+comment|// Acrobat reader can also deal with this.
+name|skipSpaces
+argument_list|()
+expr_stmt|;
 name|COSDictionary
 name|parsedTrailer
 init|=
