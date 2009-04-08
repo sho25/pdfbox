@@ -1041,8 +1041,6 @@ argument_list|)
 expr_stmt|;
 comment|//The spec says this is invalid but it happens in the real
 comment|//world so we must support it.
-comment|//throw new IOException("expected='0x0A' actual='0x" +
-comment|//    Integer.toHexString(whitespace) + "' " + pdfSource);
 block|}
 block|}
 elseif|else
@@ -1067,8 +1065,6 @@ argument_list|(
 name|whitespace
 argument_list|)
 expr_stmt|;
-comment|//throw new IOException("expected='0x0D or 0x0A' actual='0x" +
-comment|//Integer.toHexString(whitespace) + "' " + pdfSource);
 block|}
 comment|/*This needs to be dic.getItem because when we are parsing, the underlying object              * might still be null.              */
 name|COSBase
@@ -1083,9 +1079,6 @@ operator|.
 name|LENGTH
 argument_list|)
 decl_stmt|;
-comment|/*long length = -1;             if( streamLength instanceof COSNumber )             {                 length = ((COSNumber)streamLength).intValue();             }             else if( streamLength instanceof COSObject&&                      ((COSObject)streamLength).getObject() instanceof COSNumber )             {                 length = ((COSNumber)((COSObject)streamLength).getObject()).intValue();             }*/
-comment|//length = -1;
-comment|//streamLength = null;
 comment|//Need to keep track of the
 name|out
 operator|=
@@ -1101,17 +1094,11 @@ name|endStream
 init|=
 literal|null
 decl_stmt|;
-comment|//the length is wrong in some pdf documents which means
-comment|//that PDFBox must basically ignore it in order to be able to read
-comment|//the most number of PDF documents.  This of course is a penalty hit,
-comment|//maybe I could implement a faster parser.
-comment|/**if( length != -1 )             {                 byte[] buffer = new byte[1024];                 int amountRead = 0;                 int totalAmountRead = 0;                 while( amountRead != -1&& totalAmountRead< length )                 {                     int maxAmountToRead = Math.min(buffer.length, (int)(length-totalAmountRead));                     amountRead = pdfSource.read(buffer,0,maxAmountToRead);                     totalAmountRead += amountRead;                     if( amountRead != -1 )                     {                         out.write( buffer, 0, amountRead );                     }                 }             }             else             {**/
 name|readUntilEndStream
 argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-comment|/**}*/
 name|skipSpaces
 argument_list|()
 expr_stmt|;
@@ -1131,6 +1118,63 @@ literal|"endstream"
 argument_list|)
 condition|)
 block|{
+comment|/*                  * Some PDF files don't contain a new line after endstream so we                   * need to make sure that the next object number is getting read separately                  * and not part of the endstream keyword. Ex. Some files would have "endstream8"                  * instead of "endstream"                  */
+if|if
+condition|(
+name|endStream
+operator|.
+name|startsWith
+argument_list|(
+literal|"endstream"
+argument_list|)
+condition|)
+block|{
+name|String
+name|extra
+init|=
+name|endStream
+operator|.
+name|substring
+argument_list|(
+literal|9
+argument_list|,
+name|endStream
+operator|.
+name|length
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|endStream
+operator|=
+name|endStream
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+literal|9
+argument_list|)
+expr_stmt|;
+name|byte
+index|[]
+name|array
+init|=
+name|extra
+operator|.
+name|getBytes
+argument_list|()
+decl_stmt|;
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
+name|array
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|/*                      * If for some reason we get something else here, Read until we find the next                      * "endstream"                      */
 name|readUntilEndStream
 argument_list|(
 name|out
@@ -1165,6 +1209,7 @@ operator|+
 name|pdfSource
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}
@@ -1306,10 +1351,6 @@ name|currentIndex
 operator|++
 expr_stmt|;
 block|}
-comment|//we want to ignore the end of the line data when reading a stream
-comment|//so will make an attempt to ignore it.
-comment|/*writeIndex = currentIndex - buffer.length;         if( buffer[writeIndex%buffer.length] == 13&&             buffer[(writeIndex+1)%buffer.length] == 10 )         {             //then ignore the newline before the endstream         }         else if( buffer[(writeIndex+1)%buffer.length] == 10 )         {             //Then first byte is data, second byte is newline             out.write( buffer[writeIndex%buffer.length] );         }         else         {             out.write( buffer[writeIndex%buffer.length] );             out.write( buffer[(writeIndex+1)%buffer.length] );         }*/
-comment|/**          * Old way of handling newlines before endstream         for( int i=0; i<additionalBytes; i++ )         {             writeIndex = currentIndex - buffer.length;             if( writeIndex>=0&&                 //buffer[writeIndex%buffer.length] != 10&&                 buffer[writeIndex%buffer.length] != 13 )             {                 out.write( buffer[writeIndex%buffer.length] );             }             currentIndex++;         }         */
 name|pdfSource
 operator|.
 name|unread
