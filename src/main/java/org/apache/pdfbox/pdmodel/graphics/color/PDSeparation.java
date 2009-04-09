@@ -245,17 +245,7 @@ init|=
 name|getAlternateColorSpace
 argument_list|()
 decl_stmt|;
-name|logger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-name|alt
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//logger().info(alt.toString());
 name|ColorSpace
 name|CS
 init|=
@@ -265,31 +255,7 @@ name|createColorSpace
 argument_list|()
 decl_stmt|;
 comment|///dwilson 12/15/07
-name|logger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-name|CS
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|" reporting type "
-operator|+
-name|CS
-operator|.
-name|getType
-argument_list|()
-operator|+
-literal|" and having component count of "
-operator|+
-name|CS
-operator|.
-name|getNumComponents
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//logger().info(CS.toString() + " reporting type " + CS.getType() + " and having component count of " + CS.getNumComponents());
 return|return
 name|CS
 return|;

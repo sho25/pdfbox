@@ -104,7 +104,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|SetNonStrokingSeparation
+name|SetStrokingSeparation
 extends|extends
 name|OperatorProcessor
 block|{
@@ -130,7 +130,7 @@ operator|.
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getNonStrokingColorSpace
+name|getStrokingColorSpace
 argument_list|()
 decl_stmt|;
 name|PDColorSpace
@@ -212,7 +212,7 @@ condition|)
 name|newOperator
 operator|=
 operator|new
-name|SetNonStrokingGrayColor
+name|SetStrokingGrayColor
 argument_list|()
 expr_stmt|;
 elseif|else
@@ -225,7 +225,7 @@ condition|)
 name|newOperator
 operator|=
 operator|new
-name|SetNonStrokingRGBColor
+name|SetStrokingRGBColor
 argument_list|()
 expr_stmt|;
 elseif|else
@@ -238,7 +238,7 @@ condition|)
 name|newOperator
 operator|=
 operator|new
-name|SetNonStrokingCMYKColor
+name|SetStrokingCMYKColor
 argument_list|()
 expr_stmt|;
 elseif|else
@@ -251,7 +251,7 @@ condition|)
 name|newOperator
 operator|=
 operator|new
-name|SetNonStrokingICCBasedColor
+name|SetStrokingICCBasedColor
 argument_list|()
 expr_stmt|;
 elseif|else
@@ -264,7 +264,7 @@ condition|)
 name|newOperator
 operator|=
 operator|new
-name|SetNonStrokingCalRGBColor
+name|SetStrokingCalRGBColor
 argument_list|()
 expr_stmt|;
 elseif|else
@@ -277,7 +277,7 @@ condition|)
 name|newOperator
 operator|=
 operator|new
-name|SetNonStrokingSeparation
+name|SetStrokingSeparation
 argument_list|()
 expr_stmt|;
 if|if
@@ -346,7 +346,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|" in SetNonStrokingSeparation"
+literal|" in SetStrokingSeparation"
 argument_list|)
 throw|;
 block|}

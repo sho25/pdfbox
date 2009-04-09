@@ -737,7 +737,7 @@ comment|// TODO: need to implement....
 name|logger
 argument_list|()
 operator|.
-name|info
+name|warning
 argument_list|(
 literal|"Unsupported RenderingMode "
 operator|+
@@ -758,7 +758,7 @@ expr_stmt|;
 name|logger
 argument_list|()
 operator|.
-name|info
+name|warning
 argument_list|(
 literal|"Using RenderingMode "
 operator|+
@@ -1110,7 +1110,6 @@ name|createColor
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//logger().info("Filling the path with rule: " + windingRule);
 name|getLinePath
 argument_list|()
 operator|.
@@ -1328,24 +1327,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|logger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"changing "
-operator|+
-operator|(
-name|bStroking
-condition|?
-literal|""
-else|:
-literal|"non"
-operator|)
-operator|+
-literal|"stroking color"
-argument_list|)
-expr_stmt|;
+comment|//logger().info("changing " + (bStroking ? "" : "non") + "stroking color");
 block|}
 comment|//This code generalizes the code Jim Lynch wrote for AppendRectangleToPath
 comment|/**      * use the current transformatrion matrix to transform a single point.      * @param x x-coordinate of the point to be transform      * @param x y-coordinate of the point to be transform      * @return the transformed coordinates as Point2D.Double      */
