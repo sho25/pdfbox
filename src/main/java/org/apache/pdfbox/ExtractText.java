@@ -223,6 +223,15 @@ init|=
 literal|"-html"
 decl_stmt|;
 comment|// jjb - added simple HTML output
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|FORCE
+init|=
+literal|"-force"
+decl_stmt|;
+comment|//enables pdfbox to skip corrupt objects
 comment|/**      * private constructor.     */
 specifier|private
 name|ExtractText
@@ -250,6 +259,11 @@ literal|false
 decl_stmt|;
 name|boolean
 name|toHTML
+init|=
+literal|false
+decl_stmt|;
+name|boolean
+name|force
 init|=
 literal|false
 decl_stmt|;
@@ -535,6 +549,25 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|FORCE
+argument_list|)
+condition|)
+block|{
+name|force
+operator|=
+literal|true
+expr_stmt|;
+block|}
 else|else
 block|{
 if|if
@@ -609,6 +642,8 @@ operator|.
 name|load
 argument_list|(
 name|url
+argument_list|,
+name|force
 argument_list|)
 expr_stmt|;
 name|String
@@ -673,6 +708,8 @@ operator|.
 name|load
 argument_list|(
 name|pdfFile
+argument_list|,
+name|force
 argument_list|)
 expr_stmt|;
 if|if
@@ -949,6 +986,8 @@ operator|+
 literal|"  -html                        Output in HTML format instead of raw text\n"
 operator|+
 literal|"  -sort                        Sort the text before writing\n"
+operator|+
+literal|"  -force                       Enables pdfbox to ignore corrupt objects\n"
 operator|+
 literal|"  -startPage<number>          The first page to start extraction(1 based)\n"
 operator|+

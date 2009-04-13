@@ -114,7 +114,7 @@ name|setLevel
 argument_list|(
 name|Level
 operator|.
-name|OFF
+name|WARNING
 argument_list|)
 expr_stmt|;
 block|}
