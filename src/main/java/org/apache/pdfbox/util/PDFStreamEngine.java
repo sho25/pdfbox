@@ -343,7 +343,7 @@ name|resources
 decl_stmt|;
 block|}
 comment|/**      * Constructor.      */
-specifier|protected
+specifier|public
 name|PDFStreamEngine
 parameter_list|()
 block|{
@@ -358,7 +358,7 @@ literal|0
 expr_stmt|;
 block|}
 comment|/**      * Constructor with engine properties.  The property keys are all      * PDF operators, the values are class names used to execute those      * operators.      *      * @param properties The engine properties.      *      * @throws IOException If there is an error setting the engine properties.      */
-specifier|protected
+specifier|public
 name|PDFStreamEngine
 parameter_list|(
 name|Properties
