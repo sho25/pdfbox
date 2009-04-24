@@ -475,6 +475,7 @@ name|image
 argument_list|)
 return|;
 block|}
+comment|/*else if( filters != null&& filters.contains(COSName.FLATE_DECODE.getName()))                 { 			retval = new PDPixelMap(image); 		}*/
 else|else
 block|{
 name|retval
@@ -485,6 +486,7 @@ argument_list|(
 name|image
 argument_list|)
 expr_stmt|;
+comment|//throw new IOException ("Default branch: filters = " + filters.toString());
 block|}
 block|}
 elseif|else

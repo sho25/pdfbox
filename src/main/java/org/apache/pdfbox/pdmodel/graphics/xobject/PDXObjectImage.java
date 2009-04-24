@@ -183,6 +183,22 @@ name|PDDeviceGray
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|PDGraphicsState
+import|;
+end_import
+
 begin_comment
 comment|/**  * The prototype for all PDImages.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @version $Revision: 1.9 $  */
 end_comment
@@ -208,6 +224,10 @@ comment|/**      * This contains the suffix used when writing to file.      */
 specifier|private
 name|String
 name|suffix
+decl_stmt|;
+specifier|protected
+name|PDGraphicsState
+name|graphicsState
 decl_stmt|;
 comment|/**      * Standard constuctor.      *      * @param imageStream The XObject is passed as a COSStream.      * @param fileSuffix The file suffix, jpg/png.      */
 specifier|public
@@ -567,6 +587,20 @@ argument_list|(
 name|cs
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|retval
+operator|==
+literal|null
+condition|)
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"About to return NULL from createColorSpace branch"
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -610,7 +644,68 @@ operator|new
 name|PDDeviceGray
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|retval
+operator|==
+literal|null
+condition|)
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"About to return NULL from CCITT branch"
+argument_list|)
+expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|getImageMask
+argument_list|()
+condition|)
+block|{
+comment|//Stencil Mask branch.  Section 4.8.5 of the reference, page 350 in version 1.7.
+name|retval
+operator|=
+name|graphicsState
+operator|.
+name|getNonStrokingColorSpace
+argument_list|()
+operator|.
+name|getColorSpace
+argument_list|()
+expr_stmt|;
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Stencil Mask branch returning "
+operator|+
+name|retval
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|//throw new IOException("Trace the Stencil Mask!!!!");
+block|}
+else|else
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"About to return NULL from unhandled branch. filter = "
+operator|+
+name|filter
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|retval
@@ -670,6 +765,38 @@ block|{
 return|return
 name|suffix
 return|;
+block|}
+comment|/**      * Get the ImageMask flag. Used in Stencil Masking.  Section 4.8.5 of the spec.      *      * @return The ImageMask flag.  This is optional and defaults to False, so if it does not exist, we return False      */
+specifier|public
+name|boolean
+name|getImageMask
+parameter_list|()
+block|{
+return|return
+name|getCOSStream
+argument_list|()
+operator|.
+name|getBoolean
+argument_list|(
+literal|"ImageMask"
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**     * Allow the Invoke operator to set the graphics state so that, in the case of an Image Mask, we can get to the current nonstroking colorspace.     *     */
+specifier|public
+name|void
+name|setGraphicsState
+parameter_list|(
+name|PDGraphicsState
+name|newGS
+parameter_list|)
+block|{
+name|graphicsState
+operator|=
+name|newGS
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -375,6 +375,16 @@ name|xobject
 decl_stmt|;
 try|try
 block|{
+name|image
+operator|.
+name|setGraphicsState
+argument_list|(
+name|drawer
+operator|.
+name|getGraphicsState
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|BufferedImage
 name|awtImage
 init|=
@@ -390,6 +400,14 @@ operator|==
 literal|null
 condition|)
 block|{
+name|logger
+argument_list|()
+operator|.
+name|warning
+argument_list|(
+literal|"getRGBImage returned NULL"
+argument_list|)
+expr_stmt|;
 return|return;
 comment|//TODO PKOCH
 block|}
@@ -417,6 +435,20 @@ operator|.
 name|getHeight
 argument_list|()
 decl_stmt|;
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"imageWidth: "
+operator|+
+name|imageWidth
+operator|+
+literal|"\t\timageHeight: "
+operator|+
+name|imageHeight
+argument_list|)
+expr_stmt|;
 name|Matrix
 name|ctm
 init|=
@@ -690,6 +722,24 @@ name|e
 operator|.
 name|printStackTrace
 argument_list|()
+expr_stmt|;
+name|logger
+argument_list|()
+operator|.
+name|severe
+argument_list|(
+name|e
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"\n at\n"
+operator|+
+name|FullStackTrace
+argument_list|(
+name|e
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 block|}

@@ -271,8 +271,6 @@ return|;
 block|}
 try|try
 block|{
-comment|//byte[] index =
-comment|//ColorSpace cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);
 name|int
 name|width
 init|=
@@ -291,9 +289,21 @@ init|=
 name|getBitsPerComponent
 argument_list|()
 decl_stmt|;
-comment|//COSInteger length =
-comment|//        (COSInteger) stream.getStream().getDictionary().getDictionaryObject(COSName.LENGTH);
-comment|//byte[] array = new byte[stream.getFilteredStream().];
+name|int
+name|predictor
+init|=
+name|getPredictor
+argument_list|()
+decl_stmt|;
+name|List
+name|filters
+init|=
+name|getPDStream
+argument_list|()
+operator|.
+name|getFilters
+argument_list|()
+decl_stmt|;
 name|byte
 index|[]
 name|array
@@ -318,13 +328,15 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|//throw new IOException("getColorSpace() returned NULL");
 name|logger
 argument_list|()
 operator|.
 name|severe
 argument_list|(
-literal|"getColorSpace() returned NULL"
+literal|"getColorSpace() returned NULL.  Predictor = "
+operator|+
+name|getPredictor
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -341,6 +353,19 @@ argument_list|(
 name|bpc
 argument_list|)
 decl_stmt|;
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"ColorModel: "
+operator|+
+name|cm
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|WritableRaster
 name|raster
 init|=
@@ -374,22 +399,20 @@ operator|.
 name|getData
 argument_list|()
 decl_stmt|;
-comment|//System.arraycopy( array, 0, bufferData, 0, array.length );
-name|int
-name|predictor
-init|=
-name|getPredictor
-argument_list|()
-decl_stmt|;
-name|List
-name|filters
-init|=
-name|getPDStream
+name|logger
 argument_list|()
 operator|.
-name|getFilters
-argument_list|()
-decl_stmt|;
+name|info
+argument_list|(
+literal|"bufferData contains "
+operator|+
+name|bufferData
+operator|.
+name|length
+operator|+
+literal|" bytes."
+argument_list|)
+expr_stmt|;
 comment|/** 		 * PDF Spec 1.6 3.3.3 LZW and Flate predictor function 		 * 		 * Basically if predictor> 10 and LZW or Flate is being used then the 		 * predictor is not used. 		 * 		 * "For LZWDecode and FlateDecode, a Predictor value greater than or equal to 10 		 * merely indicates that a PNG predictor is in use; the specific predictor function 		 * used is explicitly encoded in the incoming data. The value of Predictor supplied 		 * by the decoding filter need not match the value used when the data was encoded 		 * if they are both greater than or equal to 10." 		 */
 if|if
 condition|(
@@ -516,7 +539,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|IOe
 parameter_list|)
 block|{

@@ -2227,6 +2227,22 @@ name|toIndex
 argument_list|)
 return|;
 block|}
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"COSArrayList{"
+operator|+
+name|array
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"}"
+return|;
+block|}
 block|}
 end_class
 
