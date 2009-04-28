@@ -1848,6 +1848,11 @@ decl_stmt|;
 if|if
 condition|(
 name|dic
+operator|!=
+literal|null
+operator|&&
+operator|(
+name|dic
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -1864,6 +1869,7 @@ literal|"Rows"
 argument_list|)
 operator|!=
 literal|null
+operator|)
 condition|)
 block|{
 name|decodeParms
