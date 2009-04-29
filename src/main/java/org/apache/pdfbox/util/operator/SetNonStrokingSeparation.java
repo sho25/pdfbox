@@ -142,20 +142,12 @@ name|getColorSpace
 argument_list|()
 decl_stmt|;
 comment|//.getAlternateColorSpace();
-name|logger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"handling color space "
-operator|+
-name|colorSpace
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|//logger().info("Arguments: " + arguments.toString());
+name|List
+name|argList
+init|=
+name|arguments
+decl_stmt|;
+comment|//logger().info("handling color space " + colorSpace.toString());
 if|if
 condition|(
 name|colorSpace
@@ -178,19 +170,18 @@ operator|.
 name|getAlternateColorSpace
 argument_list|()
 expr_stmt|;
-name|logger
+name|argList
+operator|=
+name|sep
+operator|.
+name|getColorValues
 argument_list|()
 operator|.
-name|info
-argument_list|(
-literal|"now handling alternate color space "
-operator|+
-name|colorSpace
-operator|.
-name|toString
+name|toList
 argument_list|()
-argument_list|)
 expr_stmt|;
+comment|//logger().info("now handling alternate color space " + colorSpace.toString());
+block|}
 if|if
 condition|(
 name|colorSpace
@@ -301,13 +292,7 @@ name|process
 argument_list|(
 name|operator
 argument_list|,
-name|sep
-operator|.
-name|getColorValues
-argument_list|()
-operator|.
-name|toList
-argument_list|()
+name|argList
 argument_list|)
 expr_stmt|;
 block|}
@@ -333,22 +318,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Invalid attempt to process colorspace "
-operator|+
-name|colorSpace
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|" in SetNonStrokingSeparation"
-argument_list|)
-throw|;
+comment|//} else throw new IOException ("Invalid attempt to process colorspace " + colorSpace.toString() + " in SetNonStrokingSeparation");
 block|}
 block|}
 end_class

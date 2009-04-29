@@ -147,10 +147,6 @@ name|NAME
 init|=
 literal|"Separation"
 decl_stmt|;
-specifier|private
-name|COSArray
-name|array
-decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|PDSeparation
@@ -332,6 +328,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"About to create ColorModel for "
+operator|+
+name|getAlternateColorSpace
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|getAlternateColorSpace
 argument_list|()
@@ -504,30 +514,6 @@ argument_list|,
 name|tint
 argument_list|)
 expr_stmt|;
-block|}
-comment|/* 	Don't just tell me it's a Separation -- tell me its contents!     */
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-name|String
-name|RetVal
-init|=
-name|NAME
-operator|+
-literal|"{ "
-operator|+
-name|array
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|" }"
-decl_stmt|;
-return|return
-name|RetVal
-return|;
 block|}
 comment|/* 	Some of the key values are stored within the COSDictionary, item 3 in the array. 	I don't necessarily want to expose the entire dictionary publicly (except in toString()), 	but need access privately in order to expose the color values publicly.     */
 specifier|private

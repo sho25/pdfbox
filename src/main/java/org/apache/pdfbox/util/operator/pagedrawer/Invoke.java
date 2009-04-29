@@ -272,7 +272,7 @@ name|Invoke
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * process : re : append rectangle to path.      * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If there is an error invoking the sub object.      */
+comment|/**      * process : Do : Paint the specified XObject (section 4.7)      * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If there is an error invoking the sub object.      */
 specifier|public
 name|void
 name|process

@@ -321,10 +321,7 @@ name|NAME
 init|=
 literal|"ICCBased"
 decl_stmt|;
-specifier|private
-name|COSArray
-name|array
-decl_stmt|;
+comment|//private COSArray array;
 specifier|private
 name|PDStream
 name|stream
@@ -513,8 +510,11 @@ block|,
 name|bpc
 block|,
 name|bpc
+block|,
+name|bpc
 block|}
 decl_stmt|;
+comment|//added 4th bpc to handle CMYK
 name|ComponentColorModel
 name|componentColorModel
 init|=
@@ -1132,6 +1132,52 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
+block|}
+comment|/* 	Need more info on the ICCBased ones ... Array contains very little. 	*/
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+name|String
+name|RetVal
+init|=
+name|super
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"\n\t Number of Components: "
+decl_stmt|;
+try|try
+block|{
+name|RetVal
+operator|=
+name|RetVal
+operator|+
+name|getNumberOfComponents
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|IOe
+parameter_list|)
+block|{
+name|RetVal
+operator|=
+name|RetVal
+operator|+
+name|IOe
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|RetVal
+return|;
 block|}
 block|}
 end_class

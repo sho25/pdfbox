@@ -55,6 +55,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -125,6 +139,10 @@ name|LoggingObject
 implements|implements
 name|COSObjectable
 block|{
+specifier|protected
+name|COSArray
+name|array
+decl_stmt|;
 comment|/**      * This will return the name of the color space.      *      * @return The name of the color space.      */
 specifier|public
 specifier|abstract
@@ -178,6 +196,39 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/* 	Don't just tell me its color type -- tell me its contents!     */
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+name|String
+name|RetVal
+init|=
+name|getName
+argument_list|()
+operator|+
+literal|"{ "
+operator|+
+operator|(
+name|array
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+name|array
+operator|.
+name|toString
+argument_list|()
+operator|)
+operator|+
+literal|" }"
+decl_stmt|;
+return|return
+name|RetVal
+return|;
+block|}
 block|}
 end_class
 

@@ -314,6 +314,7 @@ operator|.
 name|getByteArray
 argument_list|()
 decl_stmt|;
+comment|//logger().info("array contains " + array.length + " bytes.\nUsing " + bpc + " bits per component.");
 comment|//      Get the ColorModel right
 name|PDColorSpace
 name|colorspace
@@ -399,20 +400,7 @@ operator|.
 name|getData
 argument_list|()
 decl_stmt|;
-name|logger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"bufferData contains "
-operator|+
-name|bufferData
-operator|.
-name|length
-operator|+
-literal|" bytes."
-argument_list|)
-expr_stmt|;
+comment|//logger().info("bufferData contains " + bufferData.length + " bytes.");
 comment|/** 		 * PDF Spec 1.6 3.3.3 LZW and Flate predictor function 		 * 		 * Basically if predictor> 10 and LZW or Flate is being used then the 		 * predictor is not used. 		 * 		 * "For LZWDecode and FlateDecode, a Predictor value greater than or equal to 10 		 * merely indicates that a PNG predictor is in use; the specific predictor function 		 * used is explicitly encoded in the incoming data. The value of Predictor supplied 		 * by the decoding filter need not match the value used when the data was encoded 		 * if they are both greater than or equal to 10." 		 */
 if|if
 condition|(
@@ -513,9 +501,23 @@ name|bufferData
 argument_list|,
 literal|0
 argument_list|,
+operator|(
+name|array
+operator|.
+name|length
+operator|<
 name|bufferData
 operator|.
 name|length
+condition|?
+name|array
+operator|.
+name|length
+else|:
+name|bufferData
+operator|.
+name|length
+operator|)
 argument_list|)
 expr_stmt|;
 block|}
