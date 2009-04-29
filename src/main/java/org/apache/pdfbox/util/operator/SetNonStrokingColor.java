@@ -115,6 +115,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|//logger().info("Setting NonStroking colorspace to " + colorSpace);
 name|OperatorProcessor
 name|newOperator
 init|=
@@ -226,7 +227,7 @@ else|else
 name|logger
 argument_list|()
 operator|.
-name|info
+name|warning
 argument_list|(
 literal|"Not supported colorspace "
 operator|+
