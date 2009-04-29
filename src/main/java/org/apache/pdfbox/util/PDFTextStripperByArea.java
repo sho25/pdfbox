@@ -305,6 +305,18 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
+name|setStartPage
+argument_list|(
+name|getCurrentPageNo
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|setEndPage
+argument_list|(
+name|getCurrentPageNo
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|//reset the stored text for the region so this class
 comment|//can be reused.
 name|String
