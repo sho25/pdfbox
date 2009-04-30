@@ -1819,19 +1819,7 @@ name|arguments
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|logger
-argument_list|()
-operator|.
-name|warning
-argument_list|(
-literal|"NULL processor for operation: "
-operator|+
-name|operation
-argument_list|)
-expr_stmt|;
-block|}
+comment|/*else{             logger().warning("NULL processor for operation: " + operation);         }*/
 block|}
 catch|catch
 parameter_list|(
