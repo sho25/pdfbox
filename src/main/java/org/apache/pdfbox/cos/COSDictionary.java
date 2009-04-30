@@ -2764,7 +2764,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * This will add all of the dictionarys keys/values to this dictionary.      *      * @param dic The dic to get the keys from.      */
+comment|/**      * This will add all of the dictionarys keys/values to this dictionary.      * Only called when adding keys to a trailer that already exists.       *      * @param dic The dic to get the keys from.      */
 specifier|public
 name|void
 name|addAll
@@ -2813,6 +2813,34 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
+comment|/*              * If we're at a second trailer, we have a linearized               * pdf file, meaning that the first Size entry represents              * all of the objects so we don't need to grab the second.               */
+if|if
+condition|(
+operator|!
+name|key
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"Size"
+argument_list|)
+operator|||
+operator|!
+name|keys
+operator|.
+name|contains
+argument_list|(
+name|COSName
+operator|.
+name|getPDFName
+argument_list|(
+literal|"Size"
+argument_list|)
+argument_list|)
+condition|)
+block|{
 name|setItem
 argument_list|(
 name|key
@@ -2820,6 +2848,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * This will add all of the dictionarys keys/values to this dictionary, but only      * if they don't already exist.  If a key already exists in this dictionary then      * nothing is changed.      *      * @param dic The dic to get the keys from.      */
