@@ -515,7 +515,7 @@ name|tint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	Some of the key values are stored within the COSDictionary, item 3 in the array. 	I don't necessarily want to expose the entire dictionary publicly (except in toString()), 	but need access privately in order to expose the color values publicly.     */
+comment|/*     Some of the key values are stored within the COSDictionary, item 3 in the array.     I don't necessarily want to expose the entire dictionary publicly (except in toString()),     but need access privately in order to expose the color values publicly.     */
 specifier|private
 name|COSDictionary
 name|getDictionary

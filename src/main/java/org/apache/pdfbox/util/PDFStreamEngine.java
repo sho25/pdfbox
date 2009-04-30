@@ -821,7 +821,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|/* Note on variable names.  There are three different units being used     	 * in this code.  Character sizes are given in glyph units, text locations     	 * are initially given in text units, and we want to save the data in      	 * display units. The variable names should end with Text or Disp to      	 * represent if the values are in text or disp units (no glyph units are saved).     	 */
+comment|/* Note on variable names.  There are three different units being used          * in this code.  Character sizes are given in glyph units, text locations          * are initially given in text units, and we want to save the data in           * display units. The variable names should end with Text or Disp to           * represent if the values are in text or disp units (no glyph units are saved).          */
 specifier|final
 name|float
 name|fontSizeText

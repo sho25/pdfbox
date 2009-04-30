@@ -475,7 +475,7 @@ name|image
 argument_list|)
 return|;
 block|}
-comment|/*else if( filters != null&& filters.contains(COSName.FLATE_DECODE.getName()))                 { 			retval = new PDPixelMap(image); 		}*/
+comment|/*else if( filters != null&& filters.contains(COSName.FLATE_DECODE.getName()))                 {             retval = new PDPixelMap(image);         }*/
 else|else
 block|{
 name|retval

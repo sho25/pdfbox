@@ -1133,7 +1133,7 @@ name|metadata
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	Need more info on the ICCBased ones ... Array contains very little. 	*/
+comment|/*     Need more info on the ICCBased ones ... Array contains very little.     */
 specifier|public
 name|String
 name|toString

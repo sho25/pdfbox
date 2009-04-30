@@ -196,7 +196,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/* 	Don't just tell me its color type -- tell me its contents!     */
+comment|/*     Don't just tell me its color type -- tell me its contents!     */
 specifier|public
 name|String
 name|toString
