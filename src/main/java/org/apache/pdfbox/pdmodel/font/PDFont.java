@@ -21,6 +21,8 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|afm
@@ -32,6 +34,8 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|apache
 operator|.
 name|fontbox
 operator|.
@@ -45,6 +49,8 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|cmap
@@ -56,6 +62,8 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|apache
 operator|.
 name|fontbox
 operator|.
@@ -2184,7 +2192,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**              * Si la clé /Encoding existe dans le dictionnaire fonte il y a deux possibilités :              * 1er cas : elle est associé à une reference contenant un dictionnaire de type encoding.              * Ce dictionnaire PDF est représenté par un DictionaryEncoding.              * If the /Encoding Key does exist in the font dictionary, there are two cases :              * case one : The value associated with /Encoding is a reference to a dictionary.              * This dictionary is represented by an instance of DictionaryEncoding class              */
+comment|/**              * Si la clï¿½ /Encoding existe dans le dictionnaire fonte il y a deux possibilitï¿½s :              * 1er cas : elle est associï¿½ ï¿½ une reference contenant un dictionnaire de type encoding.              * Ce dictionnaire PDF est reprï¿½sentï¿½ par un DictionaryEncoding.              * If the /Encoding Key does exist in the font dictionary, there are two cases :              * case one : The value associated with /Encoding is a reference to a dictionary.              * This dictionary is represented by an instance of DictionaryEncoding class              */
 elseif|else
 if|if
 condition|(
@@ -2219,7 +2227,7 @@ operator|.
 name|BASE_ENCODING
 argument_list|)
 decl_stmt|;
-comment|//on ajoute une entrée /BaseEncoding dans /Encoding uniquement si elle en est absente
+comment|//on ajoute une entrï¿½e /BaseEncoding dans /Encoding uniquement si elle en est absente
 comment|//if not find in Encoding dictinary target, we try to find it from else where
 if|if
 condition|(
@@ -2649,8 +2657,8 @@ init|=
 literal|null
 decl_stmt|;
 comment|//recuperer le programme de fonte dans son stream qui doit se trouver
-comment|//dans le flux référencé par à la clé FileFont lui même situé dans
-comment|//le dictionnaire associé à /FontDescriptor du dictionnaire de type /Font courrant
+comment|//dans le flux rï¿½fï¿½rencï¿½ par ï¿½ la clï¿½ FileFont lui mï¿½me situï¿½ dans
+comment|//le dictionnaire associï¿½ ï¿½ /FontDescriptor du dictionnaire de type /Font courrant
 comment|//get the font program in the stream which should be located in
 comment|//the /FileFont Stream object himself in the /FontDescriptior of the current
 comment|//font dictionary

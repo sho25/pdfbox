@@ -31,6 +31,8 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|afm
@@ -58,6 +60,8 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|apache
 operator|.
 name|fontbox
 operator|.

@@ -21,6 +21,8 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|ttf
@@ -32,6 +34,8 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|apache
 operator|.
 name|fontbox
 operator|.
@@ -45,6 +49,8 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|ttf
@@ -56,6 +62,8 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|apache
 operator|.
 name|fontbox
 operator|.
@@ -69,6 +77,8 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|ttf
@@ -80,6 +90,8 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|apache
 operator|.
 name|fontbox
 operator|.
@@ -93,6 +105,8 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|ttf
@@ -104,6 +118,8 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|apache
 operator|.
 name|fontbox
 operator|.
@@ -117,6 +133,8 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|ttf
@@ -128,6 +146,8 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|apache
 operator|.
 name|fontbox
 operator|.
@@ -141,6 +161,8 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|ttf
@@ -153,6 +175,8 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|ttf
@@ -164,6 +188,8 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|apache
 operator|.
 name|fontbox
 operator|.
