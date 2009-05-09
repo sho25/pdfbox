@@ -139,6 +139,16 @@ begin_class
 specifier|public
 class|class
 name|FlateFilter
+extends|extends
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|LoggingObject
 implements|implements
 name|Filter
 block|{
@@ -421,6 +431,8 @@ operator|==
 literal|10
 condition|)
 block|{
+try|try
+block|{
 comment|// decoding not needed
 while|while
 condition|(
@@ -459,6 +471,23 @@ argument_list|,
 literal|0
 argument_list|,
 name|amountRead
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|OutOfMemoryError
+name|exception
+parameter_list|)
+block|{
+comment|// if the stream is corrupt an OutOfMemoryError may occur
+name|logger
+argument_list|()
+operator|.
+name|severe
+argument_list|(
+literal|"Stop reading corrupt stream"
 argument_list|)
 expr_stmt|;
 block|}
