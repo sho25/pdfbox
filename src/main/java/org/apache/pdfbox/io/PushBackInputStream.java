@@ -305,6 +305,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|len
+operator|==
+literal|0
+condition|)
+return|return;
 name|offset
 operator|-=
 name|len

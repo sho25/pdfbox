@@ -1748,6 +1748,13 @@ literal|0
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|amountRead
+operator|>
+literal|0
+condition|)
+block|{
 name|pdfSource
 operator|.
 name|unread
@@ -1759,6 +1766,7 @@ argument_list|,
 name|amountRead
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|braces
