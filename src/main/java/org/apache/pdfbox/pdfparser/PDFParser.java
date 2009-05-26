@@ -895,6 +895,16 @@ block|{
 comment|// if a line starts with a digit, it has to be the first one with data in it
 if|if
 condition|(
+operator|(
+name|header
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+operator|)
+operator|&&
+operator|(
 name|Character
 operator|.
 name|isDigit
@@ -906,6 +916,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
+operator|)
 condition|)
 break|break ;
 name|header
