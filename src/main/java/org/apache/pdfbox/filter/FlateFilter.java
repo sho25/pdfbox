@@ -340,6 +340,13 @@ argument_list|(
 literal|"Predictor"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|predictor
+operator|>
+literal|1
+condition|)
+block|{
 name|colors
 operator|=
 name|dict
@@ -367,6 +374,7 @@ argument_list|(
 literal|"Columns"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 try|try
 block|{
@@ -494,6 +502,7 @@ block|}
 block|}
 else|else
 block|{
+comment|/*                      * Reverting back to default values                      */
 if|if
 condition|(
 name|colors
@@ -502,13 +511,11 @@ operator|-
 literal|1
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Error: Could not read 'colors' attribute to decompress flate stream."
-argument_list|)
-throw|;
+name|colors
+operator|=
+literal|1
+expr_stmt|;
+comment|//                        throw new IOException("Error: Could not read 'colors' attribute to decompress flate stream.");
 block|}
 if|if
 condition|(
@@ -518,13 +525,11 @@ operator|-
 literal|1
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Error: Could not read 'bitsPerPixel' attribute to decompress flate stream."
-argument_list|)
-throw|;
+name|bitsPerPixel
+operator|=
+literal|8
+expr_stmt|;
+comment|//                        throw new IOException("Error: Could not read 'bitsPerPixel' attribute to decompress flate stream.");
 block|}
 if|if
 condition|(
@@ -534,13 +539,11 @@ operator|-
 literal|1
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Error: Could not read 'columns' attribute to decompress flate stream."
-argument_list|)
-throw|;
+name|columns
+operator|=
+literal|1
+expr_stmt|;
+comment|//                        throw new IOException("Error: Could not read 'columns' attribute to decompress flate stream.");
 block|}
 name|baos
 operator|=
@@ -891,6 +894,13 @@ while|while
 condition|(
 operator|!
 name|done
+operator|&&
+name|data
+operator|.
+name|available
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 if|if
@@ -943,7 +953,7 @@ decl_stmt|;
 name|int
 name|offset
 init|=
-name|bpp
+literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -1368,7 +1378,14 @@ break|break;
 block|}
 name|lastline
 operator|=
+operator|(
+name|byte
+index|[]
+operator|)
 name|actline
+operator|.
+name|clone
+argument_list|()
 expr_stmt|;
 name|baos
 operator|.
