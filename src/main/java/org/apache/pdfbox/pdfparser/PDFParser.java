@@ -2200,8 +2200,34 @@ decl_stmt|;
 if|if
 condition|(
 name|splitString
+operator|.
+name|length
+operator|<
+literal|3
+condition|)
+block|{
+name|logger
+argument_list|()
+operator|.
+name|warning
+argument_list|(
+literal|"invalid xref line: "
+operator|+
+name|currentLine
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
+comment|/* This supports the corrupt table as reported in                   * PDFBOX-474 (XXXX XXX XX n) */
+if|if
+condition|(
+name|splitString
 index|[
-literal|2
+name|splitString
+operator|.
+name|length
+operator|-
+literal|1
 index|]
 operator|.
 name|equals
