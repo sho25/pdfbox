@@ -1300,6 +1300,14 @@ name|buffer
 operator|.
 name|length
 decl_stmt|;
+if|if
+condition|(
+name|nextIdx
+operator|==
+operator|-
+literal|1
+condition|)
+return|return;
 while|while
 condition|(
 name|byteRead
