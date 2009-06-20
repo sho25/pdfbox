@@ -431,6 +431,19 @@ operator|.
 name|VALUE_ANTIALIAS_ON
 argument_list|)
 expr_stmt|;
+name|graphics
+operator|.
+name|setRenderingHint
+argument_list|(
+name|RenderingHints
+operator|.
+name|KEY_FRACTIONALMETRICS
+argument_list|,
+name|RenderingHints
+operator|.
+name|VALUE_FRACTIONALMETRICS_ON
+argument_list|)
+expr_stmt|;
 comment|// Only if there is some content, we have to process it. Otherwise we are done here and we will produce an empty page
 if|if
 condition|(
