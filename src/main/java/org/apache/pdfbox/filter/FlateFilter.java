@@ -69,6 +69,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|EOFException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|zip
@@ -86,6 +96,18 @@ operator|.
 name|zip
 operator|.
 name|InflaterInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|zip
+operator|.
+name|ZipException
 import|;
 end_import
 
@@ -499,6 +521,38 @@ literal|"Stop reading corrupt stream"
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|ZipException
+name|exception
+parameter_list|)
+block|{
+comment|// if the stream is corrupt an OutOfMemoryError may occur
+name|logger
+argument_list|()
+operator|.
+name|severe
+argument_list|(
+literal|"Stop reading corrupt stream"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|EOFException
+name|exception
+parameter_list|)
+block|{
+comment|// if the stream is corrupt an OutOfMemoryError may occur
+name|logger
+argument_list|()
+operator|.
+name|severe
+argument_list|(
+literal|"Stop reading corrupt stream"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -515,7 +569,6 @@ name|colors
 operator|=
 literal|1
 expr_stmt|;
-comment|//                        throw new IOException("Error: Could not read 'colors' attribute to decompress flate stream.");
 block|}
 if|if
 condition|(
@@ -529,7 +582,6 @@ name|bitsPerPixel
 operator|=
 literal|8
 expr_stmt|;
-comment|//                        throw new IOException("Error: Could not read 'bitsPerPixel' attribute to decompress flate stream.");
 block|}
 if|if
 condition|(
@@ -543,7 +595,6 @@ name|columns
 operator|=
 literal|1
 expr_stmt|;
-comment|//                        throw new IOException("Error: Could not read 'columns' attribute to decompress flate stream.");
 block|}
 name|baos
 operator|=
