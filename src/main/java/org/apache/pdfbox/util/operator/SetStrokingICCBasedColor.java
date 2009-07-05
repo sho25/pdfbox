@@ -55,7 +55,25 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|*
+name|PDColorSpaceInstance
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|color
+operator|.
+name|PDColorSpace
 import|;
 end_import
 
@@ -219,7 +237,7 @@ name|context
 decl_stmt|;
 name|drawer
 operator|.
-name|ColorChanged
+name|colorChanged
 argument_list|(
 literal|true
 argument_list|)

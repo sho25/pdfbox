@@ -55,16 +55,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -143,8 +133,6 @@ parameter_list|,
 name|List
 name|arguments
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|PageDrawer
 name|drawer
@@ -248,7 +236,7 @@ name|startCoords
 init|=
 name|drawer
 operator|.
-name|TransformedPoint
+name|transformedPoint
 argument_list|(
 name|x1
 argument_list|,
@@ -260,7 +248,7 @@ name|endCoords
 init|=
 name|drawer
 operator|.
-name|TransformedPoint
+name|transformedPoint
 argument_list|(
 name|x2
 argument_list|,

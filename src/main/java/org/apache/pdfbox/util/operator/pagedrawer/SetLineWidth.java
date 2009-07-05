@@ -187,6 +187,7 @@ name|stroke
 operator|==
 literal|null
 condition|)
+block|{
 name|graphics
 operator|.
 name|setStroke
@@ -198,7 +199,9 @@ name|lineWidth
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|graphics
 operator|.
 name|setStroke
@@ -235,6 +238,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

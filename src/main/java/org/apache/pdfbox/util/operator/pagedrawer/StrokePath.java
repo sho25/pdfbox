@@ -83,7 +83,7 @@ name|util
 operator|.
 name|operator
 operator|.
-name|*
+name|OperatorProcessor
 import|;
 end_import
 
@@ -232,6 +232,7 @@ name|stroke
 operator|==
 literal|null
 condition|)
+block|{
 name|graphics
 operator|.
 name|setStroke
@@ -243,7 +244,9 @@ name|lineWidth
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|graphics
 operator|.
 name|setStroke
@@ -280,18 +283,38 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|drawer
 operator|.
-name|StrokePath
+name|strokePath
 argument_list|()
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|exception
 parameter_list|)
-block|{  	}
+block|{
+name|logger
+argument_list|()
+operator|.
+name|warning
+argument_list|(
+name|exception
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"/n at/n"
+operator|+
+name|FullStackTrace
+argument_list|(
+name|exception
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

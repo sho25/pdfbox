@@ -94,7 +94,7 @@ name|ClosePath
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * process : h : Close path.      * @param operator The operator that is being executed.      * @param arguments List      */
+comment|/**      * process : h : Close path.      * @param operator The operator that is being executed.      * @param arguments List      *       * @throws IOException if something went wrong during logging      */
 specifier|public
 name|void
 name|process

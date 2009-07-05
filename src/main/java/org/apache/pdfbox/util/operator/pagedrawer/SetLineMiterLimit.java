@@ -175,6 +175,7 @@ name|stroke
 operator|==
 literal|null
 condition|)
+block|{
 name|graphics
 operator|.
 name|setStroke
@@ -200,7 +201,9 @@ literal|0.0f
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|graphics
 operator|.
 name|setStroke
@@ -231,6 +234,7 @@ literal|0.0f
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

@@ -206,7 +206,7 @@ name|context
 decl_stmt|;
 name|drawer
 operator|.
-name|ColorChanged
+name|colorChanged
 argument_list|(
 literal|true
 argument_list|)

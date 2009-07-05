@@ -359,7 +359,6 @@ argument_list|(
 name|values
 argument_list|)
 expr_stmt|;
-comment|//logger().info("Set NonStrokingColorSpace to have instance of type " + colorInstance.toString() + " with component count " + numComponents);
 if|if
 condition|(
 name|context
@@ -377,7 +376,7 @@ name|context
 decl_stmt|;
 name|drawer
 operator|.
-name|ColorChanged
+name|colorChanged
 argument_list|(
 literal|false
 argument_list|)

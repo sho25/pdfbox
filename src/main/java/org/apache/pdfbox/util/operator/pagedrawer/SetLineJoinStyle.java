@@ -37,34 +37,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|cos
-operator|.
-name|COSArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSNumber
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdfviewer
 operator|.
 name|PageDrawer
@@ -136,7 +108,7 @@ name|operator
 operator|.
 name|SetLineJoinStyle
 block|{
-comment|/**      * Set the line cap style      * @param operator The operator that is being executed.      * @param arguments List      *      * @throws IOException If an error occurs while processing the font.      */
+comment|/**      * Set the line cap style.      * @param operator The operator that is being executed.      * @param arguments List      *      * @throws IOException If an error occurs while processing the font.      */
 specifier|public
 name|void
 name|process
@@ -200,6 +172,7 @@ name|stroke
 operator|==
 literal|null
 condition|)
+block|{
 name|graphics
 operator|.
 name|setStroke
@@ -217,7 +190,9 @@ name|lineJoinStyle
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|graphics
 operator|.
 name|setStroke
@@ -254,6 +229,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

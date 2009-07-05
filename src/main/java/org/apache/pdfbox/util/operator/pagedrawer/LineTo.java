@@ -157,13 +157,12 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-comment|//drawer.getLinePath().lineTo( x.floatValue(), (float)drawer.fixY( x.doubleValue(), y.doubleValue()) );
 name|Point2D
-name|Ppos
+name|pos
 init|=
 name|drawer
 operator|.
-name|TransformedPoint
+name|transformedPoint
 argument_list|(
 name|x
 operator|.
@@ -186,7 +185,7 @@ argument_list|(
 operator|(
 name|float
 operator|)
-name|Ppos
+name|pos
 operator|.
 name|getX
 argument_list|()
@@ -194,7 +193,7 @@ argument_list|,
 operator|(
 name|float
 operator|)
-name|Ppos
+name|pos
 operator|.
 name|getY
 argument_list|()

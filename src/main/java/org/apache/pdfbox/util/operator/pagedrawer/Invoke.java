@@ -272,7 +272,7 @@ name|Invoke
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * process : Do : Paint the specified XObject (section 4.7)      * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If there is an error invoking the sub object.      */
+comment|/**      * process : Do : Paint the specified XObject (section 4.7).      * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If there is an error invoking the sub object.      */
 specifier|public
 name|void
 name|process
@@ -700,6 +700,19 @@ literal|1
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|graphics
+operator|.
+name|setClip
+argument_list|(
+name|context
+operator|.
+name|getGraphicsState
+argument_list|()
+operator|.
+name|getCurrentClippingPath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|graphics
 operator|.
 name|drawImage

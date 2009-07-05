@@ -208,13 +208,12 @@ argument_list|(
 literal|5
 argument_list|)
 decl_stmt|;
-comment|/* float x1f = x1.floatValue();         float y1f = (float)drawer.fixY( x1f, y1.floatValue() );         float x2f = x2.floatValue();         float y2f = (float)drawer.fixY( x2f, y2.floatValue() );         float x3f = x3.floatValue();         float y3f = (float)drawer.fixY( x3f, y3.floatValue() );         drawer.getLinePath().curveTo(x1f,y1f,x2f,y2f,x3f,y3f);         */
 name|Point2D
-name|P1
+name|point1
 init|=
 name|drawer
 operator|.
-name|TransformedPoint
+name|transformedPoint
 argument_list|(
 name|x1
 operator|.
@@ -228,11 +227,11 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|Point2D
-name|P2
+name|point2
 init|=
 name|drawer
 operator|.
-name|TransformedPoint
+name|transformedPoint
 argument_list|(
 name|x2
 operator|.
@@ -246,11 +245,11 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|Point2D
-name|P3
+name|point3
 init|=
 name|drawer
 operator|.
-name|TransformedPoint
+name|transformedPoint
 argument_list|(
 name|x3
 operator|.
@@ -273,7 +272,7 @@ argument_list|(
 operator|(
 name|float
 operator|)
-name|P1
+name|point1
 operator|.
 name|getX
 argument_list|()
@@ -281,7 +280,7 @@ argument_list|,
 operator|(
 name|float
 operator|)
-name|P1
+name|point1
 operator|.
 name|getY
 argument_list|()
@@ -289,7 +288,7 @@ argument_list|,
 operator|(
 name|float
 operator|)
-name|P2
+name|point2
 operator|.
 name|getX
 argument_list|()
@@ -297,7 +296,7 @@ argument_list|,
 operator|(
 name|float
 operator|)
-name|P2
+name|point2
 operator|.
 name|getY
 argument_list|()
@@ -305,7 +304,7 @@ argument_list|,
 operator|(
 name|float
 operator|)
-name|P3
+name|point3
 operator|.
 name|getX
 argument_list|()
@@ -313,7 +312,7 @@ argument_list|,
 operator|(
 name|float
 operator|)
-name|P3
+name|point3
 operator|.
 name|getY
 argument_list|()

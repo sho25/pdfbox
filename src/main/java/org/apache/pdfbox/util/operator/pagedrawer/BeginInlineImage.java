@@ -337,25 +337,19 @@ literal|1
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//at.setToRotation((double)page.getRotation());
-comment|// The transformation should be done
-comment|// 1 - Translation
-comment|// 2 - Rotation
-comment|// 3 - Scale or Skew
-comment|//AffineTransform at = new AffineTransform();
-comment|// Translation
-comment|//at = new AffineTransform();
-comment|//at.setToTranslation((double)ctm.getValue(0,0),
-comment|//                    (double)ctm.getValue(0,1));
-comment|// Rotation
-comment|//AffineTransform toAdd = new AffineTransform();
-comment|//toAdd.setToRotation(1.5705);
-comment|//toAdd.setToRotation(ctm.getValue(2,0)*(Math.PI/180));
-comment|//at.concatenate(toAdd);
-comment|// Scale / Skew?
-comment|//toAdd.setToScale(width, height);
-comment|//at.concatenate(toAdd);
-comment|//at.setToScale( width, height );
+name|graphics
+operator|.
+name|setClip
+argument_list|(
+name|context
+operator|.
+name|getGraphicsState
+argument_list|()
+operator|.
+name|getCurrentClippingPath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|graphics
 operator|.
 name|drawImage
@@ -367,7 +361,6 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|//graphics.drawImage( awtImage,0,0, width,height,null);
 block|}
 block|}
 end_class
