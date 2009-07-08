@@ -21,17 +21,59 @@ name|java
 operator|.
 name|io
 operator|.
-name|*
+name|File
 import|;
 end_import
 
-begin_comment
-comment|//for BufferedReader
-end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileInputStream
+import|;
+end_import
 
-begin_comment
-comment|/*import java.io.File; import java.io.FileInputStream; import java.io.FileWriter; import java.io.FilenameFilter; import java.io.FileOutputStream; import java.io.IOException; import java.io.InputStreamReader; import java.io.LineNumberReader; import java.io.OutputStream; import java.io.OutputStreamWriter; import java.io.PrintWriter; import java.io.Writer; */
-end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileWriter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FilenameFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|PrintWriter
+import|;
+end_import
 
 begin_import
 import|import
@@ -74,20 +116,6 @@ operator|.
 name|pdmodel
 operator|.
 name|PDDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|PDFImageWriter
 import|;
 end_import
 
@@ -179,9 +207,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|String
-name|sCmd
-decl_stmt|;
 name|PDDocument
 name|document
 init|=
@@ -217,7 +242,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|WriteImage
+name|writeImage
 argument_list|(
 name|document
 argument_list|,
@@ -688,7 +713,7 @@ name|arg
 argument_list|)
 expr_stmt|;
 block|}
-specifier|public
+specifier|private
 specifier|static
 name|boolean
 name|filesAreIdentical
@@ -737,9 +762,11 @@ operator|.
 name|length
 argument_list|()
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 name|FileInputStream
 name|lin
 init|=
@@ -869,9 +896,11 @@ index|[
 name|byteIndex
 index|]
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 block|}
 block|}
 block|}
@@ -910,6 +939,7 @@ literal|null
 operator|==
 name|mdirTest
 condition|)
+block|{
 name|mdirTest
 operator|=
 operator|new
@@ -918,6 +948,7 @@ argument_list|(
 literal|"test/input/rendering"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|mdirTest
 return|;

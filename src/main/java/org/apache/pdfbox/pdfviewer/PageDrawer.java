@@ -1212,7 +1212,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|//If you need to do anything when a color changes, do it here ... or in an override of this function
+comment|/**      * Called when the color changed.      * @param bStroking true for the stroking color, false for the non-stroking color      * @throws IOException if an I/O error occurs      */
 specifier|public
 name|void
 name|colorChanged
@@ -1226,7 +1226,7 @@ block|{
 comment|//logger().info("changing " + (bStroking ? "" : "non") + "stroking color");
 block|}
 comment|//This code generalizes the code Jim Lynch wrote for AppendRectangleToPath
-comment|/**      * use the current transformatrion matrix to transform a single point.      * @param x x-coordinate of the point to be transform      * @param y y-coordinate of the point to be transform      * @return the transformed coordinates as Point2D.Double      */
+comment|/**      * use the current transformation matrix to transform a single point.      * @param x x-coordinate of the point to be transform      * @param y y-coordinate of the point to be transform      * @return the transformed coordinates as Point2D.Double      */
 specifier|public
 name|java
 operator|.
