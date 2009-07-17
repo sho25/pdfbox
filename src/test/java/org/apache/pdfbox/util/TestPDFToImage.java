@@ -703,6 +703,13 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|testFiles
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|int
@@ -734,6 +741,7 @@ argument_list|,
 name|outDirExt
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 else|else
