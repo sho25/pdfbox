@@ -79,22 +79,8 @@ name|PDFOperator
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdfviewer
-operator|.
-name|PageDrawer
-import|;
-end_import
-
 begin_comment
-comment|/**  *  *<p>Titre : PDFEngine Modification.</p>  *<p>Description : Structal modification of the PDFEngine class : * the long sequence of conditions in processOperator is remplaced by * this strategy pattern</p>  *<p>Copyright : Copyright (c) 2004</p>  *<p>Société : DBGS</p>  * @author Huault : huault@free.fr  * @version $Revision: 1.5 $  */
+comment|/**  *  *<p>Titre : PDFEngine Modification.</p>  *<p>Description : Structal modification of the PDFEngine class : * the long sequence of conditions in processOperator is remplaced by * this strategy pattern</p>  *<p>Copyright : Copyright (c) 2004</p>  *<p>Sociï¿½tï¿½ : DBGS</p>  * @author Huault : huault@free.fr  * @version $Revision: 1.5 $  */
 end_comment
 
 begin_class
@@ -104,7 +90,7 @@ name|Concatenate
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * process : cm : Concatenate matrix to current transformation matrix.      * @param operator The operator that is being executed.      * @param arguments List      */
+comment|/**      * process : cm : Concatenate matrix to current transformation matrix.      * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If there is an error processing the operator.      */
 specifier|public
 name|void
 name|process
