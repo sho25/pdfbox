@@ -146,7 +146,7 @@ specifier|private
 specifier|static
 specifier|final
 name|String
-name|encoding
+name|ENCODING
 init|=
 literal|"UTF-16"
 decl_stmt|;
@@ -159,7 +159,7 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|encoding
+name|ENCODING
 argument_list|)
 expr_stmt|;
 name|super
@@ -282,7 +282,7 @@ name|OutputStreamWriter
 argument_list|(
 name|textOS
 argument_list|,
-name|encoding
+name|ENCODING
 argument_list|)
 expr_stmt|;
 name|writeText
@@ -332,7 +332,7 @@ operator|.
 name|toByteArray
 argument_list|()
 argument_list|,
-name|encoding
+name|ENCODING
 argument_list|)
 decl_stmt|;
 name|textOS
@@ -344,7 +344,7 @@ comment|//page = page.replaceAll( "\n", "" );
 comment|//page = page.replaceAll( "\r", "" );
 comment|//page = CCRStringUtil.stripChar(page, '\n');
 comment|//page = CCRStringUtil.stripChar(page, '\r');
-comment|// Traitement des listes à puces (caractères spéciaux)
+comment|// Traitement des listes ï¿½ puces (caractï¿½res spï¿½ciaux)
 if|if
 condition|(
 name|page

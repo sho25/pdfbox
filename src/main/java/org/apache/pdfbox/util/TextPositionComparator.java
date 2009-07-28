@@ -82,10 +82,12 @@ operator|.
 name|getDir
 argument_list|()
 condition|)
+block|{
 return|return
 operator|-
 literal|1
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -99,9 +101,11 @@ operator|.
 name|getDir
 argument_list|()
 condition|)
+block|{
 return|return
 literal|1
 return|;
+block|}
 comment|// Get the text direction adjusted coordinates
 name|float
 name|x1

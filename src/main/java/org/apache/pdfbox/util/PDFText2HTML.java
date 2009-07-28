@@ -84,7 +84,7 @@ name|onFirstPage
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Constructor.      *       * @throws IOException      *             If there is an error during initialization.      */
+comment|/**      * Constructor.      * @param encoding The encoding to be used      * @throws IOException If there is an error during initialization.      */
 specifier|public
 name|PDFText2HTML
 parameter_list|(
@@ -96,7 +96,7 @@ name|IOException
 block|{
 name|this
 operator|.
-name|encoding
+name|outputEncoding
 operator|=
 name|encoding
 expr_stmt|;
@@ -163,7 +163,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|encoding
+name|outputEncoding
 operator|!=
 literal|null
 condition|)
@@ -176,7 +176,7 @@ literal|"<meta http-equiv=\"Content-Type\" content=\"text/html; charset="
 operator|+
 name|this
 operator|.
-name|encoding
+name|outputEncoding
 operator|+
 literal|"\">\n"
 argument_list|)
@@ -427,7 +427,7 @@ return|return
 literal|""
 return|;
 block|}
-comment|/**      * Write out the article separator (div tag) with proper text direction      * information.      *       * @param true if direction of text is left to right      * @throws IOException      *             If there is an error writing to the stream.      */
+comment|/**      * Write out the article separator (div tag) with proper text direction      * information.      *       * @param isltr true if direction of text is left to right      * @throws IOException      *             If there is an error writing to the stream.      */
 specifier|protected
 name|void
 name|startArticle
@@ -478,7 +478,7 @@ literal|"</div>"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write a string to the output stream and escape some HTML characters      */
+comment|/**      * Write a string to the output stream and escape some HTML characters.      *      * @param chars String to be written to the stream      * @throws IOException      *             If there is an error writing to the stream.      */
 specifier|protected
 name|void
 name|writeString

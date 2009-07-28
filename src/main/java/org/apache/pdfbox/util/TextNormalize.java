@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class allows a caller to normalize text in various ways.  * It will load the ICU4J jar file if it is defined on the classpath.  *   */
+comment|/**  * This class allows a caller to normalize text in various ways.  * It will load the ICU4J jar file if it is defined on the classpath.  *   * @author<a href="mailto:carrier@digital-evidence.org">Brian Carrier</a>  * @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
@@ -44,7 +44,7 @@ specifier|private
 specifier|static
 specifier|final
 name|HashMap
-name|diacHash
+name|DIACHASH
 init|=
 operator|new
 name|HashMap
@@ -52,7 +52,7 @@ argument_list|()
 decl_stmt|;
 specifier|private
 name|String
-name|encoding
+name|outputEncoding
 decl_stmt|;
 comment|/**      *       * @param encoding The Encoding that the text will eventually be written as (or null)      */
 specifier|public
@@ -70,7 +70,7 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|encoding
+name|outputEncoding
 operator|=
 name|encoding
 expr_stmt|;
@@ -134,7 +134,7 @@ name|void
 name|populateDiacHash
 parameter_list|()
 block|{
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -147,7 +147,7 @@ argument_list|,
 literal|"\u0300"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -160,7 +160,7 @@ argument_list|,
 literal|"\u0300"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -173,7 +173,7 @@ argument_list|,
 literal|"\u0301"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -186,7 +186,7 @@ argument_list|,
 literal|"\u0301"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -199,7 +199,7 @@ argument_list|,
 literal|"\u0301"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -212,7 +212,7 @@ argument_list|,
 literal|"\u0302"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -225,7 +225,7 @@ argument_list|,
 literal|"\u0302"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -238,7 +238,7 @@ argument_list|,
 literal|"\u0303"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -251,7 +251,7 @@ argument_list|,
 literal|"\u0304"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -264,7 +264,7 @@ argument_list|,
 literal|"\u030A"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -277,7 +277,7 @@ argument_list|,
 literal|"\u030B"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -290,7 +290,7 @@ argument_list|,
 literal|"\u030C"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -303,7 +303,7 @@ argument_list|,
 literal|"\u030D"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -316,7 +316,7 @@ argument_list|,
 literal|"\u030E"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -329,7 +329,7 @@ argument_list|,
 literal|"\u0312"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -342,7 +342,7 @@ argument_list|,
 literal|"\u0313"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -355,7 +355,7 @@ argument_list|,
 literal|"\u0313"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -368,7 +368,7 @@ argument_list|,
 literal|"\u0313"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -381,7 +381,7 @@ argument_list|,
 literal|"\u0314"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -394,7 +394,7 @@ argument_list|,
 literal|"\u0314"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -407,7 +407,7 @@ argument_list|,
 literal|"\u0314"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -420,7 +420,7 @@ argument_list|,
 literal|"\u031D"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -433,7 +433,7 @@ argument_list|,
 literal|"\u031E"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -446,7 +446,7 @@ argument_list|,
 literal|"\u031F"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -459,7 +459,7 @@ argument_list|,
 literal|"\u0320"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -472,7 +472,7 @@ argument_list|,
 literal|"\u0321"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -485,7 +485,7 @@ argument_list|,
 literal|"\u0329"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -498,7 +498,7 @@ argument_list|,
 literal|"\u032B"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -511,7 +511,7 @@ argument_list|,
 literal|"\u0331"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -524,7 +524,7 @@ argument_list|,
 literal|"\u0332"
 argument_list|)
 expr_stmt|;
-name|diacHash
+name|DIACHASH
 operator|.
 name|put
 argument_list|(
@@ -538,16 +538,16 @@ literal|"\u0359"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Takes a line of text in presentation order and converts it to logical order.      * For most text other than Arabic and Hebrew, the presentation and logical      * orders are the same. However, for Arabic and Hebrew, they are different and      * if the text involves both RTL and LTR text then the Unicode BIDI algorithm      * must be used to determine how to map between them.        *       * @param a_str Presentation form of line to convert (i.e. left most char is first char)      * @param a_isRtlDominant true if the PAGE has a dominant right to left ordering      * @return Logical form of string (or original string if ICU4J library is not on classpath)      */
+comment|/**      * Takes a line of text in presentation order and converts it to logical order.      * For most text other than Arabic and Hebrew, the presentation and logical      * orders are the same. However, for Arabic and Hebrew, they are different and      * if the text involves both RTL and LTR text then the Unicode BIDI algorithm      * must be used to determine how to map between them.        *       * @param str Presentation form of line to convert (i.e. left most char is first char)      * @param isRtlDominant true if the PAGE has a dominant right to left ordering      * @return Logical form of string (or original string if ICU4J library is not on classpath)      */
 specifier|public
 name|String
 name|makeLineLogicalOrder
 parameter_list|(
 name|String
-name|a_str
+name|str
 parameter_list|,
 name|boolean
-name|a_isRtlDominant
+name|isRtlDominant
 parameter_list|)
 block|{
 if|if
@@ -562,26 +562,26 @@ name|icu4j
 operator|.
 name|makeLineLogicalOrder
 argument_list|(
-name|a_str
+name|str
 argument_list|,
-name|a_isRtlDominant
+name|isRtlDominant
 argument_list|)
 return|;
 block|}
 else|else
 block|{
 return|return
-name|a_str
+name|str
 return|;
 block|}
 block|}
-comment|/**      * Normalize the presentation forms of characters in the string.      * For example, convert the single "fi" ligature to "f" and "i".      *       * @param a_str String to normalize      * @return Normalized string (or original string if ICU4J library is not on classpath)      */
+comment|/**      * Normalize the presentation forms of characters in the string.      * For example, convert the single "fi" ligature to "f" and "i".      *       * @param str String to normalize      * @return Normalized string (or original string if ICU4J library is not on classpath)      */
 specifier|public
 name|String
 name|normalizePres
 parameter_list|(
 name|String
-name|a_str
+name|str
 parameter_list|)
 block|{
 if|if
@@ -596,34 +596,34 @@ name|icu4j
 operator|.
 name|normalizePres
 argument_list|(
-name|a_str
+name|str
 argument_list|)
 return|;
 block|}
 else|else
 block|{
 return|return
-name|a_str
+name|str
 return|;
 block|}
 block|}
-comment|/**      * Normalize the diacritic, for example,       * convert non-combining diacritic characters to their combining      * counterparts.       *       * @param a_str String to normalize       * @return Normalized string (or original string if ICU4J library is not on classpath)      */
+comment|/**      * Normalize the diacritic, for example,       * convert non-combining diacritic characters to their combining      * counterparts.       *       * @param str String to normalize       * @return Normalized string (or original string if ICU4J library is not on classpath)      */
 specifier|public
 name|String
 name|normalizeDiac
 parameter_list|(
 name|String
-name|a_str
+name|str
 parameter_list|)
 block|{
 comment|/*          * Unicode contains special combining forms of the diacritic characters          * and we want to use these.           */
 if|if
 condition|(
-name|encoding
+name|outputEncoding
 operator|!=
 literal|null
 operator|&&
-name|encoding
+name|outputEncoding
 operator|.
 name|toUpperCase
 argument_list|()
@@ -640,7 +640,7 @@ init|=
 operator|new
 name|Integer
 argument_list|(
-name|a_str
+name|str
 operator|.
 name|charAt
 argument_list|(
@@ -651,7 +651,7 @@ decl_stmt|;
 comment|// convert the characters not defined in the Unicode spec
 if|if
 condition|(
-name|diacHash
+name|DIACHASH
 operator|.
 name|containsKey
 argument_list|(
@@ -663,7 +663,7 @@ return|return
 operator|(
 name|String
 operator|)
-name|diacHash
+name|DIACHASH
 operator|.
 name|get
 argument_list|(
@@ -684,21 +684,21 @@ name|icu4j
 operator|.
 name|normalizeDiac
 argument_list|(
-name|a_str
+name|str
 argument_list|)
 return|;
 block|}
 else|else
 block|{
 return|return
-name|a_str
+name|str
 return|;
 block|}
 block|}
 else|else
 block|{
 return|return
-name|a_str
+name|str
 return|;
 block|}
 block|}

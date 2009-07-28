@@ -611,7 +611,7 @@ parameter_list|)
 block|{}
 comment|// 2. try to read jpeg again. some jpegs have some strange header containing
 comment|//    "Adobe " at some place. so just replace the header with a valid jpeg header.
-comment|//    TODO: not sure if it works for all cases
+comment|// TODO : not sure if it works for all cases
 if|if
 condition|(
 name|bi
@@ -622,8 +622,8 @@ name|readError
 condition|)
 block|{
 name|byte
-name|newImage
 index|[]
+name|newImage
 init|=
 name|replaceHeader
 argument_list|(
@@ -800,6 +800,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Returns the given file as byte array.      * @param file File to be read      * @return given file as byte array      * @throws IOException if somethin went wrong during reading the file      */
 specifier|public
 specifier|static
 name|byte
@@ -983,7 +984,7 @@ operator|)
 literal|0xDB
 condition|)
 block|{
-comment|// to do: check for ff db
+comment|// TODO : check for ff db
 return|return
 name|i
 operator|-
@@ -1008,8 +1009,8 @@ name|IOException
 block|{
 comment|// read image into memory
 name|byte
-name|image
 index|[]
+name|image
 init|=
 name|getBytesFromFile
 argument_list|(
@@ -1027,8 +1028,8 @@ argument_list|)
 decl_stmt|;
 comment|// simple correct header
 name|byte
-name|header
 index|[]
+name|header
 init|=
 operator|new
 name|byte
@@ -1137,8 +1138,8 @@ block|}
 decl_stmt|;
 comment|// concat
 name|byte
-name|newImage
 index|[]
+name|newImage
 init|=
 operator|new
 name|byte

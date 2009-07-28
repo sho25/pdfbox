@@ -27,6 +27,10 @@ specifier|final
 class|class
 name|COSHEXTable
 block|{
+specifier|private
+name|COSHEXTable
+parameter_list|()
+block|{     }
 comment|/**      * ASCII byte values for the hex strings.      */
 specifier|public
 specifier|static

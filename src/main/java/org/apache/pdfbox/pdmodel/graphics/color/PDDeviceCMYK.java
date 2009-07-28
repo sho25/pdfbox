@@ -87,30 +87,6 @@ name|DataBuffer
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|ResourceLoader
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class represents a CMYK color space.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
 end_comment
@@ -197,12 +173,14 @@ name|cSpace
 operator|==
 literal|null
 condition|)
+block|{
 name|cSpace
 operator|=
 operator|new
 name|ColorSpaceCMYK
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 name|cSpace
 return|;

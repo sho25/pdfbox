@@ -230,7 +230,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//throw new IOException( "Not implemented" );
 try|try
 block|{
 comment|///dump some information to help figure these things out
@@ -243,7 +242,7 @@ argument_list|()
 decl_stmt|;
 comment|//logger().info(alt.toString());
 name|ColorSpace
-name|CS
+name|colorspace
 init|=
 name|alt
 operator|.
@@ -251,15 +250,14 @@ name|createColorSpace
 argument_list|()
 decl_stmt|;
 comment|///dwilson 12/15/07
-comment|//logger().info(CS.toString() + " reporting type " + CS.getType() + " and having component count of " + CS.getNumComponents());
 return|return
-name|CS
+name|colorspace
 return|;
 block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|IOe
+name|ioexception
 parameter_list|)
 block|{
 name|logger
@@ -267,7 +265,7 @@ argument_list|()
 operator|.
 name|severe
 argument_list|(
-name|IOe
+name|ioexception
 operator|.
 name|toString
 argument_list|()
@@ -276,18 +274,18 @@ literal|"\n at\n"
 operator|+
 name|FullStackTrace
 argument_list|(
-name|IOe
+name|ioexception
 argument_list|)
 argument_list|)
 expr_stmt|;
 throw|throw
-name|IOe
+name|ioexception
 throw|;
 block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|exception
 parameter_list|)
 block|{
 name|logger
@@ -295,7 +293,7 @@ argument_list|()
 operator|.
 name|severe
 argument_list|(
-name|e
+name|exception
 operator|.
 name|toString
 argument_list|()
@@ -304,7 +302,7 @@ literal|"\n at\n"
 operator|+
 name|FullStackTrace
 argument_list|(
-name|e
+name|exception
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -535,6 +533,7 @@ literal|3
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns all colorvalues for this colorspace.       * @return COSArry with all colorvalues      * @throws IOException If there is an error getting the object from the dictionary      */
 specifier|public
 name|COSArray
 name|getColorValues

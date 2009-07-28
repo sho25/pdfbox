@@ -139,6 +139,7 @@ name|LoggingObject
 implements|implements
 name|COSObjectable
 block|{
+comment|/**      * array for the given parameters.       */
 specifier|protected
 name|COSArray
 name|array
@@ -197,14 +198,13 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/*     Don't just tell me its color type -- tell me its contents!     */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|String
 name|toString
 parameter_list|()
 block|{
-name|String
-name|RetVal
-init|=
+return|return
 name|getName
 argument_list|()
 operator|+
@@ -224,9 +224,6 @@ argument_list|()
 operator|)
 operator|+
 literal|" }"
-decl_stmt|;
-return|return
-name|RetVal
 return|;
 block|}
 block|}

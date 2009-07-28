@@ -42,7 +42,7 @@ name|ColorSpaceCMYK
 extends|extends
 name|ColorSpace
 block|{
-comment|/** 	 * IDfor serialization 	 */
+comment|/**      * IDfor serialization.      */
 specifier|private
 specifier|static
 specifier|final
@@ -52,7 +52,7 @@ init|=
 operator|-
 literal|6362864473145799405L
 decl_stmt|;
-comment|/** 	 * Constructor 	 */
+comment|/**      * Constructor.      */
 specifier|public
 name|ColorSpaceCMYK
 parameter_list|()
@@ -67,7 +67,7 @@ literal|4
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * 	Converts colorvalues from RGB-colorspace to CIEXYZ-colorspace 	 *  @param rgbvalue RGB colorvalues to be converted. 	 *  @return Returns converted colorvalues. 	 */
+comment|/**      *  Converts colorvalues from RGB-colorspace to CIEXYZ-colorspace.      *  @param rgbvalue RGB colorvalues to be converted.      *  @return Returns converted colorvalues.      */
 specifier|private
 name|float
 index|[]
@@ -97,7 +97,7 @@ name|rgbvalue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * 	Converts colorvalues from CIEXYZ-colorspace to RGB-colorspace 	 *  @param rgbvalue CIEXYZ colorvalues to be converted. 	 *  @return Returns converted colorvalues. 	 */
+comment|/**      *  Converts colorvalues from CIEXYZ-colorspace to RGB-colorspace.      *  @param rgbvalue CIEXYZ colorvalues to be converted.      *  @return Returns converted colorvalues.      */
 specifier|private
 name|float
 index|[]
@@ -150,6 +150,7 @@ name|length
 operator|==
 literal|3
 condition|)
+block|{
 comment|// We have to convert from XYV to RGB to CMYK
 return|return
 name|fromRGB
@@ -160,7 +161,7 @@ name|colorvalue
 argument_list|)
 argument_list|)
 return|;
-else|else
+block|}
 return|return
 literal|null
 return|;
@@ -222,7 +223,7 @@ index|]
 decl_stmt|;
 comment|// Now we have to convert from CMY to CMYK
 name|float
-name|var_K
+name|varK
 init|=
 literal|1
 decl_stmt|;
@@ -240,35 +241,41 @@ if|if
 condition|(
 name|c
 operator|<
-name|var_K
+name|varK
 condition|)
-name|var_K
+block|{
+name|varK
 operator|=
 name|c
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|m
 operator|<
-name|var_K
+name|varK
 condition|)
-name|var_K
+block|{
+name|varK
 operator|=
 name|m
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|y
 operator|<
-name|var_K
+name|varK
 condition|)
-name|var_K
+block|{
+name|varK
 operator|=
 name|y
 expr_stmt|;
+block|}
 if|if
 condition|(
-name|var_K
+name|varK
 operator|==
 literal|1
 condition|)
@@ -301,13 +308,13 @@ operator|=
 operator|(
 name|c
 operator|-
-name|var_K
+name|varK
 operator|)
 operator|/
 operator|(
 literal|1
 operator|-
-name|var_K
+name|varK
 operator|)
 expr_stmt|;
 name|cmyk
@@ -318,13 +325,13 @@ operator|=
 operator|(
 name|m
 operator|-
-name|var_K
+name|varK
 operator|)
 operator|/
 operator|(
 literal|1
 operator|-
-name|var_K
+name|varK
 operator|)
 expr_stmt|;
 name|cmyk
@@ -335,13 +342,13 @@ operator|=
 operator|(
 name|y
 operator|-
-name|var_K
+name|varK
 operator|)
 operator|/
 operator|(
 literal|1
 operator|-
-name|var_K
+name|varK
 operator|)
 expr_stmt|;
 block|}
@@ -350,13 +357,12 @@ index|[
 literal|3
 index|]
 operator|=
-name|var_K
+name|varK
 expr_stmt|;
 return|return
 name|cmyk
 return|;
 block|}
-else|else
 return|return
 literal|null
 return|;
@@ -384,6 +390,7 @@ name|length
 operator|==
 literal|4
 condition|)
+block|{
 comment|// We have to convert from CMYK to RGB to XYV
 return|return
 name|fromRGBtoCIEXYZ
@@ -394,7 +401,7 @@ name|colorvalue
 argument_list|)
 argument_list|)
 return|;
-else|else
+block|}
 return|return
 literal|null
 return|;
@@ -538,7 +545,6 @@ return|return
 name|rgbvalues
 return|;
 block|}
-else|else
 return|return
 literal|null
 return|;

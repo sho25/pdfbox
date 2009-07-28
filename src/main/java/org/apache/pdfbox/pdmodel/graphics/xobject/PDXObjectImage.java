@@ -225,7 +225,7 @@ specifier|private
 name|String
 name|suffix
 decl_stmt|;
-specifier|protected
+specifier|private
 name|PDGraphicsState
 name|graphicsState
 decl_stmt|;
@@ -593,6 +593,7 @@ name|retval
 operator|==
 literal|null
 condition|)
+block|{
 name|logger
 argument_list|()
 operator|.
@@ -601,6 +602,7 @@ argument_list|(
 literal|"About to return NULL from createColorSpace branch"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -650,6 +652,7 @@ name|retval
 operator|==
 literal|null
 condition|)
+block|{
 name|logger
 argument_list|()
 operator|.
@@ -658,6 +661,7 @@ argument_list|(
 literal|"About to return NULL from CCITT branch"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -693,6 +697,7 @@ expr_stmt|;
 comment|//throw new IOException("Trace the Stencil Mask!!!!");
 block|}
 else|else
+block|{
 name|logger
 argument_list|()
 operator|.
@@ -706,6 +711,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|retval
@@ -784,7 +790,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**     * Allow the Invoke operator to set the graphics state so that, in the case of an Image Mask, we can get to the current nonstroking colorspace.     *     */
+comment|/**      * Allow the Invoke operator to set the graphics state so that,       * in the case of an Image Mask, we can get to the current nonstroking colorspace.      * @param newGS The new graphicstate      */
 specifier|public
 name|void
 name|setGraphicsState

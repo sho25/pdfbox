@@ -329,8 +329,7 @@ operator|.
 name|getByteArray
 argument_list|()
 decl_stmt|;
-comment|//logger().info("array contains " + array.length + " bytes.\nUsing " + bpc + " bits per component.");
-comment|//      Get the ColorModel right
+comment|// Get the ColorModel right
 name|PDColorSpace
 name|colorspace
 init|=
@@ -461,8 +460,7 @@ operator|.
 name|getData
 argument_list|()
 decl_stmt|;
-comment|//logger().info("bufferData contains " + bufferData.length + " bytes.");
-comment|/**          * PDF Spec 1.6 3.3.3 LZW and Flate predictor function          *          * Basically if predictor> 10 and LZW or Flate is being used then the          * predictor is not used.          *          * "For LZWDecode and FlateDecode, a Predictor value greater than or equal to 10          * merely indicates that a PNG predictor is in use; the specific predictor function          * used is explicitly encoded in the incoming data. The value of Predictor supplied          * by the decoding filter need not match the value used when the data was encoded          * if they are both greater than or equal to 10."          */
+comment|/**              * PDF Spec 1.6 3.3.3 LZW and Flate predictor function              *              * Basically if predictor> 10 and LZW or Flate is being used then the              * predictor is not used.              *              * "For LZWDecode and FlateDecode, a Predictor value greater than or equal to 10              * merely indicates that a PNG predictor is in use; the specific predictor function              * used is explicitly encoded in the incoming data. The value of Predictor supplied              * by the decoding filter need not match the value used when the data was encoded              * if they are both greater than or equal to 10."              */
 if|if
 condition|(
 name|predictor
@@ -603,7 +601,7 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|IOe
+name|exception
 parameter_list|)
 block|{
 name|logger
@@ -611,7 +609,7 @@ argument_list|()
 operator|.
 name|severe
 argument_list|(
-name|IOe
+name|exception
 operator|.
 name|toString
 argument_list|()
@@ -620,7 +618,7 @@ literal|"\n at\n"
 operator|+
 name|FullStackTrace
 argument_list|(
-name|IOe
+name|exception
 argument_list|)
 argument_list|)
 expr_stmt|;

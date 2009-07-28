@@ -271,6 +271,7 @@ name|cSpace
 operator|==
 literal|null
 condition|)
+block|{
 name|cSpace
 operator|=
 operator|new
@@ -289,6 +290,7 @@ name|getLinearInterpretation
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|cSpace
 return|;

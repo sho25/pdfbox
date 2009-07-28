@@ -97,6 +97,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Vector
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -239,6 +249,14 @@ extends|extends
 name|LoggingObject
 block|{
 specifier|private
+name|Vector
+name|unsupportedOperators
+init|=
+operator|new
+name|Vector
+argument_list|()
+decl_stmt|;
+specifier|private
 specifier|static
 specifier|final
 name|byte
@@ -278,7 +296,6 @@ operator|new
 name|Stack
 argument_list|()
 decl_stmt|;
-comment|//private PDResources resources = null;
 specifier|private
 name|Map
 name|operators
@@ -341,6 +358,11 @@ specifier|private
 name|PDResources
 name|resources
 decl_stmt|;
+specifier|private
+name|StreamResources
+parameter_list|()
+block|{}
+empty_stmt|;
 block|}
 comment|/**      * Constructor.      */
 specifier|public
@@ -1356,7 +1378,8 @@ name|adjustment
 init|=
 literal|0
 decl_stmt|;
-comment|/* TODO: tx should be set for horizontal text and ty for vertical text, which              * seems to be specified in the font (not the direction in the matrix).               */
+comment|// TODO : tx should be set for horizontal text and ty for vertical text
+comment|// which seems to be specified in the font (not the direction in the matrix).
 name|float
 name|tx
 init|=
@@ -1819,7 +1842,38 @@ name|arguments
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*else{             logger().warning("NULL processor for operation: " + operation);         }*/
+else|else
+block|{
+if|if
+condition|(
+operator|!
+name|unsupportedOperators
+operator|.
+name|contains
+argument_list|(
+name|operation
+argument_list|)
+condition|)
+block|{
+name|logger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"unsupported/disabled operation: "
+operator|+
+name|operation
+argument_list|)
+expr_stmt|;
+name|unsupportedOperators
+operator|.
+name|add
+argument_list|(
+name|operation
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 catch|catch
 parameter_list|(

@@ -350,10 +350,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-specifier|protected
-name|PDDocument
-name|document
-decl_stmt|;
 specifier|private
 name|boolean
 name|suppressDuplicateOverlappingText
@@ -409,6 +405,7 @@ operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
+comment|/**      * The platforms lineseparator.      */
 specifier|protected
 name|String
 name|lineSeparator
@@ -437,11 +434,16 @@ name|wordSeparator
 init|=
 literal|" "
 decl_stmt|;
+comment|/**      * encoding that text will be written in (or null).      */
 specifier|protected
 name|String
-name|encoding
+name|outputEncoding
 decl_stmt|;
-comment|// encoding that text will be written in (or null)
+comment|/**      * The document to read.      */
+specifier|protected
+name|PDDocument
+name|document
+decl_stmt|;
 comment|/**      * The stream to write the output to.      */
 specifier|protected
 name|Writer
@@ -475,7 +477,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|encoding
+name|outputEncoding
 operator|=
 literal|null
 expr_stmt|;
@@ -486,7 +488,7 @@ name|TextNormalize
 argument_list|(
 name|this
 operator|.
-name|encoding
+name|outputEncoding
 argument_list|)
 expr_stmt|;
 block|}
@@ -507,7 +509,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|encoding
+name|outputEncoding
 operator|=
 literal|null
 expr_stmt|;
@@ -518,7 +520,7 @@ name|TextNormalize
 argument_list|(
 name|this
 operator|.
-name|encoding
+name|outputEncoding
 argument_list|)
 expr_stmt|;
 block|}
@@ -546,7 +548,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|encoding
+name|outputEncoding
 operator|=
 name|encoding
 expr_stmt|;
@@ -557,7 +559,7 @@ name|TextNormalize
 argument_list|(
 name|this
 operator|.
-name|encoding
+name|outputEncoding
 argument_list|)
 expr_stmt|;
 block|}
@@ -1170,7 +1172,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Start a new article, which is typically defined as a column      * on a single page (also referred to as a bead).        * Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @param true if primary direction of text is left to right      * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * Start a new article, which is typically defined as a column      * on a single page (also referred to as a bead).        * Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @param isltr true if primary direction of text is left to right.      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
 name|startArticle
@@ -1505,10 +1507,12 @@ name|rtlCnt
 operator|>
 literal|0
 condition|)
+block|{
 name|hasRtl
 operator|=
 literal|true
 expr_stmt|;
+block|}
 comment|/* Now cycle through to print the text.                * We queue up a line at a time before we print so that we can convert              * the line from presentation form to logical form (if needed). */
 name|String
 name|lineStr
@@ -1886,6 +1890,7 @@ if|if
 condition|(
 name|hasRtl
 condition|)
+block|{
 name|lineStr
 operator|=
 name|normalize
@@ -1897,6 +1902,7 @@ argument_list|,
 name|isRtlDominant
 argument_list|)
 expr_stmt|;
+block|}
 comment|/* normalize string to remove presentation forms.                          * Note that this must come after the line direction                           * conversion because the process looks ahead to the next                          * logical character.                           */
 name|lineStr
 operator|=
@@ -2070,6 +2076,7 @@ if|if
 condition|(
 name|hasRtl
 condition|)
+block|{
 name|lineStr
 operator|=
 name|normalize
@@ -2081,6 +2088,7 @@ argument_list|,
 name|isRtlDominant
 argument_list|)
 expr_stmt|;
+block|}
 comment|// normalize string to remove presentation forms
 name|lineStr
 operator|=
@@ -2157,7 +2165,7 @@ name|height2
 operator|)
 return|;
 block|}
-comment|/**      * Write the page separator value to the output stream      * @throws IOException      */
+comment|/**      * Write the page separator value to the output stream.      * @throws IOException      *             If there is a problem writing out the pageseparator to the document.      */
 specifier|protected
 name|void
 name|writePageSeperator
@@ -2182,7 +2190,7 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Write the line separator value to the output stream      * @throws IOException      */
+comment|/**      * Write the line separator value to the output stream.      * @throws IOException      *             If there is a problem writing out the lineseparator to the document.      */
 specifier|protected
 name|void
 name|writeLineSeparator
@@ -2199,7 +2207,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write the word separator value to the output stream      * @throws IOException      */
+comment|/**      * Write the word separator value to the output stream.      * @throws IOException      *             If there is a problem writing out the wordseparator to the document.      */
 specifier|protected
 name|void
 name|writeWordSeparator
@@ -3224,20 +3232,20 @@ return|return
 name|spacingTolerance
 return|;
 block|}
-comment|/**      * Set the space width-based tolerance value that is used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.      * Setting this value larger will reduce the number of spaces added.       *       * @param spacingTolerance tolerance / scaling factor to use      */
+comment|/**      * Set the space width-based tolerance value that is used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.      * Setting this value larger will reduce the number of spaces added.       *       * @param spacingToleranceValue tolerance / scaling factor to use      */
 specifier|public
 name|void
 name|setSpacingTolerance
 parameter_list|(
 name|float
-name|spacingTolerance
+name|spacingToleranceValue
 parameter_list|)
 block|{
 name|this
 operator|.
 name|spacingTolerance
 operator|=
-name|spacingTolerance
+name|spacingToleranceValue
 expr_stmt|;
 block|}
 comment|/**      * Get the current character width-based tolerance value that is being used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.      *       * @return The current tolerance / scaling factor      */
@@ -3250,20 +3258,20 @@ return|return
 name|averageCharTolerance
 return|;
 block|}
-comment|/**      * Set the character width-based tolerance value that is used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.      * Setting this value larger will reduce the number of spaces added.       *       * @param spacingTolerance tolerance / scaling factor to use      */
+comment|/**      * Set the character width-based tolerance value that is used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.      * Setting this value larger will reduce the number of spaces added.       *       * @param averageCharToleranceValue average tolerance / scaling factor to use      */
 specifier|public
 name|void
 name|setAverageCharTolerance
 parameter_list|(
 name|float
-name|averageCharTolerance
+name|averageCharToleranceValue
 parameter_list|)
 block|{
 name|this
 operator|.
 name|averageCharTolerance
 operator|=
-name|averageCharTolerance
+name|averageCharToleranceValue
 expr_stmt|;
 block|}
 block|}

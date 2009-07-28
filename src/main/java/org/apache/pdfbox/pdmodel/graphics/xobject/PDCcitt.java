@@ -484,15 +484,17 @@ name|tiff
 operator|!=
 literal|null
 condition|)
+block|{
 name|tiff
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+block|}
 return|return
 name|retval
 return|;
-block|}
 block|}
 comment|/**      * This writes a tiff to out.      *      * {@inheritDoc}      */
 specifier|public

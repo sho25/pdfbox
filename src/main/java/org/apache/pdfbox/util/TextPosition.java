@@ -110,18 +110,19 @@ name|fontSize
 decl_stmt|;
 specifier|private
 name|int
-name|fontSizeInPt
+name|fontSizePt
 decl_stmt|;
 specifier|private
 name|float
 name|wordSpacing
 decl_stmt|;
 comment|// word spacing value, in display units
+comment|/**      *  Constructor.      */
 specifier|protected
 name|TextPosition
 parameter_list|()
 block|{      }
-comment|/**      * Constructor.      *      * @param page Page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param textPositionEnd TextMatrix for end of text (in display units)      * @param maxFontH Maximum height of text (in display units)      * @param individualWidths The width of each individual character. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param currentFont The current for for this text position.      * @param fontSizeValue The new font size.      * @param fontSizeValue The font size in pt units.      * @param ws The word spacing parameter (in display units)      */
+comment|/**      * Constructor.      *      * @param page Page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param textPositionEnd TextMatrix for end of text (in display units)      * @param maxFontH Maximum height of text (in display units)      * @param individualWidths The width of each individual character. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param currentFont The current for for this text position.      * @param fontSizeValue The new font size.      * @param fontSizeInPt The font size in pt units.      * @param ws The word spacing parameter (in display units)      */
 specifier|public
 name|TextPosition
 parameter_list|(
@@ -202,10 +203,12 @@ name|rot
 operator|<
 literal|0
 condition|)
+block|{
 name|rot
 operator|+=
 literal|360
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|maxTextHeight
@@ -268,7 +271,7 @@ name|fontSizeValue
 expr_stmt|;
 name|this
 operator|.
-name|fontSizeInPt
+name|fontSizePt
 operator|=
 name|fontSizeInPt
 expr_stmt|;
@@ -289,7 +292,7 @@ return|return
 name|str
 return|;
 block|}
-comment|/**      * Return the Matrix textPos stored in this object      *        * @return The Matrix containing all infos of the starting textposition      */
+comment|/**      * Return the Matrix textPos stored in this object.      *        * @return The Matrix containing all infos of the starting textposition      */
 specifier|public
 name|Matrix
 name|getTextPos
@@ -391,9 +394,11 @@ operator|>
 literal|0
 operator|)
 condition|)
+block|{
 return|return
 literal|0
 return|;
+block|}
 comment|// -12 0   right to left (upside down)
 comment|// 0 -12
 elseif|else
@@ -443,9 +448,11 @@ operator|<
 literal|0
 operator|)
 condition|)
+block|{
 return|return
 literal|180
 return|;
+block|}
 comment|// 0  12    up
 comment|// -12 0
 elseif|else
@@ -490,9 +497,11 @@ operator|<
 name|b
 operator|)
 condition|)
+block|{
 return|return
 literal|90
 return|;
+block|}
 comment|// 0  -12   down
 comment|// 12 0
 elseif|else
@@ -537,28 +546,31 @@ name|b
 argument_list|)
 operator|)
 condition|)
+block|{
 return|return
 literal|270
 return|;
+block|}
 return|return
 literal|0
 return|;
 block|}
-comment|/**      * Return the X starting coordinate of the text, adjusted by       * the given rotation amount.  The rotation adjusts where the 0,0      * location is relative to the text.       *        * @param a_rot Rotation to apply (0, 90, 180, or 270).  0 will perform no adjustments.       * @return X coordinate      */
+comment|/**      * Return the X starting coordinate of the text, adjusted by       * the given rotation amount.  The rotation adjusts where the 0,0      * location is relative to the text.       *        * @param rotation Rotation to apply (0, 90, 180, or 270).  0 will perform no adjustments.       * @return X coordinate      */
 specifier|private
 name|float
-name|getX_rot
+name|getXRot
 parameter_list|(
 name|float
-name|a_rot
+name|rotation
 parameter_list|)
 block|{
 if|if
 condition|(
-name|a_rot
+name|rotation
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|textPos
 operator|.
@@ -569,13 +581,15 @@ argument_list|,
 literal|0
 argument_list|)
 return|;
+block|}
 elseif|else
 if|if
 condition|(
-name|a_rot
+name|rotation
 operator|==
 literal|90
 condition|)
+block|{
 return|return
 name|textPos
 operator|.
@@ -586,13 +600,15 @@ argument_list|,
 literal|1
 argument_list|)
 return|;
+block|}
 elseif|else
 if|if
 condition|(
-name|a_rot
+name|rotation
 operator|==
 literal|180
 condition|)
+block|{
 return|return
 name|pageWidth
 operator|-
@@ -605,13 +621,15 @@ argument_list|,
 literal|0
 argument_list|)
 return|;
+block|}
 elseif|else
 if|if
 condition|(
-name|a_rot
+name|rotation
 operator|==
 literal|270
 condition|)
+block|{
 return|return
 name|pageHeight
 operator|-
@@ -624,7 +642,7 @@ argument_list|,
 literal|1
 argument_list|)
 return|;
-else|else
+block|}
 return|return
 literal|0
 return|;
@@ -636,7 +654,7 @@ name|getX
 parameter_list|()
 block|{
 return|return
-name|getX_rot
+name|getXRot
 argument_list|(
 name|rot
 argument_list|)
@@ -649,28 +667,29 @@ name|getXDirAdj
 parameter_list|()
 block|{
 return|return
-name|getX_rot
+name|getXRot
 argument_list|(
 name|getDir
 argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**       * This will get the y position of the character with 0,0 in lower left.       * This will be adjusted by the given rotation.       * @param a_rot Rotation to apply to text to adjust the 0,0 location (0,90,180,270)      *       * @return The y coordinate of the text      */
+comment|/**       * This will get the y position of the character with 0,0 in lower left.       * This will be adjusted by the given rotation.       * @param rotation Rotation to apply to text to adjust the 0,0 location (0,90,180,270)      *       * @return The y coordinate of the text      */
 specifier|private
 name|float
-name|getY_ll_rot
+name|getYLowerLeftRot
 parameter_list|(
 name|float
-name|a_rot
+name|rotation
 parameter_list|)
 block|{
 if|if
 condition|(
-name|a_rot
+name|rotation
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|textPos
 operator|.
@@ -681,13 +700,15 @@ argument_list|,
 literal|1
 argument_list|)
 return|;
+block|}
 elseif|else
 if|if
 condition|(
-name|a_rot
+name|rotation
 operator|==
 literal|90
 condition|)
+block|{
 return|return
 name|pageWidth
 operator|-
@@ -700,13 +721,15 @@ argument_list|,
 literal|0
 argument_list|)
 return|;
+block|}
 elseif|else
 if|if
 condition|(
-name|a_rot
+name|rotation
 operator|==
 literal|180
 condition|)
+block|{
 return|return
 name|pageHeight
 operator|-
@@ -719,13 +742,15 @@ argument_list|,
 literal|1
 argument_list|)
 return|;
+block|}
 elseif|else
 if|if
 condition|(
-name|a_rot
+name|rotation
 operator|==
 literal|270
 condition|)
+block|{
 return|return
 name|textPos
 operator|.
@@ -736,7 +761,7 @@ argument_list|,
 literal|0
 argument_list|)
 return|;
-else|else
+block|}
 return|return
 literal|0
 return|;
@@ -761,23 +786,27 @@ operator|==
 literal|180
 operator|)
 condition|)
+block|{
 return|return
 name|pageHeight
 operator|-
-name|getY_ll_rot
+name|getYLowerLeftRot
 argument_list|(
 name|rot
 argument_list|)
 return|;
+block|}
 else|else
+block|{
 return|return
 name|pageWidth
 operator|-
-name|getY_ll_rot
+name|getYLowerLeftRot
 argument_list|(
 name|rot
 argument_list|)
 return|;
+block|}
 block|}
 comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and       * it is adjusted based on the text direction.       *      * @return The adjusted y coordinate of the character.      */
 specifier|public
@@ -806,43 +835,47 @@ operator|==
 literal|180
 operator|)
 condition|)
+block|{
 return|return
 name|pageHeight
 operator|-
-name|getY_ll_rot
-argument_list|(
-name|dir
-argument_list|)
-return|;
-else|else
-return|return
-name|pageWidth
-operator|-
-name|getY_ll_rot
+name|getYLowerLeftRot
 argument_list|(
 name|dir
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the length or width of the text, based on a given rotation.       *       * @param a_rot Rotation that was used to determine coordinates (0,90,180,270)      * @return Width of text in display units      */
+else|else
+block|{
+return|return
+name|pageWidth
+operator|-
+name|getYLowerLeftRot
+argument_list|(
+name|dir
+argument_list|)
+return|;
+block|}
+block|}
+comment|/**      * Get the length or width of the text, based on a given rotation.       *       * @param rotation Rotation that was used to determine coordinates (0,90,180,270)      * @return Width of text in display units      */
 specifier|private
 name|float
-name|getWidth_rot
+name|getWidthRot
 parameter_list|(
 name|float
-name|a_rot
+name|rotation
 parameter_list|)
 block|{
 if|if
 condition|(
 operator|(
-name|a_rot
+name|rotation
 operator|==
 literal|90
 operator|)
 operator|||
 operator|(
-name|a_rot
+name|rotation
 operator|==
 literal|270
 operator|)
@@ -886,7 +919,7 @@ name|getWidth
 parameter_list|()
 block|{
 return|return
-name|getWidth_rot
+name|getWidthRot
 argument_list|(
 name|rot
 argument_list|)
@@ -899,7 +932,7 @@ name|getWidthDirAdj
 parameter_list|()
 block|{
 return|return
-name|getWidth_rot
+name|getWidthRot
 argument_list|(
 name|getDir
 argument_list|()
@@ -937,14 +970,14 @@ return|return
 name|fontSize
 return|;
 block|}
-comment|/**      * This will get the font size in pt      * To get this size we have to multiply the pdf-fontsize and the scaling from the textmatrix      *      * @return The font size in pt.      */
+comment|/**      * This will get the font size in pt.      * To get this size we have to multiply the pdf-fontsize and the scaling from the textmatrix      *      * @return The font size in pt.      */
 specifier|public
 name|float
 name|getFontSizeInPt
 parameter_list|()
 block|{
 return|return
-name|fontSizeInPt
+name|fontSizePt
 return|;
 block|}
 comment|/**      * This will get the font for the text being drawn.      *      * @return The font size.      */
@@ -1229,7 +1262,9 @@ argument_list|()
 operator|>
 literal|1
 condition|)
+block|{
 return|return;
+block|}
 name|float
 name|diacXStart
 init|=
@@ -1280,9 +1315,8 @@ name|i
 operator|<
 name|strLen
 operator|&&
+operator|!
 name|wasAdded
-operator|==
-literal|false
 condition|;
 name|i
 operator|++

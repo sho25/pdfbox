@@ -82,7 +82,7 @@ name|matrix
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * IDfor serialization 	 */
+comment|/**      * ID for serialization.      */
 specifier|private
 specifier|static
 specifier|final
@@ -92,7 +92,7 @@ init|=
 operator|-
 literal|6362864473145799405L
 decl_stmt|;
-comment|/** 	 * Constructor 	 */
+comment|/**      *  Constructor.      */
 specifier|public
 name|ColorSpaceCalRGB
 parameter_list|()
@@ -107,21 +107,21 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Constructor 	 */
+comment|/**      * Constructor.      * @param gammaValue Gamma      * @param whitept Whitepoint      * @param blackpt Blackpoint      * @param linearMatrix Matrix value      */
 specifier|public
 name|ColorSpaceCalRGB
 parameter_list|(
 name|PDGamma
-name|gamma
+name|gammaValue
 parameter_list|,
 name|PDTristimulus
-name|whitepoint
+name|whitept
 parameter_list|,
 name|PDTristimulus
-name|blackpoint
+name|blackpt
 parameter_list|,
 name|PDMatrix
-name|matrix
+name|linearMatrix
 parameter_list|)
 block|{
 name|this
@@ -131,28 +131,28 @@ name|this
 operator|.
 name|gamma
 operator|=
-name|gamma
+name|gammaValue
 expr_stmt|;
 name|this
 operator|.
 name|whitepoint
 operator|=
-name|whitepoint
+name|whitept
 expr_stmt|;
 name|this
 operator|.
 name|blackpoint
 operator|=
-name|blackpoint
+name|blackpt
 expr_stmt|;
 name|this
 operator|.
 name|matrix
 operator|=
-name|matrix
+name|linearMatrix
 expr_stmt|;
 block|}
-comment|/** 	 * 	Converts colorvalues from RGB-colorspace to CIEXYZ-colorspace 	 *  @param rgbvalue RGB colorvalues to be converted. 	 *  @return Returns converted colorvalues. 	 */
+comment|/**      *  Converts colorvalues from RGB-colorspace to CIEXYZ-colorspace.      *  @param rgbvalue RGB colorvalues to be converted.      *  @return Returns converted colorvalues.      */
 specifier|private
 name|float
 index|[]
@@ -182,7 +182,7 @@ name|rgbvalue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * 	Converts colorvalues from CIEXYZ-colorspace to RGB-colorspace 	 *  @param rgbvalue CIEXYZ colorvalues to be converted. 	 *  @return Returns converted colorvalues. 	 */
+comment|/**      *  Converts colorvalues from CIEXYZ-colorspace to RGB-colorspace.      *  @param rgbvalue CIEXYZ colorvalues to be converted.      *  @return Returns converted colorvalues.      */
 specifier|private
 name|float
 index|[]
@@ -235,6 +235,7 @@ name|length
 operator|==
 literal|3
 condition|)
+block|{
 comment|// We have to convert from XYV to RGB
 return|return
 name|fromCIEXYZtoRGB
@@ -242,7 +243,7 @@ argument_list|(
 name|colorvalue
 argument_list|)
 return|;
-else|else
+block|}
 return|return
 literal|null
 return|;
@@ -275,7 +276,6 @@ return|return
 name|rgbvalue
 return|;
 block|}
-else|else
 return|return
 literal|null
 return|;
@@ -303,6 +303,7 @@ name|length
 operator|==
 literal|4
 condition|)
+block|{
 comment|// We have to convert from RGB to XYV
 return|return
 name|fromRGBtoCIEXYZ
@@ -313,7 +314,7 @@ name|colorvalue
 argument_list|)
 argument_list|)
 return|;
-else|else
+block|}
 return|return
 literal|null
 return|;
@@ -346,7 +347,6 @@ return|return
 name|colorvalue
 return|;
 block|}
-else|else
 return|return
 literal|null
 return|;

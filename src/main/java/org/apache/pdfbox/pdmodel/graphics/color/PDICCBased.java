@@ -1133,14 +1133,15 @@ name|metadata
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*     Need more info on the ICCBased ones ... Array contains very little.     */
+comment|// Need more info on the ICCBased ones ... Array contains very little.
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|String
 name|toString
 parameter_list|()
 block|{
 name|String
-name|RetVal
+name|retVal
 init|=
 name|super
 operator|.
@@ -1151,9 +1152,9 @@ literal|"\n\t Number of Components: "
 decl_stmt|;
 try|try
 block|{
-name|RetVal
+name|retVal
 operator|=
-name|RetVal
+name|retVal
 operator|+
 name|getNumberOfComponents
 argument_list|()
@@ -1162,21 +1163,21 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|IOe
+name|exception
 parameter_list|)
 block|{
-name|RetVal
+name|retVal
 operator|=
-name|RetVal
+name|retVal
 operator|+
-name|IOe
+name|exception
 operator|.
 name|toString
 argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|RetVal
+name|retVal
 return|;
 block|}
 block|}

@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is an implementation the the ICU4J class. TextNormalize   * will call this only if the ICU4J library exists in the classpath.  */
+comment|/**  * This class is an implementation the the ICU4J class. TextNormalize   * will call this only if the ICU4J library exists in the classpath.  * @author<a href="mailto:carrier@digital-evidence.org">Brian Carrier</a>  * @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
@@ -55,6 +55,7 @@ block|{
 name|Bidi
 name|bidi
 decl_stmt|;
+comment|/**      * Constructor.      */
 specifier|public
 name|ICU4JImpl
 parameter_list|()
@@ -76,25 +77,25 @@ name|REORDER_INVERSE_LIKE_DIRECT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Takes a line of text in presentation order and converts it to logical order.      * @see TextNormalize.makeLineLogicalOrder(String, boolean)           *        */
+comment|/**      * Takes a line of text in presentation order and converts it to logical order.      * @see TextNormalize.makeLineLogicalOrder(String, boolean)           *        * @param str String to convert      * @param isRtlDominant RTL (right-to-left) will be the dominant text direction      * @return The converted string      */
 specifier|public
 name|String
 name|makeLineLogicalOrder
 parameter_list|(
 name|String
-name|a_str
+name|str
 parameter_list|,
 name|boolean
-name|a_isRtlDominant
+name|isRtlDominant
 parameter_list|)
 block|{
 name|bidi
 operator|.
 name|setPara
 argument_list|(
-name|a_str
+name|str
 argument_list|,
-name|a_isRtlDominant
+name|isRtlDominant
 condition|?
 name|Bidi
 operator|.
@@ -119,13 +120,13 @@ name|DO_MIRRORING
 argument_list|)
 return|;
 block|}
-comment|/**      * Normalize presentation forms of characters to the separate parts.       * @see TextNormalize.normalizePres(String)      *       * @param a_str String to normalize      * @return Normalized form      */
+comment|/**      * Normalize presentation forms of characters to the separate parts.       * @see TextNormalize.normalizePres(String)      *       * @param str String to normalize      * @return Normalized form      */
 specifier|public
 name|String
 name|normalizePres
 parameter_list|(
 name|String
-name|a_str
+name|str
 parameter_list|)
 block|{
 name|String
@@ -142,7 +143,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|a_str
+name|str
 operator|.
 name|length
 argument_list|()
@@ -155,7 +156,7 @@ comment|/* We only normalize if the codepoint is in a given range. Otherwise,   
 name|char
 name|c
 init|=
-name|a_str
+name|str
 operator|.
 name|charAt
 argument_list|(
@@ -210,7 +211,7 @@ operator|)
 operator|&&
 operator|(
 operator|(
-name|a_str
+name|str
 operator|.
 name|charAt
 argument_list|(
@@ -223,7 +224,7 @@ literal|0x0627
 operator|)
 operator|||
 operator|(
-name|a_str
+name|str
 operator|.
 name|charAt
 argument_list|(
@@ -267,7 +268,7 @@ else|else
 block|{
 name|retStr
 operator|+=
-name|a_str
+name|str
 operator|.
 name|charAt
 argument_list|(
@@ -280,13 +281,13 @@ return|return
 name|retStr
 return|;
 block|}
-comment|/**      * Decomposes Diacritic characters to their combining forms      *       * @param a_str String to be Normalized      * @return A Normalized String      */
+comment|/**      * Decomposes Diacritic characters to their combining forms.      *       * @param str String to be Normalized      * @return A Normalized String      */
 specifier|public
 name|String
 name|normalizeDiac
 parameter_list|(
 name|String
-name|a_str
+name|str
 parameter_list|)
 block|{
 name|String
@@ -303,7 +304,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|a_str
+name|str
 operator|.
 name|length
 argument_list|()
@@ -315,7 +316,7 @@ block|{
 name|char
 name|c
 init|=
-name|a_str
+name|str
 operator|.
 name|charAt
 argument_list|(
@@ -380,7 +381,7 @@ else|else
 block|{
 name|retStr
 operator|+=
-name|a_str
+name|str
 operator|.
 name|charAt
 argument_list|(
