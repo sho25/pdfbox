@@ -890,7 +890,9 @@ argument_list|)
 argument_list|)
 operator|)
 condition|)
-break|break ;
+block|{
+break|break;
+block|}
 name|header
 operator|=
 name|readLine
@@ -953,6 +955,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|headerStart
 operator|=
 name|header
@@ -962,6 +965,7 @@ argument_list|(
 name|FDF_HEADER
 argument_list|)
 expr_stmt|;
+block|}
 comment|//greater than zero because if it is zero then
 comment|//there is no point of trimming
 if|if
@@ -1783,6 +1787,34 @@ condition|)
 block|{
 if|if
 condition|(
+name|endObjectKey
+operator|.
+name|startsWith
+argument_list|(
+literal|"endobj"
+argument_list|)
+condition|)
+block|{
+comment|/*                                          * Some PDF files don't contain a new line after endobj so we                                           * need to make sure that the next object number is getting read separately                                          * and not part of the endobj keyword. Ex. Some files would have "endobj28"                                          * instead of "endobj"                                          */
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
+name|endObjectKey
+operator|.
+name|substring
+argument_list|(
+literal|6
+argument_list|)
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 operator|!
 name|pdfSource
 operator|.
@@ -1912,7 +1944,7 @@ return|return
 name|isEndOfFile
 return|;
 block|}
-comment|/**     * Adds a new ConflictObj to the conflictList     * @param offset the offset of the ConflictObj     * @param key The COSObjectKey of this object     * @param pb The COSBase of this conflictObj     * @throws IOException     */
+comment|/**     * Adds a new ConflictObj to the conflictList.     * @param offset the offset of the ConflictObj     * @param key The COSObjectKey of this object     * @param pb The COSBase of this conflictObj     * @throws IOException     */
 specifier|private
 name|void
 name|addObjectToConflicts
@@ -2356,7 +2388,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * This will parse the trailer from the stream and add it to the state      *                  * @return false on parsing error      * @throws IOException If an IO error occurs.      */
+comment|/**      * This will parse the trailer from the stream and add it to the state.      *                  * @return false on parsing error      * @throws IOException If an IO error occurs.      */
 specifier|private
 name|boolean
 name|parseTrailer
@@ -2399,7 +2431,8 @@ literal|"trailer"
 argument_list|)
 condition|)
 block|{
-comment|// in some cases the EOL is missing and the trailer immediately continues with "<<" or with a blank character
+comment|// in some cases the EOL is missing and the trailer immediately
+comment|// continues with "<<" or with a blank character
 comment|// even if this does not comply with PDF reference we want to support as many PDFs as possible
 comment|// Acrobat reader can also deal with this.
 if|if
@@ -2511,7 +2544,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*      * Used to resolve conflicts when a PDF Document has multiple objects with      * the same id number. Ideally, we could use the Xref table when parsing      * the document to be able to determine which of the objects with the same ID      * is correct, but we do not have access to the Xref Table during parsing.      * Instead, we queue up the conflicts and resolve them after the Xref has      * been parsed. The Objects listed in the Xref Table are kept and the       * others are ignored.       */
+comment|/**      * Used to resolve conflicts when a PDF Document has multiple objects with      * the same id number. Ideally, we could use the Xref table when parsing      * the document to be able to determine which of the objects with the same ID      * is correct, but we do not have access to the Xref Table during parsing.      * Instead, we queue up the conflicts and resolve them after the Xref has      * been parsed. The Objects listed in the Xref Table are kept and the       * others are ignored.       */
 specifier|private
 specifier|static
 class|class
@@ -2523,17 +2556,17 @@ name|offset
 decl_stmt|;
 specifier|private
 name|COSObjectKey
-name|key
+name|objectKey
 decl_stmt|;
 specifier|private
 name|COSObject
-name|pdfObject
+name|object
 decl_stmt|;
 specifier|public
 name|ConflictObj
 parameter_list|(
 name|int
-name|offset
+name|offsetValue
 parameter_list|,
 name|COSObjectKey
 name|key
@@ -2546,17 +2579,17 @@ name|this
 operator|.
 name|offset
 operator|=
-name|offset
+name|offsetValue
 expr_stmt|;
 name|this
 operator|.
-name|key
+name|objectKey
 operator|=
 name|key
 expr_stmt|;
 name|this
 operator|.
-name|pdfObject
+name|object
 operator|=
 name|pdfObject
 expr_stmt|;
@@ -2573,7 +2606,7 @@ name|offset
 operator|+
 literal|", "
 operator|+
-name|key
+name|objectKey
 operator|+
 literal|")"
 return|;
@@ -2653,7 +2686,7 @@ name|getObjectFromPool
 argument_list|(
 name|o
 operator|.
-name|key
+name|objectKey
 argument_list|)
 decl_stmt|;
 name|pdfObject
@@ -2662,7 +2695,7 @@ name|setObject
 argument_list|(
 name|o
 operator|.
-name|pdfObject
+name|object
 operator|.
 name|getObject
 argument_list|()
