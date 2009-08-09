@@ -86,8 +86,8 @@ name|ASCIIHexFilter
 implements|implements
 name|Filter
 block|{
-comment|/**      * Whitespace      *   0  0x00  Null (NUL)      *   9  0x09  Tab (HT)      *  10  0x0A  Line feed (LF)      *  12  0x0C  Form feed (FF)      *  13  0x0D  Carriage return (CR)      *  32  0x20  Space (SP)        */
-specifier|protected
+comment|/**      * Whitespace.      *   0  0x00  Null (NUL)      *   9  0x09  Tab (HT)      *  10  0x0A  Line feed (LF)      *  12  0x0C  Form feed (FF)      *  13  0x0D  Carriage return (CR)      *  32  0x20  Space (SP)        */
+specifier|private
 name|boolean
 name|isWhitespace
 parameter_list|(
@@ -121,7 +121,7 @@ operator|==
 literal|32
 return|;
 block|}
-specifier|protected
+specifier|private
 name|boolean
 name|isEOD
 parameter_list|(
@@ -196,6 +196,7 @@ argument_list|(
 name|firstByte
 argument_list|)
 condition|)
+block|{
 name|firstByte
 operator|=
 name|compressedData
@@ -203,6 +204,7 @@ operator|.
 name|read
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|isEOD
@@ -210,7 +212,9 @@ argument_list|(
 name|firstByte
 argument_list|)
 condition|)
+block|{
 break|break;
+block|}
 if|if
 condition|(
 name|REVERSE_HEX
@@ -221,6 +225,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -239,6 +244,7 @@ operator|)
 name|firstByte
 argument_list|)
 expr_stmt|;
+block|}
 name|value
 operator|=
 name|REVERSE_HEX
@@ -290,6 +296,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -308,6 +315,7 @@ operator|)
 name|secondByte
 argument_list|)
 expr_stmt|;
+block|}
 name|value
 operator|+=
 name|REVERSE_HEX

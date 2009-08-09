@@ -107,7 +107,7 @@ name|SUBTYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor      *      * @param a An existing FDF Annotation.      */
+comment|/**      * Constructor.      *      * @param a An existing FDF Annotation.      */
 specifier|public
 name|FDFAnnotationUnderline
 parameter_list|(

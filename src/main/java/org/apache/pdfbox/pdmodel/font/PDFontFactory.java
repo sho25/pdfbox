@@ -149,6 +149,7 @@ argument_list|)
 operator|!=
 literal|null
 condition|)
+block|{
 name|fontKey
 operator|+=
 name|dic
@@ -163,6 +164,7 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|fontCache
@@ -172,6 +174,7 @@ argument_list|(
 name|fontKey
 argument_list|)
 condition|)
+block|{
 name|retval
 operator|=
 operator|(
@@ -184,6 +187,7 @@ argument_list|(
 name|fontKey
 argument_list|)
 expr_stmt|;
+block|}
 else|else
 block|{
 name|retval
@@ -207,6 +211,7 @@ expr_stmt|;
 block|}
 block|}
 else|else
+block|{
 name|retval
 operator|=
 name|PDFontFactory
@@ -216,6 +221,7 @@ argument_list|(
 name|dic
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|retval
 return|;

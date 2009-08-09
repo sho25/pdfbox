@@ -2287,7 +2287,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will send the PDF to the default printer without prompting the user      * for any printer settings.      *      * @param job A printer job definition.      * @see PDDocument#print()      *      * @throws PrinterException If there is an error while printing.      */
+comment|/**      * This will send the PDF to the default printer without prompting the user      * for any printer settings.      *      * @param printJob A printer job definition.      * @see PDDocument#print()      *      * @throws PrinterException If there is an error while printing.      */
 specifier|public
 name|void
 name|silentPrint

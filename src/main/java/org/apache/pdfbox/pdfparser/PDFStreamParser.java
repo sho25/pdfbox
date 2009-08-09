@@ -840,10 +840,12 @@ operator|==
 literal|'.'
 operator|)
 condition|)
+block|{
 name|dotNotRead
 operator|=
 literal|false
 expr_stmt|;
+block|}
 block|}
 name|retval
 operator|=

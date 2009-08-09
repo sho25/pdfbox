@@ -72,7 +72,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  This class is used as font manager.  *  */
+comment|/**  *  This class is used as font manager.  *  @author<a href="mailto:andreas@lehmi.de">Andreas Lehmkühler</a>  *  @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
@@ -143,16 +143,9 @@ block|}
 name|loadFonts
 argument_list|()
 expr_stmt|;
-comment|// There could be some recursive mappings in the fontmapping, so that we have to
-comment|// read the list until no more additional mapping is added to it
-while|while
-condition|(
 name|loadFontMapping
 argument_list|()
-operator|>
-literal|0
-condition|)
-empty_stmt|;
+expr_stmt|;
 name|loadBasefontMapping
 argument_list|()
 expr_stmt|;
@@ -160,7 +153,11 @@ name|setStandardFont
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Get the standard font from the environment, usually Arial or Times New Roman        *      * @return The standard font       *       */
+specifier|private
+name|FontManager
+parameter_list|()
+block|{     }
+comment|/**      * Get the standard font from the environment, usually Arial or Times New Roman.       *      * @return The standard font       *       */
 specifier|public
 specifier|static
 name|java
@@ -177,17 +174,19 @@ name|standardFont
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|getAwtFont
 argument_list|(
 name|standardFont
 argument_list|)
 return|;
+block|}
 return|return
 literal|null
 return|;
 block|}
-comment|/**      * Get the font for the given fontname      *      * @param font The name of the font.      *      * @return The font we are looking for or a similar font or null if nothing is found.      *       */
+comment|/**      * Get the font for the given fontname.      *      * @param font The name of the font.      *      * @return The font we are looking for or a similar font or null if nothing is found.      *       */
 specifier|public
 specifier|static
 name|java
@@ -218,6 +217,7 @@ argument_list|(
 name|fontname
 argument_list|)
 condition|)
+block|{
 return|return
 operator|(
 name|java
@@ -233,11 +233,12 @@ argument_list|(
 name|fontname
 argument_list|)
 return|;
+block|}
 return|return
 literal|null
 return|;
 block|}
-comment|/**      * Load all available fonts from the environment      */
+comment|/**      * Load all available fonts from the environment.      */
 specifier|private
 specifier|static
 name|void
@@ -401,10 +402,12 @@ argument_list|(
 literal|"arial"
 argument_list|)
 condition|)
+block|{
 name|standardFont
 operator|=
 literal|"arial"
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -415,12 +418,14 @@ argument_list|(
 literal|"timesnewroman"
 argument_list|)
 condition|)
+block|{
 name|standardFont
 operator|=
 literal|"timesnewroman"
 expr_stmt|;
 block|}
-comment|/**      * Normalize the fontname      *      * @param fontname The name of the font.      *      * @return The normalized name of the font.      *       */
+block|}
+comment|/**      * Normalize the fontname.      *      * @param fontname The name of the font.      *      * @return The normalized name of the font.      *       */
 specifier|private
 specifier|static
 name|String
@@ -475,6 +480,7 @@ operator|>
 operator|-
 literal|1
 condition|)
+block|{
 name|normalizedFontname
 operator|=
 name|normalizedFontname
@@ -491,6 +497,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
 comment|// normalize all kinds of fonttypes. There are several possible version which have to be normalized
 comment|// e.g. Arial,Bold Arial-BoldMT Helevtica-oblique ...
 name|boolean
@@ -561,23 +568,27 @@ if|if
 condition|(
 name|isBold
 condition|)
+block|{
 name|normalizedFontname
 operator|+=
 literal|"bold"
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|isItalic
 condition|)
+block|{
 name|normalizedFontname
 operator|+=
 literal|"italic"
 expr_stmt|;
+block|}
 return|return
 name|normalizedFontname
 return|;
 block|}
-comment|/**      * Add a font-mapping      *      * @param font The name of the font.      *      * @param mappedName The name of the mapped font.      *       */
+comment|/**      * Add a font-mapping.      *      * @param font The name of the font.      *      * @param mappedName The name of the mapped font.      *       */
 specifier|private
 specifier|static
 name|boolean
@@ -608,9 +619,11 @@ argument_list|(
 name|fontname
 argument_list|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 name|String
 name|mappedFontname
 init|=
@@ -630,9 +643,11 @@ argument_list|(
 name|mappedFontname
 argument_list|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 name|envFonts
 operator|.
 name|put
@@ -651,13 +666,30 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Load the mapping for the well knwon font-substitutions      *      */
+comment|/**      * Load the mapping for the well knwon font-substitutions.      *      */
 specifier|private
 specifier|static
-name|int
+name|void
 name|loadFontMapping
 parameter_list|()
 block|{
+name|boolean
+name|addedMapping
+init|=
+literal|true
+decl_stmt|;
+comment|// There could be some recursive mappings in the fontmapping, so that we have to
+comment|// read the list until no more additional mapping is added to it
+while|while
+condition|(
+name|addedMapping
+condition|)
+block|{
+name|int
+name|counter
+init|=
+literal|0
+decl_stmt|;
 name|Enumeration
 name|keys
 init|=
@@ -665,11 +697,6 @@ name|fontMapping
 operator|.
 name|keys
 argument_list|()
-decl_stmt|;
-name|int
-name|counter
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -707,15 +734,27 @@ name|key
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|counter
 operator|++
 expr_stmt|;
 block|}
-return|return
-name|counter
-return|;
 block|}
-comment|/**      * Mapping for the basefonts      */
+if|if
+condition|(
+name|counter
+operator|==
+literal|0
+condition|)
+block|{
+name|addedMapping
+operator|=
+literal|false
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|/**      * Mapping for the basefonts.      */
 specifier|private
 specifier|static
 name|void
@@ -779,7 +818,7 @@ literal|"Courier,Bold,Italic"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Try to determine if the font has both a BOLD and an ITALIC-type      *      * @param name The font.      *      * @return font has BOLD and ITALIC-type or not      */
+comment|/**      * Try to determine if the font has both a BOLD and an ITALIC-type.      *      * @param name The font.      *      * @return font has BOLD and ITALIC-type or not      */
 specifier|private
 specifier|static
 name|boolean
@@ -805,7 +844,7 @@ name|font
 argument_list|)
 return|;
 block|}
-comment|/**      * Try to determine if the font has a BOLD-type      *      * @param name The font.      *      * @return font has BOLD-type or not      */
+comment|/**      * Try to determine if the font has a BOLD-type.      *      * @param name The font.      *      * @return font has BOLD-type or not      */
 specifier|private
 specifier|static
 name|boolean
@@ -842,9 +881,11 @@ operator|>
 operator|-
 literal|1
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 name|String
 name|psname
 init|=
@@ -868,14 +909,16 @@ operator|>
 operator|-
 literal|1
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 return|return
 literal|false
 return|;
 block|}
-comment|/**      * Try to determine if the font has an ITALIC-type      *      * @param name The font.      *      * @return font has ITALIC-type or not      */
+comment|/**      * Try to determine if the font has an ITALIC-type.      *      * @param name The font.      *      * @return font has ITALIC-type or not      */
 specifier|private
 specifier|static
 name|boolean
@@ -923,9 +966,11 @@ operator|>
 operator|-
 literal|1
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 name|String
 name|psname
 init|=
@@ -959,9 +1004,11 @@ operator|>
 operator|-
 literal|1
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 return|return
 literal|false
 return|;

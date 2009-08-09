@@ -118,7 +118,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will parse a PDF 1.5 (or better) Xref stream and   * extract the xref information from the stream  *   * @author  * @version  */
+comment|/**  * This will parse a PDF 1.5 (or better) Xref stream and   * extract the xref information from the stream.  *   *  @author<a href="mailto:justinl@basistech.com">Justin LeFebvre</a>  *  @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
@@ -163,7 +163,7 @@ operator|=
 name|strm
 expr_stmt|;
 block|}
-comment|/**      * Parses through the unfiltered stream and populates the xrefTable      * HashMap      * @throws IOException If there is an error while parsing the stream.      */
+comment|/**      * Parses through the unfiltered stream and populates the xrefTable HashMap.      * @throws IOException If there is an error while parsing the stream.      */
 specifier|public
 name|void
 name|parse
@@ -464,7 +464,7 @@ block|{
 case|case
 literal|0
 case|:
-comment|/*                      * Skipping free objects                      */
+comment|/*                          * Skipping free objects                          */
 break|break;
 case|case
 literal|1
@@ -590,7 +590,9 @@ break|break;
 case|case
 literal|2
 case|:
-comment|/*                      * These objects are handled by the dereferenceObjects() method                      * since they're only pointing to object numbers                      */
+comment|/*                          * These objects are handled by the dereferenceObjects() method                          * since they're only pointing to object numbers                          */
+break|break;
+default|default:
 break|break;
 block|}
 block|}
