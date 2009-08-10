@@ -42,30 +42,31 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  CJKConverter converts encodings defined in CJKEncodings  *  *  @auther pinxue<http://www.pinxue.net>, Holly Lee<holly.lee (at) gmail.com>  */
+comment|/**  *  CJKConverter converts encodings defined in CJKEncodings.  *  *  @author  Pin Xue (http://www.pinxue.net), Holly Lee (holly.lee (at) gmail.com)  *  @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|CJKConverter
 implements|implements
 name|EncodingConverter
 block|{
-comment|/** The encoding */
+comment|// The encoding
 specifier|private
 name|String
-name|_encoding
+name|encodingName
 init|=
 literal|null
 decl_stmt|;
-comment|/** The java charset name */
+comment|// The java charset name
 specifier|private
 name|String
-name|_charset
+name|charsetName
 init|=
 literal|null
 decl_stmt|;
-comment|/**        *  Constructs a CJKConverter from a PDF encoding name        */
+comment|/**      *  Constructs a CJKConverter from a PDF encoding name.      *        *  @param encoding the encoding to be used      */
 specifier|public
 name|CJKConverter
 parameter_list|(
@@ -73,11 +74,11 @@ name|String
 name|encoding
 parameter_list|)
 block|{
-name|_encoding
+name|encodingName
 operator|=
 name|encoding
 expr_stmt|;
-name|_charset
+name|charsetName
 operator|=
 name|CJKEncodings
 operator|.
@@ -87,7 +88,7 @@ name|encoding
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**         *  Convert a string. It occurs when a cmap lookup returned         *  converted bytes successfully, but we still need to convert its         *  encoding. The parameter s is constructs as one byte or a UTF-16BE         *  encoded string.         *         *  Note: pdfbox set string to UTF-16BE charset before calling into         *  this.         */
+comment|/**     *  Convert a string. It occurs when a cmap lookup returned     *  converted bytes successfully, but we still need to convert its     *  encoding. The parameter s is constructs as one byte or a UTF-16BE     *  encoded string.     *     *  Note: pdfbox set string to UTF-16BE charset before calling into     *  this.     *       *  {@inheritDoc}     */
 specifier|public
 name|String
 name|convertString
@@ -105,21 +106,25 @@ argument_list|()
 operator|==
 literal|1
 condition|)
+block|{
 return|return
 name|s
 return|;
+block|}
 if|if
 condition|(
-name|_charset
+name|charsetName
 operator|.
 name|equalsIgnoreCase
 argument_list|(
 literal|"UTF-16BE"
 argument_list|)
 condition|)
+block|{
 return|return
 name|s
 return|;
+block|}
 try|try
 block|{
 return|return
@@ -133,7 +138,7 @@ argument_list|(
 literal|"UTF-16BE"
 argument_list|)
 argument_list|,
-name|_charset
+name|charsetName
 argument_list|)
 return|;
 block|}
@@ -148,7 +153,7 @@ name|s
 return|;
 block|}
 block|}
-comment|/** 	    *  Convert bytes to a string. We just convert bytes within 	    *  coderange defined in CMap. 	    * 	    *  @return Converted string. 	    */
+comment|/**     *  Convert bytes to a string. We just convert bytes within     *  coderange defined in CMap.     *     *  {@inheritDoc}     */
 specifier|public
 name|String
 name|convertBytes
@@ -189,6 +194,7 @@ argument_list|,
 name|length
 argument_list|)
 condition|)
+block|{
 return|return
 operator|new
 name|String
@@ -199,13 +205,16 @@ name|offset
 argument_list|,
 name|length
 argument_list|,
-name|_charset
+name|charsetName
 argument_list|)
 return|;
+block|}
 else|else
+block|{
 return|return
 literal|null
 return|;
+block|}
 block|}
 catch|catch
 parameter_list|(

@@ -809,10 +809,12 @@ operator|(
 name|toHTML
 operator|)
 condition|)
+block|{
 name|encoding
 operator|=
 literal|"UTF-8"
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|toConsole

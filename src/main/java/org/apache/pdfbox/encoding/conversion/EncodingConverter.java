@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  EncodingConverter converts string or characters in one encoding, which is specified in PDF  *  file, to another string with respective java charset. The mapping from  *  PDF encoding name to java charset name is maintained by EncodingConversionManager  */
+comment|/**  *  EncodingConverter converts string or characters in one encoding, which is specified in PDF  *  file, to another string with respective java charset. The mapping from  *  PDF encoding name to java charset name is maintained by EncodingConversionManager   *  @author  Pin Xue (http://www.pinxue.net), Holly Lee (holly.lee (at) gmail.com)  *  @version $Revision: 1.0 $  */
 end_comment
 
 begin_interface
@@ -40,7 +40,7 @@ specifier|public
 interface|interface
 name|EncodingConverter
 block|{
-comment|/**         *  Convert a string         */
+comment|/**         *  Convert a string.         *           *  @param s the string to be converted         *  @return the converted string         */
 specifier|public
 name|String
 name|convertString
@@ -49,7 +49,7 @@ name|String
 name|s
 parameter_list|)
 function_decl|;
-comment|/** 	    *  Convert bytes to a string 	    */
+comment|/**         *  Convert bytes to a string.         *         *  @param c the byte array to be converted         *  @param offset the starting offset of the array         *  @param length the number of bytes         *  @param cmap the cmap to be used for conversion            *  @return the converted string         */
 specifier|public
 name|String
 name|convertBytes

@@ -1723,7 +1723,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * Private constructor.  This will limit the number of COSName objects.      * that are created.      *      * @param aName The name of the COSName object.      * @param staticValue Indicates if the COSName object is static so that it can be stored in the HashMap without synchronizing.      */
+comment|/**      * Private constructor.  This will limit the number of COSName objects.      * that are created.      *      * @param aName The name of the COSName object.      * @param staticValue Indicates if the COSName object is static so that it can       *        be stored in the HashMap without synchronizing.      */
 specifier|private
 name|COSName
 parameter_list|(
@@ -1742,6 +1742,7 @@ if|if
 condition|(
 name|staticValue
 condition|)
+block|{
 name|commonNameMap
 operator|.
 name|put
@@ -1751,7 +1752,9 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|nameMap
 operator|.
 name|put
@@ -1761,6 +1764,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 name|hashCode
 operator|=
 name|name

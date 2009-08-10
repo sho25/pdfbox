@@ -28,7 +28,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class provides a mapping from char code to unicode mapping files used for CJK-encoding  * @author Andreas Lehmkühler  *  */
+comment|/**  * This class provides a mapping from char code to unicode mapping files used for CJK-encoding.  * @author Andreas Lehmkühler  * @version $Revision: 1.0 $  *  */
 end_comment
 
 begin_class
@@ -45,6 +45,10 @@ operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
+specifier|private
+name|CMapSubstitution
+parameter_list|()
+block|{     }
 static|static
 block|{
 comment|// I don't know if these mappings are complete. Perhaps there
@@ -233,6 +237,7 @@ literal|"Adobe-Japan1-UCS2"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      *       * @param cmapName The name of a cmap for which we have to find a possible substitution      * @return the substitution for the given cmap name      */
 specifier|public
 specifier|static
 name|String
@@ -251,6 +256,7 @@ argument_list|(
 name|cmapName
 argument_list|)
 condition|)
+block|{
 return|return
 operator|(
 name|String
@@ -262,6 +268,7 @@ argument_list|(
 name|cmapName
 argument_list|)
 return|;
+block|}
 return|return
 name|cmapName
 return|;

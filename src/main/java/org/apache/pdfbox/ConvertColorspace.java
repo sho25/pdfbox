@@ -1955,7 +1955,9 @@ literal|" RGB color values are integers between 0 and 255"
 operator|+
 literal|" CMYK color values are integer between 0 and 100.\n"
 operator|+
-literal|" Example: java org.apache.pdfbox.ConvertColorspace -equiv RGB:(255,0,0)=CMYK(0,99,100,0) input.pdf output.pdf\n"
+literal|" Example: java org.apache.pdfbox.ConvertColorspace -equiv RGB:(255,0,0)=CMYK(0,99,100,0)"
+operator|+
+literal|" input.pdf output.pdf\n"
 operator|+
 literal|"<PDF Input file>             The PDF document to use\n"
 operator|+

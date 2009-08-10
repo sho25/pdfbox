@@ -186,6 +186,10 @@ name|PREFIX
 init|=
 literal|"-prefix"
 decl_stmt|;
+specifier|private
+name|ExtractImages
+parameter_list|()
+block|{     }
 comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws Exception If there is an error decrypting the document.      */
 specifier|public
 specifier|static

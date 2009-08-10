@@ -426,7 +426,9 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.pdmodel.AddMetadataFromDocInfo<input-pdf><output-pdf>"
+literal|"Usage: java org.apache.pdfbox.examples.pdmodel.AddMetadataFromDocInfo "
+operator|+
+literal|"<input-pdf><output-pdf>"
 argument_list|)
 expr_stmt|;
 block|}

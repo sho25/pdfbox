@@ -36,6 +36,10 @@ specifier|public
 class|class
 name|PDFMerger
 block|{
+specifier|private
+name|PDFMerger
+parameter_list|()
+block|{     }
 comment|/**      * Infamous main method.      *      * @param args Command line arguments, should be at least 3.      *      * @throws Exception If there is an error parsing the document.      */
 specifier|public
 specifier|static

@@ -172,6 +172,10 @@ name|SPLIT
 init|=
 literal|"-split"
 decl_stmt|;
+specifier|private
+name|PDFSplit
+parameter_list|()
+block|{     }
 comment|/**      * Infamous main method.      *      * @param args Command line arguments, should be one and a reference to a file.      *      * @throws Exception If there is an error parsing the document.      */
 specifier|public
 specifier|static

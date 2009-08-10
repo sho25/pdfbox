@@ -1064,7 +1064,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*     Return contents of COSArray as a Java List     */
+comment|/**      *  Return contents of COSArray as a Java List.      *        *  @return the COSArray as List       */
 specifier|public
 name|List
 name|toList
@@ -1095,6 +1095,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|retList
 operator|.
 name|add
@@ -1105,6 +1106,7 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|retList
 return|;

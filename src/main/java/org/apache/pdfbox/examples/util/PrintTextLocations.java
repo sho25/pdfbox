@@ -354,7 +354,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * A method provided as an event interface to allow a subclass to perform      * some specific functionality when text needs to be processed      *      * @param text The text to be processed      */
+comment|/**      * A method provided as an event interface to allow a subclass to perform      * some specific functionality when text needs to be processed.      *      * @param text The text to be processed      */
 specifier|protected
 name|void
 name|processTextPosition

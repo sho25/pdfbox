@@ -405,7 +405,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Loads a glyph list from a given location and populates the NAME_TO_CHARACTER hashmap      * for character lookups      * @param location - The string location of the glyphlist file       */
+comment|/**      * Loads a glyph list from a given location and populates the NAME_TO_CHARACTER hashmap      * for character lookups.      * @param location - The string location of the glyphlist file       */
 specifier|private
 specifier|static
 name|void
@@ -1034,6 +1034,7 @@ operator|<
 literal|0xE000
 operator|)
 condition|)
+block|{
 name|Logger
 operator|.
 name|getLogger
@@ -1057,7 +1058,9 @@ operator|+
 name|nameStr
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|uniStr
 operator|.
 name|append
@@ -1068,6 +1071,7 @@ operator|)
 name|characterCode
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

@@ -195,7 +195,7 @@ operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
-comment|/**      * Maps object and generation ids to object byte offsets      */
+comment|/**      * Maps object and generation ids to object byte offsets.      */
 specifier|private
 name|Map
 name|xrefTable
@@ -307,7 +307,7 @@ return|return
 name|scratchFile
 return|;
 block|}
-comment|/**      * This will get the first dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      */
+comment|/**      * This will get the first dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      * @throws IOException If there is an error getting the object      */
 specifier|public
 name|COSObject
 name|getObjectByType
@@ -330,7 +330,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the first dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      */
+comment|/**      * This will get the first dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      * @throws IOException If there is an error getting the object      */
 specifier|public
 name|COSObject
 name|getObjectByType
@@ -471,7 +471,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get all dictionary objects by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      */
+comment|/**      * This will get all dictionary objects by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      * @throws IOException If there is an error getting the object      */
 specifier|public
 name|List
 name|getObjectsByType
@@ -494,7 +494,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get a dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      */
+comment|/**      * This will get a dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      * @throws IOException If there is an error getting the object      */
 specifier|public
 name|List
 name|getObjectsByType
@@ -1262,7 +1262,7 @@ return|return
 name|obj
 return|;
 block|}
-comment|/**      * Used to populate the XRef HashMap. Will add an Xreftable entry      * that maps ObjectKeys to byte offsets in the file.       * @param objKey The objkey, with id and gen numbers      * @param currOffset The byte offset in this file      */
+comment|/**      * Used to populate the XRef HashMap. Will add an Xreftable entry      * that maps ObjectKeys to byte offsets in the file.       * @param objKey The objkey, with id and gen numbers      * @param offset The byte offset in this file      */
 specifier|public
 name|void
 name|setXRef
@@ -1288,7 +1288,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the xrefTable which is a mapping of ObjectKeys      * to byte offsets in the file.       * @return      */
+comment|/**      * Returns the xrefTable which is a mapping of ObjectKeys      * to byte offsets in the file.       * @return mapping of ObjectsKeys to byte offsets      */
 specifier|public
 name|Map
 name|getXrefTable
@@ -1307,7 +1307,7 @@ throws|throws
 name|IOException
 block|{
 name|COSDictionary
-name|trailer
+name|trailerDict
 init|=
 operator|new
 name|COSDictionary
@@ -1354,7 +1354,7 @@ operator|.
 name|getObject
 argument_list|()
 decl_stmt|;
-name|trailer
+name|trailerDict
 operator|.
 name|addAll
 argument_list|(
@@ -1380,7 +1380,7 @@ expr_stmt|;
 block|}
 name|setTrailer
 argument_list|(
-name|trailer
+name|trailerDict
 argument_list|)
 expr_stmt|;
 block|}

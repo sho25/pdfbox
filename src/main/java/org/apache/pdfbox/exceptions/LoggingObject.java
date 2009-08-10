@@ -53,23 +53,9 @@ name|Logger
 name|logger_
 decl_stmt|;
 comment|//dwilson 3/15/07
-specifier|protected
-name|Logger
-name|logger
-parameter_list|()
-throws|throws
-name|IOException
-comment|//dwilson 3/15/07
+static|static
 block|{
-comment|//I would like to just bury any error here ... but unfortunately an error would result in a Null Reference Exception
-comment|//Therefore, I might as well throw the original error.
-comment|//http://www.rgagnon.com/javadetails/java-0501.html
-if|if
-condition|(
-name|logger_
-operator|==
-literal|null
-condition|)
+try|try
 block|{
 name|FileHandler
 name|fh
@@ -117,7 +103,38 @@ operator|.
 name|WARNING
 argument_list|)
 expr_stmt|;
+comment|//            logger_.setLevel(Level.INFO);
 block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|exception
+parameter_list|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Error while opening the logfile:"
+argument_list|)
+expr_stmt|;
+name|exception
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+specifier|protected
+name|Logger
+name|logger
+parameter_list|()
+throws|throws
+name|IOException
+comment|//dwilson 3/15/07
+block|{
 return|return
 name|logger_
 return|;
@@ -131,9 +148,6 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|String
-name|sRet
-decl_stmt|;
 name|int
 name|i
 decl_stmt|;
@@ -141,12 +155,13 @@ name|StackTraceElement
 index|[]
 name|L
 decl_stmt|;
+name|StringBuffer
 name|sRet
-operator|=
+init|=
 operator|new
-name|String
+name|StringBuffer
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|L
 operator|=
 name|e
@@ -171,9 +186,9 @@ operator|++
 control|)
 block|{
 name|sRet
-operator|=
-name|sRet
-operator|+
+operator|.
+name|append
+argument_list|(
 operator|(
 name|L
 index|[
@@ -183,8 +198,12 @@ operator|.
 name|toString
 argument_list|()
 operator|)
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|"\n"
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -198,11 +217,14 @@ literal|null
 condition|)
 block|{
 name|sRet
-operator|=
-name|sRet
-operator|+
+operator|.
+name|append
+argument_list|(
 literal|"Caused By \n\t"
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|e
 operator|.
 name|getCause
@@ -210,11 +232,12 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|sRet
-operator|=
-name|sRet
-operator|+
+operator|.
+name|append
+argument_list|(
 name|FullStackTrace
 argument_list|(
 name|e
@@ -222,10 +245,14 @@ operator|.
 name|getCause
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 return|return
 name|sRet
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}

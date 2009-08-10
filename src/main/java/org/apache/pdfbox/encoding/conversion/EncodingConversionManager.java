@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  EncodingConversionManager maintains relationship between PDF encoding name  *  and respective EncodingConverter instance. Those PDF encoding name like  *  GBK-EUC-H should be converted to java charset name before constructing a  *  java string instance  */
+comment|/**  *  EncodingConversionManager maintains relationship between PDF encoding name  *  and respective EncodingConverter instance. Those PDF encoding name like  *  GBK-EUC-H should be converted to java charset name before constructing a  *  java string instance  *    *  @author  Pin Xue (http://www.pinxue.net), Holly Lee (holly.lee (at) gmail.com)  *  @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
@@ -46,17 +46,21 @@ specifier|public
 class|class
 name|EncodingConversionManager
 block|{
-comment|/**         *  Mapping from PDF encoding name to EncodingConverter instance         */
+comment|/**         *  Mapping from PDF encoding name to EncodingConverter instance.         */
 specifier|private
 specifier|static
 name|HashMap
-name|_encodingMap
+name|encodingMap
 init|=
 operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
-comment|/** 	    *  Initialize the encodingMap before anything calls us 	    */
+specifier|private
+name|EncodingConversionManager
+parameter_list|()
+block|{        }
+comment|/**         *  Initialize the encodingMap before anything calls us.         */
 static|static
 block|{
 comment|// Add CJK encodings to map
@@ -89,7 +93,7 @@ name|next
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|_encodingMap
+name|encodingMap
 operator|.
 name|put
 argument_list|(
@@ -105,7 +109,7 @@ expr_stmt|;
 block|}
 comment|// If there is any other encoding conversions, please add it here.
 block|}
-comment|/** 	    *  Get converter from given encoding name. If no converted defined, 	    *  a null is returned 	    */
+comment|/**         *  Get converter from given encoding name. If no converted defined,         *  a null is returned.         *           *  @param encoding search for a converter for the given encoding name         *  @return the converter for the given encoding name         */
 specifier|public
 specifier|static
 specifier|final
@@ -121,7 +125,7 @@ call|(
 name|EncodingConverter
 call|)
 argument_list|(
-name|_encodingMap
+name|encodingMap
 operator|.
 name|get
 argument_list|(

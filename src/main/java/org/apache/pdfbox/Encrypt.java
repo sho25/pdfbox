@@ -144,6 +144,10 @@ specifier|public
 class|class
 name|Encrypt
 block|{
+specifier|private
+name|Encrypt
+parameter_list|()
+block|{     }
 comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws Exception If there is an error decrypting the document.      */
 specifier|public
 specifier|static

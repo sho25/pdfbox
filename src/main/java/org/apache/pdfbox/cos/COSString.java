@@ -1317,7 +1317,6 @@ name|obj
 argument_list|)
 return|;
 block|}
-else|else
 return|return
 literal|false
 return|;

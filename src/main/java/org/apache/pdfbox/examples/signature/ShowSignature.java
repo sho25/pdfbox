@@ -138,6 +138,10 @@ specifier|public
 class|class
 name|ShowSignature
 block|{
+specifier|private
+name|ShowSignature
+parameter_list|()
+block|{     }
 comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws Exception If there is an error reading the file.      */
 specifier|public
 specifier|static
