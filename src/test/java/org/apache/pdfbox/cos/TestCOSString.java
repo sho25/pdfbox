@@ -55,20 +55,6 @@ name|TestSuite
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSString
-import|;
-end_import
-
 begin_comment
 comment|/**  * This will test all of the filters in the PDFBox system.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision$  */
 end_comment

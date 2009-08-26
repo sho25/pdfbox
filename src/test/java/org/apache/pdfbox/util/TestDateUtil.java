@@ -65,20 +65,6 @@ name|TestSuite
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|DateConverter
-import|;
-end_import
-
 begin_comment
 comment|/**  * Test the date conversion utility.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
 end_comment

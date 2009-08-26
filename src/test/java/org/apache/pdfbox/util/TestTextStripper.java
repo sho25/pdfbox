@@ -179,20 +179,6 @@ name|PDDocument
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|PDFTextStripper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Test suite for PDFTextStripper.  *  * FILE SET VALIDATION  *  * This test suite is designed to test PDFTextStripper using a set of PDF  * files and known good output for each.  The default mode of testAll()  * is to process each *.pdf file in "test/input".  An output file is  * created in "test/output" with the same name as the PDF file, plus an  * additional ".txt" suffix.    *  * The output file is then tested against a known good result file from  * the input directory (again, with the same name as the tested PDF file,  * but with the additional ".txt" suffix).  The process is performed both  * with and without sorting enabled.  The sorted files have a "-sorted.txt"   * suffix.   *  * So for the file "test/input/hello.pdf", an output file will be generated  * named "test/output/hello.pdf.txt".  Then that file will be compared to  * the known good file "test/input/hello.pdf.txt", if it exists.  *   * To support testing with files that are not officially distributed   * with PDFBox, this test will also look in the "test/input-ext" directory.   *  * Any errors are logged, and at the end of processing all *.pdf files, if  * there were any errors, the test fails.  The logging is at INFO, as the  * general goal is overall validation, and on failure, the indication of  * which file or files failed.  *  * When processing new PDF files, you may use testAll() to generate output,  * verify the output manually, then move the output file to the test input  * directory to use as the basis for future validations.  *  * SINGLE FILE VALIDATION  *  * To further research individual failures, the org.apache.pdfbox.util.TextStripper.file  * system property may be set with the name of a single file in the "test/input"  * directory.  In this mode, testAll() will evaluate only that file, and will  * do so with DEBUG level logging.  You can set this property from ant by  * defining "file", as in:  *  *    ant testextract -Dfile=hello.pdf  *  * @author Robert Dickinson (bob@brutesquadlabs.com)  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.19 $  */
 end_comment
@@ -276,9 +262,6 @@ specifier|private
 name|boolean
 name|stringsEqual
 parameter_list|(
-name|PrintWriter
-name|log
-parameter_list|,
 name|String
 name|expected
 parameter_list|,
@@ -720,22 +703,20 @@ try|try
 block|{
 if|if
 condition|(
+operator|!
 name|outDir
 operator|.
 name|exists
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 if|if
 condition|(
+operator|!
 name|outDir
 operator|.
 name|mkdirs
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 throw|throw
@@ -1071,8 +1052,6 @@ condition|(
 operator|!
 name|stringsEqual
 argument_list|(
-name|log
-argument_list|,
 name|expectedLine
 argument_list|,
 name|actualLine
@@ -1384,6 +1363,7 @@ operator|.
 name|exists
 argument_list|()
 condition|)
+block|{
 name|doTestDir
 argument_list|(
 name|inDirExt
@@ -1391,6 +1371,7 @@ argument_list|,
 name|outDirExt
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

@@ -255,6 +255,7 @@ specifier|private
 name|PDDocument
 name|document
 decl_stmt|;
+comment|/**      * {@inheritDoc}      */
 specifier|protected
 name|void
 name|setUp
@@ -456,6 +457,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * {@inheritDoc}      */
 specifier|protected
 name|void
 name|tearDown
@@ -969,13 +971,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Reloads the given document by writing it to a temporary byte array      * and loading a fresh document from that byte array.      *      * @param document input document      * @return reloaded document      * @throws Exception if       */
+comment|/**      * Reloads the given document by writing it to a temporary byte array      * and loading a fresh document from that byte array.      *      * @param doc input document      * @return reloaded document      * @throws Exception if       */
 specifier|private
 name|PDDocument
 name|reload
 parameter_list|(
 name|PDDocument
-name|document
+name|doc
 parameter_list|)
 block|{
 try|try
@@ -987,7 +989,7 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
-name|document
+name|doc
 operator|.
 name|save
 argument_list|(
