@@ -33,7 +33,43 @@ name|util
 operator|.
 name|logging
 operator|.
-name|*
+name|FileHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Level
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|SimpleFormatter
 import|;
 end_import
 
@@ -50,7 +86,7 @@ block|{
 specifier|private
 specifier|static
 name|Logger
-name|logger_
+name|logger
 decl_stmt|;
 comment|//dwilson 3/15/07
 static|static
@@ -77,7 +113,7 @@ name|SimpleFormatter
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|logger_
+name|logger
 operator|=
 name|Logger
 operator|.
@@ -86,7 +122,7 @@ argument_list|(
 literal|"TestLog"
 argument_list|)
 expr_stmt|;
-name|logger_
+name|logger
 operator|.
 name|addHandler
 argument_list|(
@@ -94,7 +130,7 @@ name|fh
 argument_list|)
 expr_stmt|;
 comment|/*Set the log level here.             The lower your logging level, the more stuff will be logged.             Options are:                 * OFF -- log nothing                 * SEVERE (highest value)                 * WARNING                 * INFO                 * CONFIG                 * FINE                 * FINER                 * FINEST (lowest value)             http://java.sun.com/j2se/1.4.2/docs/api/java/util/logging/Level.html              I recommend INFO for debug builds and either SEVERE or OFF for production builds.             */
-name|logger_
+name|logger
 operator|.
 name|setLevel
 argument_list|(
@@ -127,22 +163,22 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Returns the main logger instance.      * @return the logger instance      */
 specifier|protected
 name|Logger
 name|logger
 parameter_list|()
-throws|throws
-name|IOException
 comment|//dwilson 3/15/07
 block|{
 return|return
-name|logger_
+name|logger
 return|;
 block|}
+comment|/**      * Constructs a String with the full stack trace of the given exception.      * @param e the exception      * @return the full stack trace as a string      */
 specifier|protected
 specifier|static
 name|String
-name|FullStackTrace
+name|fullStackTrace
 parameter_list|(
 name|Throwable
 name|e
@@ -153,7 +189,7 @@ name|i
 decl_stmt|;
 name|StackTraceElement
 index|[]
-name|L
+name|element
 decl_stmt|;
 name|StringBuffer
 name|sRet
@@ -162,7 +198,7 @@ operator|new
 name|StringBuffer
 argument_list|()
 decl_stmt|;
-name|L
+name|element
 operator|=
 name|e
 operator|.
@@ -177,7 +213,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|L
+name|element
 operator|.
 name|length
 condition|;
@@ -190,7 +226,7 @@ operator|.
 name|append
 argument_list|(
 operator|(
-name|L
+name|element
 index|[
 name|i
 index|]
@@ -238,7 +274,7 @@ name|sRet
 operator|.
 name|append
 argument_list|(
-name|FullStackTrace
+name|fullStackTrace
 argument_list|(
 name|e
 operator|.

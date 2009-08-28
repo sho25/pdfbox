@@ -616,7 +616,7 @@ argument_list|()
 operator|+
 literal|"\n at\n"
 operator|+
-name|FullStackTrace
+name|fullStackTrace
 argument_list|(
 name|exception
 argument_list|)
