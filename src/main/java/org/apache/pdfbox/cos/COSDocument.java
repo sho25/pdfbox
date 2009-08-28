@@ -186,7 +186,7 @@ specifier|private
 name|float
 name|version
 decl_stmt|;
-comment|/**      * Maps ObjectKeys to a COSObject. Note that references to these objects      * are also stored in COSDictionary objects that map a name to a specific object.       */
+comment|/**      * Maps ObjectKeys to a COSObject. Note that references to these objects      * are also stored in COSDictionary objects that map a name to a specific object.      */
 specifier|private
 name|Map
 name|objectPool
@@ -227,6 +227,12 @@ name|String
 name|headerString
 init|=
 literal|"%PDF-1.4"
+decl_stmt|;
+specifier|private
+name|boolean
+name|warnMissingClose
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Constructor.  Uses the java.io.tmpdir value to create a file      * to store the streams.      *      *  @throws IOException If there is an error creating the tmp file.      */
 specifier|public
@@ -978,14 +984,21 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|/**      * The sole purpose of this is to inform a client of PDFBox that they      * did not close the document.      */
+comment|/**      * Warn the user in the finalizer if he didn't close the PDF document. The method also      * closes the document just in case, to avoid abandoned temporary files. It's still a good      * idea for the user to close the PDF document at the earliest possible to conserve resources.      * @throws IOException if an error occurs while closing the temporary files      */
 specifier|protected
 name|void
 name|finalize
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
+name|this
+operator|.
+name|warnMissingClose
+operator|&&
+operator|(
 name|tmpFile
 operator|!=
 literal|null
@@ -993,6 +1006,7 @@ operator|||
 name|scratchFile
 operator|!=
 literal|null
+operator|)
 condition|)
 block|{
 name|Throwable
@@ -1010,6 +1024,25 @@ name|printStackTrace
 argument_list|()
 expr_stmt|;
 block|}
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Controls whether this instance shall issue a warning if the PDF document wasn't closed      * properly through a call to the {@link #close()} method. If the PDF document is held in      * a cache governed by soft references it is impossible to reliably close the document      * before the warning is raised. By default, the warning is enabled.      * @param warn true enables the warning, false disables it.      */
+specifier|public
+name|void
+name|setWarnMissingClose
+parameter_list|(
+name|boolean
+name|warn
+parameter_list|)
+block|{
+name|this
+operator|.
+name|warnMissingClose
+operator|=
+name|warn
+expr_stmt|;
 block|}
 comment|/**      * @return Returns the headerString.      */
 specifier|public
@@ -1262,7 +1295,7 @@ return|return
 name|obj
 return|;
 block|}
-comment|/**      * Used to populate the XRef HashMap. Will add an Xreftable entry      * that maps ObjectKeys to byte offsets in the file.       * @param objKey The objkey, with id and gen numbers      * @param offset The byte offset in this file      */
+comment|/**      * Used to populate the XRef HashMap. Will add an Xreftable entry      * that maps ObjectKeys to byte offsets in the file.      * @param objKey The objkey, with id and gen numbers      * @param offset The byte offset in this file      */
 specifier|public
 name|void
 name|setXRef
@@ -1288,7 +1321,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the xrefTable which is a mapping of ObjectKeys      * to byte offsets in the file.       * @return mapping of ObjectsKeys to byte offsets      */
+comment|/**      * Returns the xrefTable which is a mapping of ObjectKeys      * to byte offsets in the file.      * @return mapping of ObjectsKeys to byte offsets      */
 specifier|public
 name|Map
 name|getXrefTable
@@ -1298,7 +1331,7 @@ return|return
 name|xrefTable
 return|;
 block|}
-comment|/**      * This method will search the list of objects for types of XRef and       * uses the parsed data to populate the trailer information as well as      * the xref Map.       *       * @throws IOException if there is an error parsing the stream      */
+comment|/**      * This method will search the list of objects for types of XRef and      * uses the parsed data to populate the trailer information as well as      * the xref Map.      *      * @throws IOException if there is an error parsing the stream      */
 specifier|public
 name|void
 name|parseXrefStreams
