@@ -720,6 +720,8 @@ operator|new
 name|String
 argument_list|(
 name|b
+argument_list|,
+literal|"US-ASCII"
 argument_list|)
 decl_stmt|;
 if|if
