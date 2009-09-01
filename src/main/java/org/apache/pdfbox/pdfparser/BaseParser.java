@@ -3994,6 +3994,22 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|pdfSource
+operator|.
+name|isEOF
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: End-of-File, expected line"
+argument_list|)
+throw|;
+block|}
 name|StringBuffer
 name|buffer
 init|=
