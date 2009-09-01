@@ -2244,6 +2244,16 @@ operator|+
 literal|"}"
 return|;
 block|}
+comment|/**      * This will return then underlying COSArray.      *       * @return the COSArray      */
+specifier|public
+name|COSArray
+name|toList
+parameter_list|()
+block|{
+return|return
+name|array
+return|;
+block|}
 block|}
 end_class
 
