@@ -437,18 +437,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
 begin_comment
 comment|/**  * This represents a single page in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.29 $  */
 end_comment
@@ -2172,12 +2160,8 @@ block|{
 name|logger
 argument_list|()
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Unable to rotate page image"
 argument_list|,
 name|e

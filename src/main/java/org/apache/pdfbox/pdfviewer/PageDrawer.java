@@ -754,7 +754,7 @@ comment|// TODO : need to implement....
 name|logger
 argument_list|()
 operator|.
-name|warning
+name|warn
 argument_list|(
 literal|"Unsupported RenderingMode "
 operator|+
@@ -770,13 +770,7 @@ name|getRenderingMode
 argument_list|()
 operator|+
 literal|" in PageDrawer.processTextPosition()"
-argument_list|)
-expr_stmt|;
-name|logger
-argument_list|()
-operator|.
-name|warning
-argument_list|(
+operator|+
 literal|"Using RenderingMode "
 operator|+
 name|PDTextState

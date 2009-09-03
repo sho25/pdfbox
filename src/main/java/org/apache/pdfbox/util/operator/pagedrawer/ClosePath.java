@@ -136,19 +136,11 @@ block|{
 name|logger
 argument_list|()
 operator|.
-name|warning
+name|warn
 argument_list|(
 name|t
-operator|.
-name|getMessage
-argument_list|()
-operator|+
-literal|"\n at\n"
-operator|+
-name|fullStackTrace
-argument_list|(
+argument_list|,
 name|t
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

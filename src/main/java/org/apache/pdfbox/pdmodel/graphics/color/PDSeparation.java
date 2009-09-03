@@ -263,19 +263,11 @@ block|{
 name|logger
 argument_list|()
 operator|.
-name|severe
+name|error
 argument_list|(
 name|ioexception
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|"\n at\n"
-operator|+
-name|fullStackTrace
-argument_list|(
+argument_list|,
 name|ioexception
-argument_list|)
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -291,19 +283,11 @@ block|{
 name|logger
 argument_list|()
 operator|.
-name|severe
+name|error
 argument_list|(
 name|exception
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|"\n at\n"
-operator|+
-name|fullStackTrace
-argument_list|(
+argument_list|,
 name|exception
-argument_list|)
 argument_list|)
 expr_stmt|;
 throw|throw

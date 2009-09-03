@@ -81,18 +81,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|regex
 operator|.
 name|Pattern
@@ -509,12 +497,8 @@ comment|/*                              * Warning is sent to the PDFBox.log and 
 name|logger
 argument_list|()
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Parsing Error, Skipping Object"
 argument_list|,
 name|e
@@ -2232,7 +2216,7 @@ block|{
 name|logger
 argument_list|()
 operator|.
-name|warning
+name|warn
 argument_list|(
 literal|"invalid xref line: "
 operator|+

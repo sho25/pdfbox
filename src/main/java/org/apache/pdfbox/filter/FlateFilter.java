@@ -515,7 +515,7 @@ comment|// if the stream is corrupt an OutOfMemoryError may occur
 name|logger
 argument_list|()
 operator|.
-name|severe
+name|error
 argument_list|(
 literal|"Stop reading corrupt stream"
 argument_list|)
@@ -531,7 +531,7 @@ comment|// if the stream is corrupt an OutOfMemoryError may occur
 name|logger
 argument_list|()
 operator|.
-name|severe
+name|error
 argument_list|(
 literal|"Stop reading corrupt stream"
 argument_list|)
@@ -547,7 +547,7 @@ comment|// if the stream is corrupt an OutOfMemoryError may occur
 name|logger
 argument_list|()
 operator|.
-name|severe
+name|error
 argument_list|(
 literal|"Stop reading corrupt stream"
 argument_list|)

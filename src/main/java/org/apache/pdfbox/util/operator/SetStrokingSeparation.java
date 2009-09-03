@@ -424,7 +424,7 @@ block|{
 name|logger
 argument_list|()
 operator|.
-name|warning
+name|warn
 argument_list|(
 literal|"Not supported colorspace "
 operator|+

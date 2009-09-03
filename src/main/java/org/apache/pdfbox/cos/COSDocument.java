@@ -455,19 +455,11 @@ block|{
 name|logger
 argument_list|()
 operator|.
-name|warning
+name|warn
 argument_list|(
 name|e
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|"\n at\n"
-operator|+
-name|fullStackTrace
-argument_list|(
+argument_list|,
 name|e
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -620,19 +612,11 @@ block|{
 name|logger
 argument_list|()
 operator|.
-name|warning
+name|warn
 argument_list|(
 name|e
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|"\n at\n"
-operator|+
-name|fullStackTrace
-argument_list|(
+argument_list|,
 name|e
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

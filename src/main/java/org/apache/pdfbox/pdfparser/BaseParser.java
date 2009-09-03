@@ -57,18 +57,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -757,7 +745,7 @@ comment|//the key, read until we can recover
 name|logger
 argument_list|()
 operator|.
-name|warning
+name|warn
 argument_list|(
 literal|"Invalid dictionary, found:"
 operator|+
@@ -897,7 +885,7 @@ block|{
 name|logger
 argument_list|()
 operator|.
-name|warning
+name|warn
 argument_list|(
 literal|"Bad Dictionary Declaration "
 operator|+
@@ -2537,12 +2525,8 @@ block|{
 name|logger
 argument_list|()
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Corrupt object reference"
 argument_list|)
 expr_stmt|;
