@@ -1196,7 +1196,7 @@ block|{
 if|if
 condition|(
 name|pageMap
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
