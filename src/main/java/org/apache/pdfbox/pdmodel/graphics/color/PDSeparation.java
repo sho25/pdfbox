@@ -214,11 +214,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//return 1;
 return|return
-name|array
+name|getAlternateColorSpace
+argument_list|()
 operator|.
-name|size
+name|getNumberOfComponents
 argument_list|()
 return|;
 block|}
