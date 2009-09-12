@@ -1004,7 +1004,7 @@ decl_stmt|;
 name|int
 name|offset
 init|=
-literal|0
+name|bpp
 decl_stmt|;
 while|while
 condition|(
