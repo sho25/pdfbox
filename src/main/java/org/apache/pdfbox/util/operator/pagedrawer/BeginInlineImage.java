@@ -243,7 +243,12 @@ init|=
 name|image
 operator|.
 name|createImage
+argument_list|(
+name|context
+operator|.
+name|getColorSpaces
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|Matrix
 name|ctm

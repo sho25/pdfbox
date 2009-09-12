@@ -171,6 +171,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * This contains all of the image parameters for in inlined image.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
 end_comment
@@ -371,6 +381,24 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+return|return
+name|getColorSpace
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * This will get the color space or null if none exists.      *      * @param colorSpaces The ColorSpace dictionary from the current resources, if any.      *      * @return The color space for this image.      *      * @throws IOException If there is an error getting the colorspace.      */
+specifier|public
+name|PDColorSpace
+name|getColorSpace
+parameter_list|(
+name|Map
+name|colorSpaces
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|COSBase
 name|cs
 init|=
@@ -400,6 +428,8 @@ operator|.
 name|createColorSpace
 argument_list|(
 name|cs
+argument_list|,
+name|colorSpaces
 argument_list|)
 expr_stmt|;
 block|}

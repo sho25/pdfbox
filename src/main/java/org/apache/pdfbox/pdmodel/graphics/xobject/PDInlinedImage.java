@@ -145,6 +145,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -279,6 +289,24 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+return|return
+name|createImage
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * This will take the inlined image information and create a java.awt.Image from      * it.      *       * @param colorSpaces The ColorSpace dictionary from the current resources, if any.      *      * @return The image that this object represents.      *      * @throws IOException If there is an error creating the image.      */
+specifier|public
+name|BufferedImage
+name|createImage
+parameter_list|(
+name|Map
+name|colorSpaces
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 comment|/*          * This was the previous implementation, not sure which is better right now.          *         byte[] transparentColors = new byte[]{(byte)0xFF,(byte)0xFF};         byte[] colors=new byte[]{0, (byte)0xFF};         IndexColorModel colorModel = new IndexColorModel( 1, 2, colors, colors, colors, transparentColors );         BufferedImage image = new BufferedImage(             params.getWidth(),             params.getHeight(),             BufferedImage.TYPE_BYTE_BINARY,             colorModel );         DataBufferByte buffer = new DataBufferByte( getImageData(), 1 );         WritableRaster raster =             Raster.createPackedRaster(                 buffer,                 params.getWidth(),                 params.getHeight(),                 params.getBitsPerComponent(),                 new Point(0,0) );         image.setData( raster );         return image;          */
 comment|//verify again pci32.pdf before changing below
 name|PDColorSpace
@@ -287,7 +315,9 @@ init|=
 name|params
 operator|.
 name|getColorSpace
-argument_list|()
+argument_list|(
+name|colorSpaces
+argument_list|)
 decl_stmt|;
 name|ColorModel
 name|colorModel
@@ -303,10 +333,7 @@ condition|)
 block|{
 name|colorModel
 operator|=
-name|params
-operator|.
-name|getColorSpace
-argument_list|()
+name|pcs
 operator|.
 name|createColorModel
 argument_list|(
