@@ -915,6 +915,17 @@ operator|.
 name|createAffineTransform
 argument_list|()
 decl_stmt|;
+name|graphics
+operator|.
+name|setClip
+argument_list|(
+name|getGraphicsState
+argument_list|()
+operator|.
+name|getCurrentClippingPath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|font
 operator|.
 name|drawString
