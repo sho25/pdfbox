@@ -223,7 +223,7 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color space.      */
-specifier|public
+specifier|protected
 name|ColorSpace
 name|createColorSpace
 parameter_list|()
@@ -241,17 +241,11 @@ name|getAlternateColorSpace
 argument_list|()
 decl_stmt|;
 comment|//logger().info(alt.toString());
-name|ColorSpace
-name|colorspace
-init|=
+return|return
 name|alt
 operator|.
-name|createColorSpace
+name|getJavaColorSpace
 argument_list|()
-decl_stmt|;
-comment|///dwilson 12/15/07
-return|return
-name|colorspace
 return|;
 block|}
 catch|catch

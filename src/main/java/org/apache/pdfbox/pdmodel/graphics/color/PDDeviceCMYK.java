@@ -128,15 +128,9 @@ init|=
 literal|"CMYK"
 decl_stmt|;
 specifier|private
-name|ColorSpace
-name|cSpace
-init|=
-literal|null
-decl_stmt|;
-specifier|private
 name|PDDeviceCMYK
 parameter_list|()
-block|{      }
+block|{     }
 comment|/**      * This will return the name of the color space.      *      * @return The name of the color space.      */
 specifier|public
 name|String
@@ -159,30 +153,16 @@ return|return
 literal|4
 return|;
 block|}
-comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color space.      */
-specifier|public
+comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      */
+specifier|protected
 name|ColorSpace
 name|createColorSpace
 parameter_list|()
-throws|throws
-name|IOException
 block|{
-if|if
-condition|(
-name|cSpace
-operator|==
-literal|null
-condition|)
-block|{
-name|cSpace
-operator|=
+return|return
 operator|new
 name|ColorSpaceCMYK
 argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|cSpace
 return|;
 block|}
 comment|/**      * Create a Java color model for this colorspace.      *      * @param bpc The number of bits per component.      *      * @return A color model that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color model.      */
@@ -216,7 +196,7 @@ init|=
 operator|new
 name|ComponentColorModel
 argument_list|(
-name|createColorSpace
+name|getJavaColorSpace
 argument_list|()
 argument_list|,
 name|nbBits

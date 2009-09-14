@@ -144,6 +144,13 @@ specifier|protected
 name|COSArray
 name|array
 decl_stmt|;
+comment|/**      * Cached Java AWT color space.      *      * @see #getJavaColorSpace()      */
+specifier|private
+name|ColorSpace
+name|colorSpace
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * This will return the name of the color space.      *      * @return The name of the color space.      */
 specifier|public
 specifier|abstract
@@ -176,8 +183,33 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color space.      */
+comment|/**      * Returns the Java AWT color space for this instance.      *      * @return Java AWT color space      * @throws IOException if the color space can not be created      */
 specifier|public
+name|ColorSpace
+name|getJavaColorSpace
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|colorSpace
+operator|==
+literal|null
+condition|)
+block|{
+name|colorSpace
+operator|=
+name|createColorSpace
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|colorSpace
+return|;
+block|}
+comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color space.      */
+specifier|protected
 specifier|abstract
 name|ColorSpace
 name|createColorSpace

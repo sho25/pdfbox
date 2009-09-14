@@ -424,7 +424,7 @@ name|stream
 return|;
 block|}
 comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color space.      */
-specifier|public
+specifier|protected
 name|ColorSpace
 name|createColorSpace
 parameter_list|()
@@ -521,7 +521,7 @@ init|=
 operator|new
 name|ComponentColorModel
 argument_list|(
-name|createColorSpace
+name|getJavaColorSpace
 argument_list|()
 argument_list|,
 name|nbBits

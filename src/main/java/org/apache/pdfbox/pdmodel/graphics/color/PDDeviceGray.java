@@ -138,13 +138,11 @@ return|return
 literal|1
 return|;
 block|}
-comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color space.      */
-specifier|public
+comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      */
+specifier|protected
 name|ColorSpace
 name|createColorSpace
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|ColorSpace

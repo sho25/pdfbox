@@ -167,12 +167,6 @@ specifier|private
 name|COSDictionary
 name|dictionary
 decl_stmt|;
-specifier|private
-name|ColorSpace
-name|cSpace
-init|=
-literal|null
-decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|PDCalRGB
@@ -257,23 +251,13 @@ return|return
 name|NAME
 return|;
 block|}
-comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color space.      */
-specifier|public
+comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      */
+specifier|protected
 name|ColorSpace
 name|createColorSpace
 parameter_list|()
-throws|throws
-name|IOException
 block|{
-if|if
-condition|(
-name|cSpace
-operator|==
-literal|null
-condition|)
-block|{
-name|cSpace
-operator|=
+return|return
 operator|new
 name|ColorSpaceCalRGB
 argument_list|(
@@ -289,10 +273,6 @@ argument_list|,
 name|getLinearInterpretation
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|cSpace
 return|;
 block|}
 comment|/**      * Create a Java color model for this colorspace.      *      * @param bpc The number of bits per component.      *      * @return A color model that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color model.      */

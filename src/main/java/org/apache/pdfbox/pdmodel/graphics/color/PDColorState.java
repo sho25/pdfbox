@@ -317,7 +317,7 @@ name|cs
 init|=
 name|colorSpace
 operator|.
-name|createColorSpace
+name|getJavaColorSpace
 argument_list|()
 decl_stmt|;
 if|if
