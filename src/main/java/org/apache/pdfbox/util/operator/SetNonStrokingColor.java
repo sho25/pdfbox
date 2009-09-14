@@ -210,7 +210,7 @@ operator|.
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getNonStrokingColorSpace
+name|getNonStrokingColor
 argument_list|()
 operator|.
 name|getColorSpace

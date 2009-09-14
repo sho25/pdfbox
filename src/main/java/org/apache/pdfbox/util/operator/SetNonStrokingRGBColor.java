@@ -21,6 +21,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -38,6 +48,20 @@ operator|.
 name|cos
 operator|.
 name|COSNumber
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdfviewer
+operator|.
+name|PageDrawer
 import|;
 end_import
 
@@ -73,7 +97,7 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDColorSpaceInstance
+name|PDColorState
 import|;
 end_import
 
@@ -106,30 +130,6 @@ operator|.
 name|util
 operator|.
 name|PDFOperator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdfviewer
-operator|.
-name|PageDrawer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -165,7 +165,7 @@ name|PDDeviceRGB
 operator|.
 name|INSTANCE
 decl_stmt|;
-name|PDColorSpaceInstance
+name|PDColorState
 name|colorInstance
 init|=
 name|context
@@ -173,7 +173,7 @@ operator|.
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getNonStrokingColorSpace
+name|getNonStrokingColor
 argument_list|()
 decl_stmt|;
 name|colorInstance

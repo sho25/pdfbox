@@ -98,7 +98,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|PDColorSpaceInstance
+name|PDColorState
 extends|extends
 name|LoggingObject
 implements|implements
@@ -151,7 +151,7 @@ argument_list|()
 decl_stmt|;
 comment|/**      * Default constructor.      *      */
 specifier|public
-name|PDColorSpaceInstance
+name|PDColorState
 parameter_list|()
 block|{
 name|setColorSpaceValue
@@ -171,11 +171,11 @@ name|Object
 name|clone
 parameter_list|()
 block|{
-name|PDColorSpaceInstance
+name|PDColorState
 name|retval
 init|=
 operator|new
-name|PDColorSpaceInstance
+name|PDColorState
 argument_list|()
 decl_stmt|;
 name|retval
@@ -475,7 +475,7 @@ block|}
 block|}
 comment|/**      * Constructor with an existing color set.  Default colorspace is PDDeviceGray.      *      * @param csValues The color space values.      */
 specifier|public
-name|PDColorSpaceInstance
+name|PDColorState
 parameter_list|(
 name|COSArray
 name|csValues

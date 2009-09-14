@@ -195,7 +195,7 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDColorSpaceInstance
+name|PDColorState
 import|;
 end_import
 
@@ -214,6 +214,24 @@ operator|.
 name|color
 operator|.
 name|PDDeviceRGB
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|action
+operator|.
+name|PDActionFactory
 import|;
 end_import
 
@@ -254,24 +272,6 @@ operator|.
 name|type
 operator|.
 name|PDActionGoTo
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|action
-operator|.
-name|PDActionFactory
 import|;
 end_import
 
@@ -1085,11 +1085,11 @@ expr_stmt|;
 block|}
 comment|/**      * Get the text color of this node.  Default is black and this method      * will never return null.      *      * @return The structure element of this node.      */
 specifier|public
-name|PDColorSpaceInstance
+name|PDColorState
 name|getTextColor
 parameter_list|()
 block|{
-name|PDColorSpaceInstance
+name|PDColorState
 name|retval
 init|=
 literal|null
@@ -1146,7 +1146,7 @@ block|}
 name|retval
 operator|=
 operator|new
-name|PDColorSpaceInstance
+name|PDColorState
 argument_list|(
 name|csValues
 argument_list|)
@@ -1169,7 +1169,7 @@ specifier|public
 name|void
 name|setTextColor
 parameter_list|(
-name|PDColorSpaceInstance
+name|PDColorState
 name|textColor
 parameter_list|)
 block|{

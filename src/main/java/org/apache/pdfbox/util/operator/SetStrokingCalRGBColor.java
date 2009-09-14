@@ -21,6 +21,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -49,13 +59,27 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdfviewer
+operator|.
+name|PageDrawer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|graphics
 operator|.
 name|color
 operator|.
-name|PDColorSpaceInstance
+name|PDColorState
 import|;
 end_import
 
@@ -73,32 +97,8 @@ name|PDFOperator
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdfviewer
-operator|.
-name|PageDrawer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
-comment|/**  *<p>Structal modification of the PDFEngine class :  * the long sequence of conditions in processOperator is remplaced by  * this strategy pattern.</p>  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  *<p>Structural modification of the PDFEngine class :  * the long sequence of conditions in processOperator is replaced by  * this strategy pattern.</p>  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
 end_comment
 
 begin_class
@@ -122,15 +122,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDColorSpaceInstance
-name|colorInstance
+name|PDColorState
+name|color
 init|=
 name|context
 operator|.
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getStrokingColorSpace
+name|getStrokingColor
 argument_list|()
 decl_stmt|;
 name|float
@@ -182,7 +182,7 @@ name|floatValue
 argument_list|()
 expr_stmt|;
 block|}
-name|colorInstance
+name|color
 operator|.
 name|setColorSpaceValue
 argument_list|(

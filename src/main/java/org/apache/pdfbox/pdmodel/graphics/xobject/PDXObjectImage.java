@@ -675,7 +675,7 @@ name|retval
 operator|=
 name|graphicsState
 operator|.
-name|getNonStrokingColorSpace
+name|getNonStrokingColor
 argument_list|()
 operator|.
 name|getColorSpace

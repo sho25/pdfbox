@@ -121,7 +121,7 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDColorSpaceInstance
+name|PDColorState
 import|;
 end_import
 
@@ -223,7 +223,7 @@ return|;
 block|}
 comment|/**      * Get the color to be used for the guidelines.  This is guaranteed to      * not return null.  The color space will always be DeviceRGB and the      * default color is [0,0,0].      *      *@return The guideline color.      */
 specifier|public
-name|PDColorSpaceInstance
+name|PDColorState
 name|getGuidelineColor
 parameter_list|()
 block|{
@@ -290,11 +290,11 @@ name|colorValues
 argument_list|)
 expr_stmt|;
 block|}
-name|PDColorSpaceInstance
+name|PDColorState
 name|instance
 init|=
 operator|new
-name|PDColorSpaceInstance
+name|PDColorState
 argument_list|(
 name|colorValues
 argument_list|)
@@ -317,7 +317,7 @@ specifier|public
 name|void
 name|setGuideLineColor
 parameter_list|(
-name|PDColorSpaceInstance
+name|PDColorState
 name|color
 parameter_list|)
 block|{

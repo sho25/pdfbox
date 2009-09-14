@@ -704,7 +704,7 @@ operator|.
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getNonStrokingColorSpace
+name|getNonStrokingColor
 argument_list|()
 operator|.
 name|createColor
@@ -740,7 +740,7 @@ operator|.
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getStrokingColorSpace
+name|getStrokingColor
 argument_list|()
 operator|.
 name|createColor
@@ -789,7 +789,7 @@ operator|.
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getNonStrokingColorSpace
+name|getNonStrokingColor
 argument_list|()
 operator|.
 name|createColor
@@ -1080,7 +1080,7 @@ argument_list|(
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getNonStrokingColorSpace
+name|getNonStrokingColor
 argument_list|()
 operator|.
 name|createColor
@@ -1167,7 +1167,7 @@ argument_list|(
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getStrokingColorSpace
+name|getStrokingColor
 argument_list|()
 operator|.
 name|createColor
