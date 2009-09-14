@@ -45,6 +45,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|awt
+operator|.
+name|color
+operator|.
+name|ICC_ColorSpace
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|io
 operator|.
 name|IOException
@@ -92,6 +104,35 @@ name|LoggingObject
 implements|implements
 name|Cloneable
 block|{
+comment|/**      * The default color that can be set to replace all colors in      * {@link ICC_ColorSpace ICC color spaces}.      *      * @see #setIccOverrideColor(Color)      */
+specifier|private
+specifier|static
+specifier|volatile
+name|Color
+name|iccOverrideColor
+init|=
+name|Color
+operator|.
+name|getColor
+argument_list|(
+literal|"org.apache.pdfbox.ICC_override_color"
+argument_list|)
+decl_stmt|;
+comment|/**      * Sets the default color to replace all colors in      * {@link ICC_ColorSpace ICC color spaces}. This will work around      * a potential JVM crash caused by broken native ICC color manipulation      * code in the Sun class libraries.      *<p>      * The default override can be specified by setting the color code in      *<code>org.apache.pdfbox.ICC_override_color</code> system property      * (see {@link Color#getColor(String)}. If this system property is not      * specified, then the override is not enabled unless this method is      * explicitly called.      *      * @param color ICC override color,      *              or<code>null</code> to disable the override      * @see<a href="https://issues.apache.org/jira/browse/PDFBOX-511">PDFBOX-511</a>      * @since Apache PDFBox 0.8.1      */
+specifier|public
+specifier|static
+name|void
+name|setIccOverrideColor
+parameter_list|(
+name|Color
+name|color
+parameter_list|)
+block|{
+name|iccOverrideColor
+operator|=
+name|color
+expr_stmt|;
+block|}
 specifier|private
 name|PDColorSpace
 name|colorSpace
@@ -175,11 +216,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|Color
-name|retval
-init|=
-literal|null
-decl_stmt|;
 name|float
 index|[]
 name|components
@@ -216,8 +252,7 @@ comment|//for some reason, when using RGB and the RGB colorspace
 comment|//the new Color doesn't maintain exactly the same values
 comment|//I think some color conversion needs to take place first
 comment|//for now we will just make rgb a special case.
-name|retval
-operator|=
+return|return
 operator|new
 name|Color
 argument_list|(
@@ -236,10 +271,15 @@ index|[
 literal|2
 index|]
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
+name|Color
+name|override
+init|=
+name|iccOverrideColor
+decl_stmt|;
 name|ColorSpace
 name|cs
 init|=
@@ -270,8 +310,7 @@ literal|1
 condition|)
 block|{
 comment|//Use that component as a single-integer RGB value
-name|retval
-operator|=
+return|return
 operator|new
 name|Color
 argument_list|(
@@ -283,12 +322,37 @@ index|[
 literal|0
 index|]
 argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|cs
+operator|instanceof
+name|ICC_ColorSpace
+operator|&&
+name|override
+operator|!=
+literal|null
+condition|)
+block|{
+name|logger
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"Using an ICC override color to avoid a potential"
+operator|+
+literal|" JVM crash (see PDFBOX-511)"
+argument_list|)
 expr_stmt|;
+return|return
+name|override
+return|;
 block|}
 else|else
 block|{
-name|retval
-operator|=
+return|return
 operator|new
 name|Color
 argument_list|(
@@ -298,12 +362,9 @@ name|components
 argument_list|,
 literal|1f
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|return
-name|retval
 return|;
+block|}
+block|}
 block|}
 catch|catch
 parameter_list|(
