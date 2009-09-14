@@ -89,20 +89,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|LoggingObject
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|awt
@@ -134,8 +120,6 @@ specifier|public
 specifier|abstract
 class|class
 name|PDColorSpace
-extends|extends
-name|LoggingObject
 implements|implements
 name|COSObjectable
 block|{

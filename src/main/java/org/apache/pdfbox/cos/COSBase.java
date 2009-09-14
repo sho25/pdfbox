@@ -59,20 +59,6 @@ name|COSVisitorException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|LoggingObject
-import|;
-end_import
-
 begin_comment
 comment|/**  * The base object that all objects in the PDF document will extend.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.14 $  */
 end_comment
@@ -82,8 +68,6 @@ specifier|public
 specifier|abstract
 class|class
 name|COSBase
-extends|extends
-name|LoggingObject
 implements|implements
 name|COSObjectable
 block|{

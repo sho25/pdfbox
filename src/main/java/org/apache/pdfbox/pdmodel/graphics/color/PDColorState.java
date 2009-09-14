@@ -69,11 +69,25 @@ name|org
 operator|.
 name|apache
 operator|.
-name|pdfbox
+name|commons
 operator|.
-name|exceptions
+name|logging
 operator|.
-name|LoggingObject
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -99,11 +113,25 @@ begin_class
 specifier|public
 class|class
 name|PDColorState
-extends|extends
-name|LoggingObject
 implements|implements
 name|Cloneable
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDColorState
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * The default color that can be set to replace all colors in      * {@link ICC_ColorSpace ICC color spaces}.      *      * @see #setIccOverrideColor(Color)      */
 specifier|private
 specifier|static
@@ -368,8 +396,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|logger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -442,8 +469,7 @@ operator|+
 literal|"\t"
 expr_stmt|;
 block|}
-name|logger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
@@ -466,8 +492,7 @@ name|IOException
 name|ioexception
 parameter_list|)
 block|{
-name|logger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
@@ -486,8 +511,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|logger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(

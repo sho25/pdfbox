@@ -47,20 +47,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|LoggingObject
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -80,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  *<p>Titre : OperatorProcessor</p>  *<p>Description : This class is the strategy abstract class  * in the strategy GOF pattern. After instancated, you must ever call * the setContext method to initiamise OPeratorProcessor</p>  *<p>Copyright : Copyright (c) 2004</p>  *<p>Société : DBGS</p>  * @author Huault : huault@free.fr  * @version $Revision: 1.3 $  */
+comment|/**  *<p>Title : OperatorProcessor</p>  *<p>Description : This class is the strategy abstract class  * in the strategy GOF pattern. After instantiated, you must ever call  * the setContext method to initialize OperatorProcessor</p>  *<p>Copyright : Copyright (c) 2004</p>  *<p>SociÃ©tÃ© : DBGS</p>  * @author Huault : huault@free.fr  * @version $Revision: 1.3 $  */
 end_comment
 
 begin_class
@@ -88,8 +74,6 @@ specifier|public
 specifier|abstract
 class|class
 name|OperatorProcessor
-extends|extends
-name|LoggingObject
 block|{
 comment|/**      * The stream engine processing context.      */
 specifier|protected

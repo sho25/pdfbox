@@ -77,6 +77,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -211,6 +239,22 @@ name|PDXObjectImage
 extends|extends
 name|PDXObject
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDXObjectImage
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * The XObject subtype.      */
 specifier|public
 specifier|static
@@ -594,8 +638,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|logger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -653,8 +696,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|logger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -681,8 +723,7 @@ operator|.
 name|getColorSpace
 argument_list|()
 expr_stmt|;
-name|logger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -698,17 +739,15 @@ comment|//throw new IOException("Trace the Stencil Mask!!!!");
 block|}
 else|else
 block|{
-name|logger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
-literal|"About to return NULL from unhandled branch. filter = "
+literal|"About to return NULL from unhandled branch."
+operator|+
+literal|" filter = "
 operator|+
 name|filter
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

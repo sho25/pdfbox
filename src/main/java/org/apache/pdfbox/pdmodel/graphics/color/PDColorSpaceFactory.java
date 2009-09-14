@@ -159,20 +159,6 @@ name|PDStream
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|LoggingObject
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class represents a color space in a pdf document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.11 $  */
 end_comment
@@ -182,8 +168,6 @@ specifier|public
 specifier|final
 class|class
 name|PDColorSpaceFactory
-extends|extends
-name|LoggingObject
 block|{
 comment|/**      * Private constructor for utility classes.      */
 specifier|private

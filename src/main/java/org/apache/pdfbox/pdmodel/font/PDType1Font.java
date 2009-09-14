@@ -115,6 +115,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -164,6 +192,22 @@ name|PDType1Font
 extends|extends
 name|PDSimpleFont
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDType1Font
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
@@ -732,8 +776,7 @@ literal|null
 condition|)
 block|{
 comment|// TODO FontFile3-streams containing CIDFontType0C or OpenType fonts aren't yet supported
-name|logger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -777,8 +820,7 @@ name|FontFormatException
 name|e
 parameter_list|)
 block|{
-name|logger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -814,8 +856,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|logger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -849,8 +890,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|logger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -876,8 +916,7 @@ operator|.
 name|getStandardFont
 argument_list|()
 expr_stmt|;
-name|logger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(

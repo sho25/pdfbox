@@ -149,6 +149,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|pdmodel
@@ -356,6 +384,22 @@ name|PageDrawer
 extends|extends
 name|PDFStreamEngine
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PageDrawer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|Graphics2D
 name|graphics
@@ -751,8 +795,7 @@ block|}
 else|else
 block|{
 comment|// TODO : need to implement....
-name|logger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -769,9 +812,9 @@ operator|.
 name|getRenderingMode
 argument_list|()
 operator|+
-literal|" in PageDrawer.processTextPosition()"
+literal|" in PageDrawer.processTextPosition()."
 operator|+
-literal|"Using RenderingMode "
+literal|" Using RenderingMode "
 operator|+
 name|PDTextState
 operator|.
