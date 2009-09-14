@@ -707,7 +707,7 @@ operator|.
 name|getNonStrokingColor
 argument_list|()
 operator|.
-name|createColor
+name|getJavaColor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -743,7 +743,7 @@ operator|.
 name|getStrokingColor
 argument_list|()
 operator|.
-name|createColor
+name|getJavaColor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -792,7 +792,7 @@ operator|.
 name|getNonStrokingColor
 argument_list|()
 operator|.
-name|createColor
+name|getJavaColor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1083,7 +1083,7 @@ operator|.
 name|getNonStrokingColor
 argument_list|()
 operator|.
-name|createColor
+name|getJavaColor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1170,7 +1170,7 @@ operator|.
 name|getStrokingColor
 argument_list|()
 operator|.
-name|createColor
+name|getJavaColor
 argument_list|()
 argument_list|)
 expr_stmt|;

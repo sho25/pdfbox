@@ -149,6 +149,13 @@ operator|new
 name|COSArray
 argument_list|()
 decl_stmt|;
+comment|/**      * Cached Java AWT color based on the current color space and value.      * The value is cleared whenever the color space or value is set.      *      * @see #getJavaColor()      */
+specifier|private
+name|Color
+name|color
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * Default constructor.      *      */
 specifier|public
 name|PDColorState
@@ -208,8 +215,33 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Create the current color from the colorspace and values.      * @return The current awt color.      * @throws IOException If there is an error creating the color.      */
+comment|/**      * Returns the Java AWT color based on the current color space and value.      *      * @return current Java AWT color      * @throws IOException if the current color can not be created      */
 specifier|public
+name|Color
+name|getJavaColor
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|color
+operator|==
+literal|null
+condition|)
+block|{
+name|color
+operator|=
+name|createColor
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|color
+return|;
+block|}
+comment|/**      * Create the current color from the colorspace and values.      * @return The current awt color.      * @throws IOException If there is an error creating the color.      */
+specifier|private
 name|Color
 name|createColor
 parameter_list|()
@@ -509,6 +541,11 @@ name|colorSpace
 operator|=
 name|value
 expr_stmt|;
+comment|// Clear color cache
+name|color
+operator|=
+literal|null
+expr_stmt|;
 block|}
 comment|/**      * This will get the color space values.  Either 1 for gray or 3 for RGB.      *      * @return The colorspace values.      */
 specifier|public
@@ -550,6 +587,11 @@ name|setFloatArray
 argument_list|(
 name|value
 argument_list|)
+expr_stmt|;
+comment|// Clear color cache
+name|color
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
