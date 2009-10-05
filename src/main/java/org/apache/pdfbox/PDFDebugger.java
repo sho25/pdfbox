@@ -1722,8 +1722,10 @@ expr_stmt|;
 block|}
 name|viewer
 operator|.
-name|show
-argument_list|()
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 specifier|private
