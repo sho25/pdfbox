@@ -379,6 +379,11 @@ name|available
 argument_list|()
 operator|>
 literal|0
+operator|&&
+name|objIter
+operator|.
+name|hasNext
+argument_list|()
 condition|)
 block|{
 name|byte
