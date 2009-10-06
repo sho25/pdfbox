@@ -218,6 +218,14 @@ specifier|private
 specifier|static
 specifier|final
 name|String
+name|IGNORE_BEADS
+init|=
+literal|"-ignoreBeads"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
 name|HTML
 init|=
 literal|"-html"
@@ -271,6 +279,11 @@ name|boolean
 name|sort
 init|=
 literal|false
+decl_stmt|;
+name|boolean
+name|separateBeads
+init|=
+literal|true
 decl_stmt|;
 name|String
 name|password
@@ -485,6 +498,25 @@ block|{
 name|sort
 operator|=
 literal|true
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|IGNORE_BEADS
+argument_list|)
+condition|)
+block|{
+name|separateBeads
+operator|=
+literal|false
 expr_stmt|;
 block|}
 elseif|else
@@ -911,6 +943,13 @@ argument_list|)
 expr_stmt|;
 name|stripper
 operator|.
+name|setShouldSeparateByBeads
+argument_list|(
+name|separateBeads
+argument_list|)
+expr_stmt|;
+name|stripper
+operator|.
 name|setStartPage
 argument_list|(
 name|startPage
@@ -988,6 +1027,8 @@ operator|+
 literal|"  -html                        Output in HTML format instead of raw text\n"
 operator|+
 literal|"  -sort                        Sort the text before writing\n"
+operator|+
+literal|"  -ignoreBeads                 Disables the separation by beads\n"
 operator|+
 literal|"  -force                       Enables pdfbox to ignore corrupt objects\n"
 operator|+
