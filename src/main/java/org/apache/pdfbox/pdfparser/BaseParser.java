@@ -838,6 +838,12 @@ name|read
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+return|return
+name|obj
+return|;
+block|}
 block|}
 else|else
 block|{
