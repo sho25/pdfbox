@@ -1367,16 +1367,9 @@ operator|==
 literal|0x20
 operator|)
 operator|&&
-name|c
-operator|!=
-literal|null
-operator|&&
-name|c
-operator|.
-name|equals
-argument_list|(
-literal|" "
-argument_list|)
+name|codeLength
+operator|==
+literal|1
 condition|)
 block|{
 name|spacingText
