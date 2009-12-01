@@ -2464,9 +2464,9 @@ name|PageDrawer
 argument_list|()
 decl_stmt|;
 name|PDRectangle
-name|pageSize
+name|cropBox
 init|=
-name|findMediaBox
+name|findCropBox
 argument_list|()
 decl_stmt|;
 name|drawer
@@ -2477,7 +2477,7 @@ name|graphics
 argument_list|,
 name|this
 argument_list|,
-name|pageSize
+name|cropBox
 operator|.
 name|createDimension
 argument_list|()
