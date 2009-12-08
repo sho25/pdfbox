@@ -65,6 +65,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -425,9 +435,12 @@ return|;
 block|}
 block|}
 block|}
+comment|// Catch IOExceptions from PDColorSpace.getJavaColorSpace(), but
+comment|// possibly also IllegalArgumentExceptions or other RuntimeExceptions
+comment|// from the potentially complex color management code.
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -435,9 +448,20 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to create a color in "
+literal|"Unable to create the color instance "
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|components
+argument_list|)
+operator|+
+literal|" in color space "
 operator|+
 name|colorSpace
+operator|+
+literal|"; using black instead"
 argument_list|,
 name|e
 argument_list|)
@@ -447,29 +471,6 @@ name|Color
 operator|.
 name|BLACK
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|error
-argument_list|(
-name|e
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Failed to Create Color"
-argument_list|)
-throw|;
 block|}
 block|}
 comment|/**      * Constructor with an existing color set.  Default colorspace is PDDeviceGray.      *      * @param csValues The color space values.      */
