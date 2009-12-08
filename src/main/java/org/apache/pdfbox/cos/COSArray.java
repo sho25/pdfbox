@@ -98,10 +98,16 @@ name|COSBase
 block|{
 specifier|private
 name|List
+argument_list|<
+name|COSBase
+argument_list|>
 name|objects
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|COSBase
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      */
@@ -188,6 +194,9 @@ name|void
 name|removeAll
 parameter_list|(
 name|Collection
+argument_list|<
+name|COSBase
+argument_list|>
 name|objectsList
 parameter_list|)
 block|{
@@ -205,6 +214,9 @@ name|void
 name|retainAll
 parameter_list|(
 name|Collection
+argument_list|<
+name|COSBase
+argument_list|>
 name|objectsList
 parameter_list|)
 block|{
@@ -222,6 +234,9 @@ name|void
 name|addAll
 parameter_list|(
 name|Collection
+argument_list|<
+name|COSBase
+argument_list|>
 name|objectsList
 parameter_list|)
 block|{
@@ -269,6 +284,9 @@ name|int
 name|i
 parameter_list|,
 name|Collection
+argument_list|<
+name|COSBase
+argument_list|>
 name|objectList
 parameter_list|)
 block|{
@@ -829,6 +847,9 @@ block|}
 comment|/**      * Get access to the list.      *      * @return an iterator over the array elements      */
 specifier|public
 name|Iterator
+argument_list|<
+name|COSBase
+argument_list|>
 name|iterator
 parameter_list|()
 block|{
@@ -1067,14 +1088,23 @@ block|}
 comment|/**      *  Return contents of COSArray as a Java List.      *        *  @return the COSArray as List       */
 specifier|public
 name|List
+argument_list|<
+name|COSBase
+argument_list|>
 name|toList
 parameter_list|()
 block|{
 name|ArrayList
+argument_list|<
+name|COSBase
+argument_list|>
 name|retList
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|COSBase
+argument_list|>
 argument_list|(
 name|size
 argument_list|()
