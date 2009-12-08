@@ -51,6 +51,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSBase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSNumber
 import|;
 end_import
@@ -104,16 +118,6 @@ specifier|public
 class|class
 name|SetLineDashPattern
 extends|extends
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|operator
-operator|.
 name|OperatorProcessor
 block|{
 comment|/**      * Set the line dash pattern.      * @param operator The operator that is being executed.      * @param arguments List      *      * @throws IOException If an error occurs while processing the font.      */
@@ -125,6 +129,9 @@ name|PDFOperator
 name|operator
 parameter_list|,
 name|List
+argument_list|<
+name|COSBase
+argument_list|>
 name|arguments
 parameter_list|)
 throws|throws
