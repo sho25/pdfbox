@@ -57,6 +57,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSBase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSFloat
 import|;
 end_import
@@ -76,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  *<p>Titre : PDFEngine Modification.</p>  *<p>Description : Structal modification of the PDFEngine class : the long sequence of  *    conditions in processOperator is remplaced by this strategy pattern</p>  *<p>Copyright : Copyright (c) 2004</p>  *<p>Société : DBGS</p>  * @author Huault : huault@free.fr  * @version $Revision: 1.5 $  */
+comment|/**  *  * @author Huault : huault@free.fr  * @version $Revision: 1.5 $  */
 end_comment
 
 begin_class
@@ -95,6 +109,9 @@ name|PDFOperator
 name|operator
 parameter_list|,
 name|List
+argument_list|<
+name|COSBase
+argument_list|>
 name|arguments
 parameter_list|)
 throws|throws
@@ -102,10 +119,16 @@ name|IOException
 block|{
 comment|//move to start of next text line
 name|ArrayList
+argument_list|<
+name|COSBase
+argument_list|>
 name|args
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|COSBase
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|args

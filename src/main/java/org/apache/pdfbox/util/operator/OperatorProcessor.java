@@ -25,6 +25,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSBase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|util
 operator|.
 name|PDFOperator
@@ -66,7 +80,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Title : OperatorProcessor</p>  *<p>Description : This class is the strategy abstract class  * in the strategy GOF pattern. After instantiated, you must ever call  * the setContext method to initialize OperatorProcessor</p>  *<p>Copyright : Copyright (c) 2004</p>  *<p>Société : DBGS</p>  * @author Huault : huault@free.fr  * @version $Revision: 1.3 $  */
+comment|/**  * @author Huault : huault@free.fr  * @version $Revision: 1.3 $  */
 end_comment
 
 begin_class
@@ -121,6 +135,9 @@ name|PDFOperator
 name|operator
 parameter_list|,
 name|List
+argument_list|<
+name|COSBase
+argument_list|>
 name|arguments
 parameter_list|)
 throws|throws
