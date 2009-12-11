@@ -80,10 +80,20 @@ name|FilterManager
 block|{
 specifier|private
 name|Map
+argument_list|<
+name|COSName
+argument_list|,
+name|Filter
+argument_list|>
 name|filters
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|COSName
+argument_list|,
+name|Filter
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      */
@@ -270,6 +280,9 @@ block|}
 comment|/**      * This will get all of the filters that are available in the system.      *      * @return All available filters in the system.      */
 specifier|public
 name|Collection
+argument_list|<
+name|Filter
+argument_list|>
 name|getFilters
 parameter_list|()
 block|{

@@ -204,12 +204,11 @@ argument_list|)
 expr_stmt|;
 name|suite
 operator|.
-name|addTest
+name|addTestSuite
 argument_list|(
 name|TestFilters
 operator|.
-name|suite
-argument_list|()
+name|class
 argument_list|)
 expr_stmt|;
 name|suite
