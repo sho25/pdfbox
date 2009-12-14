@@ -374,7 +374,7 @@ block|{
 name|newOperator
 operator|=
 operator|new
-name|SetNonStrokingSeparation
+name|SetStrokingSeparation
 argument_list|()
 expr_stmt|;
 block|}
