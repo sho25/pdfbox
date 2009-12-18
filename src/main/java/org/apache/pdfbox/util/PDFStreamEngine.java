@@ -1610,12 +1610,12 @@ comment|// XXX: Note that if we handled vertical text, we should be using Y here
 name|float
 name|widthText
 init|=
-name|glyphMatrixStDisp
+name|glyphMatrixEndDisp
 operator|.
 name|getXPosition
 argument_list|()
 operator|-
-name|glyphMatrixEndDisp
+name|glyphMatrixStDisp
 operator|.
 name|getXPosition
 argument_list|()
