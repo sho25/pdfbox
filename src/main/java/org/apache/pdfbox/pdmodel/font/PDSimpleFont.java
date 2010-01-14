@@ -326,7 +326,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the font width for a character.      *      * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font height for a character.      *      * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
 specifier|public
 name|float
 name|getFontHeight
@@ -906,11 +906,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDFontDescriptor
-name|retval
-init|=
+if|if
+condition|(
+name|fontDescriptor
+operator|==
 literal|null
-decl_stmt|;
+condition|)
+block|{
 name|COSDictionary
 name|fd
 init|=
@@ -946,7 +948,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|retval
+name|fontDescriptor
 operator|=
 operator|new
 name|PDFontDescriptorAFM
@@ -958,7 +960,7 @@ block|}
 block|}
 else|else
 block|{
-name|retval
+name|fontDescriptor
 operator|=
 operator|new
 name|PDFontDescriptorDictionary
@@ -967,10 +969,17 @@ name|fd
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 return|return
-name|retval
+name|fontDescriptor
 return|;
 block|}
+specifier|private
+name|PDFontDescriptor
+name|fontDescriptor
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * This will set the font descriptor.      *      * @param fontDescriptor The font descriptor.      */
 specifier|public
 name|void
@@ -1010,6 +1019,12 @@ name|FONT_DESC
 argument_list|,
 name|dic
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|fontDescriptor
+operator|=
+name|fontDescriptor
 expr_stmt|;
 block|}
 comment|/**      * This will get the ToUnicode stream.      *      * @return The ToUnicode stream.      * @throws IOException If there is an error getting the stream.      */

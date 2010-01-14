@@ -792,8 +792,18 @@ name|float
 name|getCapHeight
 parameter_list|()
 block|{
-comment|/* We observed a negative value being returned with          * the Scheherazade font. PDFBOX-429 was logged for this.           * We are not sure if returning the absolute value          * is the correct fix, but it seems to work.  */
-return|return
+if|if
+condition|(
+name|capHeight
+operator|==
+name|Float
+operator|.
+name|NEGATIVE_INFINITY
+condition|)
+block|{
+comment|/* We observed a negative value being returned with              * the Scheherazade font. PDFBOX-429 was logged for this.               * We are not sure if returning the absolute value              * is the correct fix, but it seems to work.  */
+name|capHeight
+operator|=
 name|java
 operator|.
 name|lang
@@ -811,8 +821,20 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|capHeight
 return|;
 block|}
+specifier|private
+name|float
+name|capHeight
+init|=
+name|Float
+operator|.
+name|NEGATIVE_INFINITY
+decl_stmt|;
 comment|/**      * This will set the cap height for the font.      *      * @param capHeight The new cap height for the font.      */
 specifier|public
 name|void
@@ -831,6 +853,12 @@ argument_list|,
 name|capHeight
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|capHeight
+operator|=
+name|capHeight
+expr_stmt|;
 block|}
 comment|/**      * This will get the x height for the font.      *      * @return The x height.      */
 specifier|public
@@ -838,8 +866,18 @@ name|float
 name|getXHeight
 parameter_list|()
 block|{
-comment|/* We observed a negative value being returned with          * the Scheherazade font. PDFBOX-429 was logged for this.           * We are not sure if returning the absolute value          * is the correct fix, but it seems to work.  */
-return|return
+if|if
+condition|(
+name|xHeight
+operator|==
+name|Float
+operator|.
+name|NEGATIVE_INFINITY
+condition|)
+block|{
+comment|/* We observed a negative value being returned with              * the Scheherazade font. PDFBOX-429 was logged for this.               * We are not sure if returning the absolute value              * is the correct fix, but it seems to work.  */
+name|xHeight
+operator|=
 name|java
 operator|.
 name|lang
@@ -857,8 +895,20 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|xHeight
 return|;
 block|}
+specifier|private
+name|float
+name|xHeight
+init|=
+name|Float
+operator|.
+name|NEGATIVE_INFINITY
+decl_stmt|;
 comment|/**      * This will set the x height for the font.      *      * @param xHeight The new x height for the font.      */
 specifier|public
 name|void
@@ -876,6 +926,12 @@ literal|"XHeight"
 argument_list|,
 name|xHeight
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|xHeight
+operator|=
+name|xHeight
 expr_stmt|;
 block|}
 comment|/**      * This will get the stemV for the font.      *      * @return The stem v value.      */
