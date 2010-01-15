@@ -465,6 +465,11 @@ decl_stmt|;
 specifier|private
 specifier|static
 name|Map
+argument_list|<
+name|COSName
+argument_list|,
+name|String
+argument_list|>
 name|afmResources
 init|=
 literal|null
@@ -472,6 +477,11 @@ decl_stmt|;
 specifier|private
 specifier|static
 name|Map
+argument_list|<
+name|COSName
+argument_list|,
+name|CMap
+argument_list|>
 name|cmapObjects
 init|=
 literal|null
@@ -479,6 +489,11 @@ decl_stmt|;
 specifier|private
 specifier|static
 name|Map
+argument_list|<
+name|COSName
+argument_list|,
+name|FontMetric
+argument_list|>
 name|afmObjects
 init|=
 literal|null
@@ -490,6 +505,11 @@ name|afmResources
 operator|=
 operator|new
 name|HashMap
+argument_list|<
+name|COSName
+argument_list|,
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 comment|//these are read-write
@@ -501,6 +521,11 @@ name|synchronizedMap
 argument_list|(
 operator|new
 name|HashMap
+argument_list|<
+name|COSName
+argument_list|,
+name|CMap
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -512,6 +537,11 @@ name|synchronizedMap
 argument_list|(
 operator|new
 name|HashMap
+argument_list|<
+name|COSName
+argument_list|,
+name|FontMetric
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1155,9 +1185,6 @@ condition|)
 block|{
 name|afm
 operator|=
-operator|(
-name|FontMetric
-operator|)
 name|afmObjects
 operator|.
 name|get
@@ -1175,9 +1202,6 @@ block|{
 name|String
 name|resource
 init|=
-operator|(
-name|String
-operator|)
 name|afmResources
 operator|.
 name|get
@@ -1492,9 +1516,6 @@ name|encoding
 decl_stmt|;
 name|cmap
 operator|=
-operator|(
-name|CMap
-operator|)
 name|cmapObjects
 operator|.
 name|get
