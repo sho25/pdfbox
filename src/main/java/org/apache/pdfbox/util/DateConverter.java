@@ -897,6 +897,18 @@ argument_list|,
 name|second
 argument_list|)
 expr_stmt|;
+comment|// PDFBOX-598: PDF dates are only accurate up to a second
+name|retval
+operator|.
+name|set
+argument_list|(
+name|Calendar
+operator|.
+name|MILLISECOND
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
