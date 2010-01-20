@@ -41,29 +41,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|IOException
 import|;
 end_import
 
@@ -125,18 +107,8 @@ name|PDRectangle
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
-comment|/**  * This is implementation of the Type0 Font.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.9 $  */
+comment|/**  * This is implementation of the Type0 Font. Note that currently  * this class simply falls back to the Type1 font implementation  * when drawing text.  * See<a href="https://issues.apache.org/jira/browse/PDFBOX-605">PDFBOX-605</a>  * for the related improvement issue.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.9 $  */
 end_comment
 
 begin_class
@@ -147,22 +119,6 @@ extends|extends
 comment|/*PDFont following is a hack ...*/
 name|PDType1Font
 block|{
-comment|/**      * Log instance.      */
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|log
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|PDType0Font
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 specifier|private
 name|PDFont
 name|descendentFont
@@ -229,7 +185,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//throw new RuntimeException( "Not yet implemented" );
+comment|// TODO: PDFBOX-605: Better support for Type0 fonts
 name|super
 operator|.
 name|drawString
@@ -245,13 +201,6 @@ argument_list|,
 name|x
 argument_list|,
 name|y
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Called Type1Font.drawString since Type0 is not yet implemented"
 argument_list|)
 expr_stmt|;
 block|}
