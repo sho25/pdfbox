@@ -1063,7 +1063,8 @@ comment|// Don't flag a test failure that we already know about.
 comment|// TODO: Remove this check once PDFBOX-568 is fixed.
 if|if
 condition|(
-literal|"ample_fonts_solidconvertor.pdf"
+operator|!
+literal|"sample_fonts_solidconvertor.pdf"
 operator|.
 name|equals
 argument_list|(
