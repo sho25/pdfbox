@@ -245,7 +245,7 @@ name|action
 operator|.
 name|type
 operator|.
-name|PDActionURI
+name|PDURIDictionary
 import|;
 end_import
 
@@ -1423,11 +1423,11 @@ expr_stmt|;
 block|}
 comment|/**      * Document level information in the URI.      * @return Document level URI.      */
 specifier|public
-name|PDActionURI
+name|PDURIDictionary
 name|getURI
 parameter_list|()
 block|{
-name|PDActionURI
+name|PDURIDictionary
 name|retval
 init|=
 literal|null
@@ -1455,7 +1455,7 @@ block|{
 name|retval
 operator|=
 operator|new
-name|PDActionURI
+name|PDURIDictionary
 argument_list|(
 name|uri
 argument_list|)
@@ -1470,7 +1470,7 @@ specifier|public
 name|void
 name|setURI
 parameter_list|(
-name|PDActionURI
+name|PDURIDictionary
 name|uri
 parameter_list|)
 block|{

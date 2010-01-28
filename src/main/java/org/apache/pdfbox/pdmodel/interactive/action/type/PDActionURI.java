@@ -195,13 +195,15 @@ name|shouldTrackMousePosition
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|action
 operator|.
 name|getBoolean
 argument_list|(
-literal|"MousePosition"
+literal|"IsMap"
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 return|;
 block|}
@@ -214,17 +216,20 @@ name|boolean
 name|value
 parameter_list|)
 block|{
+name|this
+operator|.
 name|action
 operator|.
 name|setBoolean
 argument_list|(
-literal|"MousePosition"
+literal|"IsMap"
 argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the base URI to be used in resolving relative URI references.      * URI actions within the document may specify URIs in partial form, to be interpreted      * relative to this base address. If no base URI is specified, such partial URIs      * will be interpreted relative to the location of the document itself.      * The use of this entry is parallel to that of the body element&lt;BASE&gt;, as described      * in the HTML 4.01 Specification.      *      * @return The URI entry of the specific URI dictionary.      */
+comment|// TODO this must go into PDURIDictionary
+comment|/**      * This will get the base URI to be used in resolving relative URI references.      * URI actions within the document may specify URIs in partial form, to be interpreted      * relative to this base address. If no base URI is specified, such partial URIs      * will be interpreted relative to the location of the document itself.      * The use of this entry is parallel to that of the body element&lt;BASE&gt;, as described      * in the HTML 4.01 Specification.      *      * @return The URI entry of the specific URI dictionary.      * @deprecated use {@link PDURIDictionary#getBase()} instead      */
 specifier|public
 name|String
 name|getBase
@@ -239,7 +244,8 @@ literal|"Base"
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the base URI to be used in resolving relative URI references.      * URI actions within the document may specify URIs in partial form, to be interpreted      * relative to this base address. If no base URI is specified, such partial URIs      * will be interpreted relative to the location of the document itself.      * The use of this entry is parallel to that of the body element&lt;BASE&gt;, as described      * in the HTML 4.01 Specification.      *      * @param base The the base URI to be used.      */
+comment|// TODO this must go into PDURIDictionary
+comment|/**      * This will set the base URI to be used in resolving relative URI references.      * URI actions within the document may specify URIs in partial form, to be interpreted      * relative to this base address. If no base URI is specified, such partial URIs      * will be interpreted relative to the location of the document itself.      * The use of this entry is parallel to that of the body element&lt;BASE&gt;, as described      * in the HTML 4.01 Specification.      *      * @param base The the base URI to be used.      * @deprecated use {@link PDURIDictionary#setBase(String)} instead      */
 specifier|public
 name|void
 name|setBase
