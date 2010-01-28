@@ -1594,7 +1594,7 @@ block|}
 comment|/**      * This will retrieve the border style dictionary, specifying the width and      * dash pattern used in drawing the line.      *      * @return the border style dictionary.      */
 specifier|public
 name|PDBorderStyleDictionary
-name|getBoderStyle
+name|getBorderStyle
 parameter_list|()
 block|{
 name|COSDictionary
