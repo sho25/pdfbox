@@ -470,6 +470,14 @@ operator|instanceof
 name|COSStream
 condition|)
 block|{
+name|COSStream
+name|aux
+init|=
+operator|(
+name|COSStream
+operator|)
+name|ap
+decl_stmt|;
 name|ap
 operator|=
 operator|new
@@ -492,7 +500,7 @@ argument_list|(
 literal|"default"
 argument_list|)
 argument_list|,
-name|ap
+name|aux
 argument_list|)
 expr_stmt|;
 block|}
@@ -663,6 +671,14 @@ operator|instanceof
 name|COSStream
 condition|)
 block|{
+name|COSStream
+name|aux
+init|=
+operator|(
+name|COSStream
+operator|)
+name|ap
+decl_stmt|;
 name|ap
 operator|=
 operator|new
@@ -685,7 +701,7 @@ argument_list|(
 literal|"default"
 argument_list|)
 argument_list|,
-name|ap
+name|aux
 argument_list|)
 expr_stmt|;
 block|}
