@@ -58,7 +58,7 @@ name|PDAnnotationText
 extends|extends
 name|PDAnnotationMarkup
 block|{
-comment|/*      * The various values of the Text as defined in the PDF 1.6 reference Table      * 8.19      */
+comment|/*      * The various values of the Text as defined in the PDF 1.7 reference Table      * 172      */
 comment|/**      * Constant for the name of a text annotation.      */
 specifier|public
 specifier|static
@@ -157,7 +157,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a Text annotation from a COSDictionary, expected to be a correct      * object definition.      *      * @param field      *            the PDF objet to represent as a field.      */
+comment|/**      * Creates a Text annotation from a COSDictionary, expected to be a correct      * object definition.      *      * @param field      *            the PDF object to represent as a field.      */
 specifier|public
 name|PDAnnotationText
 parameter_list|(
@@ -171,7 +171,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set inital state of the annotation, open or closed.      *      * @param open      *            Boolean value, true = open false = closed      */
+comment|/**      * This will set initial state of the annotation, open or closed.      *      * @param open      *            Boolean value, true = open false = closed      */
 specifier|public
 name|void
 name|setOpen
@@ -260,6 +260,86 @@ argument_list|,
 name|NAME_NOTE
 argument_list|)
 return|;
+block|}
+comment|/**      * This will retrieve the annotation state.      *       * @return the annotation state      */
+specifier|public
+name|String
+name|getState
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|getDictionary
+argument_list|()
+operator|.
+name|getString
+argument_list|(
+literal|"State"
+argument_list|)
+return|;
+block|}
+comment|/**      * This will set the annotation state.      *       * @param state the annotation state       */
+specifier|public
+name|void
+name|setState
+parameter_list|(
+name|String
+name|state
+parameter_list|)
+block|{
+name|this
+operator|.
+name|getDictionary
+argument_list|()
+operator|.
+name|setString
+argument_list|(
+literal|"State"
+argument_list|,
+name|state
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This will retrieve the annotation state model.      *       * @return the annotation state model      */
+specifier|public
+name|String
+name|getStateModel
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|getDictionary
+argument_list|()
+operator|.
+name|getString
+argument_list|(
+literal|"StateModel"
+argument_list|)
+return|;
+block|}
+comment|/**      * This will set the annotation state model.      * Allowed values are "Marked" and "Review"      *       * @param stateModel the annotation state model      */
+specifier|public
+name|void
+name|setStateModel
+parameter_list|(
+name|String
+name|stateModel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|getDictionary
+argument_list|()
+operator|.
+name|setString
+argument_list|(
+literal|"StateModel"
+argument_list|,
+name|stateModel
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

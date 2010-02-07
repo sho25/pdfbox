@@ -95,7 +95,7 @@ name|PDAnnotationMarkup
 extends|extends
 name|PDAnnotation
 block|{
-comment|/*      * The various values of the reply type as defined in the PDF 1.6 reference      * Table 8.17      */
+comment|/*      * The various values of the reply type as defined in the PDF 1.7 reference      * Table 170      */
 comment|/**      * Constant for an annotation reply type.      */
 specifier|public
 specifier|static
@@ -399,7 +399,7 @@ name|irt
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the annotation to which this one is "In Reply To" the      * actual relationship is specified by the RT entry.      *      * @param irt      *            the annotation this one is "In Reply To".      */
+comment|/**      * This will set the annotation to which this one is "In Reply To" the      * actual relationship is specified by the RT entry.      *      * @param irt the annotation this one is "In Reply To".      */
 specifier|public
 name|void
 name|setInReplyTo
@@ -435,7 +435,7 @@ literal|"Subj"
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the short description of the subject of the annotation.      *      * @param subj      *            short description of the subject.      */
+comment|/**      * This will set the short description of the subject of the annotation.      *      * @param subj short description of the subject.      */
 specifier|public
 name|void
 name|setSubject
@@ -473,7 +473,7 @@ name|RT_REPLY
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the Reply Type (relationship) with the annotation in the      * IRT entry See the RT_* constants for the available values.      *      * @param rt      *            the reply type.      */
+comment|/**      * This will set the Reply Type (relationship) with the annotation in the      * IRT entry See the RT_* constants for the available values.      *      * @param rt the reply type.      */
 specifier|public
 name|void
 name|setReplyType
@@ -509,7 +509,7 @@ literal|"IT"
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the intent of the annotation The values and meanings are      * specific to the actual annotation See the IT_* constants for the      * annotation classes.      *      * @param it      *            the intent      */
+comment|/**      * This will set the intent of the annotation The values and meanings are      * specific to the actual annotation See the IT_* constants for the      * annotation classes.      *      * @param it the intent      */
 specifier|public
 name|void
 name|setIntent
@@ -526,6 +526,69 @@ argument_list|(
 literal|"IT"
 argument_list|,
 name|it
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This will return the external data dictionary.      *       * @return the external data dictionary      */
+specifier|public
+name|PDExternalDataDictionary
+name|getExternalData
+parameter_list|()
+block|{
+name|COSBase
+name|exData
+init|=
+name|this
+operator|.
+name|getDictionary
+argument_list|()
+operator|.
+name|getDictionaryObject
+argument_list|(
+literal|"ExData"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|exData
+operator|instanceof
+name|COSDictionary
+condition|)
+block|{
+return|return
+operator|new
+name|PDExternalDataDictionary
+argument_list|(
+operator|(
+name|COSDictionary
+operator|)
+name|exData
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * This will set the external data dictionary.      *       * @param externalData the external data dictionary      */
+specifier|public
+name|void
+name|setExternalData
+parameter_list|(
+name|PDExternalDataDictionary
+name|externalData
+parameter_list|)
+block|{
+name|this
+operator|.
+name|getDictionary
+argument_list|()
+operator|.
+name|setItem
+argument_list|(
+literal|"ExData"
+argument_list|,
+name|externalData
 argument_list|)
 expr_stmt|;
 block|}

@@ -84,7 +84,7 @@ specifier|public
 class|class
 name|PDAnnotationFileAttachment
 extends|extends
-name|PDAnnotation
+name|PDAnnotationMarkup
 block|{
 comment|/**      * See get/setAttachmentName.      */
 specifier|public
