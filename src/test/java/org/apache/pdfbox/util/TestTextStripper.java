@@ -41,16 +41,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|FilenameFilter
 import|;
 end_import
@@ -121,16 +111,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|PrintWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|Writer
 import|;
 end_import
@@ -171,6 +151,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|pdmodel
@@ -190,6 +198,22 @@ name|TestTextStripper
 extends|extends
 name|TestCase
 block|{
+comment|/**      * Logger instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|TestTextStripper
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|boolean
 name|bFail
@@ -199,12 +223,6 @@ decl_stmt|;
 specifier|private
 name|PDFTextStripper
 name|stripper
-init|=
-literal|null
-decl_stmt|;
-specifier|private
-name|PrintWriter
-name|log
 init|=
 literal|null
 decl_stmt|;
@@ -381,7 +399,7 @@ literal|false
 expr_stmt|;
 name|log
 operator|.
-name|println
+name|warn
 argument_list|(
 literal|"Lines differ at index"
 operator|+
@@ -461,7 +479,7 @@ literal|false
 expr_stmt|;
 name|log
 operator|.
-name|println
+name|warn
 argument_list|(
 literal|"Expected line is longer at:"
 operator|+
@@ -484,7 +502,7 @@ literal|false
 expr_stmt|;
 name|log
 operator|.
-name|println
+name|warn
 argument_list|(
 literal|"Actual line is longer at:"
 operator|+
@@ -654,7 +672,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|println
+name|info
 argument_list|(
 literal|"Preparing to parse "
 operator|+
@@ -671,7 +689,7 @@ else|else
 block|{
 name|log
 operator|.
-name|println
+name|info
 argument_list|(
 literal|"Preparing to parse "
 operator|+
@@ -887,7 +905,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|println
+name|info
 argument_list|(
 literal|"Text for "
 operator|+
@@ -896,8 +914,13 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|":\r\n"
-operator|+
+literal|":"
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
 name|stripper
 operator|.
 name|getText
@@ -924,7 +947,7 @@ literal|true
 expr_stmt|;
 name|log
 operator|.
-name|println
+name|error
 argument_list|(
 literal|"FAILURE: Input verification file: "
 operator|+
@@ -1084,7 +1107,7 @@ expr_stmt|;
 block|}
 name|log
 operator|.
-name|println
+name|error
 argument_list|(
 literal|"FAILURE: Line mismatch for file "
 operator|+
@@ -1106,14 +1129,24 @@ name|actualReader
 operator|.
 name|getLineNumber
 argument_list|()
-operator|+
-literal|"\r\n  expected line was: \""
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"  expected line was: \""
 operator|+
 name|expectedLine
 operator|+
 literal|"\""
-operator|+
-literal|"\r\n  actual line was:   \""
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"  actual line was:   \""
 operator|+
 name|actualLine
 operator|+
@@ -1335,20 +1368,6 @@ argument_list|(
 literal|"test/output-ext"
 argument_list|)
 decl_stmt|;
-try|try
-block|{
-name|log
-operator|=
-operator|new
-name|PrintWriter
-argument_list|(
-operator|new
-name|FileWriter
-argument_list|(
-literal|"textextract.log"
-argument_list|)
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -1442,23 +1461,6 @@ argument_list|(
 literal|"One or more failures, see test log for details"
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|log
-operator|!=
-literal|null
-condition|)
-block|{
-name|log
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Set the tests in the suite for this test class.      *      * @return the Suite.      */
