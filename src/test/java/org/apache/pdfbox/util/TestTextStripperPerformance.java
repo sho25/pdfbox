@@ -314,7 +314,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"test/input"
+literal|"src/test/resources/input"
 argument_list|)
 decl_stmt|;
 if|if

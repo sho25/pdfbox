@@ -278,7 +278,7 @@ specifier|final
 name|String
 name|PDF_FDEB
 init|=
-literal|"test/input-ext/fdeb.pdf"
+literal|"target/test-input-ext/fdeb.pdf"
 decl_stmt|;
 specifier|private
 specifier|static
@@ -286,7 +286,7 @@ specifier|final
 name|String
 name|PDF_LOTSOFFIELDS
 init|=
-literal|"test/input-ext/pdf_with_lots_of_fields.pdf"
+literal|"target/test-input-ext/pdf_with_lots_of_fields.pdf"
 decl_stmt|;
 specifier|private
 specifier|static
@@ -294,7 +294,7 @@ specifier|final
 name|String
 name|PDF_FREEDOM
 init|=
-literal|"test/input-ext/FreedomExpressions.pdf"
+literal|"target/test-input-ext/FreedomExpressions.pdf"
 decl_stmt|;
 specifier|private
 specifier|static
@@ -302,7 +302,7 @@ specifier|final
 name|String
 name|FDF_FREEDOM
 init|=
-literal|"test/input-ext/FreedomExpressions.fdf"
+literal|"target/test-input-ext/FreedomExpressions.fdf"
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param name The name of the test to run.      */
 specifier|public

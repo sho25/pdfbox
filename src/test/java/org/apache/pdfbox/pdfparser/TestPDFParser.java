@@ -251,7 +251,7 @@ name|PDDocument
 operator|.
 name|load
 argument_list|(
-literal|"test/pdfparser/genko_oc_shiryo1.pdf"
+literal|"src/test/resources/pdfparser/genko_oc_shiryo1.pdf"
 argument_list|)
 expr_stmt|;
 block|}
