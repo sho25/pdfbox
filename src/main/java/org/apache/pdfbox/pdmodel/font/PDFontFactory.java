@@ -79,6 +79,34 @@ name|COSStream
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * This will create the correct type of font based on information in the dictionary.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
 end_comment
@@ -93,6 +121,22 @@ specifier|private
 name|PDFontFactory
 parameter_list|()
 block|{     }
+comment|/**      * Logger instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDFontFactory
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * This will create the correct font based on information in the dictionary.      *      * @param dic The populated dictionary.      *      * @param fontCache A Map to cache already created fonts      *      * @return The corrent implementation for the font.      *      * @throws IOException If the dictionary is not valid.      */
 specifier|public
 specifier|static
@@ -557,15 +601,34 @@ expr_stmt|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IOException
+name|log
+operator|.
+name|warn
 argument_list|(
-literal|"Unknown font subtype="
+literal|"Substituting TrueType for unknown font subtype="
 operator|+
-name|subType
+name|dic
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|SUBTYPE
 argument_list|)
-throw|;
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|//throw new IOException( "Unknown font subtype=" + subType );
+name|retval
+operator|=
+operator|new
+name|PDTrueTypeFont
+argument_list|(
+name|dic
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|retval
