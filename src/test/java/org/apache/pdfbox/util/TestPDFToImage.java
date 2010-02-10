@@ -504,7 +504,7 @@ decl_stmt|;
 name|String
 name|outDir
 init|=
-literal|"target/test-output/rendering"
+literal|"target/test-output/rendering/"
 decl_stmt|;
 name|String
 name|inDirExt
