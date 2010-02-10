@@ -634,6 +634,13 @@ name|pageMap
 init|=
 literal|null
 decl_stmt|;
+comment|/**      * This will hold a flag which tells us if we should remove all security      * from this documents      */
+specifier|private
+name|boolean
+name|allSecurityToBeRemoved
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Constructor, creates a new PDF Document with no pages.  You need to add      * at least one page for the document to be valid.      *      * @throws IOException If there is an error creating this document.      */
 specifier|public
 name|PDDocument
@@ -2982,6 +2989,30 @@ block|{
 return|return
 name|securityHandler
 return|;
+block|}
+specifier|public
+name|boolean
+name|isAllSecurityToBeRemoved
+parameter_list|()
+block|{
+return|return
+name|allSecurityToBeRemoved
+return|;
+block|}
+specifier|public
+name|void
+name|setAllSecurityToBeRemoved
+parameter_list|(
+name|boolean
+name|allSecurityToBeRemoved
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allSecurityToBeRemoved
+operator|=
+name|allSecurityToBeRemoved
+expr_stmt|;
 block|}
 block|}
 end_class
