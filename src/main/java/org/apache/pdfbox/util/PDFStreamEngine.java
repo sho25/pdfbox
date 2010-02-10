@@ -1061,10 +1061,17 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-comment|// lets see what the space displacement should be
 name|float
 name|spaceWidthText
 init|=
+literal|0
+decl_stmt|;
+try|try
+block|{
+comment|// to avoid crash as described in PDFBOX-614
+comment|// lets see what the space displacement should be
+name|spaceWidthText
+operator|=
 operator|(
 name|font
 operator|.
@@ -1079,7 +1086,24 @@ argument_list|)
 operator|/
 name|glyphSpaceToTextSpaceFactor
 operator|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|exception
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+name|exception
+argument_list|,
+name|exception
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|spaceWidthText
