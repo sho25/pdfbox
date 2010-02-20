@@ -306,6 +306,9 @@ block|}
 comment|/**      * This will get all the tokens in the stream.      *      * @return All of the tokens in the stream.      *      * @throws IOException If there is an error parsing the stream.      */
 specifier|public
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|getStreamTokens
 parameter_list|()
 throws|throws

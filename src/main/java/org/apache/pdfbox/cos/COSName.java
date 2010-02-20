@@ -118,11 +118,19 @@ extends|extends
 name|COSBase
 implements|implements
 name|Comparable
+argument_list|<
+name|COSName
+argument_list|>
 block|{
 comment|/**      * Note: This is synchronized because a HashMap must be synchronized if accessed by      * multiple threads.      */
 specifier|private
 specifier|static
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|COSName
+argument_list|>
 name|nameMap
 init|=
 name|Collections
@@ -131,6 +139,11 @@ name|synchronizedMap
 argument_list|(
 operator|new
 name|WeakHashMap
+argument_list|<
+name|String
+argument_list|,
+name|COSName
+argument_list|>
 argument_list|(
 literal|8192
 argument_list|)
@@ -140,10 +153,20 @@ comment|/**      * All common COSName values are stored in a simple HashMap. The
 specifier|private
 specifier|static
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|COSName
+argument_list|>
 name|commonNameMap
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|COSName
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -1668,9 +1691,6 @@ block|{
 comment|// Is it a common COSName ??
 name|name
 operator|=
-operator|(
-name|COSName
-operator|)
 name|commonNameMap
 operator|.
 name|get
@@ -1688,9 +1708,6 @@ block|{
 comment|// It seems to be a document specific COSName
 name|name
 operator|=
-operator|(
-name|COSName
-operator|)
 name|nameMap
 operator|.
 name|get
@@ -1884,18 +1901,10 @@ specifier|public
 name|int
 name|compareTo
 parameter_list|(
-name|Object
-name|o
-parameter_list|)
-block|{
 name|COSName
 name|other
-init|=
-operator|(
-name|COSName
-operator|)
-name|o
-decl_stmt|;
+parameter_list|)
+block|{
 return|return
 name|this
 operator|.

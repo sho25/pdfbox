@@ -248,10 +248,16 @@ name|BaseParser
 block|{
 specifier|private
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|streamObjects
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 literal|100
 argument_list|)
@@ -389,6 +395,9 @@ block|}
 comment|/**      * This will get the tokens that were parsed from the stream.      *      * @return All of the tokens in the stream.      */
 specifier|public
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|getTokens
 parameter_list|()
 block|{

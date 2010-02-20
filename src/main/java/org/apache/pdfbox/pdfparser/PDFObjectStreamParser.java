@@ -172,12 +172,18 @@ argument_list|)
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|COSObject
+argument_list|>
 name|streamObjects
 init|=
 literal|null
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|Integer
+argument_list|>
 name|objectNumbers
 init|=
 literal|null
@@ -242,6 +248,9 @@ name|objectNumbers
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Integer
+argument_list|>
 argument_list|(
 name|numberOfObjects
 argument_list|)
@@ -250,6 +259,9 @@ name|streamObjects
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|COSObject
+argument_list|>
 argument_list|(
 name|numberOfObjects
 argument_list|)
@@ -343,17 +355,12 @@ init|=
 operator|new
 name|COSInteger
 argument_list|(
-operator|(
-operator|(
-name|Integer
-operator|)
 name|objectNumbers
 operator|.
 name|get
 argument_list|(
 name|objectCounter
 argument_list|)
-operator|)
 operator|.
 name|intValue
 argument_list|()
@@ -408,6 +415,9 @@ block|}
 comment|/**      * This will get the objects that were parsed from the stream.      *      * @return All of the objects in the stream.      */
 specifier|public
 name|List
+argument_list|<
+name|COSObject
+argument_list|>
 name|getObjects
 parameter_list|()
 block|{
