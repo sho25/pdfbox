@@ -533,6 +533,15 @@ argument_list|(
 literal|"CropBox"
 argument_list|)
 decl_stmt|;
+comment|/** "D" */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|D
+init|=
+literal|"D"
+decl_stmt|;
 comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
@@ -583,6 +592,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Dest"
+argument_list|)
+decl_stmt|;
+comment|/** "Dests" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DESTS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Dests"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -676,6 +698,19 @@ argument_list|(
 literal|"DW"
 argument_list|)
 decl_stmt|;
+comment|/** "EmbeddedFiles" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|EMBEDDED_FILES
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"EmbeddedFiles"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -739,6 +774,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"ETen?B5?V"
+argument_list|)
+decl_stmt|;
+comment|/** "Encrypt" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ENCRYPT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Encrypt"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -1001,6 +1049,19 @@ argument_list|(
 literal|"ICCBased"
 argument_list|)
 decl_stmt|;
+comment|/** "ID" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ID
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ID"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -1027,6 +1088,19 @@ argument_list|(
 literal|"Image"
 argument_list|)
 decl_stmt|;
+comment|/** "Index" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|INDEX
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Index"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -1051,6 +1125,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Info"
+argument_list|)
+decl_stmt|;
+comment|/** "JavaScript" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|JAVA_SCRIPT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"JavaScript"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1090,6 +1177,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Lab"
+argument_list|)
+decl_stmt|;
+comment|/** "Lang" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|LANG
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Lang"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1170,6 +1270,19 @@ argument_list|(
 literal|"MacRomanEncoding"
 argument_list|)
 decl_stmt|;
+comment|/** "MarkInfo" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|MARK_INFO
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"MarkInfo"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -1248,6 +1361,45 @@ argument_list|(
 literal|"Name"
 argument_list|)
 decl_stmt|;
+comment|/** "Names" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|NAMES
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Names"
+argument_list|)
+decl_stmt|;
+comment|/** "Outlines" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OUTLINES
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Outlines"
+argument_list|)
+decl_stmt|;
+comment|/** "OpenAction" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OPEN_ACTION
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"OpenAction"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -1272,6 +1424,45 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Page"
+argument_list|)
+decl_stmt|;
+comment|/** "PageLabels" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PAGE_LABELS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"PageLabels"
+argument_list|)
+decl_stmt|;
+comment|/** "PageLayout" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PAGE_LAYOUT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"PageLayout"
+argument_list|)
+decl_stmt|;
+comment|/** "PageMode" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PAGE_MODE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"PageMode"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1430,6 +1621,19 @@ argument_list|(
 literal|"Separation"
 argument_list|)
 decl_stmt|;
+comment|/** "Size" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|SIZE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Size"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -1443,6 +1647,19 @@ argument_list|(
 literal|"StandardEncoding"
 argument_list|)
 decl_stmt|;
+comment|/** "StructTreeRoot" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|STRUCT_TREE_ROOT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"StructTreeRoot"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -1454,6 +1671,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Subtype"
+argument_list|)
+decl_stmt|;
+comment|/** "Threads" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|THREADS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Threads"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -1547,6 +1777,19 @@ argument_list|(
 literal|"Type3"
 argument_list|)
 decl_stmt|;
+comment|/** "URI" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|URI
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"URI"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -1571,6 +1814,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Version"
+argument_list|)
+decl_stmt|;
+comment|/** "ViewerPreferences" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|VIEWER_PREFERENCES
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ViewerPreferences"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */

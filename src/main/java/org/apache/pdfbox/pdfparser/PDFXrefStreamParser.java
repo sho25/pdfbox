@@ -97,6 +97,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSNumber
 import|;
 end_import
@@ -197,7 +211,9 @@ name|stream
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"W"
+name|COSName
+operator|.
+name|W
 argument_list|)
 decl_stmt|;
 name|COSArray
@@ -210,7 +226,9 @@ name|stream
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Index"
+name|COSName
+operator|.
+name|INDEX
 argument_list|)
 decl_stmt|;
 comment|/*              * If Index doesn't exist, we will use the default values.               */
@@ -244,7 +262,9 @@ name|stream
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Size"
+name|COSName
+operator|.
+name|SIZE
 argument_list|)
 argument_list|)
 expr_stmt|;

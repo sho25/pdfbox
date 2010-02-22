@@ -1167,7 +1167,9 @@ name|dic
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Kids"
+name|COSName
+operator|.
+name|KIDS
 argument_list|)
 decl_stmt|;
 for|for
@@ -1215,7 +1217,9 @@ name|dic
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"V"
+name|COSName
+operator|.
+name|V
 argument_list|)
 decl_stmt|;
 if|if
