@@ -944,15 +944,11 @@ parameter_list|)
 block|{
 name|annot
 operator|.
-name|setItem
+name|setInt
 argument_list|(
 literal|"Page"
 argument_list|,
-operator|new
-name|COSInteger
-argument_list|(
 name|page
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

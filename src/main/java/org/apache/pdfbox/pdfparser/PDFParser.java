@@ -2003,8 +2003,9 @@ name|obj
 operator|.
 name|setObjectNumber
 argument_list|(
-operator|new
 name|COSInteger
+operator|.
+name|get
 argument_list|(
 name|key
 operator|.
@@ -2017,8 +2018,9 @@ name|obj
 operator|.
 name|setGenerationNumber
 argument_list|(
-operator|new
 name|COSInteger
+operator|.
+name|get
 argument_list|(
 name|key
 operator|.

@@ -3182,8 +3182,9 @@ name|lengthObject
 operator|.
 name|setObject
 argument_list|(
-operator|new
 name|COSInteger
+operator|.
+name|get
 argument_list|(
 name|totalAmountWritten
 argument_list|)

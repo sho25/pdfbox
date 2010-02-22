@@ -269,8 +269,9 @@ name|array
 operator|.
 name|add
 argument_list|(
-operator|new
 name|COSInteger
+operator|.
+name|get
 argument_list|(
 literal|255
 argument_list|)
@@ -747,11 +748,7 @@ name|set
 argument_list|(
 literal|2
 argument_list|,
-operator|new
-name|COSInteger
-argument_list|(
 name|high
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

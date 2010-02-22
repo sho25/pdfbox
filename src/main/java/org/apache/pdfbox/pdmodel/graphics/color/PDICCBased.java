@@ -593,7 +593,7 @@ operator|.
 name|getStream
 argument_list|()
 operator|.
-name|setItem
+name|setInt
 argument_list|(
 name|COSName
 operator|.
@@ -602,11 +602,7 @@ argument_list|(
 literal|"N"
 argument_list|)
 argument_list|,
-operator|new
-name|COSInteger
-argument_list|(
 name|n
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

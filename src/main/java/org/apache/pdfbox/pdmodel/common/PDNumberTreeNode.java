@@ -784,13 +784,11 @@ name|array
 operator|.
 name|add
 argument_list|(
-operator|new
 name|COSInteger
+operator|.
+name|get
 argument_list|(
 name|key
-operator|.
-name|intValue
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -352,8 +352,9 @@ expr_stmt|;
 name|COSInteger
 name|objNum
 init|=
-operator|new
 name|COSInteger
+operator|.
+name|get
 argument_list|(
 name|objectNumbers
 operator|.

@@ -356,7 +356,7 @@ parameter_list|)
 block|{
 name|dictionary
 operator|.
-name|setItem
+name|setInt
 argument_list|(
 name|COSName
 operator|.
@@ -365,11 +365,7 @@ argument_list|(
 literal|"BPC"
 argument_list|)
 argument_list|,
-operator|new
-name|COSInteger
-argument_list|(
 name|bpc
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -507,7 +503,7 @@ parameter_list|)
 block|{
 name|dictionary
 operator|.
-name|setItem
+name|setInt
 argument_list|(
 name|COSName
 operator|.
@@ -516,11 +512,7 @@ argument_list|(
 literal|"H"
 argument_list|)
 argument_list|,
-operator|new
-name|COSInteger
-argument_list|(
 name|h
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -550,7 +542,7 @@ parameter_list|)
 block|{
 name|dictionary
 operator|.
-name|setItem
+name|setInt
 argument_list|(
 name|COSName
 operator|.
@@ -559,11 +551,7 @@ argument_list|(
 literal|"W"
 argument_list|)
 argument_list|,
-operator|new
-name|COSInteger
-argument_list|(
 name|w
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -346,7 +346,7 @@ parameter_list|)
 block|{
 name|encryptionDictionary
 operator|.
-name|setItem
+name|setInt
 argument_list|(
 name|COSName
 operator|.
@@ -355,11 +355,7 @@ argument_list|(
 literal|"R"
 argument_list|)
 argument_list|,
-operator|new
-name|COSInteger
-argument_list|(
 name|revision
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -604,7 +600,7 @@ parameter_list|)
 block|{
 name|encryptionDictionary
 operator|.
-name|setItem
+name|setInt
 argument_list|(
 name|COSName
 operator|.
@@ -613,11 +609,7 @@ argument_list|(
 literal|"P"
 argument_list|)
 argument_list|,
-operator|new
-name|COSInteger
-argument_list|(
 name|p
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

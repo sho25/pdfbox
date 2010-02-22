@@ -71,7 +71,7 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSInteger
+name|COSNumber
 import|;
 end_import
 
@@ -366,11 +366,9 @@ name|d
 operator|.
 name|add
 argument_list|(
-operator|new
-name|COSInteger
-argument_list|(
-literal|3
-argument_list|)
+name|COSNumber
+operator|.
+name|THREE
 argument_list|)
 expr_stmt|;
 name|getDictionary

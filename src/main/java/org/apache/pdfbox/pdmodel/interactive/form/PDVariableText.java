@@ -753,7 +753,7 @@ block|{
 name|getDictionary
 argument_list|()
 operator|.
-name|setItem
+name|setInt
 argument_list|(
 name|COSName
 operator|.
@@ -762,11 +762,7 @@ argument_list|(
 literal|"Q"
 argument_list|)
 argument_list|,
-operator|new
-name|COSInteger
-argument_list|(
 name|q
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

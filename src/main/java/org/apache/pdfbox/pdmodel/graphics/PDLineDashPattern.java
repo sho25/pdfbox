@@ -158,11 +158,9 @@ name|lineDashPattern
 operator|.
 name|add
 argument_list|(
-operator|new
-name|COSInteger
-argument_list|(
-literal|0
-argument_list|)
+name|COSNumber
+operator|.
+name|ZERO
 argument_list|)
 expr_stmt|;
 block|}
@@ -207,8 +205,9 @@ name|lineDashPattern
 operator|.
 name|add
 argument_list|(
-operator|new
 name|COSInteger
+operator|.
+name|get
 argument_list|(
 name|phase
 argument_list|)
@@ -322,11 +321,7 @@ name|set
 argument_list|(
 literal|1
 argument_list|,
-operator|new
-name|COSInteger
-argument_list|(
 name|phase
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

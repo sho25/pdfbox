@@ -340,8 +340,9 @@ name|set
 argument_list|(
 name|index
 argument_list|,
-operator|new
 name|COSInteger
+operator|.
+name|get
 argument_list|(
 name|intVal
 argument_list|)
@@ -565,8 +566,9 @@ name|set
 argument_list|(
 name|index
 argument_list|,
-operator|new
 name|COSInteger
+operator|.
+name|get
 argument_list|(
 name|value
 argument_list|)

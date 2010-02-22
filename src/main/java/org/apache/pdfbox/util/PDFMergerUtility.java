@@ -1302,8 +1302,9 @@ name|destNums
 operator|.
 name|add
 argument_list|(
-operator|new
 name|COSInteger
+operator|.
+name|get
 argument_list|(
 name|labelIndexValue
 operator|+
