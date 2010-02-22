@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test suite for PDFTextStripper.  *  * FILE SET VALIDATION  *  * This test suite is designed to test PDFToImage using a set of PDF  * files and known good output for each.  The default mode of testAll()  * is to process each *.pdf file in "test/input".  An output file is  * created in "test/output" with the same name as the PDF file, plus an  * additional ".jpg" suffix.  *  * The output file is then tested against a known good result file from  * the input directory (again, with the same name as the tested PDF file,  * but with the additional ".jpg" suffix).  *  * Currently, testing against known output is simply a byte-for-byte comparison  *  *In the future, testing against the known output may be accomplished using PerceptualDiff  *  http://sourceforge.net/projects/pdiff  *  *  * @author<a href="mailto:DanielWilson@Users.Sourceforge.net">Daniel Wilson</a>  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.1 $  */
+comment|/**  * Test suite for PDFTextStripper.  *  * FILE SET VALIDATION  *  * This test suite is designed to test PDFToImage using a set of PDF  * files and known good output for each.  The default mode of testAll()  * is to process each *.pdf file in "src/test/resources/input/rendering".  An output file is  * created in "target/test-output/rendering" with the same name as the PDF file, plus an  * additional page number and ".png" suffix.  *  * The output file is then tested against a known good result file from  * the input directory (again, with the same name as the tested PDF file,  * but with the additional page number and ".png" suffix).  *  * Currently, testing against known output is simply a byte-for-byte comparison  *  *In the future, testing against the known output may be accomplished using PerceptualDiff  *  http://sourceforge.net/projects/pdiff  *  *  * @author<a href="mailto:DanielWilson@Users.Sourceforge.net">Daniel Wilson</a>  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -399,6 +399,8 @@ operator|new
 name|File
 argument_list|(
 name|inDir
+operator|+
+literal|'/'
 operator|+
 name|outFiles
 index|[
