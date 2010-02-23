@@ -200,19 +200,6 @@ name|COSDocument
 extends|extends
 name|COSBase
 block|{
-specifier|private
-specifier|static
-specifier|final
-name|COSName
-name|ENCRYPT
-init|=
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
-literal|"Encrypt"
-argument_list|)
-decl_stmt|;
 comment|/**      * Log instance.      */
 specifier|private
 specifier|static
@@ -733,6 +720,8 @@ name|trailer
 operator|.
 name|getDictionaryObject
 argument_list|(
+name|COSName
+operator|.
 name|ENCRYPT
 argument_list|)
 operator|!=
@@ -757,6 +746,8 @@ name|trailer
 operator|.
 name|getDictionaryObject
 argument_list|(
+name|COSName
+operator|.
 name|ENCRYPT
 argument_list|)
 return|;
@@ -774,6 +765,8 @@ name|trailer
 operator|.
 name|setItem
 argument_list|(
+name|COSName
+operator|.
 name|ENCRYPT
 argument_list|,
 name|encDictionary
@@ -797,10 +790,7 @@ name|getItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"ID"
-argument_list|)
+name|ID
 argument_list|)
 return|;
 block|}
@@ -820,10 +810,7 @@ name|setItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"ID"
-argument_list|)
+name|ID
 argument_list|,
 name|id
 argument_list|)

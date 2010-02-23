@@ -1601,10 +1601,7 @@ name|setInt
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Size"
-argument_list|)
+name|SIZE
 argument_list|,
 operator|(
 name|int

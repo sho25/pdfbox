@@ -868,10 +868,7 @@ name|setItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"ColorSpace"
-argument_list|)
+name|COLORSPACE
 argument_list|,
 name|COSDictionaryMap
 operator|.
@@ -905,10 +902,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"ExtGState"
-argument_list|)
+name|EXT_G_STATE
 argument_list|)
 decl_stmt|;
 if|if
@@ -1064,10 +1058,7 @@ name|setItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"ExtGState"
-argument_list|)
+name|EXT_G_STATE
 argument_list|,
 name|dic
 argument_list|)

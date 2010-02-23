@@ -832,6 +832,19 @@ argument_list|(
 literal|"Encrypt"
 argument_list|)
 decl_stmt|;
+comment|/** "ExtGState" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|EXT_G_STATE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ExtGState"
+argument_list|)
+decl_stmt|;
 comment|/** "Extends" */
 specifier|public
 specifier|static
@@ -1649,6 +1662,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Prev"
+argument_list|)
+decl_stmt|;
+comment|/** "ProcSet" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PROC_SET
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ProcSet"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */

@@ -300,7 +300,7 @@ specifier|public
 class|class
 name|Overlay
 block|{
-comment|/**      * COSName constant.      */
+comment|/**      * @deprecated use the {@link COSName#XOBJECT} constant instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -309,12 +309,9 @@ name|XOBJECT
 init|=
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"XObject"
-argument_list|)
+name|XOBJECT
 decl_stmt|;
-comment|/**      * COSName constant.      */
+comment|/**      * @deprecated use the {@link COSName#PROC_SET} constant instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -323,12 +320,9 @@ name|PROC_SET
 init|=
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"ProcSet"
-argument_list|)
+name|PROC_SET
 decl_stmt|;
-comment|/**      * COSName constant.      */
+comment|/**      * @deprecated use the {@link COSName#EXT_G_STATE} constant instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -337,10 +331,7 @@ name|EXT_G_STATE
 init|=
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"ExtGState"
-argument_list|)
+name|EXT_G_STATE
 decl_stmt|;
 specifier|private
 name|List
@@ -1683,6 +1674,8 @@ name|res
 decl_stmt|;
 name|mergeArray
 argument_list|(
+name|COSName
+operator|.
 name|PROC_SET
 argument_list|,
 name|docResDict
@@ -1707,6 +1700,8 @@ argument_list|)
 expr_stmt|;
 name|mergeDictionary
 argument_list|(
+name|COSName
+operator|.
 name|XOBJECT
 argument_list|,
 name|docResDict
@@ -1720,6 +1715,8 @@ argument_list|)
 expr_stmt|;
 name|mergeDictionary
 argument_list|(
+name|COSName
+operator|.
 name|EXT_G_STATE
 argument_list|,
 name|docResDict

@@ -96,10 +96,7 @@ name|KEY_PREFIX
 init|=
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"P"
-argument_list|)
+name|P
 decl_stmt|;
 specifier|private
 specifier|static
