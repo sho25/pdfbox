@@ -145,6 +145,20 @@ name|COSInteger
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class represents a PDF Number tree. See the PDF Reference 1.7 section  * 7.9.7 for more details.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>,  *<a href="igor.podolskiy@ievvwi.uni-stuttgart.de">Igor Podolskiy</a>  * @version $Revision: 1.4 $  */
 end_comment
@@ -246,7 +260,9 @@ name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Kids"
+name|COSName
+operator|.
+name|KIDS
 argument_list|)
 decl_stmt|;
 if|if
@@ -487,7 +503,9 @@ name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Nums"
+name|COSName
+operator|.
+name|NUMS
 argument_list|)
 decl_stmt|;
 if|if
@@ -700,7 +718,9 @@ name|node
 operator|.
 name|setItem
 argument_list|(
-literal|"Nums"
+name|COSName
+operator|.
+name|NUMS
 argument_list|,
 operator|(
 name|COSObjectable
@@ -905,7 +925,9 @@ name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Limits"
+name|COSName
+operator|.
+name|LIMITS
 argument_list|)
 decl_stmt|;
 if|if
@@ -953,7 +975,9 @@ name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Limits"
+name|COSName
+operator|.
+name|LIMITS
 argument_list|)
 decl_stmt|;
 if|if
@@ -1018,7 +1042,9 @@ name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Limits"
+name|COSName
+operator|.
+name|LIMITS
 argument_list|)
 decl_stmt|;
 if|if
@@ -1066,7 +1092,9 @@ name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Limits"
+name|COSName
+operator|.
+name|LIMITS
 argument_list|)
 decl_stmt|;
 if|if

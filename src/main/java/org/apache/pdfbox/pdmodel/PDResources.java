@@ -463,7 +463,9 @@ name|resources
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"XObject"
+name|COSName
+operator|.
+name|XOBJECT
 argument_list|)
 decl_stmt|;
 if|if
@@ -483,7 +485,9 @@ name|resources
 operator|.
 name|setItem
 argument_list|(
-literal|"XObject"
+name|COSName
+operator|.
+name|XOBJECT
 argument_list|,
 name|xobjects
 argument_list|)
@@ -585,7 +589,9 @@ name|resources
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"XObject"
+name|COSName
+operator|.
+name|XOBJECT
 argument_list|)
 decl_stmt|;
 if|if
@@ -605,7 +611,9 @@ name|resources
 operator|.
 name|setItem
 argument_list|(
-literal|"XObject"
+name|COSName
+operator|.
+name|XOBJECT
 argument_list|,
 name|images
 argument_list|)

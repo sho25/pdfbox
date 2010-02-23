@@ -286,7 +286,7 @@ argument_list|(
 literal|"AHx"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/** "AP" */
 specifier|public
 specifier|static
 specifier|final
@@ -537,10 +537,14 @@ comment|/** "D" */
 specifier|public
 specifier|static
 specifier|final
-name|String
+name|COSName
 name|D
 init|=
+operator|new
+name|COSName
+argument_list|(
 literal|"D"
+argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
 specifier|public
@@ -566,6 +570,32 @@ operator|new
 name|COSName
 argument_list|(
 literal|"DCT"
+argument_list|)
+decl_stmt|;
+comment|/** "DecodeParams" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DECODE_PARAMS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DecodeParams"
+argument_list|)
+decl_stmt|;
+comment|/** "DecodeParms" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DECODE_PARMS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DecodeParms"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -670,6 +700,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Differences"
+argument_list|)
+decl_stmt|;
+comment|/** "DP" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DP"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -787,6 +830,58 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Encrypt"
+argument_list|)
+decl_stmt|;
+comment|/** "Extends" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|EXTENDS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Extends"
+argument_list|)
+decl_stmt|;
+comment|/** "F" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|F
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"F"
+argument_list|)
+decl_stmt|;
+comment|/** "FDecodeParms" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|F_DECODE_PARMS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"FDecodeParms"
+argument_list|)
+decl_stmt|;
+comment|/** "FFilter" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|F_FILTER
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"FFilter"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -1153,7 +1248,7 @@ argument_list|(
 literal|"JPXDecode"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/** "Kids" */
 specifier|public
 specifier|static
 specifier|final
@@ -1229,6 +1324,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Length1"
+argument_list|)
+decl_stmt|;
+comment|/** "Limits" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|LIMITS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Limits"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1372,6 +1480,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Names"
+argument_list|)
+decl_stmt|;
+comment|/** "Numbs" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|NUMS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Nums"
 argument_list|)
 decl_stmt|;
 comment|/** "Outlines" */
@@ -1868,7 +1989,7 @@ argument_list|(
 literal|"WinAnsiEncoding"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/** "XObject" */
 specifier|public
 specifier|static
 specifier|final

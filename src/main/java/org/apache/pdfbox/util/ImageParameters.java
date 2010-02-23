@@ -612,7 +612,9 @@ name|name
 argument_list|,
 name|dictionary
 argument_list|,
-literal|"Filter"
+name|COSName
+operator|.
+name|FILTER
 argument_list|)
 expr_stmt|;
 block|}

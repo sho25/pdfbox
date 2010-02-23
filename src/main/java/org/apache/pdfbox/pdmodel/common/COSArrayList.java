@@ -217,7 +217,7 @@ name|COSDictionary
 name|parentDict
 decl_stmt|;
 specifier|private
-name|String
+name|COSName
 name|dictKey
 decl_stmt|;
 comment|/**      * Default constructor.      */
@@ -271,7 +271,7 @@ parameter_list|,
 name|COSDictionary
 name|dictionary
 parameter_list|,
-name|String
+name|COSName
 name|dictionaryKey
 parameter_list|)
 block|{
@@ -308,6 +308,40 @@ expr_stmt|;
 name|dictKey
 operator|=
 name|dictionaryKey
+expr_stmt|;
+block|}
+comment|/**      * @deprecated use the {@link #COSArrayList(Object, COSBase, COSDictionary, COSName)} method instead      */
+specifier|public
+name|COSArrayList
+parameter_list|(
+name|Object
+name|actualObject
+parameter_list|,
+name|COSBase
+name|item
+parameter_list|,
+name|COSDictionary
+name|dictionary
+parameter_list|,
+name|String
+name|dictionaryKey
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|actualObject
+argument_list|,
+name|item
+argument_list|,
+name|dictionary
+argument_list|,
+name|COSName
+operator|.
+name|getPDFName
+argument_list|(
+name|dictionaryKey
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
