@@ -455,6 +455,8 @@ literal|"Type1C"
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 name|retval
 operator|=
 operator|new
@@ -463,6 +465,23 @@ argument_list|(
 name|dic
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Failed to create Type1C font. Falling back to Type1 font"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
