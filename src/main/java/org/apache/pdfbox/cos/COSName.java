@@ -1768,6 +1768,19 @@ argument_list|(
 literal|"Separation"
 argument_list|)
 decl_stmt|;
+comment|/** "Shading" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|SHADING
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Shading"
+argument_list|)
+decl_stmt|;
 comment|/** "Size" */
 specifier|public
 specifier|static
