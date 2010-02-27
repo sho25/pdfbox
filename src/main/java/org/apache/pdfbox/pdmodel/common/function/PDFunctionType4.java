@@ -49,6 +49,30 @@ name|PDStream
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSArray
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class represents a type 4 function in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
 end_comment
@@ -89,6 +113,27 @@ argument_list|(
 name|functionDictionary
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**     * {@inheritDoc}     */
+specifier|public
+name|COSArray
+name|Eval
+parameter_list|(
+name|COSArray
+name|input
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|//Implementation here will require evaluation of PostScript functions.
+comment|//See section 3.9.4 of the PDF Reference.
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Not Implemented"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

@@ -31,6 +31,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -624,6 +634,27 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**     * {@inheritDoc}     */
+specifier|public
+name|COSArray
+name|Eval
+parameter_list|(
+name|COSArray
+name|input
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|//This involves linear interpolation based on a set of sample points.
+comment|//Theoretically it's not that difficult ... see section 3.9.1 of the PDF Reference.
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Not Implemented"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

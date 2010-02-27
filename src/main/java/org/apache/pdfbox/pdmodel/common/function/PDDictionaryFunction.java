@@ -180,7 +180,7 @@ return|return
 name|function
 return|;
 block|}
-specifier|private
+specifier|protected
 name|COSArray
 name|getRangeArray
 parameter_list|(
