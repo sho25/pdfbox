@@ -702,6 +702,19 @@ argument_list|(
 literal|"Differences"
 argument_list|)
 decl_stmt|;
+comment|/** "DL" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DL
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DL"
+argument_list|)
+decl_stmt|;
 comment|/** "DP" */
 specifier|public
 specifier|static
