@@ -95,7 +95,7 @@ operator|+
 literal|1
 index|]
 decl_stmt|;
-comment|/** Constant for the number zero. */
+comment|/**      * Constant for the number zero.      * @since Apache PDFBox 1.1.0      */
 specifier|public
 specifier|static
 specifier|final
@@ -107,7 +107,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|/** Constant for the number one. */
+comment|/**      * Constant for the number one.      * @since Apache PDFBox 1.1.0      */
 specifier|public
 specifier|static
 specifier|final
@@ -119,7 +119,7 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-comment|/** Constant for the number two. */
+comment|/**      * Constant for the number two.      * @since Apache PDFBox 1.1.0      */
 specifier|public
 specifier|static
 specifier|final
@@ -131,7 +131,7 @@ argument_list|(
 literal|2
 argument_list|)
 decl_stmt|;
-comment|/** Constant for the number three. */
+comment|/**      * Constant for the number three.      * @since Apache PDFBox 1.1.0      */
 specifier|public
 specifier|static
 specifier|final
