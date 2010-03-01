@@ -37,7 +37,7 @@ name|COSNumber
 extends|extends
 name|COSBase
 block|{
-comment|/**      * ZERO.     */
+comment|/**      * @deprecated Use the {@link COSInteger#ZERO} constant instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -46,12 +46,9 @@ name|ZERO
 init|=
 name|COSInteger
 operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
+name|ZERO
 decl_stmt|;
-comment|/**      * ONE.     */
+comment|/**      * @deprecated Use the {@link COSInteger#ONE} constant instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -60,38 +57,7 @@ name|ONE
 init|=
 name|COSInteger
 operator|.
-name|get
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
-comment|/**      * TWO.     */
-specifier|public
-specifier|static
-specifier|final
-name|COSInteger
-name|TWO
-init|=
-name|COSInteger
-operator|.
-name|get
-argument_list|(
-literal|2
-argument_list|)
-decl_stmt|;
-comment|/**      * THREE.     */
-specifier|public
-specifier|static
-specifier|final
-name|COSInteger
-name|THREE
-init|=
-name|COSInteger
-operator|.
-name|get
-argument_list|(
-literal|3
-argument_list|)
+name|ONE
 decl_stmt|;
 comment|/**      * This will get the float value of this number.      *      * @return The float value of this object.      */
 specifier|public

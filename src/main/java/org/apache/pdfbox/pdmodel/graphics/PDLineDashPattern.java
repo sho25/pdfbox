@@ -158,7 +158,7 @@ name|lineDashPattern
 operator|.
 name|add
 argument_list|(
-name|COSNumber
+name|COSInteger
 operator|.
 name|ZERO
 argument_list|)

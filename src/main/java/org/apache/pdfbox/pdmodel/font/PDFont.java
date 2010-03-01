@@ -195,7 +195,7 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSName
+name|COSInteger
 import|;
 end_import
 
@@ -209,7 +209,7 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSNumber
+name|COSName
 import|;
 end_import
 
@@ -2657,7 +2657,7 @@ name|array
 operator|.
 name|add
 argument_list|(
-name|COSNumber
+name|COSInteger
 operator|.
 name|ZERO
 argument_list|)
@@ -2666,7 +2666,7 @@ name|array
 operator|.
 name|add
 argument_list|(
-name|COSNumber
+name|COSInteger
 operator|.
 name|ZERO
 argument_list|)
@@ -2686,7 +2686,7 @@ name|array
 operator|.
 name|add
 argument_list|(
-name|COSNumber
+name|COSInteger
 operator|.
 name|ZERO
 argument_list|)
@@ -2695,7 +2695,7 @@ name|array
 operator|.
 name|add
 argument_list|(
-name|COSNumber
+name|COSInteger
 operator|.
 name|ZERO
 argument_list|)
