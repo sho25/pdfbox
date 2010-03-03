@@ -167,6 +167,46 @@ name|SimpleDateFormat
 argument_list|(
 literal|"MM/dd/yyyy"
 argument_list|)
+block|,
+operator|new
+name|SimpleDateFormat
+argument_list|(
+literal|"yyyy-MM-dd'T'HH:mm:ss'Z'"
+argument_list|)
+block|,
+operator|new
+name|SimpleDateFormat
+argument_list|(
+literal|"yyyy-MM-dd'T'HH:mm:ssz"
+argument_list|)
+block|,
+operator|new
+name|SimpleDateFormat
+argument_list|(
+literal|"EEEE, MMM dd, yyyy"
+argument_list|)
+block|,
+comment|// Acrobat Distiller 1.0.2 for Macintosh
+operator|new
+name|SimpleDateFormat
+argument_list|(
+literal|"EEEE MMM dd, yyyy HH:mm:ss"
+argument_list|)
+block|,
+comment|// ECMP5
+operator|new
+name|SimpleDateFormat
+argument_list|(
+literal|"EEEE MMM dd HH:mm:ss z yyyy"
+argument_list|)
+block|,
+comment|// GNU Ghostscript 7.0.7
+operator|new
+name|SimpleDateFormat
+argument_list|(
+literal|"EEEE, MMM dd, yyyy 'at' hh:mma"
+argument_list|)
+comment|// Acrobat Net Distiller 1.0 for Windows
 block|}
 decl_stmt|;
 specifier|private
