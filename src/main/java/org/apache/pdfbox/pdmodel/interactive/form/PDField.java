@@ -420,6 +420,46 @@ return|return
 name|finalName
 return|;
 block|}
+comment|/**      * Gets the alternate name of the field.      *       * @return the alternate name of the field      */
+specifier|public
+name|String
+name|getAlternateFieldName
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|getDictionary
+argument_list|()
+operator|.
+name|getString
+argument_list|(
+literal|"TU"
+argument_list|)
+return|;
+block|}
+comment|/**      * This will set the alternate name of the field.      *       * @param alternateFieldName the alternate name of the field      */
+specifier|public
+name|void
+name|setAlternateFieldName
+parameter_list|(
+name|String
+name|alternateFieldName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|getDictionary
+argument_list|()
+operator|.
+name|setString
+argument_list|(
+literal|"TU"
+argument_list|,
+name|alternateFieldName
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Get the FT entry of the field.  This is a read only field and is set depending      * on the actual type.  The field type is an inheritable attribute.  This method will      * return only the direct value on this object.  Use the findFieldType for an upward      * recursive search.      *      * @return The Field type.      *      * @see PDField#findFieldType()      */
 specifier|public
 name|String
