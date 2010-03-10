@@ -486,6 +486,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|CIDSYSTEMINFO
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CIDSystemInfo"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|COLORSPACE
 init|=
 operator|new
@@ -1547,7 +1560,20 @@ argument_list|(
 literal|"OpenAction"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ORDERING
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Ordering"
+argument_list|)
+decl_stmt|;
+comment|/**       * A common COSName value.       */
 specifier|public
 specifier|static
 specifier|final
@@ -1701,6 +1727,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"R"
+argument_list|)
+decl_stmt|;
+comment|/**       * A common COSName value.       */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|REGISTRY
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Registry"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
