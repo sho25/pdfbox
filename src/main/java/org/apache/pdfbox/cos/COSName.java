@@ -585,19 +585,6 @@ argument_list|(
 literal|"DCT"
 argument_list|)
 decl_stmt|;
-comment|/** "DecodeParams" */
-specifier|public
-specifier|static
-specifier|final
-name|COSName
-name|DECODE_PARAMS
-init|=
-operator|new
-name|COSName
-argument_list|(
-literal|"DecodeParams"
-argument_list|)
-decl_stmt|;
 comment|/** "DecodeParms" */
 specifier|public
 specifier|static

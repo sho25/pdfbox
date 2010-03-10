@@ -905,7 +905,7 @@ block|}
 comment|/**      * Get the list of decode parameters.  Each entry in the list will refer to      * an entry in the filters list.      *      * @return The list of decode parameters.      *      * @throws IOException if there is an error retrieving the parameters.      */
 specifier|public
 name|List
-name|getDecodeParams
+name|getDecodeParms
 parameter_list|()
 throws|throws
 name|IOException
@@ -980,7 +980,7 @@ name|stream
 argument_list|,
 name|COSName
 operator|.
-name|DECODE_PARAMS
+name|DECODE_PARMS
 argument_list|)
 expr_stmt|;
 block|}
@@ -1061,10 +1061,10 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of decode params.      *      * @param decodeParams The list of decode params.      */
+comment|/**      * This will set the list of decode parameterss.      *      * @param decodeParams The list of decode parameterss.      */
 specifier|public
 name|void
-name|setDecodeParams
+name|setDecodeParms
 parameter_list|(
 name|List
 name|decodeParams
@@ -1076,7 +1076,7 @@ name|setItem
 argument_list|(
 name|COSName
 operator|.
-name|DECODE_PARAMS
+name|DECODE_PARMS
 argument_list|,
 name|COSArrayList
 operator|.
