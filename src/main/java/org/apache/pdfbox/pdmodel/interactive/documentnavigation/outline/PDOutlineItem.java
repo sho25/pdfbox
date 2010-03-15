@@ -482,6 +482,19 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc}      */
+specifier|public
+name|PDOutlineNode
+name|getParent
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getParent
+argument_list|()
+return|;
+block|}
 comment|/**      * Return the previous sibling or null if there is no sibling.      *      * @return The previous sibling.      */
 specifier|public
 name|PDOutlineItem

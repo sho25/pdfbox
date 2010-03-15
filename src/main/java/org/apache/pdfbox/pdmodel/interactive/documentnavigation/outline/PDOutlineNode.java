@@ -127,7 +127,7 @@ name|node
 return|;
 block|}
 comment|/**      * Get the parent of this object.  This will either be a DocumentOutline or an OutlineItem.      *      * @return The parent of this object, or null if this is the document outline and there      * is no parent.      */
-specifier|public
+specifier|protected
 name|PDOutlineNode
 name|getParent
 parameter_list|()
