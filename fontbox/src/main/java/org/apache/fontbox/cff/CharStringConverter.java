@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class to convert for a sequence of Type1/Type2 commands into a sequence of CharStringCommands.  *   * @author Villu Ruusmann  * @version $Revision$  */
+comment|/**  * A class to translate Type2 CharString command sequence to Type1 CharString command sequence.  *   * @author Villu Ruusmann  * @version $Revision$  */
 end_comment
 
 begin_class

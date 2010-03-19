@@ -595,6 +595,8 @@ operator|.
 name|readUnsignedByte
 argument_list|()
 decl_stmt|;
+comment|// The lower bytes are representing the digits after
+comment|// the decimal point and aren't needed in this context
 return|return
 name|Integer
 operator|.
@@ -606,17 +608,9 @@ call|)
 argument_list|(
 name|b1
 operator|<<
-literal|24
-operator||
-name|b2
-operator|<<
-literal|16
-operator||
-name|b3
-operator|<<
 literal|8
 operator||
-name|b4
+name|b2
 argument_list|)
 argument_list|)
 return|;
