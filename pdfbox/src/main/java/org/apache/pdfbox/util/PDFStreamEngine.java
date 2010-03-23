@@ -677,7 +677,12 @@ name|graphicsState
 operator|=
 operator|new
 name|PDGraphicsState
+argument_list|(
+name|aPage
+operator|.
+name|findCropBox
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|textMatrix
 operator|=

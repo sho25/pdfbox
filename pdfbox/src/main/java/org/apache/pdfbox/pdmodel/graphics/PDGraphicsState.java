@@ -23,6 +23,26 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Dimension
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|Rectangle
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|Shape
 import|;
 end_import
@@ -36,6 +56,22 @@ operator|.
 name|geom
 operator|.
 name|GeneralPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|PDRectangle
 import|;
 end_import
 
@@ -218,6 +254,35 @@ specifier|private
 name|GeneralPath
 name|currentClippingPath
 decl_stmt|;
+comment|/**      * Default constructor.      */
+specifier|public
+name|PDGraphicsState
+parameter_list|()
+block|{     }
+comment|/**      * Constructor with a given pagesize to initialize the clipping path.      * @param page the size of the page      */
+specifier|public
+name|PDGraphicsState
+parameter_list|(
+name|PDRectangle
+name|page
+parameter_list|)
+block|{
+name|currentClippingPath
+operator|=
+operator|new
+name|GeneralPath
+argument_list|(
+operator|new
+name|Rectangle
+argument_list|(
+name|page
+operator|.
+name|createDimension
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Get the value of the CTM.      *      * @return The current transformation matrix.      */
 specifier|public
 name|Matrix
