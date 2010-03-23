@@ -147,6 +147,22 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|common
+operator|.
+name|COSObjectable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|documentinterchange
 operator|.
 name|markedcontent
@@ -156,7 +172,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A structure element.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * A structure element.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>,  *<a href="mailto:Johannes%20Koch%20%3Ckoch@apache.org%3E">Johannes Koch</a>  * @version $Revision: 1.3 $  */
 end_comment
 
 begin_class
@@ -632,6 +648,15 @@ argument_list|>
 name|classNames
 parameter_list|)
 block|{
+if|if
+condition|(
+name|classNames
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|COSName
 name|key
 init|=
@@ -787,6 +812,15 @@ name|String
 name|className
 parameter_list|)
 block|{
+if|if
+condition|(
+name|className
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|COSName
 name|key
 init|=
@@ -912,6 +946,15 @@ name|String
 name|className
 parameter_list|)
 block|{
+if|if
+condition|(
+name|className
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|COSName
 name|key
 init|=
@@ -1089,6 +1132,15 @@ name|int
 name|revisionNumber
 parameter_list|)
 block|{
+if|if
+condition|(
+name|revisionNumber
+operator|<
+literal|0
+condition|)
+block|{
+comment|// TODO throw Exception because revision number must be> -1?
+block|}
 name|this
 operator|.
 name|getCOSDictionary
@@ -1101,6 +1153,25 @@ operator|.
 name|R
 argument_list|,
 name|revisionNumber
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Increments th revision number      */
+specifier|public
+name|void
+name|incrementRevisionNumber
+parameter_list|()
+block|{
+name|this
+operator|.
+name|setRevisionNumber
+argument_list|(
+name|this
+operator|.
+name|getRevisionNumber
+argument_list|()
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -1394,6 +1465,15 @@ name|PDMarkedContent
 name|markedContent
 parameter_list|)
 block|{
+if|if
+condition|(
+name|markedContent
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|this
 operator|.
 name|appendKid
@@ -1460,6 +1540,9 @@ name|this
 operator|.
 name|insertBefore
 argument_list|(
+operator|(
+name|COSBase
+operator|)
 name|markedContentIdentifier
 argument_list|,
 name|refKid
@@ -1480,7 +1563,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|insertBefore
+name|insertObjectableBefore
 argument_list|(
 name|markedContentReference
 argument_list|,
@@ -1502,7 +1585,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|insertBefore
+name|insertObjectableBefore
 argument_list|(
 name|objectReference
 argument_list|,

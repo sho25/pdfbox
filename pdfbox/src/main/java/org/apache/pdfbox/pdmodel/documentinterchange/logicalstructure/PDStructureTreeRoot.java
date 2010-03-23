@@ -124,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A root of a structure tree.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * A root of a structure tree.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>,  *<a href="mailto:Johannes%20Koch%20%3Ckoch@apache.org%3E">Johannes Koch</a>  * @version $Revision: 1.2 $  */
 end_comment
 
 begin_class

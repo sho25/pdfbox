@@ -730,11 +730,8 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|insertBefore
+name|insertObjectableBefore
 argument_list|(
-operator|(
-name|COSObjectable
-operator|)
 name|newKid
 argument_list|,
 name|refKid
@@ -744,7 +741,7 @@ block|}
 comment|/**      * Inserts an objectable kid before a reference kid.      *       * @param newKid the objectable      * @param refKid the reference kid      */
 specifier|protected
 name|void
-name|insertBefore
+name|insertObjectableBefore
 parameter_list|(
 name|COSObjectable
 name|newKid
