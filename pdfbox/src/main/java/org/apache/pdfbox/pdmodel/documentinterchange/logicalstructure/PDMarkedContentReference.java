@@ -92,7 +92,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A marked-content reference.  *   * @author Koch  * @version $Revision: $  */
+comment|/**  * A marked-content reference.  *   * @author<a href="mailto:Johannes%20Koch%20%3Ckoch@apache.org%3E">Johannes Koch</a>  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -198,7 +198,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Pg"
+name|COSName
+operator|.
+name|PG
 argument_list|)
 decl_stmt|;
 if|if
@@ -236,7 +238,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"Pg"
+name|COSName
+operator|.
+name|PG
 argument_list|,
 name|page
 argument_list|)
@@ -256,7 +260,9 @@ argument_list|()
 operator|.
 name|getInt
 argument_list|(
-literal|"MCID"
+name|COSName
+operator|.
+name|MCID
 argument_list|)
 return|;
 block|}
@@ -276,7 +282,9 @@ argument_list|()
 operator|.
 name|setInt
 argument_list|(
-literal|"MCID"
+name|COSName
+operator|.
+name|MCID
 argument_list|,
 name|mcid
 argument_list|)

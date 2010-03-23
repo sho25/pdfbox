@@ -1508,6 +1508,19 @@ argument_list|(
 literal|"Matrix"
 argument_list|)
 decl_stmt|;
+comment|/**      * "MCID"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|MCID
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"MCID"
+argument_list|)
+decl_stmt|;
 comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
@@ -1597,6 +1610,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Nums"
+argument_list|)
+decl_stmt|;
+comment|/**      * "Obj"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OBJ
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Obj"
 argument_list|)
 decl_stmt|;
 comment|/** "Outlines" */

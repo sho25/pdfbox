@@ -124,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An object reference.  *   * @author Koch  * @version $Revision: $  */
+comment|/**  * An object reference.  *   * @author<a href="mailto:Johannes%20Koch%20%3Ckoch@apache.org%3E">Johannes Koch</a>  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -227,7 +227,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Obj"
+name|COSName
+operator|.
+name|OBJ
 argument_list|)
 decl_stmt|;
 try|try
@@ -289,7 +291,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"Obj"
+name|COSName
+operator|.
+name|OBJ
 argument_list|,
 name|annotation
 argument_list|)
@@ -311,7 +315,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"Obj"
+name|COSName
+operator|.
+name|OBJ
 argument_list|,
 name|xobject
 argument_list|)
