@@ -205,19 +205,6 @@ name|PageDrawer
 operator|)
 name|context
 decl_stmt|;
-comment|//for now, just dump the arg list ...
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"shfill arguments: "
-operator|+
-name|arguments
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|drawer
 operator|.
 name|SHFill
