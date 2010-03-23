@@ -247,6 +247,19 @@ argument_list|(
 literal|"Annots"
 argument_list|)
 decl_stmt|;
+comment|/**      * "Artifact"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ARTIFACT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Artifact"
+argument_list|)
+decl_stmt|;
 comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
@@ -284,6 +297,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"A85"
+argument_list|)
+decl_stmt|;
+comment|/**      * "Attached"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ATTACHED
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Attached"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1610,6 +1636,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Nums"
+argument_list|)
+decl_stmt|;
+comment|/**      * "O"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|O
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"O"
 argument_list|)
 decl_stmt|;
 comment|/**      * "Obj"      */
