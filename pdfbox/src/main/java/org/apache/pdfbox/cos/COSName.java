@@ -208,6 +208,32 @@ argument_list|(
 literal|"AcroForm"
 argument_list|)
 decl_stmt|;
+comment|/**      * "ActualText"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ACTUAL_TEXT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ActualText"
+argument_list|)
+decl_stmt|;
+comment|/**      * "Alt"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ALT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Alt"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -375,6 +401,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Catalog"
+argument_list|)
+decl_stmt|;
+comment|/**      * "C"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|C
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"C"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -752,6 +791,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"DW"
+argument_list|)
+decl_stmt|;
+comment|/**      * "E"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|E
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"E"
 argument_list|)
 decl_stmt|;
 comment|/** "EmbeddedFiles" */
@@ -1183,6 +1235,19 @@ argument_list|(
 literal|"ID"
 argument_list|)
 decl_stmt|;
+comment|/** "IDTree" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ID_TREE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"IDTree"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -1272,6 +1337,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"JPXDecode"
+argument_list|)
+decl_stmt|;
+comment|/** "K" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|K
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"K"
 argument_list|)
 decl_stmt|;
 comment|/** "Kids" */
@@ -1651,6 +1729,19 @@ argument_list|(
 literal|"Parent"
 argument_list|)
 decl_stmt|;
+comment|/**      * "ParentTreeNextKey"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PARENT_TREE_NEXT_KEY
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ParentTreeNextKey"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -1675,6 +1766,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"PDFDocEncoding"
+argument_list|)
+decl_stmt|;
+comment|/**      * "Pg"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PG
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Pg"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1742,6 +1846,19 @@ argument_list|(
 literal|"Resources"
 argument_list|)
 decl_stmt|;
+comment|/**      * "RoleMap"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ROLE_MAP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"RoleMap"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -1792,6 +1909,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"RL"
+argument_list|)
+decl_stmt|;
+comment|/**      * "S"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|S
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"S"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1870,6 +2000,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Subtype"
+argument_list|)
+decl_stmt|;
+comment|/**      * "T"      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|T
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"T"
 argument_list|)
 decl_stmt|;
 comment|/** "Threads" */
