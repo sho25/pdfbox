@@ -245,10 +245,7 @@ name|add
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-name|NAME
-argument_list|)
+name|INDEXED
 argument_list|)
 expr_stmt|;
 name|array
@@ -257,12 +254,7 @@ name|add
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-name|PDDeviceRGB
-operator|.
-name|NAME
-argument_list|)
+name|DEVICERGB
 argument_list|)
 expr_stmt|;
 name|array

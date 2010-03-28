@@ -122,10 +122,7 @@ name|add
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-name|NAME
-argument_list|)
+name|PATTERN
 argument_list|)
 expr_stmt|;
 block|}

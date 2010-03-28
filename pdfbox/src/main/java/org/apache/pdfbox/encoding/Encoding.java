@@ -186,13 +186,15 @@ implements|implements
 name|COSObjectable
 block|{
 comment|/**      * This is a mapping from a character code to a character name.      */
+comment|//    protected final Map<Integer, COSName> codeToName =
+comment|//        new HashMap<Integer, COSName>();
 specifier|protected
 specifier|final
 name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|COSName
+name|String
 argument_list|>
 name|codeToName
 init|=
@@ -201,16 +203,18 @@ name|HashMap
 argument_list|<
 name|Integer
 argument_list|,
-name|COSName
+name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * This is a mapping from a character name to a character code.      */
+comment|//    protected final Map<COSName, Integer> nameToCode =
+comment|//        new HashMap<COSName, Integer>();
 specifier|protected
 specifier|final
 name|Map
 argument_list|<
-name|COSName
+name|String
 argument_list|,
 name|Integer
 argument_list|>
@@ -219,18 +223,20 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|COSName
+name|String
 argument_list|,
 name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|//    private static final Map<COSName, String> NAME_TO_CHARACTER =
+comment|//        new HashMap<COSName, String>();
 specifier|private
 specifier|static
 specifier|final
 name|Map
 argument_list|<
-name|COSName
+name|String
 argument_list|,
 name|String
 argument_list|>
@@ -239,12 +245,14 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|COSName
+name|String
 argument_list|,
 name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|//    private static final Map<String, COSName> CHARACTER_TO_NAME =
+comment|//        new HashMap<String, COSName>();
 specifier|private
 specifier|static
 specifier|final
@@ -252,7 +260,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|COSName
+name|String
 argument_list|>
 name|CHARACTER_TO_NAME
 init|=
@@ -261,7 +269,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|COSName
+name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -319,12 +327,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|put
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 literal|".notdef"
-argument_list|)
 argument_list|,
 literal|""
 argument_list|)
@@ -333,12 +336,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|put
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 literal|"fi"
-argument_list|)
 argument_list|,
 literal|"fi"
 argument_list|)
@@ -347,12 +345,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|put
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 literal|"fl"
-argument_list|)
 argument_list|,
 literal|"fl"
 argument_list|)
@@ -361,12 +354,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|put
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 literal|"ffi"
-argument_list|)
 argument_list|,
 literal|"ffi"
 argument_list|)
@@ -375,12 +363,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|put
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 literal|"ff"
-argument_list|)
 argument_list|,
 literal|"ff"
 argument_list|)
@@ -388,13 +371,8 @@ expr_stmt|;
 name|NAME_TO_CHARACTER
 operator|.
 name|put
-argument_list|(
-name|COSName
-operator|.
-name|getPDFName
 argument_list|(
 literal|"pi"
-argument_list|)
 argument_list|,
 literal|"pi"
 argument_list|)
@@ -406,12 +384,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|put
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 literal|"angbracketleft"
-argument_list|)
 argument_list|,
 literal|"\u3008"
 argument_list|)
@@ -421,12 +394,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|put
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 literal|"angbracketright"
-argument_list|)
 argument_list|,
 literal|"\u3009"
 argument_list|)
@@ -436,12 +404,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|put
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 literal|"circlecopyrt"
-argument_list|)
 argument_list|,
 literal|"\u00A9"
 argument_list|)
@@ -450,12 +413,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|put
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 literal|"controlNULL"
-argument_list|)
 argument_list|,
 literal|"\u0000"
 argument_list|)
@@ -466,7 +424,7 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|COSName
+name|String
 argument_list|,
 name|String
 argument_list|>
@@ -673,12 +631,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|put
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 name|characterName
-argument_list|)
 argument_list|,
 name|value
 argument_list|)
@@ -750,7 +703,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|COSName
+name|String
 argument_list|>
 name|getCodeToNameMap
 parameter_list|()
@@ -768,7 +721,7 @@ comment|/**      * Returns an unmodifiable view of the Name2Code mapping.      *
 specifier|public
 name|Map
 argument_list|<
-name|COSName
+name|String
 argument_list|,
 name|Integer
 argument_list|>
@@ -792,7 +745,7 @@ parameter_list|(
 name|int
 name|code
 parameter_list|,
-name|COSName
+name|String
 name|name
 parameter_list|)
 block|{
@@ -820,7 +773,7 @@ specifier|public
 name|int
 name|getCode
 parameter_list|(
-name|COSName
+name|String
 name|name
 parameter_list|)
 throws|throws
@@ -850,9 +803,6 @@ argument_list|(
 literal|"No character code for character name '"
 operator|+
 name|name
-operator|.
-name|getName
-argument_list|()
 operator|+
 literal|"'"
 argument_list|)
@@ -864,7 +814,7 @@ return|;
 block|}
 comment|/**      * This will take a character code and get the name from the code.      *      * @param code The character code.      *      * @return The name of the character.      *      * @throws IOException If there is no name for the code.      */
 specifier|public
-name|COSName
+name|String
 name|getName
 parameter_list|(
 name|int
@@ -873,7 +823,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|COSName
+name|String
 name|name
 init|=
 name|codeToName
@@ -893,12 +843,7 @@ block|{
 comment|//lets be forgiving for now
 name|name
 operator|=
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 literal|"space"
-argument_list|)
 expr_stmt|;
 comment|//throw new IOException( getClass().getName() +
 comment|//                       ": No name for character code '" + code + "'" );
@@ -909,7 +854,7 @@ return|;
 block|}
 comment|/**      * This will take a character code and get the name from the code.      *      * @param c The character.      *      * @return The name of the character.      *      * @throws IOException If there is no name for the character.      */
 specifier|public
-name|COSName
+name|String
 name|getNameFromCharacter
 parameter_list|(
 name|char
@@ -918,7 +863,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|COSName
+name|String
 name|name
 init|=
 name|CHARACTER_TO_NAME
@@ -988,11 +933,11 @@ specifier|static
 name|String
 name|getCharacter
 parameter_list|(
-name|COSName
+name|String
 name|name
 parameter_list|)
 block|{
-name|COSName
+name|String
 name|baseName
 init|=
 name|name
@@ -1018,9 +963,6 @@ name|String
 name|nameStr
 init|=
 name|baseName
-operator|.
-name|getName
-argument_list|()
 decl_stmt|;
 comment|// test for Unicode name
 comment|// (uniXXXX - XXXX must be a multiple of four;
@@ -1211,12 +1153,7 @@ argument_list|)
 expr_stmt|;
 name|baseName
 operator|=
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 name|nameStr
-argument_list|)
 expr_stmt|;
 name|getCharacter
 argument_list|(

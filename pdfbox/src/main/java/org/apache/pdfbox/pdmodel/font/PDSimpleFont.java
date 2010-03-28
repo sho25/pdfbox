@@ -391,7 +391,7 @@ init|=
 name|getEncoding
 argument_list|()
 decl_stmt|;
-name|COSName
+name|String
 name|characterName
 init|=
 name|encoding
@@ -408,9 +408,6 @@ operator|.
 name|getCharacterHeight
 argument_list|(
 name|characterName
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

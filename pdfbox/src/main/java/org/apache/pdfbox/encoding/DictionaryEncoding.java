@@ -128,13 +128,13 @@ name|fontEncoding
 expr_stmt|;
 comment|//first set up the base encoding
 comment|//The previious value WinAnsiEncoding() has been changed to StandardEnding
-comment|//see p 389 of the PDF 1.5 reférence table 5.11 entries in a dictionary encoding
+comment|//see p 389 of the PDF 1.5 refï¿½rence table 5.11 entries in a dictionary encoding
 comment|//"If this entry is absent, the Differences entry describes differences from an implicit
 comment|//base encoding. For a font program that is embedded in the PDF file, the
-comment|//implicit base encoding is the font program’s built-in encoding, as described
+comment|//implicit base encoding is the font programï¿½s built-in encoding, as described
 comment|//above and further elaborated in the sections on specific font types below. Otherwise,
 comment|//for a nonsymbolic font, it is StandardEncoding, and for a symbolic font, it
-comment|//is the font’s built-in encoding."
+comment|//is the fontï¿½s built-in encoding."
 comment|//so the default base encoding is standardEncoding
 name|Encoding
 name|baseEncoding
@@ -296,6 +296,9 @@ name|currentIndex
 operator|++
 argument_list|,
 name|name
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

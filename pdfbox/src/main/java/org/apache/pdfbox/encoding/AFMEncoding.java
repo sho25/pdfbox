@@ -67,20 +67,6 @@ name|COSBase
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSName
-import|;
-end_import
-
 begin_comment
 comment|/**  * This will handle the encoding from an AFM font.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.8 $  */
 end_comment
@@ -111,6 +97,9 @@ operator|=
 name|fontInfo
 expr_stmt|;
 name|Iterator
+argument_list|<
+name|CharMetric
+argument_list|>
 name|characters
 init|=
 name|metric
@@ -147,15 +136,10 @@ operator|.
 name|getCharacterCode
 argument_list|()
 argument_list|,
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 name|nextMetric
 operator|.
 name|getName
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

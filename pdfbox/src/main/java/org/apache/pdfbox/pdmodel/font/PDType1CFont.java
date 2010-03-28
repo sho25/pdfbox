@@ -2059,12 +2059,7 @@ name|nameToCharacter
 operator|.
 name|get
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 name|name
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -2653,7 +2648,7 @@ name|Entry
 argument_list|<
 name|Integer
 argument_list|,
-name|COSName
+name|String
 argument_list|>
 argument_list|>
 name|it
@@ -2684,7 +2679,7 @@ name|Entry
 argument_list|<
 name|Integer
 argument_list|,
-name|COSName
+name|String
 argument_list|>
 name|entry
 init|=
@@ -2708,9 +2703,6 @@ operator|.
 name|getValue
 argument_list|()
 operator|)
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

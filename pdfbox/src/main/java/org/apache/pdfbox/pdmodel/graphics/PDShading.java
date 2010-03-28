@@ -247,11 +247,7 @@ block|{
 return|return
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-name|getName
-argument_list|()
-argument_list|)
+name|SHADING
 return|;
 block|}
 comment|/**     * This will return the name of this particular shading dictionary     *     * @return The name of the shading dictionary     */

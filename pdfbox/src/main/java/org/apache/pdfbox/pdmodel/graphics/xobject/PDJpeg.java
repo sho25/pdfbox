@@ -351,10 +351,7 @@ name|TYPE
 argument_list|,
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"XObject"
-argument_list|)
+name|XOBJECT
 argument_list|)
 expr_stmt|;
 name|BufferedImage
@@ -492,10 +489,7 @@ name|TYPE
 argument_list|,
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"XObject"
-argument_list|)
+name|XOBJECT
 argument_list|)
 expr_stmt|;
 name|setBitsPerComponent

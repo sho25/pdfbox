@@ -192,10 +192,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Colorants"
-argument_list|)
+name|COLORANTS
 argument_list|)
 decl_stmt|;
 if|if
@@ -217,10 +214,7 @@ name|setItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Colorants"
-argument_list|)
+name|COLORANTS
 argument_list|,
 name|colorants
 argument_list|)
@@ -312,10 +306,7 @@ name|setItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Colorants"
-argument_list|)
+name|COLORANTS
 argument_list|,
 name|colorantDict
 argument_list|)

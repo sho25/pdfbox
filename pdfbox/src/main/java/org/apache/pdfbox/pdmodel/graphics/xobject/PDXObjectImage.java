@@ -792,10 +792,7 @@ name|setItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"ColorSpace"
-argument_list|)
+name|COLORSPACE
 argument_list|,
 name|base
 argument_list|)
