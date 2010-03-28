@@ -1846,7 +1846,20 @@ argument_list|(
 literal|"Pg"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PREDICTOR
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Predictor"
+argument_list|)
+decl_stmt|;
+comment|/**       * A common COSName value.       */
 specifier|public
 specifier|static
 specifier|final

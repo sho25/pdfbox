@@ -578,18 +578,7 @@ operator|/
 literal|8
 argument_list|)
 expr_stmt|;
-name|filter
-operator|.
-name|decode
-argument_list|(
-name|array
-argument_list|,
-name|bufferData
-argument_list|)
-expr_stmt|;
 block|}
-else|else
-block|{
 name|System
 operator|.
 name|arraycopy
@@ -621,7 +610,6 @@ name|length
 operator|)
 argument_list|)
 expr_stmt|;
-block|}
 name|image
 operator|=
 operator|new
@@ -656,7 +644,7 @@ name|exception
 argument_list|)
 expr_stmt|;
 comment|//A NULL return is caught in pagedrawer.Invoke.process() so don't re-throw.
-comment|//Returning the NULL falls through to Phlip Koch's TODO section.
+comment|//Returning the NULL falls through to Phillip Koch's TODO section.
 return|return
 literal|null
 return|;
@@ -710,7 +698,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"DecodeParms"
+name|COSName
+operator|.
+name|DECODE_PARMS
 argument_list|)
 decl_stmt|;
 if|if
@@ -785,7 +775,9 @@ name|decodeParms
 operator|.
 name|getInt
 argument_list|(
-literal|"Predictor"
+name|COSName
+operator|.
+name|PREDICTOR
 argument_list|)
 decl_stmt|;
 if|if
