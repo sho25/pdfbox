@@ -492,11 +492,11 @@ specifier|private
 name|Graphics2D
 name|graphics
 decl_stmt|;
-specifier|private
+specifier|protected
 name|Dimension
 name|pageSize
 decl_stmt|;
-specifier|private
+specifier|protected
 name|PDPage
 name|page
 decl_stmt|;
