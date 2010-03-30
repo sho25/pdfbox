@@ -754,6 +754,19 @@ argument_list|(
 literal|"DCT"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DECODE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Decode"
+argument_list|)
+decl_stmt|;
 comment|/** "DecodeParms" */
 specifier|public
 specifier|static
@@ -1428,6 +1441,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Image"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|IMAGE_MASK
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ImageMask"
 argument_list|)
 decl_stmt|;
 comment|/** "Index" */
