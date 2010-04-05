@@ -475,6 +475,22 @@ init|=
 literal|72
 decl_stmt|;
 specifier|private
+specifier|static
+specifier|final
+name|float
+name|MM_TO_UNITS
+init|=
+literal|1
+operator|/
+operator|(
+literal|10
+operator|*
+literal|2.54f
+operator|)
+operator|*
+name|DEFAULT_USER_SPACE_UNIT_DPI
+decl_stmt|;
+specifier|private
 name|COSDictionary
 name|page
 decl_stmt|;
@@ -488,9 +504,13 @@ init|=
 operator|new
 name|PDRectangle
 argument_list|(
-literal|612
+literal|8.5f
+operator|*
+name|DEFAULT_USER_SPACE_UNIT_DPI
 argument_list|,
-literal|792
+literal|11f
+operator|*
+name|DEFAULT_USER_SPACE_UNIT_DPI
 argument_list|)
 decl_stmt|;
 comment|/**      * A page size of A0 Paper.      */
@@ -503,9 +523,13 @@ init|=
 operator|new
 name|PDRectangle
 argument_list|(
-literal|2383
+literal|841
+operator|*
+name|MM_TO_UNITS
 argument_list|,
-literal|3370
+literal|1189
+operator|*
+name|MM_TO_UNITS
 argument_list|)
 decl_stmt|;
 comment|/**      * A page size of A1 Paper.      */
@@ -518,9 +542,13 @@ init|=
 operator|new
 name|PDRectangle
 argument_list|(
-literal|1685
+literal|594
+operator|*
+name|MM_TO_UNITS
 argument_list|,
-literal|2383
+literal|841
+operator|*
+name|MM_TO_UNITS
 argument_list|)
 decl_stmt|;
 comment|/**      * A page size of A2 Paper.      */
@@ -533,9 +561,13 @@ init|=
 operator|new
 name|PDRectangle
 argument_list|(
-literal|1192
+literal|420
+operator|*
+name|MM_TO_UNITS
 argument_list|,
-literal|1685
+literal|594
+operator|*
+name|MM_TO_UNITS
 argument_list|)
 decl_stmt|;
 comment|/**      * A page size of A3 Paper.      */
@@ -548,9 +580,13 @@ init|=
 operator|new
 name|PDRectangle
 argument_list|(
-literal|843
+literal|297
+operator|*
+name|MM_TO_UNITS
 argument_list|,
-literal|1192
+literal|420
+operator|*
+name|MM_TO_UNITS
 argument_list|)
 decl_stmt|;
 comment|/**      * A page size of A4 Paper.      */
@@ -563,9 +599,13 @@ init|=
 operator|new
 name|PDRectangle
 argument_list|(
-literal|596
+literal|210
+operator|*
+name|MM_TO_UNITS
 argument_list|,
-literal|843
+literal|297
+operator|*
+name|MM_TO_UNITS
 argument_list|)
 decl_stmt|;
 comment|/**      * A page size of A5 Paper.      */
@@ -578,9 +618,13 @@ init|=
 operator|new
 name|PDRectangle
 argument_list|(
-literal|421
+literal|148
+operator|*
+name|MM_TO_UNITS
 argument_list|,
-literal|596
+literal|210
+operator|*
+name|MM_TO_UNITS
 argument_list|)
 decl_stmt|;
 comment|/**      * A page size of A6 Paper.      */
@@ -593,9 +637,13 @@ init|=
 operator|new
 name|PDRectangle
 argument_list|(
-literal|298
+literal|105
+operator|*
+name|MM_TO_UNITS
 argument_list|,
-literal|421
+literal|148
+operator|*
+name|MM_TO_UNITS
 argument_list|)
 decl_stmt|;
 comment|/**      * Creates a new instance of PDPage with a size of 8.5x11.      */
@@ -625,6 +673,39 @@ expr_stmt|;
 name|setMediaBox
 argument_list|(
 name|PAGE_SIZE_LETTER
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates a new instance of PDPage. 	 *      * @param size The MediaBox or the page.      */
+specifier|public
+name|PDPage
+parameter_list|(
+name|PDRectangle
+name|size
+parameter_list|)
+block|{
+name|page
+operator|=
+operator|new
+name|COSDictionary
+argument_list|()
+expr_stmt|;
+name|page
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|,
+name|COSName
+operator|.
+name|PAGE
+argument_list|)
+expr_stmt|;
+name|setMediaBox
+argument_list|(
+name|size
 argument_list|)
 expr_stmt|;
 block|}
