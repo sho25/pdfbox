@@ -421,6 +421,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|BLACK_IS_1
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"BlackIs1"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|BLACK_POINT
 init|=
 operator|new
@@ -661,6 +674,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"ColorSpace"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|COLUMNS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Columns"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -2234,6 +2260,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Rotate"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ROWS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Rows"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
