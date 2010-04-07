@@ -162,18 +162,13 @@ operator|.
 name|getMiterLimit
 argument_list|()
 decl_stmt|;
-name|Graphics2D
-name|graphics
+name|PageDrawer
+name|drawer
 init|=
-operator|(
 operator|(
 name|PageDrawer
 operator|)
 name|context
-operator|)
-operator|.
-name|getGraphics
-argument_list|()
 decl_stmt|;
 name|BasicStroke
 name|stroke
@@ -181,7 +176,7 @@ init|=
 operator|(
 name|BasicStroke
 operator|)
-name|graphics
+name|drawer
 operator|.
 name|getStroke
 argument_list|()
@@ -193,7 +188,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|graphics
+name|drawer
 operator|.
 name|setStroke
 argument_list|(
@@ -221,7 +216,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|graphics
+name|drawer
 operator|.
 name|setStroke
 argument_list|(

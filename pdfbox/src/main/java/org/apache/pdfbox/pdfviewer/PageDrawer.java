@@ -1415,6 +1415,23 @@ name|newStroke
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * This will return the current stroke.      *      * @return The current stroke.      *       */
+specifier|public
+name|BasicStroke
+name|getStroke
+parameter_list|()
+block|{
+return|return
+operator|(
+name|BasicStroke
+operator|)
+name|getGraphics
+argument_list|()
+operator|.
+name|getStroke
+argument_list|()
+return|;
+block|}
 comment|/**      * Stroke the path.      *      * @throws IOException If there is an IO error while stroking the path.      */
 specifier|public
 name|void
