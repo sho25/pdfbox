@@ -386,8 +386,9 @@ block|{
 name|PDMarkedContent
 name|markedContent
 init|=
-operator|new
 name|PDMarkedContent
+operator|.
+name|create
 argument_list|(
 name|tag
 argument_list|,
