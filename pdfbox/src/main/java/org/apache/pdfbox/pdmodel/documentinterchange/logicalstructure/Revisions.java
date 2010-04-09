@@ -187,7 +187,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Adds an object with a specified revision number.      *       * @param object the object      * @param revisionNumber the revision number      */
-specifier|protected
+specifier|public
 name|void
 name|addObject
 parameter_list|(

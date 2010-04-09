@@ -97,7 +97,7 @@ specifier|public
 specifier|static
 specifier|final
 name|String
-name|USER_PROPERTIES
+name|OWNER_USER_PROPERTIES
 init|=
 literal|"UserProperties"
 decl_stmt|;
@@ -110,7 +110,7 @@ name|this
 operator|.
 name|setOwner
 argument_list|(
-name|USER_PROPERTIES
+name|OWNER_USER_PROPERTIES
 argument_list|)
 expr_stmt|;
 block|}
@@ -134,7 +134,7 @@ name|List
 argument_list|<
 name|PDUserProperty
 argument_list|>
-name|getUserProperties
+name|getOwnerUserProperties
 parameter_list|()
 block|{
 name|COSArray
@@ -396,7 +396,7 @@ name|append
 argument_list|(
 name|this
 operator|.
-name|getUserProperties
+name|getOwnerUserProperties
 argument_list|()
 argument_list|)
 operator|.
