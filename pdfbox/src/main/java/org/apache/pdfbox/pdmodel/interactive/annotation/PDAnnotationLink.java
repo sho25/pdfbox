@@ -259,13 +259,11 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the action to be performed when this annotation is to be activated.      *      * @return The action to be performed when this annotation is activated.      *      * @throws IOException If there is an error creating the action.      * TODO not all annotations have an A entry      */
+comment|/**      * Get the action to be performed when this annotation is to be activated.      *      * @return The action to be performed when this annotation is activated.      *      * TODO not all annotations have an A entry      */
 specifier|public
 name|PDAction
 name|getAction
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|COSDictionary
 name|action

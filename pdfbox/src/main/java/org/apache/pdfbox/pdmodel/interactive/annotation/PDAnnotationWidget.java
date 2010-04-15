@@ -21,16 +21,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -353,13 +343,11 @@ name|appearanceCharacteristics
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the action to be performed when this annotation is to be activated.      *      * @return The action to be performed when this annotation is activated.      *      * @throws IOException If there is an error creating the action.      */
+comment|/**      * Get the action to be performed when this annotation is to be activated.      *      * @return The action to be performed when this annotation is activated.      */
 specifier|public
 name|PDAction
 name|getAction
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|COSDictionary
 name|action
