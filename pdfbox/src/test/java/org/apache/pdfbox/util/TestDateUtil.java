@@ -47,6 +47,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TimeZone
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -272,6 +282,138 @@ argument_list|(
 name|Calendar
 operator|.
 name|MILLISECOND
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|void
+name|testDateConverter
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|TimeZone
+name|timezone
+init|=
+name|TimeZone
+operator|.
+name|getDefault
+argument_list|()
+decl_stmt|;
+name|TimeZone
+operator|.
+name|setDefault
+argument_list|(
+name|TimeZone
+operator|.
+name|getTimeZone
+argument_list|(
+literal|"UTC"
+argument_list|)
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|assertDate
+argument_list|(
+literal|"2010-01-01T00:00:00+00:00"
+argument_list|,
+literal|"D:2010"
+argument_list|)
+expr_stmt|;
+name|assertDate
+argument_list|(
+literal|"2010-01-01T00:00:00+00:00"
+argument_list|,
+literal|"2010"
+argument_list|)
+expr_stmt|;
+name|assertDate
+argument_list|(
+literal|"2010-04-23T00:00:00+00:00"
+argument_list|,
+literal|"D:20100423"
+argument_list|)
+expr_stmt|;
+name|assertDate
+argument_list|(
+literal|"2010-04-23T00:00:00+00:00"
+argument_list|,
+literal|"20100423"
+argument_list|)
+expr_stmt|;
+comment|// assertDate("2007-04-30T19:36:47+????", "20070430193647+713'00'");
+comment|// assertDate("2007-08-21T10:35:22+00:00", "Tue Aug 21 10:35:22 2007");
+name|assertDate
+argument_list|(
+literal|"2008-11-04T00:00:00+00:00"
+argument_list|,
+literal|"Tuesday, November 04, 2008"
+argument_list|)
+expr_stmt|;
+comment|// assertDate("2007-12-17T02:02:03+00:00", "200712172:2:3");
+comment|// assertDate("????", "Unknown");
+comment|// assertDate("2009-03-19T20:01:22+00:00", "20090319 200122");
+comment|//  assertDate("2008-05-12T09:47:00+00:00", "9:47 5/12/2008");
+comment|// assertDate("2009-04-01T00:00:00+02:00", "20090401+0200");
+name|assertDate
+argument_list|(
+literal|"2008-01-11T00:00:00+00:00"
+argument_list|,
+literal|"Friday, January 11, 2008"
+argument_list|)
+expr_stmt|;
+comment|// assertDate("2009-04-01T00:00:00+04:00", "20090401+04'00'");
+comment|// assertDate("2009-04-01T00:00:00+09:00", "20090401+09'00'");
+comment|// assertDate("2009-04-01T00:00:00-02:00", "20090401-02'00'");
+comment|// assertDate("2009-04-01T06:01:01+00:00", "20090401 01:01:01 -0500");
+comment|// assertDate("2000-05-26T11:25:10+00:00", "26 May 2000 11:25:10");
+comment|// assertDate("2000-05-26T11:25:00+00:00", "26 May 2000 11:25");
+block|}
+finally|finally
+block|{
+name|TimeZone
+operator|.
+name|setDefault
+argument_list|(
+name|timezone
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+specifier|private
+name|void
+name|assertDate
+parameter_list|(
+name|String
+name|expected
+parameter_list|,
+name|String
+name|date
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|Calendar
+name|calendar
+init|=
+name|DateConverter
+operator|.
+name|toCalendar
+argument_list|(
+name|date
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|DateConverter
+operator|.
+name|toISO8601
+argument_list|(
+name|calendar
 argument_list|)
 argument_list|)
 expr_stmt|;
