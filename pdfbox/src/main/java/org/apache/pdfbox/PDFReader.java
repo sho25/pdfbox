@@ -352,6 +352,12 @@ name|numberOfPages
 init|=
 literal|0
 decl_stmt|;
+specifier|private
+name|String
+name|currentFilename
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|PDFReader
@@ -982,6 +988,33 @@ expr_stmt|;
 block|}
 specifier|private
 name|void
+name|updateTitle
+parameter_list|()
+block|{
+name|setTitle
+argument_list|(
+literal|"PDFBox - "
+operator|+
+name|currentFilename
+operator|+
+literal|" ("
+operator|+
+operator|(
+name|currentPage
+operator|+
+literal|1
+operator|)
+operator|+
+literal|"/"
+operator|+
+name|numberOfPages
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
+block|}
+specifier|private
+name|void
 name|nextPage
 parameter_list|()
 block|{
@@ -996,6 +1029,9 @@ condition|)
 block|{
 name|currentPage
 operator|++
+expr_stmt|;
+name|updateTitle
+argument_list|()
 expr_stmt|;
 name|showPage
 argument_list|(
@@ -1018,6 +1054,9 @@ condition|)
 block|{
 name|currentPage
 operator|--
+expr_stmt|;
+name|updateTitle
+argument_list|()
 expr_stmt|;
 name|showPage
 argument_list|(
@@ -1289,16 +1328,6 @@ argument_list|(
 name|input
 argument_list|)
 expr_stmt|;
-name|setTitle
-argument_list|(
-literal|"PDFBox - "
-operator|+
-name|f
-operator|.
-name|getAbsolutePath
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|pages
 operator|=
 name|document
@@ -1316,9 +1345,19 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+name|currentFilename
+operator|=
+name|f
+operator|.
+name|getAbsolutePath
+argument_list|()
+expr_stmt|;
 name|currentPage
 operator|=
 literal|0
+expr_stmt|;
+name|updateTitle
+argument_list|()
 expr_stmt|;
 name|showPage
 argument_list|(
