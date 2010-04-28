@@ -1793,6 +1793,144 @@ literal|1
 condition|)
 do|;
 block|}
+comment|/**      * This is really a bug in the Document creators code, but it caused a crash      * in PDFBox, the first bug was in this format:      * /Title ( (5)      * /Creator which was patched in 1 place.      * However it missed the case where the Close Paren was escaped      *       * The second bug was in this format       * /Title (c:\)      * /Producer       *       * This patch  moves this code out of the parseCOSString method, so it can be used twice.      *       *       * @param bracesParameter the number of braces currently open.      *       * @return the corrected value of the brace counter      * @throws IOException      */
+specifier|private
+name|int
+name|checkForMissingCloseParen
+parameter_list|(
+specifier|final
+name|int
+name|bracesParameter
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|int
+name|braces
+init|=
+name|bracesParameter
+decl_stmt|;
+name|byte
+index|[]
+name|nextThreeBytes
+init|=
+operator|new
+name|byte
+index|[
+literal|3
+index|]
+decl_stmt|;
+name|int
+name|amountRead
+init|=
+name|pdfSource
+operator|.
+name|read
+argument_list|(
+name|nextThreeBytes
+argument_list|)
+decl_stmt|;
+comment|//lets handle the special case seen in Bull  River Rules and Regulations.pdf
+comment|//The dictionary looks like this
+comment|//    2 0 obj
+comment|//<<
+comment|//        /Type /Info
+comment|//        /Creator (PaperPort http://www.scansoft.com)
+comment|//        /Producer (sspdflib 1.0 http://www.scansoft.com)
+comment|//        /Title ( (5)
+comment|//        /Author ()
+comment|//        /Subject ()
+comment|//
+comment|// Notice the /Title, the braces are not even but they should
+comment|// be.  So lets assume that if we encounter an this scenario
+comment|//<end_brace><new_line><opening_slash> then that
+comment|// means that there is an error in the pdf and assume that
+comment|// was the end of the document.
+comment|//
+if|if
+condition|(
+name|amountRead
+operator|==
+literal|3
+condition|)
+block|{
+if|if
+condition|(
+operator|(
+name|nextThreeBytes
+index|[
+literal|0
+index|]
+operator|==
+literal|0x0d
+operator|&&
+comment|// Look for a carriage return
+name|nextThreeBytes
+index|[
+literal|1
+index|]
+operator|==
+literal|0x0a
+operator|&&
+comment|// Look for a new line
+name|nextThreeBytes
+index|[
+literal|2
+index|]
+operator|==
+literal|0x2f
+operator|)
+operator|||
+comment|// Look for a slash /
+comment|// Add a second case without a new line
+operator|(
+name|nextThreeBytes
+index|[
+literal|0
+index|]
+operator|==
+literal|0x0d
+operator|&&
+comment|// Look for a carriage return
+name|nextThreeBytes
+index|[
+literal|1
+index|]
+operator|==
+literal|0x2f
+operator|)
+condition|)
+comment|// Look for a slash /
+block|{
+name|braces
+operator|=
+literal|0
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|amountRead
+operator|>
+literal|0
+condition|)
+block|{
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
+name|nextThreeBytes
+argument_list|,
+literal|0
+argument_list|,
+name|amountRead
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|braces
+return|;
+block|}
 comment|/**      * This will parse a PDF string.      *      * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      */
 specifier|protected
 name|COSString
@@ -1916,10 +2054,6 @@ operator|-
 literal|2
 decl_stmt|;
 comment|// not yet read
-comment|//if( log.isDebugEnabled() )
-comment|//{
-comment|//    log.debug( "Parsing COSString character '" + c + "' code=" + (int)c );
-comment|//}
 if|if
 condition|(
 name|ch
@@ -1930,98 +2064,13 @@ block|{
 name|braces
 operator|--
 expr_stmt|;
-name|byte
-index|[]
-name|nextThreeBytes
-init|=
-operator|new
-name|byte
-index|[
-literal|3
-index|]
-decl_stmt|;
-name|int
-name|amountRead
-init|=
-name|pdfSource
-operator|.
-name|read
-argument_list|(
-name|nextThreeBytes
-argument_list|)
-decl_stmt|;
-comment|//lets handle the special case seen in Bull  River Rules and Regulations.pdf
-comment|//The dictionary looks like this
-comment|//    2 0 obj
-comment|//<<
-comment|//        /Type /Info
-comment|//        /Creator (PaperPort http://www.scansoft.com)
-comment|//        /Producer (sspdflib 1.0 http://www.scansoft.com)
-comment|//        /Title ( (5)
-comment|//        /Author ()
-comment|//        /Subject ()
-comment|//
-comment|// Notice the /Title, the braces are not even but they should
-comment|// be.  So lets assume that if we encounter an this scenario
-comment|//<end_brace><new_line><opening_slash> then that
-comment|// means that there is an error in the pdf and assume that
-comment|// was the end of the document.
-if|if
-condition|(
-name|amountRead
-operator|==
-literal|3
-condition|)
-block|{
-if|if
-condition|(
-name|nextThreeBytes
-index|[
-literal|0
-index|]
-operator|==
-literal|0x0d
-operator|&&
-name|nextThreeBytes
-index|[
-literal|1
-index|]
-operator|==
-literal|0x0a
-operator|&&
-name|nextThreeBytes
-index|[
-literal|2
-index|]
-operator|==
-literal|0x2f
-condition|)
-block|{
 name|braces
 operator|=
-literal|0
-expr_stmt|;
-block|}
-block|}
-if|if
-condition|(
-name|amountRead
-operator|>
-literal|0
-condition|)
-block|{
-name|pdfSource
-operator|.
-name|unread
+name|checkForMissingCloseParen
 argument_list|(
-name|nextThreeBytes
-argument_list|,
-literal|0
-argument_list|,
-name|amountRead
+name|braces
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|braces
@@ -2138,10 +2187,44 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-literal|'('
-case|:
-case|case
 literal|')'
+case|:
+comment|// PDFBox 276 /Title (c:\)
+name|braces
+operator|=
+name|checkForMissingCloseParen
+argument_list|(
+name|braces
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|braces
+operator|!=
+literal|0
+condition|)
+block|{
+name|retval
+operator|.
+name|append
+argument_list|(
+name|ch
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|retval
+operator|.
+name|append
+argument_list|(
+literal|'\\'
+argument_list|)
+expr_stmt|;
+block|}
+break|break;
+case|case
+literal|'('
 case|:
 case|case
 literal|'\\'
