@@ -1812,13 +1812,9 @@ operator|+
 name|codeLength
 operator|)
 operator|<
-operator|(
 name|string
 operator|.
 name|length
-operator|-
-literal|1
-operator|)
 condition|)
 block|{
 continue|continue;
