@@ -1614,7 +1614,9 @@ decl_stmt|;
 name|int
 name|maxWidths
 init|=
-literal|256
+name|glyphToCCode
+operator|.
+name|length
 decl_stmt|;
 name|HorizontalMetricsTable
 name|hMet
