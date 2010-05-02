@@ -353,14 +353,6 @@ operator|.
 name|getPage
 argument_list|()
 decl_stmt|;
-name|Graphics2D
-name|graphics
-init|=
-name|drawer
-operator|.
-name|getGraphics
-argument_list|()
-decl_stmt|;
 name|COSName
 name|objectName
 init|=
