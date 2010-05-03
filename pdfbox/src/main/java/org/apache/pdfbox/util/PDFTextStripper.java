@@ -1714,13 +1714,12 @@ operator|==
 literal|0
 operator|)
 operator|||
-operator|(
-name|wordSpacing
-operator|==
 name|Float
 operator|.
-name|NaN
-operator|)
+name|isNaN
+argument_list|(
+name|wordSpacing
+argument_list|)
 condition|)
 block|{
 name|deltaSpace
