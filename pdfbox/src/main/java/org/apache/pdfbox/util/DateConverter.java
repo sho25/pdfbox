@@ -81,6 +81,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|SimpleTimeZone
 import|;
 end_import
@@ -136,42 +146,70 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"EEEE, dd MMM yyyy hh:mm:ss a"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"EEEE, MMM dd, yyyy hh:mm:ss a"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"MM/dd/yyyy hh:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"MM/dd/yyyy"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy-MM-dd'T'HH:mm:ss'Z'"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy-MM-dd'T'HH:mm:ssz"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"EEEE, MMM dd, yyyy"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 comment|// Acrobat Distiller 1.0.2 for Macintosh
@@ -179,6 +217,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"EEEE MMM dd, yyyy HH:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 comment|// ECMP5
@@ -186,6 +228,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"EEEE MMM dd HH:mm:ss z yyyy"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 comment|// GNU Ghostscript 7.0.7
@@ -193,6 +239,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"EEEE, MMM dd, yyyy 'at' hh:mma"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 comment|// Acrobat Net Distiller 1.0 for Windows
@@ -200,6 +250,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"d/MM/yyyy hh:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 comment|// PDFBOX-164
@@ -207,6 +261,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"dd/MM/yyyy hh:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 comment|// PDFBOX-170
@@ -214,6 +272,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"EEEEEEEEEE, MMMMMMMMMMMM dd, yyyy"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 comment|// PDFBOX-465
@@ -221,6 +283,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"dd MMM yyyy hh:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 comment|// for 26 May 2000 11:25:00
@@ -228,6 +294,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"dd MMM yyyy hh:mm"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 comment|// for 26 May 2000 11:25
@@ -235,48 +305,80 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"M/dd/yyyy hh:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"MM/d/yyyy hh:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"M/dd/yyyy"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"MM/d/yyyy"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"M/d/yyyy hh:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"M/d/yyyy"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"M/d/yy hh:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"M/d/yy"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 block|,
 operator|new
@@ -477,6 +579,13 @@ block|,
 comment|// for 20090401+0200
 block|}
 decl_stmt|;
+comment|//    static
+comment|//    {
+comment|//        for (int i = 0; i< POTENTIAL_FORMATS.length; i++)
+comment|//        {
+comment|//            POTENTIAL_FORMATS[i].setTimeZone(TimeZone.getTimeZone("UTC"));
+comment|//        }
+comment|//    }
 specifier|private
 name|DateConverter
 parameter_list|()
@@ -577,6 +686,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyyMMddHHmmss"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 operator|.
 name|format
