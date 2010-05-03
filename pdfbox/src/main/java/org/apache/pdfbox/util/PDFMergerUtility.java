@@ -1060,6 +1060,13 @@ operator|.
 name|getFirstChild
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|first
+operator|!=
+literal|null
+condition|)
+block|{
 name|PDOutlineItem
 name|clonedFirst
 init|=
@@ -1084,6 +1091,7 @@ argument_list|(
 name|clonedFirst
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|String
