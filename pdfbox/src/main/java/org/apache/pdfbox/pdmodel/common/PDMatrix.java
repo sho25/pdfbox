@@ -82,8 +82,6 @@ specifier|public
 class|class
 name|PDMatrix
 implements|implements
-name|Cloneable
-implements|,
 name|COSObjectable
 block|{
 specifier|private
