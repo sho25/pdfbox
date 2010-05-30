@@ -27,25 +27,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|cos
 operator|.
-name|PDDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
-name|PDStream
+name|COSArray
 import|;
 end_import
 
@@ -59,7 +43,7 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSArray
+name|COSBase
 import|;
 end_import
 
@@ -82,42 +66,36 @@ specifier|public
 class|class
 name|PDFunctionType4
 extends|extends
-name|PDStreamFunction
+name|PDFunction
 block|{
-comment|/**      * Constructor to create a new blank type 4 function.      *      * @param doc The document that the function will be part of.      */
-specifier|protected
-name|PDFunctionType4
-parameter_list|(
-name|PDDocument
-name|doc
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|doc
-argument_list|,
-literal|4
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Constructor.      *      * @param functionDictionary The prepopulated function dictionary.      */
+comment|/**      * Constructor.      *      * @param functionStream The function .      */
 specifier|public
 name|PDFunctionType4
 parameter_list|(
-name|PDStream
-name|functionDictionary
+name|COSBase
+name|function
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|functionDictionary
+name|function
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * {@inheritDoc}      */
+specifier|public
+name|int
+name|getFunctionType
+parameter_list|()
+block|{
+return|return
+literal|4
+return|;
 block|}
 comment|/**     * {@inheritDoc}     */
 specifier|public
 name|COSArray
-name|Eval
+name|eval
 parameter_list|(
 name|COSArray
 name|input

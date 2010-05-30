@@ -473,6 +473,32 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|BITS_PER_SAMPLE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"BitsPerSample"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|BOUNDS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Bounds"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|BPC
 init|=
 operator|new
@@ -505,6 +531,32 @@ operator|new
 name|COSName
 argument_list|(
 literal|"C"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|C0
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"C0"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|C1
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"C1"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -923,6 +975,19 @@ argument_list|(
 literal|"DL"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DOMAIN
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Domain"
+argument_list|)
+decl_stmt|;
 comment|/** "DP" */
 specifier|public
 specifier|static
@@ -988,7 +1053,20 @@ argument_list|(
 literal|"EmbeddedFiles"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ENCODE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Encode"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1365,7 +1443,33 @@ argument_list|(
 literal|"FRM"
 argument_list|)
 decl_stmt|;
-comment|/**       * A common COSName value.       */
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|FUNCTION_TYPE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"FunctionType"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|FUNCTIONS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Functions"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
