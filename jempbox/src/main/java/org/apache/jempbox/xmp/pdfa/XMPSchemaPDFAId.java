@@ -89,7 +89,7 @@ name|super
 argument_list|(
 name|parent
 argument_list|,
-literal|"pdfaType"
+literal|"pdfaid"
 argument_list|,
 name|NAMESPACE
 argument_list|)
