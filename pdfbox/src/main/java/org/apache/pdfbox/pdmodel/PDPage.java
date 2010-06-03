@@ -490,6 +490,25 @@ operator|)
 operator|*
 name|DEFAULT_USER_SPACE_UNIT_DPI
 decl_stmt|;
+comment|/**      * Fully transparent that can fall back to white when image type has no alpha.      */
+specifier|private
+specifier|static
+specifier|final
+name|Color
+name|TRANSPARENT_WHITE
+init|=
+operator|new
+name|Color
+argument_list|(
+literal|255
+argument_list|,
+literal|255
+argument_list|,
+literal|255
+argument_list|,
+literal|0
+argument_list|)
+decl_stmt|;
 specifier|private
 name|COSDictionary
 name|page
@@ -2121,9 +2140,7 @@ name|graphics
 operator|.
 name|setBackground
 argument_list|(
-name|Color
-operator|.
-name|WHITE
+name|TRANSPARENT_WHITE
 argument_list|)
 expr_stmt|;
 name|graphics
