@@ -780,6 +780,19 @@ argument_list|(
 literal|"CropBox"
 argument_list|)
 decl_stmt|;
+comment|/**      * The Crypt filter.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CRYPT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Crypt"
+argument_list|)
+decl_stmt|;
 comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
@@ -1545,6 +1558,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"IDTree"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|IDENTITY
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Identity"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
