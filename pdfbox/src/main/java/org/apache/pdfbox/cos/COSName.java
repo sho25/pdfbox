@@ -2535,6 +2535,19 @@ argument_list|(
 literal|"SM"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|SMASK
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"SMask"
+argument_list|)
+decl_stmt|;
 comment|/** "Size" */
 specifier|public
 specifier|static
