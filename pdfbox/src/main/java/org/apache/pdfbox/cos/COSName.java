@@ -637,6 +637,32 @@ argument_list|(
 literal|"CCF"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CF
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CF"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CFM
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CFM"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -2319,6 +2345,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|RECIPIENTS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Recipients"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|REGISTRY
 init|=
 operator|new
@@ -2522,6 +2561,45 @@ argument_list|(
 literal|"StandardEncoding"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|STD_CF
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"StdCF"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|STM_F
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"StmF"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|STR_F
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"StrF"
+argument_list|)
+decl_stmt|;
 comment|/** "StructTreeRoot" */
 specifier|public
 specifier|static
@@ -2533,6 +2611,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"StructTreeRoot"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|SUB_FILTER
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"SubFilter"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -2676,6 +2767,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Type3"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|U
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"U"
 argument_list|)
 decl_stmt|;
 comment|/** "URI" */
