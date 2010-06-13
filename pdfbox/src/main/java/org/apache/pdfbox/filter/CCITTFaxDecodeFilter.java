@@ -81,6 +81,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -142,6 +170,22 @@ name|CCITTFaxDecodeFilter
 implements|implements
 name|Filter
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|CCITTFaxDecodeFilter
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// Filter will write 15 TAG's
 comment|// If you add or remove TAG's you will have to modify this value
 specifier|private
@@ -201,8 +245,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// log.warn( "Warning: CCITTFaxDecode.decode is not implemented yet,
-comment|// skipping this stream." );
 comment|// Get ImageParams from PDF
 name|COSBase
 name|baseObj
@@ -332,7 +374,9 @@ name|options
 operator|.
 name|getInt
 argument_list|(
-literal|"Width"
+name|COSName
+operator|.
+name|WIDTH
 argument_list|)
 decl_stmt|;
 name|int
@@ -342,7 +386,9 @@ name|options
 operator|.
 name|getInt
 argument_list|(
-literal|"Height"
+name|COSName
+operator|.
+name|HEIGHT
 argument_list|)
 decl_stmt|;
 name|int
@@ -364,7 +410,9 @@ name|dict
 operator|.
 name|getInt
 argument_list|(
-literal|"K"
+name|COSName
+operator|.
+name|K
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -374,7 +422,9 @@ name|dict
 operator|.
 name|getBoolean
 argument_list|(
-literal|"BlackIs1"
+name|COSName
+operator|.
+name|BLACK_IS_1
 argument_list|,
 literal|false
 argument_list|)
@@ -505,7 +555,6 @@ literal|32738
 argument_list|)
 expr_stmt|;
 block|}
-comment|//System.out.println("Gelesen: " + sum);
 comment|// TAG-COUNT
 name|writeTagCount
 argument_list|(
@@ -3201,13 +3250,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|warn
 argument_list|(
-literal|"Warning: CCITTFaxDecode.encode is not implemented yet, skipping this stream."
+literal|"CCITTFaxDecode.encode is not implemented yet, skipping this stream."
 argument_list|)
 expr_stmt|;
 block|}

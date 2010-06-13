@@ -51,6 +51,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -86,6 +114,22 @@ name|ASCIIHexFilter
 implements|implements
 name|Filter
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|ASCIIHexFilter
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Whitespace.      *   0  0x00  Null (NUL)      *   9  0x09  Tab (HT)      *  10  0x0A  Line feed (LF)      *  12  0x0C  Form feed (FF)      *  13  0x0D  Carriage return (CR)      *  32  0x20  Space (SP)        */
 specifier|private
 name|boolean
@@ -226,11 +270,9 @@ operator|-
 literal|1
 condition|)
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"Invalid Hex Code; int: "
 operator|+
@@ -297,11 +339,9 @@ operator|-
 literal|1
 condition|)
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"Invalid Hex Code; int: "
 operator|+

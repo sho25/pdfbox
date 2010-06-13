@@ -51,6 +51,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -70,6 +98,22 @@ name|DCTFilter
 implements|implements
 name|Filter
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|DCTFilter
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * {@inheritDoc}      */
 specifier|public
 name|void
@@ -90,13 +134,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|warn
 argument_list|(
-literal|"Warning: DCTFilter.decode is not implemented yet, skipping this stream."
+literal|"DCTFilter.decode is not implemented yet, skipping this stream."
 argument_list|)
 expr_stmt|;
 block|}
@@ -120,13 +162,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|warn
 argument_list|(
-literal|"Warning: DCTFilter.encode is not implemented yet, skipping this stream."
+literal|"DCTFilter.encode is not implemented yet, skipping this stream."
 argument_list|)
 expr_stmt|;
 block|}
