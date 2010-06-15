@@ -181,6 +181,23 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Add a single entry.      * @param entry the entry to be added      */
+specifier|public
+name|void
+name|addEntry
+parameter_list|(
+name|Entry
+name|entry
+parameter_list|)
+block|{
+name|entries
+operator|.
+name|add
+argument_list|(
+name|entry
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * A list of all entries within this charset.      * @return a list of all entries      */
 specifier|public
 name|List
