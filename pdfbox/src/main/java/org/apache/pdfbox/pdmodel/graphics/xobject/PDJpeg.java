@@ -171,6 +171,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSDictionary
 import|;
 end_import
@@ -277,6 +291,9 @@ name|DCT_FILTERS
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 static|static
@@ -975,7 +992,7 @@ parameter_list|(
 name|Exception
 name|ignore
 parameter_list|)
-block|{}
+block|{             }
 comment|// 2. try to read jpeg again. some jpegs have some strange header containing
 comment|//    "Adobe " at some place. so just replace the header with a valid jpeg header.
 comment|// TODO : not sure if it works for all cases
@@ -1095,9 +1112,68 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|// If there is a 'soft mask' image then we use that as a transparency mask.
+name|PDXObjectImage
+name|smask
+init|=
+name|getSMaskImage
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|smask
+operator|!=
+literal|null
+condition|)
+block|{
+name|BufferedImage
+name|smaskBI
+init|=
+name|smask
+operator|.
+name|getRGBImage
+argument_list|()
+decl_stmt|;
+name|COSArray
+name|decodeArray
+init|=
+name|smask
+operator|.
+name|getDecode
+argument_list|()
+decl_stmt|;
+name|CompositeImage
+name|compositeImage
+init|=
+operator|new
+name|CompositeImage
+argument_list|(
+name|bi
+argument_list|,
+name|smaskBI
+argument_list|)
+decl_stmt|;
+name|BufferedImage
+name|rgbImage
+init|=
+name|compositeImage
+operator|.
+name|createMaskedImage
+argument_list|(
+name|decodeArray
+argument_list|)
+decl_stmt|;
+return|return
+name|rgbImage
+return|;
+block|}
+else|else
+block|{
+comment|// But if there is no soft mask, use the unaltered image.
 return|return
 name|bi
 return|;
+block|}
 block|}
 comment|/**      * This writes the JPeg to out.      * {@inheritDoc}      */
 specifier|public
