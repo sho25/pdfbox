@@ -228,6 +228,12 @@ specifier|private
 name|COSArray
 name|array
 decl_stmt|;
+comment|/**      * The lookup data as byte array.      */
+specifier|private
+name|byte
+index|[]
+name|lookupData
+decl_stmt|;
 comment|/**      * Constructor, default DeviceRGB, hival 255.      */
 specifier|public
 name|PDIndexed
@@ -796,13 +802,21 @@ operator|%
 literal|256
 return|;
 block|}
-specifier|private
+comment|/**      * Get the lookup data table.      *       * @return a byte array containing the the lookup data.      * @throws IOException if an error occurs.      */
+specifier|public
 name|byte
 index|[]
 name|getLookupData
 parameter_list|()
 throws|throws
 name|IOException
+block|{
+if|if
+condition|(
+name|lookupData
+operator|==
+literal|null
+condition|)
 block|{
 name|COSBase
 name|lookupTable
@@ -814,12 +828,6 @@ argument_list|(
 literal|3
 argument_list|)
 decl_stmt|;
-name|byte
-index|[]
-name|data
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|lookupTable
@@ -827,7 +835,7 @@ operator|instanceof
 name|COSString
 condition|)
 block|{
-name|data
+name|lookupData
 operator|=
 operator|(
 operator|(
@@ -923,7 +931,7 @@ name|amountRead
 argument_list|)
 expr_stmt|;
 block|}
-name|data
+name|lookupData
 operator|=
 name|output
 operator|.
@@ -939,7 +947,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|data
+name|lookupData
 operator|=
 operator|new
 name|byte
@@ -960,8 +968,9 @@ name|lookupTable
 argument_list|)
 throw|;
 block|}
+block|}
 return|return
-name|data
+name|lookupData
 return|;
 block|}
 comment|/**      * This will set a color in the color lookup table.      *      * @param lookupIndex The zero-based index into the table, should not exceed the high value.      * @param componentNumber The component number, probably 1,2,3,3.      * @param color The color that will go into the table.      *      * @throws IOException If there is an error looking up the color.      */
