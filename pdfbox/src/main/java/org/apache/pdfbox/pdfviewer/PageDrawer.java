@@ -764,6 +764,13 @@ operator|.
 name|getNormalAppearance
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|appearanceMap
+operator|!=
+literal|null
+condition|)
+block|{
 name|PDAppearanceStream
 name|appearance
 init|=
@@ -844,6 +851,7 @@ name|getLowerLeftY
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
