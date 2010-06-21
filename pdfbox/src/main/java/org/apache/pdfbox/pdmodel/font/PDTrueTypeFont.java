@@ -498,7 +498,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * This is the key to a property in the Resources/PDFBox_External_Fonts.properties file      * to load a Font when a mapping does not exist for the current font.      */
+comment|/**      * This is the key to a property in the PDFBox_External_Fonts.properties      * file to load a Font when a mapping does not exist for the current font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -539,7 +539,7 @@ name|ResourceLoader
 operator|.
 name|loadProperties
 argument_list|(
-literal|"Resources/PDFBox_External_Fonts.properties"
+literal|"org/apache/pdfbox/resources/PDFBox_External_Fonts.properties"
 argument_list|,
 name|externalFonts
 argument_list|)
@@ -551,16 +551,13 @@ name|IOException
 name|io
 parameter_list|)
 block|{
-name|io
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
 literal|"Error loading font resources"
+argument_list|,
+name|io
 argument_list|)
 throw|;
 block|}
@@ -2138,7 +2135,7 @@ literal|null
 operator|)
 return|;
 block|}
-comment|/**      * Permit to load an external TTF Font program file      *      * Created by Pascal Allain      * Vertical7 Inc.      *      * @param fd The font descriptor currently used      *      * @return A PDStream with the Font File program, null if fd is null      *grep -r      * @throws IOException If the font is not found      */
+comment|/**      * Permit to load an external TTF Font program file      *      * Created by Pascal Allain      * Vertical7 Inc.      *      * @param fd The font descriptor currently used      * @return A PDStream with the Font File program, null if fd is null      * @throws IOException If the font is not found      */
 specifier|private
 name|TrueTypeFont
 name|getExternalFontFile2

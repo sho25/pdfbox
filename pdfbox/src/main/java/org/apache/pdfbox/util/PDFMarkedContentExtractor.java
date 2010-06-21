@@ -230,7 +230,7 @@ name|normalize
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Instantiate a new PDFTextStripper object.  This object will load properties from      * Resources/PDFTextStripper.properties and will not do anything special to       * convert the text to a more encoding-specific output.        * @throws IOException If there is an error loading the properties.      */
+comment|/**      * Instantiate a new PDFTextStripper object. This object will load      * properties from PDFMarkedContentExtractor.properties and will not      * do anything special to convert the text to a more encoding-specific      * output.      *      * @throws IOException If there is an error loading the properties.      */
 specifier|public
 name|PDFMarkedContentExtractor
 parameter_list|()
@@ -243,7 +243,7 @@ name|ResourceLoader
 operator|.
 name|loadProperties
 argument_list|(
-literal|"Resources/PDFMarkedContentExtractor.properties"
+literal|"org/apache/pdfbox/resources/PDFMarkedContentExtractor.properties"
 argument_list|,
 literal|true
 argument_list|)
@@ -302,7 +302,7 @@ name|outputEncoding
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Instantiate a new PDFTextStripper object. This object will load properties from      * Resources/PDFTextStripper.properties and will apply encoding-specific      * conversions to the output text.        *      * @param encoding The encoding that the output will be written in.      *      * @throws IOException If there is an error reading the properties.      */
+comment|/**      * Instantiate a new PDFTextStripper object. This object will load      * properties from PDFMarkedContentExtractor.properties and will apply      * encoding-specific conversions to the output text.      *      * @param encoding The encoding that the output will be written in.      * @throws IOException If there is an error reading the properties.      */
 specifier|public
 name|PDFMarkedContentExtractor
 parameter_list|(
@@ -318,7 +318,7 @@ name|ResourceLoader
 operator|.
 name|loadProperties
 argument_list|(
-literal|"Resources/PDFMarkedContentExtractor.properties"
+literal|"org/apache/pdfbox/resources/PDFMarkedContentExtractor.properties"
 argument_list|,
 literal|true
 argument_list|)

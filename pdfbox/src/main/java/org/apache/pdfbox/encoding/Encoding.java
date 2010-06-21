@@ -276,13 +276,13 @@ block|{
 comment|//Loads the official Adobe Glyph List
 name|loadGlyphList
 argument_list|(
-literal|"Resources/glyphlist.txt"
+literal|"org/apache/pdfbox/resources/glyphlist.txt"
 argument_list|)
 expr_stmt|;
 comment|//Loads some additional glyph mappings
 name|loadGlyphList
 argument_list|(
-literal|"Resources/additional_glyphlist.txt"
+literal|"org/apache/pdfbox/resources/additional_glyphlist.txt"
 argument_list|)
 expr_stmt|;
 comment|// Load an external glyph list file that user can give as JVM property

@@ -280,18 +280,11 @@ name|PDFImageWriter
 extends|extends
 name|PDFStreamEngine
 block|{
-comment|/**      * Instantiate a new PDFImageWriter object.      * @throws IOException If there is an error loading the properties.      */
+comment|/**      * Instantiate a new PDFImageWriter object.      */
 specifier|public
 name|PDFImageWriter
 parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-comment|// ResourceLoader.loadProperties( "Resources/PDFImageWriter.properties", true ) );
-block|}
+block|{     }
 comment|/**      * Instantiate a new PDFImageWriter object.  Loading all of the operator mappings      * from the properties object that is passed in.      *      * @param props The properties containing the mapping of operators to PDFOperator      * classes.      *      * @throws IOException If there is an error reading the properties.      */
 specifier|public
 name|PDFImageWriter

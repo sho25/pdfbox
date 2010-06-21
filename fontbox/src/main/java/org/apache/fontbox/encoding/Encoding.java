@@ -133,8 +133,6 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-static|static
-block|{     }
 comment|/**      * This will add a character encoding.      *      * @param code The character code that matches the character.      * @param name The name of the character.      */
 specifier|protected
 name|void

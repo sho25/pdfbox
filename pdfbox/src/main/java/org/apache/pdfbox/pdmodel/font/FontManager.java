@@ -115,7 +115,7 @@ name|ResourceLoader
 operator|.
 name|loadProperties
 argument_list|(
-literal|"Resources/FontMapping.properties"
+literal|"org/apache/pdfbox/resources/FontMapping.properties"
 argument_list|,
 name|fontMapping
 argument_list|)

@@ -573,7 +573,7 @@ name|ResourceLoader
 operator|.
 name|loadProperties
 argument_list|(
-literal|"Resources/PageDrawer.properties"
+literal|"org/apache/pdfbox/resources/PageDrawer.properties"
 argument_list|,
 literal|true
 argument_list|)

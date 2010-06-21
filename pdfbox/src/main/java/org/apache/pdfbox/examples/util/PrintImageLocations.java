@@ -257,7 +257,7 @@ name|ResourceLoader
 operator|.
 name|loadProperties
 argument_list|(
-literal|"Resources/PDFTextStripper.properties"
+literal|"org/apache/pdfbox/resources/PDFTextStripper.properties"
 argument_list|,
 literal|true
 argument_list|)
