@@ -981,6 +981,19 @@ parameter_list|)
 block|{
 comment|//subclasses can override to provide specific functionality.
 block|}
+comment|/**      * A method provided as an event interface to allow a subclass to perform      * some specific functionality on the string encoded by a glyph.      *      * @param str The string to be processed.      */
+specifier|protected
+name|String
+name|inspectFontEncoding
+parameter_list|(
+name|String
+name|str
+parameter_list|)
+block|{
+return|return
+name|str
+return|;
+block|}
 comment|/**      * Process encoded text from the PDF Stream.       * You should override this method if you want to perform an action when       * encoded text is being processed.      *      * @param string The encoded text      *      * @throws IOException If there is an error processing the string      */
 specifier|public
 name|void
@@ -1445,6 +1458,13 @@ name|codeLength
 argument_list|)
 expr_stmt|;
 block|}
+name|c
+operator|=
+name|inspectFontEncoding
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
 comment|//todo, handle horizontal displacement
 comment|// get the width and height of this character in text units
 name|float
