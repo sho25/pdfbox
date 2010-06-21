@@ -43,6 +43,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|GregorianCalendar
 import|;
 end_import
@@ -53,7 +63,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|SortedMap
 import|;
 end_import
 
@@ -63,7 +73,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|TreeMap
 import|;
 end_import
 
@@ -425,27 +435,18 @@ name|ef
 argument_list|)
 expr_stmt|;
 comment|//now add the entry to the embedded file tree and set in the document.
-name|Map
-name|efMap
-init|=
-operator|new
-name|HashMap
-argument_list|()
-decl_stmt|;
-name|efMap
+name|efTree
 operator|.
-name|put
+name|setNames
+argument_list|(
+name|Collections
+operator|.
+name|singletonMap
 argument_list|(
 literal|"My first attachment"
 argument_list|,
 name|fs
 argument_list|)
-expr_stmt|;
-name|efTree
-operator|.
-name|setNames
-argument_list|(
-name|efMap
 argument_list|)
 expr_stmt|;
 name|PDDocumentNameDictionary
