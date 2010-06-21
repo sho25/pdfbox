@@ -11,8 +11,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|searchengine
-operator|.
 name|lucene
 package|;
 end_package
