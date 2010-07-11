@@ -369,6 +369,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|AUTHOR
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Author"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|B
 init|=
 operator|new
@@ -791,6 +804,32 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Count"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CREATION_DATE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CreationDate"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CREATOR
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Creator"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -1716,6 +1755,19 @@ argument_list|(
 literal|"K"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|KEYWORDS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Keywords"
+argument_list|)
+decl_stmt|;
 comment|/** "Kids" */
 specifier|public
 specifier|static
@@ -1976,6 +2028,19 @@ argument_list|(
 literal|"MMType1"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|MOD_DATE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ModDate"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -2132,7 +2197,7 @@ argument_list|(
 literal|"Ordering"
 argument_list|)
 decl_stmt|;
-comment|/**       * A common COSName value.       */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2145,7 +2210,7 @@ argument_list|(
 literal|"P"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2288,7 +2353,7 @@ argument_list|(
 literal|"Predictor"
 argument_list|)
 decl_stmt|;
-comment|/**       * A common COSName value.       */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2312,6 +2377,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"ProcSet"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PRODUCER
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Producer"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -2644,6 +2722,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|SUBJECT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Subject"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|SUBTYPE
 init|=
 operator|new
@@ -2683,12 +2774,38 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|TITLE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Title"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|TK
 init|=
 operator|new
 name|COSName
 argument_list|(
 literal|"TK"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|TRAPPED
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Trapped"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
