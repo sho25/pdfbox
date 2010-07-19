@@ -287,6 +287,7 @@ return|return
 name|extractedDocument
 return|;
 block|}
+comment|/**      * Gets the first page number to be extracted.      * @return the first page number which should be extracted      */
 specifier|public
 name|int
 name|getStartPage
@@ -296,6 +297,7 @@ return|return
 name|startPage
 return|;
 block|}
+comment|/**      * Sets the first page number to be extracted.      * @param startPage the first page number which should be extracted      */
 specifier|public
 name|void
 name|setStartPage
@@ -311,6 +313,7 @@ operator|=
 name|startPage
 expr_stmt|;
 block|}
+comment|/**      * Gets the last page number (inclusive) to be extracted.      * @return the last page number which should be extracted      */
 specifier|public
 name|int
 name|getEndPage
@@ -320,6 +323,7 @@ return|return
 name|endPage
 return|;
 block|}
+comment|/**      * Sets the last page number to be extracted.      * @param endPage the last page number which should be extracted      */
 specifier|public
 name|void
 name|setEndPage

@@ -129,15 +129,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"extract"
-argument_list|)
-expr_stmt|;
 name|PDDocument
 name|sourcePdf
 init|=
@@ -395,11 +386,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 name|fail
 argument_list|(
 literal|"Exception was thrown: "
