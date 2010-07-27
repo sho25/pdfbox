@@ -898,6 +898,25 @@ argument_list|,
 name|writer
 argument_list|)
 expr_stmt|;
+comment|// close the written file before reading it again
+name|writer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|writer
+operator|=
+literal|null
+expr_stmt|;
+name|os
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|os
+operator|=
+literal|null
+expr_stmt|;
 if|if
 condition|(
 name|bLogResult
@@ -1116,6 +1135,12 @@ operator|.
 name|getName
 argument_list|()
 operator|+
+literal|" ( sort = "
+operator|+
+name|bSort
+operator|+
+literal|")"
+operator|+
 literal|" at expected line: "
 operator|+
 name|expectedReader
@@ -1151,6 +1176,8 @@ operator|+
 name|actualLine
 operator|+
 literal|"\""
+operator|+
+literal|"\n"
 argument_list|)
 expr_stmt|;
 comment|//lets report all lines, even though this might produce some verbose logging
@@ -1173,32 +1200,6 @@ block|}
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|writer
-operator|!=
-literal|null
-condition|)
-block|{
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|os
-operator|!=
-literal|null
-condition|)
-block|{
-name|os
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|document
