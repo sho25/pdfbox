@@ -406,6 +406,44 @@ init|=
 name|getawtFont
 argument_list|()
 decl_stmt|;
+comment|// mdavis - fix fontmanager.so/dll on sun.font.FileFont.getGlyphImage
+comment|// for font with bad cmaps?
+if|if
+condition|(
+name|_awtFont
+operator|.
+name|canDisplayUpTo
+argument_list|(
+name|string
+argument_list|)
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Changing font on<"
+operator|+
+name|string
+operator|+
+literal|"> from<"
+operator|+
+name|_awtFont
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"> to the default font"
+argument_list|)
+expr_stmt|;
+name|_awtFont
+operator|=
+literal|null
+expr_stmt|;
+block|}
 name|Graphics2D
 name|g2d
 init|=
