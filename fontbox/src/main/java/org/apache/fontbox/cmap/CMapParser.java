@@ -1471,6 +1471,24 @@ operator|-
 literal|'a'
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|theNextByte
+operator|==
+literal|0x20
+condition|)
+block|{
+comment|// skipping whitespaces
+name|theNextByte
+operator|=
+name|is
+operator|.
+name|read
+argument_list|()
+expr_stmt|;
+continue|continue;
+block|}
 else|else
 block|{
 throw|throw
