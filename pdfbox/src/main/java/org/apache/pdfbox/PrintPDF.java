@@ -49,6 +49,16 @@ name|PDDocument
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is a command line program that will print a PDF document.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
 end_comment
@@ -295,6 +305,20 @@ operator|.
 name|getPrinterJob
 argument_list|()
 decl_stmt|;
+name|printJob
+operator|.
+name|setJobName
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|pdfFile
+argument_list|)
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|printerName
