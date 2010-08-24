@@ -1790,9 +1790,12 @@ literal|"stream not preceded by dictionary"
 argument_list|)
 throw|;
 block|}
+name|skipSpaces
+argument_list|()
+expr_stmt|;
 name|endObjectKey
 operator|=
-name|readString
+name|readLine
 argument_list|()
 expr_stmt|;
 block|}
@@ -1869,7 +1872,7 @@ literal|"endobj"
 argument_list|)
 condition|)
 block|{
-comment|/*                                          * Some PDF files don't contain a new line after endobj so we                                           * need to make sure that the next object number is getting read separately                                          * and not part of the endobj keyword. Ex. Some files would have "endobj28"                                          * instead of "endobj"                                          */
+comment|/*                      * Some PDF files don't contain a new line after endobj so we                       * need to make sure that the next object number is getting read separately                      * and not part of the endobj keyword. Ex. Some files would have "endobj28"                      * instead of "endobj"                      */
 name|pdfSource
 operator|.
 name|unread
@@ -1883,6 +1886,33 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|endObjectKey
+operator|.
+name|trim
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|"endobj"
+argument_list|)
+condition|)
+block|{
+comment|/*                      * Some PDF files contain junk (like ">> ", in the case of a PDF                      * I found which was created by Exstream Dialogue Version 5.0.039)                      * in which case we ignore the data before endobj and just move on                      */
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"expected='endobj' actual='"
+operator|+
+name|endObjectKey
+operator|+
+literal|"' "
 argument_list|)
 expr_stmt|;
 block|}
