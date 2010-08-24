@@ -1476,26 +1476,17 @@ block|{
 name|parseStartXref
 argument_list|()
 expr_stmt|;
-comment|//verify that EOF exists
-name|String
-name|eof
-init|=
-name|readExpectedString
-argument_list|(
-literal|"%%EOF"
-argument_list|)
-decl_stmt|;
-if|if
+comment|// readString() calls skipSpaces() will skip comments... that's
+comment|// bad for us b/c the %%EOF flag is a comment
+while|while
 condition|(
-name|eof
-operator|.
-name|indexOf
+name|isWhitespace
 argument_list|(
-literal|"%%EOF"
+name|pdfSource
+operator|.
+name|peek
+argument_list|()
 argument_list|)
-operator|==
-operator|-
-literal|1
 operator|&&
 operator|!
 name|pdfSource
@@ -1503,7 +1494,61 @@ operator|.
 name|isEOF
 argument_list|()
 condition|)
+name|pdfSource
+operator|.
+name|read
+argument_list|()
+expr_stmt|;
+comment|// read (get rid of) all the whitespace
+name|String
+name|eof
+init|=
+literal|""
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|pdfSource
+operator|.
+name|isEOF
+argument_list|()
+condition|)
+name|readLine
+argument_list|()
+expr_stmt|;
+comment|// if there's more data to read, get the EOF flag
+comment|// verify that EOF exists
+if|if
+condition|(
+literal|"%%EOF"
+operator|.
+name|equals
+argument_list|(
+name|eof
+argument_list|)
+condition|)
 block|{
+comment|// PDF does not conform to spec, we should warn someone
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"expected='%%EOF' actual='"
+operator|+
+name|eof
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
+comment|// if we're not at the end of a file, this is a really big deal!
+if|if
+condition|(
+operator|!
+name|pdfSource
+operator|.
+name|isEOF
+argument_list|()
+condition|)
 throw|throw
 operator|new
 name|IOException
