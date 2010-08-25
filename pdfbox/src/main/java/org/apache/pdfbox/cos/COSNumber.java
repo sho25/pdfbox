@@ -154,15 +154,6 @@ literal|'.'
 condition|)
 block|{
 comment|// See https://issues.apache.org/jira/browse/PDFBOX-592
-operator|new
-name|Exception
-argument_list|(
-name|number
-argument_list|)
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 return|return
 name|COSInteger
 operator|.
