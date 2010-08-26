@@ -1113,6 +1113,18 @@ argument_list|(
 name|next
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|objectPool
+operator|.
+name|get
+argument_list|(
+name|key
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
 name|COSObject
 name|obj
 init|=
@@ -1131,6 +1143,7 @@ name|getObject
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
