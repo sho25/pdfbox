@@ -1540,7 +1540,7 @@ operator|+
 literal|"'"
 argument_list|)
 expr_stmt|;
-comment|// if we're not at the end of a file, this is a really big deal!
+comment|// if we're not at the end of a file, just put it back and move on
 if|if
 condition|(
 operator|!
@@ -1549,25 +1549,16 @@ operator|.
 name|isEOF
 argument_list|()
 condition|)
-throw|throw
-operator|new
-name|IOException
+name|pdfSource
+operator|.
+name|unread
 argument_list|(
-literal|"expected='%%EOF' actual='"
-operator|+
 name|eof
-operator|+
-literal|"' next="
-operator|+
-name|readString
-argument_list|()
-operator|+
-literal|" next="
-operator|+
-name|readString
+operator|.
+name|getBytes
 argument_list|()
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 name|isEndOfFile
 operator|=
