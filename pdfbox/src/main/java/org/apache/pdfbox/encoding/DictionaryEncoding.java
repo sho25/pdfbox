@@ -135,13 +135,10 @@ comment|//implicit base encoding is the font program�s built-in encoding, as d
 comment|//above and further elaborated in the sections on specific font types below. Otherwise,
 comment|//for a nonsymbolic font, it is StandardEncoding, and for a symbolic font, it
 comment|//is the font�s built-in encoding."
-comment|//so the default base encoding is standardEncoding
 name|Encoding
 name|baseEncoding
 init|=
-operator|new
-name|StandardEncoding
-argument_list|()
+literal|null
 decl_stmt|;
 name|COSName
 name|baseEncodingName
@@ -180,6 +177,16 @@ name|getEncoding
 argument_list|(
 name|baseEncodingName
 argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|//the default base encoding is standardEncoding
+name|baseEncoding
+operator|=
+operator|new
+name|StandardEncoding
+argument_list|()
 expr_stmt|;
 block|}
 name|nameToCode

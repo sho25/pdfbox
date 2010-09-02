@@ -237,6 +237,24 @@ argument_list|,
 literal|"Adobe-Japan1-UCS2"
 argument_list|)
 expr_stmt|;
+name|cmapSubstitutions
+operator|.
+name|put
+argument_list|(
+literal|"Adobe-Identity-0"
+argument_list|,
+literal|"Identity-H"
+argument_list|)
+expr_stmt|;
+name|cmapSubstitutions
+operator|.
+name|put
+argument_list|(
+literal|"Adobe-Identity-1"
+argument_list|,
+literal|"Identity-H"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      *       * @param cmapName The name of a cmap for which we have to find a possible substitution      * @return the substitution for the given cmap name      */
 specifier|public

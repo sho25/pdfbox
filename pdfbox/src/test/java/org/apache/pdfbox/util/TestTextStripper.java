@@ -1100,30 +1100,12 @@ name|actualLine
 argument_list|)
 condition|)
 block|{
-comment|// PDFBOX-568: testextract failure on Linux and Mac OS X
-comment|// Don't flag a test failure that we already know about.
-comment|// TODO: Remove this check once PDFBOX-568 is fixed.
-if|if
-condition|(
-operator|!
-literal|"sample_fonts_solidconvertor.pdf"
-operator|.
-name|equals
-argument_list|(
-name|inFile
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-condition|)
-block|{
 name|this
 operator|.
 name|bFail
 operator|=
 literal|true
 expr_stmt|;
-block|}
 name|log
 operator|.
 name|error
