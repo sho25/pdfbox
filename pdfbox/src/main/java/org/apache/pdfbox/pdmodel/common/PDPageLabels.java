@@ -1061,6 +1061,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/**          * Lookup table used by the {@link #makeRomanLabel(int)} method.          */
 specifier|private
 specifier|static
 specifier|final
@@ -1097,6 +1098,8 @@ literal|"ix"
 block|}
 block|,
 block|{
+literal|""
+block|,
 literal|"x"
 block|,
 literal|"xx"
@@ -1117,6 +1120,8 @@ literal|"xc"
 block|}
 block|,
 block|{
+literal|""
+block|,
 literal|"c"
 block|,
 literal|"cc"
@@ -1135,7 +1140,7 @@ literal|"dccc"
 block|,
 literal|"cm"
 block|}
-block|, }
+block|}
 decl_stmt|;
 specifier|private
 specifier|static
