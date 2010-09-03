@@ -2239,6 +2239,8 @@ name|FileInputStream
 argument_list|(
 name|file
 argument_list|)
+argument_list|,
+name|scratchFile
 argument_list|)
 return|;
 block|}
