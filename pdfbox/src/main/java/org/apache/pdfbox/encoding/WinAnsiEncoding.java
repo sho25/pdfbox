@@ -54,6 +54,17 @@ name|WinAnsiEncoding
 extends|extends
 name|Encoding
 block|{
+comment|/**      * Singleton instance of this class.      *      * @since Apache PDFBox 1.3.0      */
+specifier|public
+specifier|static
+specifier|final
+name|WinAnsiEncoding
+name|INSTANCE
+init|=
+operator|new
+name|WinAnsiEncoding
+argument_list|()
+decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|WinAnsiEncoding
