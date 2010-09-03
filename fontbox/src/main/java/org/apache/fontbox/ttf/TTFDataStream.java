@@ -449,8 +449,13 @@ name|totalAmountRead
 init|=
 literal|0
 decl_stmt|;
+comment|//read at most numberOfBytes bytes from the stream.
 while|while
 condition|(
+name|totalAmountRead
+operator|<
+name|numberOfBytes
+operator|&&
 operator|(
 name|amountRead
 operator|=
@@ -468,17 +473,12 @@ operator|)
 operator|!=
 operator|-
 literal|1
-operator|&&
-name|totalAmountRead
-operator|<
-name|numberOfBytes
 condition|)
 block|{
 name|totalAmountRead
 operator|+=
 name|amountRead
 expr_stmt|;
-comment|//read at most numberOfBytes bytes from the stream.
 block|}
 return|return
 name|data
