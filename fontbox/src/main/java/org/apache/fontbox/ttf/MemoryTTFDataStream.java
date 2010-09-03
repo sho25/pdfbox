@@ -483,7 +483,7 @@ operator|)
 name|pos
 expr_stmt|;
 block|}
-comment|/**      * @see java.io.InputStream#read( byte[], int, int )      *       * @param b The buffer to write to.      * @param off The offset into the buffer.      * @param len The length into the buffer.      *       * @return The number of bytes read.      *       * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * @see java.io.InputStream#read( byte[], int, int )      *       * @param b The buffer to write to.      * @param off The offset into the buffer.      * @param len The length into the buffer.      *       * @return The number of bytes read, or -1 at the end of the stream      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 name|int
 name|read
@@ -500,6 +500,15 @@ name|len
 parameter_list|)
 throws|throws
 name|IOException
+block|{
+if|if
+condition|(
+name|currentPosition
+operator|<
+name|data
+operator|.
+name|length
+condition|)
 block|{
 name|int
 name|amountRead
@@ -539,6 +548,14 @@ expr_stmt|;
 return|return
 name|amountRead
 return|;
+block|}
+else|else
+block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
 block|}
 comment|/**      * Get the current position in the stream.      * @return The current position in the stream.      * @throws IOException If an error occurs while reading the stream.      */
 specifier|public

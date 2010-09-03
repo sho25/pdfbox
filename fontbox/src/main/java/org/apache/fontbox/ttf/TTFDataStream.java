@@ -480,11 +480,29 @@ operator|+=
 name|amountRead
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|totalAmountRead
+operator|==
+name|numberOfBytes
+condition|)
+block|{
 return|return
 name|data
 return|;
 block|}
-comment|/**      * @see java.io.InputStream#read( byte[], int, int )      *       * @param b The buffer to write to.      * @param off The offset into the buffer.      * @param len The length into the buffer.      *       * @return The number of bytes read.      *       * @throws IOException If there is an error reading from the stream.      */
+else|else
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Unexpected end of TTF stream reached"
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * @see java.io.InputStream#read( byte[], int, int )      *       * @param b The buffer to write to.      * @param off The offset into the buffer.      * @param len The length into the buffer.      *       * @return The number of bytes read, or -1 at the end of the stream      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|abstract
 name|int
