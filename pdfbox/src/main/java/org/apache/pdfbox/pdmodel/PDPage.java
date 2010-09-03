@@ -438,7 +438,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a single page in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.29 $  */
+comment|/**  * This represents a single page in a PDF document.  *<p>  * This class implements the {@link Printable} interface, but since PDFBox  * version 1.3.0 you should be using the {@link PDPageable} adapter instead  * (see<a href="https://issues.apache.org/jira/browse/PDFBOX-788">PDFBOX-788</a>).  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.29 $  */
 end_comment
 
 begin_class
@@ -2536,7 +2536,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/**      * @deprecated Use the {@link PDPageable} adapter class      */
 specifier|public
 name|int
 name|print
@@ -2553,13 +2553,6 @@ parameter_list|)
 throws|throws
 name|PrinterException
 block|{
-name|int
-name|retval
-init|=
-name|Printable
-operator|.
-name|PAGE_EXISTS
-decl_stmt|;
 try|try
 block|{
 name|PageDrawer
@@ -2589,6 +2582,9 @@ name|createDimension
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+name|PAGE_EXISTS
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -2604,9 +2600,6 @@ name|io
 argument_list|)
 throw|;
 block|}
-return|return
-name|retval
-return|;
 block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public

@@ -47,6 +47,16 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Graphics
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|print
 operator|.
 name|PageFormat
@@ -158,7 +168,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Adapter class that implements the {@link Pageable} interface for  * printing a given PDF document. Note that the given PDF document should  * not be modified (pages added, removed, etc.) while an instance of this  * class is being used.  *  * @since Apache PDFBox 1.3.0  * @see<a href="https://issues.apache.org/jira/browse/PDFBOX-788">PDFBOX-788</a>  */
+comment|/**  * Adapter class that implements the {@link Pageable} and {@link Printable}  * interfaces for printing a given PDF document. Note that the given PDF  * document should not be modified (pages added, removed, etc.) while an  * instance of this class is being used.  *  * @since Apache PDFBox 1.3.0  * @see<a href="https://issues.apache.org/jira/browse/PDFBOX-788">PDFBOX-788</a>  */
 end_comment
 
 begin_class
@@ -167,6 +177,8 @@ class|class
 name|PDPageable
 implements|implements
 name|Pageable
+implements|,
+name|Printable
 block|{
 comment|/**      * List of all pages in the given PDF document.      */
 specifier|private
@@ -593,6 +605,68 @@ argument_list|(
 name|i
 argument_list|)
 return|;
+block|}
+comment|//-----------------------------------------------------------< Printable>
+comment|/**      * Prints the page at the given index.      *      * @param graphics printing target      * @param format page format      * @param i page index, zero-based      * @return {@link Printable#PAGE_EXISTS} if the page was printed,      *         or {@link Printable#NO_SUCH_PAGE} if page index was invalid      * @throws PrinterException if printing failed      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+specifier|public
+name|int
+name|print
+parameter_list|(
+name|Graphics
+name|graphics
+parameter_list|,
+name|PageFormat
+name|format
+parameter_list|,
+name|int
+name|i
+parameter_list|)
+throws|throws
+name|PrinterException
+block|{
+if|if
+condition|(
+literal|0
+operator|<=
+name|i
+operator|&&
+name|i
+operator|<
+name|pages
+operator|.
+name|size
+argument_list|()
+condition|)
+block|{
+return|return
+name|pages
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|print
+argument_list|(
+name|graphics
+argument_list|,
+name|format
+argument_list|,
+name|i
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|NO_SUCH_PAGE
+return|;
+block|}
 block|}
 block|}
 end_class
