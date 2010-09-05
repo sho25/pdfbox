@@ -443,6 +443,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -1376,12 +1386,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//        if (fontEncoding == null)
-comment|//        {
 name|getEncodingFromFont
 argument_list|()
 expr_stmt|;
-comment|//        }
 block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public
@@ -1939,10 +1946,6 @@ condition|(
 name|retval
 operator|==
 literal|null
-operator|&&
-name|length
-operator|==
-literal|1
 condition|)
 block|{
 name|Encoding
@@ -1981,9 +1984,15 @@ name|retval
 operator|==
 literal|null
 operator|&&
+operator|(
 name|cmap
 operator|==
 literal|null
+operator|||
+name|length
+operator|==
+literal|2
+operator|)
 condition|)
 block|{
 name|retval
@@ -2084,6 +2093,8 @@ name|j
 operator|++
 control|)
 block|{
+try|try
+block|{
 name|DOUBLE_CHAR_STRING
 index|[
 name|i
@@ -2109,8 +2120,24 @@ name|byte
 operator|)
 name|j
 block|}
+argument_list|,
+literal|"UTF-16BE"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedEncodingException
+name|e
+parameter_list|)
+block|{
+comment|// Nothing should happen here
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
