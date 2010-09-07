@@ -325,6 +325,15 @@ index|]
 operator|=
 name|index
 expr_stmt|;
+comment|// PDFBOX-808: Index numbers between 32768 and 65535 are
+comment|// reserved for future use, so we should just ignore them
+if|if
+condition|(
+name|index
+operator|<=
+literal|32767
+condition|)
+block|{
 name|maxIndex
 operator|=
 name|Math
@@ -336,6 +345,7 @@ argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|String
 index|[]
@@ -473,15 +483,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Unknown glyph name index:"
-operator|+
-name|index
-argument_list|)
-throw|;
+comment|// PDFBOX-808: Index numbers between 32768 and 65535 are
+comment|// reserved for future use, so we should just ignore them
+name|glyphNames
+index|[
+name|i
+index|]
+operator|=
+literal|".undefined"
+expr_stmt|;
 block|}
 block|}
 block|}
