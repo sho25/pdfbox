@@ -1081,14 +1081,80 @@ case|case
 literal|2
 case|:
 comment|// PRED TIFF SUB
-comment|/**                          * @todo decode tiff                          */
+comment|/**                          * @TODO decode tiff with bitsPerComponent != 8; e.g. for 4 bpc each nibble must be subtracted separately                          */
+if|if
+condition|(
+name|bitsPerComponent
+operator|!=
+literal|8
+condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"TIFF-Predictor not supported"
+literal|"TIFF-Predictor with "
+operator|+
+name|bitsPerComponent
+operator|+
+literal|" bits per component not supported"
 argument_list|)
 throw|;
+block|}
+comment|// for 8 bits per component it is the same algorithm as PRED SUB of PNG format
+for|for
+control|(
+name|int
+name|p
+init|=
+name|bpp
+init|;
+name|p
+operator|<
+name|rowlength
+condition|;
+name|p
+operator|++
+control|)
+block|{
+name|int
+name|sub
+init|=
+name|actline
+index|[
+name|p
+index|]
+operator|&
+literal|0xff
+decl_stmt|;
+name|int
+name|left
+init|=
+name|actline
+index|[
+name|p
+operator|-
+name|bpp
+index|]
+operator|&
+literal|0xff
+decl_stmt|;
+name|actline
+index|[
+name|p
+index|]
+operator|=
+call|(
+name|byte
+call|)
+argument_list|(
+name|sub
+operator|+
+name|left
+argument_list|)
+expr_stmt|;
+block|}
+break|break;
 case|case
 literal|11
 case|:
