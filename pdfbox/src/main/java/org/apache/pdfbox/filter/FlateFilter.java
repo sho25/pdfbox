@@ -489,10 +489,6 @@ operator|||
 name|predictor
 operator|==
 literal|1
-operator|||
-name|predictor
-operator|==
-literal|10
 condition|)
 block|{
 try|try
@@ -864,13 +860,9 @@ condition|(
 name|predictor
 operator|==
 literal|1
-operator|||
-name|predictor
-operator|==
-literal|10
 condition|)
 block|{
-comment|// No prediction or PNG NONE
+comment|// No prediction
 name|int
 name|i
 init|=
@@ -985,13 +977,15 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// test for PNG predictor; each value>= 10 (not only 15) indicates usage of PNG predictor
 if|if
 condition|(
 name|predictor
-operator|==
-literal|15
+operator|>=
+literal|10
 condition|)
 block|{
+comment|// PNG predictor; each row starts with predictor type (0, 1, 2, 3, 4)
 name|linepredictor
 operator|=
 name|data
@@ -1021,10 +1015,8 @@ name|linepredictor
 operator|+=
 literal|10
 expr_stmt|;
-comment|// add 10 to tread value 1 as 11
+comment|// add 10 to tread value 0 as 10, 1 as 11, ...
 block|}
-comment|// (instead of PRED NONE) and 2
-comment|// as 12 (instead of PRED TIFF)
 block|}
 comment|// read line
 name|int
@@ -1154,6 +1146,12 @@ name|left
 argument_list|)
 expr_stmt|;
 block|}
+break|break;
+case|case
+literal|10
+case|:
+comment|// PRED NONE
+comment|// do nothing
 break|break;
 case|case
 literal|11
