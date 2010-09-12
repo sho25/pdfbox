@@ -1950,7 +1950,20 @@ argument_list|(
 literal|"MarkInfo"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|MASK
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Mask"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
