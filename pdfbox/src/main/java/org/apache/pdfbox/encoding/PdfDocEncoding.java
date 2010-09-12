@@ -739,7 +739,7 @@ name|addCharacterEncoding
 argument_list|(
 literal|0244
 argument_list|,
-literal|"currency1"
+literal|"currency"
 argument_list|)
 expr_stmt|;
 name|addCharacterEncoding
