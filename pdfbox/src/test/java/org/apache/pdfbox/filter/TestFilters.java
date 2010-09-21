@@ -160,6 +160,14 @@ name|CCITTFaxDecodeFilter
 operator|||
 name|filter
 operator|instanceof
+name|JPXFilter
+operator|||
+name|filter
+operator|instanceof
+name|JBIG2Filter
+operator|||
+name|filter
+operator|instanceof
 name|RunLengthDecodeFilter
 condition|)
 block|{
