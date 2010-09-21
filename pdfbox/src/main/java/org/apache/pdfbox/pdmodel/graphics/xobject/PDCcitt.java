@@ -37,16 +37,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -57,7 +47,27 @@ name|java
 operator|.
 name|io
 operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
 import|;
 end_import
 
@@ -1745,11 +1755,9 @@ comment|// outside the IFDs. (bytes)
 comment|// The length of the header will be the length of the basic header (10)
 comment|// plus 12 bytes for each IFD, 4 bytes as a pointer to the next IFD (will be 0)
 comment|// plus the length of the additional data
-name|tiffheader
-operator|=
-operator|new
-name|byte
-index|[
+name|int
+name|ifdSize
+init|=
 literal|10
 operator|+
 operator|(
@@ -1759,6 +1767,13 @@ name|numOfTags
 operator|)
 operator|+
 literal|4
+decl_stmt|;
+name|tiffheader
+operator|=
+operator|new
+name|byte
+index|[
+name|ifdSize
 operator|+
 name|maxAdditionalData
 index|]
@@ -1799,15 +1814,7 @@ expr_stmt|;
 comment|// Additional data outside the IFD starts after the IFD's and pointer to the next IFD (0)
 name|additionalOffset
 operator|=
-literal|10
-operator|+
-operator|(
-literal|12
-operator|*
-name|numOfTags
-operator|)
-operator|+
-literal|4
+name|ifdSize
 expr_stmt|;
 comment|// Now work out the variable values from TIFF defaults,
 comment|// PDF Defaults and the Dictionary for this XObject
@@ -2077,6 +2084,8 @@ argument_list|(
 name|COSName
 operator|.
 name|K
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 comment|// Mandatory parm
@@ -2610,6 +2619,16 @@ operator|=
 literal|2
 expr_stmt|;
 comment|// Type Ascii
+name|int
+name|len
+init|=
+name|value
+operator|.
+name|length
+argument_list|()
+operator|+
+literal|1
+decl_stmt|;
 name|tiffheader
 index|[
 name|offset
@@ -2617,9 +2636,15 @@ operator|+
 literal|4
 index|]
 operator|=
-literal|1
+call|(
+name|byte
+call|)
+argument_list|(
+name|len
+operator|&
+literal|0xff
+argument_list|)
 expr_stmt|;
-comment|// One Value
 name|tiffheader
 index|[
 name|offset
@@ -2696,6 +2721,8 @@ operator|&
 literal|0xff
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|System
 operator|.
 name|arraycopy
@@ -2703,7 +2730,9 @@ argument_list|(
 name|value
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"US-ASCII"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|,
@@ -2717,14 +2746,26 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedEncodingException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Incompatible VM without US-ASCII encoding"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|additionalOffset
 operator|+=
-name|value
-operator|.
-name|length
-argument_list|()
-operator|+
-literal|1
+name|len
 expr_stmt|;
 block|}
 specifier|private
