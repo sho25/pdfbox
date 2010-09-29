@@ -721,6 +721,7 @@ name|metrics
 return|;
 block|}
 specifier|private
+specifier|final
 specifier|static
 name|String
 name|resourceRootCMAP
@@ -728,6 +729,7 @@ init|=
 literal|"org/apache/pdfbox/resources/cmap/"
 decl_stmt|;
 specifier|private
+specifier|final
 specifier|static
 name|String
 name|resourceRootAFM
