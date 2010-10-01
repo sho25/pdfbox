@@ -478,8 +478,6 @@ name|at
 argument_list|,
 name|_awtFont
 argument_list|,
-name|fontSize
-argument_list|,
 name|x
 argument_list|,
 name|y
@@ -1289,7 +1287,7 @@ name|getFontBoundingBox
 argument_list|()
 return|;
 block|}
-comment|/**      * This will draw a string on a canvas using the font.      *      * @param g2d The graphics to draw onto.      * @param at The transformation matrix with all infos for scaling and shearing of the font.      * @param awtFont The font to draw.      * @param fontSize The size of the font to draw.      * @param x The x coordinate to draw at.      * @param y The y coordinate to draw at.      * @param string The string to draw.      *      */
+comment|/**      * This will draw a string on a canvas using the font.      *      * @param g2d The graphics to draw onto.      * @param at The transformation matrix with all infos for scaling and shearing of the font.      * @param awtFont The font to draw.      * @param x The x coordinate to draw at.      * @param y The y coordinate to draw at.      * @param string The string to draw.      *      */
 specifier|protected
 name|void
 name|writeFont
@@ -1305,10 +1303,6 @@ parameter_list|,
 specifier|final
 name|Font
 name|awtFont
-parameter_list|,
-specifier|final
-name|float
-name|fontSize
 parameter_list|,
 specifier|final
 name|float
@@ -1353,7 +1347,7 @@ name|awtFont
 operator|.
 name|deriveFont
 argument_list|(
-name|fontSize
+literal|1f
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1467,11 +1461,6 @@ operator|.
 name|deriveFont
 argument_list|(
 name|at
-argument_list|)
-operator|.
-name|deriveFont
-argument_list|(
-name|fontSize
 argument_list|)
 argument_list|)
 expr_stmt|;

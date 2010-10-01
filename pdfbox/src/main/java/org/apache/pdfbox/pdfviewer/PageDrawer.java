@@ -21,16 +21,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|AlphaComposite
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|BasicStroke
 import|;
 end_import
@@ -42,16 +32,6 @@ operator|.
 name|awt
 operator|.
 name|Color
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|Composite
 import|;
 end_import
 
@@ -82,18 +62,6 @@ operator|.
 name|awt
 operator|.
 name|Graphics2D
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|color
-operator|.
-name|ColorSpace
 import|;
 end_import
 
@@ -468,34 +436,6 @@ operator|.
 name|cos
 operator|.
 name|COSName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSObject
 import|;
 end_import
 
@@ -1207,6 +1147,8 @@ name|getCurrentClippingPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// the fontSize is no longer needed as it is already part of the transformation
+comment|// we should remove it from the parameter list in the long run
 name|font
 operator|.
 name|drawString
@@ -1218,10 +1160,7 @@ argument_list|()
 argument_list|,
 name|graphics
 argument_list|,
-name|text
-operator|.
-name|getFontSize
-argument_list|()
+literal|1
 argument_list|,
 name|at
 argument_list|,
@@ -1516,6 +1455,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Called when the color changed.      * @param bStroking true for the stroking color, false for the non-stroking color      * @throws IOException if an I/O error occurs      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|colorChanged
