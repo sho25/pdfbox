@@ -31,6 +31,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -91,7 +101,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|StringTokenizer
+name|MissingResourceException
 import|;
 end_import
 
@@ -99,9 +109,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|File
+name|StringTokenizer
 import|;
 end_import
 
@@ -191,6 +201,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/** Identifies a non-mapped character. */
 specifier|public
 specifier|static
 specifier|final
@@ -424,7 +435,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Loads a glyph list from a given location and populates the NAME_TO_CHARACTER hashmap      * for character lookups.      * @param location - The string location of the glyphlist file       */
+comment|/**      * Loads a glyph list from a given location and populates the NAME_TO_CHARACTER hashmap      * for character lookups.      * @param location - The string location of the glyphlist file      */
 specifier|private
 specifier|static
 name|void
@@ -451,6 +462,32 @@ argument_list|(
 name|location
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|resource
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|MissingResourceException
+argument_list|(
+literal|"Glyphlist not found: "
+operator|+
+name|location
+argument_list|,
+name|Encoding
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|location
+argument_list|)
+throw|;
+block|}
 name|glyphStream
 operator|=
 operator|new
@@ -695,7 +732,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Returns an unmodifiable view of the Code2Name mapping.      * @return the Code2Name map       */
+comment|/**      * Returns an unmodifiable view of the Code2Name mapping.      * @return the Code2Name map      */
 specifier|public
 name|Map
 argument_list|<
@@ -715,7 +752,7 @@ name|codeToName
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an unmodifiable view of the Name2Code mapping.      * @return the Name2Code map       */
+comment|/**      * Returns an unmodifiable view of the Name2Code mapping.      * @return the Name2Code map      */
 specifier|public
 name|Map
 argument_list|<
