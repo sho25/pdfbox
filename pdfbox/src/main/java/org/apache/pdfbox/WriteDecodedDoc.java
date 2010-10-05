@@ -10,10 +10,6 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
-operator|.
-name|examples
-operator|.
-name|persistence
 package|;
 end_package
 
@@ -229,6 +225,9 @@ block|}
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|COSObject
+argument_list|>
 name|i
 init|=
 name|doc
