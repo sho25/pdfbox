@@ -940,7 +940,7 @@ default|default:
 comment|// TODO : need to implement....
 name|log
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Unsupported RenderingMode "
 operator|+
