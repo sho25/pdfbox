@@ -3045,7 +3045,7 @@ operator|.
 name|getSecurityHandler
 argument_list|()
 operator|.
-name|decryptStream
+name|encryptStream
 argument_list|(
 name|obj
 argument_list|,
