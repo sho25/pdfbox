@@ -936,6 +936,13 @@ expr_stmt|;
 block|}
 name|stripper
 operator|.
+name|setForceParsing
+argument_list|(
+name|force
+argument_list|)
+expr_stmt|;
+name|stripper
+operator|.
 name|setSortByPosition
 argument_list|(
 name|sort

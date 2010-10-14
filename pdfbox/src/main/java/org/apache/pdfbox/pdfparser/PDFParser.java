@@ -310,12 +310,6 @@ name|FDF_HEADER
 init|=
 literal|"%FDF-"
 decl_stmt|;
-specifier|private
-name|boolean
-name|forceParsing
-init|=
-literal|false
-decl_stmt|;
 comment|/**      * A list of duplicate objects found when Parsing the PDF      * File.       */
 specifier|private
 name|List
@@ -353,6 +347,8 @@ argument_list|(
 name|input
 argument_list|,
 literal|null
+argument_list|,
+name|FORCE_PARSING
 argument_list|)
 expr_stmt|;
 block|}
@@ -369,16 +365,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|super
+name|this
 argument_list|(
 name|input
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|raf
-operator|=
+argument_list|,
 name|rafi
+argument_list|,
+name|FORCE_PARSING
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Constructor to allow control over RandomAccessFile.      * Also enables parser to skip corrupt objects to try and force parsing      * @param input The input stream that contains the PDF document.      * @param rafi The RandomAccessFile to be used in internal COSDocument      * @param force When true, the parser will skip corrupt pdf objects and       * will continue parsing at the next object in the file      *      * @throws IOException If there is an error initializing the stream.      */
@@ -400,6 +394,8 @@ block|{
 name|super
 argument_list|(
 name|input
+argument_list|,
+name|force
 argument_list|)
 expr_stmt|;
 name|this
@@ -407,12 +403,6 @@ operator|.
 name|raf
 operator|=
 name|rafi
-expr_stmt|;
-name|this
-operator|.
-name|forceParsing
-operator|=
-name|force
 expr_stmt|;
 block|}
 comment|/**      * This is the directory where pdfbox will create a temporary file      * for storing pdf document stream in.  By default this directory will      * be the value of the system property java.io.tmpdir.      *      * @param tmpDir The directory to create scratch files needed to store      *        pdf document streams.      */

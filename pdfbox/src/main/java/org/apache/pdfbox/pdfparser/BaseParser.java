@@ -31,6 +31,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -80,20 +90,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|io
-operator|.
-name|ByteArrayPushBackInputStream
 import|;
 end_import
 
@@ -489,6 +485,20 @@ name|DEF
 init|=
 literal|"def"
 decl_stmt|;
+comment|/**      * Default value of the {@link #forceParsing} flag.      */
+specifier|protected
+specifier|static
+specifier|final
+name|boolean
+name|FORCE_PARSING
+init|=
+name|Boolean
+operator|.
+name|getBoolean
+argument_list|(
+literal|"org.apache.pdfbox.forceParsing"
+argument_list|)
+decl_stmt|;
 comment|/**      * This is the stream that will be read from.      */
 specifier|protected
 name|PushBackInputStream
@@ -499,17 +509,27 @@ specifier|protected
 name|COSDocument
 name|document
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param input The input stream to read the data from.      *      * @throws IOException If there is an error reading the input stream.      */
+comment|/**      * Flag to skip malformed or otherwise unparseable input where possible.      */
+specifier|protected
+specifier|final
+name|boolean
+name|forceParsing
+decl_stmt|;
+comment|/**      * Constructor.      *      * @since Apache PDFBox 1.3.0      * @param input The input stream to read the data from.      * @param forceParcing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error reading the input stream.      */
 specifier|public
 name|BaseParser
 parameter_list|(
 name|InputStream
 name|input
+parameter_list|,
+name|boolean
+name|forceParsing
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//pdfSource = new PushBackByteArrayStream( input );
+name|this
+operator|.
 name|pdfSource
 operator|=
 operator|new
@@ -526,8 +546,32 @@ argument_list|,
 literal|4096
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|forceParsing
+operator|=
+name|forceParsing
+expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param input The array to read the data from.      *      * @throws IOException If there is an error reading the byte data.      */
+comment|/**      * Constructor.      *      * @param input The input stream to read the data from.      * @throws IOException If there is an error reading the input stream.      */
+specifier|public
+name|BaseParser
+parameter_list|(
+name|InputStream
+name|input
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|this
+argument_list|(
+name|input
+argument_list|,
+name|FORCE_PARSING
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Constructor.      *      * @param input The array to read the data from.      * @throws IOException If there is an error reading the byte data.      */
 specifier|protected
 name|BaseParser
 parameter_list|(
@@ -538,12 +582,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|pdfSource
-operator|=
+name|this
+argument_list|(
 operator|new
-name|ByteArrayPushBackInputStream
+name|ByteArrayInputStream
 argument_list|(
 name|input
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2740,6 +2785,8 @@ name|retval
 operator|.
 name|getString
 argument_list|()
+argument_list|,
+name|forceParsing
 argument_list|)
 expr_stmt|;
 block|}
