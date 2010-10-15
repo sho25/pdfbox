@@ -285,9 +285,41 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|common
+operator|.
+name|PDMatrix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|font
 operator|.
 name|PDFont
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|PDType3Font
 import|;
 end_import
 
@@ -1263,6 +1295,14 @@ operator|.
 name|getFont
 argument_list|()
 decl_stmt|;
+name|PDMatrix
+name|fontMatrix
+init|=
+name|font
+operator|.
+name|getFontMatrix
+argument_list|()
+decl_stmt|;
 comment|//This will typically be 1000 but in the case of a type3 font
 comment|//this might be a different number
 specifier|final
@@ -1518,7 +1558,6 @@ comment|// get the width and height of this character in text units
 name|float
 name|characterHorizontalDisplacementText
 init|=
-operator|(
 name|font
 operator|.
 name|getFontWidth
@@ -1529,10 +1568,40 @@ name|i
 argument_list|,
 name|codeLength
 argument_list|)
+decl_stmt|;
+comment|// Type3 fonts are providing the width of a character in glyph space units
+if|if
+condition|(
+name|font
+operator|instanceof
+name|PDType3Font
+condition|)
+block|{
+comment|// multiply the witdh with the scaling factor of the font matrix
+name|characterHorizontalDisplacementText
+operator|=
+name|characterHorizontalDisplacementText
+operator|*
+name|fontMatrix
+operator|.
+name|getValue
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+comment|// all other fonts are providing the width of a character in thousandths of a unit of text space
+else|else
+block|{
+name|characterHorizontalDisplacementText
+operator|=
+name|characterHorizontalDisplacementText
 operator|/
 literal|1000f
-operator|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|maxVerticalDisplacementText
 operator|=
 name|Math
