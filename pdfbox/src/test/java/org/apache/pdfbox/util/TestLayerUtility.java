@@ -491,6 +491,8 @@ argument_list|(
 name|targetFile
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|PDDocumentCatalog
 name|catalog
 init|=
@@ -596,6 +598,15 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|doc
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 specifier|private
 name|File
