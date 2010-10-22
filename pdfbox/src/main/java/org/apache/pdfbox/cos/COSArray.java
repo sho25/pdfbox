@@ -95,6 +95,11 @@ class|class
 name|COSArray
 extends|extends
 name|COSBase
+implements|implements
+name|Iterable
+argument_list|<
+name|COSBase
+argument_list|>
 block|{
 specifier|private
 name|List
@@ -832,7 +837,7 @@ name|o
 argument_list|)
 return|;
 block|}
-comment|/**      * This will remove an element from the array.      * This method will also remove a reference to the object.      *       * @param o The object to remove.      * @return<code>true</code> if the object was removed,<code>false</code>      *  otherwise      */
+comment|/**      * This will remove an element from the array.      * This method will also remove a reference to the object.      *      * @param o The object to remove.      * @return<code>true</code> if the object was removed,<code>false</code>      *  otherwise      */
 specifier|public
 name|boolean
 name|removeObject
@@ -1017,7 +1022,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will return the index of the entry or -1 if it is not found.      * This method will also find references to indirect objects.      *       * @param object The object to search for.      * @return The index of the object or -1.      */
+comment|/**      * This will return the index of the entry or -1 if it is not found.      * This method will also find references to indirect objects.      *      * @param object The object to search for.      * @return The index of the object or -1.      */
 specifier|public
 name|int
 name|indexOfObject
@@ -1285,7 +1290,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      *  Return contents of COSArray as a Java List.      *        *  @return the COSArray as List       */
+comment|/**      *  Return contents of COSArray as a Java List.      *      *  @return the COSArray as List      */
 specifier|public
 name|List
 argument_list|<

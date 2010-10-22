@@ -1316,6 +1316,29 @@ return|return
 name|obj
 return|;
 block|}
+comment|/**      * Removes an object from the object pool.      * @param key the object key      * @return the object that was removed or null if the object was not found      */
+specifier|public
+name|COSObject
+name|removeObject
+parameter_list|(
+name|COSObjectKey
+name|key
+parameter_list|)
+block|{
+name|COSObject
+name|obj
+init|=
+name|objectPool
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
+return|return
+name|obj
+return|;
+block|}
 comment|/**      * Used to populate the XRef HashMap. Will add an Xreftable entry      * that maps ObjectKeys to byte offsets in the file.      * @param objKey The objkey, with id and gen numbers      * @param offset The byte offset in this file      */
 specifier|public
 name|void

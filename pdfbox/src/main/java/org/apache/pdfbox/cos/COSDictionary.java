@@ -2864,7 +2864,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * This will add all of the dictionarys keys/values to this dictionary.      * Only called when adding keys to a trailer that already exists.       *      * @param dic The dic to get the keys from.      */
+comment|/**      * This will add all of the dictionarys keys/values to this dictionary.      * Only called when adding keys to a trailer that already exists.      *      * @param dic The dic to get the keys from.      */
 specifier|public
 name|void
 name|addAll
@@ -2891,7 +2891,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-comment|/*              * If we're at a second trailer, we have a linearized               * pdf file, meaning that the first Size entry represents              * all of the objects so we don't need to grab the second.               */
+comment|/*              * If we're at a second trailer, we have a linearized              * pdf file, meaning that the first Size entry represents              * all of the objects so we don't need to grab the second.              */
 if|if
 condition|(
 operator|!

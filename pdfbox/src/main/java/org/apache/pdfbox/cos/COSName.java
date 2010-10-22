@@ -51,9 +51,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
+name|Map
 import|;
 end_import
 
@@ -63,7 +61,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|concurrent
+operator|.
+name|ConcurrentHashMap
 import|;
 end_import
 
@@ -416,7 +416,20 @@ argument_list|(
 literal|"BaseFont"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/** the COSName for "BaseState". */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|BASE_STATE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"BaseState"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2145,6 +2158,84 @@ argument_list|(
 literal|"Obj"
 argument_list|)
 decl_stmt|;
+comment|/** the COSName for the content group tag. */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OC
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"OC"
+argument_list|)
+decl_stmt|;
+comment|/** the COSName for an optional content group. */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OCG
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"OCG"
+argument_list|)
+decl_stmt|;
+comment|/** the COSName for the optional content group list. */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OCGS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"OCGs"
+argument_list|)
+decl_stmt|;
+comment|/** the COSName for the optional content properties. */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OCPROPERTIES
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"OCProperties"
+argument_list|)
+decl_stmt|;
+comment|/** the COSName for the "OFF" value. */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OFF
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"OFF"
+argument_list|)
+decl_stmt|;
+comment|/** the COSName for the "ON" value. */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ON
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ON"
+argument_list|)
+decl_stmt|;
 comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
@@ -2208,6 +2299,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"OpenAction"
+argument_list|)
+decl_stmt|;
+comment|/** A common COSName value. */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ORDER
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Order"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -2392,7 +2496,7 @@ argument_list|(
 literal|"Prev"
 argument_list|)
 decl_stmt|;
-comment|/** "ProcSet" */
+comment|/** The COSName value for "ProcSet". */
 specifier|public
 specifier|static
 specifier|final
@@ -2416,6 +2520,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Producer"
+argument_list|)
+decl_stmt|;
+comment|/** The COSName value for "Properties". */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PROPERTIES
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Properties"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -2951,6 +3068,19 @@ argument_list|(
 literal|"U"
 argument_list|)
 decl_stmt|;
+comment|/** the COSName for the "Unchanged" value. */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|UNCHANGED
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Unchanged"
+argument_list|)
+decl_stmt|;
 comment|/** "URI" */
 specifier|public
 specifier|static
@@ -3196,7 +3326,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * Private constructor.  This will limit the number of COSName objects.      * that are created.      *      * @param aName The name of the COSName object.      * @param staticValue Indicates if the COSName object is static so that it can       *        be stored in the HashMap without synchronizing.      */
+comment|/**      * Private constructor.  This will limit the number of COSName objects.      * that are created.      *      * @param aName The name of the COSName object.      * @param staticValue Indicates if the COSName object is static so that it can      *        be stored in the HashMap without synchronizing.      */
 specifier|private
 name|COSName
 parameter_list|(
