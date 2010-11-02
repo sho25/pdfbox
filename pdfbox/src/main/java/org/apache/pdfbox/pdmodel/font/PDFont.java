@@ -1300,6 +1300,10 @@ condition|(
 name|metric
 operator|!=
 literal|null
+operator|&&
+name|fontEncoding
+operator|==
+literal|null
 condition|)
 block|{
 name|fontEncoding
