@@ -1281,6 +1281,14 @@ operator|.
 name|getFont
 argument_list|()
 decl_stmt|;
+comment|// TODO move that to PDFont
+name|boolean
+name|isType3Font
+init|=
+name|font
+operator|instanceof
+name|PDType3Font
+decl_stmt|;
 name|PDMatrix
 name|fontMatrix
 init|=
@@ -1297,10 +1305,7 @@ name|glyphSpaceToTextSpaceFactor
 init|=
 literal|1f
 operator|/
-name|font
-operator|.
-name|getFontMatrix
-argument_list|()
+name|fontMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -1580,9 +1585,7 @@ decl_stmt|;
 comment|// Type3 fonts are providing the width of a character in glyph space units
 if|if
 condition|(
-name|font
-operator|instanceof
-name|PDType3Font
+name|isType3Font
 condition|)
 block|{
 comment|// multiply the witdh with the scaling factor of the font matrix
@@ -1671,9 +1674,6 @@ name|textMatrixStart
 init|=
 name|textStateParameters
 operator|.
-name|copy
-argument_list|()
-operator|.
 name|multiply
 argument_list|(
 name|textMatrix
@@ -1699,10 +1699,6 @@ name|characterHorizontalDisplacementText
 operator|)
 operator|*
 name|fontSizeText
-operator|+
-name|characterSpacingText
-operator|+
-name|spacingText
 operator|)
 operator|*
 name|horizontalScalingText
@@ -1741,31 +1737,24 @@ argument_list|,
 name|ty
 argument_list|)
 expr_stmt|;
-name|textMatrix
-operator|=
-name|td
-operator|.
-name|multiply
-argument_list|(
-name|textMatrix
-argument_list|)
-expr_stmt|;
 comment|// The text matrix gets updated after each glyph is placed.  The updated
 comment|// version will have the X and Y coordinates for the next glyph.
+comment|// textMatrixEnd contains the coordinates of the end of the last glyph without
+comment|// taking characterSpacingText and spacintText into account, otherwise it'll be
+comment|// impossible to detect new words within text extraction
 name|Matrix
 name|textMatrixEnd
 init|=
 name|textStateParameters
 operator|.
-name|copy
-argument_list|()
+name|multiply
+argument_list|(
+name|td
+argument_list|)
 operator|.
 name|multiply
 argument_list|(
 name|textMatrix
-operator|.
-name|copy
-argument_list|()
 argument_list|)
 operator|.
 name|multiply
@@ -1777,6 +1766,43 @@ name|getCurrentTransformationMatrix
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// add some spacing to the text matrix (see comment above)
+name|tx
+operator|=
+operator|(
+operator|(
+name|characterHorizontalDisplacementText
+operator|)
+operator|*
+name|fontSizeText
+operator|+
+name|characterSpacingText
+operator|+
+name|spacingText
+operator|)
+operator|*
+name|horizontalScalingText
+expr_stmt|;
+name|td
+operator|.
+name|setValue
+argument_list|(
+literal|2
+argument_list|,
+literal|0
+argument_list|,
+name|tx
+argument_list|)
+expr_stmt|;
+name|textMatrix
+operator|=
+name|td
+operator|.
+name|multiply
+argument_list|(
+name|textMatrix
+argument_list|)
+expr_stmt|;
 comment|// determine the width of this character
 comment|// XXX: Note that if we handled vertical text, we should be using Y here
 name|float
