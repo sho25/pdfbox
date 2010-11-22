@@ -2915,7 +2915,7 @@ if|if
 condition|(
 name|line
 operator|.
-name|endsWith
+name|contains
 argument_list|(
 literal|"array"
 argument_list|)
@@ -3057,6 +3057,20 @@ operator|.
 name|nextToken
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|encoding
+operator|==
+literal|null
+condition|)
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to get character encoding.  Encoding defintion found without /Encoding line."
+argument_list|)
+expr_stmt|;
+else|else
 name|encoding
 operator|.
 name|addCharacterEncoding
