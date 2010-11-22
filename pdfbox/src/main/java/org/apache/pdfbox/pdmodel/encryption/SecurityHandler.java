@@ -743,7 +743,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Encrypt a set of data.      *      * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      * @throws CryptographyException If there is an error during the encryption.      * @throws IOException If there is an error reading the data.      * @depricated While this works fine for RC4 encryption, it will never decrypt AES data      *             You should use encryptData(objectNumber, genNumber, data, output, decrypt)      *             which can do everything.  This function is just here for compatibility      *             reasons and will be removed in the future.      */
+comment|/**      * Encrypt a set of data.      *      * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      * @throws CryptographyException If there is an error during the encryption.      * @throws IOException If there is an error reading the data.      * @deprecated While this works fine for RC4 encryption, it will never decrypt AES data      *             You should use encryptData(objectNumber, genNumber, data, output, decrypt)      *             which can do everything.  This function is just here for compatibility      *             reasons and will be removed in the future.      */
 specifier|public
 name|void
 name|encryptData
