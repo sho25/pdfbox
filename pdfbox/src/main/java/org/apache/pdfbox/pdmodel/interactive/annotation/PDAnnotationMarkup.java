@@ -84,17 +84,70 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents the additonal fields of a Markup type Annotation.  *  *  * @author Paul King  * @version $Revision: 1.1 $  */
+comment|/**  * This class represents the additonal fields of a Markup type Annotation.  See  * section 12.5.6 of ISO32000-1:2008 (starting with page 390) for details on  * annotation types.  *  * @author Paul King  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
 specifier|public
-specifier|abstract
 class|class
 name|PDAnnotationMarkup
 extends|extends
 name|PDAnnotation
 block|{
+comment|/**      * Constant for a FreeText type of annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SUB_TYPE_FREETEXT
+init|=
+literal|"FreeText"
+decl_stmt|;
+comment|/**      * Constant for an Polygon type of annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SUB_TYPE_POLYGON
+init|=
+literal|"Polygon"
+decl_stmt|;
+comment|/**      * Constant for an PolyLine type of annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SUB_TYPE_POLYLINE
+init|=
+literal|"PolyLine"
+decl_stmt|;
+comment|/**      * Constant for an Caret type of annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SUB_TYPE_CARET
+init|=
+literal|"Caret"
+decl_stmt|;
+comment|/**      * Constant for an Ink type of annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SUB_TYPE_INK
+init|=
+literal|"Ink"
+decl_stmt|;
+comment|/**      * Constant for an Sound type of annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SUB_TYPE_SOUND
+init|=
+literal|"Sound"
+decl_stmt|;
 comment|/*      * The various values of the reply type as defined in the PDF 1.7 reference      * Table 170      */
 comment|/**      * Constant for an annotation reply type.      */
 specifier|public
