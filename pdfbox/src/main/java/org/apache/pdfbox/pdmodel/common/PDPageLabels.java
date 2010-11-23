@@ -386,6 +386,15 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|i
+operator|.
+name|getKey
+argument_list|()
+operator|>=
+literal|0
+condition|)
 name|labels
 operator|.
 name|put
