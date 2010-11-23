@@ -1450,6 +1450,13 @@ operator|.
 name|getContents
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|src
+operator|!=
+literal|null
+condition|)
+block|{
 name|PDStream
 name|dest
 init|=
@@ -1539,6 +1546,7 @@ argument_list|,
 name|amountRead
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|addPage
 argument_list|(
