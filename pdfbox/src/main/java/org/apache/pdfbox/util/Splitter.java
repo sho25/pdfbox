@@ -112,6 +112,9 @@ literal|1
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|PDDocument
+argument_list|>
 name|newDocuments
 init|=
 literal|null
@@ -126,6 +129,9 @@ decl_stmt|;
 comment|/**      * This will take a document and split into several other documents.      *      * @param document The document to split.      *      * @return A list of all the split documents.      *      * @throws IOException If there is an IOError      */
 specifier|public
 name|List
+argument_list|<
+name|PDDocument
+argument_list|>
 name|split
 parameter_list|(
 name|PDDocument
@@ -138,6 +144,9 @@ name|newDocuments
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|PDDocument
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|pdfDocument
@@ -377,13 +386,14 @@ name|findMediaBox
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// only the resources of the page will be copied
 name|imported
 operator|.
 name|setResources
 argument_list|(
 name|page
 operator|.
-name|findResources
+name|getResources
 argument_list|()
 argument_list|)
 expr_stmt|;
