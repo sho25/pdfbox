@@ -358,6 +358,20 @@ operator|.
 name|toLowerCase
 argument_list|()
 decl_stmt|;
+specifier|private
+specifier|static
+name|float
+name|DEFAULT_INDENT_THRESHOLD
+init|=
+literal|2.0f
+decl_stmt|;
+specifier|private
+specifier|static
+name|float
+name|DEFAULT_DROP_THRESHOLD
+init|=
+literal|2.5f
+decl_stmt|;
 comment|//enable the ability to set the default indent/drop thresholds
 comment|//with -D system properties:
 comment|//    pdftextstripper.indent
@@ -613,20 +627,6 @@ name|boolean
 name|addMoreFormatting
 init|=
 literal|false
-decl_stmt|;
-specifier|private
-specifier|static
-name|float
-name|DEFAULT_INDENT_THRESHOLD
-init|=
-literal|2.0f
-decl_stmt|;
-specifier|private
-specifier|static
-name|float
-name|DEFAULT_DROP_THRESHOLD
-init|=
-literal|2.5f
 decl_stmt|;
 specifier|private
 name|float
