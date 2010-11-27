@@ -1297,6 +1297,30 @@ operator|.
 name|getFontMatrix
 argument_list|()
 decl_stmt|;
+name|float
+name|fontMatrixXScaling
+init|=
+name|fontMatrix
+operator|.
+name|getValue
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+decl_stmt|;
+name|float
+name|fontMatrixYScaling
+init|=
+name|fontMatrix
+operator|.
+name|getValue
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+decl_stmt|;
 comment|//This will typically be 1000 but in the case of a type3 font
 comment|//this might be a different number
 specifier|final
@@ -1459,6 +1483,15 @@ operator|.
 name|getWidth
 argument_list|()
 decl_stmt|;
+name|Matrix
+name|ctm
+init|=
+name|getGraphicsState
+argument_list|()
+operator|.
+name|getCurrentTransformationMatrix
+argument_list|()
+decl_stmt|;
 name|int
 name|codeLength
 init|=
@@ -1553,11 +1586,7 @@ argument_list|,
 literal|0
 argument_list|)
 operator|*
-name|getGraphicsState
-argument_list|()
-operator|.
-name|getCurrentTransformationMatrix
-argument_list|()
+name|ctm
 operator|.
 name|getValue
 argument_list|(
@@ -1582,33 +1611,52 @@ argument_list|,
 name|codeLength
 argument_list|)
 decl_stmt|;
+name|float
+name|characterVerticalDisplacementText
+init|=
+name|font
+operator|.
+name|getFontHeight
+argument_list|(
+name|string
+argument_list|,
+name|i
+argument_list|,
+name|codeLength
+argument_list|)
+decl_stmt|;
 comment|// Type3 fonts are providing the width of a character in glyph space units
 if|if
 condition|(
 name|isType3Font
 condition|)
 block|{
-comment|// multiply the witdh with the scaling factor of the font matrix
+comment|// multiply the width/height with the scaling factor of the font matrix
 name|characterHorizontalDisplacementText
 operator|=
 name|characterHorizontalDisplacementText
 operator|*
-name|fontMatrix
-operator|.
-name|getValue
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
+name|fontMatrixXScaling
+expr_stmt|;
+name|characterVerticalDisplacementText
+operator|=
+name|characterVerticalDisplacementText
+operator|*
+name|fontMatrixYScaling
 expr_stmt|;
 block|}
-comment|// all other fonts are providing the width of a character in thousandths of a unit of text space
+comment|// all other fonts are providing the width/height of a character in thousandths of a unit of text space
 else|else
 block|{
 name|characterHorizontalDisplacementText
 operator|=
 name|characterHorizontalDisplacementText
+operator|/
+literal|1000f
+expr_stmt|;
+name|characterVerticalDisplacementText
+operator|=
+name|characterVerticalDisplacementText
 operator|/
 literal|1000f
 expr_stmt|;
@@ -1621,7 +1669,7 @@ name|max
 argument_list|(
 name|maxVerticalDisplacementText
 argument_list|,
-name|characterHorizontalDisplacementText
+name|characterVerticalDisplacementText
 argument_list|)
 expr_stmt|;
 comment|// PDF Spec - 5.5.2 Word Spacing
@@ -1681,11 +1729,7 @@ argument_list|)
 operator|.
 name|multiply
 argument_list|(
-name|getGraphicsState
-argument_list|()
-operator|.
-name|getCurrentTransformationMatrix
-argument_list|()
+name|ctm
 argument_list|)
 decl_stmt|;
 comment|// TODO : tx should be set for horizontal text and ty for vertical text
@@ -1759,11 +1803,7 @@ argument_list|)
 operator|.
 name|multiply
 argument_list|(
-name|getGraphicsState
-argument_list|()
-operator|.
-name|getCurrentTransformationMatrix
-argument_list|()
+name|ctm
 argument_list|)
 decl_stmt|;
 comment|// add some spacing to the text matrix (see comment above)
@@ -1850,6 +1890,11 @@ init|=
 name|maxVerticalDisplacementText
 operator|*
 name|fontSizeText
+operator|*
+name|textMatrix
+operator|.
+name|getYScale
+argument_list|()
 decl_stmt|;
 comment|// process the decoded text
 name|processTextPosition
