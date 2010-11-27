@@ -88,6 +88,16 @@ specifier|private
 name|COSArray
 name|matrix
 decl_stmt|;
+comment|// the number of row elements depends on the number of elements
+comment|// within the given matrix
+comment|// 3x3 e.g. Matrix of a CalRGB colorspace dictionary
+comment|// 3x2 e.g. FontMatrix of a type 3 font
+specifier|private
+name|int
+name|numberOfRowElements
+init|=
+literal|3
+decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|PDMatrix
@@ -207,10 +217,21 @@ name|COSArray
 name|array
 parameter_list|)
 block|{
-name|matrix
-operator|=
+if|if
+condition|(
 name|array
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|6
+condition|)
+block|{
+name|numberOfRowElements
+operator|=
+literal|2
 expr_stmt|;
+block|}
 block|}
 comment|/**      * This will get the underlying array value.      *      * @return The cos object that this object wraps.      */
 specifier|public
@@ -255,7 +276,7 @@ name|get
 argument_list|(
 name|row
 operator|*
-literal|3
+name|numberOfRowElements
 operator|+
 name|column
 argument_list|)
@@ -286,7 +307,7 @@ name|set
 argument_list|(
 name|row
 operator|*
-literal|3
+name|numberOfRowElements
 operator|+
 name|column
 argument_list|,
