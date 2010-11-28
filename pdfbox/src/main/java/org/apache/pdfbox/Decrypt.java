@@ -209,7 +209,7 @@ name|args
 operator|.
 name|length
 argument_list|>
-literal|3
+literal|5
 condition|)
 block|{
 name|usage
