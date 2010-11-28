@@ -1281,14 +1281,36 @@ operator|.
 name|getFont
 argument_list|()
 decl_stmt|;
-comment|// TODO move that to PDFont
-name|boolean
-name|isType3Font
+comment|// all fonts are providing the width/height of a character in thousandths of a unit of text space
+name|float
+name|fontMatrixXScaling
 init|=
+literal|1
+operator|/
+literal|1000f
+decl_stmt|;
+name|float
+name|fontMatrixYScaling
+init|=
+literal|1
+operator|/
+literal|1000f
+decl_stmt|;
+name|float
+name|glyphSpaceToTextSpaceFactor
+init|=
+literal|1
+operator|/
+literal|1000f
+decl_stmt|;
+comment|// expect Type3 fonts, those are providing the width of a character in glyph space units
+if|if
+condition|(
 name|font
 operator|instanceof
 name|PDType3Font
-decl_stmt|;
+condition|)
+block|{
 name|PDMatrix
 name|fontMatrix
 init|=
@@ -1297,9 +1319,8 @@ operator|.
 name|getFontMatrix
 argument_list|()
 decl_stmt|;
-name|float
 name|fontMatrixXScaling
-init|=
+operator|=
 name|fontMatrix
 operator|.
 name|getValue
@@ -1308,10 +1329,9 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
-decl_stmt|;
-name|float
+expr_stmt|;
 name|fontMatrixYScaling
-init|=
+operator|=
 name|fontMatrix
 operator|.
 name|getValue
@@ -1320,13 +1340,11 @@ literal|1
 argument_list|,
 literal|1
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|//This will typically be 1000 but in the case of a type3 font
 comment|//this might be a different number
-specifier|final
-name|float
 name|glyphSpaceToTextSpaceFactor
-init|=
+operator|=
 literal|1f
 operator|/
 name|fontMatrix
@@ -1337,7 +1355,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|float
 name|spaceWidthText
 init|=
@@ -1625,13 +1644,7 @@ argument_list|,
 name|codeLength
 argument_list|)
 decl_stmt|;
-comment|// Type3 fonts are providing the width of a character in glyph space units
-if|if
-condition|(
-name|isType3Font
-condition|)
-block|{
-comment|// multiply the width/height with the scaling factor of the font matrix
+comment|// multiply the width/height with the scaling factor
 name|characterHorizontalDisplacementText
 operator|=
 name|characterHorizontalDisplacementText
@@ -1644,23 +1657,6 @@ name|characterVerticalDisplacementText
 operator|*
 name|fontMatrixYScaling
 expr_stmt|;
-block|}
-comment|// all other fonts are providing the width/height of a character in thousandths of a unit of text space
-else|else
-block|{
-name|characterHorizontalDisplacementText
-operator|=
-name|characterHorizontalDisplacementText
-operator|/
-literal|1000f
-expr_stmt|;
-name|characterVerticalDisplacementText
-operator|=
-name|characterVerticalDisplacementText
-operator|/
-literal|1000f
-expr_stmt|;
-block|}
 name|maxVerticalDisplacementText
 operator|=
 name|Math
