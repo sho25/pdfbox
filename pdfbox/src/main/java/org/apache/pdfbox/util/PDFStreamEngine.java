@@ -1379,7 +1379,7 @@ literal|0
 argument_list|,
 literal|1
 argument_list|)
-operator|/
+operator|*
 name|glyphSpaceToTextSpaceFactor
 operator|)
 expr_stmt|;
@@ -1414,7 +1414,7 @@ name|font
 operator|.
 name|getAverageFontWidth
 argument_list|()
-operator|/
+operator|*
 name|glyphSpaceToTextSpaceFactor
 operator|)
 expr_stmt|;
