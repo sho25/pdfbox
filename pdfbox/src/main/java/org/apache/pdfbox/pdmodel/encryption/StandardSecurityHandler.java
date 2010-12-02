@@ -655,6 +655,15 @@ literal|0
 index|]
 expr_stmt|;
 block|}
+comment|// we need to know whether the meta data was encrypted for password calculation
+name|boolean
+name|encryptMetadata
+init|=
+name|dictionary
+operator|.
+name|isEncryptMetaData
+argument_list|()
+decl_stmt|;
 name|byte
 index|[]
 name|u
@@ -694,6 +703,8 @@ argument_list|,
 name|dicRevision
 argument_list|,
 name|dicLength
+argument_list|,
+name|encryptMetadata
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -717,6 +728,8 @@ argument_list|,
 name|dicRevision
 argument_list|,
 name|dicLength
+argument_list|,
+name|encryptMetadata
 argument_list|)
 decl_stmt|;
 if|if
@@ -750,6 +763,8 @@ argument_list|,
 name|dicRevision
 argument_list|,
 name|dicLength
+argument_list|,
+name|encryptMetadata
 argument_list|)
 expr_stmt|;
 block|}
@@ -799,6 +814,8 @@ argument_list|,
 name|dicRevision
 argument_list|,
 name|dicLength
+argument_list|,
+name|encryptMetadata
 argument_list|)
 expr_stmt|;
 block|}
@@ -1262,6 +1279,8 @@ argument_list|,
 name|revision
 argument_list|,
 name|length
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|encryptionKey
@@ -1287,6 +1306,8 @@ argument_list|,
 name|revision
 argument_list|,
 name|length
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|encryptionDictionary
@@ -1354,6 +1375,9 @@ name|encRevision
 parameter_list|,
 name|int
 name|length
+parameter_list|,
+name|boolean
+name|encryptMetadata
 parameter_list|)
 throws|throws
 name|CryptographyException
@@ -1391,6 +1415,8 @@ argument_list|,
 name|encRevision
 argument_list|,
 name|length
+argument_list|,
+name|encryptMetadata
 argument_list|)
 return|;
 block|}
@@ -1810,6 +1836,9 @@ name|encRevision
 parameter_list|,
 name|int
 name|length
+parameter_list|,
+name|boolean
+name|encryptMetadata
 parameter_list|)
 throws|throws
 name|CryptographyException
@@ -1948,6 +1977,50 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+comment|//(Security handlers of revision 4 or greater) If document metadata is not being encrypted,
+comment|//pass 4 bytes with the value 0xFFFFFFFF to the MD5 hash function.
+comment|//see 7.6.3.3 Algorithm 2 Step f of PDF 32000-1:2008
+if|if
+condition|(
+name|encRevision
+operator|==
+literal|4
+operator|&&
+operator|!
+name|encryptMetadata
+condition|)
+block|{
+name|md
+operator|.
+name|update
+argument_list|(
+operator|new
+name|byte
+index|[]
+block|{
+operator|(
+name|byte
+operator|)
+literal|0xff
+block|,
+operator|(
+name|byte
+operator|)
+literal|0xff
+block|,
+operator|(
+name|byte
+operator|)
+literal|0xff
+block|,
+operator|(
+name|byte
+operator|)
+literal|0xff
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 name|byte
 index|[]
 name|digest
@@ -2092,6 +2165,9 @@ name|encRevision
 parameter_list|,
 name|int
 name|length
+parameter_list|,
+name|boolean
+name|encryptMetadata
 parameter_list|)
 throws|throws
 name|CryptographyException
@@ -2123,6 +2199,8 @@ argument_list|,
 name|encRevision
 argument_list|,
 name|length
+argument_list|,
+name|encryptMetadata
 argument_list|)
 decl_stmt|;
 if|if
@@ -2859,6 +2937,9 @@ name|encRevision
 parameter_list|,
 name|int
 name|length
+parameter_list|,
+name|boolean
+name|encryptMetadata
 parameter_list|)
 throws|throws
 name|CryptographyException
@@ -2888,6 +2969,8 @@ argument_list|,
 name|encRevision
 argument_list|,
 name|length
+argument_list|,
+name|encryptMetadata
 argument_list|)
 decl_stmt|;
 if|if
@@ -2978,6 +3061,9 @@ name|encRevision
 parameter_list|,
 name|int
 name|length
+parameter_list|,
+name|boolean
+name|encryptMetadata
 parameter_list|)
 throws|throws
 name|CryptographyException
@@ -3003,6 +3089,8 @@ argument_list|,
 name|encRevision
 argument_list|,
 name|length
+argument_list|,
+name|encryptMetadata
 argument_list|)
 return|;
 block|}
@@ -3035,6 +3123,9 @@ name|encRevision
 parameter_list|,
 name|int
 name|length
+parameter_list|,
+name|boolean
+name|encryptMetadata
 parameter_list|)
 throws|throws
 name|CryptographyException
@@ -3060,6 +3151,8 @@ argument_list|,
 name|encRevision
 argument_list|,
 name|length
+argument_list|,
+name|encryptMetadata
 argument_list|)
 return|;
 block|}

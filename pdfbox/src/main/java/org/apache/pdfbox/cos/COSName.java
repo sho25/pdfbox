@@ -1235,6 +1235,19 @@ argument_list|(
 literal|"Encrypt"
 argument_list|)
 decl_stmt|;
+comment|/** "EncryptMetaData" */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ENCRYPT_META_DATA
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"EncryptMetadata"
+argument_list|)
+decl_stmt|;
 comment|/** "ExtGState" */
 specifier|public
 specifier|static

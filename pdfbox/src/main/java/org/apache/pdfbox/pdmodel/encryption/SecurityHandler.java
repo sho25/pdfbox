@@ -805,6 +805,22 @@ name|CryptographyException
 throws|,
 name|IOException
 block|{
+if|if
+condition|(
+name|aes
+operator|&&
+operator|!
+name|decrypt
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"AES encryption is not yet implemented."
+argument_list|)
+throw|;
+block|}
 name|byte
 index|[]
 name|newKey
