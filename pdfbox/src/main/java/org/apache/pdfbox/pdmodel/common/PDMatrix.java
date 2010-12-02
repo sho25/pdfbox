@@ -232,6 +232,10 @@ operator|=
 literal|2
 expr_stmt|;
 block|}
+name|matrix
+operator|=
+name|array
+expr_stmt|;
 block|}
 comment|/**      * This will get the underlying array value.      *      * @return The cos object that this object wraps.      */
 specifier|public
