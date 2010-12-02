@@ -331,6 +331,20 @@ name|PDThreadBead
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|TextPosition
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class will take a pdf document and strip out all of the text and ignore the  * formatting and such.  Please note; it is up to clients of this class to verify that  * a specific user has the correct permissions to extract text from the  * PDF document.  *   * The basic flow of this process is that we get a document and use a series of   * processXXX() functions that work on smaller and smaller chunks of the page.    * Eventually, we fully process each page and then print it.   *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.70 $  */
 end_comment
@@ -2362,6 +2376,8 @@ argument_list|,
 name|lastPosition
 argument_list|,
 name|lastLineStartPosition
+argument_list|,
+name|maxHeightForLine
 argument_list|)
 expr_stmt|;
 name|endOfLastTextX
@@ -4113,7 +4129,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * handles the line separator for a new line given      * the specified current and previous TextPositions.      * @param position the current text position      * @param lastPosition the previous text position      * @param lastLineStartPosition the last text position that followed a line      *        separator.      * @throws IOException      */
+comment|/**      * handles the line separator for a new line given      * the specified current and previous TextPositions.      * @param position the current text position      * @param lastPosition the previous text position      * @param lastLineStartPosition the last text position that followed a line      *        separator.      * @param maxHeightForLine max height for positions since lastLineStartPosition      * @throws IOException      */
 specifier|protected
 name|PositionWrapper
 name|handleLineSeparation
@@ -4126,6 +4142,9 @@ name|lastPosition
 parameter_list|,
 name|PositionWrapper
 name|lastLineStartPosition
+parameter_list|,
+name|float
+name|maxHeightForLine
 parameter_list|)
 throws|throws
 name|IOException
@@ -4142,6 +4161,8 @@ argument_list|,
 name|lastPosition
 argument_list|,
 name|lastLineStartPosition
+argument_list|,
+name|maxHeightForLine
 argument_list|)
 expr_stmt|;
 name|lastLineStartPosition
@@ -4188,7 +4209,7 @@ return|return
 name|lastLineStartPosition
 return|;
 block|}
-comment|/**      * tests the relationship between the last text position, the current text      * position and the last text position that followed a line separator to      * decide if the gap represents a paragraph separation. This should      *<i>only</i> be called for consecutive text positions that first pass the      * line separation test.      *<p>      * This base implementation tests to see if the lastLineStartPosition is      * null OR if the current vertical position has dropped below the last text      * vertical position by at least 2.5 times the current text height OR if the      * current horizontal position is indented by at least 2 times the current      * width of a space character.</p>      *<p>      * This also attempts to identify text that is indented under a hanging indent.</p>      *<p>      * This method sets the isParagraphStart and isHangingIndent flags on the current      * position object.</p>      *      * @param position the current text position.  This may have its isParagraphStart      * or isHangingIndent flags set upon return.      * @param lastPosition the previous text position (should not be null).      * @param lastLineStartPosition the last text position that followed a line      *            separator. May be null.      */
+comment|/**      * tests the relationship between the last text position, the current text      * position and the last text position that followed a line separator to      * decide if the gap represents a paragraph separation. This should      *<i>only</i> be called for consecutive text positions that first pass the      * line separation test.      *<p>      * This base implementation tests to see if the lastLineStartPosition is      * null OR if the current vertical position has dropped below the last text      * vertical position by at least 2.5 times the current text height OR if the      * current horizontal position is indented by at least 2 times the current      * width of a space character.</p>      *<p>      * This also attempts to identify text that is indented under a hanging indent.</p>      *<p>      * This method sets the isParagraphStart and isHangingIndent flags on the current      * position object.</p>      *      * @param position the current text position.  This may have its isParagraphStart      * or isHangingIndent flags set upon return.      * @param lastPosition the previous text position (should not be null).      * @param lastLineStartPosition the last text position that followed a line      *            separator. May be null.      * @param maxHeightForLine max height for text positions since lasLineStartPosition.      */
 specifier|protected
 name|void
 name|isParagraphSeparation
@@ -4201,6 +4222,9 @@ name|lastPosition
 parameter_list|,
 name|PositionWrapper
 name|lastLineStartPosition
+parameter_list|,
+name|float
+name|maxHeightForLine
 parameter_list|)
 block|{
 name|boolean
@@ -4276,13 +4300,7 @@ operator|(
 name|getDropThreshold
 argument_list|()
 operator|*
-name|position
-operator|.
-name|getTextPosition
-argument_list|()
-operator|.
-name|getHeightDir
-argument_list|()
+name|maxHeightForLine
 operator|)
 condition|)
 block|{
