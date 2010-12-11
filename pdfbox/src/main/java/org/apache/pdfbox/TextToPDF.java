@@ -196,6 +196,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+specifier|final
 name|int
 name|margin
 init|=
@@ -279,6 +280,12 @@ literal|2
 operator|*
 name|margin
 decl_stmt|;
+comment|// There is a special case of creating a PDF document from an empty string.
+name|boolean
+name|textIsEmpty
+init|=
+literal|true
+decl_stmt|;
 while|while
 condition|(
 operator|(
@@ -293,6 +300,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// The input text is nonEmpty. New pages will be created and added
+comment|// to the PDF document as they are needed, depending on the length of
+comment|// the text.
+name|textIsEmpty
+operator|=
+literal|false
+expr_stmt|;
 name|String
 index|[]
 name|lineWords
@@ -414,6 +428,8 @@ operator|<
 name|margin
 condition|)
 block|{
+comment|// We have crossed the end-of-page boundary and need to extend the
+comment|// document by another page.
 name|page
 operator|=
 operator|new
@@ -535,6 +551,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// If the input text was the empty string, then the above while loop will have short-circuited
+comment|// and we will not have added any PDPages to the document.
+comment|// So in order to make the resultant PDF document readable by Adobe Reader etc, we'll add an empty page.
+if|if
+condition|(
+name|textIsEmpty
+condition|)
+block|{
+name|doc
+operator|.
+name|addPage
+argument_list|(
+name|page
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|contentStream
@@ -581,7 +613,7 @@ return|return
 name|doc
 return|;
 block|}
-comment|/**      * This will create a PDF document with a single image on it.      *<br />      * see usage() for commandline      *      * @param args Command line arguments.      *      * @throws IOException If there is an error with the PDF.      */
+comment|/**      * This will create a PDF document with some text in it.      *<br />      * see usage() for commandline      *      * @param args Command line arguments.      *      * @throws IOException If there is an error with the PDF.      */
 specifier|public
 specifier|static
 name|void
