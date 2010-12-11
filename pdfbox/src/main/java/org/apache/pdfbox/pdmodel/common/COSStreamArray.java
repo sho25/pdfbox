@@ -306,7 +306,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the number of streams in the array.      *      * @return the numer of streams      */
+comment|/**      * This will get the number of streams in the array.      *      * @return the number of streams      */
 specifier|public
 name|int
 name|getStreamCount
@@ -374,13 +374,8 @@ name|String
 name|toString
 parameter_list|()
 block|{
-name|String
-name|result
-init|=
-literal|"COSStream{}"
-decl_stmt|;
 return|return
-name|result
+literal|"COSStream{}"
 return|;
 block|}
 comment|/**      * This will get all the tokens in the stream.      *      * @return All of the tokens in the stream.      *      * @throws IOException If there is an error parsing the stream.      */
@@ -466,7 +461,6 @@ argument_list|(
 literal|"Error: Not allowed to get filtered stream from array of streams."
 argument_list|)
 throw|;
-comment|/**         Vector inputStreams = new Vector();         byte[] inbetweenStreamBytes = "\n".getBytes();          for( int i=0;i<streams.size(); i++ )         {             COSStream stream = (COSStream)streams.getObject( i );         }          return new SequenceInputStream( inputStreams.elements() );         **/
 block|}
 comment|/**      * This will get the logical content stream with none of the filters.      *      * @return the bytes of the logical (decoded) stream      *      * @throws IOException when encoding/decoding causes an exception      */
 specifier|public
@@ -477,10 +471,16 @@ throws|throws
 name|IOException
 block|{
 name|Vector
+argument_list|<
+name|InputStream
+argument_list|>
 name|inputStreams
 init|=
 operator|new
 name|Vector
+argument_list|<
+name|InputStream
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|byte
@@ -679,6 +679,46 @@ name|add
 argument_list|(
 name|streamToAppend
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Insert the given stream at the beginning of the existing stream array.      * @param streamToBeInserted      */
+specifier|public
+name|void
+name|insertCOSStream
+parameter_list|(
+name|PDStream
+name|streamToBeInserted
+parameter_list|)
+block|{
+name|COSArray
+name|tmp
+init|=
+operator|new
+name|COSArray
+argument_list|()
+decl_stmt|;
+name|tmp
+operator|.
+name|add
+argument_list|(
+name|streamToBeInserted
+argument_list|)
+expr_stmt|;
+name|tmp
+operator|.
+name|addAll
+argument_list|(
+name|streams
+argument_list|)
+expr_stmt|;
+name|streams
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|streams
+operator|=
+name|tmp
 expr_stmt|;
 block|}
 block|}
