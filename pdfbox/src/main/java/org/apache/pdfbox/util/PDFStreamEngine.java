@@ -1511,6 +1511,34 @@ operator|.
 name|getCurrentTransformationMatrix
 argument_list|()
 decl_stmt|;
+name|Matrix
+name|textXctm
+init|=
+operator|new
+name|Matrix
+argument_list|()
+decl_stmt|;
+name|Matrix
+name|textMatrixEnd
+init|=
+operator|new
+name|Matrix
+argument_list|()
+decl_stmt|;
+name|Matrix
+name|td
+init|=
+operator|new
+name|Matrix
+argument_list|()
+decl_stmt|;
+name|Matrix
+name|tempMatrix
+init|=
+operator|new
+name|Matrix
+argument_list|()
+decl_stmt|;
 name|int
 name|codeLength
 init|=
@@ -1712,7 +1740,19 @@ operator|+=
 name|wordSpacingText
 expr_stmt|;
 block|}
+name|textXctm
+operator|=
+name|textMatrix
+operator|.
+name|multiply
+argument_list|(
+name|ctm
+argument_list|,
+name|textXctm
+argument_list|)
+expr_stmt|;
 comment|// Convert textMatrix to display units
+comment|// We need to instantiate a new Matrix instance here as it is passed to the TextPosition constructor below.
 name|Matrix
 name|textMatrixStart
 init|=
@@ -1720,12 +1760,7 @@ name|textStateParameters
 operator|.
 name|multiply
 argument_list|(
-name|textMatrix
-argument_list|)
-operator|.
-name|multiply
-argument_list|(
-name|ctm
+name|textXctm
 argument_list|)
 decl_stmt|;
 comment|// TODO : tx should be set for horizontal text and ty for vertical text
@@ -1748,13 +1783,12 @@ name|ty
 init|=
 literal|0
 decl_stmt|;
-name|Matrix
+comment|// reset the matrix instead of creating a new one
 name|td
-init|=
-operator|new
-name|Matrix
+operator|.
+name|reset
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|td
 operator|.
 name|setValue
@@ -1782,25 +1816,45 @@ comment|// version will have the X and Y coordinates for the next glyph.
 comment|// textMatrixEnd contains the coordinates of the end of the last glyph without
 comment|// taking characterSpacingText and spacintText into account, otherwise it'll be
 comment|// impossible to detect new words within text extraction
-name|Matrix
-name|textMatrixEnd
-init|=
+name|tempMatrix
+operator|=
 name|textStateParameters
 operator|.
 name|multiply
 argument_list|(
 name|td
+argument_list|,
+name|tempMatrix
 argument_list|)
+expr_stmt|;
+name|textMatrixEnd
+operator|=
+name|tempMatrix
 operator|.
 name|multiply
 argument_list|(
-name|textMatrix
+name|textXctm
+argument_list|,
+name|textMatrixEnd
 argument_list|)
+expr_stmt|;
+specifier|final
+name|float
+name|endXPosition
+init|=
+name|textMatrixEnd
 operator|.
-name|multiply
-argument_list|(
-name|ctm
-argument_list|)
+name|getXPosition
+argument_list|()
+decl_stmt|;
+specifier|final
+name|float
+name|endYPosition
+init|=
+name|textMatrixEnd
+operator|.
+name|getYPosition
+argument_list|()
 decl_stmt|;
 comment|// add some spacing to the text matrix (see comment above)
 name|tx
@@ -1837,22 +1891,26 @@ operator|.
 name|multiply
 argument_list|(
 name|textMatrix
+argument_list|,
+name|textMatrix
 argument_list|)
 expr_stmt|;
 comment|// determine the width of this character
 comment|// XXX: Note that if we handled vertical text, we should be using Y here
 name|float
-name|widthText
+name|startXPosition
 init|=
-name|textMatrixEnd
-operator|.
-name|getXPosition
-argument_list|()
-operator|-
 name|textMatrixStart
 operator|.
 name|getXPosition
 argument_list|()
+decl_stmt|;
+name|float
+name|widthText
+init|=
+name|endXPosition
+operator|-
+name|startXPosition
 decl_stmt|;
 comment|//there are several cases where one character code will
 comment|//output multiple characters.  For example "fi" or a
@@ -1906,7 +1964,9 @@ name|pageHeight
 argument_list|,
 name|textMatrixStart
 argument_list|,
-name|textMatrixEnd
+name|endXPosition
+argument_list|,
+name|endYPosition
 argument_list|,
 name|totalVerticalDisplacementDisp
 argument_list|,

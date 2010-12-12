@@ -145,6 +145,20 @@ name|TestDateUtil
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|TestMatrix
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is a holder for all test cases in the pdfbox system.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.9 $  */
 end_comment
@@ -225,6 +239,16 @@ operator|.
 name|addTest
 argument_list|(
 name|TestDateUtil
+operator|.
+name|suite
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|suite
+operator|.
+name|addTest
+argument_list|(
+name|TestMatrix
 operator|.
 name|suite
 argument_list|()

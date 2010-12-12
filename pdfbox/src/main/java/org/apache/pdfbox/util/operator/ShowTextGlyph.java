@@ -289,6 +289,8 @@ name|context
 operator|.
 name|getTextMatrix
 argument_list|()
+argument_list|,
+name|adjMatrix
 argument_list|)
 argument_list|)
 expr_stmt|;
