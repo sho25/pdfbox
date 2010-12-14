@@ -3028,6 +3028,13 @@ operator|new
 name|StringTokenizer
 argument_list|(
 name|line
+operator|.
+name|replaceAll
+argument_list|(
+literal|"/"
+argument_list|,
+literal|" /"
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// ignore the first token
