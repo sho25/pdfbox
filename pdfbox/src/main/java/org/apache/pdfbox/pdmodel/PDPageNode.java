@@ -571,6 +571,15 @@ name|boolean
 name|recurse
 parameter_list|)
 block|{
+if|if
+condition|(
+name|page
+operator|==
+literal|null
+condition|)
+return|return
+literal|null
+return|;
 name|COSArray
 name|kids
 init|=
