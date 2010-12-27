@@ -469,9 +469,13 @@ name|page
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Parent"
+name|COSName
+operator|.
+name|PARENT
 argument_list|,
-literal|"P"
+name|COSName
+operator|.
+name|P
 argument_list|)
 decl_stmt|;
 if|if
