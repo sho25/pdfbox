@@ -531,6 +531,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|array
+operator|!=
+literal|null
+condition|)
+block|{
 name|array
 operator|.
 name|add
@@ -546,6 +553,7 @@ name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|actual
