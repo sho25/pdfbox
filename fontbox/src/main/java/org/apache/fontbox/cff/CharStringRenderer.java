@@ -55,6 +55,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -141,6 +161,8 @@ name|Object
 argument_list|>
 name|sequence
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|path
 operator|=
@@ -180,7 +202,10 @@ return|;
 block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public
-name|void
+name|List
+argument_list|<
+name|Integer
+argument_list|>
 name|handleCommand
 parameter_list|(
 name|List
@@ -216,6 +241,9 @@ name|command
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+literal|null
+return|;
 block|}
 comment|/**      *       * @param numbers      * @param command      */
 specifier|private
