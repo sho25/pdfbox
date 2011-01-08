@@ -307,11 +307,6 @@ name|BUFFERSIZE
 init|=
 literal|0xffff
 decl_stmt|;
-comment|/**      * The font descriptor.      */
-specifier|private
-name|PDFontDescriptorDictionary
-name|fd
-decl_stmt|;
 comment|/**      * The font metric.      */
 specifier|private
 name|FontMetric
@@ -448,12 +443,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|PDFontDescriptorDictionary
 name|fd
-operator|=
+init|=
 operator|new
 name|PDFontDescriptorDictionary
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|setFontDescriptor
 argument_list|(
 name|fd
@@ -1396,18 +1392,6 @@ name|DictionaryEncoding
 argument_list|(
 name|dictionary
 argument_list|)
-return|;
-block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|PDFontDescriptor
-name|getFontDescriptor
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|fd
 return|;
 block|}
 block|}

@@ -78,7 +78,7 @@ specifier|final
 name|int
 name|FLAG_SYMBOLIC
 init|=
-literal|3
+literal|4
 decl_stmt|;
 comment|/**      * A font descriptor flag.  See PDF Reference for description.      */
 specifier|private
@@ -87,7 +87,7 @@ specifier|final
 name|int
 name|FLAG_SCRIPT
 init|=
-literal|4
+literal|8
 decl_stmt|;
 comment|/**      * A font descriptor flag.  See PDF Reference for description.      */
 specifier|private
@@ -96,7 +96,7 @@ specifier|final
 name|int
 name|FLAG_NON_SYMBOLIC
 init|=
-literal|6
+literal|32
 decl_stmt|;
 comment|/**      * A font descriptor flag.  See PDF Reference for description.      */
 specifier|private
@@ -105,7 +105,7 @@ specifier|final
 name|int
 name|FLAG_ITALIC
 init|=
-literal|7
+literal|64
 decl_stmt|;
 comment|/**      * A font descriptor flag.  See PDF Reference for description.      */
 specifier|private
@@ -114,7 +114,7 @@ specifier|final
 name|int
 name|FLAG_ALL_CAP
 init|=
-literal|17
+literal|65536
 decl_stmt|;
 comment|/**      * A font descriptor flag.  See PDF Reference for description.      */
 specifier|private
@@ -123,7 +123,7 @@ specifier|final
 name|int
 name|FLAG_SMALL_CAP
 init|=
-literal|18
+literal|131072
 decl_stmt|;
 comment|/**      * A font descriptor flag.  See PDF Reference for description.      */
 specifier|private
@@ -132,7 +132,7 @@ specifier|final
 name|int
 name|FLAG_FORCE_BOLD
 init|=
-literal|19
+literal|262144
 decl_stmt|;
 comment|/**      * Get the font name.      *      * @return The name of the font.      */
 specifier|public
@@ -502,15 +502,7 @@ operator|(
 name|getFlags
 argument_list|()
 operator|&
-operator|(
-literal|1
-operator|<<
-operator|(
 name|bit
-operator|-
-literal|1
-operator|)
-operator|)
 operator|)
 operator|!=
 literal|0
@@ -542,15 +534,7 @@ name|flags
 operator|=
 name|flags
 operator||
-operator|(
-literal|1
-operator|<<
-operator|(
 name|bit
-operator|-
-literal|1
-operator|)
-operator|)
 expr_stmt|;
 block|}
 else|else
@@ -562,15 +546,7 @@ operator|&
 operator|(
 literal|0xFFFFFFFF
 operator|^
-operator|(
-literal|1
-operator|<<
-operator|(
 name|bit
-operator|-
-literal|1
-operator|)
-operator|)
 operator|)
 expr_stmt|;
 block|}
@@ -784,6 +760,23 @@ name|setCharacterSet
 parameter_list|(
 name|String
 name|charSet
+parameter_list|)
+function_decl|;
+comment|/**      * This will get the missing width for the font.      *      * @return The missing width value.      */
+specifier|public
+specifier|abstract
+name|float
+name|getMissingWidth
+parameter_list|()
+function_decl|;
+comment|/**      * This will set the missing width for the font.      *      * @param charSet The new missing width for the font.      */
+specifier|public
+specifier|abstract
+name|void
+name|setMissingWidth
+parameter_list|(
+name|float
+name|missingWidth
 parameter_list|)
 function_decl|;
 block|}

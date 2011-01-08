@@ -325,7 +325,20 @@ argument_list|(
 literal|"Attached"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ASCENT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Ascent"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -375,6 +388,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Author"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|AVG_WIDTH
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"AvgWidth"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -635,6 +661,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"CalRGB"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CAP_HEIGHT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CapHeight"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -947,6 +986,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"DecodeParms"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DESCENT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Descent"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -1370,6 +1422,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|FLAGS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Flags"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|FLATE_DECODE
 init|=
 operator|new
@@ -1519,6 +1584,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"FontStretch"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|FONT_WEIGHT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"FontWeight"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1742,6 +1820,19 @@ argument_list|(
 literal|"Info"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ITALIC_ANGLE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ItalicAngle"
+argument_list|)
+decl_stmt|;
 comment|/** "JavaScript" */
 specifier|public
 specifier|static
@@ -1870,6 +1961,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"LC"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|LEADING
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Leading"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -2015,6 +2119,19 @@ argument_list|(
 literal|"Matrix"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|MAX_WIDTH
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"MaxWidth"
+argument_list|)
+decl_stmt|;
 comment|/**      * "MCID"      */
 specifier|public
 specifier|static
@@ -2052,6 +2169,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Metadata"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|MISSING_WIDTH
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"MissingWidth"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -2826,6 +2956,32 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|STEM_H
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"StemH"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|STEM_V
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"StemV"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|STM_F
 init|=
 operator|new
@@ -3209,6 +3365,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"WhitePoint"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|XHEIGHT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"XHeight"
 argument_list|)
 decl_stmt|;
 comment|/** "XObject" */
