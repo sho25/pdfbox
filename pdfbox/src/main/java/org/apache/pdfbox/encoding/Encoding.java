@@ -858,31 +858,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|String
-name|name
-init|=
+return|return
 name|codeToName
 operator|.
 name|get
 argument_list|(
 name|code
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|name
-operator|==
-literal|null
-condition|)
-block|{
-comment|//lets be forgiving for now
-name|name
-operator|=
-literal|"space"
-expr_stmt|;
-block|}
-return|return
-name|name
 return|;
 block|}
 comment|/**      * This will take a character code and get the name from the code.      *      * @param c The character.      *      * @return The name of the character.      *      * @throws IOException If there is no name for the character.      */
@@ -945,6 +927,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|String
+name|name
+init|=
+name|getName
+argument_list|(
+name|code
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|name
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|getCharacter
 argument_list|(
@@ -953,6 +950,10 @@ argument_list|(
 name|code
 argument_list|)
 argument_list|)
+return|;
+block|}
+return|return
+literal|null
 return|;
 block|}
 comment|/**      * This will get the character from the name.      *      * @param name The name of the character.      *      * @return The printable character for the code.      */
