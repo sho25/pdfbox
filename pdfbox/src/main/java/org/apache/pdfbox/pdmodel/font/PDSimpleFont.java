@@ -321,22 +321,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
-name|PDStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|util
 operator|.
 name|ResourceLoader
@@ -978,19 +962,13 @@ return|return
 name|average
 return|;
 block|}
-comment|/**      * This will get the ToUnicode stream.      *      * @return The ToUnicode stream.      * @throws IOException If there is an error getting the stream.      */
+comment|/**      * This will get the ToUnicode object.      *      * @return The ToUnicode object.      */
 specifier|public
-name|PDStream
+name|COSBase
 name|getToUnicode
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
-name|PDStream
-operator|.
-name|createFromCOS
-argument_list|(
 name|font
 operator|.
 name|getDictionaryObject
@@ -999,15 +977,14 @@ name|COSName
 operator|.
 name|TO_UNICODE
 argument_list|)
-argument_list|)
 return|;
 block|}
-comment|/**      * This will set the ToUnicode stream.      *      * @param unicode The unicode stream.      */
+comment|/**      * This will set the ToUnicode object.      *      * @param unicode The unicode object.      */
 specifier|public
 name|void
 name|setToUnicode
 parameter_list|(
-name|PDStream
+name|COSBase
 name|unicode
 parameter_list|)
 block|{
@@ -1640,14 +1617,8 @@ decl_stmt|;
 name|COSBase
 name|toUnicode
 init|=
-name|font
-operator|.
-name|getDictionaryObject
-argument_list|(
-name|COSName
-operator|.
-name|TO_UNICODE
-argument_list|)
+name|getToUnicode
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

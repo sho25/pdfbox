@@ -386,6 +386,13 @@ name|fontDescriptor
 init|=
 literal|null
 decl_stmt|;
+comment|/**      *  The font matrix      */
+specifier|protected
+name|PDMatrix
+name|fontMatrix
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * This is only used if this is a font object and it has an encoding and it is      * a type0 font with a cmap.      */
 specifier|protected
 name|CMap
@@ -2173,11 +2180,13 @@ name|PDMatrix
 name|getFontMatrix
 parameter_list|()
 block|{
-name|PDMatrix
-name|matrix
-init|=
+if|if
+condition|(
+name|fontMatrix
+operator|==
 literal|null
-decl_stmt|;
+condition|)
+block|{
 name|COSArray
 name|array
 init|=
@@ -2265,7 +2274,7 @@ name|ZERO
 argument_list|)
 expr_stmt|;
 block|}
-name|matrix
+name|fontMatrix
 operator|=
 operator|new
 name|PDMatrix
@@ -2273,8 +2282,9 @@ argument_list|(
 name|array
 argument_list|)
 expr_stmt|;
+block|}
 return|return
-name|matrix
+name|fontMatrix
 return|;
 block|}
 comment|/**      * This will get the fonts bounding box.      *      * @return The fonts bounding box.      *      * @throws IOException If there is an error getting the bounding box.      */

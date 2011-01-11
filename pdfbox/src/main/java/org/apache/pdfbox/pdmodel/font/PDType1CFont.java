@@ -643,12 +643,6 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
-name|PDMatrix
-name|fontMatrix
-init|=
-literal|null
-decl_stmt|;
-specifier|private
 specifier|static
 specifier|final
 name|Log
@@ -1393,8 +1387,6 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|this
-operator|.
 name|fontMatrix
 operator|==
 literal|null
@@ -1465,8 +1457,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|this
-operator|.
 name|fontMatrix
 operator|=
 operator|new
@@ -1478,10 +1468,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|this
-operator|.
-name|fontMatrix
-operator|=
 name|super
 operator|.
 name|getFontMatrix
@@ -1490,8 +1476,6 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|this
-operator|.
 name|fontMatrix
 return|;
 block|}
