@@ -91,16 +91,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -141,7 +131,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|LinkedList
 import|;
 end_import
 
@@ -769,42 +759,78 @@ init|=
 literal|0
 decl_stmt|;
 comment|// maps the object to the keys generated in the writer
-comment|// these are used for indirect refrences in other objects
+comment|// these are used for indirect references in other objects
 comment|//A hashtable is used on purpose over a hashmap
 comment|//so that null entries will not get added.
 specifier|private
 name|Map
+argument_list|<
+name|COSBase
+argument_list|,
+name|COSObjectKey
+argument_list|>
 name|objectKeys
 init|=
 operator|new
 name|Hashtable
+argument_list|<
+name|COSBase
+argument_list|,
+name|COSObjectKey
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// the list of x ref entries to be made so far
 specifier|private
-name|List
+name|LinkedList
 name|xRefEntries
 init|=
 operator|new
-name|ArrayList
+name|LinkedList
 argument_list|()
 decl_stmt|;
 comment|//A list of objects to write.
 specifier|private
-name|List
+name|LinkedList
+argument_list|<
+name|COSBase
+argument_list|>
 name|objectsToWrite
 init|=
 operator|new
-name|ArrayList
+name|LinkedList
+argument_list|<
+name|COSBase
+argument_list|>
+argument_list|()
+decl_stmt|;
+specifier|private
+name|HashSet
+argument_list|<
+name|COSBase
+argument_list|>
+name|objectsToWriteSet
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|COSBase
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|//a list of objects already written
 specifier|private
 name|Set
+argument_list|<
+name|COSBase
+argument_list|>
 name|writtenObjects
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|COSBase
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|//An 'actual' is any COSBase that is not a COSObject.
@@ -815,10 +841,16 @@ comment|//the actual for that object, so we will track
 comment|//actuals separately.
 specifier|private
 name|Set
+argument_list|<
+name|COSBase
+argument_list|>
 name|actualsAdded
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|COSBase
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -954,6 +986,11 @@ operator|.
 name|util
 operator|.
 name|Map
+argument_list|<
+name|COSBase
+argument_list|,
+name|COSObjectKey
+argument_list|>
 name|getObjectKeys
 parameter_list|()
 block|{
@@ -1175,11 +1212,16 @@ name|COSBase
 operator|)
 name|objectsToWrite
 operator|.
+name|removeFirst
+argument_list|()
+decl_stmt|;
+name|objectsToWriteSet
+operator|.
 name|remove
 argument_list|(
-literal|0
+name|nextObject
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|doWriteObject
 argument_list|(
 name|nextObject
@@ -1221,19 +1263,22 @@ name|COSBase
 operator|)
 name|objectsToWrite
 operator|.
+name|removeFirst
+argument_list|()
+decl_stmt|;
+name|objectsToWriteSet
+operator|.
 name|remove
 argument_list|(
-literal|0
+name|nextObject
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|doWriteObject
 argument_list|(
 name|nextObject
 argument_list|)
 expr_stmt|;
 block|}
-comment|// write all objects
-comment|/**         for (Iterator i = doc.getObjects().iterator(); i.hasNext();)         {             COSObject obj = (COSObject) i.next();             doWriteObject(obj);         }**/
 block|}
 specifier|private
 name|void
@@ -1279,7 +1324,7 @@ name|object
 argument_list|)
 operator|&&
 operator|!
-name|objectsToWrite
+name|objectsToWriteSet
 operator|.
 name|contains
 argument_list|(
@@ -1296,6 +1341,13 @@ argument_list|)
 condition|)
 block|{
 name|objectsToWrite
+operator|.
+name|add
+argument_list|(
+name|object
+argument_list|)
+expr_stmt|;
+name|objectsToWriteSet
 operator|.
 name|add
 argument_list|(
@@ -2265,6 +2317,9 @@ expr_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|COSBase
+argument_list|>
 name|i
 init|=
 name|obj
@@ -2282,9 +2337,6 @@ block|{
 name|COSBase
 name|current
 init|=
-operator|(
-name|COSBase
-operator|)
 name|i
 operator|.
 name|next
@@ -3515,7 +3567,7 @@ condition|)
 block|{
 try|try
 block|{
-comment|//algothim says to use time/path/size/values in doc to generate
+comment|//algorithm says to use time/path/size/values in doc to generate
 comment|//the id.  We don't have path or size, so do the best we can
 name|MessageDigest
 name|md
@@ -3568,6 +3620,9 @@ literal|null
 condition|)
 block|{
 name|Iterator
+argument_list|<
+name|COSBase
+argument_list|>
 name|values
 init|=
 name|info
@@ -3663,7 +3718,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/*         List objects = doc.getObjects();         Iterator iter = objects.iterator();         long maxNumber = 0;         while( iter.hasNext() )         {             COSObject object = (COSObject)iter.next();             if( object.getObjectNumber() != null&&                 object.getGenerationNumber() != null )             {                 COSObjectKey key = new COSObjectKey( object.getObjectNumber().longValue(),                                                      object.getGenerationNumber().longValue() );                 objectKeys.put( object.getObject(), key );                 objectKeys.put( object, key );                 maxNumber = Math.max( key.getNumber(), maxNumber );                 setNumber( maxNumber );             }         }*/
 name|cosDoc
 operator|.
 name|accept
