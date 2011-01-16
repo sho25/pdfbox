@@ -580,7 +580,7 @@ operator|.
 name|getResult
 argument_list|()
 expr_stmt|;
-name|setEncoding
+name|setFontEncoding
 argument_list|(
 name|afmToDictionary
 argument_list|(
@@ -738,7 +738,7 @@ decl_stmt|;
 name|Encoding
 name|encoding
 init|=
-name|getEncoding
+name|getFontEncoding
 argument_list|()
 decl_stmt|;
 name|int

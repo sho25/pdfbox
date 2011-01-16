@@ -749,11 +749,20 @@ comment|//only support winansi encoding right now, should really
 comment|//just use Identity-H with unicode mapping
 name|retval
 operator|.
-name|setEncoding
+name|setFontEncoding
 argument_list|(
 operator|new
 name|WinAnsiEncoding
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|retval
+operator|.
+name|setEncoding
+argument_list|(
+name|COSName
+operator|.
+name|WIN_ANSI_ENCODING
 argument_list|)
 expr_stmt|;
 return|return
