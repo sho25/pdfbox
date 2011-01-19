@@ -361,7 +361,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java -cp pdfbox.jar "
+literal|"Usage: java -cp /path/to/pdfbox.jar;/path/to/commons-logging-api.jar "
 operator|+
 literal|"org.apache.pdfbox.PdfDecompressor<input PDF File> [<Output PDF File>]\n"
 operator|+
