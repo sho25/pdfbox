@@ -31,7 +31,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
+name|IOException
 import|;
 end_import
 
@@ -41,7 +41,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|InputStream
 import|;
 end_import
 
@@ -419,6 +419,19 @@ operator|=
 name|tmpDir
 expr_stmt|;
 block|}
+comment|/**      * Returns true if parsing should be continued. By default, forceParsing is returned.       * This can be overridden to add application specific handling (for example to stop       * parsing when the number of exceptions thrown exceed a certain number).      *       * @param e The exception if vailable. Can be null if there is no exception available      */
+specifier|protected
+name|boolean
+name|isContinueOnError
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+return|return
+name|forceParsing
+return|;
+block|}
 comment|/**      * This will parse the stream and populate the COSDocument object.  This will close      * the stream when it is done parsing.      *      * @throws IOException If there is an error reading from the stream or corrupt data      * is found.      */
 specifier|public
 name|void
@@ -524,7 +537,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|forceParsing
+name|isContinueOnError
+argument_list|(
+name|e
+argument_list|)
 condition|)
 block|{
 comment|/*                              * Warning is sent to the PDFBox.log and to the Console that                              * we skipped over an object                              */
@@ -1665,6 +1681,23 @@ literal|"obj"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|isContinueOnError
+argument_list|(
+literal|null
+argument_list|)
+operator|||
+operator|!
+name|objectKey
+operator|.
+name|equals
+argument_list|(
+literal|"o"
+argument_list|)
+condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -1678,6 +1711,9 @@ operator|+
 name|pdfSource
 argument_list|)
 throw|;
+block|}
+comment|//assume that "o" was meant to be "obj" (this is a workaround for
+comment|// PDFBOX-773 attached PDF Andersens_Fairy_Tales.pdf).
 block|}
 block|}
 else|else
@@ -1907,24 +1943,9 @@ name|isEOF
 argument_list|()
 condition|)
 block|{
-try|try
-block|{
-comment|//It is possible that the endobj  is missing, there
-comment|//are several PDFs out there that do that so skip it and move on.
-name|Float
-operator|.
-name|parseFloat
-argument_list|(
-name|endObjectKey
-argument_list|)
-expr_stmt|;
-name|pdfSource
-operator|.
-name|unread
-argument_list|(
-name|SPACE_BYTE
-argument_list|)
-expr_stmt|;
+comment|//It is possible that the endobj is missing, there
+comment|//are several PDFs out there that do that so. Unread
+comment|//and assume that endobj was missing
 name|pdfSource
 operator|.
 name|unread
@@ -1935,90 +1956,6 @@ name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|e
-parameter_list|)
-block|{
-comment|//we will try again incase there was some garbage which
-comment|//some writers will leave behind.
-name|String
-name|secondEndObjectKey
-init|=
-name|readString
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|secondEndObjectKey
-operator|.
-name|equals
-argument_list|(
-literal|"endobj"
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-name|isClosing
-argument_list|()
-condition|)
-block|{
-comment|//found a case with 17506.pdf object 41 that was like this
-comment|//41 0 obj [/Pattern /DeviceGray] ] endobj
-comment|//notice the second array close, here we are reading it
-comment|//and ignoring and attempting to continue
-name|pdfSource
-operator|.
-name|read
-argument_list|()
-expr_stmt|;
-block|}
-name|skipSpaces
-argument_list|()
-expr_stmt|;
-name|String
-name|thirdPossibleEndObj
-init|=
-name|readString
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|thirdPossibleEndObj
-operator|.
-name|equals
-argument_list|(
-literal|"endobj"
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"expected='endobj' firstReadAttempt='"
-operator|+
-name|endObjectKey
-operator|+
-literal|"' "
-operator|+
-literal|"secondReadAttempt='"
-operator|+
-name|secondEndObjectKey
-operator|+
-literal|"' "
-operator|+
-name|pdfSource
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
 block|}
 block|}
 name|skipSpaces
