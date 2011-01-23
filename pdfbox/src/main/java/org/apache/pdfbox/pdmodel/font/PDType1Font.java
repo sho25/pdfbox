@@ -1235,11 +1235,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-try|try
-block|{
 name|BufferedReader
 name|in
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|in
+operator|=
 operator|new
 name|BufferedReader
 argument_list|(
@@ -1252,7 +1256,7 @@ name|createInputStream
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// this section parses the font program stream searching for a /Encoding entry
 comment|// if it contains an array of values a Type1Encoding will be returned
 comment|// if it encoding contains an encoding name the corresponding Encoding will be returned
@@ -1636,6 +1640,32 @@ block|}
 block|}
 block|}
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|exception
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error: Could not extract the encoding from the embedded type1 font."
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|in
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
 name|in
 operator|.
 name|close
@@ -1652,9 +1682,11 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Error: Could not extract the encoding from the embedded type1 font."
+literal|"An error occurs while closing the stream used to read the embedded type1 font."
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 block|}
