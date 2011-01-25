@@ -2603,6 +2603,8 @@ operator|new
 name|String
 argument_list|(
 name|bytes
+argument_list|,
+literal|"ISO-8859-1"
 argument_list|)
 expr_stmt|;
 block|}

@@ -2618,6 +2618,8 @@ operator|new
 name|String
 argument_list|(
 name|data
+argument_list|,
+literal|"ISO-8859-1"
 argument_list|)
 return|;
 block|}
