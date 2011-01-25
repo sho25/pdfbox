@@ -379,7 +379,9 @@ init|=
 literal|"This is the contents of the embedded file"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 decl_stmt|;
 name|ByteArrayInputStream
 name|fakeFile
