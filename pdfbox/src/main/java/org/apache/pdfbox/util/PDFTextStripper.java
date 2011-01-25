@@ -4821,7 +4821,9 @@ block|{
 if|if
 condition|(
 name|i
-operator|>
+operator|<
+name|numberOfStrings
+operator|-
 literal|1
 condition|)
 name|writeWordSeparator
