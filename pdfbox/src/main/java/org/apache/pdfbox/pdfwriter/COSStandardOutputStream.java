@@ -45,6 +45,20 @@ name|OutputStream
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|StringUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * simple output stream with some minor features for generating "pretty"  * pdf files.  *  * @author Michael Traut  * @version $Revision: 1.5 $  */
 end_comment
@@ -64,10 +78,12 @@ name|byte
 index|[]
 name|CRLF
 init|=
-literal|"\r\n"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"\r\n"
+argument_list|)
 decl_stmt|;
 comment|/**      * Line feed character.      */
 specifier|public
@@ -77,12 +93,14 @@ name|byte
 index|[]
 name|LF
 init|=
-literal|"\n"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"\n"
+argument_list|)
 decl_stmt|;
-comment|/**      * standard line separator on this platform.      */
+comment|/**      * standard line separator.      */
 specifier|public
 specifier|static
 specifier|final
@@ -90,15 +108,12 @@ name|byte
 index|[]
 name|EOL
 init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"\n"
+argument_list|)
 decl_stmt|;
 comment|// current byte pos in the output stream
 specifier|private

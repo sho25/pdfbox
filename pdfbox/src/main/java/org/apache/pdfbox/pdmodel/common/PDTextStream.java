@@ -352,6 +352,8 @@ name|out
 operator|.
 name|toByteArray
 argument_list|()
+argument_list|,
+literal|"ISO-8859-1"
 argument_list|)
 expr_stmt|;
 block|}

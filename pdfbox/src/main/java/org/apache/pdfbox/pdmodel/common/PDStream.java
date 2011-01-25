@@ -1532,7 +1532,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * A convenience method to get this stream as a string.  Uses      * the default system encoding.      *      * @return a String representation of this (input) stream, with the      * platform default encoding.      *      * @throws IOException if there is an error while converting the stream      *                     to a string.      */
+comment|/**      * A convenience method to get this stream as a string.  Uses      * the default system encoding.      *      * @return a String representation of this (input) stream.      *      * @throws IOException if there is an error while converting the stream      *                     to a string.      */
 specifier|public
 name|String
 name|getInputStreamAsString
@@ -1552,6 +1552,8 @@ operator|new
 name|String
 argument_list|(
 name|bStream
+argument_list|,
+literal|"ISO-8859-1"
 argument_list|)
 return|;
 block|}

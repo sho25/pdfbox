@@ -1095,7 +1095,9 @@ argument_list|(
 name|headerGarbage
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1160,7 +1162,9 @@ argument_list|(
 name|headerGarbage
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1562,7 +1566,9 @@ argument_list|(
 name|eof
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1761,7 +1767,9 @@ argument_list|(
 name|endObjectKey
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|pdfSource
@@ -1902,7 +1910,9 @@ literal|6
 argument_list|)
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1953,7 +1963,9 @@ argument_list|(
 name|endObjectKey
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2475,7 +2487,9 @@ init|=
 name|nextLine
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 decl_stmt|;
 name|int
 name|len

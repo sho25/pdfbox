@@ -558,7 +558,9 @@ argument_list|(
 name|ownerPassword
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|md
@@ -568,7 +570,9 @@ argument_list|(
 name|userPassword
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|md
@@ -598,7 +602,9 @@ name|toString
 argument_list|()
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|COSString
@@ -887,7 +893,9 @@ argument_list|(
 name|password
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|,
 name|u
 argument_list|,
@@ -915,7 +923,9 @@ argument_list|(
 name|password
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|,
 name|u
 argument_list|,
@@ -947,7 +957,9 @@ argument_list|(
 name|password
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|,
 name|o
 argument_list|,
@@ -981,7 +993,9 @@ argument_list|(
 name|password
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|,
 name|o
 argument_list|,

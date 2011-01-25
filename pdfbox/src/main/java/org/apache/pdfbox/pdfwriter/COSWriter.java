@@ -49,6 +49,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|security
 operator|.
 name|MessageDigest
@@ -421,6 +431,20 @@ name|COSObjectKey
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|StringUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * this class acts on a in-memory representation of a pdf document.  *  * todo no support for incremental updates  * todo single xref section only  * todo no linearization  *  * @author Michael Traut  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.36 $  */
 end_comment
@@ -440,10 +464,12 @@ name|byte
 index|[]
 name|DICT_OPEN
 init|=
-literal|"<<"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"<<"
+argument_list|)
 decl_stmt|;
 comment|/**      * The dictionary close token.      */
 specifier|public
@@ -453,10 +479,12 @@ name|byte
 index|[]
 name|DICT_CLOSE
 init|=
-literal|">>"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|">>"
+argument_list|)
 decl_stmt|;
 comment|/**      * space character.      */
 specifier|public
@@ -466,10 +494,12 @@ name|byte
 index|[]
 name|SPACE
 init|=
-literal|" "
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|" "
+argument_list|)
 decl_stmt|;
 comment|/**      * The start to a PDF comment.      */
 specifier|public
@@ -479,10 +509,12 @@ name|byte
 index|[]
 name|COMMENT
 init|=
-literal|"%"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"%"
+argument_list|)
 decl_stmt|;
 comment|/**      * The output version of the PDF.      */
 specifier|public
@@ -492,10 +524,12 @@ name|byte
 index|[]
 name|VERSION
 init|=
-literal|"PDF-1.4"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"PDF-1.4"
+argument_list|)
 decl_stmt|;
 comment|/**      * Garbage bytes used to create the PDF header.      */
 specifier|public
@@ -538,10 +572,12 @@ name|byte
 index|[]
 name|EOF
 init|=
-literal|"%%EOF"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"%%EOF"
+argument_list|)
 decl_stmt|;
 comment|// pdf tokens
 comment|/**      * The reference token.      */
@@ -552,10 +588,12 @@ name|byte
 index|[]
 name|REFERENCE
 init|=
-literal|"R"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"R"
+argument_list|)
 decl_stmt|;
 comment|/**      * The XREF token.      */
 specifier|public
@@ -565,10 +603,12 @@ name|byte
 index|[]
 name|XREF
 init|=
-literal|"xref"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"xref"
+argument_list|)
 decl_stmt|;
 comment|/**      * The xref free token.      */
 specifier|public
@@ -578,10 +618,12 @@ name|byte
 index|[]
 name|XREF_FREE
 init|=
-literal|"f"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"f"
+argument_list|)
 decl_stmt|;
 comment|/**      * The xref used token.      */
 specifier|public
@@ -591,10 +633,12 @@ name|byte
 index|[]
 name|XREF_USED
 init|=
-literal|"n"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"n"
+argument_list|)
 decl_stmt|;
 comment|/**      * The trailer token.      */
 specifier|public
@@ -604,10 +648,12 @@ name|byte
 index|[]
 name|TRAILER
 init|=
-literal|"trailer"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"trailer"
+argument_list|)
 decl_stmt|;
 comment|/**      * The start xref token.      */
 specifier|public
@@ -617,10 +663,12 @@ name|byte
 index|[]
 name|STARTXREF
 init|=
-literal|"startxref"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"startxref"
+argument_list|)
 decl_stmt|;
 comment|/**      * The starting object token.      */
 specifier|public
@@ -630,10 +678,12 @@ name|byte
 index|[]
 name|OBJ
 init|=
-literal|"obj"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"obj"
+argument_list|)
 decl_stmt|;
 comment|/**      * The end object token.      */
 specifier|public
@@ -643,10 +693,12 @@ name|byte
 index|[]
 name|ENDOBJ
 init|=
-literal|"endobj"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"endobj"
+argument_list|)
 decl_stmt|;
 comment|/**      * The array open token.      */
 specifier|public
@@ -656,10 +708,12 @@ name|byte
 index|[]
 name|ARRAY_OPEN
 init|=
-literal|"["
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"["
+argument_list|)
 decl_stmt|;
 comment|/**      * The array close token.      */
 specifier|public
@@ -669,10 +723,12 @@ name|byte
 index|[]
 name|ARRAY_CLOSE
 init|=
-literal|"]"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"]"
+argument_list|)
 decl_stmt|;
 comment|/**      * The open stream token.      */
 specifier|public
@@ -682,10 +738,12 @@ name|byte
 index|[]
 name|STREAM
 init|=
-literal|"stream"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"stream"
+argument_list|)
 decl_stmt|;
 comment|/**      * The close stream token.      */
 specifier|public
@@ -695,10 +753,12 @@ name|byte
 index|[]
 name|ENDSTREAM
 init|=
-literal|"endstream"
+name|StringUtil
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"endstream"
+argument_list|)
 decl_stmt|;
 specifier|private
 name|NumberFormat
@@ -1434,7 +1494,9 @@ argument_list|()
 argument_list|)
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -1461,7 +1523,9 @@ argument_list|()
 argument_list|)
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -1551,7 +1615,9 @@ name|getHeaderString
 argument_list|()
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -1714,7 +1780,9 @@ argument_list|()
 argument_list|)
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -1818,7 +1886,9 @@ literal|0
 argument_list|)
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -1850,7 +1920,9 @@ literal|1
 argument_list|)
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -1886,7 +1958,9 @@ argument_list|(
 name|offset
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -1905,7 +1979,9 @@ argument_list|(
 name|generation
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -2006,7 +2082,9 @@ argument_list|(
 name|offset
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -2025,7 +2103,9 @@ argument_list|(
 name|generation
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -2099,7 +2179,9 @@ argument_list|(
 name|offset
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -2118,7 +2200,9 @@ argument_list|(
 name|generation
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -3045,7 +3129,9 @@ argument_list|()
 argument_list|)
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -3072,7 +3158,9 @@ argument_list|()
 argument_list|)
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -3594,7 +3682,9 @@ argument_list|()
 argument_list|)
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|COSDictionary
@@ -3654,7 +3744,9 @@ name|toString
 argument_list|()
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3706,6 +3798,20 @@ block|}
 catch|catch
 parameter_list|(
 name|NoSuchAlgorithmException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|COSVisitorException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedEncodingException
 name|e
 parameter_list|)
 block|{

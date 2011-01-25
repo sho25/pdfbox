@@ -708,7 +708,9 @@ argument_list|,
 literal|"pdfbox"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// DATE AND TIME 0x0132
@@ -3240,7 +3242,9 @@ argument_list|(
 name|datetime
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|tailer

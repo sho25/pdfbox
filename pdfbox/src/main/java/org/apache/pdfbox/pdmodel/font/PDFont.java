@@ -1608,6 +1608,8 @@ name|i
 operator|++
 control|)
 block|{
+try|try
+block|{
 name|SINGLE_CHAR_STRING
 index|[
 name|i
@@ -1625,8 +1627,24 @@ name|byte
 operator|)
 name|i
 block|}
+argument_list|,
+literal|"ISO-8859-1"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedEncodingException
+name|e
+parameter_list|)
+block|{
+comment|// Nothing should happen here
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int

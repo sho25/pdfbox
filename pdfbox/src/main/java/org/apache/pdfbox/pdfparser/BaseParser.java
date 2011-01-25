@@ -1212,7 +1212,9 @@ argument_list|(
 name|potentialDEF
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1532,7 +1534,9 @@ init|=
 name|endStream
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 decl_stmt|;
 name|pdfSource
 operator|.
@@ -1587,7 +1591,9 @@ init|=
 name|extra
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 decl_stmt|;
 name|pdfSource
 operator|.
@@ -3072,7 +3078,9 @@ argument_list|(
 name|isThisTheEnd
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -3488,6 +3496,8 @@ name|readFully
 argument_list|(
 literal|4
 argument_list|)
+argument_list|,
+literal|"ISO-8859-1"
 argument_list|)
 decl_stmt|;
 if|if
@@ -3543,6 +3553,8 @@ name|readFully
 argument_list|(
 literal|5
 argument_list|)
+argument_list|,
+literal|"ISO-8859-1"
 argument_list|)
 decl_stmt|;
 if|if
@@ -3779,6 +3791,8 @@ name|readFully
 argument_list|(
 literal|4
 argument_list|)
+argument_list|,
+literal|"ISO-8859-1"
 argument_list|)
 decl_stmt|;
 if|if
@@ -3832,6 +3846,8 @@ name|readFully
 argument_list|(
 literal|5
 argument_list|)
+argument_list|,
+literal|"ISO-8859-1"
 argument_list|)
 decl_stmt|;
 if|if
@@ -4115,7 +4131,9 @@ argument_list|(
 name|badString
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4336,7 +4354,9 @@ name|toString
 argument_list|()
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -4969,7 +4989,9 @@ name|toString
 argument_list|()
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 throw|throw

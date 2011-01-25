@@ -244,7 +244,9 @@ argument_list|(
 name|dest
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

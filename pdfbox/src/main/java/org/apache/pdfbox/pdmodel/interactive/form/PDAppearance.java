@@ -1221,7 +1221,9 @@ argument_list|(
 literal|" /Tx BMC\n"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|insertGeneratedAppearance
@@ -1244,7 +1246,9 @@ argument_list|(
 literal|" EMC"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|writeToStream
@@ -1435,7 +1439,9 @@ argument_list|(
 name|apValue
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1554,7 +1560,9 @@ argument_list|(
 literal|"\n"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|insertGeneratedAppearance
@@ -1715,7 +1723,9 @@ argument_list|(
 name|daString
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 argument_list|,
 literal|null
@@ -2042,7 +2052,9 @@ argument_list|(
 name|data
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 argument_list|,
 literal|null

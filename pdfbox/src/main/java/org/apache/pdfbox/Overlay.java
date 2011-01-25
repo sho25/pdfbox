@@ -801,7 +801,9 @@ argument_list|(
 literal|" q\n"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|saveStream
@@ -840,7 +842,9 @@ argument_list|(
 literal|" Q\n"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|restoreStream
@@ -1305,7 +1309,9 @@ argument_list|(
 name|newObjectName
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|objectNameMap

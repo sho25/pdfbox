@@ -233,7 +233,7 @@ block|{
 literal|32
 block|}
 decl_stmt|;
-comment|/**      * standard line separator on this platform.      */
+comment|/**      * standard line separator      */
 specifier|public
 specifier|static
 specifier|final
@@ -241,15 +241,12 @@ name|byte
 index|[]
 name|EOL
 init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
-operator|.
-name|getBytes
-argument_list|()
+operator|new
+name|byte
+index|[]
+block|{
+literal|0x0A
+block|}
 decl_stmt|;
 comment|/**      * This will create a new content stream writer.      *      * @param out The stream to write the data to.      */
 specifier|public
@@ -649,7 +646,9 @@ argument_list|(
 literal|"BI"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ImageParameters
@@ -723,7 +722,9 @@ argument_list|(
 literal|"ID"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|output
@@ -756,7 +757,9 @@ name|getOperation
 argument_list|()
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|output
