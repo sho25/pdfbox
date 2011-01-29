@@ -29,6 +29,20 @@ name|COSDictionary
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class will be used for bit flag operations.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
 end_comment
@@ -44,7 +58,7 @@ parameter_list|()
 block|{
 comment|//helper class should not be constructed
 block|}
-comment|/**      * Sets the given boolean value at bitPos in the flags.      *      * @param dic The dictionary to set the value into.      * @param field The name of the field to set the value into.      * @param bitFlag the bit position to set the value in.      * @param value the value the bit position should have.      */
+comment|/**      * Sets the given boolean value at bitPos in the flags.      *      * @param dic The dictionary to set the value into.      * @param field The name of the field to set the value into.      * @param bitFlag the bit position to set the value in.      * @param value the value the bit position should have.      *       * @deprecated  use {@link #setFlag(COSDictionary, COSName, int, boolean)} using COSName constants instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -55,6 +69,43 @@ name|COSDictionary
 name|dic
 parameter_list|,
 name|String
+name|field
+parameter_list|,
+name|int
+name|bitFlag
+parameter_list|,
+name|boolean
+name|value
+parameter_list|)
+block|{
+name|setFlag
+argument_list|(
+name|dic
+argument_list|,
+name|COSName
+operator|.
+name|getPDFName
+argument_list|(
+name|field
+argument_list|)
+argument_list|,
+name|bitFlag
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the given boolean value at bitPos in the flags.      *      * @param dic The dictionary to set the value into.      * @param field The COSName of the field to set the value into.      * @param bitFlag the bit position to set the value in.      * @param value the value the bit position should have.      */
+specifier|public
+specifier|static
+specifier|final
+name|void
+name|setFlag
+parameter_list|(
+name|COSDictionary
+name|dic
+parameter_list|,
+name|COSName
 name|field
 parameter_list|,
 name|int
@@ -108,7 +159,7 @@ name|currentFlags
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets the boolean value from the flags at the given bit      * position.      *      * @param dic The dictionary to get the field from.      * @param field The name of the field to get the flag from.      * @param bitFlag the bitPosition to get the value from.      *      * @return true if the number at bitPos is '1'      */
+comment|/**      * Gets the boolean value from the flags at the given bit      * position.      *      * @param dic The dictionary to get the field from.      * @param field The name of the field to get the flag from.      * @param bitFlag the bitPosition to get the value from.      *      * @return true if the number at bitPos is '1'      *      * @deprecated  use {@link #getFlag(COSDictionary, COSName, boolean)} using COSName constants instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -119,6 +170,39 @@ name|COSDictionary
 name|dic
 parameter_list|,
 name|String
+name|field
+parameter_list|,
+name|int
+name|bitFlag
+parameter_list|)
+block|{
+return|return
+name|getFlag
+argument_list|(
+name|dic
+argument_list|,
+name|COSName
+operator|.
+name|getPDFName
+argument_list|(
+name|field
+argument_list|)
+argument_list|,
+name|bitFlag
+argument_list|)
+return|;
+block|}
+comment|/**      * Gets the boolean value from the flags at the given bit      * position.      *      * @param dic The dictionary to get the field from.      * @param field The COSName of the field to get the flag from.      * @param bitFlag the bitPosition to get the value from.      *      * @return true if the number at bitPos is '1'      */
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|getFlag
+parameter_list|(
+name|COSDictionary
+name|dic
+parameter_list|,
+name|COSName
 name|field
 parameter_list|,
 name|int

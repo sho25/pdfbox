@@ -252,12 +252,38 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|ANNOT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Annot"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|ANNOTS
 init|=
 operator|new
 name|COSName
 argument_list|(
 literal|"Annots"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|AP_REF
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"APRef"
 argument_list|)
 decl_stmt|;
 comment|/**      * "Artifact"      */
@@ -287,6 +313,19 @@ literal|"ArtBox"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|AS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"AS"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -863,6 +902,32 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|CLR_F
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ClrF"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CLR_FF
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ClrFf"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|CREATION_DATE
 init|=
 operator|new
@@ -934,6 +999,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"D"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DA
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DA"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -1370,6 +1448,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|FF
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Ff"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|FIELDS
 init|=
 operator|new
@@ -1623,6 +1714,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"FRM"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|FT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"FT"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -2067,6 +2171,19 @@ argument_list|(
 literal|"LZW"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|M
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"M"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -2262,6 +2379,32 @@ argument_list|(
 literal|"Names"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|NEXT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Next"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|NM
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"NM"
+argument_list|)
+decl_stmt|;
 comment|/** "Nums" */
 specifier|public
 specifier|static
@@ -2416,6 +2559,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"OPM"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OPT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Opt"
 argument_list|)
 decl_stmt|;
 comment|/** "Outlines" */
@@ -2683,6 +2839,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|Q
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Q"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|R
 init|=
 operator|new
@@ -2715,6 +2884,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Recipients"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|RECT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Rect"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -2834,6 +3016,19 @@ argument_list|(
 literal|"RL"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|RV
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"RV"
+argument_list|)
+decl_stmt|;
 comment|/**      * "S"      */
 specifier|public
 specifier|static
@@ -2860,7 +3055,20 @@ argument_list|(
 literal|"SA"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|SE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"SE"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2871,6 +3079,32 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Separation"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|SET_F
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"SetF"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|SET_FF
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"SetFf"
 argument_list|)
 decl_stmt|;
 comment|/** "Shading" */
@@ -3034,6 +3268,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|SUBJ
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Subj"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|SUBJECT
 init|=
 operator|new
@@ -3170,6 +3417,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"ToUnicode"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|TU
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"TU"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */

@@ -178,7 +178,9 @@ argument_list|(
 name|getDictionary
 argument_list|()
 argument_list|,
-literal|"Ff"
+name|COSName
+operator|.
+name|FF
 argument_list|,
 name|FLAG_RADIOS_IN_UNISON
 argument_list|,
@@ -200,7 +202,9 @@ argument_list|(
 name|getDictionary
 argument_list|()
 argument_list|,
-literal|"Ff"
+name|COSName
+operator|.
+name|FF
 argument_list|,
 name|FLAG_RADIOS_IN_UNISON
 argument_list|)
@@ -222,7 +226,9 @@ argument_list|()
 operator|.
 name|setString
 argument_list|(
-literal|"V"
+name|COSName
+operator|.
+name|V
 argument_list|,
 name|value
 argument_list|)
@@ -406,7 +412,9 @@ argument_list|()
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"V"
+name|COSName
+operator|.
+name|V
 argument_list|)
 expr_stmt|;
 block|}
