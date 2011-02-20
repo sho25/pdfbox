@@ -87,7 +87,7 @@ literal|0
 expr_stmt|;
 name|size
 operator|=
-name|EXTRA_SPACE
+literal|0
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
