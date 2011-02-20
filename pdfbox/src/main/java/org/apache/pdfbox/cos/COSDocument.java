@@ -141,6 +141,20 @@ name|pdfbox
 operator|.
 name|io
 operator|.
+name|RandomAccessBuffer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
 name|RandomAccessFile
 import|;
 end_import
@@ -377,7 +391,7 @@ operator|=
 name|forceParsing
 expr_stmt|;
 block|}
-comment|/**      * Constructor.  Uses the java.io.tmpdir value to create a file      * to store the streams.      *      *  @throws IOException If there is an error creating the tmp file.      */
+comment|/**      * Constructor.  Uses memory to store stream.      *      *  @throws IOException If there is an error creating the tmp file.      */
 specifier|public
 name|COSDocument
 parameter_list|()
@@ -386,10 +400,11 @@ name|IOException
 block|{
 name|this
 argument_list|(
-operator|(
-name|File
-operator|)
-literal|null
+operator|new
+name|RandomAccessBuffer
+argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
