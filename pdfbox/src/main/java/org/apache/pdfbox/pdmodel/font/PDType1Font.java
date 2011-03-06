@@ -807,7 +807,20 @@ parameter_list|(
 name|IOException
 name|exception
 parameter_list|)
-block|{}
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Can't read the embedded type1C font "
+operator|+
+name|fd
+operator|.
+name|getFontName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1172,6 +1185,11 @@ name|metric
 argument_list|)
 expr_stmt|;
 block|}
+name|setFontEncoding
+argument_list|(
+name|fontEncoding
+argument_list|)
+expr_stmt|;
 block|}
 name|getEncodingFromFont
 argument_list|(
@@ -1179,11 +1197,6 @@ name|getFontEncoding
 argument_list|()
 operator|==
 literal|null
-argument_list|)
-expr_stmt|;
-name|setFontEncoding
-argument_list|(
-name|fontEncoding
 argument_list|)
 expr_stmt|;
 block|}
