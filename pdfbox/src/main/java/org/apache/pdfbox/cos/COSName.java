@@ -850,6 +850,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|COLORS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Colors"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|COLORSPACE
 init|=
 operator|new
