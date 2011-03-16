@@ -1523,6 +1523,8 @@ operator|.
 name|isEOF
 argument_list|()
 condition|)
+name|eof
+operator|=
 name|readLine
 argument_list|()
 expr_stmt|;
@@ -1530,6 +1532,7 @@ comment|// if there's more data to read, get the EOF flag
 comment|// verify that EOF exists
 if|if
 condition|(
+operator|!
 literal|"%%EOF"
 operator|.
 name|equals
@@ -1559,6 +1562,7 @@ operator|.
 name|isEOF
 argument_list|()
 condition|)
+block|{
 name|pdfSource
 operator|.
 name|unread
@@ -1571,6 +1575,15 @@ literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
+name|SPACE_BYTE
+argument_list|)
+expr_stmt|;
+comment|// we read a whole line; add space as newline replacement
+block|}
 block|}
 name|isEndOfFile
 operator|=
