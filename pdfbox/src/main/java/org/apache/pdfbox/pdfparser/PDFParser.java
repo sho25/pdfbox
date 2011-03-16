@@ -1973,6 +1973,14 @@ name|pdfSource
 operator|.
 name|unread
 argument_list|(
+name|SPACE_BYTE
+argument_list|)
+expr_stmt|;
+comment|// add a space first in place of the newline consumed by readline()
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
 name|endObjectKey
 operator|.
 name|getBytes
