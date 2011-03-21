@@ -23,17 +23,7 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Rectangle
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|Shape
+name|*
 import|;
 end_import
 
@@ -203,7 +193,13 @@ specifier|private
 name|double
 name|alphaConstants
 init|=
-literal|0
+literal|1.0
+decl_stmt|;
+specifier|private
+name|double
+name|nonStrokingAlphaConstants
+init|=
+literal|1.0
 decl_stmt|;
 specifier|private
 name|boolean
@@ -464,7 +460,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Get the value of the alpha constants property.      *      * @return The value of the alpha constants parameter.      */
+comment|/**      * Get the value of the stroke alpha constants property.      *      * @return The value of the stroke alpha constants parameter.      */
 specifier|public
 name|double
 name|getAlphaConstants
@@ -474,7 +470,7 @@ return|return
 name|alphaConstants
 return|;
 block|}
-comment|/**      * set the value of the alpha constants property.      *      * @param value The value of the alpha constants parameter.      */
+comment|/**      * set the value of the stroke alpha constants property.      *      * @param value The value of the stroke alpha constants parameter.      */
 specifier|public
 name|void
 name|setAlphaConstants
@@ -488,7 +484,31 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * get the value of the alpha source property.      *      * @return The value of the alpha source parameter.      */
+comment|/**      * Get the value of the non-stroke alpha constants property.      *      * @return The value of the non-stroke alpha constants parameter.      */
+specifier|public
+name|double
+name|getNonStrokeAlphaConstants
+parameter_list|()
+block|{
+return|return
+name|nonStrokingAlphaConstants
+return|;
+block|}
+comment|/**      * set the value of the non-stroke alpha constants property.      *      * @param value The value of the non-stroke alpha constants parameter.      */
+specifier|public
+name|void
+name|setNonStrokeAlphaConstants
+parameter_list|(
+name|double
+name|value
+parameter_list|)
+block|{
+name|nonStrokingAlphaConstants
+operator|=
+name|value
+expr_stmt|;
+block|}
+comment|/**      * get the value of the stroke alpha source property.      *      * @return The value of the stroke alpha source parameter.      */
 specifier|public
 name|boolean
 name|isAlphaSource
@@ -897,6 +917,48 @@ parameter_list|()
 block|{
 return|return
 name|currentClippingPath
+return|;
+block|}
+specifier|public
+name|Composite
+name|getStrokeJavaComposite
+parameter_list|()
+block|{
+return|return
+name|AlphaComposite
+operator|.
+name|getInstance
+argument_list|(
+name|AlphaComposite
+operator|.
+name|SRC_OVER
+argument_list|,
+operator|(
+name|float
+operator|)
+name|alphaConstants
+argument_list|)
+return|;
+block|}
+specifier|public
+name|Composite
+name|getNonStrokeJavaComposite
+parameter_list|()
+block|{
+return|return
+name|AlphaComposite
+operator|.
+name|getInstance
+argument_list|(
+name|AlphaComposite
+operator|.
+name|SRC_OVER
+argument_list|,
+operator|(
+name|float
+operator|)
+name|nonStrokingAlphaConstants
+argument_list|)
 return|;
 block|}
 block|}
