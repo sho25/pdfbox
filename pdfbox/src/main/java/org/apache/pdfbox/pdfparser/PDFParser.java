@@ -1529,7 +1529,7 @@ name|readLine
 argument_list|()
 expr_stmt|;
 comment|// if there's more data to read, get the EOF flag
-comment|// verify that EOF exists
+comment|// verify that EOF exists (see PDFBOX-979 for documentation on special cases)
 if|if
 condition|(
 operator|!
@@ -1540,6 +1540,45 @@ argument_list|(
 name|eof
 argument_list|)
 condition|)
+block|{
+if|if
+condition|(
+name|eof
+operator|.
+name|startsWith
+argument_list|(
+literal|"%%EOF"
+argument_list|)
+condition|)
+block|{
+comment|// content after marker -> unread with first space byte for read newline
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
+name|SPACE_BYTE
+argument_list|)
+expr_stmt|;
+comment|// we read a whole line; add space as newline replacement
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
+name|eof
+operator|.
+name|substring
+argument_list|(
+literal|5
+argument_list|)
+operator|.
+name|getBytes
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 comment|// PDF does not conform to spec, we should warn someone
 name|log
@@ -1567,6 +1606,14 @@ name|pdfSource
 operator|.
 name|unread
 argument_list|(
+name|SPACE_BYTE
+argument_list|)
+expr_stmt|;
+comment|// we read a whole line; add space as newline replacement
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
 name|eof
 operator|.
 name|getBytes
@@ -1575,14 +1622,7 @@ literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|pdfSource
-operator|.
-name|unread
-argument_list|(
-name|SPACE_BYTE
-argument_list|)
-expr_stmt|;
-comment|// we read a whole line; add space as newline replacement
+block|}
 block|}
 block|}
 name|isEndOfFile
