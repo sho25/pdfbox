@@ -187,6 +187,14 @@ init|=
 literal|"-prefix"
 decl_stmt|;
 specifier|private
+specifier|static
+specifier|final
+name|String
+name|ADDKEY
+init|=
+literal|"-addkey"
+decl_stmt|;
+specifier|private
 name|ExtractImages
 parameter_list|()
 block|{     }
@@ -264,6 +272,11 @@ name|String
 name|prefix
 init|=
 literal|null
+decl_stmt|;
+name|boolean
+name|addKey
+init|=
+literal|false
 decl_stmt|;
 for|for
 control|(
@@ -355,6 +368,25 @@ name|args
 index|[
 name|i
 index|]
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|ADDKEY
+argument_list|)
+condition|)
+block|{
+name|addKey
+operator|=
+literal|true
 expr_stmt|;
 block|}
 else|else
@@ -593,8 +625,21 @@ decl_stmt|;
 name|String
 name|name
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|addKey
+condition|)
+block|{
+name|name
+operator|=
 name|getUniqueFileName
 argument_list|(
+name|prefix
+operator|+
+literal|"_"
+operator|+
 name|key
 argument_list|,
 name|image
@@ -602,7 +647,23 @@ operator|.
 name|getSuffix
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|name
+operator|=
+name|getUniqueFileName
+argument_list|(
+name|prefix
+argument_list|,
+name|image
+operator|.
+name|getSuffix
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|System
 operator|.
 name|out
@@ -723,6 +784,8 @@ operator|+
 literal|"  -password<password>        Password to decrypt document\n"
 operator|+
 literal|"  -prefix<image-prefix>      Image prefix(default to pdf name)\n"
+operator|+
+literal|"  -addkey                      add the internal image key to the file name\n"
 operator|+
 literal|"<PDF file>                   The PDF document to use\n"
 argument_list|)
