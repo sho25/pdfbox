@@ -45,6 +45,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -155,11 +183,27 @@ name|PDXObject
 implements|implements
 name|COSObjectable
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDXObject
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|PDStream
 name|xobject
 decl_stmt|;
-comment|/**      * Standard constuctor.      *      * @param xobj The XObject dictionary.      */
+comment|/**      * Standard constructor.      *      * @param xobj The XObject dictionary.      */
 specifier|public
 name|PDXObject
 parameter_list|(
@@ -336,7 +380,9 @@ name|xstream
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"Subtype"
+name|COSName
+operator|.
+name|SUBTYPE
 argument_list|)
 decl_stmt|;
 if|if
@@ -459,7 +505,6 @@ name|image
 argument_list|)
 return|;
 block|}
-comment|/*else if( filters != null&& filters.contains(COSName.FLATE_DECODE.getName()))                 {             retval = new PDPixelMap(image);         }*/
 else|else
 block|{
 name|retval
@@ -470,7 +515,6 @@ argument_list|(
 name|image
 argument_list|)
 expr_stmt|;
-comment|//throw new IOException ("Default branch: filters = " + filters.toString());
 block|}
 block|}
 elseif|else
@@ -497,36 +541,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IOException
+name|log
+operator|.
+name|warn
 argument_list|(
-literal|"Unknown xobject subtype '"
+literal|"Skipping unknown XObject subtype '"
 operator|+
 name|subtype
 operator|+
 literal|"'"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Unknown xobject type:"
-operator|+
-name|xobject
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-throw|;
 block|}
 return|return
 name|retval
@@ -556,7 +582,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Metadata"
+name|COSName
+operator|.
+name|METADATA
 argument_list|)
 decl_stmt|;
 if|if
@@ -595,7 +623,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"Metadata"
+name|COSName
+operator|.
+name|METADATA
 argument_list|,
 name|meta
 argument_list|)
