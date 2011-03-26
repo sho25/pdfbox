@@ -1819,9 +1819,6 @@ name|cmapRoot
 parameter_list|,
 name|InputStream
 name|cmapStream
-parameter_list|,
-name|COSName
-name|encodingName
 parameter_list|)
 block|{
 if|if
@@ -1851,18 +1848,11 @@ argument_list|,
 name|cmapStream
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|encodingName
-operator|!=
-literal|null
-condition|)
-block|{
 name|cmapObjects
 operator|.
 name|put
 argument_list|(
-name|encodingName
+name|cmap
 operator|.
 name|getName
 argument_list|()
@@ -1870,7 +1860,6 @@ argument_list|,
 name|cmap
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

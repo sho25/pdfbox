@@ -1402,8 +1402,6 @@ name|encodingStream
 operator|.
 name|getUnfilteredStream
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1462,8 +1460,6 @@ name|loadResource
 argument_list|(
 name|resourceName
 argument_list|)
-argument_list|,
-name|encodingName
 argument_list|)
 expr_stmt|;
 if|if
@@ -1565,8 +1561,6 @@ operator|)
 operator|.
 name|getUnfilteredStream
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1645,8 +1639,6 @@ name|loadResource
 argument_list|(
 name|resourceName
 argument_list|)
-argument_list|,
-name|encodingName
 argument_list|)
 expr_stmt|;
 block|}
