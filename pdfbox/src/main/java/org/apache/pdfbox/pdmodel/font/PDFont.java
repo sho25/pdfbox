@@ -2160,6 +2160,9 @@ block|}
 comment|/**      * The widths of the characters.  This will be null for the standard 14 fonts.      *      * @return The widths of the characters.      */
 specifier|public
 name|List
+argument_list|<
+name|Float
+argument_list|>
 name|getWidths
 parameter_list|()
 block|{
@@ -2213,6 +2216,9 @@ name|void
 name|setWidths
 parameter_list|(
 name|List
+argument_list|<
+name|Float
+argument_list|>
 name|widths
 parameter_list|)
 block|{
