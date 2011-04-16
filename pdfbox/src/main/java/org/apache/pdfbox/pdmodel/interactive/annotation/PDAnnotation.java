@@ -1715,6 +1715,30 @@ name|SUBTYPE
 argument_list|)
 return|;
 block|}
+comment|/**      * This will set the corresponding page for this annotation.      *       * @param page is the corresponding page      */
+specifier|public
+name|void
+name|setPage
+parameter_list|(
+name|PDPage
+name|page
+parameter_list|)
+block|{
+name|this
+operator|.
+name|getDictionary
+argument_list|()
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|P
+argument_list|,
+name|page
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * This will retrieve the corresponding page of this annotation.      *       * @return the corresponding page      */
 specifier|public
 name|PDPage

@@ -344,7 +344,7 @@ block|{
 name|pdField
 operator|=
 operator|new
-name|PDSignature
+name|PDSignatureField
 argument_list|(
 name|acroForm
 argument_list|,

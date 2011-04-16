@@ -72,10 +72,23 @@ implements|implements
 name|COSObjectable
 block|{
 comment|/**      * Constructor.      */
+specifier|private
+name|boolean
+name|needToBeUpdate
+decl_stmt|;
+specifier|private
+name|boolean
+name|direct
+decl_stmt|;
 specifier|public
 name|COSBase
 parameter_list|()
-block|{     }
+block|{
+name|needToBeUpdate
+operator|=
+literal|false
+expr_stmt|;
+block|}
 comment|/**      * This will get the filter manager to use to filter streams.      *      * @return The filter manager.      */
 specifier|public
 name|FilterManager
@@ -111,6 +124,54 @@ parameter_list|)
 throws|throws
 name|COSVisitorException
 function_decl|;
+specifier|public
+name|void
+name|setNeedToBeUpdate
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+block|{
+name|needToBeUpdate
+operator|=
+name|flag
+expr_stmt|;
+block|}
+comment|/**      * If the state is set true, the dictionary will be written direct into the called object.       * This means, no indirect object will be created.      *       * @return the state      */
+specifier|public
+name|boolean
+name|isDirect
+parameter_list|()
+block|{
+return|return
+name|direct
+return|;
+block|}
+comment|/**      * Set the state true, if the dictionary should be written as a direct object and not indirect.      *       * @param direct set it true, for writting direct object      */
+specifier|public
+name|void
+name|setDirect
+parameter_list|(
+name|boolean
+name|direct
+parameter_list|)
+block|{
+name|this
+operator|.
+name|direct
+operator|=
+name|direct
+expr_stmt|;
+block|}
+specifier|public
+name|boolean
+name|isNeedToBeUpdate
+parameter_list|()
+block|{
+return|return
+name|needToBeUpdate
+return|;
+block|}
 block|}
 end_class
 

@@ -63,11 +63,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|persistence
+name|exceptions
 operator|.
-name|util
-operator|.
-name|COSHEXTable
+name|COSVisitorException
 import|;
 end_import
 
@@ -79,9 +77,11 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
+name|persistence
 operator|.
-name|COSVisitorException
+name|util
+operator|.
+name|COSHEXTable
 import|;
 end_import
 
@@ -282,6 +282,13 @@ comment|/**      * Forces the string to be serialized in literal form but not he
 specifier|private
 name|boolean
 name|forceLiteralForm
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Forces the string to be serialized in hex form but not literal form.      */
+specifier|private
+name|boolean
+name|forceHexForm
 init|=
 literal|false
 decl_stmt|;
@@ -509,6 +516,20 @@ name|v
 parameter_list|)
 block|{
 name|forceLiteralForm
+operator|=
+name|v
+expr_stmt|;
+block|}
+comment|/**      * Forces the string to be written in hexadecimal form instead of literal form.      *       * @param v if v is true the string will be written in hexadecimal form otherwise it will be written in literal if      *          necessary.      */
+specifier|public
+name|void
+name|setForceHexForm
+parameter_list|(
+name|boolean
+name|v
+parameter_list|)
+block|{
+name|forceHexForm
 operator|=
 name|v
 expr_stmt|;
@@ -1020,6 +1041,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -1099,10 +1122,15 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|(
 operator|!
 name|outsideASCII
 operator|||
 name|forceLiteralForm
+operator|)
+operator|&&
+operator|!
+name|forceHexForm
 condition|)
 block|{
 name|output
@@ -1167,6 +1195,9 @@ name|output
 operator|.
 name|write
 argument_list|(
+operator|(
+name|byte
+operator|)
 name|b
 argument_list|)
 expr_stmt|;
@@ -1245,6 +1276,9 @@ name|output
 operator|.
 name|write
 argument_list|(
+operator|(
+name|byte
+operator|)
 name|b
 argument_list|)
 expr_stmt|;
@@ -1315,6 +1349,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws COSVisitorException If an error occurs while visiting this object.      */
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|accept
@@ -1335,6 +1371,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
@@ -1379,6 +1417,8 @@ literal|false
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode

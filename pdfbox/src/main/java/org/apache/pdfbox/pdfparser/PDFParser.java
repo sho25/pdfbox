@@ -2180,9 +2180,15 @@ block|}
 name|skipSpaces
 argument_list|()
 expr_stmt|;
-comment|/* This integer is the byte offset of the first object referenced by the xref or xref stream          * Not needed for PDFbox          */
+comment|/* This integer is the byte offset of the first object referenced by the xref or xref stream          * Needed for the incremental update (PREV)          */
+name|getDocument
+argument_list|()
+operator|.
+name|setStartXref
+argument_list|(
 name|readInt
 argument_list|()
+argument_list|)
 expr_stmt|;
 return|return
 literal|true
@@ -2700,6 +2706,8 @@ operator|=
 name|pdfObject
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString

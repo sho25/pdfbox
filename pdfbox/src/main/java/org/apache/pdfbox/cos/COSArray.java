@@ -465,9 +465,6 @@ name|index
 parameter_list|)
 block|{
 return|return
-operator|(
-name|COSBase
-operator|)
 name|objects
 operator|.
 name|get
@@ -808,9 +805,6 @@ name|i
 parameter_list|)
 block|{
 return|return
-operator|(
-name|COSBase
-operator|)
 name|objects
 operator|.
 name|remove
@@ -935,6 +929,8 @@ name|removed
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -1168,6 +1164,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws COSVisitorException If an error occurs while visiting this object.      */
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|accept
