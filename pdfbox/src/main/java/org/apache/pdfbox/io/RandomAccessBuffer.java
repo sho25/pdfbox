@@ -79,7 +79,7 @@ literal|0
 expr_stmt|;
 name|size
 operator|=
-literal|0
+literal|16384
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
@@ -143,9 +143,10 @@ operator|-
 literal|1
 return|;
 block|}
-name|int
-name|result
-init|=
+name|pointer
+operator|++
+expr_stmt|;
+return|return
 name|buffer
 index|[
 operator|(
@@ -153,12 +154,8 @@ name|int
 operator|)
 name|pointer
 index|]
-decl_stmt|;
-name|pointer
-operator|++
-expr_stmt|;
-return|return
-name|result
+operator|&
+literal|0xff
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
