@@ -79,7 +79,7 @@ literal|0
 expr_stmt|;
 name|size
 operator|=
-literal|16384
+literal|0
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
@@ -143,9 +143,6 @@ operator|-
 literal|1
 return|;
 block|}
-name|pointer
-operator|++
-expr_stmt|;
 return|return
 name|buffer
 index|[
@@ -153,6 +150,7 @@ operator|(
 name|int
 operator|)
 name|pointer
+operator|++
 index|]
 operator|&
 literal|0xff
@@ -317,15 +315,13 @@ operator|(
 name|int
 operator|)
 name|pointer
+operator|++
 index|]
 operator|=
 operator|(
 name|byte
 operator|)
 name|b
-expr_stmt|;
-name|pointer
-operator|++
 expr_stmt|;
 if|if
 condition|(
