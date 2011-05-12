@@ -1848,6 +1848,14 @@ argument_list|,
 name|cmapStream
 argument_list|)
 expr_stmt|;
+comment|// limit the cache to external CMaps
+if|if
+condition|(
+name|cmapRoot
+operator|!=
+literal|null
+condition|)
+block|{
 name|cmapObjects
 operator|.
 name|put
@@ -1860,6 +1868,7 @@ argument_list|,
 name|cmap
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2519,6 +2528,24 @@ name|hasToUnicode
 operator|=
 name|hasToUnicode
 expr_stmt|;
+block|}
+specifier|public
+name|COSString
+name|createString
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|COSString
+argument_list|(
+name|text
+argument_list|)
+return|;
 block|}
 block|}
 end_class
