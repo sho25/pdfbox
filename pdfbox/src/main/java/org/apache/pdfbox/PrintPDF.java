@@ -450,7 +450,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.PrintPDF [OPTIONS]<PDF file>\n"
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar PrintPDF [OPTIONS]<PDF file>\n"
 operator|+
 literal|"  -password<password>        Password to decrypt document\n"
 operator|+

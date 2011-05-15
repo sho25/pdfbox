@@ -398,17 +398,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: "
-operator|+
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|"<input-file><output-file>"
+literal|"usage: java -jar pdfbox-app-x.y.z.jar WriteDecodedDoc<input-file><output-file>"
 argument_list|)
 expr_stmt|;
 block|}

@@ -887,17 +887,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: "
-operator|+
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" [options]<output-file><text-file>"
+literal|"usage: jar -jar pdfbox-app-x.y.z.jar TextToPDF [options]<output-file><text-file>"
 argument_list|)
 expr_stmt|;
 name|System

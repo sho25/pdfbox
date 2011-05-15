@@ -1198,7 +1198,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.ExtractText [OPTIONS]<PDF file> [Text File]\n"
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar ExtractText [OPTIONS]<PDF file> [Text File]\n"
 operator|+
 literal|"  -password<password>        Password to decrypt document\n"
 operator|+

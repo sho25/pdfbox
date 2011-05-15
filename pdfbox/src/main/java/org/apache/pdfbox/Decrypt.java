@@ -619,7 +619,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java org.apache.pdfbox.Decrypt "
+literal|"usage: java -jar pdfbox-app-x.y.z.jar Decrypt "
 operator|+
 literal|"[options]<inputfile> [outputfile]"
 argument_list|)

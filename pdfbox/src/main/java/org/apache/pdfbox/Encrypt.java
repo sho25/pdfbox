@@ -853,7 +853,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java org.apache.pdfbox.Encrypt [options]<inputfile> [outputfile]"
+literal|"usage: java -jar pdfbox-app-x.y.z.jar Encrypt [options]<inputfile> [outputfile]"
 argument_list|)
 expr_stmt|;
 name|System

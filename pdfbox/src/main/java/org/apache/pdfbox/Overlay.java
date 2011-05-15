@@ -663,16 +663,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java "
-operator|+
-name|Overlay
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|"<overlay.pdf><document.pdf><result.pdf>"
+literal|"usage: java -jar pdfbox-app-x.y.z.jar Overlay<overlay.pdf><document.pdf><result.pdf>"
 argument_list|)
 expr_stmt|;
 block|}
