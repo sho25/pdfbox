@@ -453,6 +453,27 @@ if|if
 condition|(
 name|colorspace
 operator|instanceof
+name|PDIndexed
+condition|)
+block|{
+comment|// extract the base colorspace
+name|colorspace
+operator|=
+operator|(
+operator|(
+name|PDIndexed
+operator|)
+name|colorspace
+operator|)
+operator|.
+name|getBaseColorSpace
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|colorspace
+operator|instanceof
 name|PDDeviceGray
 condition|)
 block|{
