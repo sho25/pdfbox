@@ -278,6 +278,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|ANTI_ALIAS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"AntiAlias"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|AP_REF
 init|=
 operator|new
@@ -884,7 +897,7 @@ argument_list|(
 literal|"Columns"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -895,6 +908,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Contents"
+argument_list|)
+decl_stmt|;
+comment|/**       * A common COSName value.       */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|COORDS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Coords"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1404,6 +1430,19 @@ argument_list|(
 literal|"ExtGState"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|EXTEND
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Extend"
+argument_list|)
+decl_stmt|;
 comment|/** "Extends" */
 specifier|public
 specifier|static
@@ -1740,6 +1779,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"FT"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|FUNCTION
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Function"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -3131,6 +3183,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Shading"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|SHADING_TYPE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ShadingType"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
