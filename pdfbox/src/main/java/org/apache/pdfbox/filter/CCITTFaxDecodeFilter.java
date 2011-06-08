@@ -338,6 +338,21 @@ name|height
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// at least one of the values has to have a valid value
+name|rows
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|rows
+argument_list|,
+name|height
+argument_list|)
+expr_stmt|;
+block|}
 name|int
 name|k
 init|=
