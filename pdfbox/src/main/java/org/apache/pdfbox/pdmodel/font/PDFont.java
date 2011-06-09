@@ -1192,6 +1192,9 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|isType1Font
+argument_list|()
+operator|&&
 name|afm
 operator|==
 literal|null
