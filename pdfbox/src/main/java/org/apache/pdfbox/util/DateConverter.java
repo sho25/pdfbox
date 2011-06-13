@@ -579,13 +579,6 @@ block|,
 comment|// for 20090401+0200
 block|}
 decl_stmt|;
-comment|//    static
-comment|//    {
-comment|//        for (int i = 0; i< POTENTIAL_FORMATS.length; i++)
-comment|//        {
-comment|//            POTENTIAL_FORMATS[i].setTimeZone(TimeZone.getTimeZone("UTC"));
-comment|//        }
-comment|//    }
 specifier|private
 name|DateConverter
 parameter_list|()
@@ -1192,6 +1185,32 @@ block|{
 comment|//parseInt cannot handle the + sign
 name|hours
 operator|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|date
+operator|.
+name|substring
+argument_list|(
+literal|15
+argument_list|,
+literal|17
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|sign
+operator|==
+literal|'-'
+condition|)
+block|{
+name|hours
+operator|=
+operator|-
 name|Integer
 operator|.
 name|parseInt
