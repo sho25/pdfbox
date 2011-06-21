@@ -82,7 +82,7 @@ name|xmpDocument
 operator|.
 name|createElement
 argument_list|(
-literal|"rfd:li"
+literal|"rdf:li"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -271,7 +271,7 @@ name|getStringValue
 argument_list|(
 name|parent
 argument_list|,
-literal|"xapGImg:format"
+literal|"xapGImg:image"
 argument_list|)
 return|;
 block|}

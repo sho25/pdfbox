@@ -605,7 +605,7 @@ name|getThumbnailProperty
 argument_list|(
 name|prefix
 operator|+
-literal|":Thumnails"
+literal|":Thumbnails"
 argument_list|,
 literal|null
 argument_list|)
