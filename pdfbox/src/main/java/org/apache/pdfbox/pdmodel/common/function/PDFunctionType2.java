@@ -77,6 +77,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSNumber
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -219,7 +233,7 @@ name|result
 init|=
 operator|(
 operator|(
-name|COSFloat
+name|COSNumber
 operator|)
 name|c0
 operator|.
@@ -247,7 +261,7 @@ operator|*
 operator|(
 operator|(
 operator|(
-name|COSFloat
+name|COSNumber
 operator|)
 name|c1
 operator|.
@@ -262,7 +276,7 @@ argument_list|()
 operator|-
 operator|(
 operator|(
-name|COSFloat
+name|COSNumber
 operator|)
 name|c0
 operator|.
