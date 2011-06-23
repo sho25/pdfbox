@@ -2509,6 +2509,19 @@ argument_list|(
 literal|"Obj"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OBJ_STM
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ObjStm"
+argument_list|)
+decl_stmt|;
 comment|/** the COSName for the content group tag. */
 specifier|public
 specifier|static
@@ -3729,6 +3742,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"XObject"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|XREF
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"XRef"
 argument_list|)
 decl_stmt|;
 comment|/**      * The prefix to a PDF name.      */

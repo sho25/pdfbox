@@ -69,6 +69,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSBase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSDocument
 import|;
 end_import
@@ -146,7 +160,11 @@ specifier|private
 name|COSStream
 name|stream
 decl_stmt|;
-comment|/**      * Constructor.      *      * @since Apache PDFBox 1.3.0      * @param strm The stream to parse.      * @param doc The document for the current parsing.      * @param forceParcing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error initializing the stream.      */
+specifier|private
+name|XrefTrailerResolver
+name|xrefTrailerResolver
+decl_stmt|;
+comment|/**      * Constructor.      *      * @since 1.3.0      * @param strm The stream to parse.      * @param doc The document for the current parsing.      * @param forceParcing flag to skip malformed or otherwise unparseable      *                     input where possible 	 * @param xrefTrailerResolver resolver to read the xref/trailer information 	 *       * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFXrefStreamParser
 parameter_list|(
@@ -158,6 +176,9 @@ name|doc
 parameter_list|,
 name|boolean
 name|forceParsing
+parameter_list|,
+name|XrefTrailerResolver
+name|xrefTrailerResolver
 parameter_list|)
 throws|throws
 name|IOException
@@ -181,28 +202,11 @@ name|stream
 operator|=
 name|strm
 expr_stmt|;
-block|}
-comment|/**      * Constructor.      *      * @param strm The stream to parse.      * @param doc The document for the current parsing.      *      * @throws IOException If there is an error initializing the stream.      */
-specifier|public
-name|PDFXrefStreamParser
-parameter_list|(
-name|COSStream
-name|strm
-parameter_list|,
-name|COSDocument
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
 name|this
-argument_list|(
-name|strm
-argument_list|,
-name|doc
-argument_list|,
-literal|false
-argument_list|)
+operator|.
+name|xrefTrailerResolver
+operator|=
+name|xrefTrailerResolver
 expr_stmt|;
 block|}
 comment|/**      * Parses through the unfiltered stream and populates the xrefTable HashMap.      * @throws IOException If there is an error while parsing the stream.      */
@@ -284,14 +288,23 @@ argument_list|)
 expr_stmt|;
 block|}
 name|ArrayList
+argument_list|<
+name|Integer
+argument_list|>
 name|objNums
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Integer
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/*              * Populates objNums with all object numbers available              */
 name|Iterator
+argument_list|<
+name|COSBase
+argument_list|>
 name|indexIter
 init|=
 name|indexArray
@@ -370,6 +383,9 @@ expr_stmt|;
 block|}
 block|}
 name|Iterator
+argument_list|<
+name|Integer
+argument_list|>
 name|objIter
 init|=
 name|objNums
@@ -628,7 +644,7 @@ argument_list|,
 name|genNum
 argument_list|)
 decl_stmt|;
-name|document
+name|xrefTrailerResolver
 operator|.
 name|setXRef
 argument_list|(
