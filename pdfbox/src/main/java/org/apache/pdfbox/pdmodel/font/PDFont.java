@@ -2463,6 +2463,14 @@ init|=
 name|getWidths
 argument_list|()
 decl_stmt|;
+comment|// maybe the font doesn't provide any widths
+if|if
+condition|(
+name|widths
+operator|!=
+literal|null
+condition|)
+block|{
 name|width
 operator|=
 name|widths
@@ -2477,6 +2485,7 @@ operator|.
 name|floatValue
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
