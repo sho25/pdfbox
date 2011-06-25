@@ -1261,7 +1261,20 @@ argument_list|(
 literal|"DP"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DR
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DR"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1274,7 +1287,7 @@ argument_list|(
 literal|"DV"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1743,6 +1756,19 @@ literal|"FontWeight"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|FORM
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Form"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -3943,6 +3969,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Sig"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|SIG_FLAGS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"SigFlags"
 argument_list|)
 decl_stmt|;
 specifier|private

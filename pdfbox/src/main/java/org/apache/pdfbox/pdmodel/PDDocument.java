@@ -735,23 +735,9 @@ implements|implements
 name|Pageable
 block|{
 specifier|private
-specifier|static
-specifier|final
-name|String
-name|COSDictionary
-init|=
-literal|null
-decl_stmt|;
-specifier|private
 name|COSDocument
 name|document
 decl_stmt|;
-comment|// NOTE BGUILLON: this property must be removed because it is
-comment|// not the responsability of this class to know
-comment|//private boolean encryptOnSave = false;
-comment|// NOTE BGUILLON: these properties are not used anymore. See getCurrentAccessPermission() instead
-comment|//private String encryptUserPassword = null;
-comment|//private String encryptOwnerPassword = null;
 comment|//cached values
 specifier|private
 name|PDDocumentInformation
@@ -770,8 +756,6 @@ name|encParameters
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * This will tell if the document was decrypted with the master password.      * NOTE BGUILLON: this property is not used anymore. See getCurrentAccessPermission() instead      */
-comment|//private boolean decryptedWithOwnerPassword = false;
 comment|/**      * The security handler used to decrypt / encrypt the document.      */
 specifier|private
 name|SecurityHandler
@@ -1535,9 +1519,42 @@ name|IOException
 throws|,
 name|SignatureException
 block|{
-comment|// Content reservieren
-comment|// Um auch grosse Zertifikatsketten unterbringen zu koennen,
-comment|// wird ein sehr grosser Bereich reserviert
+comment|// Reserve content
+comment|// We need to reserve some space for the signature. Some signatures including
+comment|// big certificate chain and we need enough space to store it.
+name|int
+name|preferedSignatureSize
+init|=
+name|options
+operator|.
+name|getPreferedSignatureSize
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|preferedSignatureSize
+operator|>
+literal|0
+condition|)
+block|{
+name|sigObject
+operator|.
+name|setContents
+argument_list|(
+operator|new
+name|byte
+index|[
+name|preferedSignatureSize
+operator|*
+literal|2
+operator|+
+literal|2
+index|]
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|sigObject
 operator|.
 name|setContents
@@ -1553,7 +1570,8 @@ literal|2
 index|]
 argument_list|)
 expr_stmt|;
-comment|// ByteRange reservieren
+block|}
+comment|// Reserve ByteRange
 name|sigObject
 operator|.
 name|setByteRange
@@ -1581,10 +1599,10 @@ name|signatureInterface
 argument_list|)
 expr_stmt|;
 comment|// #########################################
-comment|// # SignatureForm fuer Signatur erstellen #
-comment|// # und mit an das Dokument haengen.      #
+comment|// # Create SignatureForm for signature    #
+comment|// # and appending it to the document      #
 comment|// #########################################
-comment|// Erste Seite besorgen
+comment|// Get the first page
 name|PDDocumentCatalog
 name|root
 init|=
@@ -1641,6 +1659,7 @@ name|size
 operator|==
 literal|0
 condition|)
+block|{
 throw|throw
 operator|new
 name|SignatureException
@@ -1652,6 +1671,7 @@ argument_list|,
 literal|"The PDF file has no pages"
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|options
@@ -1661,6 +1681,7 @@ argument_list|()
 operator|>
 name|size
 condition|)
+block|{
 name|page
 operator|=
 name|kids
@@ -1672,6 +1693,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -1682,6 +1704,7 @@ argument_list|()
 operator|<=
 literal|0
 condition|)
+block|{
 name|page
 operator|=
 name|kids
@@ -1691,7 +1714,9 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|page
 operator|=
 name|kids
@@ -1706,7 +1731,8 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// AcroForm aus dem Root dict besorgen und Annotation einfügen
+block|}
+comment|// Get the AcroForm from the Root-Dictionary and append the annotation
 name|PDAcroForm
 name|acroForm
 init|=
@@ -1749,6 +1775,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 name|acroForm
 operator|.
 name|getCOSObject
@@ -1759,8 +1786,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|/*        *  For invisible signatures, the annotation has a rectangle array with values [ 0 0 0 0 ].         *  This annotation is usually attached to the viewed page when the signature is created.         *  Despite not having an appearance, the annotation AP and N dictionaries may be present         *  in some versions of Acrobat. If present, N references the DSBlankXObj (blank) XObject.        */
-comment|// Annotation / Field für die Signatur erzeugen
+block|}
+comment|/*          * For invisible signatures, the annotation has a rectangle array with values [ 0 0 0 0 ].           * This annotation is usually attached to the viewed page when the signature is created.           * Despite not having an appearance, the annotation AP and N dictionaries may be present           * in some versions of Acrobat. If present, N references the DSBlankXObj (blank) XObject.          */
+comment|// Create Annotation / Field for signature
 name|PDSignatureField
 name|signatureField
 init|=
@@ -1777,7 +1805,7 @@ argument_list|(
 name|sigObject
 argument_list|)
 expr_stmt|;
-comment|// Signaturobjekt vermerken
+comment|// append the signature object
 name|signatureField
 operator|.
 name|getWidget
@@ -1788,8 +1816,8 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
-comment|// Rückverkettung
-comment|// AcroForm Fields setzen
+comment|// backward linking
+comment|// Set the AcroForm Fields
 name|List
 name|acroFormFields
 init|=
@@ -1817,7 +1845,9 @@ name|acroFormDict
 operator|.
 name|setInt
 argument_list|(
-literal|"SigFlags"
+name|COSName
+operator|.
+name|SIG_FLAGS
 argument_list|,
 literal|3
 argument_list|)
@@ -1829,7 +1859,7 @@ argument_list|(
 name|signatureField
 argument_list|)
 expr_stmt|;
-comment|// Objekte aus der visuellen Signatur besorgen
+comment|// Get the object from the visual signature
 name|COSDocument
 name|visualSignature
 init|=
@@ -1838,16 +1868,16 @@ operator|.
 name|getVisualSignature
 argument_list|()
 decl_stmt|;
-comment|// Fallunterscheidung zwischen sichtbarer und unsichtbarer Signatur vorbereiten
+comment|// Distinction of case for visual and non-visual signature
 if|if
 condition|(
 name|visualSignature
 operator|==
 literal|null
 condition|)
-comment|// unsichtbare Signatur
+comment|// non-visual signature
 block|{
-comment|// Rectangle fuer unsichtbare Signatur auf 0 0 0 0 setzen
+comment|// Set rectangle for non-visual signature to 0 0 0 0
 name|signatureField
 operator|.
 name|getWidget
@@ -1861,17 +1891,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// rectangle array [ 0 0 0 0 ]
-comment|// AcroForm leere DefaultRessource setzen
+comment|// Clear AcroForm / Set DefaultRessource
 name|acroFormDict
 operator|.
 name|setItem
 argument_list|(
-literal|"DR"
+name|COSName
+operator|.
+name|DR
 argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// Leeres Appearance-Dictionary setzten
+comment|// Set empty Appearance-Dictionary
 name|PDAppearanceDictionary
 name|ap
 init|=
@@ -1927,10 +1959,7 @@ name|SUBTYPE
 argument_list|,
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Form"
-argument_list|)
+name|FORM
 argument_list|)
 expr_stmt|;
 name|cosObject
@@ -1975,9 +2004,9 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-comment|// sichtbare Signatur
+comment|// visual signature
 block|{
-comment|// Visuelle Objekte besorgen
+comment|// Obtain visual signature object
 name|List
 argument_list|<
 name|COSObject
@@ -2040,10 +2069,7 @@ name|getItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"FT"
-argument_list|)
+name|FT
 argument_list|)
 decl_stmt|;
 name|COSBase
@@ -2080,17 +2106,14 @@ operator|.
 name|AP
 argument_list|)
 decl_stmt|;
-comment|// Nach Signatur-Annotation suchen
+comment|// Search for signature annotation
 if|if
 condition|(
 name|annotNotFound
 operator|&&
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Annot"
-argument_list|)
+name|ANNOT
 operator|.
 name|equals
 argument_list|(
@@ -2106,7 +2129,7 @@ name|COSDictionary
 operator|)
 name|base
 decl_stmt|;
-comment|// Rectangle fuer visuelle Signatur auslesen und setzen
+comment|// Read and set the Rectangle for visual signature
 name|COSArray
 name|rectAry
 init|=
@@ -2119,10 +2142,7 @@ name|getItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Rect"
-argument_list|)
+name|RECT
 argument_list|)
 decl_stmt|;
 name|PDRectangle
@@ -2149,17 +2169,14 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|// Nach Signatur-Field suchen
+comment|// Search for Signature-Field
 if|if
 condition|(
 name|sigFieldNotFound
 operator|&&
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Sig"
-argument_list|)
+name|SIG
 operator|.
 name|equals
 argument_list|(
@@ -2229,10 +2246,7 @@ name|getItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"DR"
-argument_list|)
+name|DR
 argument_list|)
 decl_stmt|;
 name|dr
@@ -2253,7 +2267,9 @@ name|acroFormDict
 operator|.
 name|setItem
 argument_list|(
-literal|"DR"
+name|COSName
+operator|.
+name|DR
 argument_list|,
 name|dr
 argument_list|)
@@ -2271,6 +2287,7 @@ name|annotNotFound
 operator|||
 name|sigFieldNotFound
 condition|)
+block|{
 throw|throw
 operator|new
 name|SignatureException
@@ -2283,7 +2300,8 @@ literal|"Could not read all needed objects from template"
 argument_list|)
 throw|;
 block|}
-comment|// Seite besorgen und Signatur-Annotation anbringen
+block|}
+comment|// Get the annotations of the page and append the signature-annotation to it
 name|List
 name|annotations
 init|=

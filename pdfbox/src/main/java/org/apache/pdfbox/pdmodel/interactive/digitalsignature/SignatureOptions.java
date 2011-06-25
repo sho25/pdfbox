@@ -78,8 +78,13 @@ name|visualSignature
 decl_stmt|;
 specifier|private
 name|int
+name|preferedSignatureSize
+decl_stmt|;
+specifier|private
+name|int
 name|pageNo
 decl_stmt|;
+comment|/**      * Set the page number.      *       * @param pageNo the page number      *       */
 specifier|public
 name|void
 name|setPage
@@ -95,6 +100,7 @@ operator|=
 name|pageNo
 expr_stmt|;
 block|}
+comment|/**      * Get the page number.      *       * @return the page number      */
 specifier|public
 name|int
 name|getPage
@@ -104,6 +110,7 @@ return|return
 name|pageNo
 return|;
 block|}
+comment|/**      * Reads the visual signature from the given input stream.      *        * @param is the input stream containing the visual signature      *       * @throws IOException when something went wrong during parsing       */
 specifier|public
 name|void
 name|setVisualSignature
@@ -136,6 +143,7 @@ name|getDocument
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Get the visual signature.      *       * @return the visual signature      */
 specifier|public
 name|COSDocument
 name|getVisualSignature
@@ -144,6 +152,38 @@ block|{
 return|return
 name|visualSignature
 return|;
+block|}
+comment|/**      * Get the preferred size of the signature.      *       * @return the preferred size      */
+specifier|public
+name|int
+name|getPreferedSignatureSize
+parameter_list|()
+block|{
+return|return
+name|preferedSignatureSize
+return|;
+block|}
+comment|/**      * Set the preferred size of the signature.      *       * @param size the size of the signature      */
+specifier|public
+name|void
+name|setPreferedSignatureSize
+parameter_list|(
+name|int
+name|size
+parameter_list|)
+block|{
+if|if
+condition|(
+name|size
+operator|>
+literal|0
+condition|)
+block|{
+name|preferedSignatureSize
+operator|=
+name|size
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
