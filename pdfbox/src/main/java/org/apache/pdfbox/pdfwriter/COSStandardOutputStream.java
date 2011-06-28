@@ -515,6 +515,10 @@ block|{
 if|if
 condition|(
 name|fileChannel
+operator|!=
+literal|null
+operator|&&
+name|fileChannel
 operator|.
 name|position
 argument_list|()
