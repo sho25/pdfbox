@@ -1586,9 +1586,6 @@ name|attributes
 operator|.
 name|getLength
 argument_list|()
-operator|&&
-operator|!
-name|found
 condition|;
 name|j
 operator|++
