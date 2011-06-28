@@ -3690,6 +3690,20 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+comment|// Sometimes the original file will be missing a newline at the end
+comment|// In order to avoid having %%EOF the first object on the same line
+comment|// as the %%EOF, we put a newline here.  If there's already one at
+comment|// the end of the file, an extra one won't hurt. PDFBOX-1051
+name|output
+operator|.
+name|write
+argument_list|(
+literal|"\r\n"
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|writer
 operator|=
 operator|new
