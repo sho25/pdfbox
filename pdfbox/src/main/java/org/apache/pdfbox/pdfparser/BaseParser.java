@@ -515,6 +515,17 @@ specifier|final
 name|boolean
 name|forceParsing
 decl_stmt|;
+specifier|public
+name|BaseParser
+parameter_list|()
+block|{
+name|this
+operator|.
+name|forceParsing
+operator|=
+name|FORCE_PARSING
+expr_stmt|;
+block|}
 comment|/**      * Constructor.      *      * @since Apache PDFBox 1.3.0      * @param input The input stream to read the data from.      * @param forceParcing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error reading the input stream.      */
 specifier|public
 name|BaseParser
@@ -3236,11 +3247,11 @@ argument_list|)
 throw|;
 block|}
 comment|// costruisce il nome
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|c
@@ -3936,11 +3947,11 @@ operator|==
 literal|'.'
 condition|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buf
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|int
@@ -4154,11 +4165,11 @@ block|{
 name|skipSpaces
 argument_list|()
 expr_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|int
@@ -4273,11 +4284,11 @@ name|read
 argument_list|()
 expr_stmt|;
 block|}
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|theString
 operator|.
@@ -4454,11 +4465,11 @@ argument_list|()
 decl_stmt|;
 comment|//average string size is around 2 and the normal string buffer size is
 comment|//about 16 so lets save some space.
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|length
 argument_list|)
@@ -4604,11 +4615,11 @@ literal|"Error: End-of-File, expected line"
 argument_list|)
 throw|;
 block|}
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|11
 argument_list|)
@@ -4714,7 +4725,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * This will tell if the next byte is whitespace or not.      *      * @param c The character to check against whitespace      *      * @return true if the next byte in the stream is a whitespace character.      */
+comment|/**      * This will tell if the next byte is whitespace or not.  These values are      * specified in table 1 (page 12) of ISO 32000-1:2008.      * @param c The character to check against whitespace      * @return true if the next byte in the stream is a whitespace character.      */
 specifier|protected
 name|boolean
 name|isWhitespace
