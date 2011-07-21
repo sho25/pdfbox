@@ -470,6 +470,8 @@ argument_list|(
 name|COSName
 operator|.
 name|K
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 name|int
