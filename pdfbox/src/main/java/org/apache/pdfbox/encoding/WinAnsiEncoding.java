@@ -806,15 +806,6 @@ literal|"copyright"
 argument_list|)
 expr_stmt|;
 empty_stmt|;
-comment|/**          * Added because cweb.pdf uses circlecopyrt          */
-name|addCharacterEncoding
-argument_list|(
-literal|0251
-argument_list|,
-literal|"circlecopyrt"
-argument_list|)
-expr_stmt|;
-empty_stmt|;
 name|addCharacterEncoding
 argument_list|(
 literal|0244
