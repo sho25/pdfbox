@@ -403,6 +403,26 @@ operator|.
 name|getByteArray
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|array
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Something went wrong ... the pixelmap doesn't contain any data."
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
 comment|// Get the ColorModel right
 name|PDColorSpace
 name|colorspace
