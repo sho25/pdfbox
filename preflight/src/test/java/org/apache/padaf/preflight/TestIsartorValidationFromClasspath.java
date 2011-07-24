@@ -895,6 +895,13 @@ argument_list|(
 literal|"/Isartor testsuite.list"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|is
+operator|!=
+literal|null
+condition|)
+block|{
 name|BufferedReader
 name|reader
 init|=
@@ -985,6 +992,19 @@ name|reader
 operator|.
 name|readLine
 argument_list|()
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TestIsartorValidationFromClasspath.initializeParameters(): No input files found"
+argument_list|)
 expr_stmt|;
 block|}
 return|return
