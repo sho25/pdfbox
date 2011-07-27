@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Wrap stripped text in simple HTML, trying to form HTML paragraphs. Paragraphs  * broken by pages, columns, or figures are not mended.  *   *   * @author jjb - http://www.johnjbarton.com  * @version $Revision: 1.3 $  */
+comment|/**  * Wrap stripped text in simple HTML, trying to form HTML paragraphs. Paragraphs  * broken by pages, columns, or figures are not mended.  *  *  * @author jjb - http://www.johnjbarton.com  * @version $Revision: 1.3 $  */
 end_comment
 
 begin_class
@@ -139,7 +139,7 @@ name|systemLineSeparator
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write the header to the output document. Now also writes the tag defining      * the character encoding.      *       * @throws IOException      *             If there is a problem writing out the header to the document.      */
+comment|/**      * Write the header to the output document. Now also writes the tag defining      * the character encoding.      *      * @throws IOException      *             If there is a problem writing out the header to the document.      */
 specifier|protected
 name|void
 name|writeHeader
@@ -281,7 +281,7 @@ literal|"</body></html>"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method will attempt to guess the title of the document using      * either the document properties or the first lines of text.      *       * @return returns the title.      */
+comment|/**      * This method will attempt to guess the title of the document using      * either the document properties or the first lines of text.      *      * @return returns the title.      */
 specifier|protected
 name|String
 name|getTitle
@@ -456,7 +456,7 @@ return|return
 literal|""
 return|;
 block|}
-comment|/**      * Write out the article separator (div tag) with proper text direction      * information.      *       * @param isltr true if direction of text is left to right      * @throws IOException      *             If there is an error writing to the stream.      */
+comment|/**      * Write out the article separator (div tag) with proper text direction      * information.      *      * @param isltr true if direction of text is left to right      * @throws IOException      *             If there is an error writing to the stream.      */
 specifier|protected
 name|void
 name|startArticle
@@ -491,7 +491,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Write out the article separator.      *       * @throws IOException      *             If there is an error writing to the stream.      */
+comment|/**      * Write out the article separator.      *      * @throws IOException      *             If there is an error writing to the stream.      */
 specifier|protected
 name|void
 name|endArticle

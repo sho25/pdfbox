@@ -695,7 +695,7 @@ name|PAGE_SIZE_LETTER
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new instance of PDPage. 	 *      * @param size The MediaBox or the page.      */
+comment|/**      * Creates a new instance of PDPage.      *      * @param size The MediaBox or the page.      */
 specifier|public
 name|PDPage
 parameter_list|(

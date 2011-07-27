@@ -876,7 +876,7 @@ operator|=
 name|fontDescriptor
 expr_stmt|;
 block|}
-comment|/**      * Determines the encoding for the font.      * This method as to be overwritten, as there are different       * possibilities to define a mapping.      */
+comment|/**      * Determines the encoding for the font.      * This method as to be overwritten, as there are different      * possibilities to define a mapping.      */
 specifier|protected
 specifier|abstract
 name|void
@@ -1381,7 +1381,7 @@ operator|=
 name|encoding
 expr_stmt|;
 block|}
-comment|/**      * Encode the given value using the CMap of the font.      *       * @param code the code to encode.      * @param length the byte length of the given code.      * @param isCIDFont indicates that the used font is a CID font.      *       * @return The value of the encoded character.      */
+comment|/**      * Encode the given value using the CMap of the font.      *      * @param code the code to encode.      * @param length the byte length of the given code.      * @param isCIDFont indicates that the used font is a CID font.      *      * @return The value of the encoded character.      */
 specifier|protected
 name|String
 name|cmapEncoding
@@ -2416,7 +2416,7 @@ name|hashCode
 argument_list|()
 return|;
 block|}
-comment|/**      * Determines the width of the given character.      * @param charCode the code of the given character       * @return the width of the character      */
+comment|/**      * Determines the width of the given character.      * @param charCode the code of the given character      * @return the width of the character      */
 specifier|public
 name|float
 name|getFontWidth

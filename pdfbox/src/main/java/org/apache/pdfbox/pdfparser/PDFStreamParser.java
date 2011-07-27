@@ -495,7 +495,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will get an iterator which can be used to parse the stream      * one token after the other.      *       * @return an iterator to get one token after the other      */
+comment|/**      * This will get an iterator which can be used to parse the stream      * one token after the other.      *      * @return an iterator to get one token after the other      */
 specifier|public
 name|Iterator
 argument_list|<
@@ -552,7 +552,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 		     * {@inheritDoc} 		     */
+comment|/** {@inheritDoc} */
 specifier|public
 name|boolean
 name|hasNext
@@ -567,7 +567,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/** 		     * {@inheritDoc} 		     */
+comment|/** {@inheritDoc} */
 specifier|public
 name|Object
 name|next
@@ -602,7 +602,7 @@ return|return
 name|tmp
 return|;
 block|}
-comment|/** 		     * {@inheritDoc} 		     */
+comment|/** {@inheritDoc} */
 specifier|public
 name|void
 name|remove
@@ -1493,9 +1493,6 @@ decl_stmt|;
 name|int
 name|nextChar
 init|=
-operator|(
-name|int
-operator|)
 name|pdfSource
 operator|.
 name|peek
@@ -1523,45 +1520,27 @@ argument_list|)
 operator|&&
 name|nextChar
 operator|!=
-operator|(
-name|int
-operator|)
 literal|'['
 operator|&&
 name|nextChar
 operator|!=
-operator|(
-name|int
-operator|)
 literal|'<'
 operator|&&
 name|nextChar
 operator|!=
-operator|(
-name|int
-operator|)
 literal|'('
 operator|&&
 name|nextChar
 operator|!=
-operator|(
-name|int
-operator|)
 literal|'/'
 operator|&&
 operator|(
 name|nextChar
 argument_list|<
-operator|(
-name|int
-operator|)
 literal|'0'
 operator|||
 name|nextChar
 argument_list|>
-argument_list|(
-name|int
-argument_list|)
 literal|'9'
 operator|)
 condition|)
@@ -1579,9 +1558,6 @@ argument_list|()
 decl_stmt|;
 name|nextChar
 operator|=
-operator|(
-name|int
-operator|)
 name|pdfSource
 operator|.
 name|peek
@@ -1627,9 +1603,6 @@ argument_list|)
 expr_stmt|;
 name|nextChar
 operator|=
-operator|(
-name|int
-operator|)
 name|pdfSource
 operator|.
 name|peek

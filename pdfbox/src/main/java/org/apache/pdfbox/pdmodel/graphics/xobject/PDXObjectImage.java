@@ -364,7 +364,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns a PDXObjectImage of the SMask image, if there is one.      * See section 11.5 of the pdf specification for details on Soft Masks.      *      * @return the PDXObjectImage of the SMask if there is one, else<code>null</code>.      */
+comment|/**      * Returns a PDXObjectImage of the SMask image, if there is one.      * See section 11.5 of the pdf specification for details on Soft Masks.      *      * @return the PDXObjectImage of the SMask if there is one, else<code>null</code>.      * @throws IOException if an I/O error occurs creating an XObject      */
 specifier|public
 name|PDXObjectImage
 name|getSMaskImage
@@ -954,7 +954,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Allow the Invoke operator to set the graphics state so that,       * in the case of an Image Mask, we can get to the current nonstroking colorspace.      * @param newGS The new graphicstate      */
+comment|/**      * Allow the Invoke operator to set the graphics state so that,      * in the case of an Image Mask, we can get to the current nonstroking colorspace.      * @param newGS The new graphicstate      */
 specifier|public
 name|void
 name|setGraphicsState
@@ -1009,7 +1009,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**       * Returns the optional mask of a XObjectImage if there is one.      *       * @return The mask as COSArray otherwise null.      */
+comment|/**      * Returns the optional mask of a XObjectImage if there is one.      *      * @return The mask as COSArray otherwise null.      */
 specifier|public
 name|COSArray
 name|getMask

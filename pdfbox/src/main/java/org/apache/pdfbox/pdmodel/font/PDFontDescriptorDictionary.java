@@ -871,7 +871,7 @@ operator|.
 name|NEGATIVE_INFINITY
 condition|)
 block|{
-comment|/* We observed a negative value being returned with              * the Scheherazade font. PDFBOX-429 was logged for this.               * We are not sure if returning the absolute value              * is the correct fix, but it seems to work.  */
+comment|/* We observed a negative value being returned with              * the Scheherazade font. PDFBOX-429 was logged for this.              * We are not sure if returning the absolute value              * is the correct fix, but it seems to work.  */
 name|capHeight
 operator|=
 name|java
@@ -941,7 +941,7 @@ operator|.
 name|NEGATIVE_INFINITY
 condition|)
 block|{
-comment|/* We observed a negative value being returned with              * the Scheherazade font. PDFBOX-429 was logged for this.               * We are not sure if returning the absolute value              * is the correct fix, but it seems to work.  */
+comment|/* We observed a negative value being returned with              * the Scheherazade font. PDFBOX-429 was logged for this.              * We are not sure if returning the absolute value              * is the correct fix, but it seems to work.  */
 name|xHeight
 operator|=
 name|java

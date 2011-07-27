@@ -299,7 +299,7 @@ operator|=
 name|ws
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param pageRotation rotation of the page that the text is located in      * @param pageWidth rotation of the page that the text is located in      * @param pageHeight rotation of the page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param textPositionEnd TextMatrix for end of text (in display units)      * @param maxFontH Maximum height of text (in display units)      * @param individualWidth The width of the given character/string. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param currentFont The current for for this text position.      * @param fontSizeValue The new font size.      * @param fontSizeInPt The font size in pt units.      *       * @deprecated Use {@link TextPosition(int, float, float, Matrix, float, float, float, float, float, String, PDFont, float, int)} instead.      */
+comment|/**      * Constructor.      *      * @param pageRotation rotation of the page that the text is located in      * @param pageWidth rotation of the page that the text is located in      * @param pageHeight rotation of the page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param textPositionEnd TextMatrix for end of text (in display units)      * @param maxFontH Maximum height of text (in display units)      * @param individualWidth The width of the given character/string. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param currentFont The current for for this text position.      * @param fontSizeValue The new font size.      * @param fontSizeInPt The font size in pt units.      *      * @deprecated Use {@link TextPosition(int, float, float, Matrix, float, float, float, float, float, String, PDFont, float, int)} instead.      */
 specifier|public
 name|TextPosition
 parameter_list|(
@@ -529,7 +529,7 @@ return|return
 name|str
 return|;
 block|}
-comment|/**      * Return the Matrix textPos stored in this object.      *        * @return The Matrix containing all infos of the starting textposition      */
+comment|/**      * Return the Matrix textPos stored in this object.      *      * @return The Matrix containing all infos of the starting textposition      */
 specifier|public
 name|Matrix
 name|getTextPos
@@ -792,7 +792,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * Return the X starting coordinate of the text, adjusted by       * the given rotation amount.  The rotation adjusts where the 0,0      * location is relative to the text.       *        * @param rotation Rotation to apply (0, 90, 180, or 270).  0 will perform no adjustments.       * @return X coordinate      */
+comment|/**      * Return the X starting coordinate of the text, adjusted by      * the given rotation amount.  The rotation adjusts where the 0,0      * location is relative to the text.      *      * @param rotation Rotation to apply (0, 90, 180, or 270).  0 will perform no adjustments.      * @return X coordinate      */
 specifier|private
 name|float
 name|getXRot
@@ -884,7 +884,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * This will get the page rotation adjusted x position of the character.      * This is adjusted based on page rotation so that the upper       * left is 0,0.       *      * @return The x coordinate of the character.      */
+comment|/**      * This will get the page rotation adjusted x position of the character.      * This is adjusted based on page rotation so that the upper      * left is 0,0.      *      * @return The x coordinate of the character.      */
 specifier|public
 name|float
 name|getX
@@ -925,7 +925,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**       * This will get the y position of the character with 0,0 in lower left.       * This will be adjusted by the given rotation.       * @param rotation Rotation to apply to text to adjust the 0,0 location (0,90,180,270)      *       * @return The y coordinate of the text      */
+comment|/**      * This will get the y position of the character with 0,0 in lower left.      * This will be adjusted by the given rotation.      * @param rotation Rotation to apply to text to adjust the 0,0 location (0,90,180,270)      *      * @return The y coordinate of the text      */
 specifier|private
 name|float
 name|getYLowerLeftRot
@@ -1017,7 +1017,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and       * it is adjusted based on the page rotation.       *      * @return The adjusted y coordinate of the character.      */
+comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and      * it is adjusted based on the page rotation.      *      * @return The adjusted y coordinate of the character.      */
 specifier|public
 name|float
 name|getY
@@ -1074,7 +1074,7 @@ return|return
 name|y
 return|;
 block|}
-comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and       * it is adjusted based on the text direction.       *      * @return The adjusted y coordinate of the character.      */
+comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and      * it is adjusted based on the text direction.      *      * @return The adjusted y coordinate of the character.      */
 specifier|public
 name|float
 name|getYDirAdj
@@ -1123,7 +1123,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Get the length or width of the text, based on a given rotation.       *       * @param rotation Rotation that was used to determine coordinates (0,90,180,270)      * @return Width of text in display units      */
+comment|/**      * Get the length or width of the text, based on a given rotation.      *      * @param rotation Rotation that was used to determine coordinates (0,90,180,270)      * @return Width of text in display units      */
 specifier|private
 name|float
 name|getWidthRot
@@ -1371,7 +1371,7 @@ operator|.
 name|getWidthDirAdj
 argument_list|()
 decl_stmt|;
-comment|/*          * No X overlap at all so return as soon as possible.           */
+comment|/*          * No X overlap at all so return as soon as possible.          */
 if|if
 condition|(
 name|tp2Xend
@@ -1387,7 +1387,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/*          * No Y overlap at all so return as soon as possible.           * Note: 0.0 is in the upper left and y-coordinate is           * top of TextPosition          */
+comment|/*          * No Y overlap at all so return as soon as possible.          * Note: 0.0 is in the upper left and y-coordinate is          * top of TextPosition          */
 if|if
 condition|(
 operator|(
@@ -1506,7 +1506,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Merge a single character TextPosition into the current object.      * This is to be used only for cases where we have a diacritic that      * overlaps an existing TextPosition.  In a graphical display, we could      * overlay them, but for text extraction we need to merge them. Use the      * contains() method to test if two objects overlap.       *       * @param diacritic TextPosition to merge into the current TextPosition.      * @param normalize Instance of TextNormalize class to be used to normalize diacritic      */
+comment|/**      * Merge a single character TextPosition into the current object.      * This is to be used only for cases where we have a diacritic that      * overlaps an existing TextPosition.  In a graphical display, we could      * overlay them, but for text extraction we need to merge them. Use the      * contains() method to test if two objects overlap.      *      * @param diacritic TextPosition to merge into the current TextPosition.      * @param normalize Instance of TextNormalize class to be used to normalize diacritic      */
 specifier|public
 name|void
 name|mergeDiacritic
@@ -1600,7 +1600,7 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|/*              * This is the case where there is an overlap of the diacritic character with              * the current character and the previous character. If no previous character,              * just append the diacritic after the current one.               */
+comment|/*              * This is the case where there is an overlap of the diacritic character with              * the current character and the previous character. If no previous character,              * just append the diacritic after the current one.              */
 if|if
 condition|(
 name|diacXStart
@@ -1795,7 +1795,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/*              * Couldn't find anything useful so we go to the next character in the               * TextPosition               */
+comment|/*              * Couldn't find anything useful so we go to the next character in the              * TextPosition              */
 name|currCharXStart
 operator|+=
 name|widths
@@ -1820,7 +1820,7 @@ name|TextNormalize
 name|normalize
 parameter_list|)
 block|{
-comment|/* we add the diacritic to the right or left of the character          * depending on the direction of the character.  Note that this          * is only required because the text is currently stored in           * presentation order and not in logical order.           */
+comment|/* we add the diacritic to the right or left of the character          * depending on the direction of the character.  Note that this          * is only required because the text is currently stored in          * presentation order and not in logical order.          */
 name|int
 name|dir
 init|=
@@ -2074,7 +2074,7 @@ operator|=
 name|widths2
 expr_stmt|;
 block|}
-comment|/**      *       * @return True if the current character is a diacritic char.       */
+comment|/**      *      * @return True if the current character is a diacritic char.      */
 specifier|public
 name|boolean
 name|isDiacritic

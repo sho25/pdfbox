@@ -138,7 +138,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * This class will collect all XRef/trailer objects and creates correct  * xref/trailer information after all objects are read using startxref  * and 'Prev' information (unused XRef/trailer objects are discarded).  *  * In case of missing startxref or wrong startxref pointer all  * XRef/trailer objects are used to create xref table / trailer dictionary  * in order they occur.  *    * For each new xref object/XRef stream method {@link #nextXrefObj(int)}  * must be called with start byte position. All following calls to  * {@link #setXRef(COSObjectKey, int)} or {@link #setTrailer(COSDictionary)}  * will add the data for this byte position.  *    * After all objects are parsed the startxref position must be provided  * using {@link #setStartxref(int)}. This is used to build the chain of  * active xref/trailer objects used for creating document trailer and xref table.  *    * @author Timo Böhme (timo.boehme at ontochem.com)  */
+comment|/**  * This class will collect all XRef/trailer objects and creates correct  * xref/trailer information after all objects are read using startxref  * and 'Prev' information (unused XRef/trailer objects are discarded).  *  * In case of missing startxref or wrong startxref pointer all  * XRef/trailer objects are used to create xref table / trailer dictionary  * in order they occur.  *  * For each new xref object/XRef stream method {@link #nextXrefObj(int)}  * must be called with start byte position. All following calls to  * {@link #setXRef(COSObjectKey, int)} or {@link #setTrailer(COSDictionary)}  * will add the data for this byte position.  *  * After all objects are parsed the startxref position must be provided  * using {@link #setStartxref(int)}. This is used to build the chain of  * active xref/trailer objects used for creating document trailer and xref table.  *  * @author Timo Böhme (timo.boehme at ontochem.com)  */
 end_comment
 
 begin_class
@@ -146,7 +146,7 @@ specifier|public
 class|class
 name|XrefTrailerResolver
 block|{
-comment|/**      * A class which represents a xref/trailer object      *       */
+comment|/**      * A class which represents a xref/trailer object.      */
 class|class
 name|XrefTrailerObj
 block|{
@@ -223,7 +223,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**    	 * Signals that a new XRef object (table or stream) starts.    	 * @param startBytePos the offset to start at   	 *    	 */
+comment|/**      * Signals that a new XRef object (table or stream) starts.      * @param startBytePos the offset to start at      *      */
 specifier|public
 name|void
 name|nextXrefObj
@@ -328,7 +328,7 @@ operator|=
 name|trailer
 expr_stmt|;
 block|}
-comment|/**       * Sets the byte position of the first XRef      * (has to be called after very last startxref was read).      * This is used to resolve chain of active XRef/trailer.      *       * In case startxref position is not found we output a      * warning and use all XRef/trailer objects combined      * in byte position order.      * Thus for incomplete PDF documents with missing      * startxref one could call this method with parameter value -1.      */
+comment|/**      * Sets the byte position of the first XRef      * (has to be called after very last startxref was read).      * This is used to resolve chain of active XRef/trailer.      *      * In case startxref position is not found we output a      * warning and use all XRef/trailer objects combined      * in byte position order.      * Thus for incomplete PDF documents with missing      * startxref one could call this method with parameter value -1.      */
 specifier|public
 name|void
 name|setStartxref
@@ -585,7 +585,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**       * Gets the resolved trailer. Might return<code>null</code> in case      * {@link #setStartxref(int)} was not called before.       *       */
+comment|/**      * Gets the resolved trailer. Might return<code>null</code> in case      * {@link #setStartxref(int)} was not called before.      *      */
 specifier|public
 name|COSDictionary
 name|getTrailer
@@ -605,7 +605,7 @@ operator|.
 name|trailer
 return|;
 block|}
-comment|/**       * Gets the resolved xref table. Might return<code>null</code> in case      *  {@link #setStartxref(int)} was not called before.       *      */
+comment|/**      * Gets the resolved xref table. Might return<code>null</code> in case      *  {@link #setStartxref(int)} was not called before.      *      */
 specifier|public
 name|Map
 argument_list|<

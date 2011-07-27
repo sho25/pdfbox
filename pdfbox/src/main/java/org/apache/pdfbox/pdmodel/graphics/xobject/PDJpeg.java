@@ -381,10 +381,10 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|float
-name|defaultCompressionLevel
+name|DEFAULT_COMPRESSION_LEVEL
 init|=
 literal|0.75f
 decl_stmt|;
@@ -547,7 +547,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Construct from a buffered image.      * The default compression level of 0.75 will be used.       *      * @param doc The document to create the image as part of.      * @param bi The image to convert to a jpeg      * @throws IOException If there is an error processing the jpeg data.      */
+comment|/**      * Construct from a buffered image.      * The default compression level of 0.75 will be used.      *      * @param doc The document to create the image as part of.      * @param bi The image to convert to a jpeg      * @throws IOException If there is an error processing the jpeg data.      */
 specifier|public
 name|PDJpeg
 parameter_list|(
@@ -577,7 +577,7 @@ name|doc
 argument_list|,
 name|bi
 argument_list|,
-name|defaultCompressionLevel
+name|DEFAULT_COMPRESSION_LEVEL
 argument_list|)
 expr_stmt|;
 block|}

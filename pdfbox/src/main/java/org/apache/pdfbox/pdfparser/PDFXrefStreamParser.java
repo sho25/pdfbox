@@ -146,7 +146,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will parse a PDF 1.5 (or better) Xref stream and   * extract the xref information from the stream.  *   *  @author<a href="mailto:justinl@basistech.com">Justin LeFebvre</a>  *  @version $Revision: 1.0 $  */
+comment|/**  * This will parse a PDF 1.5 (or better) Xref stream and  * extract the xref information from the stream.  *  *  @author<a href="mailto:justinl@basistech.com">Justin LeFebvre</a>  *  @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
@@ -164,7 +164,7 @@ specifier|private
 name|XrefTrailerResolver
 name|xrefTrailerResolver
 decl_stmt|;
-comment|/**      * Constructor.      *      * @since 1.3.0      * @param strm The stream to parse.      * @param doc The document for the current parsing.      * @param forceParcing flag to skip malformed or otherwise unparseable      *                     input where possible 	 * @param xrefTrailerResolver resolver to read the xref/trailer information 	 *       * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor.      *      * @since 1.3.0      * @param strm The stream to parse.      * @param doc The document for the current parsing.      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     input where possible      * @param xrefTrailerResolver resolver to read the xref/trailer information      *      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFXrefStreamParser
 parameter_list|(
@@ -249,7 +249,7 @@ operator|.
 name|INDEX
 argument_list|)
 decl_stmt|;
-comment|/*              * If Index doesn't exist, we will use the default values.               */
+comment|/*              * If Index doesn't exist, we will use the default values.              */
 if|if
 condition|(
 name|indexArray
@@ -470,7 +470,7 @@ name|type
 init|=
 literal|0
 decl_stmt|;
-comment|/*                  * Grabs the number of bytes specified for the first column in                   * the W array and stores it.                  */
+comment|/*                  * Grabs the number of bytes specified for the first column in                  * the W array and stores it.                  */
 for|for
 control|(
 name|int
@@ -514,15 +514,12 @@ comment|//Need to remember the current objID
 name|Integer
 name|objID
 init|=
-operator|(
-name|Integer
-operator|)
 name|objIter
 operator|.
 name|next
 argument_list|()
 decl_stmt|;
-comment|/*                  * 3 different types of entries.                   */
+comment|/*                  * 3 different types of entries.                  */
 switch|switch
 condition|(
 name|type

@@ -164,7 +164,7 @@ name|JBIG2Filter
 implements|implements
 name|Filter
 block|{
-comment|/** Log instance */
+comment|/** Log instance. */
 specifier|private
 specifier|static
 specifier|final
@@ -180,7 +180,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Decode JBIG2 data using Java ImageIO library.      *       * {@inheritDoc}      *       */
+comment|/**      * Decode JBIG2 data using Java ImageIO library.      *      * {@inheritDoc}      *      */
 specifier|public
 name|void
 name|decode

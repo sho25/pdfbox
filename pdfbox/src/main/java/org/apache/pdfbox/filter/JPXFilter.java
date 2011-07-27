@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is used for the JPXDecode filter.  *  * @author<a href="mailto:timo.boehme@ontochem.com">Timo Böhme</a>  *   */
+comment|/**  * This is used for the JPXDecode filter.  *  * @author<a href="mailto:timo.boehme@ontochem.com">Timo Böhme</a>  *  */
 end_comment
 
 begin_class
@@ -144,7 +144,7 @@ name|JPXFilter
 implements|implements
 name|Filter
 block|{
-comment|/** Log instance */
+comment|/** Log instance. */
 specifier|private
 specifier|static
 specifier|final
@@ -160,7 +160,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Decode JPEG2000 data using Java ImageIO library.      *       * {@inheritDoc}      *       */
+comment|/**      * Decode JPEG2000 data using Java ImageIO library.      *      * {@inheritDoc}      *      */
 specifier|public
 name|void
 name|decode

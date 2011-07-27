@@ -47,21 +47,21 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|imageio
-operator|.
-name|ImageIO
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|imageio
+operator|.
+name|ImageIO
 import|;
 end_import
 
@@ -901,7 +901,7 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-comment|//si une cropBox a ete specifier, appeler la methode de modification de cropbox
+comment|//if a CropBox has been specified, update the CropBox:
 comment|//changeCropBoxes(PDDocument document,float a, float b, float c,float d)
 if|if
 condition|(

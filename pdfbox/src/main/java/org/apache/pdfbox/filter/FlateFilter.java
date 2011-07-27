@@ -1046,7 +1046,7 @@ case|case
 literal|2
 case|:
 comment|// PRED TIFF SUB
-comment|/**                          * @TODO decode tiff with bitsPerComponent != 8; e.g. for 4 bpc each nibble must be subtracted separately                          */
+comment|/**                          * @TODO decode tiff with bitsPerComponent != 8;                          * e.g. for 4 bpc each nibble must be subtracted separately                          */
 if|if
 condition|(
 name|bitsPerComponent
@@ -1559,10 +1559,6 @@ break|break;
 block|}
 name|lastline
 operator|=
-operator|(
-name|byte
-index|[]
-operator|)
 name|actline
 operator|.
 name|clone

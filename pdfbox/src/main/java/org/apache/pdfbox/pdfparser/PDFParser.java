@@ -338,7 +338,7 @@ name|FDF_HEADER
 init|=
 literal|"%FDF-"
 decl_stmt|;
-comment|/**      * A list of duplicate objects found when Parsing the PDF      * File.       */
+comment|/**      * A list of duplicate objects found when Parsing the PDF      * File.      */
 specifier|private
 name|List
 argument_list|<
@@ -418,7 +418,7 @@ name|FORCE_PARSING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor to allow control over RandomAccessFile.      * Also enables parser to skip corrupt objects to try and force parsing      * @param input The input stream that contains the PDF document.      * @param rafi The RandomAccessFile to be used in internal COSDocument      * @param force When true, the parser will skip corrupt pdf objects and       * will continue parsing at the next object in the file      *      * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor to allow control over RandomAccessFile.      * Also enables parser to skip corrupt objects to try and force parsing      * @param input The input stream that contains the PDF document.      * @param rafi The RandomAccessFile to be used in internal COSDocument      * @param force When true, the parser will skip corrupt pdf objects and      * will continue parsing at the next object in the file      *      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFParser
 parameter_list|(
@@ -462,7 +462,7 @@ operator|=
 name|tmpDir
 expr_stmt|;
 block|}
-comment|/**      * Returns true if parsing should be continued. By default, forceParsing is returned.       * This can be overridden to add application specific handling (for example to stop       * parsing when the number of exceptions thrown exceed a certain number).      *       * @param e The exception if vailable. Can be null if there is no exception available      */
+comment|/**      * Returns true if parsing should be continued. By default, forceParsing is returned.      * This can be overridden to add application specific handling (for example to stop      * parsing when the number of exceptions thrown exceed a certain number).      *      * @param e The exception if vailable. Can be null if there is no exception available      */
 specifier|protected
 name|boolean
 name|isContinueOnError
@@ -576,7 +576,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|/*                      * PDF files may have random data after the EOF marker. Ignore errors if                      * last object processed is EOF.                       */
+comment|/*                      * PDF files may have random data after the EOF marker. Ignore errors if                      * last object processed is EOF.                      */
 if|if
 condition|(
 name|wasLastParsedObjectEOF
@@ -729,7 +729,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Skip to the start of the next object.  This is used to recover      * from a corrupt object. This should handle all cases that parseObject      * supports. This assumes that the next object will      * start on its own line.      *       * @throws IOException       */
+comment|/**      * Skip to the start of the next object.  This is used to recover      * from a corrupt object. This should handle all cases that parseObject      * supports. This assumes that the next object will      * start on its own line.      *      * @throws IOException      */
 specifier|private
 name|void
 name|skipToNextObj
@@ -761,7 +761,7 @@ operator|.
 name|DOTALL
 argument_list|)
 decl_stmt|;
-comment|/* Read a buffer of data each time to see if it starts with a          * known keyword. This is not the most efficient design, but we should          * rarely be needing this function. We could update this to use the           * circular buffer, like in readUntilEndStream().          */
+comment|/* Read a buffer of data each time to see if it starts with a          * known keyword. This is not the most efficient design, but we should          * rarely be needing this function. We could update this to use the          * circular buffer, like in readUntilEndStream().          */
 while|while
 condition|(
 operator|!
@@ -1399,7 +1399,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * This will parse the next object from the stream and add it to       * the local state.       *      * @return Returns true if the processed object had an endOfFile marker      *      * @throws IOException If an IO error occurs.      */
+comment|/**      * This will parse the next object from the stream and add it to      * the local state.      *      * @return Returns true if the processed object had an endOfFile marker      *      * @throws IOException If an IO error occurs.      */
 specifier|private
 name|boolean
 name|parseObject
@@ -1550,12 +1550,14 @@ operator|.
 name|isEOF
 argument_list|()
 condition|)
+block|{
 name|pdfSource
 operator|.
 name|read
 argument_list|()
 expr_stmt|;
 comment|// read (get rid of) all the whitespace
+block|}
 name|String
 name|eof
 init|=
@@ -1569,12 +1571,14 @@ operator|.
 name|isEOF
 argument_list|()
 condition|)
+block|{
 name|eof
 operator|=
 name|readLine
 argument_list|()
 expr_stmt|;
 comment|// if there's more data to read, get the EOF flag
+block|}
 comment|// verify that EOF exists (see PDFBOX-979 for documentation on special cases)
 if|if
 condition|(
@@ -2047,7 +2051,7 @@ literal|"endobj"
 argument_list|)
 condition|)
 block|{
-comment|/*                      * Some PDF files don't contain a new line after endobj so we                       * need to make sure that the next object number is getting read separately                      * and not part of the endobj keyword. Ex. Some files would have "endobj28"                      * instead of "endobj"                      */
+comment|/*                      * Some PDF files don't contain a new line after endobj so we                      * need to make sure that the next object number is getting read separately                      * and not part of the endobj keyword. Ex. Some files would have "endobj28"                      * instead of "endobj"                      */
 name|pdfSource
 operator|.
 name|unread
@@ -2228,7 +2232,7 @@ name|conflictObj
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will parse the startxref section from the stream.      * The startxref value is ignored.      *                  * @return false on parsing error       * @throws IOException If an IO error occurs.      */
+comment|/**      * This will parse the startxref section from the stream.      * The startxref value is ignored.      *      * @return false on parsing error      * @throws IOException If an IO error occurs.      */
 specifier|private
 name|boolean
 name|parseStartXref
@@ -2291,7 +2295,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * This will parse the xref table from the stream and add it to the state      * The XrefTable contents are ignored.      * @param startByteOffset the offset to start at                 * @return false on parsing error       * @throws IOException If an IO error occurs.      */
+comment|/**      * This will parse the xref table from the stream and add it to the state      * The XrefTable contents are ignored.      * @param startByteOffset the offset to start at      * @return false on parsing error      * @throws IOException If an IO error occurs.      */
 specifier|private
 name|boolean
 name|parseXrefTable
@@ -2348,7 +2352,7 @@ argument_list|(
 name|startByteOffset
 argument_list|)
 expr_stmt|;
-comment|/*          * Xref tables can have multiple sections.           * Each starts with a starting object id and a count.          */
+comment|/*          * Xref tables can have multiple sections.          * Each starts with a starting object id and a count.          */
 while|while
 condition|(
 literal|true
@@ -2457,7 +2461,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-comment|/* This supports the corrupt table as reported in                   * PDFBOX-474 (XXXX XXX XX n) */
+comment|/* This supports the corrupt table as reported in                  * PDFBOX-474 (XXXX XXX XX n) */
 if|if
 condition|(
 name|splitString
@@ -2606,7 +2610,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * This will parse the trailer from the stream and add it to the state.      *                  * @return false on parsing error      * @throws IOException If an IO error occurs.      */
+comment|/**      * This will parse the trailer from the stream and add it to the state.      *      * @return false on parsing error      * @throws IOException If an IO error occurs.      */
 specifier|private
 name|boolean
 name|parseTrailer
@@ -2744,7 +2748,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * The document catalog can also have a /Version parameter which overrides the version specified      * in the header if, and only if it is greater.      *       * @param parsedTrailer the parsed catalog in the trailer      */
+comment|/**      * The document catalog can also have a /Version parameter which overrides the version specified      * in the header if, and only if it is greater.      *      * @param parsedTrailer the parsed catalog in the trailer      */
 specifier|private
 name|void
 name|readVersionInTrailer
@@ -2880,7 +2884,7 @@ name|parse
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Used to resolve conflicts when a PDF Document has multiple objects with      * the same id number. Ideally, we could use the Xref table when parsing      * the document to be able to determine which of the objects with the same ID      * is correct, but we do not have access to the Xref Table during parsing.      * Instead, we queue up the conflicts and resolve them after the Xref has      * been parsed. The Objects listed in the Xref Table are kept and the       * others are ignored.       */
+comment|/**      * Used to resolve conflicts when a PDF Document has multiple objects with      * the same id number. Ideally, we could use the Xref table when parsing      * the document to be able to determine which of the objects with the same ID      * is correct, but we do not have access to the Xref Table during parsing.      * Instead, we queue up the conflicts and resolve them after the Xref has      * been parsed. The Objects listed in the Xref Table are kept and the      * others are ignored.      */
 specifier|private
 specifier|static
 class|class
@@ -2949,7 +2953,7 @@ operator|+
 literal|")"
 return|;
 block|}
-comment|/**          * Sometimes pdf files have objects with the same ID number yet are          * not referenced by the Xref table and therefore should be excluded.                       * This method goes through the conflicts list and replaces the object stored          * in the objects array with this one if it is referenced by the xref          * table.           * @throws IOException          */
+comment|/**          * Sometimes pdf files have objects with the same ID number yet are          * not referenced by the Xref table and therefore should be excluded.          * This method goes through the conflicts list and replaces the object stored          * in the objects array with this one if it is referenced by the xref          * table.          * @throws IOException          */
 specifier|private
 specifier|static
 name|void

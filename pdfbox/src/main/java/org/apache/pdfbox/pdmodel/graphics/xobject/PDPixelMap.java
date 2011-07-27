@@ -1026,6 +1026,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 name|cm
 operator|=
 name|colorspace
@@ -1036,7 +1037,9 @@ name|bpc
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 else|else
+block|{
 name|cm
 operator|=
 name|colorspace
@@ -1046,6 +1049,7 @@ argument_list|(
 name|bpc
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|log
 operator|.

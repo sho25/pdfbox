@@ -925,9 +925,6 @@ name|warn
 argument_list|(
 literal|"Invalid dictionary, found: '"
 operator|+
-operator|(
-name|char
-operator|)
 name|c
 operator|+
 literal|"' but expected: '/'"
@@ -1527,7 +1524,7 @@ literal|"endstream"
 argument_list|)
 condition|)
 block|{
-comment|/*                  * Sometimes stream objects don't have an endstream tag so readUntilEndStream(out)                  * also can stop on endobj tags. If that's the case we need to make sure to unread                  * the endobj so parseObject() can handle that case normally.                   */
+comment|/*                  * Sometimes stream objects don't have an endstream tag so readUntilEndStream(out)                  * also can stop on endobj tags. If that's the case we need to make sure to unread                  * the endobj so parseObject() can handle that case normally.                  */
 if|if
 condition|(
 name|endStream
@@ -1557,7 +1554,7 @@ name|endobjarray
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*                  * Some PDF files don't contain a new line after endstream so we                   * need to make sure that the next object number is getting read separately                  * and not part of the endstream keyword. Ex. Some files would have "endstream8"                  * instead of "endstream"                  */
+comment|/*                  * Some PDF files don't contain a new line after endstream so we                  * need to make sure that the next object number is getting read separately                  * and not part of the endstream keyword. Ex. Some files would have "endstream8"                  * instead of "endstream"                  */
 elseif|else
 if|if
 condition|(
@@ -1675,7 +1672,7 @@ return|return
 name|stream
 return|;
 block|}
-comment|/**      * This method will read through the current stream object until      * we find the keyword "endstream" meaning we're at the end of this      * object. Some pdf files, however, forget to write some endstream tags      * and just close off objects with an "endobj" tag so we have to handle      * this case as well.      * @param out The stream we write out to.       * @throws IOException      */
+comment|/**      * This method will read through the current stream object until      * we find the keyword "endstream" meaning we're at the end of this      * object. Some pdf files, however, forget to write some endstream tags      * and just close off objects with an "endobj" tag so we have to handle      * this case as well.      * @param out The stream we write out to.      * @throws IOException      */
 specifier|private
 name|void
 name|readUntilEndStream
@@ -2043,6 +2040,7 @@ operator|!=
 operator|-
 literal|1
 condition|)
+block|{
 name|out
 operator|.
 name|write
@@ -2050,6 +2048,7 @@ argument_list|(
 name|byteRead
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 do|while
 condition|(
@@ -2060,7 +2059,7 @@ literal|1
 condition|)
 do|;
 block|}
-comment|/**      * This is really a bug in the Document creators code, but it caused a crash      * in PDFBox, the first bug was in this format:      * /Title ( (5)      * /Creator which was patched in 1 place.      * However it missed the case where the Close Paren was escaped      *       * The second bug was in this format       * /Title (c:\)      * /Producer       *       * This patch  moves this code out of the parseCOSString method, so it can be used twice.      *       *       * @param bracesParameter the number of braces currently open.      *       * @return the corrected value of the brace counter      * @throws IOException      */
+comment|/**      * This is really a bug in the Document creators code, but it caused a crash      * in PDFBox, the first bug was in this format:      * /Title ( (5)      * /Creator which was patched in 1 place.      * However it missed the case where the Close Paren was escaped      *      * The second bug was in this format      * /Title (c:\)      * /Producer      *      * This patch  moves this code out of the parseCOSString method, so it can be used twice.      *      *      * @param bracesParameter the number of braces currently open.      *      * @return the corrected value of the brace counter      * @throws IOException      */
 specifier|private
 name|int
 name|checkForMissingCloseParen
@@ -2130,16 +2129,16 @@ literal|0
 index|]
 operator|==
 literal|0x0d
-operator|&&
 comment|// Look for a carriage return
+operator|&&
 name|nextThreeBytes
 index|[
 literal|1
 index|]
 operator|==
 literal|0x0a
-operator|&&
 comment|// Look for a new line
+operator|&&
 name|nextThreeBytes
 index|[
 literal|2
@@ -2147,9 +2146,9 @@ index|]
 operator|==
 literal|0x2f
 operator|)
-operator|||
 comment|// Look for a slash /
 comment|// Add a second case without a new line
+operator|||
 operator|(
 name|nextThreeBytes
 index|[
@@ -2157,8 +2156,8 @@ literal|0
 index|]
 operator|==
 literal|0x0d
-operator|&&
 comment|// Look for a carriage return
+operator|&&
 name|nextThreeBytes
 index|[
 literal|1
@@ -3110,9 +3109,11 @@ argument_list|(
 name|isThisTheEnd
 argument_list|)
 condition|)
+block|{
 return|return
 name|po
 return|;
+block|}
 block|}
 name|skipSpaces
 argument_list|()
@@ -4135,6 +4136,7 @@ argument_list|(
 name|badString
 argument_list|)
 condition|)
+block|{
 name|pdfSource
 operator|.
 name|unread
@@ -4147,6 +4149,7 @@ literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

@@ -60,7 +60,7 @@ name|position
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * returns the underlying TextPosition object 	 * @return 	 */
+comment|/**      * Returns the underlying TextPosition object.      * @return the text position      */
 specifier|protected
 name|TextPosition
 name|getTextPosition
@@ -79,7 +79,7 @@ return|return
 name|isLineStart
 return|;
 block|}
-comment|/**      * sets the isLineStart() flag to true      */
+comment|/**      * Sets the isLineStart() flag to true.      */
 specifier|public
 name|void
 name|setLineStart
@@ -123,7 +123,7 @@ return|return
 name|isArticleStart
 return|;
 block|}
-comment|/** 	 * sets the isArticleStart() flag to true. 	 */
+comment|/**      * Sets the isArticleStart() flag to true.      */
 specifier|public
 name|void
 name|setArticleStart
@@ -145,7 +145,7 @@ return|return
 name|isPageBreak
 return|;
 block|}
-comment|/**      * sets the isPageBreak() flag to true      */
+comment|/**      * Sets the isPageBreak() flag to true.      */
 specifier|public
 name|void
 name|setPageBreak
@@ -167,7 +167,7 @@ return|return
 name|isHangingIndent
 return|;
 block|}
-comment|/**      * sets the isHangingIndent() flag to true      */
+comment|/**      * Sets the isHangingIndent() flag to true.      */
 specifier|public
 name|void
 name|setHangingIndent
@@ -180,7 +180,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * constructs a PositionWrapper around the specified TextPosition object.      * @param position      */
+comment|/**      * Constructs a PositionWrapper around the specified TextPosition object.      * @param position the text position      */
 specifier|public
 name|PositionWrapper
 parameter_list|(
