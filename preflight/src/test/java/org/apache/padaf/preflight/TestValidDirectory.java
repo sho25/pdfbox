@@ -274,6 +274,10 @@ name|Assert
 operator|.
 name|assertTrue
 argument_list|(
+literal|"Validation of "
+operator|+
+name|target
+argument_list|,
 name|result
 operator|.
 name|isValid

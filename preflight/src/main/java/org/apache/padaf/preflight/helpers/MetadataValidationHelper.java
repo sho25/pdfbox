@@ -133,7 +133,9 @@ name|padaf
 operator|.
 name|preflight
 operator|.
-name|ValidatorConfig
+name|ValidationResult
+operator|.
+name|ValidationError
 import|;
 end_import
 
@@ -147,9 +149,7 @@ name|padaf
 operator|.
 name|preflight
 operator|.
-name|ValidationResult
-operator|.
-name|ValidationError
+name|ValidatorConfig
 import|;
 end_import
 
@@ -198,6 +198,24 @@ operator|.
 name|xmp
 operator|.
 name|RDFAboutAttributeConcordanceValidation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|padaf
+operator|.
+name|preflight
+operator|.
+name|xmp
+operator|.
+name|RDFAboutAttributeConcordanceValidation
+operator|.
+name|DifferentRDFAboutException
 import|;
 end_import
 
@@ -262,6 +280,22 @@ operator|.
 name|xmpbox
 operator|.
 name|XMPMetadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|padaf
+operator|.
+name|xmpbox
+operator|.
+name|parser
+operator|.
+name|PDFAExtentionSchemaPreprocessor
 import|;
 end_import
 
@@ -808,6 +842,15 @@ operator|=
 operator|new
 name|XMPDocumentBuilder
 argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|addPreprocessor
+argument_list|(
+operator|new
+name|PDFAExtentionSchemaPreprocessor
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
