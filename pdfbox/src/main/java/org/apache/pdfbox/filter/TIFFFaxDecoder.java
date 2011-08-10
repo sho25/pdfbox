@@ -4874,9 +4874,9 @@ block|{
 comment|// ERROR
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder0"
+literal|"Invalid code encountered."
 argument_list|)
 throw|;
 block|}
@@ -4891,9 +4891,9 @@ block|{
 comment|// EOL
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder1"
+literal|"EOL encountered in white run."
 argument_list|)
 throw|;
 block|}
@@ -5144,9 +5144,9 @@ block|{
 comment|// EOL code
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder2"
+literal|"EOL encountered in black run."
 argument_list|)
 throw|;
 block|}
@@ -5489,9 +5489,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder3"
+literal|"First scanline must be 1D encoded."
 argument_list|)
 throw|;
 block|}
@@ -5622,17 +5622,14 @@ expr_stmt|;
 comment|// Run these through the 2DCodes table
 name|entry
 operator|=
-call|(
-name|int
-call|)
-argument_list|(
+operator|(
 name|twoDCodes
 index|[
 name|entry
 index|]
 operator|&
 literal|0xff
-argument_list|)
+operator|)
 expr_stmt|;
 comment|// Get the code and the number of bits used up
 name|code
@@ -5889,9 +5886,9 @@ else|else
 block|{
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder4"
+literal|"Invalid code encountered while decoding 2D group 3 compressed data."
 argument_list|)
 throw|;
 block|}
@@ -6173,17 +6170,14 @@ expr_stmt|;
 comment|// Run these through the 2DCodes table
 name|entry
 operator|=
-call|(
-name|int
-call|)
-argument_list|(
+operator|(
 name|twoDCodes
 index|[
 name|entry
 index|]
 operator|&
 literal|0xff
-argument_list|)
+operator|)
 expr_stmt|;
 comment|// Get the code and the number of bits used up
 name|code
@@ -6461,9 +6455,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder5"
+literal|"Invalid code encountered while decoding 2D group 4 compressed data."
 argument_list|)
 throw|;
 block|}
@@ -6681,9 +6675,9 @@ else|else
 block|{
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder5"
+literal|"Invalid code encountered while decoding 2D group 4 compressed data."
 argument_list|)
 throw|;
 block|}
@@ -7034,9 +7028,9 @@ block|{
 comment|// ERROR
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder0"
+literal|"Invalid code encountered."
 argument_list|)
 throw|;
 block|}
@@ -7051,9 +7045,9 @@ block|{
 comment|// EOL
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder1"
+literal|"EOL encountered in white run."
 argument_list|)
 throw|;
 block|}
@@ -7296,9 +7290,9 @@ block|{
 comment|// EOL code
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder2"
+literal|"EOL encountered in black run."
 argument_list|)
 throw|;
 block|}
@@ -7436,9 +7430,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder6"
+literal|"Scanline must begin with EOL."
 argument_list|)
 throw|;
 block|}
@@ -7473,9 +7467,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder8"
+literal|"All fill bits preceding EOL code must be 0."
 argument_list|)
 throw|;
 block|}
@@ -7502,9 +7496,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder8"
+literal|"All fill bits preceding EOL code must be 0."
 argument_list|)
 throw|;
 block|}
@@ -7539,9 +7533,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder8"
+literal|"All fill bits preceding EOL code must be 0."
 argument_list|)
 throw|;
 block|}
@@ -7919,9 +7913,9 @@ else|else
 block|{
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder7"
+literal|"TIFF_FILL_ORDER tag must be either 1 or 2."
 argument_list|)
 throw|;
 block|}
@@ -8204,9 +8198,9 @@ else|else
 block|{
 throw|throw
 operator|new
-name|Error
+name|RuntimeException
 argument_list|(
-literal|"TIFFFaxDecoder7"
+literal|"TIFF_FILL_ORDER tag must be either 1 or 2."
 argument_list|)
 throw|;
 block|}
