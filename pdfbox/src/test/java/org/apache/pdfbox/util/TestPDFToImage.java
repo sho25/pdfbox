@@ -439,9 +439,9 @@ literal|true
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|warn
 argument_list|(
-literal|"Input and output not identical for file: "
+literal|"*** TEST FAILURE *** Input and output not identical for file: "
 operator|+
 name|inFile
 operator|.
