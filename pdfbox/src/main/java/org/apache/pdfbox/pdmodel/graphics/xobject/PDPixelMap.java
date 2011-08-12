@@ -487,11 +487,25 @@ decl_stmt|;
 name|int
 name|size
 init|=
+name|Math
+operator|.
+name|min
+argument_list|(
 name|csIndexed
 operator|.
 name|getHighValue
 argument_list|()
+argument_list|,
+literal|1
+operator|<<
+operator|(
+name|bpc
+operator|-
+literal|1
+operator|)
+argument_list|)
 decl_stmt|;
+comment|//suggested in PDFBOX-1075
 name|byte
 index|[]
 name|index
