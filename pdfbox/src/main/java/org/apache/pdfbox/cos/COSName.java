@@ -2813,6 +2813,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|PAINT_TYPE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"PaintType"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|PARENT
 init|=
 operator|new
@@ -2845,6 +2858,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Pattern"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PATTERN_TYPE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"PatternType"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -3463,6 +3489,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|TILING_TYPE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"TilingType"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|TITLE
 init|=
 operator|new
@@ -3781,6 +3820,32 @@ operator|new
 name|COSName
 argument_list|(
 literal|"XRef"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|X_STEP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"XStep"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|Y_STEP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"YStep"
 argument_list|)
 decl_stmt|;
 comment|/**      * The prefix to a PDF name.      */
