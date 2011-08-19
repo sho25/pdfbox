@@ -12,6 +12,10 @@ operator|.
 name|pdfbox
 operator|.
 name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|pattern
 package|;
 end_package
 
@@ -38,20 +42,6 @@ operator|.
 name|cos
 operator|.
 name|COSArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSBase
 import|;
 end_import
 
@@ -121,9 +111,25 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|common
+name|graphics
 operator|.
-name|COSObjectable
+name|pattern
+operator|.
+name|PDPatternResources
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|PDResources
 import|;
 end_import
 
@@ -158,15 +164,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents the resources for a pattern colorspace.  *  * @version $Revision: 1.0 $  */
+comment|/**  * This represents the resources for a tiling pattern.  *  * @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
 specifier|public
 class|class
+name|PDTilingPatternResources
+extends|extends
 name|PDPatternResources
-implements|implements
-name|COSObjectable
 block|{
 specifier|private
 name|COSDictionary
@@ -174,19 +180,29 @@ name|patternDictionary
 decl_stmt|;
 comment|/**      * Default constructor.      */
 specifier|public
-name|PDPatternResources
+name|PDTilingPatternResources
 parameter_list|()
 block|{
-name|patternDictionary
-operator|=
-operator|new
-name|COSDictionary
+name|super
 argument_list|()
 expr_stmt|;
-block|}
-comment|/**      * Prepopulated pattern resources.      *      * @param resourceDictionary The cos dictionary for this pattern resource.      */
-specifier|public
+name|patternDictionary
+operator|.
+name|setInt
+argument_list|(
+name|COSName
+operator|.
+name|PATTERN_TYPE
+argument_list|,
 name|PDPatternResources
+operator|.
+name|TILING_PATTERN
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Prepopulated pattern resources.      *      * @param resourceDictionary The COSDictionary for this pattern resource.      */
+specifier|public
+name|PDTilingPatternResources
 parameter_list|(
 name|COSDictionary
 name|resourceDictionary
@@ -197,67 +213,16 @@ operator|=
 name|resourceDictionary
 expr_stmt|;
 block|}
-comment|/**      * This will get the underlying dictionary.      *      * @return The dictionary for these pattern resources.      */
+comment|/**      * {@inheritDoc}      */
 specifier|public
-name|COSDictionary
-name|getCOSDictionary
+name|int
+name|getPatternType
 parameter_list|()
 block|{
 return|return
-name|patternDictionary
-return|;
-block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|patternDictionary
-return|;
-block|}
-comment|/**      * Sets the filter entry of the encryption dictionary.      *      * @param filter The filter name.      */
-specifier|public
-name|void
-name|setFilter
-parameter_list|(
-name|String
-name|filter
-parameter_list|)
-block|{
-name|patternDictionary
+name|PDPatternResources
 operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|FILTER
-argument_list|,
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
-name|filter
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Get the name of the filter.      *      * @return The filter name contained in this encryption dictionary.      */
-specifier|public
-name|String
-name|getFilter
-parameter_list|()
-block|{
-return|return
-name|patternDictionary
-operator|.
-name|getNameAsString
-argument_list|(
-name|COSName
-operator|.
-name|FILTER
-argument_list|)
+name|TILING_PATTERN
 return|;
 block|}
 comment|/**      * This will set the length of the content stream.      *      * @param length The new stream length.      */
@@ -335,46 +300,6 @@ argument_list|(
 name|COSName
 operator|.
 name|PAINT_TYPE
-argument_list|,
-literal|0
-argument_list|)
-return|;
-block|}
-comment|/**      * This will set the pattern type.      *      * @param patternType The new pattern type.      */
-specifier|public
-name|void
-name|setPatternType
-parameter_list|(
-name|int
-name|patternType
-parameter_list|)
-block|{
-name|patternDictionary
-operator|.
-name|setInt
-argument_list|(
-name|COSName
-operator|.
-name|PATTERN_TYPE
-argument_list|,
-name|patternType
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * This will return the pattern type.      *      * @return The pattern type      */
-specifier|public
-name|int
-name|getPatternType
-parameter_list|()
-block|{
-return|return
-name|patternDictionary
-operator|.
-name|getInt
-argument_list|(
-name|COSName
-operator|.
-name|PATTERN_TYPE
 argument_list|,
 literal|0
 argument_list|)
@@ -555,6 +480,13 @@ name|PDResources
 name|resources
 parameter_list|)
 block|{
+if|if
+condition|(
+name|resources
+operator|!=
+literal|null
+condition|)
+block|{
 name|patternDictionary
 operator|.
 name|setItem
@@ -566,6 +498,19 @@ argument_list|,
 name|resources
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|patternDictionary
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|RESOURCES
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * An array of four numbers in the form coordinate system (see      * below), giving the coordinates of the left, bottom, right, and top edges,      * respectively, of the pattern's bounding box.      *      * @return The BBox of the form.      */
 specifier|public

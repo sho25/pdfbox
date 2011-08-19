@@ -239,6 +239,24 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
+name|pattern
+operator|.
+name|PDPatternResources
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
 name|xobject
 operator|.
 name|PDXObject
@@ -1306,7 +1324,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the map of patterns.  This will return null if the underlying      * resources dictionary does not have a patterns dictionary. The keys are the pattern      * name as a String and the values are PDPatternResources objects.      *      * @return The map of pattern resources objects.      */
+comment|/**      * This will get the map of patterns.  This will return null if the underlying      * resources dictionary does not have a patterns dictionary. The keys are the pattern      * name as a String and the values are PDPatternResources objects.      *      * @return The map of pattern resources objects.      *       * @throws IOException If there is an error getting the pattern resources.      */
 specifier|public
 name|Map
 argument_list|<
@@ -1316,6 +1334,8 @@ name|PDPatternResources
 argument_list|>
 name|getPatterns
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Map
 argument_list|<
@@ -1409,8 +1429,9 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-operator|new
 name|PDPatternResources
+operator|.
+name|create
 argument_list|(
 name|dictionary
 argument_list|)
