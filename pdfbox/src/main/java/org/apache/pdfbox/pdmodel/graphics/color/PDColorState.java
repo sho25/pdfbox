@@ -115,6 +115,24 @@ name|COSArray
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|pattern
+operator|.
+name|PDPatternResources
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class represents a color space and the color value for that colorspace.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  */
 end_comment
@@ -187,6 +205,12 @@ operator|new
 name|COSArray
 argument_list|()
 decl_stmt|;
+specifier|private
+name|PDPatternResources
+name|pattern
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * Cached Java AWT color based on the current color space and value.      * The value is cleared whenever the color space or value is set.      *      * @see #getJavaColor()      */
 specifier|private
 name|Color
@@ -249,6 +273,14 @@ operator|.
 name|colorSpaceValue
 argument_list|)
 expr_stmt|;
+name|retval
+operator|.
+name|setPattern
+argument_list|(
+name|getPattern
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|retval
 return|;
@@ -266,6 +298,13 @@ condition|(
 name|color
 operator|==
 literal|null
+operator|&&
+name|colorSpaceValue
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|color
@@ -771,8 +810,12 @@ name|colorSpace
 operator|=
 name|value
 expr_stmt|;
-comment|// Clear color cache
+comment|// Clear color cache and current pattern
 name|color
+operator|=
+literal|null
+expr_stmt|;
+name|pattern
 operator|=
 literal|null
 expr_stmt|;
@@ -818,10 +861,50 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-comment|// Clear color cache
+comment|// Clear color cache and current pattern
 name|color
 operator|=
 literal|null
+expr_stmt|;
+name|pattern
+operator|=
+literal|null
+expr_stmt|;
+block|}
+comment|/**      * This will get the current pattern.      *      * @return The current pattern.      */
+specifier|public
+name|PDPatternResources
+name|getPattern
+parameter_list|()
+block|{
+return|return
+name|pattern
+return|;
+block|}
+comment|/**      * This will update the current pattern.      *      * @param pattern The new pattern.      */
+specifier|public
+name|void
+name|setPattern
+parameter_list|(
+name|PDPatternResources
+name|pattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pattern
+operator|=
+name|pattern
+expr_stmt|;
+comment|// Clear color cache and colorSpaceValue
+name|color
+operator|=
+literal|null
+expr_stmt|;
+name|colorSpaceValue
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 block|}
