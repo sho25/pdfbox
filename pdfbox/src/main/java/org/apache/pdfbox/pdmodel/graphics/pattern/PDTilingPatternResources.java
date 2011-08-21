@@ -174,10 +174,6 @@ name|PDTilingPatternResources
 extends|extends
 name|PDPatternResources
 block|{
-specifier|private
-name|COSDictionary
-name|patternDictionary
-decl_stmt|;
 comment|/**      * Default constructor.      */
 specifier|public
 name|PDTilingPatternResources
@@ -186,7 +182,8 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|setInt
 argument_list|(
@@ -208,9 +205,10 @@ name|COSDictionary
 name|resourceDictionary
 parameter_list|)
 block|{
-name|patternDictionary
-operator|=
+name|super
+argument_list|(
 name|resourceDictionary
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
@@ -234,7 +232,8 @@ name|int
 name|length
 parameter_list|)
 block|{
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|setInt
 argument_list|(
@@ -253,7 +252,8 @@ name|getLength
 parameter_list|()
 block|{
 return|return
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|getInt
 argument_list|(
@@ -274,7 +274,8 @@ name|int
 name|paintType
 parameter_list|)
 block|{
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|setInt
 argument_list|(
@@ -293,7 +294,8 @@ name|getPaintType
 parameter_list|()
 block|{
 return|return
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|getInt
 argument_list|(
@@ -314,7 +316,8 @@ name|int
 name|tilingType
 parameter_list|)
 block|{
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|setInt
 argument_list|(
@@ -333,7 +336,8 @@ name|getTilingType
 parameter_list|()
 block|{
 return|return
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|getInt
 argument_list|(
@@ -354,7 +358,8 @@ name|int
 name|xStep
 parameter_list|)
 block|{
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|setInt
 argument_list|(
@@ -373,7 +378,8 @@ name|getXStep
 parameter_list|()
 block|{
 return|return
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|getInt
 argument_list|(
@@ -394,7 +400,8 @@ name|int
 name|yStep
 parameter_list|)
 block|{
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|setInt
 argument_list|(
@@ -413,7 +420,8 @@ name|getYStep
 parameter_list|()
 block|{
 return|return
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|getInt
 argument_list|(
@@ -442,7 +450,8 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -487,7 +496,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -501,7 +511,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|removeItem
 argument_list|(
@@ -529,7 +540,8 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -574,7 +586,8 @@ operator|==
 literal|null
 condition|)
 block|{
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|removeItem
 argument_list|(
@@ -586,7 +599,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -619,7 +633,8 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -846,7 +861,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|patternDictionary
+name|getCOSDictionary
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
