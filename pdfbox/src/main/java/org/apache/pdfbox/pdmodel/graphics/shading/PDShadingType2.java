@@ -175,7 +175,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|DOMAIN
+name|EXTEND
 argument_list|)
 expr_stmt|;
 block|}
@@ -236,7 +236,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|EXTEND
+name|DOMAIN
 argument_list|)
 expr_stmt|;
 block|}
