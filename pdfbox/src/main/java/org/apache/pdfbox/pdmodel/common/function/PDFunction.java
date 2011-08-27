@@ -211,7 +211,7 @@ name|range
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param functionStream The function stream.      */
+comment|/**      * Constructor.      *      * @param function The function stream.      *       */
 specifier|public
 name|PDFunction
 parameter_list|(
@@ -373,7 +373,7 @@ operator|)
 name|function
 operator|)
 operator|.
-name|getCOSObject
+name|getObject
 argument_list|()
 expr_stmt|;
 block|}
@@ -526,7 +526,7 @@ name|n
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the range values.      *      * @param range The new range values.      */
+comment|/**      * This will set the range values.      *      * @param rangeValues The new range values.      */
 specifier|public
 name|void
 name|setRangeValues
@@ -598,7 +598,7 @@ name|n
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the domain values.      *      * @param range The new domain values.      */
+comment|/**      * This will set the domain values.      *      * @param domainValues The new domain values.      */
 specifier|public
 name|void
 name|setDomainValues
@@ -624,7 +624,7 @@ name|domainValues
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Evaluates the function at the given input.      * ReturnValue = f(input)      *      * @param input The array of input values for the function. In many cases will be an array of a single value, but not always.      * @return The of outputs the function returns based on those inputs. In many cases will be an array of a single value, but not always.      */
+comment|/**      * Evaluates the function at the given input.      * ReturnValue = f(input)      *      * @param input The array of input values for the function.       * In many cases will be an array of a single value, but not always.      *       * @return The of outputs the function returns based on those inputs.       * In many cases will be an array of a single value, but not always.      *       * @throws IOException an IOExcpetion is thrown if something went wrong processing the function.        */
 specifier|public
 specifier|abstract
 name|COSArray
@@ -776,6 +776,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|result
 operator|.
 name|add
@@ -809,6 +810,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -854,7 +856,7 @@ name|rangeMax
 argument_list|)
 return|;
 block|}
-comment|/**      * For a given value of x, interpolate calculates the y value       * on the line defined by the two points (xRangeMin , xRangeMax )       * and (yRangeMin , yRangeMax ).      *       * @param x      * @param xRangeMin      * @param xRangeMax      * @param yRangeMin      * @param yRangeMax      * @return the interpolated y value      */
+comment|/**      * For a given value of x, interpolate calculates the y value       * on the line defined by the two points (xRangeMin , xRangeMax )       * and (yRangeMin , yRangeMax ).      *       * @param x the to be interpolated value.      * @param xRangeMin the min value of the x range      * @param xRangeMax the max value of the x range      * @param yRangeMin the min value of the y range      * @param yRangeMax the max value of the y range      * @return the interpolated y value      */
 specifier|protected
 name|float
 name|interpolate
