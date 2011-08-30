@@ -117,6 +117,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|padaf
+operator|.
+name|preflight
+operator|.
+name|utils
+operator|.
+name|COSUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -136,6 +152,20 @@ operator|.
 name|cos
 operator|.
 name|COSDictionary
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSDocument
 import|;
 end_import
 
@@ -234,7 +264,7 @@ name|cfg
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @see    * net.awl.edoc.pdfa.validation.helpers.AbstractValidationHelper#innerValidate    * (net.awl.edoc.pdfa.validation.DocumentHandler)    */
+comment|/* 	 * (non-Javadoc) 	 *  	 * @see 	 * net.awl.edoc.pdfa.validation.helpers.AbstractValidationHelper#innerValidate 	 * (net.awl.edoc.pdfa.validation.DocumentHandler) 	 */
 annotation|@
 name|Override
 specifier|public
@@ -298,8 +328,69 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// ---- Count entry is mandatory if there are childrens
 if|if
 condition|(
+operator|!
+name|isCountEntryPresent
+argument_list|(
+name|outlineHierarchy
+operator|.
+name|getCOSDictionary
+argument_list|()
+argument_list|)
+operator|&&
+operator|(
+name|outlineHierarchy
+operator|.
+name|getFirstChild
+argument_list|()
+operator|!=
+literal|null
+operator|||
+name|outlineHierarchy
+operator|.
+name|getLastChild
+argument_list|()
+operator|!=
+literal|null
+operator|)
+condition|)
+block|{
+name|result
+operator|.
+name|add
+argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_SYNTAX_TRAILER_OUTLINES_INVALID
+argument_list|,
+literal|"Outline Hierarchy doesn't have Count entry"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|isCountEntryPositive
+argument_list|(
+name|outlineHierarchy
+operator|.
+name|getCOSDictionary
+argument_list|()
+argument_list|,
+name|handler
+operator|.
+name|getDocument
+argument_list|()
+operator|.
+name|getDocument
+argument_list|()
+argument_list|)
+operator|&&
+operator|(
 name|outlineHierarchy
 operator|.
 name|getFirstChild
@@ -313,6 +404,7 @@ name|getLastChild
 argument_list|()
 operator|==
 literal|null
+operator|)
 condition|)
 block|{
 name|result
@@ -325,35 +417,6 @@ argument_list|(
 name|ERROR_SYNTAX_TRAILER_OUTLINES_INVALID
 argument_list|,
 literal|"Outline Hierarchy doesn't have First and/or Last entry(ies)"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// ---- Count entry is mandatory if there are childrens
-if|if
-condition|(
-operator|!
-name|isCountEntryPresent
-argument_list|(
-name|outlineHierarchy
-operator|.
-name|getCOSDictionary
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|result
-operator|.
-name|add
-argument_list|(
-operator|new
-name|ValidationError
-argument_list|(
-name|ERROR_SYNTAX_TRAILER_OUTLINES_INVALID
-argument_list|,
-literal|"Outline Hierarchy doesn't have Count entry"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -375,7 +438,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 else|else
 block|{
 throw|throw
@@ -390,7 +452,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**    * Return true if the Count entry is present in the given dictionary.    *     * @param outline    * @return    */
+comment|/** 	 * Return true if the Count entry is present in the given dictionary. 	 *  	 * @param outline 	 * @return 	 */
 specifier|private
 name|boolean
 name|isCountEntryPresent
@@ -415,7 +477,58 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**    * This method explores the Outline Item Level and call a validation method on    * each Outline Item. If an invalid outline item is found, the result list is    * updated.    *     * @param inputItem    *          The first outline item of the level    * @param handler    *          The document handler which provides useful data for the level    *          exploration (ex : access to the PDDocument)    * @param result    * @return true if all items are valid in this level.    * @throws ValidationException    */
+comment|/** 	 * return true if Count entry> 0 	 * @param outline 	 * @param doc 	 * @return 	 */
+specifier|private
+name|boolean
+name|isCountEntryPositive
+parameter_list|(
+name|COSDictionary
+name|outline
+parameter_list|,
+name|COSDocument
+name|doc
+parameter_list|)
+block|{
+name|COSBase
+name|countBase
+init|=
+name|outline
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|getPDFName
+argument_list|(
+literal|"Count"
+argument_list|)
+argument_list|)
+decl_stmt|;
+return|return
+name|COSUtils
+operator|.
+name|isInteger
+argument_list|(
+name|countBase
+argument_list|,
+name|doc
+argument_list|)
+operator|&&
+operator|(
+name|COSUtils
+operator|.
+name|getAsInteger
+argument_list|(
+name|countBase
+argument_list|,
+name|doc
+argument_list|)
+operator|>
+literal|0
+operator|)
+return|;
+block|}
+comment|/** 	 * This method explores the Outline Item Level and call a validation method on 	 * each Outline Item. If an invalid outline item is found, the result list is 	 * updated. 	 *  	 * @param inputItem 	 *          The first outline item of the level 	 * @param handler 	 *          The document handler which provides useful data for the level 	 *          exploration (ex : access to the PDDocument) 	 * @param result 	 * @return true if all items are valid in this level. 	 * @throws ValidationException 	 */
 specifier|protected
 name|boolean
 name|exploreOutlineLevel
@@ -439,11 +552,6 @@ name|PDOutlineItem
 name|currentItem
 init|=
 name|inputItem
-decl_stmt|;
-name|int
-name|oiValided
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -469,9 +577,6 @@ return|return
 literal|false
 return|;
 block|}
-name|oiValided
-operator|++
-expr_stmt|;
 name|currentItem
 operator|=
 name|currentItem
@@ -484,7 +589,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**    * This method checks the inputItem dictionary and call the    * exploreOutlineLevel method on the first child if it is not null.    *     * @param inputItem    *          outline item to validate    * @param handler    *          The document handler which provides useful data for the level    *          exploration (ex : access to the PDDocument)    * @param result    * @return    * @throws ValidationException    */
+comment|/** 	 * This method checks the inputItem dictionary and call the 	 * exploreOutlineLevel method on the first child if it is not null. 	 *  	 * @param inputItem 	 *          outline item to validate 	 * @param handler 	 *          The document handler which provides useful data for the level 	 *          exploration (ex : access to the PDDocument) 	 * @param result 	 * @return 	 * @throws ValidationException 	 */
 specifier|protected
 name|boolean
 name|validateItem
