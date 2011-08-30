@@ -1945,7 +1945,7 @@ name|maxVerticalDisplacementText
 operator|*
 name|fontSizeText
 operator|*
-name|textMatrix
+name|textXctm
 operator|.
 name|getYScale
 argument_list|()
