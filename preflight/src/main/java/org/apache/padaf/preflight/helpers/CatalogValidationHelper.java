@@ -357,6 +357,20 @@ name|COSObjectKey
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|StringUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * This helper validates the PDF file catalog  */
 end_comment
@@ -974,6 +988,14 @@ condition|(
 name|lang
 operator|!=
 literal|null
+operator|&&
+operator|!
+literal|""
+operator|.
+name|equals
+argument_list|(
+name|lang
+argument_list|)
 operator|&&
 operator|!
 name|lang

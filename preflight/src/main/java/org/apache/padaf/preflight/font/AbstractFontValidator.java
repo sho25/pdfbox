@@ -690,7 +690,7 @@ name|getSubSetPatternDelimiter
 parameter_list|()
 block|{
 return|return
-literal|"+"
+literal|"\\+"
 return|;
 block|}
 comment|/*    * (non-Javadoc)    *     * @see net.awl.edoc.pdfa.validation.font.FontValidator#getState()    */
@@ -926,10 +926,10 @@ decl_stmt|;
 name|isVal
 operator|=
 name|isVal
-operator|&&
+operator|&
 name|fontMDval
 operator|.
-name|analyseFontName
+name|analyseRights
 argument_list|(
 name|xmpMeta
 argument_list|,
