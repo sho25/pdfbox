@@ -403,7 +403,7 @@ expr_stmt|;
 block|}
 comment|/**      * @return Returns the familyClass.      */
 specifier|public
-name|short
+name|int
 name|getFamilyClass
 parameter_list|()
 block|{
@@ -416,7 +416,7 @@ specifier|public
 name|void
 name|setFamilyClass
 parameter_list|(
-name|short
+name|int
 name|familyClassValue
 parameter_list|)
 block|{
@@ -425,6 +425,32 @@ operator|.
 name|familyClass
 operator|=
 name|familyClassValue
+expr_stmt|;
+block|}
+comment|/**      * @return Returns the familySubClass.      */
+specifier|public
+name|int
+name|getFamilySubClass
+parameter_list|()
+block|{
+return|return
+name|familySubClass
+return|;
+block|}
+comment|/**      * @param familySubClassValue The familySubClass to set.      */
+specifier|public
+name|void
+name|setFamilySubClass
+parameter_list|(
+name|int
+name|familySubClassValue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|familySubClass
+operator|=
+name|familySubClassValue
 expr_stmt|;
 block|}
 comment|/**      * @return Returns the firstCharIndex.      */
@@ -1192,8 +1218,12 @@ name|short
 name|strikeoutPosition
 decl_stmt|;
 specifier|private
-name|short
+name|int
 name|familyClass
+decl_stmt|;
+specifier|private
+name|int
+name|familySubClass
 decl_stmt|;
 specifier|private
 name|byte
@@ -1404,7 +1434,14 @@ name|familyClass
 operator|=
 name|data
 operator|.
-name|readSignedShort
+name|read
+argument_list|()
+expr_stmt|;
+name|familySubClass
+operator|=
+name|data
+operator|.
+name|read
 argument_list|()
 expr_stmt|;
 name|panose
