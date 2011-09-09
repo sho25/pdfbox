@@ -562,7 +562,7 @@ name|TRUE_TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
+comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      *       * @throws IOException exception if something went wrong when loading the font.      */
 specifier|public
 name|PDTrueTypeFont
 parameter_list|(
@@ -977,13 +977,11 @@ operator|.
 name|getOS2Windows
 argument_list|()
 decl_stmt|;
-name|fd
-operator|.
-name|setNonSymbolic
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
+name|boolean
+name|isSymbolic
+init|=
+literal|false
+decl_stmt|;
 switch|switch
 condition|(
 name|os2
@@ -997,19 +995,9 @@ name|OS2WindowsMetricsTable
 operator|.
 name|FAMILY_CLASS_SYMBOLIC
 case|:
-name|fd
-operator|.
-name|setSymbolic
-argument_list|(
+name|isSymbolic
+operator|=
 literal|true
-argument_list|)
-expr_stmt|;
-name|fd
-operator|.
-name|setNonSymbolic
-argument_list|(
-literal|false
-argument_list|)
 expr_stmt|;
 break|break;
 case|case
@@ -1199,8 +1187,22 @@ name|getWeightClass
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fd
+operator|.
+name|setSymbolic
+argument_list|(
+name|isSymbolic
+argument_list|)
+expr_stmt|;
+name|fd
+operator|.
+name|setNonSymbolic
+argument_list|(
+operator|!
+name|isSymbolic
+argument_list|)
+expr_stmt|;
 comment|//todo retval.setFixedPitch
-comment|//todo retval.setNonSymbolic
 comment|//todo retval.setItalic
 comment|//todo retval.setAllCap
 comment|//todo retval.setSmallCap
@@ -1581,7 +1583,11 @@ operator|==
 name|CMAPTable
 operator|.
 name|PLATFORM_WINDOWS
-operator|&&
+condition|)
+block|{
+name|int
+name|platformEncoding
+init|=
 name|cmaps
 index|[
 name|i
@@ -1589,10 +1595,24 @@ index|]
 operator|.
 name|getPlatformEncodingId
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|(
+name|isSymbolic
+operator|&&
+name|CMAPTable
+operator|.
+name|ENCODING_SYMBOL
 operator|==
+name|platformEncoding
+operator|)
+operator|||
 name|CMAPTable
 operator|.
 name|ENCODING_UNICODE
+operator|==
+name|platformEncoding
 condition|)
 block|{
 name|glyphToCCode
@@ -1605,12 +1625,17 @@ operator|.
 name|getGlyphIdToCharacterCode
 argument_list|()
 expr_stmt|;
+break|break;
+block|}
 block|}
 block|}
 name|int
 name|firstChar
 init|=
-literal|0
+name|os2
+operator|.
+name|getFirstCharIndex
+argument_list|()
 decl_stmt|;
 name|int
 name|maxWidths
@@ -1688,9 +1713,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|widthValues
-operator|.
-name|length
+name|maxWidths
 condition|;
 name|i
 operator|++
@@ -1762,11 +1785,22 @@ argument_list|)
 expr_stmt|;
 name|setFirstChar
 argument_list|(
+name|isSymbolic
+condition|?
+literal|0
+else|:
 name|firstChar
 argument_list|)
 expr_stmt|;
 name|setLastChar
 argument_list|(
+name|isSymbolic
+condition|?
+name|widths
+operator|.
+name|size
+argument_list|()
+else|:
 name|firstChar
 operator|+
 name|widths
