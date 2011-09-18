@@ -1001,6 +1001,13 @@ name|skipped
 init|=
 literal|0
 decl_stmt|;
+if|if
+condition|(
+name|offset
+operator|!=
+literal|null
+condition|)
+block|{
 while|while
 condition|(
 name|skipped
@@ -1419,6 +1426,11 @@ literal|"Stream length is invalide"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|/* 				 *  				 * Offset is null. The stream isn't used, check is useless. 				 *  				 */
 block|}
 block|}
 catch|catch

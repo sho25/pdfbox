@@ -203,6 +203,19 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|ArrayList
+argument_list|<
+name|ValidationError
+argument_list|>
+name|allErrors
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ValidationError
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|// syntax (javacc) validation
 try|try
 block|{
@@ -218,17 +231,17 @@ name|getInputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|parser
-operator|.
-name|PDF
-argument_list|()
-expr_stmt|;
 name|handler
 operator|.
 name|setParser
 argument_list|(
 name|parser
 argument_list|)
+expr_stmt|;
+name|parser
+operator|.
+name|PDF
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -258,12 +271,19 @@ name|ParseException
 name|e
 parameter_list|)
 block|{
-return|return
+name|allErrors
+operator|.
+name|addAll
+argument_list|(
 name|createErrorResult
 argument_list|(
 name|e
 argument_list|)
-return|;
+operator|.
+name|getErrorsList
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|// if here is reached, validate with helpers
 comment|// init PDF Box document
@@ -366,20 +386,7 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// call all helpers
-name|ArrayList
-argument_list|<
-name|ValidationError
-argument_list|>
-name|allErrors
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ValidationError
-argument_list|>
-argument_list|()
-decl_stmt|;
+comment|/*  			 * call all helpers 			 */
 comment|// Execute priority helpers.
 for|for
 control|(
