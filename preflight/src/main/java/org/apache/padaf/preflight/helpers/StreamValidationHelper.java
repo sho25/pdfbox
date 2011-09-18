@@ -1430,7 +1430,7 @@ block|}
 block|}
 else|else
 block|{
-comment|/* 				 *  				 * Offset is null. The stream isn't used, check is useless. 				 *  				 */
+comment|/* 				 *  				 * Offset is null. The stream isn't used, check is useless. 				 *  				 * TODO : Is it the truth?  				 */
 block|}
 block|}
 catch|catch
