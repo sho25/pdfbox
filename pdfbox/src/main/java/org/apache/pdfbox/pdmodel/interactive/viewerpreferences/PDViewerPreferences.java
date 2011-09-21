@@ -55,6 +55,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -74,7 +88,7 @@ name|PDViewerPreferences
 implements|implements
 name|COSObjectable
 block|{
-comment|/**      * From PDF Reference: "Neither document outline nor thumbnail images visible".      */
+comment|/**      * From PDF Reference: "Neither document outline nor thumbnail images visible".      *       * @deprecated use {@link NON_FULL_SCREEN_PAGE_MODE} instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -83,7 +97,7 @@ name|NON_FULL_SCREEN_PAGE_MODE_USE_NONE
 init|=
 literal|"UseNone"
 decl_stmt|;
-comment|/**      * From PDF Reference: "Document outline visible".      */
+comment|/**      * From PDF Reference: "Document outline visible".      *       * @deprecated use {@link NON_FULL_SCREEN_PAGE_MODE} instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -92,7 +106,7 @@ name|NON_FULL_SCREEN_PAGE_MODE_USE_OUTLINES
 init|=
 literal|"UseOutlines"
 decl_stmt|;
-comment|/**      * From PDF Reference: "Thumbnail images visible".      */
+comment|/**      * From PDF Reference: "Thumbnail images visible".      *       * @deprecated use {@link NON_FULL_SCREEN_PAGE_MODE} instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -101,7 +115,7 @@ name|NON_FULL_SCREEN_PAGE_MODE_USE_THUMBS
 init|=
 literal|"UseThumbs"
 decl_stmt|;
-comment|/**      * From PDF Reference: "Optional content group panel visible".      */
+comment|/**      * From PDF Reference: "Optional content group panel visible".      *       * @deprecated use {@link NON_FULL_SCREEN_PAGE_MODE} instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -110,7 +124,25 @@ name|NON_FULL_SCREEN_PAGE_MODE_USE_OPTIONAL_CONTENT
 init|=
 literal|"UseOC"
 decl_stmt|;
-comment|/**      * Reading direction.      */
+comment|/**      * Enumeration containing all valid values for NonFullScreenPageMode.      */
+specifier|public
+specifier|static
+enum|enum
+name|NON_FULL_SCREEN_PAGE_MODE
+block|{
+comment|/**          *  From PDF Reference: "Neither document outline nor thumbnail images visible".          */
+name|UseNone
+block|,
+comment|/**          * From PDF Reference: "Document outline visible".          */
+name|UseOutlines
+block|,
+comment|/**          * From PDF Reference: "Thumbnail images visible".          */
+name|UseThumbs
+block|,
+comment|/**          * From PDF Reference: "Optional content group panel visible".          */
+name|UseOC
+block|}
+comment|/**      * Reading direction.      *       * @deprecated use {@link READING_DIRECTION} instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -119,7 +151,7 @@ name|READING_DIRECTION_L2R
 init|=
 literal|"L2R"
 decl_stmt|;
-comment|/**      * Reading direction.      */
+comment|/**      * Reading direction.      *       * @deprecated use {@link READING_DIRECTION} instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -128,7 +160,19 @@ name|READING_DIRECTION_R2L
 init|=
 literal|"R2L"
 decl_stmt|;
-comment|/**      * Boundary constant.      */
+comment|/**      * Enumeration containing all valid values for ReadingDirection.      */
+specifier|public
+specifier|static
+enum|enum
+name|READING_DIRECTION
+block|{
+comment|/**          * left to right.          */
+name|L2R
+block|,
+comment|/**          * right to left.          */
+name|R2L
+block|}
+comment|/**      * Boundary constant.      *       * @deprecated use {@link BOUNDARY} instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -137,7 +181,7 @@ name|BOUNDARY_MEDIA_BOX
 init|=
 literal|"MediaBox"
 decl_stmt|;
-comment|/**      * Boundary constant.      */
+comment|/**      * Boundary constant.      *       * @deprecated use {@link BOUNDARY} instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -146,7 +190,7 @@ name|BOUNDARY_CROP_BOX
 init|=
 literal|"CropBox"
 decl_stmt|;
-comment|/**      * Boundary constant.      */
+comment|/**      * Boundary constant.      *       * @deprecated use {@link BOUNDARY} instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -155,7 +199,7 @@ name|BOUNDARY_BLEED_BOX
 init|=
 literal|"BleedBox"
 decl_stmt|;
-comment|/**      * Boundary constant.      */
+comment|/**      * Boundary constant.      *       * @deprecated use {@link BOUNDARY} instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -164,7 +208,7 @@ name|BOUNDARY_TRIM_BOX
 init|=
 literal|"TrimBox"
 decl_stmt|;
-comment|/**      * Boundary constant.      */
+comment|/**      * Boundary constant.      *       * @deprecated use {@link BOUNDARY} instead      */
 specifier|public
 specifier|static
 specifier|final
@@ -173,6 +217,54 @@ name|BOUNDARY_ART_BOX
 init|=
 literal|"ArtBox"
 decl_stmt|;
+comment|/**      * Enumeration containing all valid values for boundaries.      */
+specifier|public
+specifier|static
+enum|enum
+name|BOUNDARY
+block|{
+comment|/**          * use media box as boundary.          */
+name|MediaBox
+block|,
+comment|/**          * use crop box as boundary.          */
+name|CropBox
+block|,
+comment|/**          * use bleed box as boundary.          */
+name|BleedBox
+block|,
+comment|/**          * use trim box as boundary.          */
+name|TrimBox
+block|,
+comment|/**          * use art box as boundary.          */
+name|ArtBox
+block|}
+comment|/**      * Enumeration containing all valid values for duplex.      */
+specifier|public
+specifier|static
+enum|enum
+name|DUPLEX
+block|{
+comment|/**          * simplex printing.          */
+name|Simplex
+block|,
+comment|/**          * duplex printing, flip at short edge.          */
+name|DuplexFlipShortEdge
+block|,
+comment|/**          * duplex printing, flip at long edge.          */
+name|DuplexFlipLongEdge
+block|}
+comment|/**      * Enumeration containing all valid values for printscaling.      */
+specifier|public
+specifier|static
+enum|enum
+name|PRINT_SCALING
+block|{
+comment|/**          * no scaling.          */
+name|None
+block|,
+comment|/**          * use app default.          */
+name|AppDefault
+block|}
 specifier|private
 name|COSDictionary
 name|prefs
@@ -221,7 +313,9 @@ name|prefs
 operator|.
 name|getBoolean
 argument_list|(
-literal|"HideToolbar"
+name|COSName
+operator|.
+name|HIDE_TOOLBAR
 argument_list|,
 literal|false
 argument_list|)
@@ -240,7 +334,9 @@ name|prefs
 operator|.
 name|setBoolean
 argument_list|(
-literal|"HideToolbar"
+name|COSName
+operator|.
+name|HIDE_TOOLBAR
 argument_list|,
 name|value
 argument_list|)
@@ -257,7 +353,9 @@ name|prefs
 operator|.
 name|getBoolean
 argument_list|(
-literal|"HideMenubar"
+name|COSName
+operator|.
+name|HIDE_MENUBAR
 argument_list|,
 literal|false
 argument_list|)
@@ -276,7 +374,9 @@ name|prefs
 operator|.
 name|setBoolean
 argument_list|(
-literal|"HideMenubar"
+name|COSName
+operator|.
+name|HIDE_MENUBAR
 argument_list|,
 name|value
 argument_list|)
@@ -293,7 +393,9 @@ name|prefs
 operator|.
 name|getBoolean
 argument_list|(
-literal|"HideWindowUI"
+name|COSName
+operator|.
+name|HIDE_WINDOWUI
 argument_list|,
 literal|false
 argument_list|)
@@ -312,7 +414,9 @@ name|prefs
 operator|.
 name|setBoolean
 argument_list|(
-literal|"HideWindowUI"
+name|COSName
+operator|.
+name|HIDE_WINDOWUI
 argument_list|,
 name|value
 argument_list|)
@@ -329,7 +433,9 @@ name|prefs
 operator|.
 name|getBoolean
 argument_list|(
-literal|"FitWindow"
+name|COSName
+operator|.
+name|FIT_WINDOW
 argument_list|,
 literal|false
 argument_list|)
@@ -348,7 +454,9 @@ name|prefs
 operator|.
 name|setBoolean
 argument_list|(
-literal|"FitWindow"
+name|COSName
+operator|.
+name|FIT_WINDOW
 argument_list|,
 name|value
 argument_list|)
@@ -365,7 +473,9 @@ name|prefs
 operator|.
 name|getBoolean
 argument_list|(
-literal|"CenterWindow"
+name|COSName
+operator|.
+name|CENTER_WINDOW
 argument_list|,
 literal|false
 argument_list|)
@@ -384,7 +494,9 @@ name|prefs
 operator|.
 name|setBoolean
 argument_list|(
-literal|"CenterWindow"
+name|COSName
+operator|.
+name|CENTER_WINDOW
 argument_list|,
 name|value
 argument_list|)
@@ -401,7 +513,9 @@ name|prefs
 operator|.
 name|getBoolean
 argument_list|(
-literal|"DisplayDocTitle"
+name|COSName
+operator|.
+name|DISPLAY_DOC_TITLE
 argument_list|,
 literal|false
 argument_list|)
@@ -420,7 +534,9 @@ name|prefs
 operator|.
 name|setBoolean
 argument_list|(
-literal|"DisplayDocTitle"
+name|COSName
+operator|.
+name|DISPLAY_DOC_TITLE
 argument_list|,
 name|value
 argument_list|)
@@ -437,13 +553,44 @@ name|prefs
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"NonFullScreenPageMode"
+name|COSName
+operator|.
+name|NON_FULL_SCREEN_PAGE_MODE
 argument_list|,
-name|NON_FULL_SCREEN_PAGE_MODE_USE_NONE
+name|NON_FULL_SCREEN_PAGE_MODE
+operator|.
+name|UseNone
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 return|;
 block|}
 comment|/**      * Set the non full screen page mode preference.      *      * @param value Set the non full screen page mode preference.      */
+specifier|public
+name|void
+name|setNonFullScreenPageMode
+parameter_list|(
+name|NON_FULL_SCREEN_PAGE_MODE
+name|value
+parameter_list|)
+block|{
+name|prefs
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|NON_FULL_SCREEN_PAGE_MODE
+argument_list|,
+name|value
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the non full screen page mode preference.      *      * @param value Set the non full screen page mode preference.      *       * @deprecated      */
 specifier|public
 name|void
 name|setNonFullScreenPageMode
@@ -456,7 +603,9 @@ name|prefs
 operator|.
 name|setName
 argument_list|(
-literal|"NonFullScreenPageMode"
+name|COSName
+operator|.
+name|NON_FULL_SCREEN_PAGE_MODE
 argument_list|,
 name|value
 argument_list|)
@@ -473,13 +622,44 @@ name|prefs
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"Direction"
+name|COSName
+operator|.
+name|DIRECTION
 argument_list|,
-name|READING_DIRECTION_L2R
+name|READING_DIRECTION
+operator|.
+name|L2R
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 return|;
 block|}
 comment|/**      * Set the reading direction preference.      *      * @param value Set the reading direction preference.      */
+specifier|public
+name|void
+name|setReadingDirection
+parameter_list|(
+name|READING_DIRECTION
+name|value
+parameter_list|)
+block|{
+name|prefs
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|DIRECTION
+argument_list|,
+name|value
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the reading direction preference.      *      * @param value Set the reading direction preference.      *       * @deprecated      */
 specifier|public
 name|void
 name|setReadingDirection
@@ -492,13 +672,18 @@ name|prefs
 operator|.
 name|setName
 argument_list|(
-literal|"Direction"
+name|COSName
+operator|.
+name|DIRECTION
 argument_list|,
 name|value
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the ViewArea preference.  See BOUNDARY_XXX constants.      *      * @return the ViewArea preference.      */
+comment|/**      * Get the ViewArea preference.  See BOUNDARY enumeration.      *      * @return the ViewArea preference.      */
 specifier|public
 name|String
 name|getViewArea
@@ -509,13 +694,20 @@ name|prefs
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"ViewArea"
+name|COSName
+operator|.
+name|VIEW_AREA
 argument_list|,
-name|BOUNDARY_CROP_BOX
+name|BOUNDARY
+operator|.
+name|CropBox
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the ViewArea preference.  See BOUNDARY_XXX constants.      *      * @param value Set the ViewArea preference.      */
+comment|/**      * Set the ViewArea preference.  See BOUNDARY_XXX constants.      *      * @param value Set the ViewArea preference.      *       * @deprecated      */
 specifier|public
 name|void
 name|setViewArea
@@ -528,13 +720,39 @@ name|prefs
 operator|.
 name|setName
 argument_list|(
-literal|"ViewArea"
+name|COSName
+operator|.
+name|VIEW_AREA
 argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the ViewClip preference.  See BOUNDARY_XXX constants.      *      * @return the ViewClip preference.      */
+comment|/**      * Set the ViewArea preference.  See BOUNDARY enumeration.      *      * @param value Set the ViewArea preference.      */
+specifier|public
+name|void
+name|setViewArea
+parameter_list|(
+name|BOUNDARY
+name|value
+parameter_list|)
+block|{
+name|prefs
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|VIEW_AREA
+argument_list|,
+name|value
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the ViewClip preference.  See BOUNDARY enumeration.      *      * @return the ViewClip preference.      */
 specifier|public
 name|String
 name|getViewClip
@@ -545,13 +763,44 @@ name|prefs
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"ViewClip"
+name|COSName
+operator|.
+name|VIEW_CLIP
 argument_list|,
-name|BOUNDARY_CROP_BOX
+name|BOUNDARY
+operator|.
+name|CropBox
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the ViewClip preference.  See BOUNDARY_XXX constants.      *      * @param value Set the ViewClip preference.      */
+comment|/**      * Set the ViewClip preference.  See BOUNDARY enumeration.      *      * @param value Set the ViewClip preference.      */
+specifier|public
+name|void
+name|setViewClip
+parameter_list|(
+name|BOUNDARY
+name|value
+parameter_list|)
+block|{
+name|prefs
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|VIEW_CLIP
+argument_list|,
+name|value
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the ViewClip preference.  See BOUNDARY_XXX constants.      *      * @param value Set the ViewClip preference.      *       * @deprecated      */
 specifier|public
 name|void
 name|setViewClip
@@ -564,13 +813,15 @@ name|prefs
 operator|.
 name|setName
 argument_list|(
-literal|"ViewClip"
+name|COSName
+operator|.
+name|VIEW_CLIP
 argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the PrintArea preference.  See BOUNDARY_XXX constants.      *      * @return the PrintArea preference.      */
+comment|/**      * Get the PrintArea preference.  See BOUNDARY enumeration.      *      * @return the PrintArea preference.      */
 specifier|public
 name|String
 name|getPrintArea
@@ -581,13 +832,20 @@ name|prefs
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"PrintArea"
+name|COSName
+operator|.
+name|PRINT_AREA
 argument_list|,
-name|BOUNDARY_CROP_BOX
+name|BOUNDARY
+operator|.
+name|CropBox
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the PrintArea preference.  See BOUNDARY_XXX constants.      *      * @param value Set the PrintArea preference.      */
+comment|/**      * Set the PrintArea preference.  See BOUNDARY_XXX constants.      *      * @param value Set the PrintArea preference.      *       * @deprecated      */
 specifier|public
 name|void
 name|setPrintArea
@@ -600,13 +858,39 @@ name|prefs
 operator|.
 name|setName
 argument_list|(
-literal|"PrintArea"
+name|COSName
+operator|.
+name|PRINT_AREA
 argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the PrintClip preference.  See BOUNDARY_XXX constants.      *      * @return the PrintClip preference.      */
+comment|/**      * Set the PrintArea preference.  See BOUNDARY enumeration.      *      * @param value Set the PrintArea preference.      */
+specifier|public
+name|void
+name|setPrintArea
+parameter_list|(
+name|BOUNDARY
+name|value
+parameter_list|)
+block|{
+name|prefs
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|PRINT_AREA
+argument_list|,
+name|value
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the PrintClip preference.  See BOUNDARY enumeration.      *      * @return the PrintClip preference.      */
 specifier|public
 name|String
 name|getPrintClip
@@ -617,13 +901,20 @@ name|prefs
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"PrintClip"
+name|COSName
+operator|.
+name|PRINT_CLIP
 argument_list|,
-name|BOUNDARY_CROP_BOX
+name|BOUNDARY
+operator|.
+name|CropBox
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the PrintClip preference.  See BOUNDARY_XXX constants.      *      * @param value Set the PrintClip preference.      */
+comment|/**      * Set the PrintClip preference.  See BOUNDARY_XXX constants.      *      * @param value Set the PrintClip preference.      *       * @deprecated      */
 specifier|public
 name|void
 name|setPrintClip
@@ -636,9 +927,124 @@ name|prefs
 operator|.
 name|setName
 argument_list|(
-literal|"PrintClip"
+name|COSName
+operator|.
+name|PRINT_CLIP
 argument_list|,
 name|value
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the PrintClip preference.  See BOUNDARY enumeration.      *      * @param value Set the PrintClip preference.      */
+specifier|public
+name|void
+name|setPrintClip
+parameter_list|(
+name|BOUNDARY
+name|value
+parameter_list|)
+block|{
+name|prefs
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|PRINT_CLIP
+argument_list|,
+name|value
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the Duplex preference.  See DUPLEX enumeration.      *      * @return the Duplex preference.      */
+specifier|public
+name|String
+name|getDuplex
+parameter_list|()
+block|{
+return|return
+name|prefs
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|DUPLEX
+argument_list|)
+return|;
+block|}
+comment|/**      * Set the Duplex preference.  See DUPLEX enumeration.      *      * @param value Set the Duplex preference.      */
+specifier|public
+name|void
+name|setDuplex
+parameter_list|(
+name|DUPLEX
+name|value
+parameter_list|)
+block|{
+name|prefs
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|DUPLEX
+argument_list|,
+name|value
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the PrintScaling preference.  See PRINT_SCALING enumeration.      *      * @return the PrintScaling preference.      */
+specifier|public
+name|String
+name|getPrintScaling
+parameter_list|()
+block|{
+return|return
+name|prefs
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|PRINT_SCALING
+argument_list|,
+name|PRINT_SCALING
+operator|.
+name|AppDefault
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Set the PrintScaling preference.  See PRINT_SCALING enumeration.      *      * @param value Set the PrintScaling preference.      */
+specifier|public
+name|void
+name|setPrintScaling
+parameter_list|(
+name|PRINT_SCALING
+name|value
+parameter_list|)
+block|{
+name|prefs
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|PRINT_SCALING
+argument_list|,
+name|value
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

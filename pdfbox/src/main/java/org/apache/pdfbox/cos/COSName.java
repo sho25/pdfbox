@@ -772,6 +772,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|CENTER_WINDOW
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CenterWindow"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|CF
 init|=
 operator|new
@@ -1240,6 +1253,32 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|DIRECTION
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Direction"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DISPLAY_DOC_TITLE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DisplayDocTitle"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|DL
 init|=
 operator|new
@@ -1285,6 +1324,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"DR"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DUPLEX
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Duplex"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -1571,6 +1623,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"FirstChar"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|FIT_WINDOW
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"FitWindow"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -1896,6 +1961,45 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Height"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|HIDE_MENUBAR
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"HideMenubar"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|HIDE_TOOLBAR
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"HideToolbar"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|HIDE_WINDOWUI
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"HideWindowUI"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -2514,6 +2618,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|NON_FULL_SCREEN_PAGE_MODE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"NonFullScreenPageMode"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|NUMS
 init|=
 operator|new
@@ -2936,6 +3053,45 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Prev"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PRINT_AREA
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"PrintArea"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PRINT_CLIP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"PrintClip"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PRINT_SCALING
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"PrintScaling"
 argument_list|)
 decl_stmt|;
 comment|/** The COSName value for "ProcSet". */
@@ -3716,6 +3872,32 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Version"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|VIEW_AREA
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ViewArea"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|VIEW_CLIP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ViewClip"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
