@@ -211,7 +211,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -228,7 +228,7 @@ specifier|final
 name|int
 name|BUFFER_SIZE
 init|=
-literal|2048
+literal|16348
 decl_stmt|;
 comment|/**      * {@inheritDoc}      */
 specifier|public
@@ -330,13 +330,9 @@ elseif|else
 if|if
 condition|(
 name|baseObj
-operator|==
+operator|!=
 literal|null
 condition|)
-block|{
-comment|//do nothing
-block|}
-else|else
 block|{
 throw|throw
 operator|new
@@ -431,7 +427,7 @@ argument_list|)
 expr_stmt|;
 name|bitsPerPixel
 operator|=
-name|options
+name|dict
 operator|.
 name|getInt
 argument_list|(
@@ -563,7 +559,7 @@ name|exception
 parameter_list|)
 block|{
 comment|// if the stream is corrupt an OutOfMemoryError may occur
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -578,7 +574,7 @@ name|exception
 parameter_list|)
 block|{
 comment|// if the stream is corrupt an OutOfMemoryError may occur
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -593,7 +589,7 @@ name|exception
 parameter_list|)
 block|{
 comment|// if the stream is corrupt an OutOfMemoryError may occur
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
