@@ -129,7 +129,7 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSFloat
+name|COSInteger
 import|;
 end_import
 
@@ -229,7 +229,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -239,6 +239,38 @@ name|PDDeviceN
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|COLORANT_NAMES
+init|=
+literal|1
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|ALTERNATE_CS
+init|=
+literal|2
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|TINT_TRANSFORM
+init|=
+literal|3
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|DEVICEN_ATTRIBUTES
+init|=
+literal|4
 decl_stmt|;
 comment|/**      * The name of this color space.      */
 specifier|public
@@ -354,7 +386,7 @@ name|IOException
 name|ioexception
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -373,7 +405,7 @@ name|Exception
 name|exception
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -402,7 +434,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -444,7 +476,7 @@ name|array
 operator|.
 name|getObject
 argument_list|(
-literal|1
+name|COLORANT_NAMES
 argument_list|)
 decl_stmt|;
 return|return
@@ -482,7 +514,7 @@ name|array
 operator|.
 name|set
 argument_list|(
-literal|1
+name|COLORANT_NAMES
 argument_list|,
 name|namesArray
 argument_list|)
@@ -503,7 +535,7 @@ name|array
 operator|.
 name|getObject
 argument_list|(
-literal|2
+name|ALTERNATE_CS
 argument_list|)
 decl_stmt|;
 return|return
@@ -548,7 +580,7 @@ name|array
 operator|.
 name|set
 argument_list|(
-literal|2
+name|ALTERNATE_CS
 argument_list|,
 name|space
 argument_list|)
@@ -571,7 +603,7 @@ name|array
 operator|.
 name|getObject
 argument_list|(
-literal|3
+name|TINT_TRANSFORM
 argument_list|)
 argument_list|)
 return|;
@@ -589,7 +621,7 @@ name|array
 operator|.
 name|set
 argument_list|(
-literal|3
+name|TINT_TRANSFORM
 argument_list|,
 name|tint
 argument_list|)
@@ -612,8 +644,8 @@ name|array
 operator|.
 name|size
 argument_list|()
-operator|<
-literal|5
+operator|<=
+name|DEVICEN_ATTRIBUTES
 condition|)
 block|{
 name|retval
@@ -652,7 +684,7 @@ name|array
 operator|.
 name|remove
 argument_list|(
-literal|4
+name|DEVICEN_ATTRIBUTES
 argument_list|)
 expr_stmt|;
 block|}
@@ -665,8 +697,8 @@ name|array
 operator|.
 name|size
 argument_list|()
-operator|<
-literal|5
+operator|<=
+name|DEVICEN_ATTRIBUTES
 condition|)
 block|{
 name|array
@@ -683,7 +715,7 @@ name|array
 operator|.
 name|set
 argument_list|(
-literal|4
+name|DEVICEN_ATTRIBUTES
 argument_list|,
 name|attributes
 operator|.
@@ -693,7 +725,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the components of the color in the alternate colorspace for the given tint value.      * @return COSArray with the color components      * @throws IOException If the tint function is not supported      */
+comment|/**      * Returns the components of the color in the alternate colorspace for the given tint value.      * @param tintValues a list containing the tint values      * @return COSArray with the color components      * @throws IOException If the tint function is not supported      */
 specifier|public
 name|COSArray
 name|calculateColorValues
@@ -720,7 +752,7 @@ operator|instanceof
 name|PDFunctionType4
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -757,19 +789,7 @@ name|getNumberOfComponents
 argument_list|()
 decl_stmt|;
 comment|// To get black as color:
-comment|// 0.0f is used for the single value(s) if the colorspace is gray or RGB based
-comment|// 1.0f is used for the single value if the colorspace is CMYK based
-name|float
-name|colorValue
-init|=
-name|numberOfComponents
-operator|==
-literal|4
-condition|?
-literal|1.0f
-else|:
-literal|0.0f
-decl_stmt|;
+comment|// 0 is used for the single value(s) if the colorspace is gray or RGB based
 name|COSArray
 name|retval
 init|=
@@ -796,11 +816,34 @@ name|retval
 operator|.
 name|add
 argument_list|(
-operator|new
-name|COSFloat
-argument_list|(
-name|colorValue
+name|COSInteger
+operator|.
+name|ZERO
 argument_list|)
+expr_stmt|;
+block|}
+comment|// 1 is used as forth value if the colorspace is CMYK based
+if|if
+condition|(
+name|numberOfComponents
+operator|==
+name|PDDeviceCMYK
+operator|.
+name|INSTANCE
+operator|.
+name|getNumberOfComponents
+argument_list|()
+condition|)
+block|{
+name|retval
+operator|.
+name|set
+argument_list|(
+literal|3
+argument_list|,
+name|COSInteger
+operator|.
+name|ONE
 argument_list|)
 expr_stmt|;
 block|}
