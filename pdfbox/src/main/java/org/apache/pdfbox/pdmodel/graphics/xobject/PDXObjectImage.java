@@ -235,7 +235,7 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDDeviceGray
+name|PDColorState
 import|;
 end_import
 
@@ -251,7 +251,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|PDGraphicsState
+name|color
+operator|.
+name|PDDeviceGray
 import|;
 end_import
 
@@ -272,7 +274,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -298,10 +300,10 @@ name|String
 name|suffix
 decl_stmt|;
 specifier|private
-name|PDGraphicsState
-name|graphicsState
+name|PDColorState
+name|stencilColor
 decl_stmt|;
-comment|/**      * Standard constuctor.      *      * @param imageStream The XObject is passed as a COSStream.      * @param fileSuffix The file suffix, jpg/png.      */
+comment|/**      * Standard constructor.      *      * @param imageStream The XObject is passed as a COSStream.      * @param fileSuffix The file suffix, jpg/png.      */
 specifier|public
 name|PDXObjectImage
 parameter_list|(
@@ -489,7 +491,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Writes the image to a file with the filename + an appropriate suffix, like "Image.jpg".      * The suffix is automatically set by the      * @param file the file      * @throws IOException When somethings wrong with the corresponding file.      */
+comment|/**      * Writes the image to a file with the filename + an appropriate      * suffix, like "Image.jpg".      * The suffix is automatically set by the      * @param file the file      * @throws IOException When somethings wrong with the corresponding file.      */
 specifier|public
 name|void
 name|write2file
@@ -641,14 +643,13 @@ argument_list|()
 operator|.
 name|getInt
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
-literal|"BPC"
-block|,
-literal|"BitsPerComponent"
-block|}
+name|COSName
+operator|.
+name|BITS_PER_COMPONENT
+argument_list|,
+name|COSName
+operator|.
+name|BPC
 argument_list|,
 operator|-
 literal|1
@@ -669,7 +670,9 @@ argument_list|()
 operator|.
 name|setInt
 argument_list|(
-literal|"BitsPerComponent"
+name|COSName
+operator|.
+name|BITS_PER_COMPONENT
 argument_list|,
 name|bpc
 argument_list|)
@@ -691,14 +694,13 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
-literal|"CS"
-block|,
-literal|"ColorSpace"
-block|}
+name|COSName
+operator|.
+name|COLORSPACE
+argument_list|,
+name|COSName
+operator|.
+name|CS
 argument_list|)
 decl_stmt|;
 name|PDColorSpace
@@ -729,7 +731,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -750,7 +752,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Filter"
+name|COSName
+operator|.
+name|FILTER
 argument_list|)
 decl_stmt|;
 if|if
@@ -780,21 +784,6 @@ operator|new
 name|PDDeviceGray
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|retval
-operator|==
-literal|null
-condition|)
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"About to return NULL from CCITT branch"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 elseif|else
 if|if
@@ -815,21 +804,6 @@ operator|new
 name|PDDeviceGray
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|retval
-operator|==
-literal|null
-condition|)
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"About to return NULL from JBIG2 branch"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 elseif|else
 if|if
@@ -838,34 +812,17 @@ name|getImageMask
 argument_list|()
 condition|)
 block|{
-comment|//Stencil Mask branch.  Section 4.8.5 of the reference, page 350 in version 1.7.
+comment|// image is a stencil mask -> use DeviceGray
 name|retval
 operator|=
-name|graphicsState
-operator|.
-name|getNonStrokingColor
-argument_list|()
-operator|.
-name|getColorSpace
+operator|new
+name|PDDeviceGray
 argument_list|()
 expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Stencil Mask branch returning "
-operator|+
-name|retval
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|//throw new IOException("Trace the Stencil Mask!!!!");
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -954,19 +911,29 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Allow the Invoke operator to set the graphics state so that,      * in the case of an Image Mask, we can get to the current nonstroking colorspace.      * @param newGS The new graphicstate      */
+comment|/**      * Set the current non stroking colorstate. It'll be used to create stencil masked images.      *       * @param stencilColorValue The non stroking colorstate      */
 specifier|public
 name|void
-name|setGraphicsState
+name|setStencilColor
 parameter_list|(
-name|PDGraphicsState
-name|newGS
+name|PDColorState
+name|stencilColorValue
 parameter_list|)
 block|{
-name|graphicsState
+name|stencilColor
 operator|=
-name|newGS
+name|stencilColorValue
 expr_stmt|;
+block|}
+comment|/**      * Returns the non stroking colorstate to be used to create stencil makes images.      *       * @return The current non stroking colorstate.      */
+specifier|public
+name|PDColorState
+name|getStencilColor
+parameter_list|()
+block|{
+return|return
+name|stencilColor
+return|;
 block|}
 comment|/**      * Returns the Decode Array of an XObjectImage.      * @return the decode array      */
 specifier|public

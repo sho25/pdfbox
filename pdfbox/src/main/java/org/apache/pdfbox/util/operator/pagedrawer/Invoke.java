@@ -315,7 +315,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -373,6 +373,11 @@ literal|0
 argument_list|)
 decl_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PDXObject
+argument_list|>
 name|xobjects
 init|=
 name|drawer
@@ -406,7 +411,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -439,16 +444,30 @@ name|xobject
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
 name|image
 operator|.
-name|setGraphicsState
+name|getImageMask
+argument_list|()
+condition|)
+block|{
+comment|// set the current non stroking colorstate, so that it can
+comment|// be used to create a stencil masked image
+name|image
+operator|.
+name|setStencilColor
 argument_list|(
 name|drawer
 operator|.
 name|getGraphicsState
 argument_list|()
+operator|.
+name|getNonStrokingColor
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|BufferedImage
 name|awtImage
 init|=
@@ -464,7 +483,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -501,7 +520,7 @@ operator|.
 name|getHeight
 argument_list|()
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -582,6 +601,7 @@ argument_list|)
 operator|>
 literal|0
 condition|)
+block|{
 name|angle
 operator|=
 operator|(
@@ -591,6 +611,7 @@ operator|)
 operator|*
 name|angle
 expr_stmt|;
+block|}
 name|ctm
 operator|.
 name|setValue
@@ -738,7 +759,7 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
