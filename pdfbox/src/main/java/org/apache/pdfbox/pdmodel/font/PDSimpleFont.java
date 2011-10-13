@@ -289,22 +289,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|encoding
-operator|.
-name|conversion
-operator|.
-name|CMapSubstitution
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|common
@@ -371,7 +355,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -405,7 +389,7 @@ name|fontDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**     * Looks up, creates, returns  the AWT Font.     */
+comment|/**     * Looks up, creates, returns  the AWT Font.     *      * @return returns the awt font to bes used for rendering      * @throws IOException if something went wrong.     */
 specifier|public
 name|Font
 name|getawtFont
@@ -413,7 +397,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -457,7 +441,7 @@ throws|throws
 name|IOException
 block|{
 name|Font
-name|_awtFont
+name|awtFont
 init|=
 name|getawtFont
 argument_list|()
@@ -471,7 +455,7 @@ operator|!
 name|isType1Font
 argument_list|()
 operator|&&
-name|_awtFont
+name|awtFont
 operator|.
 name|canDisplayUpTo
 argument_list|(
@@ -482,7 +466,7 @@ operator|-
 literal|1
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -492,7 +476,7 @@ name|string
 operator|+
 literal|"> from<"
 operator|+
-name|_awtFont
+name|awtFont
 operator|.
 name|getName
 argument_list|()
@@ -500,7 +484,7 @@ operator|+
 literal|"> to the default font"
 argument_list|)
 expr_stmt|;
-name|_awtFont
+name|awtFont
 operator|=
 name|Font
 operator|.
@@ -537,7 +521,7 @@ name|g2d
 argument_list|,
 name|at
 argument_list|,
-name|_awtFont
+name|awtFont
 argument_list|,
 name|x
 argument_list|,
@@ -1160,7 +1144,7 @@ name|NoninvertibleTransformException
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -1320,7 +1304,7 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -1330,43 +1314,6 @@ name|encodingName
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-elseif|else
-if|if
-condition|(
-name|encoding
-operator|instanceof
-name|COSDictionary
-condition|)
-block|{
-try|try
-block|{
-name|fontEncoding
-operator|=
-operator|new
-name|DictionaryEncoding
-argument_list|(
-operator|(
-name|COSDictionary
-operator|)
-name|encoding
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|exception
-parameter_list|)
-block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"Error: Could not create the DictionaryEncoding"
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 elseif|else
@@ -1411,7 +1358,7 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -1419,6 +1366,43 @@ literal|"Error: Could not parse the embedded CMAP"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|encoding
+operator|instanceof
+name|COSDictionary
+condition|)
+block|{
+try|try
+block|{
+name|fontEncoding
+operator|=
+operator|new
+name|DictionaryEncoding
+argument_list|(
+operator|(
+name|COSDictionary
+operator|)
+name|encoding
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|exception
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Error: Could not create the DictionaryEncoding"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -1473,7 +1457,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -1492,7 +1476,7 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -1570,7 +1554,7 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -1648,7 +1632,7 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -1667,7 +1651,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
