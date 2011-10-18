@@ -1188,6 +1188,7 @@ operator|*
 literal|1000f
 argument_list|)
 expr_stmt|;
+comment|//TODO setClip() is a massive performance hot spot. Investigate optimization possibilities
 name|graphics
 operator|.
 name|setClip
