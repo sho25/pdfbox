@@ -568,6 +568,25 @@ argument_list|(
 name|bpc
 argument_list|)
 decl_stmt|;
+comment|// number of possible color values in the target color space
+name|int
+name|numberOfColorValues
+init|=
+literal|1
+operator|<<
+name|bpc
+decl_stmt|;
+comment|// number of indexed color values
+name|int
+name|highValue
+init|=
+name|csIndexed
+operator|.
+name|getHighValue
+argument_list|()
+decl_stmt|;
+comment|// choose the correct size, sometimes there are more indexed values than needed
+comment|// and sometimes there are fewer indexed value than possible
 name|int
 name|size
 init|=
@@ -575,21 +594,13 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|csIndexed
-operator|.
-name|getHighValue
-argument_list|()
-argument_list|,
-literal|1
-operator|<<
-operator|(
-name|bpc
+name|numberOfColorValues
 operator|-
 literal|1
-operator|)
+argument_list|,
+name|highValue
 argument_list|)
 decl_stmt|;
-comment|//suggested in PDFBOX-1075
 name|byte
 index|[]
 name|index
