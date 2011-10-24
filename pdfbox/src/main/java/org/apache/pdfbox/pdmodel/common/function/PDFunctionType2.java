@@ -156,10 +156,12 @@ return|;
 block|}
 comment|/**     * {@inheritDoc}     */
 specifier|public
-name|COSArray
+name|float
+index|[]
 name|eval
 parameter_list|(
-name|COSArray
+name|float
+index|[]
 name|input
 parameter_list|)
 throws|throws
@@ -172,9 +174,6 @@ name|double
 name|inputValue
 init|=
 name|input
-operator|.
-name|toFloatArray
-argument_list|()
 index|[
 literal|0
 index|]
@@ -197,13 +196,6 @@ init|=
 name|getC1
 argument_list|()
 decl_stmt|;
-name|COSArray
-name|functionResult
-init|=
-operator|new
-name|COSArray
-argument_list|()
-decl_stmt|;
 name|int
 name|c0Size
 init|=
@@ -211,6 +203,16 @@ name|c0
 operator|.
 name|size
 argument_list|()
+decl_stmt|;
+name|float
+index|[]
+name|functionResult
+init|=
+operator|new
+name|float
+index|[
+name|c0Size
+index|]
 decl_stmt|;
 for|for
 control|(
@@ -228,9 +230,11 @@ operator|++
 control|)
 block|{
 comment|//y[j] = C0[j] + x^N*(C1[j] - C0[j])
-name|float
-name|result
-init|=
+name|functionResult
+index|[
+name|j
+index|]
+operator|=
 operator|(
 operator|(
 name|COSNumber
@@ -289,17 +293,6 @@ operator|.
 name|floatValue
 argument_list|()
 operator|)
-decl_stmt|;
-name|functionResult
-operator|.
-name|add
-argument_list|(
-operator|new
-name|COSFloat
-argument_list|(
-name|result
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 comment|// clip to range if available

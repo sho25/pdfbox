@@ -919,10 +919,12 @@ expr_stmt|;
 block|}
 comment|/**     * {@inheritDoc}     */
 specifier|public
-name|COSArray
+name|float
+index|[]
 name|eval
 parameter_list|(
-name|COSArray
+name|float
+index|[]
 name|input
 parameter_list|)
 throws|throws
@@ -930,15 +932,6 @@ name|IOException
 block|{
 comment|//This involves linear interpolation based on a set of sample points.
 comment|//Theoretically it's not that difficult ... see section 3.9.1 of the PDF Reference.
-name|float
-index|[]
-name|inputValues
-init|=
-name|input
-operator|.
-name|toFloatArray
-argument_list|()
-decl_stmt|;
 name|float
 index|[]
 name|sizeValues
@@ -958,7 +951,7 @@ decl_stmt|;
 name|int
 name|numberOfInputValues
 init|=
-name|inputValues
+name|input
 operator|.
 name|length
 decl_stmt|;
@@ -1019,14 +1012,14 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|inputValues
+name|input
 index|[
 name|i
 index|]
 operator|=
 name|clipToRange
 argument_list|(
-name|inputValues
+name|input
 index|[
 name|i
 index|]
@@ -1042,14 +1035,14 @@ name|getMax
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|inputValues
+name|input
 index|[
 name|i
 index|]
 operator|=
 name|interpolate
 argument_list|(
-name|inputValues
+name|input
 index|[
 name|i
 index|]
@@ -1075,14 +1068,14 @@ name|getMax
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|inputValues
+name|input
 index|[
 name|i
 index|]
 operator|=
 name|clipToRange
 argument_list|(
-name|inputValues
+name|input
 index|[
 name|i
 index|]
@@ -1109,7 +1102,7 @@ name|Math
 operator|.
 name|floor
 argument_list|(
-name|inputValues
+name|input
 index|[
 name|i
 index|]
@@ -1127,7 +1120,7 @@ name|Math
 operator|.
 name|ceil
 argument_list|(
-name|inputValues
+name|input
 index|[
 name|i
 index|]
@@ -1283,22 +1276,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|COSArray
-name|result
-init|=
-operator|new
-name|COSArray
-argument_list|()
-decl_stmt|;
-name|result
-operator|.
-name|setFloatArray
-argument_list|(
-name|outputValues
-argument_list|)
-expr_stmt|;
 return|return
-name|result
+name|outputValues
 return|;
 block|}
 comment|/**      * Get the samples for the given input values.      *       * @param inputValues an array containing the input values      * @return an array with the corresponding samples      */
