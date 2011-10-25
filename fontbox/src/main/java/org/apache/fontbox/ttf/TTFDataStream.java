@@ -99,7 +99,7 @@ operator|(
 name|readUnsignedShort
 argument_list|()
 operator|/
-literal|65536
+literal|65536.0
 operator|)
 expr_stmt|;
 return|return
@@ -283,7 +283,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Read an unsigned byte array.      *       * @return An unsigned byte array.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read an unsigned byte array.      *       * @param length the length of the array to be read      * @return An unsigned byte array.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|int
 index|[]
@@ -333,7 +333,7 @@ return|return
 name|array
 return|;
 block|}
-comment|/**      * Read an unsigned short array.      *       * @param length The length of the array to read.      * @param length The length of the array to read.      * @return An unsigned short array.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read an unsigned short array.      *       * @param length The length of the array to read.      * @return An unsigned short array.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|int
 index|[]
