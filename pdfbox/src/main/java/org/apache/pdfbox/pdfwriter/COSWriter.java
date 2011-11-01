@@ -1129,7 +1129,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * COSWriter constructor for incremental updates.       *      * @param os The wrapped output stream.      */
+comment|/**      * COSWriter constructor for incremental updates.       *      * @param os The wrapped output stream.      * @param is input stream      */
 specifier|public
 name|COSWriter
 parameter_list|(
@@ -1154,7 +1154,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-specifier|protected
+specifier|private
 name|void
 name|prepareIncrement
 parameter_list|(
@@ -1280,10 +1280,12 @@ name|num
 operator|>
 name|highestNumber
 condition|)
+block|{
 name|highestNumber
 operator|=
 name|num
 expr_stmt|;
+block|}
 block|}
 name|setNumber
 argument_list|(
@@ -1745,6 +1747,7 @@ name|actual
 operator|!=
 literal|null
 condition|)
+block|{
 name|cosObjectKey
 operator|=
 name|objectKeys
@@ -1754,12 +1757,14 @@ argument_list|(
 name|actual
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|cosObjectKey
 operator|!=
 literal|null
 condition|)
+block|{
 name|cosBase
 operator|=
 name|keyObject
@@ -1769,6 +1774,7 @@ argument_list|(
 name|cosObjectKey
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|actual
@@ -2189,6 +2195,7 @@ condition|(
 operator|!
 name|incrementalUpdate
 condition|)
+block|{
 name|trailer
 operator|.
 name|removeItem
@@ -2198,6 +2205,7 @@ operator|.
 name|PREV
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Remove a checksum if present
 name|trailer
 operator|.
@@ -2205,10 +2213,7 @@ name|removeItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"DocChecksum"
-argument_list|)
+name|DOC_CHECKSUM
 argument_list|)
 expr_stmt|;
 comment|/**         COSObject catalog = doc.getCatalog();         if (catalog != null)         {             trailer.setItem(COSName.getPDFName("Root"), catalog);         }         */
@@ -2437,7 +2442,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-specifier|protected
+specifier|private
 name|void
 name|doWriteXRefInc
 parameter_list|(
@@ -2607,7 +2612,7 @@ literal|2
 expr_stmt|;
 block|}
 block|}
-specifier|protected
+specifier|private
 name|void
 name|doWriteSignature
 parameter_list|(
@@ -2701,6 +2706,7 @@ name|leftByterange
 operator|<
 literal|0
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -2708,6 +2714,7 @@ argument_list|(
 literal|"Can't write new ByteRange, not enough space"
 argument_list|)
 throw|;
+block|}
 name|getStandardOutput
 argument_list|()
 operator|.
@@ -2829,6 +2836,7 @@ operator|!=
 operator|-
 literal|1
 condition|)
+block|{
 name|bytes
 operator|.
 name|write
@@ -2841,6 +2849,7 @@ name|c
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 finally|finally
 block|{
 if|if
@@ -2849,11 +2858,13 @@ name|filterInputStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|filterInputStream
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|byte
 index|[]
@@ -2924,6 +2935,7 @@ name|leftSignaturerange
 operator|<
 literal|0
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -2931,6 +2943,7 @@ argument_list|(
 literal|"Can't write signature, not enough space"
 argument_list|)
 throw|;
+block|}
 name|getStandardOutput
 argument_list|()
 operator|.
@@ -2957,7 +2970,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-specifier|protected
+specifier|private
 name|void
 name|writeXrefRange
 parameter_list|(
@@ -3017,7 +3030,7 @@ name|writeEOL
 argument_list|()
 expr_stmt|;
 block|}
-specifier|protected
+specifier|private
 name|void
 name|writeXrefEntry
 parameter_list|(
@@ -4168,11 +4181,13 @@ condition|(
 operator|!
 name|incrementalUpdate
 condition|)
+block|{
 name|doWriteHeader
 argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+block|}
 name|doWriteBody
 argument_list|(
 name|doc
@@ -4182,27 +4197,37 @@ if|if
 condition|(
 name|incrementalUpdate
 condition|)
+block|{
 name|doWriteXRefInc
 argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|doWriteXRef
 argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+block|}
 name|doWriteTrailer
 argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|incrementalUpdate
+condition|)
+block|{
 name|doWriteSignature
 argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|null
 return|;
@@ -4845,11 +4870,13 @@ if|if
 condition|(
 name|incrementalUpdate
 condition|)
+block|{
 name|prepareIncrement
 argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+block|}
 comment|// if the document says we should remove encryption, then we shouldn't encrypt
 if|if
 condition|(
