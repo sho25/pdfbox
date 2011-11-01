@@ -55,6 +55,15 @@ specifier|abstract
 class|class
 name|Encoding
 block|{
+comment|/**      * Identifies a non-mapped character.       */
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|NOTDEF
+init|=
+literal|".notdef"
+decl_stmt|;
 comment|/**      * This is a mapping from a character code to a character name.      */
 specifier|protected
 name|Map
@@ -239,13 +248,10 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|//lets be forgiving for now
 name|name
 operator|=
-literal|"space"
+name|NOTDEF
 expr_stmt|;
-comment|//throw new IOException( getClass().getName() +
-comment|//                       ": No name for character code '" + code + "'" );
 block|}
 return|return
 name|name
