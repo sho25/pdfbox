@@ -216,6 +216,49 @@ literal|0.00001f
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Tests problematic functions from PDFBOX-804.      * @throws Exception if an error occurs      */
+specifier|public
+name|void
+name|testJira804
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|//This is an example of a tint to CMYK function
+comment|//Problems here were:
+comment|//1. no whitespace between "mul" and "}" (token was detected as "mul}")
+comment|//2. line breaks cause endless loops
+name|Type4Tester
+operator|.
+name|create
+argument_list|(
+literal|"1 {dup dup .72 mul exch 0 exch .38 mul}\n"
+argument_list|)
+operator|.
+name|pop
+argument_list|(
+literal|0.38f
+argument_list|)
+operator|.
+name|pop
+argument_list|(
+literal|0f
+argument_list|)
+operator|.
+name|pop
+argument_list|(
+literal|0.72f
+argument_list|)
+operator|.
+name|pop
+argument_list|(
+literal|1.0f
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

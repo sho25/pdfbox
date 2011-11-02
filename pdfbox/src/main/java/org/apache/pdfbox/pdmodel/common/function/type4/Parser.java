@@ -554,6 +554,9 @@ argument_list|(
 name|buffer
 argument_list|)
 expr_stmt|;
+name|nextChar
+argument_list|()
+expr_stmt|;
 block|}
 specifier|private
 name|void
@@ -783,6 +786,12 @@ name|FF
 case|:
 case|case
 name|EOT
+case|:
+case|case
+literal|'{'
+case|:
+case|case
+literal|'}'
 case|:
 break|break
 name|loop
