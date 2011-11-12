@@ -488,7 +488,7 @@ name|XMPDocumentPreprocessor
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Constructor of a XMPDocumentBuilder 	 *  	 * @throws XmpSchemaException 	 *             When instancing schema object failed or in PDF/A Extension 	 *             case, if its namespace miss 	 */
+comment|/**      * Constructor of a XMPDocumentBuilder      *       * @throws XmpSchemaException      *             When instancing schema object failed or in PDF/A Extension      *             case, if its namespace miss      */
 specifier|public
 name|XMPDocumentBuilder
 parameter_list|()
@@ -502,7 +502,7 @@ name|NSMapping
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Parsing method. Return a XMPMetadata object with all elements read 	 *  	 * @param xmp 	 *            serialized XMP 	 * @return Metadata with all information read 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XmpSchemaException 	 *             When instancing schema object failed or in PDF/A Extension 	 *             case, if its namespace miss 	 * @throws XmpUnknownValueTypeException 	 *             When ValueType found not correspond to basic type and not has 	 *             been declared in current schema 	 * @throws XmpExpectedRdfAboutAttribute 	 *             When rdf:Description not contains rdf:about attribute 	 * @throws XmpXpacketEndException 	 *             When xpacket end Processing Instruction is missing or is 	 *             incorrect 	 * @throws BadFieldValueException 	 *             When treat a Schema associed to a schema Description in PDF/A 	 *             Extension schema 	 */
+comment|/**      * Parsing method. Return a XMPMetadata object with all elements read      *       * @param xmp      *            serialized XMP      * @return Metadata with all information read      * @throws XmpParsingException      *             When element expected not found      * @throws XmpSchemaException      *             When instancing schema object failed or in PDF/A Extension      *             case, if its namespace miss      * @throws XmpUnknownValueTypeException      *             When ValueType found not correspond to basic type and not has      *             been declared in current schema      * @throws XmpExpectedRdfAboutAttribute      *             When rdf:Description not contains rdf:about attribute      * @throws XmpXpacketEndException      *             When xpacket end Processing Instruction is missing or is      *             incorrect      * @throws BadFieldValueException      *             When treat a Schema associed to a schema Description in PDF/A      *             Extension schema      */
 specifier|public
 name|XMPMetadata
 name|parse
@@ -948,7 +948,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Parsing method using serialized xmp read from a stream 	 *  	 * @param is 	 *            The stream to read 	 * @return Metadata with all information read 	 * @throws XmpParsingException 	 *             When element expected not found When element expected not 	 *             found 	 * @throws XmpSchemaException 	 *             When instancing schema object failed or in PDF/A Extension 	 *             case, if its namespace miss 	 * @throws XmpUnknownValueTypeException 	 *             When ValueType found not correspond to basic type and not has 	 *             been declared in current schema 	 * @throws XmpExpectedRdfAboutAttribute 	 *             When rdf:Description not contains rdf:about attribute 	 * @throws XmpXpacketEndException 	 *             When xpacket end Processing Instruction is missing or is 	 *             incorrect 	 * @throws BadFieldValueException 	 *             When treat a Schema associed to a schema Description in PDF/A 	 *             Extension schema 	 */
+comment|/**      * Parsing method using serialized xmp read from a stream      *       * @param is      *            The stream to read      * @return Metadata with all information read      * @throws XmpParsingException      *             When element expected not found When element expected not      *             found      * @throws XmpSchemaException      *             When instancing schema object failed or in PDF/A Extension      *             case, if its namespace miss      * @throws XmpUnknownValueTypeException      *             When ValueType found not correspond to basic type and not has      *             been declared in current schema      * @throws XmpExpectedRdfAboutAttribute      *             When rdf:Description not contains rdf:about attribute      * @throws XmpXpacketEndException      *             When xpacket end Processing Instruction is missing or is      *             incorrect      * @throws BadFieldValueException      *             When treat a Schema associed to a schema Description in PDF/A      *             Extension schema      */
 specifier|public
 name|XMPMetadata
 name|parse
@@ -1073,7 +1073,7 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check InitialXPacket and build metadata object with these information 	 *  	 * @param data 	 *            data corresponding to Initial XPacket Processing Instruction 	 *            Processing Information corresponding to Inital XPacket data 	 * @return Metadata with specified information 	 * @throws XmpInitialXPacketParsingException 	 *             When Initial XPacket missing or is incorrect 	 * @throws CreateXMPMetadataException 	 *             If DOM Document associated could not be created 	 */
+comment|/**      * Check InitialXPacket and build metadata object with these information      *       * @param data      *            data corresponding to Initial XPacket Processing Instruction      *            Processing Information corresponding to Inital XPacket data      * @return Metadata with specified information      * @throws XmpInitialXPacketParsingException      *             When Initial XPacket missing or is incorrect      * @throws CreateXMPMetadataException      *             If DOM Document associated could not be created      */
 specifier|protected
 name|XMPMetadata
 name|parseInitialXpacket
@@ -1333,7 +1333,7 @@ name|encoding
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Check the next element type. all comments are ignored. 	 *  	 * @param expectType 	 *            Type of xml element expected 	 * @param message 	 *            Error message if problems occur 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected When DOM Element type 	 *             found unexpected 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream When error 	 *             during reading the rest of xmp stream 	 */
+comment|/**      * Check the next element type. all comments are ignored.      *       * @param expectType      *            Type of xml element expected      * @param message      *            Error message if problems occur      * @throws XmpParsingException      *             When element expected not found      * @throws XmpUnexpectedTypeException      *             When DOM Element type found unexpected When DOM Element type      *             found unexpected      * @throws XMLStreamException      *             When error during reading the rest of xmp stream When error      *             during reading the rest of xmp stream      */
 specifier|private
 name|void
 name|expectNext
@@ -1422,7 +1422,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Check the next element type. White spaces , Comments and Processing 	 * Instructions are ignored. 	 *  	 * @param type 	 *            Type of xml element expected 	 * @param message 	 *            Error message if problems occur 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 */
+comment|/**      * Check the next element type. White spaces , Comments and Processing      * Instructions are ignored.      *       * @param type      *            Type of xml element expected      * @param message      *            Error message if problems occur      * @throws XmpParsingException      *             When element expected not found      * @throws XmpUnexpectedTypeException      *             When DOM Element type found unexpected      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      */
 specifier|private
 name|void
 name|expectNextTag
@@ -1483,7 +1483,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * check if qualified name of current element is what is expected 	 *  	 * @param namespace 	 *            namespace URI 	 * @param name 	 *            current element name 	 * @throws XmpUnexpectedElementQualifiedNameException 	 *             When a qualifiedName found and is not that expected 	 *  	 */
+comment|/**      * check if qualified name of current element is what is expected      *       * @param namespace      *            namespace URI      * @param name      *            current element name      * @throws XmpUnexpectedElementQualifiedNameException      *             When a qualifiedName found and is not that expected      *       */
 specifier|private
 name|void
 name|expectName
@@ -1576,7 +1576,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Check the current element type. 	 *  	 * @param type 	 *            XML element type expected 	 * @param message 	 *            Error Message if problems occur 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 */
+comment|/**      * Check the current element type.      *       * @param type      *            XML element type expected      * @param message      *            Error Message if problems occur      * @throws XmpUnexpectedTypeException      *             When DOM Element type found unexpected      */
 specifier|private
 name|void
 name|expectType
@@ -1631,7 +1631,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Check if rdf:about attribute is declared for rdf description and add all 	 * attributes to the schema 	 *  	 * @param metadata 	 *            Metadata to attach new elements 	 * @param schema 	 *            Schema corresponding to the rdf:Description use 	 * @throws XmpExpectedRdfAboutAttribute 	 *             When rdf:Description not contains rdf:about attribute 	 * @throws XmpUnexpectedTypeException if the attribute is known  	 * as an expected property but the property type isn't a Simple type. 	 */
+comment|/**      * Check if rdf:about attribute is declared for rdf description and add all      * attributes to the schema      *       * @param metadata      *            Metadata to attach new elements      * @param schema      *            Schema corresponding to the rdf:Description use      * @throws XmpExpectedRdfAboutAttribute      *             When rdf:Description not contains rdf:about attribute      * @throws XmpUnexpectedTypeException if the attribute is known       * as an expected property but the property type isn't a Simple type.      */
 specifier|protected
 specifier|final
 name|void
@@ -1659,38 +1659,6 @@ operator|.
 name|getAttributeCount
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|cptAtt
-operator|<
-literal|1
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|reader
-operator|.
-name|get
-argument_list|()
-operator|.
-name|getLocalName
-argument_list|()
-argument_list|)
-expr_stmt|;
-throw|throw
-operator|new
-name|XmpExpectedRdfAboutAttribute
-argument_list|(
-literal|"Expected rdf:about attribute not found"
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
 name|int
 name|i
 init|=
@@ -1711,11 +1679,6 @@ operator|<
 name|cptAtt
 condition|)
 block|{
-comment|// rdf:about attribute must be here and can be presented by
-comment|// rdf:about and about
-comment|// according to
-comment|// http://www.w3.org/TR/1999/REC-rdf-syntax-19990222/#basic
-comment|// (2.2. Basic RDF Syntax)
 if|if
 condition|(
 name|reader
@@ -1858,32 +1821,32 @@ operator|!
 name|rdfAboutFound
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+comment|// create rdf:about if not found
+name|Attribute
+name|attr
+init|=
+operator|new
+name|Attribute
 argument_list|(
-name|reader
+literal|null
+argument_list|,
+literal|"rdf"
+argument_list|,
+literal|"about"
+argument_list|,
+literal|""
+argument_list|)
+decl_stmt|;
+name|schema
 operator|.
-name|get
-argument_list|()
-operator|.
-name|getLocalName
-argument_list|()
+name|setAttribute
+argument_list|(
+name|attr
 argument_list|)
 expr_stmt|;
-throw|throw
-operator|new
-name|XmpExpectedRdfAboutAttribute
-argument_list|(
-literal|"Expected rdf:about attribute not found"
-argument_list|)
-throw|;
 block|}
 block|}
-block|}
-comment|/** 	 * If the attribute has same the name as an expected property of the Schema, then the property is created using the attributes fields. 	 *  	 * @param metadata Metadata to attach new elements 	 * @param schema Schema corresponding to the rdf:Description use 	 * @param attr the attribute used to create the property 	 * @return true if the attribute has been converted into Property 	 */
+comment|/**      * If the attribute has same the name as an expected property of the Schema, then the property is created using the attributes fields.      *       * @param metadata Metadata to attach new elements      * @param schema Schema corresponding to the rdf:Description use      * @param attr the attribute used to create the property      * @return true if the attribute has been converted into Property      */
 specifier|private
 name|boolean
 name|addAttributeAsProperty
@@ -2261,7 +2224,7 @@ return|return
 name|added
 return|;
 block|}
-comment|/** 	 * Treat each rdf:Description (which must represent a schema), instanciate 	 * class representation of this schema and add it to metadata 	 *  	 * @param metadata 	 *            Metadata to attach new elements 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws XmpSchemaException 	 *             When instancing schema object failed or in PDF/A Extension 	 *             case, if its namespace miss 	 * @throws XmpUnknownValueTypeException 	 *             When ValueType found not correspond to basic type and not has 	 *             been declared in current schema 	 * @throws XmpExpectedRdfAboutAttribute 	 *             When rdf:Description not contains rdf:about attribute 	 * @throws BadFieldValueException 	 *             When a bad value found in Schema description content 	 */
+comment|/**      * Treat each rdf:Description (which must represent a schema), instanciate      * class representation of this schema and add it to metadata      *       * @param metadata      *            Metadata to attach new elements      * @throws XmpParsingException      *             When element expected not found      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws XmpSchemaException      *             When instancing schema object failed or in PDF/A Extension      *             case, if its namespace miss      * @throws XmpUnknownValueTypeException      *             When ValueType found not correspond to basic type and not has      *             been declared in current schema      * @throws XmpExpectedRdfAboutAttribute      *             When rdf:Description not contains rdf:about attribute      * @throws BadFieldValueException      *             When a bad value found in Schema description content      */
 specifier|protected
 name|void
 name|parseDescription
@@ -2515,8 +2478,11 @@ block|}
 block|}
 else|else
 block|{
-comment|// TODO Considering first namespace is that corresponding to the
-comment|// schema (see if it must be changed)
+name|int
+name|c
+init|=
+literal|0
+decl_stmt|;
 name|String
 name|namespaceUri
 init|=
@@ -2527,7 +2493,7 @@ argument_list|()
 operator|.
 name|getNamespaceURI
 argument_list|(
-literal|0
+name|c
 argument_list|)
 decl_stmt|;
 name|String
@@ -2540,9 +2506,12 @@ argument_list|()
 operator|.
 name|getNamespacePrefix
 argument_list|(
-literal|0
+name|c
 argument_list|)
 decl_stmt|;
+name|c
+operator|++
+expr_stmt|;
 name|XMPSchema
 name|schema
 init|=
@@ -2557,6 +2526,65 @@ argument_list|,
 name|namespacePrefix
 argument_list|)
 decl_stmt|;
+while|while
+condition|(
+name|c
+operator|<
+name|reader
+operator|.
+name|get
+argument_list|()
+operator|.
+name|getNamespaceCount
+argument_list|()
+operator|&&
+name|schema
+operator|==
+literal|null
+condition|)
+block|{
+comment|// try next
+name|namespaceUri
+operator|=
+name|reader
+operator|.
+name|get
+argument_list|()
+operator|.
+name|getNamespaceURI
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
+name|namespacePrefix
+operator|=
+name|reader
+operator|.
+name|get
+argument_list|()
+operator|.
+name|getNamespacePrefix
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
+name|schema
+operator|=
+name|nsMap
+operator|.
+name|getAssociatedSchemaObject
+argument_list|(
+name|metadata
+argument_list|,
+name|namespaceUri
+argument_list|,
+name|namespacePrefix
+argument_list|)
+expr_stmt|;
+name|c
+operator|++
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|schema
@@ -2669,7 +2697,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Check the next element type and its expected value 	 *  	 * @param type 	 *            expected type of xml element 	 * @param localNameExpected 	 *            The property name (local) expected 	 * @param message 	 *            Error message if problems occur 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 */
+comment|/**      * Check the next element type and its expected value      *       * @param type      *            expected type of xml element      * @param localNameExpected      *            The property name (local) expected      * @param message      *            Error message if problems occur      * @throws XmpUnexpectedTypeException      *             When DOM Element type found unexpected      * @throws XmpParsingException      *             When element expected not found      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      */
 specifier|private
 name|void
 name|expectNextSpecificTag
@@ -2703,8 +2731,8 @@ name|localNameExpected
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * check that the current local name is that expected 	 *  	 * @param localNameExpected 	 *            The name expected 	 * @throws XmpUnexpectedElementException 	 *             When Element is not that expected 	 */
-specifier|private
+comment|/**      * check that the current local name is that expected      *       * @param localNameExpected      *            The name expected      * @throws XmpUnexpectedElementException      *             When Element is not that expected      */
+specifier|protected
 name|void
 name|expectCurrentLocalName
 parameter_list|(
@@ -2749,12 +2777,20 @@ operator|.
 name|getLocalName
 argument_list|()
 operator|+
-literal|"' found"
+literal|"' found at "
+operator|+
+name|reader
+operator|.
+name|get
+argument_list|()
+operator|.
+name|getLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Treat a PDFAExtension schema 	 *  	 * @param schema 	 *            PDFA/Extension schema where save information found 	 * @param metadata 	 *            Metadata to attach new elements 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws XmpUnknownValueTypeException 	 *             When ValueType found not correspond to basic type and not has 	 *             been declared in current schema 	 * @throws BadFieldValueException 	 *             When one of a field property include to describe a property 	 *             in Schema Description contain an incorrect value 	 */
+comment|/**      * Treat a PDFAExtension schema      *       * @param schema      *            PDFA/Extension schema where save information found      * @param metadata      *            Metadata to attach new elements      * @throws XmpParsingException      *             When element expected not found      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws XmpUnknownValueTypeException      *             When ValueType found not correspond to basic type and not has      *             been declared in current schema      * @throws BadFieldValueException      *             When one of a field property include to describe a property      *             in Schema Description contain an incorrect value      */
 specifier|protected
 specifier|final
 name|void
@@ -2861,7 +2897,7 @@ literal|"Cannot find end of PDF/A Extension definition "
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Treat one Schema description defined in the extension Schema found 	 *  	 * @param schema 	 *            PDFA/Extension schema where save information found 	 * @param metadata 	 *            Metadata to attach new elements 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XmpUnknownValueTypeException 	 *             When ValueType found not correspond to basic type and not has 	 *             been declared in current schema 	 * @throws BadFieldValueException 	 *             When one of a field property contain an incorrect value 	 */
+comment|/**      * Treat one Schema description defined in the extension Schema found      *       * @param schema      *            PDFA/Extension schema where save information found      * @param metadata      *            Metadata to attach new elements      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws XmpParsingException      *             When element expected not found      * @throws XmpUnknownValueTypeException      *             When ValueType found not correspond to basic type and not has      *             been declared in current schema      * @throws BadFieldValueException      *             When one of a field property contain an incorrect value      */
 specifier|private
 name|void
 name|parseSchemaDescription
@@ -3104,7 +3140,7 @@ name|desc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Treat value type definition for a specific Schema Description 	 *  	 * @param desc 	 *            the current Schema Description analyzed 	 * @param metadata 	 *            Metadata to attach new elements 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 */
+comment|/**      * Treat value type definition for a specific Schema Description      *       * @param desc      *            the current Schema Description analyzed      * @param metadata      *            Metadata to attach new elements      * @throws XmpParsingException      *             When element expected not found      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      */
 specifier|private
 name|void
 name|parseValueTypeDefinition
@@ -3444,7 +3480,7 @@ literal|"Expected End of ValueType Declaration"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Treat field description on the current analyzed value type description 	 *  	 * @param metadata 	 *            Metadata to attach new elements 	 * @return A list of parsed fields 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws XmpParsingException 	 *             When element expected not found 	 */
+comment|/**      * Treat field description on the current analyzed value type description      *       * @param metadata      *            Metadata to attach new elements      * @return A list of parsed fields      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws XmpParsingException      *             When element expected not found      */
 specifier|private
 name|List
 argument_list|<
@@ -3762,7 +3798,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Treat a property definition for a specific Schema Description 	 *  	 * @param desc 	 *            the current Schema Description analyzed 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws BadFieldValueException 	 *             When one of a field property contain an incorrect value 	 */
+comment|/**      * Treat a property definition for a specific Schema Description      *       * @param desc      *            the current Schema Description analyzed      * @throws XmpParsingException      *             When element expected not found      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws BadFieldValueException      *             When one of a field property contain an incorrect value      */
 specifier|private
 name|void
 name|parsePropertyDefinition
@@ -4066,7 +4102,7 @@ literal|"Expected End of Properties Declaration"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check for all namespaces declared for the specified schema if the 	 * property searched exists and return its type or null 	 *  	 * @param schema 	 *            The Schema to analyze 	 * @param prop 	 *            The property Qualified Name 	 * @return The property value type or null if not found in schema 	 * @throws XmpParsingException 	 *             When element expected not found 	 */
+comment|/**      * Check for all namespaces declared for the specified schema if the      * property searched exists and return its type or null      *       * @param schema      *            The Schema to analyze      * @param prop      *            The property Qualified Name      * @return The property value type or null if not found in schema      * @throws XmpParsingException      *             When element expected not found      */
 specifier|private
 name|String
 name|getPropertyDeclarationInNamespaces
@@ -4304,7 +4340,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Build a property with the specific type defined in schema or complex 	 * property and add it to the object representation 	 *  	 * @param metadata 	 *            Metadata to attach new elements 	 * @param propertyName 	 *            The fully qualified name of the property 	 * @param stype 	 *            Type of the property 	 * @param container 	 *            the entity where place the property representation 	 * @throws XmpUnknownPropertyTypeException 	 *             Value Type property is incorrect or the basic value type 	 *             can't be treat at the moment 	 * @throws XmpPropertyFormatException 	 *             Unexpected type found (IllegalArgumentException) 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 */
+comment|/**      * Build a property with the specific type defined in schema or complex      * property and add it to the object representation      *       * @param metadata      *            Metadata to attach new elements      * @param propertyName      *            The fully qualified name of the property      * @param stype      *            Type of the property      * @param container      *            the entity where place the property representation      * @throws XmpUnknownPropertyTypeException      *             Value Type property is incorrect or the basic value type      *             can't be treat at the moment      * @throws XmpPropertyFormatException      *             Unexpected type found (IllegalArgumentException)      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      */
 specifier|protected
 name|void
 name|parseXmpSimpleProperty
@@ -4667,7 +4703,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Parse a bag property (unordered array) with the specific type defined in 	 * schema or complex property and add it to the object representation 	 *  	 * @param metadata 	 *            Metadata to attach new elements 	 * @param bagName 	 *            name of bag property 	 * @param stype 	 *            type of values contained in this bag 	 * @param container 	 *            the entity where place the property representation 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws XmpUnknownPropertyTypeException 	 *             Value Type property is incorrect or the basic value type 	 *             can't be treat at the moment 	 * @throws XmpPropertyFormatException 	 *             Unexpected type found (IllegalArgumentException) 	 */
+comment|/**      * Parse a bag property (unordered array) with the specific type defined in      * schema or complex property and add it to the object representation      *       * @param metadata      *            Metadata to attach new elements      * @param bagName      *            name of bag property      * @param stype      *            type of values contained in this bag      * @param container      *            the entity where place the property representation      * @throws XmpUnexpectedTypeException      *             When DOM Element type found unexpected      * @throws XmpParsingException      *             When element expected not found      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws XmpUnknownPropertyTypeException      *             Value Type property is incorrect or the basic value type      *             can't be treat at the moment      * @throws XmpPropertyFormatException      *             Unexpected type found (IllegalArgumentException)      */
 specifier|protected
 name|void
 name|parseBagProperty
@@ -4734,7 +4770,7 @@ name|START_ELEMENT
 argument_list|,
 literal|"Bag"
 argument_list|,
-literal|"Expected Seq Declaration"
+literal|"Expected Bag Declaration"
 argument_list|)
 expr_stmt|;
 comment|// Each property definition
@@ -4823,7 +4859,162 @@ literal|"Expected end of Bag property"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Parse a seq property (ordered array) with the specific type defined in 	 * schema or complex property and add it to the object representation 	 *  	 * @param metadata 	 *            Metadata to attach new elements 	 * @param seqName 	 *            name of the seq 	 * @param stype 	 *            type of values contained in this bag 	 * @param container 	 *            the entity where place the property representation 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws XmpUnknownPropertyTypeException 	 *             Value Type property is incorrect or the basic value type 	 *             can't be treat at the moment 	 * @throws XmpPropertyFormatException 	 *             Unexpected type found (IllegalArgumentException) 	 */
+specifier|protected
+name|void
+name|parseComplexBagProperty
+parameter_list|(
+name|XMPMetadata
+name|metadata
+parameter_list|,
+name|QName
+name|bagName
+parameter_list|,
+name|StructuredPropertyParser
+name|complexParser
+parameter_list|,
+name|ComplexPropertyContainer
+name|container
+parameter_list|)
+throws|throws
+name|XmpUnexpectedTypeException
+throws|,
+name|XmpParsingException
+throws|,
+name|XMLStreamException
+throws|,
+name|XmpUnknownPropertyTypeException
+throws|,
+name|XmpPropertyFormatException
+block|{
+name|ComplexProperty
+name|bag
+init|=
+operator|new
+name|ComplexProperty
+argument_list|(
+name|metadata
+argument_list|,
+name|bagName
+operator|.
+name|getPrefix
+argument_list|()
+argument_list|,
+name|bagName
+operator|.
+name|getLocalPart
+argument_list|()
+argument_list|,
+name|ComplexProperty
+operator|.
+name|UNORDERED_ARRAY
+argument_list|)
+decl_stmt|;
+name|container
+operator|.
+name|addProperty
+argument_list|(
+name|bag
+argument_list|)
+expr_stmt|;
+comment|//<rdf:Bag>
+name|expectNextSpecificTag
+argument_list|(
+name|XMLStreamReader
+operator|.
+name|START_ELEMENT
+argument_list|,
+literal|"Bag"
+argument_list|,
+literal|"Expected Bag Declaration"
+argument_list|)
+expr_stmt|;
+comment|// Each property definition
+name|int
+name|elmtType
+init|=
+name|reader
+operator|.
+name|get
+argument_list|()
+operator|.
+name|nextTag
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+operator|(
+name|elmtType
+operator|!=
+name|XMLStreamReader
+operator|.
+name|END_ELEMENT
+operator|)
+operator|&&
+operator|!
+name|reader
+operator|.
+name|get
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|getLocalPart
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"Bag"
+argument_list|)
+condition|)
+block|{
+name|complexParser
+operator|.
+name|parse
+argument_list|(
+name|metadata
+argument_list|,
+name|reader
+operator|.
+name|get
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|bag
+operator|.
+name|getContainer
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|elmtType
+operator|=
+name|reader
+operator|.
+name|get
+argument_list|()
+operator|.
+name|nextTag
+argument_list|()
+expr_stmt|;
+block|}
+name|expectNextSpecificTag
+argument_list|(
+name|XMLStreamReader
+operator|.
+name|END_ELEMENT
+argument_list|,
+name|bagName
+operator|.
+name|getLocalPart
+argument_list|()
+argument_list|,
+literal|"Expected end of Bag property"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Parse a seq property (ordered array) with the specific type defined in      * schema or complex property and add it to the object representation      *       * @param metadata      *            Metadata to attach new elements      * @param seqName      *            name of the seq      * @param stype      *            type of values contained in this bag      * @param container      *            the entity where place the property representation      * @throws XmpUnexpectedTypeException      *             When DOM Element type found unexpected      * @throws XmpParsingException      *             When element expected not found      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws XmpUnknownPropertyTypeException      *             Value Type property is incorrect or the basic value type      *             can't be treat at the moment      * @throws XmpPropertyFormatException      *             Unexpected type found (IllegalArgumentException)      */
 specifier|protected
 name|void
 name|parseSeqProperty
@@ -4979,7 +5170,7 @@ literal|"Expected end of Seq property"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Parse Alt property (Alternative language property) with the specific type 	 * defined in schema or complex property and add it to the object 	 * representation 	 *  	 * @param metadata 	 *            Metadata to attach new elements 	 * @param altName 	 *            name of Alt property 	 * @param stype 	 *            type of values contained in this bag 	 * @param container 	 *            the entity where place the property representation 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws XmpUnknownPropertyTypeException 	 *             Value Type property is incorrect or the basic value type 	 *             can't be treat at the moment 	 * @throws XmpPropertyFormatException 	 *             Unexpected type found (IllegalArgumentException) 	 */
+comment|/**      * Parse Alt property (Alternative language property) with the specific type      * defined in schema or complex property and add it to the object      * representation      *       * @param metadata      *            Metadata to attach new elements      * @param altName      *            name of Alt property      * @param stype      *            type of values contained in this bag      * @param container      *            the entity where place the property representation      * @throws XmpUnexpectedTypeException      *             When DOM Element type found unexpected      * @throws XmpParsingException      *             When element expected not found      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws XmpUnknownPropertyTypeException      *             Value Type property is incorrect or the basic value type      *             can't be treat at the moment      * @throws XmpPropertyFormatException      *             Unexpected type found (IllegalArgumentException)      */
 specifier|protected
 name|void
 name|parseAltProperty
@@ -5137,7 +5328,7 @@ literal|"Expected end of alt property"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Create a property in a specified container (complexproperty or schema) 	 *  	 * @param metadata 	 *            Metadata to attach new elements 	 * @param type 	 *            type of value contained in the property 	 * @param container 	 *            the entity where place the property representation 	 * @return True if property has been treated (according to its type) 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 * @throws XmpUnknownPropertyTypeException 	 *             Value Type property is incorrect or the basic value type 	 *             can't be treat at the moment 	 * @throws XmpPropertyFormatException 	 *             Unexpected type found (IllegalArgumentException) 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 */
+comment|/**      * Create a property in a specified container (complexproperty or schema)      *       * @param metadata      *            Metadata to attach new elements      * @param type      *            type of value contained in the property      * @param container      *            the entity where place the property representation      * @return True if property has been treated (according to its type)      * @throws XmpParsingException      *             When element expected not found      * @throws XmpUnexpectedTypeException      *             When DOM Element type found unexpected      * @throws XmpUnknownPropertyTypeException      *             Value Type property is incorrect or the basic value type      *             can't be treat at the moment      * @throws XmpPropertyFormatException      *             Unexpected type found (IllegalArgumentException)      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      */
 specifier|private
 name|boolean
 name|createAndAddPropertyToContainer
@@ -5451,7 +5642,7 @@ literal|"bag Job"
 argument_list|)
 condition|)
 block|{
-name|parseBagProperty
+name|parseComplexBagProperty
 argument_list|(
 name|metadata
 argument_list|,
@@ -5463,9 +5654,11 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|XmpPropertyType
-operator|.
-name|Text
+operator|new
+name|JobParser
+argument_list|(
+name|this
+argument_list|)
 argument_list|,
 name|container
 argument_list|)
@@ -5636,7 +5829,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * Parse a specific field 	 *  	 * @param metadata 	 *            Metadata to attach new elements 	 * @param propertyName 	 *            the full qualified name of this property 	 * @param schema 	 *            The schema where save this property 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws XmpUnknownPropertyTypeException 	 *             Value Type property is incorrect or the basic value type 	 *             can't be treat at the moment 	 * @throws XmpPropertyFormatException 	 *             Unexpected type found (IllegalArgumentException) 	 */
+comment|/**      * Parse a specific field      *       * @param metadata      *            Metadata to attach new elements      * @param propertyName      *            the full qualified name of this property      * @param schema      *            The schema where save this property      * @throws XmpUnexpectedTypeException      *             When DOM Element type found unexpected      * @throws XmpParsingException      *             When element expected not found      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws XmpUnknownPropertyTypeException      *             Value Type property is incorrect or the basic value type      *             can't be treat at the moment      * @throws XmpPropertyFormatException      *             Unexpected type found (IllegalArgumentException)      */
 specifier|protected
 name|void
 name|parseFieldProperty
@@ -5845,7 +6038,7 @@ expr_stmt|;
 comment|// expectNextSpecificTag(XMLStreamReader.END_ELEMENT,
 comment|// propertyName.getLocalPart(), "Expected end of field declaration");
 block|}
-comment|/** 	 * analyze one property in the stream, retrieve its type according to the 	 * schema information and call its object representation building 	 *  	 * @param schema 	 *            The schema where find information 	 * @param metadata 	 *            Metadata to attach new elements 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMPUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws XmpUnknownPropertyTypeException 	 *             Value Type property is incorrect or the basic value type 	 *             can't be treat at the moment 	 * @throws XmpPropertyFormatException 	 *             Unexpected type found (IllegalArgumentException) 	 */
+comment|/**      * analyze one property in the stream, retrieve its type according to the      * schema information and call its object representation building      *       * @param schema      *            The schema where find information      * @param metadata      *            Metadata to attach new elements      * @throws XmpParsingException      *             When element expected not found      * @throws XMPUnexpectedTypeException      *             When DOM Element type found unexpected      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws XmpUnknownPropertyTypeException      *             Value Type property is incorrect or the basic value type      *             can't be treat at the moment      * @throws XmpPropertyFormatException      *             Unexpected type found (IllegalArgumentException)      */
 specifier|protected
 name|void
 name|parseProperty
@@ -6292,15 +6485,17 @@ literal|"bag Job"
 argument_list|)
 condition|)
 block|{
-name|parseBagProperty
+name|parseComplexBagProperty
 argument_list|(
 name|metadata
 argument_list|,
 name|propertyName
 argument_list|,
-name|XmpPropertyType
-operator|.
-name|Text
+operator|new
+name|JobParser
+argument_list|(
+name|this
+argument_list|)
 argument_list|,
 name|schema
 operator|.
@@ -6525,7 +6720,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Treat Alternative Thumbnails property 	 *  	 * @param metadata 	 *            Metadata to attach new elements 	 * @param altName 	 *            name of thumbnails alternative property 	 * @param container 	 *            the container where record this representation 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws XmpUnknownPropertyTypeException 	 *             Value Type property is incorrect or the basic value type 	 *             can't be treat at the moment 	 * @throws XmpPropertyFormatException 	 *             Unexpected type found (IllegalArgumentException) 	 */
+comment|/**      * Treat Alternative Thumbnails property      *       * @param metadata      *            Metadata to attach new elements      * @param altName      *            name of thumbnails alternative property      * @param container      *            the container where record this representation      * @throws XmpUnexpectedTypeException      *             When DOM Element type found unexpected      * @throws XmpParsingException      *             When element expected not found      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws XmpUnknownPropertyTypeException      *             Value Type property is incorrect or the basic value type      *             can't be treat at the moment      * @throws XmpPropertyFormatException      *             Unexpected type found (IllegalArgumentException)      */
 specifier|private
 name|void
 name|parseAltThumbnailProperty
@@ -6678,7 +6873,7 @@ literal|"Expected end of alt property"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * * Treat a thumbnail property 	 *  	 * @param metadata 	 *            Metadata to attach new elements 	 * @param altName 	 *            name of thumbnail property 	 * @param container 	 *            The container where save property representation 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 * @throws XmpUnknownPropertyTypeException 	 *             Value Type property is incorrect or the basic value type 	 *             can't be treat at the moment 	 * @throws XmpPropertyFormatException 	 *             Unexpected type found (IllegalArgumentException) 	 */
+comment|/**      * * Treat a thumbnail property      *       * @param metadata      *            Metadata to attach new elements      * @param altName      *            name of thumbnail property      * @param container      *            The container where save property representation      * @throws XmpUnexpectedTypeException      *             When DOM Element type found unexpected      * @throws XmpParsingException      *             When element expected not found      * @throws XMLStreamException      *             When error during reading the rest of xmp stream      * @throws XmpUnknownPropertyTypeException      *             Value Type property is incorrect or the basic value type      *             can't be treat at the moment      * @throws XmpPropertyFormatException      *             Unexpected type found (IllegalArgumentException)      */
 specifier|private
 name|void
 name|parseThumbnailProperty
