@@ -19,26 +19,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|lang
 operator|.
 name|reflect
@@ -105,20 +85,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|padaf
 operator|.
 name|preflight
@@ -169,98 +135,29 @@ name|AbstractValidator
 implements|implements
 name|PdfAValidator
 block|{
-static|static
-block|{
-try|try
-block|{
-name|InputStream
-name|is
-init|=
-name|AbstractValidator
-operator|.
-name|class
-operator|.
-name|getClassLoader
-argument_list|()
-operator|.
-name|getResourceAsStream
-argument_list|(
-literal|"project.version"
-argument_list|)
-decl_stmt|;
-name|ByteArrayOutputStream
-name|bos
-init|=
-operator|new
-name|ByteArrayOutputStream
-argument_list|()
-decl_stmt|;
-name|IOUtils
-operator|.
-name|copy
-argument_list|(
-name|is
-argument_list|,
-name|bos
-argument_list|)
-expr_stmt|;
-name|IOUtils
-operator|.
-name|closeQuietly
-argument_list|(
-name|is
-argument_list|)
-expr_stmt|;
-name|IOUtils
-operator|.
-name|closeQuietly
-argument_list|(
-name|bos
-argument_list|)
-expr_stmt|;
-name|fullName
-operator|=
-literal|"PADAF - "
-operator|+
-operator|new
-name|String
-argument_list|(
-name|bos
-operator|.
-name|toByteArray
-argument_list|()
-argument_list|,
-literal|"us-ascii"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-name|fullName
-operator|=
-literal|"PADAF - Unknown version"
-expr_stmt|;
-block|}
-block|}
 specifier|protected
 name|ValidatorConfig
 name|config
 init|=
 literal|null
 decl_stmt|;
-specifier|protected
+specifier|public
 specifier|static
+specifier|final
+name|String
+name|version
+init|=
+literal|"${project.version}"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
 name|String
 name|fullName
+init|=
+literal|"PADAF - "
+operator|+
+name|version
 decl_stmt|;
 specifier|protected
 name|Collection
@@ -290,7 +187,7 @@ name|AbstractValidationHelper
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/** 	 *  	 * @param cfg 	 * @throws ValidationException 	 */
+comment|/**      *       * @param cfg      * @throws ValidationException      */
 specifier|public
 name|AbstractValidator
 parameter_list|(
@@ -393,7 +290,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Instantiate a ValidationHelper using the given class. 	 *  	 * @param avhCls 	 * @param cfg 	 * @return 	 * @throws ValidationException 	 */
+comment|/**      * Instantiate a ValidationHelper using the given class.      *       * @param avhCls      * @param cfg      * @return      * @throws ValidationException      */
 specifier|private
 name|AbstractValidationHelper
 name|instantiateHelper
@@ -525,7 +422,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Create an instance of Document Handler. 	 * This method can be override if a inherited class of DocumentHandler  	 * must be used. 	 *  	 * @param source 	 * @return 	 */
+comment|/**      * Create an instance of Document Handler.      * This method can be override if a inherited class of DocumentHandler       * must be used.      *       * @param source      * @return      */
 specifier|protected
 name|DocumentHandler
 name|createDocumentHandler
@@ -542,7 +439,7 @@ name|source
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This method calls the validate method of the given ValidationHelper. A 	 * validation exception will be thrown if the Helper throws a validation 	 * exception and if the list of errors is empty. 	 *  	 * @param handler 	 *          the document handler which contains elements for the validation 	 * @param helper 	 *          An inherited class of AbstractValidationHelper. 	 * @param errors 	 *          A list of validation errors 	 * @throws ValidationException 	 */
+comment|/**      * This method calls the validate method of the given ValidationHelper. A      * validation exception will be thrown if the Helper throws a validation      * exception and if the list of errors is empty.      *       * @param handler      *          the document handler which contains elements for the validation      * @param helper      *          An inherited class of AbstractValidationHelper.      * @param errors      *          A list of validation errors      * @throws ValidationException      */
 specifier|protected
 name|void
 name|runValidation
@@ -602,7 +499,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/** 	 * Create an instance of ValidationResult. This object contains an instance of 	 * ValidationError. If the ParseException is an instance of PdfParseException, 	 * the embedded validation error is initialized with the error code of the 	 * exception, otherwise it is an UnknownError. 	 *  	 * @param e 	 * @return 	 */
+comment|/**      * Create an instance of ValidationResult. This object contains an instance of      * ValidationError. If the ParseException is an instance of PdfParseException,      * the embedded validation error is initialized with the error code of the      * exception, otherwise it is an UnknownError.      *       * @param e      * @return      */
 specifier|protected
 name|ValidationResult
 name|createErrorResult
@@ -718,7 +615,7 @@ name|createUnknownErrorResult
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Create an instance of ValidationResult with a 	 * ValidationError(UNKNOWN_ERROR) 	 *  	 * @return 	 */
+comment|/**      * Create an instance of ValidationResult with a      * ValidationError(UNKNOWN_ERROR)      *       * @return      */
 specifier|protected
 name|ValidationResult
 name|createUnknownErrorResult
@@ -748,7 +645,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/* (non-Javadoc) 	 * @see net.padaf.preflight.PdfAValidator#getFullName() 	 */
+comment|/* (non-Javadoc)      * @see net.padaf.preflight.PdfAValidator#getFullName()      */
 specifier|public
 name|String
 name|getFullName
@@ -756,6 +653,16 @@ parameter_list|()
 block|{
 return|return
 name|fullName
+return|;
+block|}
+comment|/*      * (non-Javadoc)      * @see org.apache.padaf.preflight.PdfAValidator#getVersion()      */
+specifier|public
+name|String
+name|getVersion
+parameter_list|()
+block|{
+return|return
+name|version
 return|;
 block|}
 block|}

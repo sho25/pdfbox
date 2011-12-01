@@ -45,6 +45,10 @@ name|String
 name|getFullName
 parameter_list|()
 function_decl|;
+name|String
+name|getVersion
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
