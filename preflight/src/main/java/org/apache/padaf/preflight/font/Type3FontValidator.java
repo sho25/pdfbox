@@ -1745,12 +1745,9 @@ condition|(
 name|charStream
 operator|==
 literal|null
-operator|&&
-name|width
-operator|!=
-literal|0
 condition|)
 block|{
+comment|/* There are no character description, we declare the Glyph as Invalid. 					 * If the character is used in a Stream, the GlyphDetail will throw an exception. 					 */
 name|GlyphException
 name|glyphEx
 init|=
@@ -1765,7 +1762,7 @@ literal|"The CharProcs \""
 operator|+
 name|charName
 operator|+
-literal|"\" doesn't exist but the width is "
+literal|"\" doesn't exist, the width defines in the Font Dictionary is "
 operator|+
 name|width
 argument_list|)
