@@ -428,6 +428,7 @@ throws|throws
 name|GlyphException
 block|{
 comment|// a delta of 1/1000 unit is allowed
+specifier|final
 name|float
 name|epsilon
 init|=
