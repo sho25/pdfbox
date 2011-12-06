@@ -2280,6 +2280,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|LAST_MODIFIED
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"LastModified"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|LC
 init|=
 operator|new
