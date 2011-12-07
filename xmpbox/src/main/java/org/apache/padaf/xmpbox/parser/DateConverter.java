@@ -866,8 +866,6 @@ argument_list|(
 literal|"Error converting date:"
 operator|+
 name|date
-argument_list|,
-name|e
 argument_list|)
 throw|;
 block|}
