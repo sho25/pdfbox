@@ -384,7 +384,7 @@ decl_stmt|;
 specifier|public
 specifier|static
 specifier|final
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -580,7 +580,7 @@ name|String
 argument_list|>
 name|complexBasicTypesDeclarationPropertyLevel
 decl_stmt|;
-comment|/** 	 * Constructor of the NameSpace mapping 	 *  	 * @throws XmpSchemaException 	 *             When could not read a property data in a Schema Class given 	 */
+comment|/**      * Constructor of the NameSpace mapping      *       * @throws XmpSchemaException      *             When could not read a property data in a Schema Class given      */
 specifier|public
 name|NSMapping
 parameter_list|()
@@ -631,11 +631,94 @@ name|String
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|init
-argument_list|()
+comment|//  Add mapping of common schemas
+name|addNameSpace
+argument_list|(
+literal|"http://ns.adobe.com/xap/1.0/"
+argument_list|,
+name|XMPBasicSchema
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|addNameSpace
+argument_list|(
+literal|"http://purl.org/dc/elements/1.1/"
+argument_list|,
+name|DublinCoreSchema
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|addNameSpace
+argument_list|(
+literal|"http://www.aiim.org/pdfa/ns/extension/"
+argument_list|,
+name|PDFAExtensionSchema
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|addNameSpace
+argument_list|(
+literal|"http://ns.adobe.com/xap/1.0/mm/"
+argument_list|,
+name|XMPMediaManagementSchema
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|addNameSpace
+argument_list|(
+literal|"http://ns.adobe.com/pdf/1.3/"
+argument_list|,
+name|AdobePDFSchema
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|addNameSpace
+argument_list|(
+literal|"http://www.aiim.org/pdfa/ns/id/"
+argument_list|,
+name|PDFAIdentificationSchema
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|addNameSpace
+argument_list|(
+literal|"http://ns.adobe.com/xap/1.0/rights/"
+argument_list|,
+name|XMPRightsManagementSchema
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|addNameSpace
+argument_list|(
+name|PhotoshopSchema
+operator|.
+name|PHOTOSHOPURI
+argument_list|,
+name|PhotoshopSchema
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|addNameSpace
+argument_list|(
+name|XMPBasicJobTicketSchema
+operator|.
+name|JOB_TICKET_URI
+argument_list|,
+name|XMPBasicJobTicketSchema
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Import an NSMapping content. 	 * @param imp 	 */
+comment|/**      * Import an NSMapping content.      * @param imp      */
 specifier|public
 name|void
 name|importNSMapping
@@ -947,102 +1030,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Add mapping of common schemas 	 *  	 * @throws XmpSchemaException 	 *             When could not read a property data in a Schema Class given 	 */
+comment|/**      * Add a namespace declaration and Schema factory associated      *       * @param ns      *            the Namespace URI      * @param classSchem      *            The class representation of the schema linked to the namespace      * @throws XmpSchemaException      *             When could not read property name in Schema Class given      */
 specifier|private
-name|void
-name|init
-parameter_list|()
-throws|throws
-name|XmpSchemaException
-block|{
-name|addNameSpace
-argument_list|(
-literal|"http://ns.adobe.com/xap/1.0/"
-argument_list|,
-name|XMPBasicSchema
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addNameSpace
-argument_list|(
-literal|"http://purl.org/dc/elements/1.1/"
-argument_list|,
-name|DublinCoreSchema
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addNameSpace
-argument_list|(
-literal|"http://www.aiim.org/pdfa/ns/extension/"
-argument_list|,
-name|PDFAExtensionSchema
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addNameSpace
-argument_list|(
-literal|"http://ns.adobe.com/xap/1.0/mm/"
-argument_list|,
-name|XMPMediaManagementSchema
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addNameSpace
-argument_list|(
-literal|"http://ns.adobe.com/pdf/1.3/"
-argument_list|,
-name|AdobePDFSchema
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addNameSpace
-argument_list|(
-literal|"http://www.aiim.org/pdfa/ns/id/"
-argument_list|,
-name|PDFAIdentificationSchema
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addNameSpace
-argument_list|(
-literal|"http://ns.adobe.com/xap/1.0/rights/"
-argument_list|,
-name|XMPRightsManagementSchema
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addNameSpace
-argument_list|(
-name|PhotoshopSchema
-operator|.
-name|PHOTOSHOPURI
-argument_list|,
-name|PhotoshopSchema
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addNameSpace
-argument_list|(
-name|XMPBasicJobTicketSchema
-operator|.
-name|JOB_TICKET_URI
-argument_list|,
-name|XMPBasicJobTicketSchema
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-comment|/** 	 * Add a namespace declaration and Schema factory associated 	 *  	 * @param ns 	 *            the Namespace URI 	 * @param classSchem 	 *            The class representation of the schema linked to the namespace 	 * @throws XmpSchemaException 	 *             When could not read property name in Schema Class given 	 */
-specifier|protected
 name|void
 name|addNameSpace
 parameter_list|(
@@ -1083,7 +1072,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Initialize the Property Mapping for a given schema 	 *  	 * @param ns 	 *            Namespace URI 	 * @param classSchem 	 *            The class representation of the schema linked to the namespace 	 * @return Construct expected properties types representation 	 * @throws XmpSchemaException 	 *             When could not read property name in field with properties 	 *             annotations 	 */
+comment|/**      * Initialize the Property Mapping for a given schema      *       * @param ns      *            Namespace URI      * @param classSchem      *            The class representation of the schema linked to the namespace      * @return Construct expected properties types representation      * @throws XmpSchemaException      *             When could not read property name in field with properties      *             annotations      */
 specifier|private
 name|PropMapping
 name|initializePropMapping
@@ -1186,9 +1175,6 @@ name|getName
 argument_list|()
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1302,7 +1288,7 @@ return|return
 name|propMap
 return|;
 block|}
-comment|/** 	 * see if a specific type is known as a basic XMP type 	 *  	 * @param type 	 *            Type to check 	 * @return True if type is a simple basic type 	 */
+comment|/**      * see if a specific type is known as a basic XMP type      *       * @param type      *            Type to check      * @return True if type is a simple basic type      */
 specifier|private
 name|boolean
 name|isBasicType
@@ -1320,7 +1306,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Say if a specific namespace is known 	 *  	 * @param namespace 	 *            The namespace URI checked 	 * @return True if namespace URI is known 	 */
+comment|/**      * Say if a specific namespace is known      *       * @param namespace      *            The namespace URI checked      * @return True if namespace URI is known      */
 specifier|public
 name|boolean
 name|isContainedNamespace
@@ -1338,7 +1324,7 @@ name|namespace
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Give type of specified property in specified schema (given by its 	 * namespaceURI) 	 *  	 * @param namespace 	 *            The namespaceURI to explore 	 * @param prop 	 *            the property Qualified Name 	 * @return Property type declared for namespace specified, null if unknown 	 */
+comment|/**      * Give type of specified property in specified schema (given by its      * namespaceURI)      *       * @param namespace      *            The namespaceURI to explore      * @param prop      *            the property Qualified Name      * @return Property type declared for namespace specified, null if unknown      */
 specifier|public
 name|String
 name|getSpecifiedPropertyType
@@ -1388,7 +1374,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Check if a non basic value type used is describes in the schema which 	 * inlude a property with a such type 	 *  	 * @param desc 	 *            The schema description associated to the schema which declare 	 *            a property with specific value type 	 * @param definedValueType 	 *            The value type name to find in value types descriptions 	 * @return The description of this specific value type 	 * @throws XmpUnknownValueTypeException 	 *             If no declaration found 	 */
+comment|/**      * Check if a non basic value type used is describes in the schema which      * inlude a property with a such type      *       * @param desc      *            The schema description associated to the schema which declare      *            a property with specific value type      * @param definedValueType      *            The value type name to find in value types descriptions      * @return The description of this specific value type      * @throws XmpUnknownValueTypeException      *             If no declaration found      */
 specifier|private
 name|PDFAValueTypeDescription
 name|findValueTypeDescription
@@ -1451,7 +1437,7 @@ literal|"' is unknown. no declaration found in this schema"
 argument_list|)
 throw|;
 block|}
-comment|/** 	 * Check if valueType used for a specified property description is known (in 	 * case where it's a normal value type or if a value type which has been 	 * defined in PDF/A Extension schema) 	 *  	 * @param desc 	 *            The schema description associated to the schema which declare 	 *            a property with specific value type 	 * @param definedValueType 	 *            The value type name to find in value types descriptions 	 * @return value type equivalence (value type which can be treat (orginal 	 *         basic value type or specific value type decomposed to find basic 	 *         types) 	 * @throws XmpUnknownValueTypeException 	 *             When Value Type is unknown 	 *  	 */
+comment|/**      * Check if valueType used for a specified property description is known (in      * case where it's a normal value type or if a value type which has been      * defined in PDF/A Extension schema)      *       * @param desc      *            The schema description associated to the schema which declare      *            a property with specific value type      * @param definedValueType      *            The value type name to find in value types descriptions      * @return value type equivalence (value type which can be treat (orginal      *         basic value type or specific value type decomposed to find basic      *         types)      * @throws XmpUnknownValueTypeException      *             When Value Type is unknown      *       */
 specifier|private
 name|String
 name|getValueTypeEquivalence
@@ -1508,7 +1494,7 @@ return|return
 literal|"Field"
 return|;
 block|}
-comment|/** 	 * . For a specific valuetype declared in this schema. This method decompose 	 * it if field are present. and add types expected 	 *  	 * @param desc 	 *            The schema description associated to the schema which declare 	 *            a property with specific value type 	 * @param valueType 	 *            valueType to analyze 	 * @param prop 	 *            Expected properties types representation 	 * @throws XmpUnknownValueTypeException 	 *             When a Value Type associated is unknown 	 */
+comment|/**      * . For a specific valuetype declared in this schema. This method decompose      * it if field are present. and add types expected      *       * @param desc      *            The schema description associated to the schema which declare      *            a property with specific value type      * @param valueType      *            valueType to analyze      * @param prop      *            Expected properties types representation      * @throws XmpUnknownValueTypeException      *             When a Value Type associated is unknown      */
 specifier|private
 name|void
 name|declareAssociatedFieldType
@@ -1594,7 +1580,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Add a new namespace Mapping for specific schema declared in PDF/A 	 * Extension schema 	 *  	 * @param desc 	 *            The schemaDescription associated to the schema 	 * @throws XmpUnknownValueTypeException 	 *             When a Value Type associated is unknown 	 */
+comment|/**      * Add a new namespace Mapping for specific schema declared in PDF/A      * Extension schema      *       * @param desc      *            The schemaDescription associated to the schema      * @throws XmpUnknownValueTypeException      *             When a Value Type associated is unknown      */
 specifier|public
 name|void
 name|setNamespaceDefinition
@@ -1750,7 +1736,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Return the specialized schema class representation if it's known (create 	 * and add it to metadata). In other cases, return null 	 *  	 * @param metadata 	 *            Metadata to link the new schema 	 * @param namespace 	 *            The namespace URI 	 * @return Schema representation 	 * @throws XmpSchemaException 	 *             When Instancing specified Object Schema failed 	 */
+comment|/**      * Return the specialized schema class representation if it's known (create      * and add it to metadata). In other cases, return null      *       * @param metadata      *            Metadata to link the new schema      * @param namespace      *            The namespace URI      * @return Schema representation      * @throws XmpSchemaException      *             When Instancing specified Object Schema failed      */
 specifier|public
 name|XMPSchema
 name|getAssociatedSchemaObject
@@ -1803,7 +1789,7 @@ name|prefix
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Check if a namespace used reference a complex basic types (like 	 * Thumbnails) 	 *  	 * @param namespace 	 *            The namespace URI to check 	 * @return True if namespace URI is a reference for a complex basic type 	 */
+comment|/**      * Check if a namespace used reference a complex basic types (like      * Thumbnails)      *       * @param namespace      *            The namespace URI to check      * @return True if namespace URI is a reference for a complex basic type      */
 specifier|public
 name|boolean
 name|isComplexBasicTypes
@@ -1821,7 +1807,7 @@ name|namespace
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Check if a namespace declaration for a complex basic type has been found 	 * and if its valid for the entire XMP stream 	 *  	 * @param namespace 	 *            the namespace URI 	 * @param prefix 	 *            the prefix associated to this namespace 	 */
+comment|/**      * Check if a namespace declaration for a complex basic type has been found      * and if its valid for the entire XMP stream      *       * @param namespace      *            the namespace URI      * @param prefix      *            the prefix associated to this namespace      */
 specifier|public
 name|void
 name|setComplexBasicTypesDeclarationForLevelXMP
@@ -1852,7 +1838,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Check if a namespace declaration for a complex basic type has been found 	 * and if its valid for the current schema description (at level of 	 * rdf:Description) 	 *  	 * @param namespace 	 *            the namespace URI 	 * @param prefix 	 *            the prefix associated to this namespace 	 */
+comment|/**      * Check if a namespace declaration for a complex basic type has been found      * and if its valid for the current schema description (at level of      * rdf:Description)      *       * @param namespace      *            the namespace URI      * @param prefix      *            the prefix associated to this namespace      */
 specifier|public
 name|void
 name|setComplexBasicTypesDeclarationForLevelSchema
@@ -1883,7 +1869,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Check if a namespace declaration for a complex basic type has been found 	 * and if its valid for the current property description 	 *  	 * @param namespace 	 *            the namespace URI 	 * @param prefix 	 *            the prefix associated to this namespace 	 */
+comment|/**      * Check if a namespace declaration for a complex basic type has been found      * and if its valid for the current property description      *       * @param namespace      *            the namespace URI      * @param prefix      *            the prefix associated to this namespace      */
 specifier|public
 name|void
 name|setComplexBasicTypesDeclarationForLevelProperty
@@ -1914,7 +1900,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Check for all XMP level if a complexBasicValueType prefix has been 	 * declared 	 *  	 * @param prefix 	 *            The prefix which may design the namespace URI of the complex 	 *            basic type 	 * @return The type if it is known, else null. 	 */
+comment|/**      * Check for all XMP level if a complexBasicValueType prefix has been      * declared      *       * @param prefix      *            The prefix which may design the namespace URI of the complex      *            basic type      * @return The type if it is known, else null.      */
 specifier|public
 name|String
 name|getComplexBasicValueTypeEffectiveType
@@ -1999,7 +1985,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Reset complex Basic types declaration for property level 	 */
+comment|/**      * Reset complex Basic types declaration for property level      */
 specifier|public
 name|void
 name|resetComplexBasicTypesDeclarationInPropertyLevel
@@ -2011,7 +1997,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Reset complex Basic types declaration for schema level 	 */
+comment|/**      * Reset complex Basic types declaration for schema level      */
 specifier|public
 name|void
 name|resetComplexBasicTypesDeclarationInSchemaLevel
@@ -2023,7 +2009,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Reset complex Basic types declaration for Entire XMP level 	 */
+comment|/**      * Reset complex Basic types declaration for Entire XMP level      */
 specifier|public
 name|void
 name|resetComplexBasicTypesDeclarationInEntireXMPLevel

@@ -41,16 +41,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Iterator
 import|;
 end_import
@@ -62,6 +52,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -369,6 +369,8 @@ operator|new
 name|CreateXMPMetadataException
 argument_list|(
 literal|"Failed to create Dom Document"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -453,6 +455,8 @@ operator|new
 name|CreateXMPMetadataException
 argument_list|(
 literal|"Failed to create Dom Document"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -866,7 +870,7 @@ specifier|public
 name|PDFAExtensionSchema
 name|createAndAddPDFAExtensionSchemaWithNS
 parameter_list|(
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

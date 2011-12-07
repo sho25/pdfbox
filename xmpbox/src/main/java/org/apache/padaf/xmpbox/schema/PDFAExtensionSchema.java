@@ -355,7 +355,7 @@ specifier|private
 name|SchemaDescriptionContainer
 name|descriptions
 decl_stmt|;
-comment|/** 	 * Build a new PDFExtension schema 	 *  	 * @param metadata 	 *            The metadata to attach this schema XMPMetadata 	 */
+comment|/**      * Build a new PDFExtension schema      *       * @param metadata      *            The metadata to attach this schema XMPMetadata      */
 specifier|public
 name|PDFAExtensionSchema
 parameter_list|(
@@ -468,7 +468,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Build a new PDFExtension schema with specified namespaces declaration 	 *  	 * @param metadata 	 *            The metadata to attach this schema 	 * @param namespaces 	 *            List of namespaces to define 	 * @throws XmpSchemaException 	 *             The namespace URI of PDF/A Extension schema missing 	 */
+comment|/**      * Build a new PDFExtension schema with specified namespaces declaration      *       * @param metadata      *            The metadata to attach this schema      * @param namespaces      *            List of namespaces to define      * @throws XmpSchemaException      *             The namespace URI of PDF/A Extension schema missing      */
 specifier|public
 name|PDFAExtensionSchema
 parameter_list|(
@@ -577,7 +577,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Give the prefix of the PDF/A Extension schema 	 *  	 * @return prefix value 	 */
+comment|/**      * Give the prefix of the PDF/A Extension schema      *       * @return prefix value      */
 specifier|public
 name|String
 name|getPrefixValue
@@ -587,7 +587,7 @@ return|return
 name|PDFAEXTENSION
 return|;
 block|}
-comment|/** 	 * Give the namespace URI of the PDF/A Extension schema 	 *  	 * @return namespace URI 	 */
+comment|/**      * Give the namespace URI of the PDF/A Extension schema      *       * @return namespace URI      */
 specifier|public
 name|String
 name|getNamespaceValue
@@ -597,7 +597,7 @@ return|return
 name|PDFAEXTENSIONURI
 return|;
 block|}
-comment|/** 	 * Add to the Extension Schema a new description schema param desc the 	 * schema description 	 *  	 * @param desc 	 *            the new schema description 	 * @return the previous schema with same prefix, null otherwise 	 */
+comment|/**      * Add to the Extension Schema a new description schema param desc the      * schema description      *       * @param desc      *            the new schema description      * @return the previous schema with same prefix, null otherwise      */
 specifier|public
 name|SchemaDescription
 name|addSchemaDescription
@@ -615,26 +615,21 @@ name|desc
 argument_list|)
 return|;
 block|}
-comment|/** 	 * create Extension Schema a new description schema 	 *  	 * @return a new empty description schema 	 */
+comment|/**      * create Extension Schema a new description schema      *       * @return a new empty description schema      */
 specifier|public
 name|SchemaDescription
 name|createSchemaDescription
 parameter_list|()
 block|{
-name|SchemaDescription
-name|desc
-init|=
+return|return
 operator|new
 name|SchemaDescription
 argument_list|(
 name|metadata
 argument_list|)
-decl_stmt|;
-return|return
-name|desc
 return|;
 block|}
-comment|/** 	 * Give a list of all description declared 	 *  	 * @return List of all schemaDescriptions declared 	 */
+comment|/**      * Give a list of all description declared      *       * @return List of all schemaDescriptions declared      */
 specifier|public
 name|List
 argument_list|<
@@ -654,7 +649,7 @@ name|schemaDescriptions
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Give an iterator of all description declared 	 *  	 * @return a SchemaDescription Iterator 	 */
+comment|/**      * Give an iterator of all description declared      *       * @return a SchemaDescription Iterator      */
 specifier|public
 name|Iterator
 argument_list|<
@@ -670,7 +665,7 @@ name|getAllSchemasDescription
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Container of Description Schema embedded in PDF/A Extension Schema 	 *  	 * @author a183132 	 *  	 */
+comment|/**      * Container of Description Schema embedded in PDF/A Extension Schema      *       * @author a183132      *       */
 specifier|public
 class|class
 name|SchemaDescriptionContainer
@@ -690,7 +685,7 @@ name|SchemaDescription
 argument_list|>
 name|schemaDescriptions
 decl_stmt|;
-comment|/** 		 *  		 * SchemasDescription Container constructor 		 */
+comment|/**          *           * SchemasDescription Container constructor          */
 specifier|public
 name|SchemaDescriptionContainer
 parameter_list|()
@@ -738,7 +733,7 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 		 * Add a SchemaDescription to the current structure 		 *  		 * @param obj 		 *            the property to add 		 * @return the old SchemaDescription corresponding to the same namespace 		 *         prefix if exist, else null 		 */
+comment|/**          * Add a SchemaDescription to the current structure          *           * @param obj          *            the property to add          * @return the old SchemaDescription corresponding to the same namespace          *         prefix if exist, else null          */
 specifier|public
 name|SchemaDescription
 name|addSchemaDescription
@@ -808,7 +803,7 @@ return|return
 name|sd
 return|;
 block|}
-comment|/** 		 * Get Schema Description embedded with the same prefix as that given in 		 * parameters 		 *  		 * @param obj 		 *            Schema Description with same prefix 		 * @return The schema Description contained 		 */
+comment|/**          * Get Schema Description embedded with the same prefix as that given in          * parameters          *           * @param obj          *            Schema Description with same prefix          * @return The schema Description contained          */
 specifier|protected
 name|SchemaDescription
 name|getSameSchemaDescription
@@ -856,7 +851,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 		 * Return all SchemaDescription 		 *  		 * @return SchemaDescriptions Iterator in order to be use in PDF/A 		 *         Extension Schema class 		 */
+comment|/**          * Return all SchemaDescription          *           * @return SchemaDescriptions Iterator in order to be use in PDF/A          *         Extension Schema class          */
 specifier|public
 name|Iterator
 argument_list|<
@@ -913,7 +908,7 @@ comment|// schemaDescriptions.remove(schema);
 comment|// content.removeChild(schema.content.getElement());
 comment|// }
 comment|// }
-comment|/** 		 * Get Dom Element for xml/rdf serialization 		 *  		 * @return the DOM Element 		 */
+comment|/**          * Get Dom Element for xml/rdf serialization          *           * @return the DOM Element          */
 specifier|public
 name|Element
 name|getElement

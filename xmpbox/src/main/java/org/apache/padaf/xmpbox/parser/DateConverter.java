@@ -136,13 +136,13 @@ literal|"yyyy-MM-dd'T'HH:mm:ssz"
 argument_list|)
 block|}
 decl_stmt|;
-comment|/** 	 * According to check-style, Utility classes should not have a public or 	 * default constructor. 	 */
+comment|/**      * According to check-style, Utility classes should not have a public or      * default constructor.      */
 specifier|protected
 name|DateConverter
 parameter_list|()
-block|{ 	}
+block|{     }
 empty_stmt|;
-comment|/** 	 * This will convert a string to a calendar. 	 *  	 * @param date 	 *            The string representation of the calendar. 	 *  	 * @return The calendar that this string represents. 	 *  	 * @throws IOException 	 *             If the date string is not in the correct format. 	 */
+comment|/**      * This will convert a string to a calendar.      *       * @param date      *            The string representation of the calendar.      *       * @return The calendar that this string represents.      *       * @throws IOException      *             If the date string is not in the correct format.      */
 specifier|public
 specifier|static
 name|Calendar
@@ -866,6 +866,8 @@ argument_list|(
 literal|"Error converting date:"
 operator|+
 name|date
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -875,7 +877,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * Append Zero to String Buffer before number< 10 ('1' become '01') 	 *  	 * @param out 	 *            The String buffer 	 * @param number 	 *            The concerned number 	 */
+comment|/**      * Append Zero to String Buffer before number< 10 ('1' become '01')      *       * @param out      *            The String buffer      * @param number      *            The concerned number      */
 specifier|private
 specifier|static
 name|void
@@ -911,7 +913,7 @@ name|number
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Convert the date to iso 8601 string format. 	 *  	 * @param cal 	 *            The date to convert. 	 * @return The date represented as an ISO 8601 string. 	 */
+comment|/**      * Convert the date to iso 8601 string format.      *       * @param cal      *            The date to convert.      * @return The date represented as an ISO 8601 string.      */
 specifier|public
 specifier|static
 name|String

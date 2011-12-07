@@ -277,12 +277,12 @@ specifier|final
 class|class
 name|XMLUtil
 block|{
-comment|/** 	 * Utility class, should not be instantiated. 	 *  	 */
+comment|/**      * Utility class, should not be instantiated.      *       */
 specifier|private
 name|XMLUtil
 parameter_list|()
-block|{ 	}
-comment|/** 	 * This will parse an XML stream and create a DOM document. 	 *  	 * @param is 	 *            The stream to get the XML from. 	 * @return The DOM document. 	 * @throws IOException 	 *             It there is an error creating the dom. 	 */
+block|{     }
+comment|/**      * This will parse an XML stream and create a DOM document.      *       * @param is      *            The stream to get the XML from.      * @return The DOM document.      * @throws IOException      *             It there is an error creating the dom.      */
 specifier|public
 specifier|static
 name|Document
@@ -344,7 +344,7 @@ name|thrown
 throw|;
 block|}
 block|}
-comment|/** 	 * This will parse an InputSource and create a DOM document. 	 *  	 * @param is 	 *            The stream to get the XML from. 	 * @return The DOM document. 	 * @throws IOException 	 *             It there is an error creating the dom. 	 */
+comment|/**      * This will parse an InputSource and create a DOM document.      *       * @param is      *            The stream to get the XML from.      * @return The DOM document.      * @throws IOException      *             It there is an error creating the dom.      */
 specifier|public
 specifier|static
 name|Document
@@ -406,7 +406,7 @@ name|thrown
 throw|;
 block|}
 block|}
-comment|/** 	 * This will parse an XML stream and create a DOM document. 	 *  	 * @param fileName 	 *            The file to get the XML from. 	 * @return The DOM document. 	 * @throws IOException 	 *             It there is an error creating the dom. 	 */
+comment|/**      * This will parse an XML stream and create a DOM document.      *       * @param fileName      *            The file to get the XML from.      * @return The DOM document.      * @throws IOException      *             It there is an error creating the dom.      */
 specifier|public
 specifier|static
 name|Document
@@ -468,7 +468,7 @@ name|thrown
 throw|;
 block|}
 block|}
-comment|/** 	 * Create a new blank XML document. 	 *  	 * @return The new blank XML document. 	 *  	 * @throws IOException 	 *             If there is an error creating the XML document. 	 */
+comment|/**      * Create a new blank XML document.      *       * @return The new blank XML document.      *       * @throws IOException      *             If there is an error creating the XML document.      */
 specifier|public
 specifier|static
 name|Document
@@ -525,7 +525,7 @@ name|thrown
 throw|;
 block|}
 block|}
-comment|/** 	 * Get the first instance of an element by name. 	 *  	 * @param parent 	 *            The parent to get the element from. 	 * @param elementName 	 *            The name of the element to look for. 	 * @return The element or null if it is not found. 	 */
+comment|/**      * Get the first instance of an element by name.      *       * @param parent      *            The parent to get the element from.      * @param elementName      *            The name of the element to look for.      * @return The element or null if it is not found.      */
 specifier|public
 specifier|static
 name|Element
@@ -580,7 +580,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * Get the integer value of a subnode. 	 *  	 * @param parent 	 *            The parent element that holds the values. 	 * @param nodeName 	 *            The name of the node that holds the integer value. 	 *  	 * @return The integer value of the node. 	 */
+comment|/**      * Get the integer value of a subnode.      *       * @param parent      *            The parent element that holds the values.      * @param nodeName      *            The name of the node that holds the integer value.      *       * @return The integer value of the node.      */
 specifier|public
 specifier|static
 name|Integer
@@ -610,11 +610,6 @@ name|nodeName
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Integer
-name|retval
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|intVal
@@ -622,20 +617,23 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|retval
-operator|=
-operator|new
+return|return
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|intVal
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|retval
 return|;
 block|}
-comment|/** 	 * Set the integer value of an element. 	 *  	 * @param parent 	 *            The parent element that will hold this subelement. 	 * @param nodeName 	 *            The name of the subelement. 	 * @param intValue 	 *            The value to set. 	 */
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
+comment|/**      * Set the integer value of an element.      *       * @param parent      *            The parent element that will hold this subelement.      * @param nodeName      *            The name of the subelement.      * @param intValue      *            The value to set.      */
 specifier|public
 specifier|static
 name|void
@@ -728,7 +726,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Get the value of a subnode. 	 *  	 * @param parent 	 *            The parent element that holds the values. 	 * @param nodeName 	 *            The name of the node that holds the value. 	 *  	 * @return The value of the sub node. 	 */
+comment|/**      * Get the value of a subnode.      *       * @param parent      *            The parent element that holds the values.      * @param nodeName      *            The name of the node that holds the value.      *       * @return The value of the sub node.      */
 specifier|public
 specifier|static
 name|String
@@ -757,7 +755,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Set the value of an element. 	 *  	 * @param parent 	 *            The parent element that will hold this subelement. 	 * @param nodeName 	 *            The name of the subelement. 	 * @param nodeValue 	 *            The value to set. 	 */
+comment|/**      * Set the value of an element.      *       * @param parent      *            The parent element that will hold this subelement.      * @param nodeName      *            The name of the subelement.      * @param nodeValue      *            The value to set.      */
 specifier|public
 specifier|static
 name|void
@@ -847,7 +845,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * This will get the text value of an element. 	 *  	 * @param node 	 *            The node to get the text value for. 	 * @return The text of the node. 	 */
+comment|/**      * This will get the text value of an element.      *       * @param node      *            The node to get the text value for.      * @return The text of the node.      */
 specifier|public
 specifier|static
 name|String
@@ -918,7 +916,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This will set the text value of an element. 	 *  	 * @param node 	 *            The node to get the text value for. 	 * @param value 	 *            The new value to set the node to. 	 */
+comment|/**      * This will set the text value of an element.      *       * @param node      *            The node to get the text value for.      * @param value      *            The new value to set the node to.      */
 specifier|public
 specifier|static
 name|void
@@ -999,7 +997,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set an XML element document. 	 *  	 * @param parent 	 *            The parent document to set the value in. 	 * @param name 	 *            The name of the XML element to set. 	 * @param node 	 *            The node to set or clear. 	 */
+comment|/**      * Set an XML element document.      *       * @param parent      *            The parent document to set the value in.      * @param name      *            The name of the XML element to set.      * @param node      *            The node to set or clear.      */
 specifier|public
 specifier|static
 name|void
@@ -1151,7 +1149,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Save the XML document to a file. 	 *  	 * @param doc 	 *            The XML document to save. 	 * @param file 	 *            The file to save the document to. 	 * @param encoding 	 *            The encoding to save the file as. 	 *  	 * @throws TransformerException 	 *             If there is an error while saving the XML. 	 */
+comment|/**      * Save the XML document to a file.      *       * @param doc      *            The XML document to save.      * @param file      *            The file to save the document to.      * @param encoding      *            The encoding to save the file as.      *       * @throws TransformerException      *             If there is an error while saving the XML.      */
 specifier|public
 specifier|static
 name|void
@@ -1246,7 +1244,7 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Save the XML document to an output stream. 	 *  	 * @param doc 	 *            The XML document to save. 	 * @param outStream 	 *            The stream to save the document to. 	 * @param encoding 	 *            The encoding to save the file as. 	 *  	 * @throws TransformerException 	 *             If there is an error while saving the XML. 	 */
+comment|/**      * Save the XML document to an output stream.      *       * @param doc      *            The XML document to save.      * @param outStream      *            The stream to save the document to.      * @param encoding      *            The encoding to save the file as.      *       * @throws TransformerException      *             If there is an error while saving the XML.      */
 specifier|public
 specifier|static
 name|void
@@ -1337,7 +1335,7 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Convert the document to an array of bytes. 	 *  	 * @param doc 	 *            The XML document. 	 * @param encoding 	 *            The encoding of the output data. 	 *  	 * @return The XML document as an array of bytes. 	 *  	 * @throws TransformerException 	 *             If there is an error transforming to text. 	 */
+comment|/**      * Convert the document to an array of bytes.      *       * @param doc      *            The XML document.      * @param encoding      *            The encoding of the output data.      *       * @return The XML document as an array of bytes.      *       * @throws TransformerException      *             If there is an error transforming to text.      */
 specifier|public
 specifier|static
 name|byte

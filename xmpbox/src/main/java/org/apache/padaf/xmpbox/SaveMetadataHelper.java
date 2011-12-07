@@ -412,6 +412,8 @@ operator|new
 name|TransformException
 argument_list|(
 literal|"Failed to parse defined XMP"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -571,6 +573,8 @@ operator|new
 name|TransformException
 argument_list|(
 literal|"Failed to parse defined XMP"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -587,9 +591,6 @@ argument_list|(
 literal|"Failed to create Document to contain Schema representation "
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 throw|;
 block|}

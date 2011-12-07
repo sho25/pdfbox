@@ -131,22 +131,6 @@ name|JobType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|padaf
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
-name|LayerType
-import|;
-end_import
-
 begin_class
 specifier|public
 class|class
@@ -156,6 +140,7 @@ name|XMPSchema
 block|{
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|PREFERED_JOB_TICKET_PREFIX
 init|=
@@ -163,6 +148,7 @@ literal|"xmpBJ"
 decl_stmt|;
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|JOB_TICKET_URI
 init|=

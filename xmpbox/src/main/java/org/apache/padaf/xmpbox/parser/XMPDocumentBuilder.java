@@ -488,6 +488,38 @@ name|XMPDocumentPreprocessor
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|BAG_NAME
+init|=
+literal|"Bag"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SEQ_NAME
+init|=
+literal|"Seq"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ALT_NAME
+init|=
+literal|"Alt"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|VALUE_TYPE_NAME
+init|=
+literal|"valueType"
+decl_stmt|;
 comment|/**      * Constructor of a XMPDocumentBuilder      *       * @throws XmpSchemaException      *             When instancing schema object failed or in PDF/A Extension      *             case, if its namespace miss      */
 specifier|public
 name|XMPDocumentBuilder
@@ -2830,7 +2862,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-literal|"Bag"
+name|BAG_NAME
 argument_list|,
 literal|"Cannot find bag declaration for container of schemas descriptions"
 argument_list|)
@@ -3092,7 +3124,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"valueType"
+name|VALUE_TYPE_NAME
 argument_list|)
 condition|)
 block|{
@@ -3163,7 +3195,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-literal|"Seq"
+name|SEQ_NAME
 argument_list|,
 literal|"Expected Seq Declaration"
 argument_list|)
@@ -3474,7 +3506,7 @@ name|XMLStreamReader
 operator|.
 name|END_ELEMENT
 argument_list|,
-literal|"valueType"
+name|VALUE_TYPE_NAME
 argument_list|,
 literal|"Expected End of ValueType Declaration"
 argument_list|)
@@ -3516,7 +3548,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-literal|"Seq"
+name|SEQ_NAME
 argument_list|,
 literal|"Expected Seq Declaration"
 argument_list|)
@@ -3624,7 +3656,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"valueType"
+name|VALUE_TYPE_NAME
 argument_list|)
 condition|)
 block|{
@@ -3820,7 +3852,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-literal|"Seq"
+name|SEQ_NAME
 argument_list|,
 literal|"Expected Seq Declaration"
 argument_list|)
@@ -3935,7 +3967,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"valueType"
+name|VALUE_TYPE_NAME
 argument_list|)
 condition|)
 block|{
@@ -4768,7 +4800,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-literal|"Bag"
+name|BAG_NAME
 argument_list|,
 literal|"Expected Bag Declaration"
 argument_list|)
@@ -4809,7 +4841,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"Bag"
+name|BAG_NAME
 argument_list|)
 condition|)
 block|{
@@ -4923,7 +4955,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-literal|"Bag"
+name|BAG_NAME
 argument_list|,
 literal|"Expected Bag Declaration"
 argument_list|)
@@ -4964,7 +4996,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"Bag"
+name|BAG_NAME
 argument_list|)
 condition|)
 block|{
@@ -5079,7 +5111,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-literal|"Seq"
+name|SEQ_NAME
 argument_list|,
 literal|"Expected Seq Declaration"
 argument_list|)
@@ -5120,7 +5152,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"Seq"
+name|SEQ_NAME
 argument_list|)
 condition|)
 block|{
@@ -5235,7 +5267,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-literal|"Alt"
+name|ALT_NAME
 argument_list|,
 literal|"Expected Alt Declaration"
 argument_list|)
@@ -5276,7 +5308,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"Alt"
+name|ALT_NAME
 argument_list|)
 operator|)
 condition|)
@@ -5935,7 +5967,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"Seq"
+name|SEQ_NAME
 argument_list|)
 condition|)
 block|{
@@ -6687,28 +6719,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|reader
-operator|.
-name|get
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|getLocalPart
-argument_list|()
-operator|+
-literal|" de type "
-operator|+
-name|type
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|XmpUnknownPropertyTypeException
@@ -6782,7 +6792,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-literal|"Alt"
+name|ALT_NAME
 argument_list|,
 literal|"Expected Alt Declaration"
 argument_list|)
@@ -6823,7 +6833,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"Alt"
+name|ALT_NAME
 argument_list|)
 operator|)
 condition|)

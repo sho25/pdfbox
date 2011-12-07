@@ -78,7 +78,7 @@ name|DateType
 extends|extends
 name|AbstractSimpleProperty
 block|{
-comment|/** 	 * Property Date type constructor (namespaceURI is not given) 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 * @param value 	 *            The value to set for this property 	 */
+comment|/**      * Property Date type constructor (namespaceURI is not given)      *       * @param metadata      *            The metadata to attach to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this property      * @param value      *            The value to set for this property      */
 specifier|public
 name|DateType
 parameter_list|(
@@ -107,7 +107,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Property Date type constructor (namespaceURI is given) 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param namespaceURI 	 *            the namespace URI to associate to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 * @param value 	 *            The value to set for this property 	 */
+comment|/**      * Property Date type constructor (namespaceURI is given)      *       * @param metadata      *            The metadata to attach to this property      * @param namespaceURI      *            the namespace URI to associate to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this property      * @param value      *            The value to set for this property      */
 specifier|public
 name|DateType
 parameter_list|(
@@ -141,7 +141,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set property value 	 *  	 * @param value 	 *            the new Calendar element value 	 * @throws InappropriateTypeException 	 */
+comment|/**      * Set property value      *       * @param value      *            the new Calendar element value      * @throws InappropriateTypeException      */
 specifier|private
 name|void
 name|setValueFromCalendar
@@ -167,7 +167,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * return the property value 	 *  	 * @return boolean 	 */
+comment|/**      * return the property value      *       * @return boolean      */
 specifier|public
 name|Calendar
 name|getValue
@@ -180,7 +180,7 @@ operator|)
 name|objValue
 return|;
 block|}
-comment|/** 	 * Check if the value has a type which can be understood 	 *  	 * @param value 	 *            Object value to check 	 * @return True if types are compatibles 	 */
+comment|/**      * Check if the value has a type which can be understood      *       * @param value      *            Object value to check      * @return True if types are compatibles      */
 specifier|public
 name|boolean
 name|isGoodType
@@ -239,7 +239,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/** 	 * Set value of this property 	 *  	 * @param value 	 *            The value to set 	 */
+comment|/**      * Set value of this property      *       * @param value      *            The value to set      */
 specifier|public
 name|void
 name|setValue
@@ -298,7 +298,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Set the property value with a String 	 *  	 * @param value 	 *            The String value 	 */
+comment|/**      * Set the property value with a String      *       * @param value      *            The String value      */
 specifier|private
 name|void
 name|setValueFromString
@@ -336,9 +336,6 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 name|e
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 throw|;
 block|}

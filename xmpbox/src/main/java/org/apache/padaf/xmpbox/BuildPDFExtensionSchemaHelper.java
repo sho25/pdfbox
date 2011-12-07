@@ -548,9 +548,6 @@ argument_list|,
 literal|"Couldn't read content, please check accessibility and declaration of field associated"
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -717,9 +714,6 @@ argument_list|,
 literal|"Wrong value for property Category"
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 throw|;
 block|}
