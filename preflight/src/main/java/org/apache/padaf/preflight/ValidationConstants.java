@@ -1310,6 +1310,13 @@ decl_stmt|;
 specifier|static
 specifier|final
 name|String
+name|ICC_Characterization_Data_Registry_CGATS_TR006
+init|=
+literal|"CGATS TR006"
+decl_stmt|;
+specifier|static
+specifier|final
+name|String
 name|ICC_Characterization_Data_Registry_FOGRA39
 init|=
 literal|"FOGRA39"
@@ -1366,6 +1373,13 @@ decl_stmt|;
 specifier|static
 specifier|final
 name|String
+name|ICC_Characterization_Data_Registry_CGATS_TR001
+init|=
+literal|"CGATS TR001"
+decl_stmt|;
+specifier|static
+specifier|final
+name|String
 name|ICC_Characterization_Data_Registry_CGATS_TR_003
 init|=
 literal|"CGATS TR 003"
@@ -1373,9 +1387,23 @@ decl_stmt|;
 specifier|static
 specifier|final
 name|String
+name|ICC_Characterization_Data_Registry_CGATS_TR003
+init|=
+literal|"CGATS TR003"
+decl_stmt|;
+specifier|static
+specifier|final
+name|String
 name|ICC_Characterization_Data_Registry_CGATS_TR_005
 init|=
 literal|"CGATS TR 005"
+decl_stmt|;
+specifier|static
+specifier|final
+name|String
+name|ICC_Characterization_Data_Registry_CGATS_TR005
+init|=
+literal|"CGATS TR005"
 decl_stmt|;
 specifier|static
 specifier|final
@@ -1467,6 +1495,13 @@ name|String
 name|ICC_Characterization_Data_Registry_CGATS_TR_002
 init|=
 literal|"CGATS TR 002"
+decl_stmt|;
+specifier|static
+specifier|final
+name|String
+name|ICC_Characterization_Data_Registry_CGATS_TR002
+init|=
+literal|"CGATS TR002"
 decl_stmt|;
 specifier|static
 specifier|final
@@ -1807,14 +1842,6 @@ name|ERROR_SYNTAX_STREAM_INVALID_FILTER
 init|=
 literal|"1.2.7"
 decl_stmt|;
-comment|/**    * The stream uses a filter which isn't defined in the PDF Reference document.     */
-specifier|static
-specifier|final
-name|String
-name|ERROR_SYNTAX_STREAM_UNDEFINED_FILTER
-init|=
-literal|"1.2.12"
-decl_stmt|;
 comment|/**    * The content stream has some syntax errors    */
 specifier|static
 specifier|final
@@ -1846,6 +1873,14 @@ name|String
 name|ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT
 init|=
 literal|"1.2.11"
+decl_stmt|;
+comment|/**    * The stream uses a filter which isn't defined in the PDF Reference document.     */
+specifier|static
+specifier|final
+name|String
+name|ERROR_SYNTAX_STREAM_UNDEFINED_FILTER
+init|=
+literal|"1.2.12"
 decl_stmt|;
 comment|/**    * Common error about the cross ref table    */
 specifier|static

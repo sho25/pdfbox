@@ -428,6 +428,13 @@ name|listICC
 operator|.
 name|add
 argument_list|(
+name|ICC_Characterization_Data_Registry_CGATS_TR006
+argument_list|)
+expr_stmt|;
+name|listICC
+operator|.
+name|add
+argument_list|(
 name|ICC_Characterization_Data_Registry_FOGRA39
 argument_list|)
 expr_stmt|;
@@ -492,6 +499,27 @@ operator|.
 name|add
 argument_list|(
 name|ICC_Characterization_Data_Registry_CGATS_TR_005
+argument_list|)
+expr_stmt|;
+name|listICC
+operator|.
+name|add
+argument_list|(
+name|ICC_Characterization_Data_Registry_CGATS_TR001
+argument_list|)
+expr_stmt|;
+name|listICC
+operator|.
+name|add
+argument_list|(
+name|ICC_Characterization_Data_Registry_CGATS_TR003
+argument_list|)
+expr_stmt|;
+name|listICC
+operator|.
+name|add
+argument_list|(
+name|ICC_Characterization_Data_Registry_CGATS_TR005
 argument_list|)
 expr_stmt|;
 name|listICC
@@ -583,6 +611,13 @@ operator|.
 name|add
 argument_list|(
 name|ICC_Characterization_Data_Registry_CGATS_TR_002
+argument_list|)
+expr_stmt|;
+name|listICC
+operator|.
+name|add
+argument_list|(
+name|ICC_Characterization_Data_Registry_CGATS_TR002
 argument_list|)
 expr_stmt|;
 name|listICC
@@ -885,7 +920,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**    * This method validates if OpenAction entry contains forbidden action type.    * It checks too if an Additional Action is present.    *     * @param handler    * @param catalog    * @param result    * @throws ValidationException    */
+comment|/** 	 * This method validates if OpenAction entry contains forbidden action type. 	 * It checks too if an Additional Action is present. 	 *  	 * @param handler 	 * @param catalog 	 * @param result 	 * @throws ValidationException 	 */
 specifier|protected
 name|void
 name|validateActions
@@ -955,7 +990,7 @@ return|return;
 block|}
 block|}
 block|}
-comment|/**    * The Lang element is optional but it is recommended. This method check the    * Syntax of the Lang if this entry is present.    *     * @param handler    * @param catalog    * @param result    * @throws ValidationException    */
+comment|/** 	 * The Lang element is optional but it is recommended. This method check the 	 * Syntax of the Lang if this entry is present. 	 *  	 * @param handler 	 * @param catalog 	 * @param result 	 * @throws ValidationException 	 */
 specifier|protected
 name|void
 name|validateLang
@@ -1019,7 +1054,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * A Catalog shall not contain the EmbeddedFiles entry.    *     * @param handler    * @param catalog    * @param result    * @throws ValidationException    */
+comment|/** 	 * A Catalog shall not contain the EmbeddedFiles entry. 	 *  	 * @param handler 	 * @param catalog 	 * @param result 	 * @throws ValidationException 	 */
 specifier|protected
 name|void
 name|validateNames
@@ -1085,7 +1120,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * A Catalog shall not contain the OCPProperties (Optional Content Properties)    * entry.    *     * @param handler    * @param catalog    * @param result    * @throws ValidationException    */
+comment|/** 	 * A Catalog shall not contain the OCPProperties (Optional Content Properties) 	 * entry. 	 *  	 * @param handler 	 * @param catalog 	 * @param result 	 * @throws ValidationException 	 */
 specifier|protected
 name|void
 name|validateOCProperties
@@ -1145,7 +1180,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * This method checks the content of each OutputIntent. The S entry must    * contain GTS_PDFA1. The DestOuputProfile must contain a valid ICC Profile    * Stream.    *     * If there are more than one OutputIntent, they have to use the same ICC    * Profile.    *     * This method returns a list of ValidationError. It is empty if no errors    * have been found.    *     * @param handler    * @return    * @throws ValidationException    */
+comment|/** 	 * This method checks the content of each OutputIntent. The S entry must 	 * contain GTS_PDFA1. The DestOuputProfile must contain a valid ICC Profile 	 * Stream. 	 *  	 * If there are more than one OutputIntent, they have to use the same ICC 	 * Profile. 	 *  	 * This method returns a list of ValidationError. It is empty if no errors 	 * have been found. 	 *  	 * @param handler 	 * @return 	 * @throws ValidationException 	 */
 specifier|public
 name|List
 argument_list|<
@@ -1498,7 +1533,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**    * This method checks the destOutputProfile which must be a valid ICCProfile.    *     * If an other ICCProfile exists in the mapDestOutputProfile, a    * ValdiationError (ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_MULTIPLE) is    * returned because of only one profile is authorized. If the ICCProfile    * already exist in the mapDestOutputProfile, the method returns null. If the    * destOutputProfile contains an invalid ICCProfile, a ValidationError    * (ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID) is returned If the    * destOutputProfile is an empty stream, a    * ValidationError(ERROR_GRAPHIC_OUTPUT_INTENT_INVALID_ENTRY) is returned.    *     * If the destOutputFile is valid, mapDestOutputProfile is updated, the    * ICCProfile is added to the document handler and null is returned.    *     * @param destOutputProfile    * @param cDoc    * @param tmpDestOutputProfile    * @param handler    * @return    * @throws ValidationException    */
+comment|/** 	 * This method checks the destOutputProfile which must be a valid ICCProfile. 	 *  	 * If an other ICCProfile exists in the mapDestOutputProfile, a 	 * ValdiationError (ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_MULTIPLE) is 	 * returned because of only one profile is authorized. If the ICCProfile 	 * already exist in the mapDestOutputProfile, the method returns null. If the 	 * destOutputProfile contains an invalid ICCProfile, a ValidationError 	 * (ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID) is returned If the 	 * destOutputProfile is an empty stream, a 	 * ValidationError(ERROR_GRAPHIC_OUTPUT_INTENT_INVALID_ENTRY) is returned. 	 *  	 * If the destOutputFile is valid, mapDestOutputProfile is updated, the 	 * ICCProfile is added to the document handler and null is returned. 	 *  	 * @param destOutputProfile 	 * @param cDoc 	 * @param tmpDestOutputProfile 	 * @param handler 	 * @return 	 * @throws ValidationException 	 */
 specifier|protected
 name|ValidationError
 name|validateICCProfile
@@ -1664,6 +1699,7 @@ operator|>
 literal|0x20
 condition|)
 block|{
+comment|// TODO on lazy mode this error should be a warning?
 comment|// in PDF 1.4, max version is 02h.20h (meaning V 3.5)
 return|return
 operator|new
@@ -1688,6 +1724,7 @@ operator|>
 literal|2
 condition|)
 block|{
+comment|// TODO on lazy mode this error should be a warning?
 comment|// in PDF 1.4, max version is 02h.20h (meaning V 3.5)
 return|return
 operator|new
