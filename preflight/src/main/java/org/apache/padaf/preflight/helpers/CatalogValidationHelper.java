@@ -1696,11 +1696,13 @@ operator|.
 name|getMinorVersion
 argument_list|()
 operator|>
-literal|0x20
+literal|0x40
 condition|)
 block|{
 comment|// TODO on lazy mode this error should be a warning?
-comment|// in PDF 1.4, max version is 02h.20h (meaning V 3.5)
+comment|// in PDF 1.4, max version is 02h.40h (meaning V 3.5)
+comment|// see the ICCProfile specification (ICC.1:1998-09)page 13 - §6.1.3 :
+comment|// The current profile version number is "2.4.0" (encoded as 02400000h"
 return|return
 operator|new
 name|ValidationError
@@ -1725,7 +1727,9 @@ literal|2
 condition|)
 block|{
 comment|// TODO on lazy mode this error should be a warning?
-comment|// in PDF 1.4, max version is 02h.20h (meaning V 3.5)
+comment|// in PDF 1.4, max version is 02h.40h (meaning V 3.5)
+comment|// see the ICCProfile specification (ICC.1:1998-09)page 13 - §6.1.3 :
+comment|// The current profile version number is "2.4.0" (encoded as 02400000h"
 return|return
 operator|new
 name|ValidationError

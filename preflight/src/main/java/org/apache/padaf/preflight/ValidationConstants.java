@@ -2668,6 +2668,14 @@ name|ERROR_METADATA_PROPERTY_FORMAT
 init|=
 literal|"7.1.2"
 decl_stmt|;
+comment|/**    * Unexpected type of a Metadata entry     */
+specifier|static
+specifier|final
+name|String
+name|ERROR_METADATA_FORMAT_UNKOWN
+init|=
+literal|"7.1.3"
+decl_stmt|;
 comment|/**    * Metadata mismatch between PDF Dictionnary and xmp    */
 specifier|static
 specifier|final
