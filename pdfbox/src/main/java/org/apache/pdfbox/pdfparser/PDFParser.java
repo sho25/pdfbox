@@ -303,7 +303,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -353,7 +353,7 @@ name|ConflictObj
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/** Collects all Xref/trailer objects and resolves them into single      *  object using startxref reference */
+comment|/** Collects all Xref/trailer objects and resolves them into single      *  object using startxref reference.       */
 specifier|private
 name|XrefTrailerResolver
 name|xrefTrailerResolver
@@ -462,7 +462,7 @@ operator|=
 name|tmpDir
 expr_stmt|;
 block|}
-comment|/**      * Returns true if parsing should be continued. By default, forceParsing is returned.      * This can be overridden to add application specific handling (for example to stop      * parsing when the number of exceptions thrown exceed a certain number).      *      * @param e The exception if vailable. Can be null if there is no exception available      */
+comment|/**      * Returns true if parsing should be continued. By default, forceParsing is returned.      * This can be overridden to add application specific handling (for example to stop      * parsing when the number of exceptions thrown exceed a certain number).      *      * @param e The exception if vailable. Can be null if there is no exception available      * @return true if parsing could be continued, otherwise false      */
 specifier|protected
 name|boolean
 name|isContinueOnError
@@ -593,7 +593,7 @@ argument_list|)
 condition|)
 block|{
 comment|/*                          * Warning is sent to the PDFBox.log and to the Console that                          * we skipped over an object                          */
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -1451,6 +1451,13 @@ expr_stmt|;
 name|skipSpaces
 argument_list|()
 expr_stmt|;
+name|currentObjByteOffset
+operator|=
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
+expr_stmt|;
 name|peekedChar
 operator|=
 operator|(
@@ -1631,7 +1638,7 @@ block|}
 else|else
 block|{
 comment|// PDF does not conform to spec, we should warn someone
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -2093,7 +2100,7 @@ argument_list|)
 condition|)
 block|{
 comment|/*                      * Some PDF files contain junk (like ">> ", in the case of a PDF                      * I found which was created by Exstream Dialogue Version 5.0.039)                      * in which case we ignore the data before endobj and just move on                      */
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -2450,7 +2457,7 @@ operator|<
 literal|3
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
