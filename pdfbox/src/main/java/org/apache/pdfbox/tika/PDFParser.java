@@ -326,6 +326,34 @@ init|=
 operator|-
 literal|752276948656079347L
 decl_stmt|;
+comment|// True if we let PDFBox "guess" where spaces should go:
+specifier|private
+name|boolean
+name|enableAutoSpace
+init|=
+literal|true
+decl_stmt|;
+comment|// True if we let PDFBox remove duplicate overlapping text:
+specifier|private
+name|boolean
+name|suppressDuplicateOverlappingText
+decl_stmt|;
+comment|// True if we extract annotation text ourselves
+comment|// (workaround for PDFBOX-1143):
+specifier|private
+name|boolean
+name|extractAnnotationText
+init|=
+literal|true
+decl_stmt|;
+comment|// True if we should sort text tokens by position
+comment|// (necessary for some PDFs, but messes up other PDFs):
+specifier|private
+name|boolean
+name|sortByPosition
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Metadata key for giving the document password to the parser.      */
 specifier|public
 specifier|static
@@ -514,6 +542,14 @@ argument_list|,
 name|handler
 argument_list|,
 name|metadata
+argument_list|,
+name|extractAnnotationText
+argument_list|,
+name|enableAutoSpace
+argument_list|,
+name|suppressDuplicateOverlappingText
+argument_list|,
+name|sortByPosition
 argument_list|)
 expr_stmt|;
 block|}
@@ -1001,6 +1037,102 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      *  If true (the default), the parser should estimate      *  where spaces should be inserted between words.  For      *  many PDFs this is necessary as they do not include      *  explicit whitespace characters.      */
+specifier|public
+name|void
+name|setEnableAutoSpace
+parameter_list|(
+name|boolean
+name|v
+parameter_list|)
+block|{
+name|enableAutoSpace
+operator|=
+name|v
+expr_stmt|;
+block|}
+comment|/** @see #setEnableAutoSpace. */
+specifier|public
+name|boolean
+name|getEnableAutoSpace
+parameter_list|()
+block|{
+return|return
+name|enableAutoSpace
+return|;
+block|}
+comment|/**      * If true (the default), text in annotations will be      * extracted.      */
+specifier|public
+name|void
+name|setExtractAnnotationText
+parameter_list|(
+name|boolean
+name|v
+parameter_list|)
+block|{
+name|extractAnnotationText
+operator|=
+name|v
+expr_stmt|;
+block|}
+comment|/**      * If true, text in annotations will be extracted.      */
+specifier|public
+name|boolean
+name|getExtractAnnotationText
+parameter_list|()
+block|{
+return|return
+name|extractAnnotationText
+return|;
+block|}
+comment|/**      *  If true, the parser should try to remove duplicated      *  text over the same region.  This is needed for some      *  PDFs that achieve bolding by re-writing the same      *  text in the same area.  Note that this can      *  slow down extraction substantially (PDFBOX-956) and      *  sometimes remove characters that were not in fact      *  duplicated (PDFBOX-1155).  By default this is disabled.      */
+specifier|public
+name|void
+name|setSuppressDuplicateOverlappingText
+parameter_list|(
+name|boolean
+name|v
+parameter_list|)
+block|{
+name|suppressDuplicateOverlappingText
+operator|=
+name|v
+expr_stmt|;
+block|}
+comment|/** @see #setSuppressDuplicateOverlappingText. */
+specifier|public
+name|boolean
+name|getSuppressDuplicateOverlappingText
+parameter_list|()
+block|{
+return|return
+name|suppressDuplicateOverlappingText
+return|;
+block|}
+comment|/**      *  If true, sort text tokens by their x/y position      *  before extracting text.  This may be necessary for      *  some PDFs (if the text tokens are not rendered "in      *  order"), while for other PDFs it can produce the      *  wrong result (for example if there are 2 columns,      *  the text will be interleaved).  Default is false.      */
+specifier|public
+name|void
+name|setSortByPosition
+parameter_list|(
+name|boolean
+name|v
+parameter_list|)
+block|{
+name|sortByPosition
+operator|=
+name|v
+expr_stmt|;
+block|}
+comment|/** @see #setSortByPosition. */
+specifier|public
+name|boolean
+name|getSortByPosition
+parameter_list|()
+block|{
+return|return
+name|sortByPosition
+return|;
 block|}
 block|}
 end_class
