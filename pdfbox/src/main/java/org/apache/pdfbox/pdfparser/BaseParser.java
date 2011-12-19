@@ -4234,6 +4234,9 @@ operator|+
 literal|" "
 operator|+
 name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
