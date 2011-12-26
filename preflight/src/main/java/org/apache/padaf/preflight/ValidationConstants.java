@@ -774,6 +774,12 @@ init|=
 literal|"CIDSet"
 decl_stmt|;
 specifier|static
+name|int
+name|FONT_DICTIONARY_DEFAULT_CMAP_WMODE
+init|=
+literal|0
+decl_stmt|;
+specifier|static
 name|String
 name|STREAM_DICTIONARY_KEY_LENGHT
 init|=

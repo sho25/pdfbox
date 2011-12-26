@@ -215,7 +215,9 @@ name|preflight
 operator|.
 name|font
 operator|.
-name|GlyphException
+name|AbstractFontContainer
+operator|.
+name|State
 import|;
 end_import
 
@@ -231,9 +233,7 @@ name|preflight
 operator|.
 name|font
 operator|.
-name|AbstractFontContainer
-operator|.
-name|State
+name|GlyphException
 import|;
 end_import
 
