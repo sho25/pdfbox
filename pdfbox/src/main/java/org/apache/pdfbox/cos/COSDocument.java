@@ -223,7 +223,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -258,7 +258,7 @@ name|COSObject
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Maps object and generation ids to object byte offsets.      */
+comment|/**      * Maps object and generation id to object byte offsets.      */
 specifier|private
 specifier|final
 name|Map
@@ -283,14 +283,14 @@ specifier|private
 name|COSDictionary
 name|trailer
 decl_stmt|;
-comment|/**      * Document signature dictionary      */
+comment|/**      * Document signature dictionary.      */
 specifier|private
 name|COSDictionary
 name|signDictionary
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Some doc      */
+comment|/**      * Signature interface.      */
 specifier|private
 name|SignatureInterface
 name|signatureInterface
@@ -334,37 +334,31 @@ specifier|final
 name|boolean
 name|forceParsing
 decl_stmt|;
-comment|/**      * Constructor that will use the given random access file for storage      * of the PDF streams. The client of this method is responsible for      * deleting the storage if necessary that this file will write to. The      * close method will close the file though.      *      * @param scratchFile the random access file to use for storage      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     document content where possible      */
+comment|/**      * Constructor that will use the given random access file for storage      * of the PDF streams. The client of this method is responsible for      * deleting the storage if necessary that this file will write to. The      * close method will close the file though.      *      * @param scratchFileValue the random access file to use for storage      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      */
 specifier|public
 name|COSDocument
 parameter_list|(
 name|RandomAccess
-name|scratchFile
+name|scratchFileValue
 parameter_list|,
 name|boolean
-name|forceParsing
+name|forceParsingValue
 parameter_list|)
 block|{
-name|this
-operator|.
 name|scratchFile
 operator|=
-name|scratchFile
+name|scratchFileValue
 expr_stmt|;
-name|this
-operator|.
 name|tmpFile
 operator|=
 literal|null
 expr_stmt|;
-name|this
-operator|.
 name|forceParsing
 operator|=
-name|forceParsing
+name|forceParsingValue
 expr_stmt|;
 block|}
-comment|/**      * Constructor that will use a temporary file in the given directory      * for storage of the PDF streams. The temporary file is automatically      * removed when this document gets closed.      *      * @param scratchDir directory for the temporary file,      *                   or<code>null</code> to use the system default      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     document content where possible      */
+comment|/**      * Constructor that will use a temporary file in the given directory      * for storage of the PDF streams. The temporary file is automatically      * removed when this document gets closed.      *      * @param scratchDir directory for the temporary file,      *                   or<code>null</code> to use the system default      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      * @throws IOException if something went wrong      */
 specifier|public
 name|COSDocument
 parameter_list|(
@@ -372,13 +366,11 @@ name|File
 name|scratchDir
 parameter_list|,
 name|boolean
-name|forceParsing
+name|forceParsingValue
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|this
-operator|.
 name|tmpFile
 operator|=
 name|File
@@ -392,8 +384,6 @@ argument_list|,
 name|scratchDir
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|scratchFile
 operator|=
 operator|new
@@ -404,11 +394,9 @@ argument_list|,
 literal|"rw"
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|forceParsing
 operator|=
-name|forceParsing
+name|forceParsingValue
 expr_stmt|;
 block|}
 comment|/**      * Constructor.  Uses memory to store stream.      *      *  @throws IOException If there is an error creating the tmp file.      */
@@ -582,7 +570,7 @@ name|ClassCastException
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -731,7 +719,7 @@ name|ClassCastException
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -784,6 +772,36 @@ name|float
 name|versionValue
 parameter_list|)
 block|{
+comment|// update header string
+if|if
+condition|(
+name|versionValue
+operator|!=
+name|version
+condition|)
+block|{
+name|headerString
+operator|=
+name|headerString
+operator|.
+name|replaceFirst
+argument_list|(
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|version
+argument_list|)
+argument_list|,
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|versionValue
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|version
 operator|=
 name|versionValue
@@ -855,6 +873,7 @@ name|ENCRYPT
 argument_list|)
 return|;
 block|}
+comment|/**      * This will return the signature interface.      * @return the signature interface       */
 specifier|public
 name|SignatureInterface
 name|getSignatureInterface
@@ -885,6 +904,7 @@ name|encDictionary
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * This will return the last signature dictionary.      * @return the last signature dictionary       *       * @throws IOException if something went wrong      */
 specifier|public
 name|COSDictionary
 name|getLastSignatureDictionary
@@ -1063,19 +1083,18 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the signature interface to the given value.      * @param sigInterface the signature interface      */
 specifier|public
 name|void
 name|setSignatureInterface
 parameter_list|(
 name|SignatureInterface
-name|signatureInterface
+name|sigInterface
 parameter_list|)
 block|{
-name|this
-operator|.
 name|signatureInterface
 operator|=
-name|signatureInterface
+name|sigInterface
 expr_stmt|;
 block|}
 comment|/**      * This will get the document catalog.      *      * Maybe this should move to an object at PDFEdit level      *      * @return catalog is the root of all document activities      *      * @throws IOException If no catalog can be found.      */
@@ -1243,7 +1262,7 @@ condition|(
 name|warnMissingClose
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -1522,21 +1541,16 @@ name|COSObjectKey
 name|key
 parameter_list|)
 block|{
-name|COSObject
-name|obj
-init|=
+return|return
 name|objectPool
 operator|.
 name|remove
 argument_list|(
 name|key
 argument_list|)
-decl_stmt|;
-return|return
-name|obj
 return|;
 block|}
-comment|/**      * Populate XRef HashMap with given values.      * Each entry maps ObjectKeys to byte offsets in the file.      * @param _xrefTable  xref table entries to be added      */
+comment|/**      * Populate XRef HashMap with given values.      * Each entry maps ObjectKeys to byte offsets in the file.      * @param xrefTableValues  xref table entries to be added      */
 specifier|public
 name|void
 name|addXRefTable
@@ -1547,16 +1561,14 @@ name|COSObjectKey
 argument_list|,
 name|Integer
 argument_list|>
-name|xrefTable
+name|xrefTableValues
 parameter_list|)
 block|{
-name|this
-operator|.
 name|xrefTable
 operator|.
 name|putAll
 argument_list|(
-name|xrefTable
+name|xrefTableValues
 argument_list|)
 expr_stmt|;
 block|}
@@ -1575,20 +1587,18 @@ return|return
 name|xrefTable
 return|;
 block|}
-comment|/**      * This method set the startxref value of the document. This will only       * be needed for incremental updates.      *       * @param readInt      */
+comment|/**      * This method set the startxref value of the document. This will only       * be needed for incremental updates.      *       * @param startXrefValue the value for startXref      */
 specifier|public
 name|void
 name|setStartXref
 parameter_list|(
 name|int
-name|startXref
+name|startXrefValue
 parameter_list|)
 block|{
-name|this
-operator|.
 name|startXref
 operator|=
-name|startXref
+name|startXrefValue
 expr_stmt|;
 block|}
 comment|/**      * Return the startXref Position of the parsed document. This will only be needed for incremental updates.      *       * @return a int with the old position of the startxref      */
