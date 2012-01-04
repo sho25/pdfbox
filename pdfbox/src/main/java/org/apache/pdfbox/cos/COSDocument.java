@@ -265,7 +265,7 @@ name|Map
 argument_list|<
 name|COSObjectKey
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|xrefTable
 init|=
@@ -274,7 +274,7 @@ name|HashMap
 argument_list|<
 name|COSObjectKey
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -319,7 +319,7 @@ init|=
 literal|true
 decl_stmt|;
 specifier|private
-name|int
+name|long
 name|startXref
 decl_stmt|;
 specifier|private
@@ -1559,7 +1559,7 @@ name|Map
 argument_list|<
 name|COSObjectKey
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|xrefTableValues
 parameter_list|)
@@ -1578,7 +1578,7 @@ name|Map
 argument_list|<
 name|COSObjectKey
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|getXrefTable
 parameter_list|()
@@ -1592,7 +1592,7 @@ specifier|public
 name|void
 name|setStartXref
 parameter_list|(
-name|int
+name|long
 name|startXrefValue
 parameter_list|)
 block|{
@@ -1601,9 +1601,9 @@ operator|=
 name|startXrefValue
 expr_stmt|;
 block|}
-comment|/**      * Return the startXref Position of the parsed document. This will only be needed for incremental updates.      *       * @return a int with the old position of the startxref      */
+comment|/**      * Return the startXref Position of the parsed document. This will only be needed for incremental updates.      *       * @return a long with the old position of the startxref      */
 specifier|public
-name|int
+name|long
 name|getStartXref
 parameter_list|()
 block|{

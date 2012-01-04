@@ -1407,7 +1407,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|int
+name|long
 name|currentObjByteOffset
 init|=
 name|pdfSource
@@ -2160,7 +2160,7 @@ specifier|private
 name|void
 name|addObjectToConflicts
 parameter_list|(
-name|int
+name|long
 name|offset
 parameter_list|,
 name|COSObjectKey
@@ -2307,7 +2307,7 @@ specifier|private
 name|boolean
 name|parseXrefTable
 parameter_list|(
-name|int
+name|long
 name|startByteOffset
 parameter_list|)
 throws|throws
@@ -2488,12 +2488,12 @@ condition|)
 block|{
 try|try
 block|{
-name|int
+name|long
 name|currOffset
 init|=
-name|Integer
+name|Long
 operator|.
-name|parseInt
+name|parseLong
 argument_list|(
 name|splitString
 index|[
@@ -2850,7 +2850,7 @@ parameter_list|(
 name|COSStream
 name|stream
 parameter_list|,
-name|int
+name|long
 name|objByteOffset
 parameter_list|)
 throws|throws
@@ -2898,7 +2898,7 @@ class|class
 name|ConflictObj
 block|{
 specifier|private
-name|int
+name|long
 name|offset
 decl_stmt|;
 specifier|private
@@ -2912,7 +2912,7 @@ decl_stmt|;
 specifier|public
 name|ConflictObj
 parameter_list|(
-name|int
+name|long
 name|offsetValue
 parameter_list|,
 name|COSObjectKey
@@ -3005,11 +3005,11 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|Integer
+name|Long
 name|offset
 init|=
 operator|new
-name|Integer
+name|Long
 argument_list|(
 name|o
 operator|.

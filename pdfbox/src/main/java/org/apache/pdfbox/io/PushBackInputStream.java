@@ -62,7 +62,7 @@ name|PushbackInputStream
 block|{
 comment|/*      * The current position in the file.       */
 specifier|private
-name|int
+name|long
 name|offset
 init|=
 literal|0
@@ -137,7 +137,7 @@ return|;
 block|}
 comment|/**      * Returns the current byte offset in the file.      * @return the int byte offset      */
 specifier|public
-name|int
+name|long
 name|getOffset
 parameter_list|()
 block|{

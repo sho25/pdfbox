@@ -1183,7 +1183,7 @@ name|Map
 argument_list|<
 name|COSObjectKey
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|xrefTable
 init|=
@@ -3133,7 +3133,7 @@ name|writeCRLF
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * check the xref entries and write out the ranges.  The format of the      * returned array is exactly the same as the pdf specification.  See section      * 7.5.4 of ISO32000-1:2008, example 1 (page 40) for reference.      *<p>      * example: 0 1 2 5 6 7 8 10      *<p>      * will create a array with follow ranges      *<p>      * 0 3 5 4 10 1      *<p>      * this mean that the element 0 is followed by two other related numbers       * that represent a cluster of the size 3. 5 is follow by three other      * related numbers and create a cluster of size 4. etc.      *       * @param xRefEntries list with the xRef entries that was written      * @return a integer array with the ranges      */
+comment|/**      * check the xref entries and write out the ranges.  The format of the      * returned array is exactly the same as the pdf specification.  See section      * 7.5.4 of ISO32000-1:2008, example 1 (page 40) for reference.      *<p>      * example: 0 1 2 5 6 7 8 10      *<p>      * will create a array with follow ranges      *<p>      * 0 3 5 4 10 1      *<p>      * this mean that the element 0 is followed by two other related numbers       * that represent a cluster of the size 3. 5 is follow by three other      * related numbers and create a cluster of size 4. etc.      *       * @param xRefEntriesList list with the xRef entries that was written      * @return a integer array with the ranges      */
 specifier|protected
 name|Integer
 index|[]
@@ -3143,7 +3143,7 @@ name|List
 argument_list|<
 name|COSWriterXRefEntry
 argument_list|>
-name|xRefEntries
+name|xRefEntriesList
 parameter_list|)
 block|{
 name|int
@@ -3180,7 +3180,7 @@ control|(
 name|Object
 name|object
 range|:
-name|xRefEntries
+name|xRefEntriesList
 control|)
 block|{
 name|nr
@@ -3265,7 +3265,7 @@ block|}
 comment|// If no new entry is found, we need to write out the last result
 if|if
 condition|(
-name|xRefEntries
+name|xRefEntriesList
 operator|.
 name|size
 argument_list|()

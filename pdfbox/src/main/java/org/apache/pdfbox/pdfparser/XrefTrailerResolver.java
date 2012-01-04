@@ -147,6 +147,7 @@ class|class
 name|XrefTrailerResolver
 block|{
 comment|/**      * A class which represents a xref/trailer object.      */
+specifier|private
 class|class
 name|XrefTrailerObj
 block|{
@@ -162,7 +163,7 @@ name|Map
 argument_list|<
 name|COSObjectKey
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|xrefTable
 init|=
@@ -171,16 +172,21 @@ name|HashMap
 argument_list|<
 name|COSObjectKey
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/**          *  Default cosntructor.          */
+specifier|private
+name|XrefTrailerObj
+parameter_list|()
+block|{         }
 block|}
 specifier|private
 specifier|final
 name|Map
 argument_list|<
-name|Integer
+name|Long
 argument_list|,
 name|XrefTrailerObj
 argument_list|>
@@ -189,7 +195,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|Integer
+name|Long
 argument_list|,
 name|XrefTrailerObj
 argument_list|>
@@ -212,7 +218,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -229,7 +235,7 @@ name|void
 name|nextXrefObj
 parameter_list|(
 specifier|final
-name|int
+name|long
 name|startBytePos
 parameter_list|)
 block|{
@@ -255,7 +261,7 @@ parameter_list|(
 name|COSObjectKey
 name|objKey
 parameter_list|,
-name|int
+name|long
 name|offset
 parameter_list|)
 block|{
@@ -267,7 +273,7 @@ literal|null
 condition|)
 block|{
 comment|// should not happen...
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -312,7 +318,7 @@ literal|null
 condition|)
 block|{
 comment|// should not happen...
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -333,8 +339,8 @@ specifier|public
 name|void
 name|setStartxref
 parameter_list|(
-name|int
-name|startxrefBytePos
+name|long
+name|startxrefBytePosValue
 parameter_list|)
 block|{
 if|if
@@ -344,7 +350,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -374,19 +380,19 @@ name|bytePosToXrefMap
 operator|.
 name|get
 argument_list|(
-name|startxrefBytePos
+name|startxrefBytePosValue
 argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 name|xrefSeqBytePos
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -398,13 +404,13 @@ literal|null
 condition|)
 block|{
 comment|// no XRef at given position
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
 literal|"Did not found XRef object at specified startxref position "
 operator|+
-name|startxrefBytePos
+name|startxrefBytePosValue
 argument_list|)
 expr_stmt|;
 comment|// use all objects in byte position order (last entries overwrite previous ones)
@@ -434,7 +440,7 @@ name|xrefSeqBytePos
 operator|.
 name|add
 argument_list|(
-name|startxrefBytePos
+name|startxrefBytePosValue
 argument_list|)
 expr_stmt|;
 while|while
@@ -446,21 +452,21 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|int
+name|long
 name|prevBytePos
 init|=
 name|curObj
 operator|.
 name|trailer
 operator|.
-name|getInt
+name|getLong
 argument_list|(
 name|COSName
 operator|.
 name|PREV
 argument_list|,
 operator|-
-literal|1
+literal|1L
 argument_list|)
 decl_stmt|;
 if|if
@@ -489,7 +495,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -536,7 +542,7 @@ block|}
 comment|// merge used and sorted XRef/trailer
 for|for
 control|(
-name|Integer
+name|Long
 name|bPos
 range|:
 name|xrefSeqBytePos
@@ -585,7 +591,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the resolved trailer. Might return<code>null</code> in case      * {@link #setStartxref(int)} was not called before.      *      */
+comment|/**      * Gets the resolved trailer. Might return<code>null</code> in case      * {@link #setStartxref(int)} was not called before.      *      * @return the trailer if available      */
 specifier|public
 name|COSDictionary
 name|getTrailer
@@ -605,13 +611,13 @@ operator|.
 name|trailer
 return|;
 block|}
-comment|/**      * Gets the resolved xref table. Might return<code>null</code> in case      *  {@link #setStartxref(int)} was not called before.      *      */
+comment|/**      * Gets the resolved xref table. Might return<code>null</code> in case      *  {@link #setStartxref(int)} was not called before.      *      * @return the xrefTable if available      */
 specifier|public
 name|Map
 argument_list|<
 name|COSObjectKey
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|getXrefTable
 parameter_list|()
