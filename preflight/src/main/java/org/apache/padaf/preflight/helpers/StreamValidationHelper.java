@@ -969,12 +969,9 @@ operator|.
 name|getInputStream
 argument_list|()
 expr_stmt|;
-name|Integer
+name|Long
 name|offset
 init|=
-operator|(
-name|Integer
-operator|)
 name|handler
 operator|.
 name|getDocument
