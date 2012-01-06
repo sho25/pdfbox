@@ -563,9 +563,13 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Stop reading corrupt stream"
+literal|"FlateFilter: stop reading corrupt stream due to an OutOfMemoryError"
 argument_list|)
 expr_stmt|;
+comment|// re-throw the exception, caller has to handle it
+throw|throw
+name|exception
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -573,14 +577,18 @@ name|ZipException
 name|exception
 parameter_list|)
 block|{
-comment|// if the stream is corrupt an OutOfMemoryError may occur
+comment|// if the stream is corrupt an ZipException may occur
 name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Stop reading corrupt stream"
+literal|"FlateFilter: stop reading corrupt stream due to a ZipException"
 argument_list|)
 expr_stmt|;
+comment|// re-throw the exception, caller has to handle it
+throw|throw
+name|exception
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -588,14 +596,18 @@ name|EOFException
 name|exception
 parameter_list|)
 block|{
-comment|// if the stream is corrupt an OutOfMemoryError may occur
+comment|// if the stream is corrupt an EOFException may occur
 name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Stop reading corrupt stream"
+literal|"FlateFilter: stop reading corrupt stream due to an EOFException"
 argument_list|)
 expr_stmt|;
+comment|// re-throw the exception, caller has to handle it
+throw|throw
+name|exception
+throw|;
 block|}
 block|}
 else|else
