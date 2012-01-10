@@ -1473,60 +1473,15 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-if|if
-condition|(
-operator|!
-name|isStandardICCCharacterization
-argument_list|(
-name|outputConditionIdentifier
-argument_list|)
-condition|)
-block|{
-name|String
-name|info
-init|=
-name|dictionary
-operator|.
-name|getString
-argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
-name|OUTPUT_INTENT_DICTIONARY_KEY_INFO
-argument_list|)
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|info
-operator|==
-literal|null
-operator|||
-literal|""
-operator|.
-name|equals
-argument_list|(
-name|info
-argument_list|)
-condition|)
-block|{
-name|result
-operator|.
-name|add
-argument_list|(
-operator|new
-name|ValidationError
-argument_list|(
-name|ERROR_GRAPHIC_OUTPUT_INTENT_INVALID_ENTRY
-argument_list|,
-literal|"The Info entry of a OutputIntent dictionary is missing"
-argument_list|)
-argument_list|)
-expr_stmt|;
-continue|continue;
-block|}
-block|}
+comment|// TODO When Lazy mode will be added, this block should be uncommented to set result as warning.
+comment|//				if (!isStandardICCCharacterization(outputConditionIdentifier)) {
+comment|//					String info = dictionary.getString(COSName.getPDFName(OUTPUT_INTENT_DICTIONARY_KEY_INFO));
+comment|//					if (info == null || "".equals(info)) {
+comment|//						result.add(new ValidationError(ERROR_GRAPHIC_OUTPUT_INTENT_INVALID_ENTRY,
+comment|//								"The Info entry of a OutputIntent dictionary is missing"));
+comment|//						continue;
+comment|//					}
+comment|//				}
 block|}
 block|}
 return|return
@@ -1567,14 +1522,9 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|//				return new ValidationError(ERROR_GRAPHIC_OUTPUT_INTENT_INVALID_ENTRY,	"OutputIntent object uses a NULL Object");
 return|return
-operator|new
-name|ValidationError
-argument_list|(
-name|ERROR_GRAPHIC_OUTPUT_INTENT_INVALID_ENTRY
-argument_list|,
-literal|"OutputIntent object uses a NULL Object"
-argument_list|)
+literal|null
 return|;
 block|}
 comment|// ---- destOutputProfile should be an instance of COSObject because of

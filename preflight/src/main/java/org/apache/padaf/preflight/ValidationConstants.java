@@ -1656,7 +1656,7 @@ name|ICC_Characterization_Data_Registry_opRGB
 init|=
 literal|"opRGB"
 decl_stmt|;
-comment|/**    * Error code uses by the Valdiator when there are an error without error    * code.    */
+comment|/** 	 * Error code uses by the Valdiator when there are an error without error 	 * code. 	 */
 specifier|static
 specifier|final
 name|String
@@ -1667,7 +1667,7 @@ decl_stmt|;
 comment|// -----------------------------------------------------------
 comment|// ---- FILE STRUCTURE ERRORS 1.x...
 comment|// -----------------------------------------------------------
-comment|/**    * Error code for syntax error    */
+comment|/** 	 * Error code for syntax error 	 */
 specifier|static
 specifier|final
 name|String
@@ -1683,7 +1683,7 @@ name|ERROR_SYNTAX_COMMON
 init|=
 literal|"1.0"
 decl_stmt|;
-comment|/**    * Too many entries in a dictionary object    */
+comment|/** 	 * Too many entries in a dictionary object 	 */
 specifier|static
 specifier|final
 name|String
@@ -1691,7 +1691,7 @@ name|ERROR_SYNTAX_TOO_MANY_ENTRIES
 init|=
 literal|"1.0.1"
 decl_stmt|;
-comment|/**    * Too many element in an array object    */
+comment|/** 	 * Too many element in an array object 	 */
 specifier|static
 specifier|final
 name|String
@@ -1699,7 +1699,7 @@ name|ERROR_SYNTAX_ARRAY_TOO_LONG
 init|=
 literal|"1.0.2"
 decl_stmt|;
-comment|/**    * The name length is too long    */
+comment|/** 	 * The name length is too long 	 */
 specifier|static
 specifier|final
 name|String
@@ -1707,7 +1707,7 @@ name|ERROR_SYNTAX_NAME_TOO_LONG
 init|=
 literal|"1.0.3"
 decl_stmt|;
-comment|/**    * The literal string is too long    */
+comment|/** 	 * The literal string is too long 	 */
 specifier|static
 specifier|final
 name|String
@@ -1715,7 +1715,7 @@ name|ERROR_SYNTAX_LITERAL_TOO_LONG
 init|=
 literal|"1.0.4"
 decl_stmt|;
-comment|/**    * The hexa string is too long    */
+comment|/** 	 * The hexa string is too long 	 */
 specifier|static
 specifier|final
 name|String
@@ -1723,7 +1723,7 @@ name|ERROR_SYNTAX_HEXA_STRING_TOO_LONG
 init|=
 literal|"1.0.5"
 decl_stmt|;
-comment|/**    * The number is out of Range ( ex : greatter than 2^31-1)    */
+comment|/** 	 * The number is out of Range ( ex : greatter than 2^31-1) 	 */
 specifier|static
 specifier|final
 name|String
@@ -1731,7 +1731,7 @@ name|ERROR_SYNTAX_NUMERIC_RANGE
 init|=
 literal|"1.0.6"
 decl_stmt|;
-comment|/**    * A dictionary key isn't a name    */
+comment|/** 	 * A dictionary key isn't a name 	 */
 specifier|static
 specifier|final
 name|String
@@ -1739,7 +1739,7 @@ name|ERROR_SYNTAX_DICTIONARY_KEY_INVALID
 init|=
 literal|"1.0.7"
 decl_stmt|;
-comment|/**    * The language declared doesn't match with the RFC1766    */
+comment|/** 	 * The language declared doesn't match with the RFC1766 	 */
 specifier|static
 specifier|final
 name|String
@@ -1747,7 +1747,7 @@ name|ERROR_SYNTAX_LANG_NOT_RFC1766
 init|=
 literal|"1.0.8"
 decl_stmt|;
-comment|/**    * There are too many objects    */
+comment|/** 	 * There are too many objects 	 */
 specifier|static
 specifier|final
 name|String
@@ -1755,7 +1755,7 @@ name|ERROR_SYNTAX_INDIRECT_OBJ_RANGE
 init|=
 literal|"1.0.9"
 decl_stmt|;
-comment|/**    * CID too long    */
+comment|/** 	 * CID too long 	 */
 specifier|static
 specifier|final
 name|String
@@ -1784,7 +1784,7 @@ name|ERROR_SYNTAX_HEADER_FILE_TYPE
 init|=
 literal|"1.1.2"
 decl_stmt|;
-comment|/**    * Common error about body syntax    */
+comment|/** 	 * Common error about body syntax 	 */
 specifier|static
 specifier|final
 name|String
@@ -1792,7 +1792,7 @@ name|ERROR_SYNTAX_BODY
 init|=
 literal|"1.2"
 decl_stmt|;
-comment|/**    * Error on the object delimiters (obj / endobj)    */
+comment|/** 	 * Error on the object delimiters (obj / endobj) 	 */
 specifier|static
 specifier|final
 name|String
@@ -1800,7 +1800,7 @@ name|ERROR_SYNTAX_OBJ_DELIMITER
 init|=
 literal|"1.2.1"
 decl_stmt|;
-comment|/**    * Error on the stream delimiters (stream / endstream)    */
+comment|/** 	 * Error on the stream delimiters (stream / endstream) 	 */
 specifier|static
 specifier|final
 name|String
@@ -1808,7 +1808,7 @@ name|ERROR_SYNTAX_STREAM_DELIMITER
 init|=
 literal|"1.2.2"
 decl_stmt|;
-comment|/**    * Required fields are missing from the dictionary    */
+comment|/** 	 * Required fields are missing from the dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -1816,7 +1816,7 @@ name|ERROR_SYNTAX_DICT_INVALID
 init|=
 literal|"1.2.3"
 decl_stmt|;
-comment|/**    * The length entry is missing from the stream dictionary    */
+comment|/** 	 * The length entry is missing from the stream dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -1824,7 +1824,7 @@ name|ERROR_SYNTAX_STREAM_LENGTH_MISSING
 init|=
 literal|"1.2.4"
 decl_stmt|;
-comment|/**    * The length of the stream dictionary and the stream length is inconsistent    */
+comment|/** 	 * The length of the stream dictionary and the stream length is inconsistent 	 */
 specifier|static
 specifier|final
 name|String
@@ -1832,7 +1832,7 @@ name|ERROR_SYNTAX_STREAM_LENGTH_INVALID
 init|=
 literal|"1.2.5"
 decl_stmt|;
-comment|/**    * F or/and FFilter or/and FDecodeParams are present in a stream dictionary    */
+comment|/** 	 * F or/and FFilter or/and FDecodeParams are present in a stream dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -1840,7 +1840,7 @@ name|ERROR_SYNTAX_STREAM_FX_KEYS
 init|=
 literal|"1.2.6"
 decl_stmt|;
-comment|/**    * The stream uses an invalid filter (The LZW)    */
+comment|/** 	 * The stream uses an invalid filter (The LZW) 	 */
 specifier|static
 specifier|final
 name|String
@@ -1848,7 +1848,7 @@ name|ERROR_SYNTAX_STREAM_INVALID_FILTER
 init|=
 literal|"1.2.7"
 decl_stmt|;
-comment|/**    * The content stream has some syntax errors    */
+comment|/** 	 * The content stream has some syntax errors 	 */
 specifier|static
 specifier|final
 name|String
@@ -1856,7 +1856,7 @@ name|ERROR_SYNTAX_CONTENT_STREAM_INVALID
 init|=
 literal|"1.2.8"
 decl_stmt|;
-comment|/**    * EmbeddedFile entry is present in a FileSpecification dictionary    */
+comment|/** 	 * EmbeddedFile entry is present in a FileSpecification dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -1864,7 +1864,7 @@ name|ERROR_SYNTAX_EMBEDDED_FILES
 init|=
 literal|"1.2.9"
 decl_stmt|;
-comment|/**    * The content stream uses an unsupported operator    */
+comment|/** 	 * The content stream uses an unsupported operator 	 */
 specifier|static
 specifier|final
 name|String
@@ -1872,7 +1872,7 @@ name|ERROR_SYNTAX_CONTENT_STREAM_UNSUPPORTED_OP
 init|=
 literal|"1.2.10"
 decl_stmt|;
-comment|/**    * The content stream contains an invalid argument for the operator    */
+comment|/** 	 * The content stream contains an invalid argument for the operator 	 */
 specifier|static
 specifier|final
 name|String
@@ -1880,7 +1880,7 @@ name|ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT
 init|=
 literal|"1.2.11"
 decl_stmt|;
-comment|/**    * The stream uses a filter which isn't defined in the PDF Reference document.     */
+comment|/** 	 * The stream uses a filter which isn't defined in the PDF Reference document.  	 */
 specifier|static
 specifier|final
 name|String
@@ -1888,7 +1888,7 @@ name|ERROR_SYNTAX_STREAM_UNDEFINED_FILTER
 init|=
 literal|"1.2.12"
 decl_stmt|;
-comment|/**    * Common error about the cross ref table    */
+comment|/** 	 * Common error about the cross ref table 	 */
 specifier|static
 specifier|final
 name|String
@@ -1896,7 +1896,7 @@ name|ERROR_SYNTAX_CROSS_REF
 init|=
 literal|"1.3"
 decl_stmt|;
-comment|/**    * Common error about the trailer    */
+comment|/** 	 * Common error about the trailer 	 */
 specifier|static
 specifier|final
 name|String
@@ -1904,7 +1904,7 @@ name|ERROR_SYNTAX_TRAILER
 init|=
 literal|"1.4"
 decl_stmt|;
-comment|/**    * ID is missing from the trailer    */
+comment|/** 	 * ID is missing from the trailer 	 */
 specifier|static
 specifier|final
 name|String
@@ -1912,7 +1912,7 @@ name|ERROR_SYNTAX_TRAILER_MISSING_ID
 init|=
 literal|"1.4.1"
 decl_stmt|;
-comment|/**    * Encrypt is forbidden    */
+comment|/** 	 * Encrypt is forbidden 	 */
 specifier|static
 specifier|final
 name|String
@@ -1920,7 +1920,7 @@ name|ERROR_SYNTAX_TRAILER_ENCRYPT
 init|=
 literal|"1.4.2"
 decl_stmt|;
-comment|/**    * An trailer entry has an invalid type    */
+comment|/** 	 * An trailer entry has an invalid type 	 */
 specifier|static
 specifier|final
 name|String
@@ -1928,7 +1928,7 @@ name|ERROR_SYNTAX_TRAILER_TYPE_INVALID
 init|=
 literal|"1.4.3"
 decl_stmt|;
-comment|/**    * Size is missing from the trailer    */
+comment|/** 	 * Size is missing from the trailer 	 */
 specifier|static
 specifier|final
 name|String
@@ -1936,7 +1936,7 @@ name|ERROR_SYNTAX_TRAILER_MISSING_SIZE
 init|=
 literal|"1.4.4"
 decl_stmt|;
-comment|/**    * Root is missing from the trailer    */
+comment|/** 	 * Root is missing from the trailer 	 */
 specifier|static
 specifier|final
 name|String
@@ -1944,7 +1944,7 @@ name|ERROR_SYNTAX_TRAILER_MISSING_ROOT
 init|=
 literal|"1.4.5"
 decl_stmt|;
-comment|/**    * ID in 1st trailer and the last is different    */
+comment|/** 	 * ID in 1st trailer and the last is different 	 */
 specifier|static
 specifier|final
 name|String
@@ -1952,7 +1952,7 @@ name|ERROR_SYNTAX_TRAILER_ID_CONSISTENCY
 init|=
 literal|"1.4.6"
 decl_stmt|;
-comment|/**    * EmbeddedFile entry is present in the Names dictionary    */
+comment|/** 	 * EmbeddedFile entry is present in the Names dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -1960,7 +1960,7 @@ name|ERROR_SYNTAX_TRAILER_CATALOG_EMBEDDEDFILES
 init|=
 literal|"1.4.7"
 decl_stmt|;
-comment|/**    * Optional content is forbidden    */
+comment|/** 	 * Optional content is forbidden 	 */
 specifier|static
 specifier|final
 name|String
@@ -1968,7 +1968,7 @@ name|ERROR_SYNTAX_TRAILER_CATALOG_OCPROPERTIES
 init|=
 literal|"1.4.8"
 decl_stmt|;
-comment|/**    * Errors in the Outlines dictionary    */
+comment|/** 	 * Errors in the Outlines dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -1979,7 +1979,7 @@ decl_stmt|;
 comment|// -----------------------------------------------------------
 comment|// ---- GRAPHIC ERRORS 2.x...
 comment|// -----------------------------------------------------------
-comment|/**    * Main error code for graphical problems    */
+comment|/** 	 * Main error code for graphical problems 	 */
 specifier|static
 specifier|final
 name|String
@@ -1994,7 +1994,7 @@ name|ERROR_GRAPHIC_INVALID
 init|=
 literal|"2.1"
 decl_stmt|;
-comment|/**    * BBox Entry of a Form XObject is missing or isn't an Array    */
+comment|/** 	 * BBox Entry of a Form XObject is missing or isn't an Array 	 */
 specifier|static
 specifier|final
 name|String
@@ -2002,7 +2002,7 @@ name|ERROR_GRAPHIC_INVALID_BBOX
 init|=
 literal|"2.1.1"
 decl_stmt|;
-comment|/**    * The OutputIntent dictionary is invalid    */
+comment|/** 	 * The OutputIntent dictionary is invalid 	 */
 specifier|static
 specifier|final
 name|String
@@ -2010,7 +2010,7 @@ name|ERROR_GRAPHIC_OUTPUT_INTENT_INVALID_ENTRY
 init|=
 literal|"2.1.2"
 decl_stmt|;
-comment|/**    * The S entry of the OutputIntent isn't GTS_PDFA1    */
+comment|/** 	 * The S entry of the OutputIntent isn't GTS_PDFA1 	 */
 specifier|static
 specifier|final
 name|String
@@ -2018,7 +2018,7 @@ name|ERROR_GRAPHIC_OUTPUT_INTENT_S_VALUE_INVALID
 init|=
 literal|"2.1.3"
 decl_stmt|;
-comment|/**    * The ICC Profile is invalid    */
+comment|/** 	 * The ICC Profile is invalid 	 */
 specifier|static
 specifier|final
 name|String
@@ -2026,7 +2026,7 @@ name|ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID
 init|=
 literal|"2.1.4"
 decl_stmt|;
-comment|/**    * There are more than one ICC Profile    */
+comment|/** 	 * There are more than one ICC Profile 	 */
 specifier|static
 specifier|final
 name|String
@@ -2034,7 +2034,7 @@ name|ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_MULTIPLE
 init|=
 literal|"2.1.5"
 decl_stmt|;
-comment|/**    * Profile version is too recent for PDF 1.4 document    */
+comment|/** 	 * Profile version is too recent for PDF 1.4 document 	 */
 specifier|static
 specifier|final
 name|String
@@ -2056,7 +2056,7 @@ name|ERROR_GRAPHIC_TOO_MANY_GRAPHIC_STATES
 init|=
 literal|"2.1.8"
 decl_stmt|;
-comment|/**    * Main error code for graphical transparency problems    */
+comment|/** 	 * Main error code for graphical transparency problems 	 */
 specifier|static
 specifier|final
 name|String
@@ -2064,7 +2064,7 @@ name|ERROR_GRAPHIC_TRANSPARENCY
 init|=
 literal|"2.2"
 decl_stmt|;
-comment|/**    * A Group entry with S = Transparency is used or the S = Null    */
+comment|/** 	 * A Group entry with S = Transparency is used or the S = Null 	 */
 specifier|static
 specifier|final
 name|String
@@ -2072,7 +2072,7 @@ name|ERROR_GRAPHIC_TRANSPARENCY_GROUP
 init|=
 literal|"2.2.1"
 decl_stmt|;
-comment|/**    * A XObject SMask value isn't None    */
+comment|/** 	 * A XObject SMask value isn't None 	 */
 specifier|static
 specifier|final
 name|String
@@ -2080,7 +2080,7 @@ name|ERROR_GRAPHIC_TRANSPARENCY_SMASK
 init|=
 literal|"2.2.2"
 decl_stmt|;
-comment|/**    * A XObject has an unexpected key defined    */
+comment|/** 	 * A XObject has an unexpected key defined 	 */
 specifier|static
 specifier|final
 name|String
@@ -2088,7 +2088,7 @@ name|ERROR_GRAPHIC_UNEXPECTED_KEY
 init|=
 literal|"2.3"
 decl_stmt|;
-comment|/**    * A XObject has an unexpected value for a defined key    */
+comment|/** 	 * A XObject has an unexpected value for a defined key 	 */
 specifier|static
 specifier|final
 name|String
@@ -2096,7 +2096,7 @@ name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 init|=
 literal|"2.3.2"
 decl_stmt|;
-comment|/**    * An invalid color space is used    */
+comment|/** 	 * An invalid color space is used 	 */
 specifier|static
 specifier|final
 name|String
@@ -2104,7 +2104,7 @@ name|ERROR_GRAPHIC_INVALID_COLOR_SPACE
 init|=
 literal|"2.4"
 decl_stmt|;
-comment|/**    * RGB color space used in the PDF file but the DestOutputProfile isn't RGB    */
+comment|/** 	 * RGB color space used in the PDF file but the DestOutputProfile isn't RGB 	 */
 specifier|static
 specifier|final
 name|String
@@ -2112,7 +2112,7 @@ name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_RGB
 init|=
 literal|"2.4.1"
 decl_stmt|;
-comment|/**    * CMYK color space used in the PDF file but the DestOutputProfile isn't CMYK    */
+comment|/** 	 * CMYK color space used in the PDF file but the DestOutputProfile isn't CMYK 	 */
 specifier|static
 specifier|final
 name|String
@@ -2120,7 +2120,7 @@ name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_CMYK
 init|=
 literal|"2.4.2"
 decl_stmt|;
-comment|/**    * color space used in the PDF file but the DestOutputProfile is missing    */
+comment|/** 	 * color space used in the PDF file but the DestOutputProfile is missing 	 */
 specifier|static
 specifier|final
 name|String
@@ -2128,7 +2128,7 @@ name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_MISSING
 init|=
 literal|"2.4.3"
 decl_stmt|;
-comment|/**    * Unknown ColorSpace    */
+comment|/** 	 * Unknown ColorSpace 	 */
 specifier|static
 specifier|final
 name|String
@@ -2136,7 +2136,7 @@ name|ERROR_GRAPHIC_INVALID_UNKNOWN_COLOR_SPACE
 init|=
 literal|"2.4.4"
 decl_stmt|;
-comment|/**    * The pattern color space can't be used    */
+comment|/** 	 * The pattern color space can't be used 	 */
 specifier|static
 specifier|final
 name|String
@@ -2144,7 +2144,7 @@ name|ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN
 init|=
 literal|"2.4.5"
 decl_stmt|;
-comment|/**    * The pattern is invalid due to missing key or invalid value    */
+comment|/** 	 * The pattern is invalid due to missing key or invalid value 	 */
 specifier|static
 specifier|final
 name|String
@@ -2152,7 +2152,7 @@ name|ERROR_GRAPHIC_INVALID_PATTERN_DEFINITION
 init|=
 literal|"2.4.6"
 decl_stmt|;
-comment|/**    * alternate color space used in the PDF file but the DestOutputProfile isn't    * consistent    */
+comment|/** 	 * alternate color space used in the PDF file but the DestOutputProfile isn't 	 * consistent 	 */
 specifier|static
 specifier|final
 name|String
@@ -2160,7 +2160,7 @@ name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_ALTERNATE
 init|=
 literal|"2.4.7"
 decl_stmt|;
-comment|/**    * Base ColorSpace in the Indexed color space is invalid    */
+comment|/** 	 * Base ColorSpace in the Indexed color space is invalid 	 */
 specifier|static
 specifier|final
 name|String
@@ -2168,7 +2168,7 @@ name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_INDEXED
 init|=
 literal|"2.4.8"
 decl_stmt|;
-comment|/**    * ColorSpace is forbidden due to some restriction (ex : Only DeviceXXX are    * auth in inlined image)    */
+comment|/** 	 * ColorSpace is forbidden due to some restriction (ex : Only DeviceXXX are 	 * auth in inlined image) 	 */
 specifier|static
 specifier|final
 name|String
@@ -2183,10 +2183,18 @@ name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_TOO_MANY_COMPONENTS_DEVICEN
 init|=
 literal|"2.4.10"
 decl_stmt|;
+comment|/** 	 * ICC Based color space used in the PDF file is invalid 	 */
+specifier|static
+specifier|final
+name|String
+name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_ICCBASED
+init|=
+literal|"2.4.11"
+decl_stmt|;
 comment|// -----------------------------------------------------------
 comment|// ---- FONT ERRORS 3.x...
 comment|// -----------------------------------------------------------
-comment|/**    * Main error code for font problems    */
+comment|/** 	 * Main error code for font problems 	 */
 specifier|static
 specifier|final
 name|String
@@ -2201,7 +2209,7 @@ name|ERROR_FONTS_INVALID_DATA
 init|=
 literal|"3.1"
 decl_stmt|;
-comment|/**    * Some mandatory fields are missing from the FONT Dictionary    */
+comment|/** 	 * Some mandatory fields are missing from the FONT Dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -2209,7 +2217,7 @@ name|ERROR_FONTS_DICTIONARY_INVALID
 init|=
 literal|"3.1.1"
 decl_stmt|;
-comment|/**    * Some mandatory fields are missing from the FONT Descriptor Dictionary    */
+comment|/** 	 * Some mandatory fields are missing from the FONT Descriptor Dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -2217,7 +2225,7 @@ name|ERROR_FONTS_DESCRIPTOR_INVALID
 init|=
 literal|"3.1.2"
 decl_stmt|;
-comment|/**    * Error on the "Font File x" in the Font Descriptor (ex : FontFile and    * FontFile2 are present in the same dictionary)    */
+comment|/** 	 * Error on the "Font File x" in the Font Descriptor (ex : FontFile and 	 * FontFile2 are present in the same dictionary) 	 */
 specifier|static
 specifier|final
 name|String
@@ -2225,7 +2233,7 @@ name|ERROR_FONTS_FONT_FILEX_INVALID
 init|=
 literal|"3.1.3"
 decl_stmt|;
-comment|/**    * Charset declaration is missing in a Type 1 Subset    */
+comment|/** 	 * Charset declaration is missing in a Type 1 Subset 	 */
 specifier|static
 specifier|final
 name|String
@@ -2233,7 +2241,7 @@ name|ERROR_FONTS_CHARSET_MISSING_FOR_SUBSET
 init|=
 literal|"3.1.4"
 decl_stmt|;
-comment|/**    * Encoding is inconsistent with the Font (ex : Symbolic TrueType mustn't    * declare encoding)    */
+comment|/** 	 * Encoding is inconsistent with the Font (ex : Symbolic TrueType mustn't 	 * declare encoding) 	 */
 specifier|static
 specifier|final
 name|String
@@ -2241,7 +2249,7 @@ name|ERROR_FONTS_ENCODING
 init|=
 literal|"3.1.5"
 decl_stmt|;
-comment|/**    * Width array and Font program Width are inconsistent    */
+comment|/** 	 * Width array and Font program Width are inconsistent 	 */
 specifier|static
 specifier|final
 name|String
@@ -2249,7 +2257,7 @@ name|ERROR_FONTS_METRICS
 init|=
 literal|"3.1.6"
 decl_stmt|;
-comment|/**    * Required entry in a Composite Font dictionary is missing    */
+comment|/** 	 * Required entry in a Composite Font dictionary is missing 	 */
 specifier|static
 specifier|final
 name|String
@@ -2257,7 +2265,7 @@ name|ERROR_FONTS_CIDKEYED_INVALID
 init|=
 literal|"3.1.7"
 decl_stmt|;
-comment|/**    * The CIDSystemInfo dictionary is invalid    */
+comment|/** 	 * The CIDSystemInfo dictionary is invalid 	 */
 specifier|static
 specifier|final
 name|String
@@ -2265,7 +2273,7 @@ name|ERROR_FONTS_CIDKEYED_SYSINFO
 init|=
 literal|"3.1.8"
 decl_stmt|;
-comment|/**    * The CIDToGID is invalid    */
+comment|/** 	 * The CIDToGID is invalid 	 */
 specifier|static
 specifier|final
 name|String
@@ -2273,7 +2281,7 @@ name|ERROR_FONTS_CIDKEYED_CIDTOGID
 init|=
 literal|"3.1.9"
 decl_stmt|;
-comment|/**    * The CMap of the Composite Font is missing or invalid    */
+comment|/** 	 * The CMap of the Composite Font is missing or invalid 	 */
 specifier|static
 specifier|final
 name|String
@@ -2281,7 +2289,7 @@ name|ERROR_FONTS_CIDKEYED_CMAP_INVALID_OR_MISSING
 init|=
 literal|"3.1.10"
 decl_stmt|;
-comment|/**    * The CIDSet entry i mandatory from a subset of composite font    */
+comment|/** 	 * The CIDSet entry i mandatory from a subset of composite font 	 */
 specifier|static
 specifier|final
 name|String
@@ -2289,7 +2297,7 @@ name|ERROR_FONTS_CIDSET_MISSING_FOR_SUBSET
 init|=
 literal|"3.1.11"
 decl_stmt|;
-comment|/**    * The CMap of the Composite Font is missing or invalid    */
+comment|/** 	 * The CMap of the Composite Font is missing or invalid 	 */
 specifier|static
 specifier|final
 name|String
@@ -2297,7 +2305,7 @@ name|ERROR_FONTS_ENCODING_ERROR
 init|=
 literal|"3.1.12"
 decl_stmt|;
-comment|/**    * Encoding entry can't be read due to IOException    */
+comment|/** 	 * Encoding entry can't be read due to IOException 	 */
 specifier|static
 specifier|final
 name|String
@@ -2305,7 +2313,7 @@ name|ERROR_FONTS_ENCODING_IO
 init|=
 literal|"3.1.13"
 decl_stmt|;
-comment|/**    * The embedded font is damaged    */
+comment|/** 	 * The embedded font is damaged 	 */
 specifier|static
 specifier|final
 name|String
@@ -2313,7 +2321,7 @@ name|ERROR_FONTS_DAMAGED
 init|=
 literal|"3.2"
 decl_stmt|;
-comment|/**    * The embedded Type1 font is damaged    */
+comment|/** 	 * The embedded Type1 font is damaged 	 */
 specifier|static
 specifier|final
 name|String
@@ -2321,7 +2329,7 @@ name|ERROR_FONTS_TYPE1_DAMAGED
 init|=
 literal|"3.2.1"
 decl_stmt|;
-comment|/**    * The embedded TrueType font is damaged    */
+comment|/** 	 * The embedded TrueType font is damaged 	 */
 specifier|static
 specifier|final
 name|String
@@ -2329,7 +2337,7 @@ name|ERROR_FONTS_TRUETYPE_DAMAGED
 init|=
 literal|"3.2.2"
 decl_stmt|;
-comment|/**    * The embedded composite font is damaged    */
+comment|/** 	 * The embedded composite font is damaged 	 */
 specifier|static
 specifier|final
 name|String
@@ -2337,7 +2345,7 @@ name|ERROR_FONTS_CID_DAMAGED
 init|=
 literal|"3.2.3"
 decl_stmt|;
-comment|/**    * The embedded type 3 font is damaged    */
+comment|/** 	 * The embedded type 3 font is damaged 	 */
 specifier|static
 specifier|final
 name|String
@@ -2345,7 +2353,7 @@ name|ERROR_FONTS_TYPE3_DAMAGED
 init|=
 literal|"3.2.4"
 decl_stmt|;
-comment|/**    * The embedded CID Map is damaged    */
+comment|/** 	 * The embedded CID Map is damaged 	 */
 specifier|static
 specifier|final
 name|String
@@ -2353,7 +2361,7 @@ name|ERROR_FONTS_CID_CMAP_DAMAGED
 init|=
 literal|"3.2.5"
 decl_stmt|;
-comment|/**    * Common error for a Glyph problem    */
+comment|/** 	 * Common error for a Glyph problem 	 */
 specifier|static
 specifier|final
 name|String
@@ -2361,7 +2369,7 @@ name|ERROR_FONTS_GLYPH
 init|=
 literal|"3.3"
 decl_stmt|;
-comment|/**    * a glyph is missing    */
+comment|/** 	 * a glyph is missing 	 */
 specifier|static
 specifier|final
 name|String
@@ -2369,7 +2377,7 @@ name|ERROR_FONTS_GLYPH_MISSING
 init|=
 literal|"3.3.1"
 decl_stmt|;
-comment|/**    * a glyph is missing    */
+comment|/** 	 * a glyph is missing 	 */
 specifier|static
 specifier|final
 name|String
@@ -2387,7 +2395,7 @@ name|ERROR_TRANSPARENCY_MAIN
 init|=
 literal|"4"
 decl_stmt|;
-comment|/**    * Common transparency error    */
+comment|/** 	 * Common transparency error 	 */
 specifier|static
 specifier|final
 name|String
@@ -2395,7 +2403,7 @@ name|ERROR_TRANSPARENCY_EXT_GRAPHICAL_STATE
 init|=
 literal|"4.1"
 decl_stmt|;
-comment|/**    * Soft mask entry is present but is forbidden    */
+comment|/** 	 * Soft mask entry is present but is forbidden 	 */
 specifier|static
 specifier|final
 name|String
@@ -2403,7 +2411,7 @@ name|ERROR_TRANSPARENCY_EXT_GS_SOFT_MASK
 init|=
 literal|"4.1.1"
 decl_stmt|;
-comment|/**    * Ca or/and ca entry are present but the value isn't 1.0    */
+comment|/** 	 * Ca or/and ca entry are present but the value isn't 1.0 	 */
 specifier|static
 specifier|final
 name|String
@@ -2411,7 +2419,7 @@ name|ERROR_TRANSPARENCY_EXT_GS_CA
 init|=
 literal|"4.1.2"
 decl_stmt|;
-comment|/**    * BlendMode value isn't valid (only Normal and Compatible are authorized)    */
+comment|/** 	 * BlendMode value isn't valid (only Normal and Compatible are authorized) 	 */
 specifier|static
 specifier|final
 name|String
@@ -2429,7 +2437,7 @@ name|ERROR_ANNOT_MAIN
 init|=
 literal|"5"
 decl_stmt|;
-comment|/**    * Common missing field error in annotation dictionary    */
+comment|/** 	 * Common missing field error in annotation dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -2437,7 +2445,7 @@ name|ERROR_ANNOT_MISSING_FIELDS
 init|=
 literal|"5.1"
 decl_stmt|;
-comment|/**    * The subtype entry is missing from the annotation dictionary    */
+comment|/** 	 * The subtype entry is missing from the annotation dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -2445,7 +2453,7 @@ name|ERROR_ANNOT_MISSING_SUBTYPE
 init|=
 literal|"5.1.1"
 decl_stmt|;
-comment|/**    * The AP dictionary of the annotation contains forbidden/invalid entries    * (only the N entry is authorized)    */
+comment|/** 	 * The AP dictionary of the annotation contains forbidden/invalid entries 	 * (only the N entry is authorized) 	 */
 specifier|static
 specifier|final
 name|String
@@ -2453,7 +2461,7 @@ name|ERROR_ANNOT_MISSING_AP_N_CONTENT
 init|=
 literal|"5.1.2"
 decl_stmt|;
-comment|/**    * Common forbidden field error in annotation dictionary    */
+comment|/** 	 * Common forbidden field error in annotation dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -2461,7 +2469,7 @@ name|ERROR_ANNOT_FORBIDDEN_ELEMENT
 init|=
 literal|"5.2"
 decl_stmt|;
-comment|/**    * This type of annotation is forbidden (ex : Movie)    */
+comment|/** 	 * This type of annotation is forbidden (ex : Movie) 	 */
 specifier|static
 specifier|final
 name|String
@@ -2469,7 +2477,7 @@ name|ERROR_ANNOT_FORBIDDEN_SUBTYPE
 init|=
 literal|"5.2.1"
 decl_stmt|;
-comment|/**    * The annotation uses a flag which is forbidden.    */
+comment|/** 	 * The annotation uses a flag which is forbidden. 	 */
 specifier|static
 specifier|final
 name|String
@@ -2477,7 +2485,7 @@ name|ERROR_ANNOT_FORBIDDEN_FLAG
 init|=
 literal|"5.2.2"
 decl_stmt|;
-comment|/**    * Annotation uses a Color profile which isn't the same than the profile    * contained by the OutputIntent    */
+comment|/** 	 * Annotation uses a Color profile which isn't the same than the profile 	 * contained by the OutputIntent 	 */
 specifier|static
 specifier|final
 name|String
@@ -2485,7 +2493,7 @@ name|ERROR_ANNOT_FORBIDDEN_COLOR
 init|=
 literal|"5.2.3"
 decl_stmt|;
-comment|/**    * Dest entry can't be used if the A element is used too    */
+comment|/** 	 * Dest entry can't be used if the A element is used too 	 */
 specifier|static
 specifier|final
 name|String
@@ -2493,7 +2501,7 @@ name|ERROR_ANNOT_FORBIDDEN_DEST
 init|=
 literal|"5.2.4"
 decl_stmt|;
-comment|/**    * The AA field is forbidden for the Widget annotation when the PDF is a PDF/A    */
+comment|/** 	 * The AA field is forbidden for the Widget annotation when the PDF is a PDF/A 	 */
 specifier|static
 specifier|final
 name|String
@@ -2501,7 +2509,7 @@ name|ERROR_ANNOT_FORBIDDEN_AA
 init|=
 literal|"5.2.5"
 decl_stmt|;
-comment|/**    * The annotation uses a flag which is not recommended but not forbidden by    * the ISO 19005-1:2005.    */
+comment|/** 	 * The annotation uses a flag which is not recommended but not forbidden by 	 * the ISO 19005-1:2005. 	 */
 specifier|static
 specifier|final
 name|String
@@ -2509,7 +2517,7 @@ name|ERROR_ANNOT_NOT_RECOMMENDED_FLAG
 init|=
 literal|"5.2.6"
 decl_stmt|;
-comment|/**    * Common Invalid field error in annotation dictionary    */
+comment|/** 	 * Common Invalid field error in annotation dictionary 	 */
 specifier|static
 specifier|final
 name|String
@@ -2517,7 +2525,7 @@ name|ERROR_ANNOT_INVALID_ELEMENT
 init|=
 literal|"5.3"
 decl_stmt|;
-comment|/**    * The AP dictionary of the annotation contains forbidden/invalid entries    * (only the N entry is authorized)    */
+comment|/** 	 * The AP dictionary of the annotation contains forbidden/invalid entries 	 * (only the N entry is authorized) 	 */
 specifier|static
 specifier|final
 name|String
@@ -2525,7 +2533,7 @@ name|ERROR_ANNOT_INVALID_AP_CONTENT
 init|=
 literal|"5.3.1"
 decl_stmt|;
-comment|/**    * Ca or/and ca entry are present but the value isn't 1.0    */
+comment|/** 	 * Ca or/and ca entry are present but the value isn't 1.0 	 */
 specifier|static
 specifier|final
 name|String
@@ -2533,7 +2541,7 @@ name|ERROR_ANNOT_INVALID_CA
 init|=
 literal|"5.3.2"
 decl_stmt|;
-comment|/**    * Dest entry of an annotation can't be checked due to an IO Exception    */
+comment|/** 	 * Dest entry of an annotation can't be checked due to an IO Exception 	 */
 specifier|static
 specifier|final
 name|String
@@ -2551,7 +2559,7 @@ name|ERROR_ACTION_MAIN
 init|=
 literal|"6"
 decl_stmt|;
-comment|/**    * Common invalid action error    */
+comment|/** 	 * Common invalid action error 	 */
 specifier|static
 specifier|final
 name|String
@@ -2559,7 +2567,7 @@ name|ERROR_ACTION_INVALID_ACTIONS
 init|=
 literal|"6.1"
 decl_stmt|;
-comment|/**    * A mandatory entry in the action dictionary is missing    */
+comment|/** 	 * A mandatory entry in the action dictionary is missing 	 */
 specifier|static
 specifier|final
 name|String
@@ -2567,7 +2575,7 @@ name|ERROR_ACTION_MISING_KEY
 init|=
 literal|"6.1.1"
 decl_stmt|;
-comment|/**    * Some elements of the annotation dictionary have an invalid type (ex : array    * instead of Dictionary)    */
+comment|/** 	 * Some elements of the annotation dictionary have an invalid type (ex : array 	 * instead of Dictionary) 	 */
 specifier|static
 specifier|final
 name|String
@@ -2575,7 +2583,7 @@ name|ERROR_ACTION_INVALID_TYPE
 init|=
 literal|"6.1.3"
 decl_stmt|;
-comment|/**    * The H entry of a Hide action is set to true (so some annotation can be    * hide)    */
+comment|/** 	 * The H entry of a Hide action is set to true (so some annotation can be 	 * hide) 	 */
 specifier|static
 specifier|final
 name|String
@@ -2583,7 +2591,7 @@ name|ERROR_ACTION_HIDE_H_INVALID
 init|=
 literal|"6.1.4"
 decl_stmt|;
-comment|/**    * Common forbidden action error    */
+comment|/** 	 * Common forbidden action error 	 */
 specifier|static
 specifier|final
 name|String
@@ -2591,7 +2599,7 @@ name|ERROR_ACTION_FORBIDDEN_ACTIONS
 init|=
 literal|"6.2"
 decl_stmt|;
-comment|/**    * Named action other than predefined not allowed    */
+comment|/** 	 * Named action other than predefined not allowed 	 */
 specifier|static
 specifier|final
 name|String
@@ -2599,7 +2607,7 @@ name|ERROR_ACTION_FORBIDDEN_ACTIONS_NAMED
 init|=
 literal|"6.2.1"
 decl_stmt|;
-comment|/**    * Additional action entry is forbidden    */
+comment|/** 	 * Additional action entry is forbidden 	 */
 specifier|static
 specifier|final
 name|String
@@ -2607,7 +2615,7 @@ name|ERROR_ACTION_FORBIDDEN_ADDITIONAL_ACTION
 init|=
 literal|"6.2.2"
 decl_stmt|;
-comment|/**    * Additional action entry is forbidden in a form field object    */
+comment|/** 	 * Additional action entry is forbidden in a form field object 	 */
 specifier|static
 specifier|final
 name|String
@@ -2615,7 +2623,7 @@ name|ERROR_ACTION_FORBIDDEN_ADDITIONAL_ACTIONS_FIELD
 init|=
 literal|"6.2.3"
 decl_stmt|;
-comment|/**    * A widget annotation linked with a form field shall not have any action    */
+comment|/** 	 * A widget annotation linked with a form field shall not have any action 	 */
 specifier|static
 specifier|final
 name|String
@@ -2623,7 +2631,7 @@ name|ERROR_ACTION_FORBIDDEN_WIDGET_ACTION_FIELD
 init|=
 literal|"6.2.4"
 decl_stmt|;
-comment|/**    * An explicitly forbidden action is used in the PDF file.    */
+comment|/** 	 * An explicitly forbidden action is used in the PDF file. 	 */
 specifier|static
 specifier|final
 name|String
@@ -2631,7 +2639,7 @@ name|ERROR_ACTION_FORBIDDEN_ACTIONS_EXPLICITLY_FORBIDDEN
 init|=
 literal|"6.2.5"
 decl_stmt|;
-comment|/**    * Actions is rejected if it isn't defined in the PDF Reference Third Edition    * This is to avoid not consistent file due to new features of the PDF format.    */
+comment|/** 	 * Actions is rejected if it isn't defined in the PDF Reference Third Edition 	 * This is to avoid not consistent file due to new features of the PDF format. 	 */
 specifier|static
 specifier|final
 name|String
@@ -2642,7 +2650,7 @@ decl_stmt|;
 comment|// -----------------------------------------------------------
 comment|// ---- METADATA ERRORS 7.x...
 comment|// -----------------------------------------------------------
-comment|/**    * Main metadata error code    */
+comment|/** 	 * Main metadata error code 	 */
 specifier|static
 specifier|final
 name|String
@@ -2650,7 +2658,7 @@ name|ERROR_METADATA_MAIN
 init|=
 literal|"7"
 decl_stmt|;
-comment|/**    * Invalid metadata found    */
+comment|/** 	 * Invalid metadata found 	 */
 specifier|static
 specifier|final
 name|String
@@ -2658,7 +2666,7 @@ name|ERROR_METADATA_FORMAT
 init|=
 literal|"7.1"
 decl_stmt|;
-comment|/**    * Unknown metadata    */
+comment|/** 	 * Unknown metadata 	 */
 specifier|static
 specifier|final
 name|String
@@ -2666,7 +2674,7 @@ name|ERROR_METADATA_PROPERTY_UNKNOWN
 init|=
 literal|"7.1.1"
 decl_stmt|;
-comment|/**    * Invalid xmp metadata format    */
+comment|/** 	 * Invalid xmp metadata format 	 */
 specifier|static
 specifier|final
 name|String
@@ -2674,7 +2682,7 @@ name|ERROR_METADATA_PROPERTY_FORMAT
 init|=
 literal|"7.1.2"
 decl_stmt|;
-comment|/**    * Unexpected type of a Metadata entry     */
+comment|/** 	 * Unexpected type of a Metadata entry  	 */
 specifier|static
 specifier|final
 name|String
@@ -2682,7 +2690,7 @@ name|ERROR_METADATA_FORMAT_UNKOWN
 init|=
 literal|"7.1.3"
 decl_stmt|;
-comment|/**    * Metadata mismatch between PDF Dictionnary and xmp    */
+comment|/** 	 * Metadata mismatch between PDF Dictionnary and xmp 	 */
 specifier|static
 specifier|final
 name|String
@@ -2690,7 +2698,7 @@ name|ERROR_METADATA_MISMATCH
 init|=
 literal|"7.2"
 decl_stmt|;
-comment|/**    * Invalid information in xpacket processing instruction    */
+comment|/** 	 * Invalid information in xpacket processing instruction 	 */
 specifier|static
 specifier|final
 name|String
@@ -2698,7 +2706,7 @@ name|ERROR_METADATA_XPACKET_DEPRECATED
 init|=
 literal|"7.0.0"
 decl_stmt|;
-comment|/**    * Description schema required not embedded    */
+comment|/** 	 * Description schema required not embedded 	 */
 specifier|static
 specifier|final
 name|String
@@ -2706,7 +2714,7 @@ name|ERROR_METADATA_ABSENT_DESCRIPTION_SCHEMA
 init|=
 literal|"7.3"
 decl_stmt|;
-comment|/**    * A required namespace URI missing    */
+comment|/** 	 * A required namespace URI missing 	 */
 specifier|static
 specifier|final
 name|String
@@ -2714,7 +2722,7 @@ name|ERROR_METADATA_NS_URI_MISSING
 init|=
 literal|"7.4"
 decl_stmt|;
-comment|/**    * A namespace URI has an unexpected value    */
+comment|/** 	 * A namespace URI has an unexpected value 	 */
 specifier|static
 specifier|final
 name|String
@@ -2722,7 +2730,7 @@ name|ERROR_METADATA_WRONG_NS_URI
 init|=
 literal|"7.4.1"
 decl_stmt|;
-comment|/**    * A namespace prefix has an unexpected value    */
+comment|/** 	 * A namespace prefix has an unexpected value 	 */
 specifier|static
 specifier|final
 name|String
@@ -2730,7 +2738,7 @@ name|ERROR_METADATA_WRONG_NS_PREFIX
 init|=
 literal|"7.4.2"
 decl_stmt|;
-comment|/**    * Required property is missing    */
+comment|/** 	 * Required property is missing 	 */
 specifier|static
 specifier|final
 name|String
@@ -2738,7 +2746,7 @@ name|ERROR_METADATA_PROPERTY_MISSING
 init|=
 literal|"7.5"
 decl_stmt|;
-comment|/**    * A valueType is used but is not declared    */
+comment|/** 	 * A valueType is used but is not declared 	 */
 specifier|static
 specifier|final
 name|String
@@ -2746,7 +2754,7 @@ name|ERROR_METADATA_UNKNOWN_VALUETYPE
 init|=
 literal|"7.6"
 decl_stmt|;
-comment|/**    * PDF/A Identification Schema not found    */
+comment|/** 	 * PDF/A Identification Schema not found 	 */
 specifier|static
 specifier|final
 name|String
@@ -2754,7 +2762,7 @@ name|ERROR_METADATA_PDFA_ID_MISSING
 init|=
 literal|"7.11"
 decl_stmt|;
-comment|/**    * PDF/A Identification Conformance Invalid    */
+comment|/** 	 * PDF/A Identification Conformance Invalid 	 */
 specifier|static
 specifier|final
 name|String
@@ -2762,7 +2770,7 @@ name|ERROR_METADATA_INVALID_PDFA_CONFORMANCE
 init|=
 literal|"7.11.1"
 decl_stmt|;
-comment|/**    * PDF/A Identification Version Identifier Invalid (pdfaid:part)    */
+comment|/** 	 * PDF/A Identification Version Identifier Invalid (pdfaid:part) 	 */
 specifier|static
 specifier|final
 name|String
@@ -2770,7 +2778,7 @@ name|ERROR_METADATA_INVALID_PDFA_VERSION_ID
 init|=
 literal|"7.11.2"
 decl_stmt|;
-comment|/**    * rdf:about is missing   */
+comment|/** 	 * rdf:about is missing 	 */
 specifier|static
 specifier|final
 name|String
@@ -2778,7 +2786,7 @@ name|ERROR_METADATA_RDF_ABOUT_ATTRIBUTE_MISSING
 init|=
 literal|"7.0"
 decl_stmt|;
-comment|/**   * One of rdf:about attribute embedded in RDF:rdf have a different value than the others   */
+comment|/** 	 * One of rdf:about attribute embedded in RDF:rdf have a different value than the others 	 */
 specifier|static
 specifier|final
 name|String
@@ -2786,7 +2794,7 @@ name|ERROR_METADATA_RDF_ABOUT_ATTRIBUTE_INEQUAL_VALUE
 init|=
 literal|"7.0.1"
 decl_stmt|;
-comment|/**   * a category has an invalid value in one property description (must be internal or external)   */
+comment|/** 	 * a category has an invalid value in one property description (must be internal or external) 	 */
 specifier|static
 specifier|final
 name|String
