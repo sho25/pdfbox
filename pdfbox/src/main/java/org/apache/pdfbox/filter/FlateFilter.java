@@ -554,25 +554,6 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|OutOfMemoryError
-name|exception
-parameter_list|)
-block|{
-comment|// if the stream is corrupt an OutOfMemoryError may occur
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"FlateFilter: stop reading corrupt stream due to an OutOfMemoryError"
-argument_list|)
-expr_stmt|;
-comment|// re-throw the exception, caller has to handle it
-throw|throw
-name|exception
-throw|;
-block|}
-catch|catch
-parameter_list|(
 name|ZipException
 name|exception
 parameter_list|)
