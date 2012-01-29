@@ -136,13 +136,13 @@ literal|"yyyy-MM-dd'T'HH:mm:ssz"
 argument_list|)
 block|}
 decl_stmt|;
-comment|/**      * According to check-style, Utility classes should not have a public or      * default constructor.      */
+comment|/** 	 * According to check-style, Utility classes should not have a public or 	 * default constructor. 	 */
 specifier|protected
 name|DateConverter
 parameter_list|()
-block|{     }
+block|{ 	}
 empty_stmt|;
-comment|/**      * This will convert a string to a calendar.      *       * @param date      *            The string representation of the calendar.      *       * @return The calendar that this string represents.      *       * @throws IOException      *             If the date string is not in the correct format.      */
+comment|/** 	 * This will convert a string to a calendar. 	 *  	 * @param date 	 *            The string representation of the calendar. 	 *  	 * @return The calendar that this string represents. 	 *  	 * @throws IOException 	 *             If the date string is not in the correct format. 	 */
 specifier|public
 specifier|static
 name|Calendar
@@ -401,6 +401,41 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|int
+name|timeZonePos
+init|=
+literal|12
+decl_stmt|;
+if|if
+condition|(
+name|date
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|12
+operator|>
+literal|5
+operator|||
+operator|(
+name|date
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|12
+operator|==
+literal|3
+operator|&&
+name|date
+operator|.
+name|endsWith
+argument_list|(
+literal|"Z"
+argument_list|)
+operator|)
+condition|)
+block|{
 if|if
 condition|(
 name|date
@@ -428,6 +463,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|timeZonePos
+operator|=
+literal|14
+expr_stmt|;
+block|}
+else|else
+block|{
+name|second
+operator|=
+literal|0
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|date
@@ -435,7 +482,11 @@ operator|.
 name|length
 argument_list|()
 operator|>=
-literal|15
+operator|(
+name|timeZonePos
+operator|+
+literal|1
+operator|)
 condition|)
 block|{
 name|char
@@ -445,7 +496,7 @@ name|date
 operator|.
 name|charAt
 argument_list|(
-literal|14
+name|timeZonePos
 argument_list|)
 decl_stmt|;
 if|if
@@ -485,7 +536,11 @@ operator|.
 name|length
 argument_list|()
 operator|>=
-literal|17
+operator|(
+name|timeZonePos
+operator|+
+literal|3
+operator|)
 condition|)
 block|{
 if|if
@@ -506,9 +561,17 @@ name|date
 operator|.
 name|substring
 argument_list|(
-literal|15
+operator|(
+name|timeZonePos
+operator|+
+literal|1
+operator|)
 argument_list|,
-literal|17
+operator|(
+name|timeZonePos
+operator|+
+literal|3
+operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -526,9 +589,13 @@ name|date
 operator|.
 name|substring
 argument_list|(
-literal|14
+name|timeZonePos
 argument_list|,
-literal|16
+operator|(
+name|timeZonePos
+operator|+
+literal|2
+operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -548,7 +615,11 @@ operator|.
 name|length
 argument_list|()
 operator|>=
-literal|19
+operator|(
+name|timeZonePos
+operator|+
+literal|5
+operator|)
 condition|)
 block|{
 name|minutes
@@ -561,9 +632,17 @@ name|date
 operator|.
 name|substring
 argument_list|(
-literal|17
+operator|(
+name|timeZonePos
+operator|+
+literal|3
+operator|)
 argument_list|,
-literal|19
+operator|(
+name|timeZonePos
+operator|+
+literal|5
+operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -578,7 +657,11 @@ operator|.
 name|length
 argument_list|()
 operator|>=
-literal|18
+operator|(
+name|timeZonePos
+operator|+
+literal|4
+operator|)
 condition|)
 block|{
 name|minutes
@@ -591,9 +674,17 @@ name|date
 operator|.
 name|substring
 argument_list|(
-literal|16
+operator|(
+name|timeZonePos
+operator|+
+literal|2
+operator|)
 argument_list|,
-literal|18
+operator|(
+name|timeZonePos
+operator|+
+literal|4
+operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -875,7 +966,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Append Zero to String Buffer before number< 10 ('1' become '01')      *       * @param out      *            The String buffer      * @param number      *            The concerned number      */
+comment|/** 	 * Append Zero to String Buffer before number< 10 ('1' become '01') 	 *  	 * @param out 	 *            The String buffer 	 * @param number 	 *            The concerned number 	 */
 specifier|private
 specifier|static
 name|void
@@ -911,7 +1002,7 @@ name|number
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convert the date to iso 8601 string format.      *       * @param cal      *            The date to convert.      * @return The date represented as an ISO 8601 string.      */
+comment|/** 	 * Convert the date to iso 8601 string format. 	 *  	 * @param cal 	 *            The date to convert. 	 * @return The date represented as an ISO 8601 string. 	 */
 specifier|public
 specifier|static
 name|String

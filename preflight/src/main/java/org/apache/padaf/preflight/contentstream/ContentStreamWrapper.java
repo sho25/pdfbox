@@ -1697,6 +1697,13 @@ name|GlyphException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|renderingMode
+operator|!=
+literal|3
+condition|)
+block|{
 name|throwContentStreamException
 argument_list|(
 name|e
@@ -1710,6 +1717,7 @@ name|getErrorCode
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
