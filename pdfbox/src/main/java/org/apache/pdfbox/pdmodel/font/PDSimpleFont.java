@@ -772,9 +772,8 @@ expr_stmt|;
 if|if
 condition|(
 name|fontWidth
-operator|==
-operator|-
-literal|1
+operator|<=
+literal|0
 condition|)
 block|{
 comment|//hmm should this be in PDType1Font??
