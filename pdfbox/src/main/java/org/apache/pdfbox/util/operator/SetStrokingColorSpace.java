@@ -219,6 +219,14 @@ name|context
 operator|.
 name|getColorSpaces
 argument_list|()
+argument_list|,
+name|context
+operator|.
+name|getResources
+argument_list|()
+operator|.
+name|getPatterns
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|PDColorState

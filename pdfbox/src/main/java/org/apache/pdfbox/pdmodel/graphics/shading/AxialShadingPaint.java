@@ -25,16 +25,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Dimension
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|Paint
 import|;
 end_import
@@ -139,8 +129,8 @@ name|Matrix
 name|currentTransformationMatrix
 decl_stmt|;
 specifier|private
-name|Dimension
-name|pageSize
+name|int
+name|pageHeight
 decl_stmt|;
 comment|/**      * Constructor.      *       * @param shadingType2 the shading resources      * @param ctm current transformation matrix      * @param pageSizeValue size of the current page      */
 specifier|public
@@ -152,8 +142,8 @@ parameter_list|,
 name|Matrix
 name|ctm
 parameter_list|,
-name|Dimension
-name|pageSizeValue
+name|int
+name|pageHeightValue
 parameter_list|)
 block|{
 name|shading
@@ -164,9 +154,9 @@ name|currentTransformationMatrix
 operator|=
 name|ctm
 expr_stmt|;
-name|pageSize
+name|pageHeight
 operator|=
-name|pageSizeValue
+name|pageHeightValue
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
@@ -212,7 +202,7 @@ name|xform
 argument_list|,
 name|currentTransformationMatrix
 argument_list|,
-name|pageSize
+name|pageHeight
 argument_list|)
 return|;
 block|}

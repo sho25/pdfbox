@@ -23,6 +23,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|awt
+operator|.
+name|Paint
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|io
 operator|.
 name|IOException
@@ -438,6 +448,18 @@ return|return
 name|pattern
 return|;
 block|}
+comment|/**      * This will return the paint of the pattern.      *       * @param the height of the current page      *       * @return the paint of the pattern      */
+specifier|public
+specifier|abstract
+name|Paint
+name|getPaint
+parameter_list|(
+name|int
+name|pageHeight
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 block|}
 end_class
 

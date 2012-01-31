@@ -192,7 +192,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//      (PDF 1.1) Set color space for stroking operations
+comment|// (PDF 1.1) Set color space for stroking operations
 name|COSName
 name|name
 init|=
@@ -218,6 +218,14 @@ argument_list|,
 name|context
 operator|.
 name|getColorSpaces
+argument_list|()
+argument_list|,
+name|context
+operator|.
+name|getResources
+argument_list|()
+operator|.
+name|getPatterns
 argument_list|()
 argument_list|)
 decl_stmt|;

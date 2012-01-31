@@ -25,9 +25,29 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Paint
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|geom
 operator|.
 name|AffineTransform
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -873,6 +893,24 @@ argument_list|,
 name|matrix
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|Paint
+name|getPaint
+parameter_list|(
+name|int
+name|pageHeight
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// TODO Auto-generated method stub
+return|return
+literal|null
+return|;
 block|}
 block|}
 end_class
