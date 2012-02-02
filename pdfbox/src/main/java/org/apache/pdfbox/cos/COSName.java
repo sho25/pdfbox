@@ -590,6 +590,32 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|BITS_PER_COORDINATE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"BitsPerCoordinate"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|BITS_PER_FLAG
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"BitsPerFlag"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|BITS_PER_SAMPLE
 init|=
 operator|new
@@ -3898,6 +3924,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Version"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|VERTICES_PER_ROW
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"VerticesPerRow"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
