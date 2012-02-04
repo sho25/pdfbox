@@ -549,6 +549,20 @@ name|PDSeparation
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|ImageIOUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * An image class for JPegs.  *  * @author mathiak  * @version $Revision: 1.5 $  */
 end_comment
@@ -714,12 +728,9 @@ operator|.
 name|XOBJECT
 argument_list|)
 expr_stmt|;
-name|BufferedImage
-name|image
-init|=
 name|getRGBImage
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|image
@@ -1062,9 +1073,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|BufferedImage
 name|image
-init|=
+operator|=
 operator|new
 name|BufferedImage
 argument_list|(
@@ -1082,7 +1092,7 @@ name|BufferedImage
 operator|.
 name|TYPE_USHORT_565_RGB
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|g
 operator|=
 name|image
@@ -1722,9 +1732,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ImageIO
+name|ImageIOUtil
 operator|.
-name|write
+name|writeImage
 argument_list|(
 name|image
 argument_list|,
@@ -1808,7 +1818,7 @@ name|getHeaderEndPos
 parameter_list|(
 name|byte
 index|[]
-name|image
+name|imageAsBytes
 parameter_list|)
 block|{
 for|for
@@ -1820,7 +1830,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|image
+name|imageAsBytes
 operator|.
 name|length
 condition|;
@@ -1831,7 +1841,7 @@ block|{
 name|byte
 name|b
 init|=
-name|image
+name|imageAsBytes
 index|[
 name|i
 index|]
@@ -1865,7 +1875,7 @@ name|replaceHeader
 parameter_list|(
 name|byte
 index|[]
-name|image
+name|imageAsBytes
 parameter_list|)
 block|{
 comment|// get end position of wrong header respectively startposition of "real jpeg data"
@@ -1874,7 +1884,7 @@ name|pos
 init|=
 name|getHeaderEndPos
 argument_list|(
-name|image
+name|imageAsBytes
 argument_list|)
 decl_stmt|;
 comment|// simple correct header
@@ -1995,7 +2005,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|image
+name|imageAsBytes
 operator|.
 name|length
 operator|-
@@ -2029,7 +2039,7 @@ name|System
 operator|.
 name|arraycopy
 argument_list|(
-name|image
+name|imageAsBytes
 argument_list|,
 name|pos
 operator|+
@@ -2041,7 +2051,7 @@ name|header
 operator|.
 name|length
 argument_list|,
-name|image
+name|imageAsBytes
 operator|.
 name|length
 operator|-

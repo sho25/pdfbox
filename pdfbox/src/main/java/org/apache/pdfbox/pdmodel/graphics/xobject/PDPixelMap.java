@@ -153,16 +153,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|imageio
-operator|.
-name|ImageIO
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -369,6 +359,20 @@ name|PDSeparation
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|ImageIOUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class contains a PixelMap Image.  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @version $Revision: 1.10 $  */
 end_comment
@@ -402,6 +406,14 @@ name|image
 init|=
 literal|null
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|PNG
+init|=
+literal|"png"
+decl_stmt|;
 comment|/**      * Standard constructor. Basically does nothing.      * @param pdStream The stream that holds the pixel map.      */
 specifier|public
 name|PDPixelMap
@@ -414,7 +426,7 @@ name|super
 argument_list|(
 name|pdStream
 argument_list|,
-literal|"png"
+name|PNG
 argument_list|)
 expr_stmt|;
 block|}
@@ -1697,13 +1709,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ImageIO
+name|ImageIOUtil
 operator|.
-name|write
+name|writeImage
 argument_list|(
 name|image
 argument_list|,
-literal|"png"
+name|PNG
 argument_list|,
 name|out
 argument_list|)
