@@ -233,6 +233,28 @@ literal|"-100.001"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// according to the specs the exponential shall not be used
+comment|// but obviously there some
+name|assertNotNull
+argument_list|(
+name|COSNumber
+operator|.
+name|get
+argument_list|(
+literal|"-2e-006"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|COSNumber
+operator|.
+name|get
+argument_list|(
+literal|"-8e+05"
+argument_list|)
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|assertEquals
