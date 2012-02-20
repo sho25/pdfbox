@@ -902,6 +902,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|CID_TO_GID_MAP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CIDToGIDMap"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|COLORANTS
 init|=
 operator|new
