@@ -640,13 +640,12 @@ literal|"Not implemented"
 argument_list|)
 throw|;
 block|}
+comment|// the IndexColorModel uses RGB-based color values
+comment|// which leads to 3 color components and a optional alpha channel
 name|int
 name|numberOfComponents
 init|=
-name|baseColorModel
-operator|.
-name|getNumComponents
-argument_list|()
+literal|3
 operator|+
 operator|(
 name|hasAlpha
@@ -731,6 +730,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
+comment|// convert the indexed color values to RGB
 name|colorValues
 index|[
 name|bufferIndex
