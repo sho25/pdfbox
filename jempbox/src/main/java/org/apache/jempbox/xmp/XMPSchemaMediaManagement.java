@@ -517,7 +517,7 @@ name|schema
 argument_list|,
 name|prefix
 operator|+
-literal|":DerivedFrom"
+literal|":ManagedFrom"
 argument_list|,
 name|resource
 argument_list|)
