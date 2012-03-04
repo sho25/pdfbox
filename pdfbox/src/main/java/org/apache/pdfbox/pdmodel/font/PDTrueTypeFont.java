@@ -1948,6 +1948,11 @@ literal|" instead"
 argument_list|)
 expr_stmt|;
 block|}
+name|setIsFontSubstituted
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 else|else
@@ -2068,6 +2073,11 @@ name|getName
 argument_list|()
 operator|+
 literal|" instead"
+argument_list|)
+expr_stmt|;
+name|setIsFontSubstituted
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

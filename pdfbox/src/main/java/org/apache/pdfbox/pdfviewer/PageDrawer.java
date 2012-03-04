@@ -1322,6 +1322,11 @@ operator|.
 name|getCharacter
 argument_list|()
 argument_list|,
+name|text
+operator|.
+name|getCodePoints
+argument_list|()
+argument_list|,
 name|graphics
 argument_list|,
 literal|1

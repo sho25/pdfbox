@@ -151,10 +151,20 @@ block|{
 comment|//A map of character code to java.awt.Image for the glyph
 specifier|private
 name|Map
+argument_list|<
+name|Character
+argument_list|,
+name|Image
+argument_list|>
 name|images
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|Character
+argument_list|,
+name|Image
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      */
@@ -318,6 +328,10 @@ parameter_list|(
 name|String
 name|string
 parameter_list|,
+name|int
+index|[]
+name|codePoints
+parameter_list|,
 name|Graphics
 name|g
 parameter_list|,
@@ -335,8 +349,6 @@ name|y
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-comment|//if( string.equals( "V" )|| string.equals( "o" ) )
 block|{
 for|for
 control|(
@@ -469,7 +481,6 @@ block|}
 block|}
 block|}
 block|}
-block|}
 comment|/**      * Set the font matrix for this type3 font.      *      * @param matrix The font matrix for this type3 font.      */
 specifier|public
 name|void
@@ -483,7 +494,9 @@ name|font
 operator|.
 name|setItem
 argument_list|(
-literal|"FontMatrix"
+name|COSName
+operator|.
+name|FONT_MATRIX
 argument_list|,
 name|matrix
 argument_list|)

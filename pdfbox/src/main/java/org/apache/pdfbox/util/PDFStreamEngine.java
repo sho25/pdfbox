@@ -1458,6 +1458,12 @@ argument_list|,
 name|codeLength
 argument_list|)
 decl_stmt|;
+name|int
+index|[]
+name|codePoints
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|c
@@ -1489,6 +1495,24 @@ name|i
 argument_list|,
 name|codeLength
 argument_list|)
+expr_stmt|;
+name|codePoints
+operator|=
+operator|new
+name|int
+index|[]
+block|{
+name|font
+operator|.
+name|getCodeFromArray
+argument_list|(
+name|string
+argument_list|,
+name|i
+argument_list|,
+name|codeLength
+argument_list|)
+block|}
 expr_stmt|;
 block|}
 comment|// the space width has to be transformed into display units
@@ -1852,6 +1876,8 @@ argument_list|,
 name|spaceWidthDisp
 argument_list|,
 name|c
+argument_list|,
+name|codePoints
 argument_list|,
 name|font
 argument_list|,

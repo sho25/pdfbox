@@ -354,6 +354,11 @@ literal|" instead"
 argument_list|)
 expr_stmt|;
 block|}
+name|setIsFontSubstituted
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// TODO FontFile3

@@ -139,7 +139,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -156,7 +156,7 @@ name|descendantFontArray
 decl_stmt|;
 specifier|private
 name|PDFont
-name|descendentFont
+name|descendantFont
 decl_stmt|;
 specifier|private
 name|COSDictionary
@@ -223,7 +223,7 @@ condition|)
 block|{
 try|try
 block|{
-name|descendentFont
+name|descendantFont
 operator|=
 name|PDFontFactory
 operator|.
@@ -239,7 +239,7 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -266,7 +266,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|descendentFont
+name|descendantFont
 operator|!=
 literal|null
 condition|)
@@ -277,7 +277,7 @@ operator|(
 operator|(
 name|PDSimpleFont
 operator|)
-name|descendentFont
+name|descendantFont
 operator|)
 operator|.
 name|getawtFont
@@ -298,7 +298,7 @@ operator|.
 name|getStandardFont
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -311,13 +311,18 @@ argument_list|()
 operator|+
 literal|" instead of "
 operator|+
-name|descendentFont
+name|descendantFont
 operator|.
 name|getFontDescriptor
 argument_list|()
 operator|.
 name|getFontName
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|setIsFontSubstituted
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -361,7 +366,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|descendentFont
+name|descendantFont
 operator|.
 name|getFontWidth
 argument_list|(
@@ -392,7 +397,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|descendentFont
+name|descendantFont
 operator|.
 name|getFontHeight
 argument_list|(
@@ -413,7 +418,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|descendentFont
+name|descendantFont
 operator|.
 name|getAverageFontWidth
 argument_list|()
@@ -460,7 +465,7 @@ name|charCode
 parameter_list|)
 block|{
 return|return
-name|descendentFont
+name|descendantFont
 operator|.
 name|getFontWidth
 argument_list|(
@@ -531,7 +536,7 @@ literal|1
 condition|)
 block|{
 return|return
-name|descendentFont
+name|descendantFont
 operator|.
 name|cmapEncoding
 argument_list|(
@@ -547,6 +552,16 @@ return|return
 literal|null
 return|;
 block|}
+block|}
+comment|/**      *       * Provides the descendant font.      * @return the descendant font.      *       */
+specifier|protected
+name|PDFont
+name|getDescendantFont
+parameter_list|()
+block|{
+return|return
+name|descendantFont
+return|;
 block|}
 block|}
 end_class

@@ -379,14 +379,14 @@ name|fontEncoding
 init|=
 literal|null
 decl_stmt|;
-comment|/**      *  The descriptor of the font      */
+comment|/**      *  The descriptor of the font.      */
 specifier|private
 name|PDFontDescriptor
 name|fontDescriptor
 init|=
 literal|null
 decl_stmt|;
-comment|/**      *  The font matrix      */
+comment|/**      *  The font matrix.      */
 specifier|protected
 name|PDMatrix
 name|fontMatrix
@@ -430,7 +430,7 @@ argument_list|>
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/**      *  A list a floats representing the widths      */
+comment|/**      *  A list a floats representing the widths.      */
 specifier|private
 name|List
 argument_list|<
@@ -801,12 +801,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|FontMetric
-name|afm
-init|=
 name|getAFM
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|afm
@@ -829,13 +826,13 @@ return|return
 name|fontDescriptor
 return|;
 block|}
-comment|/**      * This will set the font descriptor.      *      * @param fontDescriptor The font descriptor.      */
+comment|/**      * This will set the font descriptor.      *      * @param fdDictionary The font descriptor.      */
 specifier|public
 name|void
 name|setFontDescriptor
 parameter_list|(
 name|PDFontDescriptorDictionary
-name|fontDescriptor
+name|fdDictionary
 parameter_list|)
 block|{
 name|COSDictionary
@@ -845,14 +842,14 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|fontDescriptor
+name|fdDictionary
 operator|!=
 literal|null
 condition|)
 block|{
 name|dic
 operator|=
-name|fontDescriptor
+name|fdDictionary
 operator|.
 name|getCOSDictionary
 argument_list|()
@@ -869,11 +866,9 @@ argument_list|,
 name|dic
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|fontDescriptor
 operator|=
-name|fontDescriptor
+name|fdDictionary
 expr_stmt|;
 block|}
 comment|/**      * Determines the encoding for the font.      * This method as to be overwritten, as there are different      * possibilities to define a mapping.      */
@@ -1000,9 +995,8 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * This will draw a string on a canvas using the font.      *      * @param string The string to draw.      * @param g The graphics to draw onto.      * @param fontSize The size of the font to draw.      * @param at The transformation matrix with all infos for scaling and shearing of the font.      * @param x The x coordinate to draw at.      * @param y The y coordinate to draw at.      *      * @throws IOException If there is an error drawing the specific string.      */
+comment|/**      * This will draw a string on a canvas using the font.      *      * @param string The string to draw.      * @param g The graphics to draw onto.      * @param fontSize The size of the font to draw.      * @param at The transformation matrix with all information for scaling and shearing of the font.      * @param x The x coordinate to draw at.      * @param y The y coordinate to draw at.      *      * @throws IOException If there is an error drawing the specific string.      * @deprecated use {@link PDFont#drawString(String, int[], Graphics, float, AffineTransform, float, float)} instead      */
 specifier|public
-specifier|abstract
 name|void
 name|drawString
 parameter_list|(
@@ -1026,9 +1020,58 @@ name|y
 parameter_list|)
 throws|throws
 name|IOException
+block|{
+name|drawString
+argument_list|(
+name|string
+argument_list|,
+literal|null
+argument_list|,
+name|g
+argument_list|,
+name|fontSize
+argument_list|,
+name|at
+argument_list|,
+name|x
+argument_list|,
+name|y
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This will draw a string on a canvas using the font.      *      * @param string The string to draw.      * @param codePoints The codePoints of the given string.      * @param g The graphics to draw onto.      * @param fontSize The size of the font to draw.      * @param at The transformation matrix with all information for scaling and shearing of the font.      * @param x The x coordinate to draw at.      * @param y The y coordinate to draw at.      *      * @throws IOException If there is an error drawing the specific string.      */
+specifier|public
+specifier|abstract
+name|void
+name|drawString
+parameter_list|(
+name|String
+name|string
+parameter_list|,
+name|int
+index|[]
+name|codePoints
+parameter_list|,
+name|Graphics
+name|g
+parameter_list|,
+name|float
+name|fontSize
+parameter_list|,
+name|AffineTransform
+name|at
+parameter_list|,
+name|float
+name|x
+parameter_list|,
+name|float
+name|y
+parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Used for multibyte encodings.      *      * @param data The array of data.      * @param offset The offset into the array.      * @param length The number of bytes to use.      *      * @return The int value of data from the array.      */
-specifier|protected
+specifier|public
 name|int
 name|getCodeFromArray
 parameter_list|(
@@ -1116,16 +1159,10 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Encoding
-name|encoding
-init|=
-name|getFontEncoding
-argument_list|()
-decl_stmt|;
 name|String
 name|characterName
 init|=
-name|encoding
+name|fontEncoding
 operator|.
 name|getName
 argument_list|(
@@ -1325,7 +1362,7 @@ name|encoding
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * cache the {@link COSName#ENCODING} object from      * the font's dictionary since it is called so often.      *<p>      * Use this method instead of      *<pre>      *   font.getDictionaryObject(COSName.ENCODING);      *</pre>      * @return      */
+comment|/**      * cache the {@link COSName#ENCODING} object from      * the font's dictionary since it is called so often.      *<p>      * Use this method instead of      *<pre>      *   font.getDictionaryObject(COSName.ENCODING);      *</pre>      * @return the encoding      */
 specifier|protected
 name|COSBase
 name|getEncoding
@@ -1360,7 +1397,7 @@ name|void
 name|setEncoding
 parameter_list|(
 name|COSBase
-name|encoding
+name|encodingValue
 parameter_list|)
 block|{
 name|font
@@ -1371,17 +1408,15 @@ name|COSName
 operator|.
 name|ENCODING
 argument_list|,
-name|encoding
+name|encodingValue
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|encoding
 operator|=
-name|encoding
+name|encodingValue
 expr_stmt|;
 block|}
-comment|/**      * Encode the given value using the CMap of the font.      *      * @param code the code to encode.      * @param length the byte length of the given code.      * @param isCIDFont indicates that the used font is a CID font.      *      * @return The value of the encoded character.      */
+comment|/**      * Encode the given value using the CMap of the font.      *      * @param code the code to encode.      * @param length the byte length of the given code.      * @param isCIDFont indicates that the used font is a CID font.      *      * @return The value of the encoded character.      * @throws IOException if something went wrong      */
 specifier|protected
 name|String
 name|cmapEncoding
@@ -1507,22 +1542,16 @@ operator|==
 literal|null
 condition|)
 block|{
-name|Encoding
-name|encoding
-init|=
-name|getFontEncoding
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|encoding
+name|fontEncoding
 operator|!=
 literal|null
 condition|)
 block|{
 name|retval
 operator|=
-name|encoding
+name|fontEncoding
 operator|.
 name|getCharacter
 argument_list|(
@@ -1941,6 +1970,10 @@ specifier|private
 name|boolean
 name|typeFont
 decl_stmt|;
+specifier|private
+name|boolean
+name|type0Font
+decl_stmt|;
 comment|/**      * This will get the subtype of font, Type1, Type3, ...      *      * @return The type of font that this is.      */
 specifier|public
 name|String
@@ -1983,6 +2016,15 @@ argument_list|(
 name|subtype
 argument_list|)
 expr_stmt|;
+name|type0Font
+operator|=
+literal|"Type0"
+operator|.
+name|equals
+argument_list|(
+name|subtype
+argument_list|)
+expr_stmt|;
 name|typeFont
 operator|=
 name|type1Font
@@ -2012,6 +2054,19 @@ argument_list|()
 expr_stmt|;
 return|return
 name|type1Font
+return|;
+block|}
+comment|/**      * Determines if the font is a type 0 font.      * @return returns true if the font is a type 0 font      */
+specifier|protected
+name|boolean
+name|isType0Font
+parameter_list|()
+block|{
+name|getSubType
+argument_list|()
+expr_stmt|;
+return|return
+name|type0Font
 return|;
 block|}
 specifier|private
@@ -2220,14 +2275,12 @@ name|List
 argument_list|<
 name|Float
 argument_list|>
-name|widths
+name|widthsList
 parameter_list|)
 block|{
-name|this
-operator|.
 name|widths
 operator|=
-name|widths
+name|widthsList
 expr_stmt|;
 name|font
 operator|.
@@ -2241,8 +2294,6 @@ name|COSArrayList
 operator|.
 name|converterToCOSArray
 argument_list|(
-name|this
-operator|.
 name|widths
 argument_list|)
 argument_list|)
@@ -2454,16 +2505,10 @@ operator|<=
 name|lastChar
 condition|)
 block|{
-name|List
-argument_list|<
-name|Float
-argument_list|>
-name|widths
-init|=
+comment|// maybe the font doesn't provide any widths
 name|getWidths
 argument_list|()
-decl_stmt|;
-comment|// maybe the font doesn't provide any widths
+expr_stmt|;
 if|if
 condition|(
 name|widths
@@ -2531,33 +2576,13 @@ name|void
 name|setHasToUnicode
 parameter_list|(
 name|boolean
-name|hasToUnicode
+name|hasToUnicodeValue
 parameter_list|)
 block|{
-name|this
-operator|.
 name|hasToUnicode
 operator|=
-name|hasToUnicode
+name|hasToUnicodeValue
 expr_stmt|;
-block|}
-specifier|public
-name|COSString
-name|createString
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-operator|new
-name|COSString
-argument_list|(
-name|text
-argument_list|)
-return|;
 block|}
 block|}
 end_class
