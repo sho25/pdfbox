@@ -354,7 +354,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/** Collects all Xref/trailer objects and resolves them into single      *  object using startxref reference.       */
-specifier|private
+specifier|protected
 name|XrefTrailerResolver
 name|xrefTrailerResolver
 init|=
@@ -2240,7 +2240,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will parse the startxref section from the stream.      * The startxref value is ignored.      *      * @return false on parsing error      * @throws IOException If an IO error occurs.      */
-specifier|private
+specifier|protected
 name|boolean
 name|parseStartXref
 parameter_list|()
@@ -2303,7 +2303,7 @@ literal|true
 return|;
 block|}
 comment|/**      * This will parse the xref table from the stream and add it to the state      * The XrefTable contents are ignored.      * @param startByteOffset the offset to start at      * @return false on parsing error      * @throws IOException If an IO error occurs.      */
-specifier|private
+specifier|protected
 name|boolean
 name|parseXrefTable
 parameter_list|(
@@ -2618,7 +2618,7 @@ literal|true
 return|;
 block|}
 comment|/**      * This will parse the trailer from the stream and add it to the state.      *      * @return false on parsing error      * @throws IOException If an IO error occurs.      */
-specifier|private
+specifier|protected
 name|boolean
 name|parseTrailer
 parameter_list|()
