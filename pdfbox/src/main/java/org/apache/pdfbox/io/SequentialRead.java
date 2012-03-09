@@ -26,31 +26,34 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface to allow PDF files to be stored completely in memory or  * to use a scratch file on the disk.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * An interface allowing sequential read operations.  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|RandomAccess
-extends|extends
-name|RandomAccessRead
+name|SequentialRead
 block|{
-comment|/**      * Write a byte to the stream.      *      * @param b The byte to write.      * @throws IOException If there is an IO error while writing.      */
+comment|/**      * Release resources that are being held.      *      * @throws IOException If there is an error closing this resource.      */
 specifier|public
 name|void
-name|write
-parameter_list|(
-name|int
-name|b
-parameter_list|)
+name|close
+parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Write a buffer of data to the stream.      *      * @param b The buffer to get the data from.      * @param offset An offset into the buffer to get the data from.      * @param length The length of data to write.      * @throws IOException If there is an error while writing the data.      */
+comment|/**      * Read a single byte of data.      *      * @return The byte of data that is being read.      *      * @throws IOException If there is an error while reading the data.      */
 specifier|public
-name|void
-name|write
+name|int
+name|read
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Read a buffer of data.      *      * @param b The buffer to write the data to.      * @param offset Offset into the buffer to start writing.      * @param length The amount of data to attempt to read.      * @return The number of bytes that were actually read.      * @throws IOException If there was an error while reading the data.      */
+specifier|public
+name|int
+name|read
 parameter_list|(
 name|byte
 index|[]

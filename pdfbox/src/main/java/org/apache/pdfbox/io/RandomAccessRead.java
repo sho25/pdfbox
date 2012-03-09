@@ -26,42 +26,32 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface to allow PDF files to be stored completely in memory or  * to use a scratch file on the disk.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * An interface allowing random access read operations.  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|RandomAccess
-extends|extends
 name|RandomAccessRead
+extends|extends
+name|SequentialRead
 block|{
-comment|/**      * Write a byte to the stream.      *      * @param b The byte to write.      * @throws IOException If there is an IO error while writing.      */
+comment|/**      * Seek to a position in the data.      *      * @param position The position to seek to.      * @throws IOException If there is an error while seeking.      */
 specifier|public
 name|void
-name|write
+name|seek
 parameter_list|(
-name|int
-name|b
+name|long
+name|position
 parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Write a buffer of data to the stream.      *      * @param b The buffer to get the data from.      * @param offset An offset into the buffer to get the data from.      * @param length The length of data to write.      * @throws IOException If there is an error while writing the data.      */
+comment|/**      * The total number of bytes that are available.      *      * @return The number of bytes available.      *      * @throws IOException If there is an IO error while determining the      * length of the data stream.      */
 specifier|public
-name|void
-name|write
-parameter_list|(
-name|byte
-index|[]
-name|b
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|int
+name|long
 name|length
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
