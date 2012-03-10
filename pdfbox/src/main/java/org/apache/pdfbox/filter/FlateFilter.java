@@ -185,20 +185,6 @@ name|COSName
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|tika
-operator|.
-name|io
-operator|.
-name|IOExceptionWithCause
-import|;
-end_import
-
 begin_comment
 comment|/**  * This is the used for the FlateDecode filter.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Marcel Kammer  * @version $Revision: 1.12 $  */
 end_comment
@@ -590,12 +576,22 @@ literal|"FlateFilter: stop reading corrupt stream due to a DataFormatException"
 argument_list|)
 expr_stmt|;
 comment|// re-throw the exception, caller has to handle it
-throw|throw
+name|IOException
+name|io
+init|=
 operator|new
-name|IOExceptionWithCause
+name|IOException
+argument_list|()
+decl_stmt|;
+name|io
+operator|.
+name|initCause
 argument_list|(
 name|exception
 argument_list|)
+expr_stmt|;
+throw|throw
+name|io
 throw|;
 block|}
 finally|finally
