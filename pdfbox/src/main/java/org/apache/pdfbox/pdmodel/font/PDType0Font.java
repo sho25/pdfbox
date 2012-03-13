@@ -545,6 +545,8 @@ argument_list|,
 literal|2
 argument_list|,
 literal|true
+argument_list|,
+name|cmap
 argument_list|)
 return|;
 block|}

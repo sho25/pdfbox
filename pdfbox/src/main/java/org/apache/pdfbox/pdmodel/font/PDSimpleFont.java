@@ -1505,6 +1505,8 @@ name|encoding
 decl_stmt|;
 try|try
 block|{
+name|cmap
+operator|=
 name|parseCmap
 argument_list|(
 literal|null
@@ -1598,6 +1600,8 @@ name|cmapName
 decl_stmt|;
 try|try
 block|{
+name|cmap
+operator|=
 name|parseCmap
 argument_list|(
 name|resourceRootCMAP
@@ -1696,6 +1700,8 @@ condition|)
 block|{
 try|try
 block|{
+name|toUnicodeCmap
+operator|=
 name|parseCmap
 argument_list|(
 literal|null
@@ -1722,7 +1728,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error: Could not load embedded CMAP"
+literal|"Error: Could not load embedded ToUnicode CMap"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1742,7 +1748,7 @@ name|COSName
 operator|)
 name|toUnicode
 expr_stmt|;
-name|cmap
+name|toUnicodeCmap
 operator|=
 name|cmapObjects
 operator|.
@@ -1756,7 +1762,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|cmap
+name|toUnicodeCmap
 operator|==
 literal|null
 condition|)
@@ -1777,6 +1783,8 @@ name|cmapName
 decl_stmt|;
 try|try
 block|{
+name|toUnicodeCmap
+operator|=
 name|parseCmap
 argument_list|(
 name|resourceRootCMAP
@@ -1800,7 +1808,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error: Could not find predefined CMAP file for '"
+literal|"Error: Could not find predefined ToUnicode CMap file for '"
 operator|+
 name|cmapName
 operator|+
@@ -1810,7 +1818,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|cmap
+name|toUnicodeCmap
 operator|==
 literal|null
 condition|)
@@ -1819,7 +1827,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error: Could not parse predefined CMAP file for '"
+literal|"Error: Could not parse predefined ToUnicode CMap file for '"
 operator|+
 name|cmapName
 operator|+

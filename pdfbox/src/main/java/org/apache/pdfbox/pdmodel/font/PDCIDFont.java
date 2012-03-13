@@ -1221,6 +1221,8 @@ name|cidSystemInfo
 decl_stmt|;
 try|try
 block|{
+name|cmap
+operator|=
 name|parseCmap
 argument_list|(
 name|resourceRootCMAP
@@ -1329,6 +1331,8 @@ argument_list|,
 name|length
 argument_list|,
 literal|true
+argument_list|,
+name|cmap
 argument_list|)
 expr_stmt|;
 block|}
