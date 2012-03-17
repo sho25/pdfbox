@@ -739,6 +739,13 @@ argument_list|(
 name|errorCode
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|details
+operator|!=
+literal|null
+condition|)
+block|{
 name|StringBuilder
 name|sb
 init|=
@@ -788,6 +795,7 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|/** 		 * @return the error code 		 */
 specifier|public
