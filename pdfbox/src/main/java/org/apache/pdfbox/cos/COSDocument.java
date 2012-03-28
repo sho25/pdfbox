@@ -1053,7 +1053,7 @@ operator|)
 name|getTrailer
 argument_list|()
 operator|.
-name|getItem
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
