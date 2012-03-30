@@ -236,7 +236,7 @@ name|localSubrIndex
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * The name of the font.      * @return the name of the font      */
+comment|/** 	 * The name of the font. 	 * @return the name of the font 	 */
 specifier|public
 name|String
 name|getName
@@ -246,7 +246,7 @@ return|return
 name|fontname
 return|;
 block|}
-comment|/**      * Sets the name of the font.      * @param name the name of the font      */
+comment|/** 	 * Sets the name of the font. 	 * @param name the name of the font 	 */
 specifier|public
 name|void
 name|setName
@@ -260,7 +260,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/**      * Returns the value for the given name from the dictionary.      * @param name the name of the value      * @return the value of the name if available      */
+comment|/** 	 * Returns the value for the given name from the dictionary. 	 * @param name the name of the value 	 * @return the value of the name if available 	 */
 specifier|public
 name|Object
 name|getProperty
@@ -315,7 +315,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Adds the given key/value pair to the top dictionary.       * @param name the given key      * @param value the given value      */
+comment|/** 	 * Adds the given key/value pair to the top dictionary.  	 * @param name the given key 	 * @param value the given value 	 */
 specifier|public
 name|void
 name|addValueToTopDict
@@ -345,7 +345,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**       * Returns the top dictionary.      * @return the dictionary      */
+comment|/**  	 * Returns the top dictionary. 	 * @return the dictionary 	 */
 specifier|public
 name|Map
 argument_list|<
@@ -360,7 +360,7 @@ return|return
 name|topDict
 return|;
 block|}
-comment|/**      * Adds the given key/value pair to the private dictionary.       * @param name the given key      * @param value the given value      */
+comment|/** 	 * Adds the given key/value pair to the private dictionary.  	 * @param name the given key 	 * @param value the given value 	 */
 specifier|public
 name|void
 name|addValueToPrivateDict
@@ -390,7 +390,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**       * Returns the private dictionary.      * @return the dictionary      */
+comment|/**  	 * Returns the private dictionary. 	 * @return the dictionary 	 */
 specifier|public
 name|Map
 argument_list|<
@@ -405,7 +405,7 @@ return|return
 name|privateDict
 return|;
 block|}
-comment|/**      * Get the mapping (code/SID/charname/bytes) for this font.      * @return mappings for codes< 256 and for codes> = 256      */
+comment|/** 	 * Get the mapping (code/SID/charname/bytes) for this font. 	 * @return mappings for codes< 256 and for codes> = 256 	 */
 specifier|public
 name|Collection
 argument_list|<
@@ -988,12 +988,155 @@ name|defaultWidth
 return|;
 block|}
 block|}
-comment|// ---- Width not found, return the default width
+comment|// ---- SID Width not found, return the nodef width
 return|return
+name|getNotDefWidth
+argument_list|(
+name|defaultWidth
+argument_list|,
+name|nominalWidth
+argument_list|)
+return|;
+block|}
+specifier|protected
+name|int
+name|getNotDefWidth
+parameter_list|(
+name|int
+name|defaultWidth
+parameter_list|,
+name|int
+name|nominalWidth
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|CharStringRenderer
+name|csr
+decl_stmt|;
+name|byte
+index|[]
+name|glyphDesc
+init|=
+name|this
+operator|.
+name|getCharStringsDict
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|".notdef"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|(
+operator|(
+name|Number
+operator|)
+name|getProperty
+argument_list|(
+literal|"CharstringType"
+argument_list|)
+operator|)
+operator|.
+name|intValue
+argument_list|()
+operator|==
+literal|2
+condition|)
+block|{
+name|Type2CharStringParser
+name|parser
+init|=
+operator|new
+name|Type2CharStringParser
+argument_list|()
+decl_stmt|;
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|lSeq
+init|=
+name|parser
+operator|.
+name|parse
+argument_list|(
+name|glyphDesc
+argument_list|)
+decl_stmt|;
+name|csr
+operator|=
+operator|new
+name|CharStringRenderer
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|csr
+operator|.
+name|render
+argument_list|(
+name|lSeq
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|Type1CharStringParser
+name|parser
+init|=
+operator|new
+name|Type1CharStringParser
+argument_list|()
+decl_stmt|;
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|lSeq
+init|=
+name|parser
+operator|.
+name|parse
+argument_list|(
+name|glyphDesc
+argument_list|)
+decl_stmt|;
+name|csr
+operator|=
+operator|new
+name|CharStringRenderer
+argument_list|()
+expr_stmt|;
+name|csr
+operator|.
+name|render
+argument_list|(
+name|lSeq
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|csr
+operator|.
+name|getWidth
+argument_list|()
+operator|!=
+literal|0
+condition|?
+name|csr
+operator|.
+name|getWidth
+argument_list|()
+operator|+
+name|nominalWidth
+else|:
 name|defaultWidth
 return|;
 block|}
-comment|/**      * Returns the CFFEncoding of the font.      * @return the encoding      */
+comment|/** 	 * Returns the CFFEncoding of the font. 	 * @return the encoding 	 */
 specifier|public
 name|CFFEncoding
 name|getEncoding
@@ -1003,7 +1146,7 @@ return|return
 name|fontEncoding
 return|;
 block|}
-comment|/**      * Sets the CFFEncoding of the font.      * @param encoding the given CFFEncoding      */
+comment|/** 	 * Sets the CFFEncoding of the font. 	 * @param encoding the given CFFEncoding 	 */
 specifier|public
 name|void
 name|setEncoding
@@ -1017,7 +1160,7 @@ operator|=
 name|encoding
 expr_stmt|;
 block|}
-comment|/**      * Returns the CFFCharset of the font.      * @return the charset      */
+comment|/** 	 * Returns the CFFCharset of the font. 	 * @return the charset 	 */
 specifier|public
 name|CFFCharset
 name|getCharset
@@ -1027,7 +1170,7 @@ return|return
 name|fontCharset
 return|;
 block|}
-comment|/**      * Sets the CFFCharset of the font.      * @param charset the given CFFCharset      */
+comment|/** 	 * Sets the CFFCharset of the font. 	 * @param charset the given CFFCharset 	 */
 specifier|public
 name|void
 name|setCharset
@@ -1041,7 +1184,7 @@ operator|=
 name|charset
 expr_stmt|;
 block|}
-comment|/**       * Returns the character strings dictionary.      * @return the dictionary      */
+comment|/**  	 * Returns the character strings dictionary. 	 * @return the dictionary 	 */
 specifier|public
 name|Map
 argument_list|<
@@ -1057,7 +1200,7 @@ return|return
 name|charStringsDict
 return|;
 block|}
-comment|/**      * Creates a CharStringConverter for this font.      * @return the new CharStringConverter      */
+comment|/** 	 * Creates a CharStringConverter for this font. 	 * @return the new CharStringConverter 	 */
 specifier|public
 name|CharStringConverter
 name|createConverter
@@ -1107,7 +1250,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a CharStringRenderer for this font.      * @return the new CharStringRenderer      */
+comment|/** 	 * Creates a CharStringRenderer for this font. 	 * @return the new CharStringRenderer 	 */
 specifier|public
 name|CharStringRenderer
 name|createRenderer
@@ -1119,7 +1262,7 @@ name|CharStringRenderer
 argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/** 	 * {@inheritDoc} 	 */
 specifier|public
 name|String
 name|toString
@@ -1159,7 +1302,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Sets the global subroutine index data.      * @param globalSubrIndex the IndexData object containing the global subroutines       */
+comment|/** 	 * Sets the global subroutine index data. 	 * @param globalSubrIndex the IndexData object containing the global subroutines  	 */
 specifier|public
 name|void
 name|setGlobalSubrIndex
@@ -1175,7 +1318,7 @@ operator|=
 name|globalSubrIndex
 expr_stmt|;
 block|}
-comment|/**       * Returns the global subroutine index data.      * @return the dictionary      */
+comment|/**  	 * Returns the global subroutine index data. 	 * @return the dictionary 	 */
 specifier|public
 name|IndexData
 name|getGlobalSubrIndex
@@ -1185,7 +1328,7 @@ return|return
 name|globalSubrIndex
 return|;
 block|}
-comment|/**       * Returns the local subroutine index data.      * @return the dictionary      */
+comment|/**  	 * Returns the local subroutine index data. 	 * @return the dictionary 	 */
 specifier|public
 name|IndexData
 name|getLocalSubrIndex
@@ -1195,7 +1338,7 @@ return|return
 name|localSubrIndex
 return|;
 block|}
-comment|/**      * Sets the local subroutine index data.      * @param localSubrIndex the IndexData object containing the local subroutines       */
+comment|/** 	 * Sets the local subroutine index data. 	 * @param localSubrIndex the IndexData object containing the local subroutines  	 */
 specifier|public
 name|void
 name|setLocalSubrIndex
@@ -1211,7 +1354,7 @@ operator|=
 name|localSubrIndex
 expr_stmt|;
 block|}
-comment|/**      * This class is used for the font mapping.      *      */
+comment|/** 	 * This class is used for the font mapping. 	 * 	 */
 specifier|public
 class|class
 name|Mapping
@@ -1233,7 +1376,7 @@ name|byte
 index|[]
 name|mappedBytes
 decl_stmt|;
-comment|/**          * Converts the mapping into a Type1-sequence.          * @return the Type1-sequence          * @throws IOException if an error occurs during reading          */
+comment|/** 		 * Converts the mapping into a Type1-sequence. 		 * @return the Type1-sequence 		 * @throws IOException if an error occurs during reading 		 */
 specifier|public
 name|List
 argument_list|<
@@ -1260,7 +1403,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**          * Converts the mapping into a Type2-sequence.          * @return the Type2-sequence          * @throws IOException if an error occurs during reading          */
+comment|/** 		 * Converts the mapping into a Type2-sequence. 		 * @return the Type2-sequence 		 * @throws IOException if an error occurs during reading 		 */
 specifier|public
 name|List
 argument_list|<
@@ -1288,7 +1431,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**          * Gets the value for the code.          * @return the code          */
+comment|/** 		 * Gets the value for the code. 		 * @return the code 		 */
 specifier|public
 name|int
 name|getCode
@@ -1311,7 +1454,7 @@ operator|=
 name|code
 expr_stmt|;
 block|}
-comment|/**          * Gets the value for the SID.          * @return the SID          */
+comment|/** 		 * Gets the value for the SID. 		 * @return the SID 		 */
 specifier|public
 name|int
 name|getSID
@@ -1336,7 +1479,7 @@ operator|=
 name|sid
 expr_stmt|;
 block|}
-comment|/**          * Gets the value for the name.          * @return the name          */
+comment|/** 		 * Gets the value for the name. 		 * @return the name 		 */
 specifier|public
 name|String
 name|getName
@@ -1361,7 +1504,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/**          * Gets the value for the bytes.          * @return the bytes          */
+comment|/** 		 * Gets the value for the bytes. 		 * @return the bytes 		 */
 specifier|public
 name|byte
 index|[]

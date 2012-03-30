@@ -316,13 +316,13 @@ operator|=
 name|fdSelect
 expr_stmt|;
 block|}
-comment|/** 	 * Returns the Width value of the given Glyph identifier 	 *  	 * @param SID 	 * @return -1 if the SID is missing from the Font. 	 * @throws IOException 	 */
+comment|/** 	 * Returns the Width value of the given Glyph identifier 	 *  	 * @param CID 	 * @return -1 if the SID is missing from the Font. 	 * @throws IOException 	 */
 specifier|public
 name|int
 name|getWidth
 parameter_list|(
 name|int
-name|SID
+name|CID
 parameter_list|)
 throws|throws
 name|IOException
@@ -339,7 +339,7 @@ name|fdSelect
 operator|.
 name|getFd
 argument_list|(
-name|SID
+name|CID
 argument_list|)
 decl_stmt|;
 if|if
@@ -349,7 +349,7 @@ operator|==
 operator|-
 literal|1
 operator|&&
-name|SID
+name|CID
 operator|==
 literal|0
 condition|)
@@ -360,7 +360,7 @@ name|super
 operator|.
 name|getWidth
 argument_list|(
-name|SID
+name|CID
 argument_list|)
 return|;
 block|}
@@ -481,7 +481,7 @@ operator|.
 name|getSID
 argument_list|()
 operator|==
-name|SID
+name|CID
 condition|)
 block|{
 name|CharStringRenderer
@@ -585,9 +585,14 @@ name|defaultWidth
 return|;
 block|}
 block|}
-comment|// ---- Width not found, return the default width
+comment|// ---- CID Width not found, return the notdef width
 return|return
+name|getNotDefWidth
+argument_list|(
 name|defaultWidth
+argument_list|,
+name|nominalWidth
+argument_list|)
 return|;
 block|}
 block|}

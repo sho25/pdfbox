@@ -234,8 +234,14 @@ if|if
 condition|(
 operator|!
 name|cidFound
+operator|&&
+name|cid
+operator|!=
+literal|0
 condition|)
 block|{
+comment|// Cid 0 is commonly used as the NotDef Glyph. this glyph can be used as Space.
+comment|// IN PDF/A-1 the Notdef glyph can be used as space. Not in PDF/A-2
 name|GlyphException
 name|ge
 init|=
