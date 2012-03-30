@@ -1473,7 +1473,7 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-comment|// TODO When Lazy mode will be added, this block should be uncommented to set result as warning.
+comment|// TODO [LAZY] When Lazy mode will be added, this block should be uncommented to set result as warning.
 comment|//				if (!isStandardICCCharacterization(outputConditionIdentifier)) {
 comment|//					String info = dictionary.getString(COSName.getPDFName(OUTPUT_INTENT_DICTIONARY_KEY_INFO));
 comment|//					if (info == null || "".equals(info)) {
