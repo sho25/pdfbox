@@ -318,6 +318,13 @@ name|warnMissingClose
 init|=
 literal|true
 decl_stmt|;
+comment|/** signal that document is already decrypted, e.g. with {@link NonSequentialPDFParser} */
+specifier|private
+name|boolean
+name|isDecrypted
+init|=
+literal|false
+decl_stmt|;
 specifier|private
 name|long
 name|startXref
@@ -817,12 +824,30 @@ return|return
 name|version
 return|;
 block|}
+comment|/** Signals that the document is decrypted completely.      *  Needed e.g. by {@link NonSequentialPDFParser} to circumvent      *  additional decryption later on. */
+specifier|public
+name|void
+name|setDecrypted
+parameter_list|()
+block|{
+name|isDecrypted
+operator|=
+literal|true
+expr_stmt|;
+block|}
 comment|/**      * This will tell if this is an encrypted document.      *      * @return true If this document is encrypted.      */
 specifier|public
 name|boolean
 name|isEncrypted
 parameter_list|()
 block|{
+if|if
+condition|(
+name|isDecrypted
+condition|)
+return|return
+literal|false
+return|;
 name|boolean
 name|encrypted
 init|=
