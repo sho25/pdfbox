@@ -1319,8 +1319,7 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|e
+comment|/*, e // TODO: remove remark with Java 1.6 */
 argument_list|)
 throw|;
 block|}
@@ -3654,8 +3653,7 @@ name|ce
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|ce
+comment|/*, ce // TODO: remove remark with Java 1.6 */
 argument_list|)
 throw|;
 block|}
@@ -4133,8 +4131,7 @@ name|ce
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|ce
+comment|/*, ce // TODO: remove remark with Java 1.6 */
 argument_list|)
 throw|;
 block|}
