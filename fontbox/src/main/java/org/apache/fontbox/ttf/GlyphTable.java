@@ -115,8 +115,6 @@ init|;
 name|i
 operator|<
 name|numGlyphs
-operator|-
-literal|1
 condition|;
 name|i
 operator|++
@@ -169,8 +167,6 @@ init|;
 name|i
 operator|<
 name|numGlyphs
-operator|-
-literal|1
 condition|;
 name|i
 operator|++
