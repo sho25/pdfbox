@@ -50,6 +50,45 @@ specifier|private
 name|float
 name|upperRightY
 decl_stmt|;
+comment|/**      * Default constructor.      */
+specifier|public
+name|BoundingBox
+parameter_list|()
+block|{     }
+comment|/**      * Constructor.      *       * @param minX lower left x value      * @param minY lower left y value      * @param maxX upper right x value      * @param maxY upper right y value      */
+specifier|public
+name|BoundingBox
+parameter_list|(
+name|float
+name|minX
+parameter_list|,
+name|float
+name|minY
+parameter_list|,
+name|float
+name|maxX
+parameter_list|,
+name|float
+name|maxY
+parameter_list|)
+block|{
+name|lowerLeftX
+operator|=
+name|minX
+expr_stmt|;
+name|lowerLeftY
+operator|=
+name|minY
+expr_stmt|;
+name|upperRightX
+operator|=
+name|maxX
+expr_stmt|;
+name|upperRightY
+operator|=
+name|maxY
+expr_stmt|;
+block|}
 comment|/**      * Getter for property lowerLeftX.      *      * @return Value of property lowerLeftX.      */
 specifier|public
 name|float
