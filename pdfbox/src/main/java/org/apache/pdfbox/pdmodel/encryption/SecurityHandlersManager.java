@@ -348,7 +348,6 @@ operator|new
 name|SecurityHandlersManager
 argument_list|()
 expr_stmt|;
-block|}
 name|Security
 operator|.
 name|addProvider
@@ -358,6 +357,7 @@ name|BouncyCastleProvider
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|instance
 return|;
