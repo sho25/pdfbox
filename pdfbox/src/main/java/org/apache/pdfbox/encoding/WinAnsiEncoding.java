@@ -17,6 +17,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -54,7 +64,7 @@ name|WinAnsiEncoding
 extends|extends
 name|Encoding
 block|{
-comment|/**      * Singleton instance of this class.      *      * @since Apache PDFBox 1.3.0      */
+comment|/** 	 * Singleton instance of this class. 	 * 	 * @since Apache PDFBox 1.3.0 	 */
 specifier|public
 specifier|static
 specifier|final
@@ -65,7 +75,7 @@ operator|new
 name|WinAnsiEncoding
 argument_list|()
 decl_stmt|;
-comment|/**      * Constructor.      */
+comment|/** 	 * Constructor. 	 */
 specifier|public
 name|WinAnsiEncoding
 parameter_list|()
@@ -1583,7 +1593,46 @@ literal|"zero"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+specifier|public
+name|String
+name|getName
+parameter_list|(
+name|int
+name|code
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+operator|!
+name|codeToName
+operator|.
+name|containsKey
+argument_list|(
+name|code
+argument_list|)
+operator|&&
+name|code
+operator|>
+literal|040
+condition|)
+block|{
+comment|/* 			 * According to the PDFReference Appendix D : 			 * In WinAnsiEncoding, all unused codes greater than 40 map to the bullet character.  			 * However, only code 0225 is specifically assigned to the bullet character; 			 * other codes are subject to future reassignment 			 */
+return|return
+literal|"bullet"
+return|;
+block|}
+return|return
+name|codeToName
+operator|.
+name|get
+argument_list|(
+name|code
+argument_list|)
+return|;
+block|}
+comment|/** 	 * Convert this standard java object to a COS object. 	 * 	 * @return The cos object that matches this Java object. 	 */
 specifier|public
 name|COSBase
 name|getCOSObject
