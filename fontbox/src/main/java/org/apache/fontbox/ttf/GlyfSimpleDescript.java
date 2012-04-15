@@ -80,6 +80,20 @@ argument_list|,
 name|bais
 argument_list|)
 expr_stmt|;
+comment|/* https://developer.apple.com/fonts/TTRefMan/RM06/Chap6glyf.html          * "If a glyph has zero contours, it need not have any glyph data."          * set the pointCount to zero to initialize attributes and avoid nullpointer but           * maybe there shouldn't have GlyphDescript in the GlyphData?          */
+if|if
+condition|(
+name|numberOfContours
+operator|==
+literal|0
+condition|)
+block|{
+name|pointCount
+operator|=
+literal|0
+expr_stmt|;
+return|return;
+block|}
 comment|// Simple glyph description
 name|endPtsOfContours
 operator|=
@@ -89,32 +103,15 @@ index|[
 name|numberOfContours
 index|]
 expr_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|numberOfContours
-condition|;
-name|i
-operator|++
-control|)
-block|{
 name|endPtsOfContours
-index|[
-name|i
-index|]
 operator|=
 name|bais
 operator|.
-name|readSignedShort
-argument_list|()
+name|readUnsignedShortArray
+argument_list|(
+name|numberOfContours
+argument_list|)
 expr_stmt|;
-block|}
 comment|// The last end point index reveals the total number of points
 name|pointCount
 operator|=
@@ -156,7 +153,7 @@ name|instructionCount
 init|=
 name|bais
 operator|.
-name|readSignedShort
+name|readUnsignedShort
 argument_list|()
 decl_stmt|;
 name|readInstructions
