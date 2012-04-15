@@ -1448,6 +1448,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|EMBEDDED_FDFS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"EmbeddedFDFs"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|ENCODE
 init|=
 operator|new
@@ -3554,6 +3567,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|STATUS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Status"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|STD_CF
 init|=
 operator|new
@@ -3703,6 +3729,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"T"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|TARGET
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Target"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
