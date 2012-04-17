@@ -257,6 +257,15 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|target
+argument_list|)
+expr_stmt|;
 name|result
 operator|=
 name|validator

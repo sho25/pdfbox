@@ -555,6 +555,11 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+annotation|@
 name|Test
 comment|/**    * A Missing character code shouldn't cause Exception but return a Width of 0.    */
 specifier|public
@@ -912,6 +917,29 @@ operator|!=
 literal|0
 condition|)
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|widths
+index|[
+name|i
+index|]
+operator|+
+literal|" "
+operator|+
+name|helper
+operator|.
+name|getWidth
+argument_list|(
+name|first
+operator|+
+name|i
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|widths
@@ -931,7 +959,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// ---- Missing Glyph returns 0
+comment|// ---- Missing Glyph returns notdef width 278 in the tested font
 name|assertTrue
 argument_list|(
 name|helper
@@ -941,7 +969,7 @@ argument_list|(
 literal|200
 argument_list|)
 operator|==
-literal|0
+literal|278
 argument_list|)
 expr_stmt|;
 block|}
