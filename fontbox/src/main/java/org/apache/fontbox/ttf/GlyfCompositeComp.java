@@ -209,9 +209,10 @@ name|glyphIndex
 operator|=
 name|bais
 operator|.
-name|readSignedShort
+name|readUnsignedShort
 argument_list|()
 expr_stmt|;
+comment|// number of glyph in a font is uint16
 comment|// Get the arguments as just their raw values
 if|if
 condition|(

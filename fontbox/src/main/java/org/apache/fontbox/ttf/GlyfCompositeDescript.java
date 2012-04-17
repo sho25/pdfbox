@@ -99,7 +99,7 @@ name|resolved
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param bais the stream to be read      * @param glyphTable the Glyphtable containing all glyphs      * @throws IOException is thrown if something went wrong      */
+comment|/** 	 * Constructor. 	 *  	 * @param bais the stream to be read 	 * @param glyphTable the Glyphtable containing all glyphs 	 * @throws IOException is thrown if something went wrong 	 */
 specifier|public
 name|GlyfCompositeDescript
 parameter_list|(
@@ -206,7 +206,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/** 	 * {@inheritDoc} 	 */
 specifier|public
 name|void
 name|resolve
@@ -343,7 +343,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/** 	 * {@inheritDoc} 	 */
 specifier|public
 name|int
 name|getEndPtOfContours
@@ -401,7 +401,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/** 	 * {@inheritDoc} 	 */
 specifier|public
 name|byte
 name|getFlags
@@ -454,7 +454,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/** 	 * {@inheritDoc} 	 */
 specifier|public
 name|short
 name|getXCoordinate
@@ -549,7 +549,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/** 	 * {@inheritDoc} 	 */
 specifier|public
 name|short
 name|getYCoordinate
@@ -644,7 +644,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/** 	 * {@inheritDoc} 	 */
 specifier|public
 name|boolean
 name|isComposite
@@ -654,7 +654,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/** 	 * {@inheritDoc} 	 */
 specifier|public
 name|int
 name|getPointCount
@@ -712,7 +712,7 @@ name|getPointCount
 argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/** 	 * {@inheritDoc} 	 */
 specifier|public
 name|int
 name|getContourCount
@@ -770,7 +770,7 @@ name|getContourCount
 argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/** 	 * {@inheritDoc} 	 */
 specifier|public
 name|int
 name|getComponentCount
@@ -974,11 +974,22 @@ operator|.
 name|length
 condition|)
 block|{
-return|return
+name|GlyphData
+name|glyph
+init|=
 name|glyphs
 index|[
 name|index
 index|]
+decl_stmt|;
+if|if
+condition|(
+name|glyph
+operator|!=
+literal|null
+condition|)
+return|return
+name|glyph
 operator|.
 name|getDescription
 argument_list|()
