@@ -105,6 +105,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// execute ClosePath
 name|context
 operator|.
 name|processOperator
@@ -114,20 +115,12 @@ argument_list|,
 name|arguments
 argument_list|)
 expr_stmt|;
+comment|// execute FillEvenOddAndStroke
 name|context
 operator|.
 name|processOperator
 argument_list|(
-literal|"f*"
-argument_list|,
-name|arguments
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|processOperator
-argument_list|(
-literal|"S"
+literal|"B*"
 argument_list|,
 name|arguments
 argument_list|)
