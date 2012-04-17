@@ -1975,13 +1975,7 @@ condition|)
 block|{
 name|fonts
 operator|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|PDFont
-argument_list|>
+name|getFonts
 argument_list|()
 expr_stmt|;
 name|fontMappings
