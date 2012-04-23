@@ -647,6 +647,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|resources
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|Map
 argument_list|<
 name|String
