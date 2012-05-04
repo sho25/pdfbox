@@ -288,7 +288,6 @@ block|}
 comment|// ------------------------------------------------------------------------
 comment|/** Returns offset in file at which next byte would be read. */
 specifier|public
-specifier|final
 name|long
 name|getFilePointer
 parameter_list|()
@@ -300,7 +299,6 @@ block|}
 comment|// ------------------------------------------------------------------------
 comment|/** Seeks to new position. If new position is outside of current page 		 *  the new page is either taken from cache or read from file and added to cache. */
 specifier|public
-specifier|final
 name|void
 name|seek
 parameter_list|(
