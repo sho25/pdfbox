@@ -285,7 +285,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|0
+name|filterIndex
 argument_list|)
 expr_stmt|;
 block|}
