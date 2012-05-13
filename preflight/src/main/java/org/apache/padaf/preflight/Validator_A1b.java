@@ -41,6 +41,18 @@ name|ValidationError
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|Version
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class is a simple main class used to check the validity of a pdf file.  *   * Usage : java net.awl.edoc.pdfa.Validator<file path>  *   * @author gbailleul  *   */
 end_comment
@@ -78,6 +90,20 @@ operator|.
 name|println
 argument_list|(
 literal|"Usage : java net.awl.edoc.pdfa.Validator<file path>"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Version : "
+operator|+
+name|Version
+operator|.
+name|getVersion
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|System

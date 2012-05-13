@@ -139,6 +139,18 @@ name|ParseException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|Version
+import|;
+end_import
+
 begin_class
 specifier|public
 specifier|abstract
@@ -152,14 +164,6 @@ name|ValidatorConfig
 name|config
 init|=
 literal|null
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|version
-init|=
-literal|"${project.version}"
 decl_stmt|;
 specifier|public
 specifier|static
@@ -182,7 +186,10 @@ name|fullName
 init|=
 literal|"PADAF - "
 operator|+
-name|version
+name|Version
+operator|.
+name|getVersion
+argument_list|()
 decl_stmt|;
 specifier|protected
 name|Collection
@@ -687,7 +694,10 @@ name|getVersion
 parameter_list|()
 block|{
 return|return
-name|version
+name|Version
+operator|.
+name|getVersion
+argument_list|()
 return|;
 block|}
 block|}
