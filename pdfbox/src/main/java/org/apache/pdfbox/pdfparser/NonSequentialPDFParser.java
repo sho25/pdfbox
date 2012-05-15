@@ -807,6 +807,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**       * Constructs parser for given file using given buffer for temporary storage.       *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *        * @throws IOException If something went wrong.      */
+comment|/**       * Constructs parser for given file using given buffer for temporary storage.       *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *        * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -815,6 +816,33 @@ name|file
 parameter_list|,
 name|RandomAccess
 name|raBuf
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|this
+argument_list|(
+name|file
+argument_list|,
+name|raBuf
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**       * Constructs parser for given file using given buffer for temporary storage.       *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *        * @throws IOException If something went wrong.      */
+comment|/**       * Constructs parser for given file using given buffer for temporary storage.       *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      * @param decryptionPassword password to be used for decryption      *        * @throws IOException If something went wrong.      */
+specifier|public
+name|NonSequentialPDFParser
+parameter_list|(
+name|File
+name|file
+parameter_list|,
+name|RandomAccess
+name|raBuf
+parameter_list|,
+name|String
+name|decryptionPassword
 parameter_list|)
 throws|throws
 name|IOException
@@ -929,6 +957,10 @@ name|raStream
 argument_list|,
 literal|4096
 argument_list|)
+expr_stmt|;
+name|password
+operator|=
+name|decryptionPassword
 expr_stmt|;
 block|}
 comment|// ------------------------------------------------------------------------
