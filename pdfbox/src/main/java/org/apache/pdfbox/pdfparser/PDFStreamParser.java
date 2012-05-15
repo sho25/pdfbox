@@ -292,7 +292,7 @@ name|lastBIToken
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor that takes a stream to parse.      *      * @since Apache PDFBox 1.3.0      * @param stream The stream to read data from.      * @param raf The random access file.      * @param forceParcing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * Constructor that takes a stream to parse.      *      * @since Apache PDFBox 1.3.0      * @param stream The stream to read data from.      * @param raf The random access file.      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 name|PDFStreamParser
 parameter_list|(
@@ -370,7 +370,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @since Apache PDFBox 1.3.0      * @param stream The stream to parse.      * @param forceParcing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor.      *      * @since Apache PDFBox 1.3.0      * @param stream The stream to parse.      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFStreamParser
 parameter_list|(
@@ -482,6 +482,7 @@ return|return
 name|streamObjects
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|void
 name|close

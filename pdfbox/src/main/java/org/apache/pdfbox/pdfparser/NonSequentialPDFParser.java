@@ -51,16 +51,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -599,24 +589,24 @@ extends|extends
 name|PDFParser
 block|{
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|SYSPROP_PARSEMINIMAL
 init|=
 literal|"org.apache.pdfbox.pdfparser.nonSequentialPDFParser.parseMinimal"
 decl_stmt|;
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|SYSPROP_EOFLOOKUPRANGE
 init|=
 literal|"org.apache.pdfbox.pdfparser.nonSequentialPDFParser.eofLookupRange"
 decl_stmt|;
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|InputStream
 name|EMPTY_INPUT_STREAM
 init|=
@@ -631,16 +621,16 @@ index|]
 argument_list|)
 decl_stmt|;
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|DEFAULT_TRAIL_BYTECOUNT
 init|=
 literal|2048
 decl_stmt|;
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|char
 index|[]
 name|EOF_MARKER
@@ -661,8 +651,8 @@ literal|'F'
 block|}
 decl_stmt|;
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|char
 index|[]
 name|STARTXREF_MARKER
@@ -691,8 +681,8 @@ literal|'f'
 block|}
 decl_stmt|;
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|char
 index|[]
 name|OBJ_MARKER
@@ -711,7 +701,7 @@ decl_stmt|;
 specifier|private
 specifier|final
 name|File
-name|file
+name|pdfFile
 decl_stmt|;
 specifier|private
 specifier|final
@@ -749,7 +739,7 @@ init|=
 name|DEFAULT_TRAIL_BYTECOUNT
 decl_stmt|;
 comment|// how many trailing bytes to read for EOF marker
-comment|/** If<code>true</code> object references in catalog are not followed; 		 *  pro: page objects will be only parsed when needed; cons: some information of catalog 		 *  might not be available (e.g. outline). 		 *  Catalog parsing without pages is not an option since a number of entries will 		 *  also refer to page objects (like OpenAction). 		 */
+comment|/** If<code>true</code> object references in catalog are not followed;      *  pro: page objects will be only parsed when needed; cons: some information of catalog      *  might not be available (e.g. outline).      *  Catalog parsing without pages is not an option since a number of entries will      *  also refer to page objects (like OpenAction).      */
 specifier|private
 name|boolean
 name|parseMinimalCatalog
@@ -794,7 +784,7 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// ------------------------------------------------------------------------
-comment|/** Constructs parser for given file using memory buffer. */
+comment|/**       * Constructs parser for given file using memory buffer.       *       * @param filename the filename of the pdf to be parsed      *       * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -802,8 +792,6 @@ name|String
 name|filename
 parameter_list|)
 throws|throws
-name|FileNotFoundException
-throws|,
 name|IOException
 block|{
 name|this
@@ -818,19 +806,17 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Constructs parser for given file using given buffer for temporary storage. */
+comment|/**       * Constructs parser for given file using given buffer for temporary storage.       *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *        * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
 name|File
-name|pdfFile
+name|file
 parameter_list|,
 name|RandomAccess
 name|raBuf
 parameter_list|)
 throws|throws
-name|FileNotFoundException
-throws|,
 name|IOException
 block|{
 name|super
@@ -895,16 +881,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|file
-operator|=
 name|pdfFile
+operator|=
+name|file
 expr_stmt|;
 name|raStream
 operator|=
 operator|new
 name|RandomAccessBufferedFileInputStream
 argument_list|(
-name|file
+name|pdfFile
 argument_list|)
 expr_stmt|;
 name|setDocument
@@ -946,7 +932,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/** Sets how many trailing bytes of PDF file are searched for 		 *  EOF marker and 'startxref' marker. 		 *  If not set we use default value {@link #DEFAULT_TRAIL_BYTECOUNT}. 		 *   		 *<p<We check that new value is at least 16. However for practical use 		 *  cases this value should not be lower than 1000; even 2000 		 *  was found to not be enough in some cases where some trailing 		 *  garbage like HTML snippets followed the EOF marker.</p> 		 *   		 *<p>In case system property {@link #SYSPROP_EOFLOOKUPRANGE} is defined 		 *  this value will be set on initialization but can be overwritten later.</p> 		 */
+comment|/**       *  Sets how many trailing bytes of PDF file are searched for      *  EOF marker and 'startxref' marker.      *  If not set we use default value {@link #DEFAULT_TRAIL_BYTECOUNT}.      *        *<p<We check that new value is at least 16. However for practical use      *  cases this value should not be lower than 1000; even 2000      *  was found to not be enough in some cases where some trailing      *  garbage like HTML snippets followed the EOF marker.</p>      *        *<p>In case system property {@link #SYSPROP_EOFLOOKUPRANGE} is defined      *  this value will be set on initialization but can be overwritten later.</p>      *        *  @param byteCount number of trailing bytes      */
 specifier|public
 name|void
 name|setEOFLookupRange
@@ -961,13 +947,15 @@ name|byteCount
 operator|>
 literal|15
 condition|)
+block|{
 name|readTrailBytes
 operator|=
 name|byteCount
 expr_stmt|;
 block|}
+block|}
 comment|// ------------------------------------------------------------------------
-comment|/** 		 * The initial parse will first parse only the trailer, the xrefstart and  		 * all xref tables to have a pointer (offset) to all the pdf's objects. 		 * It can handle linearized pdfs, which will have an xref at the  		 * end pointing to an xref at the beginning of the file. 		 * Last the root object is parsed. 		 *  		 * @throws IOException 		 */
+comment|/**      * The initial parse will first parse only the trailer, the xrefstart and       * all xref tables to have a pointer (offset) to all the pdf's objects.      * It can handle linearized pdfs, which will have an xref at the       * end pointing to an xref at the beginning of the file.      * Last the root object is parsed.      *       * @throws IOException      */
 specifier|private
 name|void
 name|initialParse
@@ -1266,7 +1254,7 @@ name|warn
 argument_list|(
 literal|"PDF file '"
 operator|+
-name|file
+name|pdfFile
 operator|.
 name|getPath
 argument_list|()
@@ -1283,7 +1271,7 @@ name|info
 argument_list|(
 literal|"PDF file '"
 operator|+
-name|file
+name|pdfFile
 operator|.
 name|getPath
 argument_list|()
@@ -1349,6 +1337,7 @@ name|root
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -1356,6 +1345,7 @@ argument_list|(
 literal|"Missing root object specification in trailer."
 argument_list|)
 throw|;
+block|}
 name|parseObjectDynamically
 argument_list|(
 name|root
@@ -1430,7 +1420,7 @@ literal|true
 expr_stmt|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/** Parses an xref object stream starting with indirect object id. 		 *   		 *  @return value of PREV item in dictionary or<code>-1</code> if no such item exists 		 */
+comment|/** Parses an xref object stream starting with indirect object id.      *        *  @return value of PREV item in dictionary or<code>-1</code> if no such item exists      */
 specifier|private
 name|long
 name|parseXrefObjStream
@@ -1529,13 +1519,13 @@ name|fileOffset
 argument_list|)
 expr_stmt|;
 comment|// alternative using 'old fashioned' input stream
-comment|//		if ( pdfSource != null )
-comment|//			pdfSource.close();
+comment|//        if ( pdfSource != null )
+comment|//            pdfSource.close();
 comment|//
-comment|//		pdfSource = new PushBackInputStream(
-comment|//        					new BufferedInputStream(
-comment|//        						new FileInputStream( file ), 16384),  4096);
-comment|//		pdfSource.skip( _fileOffset );
+comment|//        pdfSource = new PushBackInputStream(
+comment|//                            new BufferedInputStream(
+comment|//                                new FileInputStream( file ), 16384),  4096);
+comment|//        pdfSource.skip( _fileOffset );
 block|}
 comment|/** Enable handling of alternative pdfSource implementation. */
 specifier|private
@@ -1546,8 +1536,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//		if ( pdfSource != null )
-comment|//			pdfSource.close();
+comment|//        if ( pdfSource != null )
+comment|//            pdfSource.close();
 block|}
 specifier|private
 specifier|final
@@ -1563,14 +1553,16 @@ name|pdfSource
 operator|!=
 literal|null
 condition|)
+block|{
 name|pdfSource
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 comment|// ------------------------------------------------------------------------
-comment|/** Looks for and parses startxref. We first look for last '%%EOF' marker 		 *  (within last {@link #DEFAULT_TRAIL_BYTECOUNT} bytes (or range set via 		 *  {@link #setEOFLookupRange(int)}) and go back to find<code>startxref</code>. */
+comment|/** Looks for and parses startxref. We first look for last '%%EOF' marker      *  (within last {@link #DEFAULT_TRAIL_BYTECOUNT} bytes (or range set via      *  {@link #setEOFLookupRange(int)}) and go back to find<code>startxref</code>. */
 specifier|private
 specifier|final
 name|long
@@ -1591,7 +1583,7 @@ specifier|final
 name|long
 name|fileLen
 init|=
-name|file
+name|pdfFile
 operator|.
 name|length
 argument_list|()
@@ -1608,7 +1600,7 @@ operator|=
 operator|new
 name|FileInputStream
 argument_list|(
-name|file
+name|pdfFile
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1684,6 +1676,7 @@ name|readBytes
 operator|<
 literal|1
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -1697,6 +1690,7 @@ name|off
 operator|)
 argument_list|)
 throw|;
+block|}
 name|off
 operator|+=
 name|readBytes
@@ -1711,6 +1705,7 @@ name|fIn
 operator|!=
 literal|null
 condition|)
+block|{
 try|try
 block|{
 name|fIn
@@ -1725,6 +1720,7 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{}
+block|}
 block|}
 comment|// ---- find last '%%EOF'
 name|int
@@ -1747,6 +1743,7 @@ name|bufOff
 operator|<
 literal|0
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -1764,6 +1761,7 @@ operator|+
 literal|"'"
 argument_list|)
 throw|;
+block|}
 comment|// ---- find last startxref preceding EOF marker
 name|bufOff
 operator|=
@@ -1782,6 +1780,7 @@ name|bufOff
 operator|<
 literal|0
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -1789,6 +1788,7 @@ argument_list|(
 literal|"Missing 'startxref' marker."
 argument_list|)
 throw|;
+block|}
 return|return
 name|skipBytes
 operator|+
@@ -1796,7 +1796,7 @@ name|bufOff
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/** Searches last appearance of pattern within buffer. Lookup before _lastOff 		 *  and goes back until 0. 		 *   		 *  @param pattern  pattern to search for 		 *  @param buf      buffer to search pattern in 		 *  @param endOff   offset (exclusive) where lookup starts at 		 *   		 *  @return  start offset of pattern within buffer or<code>-1</code> if pattern could not be found  		 */
+comment|/** Searches last appearance of pattern within buffer. Lookup before _lastOff      *  and goes back until 0.      *        *  @param pattern  pattern to search for      *  @param buf      buffer to search pattern in      *  @param endOff   offset (exclusive) where lookup starts at      *        *  @return  start offset of pattern within buffer or<code>-1</code> if pattern could not be found       */
 specifier|private
 specifier|final
 name|int
@@ -1870,10 +1870,12 @@ name|patOff
 operator|<
 literal|0
 condition|)
+block|{
 comment|// whole pattern matched
 return|return
 name|bufOff
 return|;
+block|}
 comment|// matched current char, advance to preceding one
 name|lookupCh
 operator|=
@@ -1909,7 +1911,7 @@ literal|1
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/** Reads given pattern from {@link #pdfSource}. Skipping whitespace at start and end. 		 *  		 * @throws IOException if pattern could not be read 		 */
+comment|/** Reads given pattern from {@link #pdfSource}. Skipping whitespace at start and end.      *       * @throws IOException if pattern could not be read      */
 specifier|private
 specifier|final
 name|void
@@ -1943,6 +1945,7 @@ argument_list|()
 operator|!=
 name|c
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -1963,6 +1966,7 @@ literal|"'"
 argument_list|)
 throw|;
 block|}
+block|}
 name|skipSpaces
 argument_list|()
 expr_stmt|;
@@ -1974,7 +1978,7 @@ name|pagesDictionary
 init|=
 literal|null
 decl_stmt|;
-comment|/** Returns PAGES {@link COSDictionary} object or throws {@link IOException} 		 *  if PAGES dictionary does not exist. */
+comment|/** Returns PAGES {@link COSDictionary} object or throws {@link IOException}      *  if PAGES dictionary does not exist. */
 specifier|private
 name|COSDictionary
 name|getPagesObject
@@ -1988,9 +1992,11 @@ name|pagesDictionary
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|pagesDictionary
 return|;
+block|}
 name|COSObject
 name|pages
 init|=
@@ -2015,6 +2021,7 @@ name|pages
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -2022,6 +2029,7 @@ argument_list|(
 literal|"Missing PAGES entry in document catalog."
 argument_list|)
 throw|;
+block|}
 name|COSBase
 name|object
 init|=
@@ -2041,6 +2049,7 @@ operator|instanceof
 name|COSDictionary
 operator|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -2056,6 +2065,7 @@ name|getSimpleName
 argument_list|()
 argument_list|)
 throw|;
+block|}
 name|pagesDictionary
 operator|=
 operator|(
@@ -2069,6 +2079,7 @@ return|;
 block|}
 comment|// ------------------------------------------------------------------------
 comment|/** Parses all objects needed by pages and closes input stream. */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -2091,9 +2102,11 @@ condition|(
 operator|!
 name|initialParseDone
 condition|)
+block|{
 name|initialParse
 argument_list|()
 expr_stmt|;
+block|}
 specifier|final
 name|int
 name|pageCount
@@ -2167,6 +2180,7 @@ operator|!=
 literal|null
 operator|)
 condition|)
+block|{
 try|try
 block|{
 name|document
@@ -2183,8 +2197,9 @@ parameter_list|)
 block|{}
 block|}
 block|}
+block|}
 comment|// ------------------------------------------------------------------------
-comment|/** Returns security handler of the document or<code>null</code> if document 		 *  is not encrypted or {@link #parse()} wasn't called before. */
+comment|/**       * Returns security handler of the document or<code>null</code> if document      * is not encrypted or {@link #parse()} wasn't called before.       *      * @return the security handler.      */
 specifier|public
 name|SecurityHandler
 name|getSecurityHandler
@@ -2195,7 +2210,7 @@ name|securityHandler
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/** 		 * Returns the number of pages in a document. 		 *  		 * @throws IOException  if PAGES or other needed object is missing  		 */
+comment|/**      * Returns the number of pages in a document.      *       * @return the number of pages.      *       * @throws IOException  if PAGES or other needed object is missing       */
 specifier|public
 name|int
 name|getPageNumber
@@ -2222,6 +2237,7 @@ name|pageCount
 operator|<
 literal|0
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -2229,12 +2245,13 @@ argument_list|(
 literal|"No page number specified."
 argument_list|)
 throw|;
+block|}
 return|return
 name|pageCount
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/** 		 * Returns the page requested with all the objects loaded into it. 		 *  		 * @param num starts from 0 to the number of pages. 		 * @return 		 * @throws IOException  		 */
+comment|/**      * Returns the page requested with all the objects loaded into it.      *       * @param pageNr starts from 0 to the number of pages.      * @return the page with the given pagenumber.      * @throws IOException If something went wrong.      */
 specifier|public
 name|PDPage
 name|getPage
@@ -2270,6 +2287,7 @@ name|kids
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -2277,6 +2295,7 @@ argument_list|(
 literal|"Missing 'Kids' entry in pages dictionary."
 argument_list|)
 throw|;
+block|}
 comment|// ---- get page we are looking for (possibly going recursively into subpages)
 name|COSObject
 name|pageObj
@@ -2296,6 +2315,7 @@ name|pageObj
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -2307,6 +2327,7 @@ operator|+
 literal|" not found."
 argument_list|)
 throw|;
+block|}
 comment|// ---- parse all objects necessary to load page.
 name|COSDictionary
 name|pageDict
@@ -2359,7 +2380,7 @@ name|pageDict
 argument_list|)
 return|;
 block|}
-comment|/** 		 * Returns the object for a specific page. 		 * The page tree is made up of kids.  The kids have COSArray with COSObjects 		 * inside of them. The COSObject can be parsed using the dynamic parsing method 		 * We want to only parse the minimum COSObjects and still return a complete page. 		 * ready to be used. 		 *  		 * @param num  the requested page number; numbering starts with 0 		 * @param startKids Kids array to start with looking up page number 		 * @param startPageCount 		 *  		 * @return  page object or<code>null</code> if no such page exists 		 *  		 * @throws IOException 		 */
+comment|/**      * Returns the object for a specific page.      * The page tree is made up of kids.  The kids have COSArray with COSObjects      * inside of them. The COSObject can be parsed using the dynamic parsing method      * We want to only parse the minimum COSObjects and still return a complete page.      * ready to be used.      *       * @param num  the requested page number; numbering starts with 0      * @param startKids Kids array to start with looking up page number      * @param startPageCount      *       * @return  page object or<code>null</code> if no such page exists      *       * @throws IOException      */
 specifier|private
 name|COSObject
 name|getPageObject
@@ -2561,7 +2582,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** Creates a unique object id using object number and object generation number.  		 *  (requires object number< 2^31)) */
+comment|/** Creates a unique object id using object number and object generation number.       *  (requires object number< 2^31)) */
 specifier|private
 specifier|final
 name|long
@@ -2594,7 +2615,7 @@ name|longValue
 argument_list|()
 return|;
 block|}
-comment|/** Adds all from newObjects to toBeParsedList if it is not an COSObject 		 *  or we didn't add this COSObject already (checked via addedObjects). */
+comment|/** Adds all from newObjects to toBeParsedList if it is not an COSObject      *  or we didn't add this COSObject already (checked via addedObjects). */
 specifier|private
 specifier|final
 name|void
@@ -2659,7 +2680,9 @@ argument_list|(
 name|objId
 argument_list|)
 condition|)
+block|{
 continue|continue;
+block|}
 block|}
 name|toBeParsedList
 operator|.
@@ -2670,7 +2693,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** Adds newObject to toBeParsedList if it is not an COSObject 		 *  or we didn't add this COSObject already (checked via addedObjects). */
+comment|/** Adds newObject to toBeParsedList if it is not an COSObject      *  or we didn't add this COSObject already (checked via addedObjects). */
 specifier|private
 specifier|final
 name|void
@@ -2724,7 +2747,9 @@ argument_list|(
 name|objId
 argument_list|)
 condition|)
+block|{
 return|return;
+block|}
 block|}
 name|toBeParsedList
 operator|.
@@ -2734,7 +2759,7 @@ name|newObject
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 		 * Will parse every object necessary to load a single page from the pdf document. 		 * We try our best to order objects according to offset in file before reading 		 * to minimize seek operations. 		 *  		 * @param dict the COSObject from the parent pages. 		 * @param excludeObjects dictionary object reference entries with these names will not be parsed 		 *  		 * @throws IOException 		 */
+comment|/**      * Will parse every object necessary to load a single page from the pdf document.      * We try our best to order objects according to offset in file before reading      * to minimize seek operations.      *       * @param dict the COSObject from the parent pages.      * @param excludeObjects dictionary object reference entries with these names will not be parsed      *       * @throws IOException      */
 specifier|private
 name|void
 name|parseDictObjects
@@ -2764,6 +2789,7 @@ name|COSBase
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// offset ordered object map
 specifier|final
 name|TreeMap
 argument_list|<
@@ -2788,7 +2814,6 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// offset ordered object map
 comment|// in case of compressed objects offset points to stmObj
 specifier|final
 name|Set
@@ -3087,13 +3112,13 @@ argument_list|(
 name|objKey
 argument_list|)
 decl_stmt|;
+comment|//  it is allowed that object references point to null, thus we have to test
 if|if
 condition|(
 name|fileOffset
 operator|!=
 literal|null
 condition|)
-comment|// it is allowed that object references point to null, thus we have to test
 block|{
 if|if
 condition|(
@@ -3154,6 +3179,7 @@ operator|<=
 literal|0
 operator|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -3163,6 +3189,7 @@ operator|+
 name|fileOffset
 argument_list|)
 throw|;
+block|}
 name|List
 argument_list|<
 name|COSObject
@@ -3182,6 +3209,7 @@ name|stmObjects
 operator|==
 literal|null
 condition|)
+block|{
 name|objToBeParsed
 operator|.
 name|put
@@ -3198,6 +3226,7 @@ argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|stmObjects
 operator|.
 name|add
@@ -3242,7 +3271,9 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 break|break;
+block|}
 for|for
 control|(
 name|COSObject
@@ -3298,7 +3329,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	   * This will parse the next object from the stream and add it to  	   * the local state.  	   * This is taken from {@link PDFParser} and reduced to parsing 	   * an indirect object. 	   * 	   * @param  obj object to be parsed (we only take object number and generation number for lookup start offset) 	   * @param  requireExistingNotCompressedObj  if<code>true</code> object to be parsed must not be contained within compressed stream 	   * @return  the parsed object (which is also added to document object) 	   *  	   * @throws IOException If an IO error occurs. 	   */
+comment|/**      * This will parse the next object from the stream and add it to       * the local state.       * This is taken from {@link PDFParser} and reduced to parsing      * an indirect object.      *      * @param  obj object to be parsed (we only take object number and generation number for lookup start offset)      * @param  requireExistingNotCompressedObj  if<code>true</code> object to be parsed must       *          not be contained within compressed stream      * @return  the parsed object (which is also added to document object)      *       * @throws IOException If an IO error occurs.      */
 specifier|private
 name|COSBase
 name|parseObjectDynamically
@@ -3335,7 +3366,7 @@ name|requireExistingNotCompressedObj
 argument_list|)
 return|;
 block|}
-comment|/** 	   * This will parse the next object from the stream and add it to  	   * the local state.  	   * This is taken from {@link PDFParser} and reduced to parsing 	   * an indirect object. 	   * 	   * @param  objNr object number of object to be parsed 	   * @param  objGenNr object generation number of object to be parsed 	   * @param requireExistingNotCompressedObj  if<code>true</code> the object to be parsed must be defined 	   *                                          in xref (comment: null objects may be missing from xref) and 	   *                                          it must not be a compressed object within object stream 	   *                                          (this is used to circumvent being stuck in a loop in a malicious PDF)  	   *  	   * @return  the parsed object (which is also added to document object) 	   *  	   * @throws IOException If an IO error occurs. 	   */
+comment|/**      * This will parse the next object from the stream and add it to       * the local state.       * This is taken from {@link PDFParser} and reduced to parsing      * an indirect object.      *      * @param  objNr object number of object to be parsed      * @param  objGenNr object generation number of object to be parsed      * @param requireExistingNotCompressedObj  if<code>true</code> the object to be parsed must be defined      *                                          in xref (comment: null objects may be missing from xref) and      *                                          it must not be a compressed object within object stream      *                                          (this is used to circumvent being stuck in a loop in a malicious PDF)       *       * @return  the parsed object (which is also added to document object)      *       * @throws IOException If an IO error occurs.      */
 specifier|private
 name|COSBase
 name|parseObjectDynamically
@@ -4161,13 +4192,16 @@ name|lengthBaseObj
 operator|==
 literal|null
 condition|)
+block|{
 return|return
 literal|null
 return|;
+block|}
 if|if
 condition|(
 name|inGetLength
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -4177,6 +4211,7 @@ operator|+
 name|lengthBaseObj
 argument_list|)
 throw|;
+block|}
 name|COSNumber
 name|retVal
 init|=
@@ -4265,6 +4300,7 @@ argument_list|()
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -4272,6 +4308,7 @@ argument_list|(
 literal|"Length object content was not read."
 argument_list|)
 throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -4370,7 +4407,7 @@ index|[
 name|streamCopyBufLen
 index|]
 decl_stmt|;
-comment|/** 	   * This will read a COSStream from the input stream using length attribute 	   * within dictionary. 	   * If length attribute is a indirect reference it is first resolved to get 	   * the stream length. This means we copy stream data without testing for 	   * 'endstream' or 'endobj' and thus it is no problem if these keywords 	   * occur within stream. 	   * We require 'endstream' to be found after stream data is read.  	   * 	   * @param dic  dictionary that goes with this stream. 	   * @param file  file to write the stream to when reading. 	   * 	   * @return parsed pdf stream. 	   * 	   * @throws IOException if an error occurred reading the stream, like problems 	   *         with reading length attribute, stream does not end with 'endstream' 	   *         after data read, stream too short etc. 	   */
+comment|/**      * This will read a COSStream from the input stream using length attribute      * within dictionary.      * If length attribute is a indirect reference it is first resolved to get      * the stream length. This means we copy stream data without testing for      * 'endstream' or 'endobj' and thus it is no problem if these keywords      * occur within stream.      * We require 'endstream' to be found after stream data is read.       *      * @param dic  dictionary that goes with this stream.      * @param file  file to write the stream to when reading.      *      * @return parsed pdf stream.      *      * @throws IOException if an error occurred reading the stream, like problems      *         with reading length attribute, stream does not end with 'endstream'      *         after data read, stream too short etc.      */
 annotation|@
 name|Override
 specifier|protected
@@ -4489,7 +4526,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*This needs to be dic.getItem because when we are parsing, the underlying object 	           * might still be null. 	           */
+comment|/*This needs to be dic.getItem because when we are parsing, the underlying object              * might still be null.              */
 name|COSNumber
 name|streamLengthObj
 init|=
@@ -4511,6 +4548,7 @@ name|streamLengthObj
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -4518,6 +4556,7 @@ argument_list|(
 literal|"Missing length for stream."
 argument_list|)
 throw|;
+block|}
 comment|// ---- get output stream to copy data to
 name|out
 operator|=
@@ -4575,6 +4614,7 @@ name|readBytes
 operator|<=
 literal|0
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -4584,6 +4624,7 @@ operator|+
 name|remainBytes
 argument_list|)
 throw|;
+block|}
 name|out
 operator|.
 name|write
@@ -4638,11 +4679,13 @@ name|out
 operator|!=
 literal|null
 condition|)
+block|{
 name|out
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|stream

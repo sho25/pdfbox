@@ -164,7 +164,7 @@ specifier|private
 name|XrefTrailerResolver
 name|xrefTrailerResolver
 decl_stmt|;
-comment|/**      * Constructor.      *      * @since 1.3.0      * @param strm The stream to parse.      * @param doc The document for the current parsing.      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     input where possible      * @param xrefTrailerResolver resolver to read the xref/trailer information      *      * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor.      *      * @since 1.3.0      * @param strm The stream to parse.      * @param doc The document for the current parsing.      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     input where possible      * @param resolver resolver to read the xref/trailer information      *      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFXrefStreamParser
 parameter_list|(
@@ -178,7 +178,7 @@ name|boolean
 name|forceParsing
 parameter_list|,
 name|XrefTrailerResolver
-name|xrefTrailerResolver
+name|resolver
 parameter_list|)
 throws|throws
 name|IOException
@@ -206,7 +206,7 @@ name|this
 operator|.
 name|xrefTrailerResolver
 operator|=
-name|xrefTrailerResolver
+name|resolver
 expr_stmt|;
 block|}
 comment|/**      * Parses through the unfiltered stream and populates the xrefTable HashMap.      * @throws IOException If there is an error while parsing the stream.      */

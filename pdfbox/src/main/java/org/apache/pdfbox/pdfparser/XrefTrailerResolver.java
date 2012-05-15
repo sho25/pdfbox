@@ -366,7 +366,7 @@ operator|=
 name|trailer
 expr_stmt|;
 block|}
-comment|/**      * Returns the trailer last set by {@link #setTrailer(COSDictionary)}.      */
+comment|/**      * Returns the trailer last set by {@link #setTrailer(COSDictionary)}.      *       * @return the current trailer.      *       */
 specifier|public
 name|COSDictionary
 name|getCurrentTrailer
@@ -378,7 +378,7 @@ operator|.
 name|trailer
 return|;
 block|}
-comment|/**      * Sets the byte position of the first XRef      * (has to be called after very last startxref was read).      * This is used to resolve chain of active XRef/trailer.      *      * In case startxref position is not found we output a      * warning and use all XRef/trailer objects combined      * in byte position order.      * Thus for incomplete PDF documents with missing      * startxref one could call this method with parameter value -1.      */
+comment|/**      * Sets the byte position of the first XRef      * (has to be called after very last startxref was read).      * This is used to resolve chain of active XRef/trailer.      *      * In case startxref position is not found we output a      * warning and use all XRef/trailer objects combined      * in byte position order.      * Thus for incomplete PDF documents with missing      * startxref one could call this method with parameter value -1.      *       * @param startxrefBytePosValue starting position of the first XRef      *       */
 specifier|public
 name|void
 name|setStartxref
@@ -699,9 +699,11 @@ name|resolvedXrefTrailer
 operator|==
 literal|null
 condition|)
+block|{
 return|return
 literal|null
 return|;
+block|}
 specifier|final
 name|Set
 argument_list|<
@@ -750,6 +752,7 @@ argument_list|()
 operator|==
 name|cmpVal
 condition|)
+block|{
 name|refObjNrs
 operator|.
 name|add
@@ -763,6 +766,7 @@ name|getNumber
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|refObjNrs

@@ -159,7 +159,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -192,7 +192,7 @@ specifier|private
 name|COSStream
 name|stream
 decl_stmt|;
-comment|/**      * Constructor.      *      * @since Apache PDFBox 1.3.0      * @param strm The stream to parse.      * @param doc The document for the current parsing.      * @param forceParcing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor.      *      * @since Apache PDFBox 1.3.0      * @param strm The stream to parse.      * @param doc The document for the current parsing.      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFObjectStreamParser
 parameter_list|(
@@ -411,13 +411,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(

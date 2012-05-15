@@ -173,7 +173,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -184,6 +184,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/**      * Constructor.      *       * @param input the inputstream to be read.      *       * @throws IOException If something went wrong      */
 specifier|public
 name|VisualSignatureParser
 parameter_list|(
@@ -199,6 +200,7 @@ name|input
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|void
 name|parse
@@ -253,7 +255,7 @@ name|e
 parameter_list|)
 block|{
 comment|/*                      * Warning is sent to the PDFBox.log and to the Console that                      * we skipped over an object                      */
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -1022,6 +1024,7 @@ return|return
 name|isEndOfFile
 return|;
 block|}
+comment|/**      * Returns the underlying COSDocument.      *       * @return the COSDocument      *       * @throws IOException If something went wrong      */
 specifier|public
 name|COSDocument
 name|getDocument
