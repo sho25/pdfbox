@@ -49,6 +49,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -210,6 +220,14 @@ name|CROPBOX
 init|=
 literal|"-cropbox"
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|NONSEQ
+init|=
+literal|"-nonSeq"
+decl_stmt|;
 comment|/**      * private constructor.     */
 specifier|private
 name|PDFToImage
@@ -230,6 +248,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|boolean
+name|useNonSeqParser
+init|=
+literal|false
+decl_stmt|;
 name|String
 name|password
 init|=
@@ -646,6 +669,25 @@ name|floatValue
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|NONSEQ
+argument_list|)
+condition|)
+block|{
+name|useNonSeqParser
+operator|=
+literal|true
+expr_stmt|;
+block|}
 else|else
 block|{
 if|if
@@ -709,6 +751,31 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|useNonSeqParser
+condition|)
+block|{
+name|document
+operator|=
+name|PDDocument
+operator|.
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|pdfFile
+argument_list|)
+argument_list|,
+literal|null
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|document
 operator|=
 name|PDDocument
@@ -718,7 +785,6 @@ argument_list|(
 name|pdfFile
 argument_list|)
 expr_stmt|;
-comment|//document.print();
 if|if
 condition|(
 name|document
@@ -785,6 +851,7 @@ expr_stmt|;
 name|usage
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1065,6 +1132,8 @@ operator|+
 literal|"  -resolution<number>           The bitmap resolution in dpi\n"
 operator|+
 literal|"  -cropbox<number><number><number><number> The page area to export\n"
+operator|+
+literal|"  -nonSeq                        Enables the new non-sequential parser\n"
 operator|+
 literal|"<PDF file>                     The PDF document to use\n"
 argument_list|)

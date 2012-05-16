@@ -19,6 +19,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -134,6 +144,14 @@ name|PASSWORD
 init|=
 literal|"-password"
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|NONSEQ
+init|=
+literal|"-nonSeq"
+decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|WriteDecodedDoc
@@ -166,10 +184,12 @@ argument_list|,
 name|out
 argument_list|,
 literal|""
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will perform the document reading, decoding and writing.      *      * @param in The filename used for input.      * @param out The filename used for output.      * @param password The password to open the document.      *      * @throws IOException If there is an error parsing the document.      * @throws COSVisitorException If there is an error while copying the document.      */
+comment|/**      * This will perform the document reading, decoding and writing.      *      * @param in The filename used for input.      * @param out The filename used for output.      * @param password The password to open the document.      * @param useNonSeqParser use the non sequential parser      *      * @throws IOException If there is an error parsing the document.      * @throws COSVisitorException If there is an error while copying the document.      */
 specifier|public
 name|void
 name|doIt
@@ -182,6 +202,9 @@ name|out
 parameter_list|,
 name|String
 name|password
+parameter_list|,
+name|boolean
+name|useNonSeqParser
 parameter_list|)
 throws|throws
 name|IOException
@@ -194,6 +217,38 @@ init|=
 literal|null
 decl_stmt|;
 try|try
+block|{
+if|if
+condition|(
+name|useNonSeqParser
+condition|)
+block|{
+name|doc
+operator|=
+name|PDDocument
+operator|.
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|in
+argument_list|)
+argument_list|,
+literal|null
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+name|doc
+operator|.
+name|setAllSecurityToBeRemoved
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|doc
 operator|=
@@ -292,6 +347,7 @@ name|printStackTrace
 argument_list|()
 expr_stmt|;
 return|return;
+block|}
 block|}
 block|}
 for|for
@@ -414,6 +470,11 @@ name|password
 init|=
 literal|""
 decl_stmt|;
+name|boolean
+name|useNonSeqParser
+init|=
+literal|false
+decl_stmt|;
 name|String
 name|pdfFile
 init|=
@@ -476,6 +537,25 @@ name|args
 index|[
 name|i
 index|]
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|NONSEQ
+argument_list|)
+condition|)
+block|{
+name|useNonSeqParser
+operator|=
+literal|true
 expr_stmt|;
 block|}
 else|else
@@ -546,6 +626,8 @@ argument_list|,
 name|outputFile
 argument_list|,
 name|password
+argument_list|,
+name|useNonSeqParser
 argument_list|)
 expr_stmt|;
 block|}
@@ -636,6 +718,8 @@ argument_list|(
 literal|"usage: java -jar pdfbox-app-x.y.z.jar WriteDecodedDoc [OPTIONS]<input-file> [output-file]\n"
 operator|+
 literal|"  -password<password>      Password to decrypt the document\n"
+operator|+
+literal|"  -nonSeq                   Enables the new non-sequential parser\n"
 operator|+
 literal|"<input-file>              The PDF document to be decompressed\n"
 operator|+

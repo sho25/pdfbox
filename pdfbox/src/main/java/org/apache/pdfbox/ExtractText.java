@@ -65,26 +65,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|net
-operator|.
-name|MalformedURLException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -230,6 +210,7 @@ name|DEBUG
 init|=
 literal|"-debug"
 decl_stmt|;
+comment|// jjb - added simple HTML output
 specifier|private
 specifier|static
 specifier|final
@@ -238,7 +219,7 @@ name|HTML
 init|=
 literal|"-html"
 decl_stmt|;
-comment|// jjb - added simple HTML output
+comment|// enables pdfbox to skip corrupt objects
 specifier|private
 specifier|static
 specifier|final
@@ -247,7 +228,14 @@ name|FORCE
 init|=
 literal|"-force"
 decl_stmt|;
-comment|//enables pdfbox to skip corrupt objects
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|NONSEQ
+init|=
+literal|"-nonSeq"
+decl_stmt|;
 comment|/*      * debug flag      */
 specifier|private
 name|boolean
@@ -290,6 +278,7 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Starts the text extraction.      *        * @param args the commandline arguments.      *       * @throws Exception if something went wrong.      */
 specifier|public
 name|void
 name|startExtraction
@@ -325,6 +314,11 @@ name|boolean
 name|separateBeads
 init|=
 literal|true
+decl_stmt|;
+name|boolean
+name|useNonSeqParser
+init|=
+literal|false
 decl_stmt|;
 name|String
 name|password
@@ -660,6 +654,25 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|NONSEQ
+argument_list|)
+condition|)
+block|{
+name|useNonSeqParser
+operator|=
+literal|true
+expr_stmt|;
+block|}
 else|else
 block|{
 if|if
@@ -724,45 +737,13 @@ operator|+
 name|pdfFile
 argument_list|)
 decl_stmt|;
-try|try
-block|{
-comment|//basically try to load it from a url first and if the URL
-comment|//is not recognized then try to load it from the file system.
-name|URL
-name|url
-init|=
-operator|new
-name|URL
-argument_list|(
-name|pdfFile
-argument_list|)
-decl_stmt|;
-name|document
-operator|=
-name|PDDocument
-operator|.
-name|load
-argument_list|(
-name|url
-argument_list|,
-name|force
-argument_list|)
-expr_stmt|;
-name|String
-name|fileName
-init|=
-name|url
-operator|.
-name|getFile
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|outputFile
 operator|==
 literal|null
 operator|&&
-name|fileName
+name|pdfFile
 operator|.
 name|length
 argument_list|()
@@ -775,13 +756,13 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|fileName
+name|pdfFile
 operator|.
 name|substring
 argument_list|(
 literal|0
 argument_list|,
-name|fileName
+name|pdfFile
 operator|.
 name|length
 argument_list|()
@@ -792,16 +773,34 @@ operator|+
 name|ext
 argument_list|)
 operator|.
-name|getName
+name|getAbsolutePath
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|useNonSeqParser
+condition|)
+block|{
+name|document
+operator|=
+name|PDDocument
+operator|.
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|pdfFile
+argument_list|)
+argument_list|,
+literal|null
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|MalformedURLException
-name|e
-parameter_list|)
+else|else
 block|{
 name|document
 operator|=
@@ -812,47 +811,6 @@ argument_list|(
 name|pdfFile
 argument_list|,
 name|force
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|outputFile
-operator|==
-literal|null
-operator|&&
-name|pdfFile
-operator|.
-name|length
-argument_list|()
-operator|>
-literal|4
-condition|)
-block|{
-name|outputFile
-operator|=
-name|pdfFile
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|pdfFile
-operator|.
-name|length
-argument_list|()
-operator|-
-literal|4
-argument_list|)
-operator|+
-name|ext
-expr_stmt|;
-block|}
-block|}
-name|stopProcessing
-argument_list|(
-literal|"Time for loading: "
-argument_list|,
-name|startTime
 argument_list|)
 expr_stmt|;
 if|if
@@ -905,6 +863,14 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+name|stopProcessing
+argument_list|(
+literal|"Time for loading: "
+argument_list|,
+name|startTime
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -1052,6 +1018,23 @@ argument_list|(
 literal|"Starting text extraction"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Writing to "
+operator|+
+name|outputFile
+argument_list|)
+expr_stmt|;
+block|}
 name|stripper
 operator|.
 name|writeText
@@ -1219,6 +1202,8 @@ operator|+
 literal|"  -startPage<number>          The first page to start extraction(1 based)\n"
 operator|+
 literal|"  -endPage<number>            The last page to extract(inclusive)\n"
+operator|+
+literal|"  -nonSeq                      Enables the new non-sequential parser\n"
 operator|+
 literal|"<PDF file>                   The PDF document to use\n"
 operator|+

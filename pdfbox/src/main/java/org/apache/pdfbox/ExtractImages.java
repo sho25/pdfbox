@@ -231,6 +231,14 @@ init|=
 literal|"-addkey"
 decl_stmt|;
 specifier|private
+specifier|static
+specifier|final
+name|String
+name|NONSEQ
+init|=
+literal|"-nonSeq"
+decl_stmt|;
+specifier|private
 name|ExtractImages
 parameter_list|()
 block|{     }
@@ -311,6 +319,11 @@ literal|null
 decl_stmt|;
 name|boolean
 name|addKey
+init|=
+literal|false
+decl_stmt|;
+name|boolean
+name|useNonSeqParser
 init|=
 literal|false
 decl_stmt|;
@@ -425,6 +438,25 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|NONSEQ
+argument_list|)
+condition|)
+block|{
+name|useNonSeqParser
+operator|=
+literal|true
+expr_stmt|;
+block|}
 else|else
 block|{
 if|if
@@ -495,6 +527,31 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|useNonSeqParser
+condition|)
+block|{
+name|document
+operator|=
+name|PDDocument
+operator|.
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|pdfFile
+argument_list|)
+argument_list|,
+literal|null
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|document
 operator|=
 name|PDDocument
@@ -552,6 +609,7 @@ argument_list|(
 literal|"Error: You do not have permission to extract images."
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 name|List
@@ -912,6 +970,8 @@ operator|+
 literal|"  -prefix<image-prefix>      Image prefix(default to pdf name)\n"
 operator|+
 literal|"  -addkey                      add the internal image key to the file name\n"
+operator|+
+literal|"  -nonSeq                      Enables the new non-sequential parser\n"
 operator|+
 literal|"<PDF file>                   The PDF document to use\n"
 argument_list|)
