@@ -97,7 +97,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"src/test/resources/org/apache/pdfbox/testPDFPackage.pdf"
+literal|"src/test/resources/org/apache/pdfbox/tika/testPDFPackage.pdf"
 block|,
 literal|"-console"
 block|,
