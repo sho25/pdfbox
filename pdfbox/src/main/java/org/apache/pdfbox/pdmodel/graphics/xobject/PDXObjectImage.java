@@ -976,9 +976,9 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Returns the optional mask of a XObjectImage if there is one.      *      * @return The mask as COSArray otherwise null.      */
+comment|/**      * Returns the optional mask of a XObjectImage if there is one.      *      * @return The mask otherwise null.      */
 specifier|public
-name|COSArray
+name|COSBase
 name|getMask
 parameter_list|()
 block|{
@@ -1003,9 +1003,6 @@ literal|null
 condition|)
 block|{
 return|return
-operator|(
-name|COSArray
-operator|)
 name|mask
 return|;
 block|}

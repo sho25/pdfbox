@@ -1067,7 +1067,7 @@ operator|.
 name|hasAlpha
 argument_list|()
 decl_stmt|;
-name|COSArray
+name|COSBase
 name|maskArray
 init|=
 name|getMask
@@ -1266,6 +1266,10 @@ condition|(
 name|maskArray
 operator|!=
 literal|null
+operator|&&
+name|maskArray
+operator|instanceof
+name|COSArray
 condition|)
 block|{
 name|cm
@@ -1285,7 +1289,12 @@ literal|0
 argument_list|,
 name|hasAlpha
 argument_list|,
+operator|(
+operator|(
+name|COSArray
+operator|)
 name|maskArray
+operator|)
 operator|.
 name|getInt
 argument_list|(
