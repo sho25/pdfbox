@@ -935,6 +935,8 @@ argument_list|(
 name|sdm
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 name|AccessPermission
 name|ap
 init|=
@@ -959,8 +961,6 @@ argument_list|(
 literal|"You do not have permission to extract text"
 argument_list|)
 throw|;
-block|}
-block|}
 block|}
 name|stopProcessing
 argument_list|(

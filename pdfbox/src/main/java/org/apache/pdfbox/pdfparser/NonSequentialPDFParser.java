@@ -445,6 +445,20 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|PDDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|PDPage
 import|;
 end_import
@@ -1292,23 +1306,6 @@ name|getPath
 argument_list|()
 operator|+
 literal|"' does not allow extracting content."
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"PDF file '"
-operator|+
-name|pdfFile
-operator|.
-name|getPath
-argument_list|()
-operator|+
-literal|"' allows content extraction."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2239,6 +2236,42 @@ parameter_list|()
 block|{
 return|return
 name|securityHandler
+return|;
+block|}
+comment|// ------------------------------------------------------------------------
+comment|/**      * This will get the PD document that was parsed.  When you are done with      * this document you must call close() on it to release resources.      *      * Overwriting super method was necessary in order to set security handler.      *      * @return The document at the PD layer.      *      * @throws IOException If there is an error getting the document.      */
+annotation|@
+name|Override
+specifier|public
+name|PDDocument
+name|getPDDocument
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|PDDocument
+name|pdDocument
+init|=
+name|super
+operator|.
+name|getPDDocument
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|securityHandler
+operator|!=
+literal|null
+condition|)
+name|pdDocument
+operator|.
+name|setSecurityHandler
+argument_list|(
+name|securityHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|pdDocument
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
