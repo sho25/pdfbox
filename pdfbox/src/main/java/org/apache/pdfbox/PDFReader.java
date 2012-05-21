@@ -1355,6 +1355,14 @@ index|]
 expr_stmt|;
 block|}
 block|}
+comment|// open the pdf if present
+if|if
+condition|(
+name|filename
+operator|!=
+literal|null
+condition|)
+block|{
 name|viewer
 operator|.
 name|openPDFFile
@@ -1364,6 +1372,7 @@ argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
+block|}
 name|viewer
 operator|.
 name|setVisible
