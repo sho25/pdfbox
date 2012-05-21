@@ -1073,9 +1073,26 @@ name|prev
 argument_list|)
 expr_stmt|;
 comment|// parse the last trailer.
+if|if
+condition|(
+operator|!
 name|parseTrailer
 argument_list|()
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Expected trailer object at position: "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
+argument_list|)
+throw|;
+block|}
 name|COSDictionary
 name|trailer
 init|=
