@@ -1595,51 +1595,19 @@ name|intValue
 argument_list|()
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-operator|(
-name|streamLength
-operator|instanceof
-name|COSObject
-operator|)
-operator|&&
-operator|(
-operator|(
-operator|(
-name|COSObject
-operator|)
-name|streamLength
-operator|)
-operator|.
-name|getObject
-argument_list|()
-operator|instanceof
-name|COSNumber
-operator|)
-condition|)
-block|{
-name|length
-operator|=
-operator|(
-call|(
-name|COSNumber
-call|)
-argument_list|(
-operator|(
-name|COSObject
-operator|)
-name|streamLength
-argument_list|)
-operator|.
-name|getObject
-argument_list|()
-operator|)
-operator|.
-name|intValue
-argument_list|()
-expr_stmt|;
-block|}
+comment|// commented out next chunk since for the sequentially working PDFParser
+comment|// we do not know if length object is redefined later on and the currently
+comment|// read indirect object might be obsolete (e.g. not referenced in xref table);
+comment|// this would result in reading wrong number of bytes;
+comment|// Thus the only reliable information is a direct length.
+comment|// This exclusion shouldn't harm much since in case of indirect objects they will
+comment|// typically be defined after the stream object, thus keeping the directly
+comment|// provided length will fix most cases
+comment|//            else if ( ( streamLength instanceof COSObject )&&
+comment|//                      ( ( (COSObject) streamLength ).getObject() instanceof COSNumber ) )
+comment|//            {
+comment|//                length = ( (COSNumber) ( (COSObject) streamLength ).getObject() ).intValue();
+comment|//            }
 if|if
 condition|(
 name|length
