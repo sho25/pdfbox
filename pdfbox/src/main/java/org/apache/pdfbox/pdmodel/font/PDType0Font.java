@@ -124,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation of the Type0 Font.   * See<a href="https://issues.apache.org/jira/browse/PDFBOX-605">PDFBOX-605</a>  * for the related improvement issue.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.9 $  */
+comment|/**  * This is implementation of the Type0 Font.  * See<a href="https://issues.apache.org/jira/browse/PDFBOX-605">PDFBOX-605</a>  * for the related improvement issue.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.9 $  */
 end_comment
 
 begin_class
@@ -287,9 +287,25 @@ block|}
 if|if
 condition|(
 name|awtFont
-operator|==
+operator|!=
 literal|null
 condition|)
+block|{
+name|setIsFontSubstituted
+argument_list|(
+operator|(
+operator|(
+name|PDSimpleFont
+operator|)
+name|descendantFont
+operator|)
+operator|.
+name|isFontSubstituted
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|awtFont
 operator|=
@@ -567,7 +583,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      *       * Provides the descendant font.      * @return the descendant font.      *       */
+comment|/**      *      * Provides the descendant font.      * @return the descendant font.      *      */
 specifier|protected
 name|PDFont
 name|getDescendantFont
