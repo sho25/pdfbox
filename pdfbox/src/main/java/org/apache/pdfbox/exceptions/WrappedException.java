@@ -15,18 +15,8 @@ name|exceptions
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|PrintStream
-import|;
-end_import
-
 begin_comment
-comment|/**  * An exception that that holds a sub exception.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * An exception that that holds a sub exception.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  *   * @deprecated  java.lang.Exception itself has wrapper capabilities since Java 1.4  */
 end_comment
 
 begin_class
@@ -36,12 +26,6 @@ name|WrappedException
 extends|extends
 name|Exception
 block|{
-specifier|private
-name|Exception
-name|wrapped
-init|=
-literal|null
-decl_stmt|;
 comment|/**      * constructor comment.      *      * @param e The root exception that caused this exception.      */
 specifier|public
 name|WrappedException
@@ -50,45 +34,9 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|wrapped
-operator|=
-name|e
-expr_stmt|;
-block|}
-comment|/**      * Gets the wrapped exception message.      *      * @return A message indicating the exception.      */
-specifier|public
-name|String
-name|getMessage
-parameter_list|()
-block|{
-return|return
-name|wrapped
-operator|.
-name|getMessage
-argument_list|()
-return|;
-block|}
-comment|/**      * Prints this throwable and its backtrace to the specified print stream.      *      * @param s<code>PrintStream</code> to use for output      */
-specifier|public
-name|void
-name|printStackTrace
-parameter_list|(
-name|PrintStream
-name|s
-parameter_list|)
-block|{
 name|super
-operator|.
-name|printStackTrace
 argument_list|(
-name|s
-argument_list|)
-expr_stmt|;
-name|wrapped
-operator|.
-name|printStackTrace
-argument_list|(
-name|s
+name|e
 argument_list|)
 expr_stmt|;
 block|}
