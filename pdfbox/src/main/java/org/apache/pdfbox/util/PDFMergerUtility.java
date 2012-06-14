@@ -599,7 +599,7 @@ name|sources
 operator|.
 name|addAll
 argument_list|(
-name|sources
+name|sourcesList
 argument_list|)
 expr_stmt|;
 block|}
