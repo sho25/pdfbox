@@ -1433,6 +1433,15 @@ argument_list|()
 operator|==
 literal|null
 operator|||
+comment|// xrefTable stores negated objNr of objStream for objects in objStreams
+operator|(
+name|xrefTable
+operator|.
+name|containsKey
+argument_list|(
+name|key
+argument_list|)
+operator|&&
 name|xrefTable
 operator|.
 name|get
@@ -1448,8 +1457,8 @@ argument_list|()
 operator|.
 name|longValue
 argument_list|()
+operator|)
 condition|)
-comment|// xrefTable stores negated objNr of objStream for objects in objStreams
 block|{
 name|COSObject
 name|obj
