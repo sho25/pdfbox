@@ -2358,6 +2358,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|L
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"L"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|LEADING
 init|=
 operator|new
