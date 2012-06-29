@@ -296,7 +296,7 @@ name|error
 argument_list|)
 return|;
 block|}
-comment|/**    *  Validate an Action dictionary.    *     * Return false if the dictionary is invalid (ex : missing key). If the    * ActionManager represents an AdditionalAction, this method returns false and    * updates the error list when the additonalActionAuth parameter is set to    * false.    *     * This method call the innerValid method to process specific checks according    * to the action type.    *     * If innerValid successes, all actions contained in the Next entry of the    * Action dictionary are validated.    *     * @param additonalActionAuth    *          boolean to know if an additional action is authorized.    * @param error    *          the validation error list to updated if the validation fails.    * @return     * @throws ValidationException    */
+comment|/**    * Validate an Action dictionary.    *     * Return false if the dictionary is invalid (ex : missing key). If the    * ActionManager represents an AdditionalAction, this method returns false and    * updates the error list when the additonalActionAuth parameter is set to    * false.    *     * This method call the innerValid method to process specific checks according    * to the action type.    *     * If innerValid successes, all actions contained in the Next entry of the    * Action dictionary are validated.    *     * @param additonalActionAuth    *          boolean to know if an additional action is authorized.    * @param error    *          the validation error list to updated if the validation fails.    * @return     * @throws ValidationException    */
 specifier|public
 name|boolean
 name|valid

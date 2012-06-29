@@ -137,7 +137,9 @@ name|padaf
 operator|.
 name|preflight
 operator|.
-name|ValidatorConfig
+name|ValidationResult
+operator|.
+name|ValidationError
 import|;
 end_import
 
@@ -151,9 +153,7 @@ name|padaf
 operator|.
 name|preflight
 operator|.
-name|ValidationResult
-operator|.
-name|ValidationError
+name|ValidatorConfig
 import|;
 end_import
 
