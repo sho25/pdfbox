@@ -69,6 +69,22 @@ name|xmpbox
 operator|.
 name|type
 operator|.
+name|ResourceRefType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|padaf
+operator|.
+name|xmpbox
+operator|.
+name|type
+operator|.
 name|TextType
 import|;
 end_import
@@ -145,47 +161,22 @@ name|PropertyType
 argument_list|(
 name|propertyType
 operator|=
-literal|"Text"
+literal|"ResourceRef"
 argument_list|)
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|RESOURCEREF
+name|DERIVED_FROM
 init|=
-literal|"ResourceRef"
+literal|"DerivedFrom"
 decl_stmt|;
-comment|/** 	 * Set ResourceRef value 	 *  	 * @param url 	 *            resourceRef value to set 	 */
-specifier|public
-name|void
-name|setResourceRefValue
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-block|{
-name|setResourceRef
-argument_list|(
-operator|new
-name|TextType
-argument_list|(
-name|metadata
-argument_list|,
-name|localPrefix
-argument_list|,
-name|RESOURCEREF
-argument_list|,
-name|url
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 comment|/** 	 * Set ResourceRef property 	 *  	 * @param tt 	 *            ResourceRef property to set 	 */
 specifier|public
 name|void
-name|setResourceRef
+name|setDerivedFromProperty
 parameter_list|(
-name|TextType
+name|ResourceRefType
 name|tt
 parameter_list|)
 block|{
@@ -195,46 +186,21 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get ResourceRef Value 	 *  	 * @return ResourceRef value 	 */
-specifier|public
-name|String
-name|getResourceRefValue
-parameter_list|()
-block|{
-name|TextType
-name|tt
-init|=
-name|getResourceRef
-argument_list|()
-decl_stmt|;
-return|return
-name|tt
-operator|!=
-literal|null
-condition|?
-name|tt
-operator|.
-name|getStringValue
-argument_list|()
-else|:
-literal|null
-return|;
-block|}
 comment|/** 	 * Get ResourceRef property 	 *  	 * @return ResourceRef property 	 */
 specifier|public
-name|TextType
-name|getResourceRef
+name|ResourceRefType
+name|getResourceRefProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|TextType
+name|ResourceRefType
 operator|)
 name|getProperty
 argument_list|(
 name|localPrefixSep
 operator|+
-name|RESOURCEREF
+name|DERIVED_FROM
 argument_list|)
 return|;
 block|}
@@ -258,13 +224,13 @@ decl_stmt|;
 comment|/** 	 * Set DocumentId value 	 *  	 * @param url 	 *            DocumentId value to set 	 */
 specifier|public
 name|void
-name|setDocumentIDValue
+name|setDocumentID
 parameter_list|(
 name|String
 name|url
 parameter_list|)
 block|{
-name|setDocumentID
+name|setDocumentIDProperty
 argument_list|(
 operator|new
 name|TextType
@@ -283,7 +249,7 @@ block|}
 comment|/** 	 * Set DocumentId Property 	 *  	 * @param tt 	 *            DocumentId Property to set 	 */
 specifier|public
 name|void
-name|setDocumentID
+name|setDocumentIDProperty
 parameter_list|(
 name|TextType
 name|tt
@@ -298,7 +264,7 @@ block|}
 comment|/** 	 * Get DocumentId property 	 *  	 * @return DocumentId property 	 */
 specifier|public
 name|TextType
-name|getDocumentID
+name|getDocumentIDProperty
 parameter_list|()
 block|{
 return|return
@@ -316,13 +282,13 @@ block|}
 comment|/** 	 * Get DocumentId value 	 *  	 * @return DocumentId value 	 */
 specifier|public
 name|String
-name|getDocumentIDValue
+name|getDocumentID
 parameter_list|()
 block|{
 name|TextType
 name|tt
 init|=
-name|getDocumentID
+name|getDocumentIDProperty
 argument_list|()
 decl_stmt|;
 return|return
@@ -358,13 +324,13 @@ decl_stmt|;
 comment|/** 	 * Set Manager value 	 *  	 * @param url 	 *            Manager value to set 	 */
 specifier|public
 name|void
-name|setManagerValue
+name|setManager
 parameter_list|(
 name|String
 name|url
 parameter_list|)
 block|{
-name|setManager
+name|setManagerProperty
 argument_list|(
 operator|new
 name|TextType
@@ -383,7 +349,7 @@ block|}
 comment|/** 	 * Set Manager property 	 *  	 * @param tt 	 *            Manager property to set 	 */
 specifier|public
 name|void
-name|setManager
+name|setManagerProperty
 parameter_list|(
 name|TextType
 name|tt
@@ -398,7 +364,7 @@ block|}
 comment|/** 	 * Get Manager property 	 *  	 * @return Manager property 	 */
 specifier|public
 name|TextType
-name|getManager
+name|getManagerProperty
 parameter_list|()
 block|{
 return|return
@@ -416,13 +382,13 @@ block|}
 comment|/** 	 * Get Manager value 	 *  	 * @return Manager value 	 */
 specifier|public
 name|String
-name|getManagerValue
+name|getManager
 parameter_list|()
 block|{
 name|TextType
 name|tt
 init|=
-name|getManager
+name|getManagerProperty
 argument_list|()
 decl_stmt|;
 return|return
@@ -458,13 +424,13 @@ decl_stmt|;
 comment|/** 	 * Set ManageTo Value 	 *  	 * @param url 	 *            ManageTo Value to set 	 */
 specifier|public
 name|void
-name|setManageToValue
+name|setManageTo
 parameter_list|(
 name|String
 name|url
 parameter_list|)
 block|{
-name|setManageTo
+name|setManageToProperty
 argument_list|(
 operator|new
 name|TextType
@@ -483,7 +449,7 @@ block|}
 comment|/** 	 * Set ManageTo property 	 *  	 * @param tt 	 *            ManageTo property to set 	 */
 specifier|public
 name|void
-name|setManageTo
+name|setManageToProperty
 parameter_list|(
 name|TextType
 name|tt
@@ -498,7 +464,7 @@ block|}
 comment|/** 	 * get ManageTo property 	 *  	 * @return ManageTo property 	 */
 specifier|public
 name|TextType
-name|getManageTo
+name|getManageToProperty
 parameter_list|()
 block|{
 return|return
@@ -516,13 +482,13 @@ block|}
 comment|/** 	 * get ManageTo value 	 *  	 * @return ManageTo value 	 */
 specifier|public
 name|String
-name|getManageToValue
+name|getManageTo
 parameter_list|()
 block|{
 name|TextType
 name|tt
 init|=
-name|getManageTo
+name|getManageToProperty
 argument_list|()
 decl_stmt|;
 return|return
@@ -558,13 +524,13 @@ decl_stmt|;
 comment|/** 	 * Set ManageUI value 	 *  	 * @param url 	 *            ManageUI value to set 	 */
 specifier|public
 name|void
-name|setManageUIValue
+name|setManageUI
 parameter_list|(
 name|String
 name|url
 parameter_list|)
 block|{
-name|setManageUI
+name|setManageUIProperty
 argument_list|(
 operator|new
 name|TextType
@@ -583,7 +549,7 @@ block|}
 comment|/** 	 * Set ManageUI property 	 *  	 * @param tt 	 *            ManageUI property to set 	 */
 specifier|public
 name|void
-name|setManageUI
+name|setManageUIProperty
 parameter_list|(
 name|TextType
 name|tt
@@ -598,7 +564,7 @@ block|}
 comment|/** 	 * Get ManageUI property 	 *  	 * @return ManageUI property 	 */
 specifier|public
 name|TextType
-name|getManageUI
+name|getManageUIProperty
 parameter_list|()
 block|{
 return|return
@@ -616,13 +582,13 @@ block|}
 comment|/** 	 * Get ManageUI Value 	 *  	 * @return ManageUI Value 	 */
 specifier|public
 name|String
-name|getManageUIValue
+name|getManageUI
 parameter_list|()
 block|{
 name|TextType
 name|tt
 init|=
-name|getManageUI
+name|getManageUIProperty
 argument_list|()
 decl_stmt|;
 return|return
@@ -658,13 +624,13 @@ decl_stmt|;
 comment|/** 	 * Set ManagerVariant value 	 *  	 * @param url 	 *            ManagerVariant value to set 	 */
 specifier|public
 name|void
-name|setManagerVariantValue
+name|setManagerVariant
 parameter_list|(
 name|String
 name|url
 parameter_list|)
 block|{
-name|setManagerVariant
+name|setManagerVariantProperty
 argument_list|(
 operator|new
 name|TextType
@@ -683,7 +649,7 @@ block|}
 comment|/** 	 * Set ManagerVariant Property 	 *  	 * @param tt 	 *            ManagerVariant Property to set 	 */
 specifier|public
 name|void
-name|setManagerVariant
+name|setManagerVariantProperty
 parameter_list|(
 name|TextType
 name|tt
@@ -698,7 +664,7 @@ block|}
 comment|/** 	 * Get ManagerVariant property 	 *  	 * @return ManagerVariant property 	 */
 specifier|public
 name|TextType
-name|getManagerVariant
+name|getManagerVariantProperty
 parameter_list|()
 block|{
 return|return
@@ -716,13 +682,13 @@ block|}
 comment|/** 	 * Get ManagerVariant value 	 *  	 * @return ManagerVariant value 	 */
 specifier|public
 name|String
-name|getManagerVariantValue
+name|getManagerVariant
 parameter_list|()
 block|{
 name|TextType
 name|tt
 init|=
-name|getManagerVariant
+name|getManagerVariantProperty
 argument_list|()
 decl_stmt|;
 return|return
@@ -758,13 +724,13 @@ decl_stmt|;
 comment|/** 	 * Set InstanceId value 	 *  	 * @param url 	 *            InstanceId value to set 	 */
 specifier|public
 name|void
-name|setInstanceIDValue
+name|setInstanceID
 parameter_list|(
 name|String
 name|url
 parameter_list|)
 block|{
-name|setInstanceID
+name|setInstanceIDProperty
 argument_list|(
 operator|new
 name|TextType
@@ -783,7 +749,7 @@ block|}
 comment|/** 	 * Set InstanceId property 	 *  	 * @param tt 	 *            InstanceId property to set 	 */
 specifier|public
 name|void
-name|setInstanceID
+name|setInstanceIDProperty
 parameter_list|(
 name|TextType
 name|tt
@@ -798,7 +764,7 @@ block|}
 comment|/** 	 * Get InstanceId property 	 *  	 * @return InstanceId property 	 */
 specifier|public
 name|TextType
-name|getInstanceID
+name|getInstanceIDProperty
 parameter_list|()
 block|{
 return|return
@@ -816,13 +782,13 @@ block|}
 comment|/** 	 * Get InstanceId value 	 *  	 * @return InstanceId value 	 */
 specifier|public
 name|String
-name|getInstanceIDValue
+name|getInstanceID
 parameter_list|()
 block|{
 name|TextType
 name|tt
 init|=
-name|getInstanceID
+name|getInstanceIDProperty
 argument_list|()
 decl_stmt|;
 return|return
@@ -845,99 +811,68 @@ name|PropertyType
 argument_list|(
 name|propertyType
 operator|=
-literal|"Text"
+literal|"ResourceRef"
 argument_list|)
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|MANAGEFROM
+name|MANAGED_FROM
 init|=
-literal|"ManageFrom"
+literal|"ManagedFrom"
 decl_stmt|;
-comment|/** 	 * set ManageFrom Value 	 *  	 * @param url 	 *            ManageFrom Value to set 	 */
-specifier|public
-name|void
-name|setManageFromValue
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-block|{
-name|setManageFrom
-argument_list|(
-operator|new
-name|TextType
-argument_list|(
-name|metadata
-argument_list|,
-name|localPrefix
-argument_list|,
-name|MANAGEFROM
-argument_list|,
-name|url
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
+comment|//	/**
+comment|//	 * set ManageFrom Value
+comment|//	 *
+comment|//	 * @param url
+comment|//	 *            ManageFrom Value to set
+comment|//	 */
+comment|//	public void setManagedFrom(ResourceRefType resourceRef) {
+comment|//
+comment|//		setManagedFromProperty(new TextType(metadata, localPrefix, MANAGED_FROM, url));
+comment|//	}
 comment|/** 	 * set ManageFrom Property 	 *  	 * @param tt 	 *            ManageFrom Property to set 	 */
 specifier|public
 name|void
-name|setManageFrom
+name|setManagedFromProperty
 parameter_list|(
-name|TextType
-name|tt
+name|ResourceRefType
+name|resourceRef
 parameter_list|)
 block|{
 name|addProperty
 argument_list|(
-name|tt
+name|resourceRef
 argument_list|)
 expr_stmt|;
 block|}
 comment|/** 	 * get ManageFrom Property 	 *  	 * @return ManageFrom Property 	 */
 specifier|public
-name|TextType
-name|getManageFrom
+name|ResourceRefType
+name|getManagedFromProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|TextType
+name|ResourceRefType
 operator|)
 name|getProperty
 argument_list|(
 name|localPrefixSep
 operator|+
-name|MANAGEFROM
+name|MANAGED_FROM
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get ManageFrom value 	 *  	 * @return ManageFrom value 	 */
-specifier|public
-name|String
-name|getManageFromValue
-parameter_list|()
-block|{
-name|TextType
-name|tt
-init|=
-name|getManageFrom
-argument_list|()
-decl_stmt|;
-return|return
-name|tt
-operator|!=
-literal|null
-condition|?
-name|tt
-operator|.
-name|getStringValue
-argument_list|()
-else|:
-literal|null
-return|;
-block|}
+comment|//	/**
+comment|//	 * Get ManageFrom value
+comment|//	 *
+comment|//	 * @return ManageFrom value
+comment|//	 */
+comment|//	public String getManagedFrom() {
+comment|//		TextType tt = getManagedFromProperty();
+comment|//		return tt != null ? tt.getStringValue() : null;
+comment|//	}
 comment|// --------------------------------------- OriginalDocumentID
 comment|// ----------------------------
 annotation|@
@@ -958,13 +893,13 @@ decl_stmt|;
 comment|/** 	 * Set OriginalDocumentId value 	 *  	 * @param url 	 *            OriginalDocumentId value to set 	 */
 specifier|public
 name|void
-name|setOriginalDocumentIDValue
+name|setOriginalDocumentID
 parameter_list|(
 name|String
 name|url
 parameter_list|)
 block|{
-name|setOriginalDocumentID
+name|setOriginalDocumentIDProperty
 argument_list|(
 operator|new
 name|TextType
@@ -983,7 +918,7 @@ block|}
 comment|/** 	 * Set OriginalDocumentId property 	 *  	 * @param tt 	 *            OriginalDocumentId property to set 	 */
 specifier|public
 name|void
-name|setOriginalDocumentID
+name|setOriginalDocumentIDProperty
 parameter_list|(
 name|TextType
 name|tt
@@ -998,7 +933,7 @@ block|}
 comment|/** 	 * Get OriginalDocumentId property 	 *  	 * @return OriginalDocumentId property 	 */
 specifier|public
 name|TextType
-name|getOriginalDocumentID
+name|getOriginalDocumentIDProperty
 parameter_list|()
 block|{
 return|return
@@ -1016,13 +951,13 @@ block|}
 comment|/** 	 * Get OriginalDocumentId value 	 *  	 * @return OriginalDocumentId value 	 */
 specifier|public
 name|String
-name|getOriginalDocumentIDValue
+name|getOriginalDocumentID
 parameter_list|()
 block|{
 name|TextType
 name|tt
 init|=
-name|getOriginalDocumentID
+name|getOriginalDocumentIDProperty
 argument_list|()
 decl_stmt|;
 return|return
@@ -1058,13 +993,13 @@ decl_stmt|;
 comment|/** 	 * Set renditionClass Value 	 *  	 * @param url 	 *            renditionClass Value to set 	 */
 specifier|public
 name|void
-name|setRenditionClassValue
+name|setRenditionClass
 parameter_list|(
 name|String
 name|url
 parameter_list|)
 block|{
-name|setRenditionClass
+name|setRenditionClassProperty
 argument_list|(
 operator|new
 name|TextType
@@ -1083,7 +1018,7 @@ block|}
 comment|/** 	 * Set RenditionClass Property 	 *  	 * @param tt 	 *            renditionClass Property to set 	 */
 specifier|public
 name|void
-name|setRenditionClass
+name|setRenditionClassProperty
 parameter_list|(
 name|TextType
 name|tt
@@ -1098,7 +1033,7 @@ block|}
 comment|/** 	 * Get RenditionClass property 	 *  	 * @return RenditionClass property 	 */
 specifier|public
 name|TextType
-name|getRenditionClass
+name|getRenditionClassProperty
 parameter_list|()
 block|{
 return|return
@@ -1116,13 +1051,13 @@ block|}
 comment|/** 	 * Get RenditionClass value 	 *  	 * @return RenditionClass value 	 */
 specifier|public
 name|String
-name|getRenditionClassValue
+name|getRenditionClass
 parameter_list|()
 block|{
 name|TextType
 name|tt
 init|=
-name|getRenditionClass
+name|getRenditionClassProperty
 argument_list|()
 decl_stmt|;
 return|return
@@ -1158,13 +1093,13 @@ decl_stmt|;
 comment|/** 	 * Set RenditionParams Value 	 *  	 * @param url 	 *            RenditionParams Value to set 	 */
 specifier|public
 name|void
-name|setRenditionParamsValue
+name|setRenditionParams
 parameter_list|(
 name|String
 name|url
 parameter_list|)
 block|{
-name|setRenditionParams
+name|setRenditionParamsProperty
 argument_list|(
 operator|new
 name|TextType
@@ -1183,7 +1118,7 @@ block|}
 comment|/** 	 * Set RenditionParams property 	 *  	 * @param tt 	 *            RenditionParams property to set 	 */
 specifier|public
 name|void
-name|setRenditionParams
+name|setRenditionParamsProperty
 parameter_list|(
 name|TextType
 name|tt
@@ -1198,7 +1133,7 @@ block|}
 comment|/** 	 * Get RenditionParams property 	 *  	 * @return RenditionParams property 	 */
 specifier|public
 name|TextType
-name|getRenditionParams
+name|getRenditionParamsProperty
 parameter_list|()
 block|{
 return|return
@@ -1216,13 +1151,13 @@ block|}
 comment|/** 	 * Get RenditionParams value 	 *  	 * @return RenditionParams value 	 */
 specifier|public
 name|String
-name|getRenditionParamsValue
+name|getRenditionParams
 parameter_list|()
 block|{
 name|TextType
 name|tt
 init|=
-name|getRenditionParams
+name|getRenditionParamsProperty
 argument_list|()
 decl_stmt|;
 return|return
@@ -1258,13 +1193,13 @@ decl_stmt|;
 comment|/** 	 * Set VersionId value 	 *  	 * @param url 	 *            VersionId value to set 	 */
 specifier|public
 name|void
-name|setVersionIDValue
+name|setVersionID
 parameter_list|(
 name|String
 name|url
 parameter_list|)
 block|{
-name|setVersionID
+name|setVersionIDProperty
 argument_list|(
 operator|new
 name|TextType
@@ -1283,7 +1218,7 @@ block|}
 comment|/** 	 * Set VersionId property 	 *  	 * @param tt 	 *            VersionId property to set 	 */
 specifier|public
 name|void
-name|setVersionID
+name|setVersionIDProperty
 parameter_list|(
 name|TextType
 name|tt
@@ -1298,7 +1233,7 @@ block|}
 comment|/** 	 * Get VersionId property 	 *  	 * @return VersionId property 	 */
 specifier|public
 name|TextType
-name|getVersionID
+name|getVersionIDProperty
 parameter_list|()
 block|{
 return|return
@@ -1316,13 +1251,13 @@ block|}
 comment|/** 	 * Get VersionId value 	 *  	 * @return VersionId value 	 */
 specifier|public
 name|String
-name|getVersionIDValue
+name|getVersionID
 parameter_list|()
 block|{
 name|TextType
 name|tt
 init|=
-name|getVersionID
+name|getVersionIDProperty
 argument_list|()
 decl_stmt|;
 return|return
@@ -1358,7 +1293,7 @@ decl_stmt|;
 comment|/** 	 * Add a version value 	 *  	 * @param version 	 *            version value to set 	 */
 specifier|public
 name|void
-name|addToVersionsValue
+name|addVersions
 parameter_list|(
 name|String
 name|version
@@ -1377,7 +1312,7 @@ block|}
 comment|/** 	 * Get Versions property 	 *  	 * @return version property to set 	 */
 specifier|public
 name|ComplexProperty
-name|getVersions
+name|getVersionsProperty
 parameter_list|()
 block|{
 return|return
@@ -1398,7 +1333,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getVersionsValue
+name|getVersions
 parameter_list|()
 block|{
 return|return
@@ -1431,7 +1366,7 @@ decl_stmt|;
 comment|/** 	 * Add a History Value 	 *  	 * @param history 	 *            History Value to add 	 */
 specifier|public
 name|void
-name|addToHistoryValue
+name|addHistory
 parameter_list|(
 name|String
 name|history
@@ -1450,7 +1385,7 @@ block|}
 comment|/** 	 * Get History Property 	 *  	 * @return History Property 	 */
 specifier|public
 name|ComplexProperty
-name|getHistory
+name|getHistoryProperty
 parameter_list|()
 block|{
 return|return
@@ -1471,7 +1406,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getHistoryValue
+name|getHistory
 parameter_list|()
 block|{
 return|return
@@ -1503,7 +1438,7 @@ decl_stmt|;
 comment|/** 	 * Add an Ingredients value 	 *  	 * @param ingredients 	 *            Ingredients value to add 	 */
 specifier|public
 name|void
-name|addToIngredientsValue
+name|addIngredients
 parameter_list|(
 name|String
 name|ingredients
@@ -1522,7 +1457,7 @@ block|}
 comment|/** 	 * . Get Ingredients Property 	 *  	 * @return Ingredients property 	 */
 specifier|public
 name|ComplexProperty
-name|getIngredients
+name|getIngredientsProperty
 parameter_list|()
 block|{
 return|return
@@ -1543,7 +1478,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getIngredientsValue
+name|getIngredients
 parameter_list|()
 block|{
 return|return

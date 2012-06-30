@@ -292,7 +292,7 @@ operator|.
 name|getXMPMediaManagementSchema
 argument_list|()
 operator|.
-name|getDocumentIDValue
+name|getDocumentID
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -315,7 +315,7 @@ operator|.
 name|getXMPBasicSchema
 argument_list|()
 operator|.
-name|getCreateDateValue
+name|getCreateDate
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -335,7 +335,7 @@ operator|.
 name|getXMPBasicSchema
 argument_list|()
 operator|.
-name|getModifyDateValue
+name|getModifyDate
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -355,7 +355,7 @@ operator|.
 name|getXMPBasicSchema
 argument_list|()
 operator|.
-name|getMetadataDateValue
+name|getMetadataDate
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -763,7 +763,7 @@ operator|.
 name|getPDFIdentificationSchema
 argument_list|()
 operator|.
-name|getPart
+name|getPartProperty
 argument_list|()
 operator|.
 name|getStringValue
@@ -781,7 +781,7 @@ operator|.
 name|getPDFIdentificationSchema
 argument_list|()
 operator|.
-name|getConformanceValue
+name|getConformance
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -796,7 +796,7 @@ operator|.
 name|getPDFIdentificationSchema
 argument_list|()
 operator|.
-name|getAmd
+name|getAmdProperty
 argument_list|()
 operator|.
 name|getStringValue
@@ -815,7 +815,7 @@ operator|.
 name|getAdobePDFSchema
 argument_list|()
 operator|.
-name|getProducerValue
+name|getProducer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -953,7 +953,7 @@ operator|.
 name|getXMPMediaManagementSchema
 argument_list|()
 operator|.
-name|getDocumentIDValue
+name|getDocumentID
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -976,7 +976,7 @@ operator|.
 name|getXMPBasicSchema
 argument_list|()
 operator|.
-name|getCreateDateValue
+name|getCreateDate
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -996,7 +996,7 @@ operator|.
 name|getXMPBasicSchema
 argument_list|()
 operator|.
-name|getModifyDateValue
+name|getModifyDate
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1016,7 +1016,7 @@ operator|.
 name|getXMPBasicSchema
 argument_list|()
 operator|.
-name|getMetadataDateValue
+name|getMetadataDate
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1032,7 +1032,7 @@ operator|.
 name|getXMPBasicSchema
 argument_list|()
 operator|.
-name|getThumbnails
+name|getThumbnailsProperty
 argument_list|()
 decl_stmt|;
 name|Assert
@@ -1525,7 +1525,7 @@ operator|.
 name|getPDFIdentificationSchema
 argument_list|()
 operator|.
-name|getPart
+name|getPartProperty
 argument_list|()
 operator|.
 name|getStringValue
@@ -1543,7 +1543,7 @@ operator|.
 name|getPDFIdentificationSchema
 argument_list|()
 operator|.
-name|getConformanceValue
+name|getConformance
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1558,7 +1558,7 @@ operator|.
 name|getPDFIdentificationSchema
 argument_list|()
 operator|.
-name|getAmdValue
+name|getAmd
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1574,7 +1574,7 @@ operator|.
 name|getAdobePDFSchema
 argument_list|()
 operator|.
-name|getProducerValue
+name|getProducer
 argument_list|()
 argument_list|)
 expr_stmt|;

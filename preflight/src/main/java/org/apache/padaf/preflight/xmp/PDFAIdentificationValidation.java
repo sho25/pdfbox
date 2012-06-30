@@ -283,7 +283,7 @@ name|ve
 argument_list|,
 name|id
 operator|.
-name|getConformanceValue
+name|getConformance
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -293,7 +293,7 @@ name|ve
 argument_list|,
 name|id
 operator|.
-name|getPartValue
+name|getPart
 argument_list|()
 argument_list|)
 expr_stmt|;

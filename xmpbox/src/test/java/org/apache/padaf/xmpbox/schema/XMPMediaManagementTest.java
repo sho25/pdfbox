@@ -211,20 +211,7 @@ literal|"uuid:FB031973-5E75-11B2-8F06-E7F5C101C07A"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|data
-operator|.
-name|add
-argument_list|(
-name|wrapProperty
-argument_list|(
-literal|"ResourceRef"
-argument_list|,
-literal|"Text"
-argument_list|,
-literal|"uuid:14"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//		data.add(wrapProperty("ResourceRef", "Text", "uuid:14"));
 name|data
 operator|.
 name|add
@@ -267,20 +254,7 @@ literal|"uuid:3635"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|data
-operator|.
-name|add
-argument_list|(
-name|wrapProperty
-argument_list|(
-literal|"ManageFrom"
-argument_list|,
-literal|"Text"
-argument_list|,
-literal|"uuid:36"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//		data.add(wrapProperty("ManageFrom", "Text", "uuid:36"));
 name|data
 operator|.
 name|add

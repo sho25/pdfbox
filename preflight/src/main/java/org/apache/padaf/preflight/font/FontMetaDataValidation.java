@@ -355,7 +355,7 @@ if|if
 condition|(
 name|dc
 operator|.
-name|getTitle
+name|getTitleProperty
 argument_list|()
 operator|!=
 literal|null
@@ -366,7 +366,7 @@ name|defaultTitle
 init|=
 name|dc
 operator|.
-name|getTitleValue
+name|getTitle
 argument_list|(
 literal|"x-default"
 argument_list|)
@@ -461,7 +461,7 @@ name|it
 init|=
 name|dc
 operator|.
-name|getTitle
+name|getTitleProperty
 argument_list|()
 operator|.
 name|getContainer
@@ -681,7 +681,7 @@ name|copyrights
 init|=
 name|dc
 operator|.
-name|getRights
+name|getRightsProperty
 argument_list|()
 decl_stmt|;
 if|if
@@ -749,7 +749,7 @@ name|marked
 init|=
 name|rights
 operator|.
-name|getMarked
+name|getMarkedProperty
 argument_list|()
 decl_stmt|;
 if|if

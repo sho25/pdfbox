@@ -177,7 +177,7 @@ block|}
 comment|/** 	 * Set the PDF keywords 	 *  	 * @param value 	 *            Value to set 	 */
 specifier|public
 name|void
-name|setKeywordsValue
+name|setKeywords
 parameter_list|(
 name|String
 name|value
@@ -209,7 +209,7 @@ block|}
 comment|/** 	 * Set the PDF keywords 	 *  	 * @param keywords 	 *            Property to set 	 */
 specifier|public
 name|void
-name|setKeywords
+name|setKeywordsProperty
 parameter_list|(
 name|TextType
 name|keywords
@@ -224,7 +224,7 @@ block|}
 comment|/** 	 * Set the PDFVersion 	 *  	 * @param value 	 *            Value to set 	 */
 specifier|public
 name|void
-name|setPDFVersionValue
+name|setPDFVersion
 parameter_list|(
 name|String
 name|value
@@ -256,7 +256,7 @@ block|}
 comment|/** 	 * Set the PDFVersion 	 *  	 * @param version 	 *            Property to set 	 */
 specifier|public
 name|void
-name|setPDFVersion
+name|setPDFVersionProperty
 parameter_list|(
 name|TextType
 name|version
@@ -271,7 +271,7 @@ block|}
 comment|/** 	 * Set the PDFProducer 	 *  	 * @param value 	 *            Value to set 	 */
 specifier|public
 name|void
-name|setProducerValue
+name|setProducer
 parameter_list|(
 name|String
 name|value
@@ -303,7 +303,7 @@ block|}
 comment|/** 	 * Set the PDFProducer 	 *  	 * @param producer 	 *            Property to set 	 */
 specifier|public
 name|void
-name|setProducer
+name|setProducerProperty
 parameter_list|(
 name|TextType
 name|producer
@@ -318,7 +318,7 @@ block|}
 comment|/** 	 * Give the PDF Keywords property 	 *  	 * @return The property object 	 */
 specifier|public
 name|TextType
-name|getKeywords
+name|getKeywordsProperty
 parameter_list|()
 block|{
 name|AbstractField
@@ -360,7 +360,7 @@ block|}
 comment|/** 	 * Give the PDF Keywords property value (string) 	 *  	 * @return The property value 	 */
 specifier|public
 name|String
-name|getKeywordsValue
+name|getKeywords
 parameter_list|()
 block|{
 name|AbstractField
@@ -407,7 +407,7 @@ block|}
 comment|/** 	 * Give the PDFVersion property 	 *  	 * @return The property object 	 */
 specifier|public
 name|TextType
-name|getPDFVersion
+name|getPDFVersionProperty
 parameter_list|()
 block|{
 name|AbstractField
@@ -449,7 +449,7 @@ block|}
 comment|/** 	 * Give the PDFVersion property value (string) 	 *  	 * @return The property value 	 */
 specifier|public
 name|String
-name|getPDFVersionValue
+name|getPDFVersion
 parameter_list|()
 block|{
 name|AbstractField
@@ -496,7 +496,7 @@ block|}
 comment|/** 	 * Give the producer property 	 *  	 * @return The property object 	 */
 specifier|public
 name|TextType
-name|getProducer
+name|getProducerProperty
 parameter_list|()
 block|{
 name|AbstractField
@@ -538,7 +538,7 @@ block|}
 comment|/** 	 * Give the producer property value (string) 	 *  	 * @return The property value 	 */
 specifier|public
 name|String
-name|getProducerValue
+name|getProducer
 parameter_list|()
 block|{
 name|AbstractField

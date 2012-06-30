@@ -233,7 +233,7 @@ block|}
 comment|/** 	 * Add a legal owner for the described resource. 	 *  	 * @param value 	 *            value to add 	 */
 specifier|public
 name|void
-name|addToOwnerValue
+name|addOwner
 parameter_list|(
 name|String
 name|value
@@ -249,10 +249,28 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|removeOwner
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|removeBagValue
+argument_list|(
+name|localPrefixSep
+operator|+
+name|OWNER
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * Return the Bag of owner(s) 	 *  	 * @return owners property 	 */
 specifier|public
 name|ComplexProperty
-name|getOwner
+name|getOwnersProperty
 parameter_list|()
 block|{
 return|return
@@ -273,7 +291,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getOwnerValue
+name|getOwners
 parameter_list|()
 block|{
 return|return
@@ -288,7 +306,7 @@ block|}
 comment|/** 	 * Set Marked value 	 *  	 * @param marked 	 *            value to add 	 */
 specifier|public
 name|void
-name|setMarkedValue
+name|setMarked
 parameter_list|(
 name|Boolean
 name|marked
@@ -313,7 +331,7 @@ block|}
 comment|/** 	 * Set Marked property 	 *  	 * @param marked 	 *            Marked property to set 	 */
 specifier|public
 name|void
-name|setMarked
+name|setMarkedProperty
 parameter_list|(
 name|BooleanType
 name|marked
@@ -328,7 +346,7 @@ block|}
 comment|/** 	 * Get Marked property 	 *  	 * @return Marked property 	 */
 specifier|public
 name|BooleanType
-name|getMarked
+name|getMarkedProperty
 parameter_list|()
 block|{
 return|return
@@ -346,7 +364,7 @@ block|}
 comment|/** 	 * Get Marked value 	 *  	 * @return marked value 	 */
 specifier|public
 name|Boolean
-name|getMarkedValue
+name|getMarked
 parameter_list|()
 block|{
 name|BooleanType
@@ -380,7 +398,7 @@ block|}
 comment|/** 	 * Add an usageTerms value 	 *  	 * @param lang 	 *            concerned language 	 * @param value 	 *            value to set 	 */
 specifier|public
 name|void
-name|addToUsageTermsValue
+name|addUsageTerms
 parameter_list|(
 name|String
 name|lang
@@ -401,10 +419,49 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the default usage terms for this resource.      *      * @param terms The resource usage terms.       */
+specifier|public
+name|void
+name|setUsageTerms
+parameter_list|(
+name|String
+name|terms
+parameter_list|)
+block|{
+name|addUsageTerms
+argument_list|(
+literal|null
+argument_list|,
+name|terms
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Convenience method for jempbox signature compatibility      *      * @see XMPRightsManagementSchema#addUsageTerms(String, String)      */
+annotation|@
+name|Deprecated
+specifier|public
+name|void
+name|setDescription
+parameter_list|(
+name|String
+name|language
+parameter_list|,
+name|String
+name|terms
+parameter_list|)
+block|{
+name|addUsageTerms
+argument_list|(
+name|language
+argument_list|,
+name|terms
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * Return the Lang alt UsageTerms 	 *  	 * @return usageterms property 	 */
 specifier|public
 name|ComplexProperty
-name|getUsageTerms
+name|getUsageTermsProperty
 parameter_list|()
 block|{
 return|return
@@ -440,7 +497,7 @@ block|}
 comment|/** 	 * Return a language value for description property 	 *  	 * @param lang 	 *            concerned language 	 * @return value of specified language 	 */
 specifier|public
 name|String
-name|getUsageTermsValue
+name|getUsageTerms
 parameter_list|(
 name|String
 name|lang
@@ -457,10 +514,23 @@ name|lang
 argument_list|)
 return|;
 block|}
+comment|/**      * Get the default usage terms for the document.      *      * @return The terms for this resource.      */
+specifier|public
+name|String
+name|getUsageTerms
+parameter_list|()
+block|{
+return|return
+name|getUsageTerms
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
 comment|/** 	 * Return the WebStatement URL as TextType. 	 *  	 * @return Webstatement URL property 	 */
 specifier|public
 name|TextType
-name|getWebStatement
+name|getWebStatementProperty
 parameter_list|()
 block|{
 return|return
@@ -480,7 +550,7 @@ block|}
 comment|/** 	 * Return the WebStatement URL as String. 	 *  	 * @return webStatement URL value 	 */
 specifier|public
 name|String
-name|getWebStatementValue
+name|getWebStatement
 parameter_list|()
 block|{
 name|TextType
@@ -514,7 +584,7 @@ block|}
 comment|/** 	 * Set the WebStatement url 	 *  	 * @param url 	 *            WebStatemen url value to set 	 */
 specifier|public
 name|void
-name|setWebStatementValue
+name|setWebStatement
 parameter_list|(
 name|String
 name|url
@@ -539,7 +609,7 @@ block|}
 comment|/** 	 * Set the WebStatement url 	 *  	 * @param url 	 *            WebStatemen url property to set 	 */
 specifier|public
 name|void
-name|setWebStatement
+name|setWebStatementProperty
 parameter_list|(
 name|TextType
 name|url
@@ -554,7 +624,7 @@ block|}
 comment|/** 	 * Return the Certificate URL as TextType. 	 *  	 * @return certificate url property 	 */
 specifier|public
 name|TextType
-name|getCertificate
+name|getCertificateProperty
 parameter_list|()
 block|{
 return|return
@@ -574,7 +644,7 @@ block|}
 comment|/** 	 * Return the Certificate URL as String. 	 *  	 * @return certificate URL value 	 */
 specifier|public
 name|String
-name|getCertificateValue
+name|getCertificate
 parameter_list|()
 block|{
 name|TextType
@@ -605,10 +675,23 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
+comment|/**      * Convenience method for jempbox signature compatibility      *      * @see XMPRightsManagementSchema#getCertificate()      */
+annotation|@
+name|Deprecated
+specifier|public
+name|String
+name|getCertificateURL
+parameter_list|()
+block|{
+return|return
+name|getCertificate
+argument_list|()
+return|;
+block|}
 comment|/** 	 * Set the Certificate URL. 	 *  	 * @param url 	 *            certficate url value to set 	 */
 specifier|public
 name|void
-name|setCertificateValue
+name|setCertificate
 parameter_list|(
 name|String
 name|url
@@ -630,10 +713,27 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Convenience method for jempbox signature compatibility      *      * @see XMPRightsManagementSchema#setCertificate(String)      */
+annotation|@
+name|Deprecated
+specifier|public
+name|void
+name|setCertificateURL
+parameter_list|(
+name|String
+name|certificate
+parameter_list|)
+block|{
+name|setCertificate
+argument_list|(
+name|certificate
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * Set the Certificate URL. 	 *  	 * @param url 	 *            certificate url property to set 	 */
 specifier|public
 name|void
-name|setCertificate
+name|setCertificateProperty
 parameter_list|(
 name|TextType
 name|url

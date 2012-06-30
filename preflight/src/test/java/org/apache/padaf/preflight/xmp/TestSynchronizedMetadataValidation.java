@@ -859,7 +859,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToCreatorValue
+name|addCreator
 argument_list|(
 literal|null
 argument_list|)
@@ -874,7 +874,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToSubjectValue
+name|addSubject
 argument_list|(
 literal|null
 argument_list|)
@@ -971,7 +971,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToTitleValue
+name|setTitle
 argument_list|(
 literal|"x-default"
 argument_list|,
@@ -988,14 +988,14 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToCreatorValue
+name|addCreator
 argument_list|(
 literal|"XMPAuthor"
 argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToCreatorValue
+name|addCreator
 argument_list|(
 literal|"2ndCreator"
 argument_list|)
@@ -1010,14 +1010,14 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToSubjectValue
+name|addSubject
 argument_list|(
 literal|"XMPSubj"
 argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToSubjectValue
+name|addSubject
 argument_list|(
 literal|"2ndSubj"
 argument_list|)
@@ -1032,7 +1032,7 @@ argument_list|)
 expr_stmt|;
 name|pdf
 operator|.
-name|setKeywordsValue
+name|setKeywords
 argument_list|(
 literal|"XMPkeywords"
 argument_list|)
@@ -1047,7 +1047,7 @@ argument_list|)
 expr_stmt|;
 name|xmp
 operator|.
-name|setCreatorToolValue
+name|setCreatorTool
 argument_list|(
 literal|"XMPCreator"
 argument_list|)
@@ -1062,7 +1062,7 @@ argument_list|)
 expr_stmt|;
 name|pdf
 operator|.
-name|setProducerValue
+name|setProducer
 argument_list|(
 literal|"XMPProducer"
 argument_list|)
@@ -1093,7 +1093,7 @@ argument_list|)
 decl_stmt|;
 name|xmp
 operator|.
-name|setCreateDateValue
+name|setCreateDate
 argument_list|(
 name|XMPCreate
 argument_list|)
@@ -1124,7 +1124,7 @@ argument_list|)
 decl_stmt|;
 name|xmp
 operator|.
-name|setModifyDateValue
+name|setModifyDate
 argument_list|(
 name|XMPModify
 argument_list|)
@@ -1221,7 +1221,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToTitleValue
+name|setTitle
 argument_list|(
 literal|"x-default"
 argument_list|,
@@ -1238,7 +1238,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToCreatorValue
+name|addCreator
 argument_list|(
 literal|"XMPAuthor"
 argument_list|)
@@ -1253,7 +1253,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToSubjectValue
+name|addSubject
 argument_list|(
 literal|"XMPSubj"
 argument_list|)
@@ -1268,7 +1268,7 @@ argument_list|)
 expr_stmt|;
 name|pdf
 operator|.
-name|setKeywordsValue
+name|setKeywords
 argument_list|(
 literal|"XMPkeywords"
 argument_list|)
@@ -1283,7 +1283,7 @@ argument_list|)
 expr_stmt|;
 name|xmp
 operator|.
-name|setCreatorToolValue
+name|setCreatorTool
 argument_list|(
 literal|"XMPCreator"
 argument_list|)
@@ -1298,7 +1298,7 @@ argument_list|)
 expr_stmt|;
 name|pdf
 operator|.
-name|setProducerValue
+name|setProducer
 argument_list|(
 literal|"XMPProducer"
 argument_list|)
@@ -1329,7 +1329,7 @@ argument_list|)
 decl_stmt|;
 name|xmp
 operator|.
-name|setCreateDateValue
+name|setCreateDate
 argument_list|(
 name|XMPCreate
 argument_list|)
@@ -1360,7 +1360,7 @@ argument_list|)
 decl_stmt|;
 name|xmp
 operator|.
-name|setModifyDateValue
+name|setModifyDate
 argument_list|(
 name|XMPModify
 argument_list|)
@@ -1495,7 +1495,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToTitleValue
+name|setTitle
 argument_list|(
 literal|"x-default"
 argument_list|,
@@ -1512,7 +1512,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToCreatorValue
+name|addCreator
 argument_list|(
 name|author
 argument_list|)
@@ -1527,7 +1527,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToDescriptionValue
+name|addDescription
 argument_list|(
 literal|"x-default"
 argument_list|,
@@ -1544,7 +1544,7 @@ argument_list|)
 expr_stmt|;
 name|pdf
 operator|.
-name|setKeywordsValue
+name|setKeywords
 argument_list|(
 name|keywords
 argument_list|)
@@ -1559,7 +1559,7 @@ argument_list|)
 expr_stmt|;
 name|xmp
 operator|.
-name|setCreatorToolValue
+name|setCreatorTool
 argument_list|(
 name|creator
 argument_list|)
@@ -1574,7 +1574,7 @@ argument_list|)
 expr_stmt|;
 name|pdf
 operator|.
-name|setProducerValue
+name|setProducer
 argument_list|(
 name|producer
 argument_list|)
@@ -1589,7 +1589,7 @@ argument_list|)
 expr_stmt|;
 name|xmp
 operator|.
-name|setCreateDateValue
+name|setCreateDate
 argument_list|(
 name|creationDate
 argument_list|)
@@ -1604,7 +1604,7 @@ argument_list|)
 expr_stmt|;
 name|xmp
 operator|.
-name|setModifyDateValue
+name|setModifyDate
 argument_list|(
 name|modifyDate
 argument_list|)
@@ -1845,7 +1845,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToTitleValue
+name|setTitle
 argument_list|(
 literal|"x-default"
 argument_list|,
@@ -1862,7 +1862,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToCreatorValue
+name|addCreator
 argument_list|(
 name|author
 argument_list|)
@@ -1877,7 +1877,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToDescriptionValue
+name|addDescription
 argument_list|(
 literal|"x-default"
 argument_list|,
@@ -1894,7 +1894,7 @@ argument_list|)
 expr_stmt|;
 name|pdf
 operator|.
-name|setKeywordsValue
+name|setKeywords
 argument_list|(
 name|keywords
 argument_list|)
@@ -1909,7 +1909,7 @@ argument_list|)
 expr_stmt|;
 name|xmp
 operator|.
-name|setCreatorToolValue
+name|setCreatorTool
 argument_list|(
 name|creator
 argument_list|)
@@ -1924,7 +1924,7 @@ argument_list|)
 expr_stmt|;
 name|pdf
 operator|.
-name|setProducerValue
+name|setProducer
 argument_list|(
 name|producer
 argument_list|)
@@ -1939,7 +1939,7 @@ argument_list|)
 expr_stmt|;
 name|xmp
 operator|.
-name|setCreateDateValue
+name|setCreateDate
 argument_list|(
 name|creationDate
 argument_list|)
@@ -1954,7 +1954,7 @@ argument_list|)
 expr_stmt|;
 name|xmp
 operator|.
-name|setModifyDateValue
+name|setModifyDate
 argument_list|(
 name|modifyDate
 argument_list|)
@@ -2145,21 +2145,21 @@ expr_stmt|;
 comment|// write some temp info in 'false' schemas
 name|dc2
 operator|.
-name|setCoverageValue
+name|setCoverage
 argument_list|(
 literal|"tmpcover"
 argument_list|)
 expr_stmt|;
 name|xmp2
 operator|.
-name|setCreatorToolValue
+name|setCreatorTool
 argument_list|(
 literal|"tmpcreator"
 argument_list|)
 expr_stmt|;
 name|pdf2
 operator|.
-name|setKeywordsValue
+name|setKeywords
 argument_list|(
 literal|"tmpkeys"
 argument_list|)
@@ -2175,7 +2175,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToTitleValue
+name|setTitle
 argument_list|(
 literal|"x-default"
 argument_list|,
@@ -2192,7 +2192,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToCreatorValue
+name|addCreator
 argument_list|(
 name|author
 argument_list|)
@@ -2207,7 +2207,7 @@ argument_list|)
 expr_stmt|;
 name|dc
 operator|.
-name|addToDescriptionValue
+name|addDescription
 argument_list|(
 literal|"x-default"
 argument_list|,
@@ -2224,7 +2224,7 @@ argument_list|)
 expr_stmt|;
 name|pdf
 operator|.
-name|setKeywordsValue
+name|setKeywords
 argument_list|(
 name|keywords
 argument_list|)
@@ -2239,7 +2239,7 @@ argument_list|)
 expr_stmt|;
 name|xmp
 operator|.
-name|setCreatorToolValue
+name|setCreatorTool
 argument_list|(
 name|creator
 argument_list|)
@@ -2254,7 +2254,7 @@ argument_list|)
 expr_stmt|;
 name|pdf
 operator|.
-name|setProducerValue
+name|setProducer
 argument_list|(
 name|producer
 argument_list|)
@@ -2269,7 +2269,7 @@ argument_list|)
 expr_stmt|;
 name|xmp
 operator|.
-name|setCreateDateValue
+name|setCreateDate
 argument_list|(
 name|creationDate
 argument_list|)
@@ -2284,7 +2284,7 @@ argument_list|)
 expr_stmt|;
 name|xmp
 operator|.
-name|setModifyDateValue
+name|setModifyDate
 argument_list|(
 name|modifyDate
 argument_list|)

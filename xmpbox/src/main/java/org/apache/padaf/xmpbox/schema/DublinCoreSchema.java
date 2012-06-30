@@ -325,7 +325,7 @@ name|PropertyType
 argument_list|(
 name|propertyType
 operator|=
-literal|"Text"
+literal|"bag Text"
 argument_list|)
 specifier|public
 specifier|static
@@ -377,7 +377,7 @@ block|}
 comment|/** 	 * set contributor(s) to the resource (other than the authors) 	 *  	 * @param properName 	 *            Value to set 	 */
 specifier|public
 name|void
-name|addToContributorValue
+name|addContributor
 parameter_list|(
 name|String
 name|properName
@@ -393,10 +393,28 @@ name|properName
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|removeContributor
+parameter_list|(
+name|String
+name|properName
+parameter_list|)
+block|{
+name|removeBagValue
+argument_list|(
+name|localPrefixSep
+operator|+
+name|CONTRIBUTOR
+argument_list|,
+name|properName
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * set the extent or scope of the resource 	 *  	 * @param text 	 *            Value to set 	 */
 specifier|public
 name|void
-name|setCoverageValue
+name|setCoverage
 parameter_list|(
 name|String
 name|text
@@ -421,7 +439,7 @@ block|}
 comment|/** 	 * set the extent or scope of the resource 	 *  	 * @param text 	 *            Property to set 	 */
 specifier|public
 name|void
-name|setCoverage
+name|setCoverageProperty
 parameter_list|(
 name|TextType
 name|text
@@ -436,7 +454,7 @@ block|}
 comment|/** 	 * set the autor(s) of the resource 	 *  	 * @param properName 	 *            Value to add 	 * @throws InappropriateTypeException 	 */
 specifier|public
 name|void
-name|addToCreatorValue
+name|addCreator
 parameter_list|(
 name|String
 name|properName
@@ -452,10 +470,28 @@ name|properName
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|removeCreator
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|removeSequenceValue
+argument_list|(
+name|localPrefixSep
+operator|+
+name|CREATOR
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * Set date(s) that something interesting happened to the resource 	 *  	 * @param date 	 *            Value to add 	 */
 specifier|public
 name|void
-name|addToDateValue
+name|addDate
 parameter_list|(
 name|Calendar
 name|date
@@ -471,10 +507,28 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|removeDate
+parameter_list|(
+name|Calendar
+name|date
+parameter_list|)
+block|{
+name|removeSequenceDateValue
+argument_list|(
+name|localPrefixSep
+operator|+
+name|DATE
+argument_list|,
+name|date
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * add a textual description of the content of the resource (multiple values 	 * may be present for different languages) 	 *  	 * @param lang 	 *            language concerned 	 * @param value 	 *            Value to add 	 */
 specifier|public
 name|void
-name|addToDescriptionValue
+name|addDescription
 parameter_list|(
 name|String
 name|lang
@@ -495,10 +549,49 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the default value for the description.      *      * @param value The description of this resource.      */
+specifier|public
+name|void
+name|setDescription
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|addDescription
+argument_list|(
+literal|null
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Convenience method for signature compatibility with jempbox      *      * @see DublinCoreSchema#addDescription(String, String)      */
+annotation|@
+name|Deprecated
+specifier|public
+name|void
+name|setDescription
+parameter_list|(
+name|String
+name|language
+parameter_list|,
+name|String
+name|description
+parameter_list|)
+block|{
+name|addDescription
+argument_list|(
+name|language
+argument_list|,
+name|description
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * set the file format used when saving the resource. 	 *  	 * @param mimeType 	 *            Value to set 	 */
 specifier|public
 name|void
-name|setFormatValue
+name|setFormat
 parameter_list|(
 name|String
 name|mimeType
@@ -523,7 +616,7 @@ block|}
 comment|/** 	 * Set the unique identifier of the resource 	 *  	 * @param text 	 *            Value to set 	 */
 specifier|public
 name|void
-name|setIdentifierValue
+name|setIdentifier
 parameter_list|(
 name|String
 name|text
@@ -548,7 +641,7 @@ block|}
 comment|/** 	 * Set the unique identifier of the resource 	 *  	 * @param text 	 *            Property to set 	 */
 specifier|public
 name|void
-name|setIdentifier
+name|setIdentifierProperty
 parameter_list|(
 name|TextType
 name|text
@@ -563,7 +656,7 @@ block|}
 comment|/** 	 * Add language(s) used in this resource 	 *  	 * @param locale 	 *            Value to set 	 */
 specifier|public
 name|void
-name|addToLanguageValue
+name|addLanguage
 parameter_list|(
 name|String
 name|locale
@@ -579,10 +672,28 @@ name|locale
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|removeLanguage
+parameter_list|(
+name|String
+name|locale
+parameter_list|)
+block|{
+name|removeBagValue
+argument_list|(
+name|localPrefixSep
+operator|+
+name|LANGUAGE
+argument_list|,
+name|locale
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * add publisher(s) 	 *  	 * @param properName 	 *            Value to add 	 */
 specifier|public
 name|void
-name|addToPublisherValue
+name|addPublisher
 parameter_list|(
 name|String
 name|properName
@@ -598,10 +709,28 @@ name|properName
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|removePublisher
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|removeBagValue
+argument_list|(
+name|localPrefixSep
+operator|+
+name|PUBLISHER
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * Add relationships to other documents 	 *  	 * @param text 	 *            Value to set 	 */
 specifier|public
 name|void
-name|addToRelationValue
+name|addRelation
 parameter_list|(
 name|String
 name|text
@@ -617,10 +746,28 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|removeRelation
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+name|removeBagValue
+argument_list|(
+name|localPrefixSep
+operator|+
+name|RELATION
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * add informal rights statement, by language. 	 *  	 * @param lang 	 *            Language concerned 	 * @param value 	 *            Value to set 	 */
 specifier|public
 name|void
-name|addToRightsValue
+name|addRights
 parameter_list|(
 name|String
 name|lang
@@ -641,10 +788,51 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Convenience method for signature compatibility with jempbox      *      * @see DublinCoreSchema#addRights(String, String)      */
+annotation|@
+name|Deprecated
+specifier|public
+name|void
+name|setRights
+parameter_list|(
+name|String
+name|language
+parameter_list|,
+name|String
+name|rights
+parameter_list|)
+block|{
+name|addRights
+argument_list|(
+name|language
+argument_list|,
+name|rights
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Convenience method for signature compatibility with jempbox.      * Add default rights      *      * @see DublinCoreSchema#addRights(String, String)      */
+annotation|@
+name|Deprecated
+specifier|public
+name|void
+name|setRights
+parameter_list|(
+name|String
+name|rights
+parameter_list|)
+block|{
+name|addRights
+argument_list|(
+literal|null
+argument_list|,
+name|rights
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * Set the unique identifer of the work from which this resource was derived 	 *  	 * @param text 	 *            Value to set 	 */
 specifier|public
 name|void
-name|setSourceValue
+name|setSource
 parameter_list|(
 name|String
 name|text
@@ -669,7 +857,7 @@ block|}
 comment|/** 	 * Set the unique identifer of the work from which this resource was derived 	 *  	 * @param text 	 *            Property to set 	 */
 specifier|public
 name|void
-name|setSource
+name|setSourceProperty
 parameter_list|(
 name|TextType
 name|text
@@ -684,7 +872,7 @@ block|}
 comment|/** 	 * Set the unique identifer of the work from which this resource was derived 	 *  	 * @param text 	 *            Property to set 	 */
 specifier|public
 name|void
-name|setFormat
+name|setFormatProperty
 parameter_list|(
 name|TextType
 name|text
@@ -699,7 +887,7 @@ block|}
 comment|/** 	 * add descriptive phrases or keywords that specify the topic of the content 	 * of the resource 	 *  	 * @param text 	 *            Value to add 	 */
 specifier|public
 name|void
-name|addToSubjectValue
+name|addSubject
 parameter_list|(
 name|String
 name|text
@@ -715,10 +903,28 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|removeSubject
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+name|removeBagValue
+argument_list|(
+name|localPrefixSep
+operator|+
+name|SUBJECT
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * set the title of the document, or the name given to the resource (by 	 * language) 	 *  	 * @param lang 	 *            Language concerned 	 * @param value 	 *            Value to set 	 */
 specifier|public
 name|void
-name|addToTitleValue
+name|setTitle
 parameter_list|(
 name|String
 name|lang
@@ -739,10 +945,47 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** 	 * set default title 	 * @param lang 	 * @param value 	 */
+specifier|public
+name|void
+name|setTitle
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|setTitle
+argument_list|(
+literal|null
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO javadoc convenience method
+specifier|public
+name|void
+name|addTitle
+parameter_list|(
+name|String
+name|lang
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+block|{
+name|setTitle
+argument_list|(
+name|lang
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * set the document type (novel, poem, ...) 	 *  	 * @param type 	 *            Value to set 	 */
 specifier|public
 name|void
-name|addToTypeValue
+name|addType
 parameter_list|(
 name|String
 name|type
@@ -761,7 +1004,7 @@ block|}
 comment|/** 	 * Return the Bag of contributor(s) 	 *  	 * @return Contributor property 	 */
 specifier|public
 name|ComplexProperty
-name|getContributor
+name|getContributorsProperty
 parameter_list|()
 block|{
 return|return
@@ -782,7 +1025,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getContributorValue
+name|getContributors
 parameter_list|()
 block|{
 return|return
@@ -797,7 +1040,7 @@ block|}
 comment|/** 	 * Return the Coverage TextType Property 	 *  	 * @return Coverage property 	 */
 specifier|public
 name|TextType
-name|getCoverage
+name|getCoverageProperty
 parameter_list|()
 block|{
 return|return
@@ -815,7 +1058,7 @@ block|}
 comment|/** 	 * Return the value of the coverage 	 *  	 * @return Coverage value 	 */
 specifier|public
 name|String
-name|getCoverageValue
+name|getCoverage
 parameter_list|()
 block|{
 name|TextType
@@ -847,7 +1090,7 @@ block|}
 comment|/** 	 * Return the Sequence of contributor(s) 	 *  	 * @return Creator property 	 */
 specifier|public
 name|ComplexProperty
-name|getCreator
+name|getCreatorsProperty
 parameter_list|()
 block|{
 return|return
@@ -868,7 +1111,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getCreatorValue
+name|getCreators
 parameter_list|()
 block|{
 return|return
@@ -883,7 +1126,7 @@ block|}
 comment|/** 	 * Return the sequence of date(s) 	 *  	 * @return date property 	 */
 specifier|public
 name|ComplexProperty
-name|getDate
+name|getDatesProperty
 parameter_list|()
 block|{
 return|return
@@ -904,7 +1147,7 @@ name|List
 argument_list|<
 name|Calendar
 argument_list|>
-name|getDateValue
+name|getDates
 parameter_list|()
 block|{
 return|return
@@ -919,7 +1162,7 @@ block|}
 comment|/** 	 * Return the Lang alt Description 	 *  	 * @return Description property 	 */
 specifier|public
 name|ComplexProperty
-name|getDescription
+name|getDescriptionProperty
 parameter_list|()
 block|{
 return|return
@@ -955,7 +1198,7 @@ block|}
 comment|/** 	 * Return a language value for description property 	 *  	 * @param lang 	 *            The language wanted 	 * @return Desription value for specified language 	 */
 specifier|public
 name|String
-name|getDescriptionValue
+name|getDescription
 parameter_list|(
 name|String
 name|lang
@@ -972,10 +1215,23 @@ name|lang
 argument_list|)
 return|;
 block|}
+comment|/**      * Get the default value for the description.      *      * @return The description of this resource.      */
+specifier|public
+name|String
+name|getDescription
+parameter_list|()
+block|{
+return|return
+name|getDescription
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
 comment|/** 	 * Return the file format property 	 *  	 * @return the format property 	 */
 specifier|public
 name|TextType
-name|getFormat
+name|getFormatProperty
 parameter_list|()
 block|{
 return|return
@@ -993,7 +1249,7 @@ block|}
 comment|/** 	 * return the file format value 	 *  	 * @return the format value 	 */
 specifier|public
 name|String
-name|getFormatValue
+name|getFormat
 parameter_list|()
 block|{
 name|TextType
@@ -1025,7 +1281,7 @@ block|}
 comment|/** 	 * Return the unique identifier property of this resource 	 *  	 * @return the identifier property 	 */
 specifier|public
 name|TextType
-name|getIdentifier
+name|getIdentifierProperty
 parameter_list|()
 block|{
 return|return
@@ -1043,7 +1299,7 @@ block|}
 comment|/** 	 * return the unique identifier value of this resource 	 *  	 * @return the unique identifier value 	 */
 specifier|public
 name|String
-name|getIdentifierValue
+name|getIdentifier
 parameter_list|()
 block|{
 name|TextType
@@ -1075,7 +1331,7 @@ block|}
 comment|/** 	 * Return the bag DC language 	 *  	 * @return language property 	 */
 specifier|public
 name|ComplexProperty
-name|getLanguage
+name|getLanguagesProperty
 parameter_list|()
 block|{
 return|return
@@ -1096,7 +1352,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getLanguageValue
+name|getLanguages
 parameter_list|()
 block|{
 return|return
@@ -1111,7 +1367,7 @@ block|}
 comment|/** 	 * Return the bag DC publisher 	 *  	 * @return publisher property 	 */
 specifier|public
 name|ComplexProperty
-name|getPublisher
+name|getPublishersProperty
 parameter_list|()
 block|{
 return|return
@@ -1132,7 +1388,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getPublisherValue
+name|getPublishers
 parameter_list|()
 block|{
 return|return
@@ -1147,7 +1403,7 @@ block|}
 comment|/** 	 * Return the bag DC relation 	 *  	 * @return relation property 	 */
 specifier|public
 name|ComplexProperty
-name|getRelation
+name|getRelationsProperty
 parameter_list|()
 block|{
 return|return
@@ -1168,7 +1424,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getRelationValue
+name|getRelations
 parameter_list|()
 block|{
 return|return
@@ -1180,10 +1436,26 @@ name|RELATION
 argument_list|)
 return|;
 block|}
+comment|/** 	 * Convenience method for signature compatibility with jempbox 	 *  	 * @see DublinCoreSchema#getRelations() 	 */
+annotation|@
+name|Deprecated
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getRelationships
+parameter_list|()
+block|{
+return|return
+name|getRelations
+argument_list|()
+return|;
+block|}
 comment|/** 	 * Return the Lang alt Rights 	 *  	 * @return rights property 	 */
 specifier|public
 name|ComplexProperty
-name|getRights
+name|getRightsProperty
 parameter_list|()
 block|{
 return|return
@@ -1219,7 +1491,7 @@ block|}
 comment|/** 	 * Return a language value for Right property 	 *  	 * @param lang 	 *            language concerned 	 * @return the rights value for specified language 	 */
 specifier|public
 name|String
-name|getRightsValue
+name|getRights
 parameter_list|(
 name|String
 name|lang
@@ -1236,10 +1508,23 @@ name|lang
 argument_list|)
 return|;
 block|}
+comment|/** 	 * Return the default value for Right property 	 *  	 * @see DublinCoreSchema#getRights(String) 	 */
+specifier|public
+name|String
+name|getRights
+parameter_list|()
+block|{
+return|return
+name|getRights
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
 comment|/** 	 * Return the source property of this resource 	 *  	 * @return source property 	 */
 specifier|public
 name|TextType
-name|getSource
+name|getSourceProperty
 parameter_list|()
 block|{
 return|return
@@ -1257,7 +1542,7 @@ block|}
 comment|/** 	 * return the source value of this resource 	 *  	 * @return value of source property 	 */
 specifier|public
 name|String
-name|getSourceValue
+name|getSource
 parameter_list|()
 block|{
 name|TextType
@@ -1286,10 +1571,10 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Return the bag DC Subject 	 *  	 * @return the subject property 	 */
+comment|/** 	 * Return the bag DC Subject 	 *       * @return the subject property 	 */
 specifier|public
 name|ComplexProperty
-name|getSubject
+name|getSubjectsProperty
 parameter_list|()
 block|{
 return|return
@@ -1310,7 +1595,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getSubjectValue
+name|getSubjects
 parameter_list|()
 block|{
 return|return
@@ -1325,7 +1610,7 @@ block|}
 comment|/** 	 * Return the Lang alt Title 	 *  	 * @return the title property 	 */
 specifier|public
 name|ComplexProperty
-name|getTitle
+name|getTitleProperty
 parameter_list|()
 block|{
 return|return
@@ -1361,7 +1646,7 @@ block|}
 comment|/** 	 * Return a language value for Title property 	 *  	 * @param lang 	 *            the language concerned 	 * @return the title value for specified language 	 */
 specifier|public
 name|String
-name|getTitleValue
+name|getTitle
 parameter_list|(
 name|String
 name|lang
@@ -1378,10 +1663,23 @@ name|lang
 argument_list|)
 return|;
 block|}
+comment|/** 	 * Get the default value for the title. 	 * 	 * @return The default title of this resource. 	 */
+specifier|public
+name|String
+name|getTitle
+parameter_list|()
+block|{
+return|return
+name|getTitle
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
 comment|/** 	 * Return the bag DC Type 	 *  	 * @return the type property 	 */
 specifier|public
 name|ComplexProperty
-name|getType
+name|getTypesProperty
 parameter_list|()
 block|{
 return|return
@@ -1402,7 +1700,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getTypeValue
+name|getTypes
 parameter_list|()
 block|{
 return|return

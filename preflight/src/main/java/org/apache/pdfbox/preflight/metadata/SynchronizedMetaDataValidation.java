@@ -316,7 +316,7 @@ if|if
 condition|(
 name|dc
 operator|.
-name|getTitleValue
+name|getTitle
 argument_list|(
 literal|"x-default"
 argument_list|)
@@ -329,7 +329,7 @@ condition|(
 operator|!
 name|dc
 operator|.
-name|getTitleValue
+name|getTitle
 argument_list|(
 literal|"x-default"
 argument_list|)
@@ -366,7 +366,7 @@ name|it
 init|=
 name|dc
 operator|.
-name|getTitle
+name|getTitleProperty
 argument_list|()
 operator|.
 name|getContainer
@@ -542,7 +542,7 @@ if|if
 condition|(
 name|dc
 operator|.
-name|getCreator
+name|getCreatorsProperty
 argument_list|()
 operator|!=
 literal|null
@@ -552,7 +552,7 @@ if|if
 condition|(
 name|dc
 operator|.
-name|getCreatorValue
+name|getCreators
 argument_list|()
 operator|.
 name|size
@@ -580,7 +580,7 @@ if|if
 condition|(
 name|dc
 operator|.
-name|getCreatorValue
+name|getCreators
 argument_list|()
 operator|.
 name|get
@@ -611,7 +611,7 @@ condition|(
 operator|!
 name|dc
 operator|.
-name|getCreatorValue
+name|getCreators
 argument_list|()
 operator|.
 name|get
@@ -718,7 +718,7 @@ if|if
 condition|(
 name|dc
 operator|.
-name|getDescription
+name|getDescriptionProperty
 argument_list|()
 operator|!=
 literal|null
@@ -728,7 +728,7 @@ if|if
 condition|(
 name|dc
 operator|.
-name|getDescriptionValue
+name|getDescription
 argument_list|(
 literal|"x-default"
 argument_list|)
@@ -756,7 +756,7 @@ condition|(
 operator|!
 name|dc
 operator|.
-name|getDescriptionValue
+name|getDescription
 argument_list|(
 literal|"x-default"
 argument_list|)
@@ -857,7 +857,7 @@ if|if
 condition|(
 name|pdf
 operator|.
-name|getKeywords
+name|getKeywordsProperty
 argument_list|()
 operator|==
 literal|null
@@ -883,7 +883,7 @@ condition|(
 operator|!
 name|pdf
 operator|.
-name|getKeywordsValue
+name|getKeywords
 argument_list|()
 operator|.
 name|equals
@@ -966,7 +966,7 @@ if|if
 condition|(
 name|pdf
 operator|.
-name|getProducer
+name|getProducerProperty
 argument_list|()
 operator|==
 literal|null
@@ -992,7 +992,7 @@ condition|(
 operator|!
 name|pdf
 operator|.
-name|getProducerValue
+name|getProducer
 argument_list|()
 operator|.
 name|equals
@@ -1075,7 +1075,7 @@ if|if
 condition|(
 name|xmp
 operator|.
-name|getCreatorTool
+name|getCreatorToolProperty
 argument_list|()
 operator|==
 literal|null
@@ -1101,7 +1101,7 @@ condition|(
 operator|!
 name|xmp
 operator|.
-name|getCreatorToolValue
+name|getCreatorTool
 argument_list|()
 operator|.
 name|equals
@@ -1210,7 +1210,7 @@ name|xmpCreationDate
 init|=
 name|xmp
 operator|.
-name|getCreateDateValue
+name|getCreateDate
 argument_list|()
 decl_stmt|;
 if|if
@@ -1337,7 +1337,7 @@ name|xmpModifyDate
 init|=
 name|xmp
 operator|.
-name|getModifyDateValue
+name|getModifyDate
 argument_list|()
 decl_stmt|;
 if|if

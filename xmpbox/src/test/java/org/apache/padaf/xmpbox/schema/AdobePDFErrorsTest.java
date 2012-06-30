@@ -168,14 +168,14 @@ literal|"producer"
 decl_stmt|;
 name|schem
 operator|.
-name|setKeywordsValue
+name|setKeywords
 argument_list|(
 name|keywords
 argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|setPDFVersionValue
+name|setPDFVersion
 argument_list|(
 name|pdfVersion
 argument_list|)
@@ -193,7 +193,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|setProducerValue
+name|setProducer
 argument_list|(
 name|producer
 argument_list|)
@@ -206,7 +206,7 @@ literal|"pdf:Keywords"
 argument_list|,
 name|schem
 operator|.
-name|getKeywords
+name|getKeywordsProperty
 argument_list|()
 operator|.
 name|getQualifiedName
@@ -221,7 +221,7 @@ name|keywords
 argument_list|,
 name|schem
 operator|.
-name|getKeywordsValue
+name|getKeywords
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -233,7 +233,7 @@ literal|"pdf:PDFVersion"
 argument_list|,
 name|schem
 operator|.
-name|getPDFVersion
+name|getPDFVersionProperty
 argument_list|()
 operator|.
 name|getQualifiedName
@@ -248,7 +248,7 @@ name|pdfVersion
 argument_list|,
 name|schem
 operator|.
-name|getPDFVersionValue
+name|getPDFVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -260,7 +260,7 @@ literal|"pdf:Producer"
 argument_list|,
 name|schem
 operator|.
-name|getProducer
+name|getProducerProperty
 argument_list|()
 operator|.
 name|getQualifiedName
@@ -275,7 +275,7 @@ name|producer
 argument_list|,
 name|schem
 operator|.
-name|getProducerValue
+name|getProducer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -325,7 +325,7 @@ literal|"kiohiohiohiohio"
 decl_stmt|;
 name|pdfaid
 operator|.
-name|setConformanceValue
+name|setConformance
 argument_list|(
 name|conformance
 argument_list|)

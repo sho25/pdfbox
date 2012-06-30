@@ -528,7 +528,7 @@ block|}
 comment|/** 	 * Add a property specification that were edited outside the authoring 	 * application 	 *  	 * @param xpath 	 *            the value to add 	 */
 specifier|public
 name|void
-name|addToAdvisoryValue
+name|addAdvisory
 parameter_list|(
 name|String
 name|xpath
@@ -544,10 +544,28 @@ name|xpath
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|removeAdvisory
+parameter_list|(
+name|String
+name|xpath
+parameter_list|)
+block|{
+name|removeBagValue
+argument_list|(
+name|localPrefixSep
+operator|+
+name|ADVISORY
+argument_list|,
+name|xpath
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * Set the base URL for relative URLs in the document content 	 *  	 * @param url 	 *            the Base url value to set 	 */
 specifier|public
 name|void
-name|setBaseURLValue
+name|setBaseURL
 parameter_list|(
 name|String
 name|url
@@ -572,7 +590,7 @@ block|}
 comment|/** 	 * Set the base URL property 	 *  	 * @param url 	 *            the Base url property to set 	 */
 specifier|public
 name|void
-name|setBaseURL
+name|setBaseURLProperty
 parameter_list|(
 name|TextType
 name|url
@@ -587,7 +605,7 @@ block|}
 comment|/** 	 * Set the date and time the resource was originally created 	 *  	 * @param date 	 *            the value to set 	 */
 specifier|public
 name|void
-name|setCreateDateValue
+name|setCreateDate
 parameter_list|(
 name|Calendar
 name|date
@@ -612,7 +630,7 @@ block|}
 comment|/** 	 * Set the create date property 	 *  	 * @param date 	 *            the create date property to set 	 */
 specifier|public
 name|void
-name|setCreateDate
+name|setCreateDateProperty
 parameter_list|(
 name|DateType
 name|date
@@ -627,7 +645,7 @@ block|}
 comment|/** 	 * set the name of the first known tool used to create this resource 	 *  	 * @param creatorTool 	 *            the creator tool value to set 	 */
 specifier|public
 name|void
-name|setCreatorToolValue
+name|setCreatorTool
 parameter_list|(
 name|String
 name|creatorTool
@@ -652,7 +670,7 @@ block|}
 comment|/** 	 * set the creatorTool property 	 *  	 * @param creatorTool 	 *            the creator tool property to set 	 */
 specifier|public
 name|void
-name|setCreatorTool
+name|setCreatorToolProperty
 parameter_list|(
 name|TextType
 name|creatorTool
@@ -667,7 +685,7 @@ block|}
 comment|/** 	 * Add a text string which unambiguously identify the resource within a 	 * given context 	 *  	 * @param text 	 *            the identifier value to add 	 */
 specifier|public
 name|void
-name|addToIdentifierValue
+name|addIdentifier
 parameter_list|(
 name|String
 name|text
@@ -683,10 +701,28 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|removeIdentifier
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+name|removeBagValue
+argument_list|(
+name|localPrefixSep
+operator|+
+name|IDENTIFIER
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** 	 * set a word or a short phrase which identifies a document as a member of a 	 * user-defined collection 	 *  	 * @param text 	 *            the label value to set 	 */
 specifier|public
 name|void
-name|setLabelValue
+name|setLabel
 parameter_list|(
 name|String
 name|text
@@ -711,7 +747,7 @@ block|}
 comment|/** 	 * set the label property 	 *  	 * @param text 	 *            the label property to set 	 */
 specifier|public
 name|void
-name|setLabel
+name|setLabelProperty
 parameter_list|(
 name|TextType
 name|text
@@ -726,7 +762,7 @@ block|}
 comment|/** 	 * Set the date and time that any metadata for this resource was last 	 * changed. (should be equals or more recent than the createDate) 	 *  	 * @param date 	 *            the Metadata Date value to set 	 */
 specifier|public
 name|void
-name|setMetadataDateValue
+name|setMetadataDate
 parameter_list|(
 name|Calendar
 name|date
@@ -751,7 +787,7 @@ block|}
 comment|/** 	 * Set the MetadataDate property 	 *  	 * @param date 	 *            the Metadata Date property to set 	 */
 specifier|public
 name|void
-name|setMetadataDate
+name|setMetadataDateProperty
 parameter_list|(
 name|DateType
 name|date
@@ -766,7 +802,7 @@ block|}
 comment|/** 	 * Set the date and time the resource was last modified 	 *  	 * @param date 	 *            the Modify Date value to set 	 */
 specifier|public
 name|void
-name|setModifyDateValue
+name|setModifyDate
 parameter_list|(
 name|Calendar
 name|date
@@ -791,7 +827,7 @@ block|}
 comment|/** 	 * Set the ModifyDate property 	 *  	 * @param date 	 *            the Modify Date property to set 	 */
 specifier|public
 name|void
-name|setModifyDate
+name|setModifyDateProperty
 parameter_list|(
 name|DateType
 name|date
@@ -806,7 +842,7 @@ block|}
 comment|/** 	 * Set a short informal name for the resource 	 *  	 * @param text 	 *            the Nickname value to set 	 */
 specifier|public
 name|void
-name|setNicknameValue
+name|setNickname
 parameter_list|(
 name|String
 name|text
@@ -831,7 +867,7 @@ block|}
 comment|/** 	 * Set the NickName property 	 *  	 * @param text 	 *            the Nickname property to set 	 */
 specifier|public
 name|void
-name|setNickname
+name|setNicknameProperty
 parameter_list|(
 name|TextType
 name|text
@@ -846,7 +882,7 @@ block|}
 comment|/** 	 * Set a number that indicates a document's status relative to other 	 * documents, used to organize documents in a file browser (values are 	 * user-defined within an application-defined range) 	 *  	 * @param rate 	 *            the rate value to set 	 */
 specifier|public
 name|void
-name|setRatingValue
+name|setRating
 parameter_list|(
 name|Integer
 name|rate
@@ -871,7 +907,7 @@ block|}
 comment|/** 	 * Set Rating Property 	 *  	 * @param rate 	 *            the rate property to set 	 */
 specifier|public
 name|void
-name|setRating
+name|setRatingProperty
 parameter_list|(
 name|IntegerType
 name|rate
@@ -886,7 +922,7 @@ block|}
 comment|/** 	 * Get the Advisory property 	 *  	 * @return the advisory property 	 */
 specifier|public
 name|ComplexProperty
-name|getAdvisory
+name|getAdvisoryProperty
 parameter_list|()
 block|{
 return|return
@@ -907,7 +943,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getAdvisoryValue
+name|getAdvisory
 parameter_list|()
 block|{
 return|return
@@ -919,10 +955,26 @@ name|ADVISORY
 argument_list|)
 return|;
 block|}
+comment|/**      * Convenience method for jempbox signature compatibility      *      * @see XMPBasicSchema#getAdvisory()      */
+annotation|@
+name|Deprecated
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getAdvisories
+parameter_list|()
+block|{
+return|return
+name|getAdvisory
+argument_list|()
+return|;
+block|}
 comment|/** 	 * Get the BaseURL property 	 *  	 * @return the base url property 	 */
 specifier|public
 name|TextType
-name|getBaseURL
+name|getBaseURLProperty
 parameter_list|()
 block|{
 return|return
@@ -940,7 +992,7 @@ block|}
 comment|/** 	 * Get the BaseURL property value 	 *  	 * @return the base url value 	 */
 specifier|public
 name|String
-name|getBaseURLValue
+name|getBaseURL
 parameter_list|()
 block|{
 name|TextType
@@ -974,7 +1026,7 @@ block|}
 comment|/** 	 * Get the CreateDate property 	 *  	 * @return the CreateDate property 	 */
 specifier|public
 name|DateType
-name|getCreateDate
+name|getCreateDateProperty
 parameter_list|()
 block|{
 return|return
@@ -992,7 +1044,7 @@ block|}
 comment|/** 	 * Get the CreateDate property value 	 *  	 * @return the CreateDate value 	 */
 specifier|public
 name|Calendar
-name|getCreateDateValue
+name|getCreateDate
 parameter_list|()
 block|{
 name|DateType
@@ -1029,7 +1081,7 @@ block|}
 comment|/** 	 * Get the CreationTool property 	 *  	 * @return the CreationTool property 	 */
 specifier|public
 name|TextType
-name|getCreatorTool
+name|getCreatorToolProperty
 parameter_list|()
 block|{
 return|return
@@ -1047,7 +1099,7 @@ block|}
 comment|/** 	 * Get the CreationTool property value 	 *  	 * @return the CreationTool value 	 */
 specifier|public
 name|String
-name|getCreatorToolValue
+name|getCreatorTool
 parameter_list|()
 block|{
 name|TextType
@@ -1081,7 +1133,7 @@ block|}
 comment|/** 	 * Get the Identifier property 	 *  	 * @return the Identifier property 	 */
 specifier|public
 name|ComplexProperty
-name|getIdentifier
+name|getIdentifiersProperty
 parameter_list|()
 block|{
 return|return
@@ -1102,7 +1154,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getIdentifierValue
+name|getIdentifiers
 parameter_list|()
 block|{
 return|return
@@ -1117,7 +1169,7 @@ block|}
 comment|/** 	 * Get the label property 	 *  	 * @return the label property 	 */
 specifier|public
 name|TextType
-name|getLabel
+name|getLabelProperty
 parameter_list|()
 block|{
 return|return
@@ -1135,7 +1187,7 @@ block|}
 comment|/** 	 * Get the label property value 	 *  	 * @return the label value 	 */
 specifier|public
 name|String
-name|getLabelValue
+name|getLabel
 parameter_list|()
 block|{
 name|TextType
@@ -1169,7 +1221,7 @@ block|}
 comment|/** 	 * Get the MetadataDate property 	 *  	 * @return the MetadataDate property 	 */
 specifier|public
 name|DateType
-name|getMetadataDate
+name|getMetadataDateProperty
 parameter_list|()
 block|{
 return|return
@@ -1187,7 +1239,7 @@ block|}
 comment|/** 	 * Get the MetadataDate property value 	 *  	 * @return the MetadataDate value 	 */
 specifier|public
 name|Calendar
-name|getMetadataDateValue
+name|getMetadataDate
 parameter_list|()
 block|{
 name|DateType
@@ -1221,7 +1273,7 @@ block|}
 comment|/** 	 * Get the ModifyDate property 	 *  	 * @return the ModifyDate property 	 */
 specifier|public
 name|DateType
-name|getModifyDate
+name|getModifyDateProperty
 parameter_list|()
 block|{
 return|return
@@ -1239,7 +1291,7 @@ block|}
 comment|/** 	 * Get the ModifyDate property value 	 *  	 * @return the ModifyDate value 	 */
 specifier|public
 name|Calendar
-name|getModifyDateValue
+name|getModifyDate
 parameter_list|()
 block|{
 name|DateType
@@ -1276,7 +1328,7 @@ block|}
 comment|/** 	 * Get the Nickname property 	 *  	 * @return the Nickname property 	 */
 specifier|public
 name|TextType
-name|getNickname
+name|getNicknameProperty
 parameter_list|()
 block|{
 return|return
@@ -1294,7 +1346,7 @@ block|}
 comment|/** 	 * Get the Nickname property value 	 *  	 * @return the Nickname value 	 */
 specifier|public
 name|String
-name|getNicknameValue
+name|getNickname
 parameter_list|()
 block|{
 name|TextType
@@ -1328,7 +1380,7 @@ block|}
 comment|/** 	 * Get the Rating property 	 *  	 * @return the Rating property 	 */
 specifier|public
 name|IntegerType
-name|getRating
+name|getRatingProperty
 parameter_list|()
 block|{
 return|return
@@ -1348,7 +1400,7 @@ block|}
 comment|/** 	 * Get the Rating property value 	 *  	 * @return the Rating value 	 */
 specifier|public
 name|Integer
-name|getRatingValue
+name|getRating
 parameter_list|()
 block|{
 name|IntegerType
@@ -1385,7 +1437,7 @@ name|List
 argument_list|<
 name|ThumbnailType
 argument_list|>
-name|getThumbnails
+name|getThumbnailsProperty
 parameter_list|()
 throws|throws
 name|BadFieldValueException

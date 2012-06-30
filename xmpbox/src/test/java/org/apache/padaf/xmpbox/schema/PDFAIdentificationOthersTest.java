@@ -159,14 +159,14 @@ argument_list|)
 expr_stmt|;
 name|pdfaid
 operator|.
-name|setAmdValue
+name|setAmd
 argument_list|(
 name|amdId
 argument_list|)
 expr_stmt|;
 name|pdfaid
 operator|.
-name|setConformanceValue
+name|setConformance
 argument_list|(
 name|conformance
 argument_list|)
@@ -179,7 +179,7 @@ name|versionId
 argument_list|,
 name|pdfaid
 operator|.
-name|getPartValue
+name|getPart
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -191,7 +191,7 @@ name|amdId
 argument_list|,
 name|pdfaid
 operator|.
-name|getAmendmentValue
+name|getAmendment
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -203,7 +203,7 @@ name|conformance
 argument_list|,
 name|pdfaid
 operator|.
-name|getConformanceValue
+name|getConformance
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -217,7 +217,7 @@ name|versionId
 argument_list|,
 name|pdfaid
 operator|.
-name|getPart
+name|getPartProperty
 argument_list|()
 operator|.
 name|getStringValue
@@ -232,7 +232,7 @@ name|amdId
 argument_list|,
 name|pdfaid
 operator|.
-name|getAmd
+name|getAmdProperty
 argument_list|()
 operator|.
 name|getStringValue
@@ -247,7 +247,7 @@ name|conformance
 argument_list|,
 name|pdfaid
 operator|.
-name|getConformance
+name|getConformanceProperty
 argument_list|()
 operator|.
 name|getStringValue
@@ -300,7 +300,7 @@ literal|"kiohiohiohiohio"
 decl_stmt|;
 name|pdfaid
 operator|.
-name|setConformanceValue
+name|setConformance
 argument_list|(
 name|conformance
 argument_list|)
