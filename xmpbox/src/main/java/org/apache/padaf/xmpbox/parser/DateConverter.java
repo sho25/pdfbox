@@ -950,7 +950,9 @@ literal|null
 condition|)
 block|{
 comment|// we didn't find a valid date format so throw an exception
-throw|throw
+name|IOException
+name|ioe
+init|=
 operator|new
 name|IOException
 argument_list|(
@@ -958,6 +960,16 @@ literal|"Error converting date:"
 operator|+
 name|date
 argument_list|)
+decl_stmt|;
+name|ioe
+operator|.
+name|initCause
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|ioe
 throw|;
 block|}
 block|}

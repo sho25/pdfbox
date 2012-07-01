@@ -1964,6 +1964,9 @@ argument_list|()
 argument_list|,
 name|property
 argument_list|,
+operator|(
+name|String
+operator|)
 name|value
 argument_list|)
 decl_stmt|;

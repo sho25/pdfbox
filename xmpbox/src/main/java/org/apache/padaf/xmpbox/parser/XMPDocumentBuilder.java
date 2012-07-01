@@ -1450,6 +1450,8 @@ operator|new
 name|XmpParsingException
 argument_list|(
 literal|"XMP Stream did not end in a good way, invalid content"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1511,6 +1513,8 @@ operator|new
 name|XmpParsingException
 argument_list|(
 literal|"XMP Stream did not end in a good way, invalid content"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -3042,10 +3046,6 @@ name|nextTag
 argument_list|()
 expr_stmt|;
 block|}
-else|else
-block|{
-comment|// ?? TODO
-block|}
 block|}
 name|schema
 operator|.
@@ -3188,12 +3188,26 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-throw|throw
+name|StringBuilder
+name|message
+init|=
 operator|new
-name|XmpPropertyFormatException
+name|StringBuilder
+argument_list|(
+literal|50
+argument_list|)
+decl_stmt|;
+name|message
+operator|.
+name|append
 argument_list|(
 literal|"Unexpected value for '"
-operator|+
+argument_list|)
+expr_stmt|;
+name|message
+operator|.
+name|append
+argument_list|(
 name|reader
 operator|.
 name|get
@@ -3201,8 +3215,23 @@ argument_list|()
 operator|.
 name|getLocalName
 argument_list|()
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|"' property"
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|XmpPropertyFormatException
+argument_list|(
+name|message
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -4062,10 +4091,6 @@ operator|.
 name|nextTag
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// ?? TODO
 block|}
 block|}
 comment|// expectNextTag(XMLStreamReader.END_ELEMENT,"Expected element end");
