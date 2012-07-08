@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an interface to a text encoder.  *  * @author Ben Litchfield  * @version $Revision: 1.1 $  */
+comment|/**  * This is an interface to a text encoder.  *  * @author Ben Litchfield  * @version $Revision: 1.1 $  *   * @deprecated no longer needed by fontbox  *   */
 end_comment
 
 begin_class
