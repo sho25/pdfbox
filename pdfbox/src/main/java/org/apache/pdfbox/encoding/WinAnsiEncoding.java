@@ -1618,10 +1618,31 @@ operator|>
 literal|040
 condition|)
 block|{
-comment|/* 			 * According to the PDFReference Appendix D : 			 * In WinAnsiEncoding, all unused codes greater than 40 map to the bullet character.  			 * However, only code 0225 is specifically assigned to the bullet character; 			 * other codes are subject to future reassignment 			 */
+switch|switch
+condition|(
+name|code
+condition|)
+block|{
+case|case
+literal|0240
+case|:
+comment|/* 				 * The space character is also encoded as 0312 in MacRoman and 0240 in WinAnsi.  				 * The meaning of this duplicate code is "nonbreaking space" but it is  				 * typographically the same as space.  				 */
+return|return
+literal|"space"
+return|;
+case|case
+literal|0255
+case|:
+comment|/* 				 * The hyphen character is also encoded as 0255 in WinAnsi.  				 * The meaning of this duplicate code is "soft hyphen" but it is  				 * typographically the same as hyphen.  				 */
+return|return
+literal|"hyphen"
+return|;
+default|default:
+comment|/* 				 * According to the PDFReference Appendix D : 				 * In WinAnsiEncoding, all unused codes greater than 40 map to the bullet character.  				 * However, only code 0225 is specifically assigned to the bullet character; 				 * other codes are subject to future reassignment 				 */
 return|return
 literal|"bullet"
 return|;
+block|}
 block|}
 return|return
 name|codeToName
