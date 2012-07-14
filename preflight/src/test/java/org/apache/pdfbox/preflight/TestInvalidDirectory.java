@@ -185,6 +185,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|target
+argument_list|)
+expr_stmt|;
 name|PreflightParser
 name|parser
 init|=

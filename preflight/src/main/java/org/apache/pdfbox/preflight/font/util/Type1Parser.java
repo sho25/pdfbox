@@ -15,7 +15,7 @@ name|preflight
 operator|.
 name|font
 operator|.
-name|type1
+name|util
 package|;
 end_package
 

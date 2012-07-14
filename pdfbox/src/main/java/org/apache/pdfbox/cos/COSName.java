@@ -2405,6 +2405,18 @@ argument_list|(
 literal|"Length1"
 argument_list|)
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|LENGTH2
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Length2"
+argument_list|)
+decl_stmt|;
 comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static

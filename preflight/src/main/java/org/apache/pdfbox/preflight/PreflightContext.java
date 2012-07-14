@@ -111,7 +111,9 @@ name|preflight
 operator|.
 name|font
 operator|.
-name|AbstractFontContainer
+name|container
+operator|.
+name|FontContainer
 import|;
 end_import
 
@@ -176,16 +178,16 @@ name|Map
 argument_list|<
 name|COSBase
 argument_list|,
-name|AbstractFontContainer
+name|FontContainer
 argument_list|>
-name|embeddedFonts
+name|fontContainers
 init|=
 operator|new
 name|HashMap
 argument_list|<
 name|COSBase
 argument_list|,
-name|AbstractFontContainer
+name|FontContainer
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -380,18 +382,18 @@ block|}
 comment|/** 	 * Add a FontContainer to allow TextObject validation. 	 *  	 * @param fKey 	 * @param fc 	 */
 specifier|public
 name|void
-name|addFont
+name|addFontContainer
 parameter_list|(
 name|COSBase
 name|cBase
 parameter_list|,
-name|AbstractFontContainer
+name|FontContainer
 name|fc
 parameter_list|)
 block|{
 name|this
 operator|.
-name|embeddedFonts
+name|fontContainers
 operator|.
 name|put
 argument_list|(
@@ -401,10 +403,10 @@ name|fc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Return the FontContainer identified by the COSBase. If the given object 	 * is missing from the emmbeddedFont map, the null value is returned. 	 *  	 * @param fKey 	 * @return 	 */
+comment|/** 	 * Return the FontContainer identified by the COSBase. If the given object 	 * is missing from the {@link #fontContainers} map, the null value is returned. 	 *  	 * @param fKey 	 * @return 	 */
 specifier|public
-name|AbstractFontContainer
-name|getFont
+name|FontContainer
+name|getFontContainer
 parameter_list|(
 name|COSBase
 name|cBase
@@ -413,7 +415,7 @@ block|{
 return|return
 name|this
 operator|.
-name|embeddedFonts
+name|fontContainers
 operator|.
 name|get
 argument_list|(

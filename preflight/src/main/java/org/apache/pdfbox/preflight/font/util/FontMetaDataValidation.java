@@ -14,6 +14,8 @@ operator|.
 name|preflight
 operator|.
 name|font
+operator|.
+name|util
 package|;
 end_package
 
@@ -219,6 +221,22 @@ name|ValidationException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|font
+operator|.
+name|FontValidator
+import|;
+end_import
+
 begin_comment
 comment|/**  * Class used to validate the MetaData entry of the Font File Stream dictionary.  */
 end_comment
@@ -279,7 +297,7 @@ return|return
 name|ve
 return|;
 block|}
-comment|/** 	 * Value of the dc:title must be the same as the FontName in the font 	 * descriptor. 	 *  	 * @param metadata 	 *          XMPMetaData of the Font File Stream 	 * @param fontDesc 	 *          The FontDescriptor dictionary 	 * @param ve 	 *          the list of validation error to update if the validation fails 	 * @throws ValidationException 	 */
+comment|/** 	 * Value of the dc:title must be the same as the FontName in the font 	 * descriptor. 	 *  	 * @param metadata 	 *          XMPMetaData of the Font File Stream 	 * @param fontDesc 	 *          The FontDescriptor dictionary 	 * @param ve 	 *          the list of validation error to update if the validation fails 	 */
 specifier|public
 name|boolean
 name|analyseFontName
@@ -296,8 +314,6 @@ name|ValidationError
 argument_list|>
 name|ve
 parameter_list|)
-throws|throws
-name|ValidationException
 block|{
 name|String
 name|fontName
@@ -314,7 +330,7 @@ name|fontName
 decl_stmt|;
 if|if
 condition|(
-name|AbstractFontValidator
+name|FontValidator
 operator|.
 name|isSubSet
 argument_list|(
@@ -328,7 +344,7 @@ name|fontName
 operator|.
 name|split
 argument_list|(
-name|AbstractFontValidator
+name|FontValidator
 operator|.
 name|getSubSetPatternDelimiter
 argument_list|()
@@ -643,7 +659,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * If XMP MetaData are present, they must have followings information : 	 *<UL> 	 *<li>dc:rights 	 *<li>Marked (with the value true) 	 *<li>Owner 	 *<li>UsageTerms 	 *</UL> 	 *  	 * @param metadata 	 *          XMPMetaData of the Font File Stream 	 * @param fontDesc 	 *          The FontDescriptor dictionary 	 * @param ve 	 *          the list of validation error to update if the validation fails 	 * @throws ValidationException 	 */
+comment|/** 	 * If XMP MetaData are present, they must have followings information : 	 *<UL> 	 *<li>dc:rights 	 *<li>Marked (with the value true) 	 *<li>Owner 	 *<li>UsageTerms 	 *</UL> 	 *  	 * @param metadata 	 *          XMPMetaData of the Font File Stream 	 * @param fontDesc 	 *          The FontDescriptor dictionary 	 * @param ve 	 *          the list of validation error to update if the validation fails 	 */
 specifier|public
 name|boolean
 name|analyseRights
@@ -660,8 +676,6 @@ name|ValidationError
 argument_list|>
 name|ve
 parameter_list|)
-throws|throws
-name|ValidationException
 block|{
 name|DublinCoreSchema
 name|dc

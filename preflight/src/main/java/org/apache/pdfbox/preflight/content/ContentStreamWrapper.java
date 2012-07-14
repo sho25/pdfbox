@@ -45,22 +45,6 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ERROR_FONTS_FONT_FILEX_INVALID
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
 name|ERROR_FONTS_UNKNOWN_FONT_REF
 import|;
 end_import
@@ -383,7 +367,9 @@ name|preflight
 operator|.
 name|font
 operator|.
-name|AbstractFontContainer
+name|container
+operator|.
+name|FontContainer
 import|;
 end_import
 
@@ -399,23 +385,7 @@ name|preflight
 operator|.
 name|font
 operator|.
-name|AbstractFontContainer
-operator|.
-name|State
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|font
+name|util
 operator|.
 name|GlyphException
 import|;
@@ -1324,7 +1294,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// --- TextSize accessible through the TextState
+comment|// TextSize accessible through the TextState
 name|PDTextState
 name|textState
 init|=
@@ -1359,7 +1329,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// ---- Unable to decode the Text without Font
+comment|// Unable to decode the Text without Font
 name|throwContentStreamException
 argument_list|(
 literal|"Text operator can't be process without Font"
@@ -1368,12 +1338,12 @@ name|ERROR_FONTS_UNKNOWN_FONT_REF
 argument_list|)
 expr_stmt|;
 block|}
-name|AbstractFontContainer
+name|FontContainer
 name|fontContainer
 init|=
 name|context
 operator|.
-name|getFont
+name|getFontContainer
 argument_list|(
 name|font
 operator|.
@@ -1381,34 +1351,6 @@ name|getCOSObject
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|fontContainer
-operator|!=
-literal|null
-operator|&&
-name|fontContainer
-operator|.
-name|isValid
-argument_list|()
-operator|==
-name|State
-operator|.
-name|INVALID
-condition|)
-block|{
-name|context
-operator|.
-name|addValidationErrors
-argument_list|(
-name|fontContainer
-operator|.
-name|getErrors
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 if|if
 condition|(
 name|renderingMode
@@ -1423,7 +1365,7 @@ operator|||
 operator|!
 name|fontContainer
 operator|.
-name|isFontProgramEmbedded
+name|isEmbeddedFont
 argument_list|()
 operator|)
 condition|)
@@ -1431,6 +1373,7 @@ block|{
 comment|// font not embedded and rendering mode is 3. Valid case and nothing to check
 return|return ;
 block|}
+elseif|else
 if|if
 condition|(
 name|fontContainer
@@ -1438,7 +1381,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// ---- Font Must be embedded if the RenderingMode isn't 3
+comment|// Font Must be embedded if the RenderingMode isn't 3
 name|throwContentStreamException
 argument_list|(
 name|font
@@ -1452,25 +1395,37 @@ name|ERROR_FONTS_UNKNOWN_FONT_REF
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
 if|if
 condition|(
 operator|!
 name|fontContainer
 operator|.
-name|isFontProgramEmbedded
+name|isValid
+argument_list|()
+operator|&&
+operator|!
+name|fontContainer
+operator|.
+name|errorsAleadyMerged
 argument_list|()
 condition|)
 block|{
-name|throwContentStreamException
-argument_list|(
-name|font
+name|context
 operator|.
-name|getBaseFont
+name|addValidationErrors
+argument_list|(
+name|fontContainer
+operator|.
+name|getAllErrors
 argument_list|()
-operator|+
-literal|" isn't embedded and the rendering mode isn't 3"
-argument_list|,
-name|ERROR_FONTS_FONT_FILEX_INVALID
+argument_list|)
+expr_stmt|;
+name|fontContainer
+operator|.
+name|setErrorsAleadyMerged
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1497,6 +1452,7 @@ operator|+=
 name|codeLength
 control|)
 block|{
+comment|// explore the string to detect character code (length can be 1 or 2 bytes)
 name|int
 name|cid
 init|=
@@ -1509,6 +1465,7 @@ literal|1
 expr_stmt|;
 try|try
 block|{
+comment|// according to the encoding, extract the character identifier
 name|cid
 operator|=
 name|font
@@ -1575,7 +1532,7 @@ try|try
 block|{
 name|fontContainer
 operator|.
-name|checkCID
+name|checkGlyphWith
 argument_list|(
 name|cid
 argument_list|)
