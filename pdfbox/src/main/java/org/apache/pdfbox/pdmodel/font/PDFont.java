@@ -1448,6 +1448,19 @@ name|retval
 init|=
 literal|null
 decl_stmt|;
+comment|// there is not sourceCmap if this is a descendant font
+if|if
+condition|(
+name|sourceCmap
+operator|==
+literal|null
+condition|)
+block|{
+name|sourceCmap
+operator|=
+name|cmap
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|sourceCmap
