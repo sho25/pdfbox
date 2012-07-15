@@ -1704,7 +1704,7 @@ name|toUnicodeCmap
 operator|=
 name|parseCmap
 argument_list|(
-literal|null
+name|resourceRootCMAP
 argument_list|,
 operator|(
 operator|(
