@@ -807,16 +807,14 @@ operator|)
 name|xobject
 decl_stmt|;
 name|COSStream
-name|invoke
+name|formContentstream
 init|=
-operator|(
-name|COSStream
-operator|)
 name|form
 operator|.
-name|getCOSObject
+name|getCOSStream
 argument_list|()
 decl_stmt|;
+comment|// find some optional resources, instead of using the current resources
 name|PDResources
 name|pdResources
 init|=
@@ -825,23 +823,7 @@ operator|.
 name|getResources
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|pdResources
-operator|==
-literal|null
-condition|)
-block|{
-name|pdResources
-operator|=
-name|page
-operator|.
-name|findResources
-argument_list|()
-expr_stmt|;
-block|}
-comment|// if there is an optional form matrix, we have to
-comment|// map the form space to the user space
+comment|// if there is an optional form matrix, we have to map the form space to the user space
 name|Matrix
 name|matrix
 init|=
@@ -893,7 +875,7 @@ name|page
 argument_list|,
 name|pdResources
 argument_list|,
-name|invoke
+name|formContentstream
 argument_list|)
 expr_stmt|;
 comment|// restore the graphics state
