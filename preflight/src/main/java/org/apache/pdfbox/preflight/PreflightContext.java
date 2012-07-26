@@ -219,6 +219,13 @@ name|iccProfileWrapper
 init|=
 literal|null
 decl_stmt|;
+comment|/** 	 *  	 */
+specifier|protected
+name|boolean
+name|iccProfileAlreadySearched
+init|=
+literal|false
+decl_stmt|;
 comment|/** 	 * MetaData of the current pdf file.  	 */
 specifier|protected
 name|XMPMetadata
@@ -575,6 +582,30 @@ operator|.
 name|validationPath
 operator|=
 name|validationPath
+expr_stmt|;
+block|}
+specifier|public
+name|boolean
+name|isIccProfileAlreadySearched
+parameter_list|()
+block|{
+return|return
+name|iccProfileAlreadySearched
+return|;
+block|}
+specifier|public
+name|void
+name|setIccProfileAlreadySearched
+parameter_list|(
+name|boolean
+name|iccProfileAlreadySearched
+parameter_list|)
+block|{
+name|this
+operator|.
+name|iccProfileAlreadySearched
+operator|=
+name|iccProfileAlreadySearched
 expr_stmt|;
 block|}
 block|}

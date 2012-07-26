@@ -80,12 +80,12 @@ name|PdfElementParser
 extends|extends
 name|BaseParser
 block|{
-comment|/**    * Create the PDFElementParser object.    *     * @param cd    *          a COSDocument which will be used to parse the byte array    * @param input    *          the byte array to parse    * @throws IOException    */
+comment|/**    * Create the PDFElementParser object.    *     * @param cosDocument    *          a COSDocument which will be used to parse the byte array    * @param input    *          the byte array to parse    * @throws IOException    */
 specifier|public
 name|PdfElementParser
 parameter_list|(
 name|COSDocument
-name|cd
+name|cosDocument
 parameter_list|,
 name|byte
 index|[]
@@ -103,7 +103,7 @@ name|this
 operator|.
 name|document
 operator|=
-name|cd
+name|cosDocument
 expr_stmt|;
 block|}
 comment|/**    * Parse the input byte array of the constructor call as a COSDictionary.    *     * @return a COSDictionary if the parsing succeed.    * @throws IOException    *           If the byte array isn't a COSDictionary or if there are an error    *           on the stream parsing    */

@@ -229,6 +229,8 @@ specifier|protected
 name|boolean
 name|checkIColors
 parameter_list|()
+throws|throws
+name|ValidationException
 block|{
 if|if
 condition|(

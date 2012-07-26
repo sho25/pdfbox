@@ -218,7 +218,7 @@ specifier|public
 specifier|static
 specifier|final
 name|Logger
-name|logger
+name|LOGGER
 init|=
 name|Logger
 operator|.
@@ -1613,7 +1613,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|logger
+name|LOGGER
 operator|.
 name|warn
 argument_list|(

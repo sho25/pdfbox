@@ -1617,7 +1617,7 @@ block|}
 comment|/**    * Return a validationError formatted when a schema has not the expected    * prefix    *     * @param prefFound    * @param prefExpected    * @param schema    * @return    */
 specifier|protected
 name|ValidationError
-name|UnexpectedPrefixFoundError
+name|unexpectedPrefixFoundError
 parameter_list|(
 name|String
 name|prefFound

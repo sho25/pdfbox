@@ -262,7 +262,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-specifier|protected
+specifier|private
 name|void
 name|initConfiguration
 parameter_list|(
@@ -474,6 +474,15 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+specifier|public
+name|Format
+name|getSpecification
+parameter_list|()
+block|{
+return|return
+name|specification
+return|;
 block|}
 block|}
 end_class

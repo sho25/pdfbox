@@ -471,17 +471,6 @@ name|pdcs
 operator|=
 name|_cs
 expr_stmt|;
-name|this
-operator|.
-name|iccpw
-operator|=
-name|this
-operator|.
-name|context
-operator|.
-name|getIccProfileWrapper
-argument_list|()
-expr_stmt|;
 block|}
 comment|/* 	 * (non-Javadoc) 	 *  	 * @see 	 * net.awl.edoc.pdfa.validation.graphics.color.ColorSpaceHelper#validate(java 	 * .util.List) 	 */
 specifier|public
@@ -507,6 +496,17 @@ literal|"Unable to create a PDColorSpace with the value null"
 argument_list|)
 throw|;
 block|}
+name|this
+operator|.
+name|iccpw
+operator|=
+name|ICCProfileWrapper
+operator|.
+name|getOrSearchICCProfile
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 name|processAllColorSpace
 argument_list|(
 name|pdcs

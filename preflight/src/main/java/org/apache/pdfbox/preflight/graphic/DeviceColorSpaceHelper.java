@@ -228,7 +228,7 @@ name|getBaseColorSpace
 argument_list|()
 decl_stmt|;
 name|ColorSpaces
-name|cs
+name|colorSpace
 init|=
 name|ColorSpaces
 operator|.
@@ -242,7 +242,7 @@ argument_list|)
 decl_stmt|;
 switch|switch
 condition|(
-name|cs
+name|colorSpace
 condition|)
 block|{
 case|case
@@ -263,7 +263,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_FORBIDDEN
 argument_list|,
-name|cs
+name|colorSpace
 operator|.
 name|getLabel
 argument_list|()

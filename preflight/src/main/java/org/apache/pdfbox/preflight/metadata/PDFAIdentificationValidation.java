@@ -250,7 +250,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|UnexpectedPrefixFoundError
+name|unexpectedPrefixFoundError
 argument_list|(
 name|id
 operator|.
@@ -320,7 +320,7 @@ block|}
 comment|/**    * Return a validationError formatted when a schema has not the expected    * prefix    *     * @param prefFound    * @param prefExpected    * @param schema    * @return    */
 specifier|protected
 name|ValidationError
-name|UnexpectedPrefixFoundError
+name|unexpectedPrefixFoundError
 parameter_list|(
 name|String
 name|prefFound

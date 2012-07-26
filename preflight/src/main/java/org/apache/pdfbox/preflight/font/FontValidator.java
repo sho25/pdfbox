@@ -133,7 +133,7 @@ specifier|private
 specifier|static
 specifier|final
 name|String
-name|subSetPattern
+name|SUB_SET_PATTERN
 init|=
 literal|"^[A-Z]{6}\\+.*"
 decl_stmt|;
@@ -200,7 +200,7 @@ name|fontName
 operator|.
 name|matches
 argument_list|(
-name|subSetPattern
+name|SUB_SET_PATTERN
 argument_list|)
 return|;
 block|}
