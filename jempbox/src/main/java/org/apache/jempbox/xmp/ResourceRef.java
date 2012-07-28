@@ -86,7 +86,9 @@ name|parent
 operator|.
 name|setAttributeNS
 argument_list|(
-literal|"http://ns.adobe.com/xap/1.0/sType/ResourceRef#"
+name|XMPSchema
+operator|.
+name|NS_NAMESPACE
 argument_list|,
 literal|"xmlns:stRef"
 argument_list|,
