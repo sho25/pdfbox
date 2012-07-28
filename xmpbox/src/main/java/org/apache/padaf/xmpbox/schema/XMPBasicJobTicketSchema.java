@@ -111,7 +111,7 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|ComplexProperty
+name|ArrayProperty
 import|;
 end_import
 
@@ -128,6 +128,22 @@ operator|.
 name|type
 operator|.
 name|JobType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|padaf
+operator|.
+name|xmpbox
+operator|.
+name|type
+operator|.
+name|PropertyType
 import|;
 end_import
 
@@ -170,7 +186,7 @@ init|=
 literal|"JobRef"
 decl_stmt|;
 specifier|private
-name|ComplexProperty
+name|ArrayProperty
 name|bagJobs
 decl_stmt|;
 specifier|public
@@ -333,7 +349,7 @@ block|{
 name|bagJobs
 operator|=
 operator|new
-name|ComplexProperty
+name|ArrayProperty
 argument_list|(
 name|getMetadata
 argument_list|()
@@ -345,7 +361,7 @@ argument_list|()
 argument_list|,
 name|JOB_REF
 argument_list|,
-name|ComplexProperty
+name|ArrayProperty
 operator|.
 name|UNORDERED_ARRAY
 argument_list|)

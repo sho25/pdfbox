@@ -78,7 +78,7 @@ name|String
 argument_list|>
 name|getArrayListToString
 parameter_list|(
-name|ComplexProperty
+name|ArrayProperty
 name|array
 parameter_list|)
 block|{

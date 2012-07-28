@@ -181,7 +181,7 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|ComplexProperty
+name|ArrayProperty
 import|;
 end_import
 
@@ -676,7 +676,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ComplexProperty
+name|ArrayProperty
 name|copyrights
 init|=
 name|dc

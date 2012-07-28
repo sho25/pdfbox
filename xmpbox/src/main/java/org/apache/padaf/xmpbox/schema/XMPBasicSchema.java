@@ -121,7 +121,7 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|ComplexProperty
+name|ArrayProperty
 import|;
 end_import
 
@@ -154,6 +154,22 @@ operator|.
 name|type
 operator|.
 name|IntegerType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|padaf
+operator|.
+name|xmpbox
+operator|.
+name|type
+operator|.
+name|PropertyType
 import|;
 end_import
 
@@ -398,7 +414,7 @@ init|=
 literal|"Thumbnails"
 decl_stmt|;
 specifier|private
-name|ComplexProperty
+name|ArrayProperty
 name|altThumbs
 decl_stmt|;
 comment|/** 	 * Constructor of XMPBasic schema with preferred prefix 	 *  	 * @param metadata 	 *            The metadata to attach this schema 	 */
@@ -468,7 +484,7 @@ block|{
 name|altThumbs
 operator|=
 operator|new
-name|ComplexProperty
+name|ArrayProperty
 argument_list|(
 name|getMetadata
 argument_list|()
@@ -480,7 +496,7 @@ argument_list|()
 argument_list|,
 name|THUMBNAILS
 argument_list|,
-name|ComplexProperty
+name|ArrayProperty
 operator|.
 name|ALTERNATIVE_ARRAY
 argument_list|)
@@ -953,13 +969,13 @@ expr_stmt|;
 block|}
 comment|/** 	 * Get the Advisory property 	 *  	 * @return the advisory property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getAdvisoryProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1148,13 +1164,13 @@ return|;
 block|}
 comment|/** 	 * Get the Identifier property 	 *  	 * @return the Identifier property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getIdentifiersProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(

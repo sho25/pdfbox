@@ -243,6 +243,22 @@ name|xmpbox
 operator|.
 name|schema
 operator|.
+name|NSMapping
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|padaf
+operator|.
+name|xmpbox
+operator|.
+name|schema
+operator|.
 name|PDFAExtensionSchema
 import|;
 end_import
@@ -387,7 +403,7 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|ComplexProperty
+name|ArrayProperty
 import|;
 end_import
 
@@ -2642,7 +2658,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-name|ComplexProperty
+name|ArrayProperty
 operator|.
 name|UNORDERED_ARRAY
 argument_list|,
@@ -3111,7 +3127,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-name|ComplexProperty
+name|ArrayProperty
 operator|.
 name|ORDERED_ARRAY
 argument_list|,
@@ -3466,7 +3482,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-name|ComplexProperty
+name|ArrayProperty
 operator|.
 name|ORDERED_ARRAY
 argument_list|,
@@ -3772,7 +3788,7 @@ name|XMLStreamReader
 operator|.
 name|START_ELEMENT
 argument_list|,
-name|ComplexProperty
+name|ArrayProperty
 operator|.
 name|ORDERED_ARRAY
 argument_list|,
@@ -4773,11 +4789,11 @@ name|XmpUnknownPropertyTypeException
 throws|,
 name|XmpPropertyFormatException
 block|{
-name|ComplexProperty
+name|ArrayProperty
 name|cp
 init|=
 operator|new
-name|ComplexProperty
+name|ArrayProperty
 argument_list|(
 name|metadata
 argument_list|,
@@ -4940,11 +4956,11 @@ name|XmpUnknownPropertyTypeException
 throws|,
 name|XmpPropertyFormatException
 block|{
-name|ComplexProperty
+name|ArrayProperty
 name|cp
 init|=
 operator|new
-name|ComplexProperty
+name|ArrayProperty
 argument_list|(
 name|metadata
 argument_list|,
@@ -5132,7 +5148,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|ComplexProperty
+name|ArrayProperty
 operator|.
 name|ALTERNATIVE_ARRAY
 argument_list|,
@@ -5555,7 +5571,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|ComplexProperty
+name|ArrayProperty
 operator|.
 name|ORDERED_ARRAY
 argument_list|)
@@ -5866,7 +5882,7 @@ name|metadata
 argument_list|,
 name|propertyName
 argument_list|,
-name|ComplexProperty
+name|ArrayProperty
 operator|.
 name|ALTERNATIVE_ARRAY
 argument_list|,

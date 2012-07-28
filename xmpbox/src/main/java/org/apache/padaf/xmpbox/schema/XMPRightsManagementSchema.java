@@ -69,7 +69,23 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|ComplexProperty
+name|ArrayProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|padaf
+operator|.
+name|xmpbox
+operator|.
+name|type
+operator|.
+name|PropertyType
 import|;
 end_import
 
@@ -281,13 +297,13 @@ expr_stmt|;
 block|}
 comment|/** 	 * Return the Bag of owner(s) 	 *  	 * @return owners property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getOwnersProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -473,13 +489,13 @@ expr_stmt|;
 block|}
 comment|/** 	 * Return the Lang alt UsageTerms 	 *  	 * @return usageterms property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getUsageTermsProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(

@@ -123,22 +123,6 @@ name|xmpbox
 operator|.
 name|schema
 operator|.
-name|PropertyType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|padaf
-operator|.
-name|xmpbox
-operator|.
-name|schema
-operator|.
 name|SchemaDescription
 import|;
 end_import
@@ -156,6 +140,22 @@ operator|.
 name|schema
 operator|.
 name|SchemaExtensionDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|padaf
+operator|.
+name|xmpbox
+operator|.
+name|schema
+operator|.
+name|ValueTypeDescription
 import|;
 end_import
 
@@ -219,7 +219,7 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|ValueTypeDescription
+name|PropertyType
 import|;
 end_import
 

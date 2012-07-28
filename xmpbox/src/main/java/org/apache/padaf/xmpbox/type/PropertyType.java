@@ -13,7 +13,7 @@ name|padaf
 operator|.
 name|xmpbox
 operator|.
-name|schema
+name|type
 package|;
 end_package
 

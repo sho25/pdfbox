@@ -131,6 +131,22 @@ name|XmpSchemaException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|padaf
+operator|.
+name|xmpbox
+operator|.
+name|type
+operator|.
+name|PropertyType
+import|;
+end_import
+
 begin_class
 specifier|public
 specifier|final

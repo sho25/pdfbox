@@ -13,7 +13,7 @@ name|padaf
 operator|.
 name|xmpbox
 operator|.
-name|type
+name|schema
 package|;
 end_package
 
@@ -48,22 +48,6 @@ operator|.
 name|xmpbox
 operator|.
 name|XMPMetadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|padaf
-operator|.
-name|xmpbox
-operator|.
-name|schema
-operator|.
-name|PDFAFieldDescription
 import|;
 end_import
 

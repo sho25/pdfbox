@@ -103,7 +103,7 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|ComplexProperty
+name|ArrayProperty
 import|;
 end_import
 
@@ -1139,17 +1139,17 @@ name|assertTrue
 argument_list|(
 name|ocp
 operator|instanceof
-name|ComplexProperty
+name|ArrayProperty
 argument_list|)
 expr_stmt|;
 end_expr_stmt
 
 begin_decl_stmt
-name|ComplexProperty
+name|ArrayProperty
 name|cp
 init|=
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|ocp
 decl_stmt|;

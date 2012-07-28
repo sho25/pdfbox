@@ -63,7 +63,7 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|ComplexProperty
+name|ArrayProperty
 import|;
 end_import
 
@@ -80,6 +80,22 @@ operator|.
 name|type
 operator|.
 name|MIMEType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|padaf
+operator|.
+name|xmpbox
+operator|.
+name|type
+operator|.
+name|PropertyType
 import|;
 end_import
 
@@ -999,13 +1015,13 @@ expr_stmt|;
 block|}
 comment|/** 	 * Return the Bag of contributor(s) 	 *  	 * @return Contributor property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getContributorsProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1077,13 +1093,13 @@ return|;
 block|}
 comment|/** 	 * Return the Sequence of contributor(s) 	 *  	 * @return Creator property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getCreatorsProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1109,13 +1125,13 @@ return|;
 block|}
 comment|/** 	 * Return the sequence of date(s) 	 *  	 * @return date property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getDatesProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1141,13 +1157,13 @@ return|;
 block|}
 comment|/** 	 * Return the Lang alt Description 	 *  	 * @return Description property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getDescriptionProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1296,13 +1312,13 @@ return|;
 block|}
 comment|/** 	 * Return the bag DC language 	 *  	 * @return language property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getLanguagesProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1328,13 +1344,13 @@ return|;
 block|}
 comment|/** 	 * Return the bag DC publisher 	 *  	 * @return publisher property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getPublishersProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1360,13 +1376,13 @@ return|;
 block|}
 comment|/** 	 * Return the bag DC relation 	 *  	 * @return relation property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getRelationsProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1408,13 +1424,13 @@ return|;
 block|}
 comment|/** 	 * Return the Lang alt Rights 	 *  	 * @return rights property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getRightsProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1517,13 +1533,13 @@ return|;
 block|}
 comment|/** 	 * Return the bag DC Subject 	 *       * @return the subject property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getSubjectsProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1549,13 +1565,13 @@ return|;
 block|}
 comment|/** 	 * Return the Lang alt Title 	 *  	 * @return the title property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getTitleProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1612,13 +1628,13 @@ return|;
 block|}
 comment|/** 	 * Return the bag DC Type 	 *  	 * @return the type property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getTypesProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(

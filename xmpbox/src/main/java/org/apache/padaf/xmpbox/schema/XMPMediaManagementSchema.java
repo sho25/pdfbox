@@ -69,7 +69,23 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|ComplexProperty
+name|ArrayProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|padaf
+operator|.
+name|xmpbox
+operator|.
+name|type
+operator|.
+name|PropertyType
 import|;
 end_import
 
@@ -1379,13 +1395,13 @@ expr_stmt|;
 block|}
 comment|/** 	 * Get Versions property 	 *  	 * @return version property to set 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getVersionsProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1438,13 +1454,13 @@ expr_stmt|;
 block|}
 comment|/** 	 * Get History Property 	 *  	 * @return History Property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getHistoryProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(
@@ -1504,13 +1520,13 @@ expr_stmt|;
 block|}
 comment|/** 	 * . Get Ingredients Property 	 *  	 * @return Ingredients property 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 name|getIngredientsProperty
 parameter_list|()
 block|{
 return|return
 operator|(
-name|ComplexProperty
+name|ArrayProperty
 operator|)
 name|getUnqualifiedProperty
 argument_list|(

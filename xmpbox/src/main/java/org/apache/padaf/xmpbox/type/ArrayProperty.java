@@ -38,7 +38,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|ComplexProperty
+name|ArrayProperty
 extends|extends
 name|AbstractField
 block|{
@@ -72,7 +72,7 @@ name|container
 decl_stmt|;
 comment|/** 	 * Contructor of a complex property 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param namespace 	 *            The namespace URI to associate to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 * @param type 	 *            type of complexProperty (Bag, Seq, Alt) 	 */
 specifier|public
-name|ComplexProperty
+name|ArrayProperty
 parameter_list|(
 name|XMPMetadata
 name|metadata

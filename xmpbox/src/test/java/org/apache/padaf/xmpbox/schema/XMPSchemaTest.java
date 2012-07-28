@@ -179,7 +179,7 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|ComplexProperty
+name|ArrayProperty
 import|;
 end_import
 
@@ -449,11 +449,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ComplexProperty
+name|ArrayProperty
 name|newSeq
 init|=
 operator|new
-name|ComplexProperty
+name|ArrayProperty
 argument_list|(
 name|parent
 argument_list|,
@@ -463,7 +463,7 @@ literal|"nsSchem"
 argument_list|,
 literal|"seqType"
 argument_list|,
-name|ComplexProperty
+name|ArrayProperty
 operator|.
 name|ORDERED_ARRAY
 argument_list|)

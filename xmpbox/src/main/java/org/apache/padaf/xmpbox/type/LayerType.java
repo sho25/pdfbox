@@ -45,22 +45,6 @@ name|XmpConstants
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|padaf
-operator|.
-name|xmpbox
-operator|.
-name|schema
-operator|.
-name|PropertyType
-import|;
-end_import
-
 begin_class
 specifier|public
 class|class

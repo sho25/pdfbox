@@ -87,7 +87,7 @@ name|padaf
 operator|.
 name|xmpbox
 operator|.
-name|type
+name|schema
 operator|.
 name|FieldDescription
 import|;
@@ -103,7 +103,7 @@ name|padaf
 operator|.
 name|xmpbox
 operator|.
-name|type
+name|schema
 operator|.
 name|ValueTypeDescription
 import|;

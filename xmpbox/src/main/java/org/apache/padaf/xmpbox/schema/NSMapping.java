@@ -13,7 +13,7 @@ name|padaf
 operator|.
 name|xmpbox
 operator|.
-name|parser
+name|schema
 package|;
 end_package
 
@@ -95,9 +95,9 @@ name|padaf
 operator|.
 name|xmpbox
 operator|.
-name|schema
+name|parser
 operator|.
-name|PDFAFieldDescription
+name|PropMapping
 import|;
 end_import
 
@@ -111,9 +111,9 @@ name|padaf
 operator|.
 name|xmpbox
 operator|.
-name|schema
+name|parser
 operator|.
-name|PDFAPropertyDescription
+name|XMPSchemaFactory
 import|;
 end_import
 
@@ -127,9 +127,9 @@ name|padaf
 operator|.
 name|xmpbox
 operator|.
-name|schema
+name|parser
 operator|.
-name|PDFAValueTypeDescription
+name|XmpSchemaException
 import|;
 end_import
 
@@ -143,41 +143,9 @@ name|padaf
 operator|.
 name|xmpbox
 operator|.
-name|schema
+name|parser
 operator|.
-name|SchemaDescription
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|padaf
-operator|.
-name|xmpbox
-operator|.
-name|schema
-operator|.
-name|SchemaMapping
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|padaf
-operator|.
-name|xmpbox
-operator|.
-name|schema
-operator|.
-name|XMPSchema
+name|XmpUnknownValueTypeException
 import|;
 end_import
 
