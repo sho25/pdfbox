@@ -1260,6 +1260,15 @@ name|transformer
 operator|.
 name|setOutputProperty
 argument_list|(
+literal|"{http://xml.apache.org/xslt}indent-amount"
+argument_list|,
+literal|"2"
+argument_list|)
+expr_stmt|;
+name|transformer
+operator|.
+name|setOutputProperty
+argument_list|(
 name|OutputKeys
 operator|.
 name|ENCODING
@@ -1414,7 +1423,7 @@ name|getBytes
 argument_list|()
 return|;
 block|}
-comment|// TODO : remove this in java 6 (when constructor with message and cause will be added)
+comment|// XXX : remove this in java 6 (when constructor with message and cause will be added)
 specifier|private
 specifier|static
 name|IOException
