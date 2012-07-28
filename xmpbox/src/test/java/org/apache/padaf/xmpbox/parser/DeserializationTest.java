@@ -1117,7 +1117,7 @@ literal|"/9j/4AAQSkZJRgABAgEASABIAAD"
 argument_list|,
 name|thumb
 operator|.
-name|getImg
+name|getImage
 argument_list|()
 argument_list|)
 expr_stmt|;

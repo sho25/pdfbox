@@ -95,18 +95,18 @@ name|class
 argument_list|)
 specifier|public
 class|class
-name|DublinCoreTest
+name|PhotoshopSchemaTest
 extends|extends
 name|AbstractSchemaTester
 block|{
 specifier|protected
-name|DublinCoreSchema
+name|PhotoshopSchema
 name|schema
 init|=
 literal|null
 decl_stmt|;
 specifier|public
-name|DublinCoreSchema
+name|PhotoshopSchema
 name|getSchema
 parameter_list|()
 block|{
@@ -132,12 +132,12 @@ name|schema
 operator|=
 name|xmp
 operator|.
-name|createAndAddDublinCoreSchema
+name|createAndAddPhotoshopSchema
 argument_list|()
 expr_stmt|;
 block|}
 specifier|public
-name|DublinCoreTest
+name|PhotoshopSchemaTest
 parameter_list|(
 name|String
 name|fieldName
@@ -196,16 +196,18 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|"contributor"
+literal|"AncestorID"
 block|,
-literal|"ProperName"
+literal|"URI"
 block|,
 name|Cardinality
 operator|.
-name|Bag
+name|Simple
 block|}
 argument_list|)
 expr_stmt|;
+comment|//    	result.add(new Object [] {"LayerName","Text",Cardinality.Simple}); TODO TEST missing in schema
+comment|//    	result.add(new Object [] {"LayerText","Text",Cardinality.Simple}); TODO TEST missing in schema
 name|result
 operator|.
 name|add
@@ -214,7 +216,7 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|"coverage"
+literal|"AuthorsPosition"
 block|,
 literal|"Text"
 block|,
@@ -232,13 +234,13 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|"creator"
+literal|"CaptionWriter"
 block|,
 literal|"ProperName"
 block|,
 name|Cardinality
 operator|.
-name|Seq
+name|Simple
 block|}
 argument_list|)
 expr_stmt|;
@@ -250,35 +252,107 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|"date"
+literal|"Category"
+block|,
+literal|"Text"
+block|,
+name|Cardinality
+operator|.
+name|Simple
+block|}
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|"City"
+block|,
+literal|"Text"
+block|,
+name|Cardinality
+operator|.
+name|Simple
+block|}
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|"ColorMode"
+block|,
+literal|"Integer"
+block|,
+name|Cardinality
+operator|.
+name|Simple
+block|}
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|"Country"
+block|,
+literal|"Text"
+block|,
+name|Cardinality
+operator|.
+name|Simple
+block|}
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|"Credit"
+block|,
+literal|"Text"
+block|,
+name|Cardinality
+operator|.
+name|Simple
+block|}
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|"DateCreated"
 block|,
 literal|"Date"
 block|,
 name|Cardinality
 operator|.
-name|Seq
-block|}
-argument_list|)
-expr_stmt|;
-comment|// description TODO TEST lang alt
-name|result
-operator|.
-name|add
-argument_list|(
-operator|new
-name|Object
-index|[]
-block|{
-literal|"format"
-block|,
-literal|"MIMEType"
-block|,
-name|Cardinality
-operator|.
 name|Simple
 block|}
 argument_list|)
 expr_stmt|;
+comment|// DocumentAncestors TODO TEST bag Ancestor
 name|result
 operator|.
 name|add
@@ -287,7 +361,7 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|"identifier"
+literal|"Headline"
 block|,
 literal|"Text"
 block|,
@@ -305,62 +379,7 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|"language"
-block|,
-literal|"Locale"
-block|,
-name|Cardinality
-operator|.
-name|Bag
-block|}
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|add
-argument_list|(
-operator|new
-name|Object
-index|[]
-block|{
-literal|"publisher"
-block|,
-literal|"ProperName"
-block|,
-name|Cardinality
-operator|.
-name|Bag
-block|}
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|add
-argument_list|(
-operator|new
-name|Object
-index|[]
-block|{
-literal|"relation"
-block|,
-literal|"Text"
-block|,
-name|Cardinality
-operator|.
-name|Bag
-block|}
-argument_list|)
-expr_stmt|;
-comment|// rights TODO TEST lang alt
-name|result
-operator|.
-name|add
-argument_list|(
-operator|new
-name|Object
-index|[]
-block|{
-literal|"source"
+literal|"History"
 block|,
 literal|"Text"
 block|,
@@ -378,17 +397,16 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|"subject"
+literal|"ICCProfile"
 block|,
 literal|"Text"
 block|,
 name|Cardinality
 operator|.
-name|Bag
+name|Simple
 block|}
 argument_list|)
 expr_stmt|;
-comment|// title TODO TEST lang alt
 name|result
 operator|.
 name|add
@@ -397,7 +415,61 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|"type"
+literal|"Instructions"
+block|,
+literal|"Text"
+block|,
+name|Cardinality
+operator|.
+name|Simple
+block|}
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|"Source"
+block|,
+literal|"Text"
+block|,
+name|Cardinality
+operator|.
+name|Simple
+block|}
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|"State"
+block|,
+literal|"Text"
+block|,
+name|Cardinality
+operator|.
+name|Simple
+block|}
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|"SupplementalCategories"
 block|,
 literal|"Text"
 block|,
@@ -407,56 +479,48 @@ name|Bag
 block|}
 argument_list|)
 expr_stmt|;
-comment|//		List<Object[]> data = new ArrayList<Object[]>();
-comment|//		data.add(wrapProperty("contributor", "bag Text", new String[] {
-comment|//				"contri 1", "contri 2" }));
-comment|//		data.add(wrapProperty("coverage", "Text", "scope of the resource"));
-comment|//		data.add(wrapProperty("creator", "seq Text", new String[] {
-comment|//				"creator 1", "creator 2", "creator 3" }));
-comment|//		data.add(wrapProperty("date", "seq Date", new Calendar[] { Calendar
-comment|//				.getInstance() }));
-comment|//
-comment|//		Map<String, String> desc = new HashMap<String, String>(2);
-comment|//		desc.put("fr", "en français");
-comment|//		desc.put("en", "in english");
-comment|//		data.add(wrapProperty("description", "Lang Alt", desc));
-comment|//
-comment|//		data.add(wrapProperty("format", "Text", "text/html"));
-comment|//		data.add(wrapProperty("identifier", "Text", "my id"));
-comment|//		data.add(wrapProperty("language", "bag Text", new String[] { "fr",
-comment|//				"en", "es" }));
-comment|//		data.add(wrapProperty("publisher", "bag Text", new String[] { "pub1",
-comment|//				"pub2" }));
-comment|//		data.add(wrapProperty("relation", "bag Text", new String[] { "rel1",
-comment|//				"relation 2" }));
-comment|//
-comment|//		Map<String, String> rights = new HashMap<String, String>(2);
-comment|//		rights.put("fr", "protégé");
-comment|//		rights.put("en", "protected");
-comment|//		data.add(wrapProperty("rights", "Lang Alt", rights));
-comment|//
-comment|//		data.add(wrapProperty("source", "Text", "my source"));
-comment|//		data.add(wrapProperty("subject", "bag Text", new String[] { "subj1",
-comment|//				"subj2" }));
-comment|//
-comment|//		Map<String, String> title = new HashMap<String, String>(2);
-comment|//		title.put("fr", "essai");
-comment|//		title.put("en", "test");
-comment|//		title.put("es", "prueba");
-comment|//		data.add(wrapProperty("title", "Lang Alt", title));
-comment|//
-comment|//		data.add(wrapProperty("type", "bag Text", new String[] { "text",
-comment|//				"test", "dummy" }));
-comment|//
-comment|//		return data;
+comment|// Layer TODO TEST structured type
+name|result
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|"TransmissionReference"
+block|,
+literal|"Text"
+block|,
+name|Cardinality
+operator|.
+name|Simple
+block|}
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|"Urgency"
+block|,
+literal|"Integer"
+block|,
+name|Cardinality
+operator|.
+name|Simple
+block|}
+argument_list|)
+expr_stmt|;
+comment|// TODO TEST camera raw
 return|return
 name|result
 return|;
 block|}
-comment|//
-comment|//	public DublinCoreTest(String property, String type, Object value) {
-comment|//		super(property, type, value);
-comment|//	}
 block|}
 end_class
 

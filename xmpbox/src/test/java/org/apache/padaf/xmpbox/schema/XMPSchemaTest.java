@@ -305,7 +305,7 @@ block|{
 name|String
 name|bagName
 init|=
-literal|"nsSchem:BAGTEST"
+literal|"BAGTEST"
 decl_stmt|;
 name|String
 name|value1
@@ -321,12 +321,16 @@ name|schem
 operator|.
 name|addBagValue
 argument_list|(
+literal|"nsSchem:"
+operator|+
 name|bagName
 argument_list|,
 operator|new
 name|TextType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"rdf"
 argument_list|,
@@ -338,7 +342,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|addBagValue
+name|addQualifiedBagValue
 argument_list|(
 name|bagName
 argument_list|,
@@ -353,7 +357,7 @@ name|values
 init|=
 name|schem
 operator|.
-name|getBagValueList
+name|getUnqualifiedBagValueList
 argument_list|(
 name|bagName
 argument_list|)
@@ -388,7 +392,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|removeBagValue
+name|removeUnqualifiedBagValue
 argument_list|(
 name|bagName
 argument_list|,
@@ -403,7 +407,7 @@ name|values2
 init|=
 name|schem
 operator|.
-name|getBagValueList
+name|getUnqualifiedBagValueList
 argument_list|(
 name|bagName
 argument_list|)
@@ -453,6 +457,8 @@ name|ComplexProperty
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"nsSchem"
 argument_list|,
 literal|"seqType"
@@ -470,6 +476,8 @@ name|TextType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"rdf"
 argument_list|,
 literal|"li"
@@ -484,6 +492,8 @@ operator|new
 name|TextType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"rdf"
 argument_list|,
@@ -527,9 +537,9 @@ name|list
 init|=
 name|schem
 operator|.
-name|getArrayList
+name|getUnqualifiedArrayList
 argument_list|(
-literal|"nsSchem:seqType"
+literal|"seqType"
 argument_list|)
 decl_stmt|;
 name|Assert
@@ -583,6 +593,8 @@ name|BooleanType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"rdf"
 argument_list|,
 literal|"li"
@@ -598,11 +610,11 @@ decl_stmt|;
 name|String
 name|seqName
 init|=
-literal|"nsSchem:SEQNAME"
+literal|"SEQNAME"
 decl_stmt|;
 name|schem
 operator|.
-name|addSequenceDateValue
+name|addUnqualifiedSequenceDateValue
 argument_list|(
 name|seqName
 argument_list|,
@@ -611,7 +623,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|addSequenceValue
+name|addUnqualifiedSequenceValue
 argument_list|(
 name|seqName
 argument_list|,
@@ -620,7 +632,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|addSequenceValue
+name|addUnqualifiedSequenceValue
 argument_list|(
 name|seqName
 argument_list|,
@@ -635,7 +647,7 @@ name|dates
 init|=
 name|schem
 operator|.
-name|getSequenceDateValueList
+name|getUnqualifiedSequenceDateValueList
 argument_list|(
 name|seqName
 argument_list|)
@@ -674,7 +686,7 @@ name|values
 init|=
 name|schem
 operator|.
-name|getSequenceValueList
+name|getUnqualifiedSequenceValueList
 argument_list|(
 name|seqName
 argument_list|)
@@ -744,7 +756,7 @@ expr_stmt|;
 comment|/* 		 * System.out.println("Seq Management :"); 		 * parent.getFuturOwner().appendChild(schem.getElement()); try { 		 * XMLUtil.save(parent.getFuturOwner(), System.out, "UTF-8"); } catch 		 * (TransformerException e) { 		 *  		 * e.printStackTrace(); } System.out.println("------------------"); 		 */
 name|schem
 operator|.
-name|removeSequenceDateValue
+name|removeUnqualifiedSequenceDateValue
 argument_list|(
 name|seqName
 argument_list|,
@@ -759,7 +771,7 @@ literal|0
 argument_list|,
 name|schem
 operator|.
-name|getSequenceDateValueList
+name|getUnqualifiedSequenceDateValueList
 argument_list|(
 name|seqName
 argument_list|)
@@ -770,7 +782,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|removeSequenceValue
+name|removeUnqualifiedSequenceValue
 argument_list|(
 name|seqName
 argument_list|,
@@ -779,7 +791,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|removeSequenceValue
+name|removeUnqualifiedSequenceValue
 argument_list|(
 name|seqName
 argument_list|,
@@ -794,7 +806,7 @@ literal|0
 argument_list|,
 name|schem
 operator|.
-name|getSequenceValueList
+name|getUnqualifiedSequenceValueList
 argument_list|(
 name|seqName
 argument_list|)
@@ -938,7 +950,7 @@ name|val
 argument_list|,
 name|schem
 operator|.
-name|getTextPropertyValueAsSimple
+name|getUnqualifiedTextPropertyValue
 argument_list|(
 name|prop
 argument_list|)
@@ -961,7 +973,7 @@ name|val2
 argument_list|,
 name|schem
 operator|.
-name|getTextPropertyValueAsSimple
+name|getUnqualifiedTextPropertyValue
 argument_list|(
 name|prop
 argument_list|)
@@ -982,7 +994,7 @@ name|assertNull
 argument_list|(
 name|schem
 operator|.
-name|getTextPropertyValueAsSimple
+name|getUnqualifiedTextProperty
 argument_list|(
 name|prop
 argument_list|)
@@ -1030,6 +1042,8 @@ name|TextType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 name|schem
 operator|.
 name|getPrefix
@@ -1055,7 +1069,7 @@ name|val2
 argument_list|,
 name|schem
 operator|.
-name|getTextPropertyValueAsSimple
+name|getUnqualifiedTextPropertyValue
 argument_list|(
 name|prop
 argument_list|)
@@ -1069,15 +1083,8 @@ name|text
 argument_list|,
 name|schem
 operator|.
-name|getTextProperty
+name|getUnqualifiedTextProperty
 argument_list|(
-name|schem
-operator|.
-name|getPrefix
-argument_list|()
-operator|+
-literal|":"
-operator|+
 name|prop
 argument_list|)
 argument_list|)
@@ -1204,7 +1211,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|setLanguagePropertyValueAsSimple
+name|setUnqualifiedLanguagePropertyValue
 argument_list|(
 name|langprop
 argument_list|,
@@ -1224,7 +1231,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|addSequenceValueAsSimple
+name|addUnqualifiedSequenceValue
 argument_list|(
 name|seqprop
 argument_list|,
@@ -1307,10 +1314,8 @@ name|langVal
 argument_list|,
 name|schem
 operator|.
-name|getLanguagePropertyValue
+name|getUnqualifiedLanguagePropertyValue
 argument_list|(
-name|prefSchem
-operator|+
 name|langprop
 argument_list|,
 name|lang
@@ -1323,10 +1328,8 @@ name|assertTrue
 argument_list|(
 name|schem
 operator|.
-name|getBagValueList
+name|getUnqualifiedBagValueList
 argument_list|(
-name|prefSchem
-operator|+
 name|bagprop
 argument_list|)
 operator|.
@@ -1342,10 +1345,8 @@ name|assertTrue
 argument_list|(
 name|schem
 operator|.
-name|getSequenceValueList
+name|getUnqualifiedSequenceValueList
 argument_list|(
-name|prefSchem
-operator|+
 name|seqprop
 argument_list|)
 operator|.
@@ -1361,10 +1362,8 @@ name|assertTrue
 argument_list|(
 name|schem
 operator|.
-name|getSequenceDateValueList
+name|getUnqualifiedSequenceDateValueList
 argument_list|(
-name|prefSchem
-operator|+
 name|seqdate
 argument_list|)
 operator|.
@@ -1380,10 +1379,8 @@ name|assertTrue
 argument_list|(
 name|schem
 operator|.
-name|getLanguagePropertyLanguagesValue
+name|getUnqualifiedLanguagePropertyLanguagesValue
 argument_list|(
-name|prefSchem
-operator|+
 name|langprop
 argument_list|)
 operator|.
@@ -1446,7 +1443,7 @@ name|langVal
 argument_list|,
 name|schem
 operator|.
-name|getLanguagePropertyValueAsSimple
+name|getUnqualifiedLanguagePropertyValue
 argument_list|(
 name|langprop
 argument_list|,
@@ -1460,7 +1457,7 @@ name|assertTrue
 argument_list|(
 name|schem
 operator|.
-name|getBagValueListAsSimple
+name|getUnqualifiedBagValueList
 argument_list|(
 name|bagprop
 argument_list|)
@@ -1477,7 +1474,7 @@ name|assertTrue
 argument_list|(
 name|schem
 operator|.
-name|getSequenceValueListAsSimple
+name|getUnqualifiedSequenceValueList
 argument_list|(
 name|seqprop
 argument_list|)
@@ -1494,7 +1491,7 @@ name|assertTrue
 argument_list|(
 name|schem
 operator|.
-name|getSequenceDateValueListAsSimple
+name|getUnqualifiedSequenceDateValueList
 argument_list|(
 name|seqdate
 argument_list|)
@@ -1511,7 +1508,7 @@ name|assertTrue
 argument_list|(
 name|schem
 operator|.
-name|getLanguagePropertyLanguagesValueAsSimple
+name|getUnqualifiedLanguagePropertyLanguagesValue
 argument_list|(
 name|langprop
 argument_list|)
@@ -1624,7 +1621,7 @@ expr_stmt|;
 name|String
 name|textProp
 init|=
-literal|"nsSchem:textProp"
+literal|"textProp"
 decl_stmt|;
 name|String
 name|textPropVal
@@ -1635,6 +1632,8 @@ name|schem
 operator|.
 name|setTextPropertyValue
 argument_list|(
+literal|"nsSchem:"
+operator|+
 name|textProp
 argument_list|,
 name|textPropVal
@@ -1648,7 +1647,7 @@ name|textPropVal
 argument_list|,
 name|schem
 operator|.
-name|getTextPropertyValue
+name|getUnqualifiedTextPropertyValue
 argument_list|(
 name|textProp
 argument_list|)
@@ -1661,6 +1660,8 @@ operator|new
 name|TextType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"nsSchem"
 argument_list|,
@@ -1684,9 +1685,9 @@ name|text
 argument_list|,
 name|schem
 operator|.
-name|getTextProperty
+name|getUnqualifiedTextProperty
 argument_list|(
-literal|"nsSchem:textType"
+literal|"textType"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1733,6 +1734,8 @@ operator|new
 name|DateType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"nsSchem"
 argument_list|,
@@ -1806,6 +1809,8 @@ name|BooleanType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"nsSchem"
 argument_list|,
 literal|"boolType"
@@ -1874,6 +1879,8 @@ operator|new
 name|IntegerType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"nsSchem"
 argument_list|,
@@ -1947,9 +1954,9 @@ try|try
 block|{
 name|schem
 operator|.
-name|getTextProperty
+name|getUnqualifiedTextProperty
 argument_list|(
-literal|"nsSchem:intType"
+literal|"intType"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2046,7 +2053,14 @@ block|{
 name|String
 name|altProp
 init|=
-literal|"nsSchem:AltProp"
+literal|"AltProp"
+decl_stmt|;
+name|String
+name|qaltProp
+init|=
+literal|"nsSchem:"
+operator|+
+name|altProp
 decl_stmt|;
 name|String
 name|defaultLang
@@ -2080,7 +2094,7 @@ literal|"Lang française"
 decl_stmt|;
 name|schem
 operator|.
-name|setLanguagePropertyValue
+name|setUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altProp
 argument_list|,
@@ -2091,7 +2105,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|setLanguagePropertyValue
+name|setUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altProp
 argument_list|,
@@ -2102,7 +2116,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|setLanguagePropertyValue
+name|setUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altProp
 argument_list|,
@@ -2119,7 +2133,7 @@ name|defaultVal
 argument_list|,
 name|schem
 operator|.
-name|getLanguagePropertyValue
+name|getUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altProp
 argument_list|,
@@ -2135,7 +2149,7 @@ name|frVal
 argument_list|,
 name|schem
 operator|.
-name|getLanguagePropertyValue
+name|getUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altProp
 argument_list|,
@@ -2151,7 +2165,7 @@ name|usVal
 argument_list|,
 name|schem
 operator|.
-name|getLanguagePropertyValue
+name|getUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altProp
 argument_list|,
@@ -2167,7 +2181,7 @@ name|languages
 init|=
 name|schem
 operator|.
-name|getLanguagePropertyLanguagesValue
+name|getUnqualifiedLanguagePropertyLanguagesValue
 argument_list|(
 name|altProp
 argument_list|)
@@ -2218,7 +2232,7 @@ literal|"Langue française"
 expr_stmt|;
 name|schem
 operator|.
-name|setLanguagePropertyValue
+name|setUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altProp
 argument_list|,
@@ -2235,7 +2249,7 @@ name|frVal
 argument_list|,
 name|schem
 operator|.
-name|getLanguagePropertyValue
+name|getUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altProp
 argument_list|,
@@ -2245,7 +2259,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|setLanguagePropertyValue
+name|setUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altProp
 argument_list|,
@@ -2258,7 +2272,7 @@ name|languages
 operator|=
 name|schem
 operator|.
-name|getLanguagePropertyLanguagesValue
+name|getUnqualifiedLanguagePropertyLanguagesValue
 argument_list|(
 name|altProp
 argument_list|)
@@ -2277,7 +2291,7 @@ argument_list|)
 expr_stmt|;
 name|schem
 operator|.
-name|setLanguagePropertyValue
+name|setUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altProp
 argument_list|,
@@ -2301,17 +2315,31 @@ block|{
 name|String
 name|bagName
 init|=
-literal|"test:bagName"
+literal|"bagName"
 decl_stmt|;
 name|String
 name|seqName
 init|=
-literal|"test:seqName"
+literal|"seqName"
+decl_stmt|;
+name|String
+name|qseqName
+init|=
+literal|"test:"
+operator|+
+name|seqName
 decl_stmt|;
 name|String
 name|altName
 init|=
-literal|"test:AltProp"
+literal|"AltProp"
+decl_stmt|;
+name|String
+name|qaltName
+init|=
+literal|"test:"
+operator|+
+name|altName
 decl_stmt|;
 name|String
 name|valBagSchem1
@@ -2368,7 +2396,7 @@ argument_list|)
 decl_stmt|;
 name|schem1
 operator|.
-name|addBagValue
+name|addQualifiedBagValue
 argument_list|(
 name|bagName
 argument_list|,
@@ -2377,7 +2405,7 @@ argument_list|)
 expr_stmt|;
 name|schem1
 operator|.
-name|addSequenceValue
+name|addUnqualifiedSequenceValue
 argument_list|(
 name|seqName
 argument_list|,
@@ -2386,7 +2414,7 @@ argument_list|)
 expr_stmt|;
 name|schem1
 operator|.
-name|setLanguagePropertyValue
+name|setUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altName
 argument_list|,
@@ -2410,7 +2438,7 @@ argument_list|)
 decl_stmt|;
 name|schem2
 operator|.
-name|addBagValue
+name|addQualifiedBagValue
 argument_list|(
 name|bagName
 argument_list|,
@@ -2419,7 +2447,7 @@ argument_list|)
 expr_stmt|;
 name|schem2
 operator|.
-name|addSequenceValue
+name|addUnqualifiedSequenceValue
 argument_list|(
 name|seqName
 argument_list|,
@@ -2428,7 +2456,7 @@ argument_list|)
 expr_stmt|;
 name|schem2
 operator|.
-name|setLanguagePropertyValue
+name|setUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altName
 argument_list|,
@@ -2453,7 +2481,7 @@ name|valAltSchem2
 argument_list|,
 name|schem1
 operator|.
-name|getLanguagePropertyValue
+name|getUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altName
 argument_list|,
@@ -2469,7 +2497,7 @@ name|valAltSchem1
 argument_list|,
 name|schem1
 operator|.
-name|getLanguagePropertyValue
+name|getUnqualifiedLanguagePropertyValue
 argument_list|(
 name|altName
 argument_list|,
@@ -2485,7 +2513,7 @@ name|bag
 init|=
 name|schem1
 operator|.
-name|getBagValueList
+name|getUnqualifiedBagValueList
 argument_list|(
 name|bagName
 argument_list|)
@@ -2522,7 +2550,7 @@ name|seq
 init|=
 name|schem1
 operator|.
-name|getSequenceValueList
+name|getUnqualifiedSequenceValueList
 argument_list|(
 name|seqName
 argument_list|)
@@ -2578,6 +2606,8 @@ operator|new
 name|BooleanType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 name|schem
 operator|.
@@ -2688,13 +2718,8 @@ name|bool
 argument_list|,
 name|schem
 operator|.
-name|getProperty
+name|getUnqualifiedProperty
 argument_list|(
-name|schem
-operator|.
-name|getLocalPrefixWithSeparator
-argument_list|()
-operator|+
 name|boolname
 argument_list|)
 argument_list|)

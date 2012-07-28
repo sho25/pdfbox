@@ -196,7 +196,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|SimpleMetadataPropertyTest
+name|TestSimpleMetadataProperties
 block|{
 specifier|protected
 name|XMPMetadata
@@ -238,6 +238,8 @@ name|BooleanType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"booleen"
@@ -266,6 +268,8 @@ name|DateType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"date"
@@ -293,6 +297,8 @@ operator|new
 name|IntegerType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"test"
 argument_list|,
@@ -324,6 +330,8 @@ name|RealType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"real"
@@ -353,6 +361,8 @@ operator|new
 name|TextType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"test"
 argument_list|,
@@ -416,6 +426,8 @@ name|BooleanType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"booleen"
@@ -430,6 +442,8 @@ operator|new
 name|DateType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"test"
 argument_list|,
@@ -446,6 +460,8 @@ name|IntegerType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"integer"
@@ -461,6 +477,8 @@ name|RealType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"real"
@@ -475,6 +493,8 @@ operator|new
 name|TextType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"test"
 argument_list|,
@@ -625,6 +645,8 @@ name|BooleanType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"booleen"
@@ -639,6 +661,8 @@ operator|new
 name|DateType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"test"
 argument_list|,
@@ -658,6 +682,8 @@ name|IntegerType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"integer"
@@ -672,6 +698,8 @@ operator|new
 name|RealType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"test"
 argument_list|,
@@ -690,6 +718,8 @@ operator|new
 name|TextType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"test"
 argument_list|,
@@ -816,6 +846,8 @@ name|BooleanType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"booleen"
@@ -830,6 +862,8 @@ operator|new
 name|DateType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"test"
 argument_list|,
@@ -846,6 +880,8 @@ name|IntegerType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"integer"
@@ -861,6 +897,8 @@ name|RealType
 argument_list|(
 name|parent
 argument_list|,
+literal|null
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"real"
@@ -875,6 +913,8 @@ operator|new
 name|TextType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"test"
 argument_list|,
@@ -1231,6 +1271,8 @@ operator|new
 name|IntegerType
 argument_list|(
 name|parent
+argument_list|,
+literal|null
 argument_list|,
 literal|"test"
 argument_list|,

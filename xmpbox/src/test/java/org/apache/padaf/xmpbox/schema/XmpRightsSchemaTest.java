@@ -240,20 +240,8 @@ index|[]
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|data
-operator|.
-name|add
-argument_list|(
-name|wrapProperty
-argument_list|(
-literal|"Certificate"
-argument_list|,
-literal|"URL"
-argument_list|,
-literal|"http://une.url.vers.un.certificat/moncert.cer"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//		data.add(wrapProperty("Certificate", "URL",
+comment|//				"http://une.url.vers.un.certificat/moncert.cer"));
 name|data
 operator|.
 name|add
@@ -338,20 +326,8 @@ name|desc
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|data
-operator|.
-name|add
-argument_list|(
-name|wrapProperty
-argument_list|(
-literal|"WebStatement"
-argument_list|,
-literal|"URL"
-argument_list|,
-literal|"http://une.url.vers.une.page.fr/"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//		data.add(wrapProperty("WebStatement", "URL",
+comment|//				"http://une.url.vers.une.page.fr/"));
 return|return
 name|data
 return|;
