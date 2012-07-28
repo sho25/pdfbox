@@ -154,14 +154,14 @@ specifier|public
 class|class
 name|XMLPropertiesDescriptionManager
 block|{
-specifier|protected
+specifier|private
 name|List
 argument_list|<
 name|PropertyDescription
 argument_list|>
 name|propDescs
 decl_stmt|;
-specifier|protected
+specifier|private
 name|XStream
 name|xstream
 decl_stmt|;

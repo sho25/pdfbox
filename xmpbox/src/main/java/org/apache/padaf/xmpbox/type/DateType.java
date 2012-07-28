@@ -78,35 +78,6 @@ name|DateType
 extends|extends
 name|AbstractSimpleProperty
 block|{
-comment|/**      * Property Date type constructor (namespaceURI is not given)      *       * @param metadata      *            The metadata to attach to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this property      * @param value      *            The value to set for this property      */
-specifier|public
-name|DateType
-parameter_list|(
-name|XMPMetadata
-name|metadata
-parameter_list|,
-name|String
-name|prefix
-parameter_list|,
-name|String
-name|propertyName
-parameter_list|,
-name|Object
-name|value
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|metadata
-argument_list|,
-name|prefix
-argument_list|,
-name|propertyName
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Property Date type constructor (namespaceURI is given)      *       * @param metadata      *            The metadata to attach to this property      * @param namespaceURI      *            the namespace URI to associate to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this property      * @param value      *            The value to set for this property      */
 specifier|public
 name|DateType
@@ -150,11 +121,13 @@ name|Calendar
 name|value
 parameter_list|)
 block|{
-name|objValue
-operator|=
+name|setObjectValue
+argument_list|(
 name|value
+argument_list|)
 expr_stmt|;
-name|element
+name|getElement
+argument_list|()
 operator|.
 name|setTextContent
 argument_list|(
@@ -177,11 +150,12 @@ return|return
 operator|(
 name|Calendar
 operator|)
-name|objValue
+name|getObjectValue
+argument_list|()
 return|;
 block|}
 comment|/**      * Check if the value has a type which can be understood      *       * @param value      *            Object value to check      * @return True if types are compatibles      */
-specifier|public
+specifier|private
 name|boolean
 name|isGoodType
 parameter_list|(

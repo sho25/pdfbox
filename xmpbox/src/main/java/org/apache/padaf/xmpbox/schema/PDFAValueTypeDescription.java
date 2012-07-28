@@ -230,15 +230,15 @@ name|FIELD
 init|=
 literal|"field"
 decl_stmt|;
-specifier|protected
+specifier|private
 name|FieldDescriptionContainer
 name|fields
 decl_stmt|;
-specifier|protected
+specifier|private
 name|XMPMetadata
 name|metadata
 decl_stmt|;
-specifier|protected
+specifier|private
 name|ComplexPropertyContainer
 name|content
 decl_stmt|;
@@ -262,6 +262,8 @@ operator|new
 name|ComplexPropertyContainer
 argument_list|(
 name|metadata
+argument_list|,
+literal|null
 argument_list|,
 literal|"rdf"
 argument_list|,
@@ -323,6 +325,8 @@ name|TextType
 argument_list|(
 name|metadata
 argument_list|,
+literal|null
+argument_list|,
 name|PDFATYPEPREFIX
 argument_list|,
 name|TYPE
@@ -349,6 +353,8 @@ operator|new
 name|TextType
 argument_list|(
 name|metadata
+argument_list|,
+literal|null
 argument_list|,
 name|PDFATYPEPREFIX
 argument_list|,
@@ -377,6 +383,8 @@ name|TextType
 argument_list|(
 name|metadata
 argument_list|,
+literal|null
+argument_list|,
 name|PDFATYPEPREFIX
 argument_list|,
 name|PREFIX
@@ -403,6 +411,8 @@ operator|new
 name|TextType
 argument_list|(
 name|metadata
+argument_list|,
+literal|null
 argument_list|,
 name|PDFATYPEPREFIX
 argument_list|,
@@ -776,6 +786,15 @@ name|getElement
 argument_list|()
 return|;
 block|}
+specifier|public
+name|ComplexPropertyContainer
+name|getContent
+parameter_list|()
+block|{
+return|return
+name|content
+return|;
+block|}
 comment|/** 	 * Container of Field Description 	 *  	 * @author a183132 	 *  	 */
 specifier|public
 class|class
@@ -783,13 +802,13 @@ name|FieldDescriptionContainer
 implements|implements
 name|Elementable
 block|{
-specifier|protected
+specifier|private
 name|Element
 name|element
 decl_stmt|,
 name|content
 decl_stmt|;
-specifier|protected
+specifier|private
 name|List
 argument_list|<
 name|PDFAFieldDescription
@@ -882,7 +901,8 @@ name|appendChild
 argument_list|(
 name|obj
 operator|.
-name|content
+name|getContent
+argument_list|()
 operator|.
 name|getElement
 argument_list|()
@@ -937,7 +957,8 @@ if|if
 condition|(
 name|prop1
 operator|.
-name|content
+name|getContent
+argument_list|()
 operator|.
 name|getElement
 argument_list|()
@@ -949,7 +970,8 @@ name|equals
 argument_list|(
 name|prop2
 operator|.
-name|content
+name|getContent
+argument_list|()
 operator|.
 name|getElement
 argument_list|()
@@ -1053,7 +1075,8 @@ name|removeChild
 argument_list|(
 name|field
 operator|.
-name|content
+name|getContent
+argument_list|()
 operator|.
 name|getElement
 argument_list|()

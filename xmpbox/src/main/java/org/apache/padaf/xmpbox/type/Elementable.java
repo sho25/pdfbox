@@ -39,7 +39,6 @@ interface|interface
 name|Elementable
 block|{
 comment|/** 	 * Get the XML element that this object represents. 	 *  	 * @return The xml element. 	 */
-specifier|public
 name|Element
 name|getElement
 parameter_list|()

@@ -625,7 +625,8 @@ return|return
 operator|new
 name|SchemaDescription
 argument_list|(
-name|metadata
+name|getMetadata
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -672,13 +673,13 @@ name|SchemaDescriptionContainer
 implements|implements
 name|Elementable
 block|{
-specifier|protected
+specifier|private
 name|Element
 name|element
 decl_stmt|,
 name|content
 decl_stmt|;
-specifier|protected
+specifier|private
 name|List
 argument_list|<
 name|SchemaDescription
@@ -692,7 +693,8 @@ parameter_list|()
 block|{
 name|element
 operator|=
-name|metadata
+name|getMetadata
+argument_list|()
 operator|.
 name|getFuturOwner
 argument_list|()
@@ -706,7 +708,8 @@ argument_list|)
 expr_stmt|;
 name|content
 operator|=
-name|metadata
+name|getMetadata
+argument_list|()
 operator|.
 name|getFuturOwner
 argument_list|()
@@ -770,7 +773,8 @@ name|removeChild
 argument_list|(
 name|sd
 operator|.
-name|content
+name|getContent
+argument_list|()
 operator|.
 name|getElement
 argument_list|()
@@ -793,7 +797,8 @@ name|appendChild
 argument_list|(
 name|obj
 operator|.
-name|content
+name|getContent
+argument_list|()
 operator|.
 name|getElement
 argument_list|()

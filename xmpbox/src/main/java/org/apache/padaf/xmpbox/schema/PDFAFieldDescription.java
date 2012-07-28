@@ -175,11 +175,11 @@ name|DESCRIPTION
 init|=
 literal|"description"
 decl_stmt|;
-specifier|protected
+specifier|private
 name|XMPMetadata
 name|metadata
 decl_stmt|;
-specifier|protected
+specifier|private
 name|ComplexPropertyContainer
 name|content
 decl_stmt|;
@@ -203,6 +203,8 @@ operator|new
 name|ComplexPropertyContainer
 argument_list|(
 name|metadata
+argument_list|,
+literal|null
 argument_list|,
 literal|"rdf"
 argument_list|,
@@ -245,6 +247,8 @@ name|TextType
 argument_list|(
 name|metadata
 argument_list|,
+literal|null
+argument_list|,
 name|PDFAFIELDPREFIX
 argument_list|,
 name|NAME
@@ -272,6 +276,8 @@ name|TextType
 argument_list|(
 name|metadata
 argument_list|,
+literal|null
+argument_list|,
 name|PDFAFIELDPREFIX
 argument_list|,
 name|VALUETYPE
@@ -298,6 +304,8 @@ operator|new
 name|TextType
 argument_list|(
 name|metadata
+argument_list|,
+literal|null
 argument_list|,
 name|PDFAFIELDPREFIX
 argument_list|,
@@ -533,6 +541,15 @@ name|PDFAFIELDPREFIXSEP
 operator|+
 name|DESCRIPTION
 argument_list|)
+return|;
+block|}
+specifier|protected
+name|ComplexPropertyContainer
+name|getContent
+parameter_list|()
+block|{
+return|return
+name|content
 return|;
 block|}
 block|}

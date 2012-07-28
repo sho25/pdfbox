@@ -42,35 +42,6 @@ name|IntegerType
 extends|extends
 name|AbstractSimpleProperty
 block|{
-comment|/** 	 * Property Integer type constructor (namespaceURI is not given) 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 * @param value 	 *            The value to set 	 */
-specifier|public
-name|IntegerType
-parameter_list|(
-name|XMPMetadata
-name|metadata
-parameter_list|,
-name|String
-name|prefix
-parameter_list|,
-name|String
-name|propertyName
-parameter_list|,
-name|Object
-name|value
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|metadata
-argument_list|,
-name|prefix
-argument_list|,
-name|propertyName
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-block|}
 comment|/** 	 * Property Integer type constructor (namespaceURI is given) 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param namespaceURI 	 *            the namespace URI to associate to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 * @param value 	 *            The value to set 	 */
 specifier|public
 name|IntegerType
@@ -115,89 +86,8 @@ return|return
 operator|(
 name|Integer
 operator|)
-name|objValue
-return|;
-block|}
-comment|/** 	 * Set property value 	 *  	 * @param value 	 *            the value to set 	 */
-specifier|private
-name|void
-name|setValueFromInt
-parameter_list|(
-name|int
-name|value
-parameter_list|)
-block|{
-name|objValue
-operator|=
-name|value
-expr_stmt|;
-name|element
-operator|.
-name|setTextContent
-argument_list|(
-literal|""
-operator|+
-name|value
-argument_list|)
-expr_stmt|;
-block|}
-comment|/** 	 * Check if the value can be treated 	 *  	 * @param value 	 *            The object to check 	 * @return True if types are compatibles 	 */
-specifier|public
-name|boolean
-name|isGoodType
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-block|{
-if|if
-condition|(
-name|value
-operator|instanceof
-name|Integer
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|value
-operator|instanceof
-name|String
-condition|)
-block|{
-try|try
-block|{
-name|Integer
-operator|.
-name|parseInt
-argument_list|(
-operator|(
-name|String
-operator|)
-name|value
-argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|e
-parameter_list|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-block|}
-return|return
-literal|false
+name|getObjectValue
+argument_list|()
 return|;
 block|}
 comment|/** 	 * Set the property value 	 *  	 * @param value 	 *            The value to set 	 */
@@ -211,13 +101,43 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
-name|isGoodType
+name|value
+operator|instanceof
+name|Integer
+condition|)
+block|{
+name|setObjectValue
 argument_list|(
 name|value
 argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|value
+operator|instanceof
+name|String
 condition|)
 block|{
+comment|// NumberFormatException is thrown (sub of InvalidArgumentException)
+name|setObjectValue
+argument_list|(
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
+operator|(
+name|String
+operator|)
+name|value
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// invalid type of value
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -226,59 +146,37 @@ literal|"Value given is not allowed for the Integer type."
 argument_list|)
 throw|;
 block|}
-else|else
-block|{
-comment|// if string object
-if|if
-condition|(
-name|value
-operator|instanceof
-name|String
-condition|)
-block|{
-name|setValueFromString
-argument_list|(
-operator|(
-name|String
-operator|)
-name|value
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// if Integer
-name|setValueFromInt
-argument_list|(
-operator|(
-name|Integer
-operator|)
-name|value
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-comment|/** 	 * Set the value from a String 	 *  	 * @param value 	 *            the String value to set 	 */
-specifier|private
-name|void
-name|setValueFromString
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-block|{
-name|setValueFromInt
-argument_list|(
-name|Integer
+comment|// set value
+name|getElement
+argument_list|()
 operator|.
-name|parseInt
+name|setTextContent
 argument_list|(
-name|value
-argument_list|)
+name|getObjectValue
+argument_list|()
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|//
+comment|//	public void setValue(Object value) {
+comment|//		if (!isGoodType(value)) {
+comment|//			throw new IllegalArgumentException(
+comment|//					"Value given is not allowed for the Integer type.");
+comment|//		} else {
+comment|//			// if string object
+comment|//			if (value instanceof String) {
+comment|//				setValueFromString((String) value);
+comment|//			} else {
+comment|//				// if Integer
+comment|//				setValueFromInt((Integer) value);
+comment|//			}
+comment|//
+comment|//		}
+comment|//
+comment|//	}
 block|}
 end_class
 

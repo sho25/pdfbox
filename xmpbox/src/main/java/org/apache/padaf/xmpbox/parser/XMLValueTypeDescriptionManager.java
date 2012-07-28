@@ -170,14 +170,14 @@ specifier|public
 class|class
 name|XMLValueTypeDescriptionManager
 block|{
-specifier|protected
+specifier|private
 name|List
 argument_list|<
 name|ValueTypeDescription
 argument_list|>
 name|vTypes
 decl_stmt|;
-specifier|protected
+specifier|private
 name|XStream
 name|xstream
 decl_stmt|;

@@ -69,6 +69,18 @@ name|w3c
 operator|.
 name|dom
 operator|.
+name|Element
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
 name|NodeList
 import|;
 end_import
@@ -84,46 +96,13 @@ name|ComplexPropertyContainer
 extends|extends
 name|AbstractField
 block|{
-specifier|protected
+specifier|private
 name|List
 argument_list|<
 name|AbstractField
 argument_list|>
 name|properties
 decl_stmt|;
-comment|/** 	 * Complex Property type constructor (namespaceURI is not given) 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 */
-specifier|public
-name|ComplexPropertyContainer
-parameter_list|(
-name|XMPMetadata
-name|metadata
-parameter_list|,
-name|String
-name|prefix
-parameter_list|,
-name|String
-name|propertyName
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|metadata
-argument_list|,
-name|prefix
-argument_list|,
-name|propertyName
-argument_list|)
-expr_stmt|;
-name|properties
-operator|=
-operator|new
-name|ArrayList
-argument_list|<
-name|AbstractField
-argument_list|>
-argument_list|()
-expr_stmt|;
-block|}
 comment|/** 	 * Complex Property type constructor (namespaceURI is given) 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param namespaceURI 	 *            The namespace URI to associate to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 */
 specifier|public
 name|ComplexPropertyContainer
@@ -205,7 +184,6 @@ range|:
 name|list
 control|)
 block|{
-comment|// System.out.println(abstractField.getQualifiedName());
 if|if
 condition|(
 name|abstractField
@@ -263,7 +241,8 @@ comment|// COMMENTS REPRESENTS CLUES TO USE SAME PROPERTY AT MORE THAN ONE PLACE
 comment|// BUT IT CREATE PROBLEM TO FIND AND ERASE CLONED ELEMENT
 comment|// Node cloned = obj.getElement().cloneNode(true);
 comment|// parent.adoptNode(cloned);
-name|element
+name|getElement
+argument_list|()
 operator|.
 name|appendChild
 argument_list|(
@@ -359,9 +338,26 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|list
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+else|else
+block|{
 return|return
 name|list
 return|;
+block|}
 block|}
 return|return
 literal|null
@@ -521,6 +517,12 @@ argument_list|(
 name|property
 argument_list|)
 expr_stmt|;
+name|Element
+name|element
+init|=
+name|getElement
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|element
@@ -589,6 +591,7 @@ if|if
 condition|(
 name|canRemove
 condition|)
+block|{
 name|element
 operator|.
 name|removeChild
@@ -599,6 +602,7 @@ name|getElement
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
