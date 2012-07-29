@@ -694,12 +694,7 @@ argument_list|(
 literal|"li"
 argument_list|)
 expr_stmt|;
-comment|// create property
-comment|//		String fieldPrefix = retrieveNamespacePrefix(
-comment|//				builder.reader.get(),
-comment|//				getStructuredClassNamespace(typeClass));
-comment|//		ComplexPropertyContainer property = instanciateProperty(metadata, fieldPrefix );
-name|ComplexPropertyContainer
+name|AbstractStructuredType
 name|property
 init|=
 name|instanciateProperty
@@ -723,6 +718,21 @@ operator|.
 name|nextTag
 argument_list|()
 decl_stmt|;
+comment|// rdf:Description is mandatory
+name|builder
+operator|.
+name|expectCurrentLocalName
+argument_list|(
+literal|"Description"
+argument_list|)
+expr_stmt|;
+name|elmtType
+operator|=
+name|reader
+operator|.
+name|nextTag
+argument_list|()
+expr_stmt|;
 name|QName
 name|eltName
 decl_stmt|;
@@ -748,7 +758,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"li"
+literal|"Description"
 argument_list|)
 operator|)
 condition|)
@@ -856,6 +866,12 @@ name|nextTag
 argument_list|()
 expr_stmt|;
 block|}
+comment|// closing rdf:Description element
+name|reader
+operator|.
+name|nextTag
+argument_list|()
+expr_stmt|;
 name|container
 operator|.
 name|addProperty
