@@ -638,31 +638,88 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|//	private String retrieveNamespacePrefix (XMLStreamReader reader, String namespace) {
-comment|//		int na = reader.getNamespaceCount();
-comment|//		for (int i=0; i< na; i++) {
-comment|//			if (reader.getNamespaceURI(i).equals(namespace)) {
-comment|//				return reader.getNamespacePrefix(i);
-comment|//			}
-comment|//		}
-comment|//		// no namespace for prefix
-comment|//		return null;
-comment|//	}
-comment|//
-comment|//	private String getStructuredClassNamespace (Class<? extends AbstractStructuredType> clz) throws XmpUnexpectedTypeException {
-comment|//		try {
-comment|//			return (String)typeClass.getField("ELEMENT_NS").get(null);
-comment|//		} catch (IllegalArgumentException e) {
-comment|//			throw new XmpUnexpectedTypeException("Failed to find Structured type namespace ("+clz.getName()+")",e);
-comment|//		} catch (SecurityException e) {
-comment|//			throw new XmpUnexpectedTypeException("Failed to find Structured type namespace ("+clz.getName()+")",e);
-comment|//		} catch (IllegalAccessException e) {
-comment|//			throw new XmpUnexpectedTypeException("Failed to find Structured type namespace ("+clz.getName()+")",e);
-comment|//		} catch (NoSuchFieldException e) {
-comment|//			throw new XmpUnexpectedTypeException("Failed to find Structured type namespace ("+clz.getName()+")",e);
-comment|//		}
-comment|//
-comment|//	}
+specifier|private
+name|boolean
+name|isParseTypeResource
+parameter_list|()
+block|{
+name|XMLStreamReader
+name|reader
+init|=
+name|builder
+operator|.
+name|getReader
+argument_list|()
+decl_stmt|;
+name|int
+name|count
+init|=
+name|reader
+operator|.
+name|getAttributeCount
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|count
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+literal|"parseType"
+operator|.
+name|equals
+argument_list|(
+name|reader
+operator|.
+name|getAttributeLocalName
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+literal|"Resource"
+operator|.
+name|equals
+argument_list|(
+name|reader
+operator|.
+name|getAttributeValue
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+block|}
+return|return
+literal|false
+return|;
+block|}
 specifier|public
 name|void
 name|parse
@@ -694,20 +751,19 @@ argument_list|(
 literal|"li"
 argument_list|)
 expr_stmt|;
-name|AbstractStructuredType
-name|property
-init|=
-name|instanciateProperty
-argument_list|(
-name|metadata
-argument_list|)
-decl_stmt|;
 name|XMLStreamReader
 name|reader
 init|=
 name|builder
 operator|.
 name|getReader
+argument_list|()
+decl_stmt|;
+comment|// check if parseType is defined
+name|boolean
+name|skipDescription
+init|=
+name|isParseTypeResource
 argument_list|()
 decl_stmt|;
 name|int
@@ -718,7 +774,13 @@ operator|.
 name|nextTag
 argument_list|()
 decl_stmt|;
-comment|// rdf:Description is mandatory
+if|if
+condition|(
+operator|!
+name|skipDescription
+condition|)
+block|{
+comment|// rdf:Description
 name|builder
 operator|.
 name|expectCurrentLocalName
@@ -733,8 +795,26 @@ operator|.
 name|nextTag
 argument_list|()
 expr_stmt|;
+block|}
+name|AbstractStructuredType
+name|property
+init|=
+name|instanciateProperty
+argument_list|(
+name|metadata
+argument_list|)
+decl_stmt|;
 name|QName
 name|eltName
+decl_stmt|;
+name|String
+name|structuredEndName
+init|=
+name|skipDescription
+condition|?
+literal|"li"
+else|:
+literal|"Description"
 decl_stmt|;
 while|while
 condition|(
@@ -758,7 +838,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"Description"
+name|structuredEndName
 argument_list|)
 operator|)
 condition|)
@@ -866,12 +946,19 @@ name|nextTag
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|skipDescription
+condition|)
+block|{
 comment|// closing rdf:Description element
 name|reader
 operator|.
 name|nextTag
 argument_list|()
 expr_stmt|;
+block|}
 name|container
 operator|.
 name|addProperty
