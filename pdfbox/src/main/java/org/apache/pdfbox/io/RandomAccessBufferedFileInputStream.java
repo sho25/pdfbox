@@ -75,8 +75,18 @@ name|LinkedHashMap
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
-comment|/**  * Provides {@link InputStream} access to portions of a file combined with  * buffered reading of content. Start of next bytes to read can be set via seek method.  *   * File is accessed via {@link RandomAccessFile} and is read in byte chunks which are  * cached.  *   * @author Timo Boehme (timo.boehme at ontochem com)  */
+comment|/**  * Provides {@link InputStream} access to portions of a file combined with  * buffered reading of content. Start of next bytes to read can be set via seek  * method.  *   * File is accessed via {@link RandomAccessFile} and is read in byte chunks  * which are cached.  *   * @author Timo Boehme (timo.boehme at ontochem com)  */
 end_comment
 
 begin_class
@@ -167,10 +177,6 @@ specifier|protected
 name|boolean
 name|removeEldestEntry
 parameter_list|(
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 operator|.
 name|Entry
@@ -196,6 +202,7 @@ if|if
 condition|(
 name|doRemove
 condition|)
+block|{
 name|lastRemovedCachePage
 operator|=
 name|_eldest
@@ -203,6 +210,7 @@ operator|.
 name|getValue
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 name|doRemove
 return|;
@@ -286,7 +294,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/** Returns offset in file at which next byte would be read. */
+comment|/**      *  Returns offset in file at which next byte would be read.      *        *  @deprecated  use {@link #getPosition()} instead      */
 specifier|public
 name|long
 name|getFilePointer
@@ -297,7 +305,18 @@ name|fileOffset
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/** Seeks to new position. If new position is outside of current page 		 *  the new page is either taken from cache or read from file and added to cache. */
+comment|/** Returns offset in file at which next byte would be read. */
+specifier|public
+name|long
+name|getPosition
+parameter_list|()
+block|{
+return|return
+name|fileOffset
+return|;
+block|}
+comment|// ------------------------------------------------------------------------
+comment|/**      * Seeks to new position. If new position is outside of current page the new      * page is either taken from cache or read from file and added to cache.      */
 specifier|public
 name|void
 name|seek
@@ -390,7 +409,7 @@ name|newOffset
 expr_stmt|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/** Reads a page with data from current file position. If we have a previously 		 *  removed page from cache the buffer of this page is reused. Otherwise a new 		 *  byte buffer is created. */
+comment|/**      * Reads a page with data from current file position. If we have a      * previously removed page from cache the buffer of this page is reused.      * Otherwise a new byte buffer is created.      */
 specifier|private
 specifier|final
 name|byte
@@ -421,6 +440,7 @@ literal|null
 expr_stmt|;
 block|}
 else|else
+block|{
 name|page
 operator|=
 operator|new
@@ -429,6 +449,7 @@ index|[
 name|pageSize
 index|]
 expr_stmt|;
+block|}
 name|int
 name|readBytes
 init|=
@@ -463,8 +484,10 @@ name|curBytesRead
 operator|<
 literal|0
 condition|)
+block|{
 comment|// EOF
 break|break;
+block|}
 name|readBytes
 operator|+=
 name|curBytesRead
@@ -691,12 +714,14 @@ name|fileOffset
 operator|<
 name|toSkip
 condition|)
+block|{
 name|toSkip
 operator|=
 name|fileLength
 operator|-
 name|fileOffset
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|(

@@ -127,6 +127,21 @@ expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public
+name|long
+name|getPosition
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|ras
+operator|.
+name|getFilePointer
+argument_list|()
+return|;
+block|}
+comment|/**      * {@inheritDoc}      */
+specifier|public
 name|int
 name|read
 parameter_list|()
