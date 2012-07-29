@@ -5790,6 +5790,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+try|try
+block|{
 name|String
 name|type
 init|=
@@ -5800,72 +5802,7 @@ argument_list|,
 name|propertyName
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|type
-operator|.
-name|equals
-argument_list|(
-literal|"Unmanaged"
-argument_list|)
-condition|)
-block|{
-comment|// do not parse the property, no validation, no reserialization
-name|boolean
-name|cont
-init|=
-literal|true
-decl_stmt|;
-while|while
-condition|(
-name|cont
-condition|)
-block|{
-name|int
-name|t
-init|=
-name|reader
-operator|.
-name|get
-argument_list|()
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|t
-operator|==
-name|XMLStreamReader
-operator|.
-name|END_ELEMENT
-condition|)
-block|{
-if|if
-condition|(
-name|propertyName
-operator|.
-name|equals
-argument_list|(
-name|reader
-operator|.
-name|get
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|cont
-operator|=
-literal|false
-expr_stmt|;
-block|}
-block|}
-block|}
-block|}
-elseif|else
+comment|// found type, manage it
 if|if
 condition|(
 name|type
@@ -6212,6 +6149,28 @@ literal|"Unknown type : "
 operator|+
 name|type
 argument_list|)
+throw|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|XmpUnknownPropertyException
+name|e
+parameter_list|)
+block|{
+comment|//			// this property is not managed in the workspace
+comment|//			// do not parse the property, no validation, no reserialization
+comment|//			boolean cont = true;
+comment|//			while (cont) {
+comment|//				int t = reader.get().next();
+comment|//				if (t==XMLStreamReader.END_ELEMENT) {
+comment|//					if (propertyName.equals(reader.get().getName())) {
+comment|//						cont = false;
+comment|//					}
+comment|//				}
+comment|//			}
+throw|throw
+name|e
 throw|;
 block|}
 block|}

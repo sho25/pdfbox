@@ -1409,23 +1409,14 @@ name|VERSIONS
 argument_list|)
 return|;
 block|}
-comment|//	/**
-comment|//	 * Get List of Versions values
-comment|//	 *
-comment|//	 * @return List of Versions values
-comment|//	 */
-comment|//	public List<String> getVersions() {
-comment|//		return getSequenceValueList(localPrefixSep + VERSIONS);
-comment|//	}
 comment|// --------------------------------------- History
 comment|// ----------------------------
-comment|//    @PropertyType(propertyType = "seq Text")
 annotation|@
 name|PropertyType
 argument_list|(
 name|propertyType
 operator|=
-literal|"Unmanaged"
+literal|"seq ResourceEvent"
 argument_list|)
 specifier|public
 specifier|static
