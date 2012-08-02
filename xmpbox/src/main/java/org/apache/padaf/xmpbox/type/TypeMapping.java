@@ -307,7 +307,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// no public constructor
-specifier|private
+specifier|public
 name|TypeMapping
 parameter_list|()
 block|{ 		 	}
@@ -1078,7 +1078,6 @@ throw|;
 block|}
 block|}
 specifier|public
-specifier|static
 name|String
 name|getType
 parameter_list|(
@@ -1154,7 +1153,6 @@ return|;
 block|}
 comment|/**      * Return the type description linked the specified paramater. If the type      * parameter is an array, the TypeDescription of the elements of the array      * will be returned      *       * @param type      * @return      */
 specifier|public
-specifier|static
 name|TypeDescription
 name|getTypeDescription
 parameter_list|(
@@ -1264,7 +1262,6 @@ block|}
 block|}
 block|}
 specifier|public
-specifier|static
 name|AbstractSimpleProperty
 name|instanciateSimpleProperty
 parameter_list|(
@@ -1477,7 +1474,6 @@ throw|;
 block|}
 block|}
 specifier|public
-specifier|static
 name|AbstractSimpleProperty
 name|instanciateSimpleField
 parameter_list|(
@@ -1559,8 +1555,6 @@ name|propertyType
 argument_list|()
 decl_stmt|;
 return|return
-name|TypeMapping
-operator|.
 name|instanciateSimpleProperty
 argument_list|(
 name|xmp
@@ -1766,7 +1760,6 @@ name|result
 return|;
 block|}
 specifier|public
-specifier|static
 name|TypeDescription
 name|getStructuredTypeName
 parameter_list|(
@@ -1785,7 +1778,6 @@ return|;
 block|}
 comment|/**      * Check if a namespace used reference a complex basic types (like      * Thumbnails)      *       * @param namespace      *            The namespace URI to check      * @return True if namespace URI is a reference for a complex basic type      */
 specifier|public
-specifier|static
 name|boolean
 name|isStructuredTypeNamespace
 parameter_list|(
@@ -1805,7 +1797,6 @@ argument_list|)
 return|;
 block|}
 specifier|public
-specifier|static
 name|boolean
 name|isArrayOfSimpleType
 parameter_list|(
@@ -1858,7 +1849,6 @@ return|;
 block|}
 block|}
 specifier|public
-specifier|static
 name|String
 name|getArrayType
 parameter_list|(
@@ -1968,7 +1958,6 @@ block|}
 block|}
 block|}
 specifier|public
-specifier|static
 name|boolean
 name|isSimpleType
 parameter_list|(
@@ -1995,7 +1984,6 @@ operator|)
 return|;
 block|}
 specifier|public
-specifier|static
 name|boolean
 name|isStructuredType
 parameter_list|(

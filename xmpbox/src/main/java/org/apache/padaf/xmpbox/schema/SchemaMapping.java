@@ -264,7 +264,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-specifier|private
+specifier|public
 name|SchemaMapping
 parameter_list|()
 block|{
@@ -526,7 +526,6 @@ return|;
 block|}
 comment|/** 	 * Return the specialized schema class representation if it's known (create 	 * and add it to metadata). In other cases, return null 	 *  	 * @param metadata 	 *            Metadata to link the new schema 	 * @param namespace 	 *            The namespace URI 	 * @return Schema representation 	 * @throws XmpSchemaException 	 *             When Instancing specified Object Schema failed 	 */
 specifier|public
-specifier|static
 name|XMPSchema
 name|getAssociatedSchemaObject
 parameter_list|(
@@ -579,7 +578,6 @@ argument_list|)
 return|;
 block|}
 specifier|public
-specifier|static
 name|XMPSchemaFactory
 name|getSchemaFactory
 parameter_list|(
@@ -597,7 +595,6 @@ argument_list|)
 return|;
 block|}
 specifier|public
-specifier|static
 name|boolean
 name|isContainedNamespace
 parameter_list|(

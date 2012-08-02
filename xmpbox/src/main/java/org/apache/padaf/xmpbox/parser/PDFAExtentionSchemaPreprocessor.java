@@ -279,7 +279,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|TypeMapping
+name|getTypeMapping
+argument_list|()
 operator|.
 name|isStructuredTypeNamespace
 argument_list|(
