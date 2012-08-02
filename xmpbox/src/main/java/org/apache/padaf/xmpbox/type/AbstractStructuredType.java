@@ -392,6 +392,15 @@ literal|null
 return|;
 block|}
 block|}
+specifier|public
+name|ComplexPropertyContainer
+name|getContainer
+parameter_list|()
+block|{
+return|return
+name|container
+return|;
+block|}
 block|}
 end_class
 

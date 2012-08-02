@@ -2525,7 +2525,7 @@ block|}
 block|}
 block|}
 comment|/** 	 * Check the next element type and its expected value 	 *  	 * @param type 	 *            expected type of xml element 	 * @param localNameExpected 	 *            The property name (local) expected 	 * @param message 	 *            Error message if problems occur 	 * @throws XmpUnexpectedTypeException 	 *             When DOM Element type found unexpected 	 * @throws XmpParsingException 	 *             When element expected not found 	 * @throws XMLStreamException 	 *             When error during reading the rest of xmp stream 	 */
-specifier|private
+specifier|protected
 name|void
 name|expectNextSpecificTag
 parameter_list|(
