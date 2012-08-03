@@ -692,6 +692,13 @@ name|String
 name|string
 parameter_list|)
 block|{
+if|if
+condition|(
+name|string
+operator|!=
+literal|null
+condition|)
+block|{
 name|set
 argument_list|(
 name|index
@@ -703,6 +710,17 @@ name|string
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|set
+argument_list|(
+name|index
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Get the value of the array as a string.      *      * @param index The index into the array.      * @return The string or null if it does not exist.      */
 specifier|public
