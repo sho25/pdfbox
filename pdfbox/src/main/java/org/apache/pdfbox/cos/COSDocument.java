@@ -237,6 +237,8 @@ decl_stmt|;
 specifier|private
 name|float
 name|version
+init|=
+literal|1.4f
 decl_stmt|;
 comment|/**      * Maps ObjectKeys to a COSObject. Note that references to these objects      * are also stored in COSDictionary objects that map a name to a specific object.      */
 specifier|private
@@ -310,7 +312,9 @@ specifier|private
 name|String
 name|headerString
 init|=
-literal|"%PDF-1.4"
+literal|"%PDF-"
+operator|+
+name|version
 decl_stmt|;
 specifier|private
 name|boolean
