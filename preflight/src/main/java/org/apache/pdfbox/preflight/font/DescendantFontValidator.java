@@ -29,7 +29,23 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|*
+name|ERROR_FONTS_CIDKEYED_CIDTOGID
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_FONTS_CIDKEYED_SYSINFO
 import|;
 end_import
 
@@ -46,6 +62,22 @@ operator|.
 name|PreflightConstants
 operator|.
 name|ERROR_FONTS_DICTIONARY_INVALID
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|FONT_DICTIONARY_VALUE_CMAP_IDENTITY
 import|;
 end_import
 

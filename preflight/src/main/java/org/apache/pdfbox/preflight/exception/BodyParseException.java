@@ -23,11 +23,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|padaf
+name|pdfbox
 operator|.
 name|preflight
 operator|.
-name|ValidationConstants
+name|PreflightConstants
 import|;
 end_import
 
@@ -149,7 +149,7 @@ name|this
 operator|.
 name|errorCode
 operator|=
-name|ValidationConstants
+name|PreflightConstants
 operator|.
 name|ERROR_SYNTAX_BODY
 expr_stmt|;
@@ -220,7 +220,7 @@ name|this
 operator|.
 name|errorCode
 operator|=
-name|ValidationConstants
+name|PreflightConstants
 operator|.
 name|ERROR_SYNTAX_OBJ_DELIMITER
 expr_stmt|;

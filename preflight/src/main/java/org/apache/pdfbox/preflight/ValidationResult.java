@@ -49,36 +49,6 @@ name|XMPMetadata
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|PDDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|utils
-operator|.
-name|COSUtils
-import|;
-end_import
-
 begin_comment
 comment|/**  * Object returned by the validate method of the PDFValidator. This object  * contains a boolean to know if the PDF is PDF/A-1<I>x</I> compliant. If the  * document isn't PDF/A-1<I>x</I> a list of errors is provided.  */
 end_comment
