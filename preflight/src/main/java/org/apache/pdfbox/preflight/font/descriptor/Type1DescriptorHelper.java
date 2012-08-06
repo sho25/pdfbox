@@ -650,7 +650,7 @@ argument_list|(
 name|FONT_DICTIONARY_KEY_LENGTH3
 argument_list|)
 argument_list|)
-operator|>
+operator|>=
 literal|0
 decl_stmt|;
 if|if
@@ -796,17 +796,6 @@ name|bis
 argument_list|)
 expr_stmt|;
 comment|// Parse the Type1 Font program in order to extract Glyph Width
-name|bis
-operator|=
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-name|fontFile
-operator|.
-name|getByteArray
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|COSStream
 name|streamObj
 init|=
@@ -839,6 +828,17 @@ operator|.
 name|LENGTH2
 argument_list|)
 decl_stmt|;
+name|bis
+operator|=
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|fontFile
+operator|.
+name|getByteArray
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Type1Parser
 name|parserForMetrics
 init|=

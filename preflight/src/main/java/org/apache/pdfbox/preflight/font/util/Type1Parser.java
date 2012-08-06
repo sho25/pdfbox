@@ -3013,7 +3013,7 @@ name|TOKEN_ENCODING
 argument_list|)
 decl_stmt|;
 return|return
-literal|"/Encoding"
+literal|"dup"
 operator|.
 name|equals
 argument_list|(
