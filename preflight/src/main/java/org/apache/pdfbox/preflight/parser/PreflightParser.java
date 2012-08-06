@@ -967,6 +967,21 @@ return|return
 name|document
 return|;
 block|}
+specifier|public
+name|PreflightDocument
+name|getPreflightDocument
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+operator|(
+name|PreflightDocument
+operator|)
+name|getPDDocument
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
