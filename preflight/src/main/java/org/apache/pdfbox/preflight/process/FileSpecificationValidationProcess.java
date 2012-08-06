@@ -271,8 +271,6 @@ range|:
 name|lCOSObj
 control|)
 block|{
-comment|// If this object represents a Stream
-comment|// The Dictionary must contain the Length key
 name|COSBase
 name|cBase
 init|=
