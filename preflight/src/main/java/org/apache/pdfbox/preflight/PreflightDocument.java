@@ -121,6 +121,12 @@ block|{
 specifier|protected
 name|ValidationResult
 name|result
+init|=
+operator|new
+name|ValidationResult
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 specifier|protected
 name|PreflightConfiguration

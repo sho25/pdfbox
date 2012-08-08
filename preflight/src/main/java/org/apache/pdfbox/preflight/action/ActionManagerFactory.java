@@ -519,7 +519,7 @@ name|List
 argument_list|<
 name|AbstractActionManager
 argument_list|>
-name|getActions
+name|getActionManagers
 parameter_list|(
 name|PreflightContext
 name|ctx

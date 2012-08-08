@@ -273,7 +273,7 @@ name|la
 init|=
 name|factory
 operator|.
-name|getActions
+name|getActionManagers
 argument_list|(
 name|context
 argument_list|,
