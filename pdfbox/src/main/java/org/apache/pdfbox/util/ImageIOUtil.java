@@ -220,7 +220,8 @@ specifier|public
 class|class
 name|ImageIOUtil
 block|{
-specifier|private
+comment|/**      * Default screen resolution: 72dpi.      */
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -228,13 +229,22 @@ name|DEFAULT_SCREEN_RESOLUTION
 init|=
 literal|72
 decl_stmt|;
+comment|/**      * Default compression quality: 1.0f.      */
+specifier|public
+specifier|static
+specifier|final
+name|float
+name|DEFAULT_COMPRESSION_QUALITY
+init|=
+literal|1.0f
+decl_stmt|;
 specifier|private
 name|ImageIOUtil
 parameter_list|()
 block|{
 comment|// Default constructor
 block|}
-comment|/**      * Writes a buffered image to a file using the given image format.      * @param image the image to be written      * @param imageFormat the target format (ex. "png")      * @param filename used to construct the filename for the individual images      * @param imageType the image type (see {@link BufferedImage}.TYPE_*)      * @param resolution the resolution in dpi (dots per inch)      * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+comment|/**      * Writes a buffered image to a file using the given image format.      *       * @param image the image to be written      * @param imageFormat the target format (ex. "png")      * @param filename used to construct the filename for the individual images      * @param imageType the image type (see {@link BufferedImage}.TYPE_*)      * @param resolution the resolution in dpi (dots per inch)      *       * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
 specifier|public
 specifier|static
 name|boolean
@@ -289,7 +299,7 @@ name|resolution
 argument_list|)
 return|;
 block|}
-comment|/**      * Writes a buffered image to a file using the given image format.      * @param image the image to be written      * @param imageFormat the target format (ex. "png")      * @param outputStream the output stream to be used for writing      * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+comment|/**      * Writes a buffered image to a file using the given image format.      *       * @param image the image to be written      * @param imageFormat the target format (ex. "png")      * @param outputStream the output stream to be used for writing      *       * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
 specifier|public
 specifier|static
 name|boolean
@@ -320,7 +330,8 @@ name|DEFAULT_SCREEN_RESOLUTION
 argument_list|)
 return|;
 block|}
-specifier|private
+comment|/**      * Writes a buffered image to a file using the given image format.      *       * @param image the image to be written      * @param imageFormat the target format (ex. "png")      * @param outputStream the output stream to be used for writing      * @param resolution resolution to be used when writing the image      *       * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+specifier|public
 specifier|static
 name|boolean
 name|writeImage
@@ -336,6 +347,45 @@ name|outputStream
 parameter_list|,
 name|int
 name|resolution
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|writeImage
+argument_list|(
+name|image
+argument_list|,
+name|imageFormat
+argument_list|,
+name|outputStream
+argument_list|,
+name|resolution
+argument_list|,
+name|DEFAULT_COMPRESSION_QUALITY
+argument_list|)
+return|;
+block|}
+comment|/**      * Writes a buffered image to a file using the given image format.      *       * @param image the image to be written      * @param imageFormat the target format (ex. "png")      * @param outputStream the output stream to be used for writing      * @param resolution resolution to be used when writing the image      * @param quality quality to be used when compressing the image (0< quality< 1.0f)      *       * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+specifier|public
+specifier|static
+name|boolean
+name|writeImage
+parameter_list|(
+name|BufferedImage
+name|image
+parameter_list|,
+name|String
+name|imageFormat
+parameter_list|,
+name|Object
+name|outputStream
+parameter_list|,
+name|int
+name|resolution
+parameter_list|,
+name|float
+name|quality
 parameter_list|)
 throws|throws
 name|IOException
@@ -461,7 +511,7 @@ name|writerParams
 operator|.
 name|setCompressionQuality
 argument_list|(
-literal|1.0f
+name|quality
 argument_list|)
 expr_stmt|;
 block|}
