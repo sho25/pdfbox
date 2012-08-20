@@ -936,6 +936,12 @@ argument_list|,
 name|JPG
 argument_list|,
 name|os
+argument_list|,
+name|ImageIOUtil
+operator|.
+name|DEFAULT_SCREEN_RESOLUTION
+argument_list|,
+name|compressionQuality
 argument_list|)
 expr_stmt|;
 name|COSDictionary
