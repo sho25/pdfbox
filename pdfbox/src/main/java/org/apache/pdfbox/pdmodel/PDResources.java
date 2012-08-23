@@ -2118,13 +2118,7 @@ condition|)
 block|{
 name|xobjects
 operator|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|PDXObject
-argument_list|>
+name|getXObjects
 argument_list|()
 expr_stmt|;
 name|xobjectMappings
