@@ -878,11 +878,19 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|os
+operator|!=
+literal|null
+condition|)
+block|{
 name|os
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Returns a {@link java.awt.image.BufferedImage} of the COSStream      * set in the constructor or null if the COSStream could not be encoded.      *      * @return {@inheritDoc}      *      * @throws IOException {@inheritDoc}      */
