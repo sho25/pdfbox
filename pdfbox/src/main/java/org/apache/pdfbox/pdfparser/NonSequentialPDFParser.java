@@ -51,6 +51,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -161,6 +171,18 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+operator|.
+name|Entry
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Queue
 import|;
 end_import
@@ -182,18 +204,6 @@ operator|.
 name|util
 operator|.
 name|TreeMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-operator|.
-name|Entry
 import|;
 end_import
 
@@ -376,6 +386,20 @@ operator|.
 name|exceptions
 operator|.
 name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
+name|IOUtils
 import|;
 end_import
 
@@ -634,7 +658,7 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|int
@@ -642,7 +666,7 @@ name|DEFAULT_TRAIL_BYTECOUNT
 init|=
 literal|2048
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|char
@@ -664,7 +688,7 @@ block|,
 literal|'F'
 block|}
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|char
@@ -694,7 +718,7 @@ block|,
 literal|'f'
 block|}
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|char
@@ -722,7 +746,7 @@ specifier|final
 name|RandomAccessBufferedFileInputStream
 name|raStream
 decl_stmt|;
-specifier|private
+specifier|protected
 name|SecurityHandler
 name|securityHandler
 init|=
@@ -797,8 +821,23 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/**   	 *<code>true</code> if the NonSequentialPDFParser is initialized by a InputStream, in this case   	 * a temporary file is created. At the end of the {@linkplain #parse()} method,the temporary file will   	 * be deleted.   	 */
+specifier|private
+name|boolean
+name|isTmpPDFFile
+init|=
+literal|false
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TMP_FILE_PREFIX
+init|=
+literal|"tmpPDF"
+decl_stmt|;
 comment|// ------------------------------------------------------------------------
-comment|/**       * Constructs parser for given file using memory buffer.       *       * @param filename the filename of the pdf to be parsed      *       * @throws IOException If something went wrong.      */
+comment|/**    	 * Constructs parser for given file using memory buffer.    	 *    	 * @param filename the filename of the pdf to be parsed   	 *    	 * @throws IOException If something went wrong.   	 */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -820,8 +859,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * Constructs parser for given file using given buffer for temporary storage.       *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *        * @throws IOException If something went wrong.      */
-comment|/**       * Constructs parser for given file using given buffer for temporary storage.       *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *        * @throws IOException If something went wrong.      */
+comment|/**    	 * Constructs parser for given file using given buffer for temporary storage.    	 *    	 * @param file the pdf to be parsed   	 * @param raBuf the buffer to be used for parsing   	 *     	 * @throws IOException If something went wrong.   	 */
+comment|/**    	 * Constructs parser for given file using given buffer for temporary storage.    	 *    	 * @param file the pdf to be parsed   	 * @param raBuf the buffer to be used for parsing   	 *     	 * @throws IOException If something went wrong.   	 */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -844,8 +883,8 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * Constructs parser for given file using given buffer for temporary storage.       *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *        * @throws IOException If something went wrong.      */
-comment|/**       * Constructs parser for given file using given buffer for temporary storage.       *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      * @param decryptionPassword password to be used for decryption      *        * @throws IOException If something went wrong.      */
+comment|/**    	 * Constructs parser for given file using given buffer for temporary storage.    	 *    	 * @param file the pdf to be parsed   	 * @param raBuf the buffer to be used for parsing   	 *     	 * @throws IOException If something went wrong.   	 */
+comment|/**    	 * Constructs parser for given file using given buffer for temporary storage.    	 *    	 * @param file the pdf to be parsed   	 * @param raBuf the buffer to be used for parsing   	 * @param decryptionPassword password to be used for decryption   	 *     	 * @throws IOException If something went wrong.   	 */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -870,6 +909,44 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|pdfFile
+operator|=
+name|file
+expr_stmt|;
+name|raStream
+operator|=
+operator|new
+name|RandomAccessBufferedFileInputStream
+argument_list|(
+name|pdfFile
+argument_list|)
+expr_stmt|;
+name|init
+argument_list|(
+name|file
+argument_list|,
+name|raBuf
+argument_list|,
+name|decryptionPassword
+argument_list|)
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|init
+parameter_list|(
+name|File
+name|file
+parameter_list|,
+name|RandomAccess
+name|raBuf
+parameter_list|,
+name|String
+name|decryptionPassword
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|String
 name|eofLookupRangeStr
 init|=
@@ -923,18 +1000,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|pdfFile
-operator|=
-name|file
-expr_stmt|;
-name|raStream
-operator|=
-operator|new
-name|RandomAccessBufferedFileInputStream
-argument_list|(
-name|pdfFile
-argument_list|)
-expr_stmt|;
 name|setDocument
 argument_list|(
 operator|(
@@ -977,6 +1042,126 @@ operator|=
 name|decryptionPassword
 expr_stmt|;
 block|}
+specifier|public
+name|NonSequentialPDFParser
+parameter_list|(
+name|InputStream
+name|input
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|EMPTY_INPUT_STREAM
+argument_list|,
+literal|null
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|pdfFile
+operator|=
+name|createTmpFile
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+name|raStream
+operator|=
+operator|new
+name|RandomAccessBufferedFileInputStream
+argument_list|(
+name|pdfFile
+argument_list|)
+expr_stmt|;
+name|init
+argument_list|(
+name|pdfFile
+argument_list|,
+literal|null
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**   	 * Create a temporary file with the input stream.   	 * If the creation succeed, the {@linkplain #isTmpPDFFile} is set to true.   	 * This Temporary file will be deleted at end of the parse method   	 * @param input   	 * @return   	 * @throws IOException   	 */
+specifier|private
+name|File
+name|createTmpFile
+parameter_list|(
+name|InputStream
+name|input
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|File
+name|tmpFile
+init|=
+literal|null
+decl_stmt|;
+name|FileOutputStream
+name|fos
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|tmpFile
+operator|=
+name|File
+operator|.
+name|createTempFile
+argument_list|(
+name|TMP_FILE_PREFIX
+argument_list|,
+literal|".pdf"
+argument_list|)
+expr_stmt|;
+name|fos
+operator|=
+operator|new
+name|FileOutputStream
+argument_list|(
+name|tmpFile
+argument_list|)
+expr_stmt|;
+name|IOUtils
+operator|.
+name|copy
+argument_list|(
+name|input
+argument_list|,
+name|fos
+argument_list|)
+expr_stmt|;
+name|isTmpPDFFile
+operator|=
+literal|true
+expr_stmt|;
+return|return
+name|tmpFile
+return|;
+block|}
+finally|finally
+block|{
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|fos
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// ------------------------------------------------------------------------
 comment|/**       *  Sets how many trailing bytes of PDF file are searched for      *  EOF marker and 'startxref' marker.      *  If not set we use default value {@link #DEFAULT_TRAIL_BYTECOUNT}.      *        *<p<We check that new value is at least 16. However for practical use      *  cases this value should not be lower than 1000; even 2000      *  was found to not be enough in some cases where some trailing      *  garbage like HTML snippets followed the EOF marker.</p>      *        *<p>In case system property {@link #SYSPROP_EOFLOOKUPRANGE} is defined      *  this value will be set on initialization but can be overwritten later.</p>      *        *  @param byteCount number of trailing bytes      */
 specifier|public
@@ -1002,7 +1187,7 @@ block|}
 block|}
 comment|// ------------------------------------------------------------------------
 comment|/**      * The initial parse will first parse only the trailer, the xrefstart and       * all xref tables to have a pointer (offset) to all the pdf's objects.      * It can handle linearized pdfs, which will have an xref at the       * end pointing to an xref at the beginning of the file.      * Last the root object is parsed.      *       * @throws IOException      */
-specifier|private
+specifier|protected
 name|void
 name|initialParse
 parameter_list|()
@@ -1546,7 +1731,7 @@ argument_list|()
 return|;
 block|}
 comment|/** Sets {@link #pdfSource} to start next parsing at given file offset. */
-specifier|private
+specifier|protected
 specifier|final
 name|void
 name|setPdfSource
@@ -1574,7 +1759,7 @@ comment|//                                new FileInputStream( file ), 16384),  
 comment|//        pdfSource.skip( _fileOffset );
 block|}
 comment|/** Enable handling of alternative pdfSource implementation. */
-specifier|private
+specifier|protected
 specifier|final
 name|void
 name|releasePdfSourceInputStream
@@ -1609,7 +1794,7 @@ block|}
 block|}
 comment|// ------------------------------------------------------------------------
 comment|/** Looks for and parses startxref. We first look for last '%%EOF' marker      *  (within last {@link #DEFAULT_TRAIL_BYTECOUNT} bytes (or range set via      *  {@link #setEOFLookupRange(int)}) and go back to find<code>startxref</code>. */
-specifier|private
+specifier|protected
 specifier|final
 name|long
 name|getStartxrefOffset
@@ -1843,8 +2028,7 @@ return|;
 block|}
 comment|// ------------------------------------------------------------------------
 comment|/** Searches last appearance of pattern within buffer. Lookup before _lastOff      *  and goes back until 0.      *        *  @param pattern  pattern to search for      *  @param buf      buffer to search pattern in      *  @param endOff   offset (exclusive) where lookup starts at      *        *  @return  start offset of pattern within buffer or<code>-1</code> if pattern could not be found       */
-specifier|private
-specifier|final
+specifier|protected
 name|int
 name|lastIndexOf
 parameter_list|(
@@ -1958,7 +2142,7 @@ return|;
 block|}
 comment|// ------------------------------------------------------------------------
 comment|/** Reads given pattern from {@link #pdfSource}. Skipping whitespace at start and end.      *       * @throws IOException if pattern could not be read      */
-specifier|private
+specifier|protected
 specifier|final
 name|void
 name|readPattern
@@ -2216,6 +2400,9 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{}
+name|deleteTempFile
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|exceptionOccurred
@@ -2241,6 +2428,78 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{}
+block|}
+block|}
+block|}
+specifier|protected
+name|File
+name|getPdfFile
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|pdfFile
+return|;
+block|}
+comment|/**   	 * Remove the temporary file.   	 * A temporary file is created if this class is instantiated with an InputStream   	 */
+specifier|protected
+name|void
+name|deleteTempFile
+parameter_list|()
+block|{
+if|if
+condition|(
+name|isTmpPDFFile
+condition|)
+block|{
+try|try
+block|{
+if|if
+condition|(
+operator|!
+name|pdfFile
+operator|.
+name|delete
+argument_list|()
+condition|)
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Temporary file '"
+operator|+
+name|pdfFile
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' can't be deleted"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Temporary file '"
+operator|+
+name|pdfFile
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' can't be deleted"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -3412,7 +3671,8 @@ block|}
 block|}
 block|}
 comment|/**      * This will parse the next object from the stream and add it to       * the local state.       * This is taken from {@link PDFParser} and reduced to parsing      * an indirect object.      *      * @param  obj object to be parsed (we only take object number and generation number for lookup start offset)      * @param  requireExistingNotCompressedObj  if<code>true</code> object to be parsed must       *          not be contained within compressed stream      * @return  the parsed object (which is also added to document object)      *       * @throws IOException If an IO error occurs.      */
-specifier|private
+specifier|protected
+specifier|final
 name|COSBase
 name|parseObjectDynamically
 parameter_list|(
@@ -3449,7 +3709,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This will parse the next object from the stream and add it to       * the local state.       * This is taken from {@link PDFParser} and reduced to parsing      * an indirect object.      *      * @param  objNr object number of object to be parsed      * @param  objGenNr object generation number of object to be parsed      * @param requireExistingNotCompressedObj  if<code>true</code> the object to be parsed must be defined      *                                          in xref (comment: null objects may be missing from xref) and      *                                          it must not be a compressed object within object stream      *                                          (this is used to circumvent being stuck in a loop in a malicious PDF)       *       * @return  the parsed object (which is also added to document object)      *       * @throws IOException If an IO error occurs.      */
-specifier|private
+specifier|protected
 name|COSBase
 name|parseObjectDynamically
 parameter_list|(
@@ -4197,7 +4457,7 @@ return|;
 block|}
 comment|// ------------------------------------------------------------------------
 comment|/** Decrypts given COSString. */
-specifier|private
+specifier|protected
 specifier|final
 name|void
 name|decrypt
