@@ -47,6 +47,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|SortedMap
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|activation
@@ -80,6 +90,20 @@ operator|.
 name|cos
 operator|.
 name|COSBase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdfparser
+operator|.
+name|XrefTrailerResolver
 import|;
 end_import
 
@@ -143,24 +167,6 @@ name|pdfbox
 operator|.
 name|preflight
 operator|.
-name|javacc
-operator|.
-name|extractor
-operator|.
-name|ExtractorTokenManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
 name|utils
 operator|.
 name|COSUtils
@@ -205,12 +211,16 @@ name|source
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * JavaCC Token Manager used to get some content of the PDF file as string (ex 	 * : Trailers) 	 */
-specifier|protected
-name|ExtractorTokenManager
-name|pdfExtractor
-init|=
-literal|null
+comment|//
+comment|//	/**
+comment|//	 * JavaCC Token Manager used to get some content of the PDF file as string (ex
+comment|//	 * : Trailers)
+comment|//	 */
+comment|//	protected ExtractorTokenManager pdfExtractor = null;
+comment|/** Contains all Xref/trailer objects and resolves them into single    *  object using startxref reference.     */
+specifier|private
+name|XrefTrailerResolver
+name|xrefTableResolver
 decl_stmt|;
 comment|/** 	 * This wrapper contains the ICCProfile used by the PDF file. 	 */
 specifier|protected
@@ -305,32 +315,21 @@ operator|=
 name|metadata
 expr_stmt|;
 block|}
-comment|/** 	 * @return the value of the pdfExtractor attribute. 	 */
-specifier|public
-name|ExtractorTokenManager
-name|getPdfExtractor
-parameter_list|()
-block|{
-return|return
-name|pdfExtractor
-return|;
-block|}
-comment|/** 	 * Initialize the pdfExtractor attribute. 	 *  	 * @param pdfExtractor 	 */
-specifier|public
-name|void
-name|setPdfExtractor
-parameter_list|(
-name|ExtractorTokenManager
-name|pdfExtractor
-parameter_list|)
-block|{
-name|this
-operator|.
-name|pdfExtractor
-operator|=
-name|pdfExtractor
-expr_stmt|;
-block|}
+comment|//	/**
+comment|//	 * @return the value of the pdfExtractor attribute.
+comment|//	 */
+comment|//	public ExtractorTokenManager getPdfExtractor() {
+comment|//		return pdfExtractor;
+comment|//	}
+comment|//
+comment|//	/**
+comment|//	 * Initialize the pdfExtractor attribute.
+comment|//	 *
+comment|//	 * @param pdfExtractor
+comment|//	 */
+comment|//	public void setPdfExtractor(ExtractorTokenManager pdfExtractor) {
+comment|//		this.pdfExtractor = pdfExtractor;
+comment|//	}
 comment|/** 	 * @return the PDFBox object representation of the document 	 */
 specifier|public
 name|PreflightDocument
@@ -340,6 +339,30 @@ block|{
 return|return
 name|document
 return|;
+block|}
+specifier|public
+name|XrefTrailerResolver
+name|getXrefTableResolver
+parameter_list|()
+block|{
+return|return
+name|xrefTableResolver
+return|;
+block|}
+specifier|public
+name|void
+name|setXrefTableResolver
+parameter_list|(
+name|XrefTrailerResolver
+name|xrefTableResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xrefTableResolver
+operator|=
+name|xrefTableResolver
+expr_stmt|;
 block|}
 comment|/** 	 * Initialize the PDFBox object which present the PDF File. 	 *  	 * @param document 	 */
 specifier|public

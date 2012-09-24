@@ -1244,6 +1244,24 @@ name|ERROR_SYNTAX_CID_RANGE
 init|=
 literal|"1.0.10"
 decl_stmt|;
+comment|/** 	 * Hexa string shall contain even number of non white space char 	 */
+name|String
+name|ERROR_SYNTAX_HEXA_STRING_EVEN_NUMBER
+init|=
+literal|"1.0.11"
+decl_stmt|;
+comment|/** 	 * Hexa string contain non hexadecimal characters 	 */
+name|String
+name|ERROR_SYNTAX_HEXA_STRING_INVALID
+init|=
+literal|"1.0.12"
+decl_stmt|;
+comment|/** 	 * An object is missing from the document (offset is negative) 	 */
+name|String
+name|ERROR_SYNTAX_NEGATIVE_OFFSET
+init|=
+literal|"1.0.13"
+decl_stmt|;
 name|String
 name|ERROR_SYNTAX_HEADER
 init|=
@@ -1407,6 +1425,12 @@ name|String
 name|ERROR_SYNTAX_TRAILER_OUTLINES_INVALID
 init|=
 literal|"1.4.9"
+decl_stmt|;
+comment|/** 	 * Last %%EOF sequence is followed by data 	 */
+name|String
+name|ERROR_SYNTAX_TRAILER_EOF
+init|=
+literal|"1.4.10"
 decl_stmt|;
 comment|// -----------------------------------------------------------
 comment|// ---- GRAPHIC ERRORS 2.x...
