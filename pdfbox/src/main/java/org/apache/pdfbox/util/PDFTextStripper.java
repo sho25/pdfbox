@@ -780,6 +780,11 @@ name|normalize
 init|=
 literal|null
 decl_stmt|;
+comment|/**      * True if we started a paragraph but haven't ended it      * yet.      */
+specifier|private
+name|boolean
+name|inParagraph
+decl_stmt|;
 comment|/**      * Instantiate a new PDFTextStripper object. This object will load      * properties from PDFTextStripper.properties and will not do      * anything special to convert the text to a more encoding-specific      * output.      *      * @throws IOException If there is an error loading the properties.      */
 specifier|public
 name|PDFTextStripper
@@ -4562,6 +4567,19 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inParagraph
+condition|)
+block|{
+name|writeParagraphEnd
+argument_list|()
+expr_stmt|;
+name|inParagraph
+operator|=
+literal|false
+expr_stmt|;
+block|}
 name|output
 operator|.
 name|write
@@ -4569,6 +4587,10 @@ argument_list|(
 name|getParagraphStart
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|inParagraph
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|/**      * Write something (if defined) at the end of a paragraph.      * @throws IOException if something went wrong      */
@@ -4586,6 +4608,10 @@ argument_list|(
 name|getParagraphEnd
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|inParagraph
+operator|=
+literal|false
 expr_stmt|;
 block|}
 comment|/**      * Write something (if defined) at the start of a page.      * @throws IOException if something went wrong      */
