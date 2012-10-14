@@ -400,7 +400,7 @@ name|cmap
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * The CMap holding the ToUnicode mapping       */
+comment|/**      * The CMap holding the ToUnicode mapping.      */
 specifier|protected
 name|CMap
 name|toUnicodeCmap
@@ -600,16 +600,16 @@ name|metrics
 return|;
 block|}
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|resourceRootCMAP
 init|=
 literal|"org/apache/pdfbox/resources/cmap/"
 decl_stmt|;
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|resourceRootAFM
 init|=
@@ -1398,7 +1398,7 @@ return|return
 name|encoding
 return|;
 block|}
-comment|/**      * Set the encoding object from the fonts dictionary.      * @param encoding the given encoding.      */
+comment|/**      * Set the encoding object from the fonts dictionary.      * @param encodingValue the given encoding.      */
 specifier|protected
 name|void
 name|setEncoding
@@ -2377,7 +2377,7 @@ return|return
 name|widths
 return|;
 block|}
-comment|/**      * Set the widths of the characters code.      *      * @param widths The widths of the character codes.      */
+comment|/**      * Set the widths of the characters code.      *      * @param widthsList The widths of the character codes.      */
 specifier|public
 name|void
 name|setWidths
@@ -2681,7 +2681,7 @@ return|return
 name|hasToUnicode
 return|;
 block|}
-comment|/**      * Sets hasToUnicode to the given value.      * @param hasToUnicode the given value for hasToUnicode      */
+comment|/**      * Sets hasToUnicode to the given value.      * @param hasToUnicodeValue the given value for hasToUnicode      */
 specifier|protected
 name|void
 name|setHasToUnicode
@@ -2695,6 +2695,13 @@ operator|=
 name|hasToUnicodeValue
 expr_stmt|;
 block|}
+comment|/**      * Determines the width of the space character.      * @return the width of the space character      */
+specifier|public
+specifier|abstract
+name|float
+name|getSpaceWitdh
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

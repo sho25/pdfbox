@@ -240,6 +240,21 @@ name|CIDRange
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SPACE
+init|=
+literal|" "
+decl_stmt|;
+specifier|private
+name|int
+name|spaceMapping
+init|=
+operator|-
+literal|1
+decl_stmt|;
 comment|/**      * Creates a new instance of CMap.      */
 specifier|public
 name|CMap
@@ -459,7 +474,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * This will perform a lookup into the CID map.      *      * @param code The code used to lookup.      *      * @return The CID that matches the lookup.      */
+comment|/**      * This will perform a lookup into the CID map.      *      * @param code The code used to lookup.      * @param offset the offset into the array.      * @param length the length of the subarray.      *      * @return The CID that matches the lookup.      */
 specifier|public
 name|int
 name|lookupCID
@@ -661,6 +676,21 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|SPACE
+operator|.
+name|equals
+argument_list|(
+name|dest
+argument_list|)
+condition|)
+block|{
+name|spaceMapping
+operator|=
+name|intSrc
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|srcLength
 operator|==
 literal|1
@@ -742,7 +772,7 @@ name|src
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a CID Range.      *      * @param src The CID Range to be added.      * @param dest The starting cid.      *      */
+comment|/**      * This will add a CID Range.      *      * @param from starting charactor of the CID range.      * @param to ending character of the CID range.      * @param cid the cid to be started with.      *      */
 specifier|public
 name|void
 name|addCIDRange
@@ -941,7 +971,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Returns the WMode of a CMap.      *      * 0 represents a horizontal and 1 represents a vertical orientation.      *       * @return      */
+comment|/**      * Returns the WMode of a CMap.      *      * 0 represents a horizontal and 1 represents a vertical orientation.      *       * @return the wmode      */
 specifier|public
 name|int
 name|getWMode
@@ -1108,6 +1138,16 @@ name|supplement
 operator|=
 name|newSupplement
 expr_stmt|;
+block|}
+comment|/**       * Returns the mapping for the space character.      *       * @return the mapped code for the space character      */
+specifier|public
+name|int
+name|getSpaceMapping
+parameter_list|()
+block|{
+return|return
+name|spaceMapping
+return|;
 block|}
 block|}
 end_class
