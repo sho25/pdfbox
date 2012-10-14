@@ -1943,14 +1943,6 @@ name|spaceMapping
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|fontWidthOfSpace
-operator|=
-name|getAverageFontWidth
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -1964,6 +1956,20 @@ literal|0
 argument_list|,
 literal|1
 argument_list|)
+expr_stmt|;
+block|}
+comment|// use the average font width as fall back
+if|if
+condition|(
+name|fontWidthOfSpace
+operator|<=
+literal|0
+condition|)
+block|{
+name|fontWidthOfSpace
+operator|=
+name|getAverageFontWidth
+argument_list|()
 expr_stmt|;
 block|}
 block|}
