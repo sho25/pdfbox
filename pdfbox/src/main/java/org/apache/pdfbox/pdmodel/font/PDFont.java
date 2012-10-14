@@ -2699,7 +2699,7 @@ comment|/**      * Determines the width of the space character.      * @return t
 specifier|public
 specifier|abstract
 name|float
-name|getSpaceWitdh
+name|getSpaceWidth
 parameter_list|()
 function_decl|;
 block|}

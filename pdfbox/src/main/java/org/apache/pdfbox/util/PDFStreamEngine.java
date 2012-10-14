@@ -1234,7 +1234,7 @@ operator|=
 operator|(
 name|font
 operator|.
-name|getSpaceWitdh
+name|getSpaceWidth
 argument_list|()
 operator|*
 name|glyphSpaceToTextSpaceFactor

@@ -1893,7 +1893,7 @@ block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public
 name|float
-name|getSpaceWitdh
+name|getSpaceWidth
 parameter_list|()
 block|{
 if|if
