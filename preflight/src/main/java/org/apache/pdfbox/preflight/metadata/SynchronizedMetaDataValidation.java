@@ -91,8 +91,6 @@ name|padaf
 operator|.
 name|xmpbox
 operator|.
-name|parser
-operator|.
 name|DateConverter
 import|;
 end_import
