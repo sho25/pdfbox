@@ -3139,13 +3139,8 @@ break|break;
 block|}
 default|default:
 block|{
-name|retval
-operator|.
-name|append
-argument_list|(
-literal|'\\'
-argument_list|)
-expr_stmt|;
+comment|// dropping the backslash
+comment|// see 7.3.4.2 Literal Strings for further information
 name|retval
 operator|.
 name|append
@@ -3153,10 +3148,6 @@ argument_list|(
 name|next
 argument_list|)
 expr_stmt|;
-comment|//another problem with PDF's, sometimes the \ doesn't really
-comment|//mean escape like the PDF spec says it does, sometimes is should be literal
-comment|//which is what we will assume here.
-comment|//throw new IOException( "Unexpected break sequence '" + next + "' " + pdfSource );
 block|}
 block|}
 block|}
