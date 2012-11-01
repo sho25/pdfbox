@@ -2108,11 +2108,16 @@ operator|-=
 literal|360
 expr_stmt|;
 block|}
+comment|// swap width and height
 if|if
 condition|(
 name|rotationAngle
-operator|!=
-literal|0
+operator|==
+literal|90
+operator|||
+name|rotationAngle
+operator|==
+literal|270
 condition|)
 block|{
 name|retval
