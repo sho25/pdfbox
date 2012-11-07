@@ -2630,7 +2630,10 @@ comment|/**      * This will parse a PDF string.      *      * @return The parse
 specifier|protected
 name|COSString
 name|parseCOSString
-parameter_list|()
+parameter_list|(
+name|boolean
+name|isDictionary
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -2650,7 +2653,9 @@ name|retval
 init|=
 operator|new
 name|COSString
-argument_list|()
+argument_list|(
+name|isDictionary
+argument_list|)
 decl_stmt|;
 name|char
 name|openBrace
@@ -4224,7 +4229,9 @@ block|{
 name|retval
 operator|=
 name|parseCOSString
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 break|break;
@@ -4247,7 +4254,9 @@ case|:
 name|retval
 operator|=
 name|parseCOSString
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 break|break;
 case|case

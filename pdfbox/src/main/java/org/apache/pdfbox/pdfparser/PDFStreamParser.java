@@ -756,7 +756,9 @@ block|{
 name|retval
 operator|=
 name|parseCOSString
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 break|break;
@@ -780,7 +782,9 @@ comment|// string
 name|retval
 operator|=
 name|parseCOSString
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 break|break;
 case|case

@@ -2566,7 +2566,10 @@ comment|/** 	 * Check that the hexa string contains only an even number of Hexad
 specifier|protected
 name|COSString
 name|parseCOSString
-parameter_list|()
+parameter_list|(
+name|boolean
+name|isDictionary
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -2706,7 +2709,9 @@ init|=
 name|super
 operator|.
 name|parseCOSString
-argument_list|()
+argument_list|(
+name|isDictionary
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
