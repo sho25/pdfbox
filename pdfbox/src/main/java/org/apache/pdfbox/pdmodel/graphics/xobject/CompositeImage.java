@@ -289,12 +289,50 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * This method applies the specified stencil mask to a given image and returns a new BufferedImage      * whose alpha values are computed from the stencil mask (smask) image.      *       * @return the stencil masked image       */
+comment|/**      * This method applies the specified stencil mask to a given image and returns a new BufferedImage      * whose alpha values are computed from the stencil mask (smask) image.      *       * @param decodeArray the decode array      * @return the stencil masked image       */
 specifier|public
 name|BufferedImage
 name|createStencilMaskedImage
-parameter_list|()
+parameter_list|(
+name|COSArray
+name|decodeArray
+parameter_list|)
 block|{
+comment|// default: 0 (black) == opaque
+name|int
+name|alphaValue
+init|=
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|decodeArray
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// invert the stencil mask: 1 (white) == opaque
+name|alphaValue
+operator|=
+name|decodeArray
+operator|.
+name|getInt
+argument_list|(
+literal|0
+argument_list|)
+operator|>
+name|decodeArray
+operator|.
+name|getInt
+argument_list|(
+literal|1
+argument_list|)
+condition|?
+literal|1
+else|:
+literal|0
+expr_stmt|;
+block|}
 specifier|final
 name|int
 name|baseImageWidth
@@ -410,7 +448,7 @@ index|[
 literal|0
 index|]
 operator|==
-literal|0
+name|alphaValue
 condition|?
 literal|0xFF000000
 else|:

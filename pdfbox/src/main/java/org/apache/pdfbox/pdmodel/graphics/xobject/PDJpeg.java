@@ -1540,7 +1540,12 @@ init|=
 name|compositeImage
 operator|.
 name|createStencilMaskedImage
+argument_list|(
+name|maskImage
+operator|.
+name|getDecode
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|image
 operator|=
