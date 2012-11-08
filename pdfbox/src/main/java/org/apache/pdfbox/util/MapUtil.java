@@ -62,6 +62,10 @@ decl_stmt|;
 while|while
 condition|(
 name|map
+operator|!=
+literal|null
+operator|&&
+name|map
 operator|.
 name|get
 argument_list|(

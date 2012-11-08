@@ -2190,14 +2190,11 @@ argument_list|)
 expr_stmt|;
 name|streamResources
 operator|.
-name|getFonts
-argument_list|()
-operator|.
-name|put
+name|addFont
 argument_list|(
-name|fontName
-argument_list|,
 name|retval
+argument_list|,
+name|fontName
 argument_list|)
 expr_stmt|;
 block|}
