@@ -580,6 +580,14 @@ specifier|private
 name|Graphics2D
 name|graphics
 decl_stmt|;
+comment|/**      * clipping winding rule used for the clipping path.      */
+specifier|private
+name|int
+name|clippingWindingRule
+init|=
+operator|-
+literal|1
+decl_stmt|;
 comment|/**      * Size of the page.      */
 specifier|protected
 name|Dimension
@@ -1870,7 +1878,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the clipping Path.      *      * @param windingRule The winding rule this path will use.      *       */
+comment|/**      * Set the clipping Path.      *      * @param windingRule The winding rule this path will use.      *       * @deprecated use {@link #setClippingWindingRule(int)} instead      *       */
 specifier|public
 name|void
 name|setClippingPath
@@ -1878,6 +1886,40 @@ parameter_list|(
 name|int
 name|windingRule
 parameter_list|)
+block|{
+name|setClippingWindingRule
+argument_list|(
+name|windingRule
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the clipping winding rule.      *      * @param windingRule The winding rule which will be used for clipping.      *       */
+specifier|public
+name|void
+name|setClippingWindingRule
+parameter_list|(
+name|int
+name|windingRule
+parameter_list|)
+block|{
+name|clippingWindingRule
+operator|=
+name|windingRule
+expr_stmt|;
+block|}
+comment|/**      * Set the clipping Path.      *      */
+specifier|public
+name|void
+name|endPath
+parameter_list|()
+block|{
+if|if
+condition|(
+name|clippingWindingRule
+operator|>
+operator|-
+literal|1
+condition|)
 block|{
 name|PDGraphicsState
 name|graphicsState
@@ -1901,7 +1943,7 @@ name|clippingPath
 operator|.
 name|setWindingRule
 argument_list|(
-name|windingRule
+name|clippingWindingRule
 argument_list|)
 expr_stmt|;
 comment|// If there is already set a clipping path, we have to intersect the new with the existing one
@@ -1960,6 +2002,12 @@ name|setCurrentClippingPath
 argument_list|(
 name|clippingPath
 argument_list|)
+expr_stmt|;
+block|}
+name|clippingWindingRule
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 block|}
 name|getLinePath

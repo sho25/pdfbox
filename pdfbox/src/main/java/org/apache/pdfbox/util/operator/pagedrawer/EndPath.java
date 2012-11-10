@@ -123,10 +123,7 @@ name|context
 decl_stmt|;
 name|drawer
 operator|.
-name|getLinePath
-argument_list|()
-operator|.
-name|reset
+name|endPath
 argument_list|()
 expr_stmt|;
 block|}
