@@ -1256,9 +1256,9 @@ name|ERROR_SYNTAX_HEXA_STRING_INVALID
 init|=
 literal|"1.0.12"
 decl_stmt|;
-comment|/** 	 * An object is missing from the document (offset is negative) 	 */
+comment|/** 	 * An object is missing from the document 	 */
 name|String
-name|ERROR_SYNTAX_NEGATIVE_OFFSET
+name|ERROR_SYNTAX_MISSING_OFFSET
 init|=
 literal|"1.0.13"
 decl_stmt|;

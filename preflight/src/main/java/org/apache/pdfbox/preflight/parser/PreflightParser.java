@@ -2973,12 +2973,6 @@ name|offsetOrObjstmObNr
 operator|==
 literal|null
 operator|)
-operator|||
-operator|(
-name|offsetOrObjstmObNr
-operator|<=
-literal|0
-operator|)
 operator|)
 condition|)
 block|{
@@ -2987,7 +2981,7 @@ argument_list|(
 operator|new
 name|ValidationError
 argument_list|(
-name|ERROR_SYNTAX_NEGATIVE_OFFSET
+name|ERROR_SYNTAX_MISSING_OFFSET
 argument_list|,
 literal|"Object must be defined and must not be compressed object: "
 operator|+
