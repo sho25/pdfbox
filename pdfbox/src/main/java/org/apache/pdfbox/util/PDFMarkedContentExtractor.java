@@ -649,10 +649,6 @@ name|sameTextCharacters
 operator|.
 name|size
 argument_list|()
-operator|&&
-name|textCharacter
-operator|!=
-literal|null
 condition|;
 name|i
 operator|++
@@ -726,6 +722,7 @@ name|suppressCharacter
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
 block|}
 if|if
