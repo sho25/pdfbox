@@ -61,7 +61,7 @@ init|=
 literal|null
 decl_stmt|;
 comment|/**      * Returns the underlying TextPosition object.      * @return the text position      */
-specifier|protected
+specifier|public
 name|TextPosition
 name|getTextPosition
 parameter_list|()
