@@ -2249,6 +2249,19 @@ argument_list|(
 literal|"JBIG2Decode"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|JBIG2_GLOBALS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"JBIG2Globals"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
