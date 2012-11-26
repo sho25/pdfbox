@@ -1255,6 +1255,8 @@ decl_stmt|;
 specifier|private
 name|String
 name|achVendId
+init|=
+literal|"XXXX"
 decl_stmt|;
 specifier|private
 name|int

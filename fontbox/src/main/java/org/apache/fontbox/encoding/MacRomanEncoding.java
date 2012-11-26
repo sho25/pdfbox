@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This is an interface to a text encoder.  *  * @author Ben Litchfield  * @version $Revision: 1.1 $  *   * @deprecated no longer needed by fontbox  */
+comment|/**  * This is the MacRomanEncoding.  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class
@@ -26,6 +26,17 @@ name|MacRomanEncoding
 extends|extends
 name|Encoding
 block|{
+comment|/**      * Singleton instance of this class.      *      */
+specifier|public
+specifier|static
+specifier|final
+name|MacRomanEncoding
+name|INSTANCE
+init|=
+operator|new
+name|MacRomanEncoding
+argument_list|()
+decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|MacRomanEncoding
