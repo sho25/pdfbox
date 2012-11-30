@@ -836,6 +836,7 @@ argument_list|,
 literal|"BC"
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 block|}
 name|recipientFieldsBytes
