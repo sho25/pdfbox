@@ -235,11 +235,13 @@ name|annotValidator
 operator|!=
 literal|null
 condition|)
+block|{
 name|annotValidator
 operator|.
 name|validate
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
