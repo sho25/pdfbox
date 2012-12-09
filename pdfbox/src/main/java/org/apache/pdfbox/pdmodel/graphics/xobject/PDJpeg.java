@@ -1158,6 +1158,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// use the cached image
 return|return
 name|image
 return|;
@@ -1430,11 +1431,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// If there is a 'soft mask' or 'mask' image then we use that as a transparency mask.
-return|return
+name|image
+operator|=
 name|applyMasks
 argument_list|(
 name|bi
 argument_list|)
+expr_stmt|;
+return|return
+name|image
 return|;
 block|}
 comment|/**      * This writes the JPeg to out.      * {@inheritDoc}      */
