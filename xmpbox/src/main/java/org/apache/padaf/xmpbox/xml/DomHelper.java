@@ -225,6 +225,7 @@ name|pos
 argument_list|)
 return|;
 block|}
+comment|/** 	 * Return the first child element of the element parameter. 	 * If there is no child, null is returned 	 * @param description 	 * @return 	 * @throws XmpParsingException 	 */
 specifier|public
 specifier|static
 name|Element
@@ -287,17 +288,9 @@ argument_list|)
 return|;
 block|}
 block|}
-throw|throw
-operator|new
-name|XmpParsingException
-argument_list|(
-name|ErrorType
-operator|.
-name|Undefined
-argument_list|,
-literal|"Does not contain element"
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
 specifier|public
 specifier|static

@@ -986,6 +986,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|first
+operator|!=
+literal|null
+operator|&&
 literal|"pdfaExtension"
 operator|.
 name|equals
@@ -1490,6 +1494,13 @@ argument_list|(
 name|property
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|inner
+operator|!=
+literal|null
+condition|)
+block|{
 name|AbstractStructuredType
 name|ast
 init|=
@@ -1521,6 +1532,7 @@ argument_list|(
 name|ast
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 elseif|else
@@ -2802,6 +2814,13 @@ argument_list|(
 name|element
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|descElement
+operator|!=
+literal|null
+condition|)
+block|{
 name|parseDescriptionInner
 argument_list|(
 name|xmp
@@ -2811,6 +2830,7 @@ argument_list|,
 name|cpc
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 else|else
