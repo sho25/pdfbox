@@ -1103,6 +1103,8 @@ name|getString
 argument_list|()
 argument_list|)
 expr_stmt|;
+else|else
+break|break;
 block|}
 name|isEqual
 operator|=
@@ -1110,6 +1112,14 @@ name|isEqual
 operator|&&
 name|oneIsEquals
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|isEqual
+condition|)
+block|{
+break|break;
+block|}
 block|}
 return|return
 name|isEqual
