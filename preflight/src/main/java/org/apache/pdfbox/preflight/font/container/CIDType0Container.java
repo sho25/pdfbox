@@ -199,7 +199,15 @@ name|cidFound
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
+block|}
+if|if
+condition|(
+name|cidFound
+condition|)
+block|{
+break|break;
 block|}
 block|}
 name|float
