@@ -637,6 +637,15 @@ name|found
 operator|=
 literal|true
 expr_stmt|;
+if|if
+condition|(
+name|isartorResultFile
+operator|==
+literal|null
+condition|)
+block|{
+break|break;
+block|}
 block|}
 if|if
 condition|(
