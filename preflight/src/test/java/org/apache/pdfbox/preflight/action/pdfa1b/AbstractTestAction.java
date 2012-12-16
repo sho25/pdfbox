@@ -523,6 +523,7 @@ name|found
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
 block|}
 name|assertTrue
