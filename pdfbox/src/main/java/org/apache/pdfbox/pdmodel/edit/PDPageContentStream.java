@@ -2646,7 +2646,7 @@ index|]
 argument_list|,
 name|colorComponents
 index|[
-literal|2
+literal|1
 index|]
 argument_list|,
 name|colorComponents
@@ -2782,7 +2782,7 @@ index|]
 argument_list|,
 name|colorComponents
 index|[
-literal|2
+literal|1
 index|]
 argument_list|,
 name|colorComponents
