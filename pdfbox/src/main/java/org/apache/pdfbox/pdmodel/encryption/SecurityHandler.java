@@ -1238,11 +1238,6 @@ index|[
 literal|4096
 index|]
 decl_stmt|;
-name|long
-name|count
-init|=
-literal|0L
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -1276,10 +1271,6 @@ literal|0
 argument_list|,
 name|n
 argument_list|)
-expr_stmt|;
-name|count
-operator|+=
-name|n
 expr_stmt|;
 block|}
 block|}
@@ -1685,6 +1676,32 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+name|COSBase
+name|value
+init|=
+name|entry
+operator|.
+name|getValue
+argument_list|()
+decl_stmt|;
+comment|// within a dictionary only strings and streams have to be decrypted
+if|if
+condition|(
+operator|!
+operator|(
+name|value
+operator|instanceof
+name|COSString
+operator|)
+operator|&&
+operator|!
+operator|(
+name|value
+operator|instanceof
+name|COSStream
+operator|)
+condition|)
+continue|continue;
 comment|//if we are a signature dictionary and contain a Contents entry then
 comment|//we don't decrypt it.
 if|if
@@ -1704,10 +1721,7 @@ argument_list|(
 literal|"Contents"
 argument_list|)
 operator|&&
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|value
 operator|instanceof
 name|COSString
 operator|&&
