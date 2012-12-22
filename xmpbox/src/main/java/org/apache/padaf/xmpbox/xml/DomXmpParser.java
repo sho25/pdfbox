@@ -1207,6 +1207,31 @@ comment|//					if (schema instanceof XMPSchema) {
 comment|//						((XMPSchema)sp).setAboutAsSimple(attr.getValue());
 comment|//					}
 block|}
+elseif|else
+if|if
+condition|(
+name|attr
+operator|.
+name|getPrefix
+argument_list|()
+operator|==
+literal|null
+operator|&&
+name|XmpConstants
+operator|.
+name|ABOUT_NAME
+operator|.
+name|equals
+argument_list|(
+name|attr
+operator|.
+name|getLocalName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// do nothing
+block|}
 else|else
 block|{
 name|String
@@ -1809,6 +1834,27 @@ argument_list|(
 name|property
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|inner
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|XmpParsingException
+argument_list|(
+name|ErrorType
+operator|.
+name|Format
+argument_list|,
+literal|"property should contain child element : "
+operator|+
+name|property
+argument_list|)
+throw|;
+block|}
 name|AbstractStructuredType
 name|ast
 init|=
