@@ -1262,6 +1262,12 @@ name|ERROR_SYNTAX_MISSING_OFFSET
 init|=
 literal|"1.0.13"
 decl_stmt|;
+comment|/** 	 * An object has an invalid offset 	 */
+name|String
+name|ERROR_SYNTAX_INVALID_OFFSET
+init|=
+literal|"1.0.14"
+decl_stmt|;
 name|String
 name|ERROR_SYNTAX_HEADER
 init|=
