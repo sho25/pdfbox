@@ -816,7 +816,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"The operator \""
 operator|+
@@ -827,6 +827,7 @@ argument_list|,
 name|ERROR_SYNTAX_CONTENT_STREAM_UNSUPPORTED_OP
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 comment|/* 		 *  Process Specific Validation. 		 *  The Generic Processing is useless for PDFA validation 		 */
 if|if
@@ -1003,7 +1004,7 @@ operator|!=
 literal|3
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"Invalid argument for the operator : "
 operator|+
@@ -1015,6 +1016,7 @@ argument_list|,
 name|ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|Object
 name|arg0
@@ -1071,7 +1073,7 @@ name|COSFloat
 operator|)
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"Invalid argument for the operator : "
 operator|+
@@ -1083,6 +1085,7 @@ argument_list|,
 name|ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 if|if
 condition|(
@@ -1107,7 +1110,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"Invalid argument for the operator : "
 operator|+
@@ -1119,6 +1122,7 @@ argument_list|,
 name|ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 else|else
@@ -1165,7 +1169,7 @@ name|COSInteger
 operator|)
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"Invalid argument for the operator : "
 operator|+
@@ -1177,6 +1181,7 @@ argument_list|,
 name|ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 block|}
@@ -1267,7 +1272,7 @@ name|COSFloat
 operator|)
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"Invalid argument for the operator : "
 operator|+
@@ -1279,6 +1284,7 @@ argument_list|,
 name|ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 block|}
@@ -1330,13 +1336,14 @@ literal|null
 condition|)
 block|{
 comment|// Unable to decode the Text without Font
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"Text operator can't be process without Font"
 argument_list|,
 name|ERROR_FONTS_UNKNOWN_FONT_REF
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|FontContainer
 name|fontContainer
@@ -1382,7 +1389,7 @@ literal|null
 condition|)
 block|{
 comment|// Font Must be embedded if the RenderingMode isn't 3
-name|throwContentStreamException
+name|registerError
 argument_list|(
 name|font
 operator|.
@@ -1394,6 +1401,7 @@ argument_list|,
 name|ERROR_FONTS_UNKNOWN_FONT_REF
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 elseif|else
 if|if
@@ -1428,6 +1436,24 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+operator|!
+name|fontContainer
+operator|.
+name|isValid
+argument_list|()
+operator|&&
+name|fontContainer
+operator|.
+name|errorsAleadyMerged
+argument_list|()
+condition|)
+block|{
+comment|// font already computed
+return|return;
 block|}
 name|int
 name|codeLength
@@ -1513,23 +1539,6 @@ name|codeLength
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|throwContentStreamException
-argument_list|(
-literal|"Encoding can't interpret the character code"
-argument_list|,
-name|ERROR_FONTS_ENCODING_ERROR
-argument_list|)
-expr_stmt|;
-block|}
-try|try
-block|{
 name|fontContainer
 operator|.
 name|checkGlyphWith
@@ -1537,6 +1546,21 @@ argument_list|(
 name|cid
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|registerError
+argument_list|(
+literal|"Encoding can't interpret the character code"
+argument_list|,
+name|ERROR_FONTS_ENCODING_ERROR
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
 catch|catch
 parameter_list|(
@@ -1551,7 +1575,7 @@ operator|!=
 literal|3
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 name|e
 operator|.
@@ -1564,6 +1588,7 @@ name|getErrorCode
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 block|}

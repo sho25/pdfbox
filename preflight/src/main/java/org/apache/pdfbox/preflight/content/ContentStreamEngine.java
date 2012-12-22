@@ -425,6 +425,22 @@ name|pdfbox
 operator|.
 name|preflight
 operator|.
+name|ValidationResult
+operator|.
+name|ValidationError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
 name|exception
 operator|.
 name|ValidationException
@@ -1865,7 +1881,7 @@ name|riArgument0
 argument_list|)
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"Unexpected value '"
 operator|+
@@ -1881,6 +1897,7 @@ argument_list|,
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 block|}
@@ -1926,13 +1943,14 @@ operator|>
 name|MAX_GRAPHIC_STATES
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"Too many graphic states"
 argument_list|,
 name|ERROR_GRAPHIC_TOO_MANY_GRAPHIC_STATES
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 block|}
@@ -2172,13 +2190,14 @@ operator|==
 literal|null
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"The ColorSpace is unknown"
 argument_list|,
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 if|if
@@ -2286,7 +2305,7 @@ name|RGB
 argument_list|)
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"The operator \""
 operator|+
@@ -2297,6 +2316,7 @@ argument_list|,
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_RGB
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 if|if
@@ -2329,7 +2349,7 @@ name|CMYK
 argument_list|)
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"The operator \""
 operator|+
@@ -2340,6 +2360,7 @@ argument_list|,
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_CMYK
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 if|if
@@ -2372,7 +2393,7 @@ name|ALL
 argument_list|)
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"The operator \""
 operator|+
@@ -2383,6 +2404,7 @@ argument_list|,
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_MISSING
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 if|if
@@ -2451,7 +2473,7 @@ argument_list|)
 condition|)
 block|{
 comment|// The default fill color needs an OutputIntent
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"The operator \""
 operator|+
@@ -2462,6 +2484,7 @@ argument_list|,
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_MISSING
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 block|}
@@ -2980,13 +3003,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"The operand doesn't have the expected type"
 argument_list|,
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|ColorSpaceHelper
 name|csHelper
@@ -3092,13 +3116,14 @@ operator|==
 literal|null
 condition|)
 block|{
-name|throwContentStreamException
+name|registerError
 argument_list|(
 literal|"The ColorSpace is unknown"
 argument_list|,
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 if|if
 condition|(
@@ -3160,10 +3185,10 @@ name|validate
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Build a ContentStreamException using the given parameters 	 *  	 * @param msg 	 *          exception details 	 * @param errorCode 	 *          the error code. 	 * @throws ContentStreamException 	 */
+comment|/** 	 * Add a validation error into the PreflightContext 	 *  	 * @param msg exception details 	 * @param errorCode the error code. 	 */
 specifier|protected
 name|void
-name|throwContentStreamException
+name|registerError
 parameter_list|(
 name|String
 name|msg
@@ -3171,28 +3196,27 @@ parameter_list|,
 name|String
 name|errorCode
 parameter_list|)
-throws|throws
-name|ContentStreamException
 block|{
-name|ContentStreamException
-name|cex
+name|ValidationError
+name|error
 init|=
 operator|new
-name|ContentStreamException
+name|ValidationError
 argument_list|(
+name|errorCode
+argument_list|,
 name|msg
 argument_list|)
 decl_stmt|;
-name|cex
+name|this
 operator|.
-name|setErrorCode
+name|context
+operator|.
+name|addValidationError
 argument_list|(
-name|errorCode
+name|error
 argument_list|)
 expr_stmt|;
-throw|throw
-name|cex
-throw|;
 block|}
 block|}
 end_class

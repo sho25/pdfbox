@@ -336,7 +336,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"The FontFile2 is missing"
+literal|"The FontFile2 is missing for "
+operator|+
+name|fontDescriptor
+operator|.
+name|getFontName
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -376,7 +381,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"The FontFile entry /Length1 is invalid"
+literal|"The FontFile entry /Length1 is invalid for "
+operator|+
+name|fontDescriptor
+operator|.
+name|getFontName
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

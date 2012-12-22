@@ -446,7 +446,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"The FontFile is missing"
+literal|"The FontFile is missing for "
+operator|+
+name|fontDescriptor
+operator|.
+name|getFontName
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -504,7 +509,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"The FontFile3 stream doesn't have the right Subtype"
+literal|"The FontFile3 stream doesn't have the right Subtype for "
+operator|+
+name|fontDescriptor
+operator|.
+name|getFontName
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
