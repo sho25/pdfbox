@@ -144,6 +144,12 @@ operator|.
 name|parse
 argument_list|(
 name|encodedCommands
+argument_list|,
+operator|new
+name|IndexData
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -234,6 +240,12 @@ operator|.
 name|parse
 argument_list|(
 name|encodedNumbers
+argument_list|,
+operator|new
+name|IndexData
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals

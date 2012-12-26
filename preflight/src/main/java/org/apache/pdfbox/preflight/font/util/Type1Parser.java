@@ -167,6 +167,20 @@ name|fontbox
 operator|.
 name|cff
 operator|.
+name|IndexData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|cff
+operator|.
 name|Type1CharStringParser
 import|;
 end_import
@@ -1337,6 +1351,7 @@ operator|new
 name|Type1CharStringParser
 argument_list|()
 decl_stmt|;
+comment|// TODO provide the local subroutine indexes
 name|List
 argument_list|<
 name|Object
@@ -1348,6 +1363,12 @@ operator|.
 name|parse
 argument_list|(
 name|description
+argument_list|,
+operator|new
+name|IndexData
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|type1Font
