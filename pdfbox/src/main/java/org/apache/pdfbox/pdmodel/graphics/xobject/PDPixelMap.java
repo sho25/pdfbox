@@ -970,10 +970,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"getColorSpace() returned NULL.  Predictor = "
-operator|+
-name|getPredictor
-argument_list|()
+literal|"getColorSpace() returned NULL."
 argument_list|)
 expr_stmt|;
 return|return
@@ -2012,7 +2009,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * DecodeParms is an optional parameter for filters.      *      * It is provided if any of the filters has nondefault parameters. If there      * is only one filter it is a dictionary, if there are multiple filters it      * is an array with an entry for each filter. An array entry can hold a null      * value if only the default values are used or a dictionary with      * parameters.      *      * @return The decoding parameters.      *      */
+comment|/**      * DecodeParms is an optional parameter for filters.      *      * It is provided if any of the filters has nondefault parameters. If there      * is only one filter it is a dictionary, if there are multiple filters it      * is an array with an entry for each filter. An array entry can hold a null      * value if only the default values are used or a dictionary with      * parameters.      *      * @return The decoding parameters.      *      * @deprecated Use {@link org.apache.pdfbox.pdmodel.common.PDStream#getDecodeParms() } instead      */
 specifier|public
 name|COSDictionary
 name|getDecodeParams
@@ -2077,7 +2074,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * A code that selects the predictor algorithm.      *      *<ul>      *<li>1 No prediction (the default value)      *<li>2 TIFF Predictor 2      *<li>10 PNG prediction (on encoding, PNG None on all rows)      *<li>11 PNG prediction (on encoding, PNG Sub on all rows)      *<li>12 PNG prediction (on encoding, PNG Up on all rows)      *<li>13 PNG prediction (on encoding, PNG Average on all rows)      *<li>14 PNG prediction (on encoding, PNG Path on all rows)      *<li>15 PNG prediction (on encoding, PNG optimum)      *</ul>      *      * Default value: 1.      *      * @return predictor algorithm code      */
+comment|/**      * A code that selects the predictor algorithm.      *      *<ul>      *<li>1 No prediction (the default value)      *<li>2 TIFF Predictor 2      *<li>10 PNG prediction (on encoding, PNG None on all rows)      *<li>11 PNG prediction (on encoding, PNG Sub on all rows)      *<li>12 PNG prediction (on encoding, PNG Up on all rows)      *<li>13 PNG prediction (on encoding, PNG Average on all rows)      *<li>14 PNG prediction (on encoding, PNG Path on all rows)      *<li>15 PNG prediction (on encoding, PNG optimum)      *</ul>      *      * Default value: 1.      *      * @return predictor algorithm code      *       * @deprecated see {@link org.apache.pdfbox.filter.FlateFilter}      *       */
 specifier|public
 name|int
 name|getPredictor

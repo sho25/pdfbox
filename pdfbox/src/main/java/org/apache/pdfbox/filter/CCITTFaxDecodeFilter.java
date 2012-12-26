@@ -283,7 +283,7 @@ operator|)
 name|decodeP
 argument_list|)
 operator|.
-name|get
+name|getObject
 argument_list|(
 name|filterIndex
 argument_list|)
