@@ -1451,6 +1451,8 @@ operator|.
 name|nextElement
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|int
 name|index
 init|=
@@ -1478,14 +1480,17 @@ name|encoding
 operator|==
 literal|null
 condition|)
+block|{
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to get character encoding.  Encoding defintion found without /Encoding line."
+literal|"Unable to get character encoding. Encoding defintion found without /Encoding line."
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|encoding
 operator|.
 name|addCharacterEncoding
@@ -1502,6 +1507,30 @@ literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|exception
+parameter_list|)
+block|{
+comment|// there are (tex?)-some fonts containing postscript code like the following,
+comment|// which has to be ignored, see PDFBOX-1481
+comment|// dup dup 161 10 getinterval 0 exch putinterval ....
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Malformed encoding definition ignored (line="
+operator|+
+name|line
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
+block|}
+continue|continue;
 block|}
 block|}
 comment|// according to the pdf reference, all font matrices should be same, except for type 3 fonts.
