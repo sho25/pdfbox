@@ -1559,6 +1559,9 @@ operator|.
 name|getBytes
 argument_list|(
 name|encoding
+operator|.
+name|name
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
