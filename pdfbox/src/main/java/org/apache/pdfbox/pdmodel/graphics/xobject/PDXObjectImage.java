@@ -708,6 +708,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|COSBase
+name|mask
+init|=
+name|getMask
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|mask
+operator|instanceof
+name|COSStream
+condition|)
+block|{
 name|PDXObjectImage
 name|maskImageRef
 init|=
@@ -718,8 +731,10 @@ name|PDXObject
 operator|.
 name|createXObject
 argument_list|(
-name|getMask
-argument_list|()
+operator|(
+name|COSStream
+operator|)
+name|mask
 argument_list|)
 decl_stmt|;
 name|BufferedImage
@@ -842,6 +857,21 @@ expr_stmt|;
 return|return
 name|newImage
 return|;
+block|}
+else|else
+block|{
+comment|// TODO Colour key masking
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Colour key masking isn't supported"
+argument_list|)
+expr_stmt|;
+return|return
+name|baseImage
+return|;
+block|}
 block|}
 comment|/**      * Writes the Image to out.      * @param out the OutputStream that the Image is written to.      * @throws IOException when somethings wrong with out      */
 specifier|public
