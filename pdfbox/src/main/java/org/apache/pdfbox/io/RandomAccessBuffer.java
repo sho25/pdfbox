@@ -562,6 +562,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// end of buffer reached?
 if|if
 condition|(
 name|currentBufferPointer
@@ -623,6 +624,37 @@ operator|.
 name|size
 operator|=
 name|pointer
+expr_stmt|;
+block|}
+comment|// end of buffer reached now?
+if|if
+condition|(
+name|currentBufferPointer
+operator|>=
+name|BUFFER_SIZE
+condition|)
+block|{
+if|if
+condition|(
+name|pointer
+operator|+
+name|BUFFER_SIZE
+operator|>=
+name|Integer
+operator|.
+name|MAX_VALUE
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"RandomAccessBuffer overflow"
+argument_list|)
+throw|;
+block|}
+name|expandBuffer
+argument_list|()
 expr_stmt|;
 block|}
 block|}
