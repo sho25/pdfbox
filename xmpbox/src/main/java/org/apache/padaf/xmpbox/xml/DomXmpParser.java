@@ -1202,10 +1202,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|//					// do nothing
-comment|//					if (schema instanceof XMPSchema) {
-comment|//						((XMPSchema)sp).setAboutAsSimple(attr.getValue());
-comment|//					}
+comment|// do nothing
 block|}
 elseif|else
 if|if
@@ -1294,6 +1291,28 @@ operator|.
 name|getContainer
 argument_list|()
 decl_stmt|;
+name|PropertyType
+name|type
+init|=
+name|checkPropertyDefinition
+argument_list|(
+name|xmp
+argument_list|,
+operator|new
+name|QName
+argument_list|(
+name|attr
+operator|.
+name|getNamespaceURI
+argument_list|()
+argument_list|,
+name|attr
+operator|.
+name|getLocalName
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|AbstractSimpleProperty
 name|sp
 init|=
@@ -1318,9 +1337,10 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|,
-name|Types
+name|type
 operator|.
-name|Text
+name|type
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|container
