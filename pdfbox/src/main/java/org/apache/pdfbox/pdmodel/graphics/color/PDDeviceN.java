@@ -681,10 +681,7 @@ condition|(
 name|deviceNAttributes
 operator|==
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|array
 operator|.
 name|size
@@ -710,18 +707,6 @@ name|DEVICEN_ATTRIBUTES
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// create the Attributes dictionary
-name|setAttributes
-argument_list|(
-operator|new
-name|PDDeviceNAttributes
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 name|deviceNAttributes
@@ -793,21 +778,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**      * Returns true if the DeviceN color space has an attributes dictionary      * @return      */
-specifier|public
-name|boolean
-name|hasAttributes
-parameter_list|()
-block|{
-return|return
-name|array
-operator|.
-name|size
-argument_list|()
-operator|>
-name|DEVICEN_ATTRIBUTES
-return|;
 block|}
 comment|/**      * Returns the components of the color in the alternate colorspace for the given tint value.      * @param tintValues a list containing the tint values      * @return COSArray with the color components      * @throws IOException If the tint function is not supported      */
 specifier|public
