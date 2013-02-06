@@ -1596,6 +1596,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: drawXObject is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|String
 name|xObjectPrefix
 init|=
@@ -1885,6 +1898,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+operator|!
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: must call beginText() before setTextMatrix"
+argument_list|)
+throw|;
+block|}
 name|appendMatrix
 argument_list|(
 name|matrix
@@ -3552,6 +3579,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: addRect is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|appendRawCommands
 argument_list|(
 name|formatDecimal
@@ -3638,6 +3678,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: fillRect is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|addRect
 argument_list|(
 name|x
@@ -3683,6 +3736,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: addBezier312 is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|appendRawCommands
 argument_list|(
 name|formatDecimal
@@ -3799,6 +3865,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: addBezier32 is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|appendRawCommands
 argument_list|(
 name|formatDecimal
@@ -3885,6 +3964,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: addBezier31 is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|appendRawCommands
 argument_list|(
 name|formatDecimal
@@ -3965,7 +4057,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// moveTo
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: moveTo is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|appendRawCommands
 argument_list|(
 name|formatDecimal
@@ -4016,7 +4120,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// moveTo
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: lineTo is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|appendRawCommands
 argument_list|(
 name|formatDecimal
@@ -4073,6 +4189,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: addLine is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 comment|// moveTo
 name|moveTo
 argument_list|(
@@ -4110,6 +4239,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: drawLine is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|addLine
 argument_list|(
 name|xStart
@@ -4142,6 +4284,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: addPolygon is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|x
@@ -4236,6 +4391,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: drawPolygon is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|addPolygon
 argument_list|(
 name|x
@@ -4263,6 +4431,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: fillPolygon is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|addPolygon
 argument_list|(
 name|x
@@ -4286,6 +4467,19 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: stroke is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|appendRawCommands
 argument_list|(
 name|STROKE
@@ -4300,6 +4494,19 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: closeAndStroke is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|appendRawCommands
 argument_list|(
 name|CLOSE_STROKE
@@ -4317,6 +4524,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: fill is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|windingRule
@@ -4367,6 +4587,19 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: closeSubPath is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|appendRawCommands
 argument_list|(
 name|CLOSE_SUBPATH
@@ -4384,6 +4617,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: clipPath is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|windingRule
@@ -4447,6 +4693,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: setLineWidth is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|appendRawCommands
 argument_list|(
 name|formatDecimal
@@ -4479,6 +4738,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: setLineJoinStyle is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|lineJoinStyle
@@ -4533,6 +4805,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: setLineCapStyle is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|lineCapStyle
@@ -4591,6 +4876,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: setLineDashPattern is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
 name|appendRawCommands
 argument_list|(
 literal|"["
