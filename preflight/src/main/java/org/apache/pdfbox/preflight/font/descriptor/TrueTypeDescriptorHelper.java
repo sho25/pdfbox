@@ -514,7 +514,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_TRUETYPE_DAMAGED
 argument_list|,
-literal|"The FontFile can't be read"
+literal|"The FontFile can't be read for "
+operator|+
+name|this
+operator|.
+name|font
+operator|.
+name|getBaseFont
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
