@@ -22,6 +22,7 @@ specifier|public
 class|class
 name|PDFBox
 block|{
+comment|/**      * Main method.      *       * @param args command line arguments      */
 specifier|public
 specifier|static
 name|void
@@ -169,11 +170,49 @@ name|command
 operator|.
 name|equals
 argument_list|(
+literal|"ExtractImages"
+argument_list|)
+condition|)
+block|{
+name|ExtractImages
+operator|.
+name|main
+argument_list|(
+name|arguments
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|command
+operator|.
+name|equals
+argument_list|(
 literal|"Overlay"
 argument_list|)
 condition|)
 block|{
 name|Overlay
+operator|.
+name|main
+argument_list|(
+name|arguments
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|command
+operator|.
+name|equals
+argument_list|(
+literal|"OverlayPDF"
+argument_list|)
+condition|)
+block|{
+name|OverlayPDF
 operator|.
 name|main
 argument_list|(
@@ -411,7 +450,167 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java pdfbox-app-x.y.z.jar<command><args..>"
+literal|"PDFDBox version: \""
+operator|+
+name|Version
+operator|.
+name|getVersion
+argument_list|()
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"\nUsage: java pdfbox-app-x.y.z.jar<command><args..>"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"\nPossible commands are:\n"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  ConvertColorspace"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  Decrypt"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  Encrypt"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  ExtractText"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  ExtractImages"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  Overlay"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  OverlayPDF"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  PrintPDF"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  PDFDebugger"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  PDFMerger"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  PDFReader"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  PDFSplit"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  PDFToImage"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  TextToPDF"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"  WriteDecodedDoc"
 argument_list|)
 expr_stmt|;
 name|System
