@@ -622,6 +622,10 @@ name|startPage
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|startEndPageSet
+operator|=
+literal|true
+expr_stmt|;
 if|if
 condition|(
 name|split
@@ -656,6 +660,10 @@ argument_list|(
 name|endPage
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|startEndPageSet
+operator|=
+literal|true
 expr_stmt|;
 if|if
 condition|(
