@@ -193,8 +193,18 @@ begin_class
 specifier|public
 class|class
 name|COSDictionaryMap
+parameter_list|<
+name|K
+parameter_list|,
+name|V
+parameter_list|>
 implements|implements
 name|Map
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 block|{
 specifier|private
 name|COSDictionary
@@ -202,6 +212,11 @@ name|map
 decl_stmt|;
 specifier|private
 name|Map
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 name|actuals
 decl_stmt|;
 comment|/**      * Constructor for this map.      *      * @param actualsMap The map with standard java objects as values.      * @param dicMap The map with COSBase objects as values.      */
@@ -209,6 +224,11 @@ specifier|public
 name|COSDictionaryMap
 parameter_list|(
 name|Map
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 name|actualsMap
 parameter_list|,
 name|COSDictionary
@@ -291,7 +311,7 @@ return|;
 block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public
-name|Object
+name|V
 name|get
 parameter_list|(
 name|Object
@@ -309,13 +329,13 @@ return|;
 block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public
-name|Object
+name|V
 name|put
 parameter_list|(
-name|Object
+name|K
 name|key
 parameter_list|,
-name|Object
+name|V
 name|value
 parameter_list|)
 block|{
@@ -360,7 +380,7 @@ return|;
 block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public
-name|Object
+name|V
 name|remove
 parameter_list|(
 name|Object
@@ -397,6 +417,15 @@ name|void
 name|putAll
 parameter_list|(
 name|Map
+argument_list|<
+name|?
+extends|extends
+name|K
+argument_list|,
+name|?
+extends|extends
+name|V
+argument_list|>
 name|t
 parameter_list|)
 block|{
@@ -428,6 +457,9 @@ block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public
 name|Set
+argument_list|<
+name|K
+argument_list|>
 name|keySet
 parameter_list|()
 block|{
@@ -441,6 +473,9 @@ block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public
 name|Collection
+argument_list|<
+name|V
+argument_list|>
 name|values
 parameter_list|()
 block|{
@@ -454,6 +489,16 @@ block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public
 name|Set
+argument_list|<
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
+argument_list|>
 name|entrySet
 parameter_list|()
 block|{
@@ -491,6 +536,11 @@ name|COSDictionaryMap
 condition|)
 block|{
 name|COSDictionaryMap
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 name|other
 init|=
 operator|(
@@ -549,10 +599,18 @@ name|COSDictionary
 name|convert
 parameter_list|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|someMap
 parameter_list|)
 block|{
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|iter
 init|=
 name|someMap
@@ -628,6 +686,11 @@ comment|/**      * This will take a COS dictionary and convert it into COSDictio
 specifier|public
 specifier|static
 name|COSDictionaryMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|convertBasicTypesToMap
 parameter_list|(
 name|COSDictionary
@@ -637,6 +700,11 @@ throws|throws
 name|IOException
 block|{
 name|COSDictionaryMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -649,10 +717,20 @@ literal|null
 condition|)
 block|{
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|actualMap
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -830,6 +908,11 @@ name|retval
 operator|=
 operator|new
 name|COSDictionaryMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|actualMap
 argument_list|,
