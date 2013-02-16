@@ -1310,7 +1310,7 @@ comment|/**      *  Return contents of COSArray as a Java List.      *      *  @
 specifier|public
 name|List
 argument_list|<
-name|?
+name|COSBase
 argument_list|>
 name|toList
 parameter_list|()

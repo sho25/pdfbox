@@ -259,12 +259,17 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns the role map.      *       * @return the role map      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 name|getRoleMap
 parameter_list|()
@@ -324,7 +329,7 @@ name|Hashtable
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 argument_list|()
 return|;
