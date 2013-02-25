@@ -131,20 +131,6 @@ name|fontbox
 operator|.
 name|cff
 operator|.
-name|CFFOperator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|cff
-operator|.
 name|charset
 operator|.
 name|CFFCharset
@@ -1393,6 +1379,11 @@ name|done
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|exponentMissing
+init|=
+literal|false
+decl_stmt|;
 while|while
 condition|(
 operator|!
@@ -1471,6 +1462,10 @@ argument_list|(
 name|nibble
 argument_list|)
 expr_stmt|;
+name|exponentMissing
+operator|=
+literal|false
+expr_stmt|;
 break|break;
 case|case
 literal|0xa
@@ -1493,6 +1488,10 @@ argument_list|(
 literal|"E"
 argument_list|)
 expr_stmt|;
+name|exponentMissing
+operator|=
+literal|true
+expr_stmt|;
 break|break;
 case|case
 literal|0xc
@@ -1503,6 +1502,10 @@ name|append
 argument_list|(
 literal|"E-"
 argument_list|)
+expr_stmt|;
+name|exponentMissing
+operator|=
+literal|true
 expr_stmt|;
 break|break;
 case|case
@@ -1536,6 +1539,22 @@ argument_list|()
 throw|;
 block|}
 block|}
+block|}
+if|if
+condition|(
+name|exponentMissing
+condition|)
+block|{
+comment|// the exponent is missing, just append "0" to avoid an exception
+comment|// not sure if 0 is the correct value, but it seems to fit
+comment|// see PDFBOX-1522
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"0"
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|Double
@@ -4784,7 +4803,7 @@ return|return
 name|fdselect
 return|;
 block|}
-comment|/**      *  Container of a Format 3 FDSelect data (see "The Compact Font Format Specification" chapter "FDSelect" )       */
+comment|/**      *  Container of a Format 3 FDSelect data (see "The Compact Font Format Specification" chapter "FDSelect" ).      */
 specifier|private
 specifier|static
 class|class
@@ -4813,16 +4832,16 @@ specifier|private
 name|Format3FDSelect
 parameter_list|(
 name|CFFFontROS
-name|_owner
+name|owner
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|_owner
+name|owner
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc) 		 * @see org.apache.fontbox.cff.CIDKeyedFDSelect#getFd(int) 		 */
+comment|/* (non-Javadoc)          * @see org.apache.fontbox.cff.CIDKeyedFDSelect#getFd(int)          */
 annotation|@
 name|Override
 specifier|public
@@ -4969,7 +4988,7 @@ literal|"]"
 return|;
 block|}
 block|}
-comment|/**      * Structure of a Range3 element      */
+comment|/**      * Structure of a Range3 element.      */
 specifier|private
 specifier|static
 class|class
@@ -5009,7 +5028,7 @@ literal|"]"
 return|;
 block|}
 block|}
-comment|/**      *  Container of a Format 0 FDSelect data (see "The Compact Font Format Specification" chapter "FDSelect" )       */
+comment|/**      *  Container of a Format 0 FDSelect data (see "The Compact Font Format Specification" chapter "FDSelect" ).      */
 specifier|private
 specifier|static
 class|class
@@ -5030,16 +5049,16 @@ specifier|private
 name|Format0FDSelect
 parameter_list|(
 name|CFFFontROS
-name|_owner
+name|owner
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|_owner
+name|owner
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc) 		 * @see org.apache.fontbox.cff.CIDKeyedFDSelect#getFd(int) 		 */
+comment|/* (non-Javadoc)          * @see org.apache.fontbox.cff.CIDKeyedFDSelect#getFd(int)          */
 annotation|@
 name|Override
 specifier|public
