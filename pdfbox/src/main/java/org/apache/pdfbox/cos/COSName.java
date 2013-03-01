@@ -434,6 +434,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|APP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"App"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|AUTHOR
 init|=
 operator|new
@@ -967,6 +980,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|CONTACT_INFO
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ContactInfo"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|CONTENTS
 init|=
 operator|new
@@ -1116,6 +1142,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"DA"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DATE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Date"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -1292,6 +1331,84 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|DIGEST_METHOD
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DigestMethod"
+argument_list|)
+decl_stmt|;
+comment|/**      * Digest Method.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DIGEST_SHA1
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"SHA1"
+argument_list|)
+decl_stmt|;
+comment|/**      * Digest Method.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DIGEST_SHA256
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"SHA256"
+argument_list|)
+decl_stmt|;
+comment|/**      * Digest Method.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DIGEST_SHA384
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"SHA384"
+argument_list|)
+decl_stmt|;
+comment|/**      * Digest Method.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DIGEST_SHA512
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"SHA512"
+argument_list|)
+decl_stmt|;
+comment|/**      * Digest Method.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DIGEST_RIPEMD160
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"RIPEMD160"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|DIRECTION
 init|=
 operator|new
@@ -1344,12 +1461,38 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|DOC_TIME_STAMP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DocTimeStamp"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|DOMAIN
 init|=
 operator|new
 name|COSName
 argument_list|(
 literal|"Domain"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DOS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DOS"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -1428,6 +1571,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"E"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|EF
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"EF"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -1662,6 +1818,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Fields"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|FILESPEC
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Filespec"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -2410,6 +2579,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|LEGAL_ATTESTATION
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"LegalAttestation"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|LENGTH
 init|=
 operator|new
@@ -2526,6 +2708,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|MAC
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Mac"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|MAC_ROMAN_ENCODING
 init|=
 operator|new
@@ -2597,6 +2792,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"MCID"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|MDP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"MDP"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -2740,6 +2948,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"NM"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|NON_EFONT_NO_WARN
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"NonEFontNoWarn"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -2935,6 +3156,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Opt"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"OS"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -3163,6 +3397,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|PRE_RELEASE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"PreRelease"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|PREDICTOR
 init|=
 operator|new
@@ -3249,6 +3496,19 @@ argument_list|(
 literal|"Producer"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PROP_BUILD
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Prop_Build"
+argument_list|)
+decl_stmt|;
 comment|/** The COSName value for "Properties". */
 specifier|public
 specifier|static
@@ -3260,6 +3520,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Properties"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|PUB_SEC
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"PubSec"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -3299,6 +3572,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Range"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|REASONS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Reasons"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -3774,6 +4060,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|SV
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"SV"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|T
 init|=
 operator|new
@@ -3819,6 +4118,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"TilingType"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|TIME_STAMP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"TimeStamp"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -3884,6 +4196,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"TrueType"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|TRUSTED_MODE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"TrustedMode"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -3977,6 +4302,19 @@ argument_list|(
 literal|"U"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|UF
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"UF"
+argument_list|)
+decl_stmt|;
 comment|/** the COSName for the "Unchanged" value. */
 specifier|public
 specifier|static
@@ -3995,12 +4333,38 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|UNIX
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Unix"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|URI
 init|=
 operator|new
 name|COSName
 argument_list|(
 literal|"URI"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|URL
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"URL"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
@@ -4183,6 +4547,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"XRef"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|XREF_STM
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"XRefStm"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */

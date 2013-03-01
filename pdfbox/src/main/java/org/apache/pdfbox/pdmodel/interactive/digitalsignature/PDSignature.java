@@ -338,6 +338,28 @@ return|return
 name|dictionary
 return|;
 block|}
+comment|/**    * Set the dictionary type.    *    * @param type is the dictionary type.    */
+specifier|public
+name|void
+name|setType
+parameter_list|(
+name|COSName
+name|type
+parameter_list|)
+block|{
+name|dictionary
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|,
+name|type
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**    * Set the filter.    *     * @param filter the filter to be used    */
 specifier|public
 name|void
 name|setFilter
@@ -379,6 +401,7 @@ name|subfilter
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Sets the name.    * @param name the name to be used    */
 specifier|public
 name|void
 name|setName
@@ -399,6 +422,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Sets the location.    * @param location the location to be used    */
 specifier|public
 name|void
 name|setLocation
@@ -419,6 +443,7 @@ name|location
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Sets the reason.    *     * @param reason the reason to be used    */
 specifier|public
 name|void
 name|setReason
@@ -439,6 +464,28 @@ name|reason
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Sets the contact info.    *     * @param contactInfo the contact info to be used    */
+specifier|public
+name|void
+name|setContactInfo
+parameter_list|(
+name|String
+name|contactInfo
+parameter_list|)
+block|{
+name|dictionary
+operator|.
+name|setString
+argument_list|(
+name|COSName
+operator|.
+name|CONTACT_INFO
+argument_list|,
+name|contactInfo
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**    * Set the sign date.    *     * @param cal the date to be used as sign date    */
 specifier|public
 name|void
 name|setSignDate
@@ -451,60 +498,49 @@ name|dictionary
 operator|.
 name|setDate
 argument_list|(
-literal|"M"
+name|COSName
+operator|.
+name|M
 argument_list|,
 name|cal
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Returns the filter.    * @return the filter    */
 specifier|public
 name|String
 name|getFilter
 parameter_list|()
 block|{
 return|return
-operator|(
-operator|(
-name|COSName
-operator|)
 name|dictionary
 operator|.
-name|getItem
+name|getNameAsString
 argument_list|(
 name|COSName
 operator|.
 name|FILTER
 argument_list|)
-operator|)
-operator|.
-name|getName
-argument_list|()
 return|;
 block|}
+comment|/**    * Returns the subfilter.    *     * @return the subfilter    */
 specifier|public
 name|String
 name|getSubFilter
 parameter_list|()
 block|{
 return|return
-operator|(
-operator|(
-name|COSName
-operator|)
 name|dictionary
 operator|.
-name|getItem
+name|getNameAsString
 argument_list|(
 name|COSName
 operator|.
 name|SUBFILTER
 argument_list|)
-operator|)
-operator|.
-name|getName
-argument_list|()
 return|;
 block|}
+comment|/**    * Returns the name.    *     * @return the name    */
 specifier|public
 name|String
 name|getName
@@ -521,6 +557,7 @@ name|NAME
 argument_list|)
 return|;
 block|}
+comment|/**    * Returns the location.    *     * @return the location    */
 specifier|public
 name|String
 name|getLocation
@@ -537,6 +574,7 @@ name|LOCATION
 argument_list|)
 return|;
 block|}
+comment|/**    * Returns the reason.    *     * @return the reason    */
 specifier|public
 name|String
 name|getReason
@@ -553,6 +591,24 @@ name|REASON
 argument_list|)
 return|;
 block|}
+comment|/**    * Returns the contact info.    *     * @return teh contact info    */
+specifier|public
+name|String
+name|getContactInfo
+parameter_list|()
+block|{
+return|return
+name|dictionary
+operator|.
+name|getString
+argument_list|(
+name|COSName
+operator|.
+name|CONTACT_INFO
+argument_list|)
+return|;
+block|}
+comment|/**    * Returns the sign date.    *     * @return the sign date    */
 specifier|public
 name|Calendar
 name|getSignDate
@@ -565,7 +621,9 @@ name|dictionary
 operator|.
 name|getDate
 argument_list|(
-literal|"M"
+name|COSName
+operator|.
+name|M
 argument_list|)
 return|;
 block|}
@@ -580,6 +638,7 @@ literal|null
 return|;
 block|}
 block|}
+comment|/**    * Sets the byte range.    *     * @param range the byte range to be used    */
 specifier|public
 name|void
 name|setByteRange
@@ -597,7 +656,9 @@ name|length
 operator|!=
 literal|4
 condition|)
+block|{
 return|return;
+block|}
 name|COSArray
 name|ary
 init|=
@@ -630,13 +691,15 @@ name|dictionary
 operator|.
 name|setItem
 argument_list|(
-literal|"ByteRange"
+name|COSName
+operator|.
+name|BYTERANGE
 argument_list|,
 name|ary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Read out the byterange from the file    *     * @return a integer array with the byterange    */
+comment|/**    * Read out the byterange from the file.    *     * @return a integer array with the byterange    */
 specifier|public
 name|int
 index|[]
@@ -653,7 +716,9 @@ name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"ByteRange"
+name|COSName
+operator|.
+name|BYTERANGE
 argument_list|)
 decl_stmt|;
 name|int
@@ -685,6 +750,7 @@ condition|;
 operator|++
 name|i
 control|)
+block|{
 name|ary
 index|[
 name|i
@@ -697,6 +763,7 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|ary
 return|;
@@ -897,6 +964,7 @@ index|]
 operator|==
 literal|0x28
 condition|)
+block|{
 name|byteOS
 operator|.
 name|write
@@ -908,6 +976,7 @@ argument_list|,
 name|c
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Filter> and )
 elseif|else
 if|if
@@ -930,6 +999,7 @@ index|]
 operator|==
 literal|0x29
 condition|)
+block|{
 name|byteOS
 operator|.
 name|write
@@ -943,7 +1013,9 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|byteOS
 operator|.
 name|write
@@ -955,6 +1027,7 @@ argument_list|,
 name|c
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|fis
 operator|.
@@ -976,6 +1049,7 @@ name|getBytes
 argument_list|()
 return|;
 block|}
+comment|/**    * Sets the contents.    *     * @param bytes contents to be used    */
 specifier|public
 name|void
 name|setContents
@@ -1005,7 +1079,9 @@ name|dictionary
 operator|.
 name|setItem
 argument_list|(
-literal|"Contents"
+name|COSName
+operator|.
+name|CONTENTS
 argument_list|,
 name|string
 argument_list|)
@@ -1056,11 +1132,13 @@ name|fis
 operator|!=
 literal|null
 condition|)
+block|{
 name|fis
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**    * Will return the signed content of the document.    *     * @param pdfFile The signed pdf file as byte array    * @return a byte array containing only the signed part of the content    * @throws IOException if the pdfFile can't be read    */
@@ -1109,12 +1187,81 @@ name|fis
 operator|!=
 literal|null
 condition|)
+block|{
 name|fis
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+block|}
+comment|/**    * PDF signature build dictionary. Provides informations about the signature handler.    *    * @return the pdf signature build dictionary.    */
+specifier|public
+name|PDPropBuild
+name|getPropBuild
+parameter_list|()
+block|{
+name|PDPropBuild
+name|propBuild
+init|=
+literal|null
+decl_stmt|;
+name|COSDictionary
+name|propBuildDic
+init|=
+operator|(
+name|COSDictionary
+operator|)
+name|dictionary
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|PROP_BUILD
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|propBuildDic
+operator|!=
+literal|null
+condition|)
+block|{
+name|propBuild
+operator|=
+operator|new
+name|PDPropBuild
+argument_list|(
+name|propBuildDic
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|propBuild
+return|;
+block|}
+comment|/**    * PDF signature build dictionary. Provides informations about the signature handler.    *    * @param propBuild the prop build    */
+specifier|public
+name|void
+name|setPropBuild
+parameter_list|(
+name|PDPropBuild
+name|propBuild
+parameter_list|)
+block|{
+name|dictionary
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|PROP_BUILD
+argument_list|,
+name|propBuild
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

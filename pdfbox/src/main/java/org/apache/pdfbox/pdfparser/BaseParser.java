@@ -339,7 +339,7 @@ specifier|abstract
 class|class
 name|BaseParser
 block|{
-comment|/** system property allowing to define size of push back buffer */
+comment|/**      * system property allowing to define size of push back buffer.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1873,12 +1873,12 @@ literal|" is wrong. Fall back to reading stream until 'endstream'."
 argument_list|)
 expr_stmt|;
 comment|// push back all read stream bytes
+comment|// we got a buffered stream wrapper around filteredStream thus first flush to underlying stream
 name|out
 operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-comment|// we got a buffered stream wrapper around filteredStream thus first flush to underlying stream
 name|InputStream
 name|writtenStreamBytes
 init|=
@@ -2626,7 +2626,7 @@ return|return
 name|braces
 return|;
 block|}
-comment|/**      * This will parse a PDF string.      *      * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will parse a PDF string.      *      * @param isDictionary indicates if the stream is a dictionary or not      * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      */
 specifier|protected
 name|COSString
 name|parseCOSString
@@ -3332,16 +3332,51 @@ continue|continue;
 block|}
 else|else
 block|{
-comment|// character is neither a hex char nor end of string not EOS nor whitespace
-throw|throw
-operator|new
-name|IOException
+comment|// if invalid chars was found
+if|if
+condition|(
+name|sBuf
+operator|.
+name|length
+argument_list|()
+operator|%
+literal|2
+operator|!=
+literal|0
+condition|)
+block|{
+name|sBuf
+operator|.
+name|deleteCharAt
 argument_list|(
-literal|"Not allowed character in hex string; char code: "
-operator|+
-name|c
+name|strmBuf
+operator|.
+name|length
+operator|-
+literal|1
 argument_list|)
-throw|;
+expr_stmt|;
+block|}
+comment|// read till the closing bracket was found
+do|do
+block|{
+name|c
+operator|=
+name|pdfSource
+operator|.
+name|read
+argument_list|()
+expr_stmt|;
+block|}
+do|while
+condition|(
+name|c
+operator|!=
+literal|'>'
+condition|)
+do|;
+comment|// exit loop
+break|break;
 block|}
 block|}
 return|return

@@ -393,6 +393,32 @@ name|BUFFER_SIZE
 argument_list|)
 return|;
 block|}
+comment|/**      * This will get the length of the encoded stream.      *       * @return the length of the encoded stream as long      *      * @throws IOException       */
+specifier|public
+name|long
+name|getFilteredLength
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|filteredStream
+operator|==
+literal|null
+condition|)
+block|{
+name|doEncode
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|filteredStream
+operator|.
+name|getLength
+argument_list|()
+return|;
+block|}
 comment|/**      * This will get the logical content stream with none of the filters.      *      * @return the bytes of the logical (decoded) stream      *      * @throws IOException when encoding/decoding causes an exception      */
 specifier|public
 name|InputStream
