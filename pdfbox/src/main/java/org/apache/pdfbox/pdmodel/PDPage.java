@@ -457,6 +457,10 @@ specifier|private
 name|COSDictionary
 name|page
 decl_stmt|;
+specifier|private
+name|PDResources
+name|pageResources
+decl_stmt|;
 comment|/**      * A page size of LETTER or 8.5x11.      */
 specifier|public
 specifier|static
@@ -837,11 +841,13 @@ name|PDResources
 name|getResources
 parameter_list|()
 block|{
-name|PDResources
-name|retval
-init|=
+if|if
+condition|(
+name|pageResources
+operator|==
 literal|null
-decl_stmt|;
+condition|)
+block|{
 name|COSDictionary
 name|resources
 init|=
@@ -864,7 +870,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|retval
+name|pageResources
 operator|=
 operator|new
 name|PDResources
@@ -873,8 +879,9 @@ name|resources
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 return|return
-name|retval
+name|pageResources
 return|;
 block|}
 comment|/**      * This will find the resources for this page by looking up the hierarchy until      * it finds them.      *      * @return The resources at this level in the hierarchy.      */
@@ -927,6 +934,10 @@ name|PDResources
 name|resources
 parameter_list|)
 block|{
+name|pageResources
+operator|=
+name|resources
+expr_stmt|;
 name|page
 operator|.
 name|setItem
@@ -1748,6 +1759,9 @@ block|}
 comment|/**      * This will get a list of PDThreadBead objects, which are article threads in the      * document.  This will return an empty list of there are no thread beads.      *      * @return A list of article threads on this page.      */
 specifier|public
 name|List
+argument_list|<
+name|PDThreadBead
+argument_list|>
 name|getThreadBeads
 parameter_list|()
 block|{
@@ -1857,6 +1871,9 @@ block|}
 return|return
 operator|new
 name|COSArrayList
+argument_list|<
+name|PDThreadBead
+argument_list|>
 argument_list|(
 name|pdObjects
 argument_list|,
@@ -2384,12 +2401,18 @@ block|}
 comment|/**      * This will return a list of the Annotations for this page.      *      * @return List of the PDAnnotation objects.      *      * @throws IOException If there is an error while creating the annotations.      */
 specifier|public
 name|List
+argument_list|<
+name|PDAnnotation
+argument_list|>
 name|getAnnotations
 parameter_list|()
 throws|throws
 name|IOException
 block|{
 name|COSArrayList
+argument_list|<
+name|PDAnnotation
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -2437,9 +2460,15 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|PDAnnotation
+argument_list|>
 argument_list|(
 operator|new
 name|ArrayList
+argument_list|<
+name|PDAnnotation
+argument_list|>
 argument_list|()
 argument_list|,
 name|annots
@@ -2506,6 +2535,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|PDAnnotation
+argument_list|>
 argument_list|(
 name|actuals
 argument_list|,
