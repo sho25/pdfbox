@@ -938,6 +938,13 @@ name|pageResources
 operator|=
 name|resources
 expr_stmt|;
+if|if
+condition|(
+name|resources
+operator|!=
+literal|null
+condition|)
+block|{
 name|page
 operator|.
 name|setItem
@@ -949,6 +956,19 @@ argument_list|,
 name|resources
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|page
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|RESOURCES
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * A rectangle, expressed      * in default user space units, defining the boundaries of the physical      * medium on which the page is intended to be displayed or printed      *      * This will get the MediaBox at this page and not look up the hierarchy.      * This attribute is inheritable, and findMediaBox() should probably used.      * This will return null if no MediaBox are available at this level.      *      * @return The MediaBox at this level in the hierarchy.      */
 specifier|public
