@@ -188,7 +188,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -410,6 +410,9 @@ comment|// See if filters are DCT or JPX otherwise treat as Bitmap-like
 comment|// There might be a problem with several filters, but that's ToDo until
 comment|// I find an example
 name|List
+argument_list|<
+name|COSName
+argument_list|>
 name|filters
 init|=
 name|image
@@ -430,9 +433,6 @@ argument_list|(
 name|COSName
 operator|.
 name|DCT_DECODE
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -458,9 +458,6 @@ argument_list|(
 name|COSName
 operator|.
 name|CCITTFAX_DECODE
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -486,9 +483,6 @@ argument_list|(
 name|COSName
 operator|.
 name|JPX_DECODE
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -541,7 +535,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
