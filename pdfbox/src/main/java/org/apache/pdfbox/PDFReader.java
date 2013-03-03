@@ -715,6 +715,13 @@ operator|.
 name|getPrinterJob
 argument_list|()
 decl_stmt|;
+name|job
+operator|.
+name|setPageable
+argument_list|(
+name|pageable
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|job
