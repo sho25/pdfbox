@@ -41,8 +41,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|padaf
-operator|.
 name|xmpbox
 operator|.
 name|XMPMetadata
