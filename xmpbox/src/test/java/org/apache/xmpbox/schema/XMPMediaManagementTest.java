@@ -65,20 +65,6 @@ name|apache
 operator|.
 name|xmpbox
 operator|.
-name|schema
-operator|.
-name|XMPMediaManagementSchema
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
 name|type
 operator|.
 name|Cardinality
@@ -298,7 +284,7 @@ literal|"uuid:3635"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//		data.add(wrapProperty("ManageFrom", "ResourceRef", "uuid:36"));
+comment|// data.add(wrapProperty("ManageFrom", "ResourceRef", "uuid:36"));
 name|data
 operator|.
 name|add
@@ -331,7 +317,7 @@ literal|"uuid:142"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//		data.add(wrapProperty("RenditionClass", "Text", "myclass"));
+comment|// data.add(wrapProperty("RenditionClass", "Text", "myclass"));
 name|data
 operator|.
 name|add

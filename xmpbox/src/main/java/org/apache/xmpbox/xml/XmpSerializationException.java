@@ -35,7 +35,7 @@ init|=
 operator|-
 literal|3495894314480173555L
 decl_stmt|;
-comment|/** 	 * Create an instance of TransformException 	 *  	 * @param message 	 *            a description of the encountered problem 	 */
+comment|/**      * Create an instance of TransformException      *       * @param message      *            a description of the encountered problem      */
 specifier|public
 name|XmpSerializationException
 parameter_list|(
@@ -49,7 +49,7 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Create an instance of TransformException 	 *  	 * @param message 	 *            a description of the encountered problem 	 * @param cause 	 *            the cause of the exception 	 */
+comment|/**      * Create an instance of TransformException      *       * @param message      *            a description of the encountered problem      * @param cause      *            the cause of the exception      */
 specifier|public
 name|XmpSerializationException
 parameter_list|(

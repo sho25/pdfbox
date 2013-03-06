@@ -36,7 +36,7 @@ specifier|private
 name|String
 name|value
 decl_stmt|;
-comment|/** 	 * Constructor of a new Attribute 	 *  	 * @param nsURI 	 *            namespaceURI of this attribute (could be null) 	 * @param prefix 	 *            prefix of this attribute 	 * @param localName 	 *            localName of this attribute 	 * @param value 	 *            value given to this attribute 	 */
+comment|/**      * Constructor of a new Attribute      *       * @param nsURI      *            namespaceURI of this attribute (could be null)      * @param prefix      *            prefix of this attribute      * @param localName      *            localName of this attribute      * @param value      *            value given to this attribute      */
 specifier|public
 name|Attribute
 parameter_list|(
@@ -69,7 +69,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/** 	 * Get the localName of this attribute 	 *  	 * @return local name of this attribute 	 */
+comment|/**      * Get the localName of this attribute      *       * @return local name of this attribute      */
 specifier|public
 name|String
 name|getName
@@ -79,7 +79,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/** 	 * Set the localName of this attribute 	 *  	 * @param lname 	 *            the local name to set 	 */
+comment|/**      * Set the localName of this attribute      *       * @param lname      *            the local name to set      */
 specifier|public
 name|void
 name|setName
@@ -93,7 +93,7 @@ operator|=
 name|lname
 expr_stmt|;
 block|}
-comment|/** 	 * Get the namespace URI of this attribute 	 *  	 * @return the namespace URI associated to this attribute (could be null) 	 */
+comment|/**      * Get the namespace URI of this attribute      *       * @return the namespace URI associated to this attribute (could be null)      */
 specifier|public
 name|String
 name|getNamespace
@@ -103,7 +103,7 @@ return|return
 name|nsURI
 return|;
 block|}
-comment|/** 	 * Set the namespace URI of this attribute 	 *  	 * @param nsURI 	 *            the namespace URI to set 	 */
+comment|/**      * Set the namespace URI of this attribute      *       * @param nsURI      *            the namespace URI to set      */
 specifier|public
 name|void
 name|setNsURI
@@ -119,7 +119,7 @@ operator|=
 name|nsURI
 expr_stmt|;
 block|}
-comment|/** 	 * Get value of this attribute 	 *  	 * @return value of this attribute 	 */
+comment|/**      * Get value of this attribute      *       * @return value of this attribute      */
 specifier|public
 name|String
 name|getValue
@@ -129,7 +129,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/** 	 * Set value of this attribute 	 *  	 * @param value 	 *            the value to set for this attribute 	 */
+comment|/**      * Set value of this attribute      *       * @param value      *            the value to set for this attribute      */
 specifier|public
 name|void
 name|setValue

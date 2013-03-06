@@ -93,20 +93,6 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|TypeMapping
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
 name|Types
 import|;
 end_import
@@ -188,7 +174,7 @@ name|prefix
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 *  	 * @return the list of subject values 	 */
+comment|/**      *       * @return the list of subject values      */
 specifier|public
 name|ArrayProperty
 name|getSchemasProperty

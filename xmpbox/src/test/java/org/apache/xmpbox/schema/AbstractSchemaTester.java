@@ -79,20 +79,6 @@ name|apache
 operator|.
 name|xmpbox
 operator|.
-name|schema
-operator|.
-name|XMPSchema
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
 name|type
 operator|.
 name|AbstractSimpleProperty
@@ -669,7 +655,7 @@ name|property
 argument_list|)
 expr_stmt|;
 break|break;
-default|default :
+default|default:
 throw|throw
 operator|new
 name|Exception
@@ -1012,7 +998,8 @@ argument_list|(
 name|fieldName
 argument_list|)
 decl_stmt|;
-comment|//    	TypeDescription<AbstractSimpleProperty> td = typeMapping.getSimpleDescription(type);
+comment|// TypeDescription<AbstractSimpleProperty> td =
+comment|// typeMapping.getSimpleDescription(type);
 name|Object
 name|value1
 init|=
@@ -1318,7 +1305,7 @@ expr_stmt|;
 end_expr_stmt
 
 begin_function
-unit|} 	 	 	protected
+unit|}      protected
 name|String
 name|getPropertyQualifiedName
 parameter_list|(

@@ -47,7 +47,7 @@ specifier|private
 name|String
 name|prefix
 decl_stmt|;
-comment|/** 	 * Property specific type constructor (namespaceURI is given) 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param namespaceURI 	 *            the specified namespace URI associated to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 * @param value 	 *            the value to give 	 */
+comment|/**      * Property specific type constructor (namespaceURI is given)      *       * @param metadata      *            The metadata to attach to this property      * @param namespaceURI      *            the specified namespace URI associated to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this property      * @param value      *            the value to give      */
 specifier|public
 name|AbstractSimpleProperty
 parameter_list|(
@@ -92,7 +92,7 @@ operator|=
 name|prefix
 expr_stmt|;
 block|}
-comment|/** 	 * Check and set new property value (in Element and in its Object 	 * Representation) 	 *  	 * @param value 	 *            Object value to set 	 */
+comment|/**      * Check and set new property value (in Element and in its Object Representation)      *       * @param value      *            Object value to set      */
 specifier|public
 specifier|abstract
 name|void
@@ -102,7 +102,7 @@ name|Object
 name|value
 parameter_list|)
 function_decl|;
-comment|/** 	 * Return the property value 	 *  	 * @return a string 	 */
+comment|/**      * Return the property value      *       * @return a string      */
 specifier|public
 specifier|abstract
 name|String
@@ -170,7 +170,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Get the namespace URI of this entity 	 *  	 * @return the namespace URI 	 */
+comment|/**      * Get the namespace URI of this entity      *       * @return the namespace URI      */
 specifier|public
 specifier|final
 name|String
@@ -181,7 +181,7 @@ return|return
 name|namespace
 return|;
 block|}
-comment|/** 	 * Get the prefix of this entity 	 *  	 * @return the prefix specified 	 */
+comment|/**      * Get the prefix of this entity      *       * @return the prefix specified      */
 specifier|public
 name|String
 name|getPrefix

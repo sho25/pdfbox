@@ -58,7 +58,7 @@ specifier|private
 name|boolean
 name|booleanValue
 decl_stmt|;
-comment|/** 	 * Property Boolean type constructor (namespaceURI is given) 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param namespaceURI 	 *            the namespace URI to associate to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 * @param value 	 *            the value to give 	 */
+comment|/**      * Property Boolean type constructor (namespaceURI is given)      *       * @param metadata      *            The metadata to attach to this property      * @param namespaceURI      *            the namespace URI to associate to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this property      * @param value      *            the value to give      */
 specifier|public
 name|BooleanType
 parameter_list|(
@@ -92,7 +92,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * return the property value 	 *  	 * @return boolean the property value 	 */
+comment|/**      * return the property value      *       * @return boolean the property value      */
 specifier|public
 name|Boolean
 name|getValue
@@ -102,7 +102,7 @@ return|return
 name|booleanValue
 return|;
 block|}
-comment|/** 	 * Set value of this property BooleanTypeObject accept String value or a 	 * boolean 	 *  	 * @param value 	 *            The value to set 	 *  	 */
+comment|/**      * Set value of this property BooleanTypeObject accept String value or a boolean      *       * @param value      *            The value to set      *       */
 specifier|public
 name|void
 name|setValue

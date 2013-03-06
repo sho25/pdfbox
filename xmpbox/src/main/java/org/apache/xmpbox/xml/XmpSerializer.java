@@ -1244,7 +1244,7 @@ argument_list|,
 literal|"rdf:RDF"
 argument_list|)
 decl_stmt|;
-comment|//		rdf.setAttributeNS(XMPSchema.NS_NAMESPACE, qualifiedName, value)
+comment|// rdf.setAttributeNS(XMPSchema.NS_NAMESPACE, qualifiedName, value)
 name|xmpmeta
 operator|.
 name|appendChild
@@ -1257,7 +1257,7 @@ return|return
 name|rdf
 return|;
 block|}
-comment|/** 	 * Save the XML document to an output stream. 	 *  	 * @param doc 	 *            The XML document to save. 	 * @param outStream 	 *            The stream to save the document to. 	 * @param encoding 	 *            The encoding to save the file as. 	 *  	 * @throws TransformerException 	 *             If there is an error while saving the XML. 	 */
+comment|/**      * Save the XML document to an output stream.      *       * @param doc      *            The XML document to save.      * @param outStream      *            The stream to save the document to.      * @param encoding      *            The encoding to save the file as.      *       * @throws TransformerException      *             If there is an error while saving the XML.      */
 specifier|private
 name|void
 name|save

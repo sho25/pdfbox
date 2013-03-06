@@ -1163,7 +1163,7 @@ block|}
 end_function
 
 begin_comment
-comment|/** 	 * Check if a namespace used reference a complex basic types (like 	 * Thumbnails) 	 *  	 * @param namespace 	 *            The namespace URI to check 	 * @return True if namespace URI is a reference for a complex basic type 	 */
+comment|/**      * Check if a namespace used reference a complex basic types (like Thumbnails)      *       * @param namespace      *            The namespace URI to check      * @return True if namespace URI is a reference for a complex basic type      */
 end_comment
 
 begin_function
@@ -1207,39 +1207,39 @@ block|}
 end_function
 
 begin_comment
-comment|//	public String getTypeInArray (String type) {
+comment|// public String getTypeInArray (String type) {
 end_comment
 
 begin_comment
-comment|//		int pos = type.indexOf(' ');
+comment|// int pos = type.indexOf(' ');
 end_comment
 
 begin_comment
-comment|//		if (pos<0) {
+comment|// if (pos<0) {
 end_comment
 
 begin_comment
-comment|//			// not array
+comment|// // not array
 end_comment
 
 begin_comment
-comment|//			return null;
+comment|// return null;
 end_comment
 
 begin_comment
-comment|//		} else {
+comment|// } else {
 end_comment
 
 begin_comment
-comment|//			return type.substring(pos+1);
+comment|// return type.substring(pos+1);
 end_comment
 
 begin_comment
-comment|//		}
+comment|// }
 end_comment
 
 begin_comment
-comment|//	}
+comment|// }
 end_comment
 
 begin_function
@@ -1383,7 +1383,7 @@ block|}
 end_function
 
 begin_comment
-comment|/** 	 * Return the specialized schema class representation if it's known (create 	 * and add it to metadata). In other cases, return null 	 *  	 * @param metadata 	 *            Metadata to link the new schema 	 * @param namespace 	 *            The namespace URI 	 * @return Schema representation 	 * @throws XmpSchemaException 	 *             When Instancing specified Object Schema failed 	 */
+comment|/**      * Return the specialized schema class representation if it's known (create and add it to metadata). In other cases,      * return null      *       * @param metadata      *            Metadata to link the new schema      * @param namespace      *            The namespace URI      * @return Schema representation      * @throws XmpSchemaException      *             When Instancing specified Object Schema failed      */
 end_comment
 
 begin_function
@@ -1485,7 +1485,7 @@ block|}
 end_function
 
 begin_comment
-comment|/** 	 * Say if a specific namespace is known 	 *  	 * @param namespace 	 *            The namespace URI checked 	 * @return True if namespace URI is known 	 */
+comment|/**      * Say if a specific namespace is known      *       * @param namespace      *            The namespace URI checked      * @return True if namespace URI is known      */
 end_comment
 
 begin_function
@@ -1537,7 +1537,7 @@ block|}
 end_function
 
 begin_comment
-comment|/** 	 * Give type of specified property in specified schema (given by its 	 * namespaceURI) 	 *  	 * @param prop 	 *            the property Qualified Name 	 * @return Property type declared for namespace specified, null if unknown 	 */
+comment|/**      * Give type of specified property in specified schema (given by its namespaceURI)      *       * @param prop      *            the property Qualified Name      * @return Property type declared for namespace specified, null if unknown      */
 end_comment
 
 begin_function

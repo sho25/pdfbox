@@ -346,7 +346,7 @@ block|{
 specifier|private
 name|PdfaExtensionHelper
 parameter_list|()
-block|{}
+block|{     }
 specifier|public
 specifier|static
 name|void
@@ -644,7 +644,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// ensure the prefix is the preferred one (cannot use other definition)
+comment|// ensure the prefix is the preferred one (cannot use other
+comment|// definition)
 if|if
 condition|(
 operator|!
@@ -923,7 +924,10 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-comment|// TODO maybe a name exists
+comment|// TODO
+comment|// maybe
+comment|// a name
+comment|// exists
 if|if
 condition|(
 name|fields
@@ -1068,7 +1072,8 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-comment|// TODO could fValueType be a structured type ?
+comment|// TODO could fValueType be
+comment|// a structured type ?
 block|}
 block|}
 comment|// else TODO

@@ -89,20 +89,6 @@ name|apache
 operator|.
 name|xmpbox
 operator|.
-name|schema
-operator|.
-name|XMPBasicJobTicketSchema
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
 name|type
 operator|.
 name|JobType
@@ -311,7 +297,7 @@ argument_list|,
 literal|"zeurl2"
 argument_list|)
 expr_stmt|;
-comment|//		serializer.serialize(metadata, System.out, true);
+comment|// serializer.serialize(metadata, System.out, true);
 name|ByteArrayOutputStream
 name|bos
 init|=
@@ -407,7 +393,7 @@ argument_list|,
 literal|"zeurl2"
 argument_list|)
 expr_stmt|;
-comment|//		serializer.serialize(metadata, System.out, true);
+comment|// serializer.serialize(metadata, System.out, true);
 name|ByteArrayOutputStream
 name|bos
 init|=
@@ -537,8 +523,9 @@ name|getUrl
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//		Assert.assertEquals("Invalid namespace",stjob.namespace(), job.getNamespace());
-comment|//		Assert.assertEquals(stjob.preferedPrefix(), job.getPrefix());
+comment|// Assert.assertEquals("Invalid namespace",stjob.namespace(),
+comment|// job.getNamespace());
+comment|// Assert.assertEquals(stjob.preferedPrefix(), job.getPrefix());
 block|}
 annotation|@
 name|Test
@@ -570,8 +557,8 @@ argument_list|,
 literal|"aaa"
 argument_list|)
 expr_stmt|;
-comment|//		SaveMetadataHelper.serialize(metadata, System.out);
-comment|//		serializer.serialize(metadata, System.out, true);
+comment|// SaveMetadataHelper.serialize(metadata, System.out);
+comment|// serializer.serialize(metadata, System.out, true);
 name|ByteArrayOutputStream
 name|bos
 init|=
@@ -651,8 +638,9 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|//		SaveMetadataHelper.serialize(rxmp, System.out);
-comment|//		StructuredType stjob = JobType.class.getAnnotation(StructuredType.class);
+comment|// SaveMetadataHelper.serialize(rxmp, System.out);
+comment|// StructuredType stjob =
+comment|// JobType.class.getAnnotation(StructuredType.class);
 name|Assert
 operator|.
 name|assertEquals
@@ -689,8 +677,8 @@ name|getUrl
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//		Assert.assertEquals(stjob.namespace(), job.getNamespace());
-comment|//		Assert.assertEquals("aaa", job.getPrefix());
+comment|// Assert.assertEquals(stjob.namespace(), job.getNamespace());
+comment|// Assert.assertEquals("aaa", job.getPrefix());
 block|}
 block|}
 end_class

@@ -202,7 +202,7 @@ name|PRODUCER
 init|=
 literal|"Producer"
 decl_stmt|;
-comment|/** 	 * Constructor of an Adobe PDF schema with preferred prefix 	 *  	 * @param metadata 	 *            The metadata to attach this schema 	 */
+comment|/**      * Constructor of an Adobe PDF schema with preferred prefix      *       * @param metadata      *            The metadata to attach this schema      */
 specifier|public
 name|AdobePDFSchema
 parameter_list|(
@@ -216,7 +216,7 @@ name|metadata
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Constructor of an Adobe PDF schema with specified prefix 	 *  	 * @param metadata 	 *            The metadata to attach this schema 	 * @param ownPrefix 	 *            The prefix to assign 	 */
+comment|/**      * Constructor of an Adobe PDF schema with specified prefix      *       * @param metadata      *            The metadata to attach this schema      * @param ownPrefix      *            The prefix to assign      */
 specifier|public
 name|AdobePDFSchema
 parameter_list|(
@@ -235,7 +235,7 @@ name|ownPrefix
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDF keywords 	 *  	 * @param value 	 *            Value to set 	 */
+comment|/**      * Set the PDF keywords      *       * @param value      *            Value to set      */
 specifier|public
 name|void
 name|setKeywords
@@ -262,7 +262,7 @@ name|keywords
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDF keywords 	 *  	 * @param keywords 	 *            Property to set 	 */
+comment|/**      * Set the PDF keywords      *       * @param keywords      *            Property to set      */
 specifier|public
 name|void
 name|setKeywordsProperty
@@ -277,7 +277,7 @@ name|keywords
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDFVersion 	 *  	 * @param value 	 *            Value to set 	 */
+comment|/**      * Set the PDFVersion      *       * @param value      *            Value to set      */
 specifier|public
 name|void
 name|setPDFVersion
@@ -304,7 +304,7 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDFVersion 	 *  	 * @param version 	 *            Property to set 	 */
+comment|/**      * Set the PDFVersion      *       * @param version      *            Property to set      */
 specifier|public
 name|void
 name|setPDFVersionProperty
@@ -319,7 +319,7 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDFProducer 	 *  	 * @param value 	 *            Value to set 	 */
+comment|/**      * Set the PDFProducer      *       * @param value      *            Value to set      */
 specifier|public
 name|void
 name|setProducer
@@ -346,7 +346,7 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDFProducer 	 *  	 * @param producer 	 *            Property to set 	 */
+comment|/**      * Set the PDFProducer      *       * @param producer      *            Property to set      */
 specifier|public
 name|void
 name|setProducerProperty
@@ -361,7 +361,7 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Give the PDF Keywords property 	 *  	 * @return The property object 	 */
+comment|/**      * Give the PDF Keywords property      *       * @return The property object      */
 specifier|public
 name|TextType
 name|getKeywordsProperty
@@ -393,7 +393,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Give the PDF Keywords property value (string) 	 *  	 * @return The property value 	 */
+comment|/**      * Give the PDF Keywords property value (string)      *       * @return The property value      */
 specifier|public
 name|String
 name|getKeywords
@@ -430,7 +430,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Give the PDFVersion property 	 *  	 * @return The property object 	 */
+comment|/**      * Give the PDFVersion property      *       * @return The property object      */
 specifier|public
 name|TextType
 name|getPDFVersionProperty
@@ -462,7 +462,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Give the PDFVersion property value (string) 	 *  	 * @return The property value 	 */
+comment|/**      * Give the PDFVersion property value (string)      *       * @return The property value      */
 specifier|public
 name|String
 name|getPDFVersion
@@ -499,7 +499,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Give the producer property 	 *  	 * @return The property object 	 */
+comment|/**      * Give the producer property      *       * @return The property object      */
 specifier|public
 name|TextType
 name|getProducerProperty
@@ -531,7 +531,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Give the producer property value (string) 	 *  	 * @return The property value 	 */
+comment|/**      * Give the producer property value (string)      *       * @return The property value      */
 specifier|public
 name|String
 name|getProducer

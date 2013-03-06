@@ -296,7 +296,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a metadata schema that can be stored in an XMP  * document. It handles all generic properties that are available. See  * subclasses for access to specific properties. MODIFIED TO INCLUDE OBJECT  * REPRESENTATION  *   */
+comment|/**  * This class represents a metadata schema that can be stored in an XMP document. It handles all generic properties that  * are available. See subclasses for access to specific properties. MODIFIED TO INCLUDE OBJECT REPRESENTATION  *   */
 end_comment
 
 begin_class
@@ -306,7 +306,7 @@ name|XMPSchema
 extends|extends
 name|AbstractStructuredType
 block|{
-comment|/** 	 * Create a new blank schema that can be populated. 	 *  	 * @param metadata 	 *            The parent XMP metadata that this schema will be part of. 	 * @param namespaceName 	 *            The name of the namespace, ie pdf,dc,... 	 * @param namespaceURI 	 *            The URI of the namespace, ie "http://ns.adobe.com/pdf/1.3/" 	 *  	 */
+comment|/**      * Create a new blank schema that can be populated.      *       * @param metadata      *            The parent XMP metadata that this schema will be part of.      * @param namespaceName      *            The name of the namespace, ie pdf,dc,...      * @param namespaceURI      *            The URI of the namespace, ie "http://ns.adobe.com/pdf/1.3/"      *       */
 specifier|public
 name|XMPSchema
 parameter_list|(
@@ -410,7 +410,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Retrieve a generic simple type property 	 *  	 * @param qualifiedName 	 *            Full qualified name of proeprty wanted 	 * @return The generic simple type property according to its qualified Name 	 */
+comment|/**      * Retrieve a generic simple type property      *       * @param qualifiedName      *            Full qualified name of proeprty wanted      * @return The generic simple type property according to its qualified Name      */
 specifier|public
 name|AbstractField
 name|getAbstractProperty
@@ -474,7 +474,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Get the RDF about attribute 	 *  	 * @return The RDF 'about' attribute. 	 */
+comment|/**      * Get the RDF about attribute      *       * @return The RDF 'about' attribute.      */
 specifier|public
 name|Attribute
 name|getAboutAttribute
@@ -489,7 +489,7 @@ name|ABOUT_NAME
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the RDF about value. 	 *  	 * @return The RDF 'about' value. 	 */
+comment|/**      * Get the RDF about value.      *       * @return The RDF 'about' value.      */
 specifier|public
 name|String
 name|getAboutValue
@@ -523,7 +523,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Set the RDF 'about' attribute 	 *  	 * @param about 	 *            the well-formed attribute 	 * @throws BadFieldValueException 	 *             Bad Attribute name (not corresponding to about attribute) 	 */
+comment|/**      * Set the RDF 'about' attribute      *       * @param about      *            the well-formed attribute      * @throws BadFieldValueException      *             Bad Attribute name (not corresponding to about attribute)      */
 specifier|public
 name|void
 name|setAbout
@@ -581,7 +581,7 @@ literal|"Attribute 'about' must be named 'rdf:about' or 'about'"
 argument_list|)
 throw|;
 block|}
-comment|/** 	 * Set the RDF 'about' attribute. Passing in null will clear this attribute. 	 *  	 * @param about 	 *            The new RFD about value. 	 */
+comment|/**      * Set the RDF 'about' attribute. Passing in null will clear this attribute.      *       * @param about      *            The new RFD about value.      */
 specifier|public
 name|void
 name|setAboutAsSimple
@@ -822,7 +822,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Add a SimpleProperty to this schema 	 *  	 * @param prop 	 *            The Property to add 	 */
+comment|/**      * Add a SimpleProperty to this schema      *       * @param prop      *            The Property to add      */
 specifier|private
 name|void
 name|setSpecifiedSimpleTypeProperty
@@ -898,7 +898,7 @@ name|prop
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set TextType property 	 *  	 * @param prop 	 *            The text property to add 	 */
+comment|/**      * Set TextType property      *       * @param prop      *            The text property to add      */
 specifier|public
 name|void
 name|setTextProperty
@@ -913,7 +913,7 @@ name|prop
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set a simple text property on the schema. 	 *  	 * @param qualifiedName 	 *            The name of the property, it must contain the namespace 	 *            prefix, ie "pdf:Keywords" 	 * @param propertyValue 	 *            The value for the property, can be any string. Passing null 	 *            will remove the property. 	 */
+comment|/**      * Set a simple text property on the schema.      *       * @param qualifiedName      *            The name of the property, it must contain the namespace prefix, ie "pdf:Keywords"      * @param propertyValue      *            The value for the property, can be any string. Passing null will remove the property.      */
 specifier|public
 name|void
 name|setTextPropertyValue
@@ -937,7 +937,7 @@ name|propertyValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set a simple text property on the schema, using the current prefix. 	 *  	 * @param simpleName 	 *            the name of the property without prefix 	 * @param propertyValue 	 *            The value for the property, can be any string. Passing null 	 *            will remove the property. 	 */
+comment|/**      * Set a simple text property on the schema, using the current prefix.      *       * @param simpleName      *            the name of the property without prefix      * @param propertyValue      *            The value for the property, can be any string. Passing null will remove the property.      */
 specifier|public
 name|void
 name|setTextPropertyValueAsSimple
@@ -959,7 +959,7 @@ name|propertyValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get a TextProperty Type from its name 	 *  	 * @param qualifiedName 	 *            The full qualified name of the property wanted 	 * @return The Text Type property wanted 	 */
+comment|/**      * Get a TextProperty Type from its name      *       * @param qualifiedName      *            The full qualified name of the property wanted      * @return The Text Type property wanted      */
 specifier|public
 name|TextType
 name|getUnqualifiedTextProperty
@@ -1017,7 +1017,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Get the value of a simple text property. 	 *  	 * @param qualifiedName 	 *            The name of the property to get, it must include the namespace 	 *            prefix. ie "pdf:Keywords". 	 *  	 * @return The value of the text property or the null if there is no value. 	 *  	 */
+comment|/**      * Get the value of a simple text property.      *       * @param qualifiedName      *            The name of the property to get, it must include the namespace prefix. ie "pdf:Keywords".      *       * @return The value of the text property or the null if there is no value.      *       */
 specifier|public
 name|String
 name|getUnqualifiedTextPropertyValue
@@ -1047,7 +1047,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Get the Date property with its name 	 *  	 * @param qualifiedName 	 *            The name of the property to get, it must include the namespace 	 *            prefix. ie "pdf:Keywords". 	 * @return Date Type property 	 *  	 */
+comment|/**      * Get the Date property with its name      *       * @param qualifiedName      *            The name of the property to get, it must include the namespace prefix. ie "pdf:Keywords".      * @return Date Type property      *       */
 specifier|public
 name|DateType
 name|getDateProperty
@@ -1100,7 +1100,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Get a simple date property value on the schema, using the current prefix. 	 *  	 * @param simpleName 	 *            the local name of the property to get 	 * @return The value of the property as a calendar. 	 *  	 */
+comment|/**      * Get a simple date property value on the schema, using the current prefix.      *       * @param simpleName      *            the local name of the property to get      * @return The value of the property as a calendar.      *       */
 specifier|public
 name|Calendar
 name|getDatePropertyValueAsSimple
@@ -1118,7 +1118,7 @@ name|simpleName
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the value of the property as a date. 	 *  	 * @param qualifiedName 	 *            The fully qualified property name for the date. 	 *  	 * @return The value of the property as a date. 	 *  	 */
+comment|/**      * Get the value of the property as a date.      *       * @param qualifiedName      *            The fully qualified property name for the date.      *       * @return The value of the property as a date.      *       */
 specifier|public
 name|Calendar
 name|getDatePropertyValue
@@ -1176,7 +1176,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Set a new DateProperty 	 *  	 * @param date 	 *            The DateType Property 	 */
+comment|/**      * Set a new DateProperty      *       * @param date      *            The DateType Property      */
 specifier|public
 name|void
 name|setDateProperty
@@ -1191,7 +1191,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set a simple Date property on the schema, using the current prefix. 	 *  	 * @param simpleName 	 *            the name of the property without prefix 	 * @param date 	 *            The calendar value for the property, can be any string. 	 *            Passing null will remove the property. 	 */
+comment|/**      * Set a simple Date property on the schema, using the current prefix.      *       * @param simpleName      *            the name of the property without prefix      * @param date      *            The calendar value for the property, can be any string. Passing null will remove the property.      */
 specifier|public
 name|void
 name|setDatePropertyValueAsSimple
@@ -1213,7 +1213,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the value of the property as a date. 	 *  	 * @param qualifiedName 	 *            The fully qualified property name for the date. 	 * @param date 	 *            The date to set, or null to clear. 	 */
+comment|/**      * Set the value of the property as a date.      *       * @param qualifiedName      *            The fully qualified property name for the date.      * @param date      *            The date to set, or null to clear.      */
 specifier|public
 name|void
 name|setDatePropertyValue
@@ -1237,7 +1237,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get a BooleanType property with its name 	 *  	 * @param qualifiedName 	 *            the full qualified name of property wanted 	 * @return boolean Type property 	 */
+comment|/**      * Get a BooleanType property with its name      *       * @param qualifiedName      *            the full qualified name of property wanted      * @return boolean Type property      */
 specifier|public
 name|BooleanType
 name|getBooleanProperty
@@ -1290,7 +1290,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Get a simple boolean property value on the schema, using the current 	 * prefix. 	 *  	 * @param simpleName 	 *            the local name of property wanted 	 * @return The value of the property as a boolean. 	 */
+comment|/**      * Get a simple boolean property value on the schema, using the current prefix.      *       * @param simpleName      *            the local name of property wanted      * @return The value of the property as a boolean.      */
 specifier|public
 name|Boolean
 name|getBooleanPropertyValueAsSimple
@@ -1308,7 +1308,7 @@ name|simpleName
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the value of the property as a boolean. 	 *  	 * @param qualifiedName 	 *            The fully qualified property name for the boolean. 	 *  	 * @return The value of the property as a boolean. Return null if property 	 *         not exist 	 */
+comment|/**      * Get the value of the property as a boolean.      *       * @param qualifiedName      *            The fully qualified property name for the boolean.      *       * @return The value of the property as a boolean. Return null if property not exist      */
 specifier|public
 name|Boolean
 name|getBooleanPropertyValue
@@ -1370,7 +1370,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Set a BooleanType property 	 *  	 * @param bool 	 *            the booleanType property 	 */
+comment|/**      * Set a BooleanType property      *       * @param bool      *            the booleanType property      */
 specifier|public
 name|void
 name|setBooleanProperty
@@ -1385,7 +1385,7 @@ name|bool
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set a simple Boolean property on the schema, using the current prefix. 	 *  	 * @param simpleName 	 *            the name of the property without prefix 	 * @param bool 	 *            The value for the property, can be any string. Passing null 	 *            will remove the property. 	 */
+comment|/**      * Set a simple Boolean property on the schema, using the current prefix.      *       * @param simpleName      *            the name of the property without prefix      * @param bool      *            The value for the property, can be any string. Passing null will remove the property.      */
 specifier|public
 name|void
 name|setBooleanPropertyValueAsSimple
@@ -1407,7 +1407,7 @@ name|bool
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the value of the property as a boolean. 	 *  	 * @param qualifiedName 	 *            The fully qualified property name for the boolean. 	 * @param bool 	 *            The boolean to set, or null to clear. 	 */
+comment|/**      * Set the value of the property as a boolean.      *       * @param qualifiedName      *            The fully qualified property name for the boolean.      * @param bool      *            The boolean to set, or null to clear.      */
 specifier|public
 name|void
 name|setBooleanPropertyValue
@@ -1431,7 +1431,7 @@ name|bool
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get the Integer property with its name 	 *  	 * @param qualifiedName 	 *            the full qualified name of property wanted 	 * @return Integer Type property 	 */
+comment|/**      * Get the Integer property with its name      *       * @param qualifiedName      *            the full qualified name of property wanted      * @return Integer Type property      */
 specifier|public
 name|IntegerType
 name|getIntegerProperty
@@ -1486,7 +1486,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Get a simple integer property value on the schema, using the current 	 * prefix. 	 *  	 * @param simpleName 	 *            the local name of property wanted 	 * @return The value of the property as an integer. 	 */
+comment|/**      * Get a simple integer property value on the schema, using the current prefix.      *       * @param simpleName      *            the local name of property wanted      * @return The value of the property as an integer.      */
 specifier|public
 name|Integer
 name|getIntegerPropertyValueAsSimple
@@ -1504,7 +1504,7 @@ name|simpleName
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the value of the property as an integer. 	 *  	 * @param qualifiedName 	 *            The fully qualified property name for the integer. 	 *  	 * @return The value of the property as an integer. 	 */
+comment|/**      * Get the value of the property as an integer.      *       * @param qualifiedName      *            The fully qualified property name for the integer.      *       * @return The value of the property as an integer.      */
 specifier|public
 name|Integer
 name|getIntegerPropertyValue
@@ -1562,7 +1562,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Add an integerProperty 	 *  	 * @param prop 	 *            The Integer Type property 	 */
+comment|/**      * Add an integerProperty      *       * @param prop      *            The Integer Type property      */
 specifier|public
 name|void
 name|setIntegerProperty
@@ -1577,7 +1577,7 @@ name|prop
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set a simple Integer property on the schema, using the current prefix. 	 *  	 * @param simpleName 	 *            the name of the property without prefix 	 * @param intValue 	 *            The value for the property, can be any string. Passing null 	 *            will remove the property. 	 */
+comment|/**      * Set a simple Integer property on the schema, using the current prefix.      *       * @param simpleName      *            the name of the property without prefix      * @param intValue      *            The value for the property, can be any string. Passing null will remove the property.      */
 specifier|public
 name|void
 name|setIntegerPropertyValueAsSimple
@@ -1599,7 +1599,7 @@ name|intValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the value of the property as an integer. 	 *  	 * @param qualifiedName 	 *            The fully qualified property name for the integer. 	 * @param intValue 	 *            The int to set, or null to clear. 	 */
+comment|/**      * Set the value of the property as an integer.      *       * @param qualifiedName      *            The fully qualified property name for the integer.      * @param intValue      *            The int to set, or null to clear.      */
 specifier|public
 name|void
 name|setIntegerPropertyValue
@@ -1623,7 +1623,7 @@ name|intValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Generic array property removing 	 *  	 * @param qualifiedArrayName 	 *            the full qualified name of property wanted 	 * @param fieldValue 	 *            the field value 	 */
+comment|/**      * Generic array property removing      *       * @param qualifiedArrayName      *            the full qualified name of property wanted      * @param fieldValue      *            the field value      */
 specifier|private
 name|void
 name|removeUnqualifiedArrayValue
@@ -1761,7 +1761,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Remove all matching entries with the given value from the bag. 	 *  	 * @param qualifiedBagName 	 *            The name of the bag, it must include the namespace prefix. ie 	 *            "pdf:Keywords". 	 * @param bagValue 	 *            The value to remove from the bagList. 	 */
+comment|/**      * Remove all matching entries with the given value from the bag.      *       * @param qualifiedBagName      *            The name of the bag, it must include the namespace prefix. ie "pdf:Keywords".      * @param bagValue      *            The value to remove from the bagList.      */
 specifier|public
 name|void
 name|removeUnqualifiedBagValue
@@ -1781,7 +1781,7 @@ name|bagValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * add a bag value property on the schema, using the current prefix. 	 *  	 * @param simpleName 	 *            the local name of property 	 * @param bagValue 	 *            the string value to add 	 */
+comment|/**      * add a bag value property on the schema, using the current prefix.      *       * @param simpleName      *            the local name of property      * @param bagValue      *            the string value to add      */
 specifier|public
 name|void
 name|addBagValueAsSimple
@@ -1886,7 +1886,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Add an entry to a bag property. 	 *  	 * @param simpleName 	 *            The name of the bag without the namespace prefix 	 * @param bagValue 	 *            The value to add to the bagList. 	 */
+comment|/**      * Add an entry to a bag property.      *       * @param simpleName      *            The name of the bag without the namespace prefix      * @param bagValue      *            The value to add to the bagList.      */
 specifier|public
 name|void
 name|addQualifiedBagValue
@@ -1906,7 +1906,7 @@ name|bagValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get all the values of the bag property. This will return a list of 	 * java.lang.String objects, this is a read-only list. 	 *  	 * @param qualifiedBagName 	 *            The name of the bag property to get without namespace prefix. 	 *  	 * @return All values of the bag property in a list. 	 */
+comment|/**      * Get all the values of the bag property. This will return a list of java.lang.String objects, this is a read-only      * list.      *       * @param qualifiedBagName      *            The name of the bag property to get without namespace prefix.      *       * @return All values of the bag property in a list.      */
 specifier|public
 name|List
 argument_list|<
@@ -1950,7 +1950,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/** 	 * Remove all matching values from a sequence property. 	 *  	 * @param qualifiedSeqName 	 *            The name of the sequence property. It must include the 	 *            namespace prefix. ie "pdf:Keywords". 	 * @param seqValue 	 *            The value to remove from the list. 	 */
+comment|/**      * Remove all matching values from a sequence property.      *       * @param qualifiedSeqName      *            The name of the sequence property. It must include the namespace prefix. ie "pdf:Keywords".      * @param seqValue      *            The value to remove from the list.      */
 specifier|public
 name|void
 name|removeUnqualifiedSequenceValue
@@ -1970,7 +1970,7 @@ name|seqValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Generic method to remove a field from an array with an Elementable Object 	 *  	 * @param qualifiedArrayName 	 *            the full qualified name of the property concerned 	 * @param fieldValue 	 *            the elementable field value 	 */
+comment|/**      * Generic method to remove a field from an array with an Elementable Object      *       * @param qualifiedArrayName      *            the full qualified name of the property concerned      * @param fieldValue      *            the elementable field value      */
 specifier|public
 name|void
 name|removeUnqualifiedArrayValue
@@ -2110,7 +2110,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Remove a value from a sequence property. This will remove all entries 	 * from the list. 	 *  	 * @param qualifiedSeqName 	 *            The name of the sequence property. It must include the 	 *            namespace prefix. ie "pdf:Keywords". 	 * @param seqValue 	 *            The value to remove from the list. 	 */
+comment|/**      * Remove a value from a sequence property. This will remove all entries from the list.      *       * @param qualifiedSeqName      *            The name of the sequence property. It must include the namespace prefix. ie "pdf:Keywords".      * @param seqValue      *            The value to remove from the list.      */
 specifier|public
 name|void
 name|removeUnqualifiedSequenceValue
@@ -2130,7 +2130,7 @@ name|seqValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Add a new value to a sequence property. 	 *  	 * @param qualifiedSeqName 	 *            The name of the sequence property without the namespace prefix 	 * @param seqValue 	 *            The value to add to the sequence. 	 */
+comment|/**      * Add a new value to a sequence property.      *       * @param qualifiedSeqName      *            The name of the sequence property without the namespace prefix      * @param seqValue      *            The value to add to the sequence.      */
 specifier|public
 name|void
 name|addUnqualifiedSequenceValue
@@ -2219,7 +2219,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Add a new value to a bag property. 	 *  	 * @param qualifiedSeqName 	 *            The name of the sequence property, it must include the 	 *            namespace prefix. ie "pdf:Keywords" 	 * @param seqValue 	 *            The value to add to the bag. 	 */
+comment|/**      * Add a new value to a bag property.      *       * @param qualifiedSeqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param seqValue      *            The value to add to the bag.      */
 specifier|public
 name|void
 name|addBagValue
@@ -2291,7 +2291,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Add a new value to a sequence property. 	 *  	 * @param qualifiedSeqName 	 *            The name of the sequence property, it must include the 	 *            namespace prefix. ie "pdf:Keywords" 	 * @param seqValue 	 *            The value to add to the sequence. 	 */
+comment|/**      * Add a new value to a sequence property.      *       * @param qualifiedSeqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param seqValue      *            The value to add to the sequence.      */
 specifier|public
 name|void
 name|addUnqualifiedSequenceValue
@@ -2368,7 +2368,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Get all the values in a sequence property. 	 *  	 * @param qualifiedSeqName 	 *            The name of the sequence property without namespace prefix.  	 *  	 * @return A read-only list of java.lang.String objects or null if the 	 *         property does not exist. 	 */
+comment|/**      * Get all the values in a sequence property.      *       * @param qualifiedSeqName      *            The name of the sequence property without namespace prefix.      *       * @return A read-only list of java.lang.String objects or null if the property does not exist.      */
 specifier|public
 name|List
 argument_list|<
@@ -2412,7 +2412,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/** 	 * Remove a date sequence value from the list. 	 *  	 * @param qualifiedSeqName 	 *            The name of the sequence property, it must include the 	 *            namespace prefix. ie "pdf:Keywords" 	 * @param date 	 *            The date to remove from the sequence property. 	 */
+comment|/**      * Remove a date sequence value from the list.      *       * @param qualifiedSeqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param date      *            The date to remove from the sequence property.      */
 specifier|public
 name|void
 name|removeUnqualifiedSequenceDateValue
@@ -2565,7 +2565,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Add a date sequence value to the list using the current prefix 	 *  	 * @param simpleName 	 *            the local name of the property 	 * @param date 	 *            the value to add 	 */
+comment|/**      * Add a date sequence value to the list using the current prefix      *       * @param simpleName      *            the local name of the property      * @param date      *            the value to add      */
 specifier|public
 name|void
 name|addSequenceDateValueAsSimple
@@ -2585,7 +2585,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Add a date sequence value to the list. 	 *  	 * @param qualifiedSeqName 	 *            The name of the sequence property, it must include the 	 *            namespace prefix. ie "pdf:Keywords" 	 * @param date 	 *            The date to add to the sequence property. 	 */
+comment|/**      * Add a date sequence value to the list.      *       * @param qualifiedSeqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param date      *            The date to add to the sequence property.      */
 specifier|public
 name|void
 name|addUnqualifiedSequenceDateValue
@@ -2624,7 +2624,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get all the date values in a sequence property. 	 *  	 * @param qualifiedSeqName 	 *            The name of the sequence property, it must include the 	 *            namespace prefix. ie "pdf:Keywords". 	 *  	 * @return A read-only list of java.util.Calendar objects or null if the 	 *         property does not exist. 	 *  	 */
+comment|/**      * Get all the date values in a sequence property.      *       * @param qualifiedSeqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords".      *       * @return A read-only list of java.util.Calendar objects or null if the property does not exist.      *       */
 specifier|public
 name|List
 argument_list|<
@@ -2740,7 +2740,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * Method used to place the 'x-default' value in first in Language 	 * alternatives as said in xmp spec 	 *  	 * @param alt 	 *            The property to reorganize 	 */
+comment|/**      * Method used to place the 'x-default' value in first in Language alternatives as said in xmp spec      *       * @param alt      *            The property to reorganize      */
 specifier|public
 name|void
 name|reorganizeAltOrder
@@ -3003,7 +3003,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Set the value of a multi-lingual property. 	 *  	 * @param qualifiedName 	 *            The name of the property, it must include the namespace 	 *            prefix. ie "pdf:Keywords" 	 * @param language 	 *            The language code of the value. If null then "x-default" is 	 *            assumed. 	 * @param value 	 *            The value of the property in the specified language. 	 */
+comment|/**      * Set the value of a multi-lingual property.      *       * @param qualifiedName      *            The name of the property, it must include the namespace prefix. ie "pdf:Keywords"      * @param language      *            The language code of the value. If null then "x-default" is assumed.      * @param value      *            The value of the property in the specified language.      */
 specifier|public
 name|void
 name|setUnqualifiedLanguagePropertyValue
@@ -3318,7 +3318,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Get the value of a multi-lingual property. 	 *  	 * @param qualifiedName 	 *            The name of the property, without the namespace prefix. 	 * @param language 	 *            The language code of the value. If null then "x-default" is 	 *            assumed. 	 *  	 * @return The value of the language property. 	 */
+comment|/**      * Get the value of a multi-lingual property.      *       * @param qualifiedName      *            The name of the property, without the namespace prefix.      * @param language      *            The language code of the value. If null then "x-default" is assumed.      *       * @return The value of the language property.      */
 specifier|public
 name|String
 name|getUnqualifiedLanguagePropertyValue
@@ -3481,7 +3481,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Get a list of all languages that are currently defined for a specific 	 * property. 	 *  	 * @param qualifiedName 	 *            The name of the property, it must include the namespace 	 *            prefix. ie "pdf:Keywords" 	 *  	 * @return A list of all languages, this will return an non-null empty list 	 *         if none have been defined. 	 */
+comment|/**      * Get a list of all languages that are currently defined for a specific property.      *       * @param qualifiedName      *            The name of the property, it must include the namespace prefix. ie "pdf:Keywords"      *       * @return A list of all languages, this will return an non-null empty list if none have been defined.      */
 specifier|public
 name|List
 argument_list|<
@@ -3640,7 +3640,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * A basic schema merge, it merges bags and sequences and replace everything 	 * else. 	 *  	 * @param xmpSchema 	 *            The schema to merge. 	 * @throws IOException 	 *             If there is an error during the merge. 	 */
+comment|/**      * A basic schema merge, it merges bags and sequences and replace everything else.      *       * @param xmpSchema      *            The schema to merge.      * @throws IOException      *             If there is an error during the merge.      */
 specifier|public
 name|void
 name|merge
@@ -4004,7 +4004,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/** 	 * Get an AbstractField list corresponding to the content of an array Return 	 * null if the property is unknown 	 *  	 * @param nam 	 *           the property name whitout namespace; 	 * @return List of property contained in the complex property 	 * @throws BadFieldValueException 	 *             Property not contains property (not complex property) 	 */
+comment|/**      * Get an AbstractField list corresponding to the content of an array Return null if the property is unknown      *       * @param nam      *            the property name whitout namespace;      * @return List of property contained in the complex property      * @throws BadFieldValueException      *             Property not contains property (not complex property)      */
 specifier|public
 name|List
 argument_list|<

@@ -109,20 +109,6 @@ name|apache
 operator|.
 name|xmpbox
 operator|.
-name|schema
-operator|.
-name|XMPSchema
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
 name|type
 operator|.
 name|AgentNameType
@@ -408,17 +394,17 @@ name|Object
 name|value
 parameter_list|)
 block|{
-comment|//		if (type==Types.Boolean) {
-comment|//			Assert.assertTrue(value instanceof Boolean);
-comment|//		} else if (type==Types.Text) {
-comment|//			Assert.assertTrue(value instanceof String);
-comment|//		} else if (type==Types.Integer) {
-comment|//			Assert.assertTrue(value instanceof Integer);
-comment|//		} else if (type==Types.Date) {
-comment|//			Assert.assertTrue(value instanceof Calendar);
-comment|//		} else if (type==Types.URL) {
-comment|//			Assert.assertTrue(value instanceof String);
-comment|//		}
+comment|// if (type==Types.Boolean) {
+comment|// Assert.assertTrue(value instanceof Boolean);
+comment|// } else if (type==Types.Text) {
+comment|// Assert.assertTrue(value instanceof String);
+comment|// } else if (type==Types.Integer) {
+comment|// Assert.assertTrue(value instanceof Integer);
+comment|// } else if (type==Types.Date) {
+comment|// Assert.assertTrue(value instanceof Calendar);
+comment|// } else if (type==Types.URL) {
+comment|// Assert.assertTrue(value instanceof String);
+comment|// }
 return|return
 operator|new
 name|Object

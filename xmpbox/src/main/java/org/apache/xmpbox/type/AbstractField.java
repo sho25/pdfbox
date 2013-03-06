@@ -57,16 +57,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|XMLConstants
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -78,7 +68,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Astract Object representation of a XMP 'field' (-> Properties and specific  * Schemas)  *   * @author a183132  *   */
+comment|/**  * Astract Object representation of a XMP 'field' (-> Properties and specific Schemas)  *   * @author a183132  *   */
 end_comment
 
 begin_class
@@ -104,7 +94,7 @@ name|Attribute
 argument_list|>
 name|attributes
 decl_stmt|;
-comment|/** 	 * Constructor of a XMP Field 	 *  	 * @param metadata 	 *            The metadata to attach to this field 	 * @param namespaceURI 	 *            the namespace URI 	 * @param prefix 	 *            the prefix to set for this field 	 * @param propertyName 	 *            the local name to set for this field 	 */
+comment|/**      * Constructor of a XMP Field      *       * @param metadata      *            The metadata to attach to this field      * @param namespaceURI      *            the namespace URI      * @param prefix      *            the prefix to set for this field      * @param propertyName      *            the local name to set for this field      */
 specifier|public
 name|AbstractField
 parameter_list|(
@@ -139,7 +129,7 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Get the propertyName (or localName) 	 *  	 * @return the local Name 	 */
+comment|/**      * Get the propertyName (or localName)      *       * @return the local Name      */
 specifier|public
 specifier|final
 name|String
@@ -166,7 +156,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/** 	 * Set a new attribute for this entity 	 *  	 * @param value 	 *            The Attribute property to add 	 */
+comment|/**      * Set a new attribute for this entity      *       * @param value      *            The Attribute property to add      */
 specifier|public
 specifier|final
 name|void
@@ -240,7 +230,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Check if an attribute is declared for this entity 	 *  	 * @param qualifiedName 	 *            the full qualified name of the attribute concerned 	 * @return true if attribute is present 	 */
+comment|/**      * Check if an attribute is declared for this entity      *       * @param qualifiedName      *            the full qualified name of the attribute concerned      * @return true if attribute is present      */
 specifier|public
 specifier|final
 name|boolean
@@ -259,7 +249,7 @@ name|qualifiedName
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get an attribute with its name in this entity 	 *  	 * @param qualifiedName 	 *            the full qualified name of the attribute wanted 	 * @return The attribute property 	 */
+comment|/**      * Get an attribute with its name in this entity      *       * @param qualifiedName      *            the full qualified name of the attribute wanted      * @return The attribute property      */
 specifier|public
 specifier|final
 name|Attribute
@@ -278,7 +268,7 @@ name|qualifiedName
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get attributes list defined for this entity 	 *  	 * @return Attributes list 	 */
+comment|/**      * Get attributes list defined for this entity      *       * @return Attributes list      */
 specifier|public
 specifier|final
 name|List
@@ -302,7 +292,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Remove an attribute of this entity 	 *  	 * @param qualifiedName 	 *            the full qualified name of the attribute wanted 	 */
+comment|/**      * Remove an attribute of this entity      *       * @param qualifiedName      *            the full qualified name of the attribute wanted      */
 specifier|public
 specifier|final
 name|void
@@ -345,7 +335,7 @@ name|String
 name|getNamespace
 parameter_list|()
 function_decl|;
-comment|/** 	 * Get the prefix of this entity 	 *  	 * @return the prefix specified 	 */
+comment|/**      * Get the prefix of this entity      *       * @return the prefix specified      */
 specifier|public
 specifier|abstract
 name|String

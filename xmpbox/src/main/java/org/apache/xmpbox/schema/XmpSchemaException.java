@@ -26,7 +26,7 @@ name|XmpSchemaException
 extends|extends
 name|Exception
 block|{
-comment|/** 	 * serial version uid 	 */
+comment|/**      * serial version uid      */
 specifier|private
 specifier|static
 specifier|final
@@ -36,7 +36,7 @@ init|=
 operator|-
 literal|980712488563404867L
 decl_stmt|;
-comment|/** 	 * Create an instance of XmpSchemaException 	 *  	 * @param message 	 *            a description of the encountered problem 	 */
+comment|/**      * Create an instance of XmpSchemaException      *       * @param message      *            a description of the encountered problem      */
 specifier|public
 name|XmpSchemaException
 parameter_list|(
@@ -50,7 +50,7 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Create an instance of XmpSchemaException 	 *  	 * @param message 	 *            a description of the encountered problem 	 * @param cause 	 *            the cause of the exception 	 */
+comment|/**      * Create an instance of XmpSchemaException      *       * @param message      *            a description of the encountered problem      * @param cause      *            the cause of the exception      */
 specifier|public
 name|XmpSchemaException
 parameter_list|(

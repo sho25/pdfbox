@@ -46,14 +46,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Object representation for arrays content This Class could be used to define  * directly a property with more than one field (structure) and also schemas  *   * @author a183132  *   */
+comment|/**  * Object representation for arrays content This Class could be used to define directly a property with more than one  * field (structure) and also schemas  *   * @author a183132  *   */
 end_comment
 
 begin_class
 specifier|public
 class|class
 name|ComplexPropertyContainer
-comment|/*extends AbstractField*/
+comment|/* extends AbstractField */
 block|{
 specifier|private
 name|List
@@ -62,8 +62,8 @@ name|AbstractField
 argument_list|>
 name|properties
 decl_stmt|;
-comment|//	private Map<String, Attribute> attributes;
-comment|/** 	 * Complex Property type constructor (namespaceURI is given) 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param namespaceURI 	 *            The namespace URI to associate to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 */
+comment|// private Map<String, Attribute> attributes;
+comment|/**      * Complex Property type constructor (namespaceURI is given)      *       * @param metadata      *            The metadata to attach to this property      * @param namespaceURI      *            The namespace URI to associate to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this property      */
 specifier|public
 name|ComplexPropertyContainer
 parameter_list|()
@@ -77,66 +77,66 @@ name|AbstractField
 argument_list|>
 argument_list|()
 expr_stmt|;
-comment|//		attributes = new HashMap<String, Attribute>();
+comment|// attributes = new HashMap<String, Attribute>();
 block|}
-comment|//	/**
-comment|//	 * Get an attribute with its name in this entity
-comment|//	 *
-comment|//	 * @param qualifiedName
-comment|//	 *            the full qualified name of the attribute wanted
-comment|//	 * @return The attribute property
-comment|//	 */
-comment|//	public Attribute getAttribute(String qualifiedName) {
-comment|//		return attributes.get(qualifiedName);
-comment|//	}
-comment|//	/**
-comment|//	 * Get attributes list defined for this entity
-comment|//	 *
-comment|//	 * @return Attributes list
-comment|//	 */
-comment|//	public List<Attribute> getAllAttributes() {
-comment|//		return new ArrayList<Attribute>(attributes.values());
-comment|//	}
-comment|//	/**
-comment|//	 * Set a new attribute for this entity
-comment|//	 *
-comment|//	 * @param value
-comment|//	 *            The Attribute property to add
-comment|//	 */
-comment|//	public void setAttribute(Attribute value) {
-comment|//		if (attributes.containsKey(value.getQualifiedName())) {
-comment|//			// if same name in element, attribute will be replaced
-comment|//			attributes.remove(value.getQualifiedName());
-comment|//		}
-comment|//		if (value.getNamespace() == null) {
-comment|//			attributes.put(value.getQualifiedName(), value);
-comment|//		} else {
-comment|//			attributes.put(value.getQualifiedName(), value);
-comment|//		}
-comment|//	}
-comment|//	/**
-comment|//	 * Remove an attribute of this entity
-comment|//	 *
-comment|//	 * @param qualifiedName
-comment|//	 *            the full qualified name of the attribute wanted
-comment|//	 */
-comment|//	public void removeAttribute(String qualifiedName) {
-comment|//		if (containsAttribute(qualifiedName)) {
-comment|//			attributes.remove(qualifiedName);
-comment|//		}
+comment|// /**
+comment|// * Get an attribute with its name in this entity
+comment|// *
+comment|// * @param qualifiedName
+comment|// * the full qualified name of the attribute wanted
+comment|// * @return The attribute property
+comment|// */
+comment|// public Attribute getAttribute(String qualifiedName) {
+comment|// return attributes.get(qualifiedName);
+comment|// }
+comment|// /**
+comment|// * Get attributes list defined for this entity
+comment|// *
+comment|// * @return Attributes list
+comment|// */
+comment|// public List<Attribute> getAllAttributes() {
+comment|// return new ArrayList<Attribute>(attributes.values());
+comment|// }
+comment|// /**
+comment|// * Set a new attribute for this entity
+comment|// *
+comment|// * @param value
+comment|// * The Attribute property to add
+comment|// */
+comment|// public void setAttribute(Attribute value) {
+comment|// if (attributes.containsKey(value.getQualifiedName())) {
+comment|// // if same name in element, attribute will be replaced
+comment|// attributes.remove(value.getQualifiedName());
+comment|// }
+comment|// if (value.getNamespace() == null) {
+comment|// attributes.put(value.getQualifiedName(), value);
+comment|// } else {
+comment|// attributes.put(value.getQualifiedName(), value);
+comment|// }
+comment|// }
+comment|// /**
+comment|// * Remove an attribute of this entity
+comment|// *
+comment|// * @param qualifiedName
+comment|// * the full qualified name of the attribute wanted
+comment|// */
+comment|// public void removeAttribute(String qualifiedName) {
+comment|// if (containsAttribute(qualifiedName)) {
+comment|// attributes.remove(qualifiedName);
+comment|// }
 comment|//
-comment|//	}
-comment|//	/**
-comment|//	 * Check if an attribute is declared for this entity
-comment|//	 *
-comment|//	 * @param qualifiedName
-comment|//	 *            the full qualified name of the attribute concerned
-comment|//	 * @return true if attribute is present
-comment|//	 */
-comment|//	public boolean containsAttribute(String qualifiedName) {
-comment|//		return attributes.containsKey(qualifiedName);
-comment|//	}
-comment|/** 	 * Give the first property found in this container with type and localname 	 * expected 	 *  	 * @param localName 	 *            the localname of property wanted 	 * @param type 	 *            the property type of property wanted 	 * @return the property wanted 	 */
+comment|// }
+comment|// /**
+comment|// * Check if an attribute is declared for this entity
+comment|// *
+comment|// * @param qualifiedName
+comment|// * the full qualified name of the attribute concerned
+comment|// * @return true if attribute is present
+comment|// */
+comment|// public boolean containsAttribute(String qualifiedName) {
+comment|// return attributes.containsKey(qualifiedName);
+comment|// }
+comment|/**      * Give the first property found in this container with type and localname expected      *       * @param localName      *            the localname of property wanted      * @param type      *            the property type of property wanted      * @return the property wanted      */
 specifier|protected
 name|AbstractField
 name|getFirstEquivalentProperty
@@ -202,7 +202,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Add a property to the current structure 	 *  	 * @param obj the property to add 	 */
+comment|/**      * Add a property to the current structure      *       * @param obj      *            the property to add      */
 specifier|public
 name|void
 name|addProperty
@@ -233,7 +233,7 @@ name|obj
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Return all children associated to this property 	 *  	 * @return All Properties contained in this container 	 */
+comment|/**      * Return all children associated to this property      *       * @return All Properties contained in this container      */
 specifier|public
 name|List
 argument_list|<
@@ -246,7 +246,7 @@ return|return
 name|properties
 return|;
 block|}
-comment|/** 	 * Return all properties with this specified localName 	 *  	 * @param localName 	 *            the local name wanted 	 * @return All properties with local name which match with localName given 	 */
+comment|/**      * Return all properties with this specified localName      *       * @param localName      *            the local name wanted      * @return All properties with local name which match with localName given      */
 specifier|public
 name|List
 argument_list|<
@@ -342,7 +342,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Check if two property are similar 	 *  	 * @param prop1 	 *            First property 	 * @param prop2 	 *            Second property 	 * @return True if these properties are equals 	 */
+comment|/**      * Check if two property are similar      *       * @param prop1      *            First property      * @param prop2      *            Second property      * @return True if these properties are equals      */
 specifier|public
 name|boolean
 name|isSameProperty
@@ -426,7 +426,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/** 	 * Check if a XMPFieldObject is in the complex property 	 *  	 * @param property 	 *            The property to check 	 * @return True if property is present in this container 	 */
+comment|/**      * Check if a XMPFieldObject is in the complex property      *       * @param property      *            The property to check      * @return True if property is present in this container      */
 specifier|public
 name|boolean
 name|containsProperty
@@ -484,7 +484,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/** 	 * Remove a property 	 *  	 * @param property 	 *            The property to remove 	 */
+comment|/**      * Remove a property      *       * @param property      *            The property to remove      */
 specifier|public
 name|void
 name|removeProperty

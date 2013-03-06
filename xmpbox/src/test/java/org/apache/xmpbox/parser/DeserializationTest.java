@@ -177,7 +177,9 @@ name|xmpbox
 operator|.
 name|xml
 operator|.
-name|XmpSerializer
+name|XmpParsingException
+operator|.
+name|ErrorType
 import|;
 end_import
 
@@ -191,9 +193,7 @@ name|xmpbox
 operator|.
 name|xml
 operator|.
-name|XmpParsingException
-operator|.
-name|ErrorType
+name|XmpSerializer
 import|;
 end_import
 

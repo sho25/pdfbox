@@ -68,7 +68,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Object representation of a Complex XMP Property (Represents Ordered,  * Unordered and Alternative Arrays builder)  *   * @author a183132  *   */
+comment|/**  * Object representation of a Complex XMP Property (Represents Ordered, Unordered and Alternative Arrays builder)  *   * @author a183132  *   */
 end_comment
 
 begin_class
@@ -90,7 +90,7 @@ specifier|private
 name|String
 name|prefix
 decl_stmt|;
-comment|/** 	 * Contructor of a complex property 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param namespace 	 *            The namespace URI to associate to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 * @param type 	 *            type of complexProperty (Bag, Seq, Alt) 	 */
+comment|/**      * Contructor of a complex property      *       * @param metadata      *            The metadata to attach to this property      * @param namespace      *            The namespace URI to associate to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this property      * @param type      *            type of complexProperty (Bag, Seq, Alt)      */
 specifier|public
 name|ArrayProperty
 parameter_list|(
@@ -230,7 +230,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * Get the namespace URI of this entity 	 *  	 * @return the namespace URI 	 */
+comment|/**      * Get the namespace URI of this entity      *       * @return the namespace URI      */
 specifier|public
 specifier|final
 name|String
@@ -241,7 +241,7 @@ return|return
 name|namespace
 return|;
 block|}
-comment|/** 	 * Get the prefix of this entity 	 *  	 * @return the prefix specified 	 */
+comment|/**      * Get the prefix of this entity      *       * @return the prefix specified      */
 specifier|public
 name|String
 name|getPrefix

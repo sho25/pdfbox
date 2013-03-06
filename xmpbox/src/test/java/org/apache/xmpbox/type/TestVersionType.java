@@ -39,48 +39,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
-name|AbstractStructuredType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
-name|Types
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
-name|VersionType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Before
@@ -236,9 +194,10 @@ index|[]
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|//    	result.add(new Object [] {VersionType.class,"version",Types.Text});
-comment|//    	result.add(new Object [] {VersionType.class,"comments",Types.Text});
-comment|//    	result.add(new Object [] {VersionType.class,"modifyDate",Types.Date});
+comment|// result.add(new Object [] {VersionType.class,"version",Types.Text});
+comment|// result.add(new Object [] {VersionType.class,"comments",Types.Text});
+comment|// result.add(new Object []
+comment|// {VersionType.class,"modifyDate",Types.Date});
 name|result
 operator|.
 name|add

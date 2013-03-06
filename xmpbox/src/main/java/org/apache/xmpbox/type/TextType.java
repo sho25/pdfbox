@@ -42,7 +42,7 @@ specifier|private
 name|String
 name|textValue
 decl_stmt|;
-comment|/** 	 * Property Text type constructor (namespaceURI is given) 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param namespaceURI 	 *            the namespace URI to associate to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this property 	 * @param value 	 *            The value to set 	 */
+comment|/**      * Property Text type constructor (namespaceURI is given)      *       * @param metadata      *            The metadata to attach to this property      * @param namespaceURI      *            the namespace URI to associate to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this property      * @param value      *            The value to set      */
 specifier|public
 name|TextType
 parameter_list|(
@@ -76,7 +76,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the property value 	 *  	 * @param value 	 *            The value to set 	 */
+comment|/**      * Set the property value      *       * @param value      *            The value to set      */
 specifier|public
 name|void
 name|setValue

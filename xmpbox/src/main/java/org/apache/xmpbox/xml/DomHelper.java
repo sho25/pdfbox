@@ -120,7 +120,7 @@ block|{
 specifier|private
 name|DomHelper
 parameter_list|()
-block|{}
+block|{     }
 specifier|public
 specifier|static
 name|Element
@@ -219,7 +219,7 @@ name|pos
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the first child element of the element parameter. 	 * If there is no child, null is returned 	 * @param description 	 * @return 	 * @throws XmpParsingException 	 */
+comment|/**      * Return the first child element of the element parameter. If there is no child, null is returned      *       * @param description      * @return      * @throws XmpParsingException      */
 specifier|public
 specifier|static
 name|Element

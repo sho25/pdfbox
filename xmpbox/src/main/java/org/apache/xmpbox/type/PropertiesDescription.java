@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents all properties known for a specific namespace Type and attributes  * associated to each properties are saved If a specific type well declared is  * used, this class map it to a basic type  *   * @author a183132  *   *         Attribute management pre-implemented in order to give clues to make  *         an attribute management system  */
+comment|/**  * Represents all properties known for a specific namespace Type and attributes associated to each properties are saved  * If a specific type well declared is used, this class map it to a basic type  *   * @author a183132  *   *         Attribute management pre-implemented in order to give clues to make an attribute management system  */
 end_comment
 
 begin_class
@@ -73,7 +73,7 @@ name|PropertyType
 argument_list|>
 name|types
 decl_stmt|;
-comment|/** 	 * Build PropMapping for specified namespace 	 *  	 * @param namespace 	 *            namespace URI concerned by this PropMapping 	 */
+comment|/**      * Build PropMapping for specified namespace      *       * @param namespace      *            namespace URI concerned by this PropMapping      */
 specifier|public
 name|PropertiesDescription
 parameter_list|()
@@ -90,7 +90,7 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Get All Properties Name 	 *  	 * @return a list of properties qualifiedName 	 */
+comment|/**      * Get All Properties Name      *       * @return a list of properties qualifiedName      */
 specifier|public
 name|List
 argument_list|<
@@ -113,7 +113,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Add a new property, an attributes list can be given or can be null 	 *  	 * @param name 	 *            new property name 	 * @param type 	 *            Valuetype of the new property 	 * @param attr 	 *            A list of attribute (put null while attribute management is 	 *            not implemented) 	 */
+comment|/**      * Add a new property, an attributes list can be given or can be null      *       * @param name      *            new property name      * @param type      *            Valuetype of the new property      * @param attr      *            A list of attribute (put null while attribute management is not implemented)      */
 specifier|public
 name|void
 name|addNewProperty
@@ -135,7 +135,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Return a type of a property from its qualifiedName 	 *  	 * @param name 	 *            The name of the property concerned 	 * @return Type of property or null 	 */
+comment|/**      * Return a type of a property from its qualifiedName      *       * @param name      *            The name of the property concerned      * @return Type of property or null      */
 specifier|public
 name|PropertyType
 name|getPropertyType

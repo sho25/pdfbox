@@ -42,7 +42,8 @@ name|NoRootElement
 block|,
 name|NoSchema
 block|,
-comment|// undefined schema
+comment|// undefined
+comment|// schema
 name|InvalidPdfaSchema
 block|,
 name|NoType
@@ -59,13 +60,14 @@ name|RequiredProperty
 block|,
 name|InvalidPrefix
 block|,
-comment|// unexpected namespace prefix used
+comment|// unexpected namespace
+comment|// prefix used
 block|}
 specifier|private
 name|ErrorType
 name|errorType
 decl_stmt|;
-comment|/** 	 * serial version uid 	 */
+comment|/**      * serial version uid      */
 specifier|private
 specifier|static
 specifier|final
@@ -75,7 +77,7 @@ init|=
 operator|-
 literal|8843096358184702908L
 decl_stmt|;
-comment|/** 	 * Create an instance of XmpParsingException 	 *  	 * @param message 	 *            a description of the encountered problem 	 * @param cause 	 *            the cause of the exception 	 */
+comment|/**      * Create an instance of XmpParsingException      *       * @param message      *            a description of the encountered problem      * @param cause      *            the cause of the exception      */
 specifier|public
 name|XmpParsingException
 parameter_list|(
@@ -103,7 +105,7 @@ operator|=
 name|error
 expr_stmt|;
 block|}
-comment|/** 	 * Create an instance of XmpParsingException 	 *  	 * @param message 	 *            a description of the encountered problem 	 */
+comment|/**      * Create an instance of XmpParsingException      *       * @param message      *            a description of the encountered problem      */
 specifier|public
 name|XmpParsingException
 parameter_list|(

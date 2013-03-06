@@ -141,20 +141,6 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|TypeMapping
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
 name|Types
 import|;
 end_import
@@ -526,7 +512,7 @@ name|TYPE
 init|=
 literal|"type"
 decl_stmt|;
-comment|/** 	 * Constructor of a Dublin Core schema with preferred prefix 	 *  	 * @param metadata 	 *            The metadata to attach this schema 	 */
+comment|/**      * Constructor of a Dublin Core schema with preferred prefix      *       * @param metadata      *            The metadata to attach this schema      */
 specifier|public
 name|DublinCoreSchema
 parameter_list|(
@@ -540,7 +526,7 @@ name|metadata
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Constructor of a Dublin Core schema with specified prefix 	 *  	 * @param metadata 	 *            The metadata to attach this schema 	 * @param ownPrefix 	 *            The prefix to assign 	 */
+comment|/**      * Constructor of a Dublin Core schema with specified prefix      *       * @param metadata      *            The metadata to attach this schema      * @param ownPrefix      *            The prefix to assign      */
 specifier|public
 name|DublinCoreSchema
 parameter_list|(
@@ -559,7 +545,7 @@ name|ownPrefix
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set contributor(s) to the resource (other than the authors) 	 *  	 * @param properName 	 *            Value to set 	 */
+comment|/**      * set contributor(s) to the resource (other than the authors)      *       * @param properName      *            Value to set      */
 specifier|public
 name|void
 name|addContributor
@@ -592,7 +578,7 @@ name|properName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set the extent or scope of the resource 	 *  	 * @param text 	 *            Value to set 	 */
+comment|/**      * set the extent or scope of the resource      *       * @param text      *            Value to set      */
 specifier|public
 name|void
 name|setCoverage
@@ -612,7 +598,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set the extent or scope of the resource 	 *  	 * @param text 	 *            Property to set 	 */
+comment|/**      * set the extent or scope of the resource      *       * @param text      *            Property to set      */
 specifier|public
 name|void
 name|setCoverageProperty
@@ -627,7 +613,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set the autor(s) of the resource 	 *  	 * @param properName 	 *            Value to add 	 * @throws InappropriateTypeException 	 */
+comment|/**      * set the autor(s) of the resource      *       * @param properName      *            Value to add      * @throws InappropriateTypeException      */
 specifier|public
 name|void
 name|addCreator
@@ -660,7 +646,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set date(s) that something interesting happened to the resource 	 *  	 * @param date 	 *            Value to add 	 */
+comment|/**      * Set date(s) that something interesting happened to the resource      *       * @param date      *            Value to add      */
 specifier|public
 name|void
 name|addDate
@@ -693,7 +679,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * add a textual description of the content of the resource (multiple values 	 * may be present for different languages) 	 *  	 * @param lang 	 *            language concerned 	 * @param value 	 *            Value to add 	 */
+comment|/**      * add a textual description of the content of the resource (multiple values may be present for different languages)      *       * @param lang      *            language concerned      * @param value      *            Value to add      */
 specifier|public
 name|void
 name|addDescription
@@ -715,7 +701,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the default value for the description.      *      * @param value The description of this resource.      */
+comment|/**      * Set the default value for the description.      *       * @param value      *            The description of this resource.      */
 specifier|public
 name|void
 name|setDescription
@@ -732,7 +718,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convenience method for signature compatibility with jempbox      *      * @see DublinCoreSchema#addDescription(String, String)      */
+comment|/**      * Convenience method for signature compatibility with jempbox      *       * @see DublinCoreSchema#addDescription(String, String)      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -754,7 +740,7 @@ name|description
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set the file format used when saving the resource. 	 *  	 * @param mimeType 	 *            Value to set 	 */
+comment|/**      * set the file format used when saving the resource.      *       * @param mimeType      *            Value to set      */
 specifier|public
 name|void
 name|setFormat
@@ -774,7 +760,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the unique identifier of the resource 	 *  	 * @param text 	 *            Value to set 	 */
+comment|/**      * Set the unique identifier of the resource      *       * @param text      *            Value to set      */
 specifier|public
 name|void
 name|setIdentifier
@@ -794,7 +780,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the unique identifier of the resource 	 *  	 * @param text 	 *            Property to set 	 */
+comment|/**      * Set the unique identifier of the resource      *       * @param text      *            Property to set      */
 specifier|public
 name|void
 name|setIdentifierProperty
@@ -809,7 +795,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Add language(s) used in this resource 	 *  	 * @param locale 	 *            Value to set 	 */
+comment|/**      * Add language(s) used in this resource      *       * @param locale      *            Value to set      */
 specifier|public
 name|void
 name|addLanguage
@@ -842,7 +828,7 @@ name|locale
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * add publisher(s) 	 *  	 * @param properName 	 *            Value to add 	 */
+comment|/**      * add publisher(s)      *       * @param properName      *            Value to add      */
 specifier|public
 name|void
 name|addPublisher
@@ -875,7 +861,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Add relationships to other documents 	 *  	 * @param text 	 *            Value to set 	 */
+comment|/**      * Add relationships to other documents      *       * @param text      *            Value to set      */
 specifier|public
 name|void
 name|addRelation
@@ -908,7 +894,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * add informal rights statement, by language. 	 *  	 * @param lang 	 *            Language concerned 	 * @param value 	 *            Value to set 	 */
+comment|/**      * add informal rights statement, by language.      *       * @param lang      *            Language concerned      * @param value      *            Value to set      */
 specifier|public
 name|void
 name|addRights
@@ -930,7 +916,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convenience method for signature compatibility with jempbox      *      * @see DublinCoreSchema#addRights(String, String)      */
+comment|/**      * Convenience method for signature compatibility with jempbox      *       * @see DublinCoreSchema#addRights(String, String)      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -952,7 +938,7 @@ name|rights
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convenience method for signature compatibility with jempbox.      * Add default rights      *      * @see DublinCoreSchema#addRights(String, String)      */
+comment|/**      * Convenience method for signature compatibility with jempbox. Add default rights      *       * @see DublinCoreSchema#addRights(String, String)      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -971,7 +957,7 @@ name|rights
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the unique identifer of the work from which this resource was derived 	 *  	 * @param text 	 *            Value to set 	 */
+comment|/**      * Set the unique identifer of the work from which this resource was derived      *       * @param text      *            Value to set      */
 specifier|public
 name|void
 name|setSource
@@ -991,7 +977,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the unique identifer of the work from which this resource was derived 	 *  	 * @param text 	 *            Property to set 	 */
+comment|/**      * Set the unique identifer of the work from which this resource was derived      *       * @param text      *            Property to set      */
 specifier|public
 name|void
 name|setSourceProperty
@@ -1006,7 +992,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the unique identifer of the work from which this resource was derived 	 *  	 * @param text 	 *            Property to set 	 */
+comment|/**      * Set the unique identifer of the work from which this resource was derived      *       * @param text      *            Property to set      */
 specifier|public
 name|void
 name|setFormatProperty
@@ -1021,7 +1007,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * add descriptive phrases or keywords that specify the topic of the content 	 * of the resource 	 *  	 * @param text 	 *            Value to add 	 */
+comment|/**      * add descriptive phrases or keywords that specify the topic of the content of the resource      *       * @param text      *            Value to add      */
 specifier|public
 name|void
 name|addSubject
@@ -1054,7 +1040,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set the title of the document, or the name given to the resource (by 	 * language) 	 *  	 * @param lang 	 *            Language concerned 	 * @param value 	 *            Value to set 	 */
+comment|/**      * set the title of the document, or the name given to the resource (by language)      *       * @param lang      *            Language concerned      * @param value      *            Value to set      */
 specifier|public
 name|void
 name|setTitle
@@ -1076,7 +1062,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set default title 	 * @param lang 	 * @param value 	 */
+comment|/**      * set default title      *       * @param lang      * @param value      */
 specifier|public
 name|void
 name|setTitle
@@ -1093,7 +1079,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set the title of the document, or the name given to the resource (by 	 * language) 	 *  	 * @see DublinCoreSchema#setTitle(String) 	 *  	 */
+comment|/**      * set the title of the document, or the name given to the resource (by language)      *       * @see DublinCoreSchema#setTitle(String)      *       */
 specifier|public
 name|void
 name|addTitle
@@ -1113,7 +1099,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set the document type (novel, poem, ...) 	 *  	 * @param type 	 *            Value to set 	 */
+comment|/**      * set the document type (novel, poem, ...)      *       * @param type      *            Value to set      */
 specifier|public
 name|void
 name|addType
@@ -1130,7 +1116,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Return the Bag of contributor(s) 	 *  	 * @return Contributor property 	 */
+comment|/**      * Return the Bag of contributor(s)      *       * @return Contributor property      */
 specifier|public
 name|ArrayProperty
 name|getContributorsProperty
@@ -1146,7 +1132,7 @@ name|CONTRIBUTOR
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return a String list of contributor(s) 	 *  	 * @return List of contributors values 	 */
+comment|/**      * Return a String list of contributor(s)      *       * @return List of contributors values      */
 specifier|public
 name|List
 argument_list|<
@@ -1162,7 +1148,7 @@ name|CONTRIBUTOR
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the Coverage TextType Property 	 *  	 * @return Coverage property 	 */
+comment|/**      * Return the Coverage TextType Property      *       * @return Coverage property      */
 specifier|public
 name|TextType
 name|getCoverageProperty
@@ -1178,7 +1164,7 @@ name|COVERAGE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the value of the coverage 	 *  	 * @return Coverage value 	 */
+comment|/**      * Return the value of the coverage      *       * @return Coverage value      */
 specifier|public
 name|String
 name|getCoverage
@@ -1208,7 +1194,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Return the Sequence of contributor(s) 	 *  	 * @return Creator property 	 */
+comment|/**      * Return the Sequence of contributor(s)      *       * @return Creator property      */
 specifier|public
 name|ArrayProperty
 name|getCreatorsProperty
@@ -1224,7 +1210,7 @@ name|CREATOR
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the creator(s) string value 	 *  	 * @return List of creators values 	 */
+comment|/**      * Return the creator(s) string value      *       * @return List of creators values      */
 specifier|public
 name|List
 argument_list|<
@@ -1240,7 +1226,7 @@ name|CREATOR
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the sequence of date(s) 	 *  	 * @return date property 	 */
+comment|/**      * Return the sequence of date(s)      *       * @return date property      */
 specifier|public
 name|ArrayProperty
 name|getDatesProperty
@@ -1256,7 +1242,7 @@ name|DATE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return a calendar list of date 	 *  	 * @return List of dates values 	 */
+comment|/**      * Return a calendar list of date      *       * @return List of dates values      */
 specifier|public
 name|List
 argument_list|<
@@ -1272,7 +1258,7 @@ name|DATE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the Lang alt Description 	 *  	 * @return Description property 	 */
+comment|/**      * Return the Lang alt Description      *       * @return Description property      */
 specifier|public
 name|ArrayProperty
 name|getDescriptionProperty
@@ -1288,7 +1274,7 @@ name|DESCRIPTION
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return a list of languages defined in description property 	 *  	 * @return get List of languages defined for description property 	 */
+comment|/**      * Return a list of languages defined in description property      *       * @return get List of languages defined for description property      */
 specifier|public
 name|List
 argument_list|<
@@ -1304,7 +1290,7 @@ name|DESCRIPTION
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return a language value for description property 	 *  	 * @param lang 	 *            The language wanted 	 * @return Desription value for specified language 	 */
+comment|/**      * Return a language value for description property      *       * @param lang      *            The language wanted      * @return Desription value for specified language      */
 specifier|public
 name|String
 name|getDescription
@@ -1322,7 +1308,7 @@ name|lang
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the default value for the description.      *      * @return The description of this resource.      */
+comment|/**      * Get the default value for the description.      *       * @return The description of this resource.      */
 specifier|public
 name|String
 name|getDescription
@@ -1335,7 +1321,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the file format property 	 *  	 * @return the format property 	 */
+comment|/**      * Return the file format property      *       * @return the format property      */
 specifier|public
 name|TextType
 name|getFormatProperty
@@ -1351,7 +1337,7 @@ name|FORMAT
 argument_list|)
 return|;
 block|}
-comment|/** 	 * return the file format value 	 *  	 * @return the format value 	 */
+comment|/**      * return the file format value      *       * @return the format value      */
 specifier|public
 name|String
 name|getFormat
@@ -1381,7 +1367,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Return the unique identifier property of this resource 	 *  	 * @return the identifier property 	 */
+comment|/**      * Return the unique identifier property of this resource      *       * @return the identifier property      */
 specifier|public
 name|TextType
 name|getIdentifierProperty
@@ -1397,7 +1383,7 @@ name|IDENTIFIER
 argument_list|)
 return|;
 block|}
-comment|/** 	 * return the unique identifier value of this resource 	 *  	 * @return the unique identifier value 	 */
+comment|/**      * return the unique identifier value of this resource      *       * @return the unique identifier value      */
 specifier|public
 name|String
 name|getIdentifier
@@ -1427,7 +1413,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Return the bag DC language 	 *  	 * @return language property 	 */
+comment|/**      * Return the bag DC language      *       * @return language property      */
 specifier|public
 name|ArrayProperty
 name|getLanguagesProperty
@@ -1443,7 +1429,7 @@ name|LANGUAGE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the list of values defined in the DC language 	 *  	 * @return list of languages defined for language property 	 */
+comment|/**      * Return the list of values defined in the DC language      *       * @return list of languages defined for language property      */
 specifier|public
 name|List
 argument_list|<
@@ -1459,7 +1445,7 @@ name|LANGUAGE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the bag DC publisher 	 *  	 * @return publisher property 	 */
+comment|/**      * Return the bag DC publisher      *       * @return publisher property      */
 specifier|public
 name|ArrayProperty
 name|getPublishersProperty
@@ -1475,7 +1461,7 @@ name|PUBLISHER
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the list of values defined in the DC publisher 	 *  	 * @return list of values for publisher property 	 */
+comment|/**      * Return the list of values defined in the DC publisher      *       * @return list of values for publisher property      */
 specifier|public
 name|List
 argument_list|<
@@ -1491,7 +1477,7 @@ name|PUBLISHER
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the bag DC relation 	 *  	 * @return relation property 	 */
+comment|/**      * Return the bag DC relation      *       * @return relation property      */
 specifier|public
 name|ArrayProperty
 name|getRelationsProperty
@@ -1507,7 +1493,7 @@ name|RELATION
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the list of values defined in the DC relation 	 *  	 * @return list of values for relation property 	 */
+comment|/**      * Return the list of values defined in the DC relation      *       * @return list of values for relation property      */
 specifier|public
 name|List
 argument_list|<
@@ -1523,7 +1509,7 @@ name|RELATION
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Convenience method for signature compatibility with jempbox 	 *  	 * @see DublinCoreSchema#getRelations() 	 */
+comment|/**      * Convenience method for signature compatibility with jempbox      *       * @see DublinCoreSchema#getRelations()      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -1539,7 +1525,7 @@ name|getRelations
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Return the Lang alt Rights 	 *  	 * @return rights property 	 */
+comment|/**      * Return the Lang alt Rights      *       * @return rights property      */
 specifier|public
 name|ArrayProperty
 name|getRightsProperty
@@ -1555,7 +1541,7 @@ name|RIGHTS
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return a list of languages defined in Right property 	 *  	 * @return list of rights languages values defined 	 */
+comment|/**      * Return a list of languages defined in Right property      *       * @return list of rights languages values defined      */
 specifier|public
 name|List
 argument_list|<
@@ -1571,7 +1557,7 @@ name|RIGHTS
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return a language value for Right property 	 *  	 * @param lang 	 *            language concerned 	 * @return the rights value for specified language 	 */
+comment|/**      * Return a language value for Right property      *       * @param lang      *            language concerned      * @return the rights value for specified language      */
 specifier|public
 name|String
 name|getRights
@@ -1589,7 +1575,7 @@ name|lang
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the default value for Right property 	 *  	 * @see DublinCoreSchema#getRights(String) 	 */
+comment|/**      * Return the default value for Right property      *       * @see DublinCoreSchema#getRights(String)      */
 specifier|public
 name|String
 name|getRights
@@ -1602,7 +1588,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the source property of this resource 	 *  	 * @return source property 	 */
+comment|/**      * Return the source property of this resource      *       * @return source property      */
 specifier|public
 name|TextType
 name|getSourceProperty
@@ -1618,7 +1604,7 @@ name|SOURCE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * return the source value of this resource 	 *  	 * @return value of source property 	 */
+comment|/**      * return the source value of this resource      *       * @return value of source property      */
 specifier|public
 name|String
 name|getSource
@@ -1648,7 +1634,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Return the bag DC Subject 	 *       * @return the subject property 	 */
+comment|/**      * Return the bag DC Subject      *       * @return the subject property      */
 specifier|public
 name|ArrayProperty
 name|getSubjectsProperty
@@ -1664,7 +1650,7 @@ name|SUBJECT
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the list of values defined in the DC Subject 	 *  	 * @return the list of subject values 	 */
+comment|/**      * Return the list of values defined in the DC Subject      *       * @return the list of subject values      */
 specifier|public
 name|List
 argument_list|<
@@ -1680,7 +1666,7 @@ name|SUBJECT
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the Lang alt Title 	 *  	 * @return the title property 	 */
+comment|/**      * Return the Lang alt Title      *       * @return the title property      */
 specifier|public
 name|ArrayProperty
 name|getTitleProperty
@@ -1696,7 +1682,7 @@ name|TITLE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return a list of languages defined in Title property 	 *  	 * @return list of languages defined for title property 	 */
+comment|/**      * Return a list of languages defined in Title property      *       * @return list of languages defined for title property      */
 specifier|public
 name|List
 argument_list|<
@@ -1712,7 +1698,7 @@ name|TITLE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return a language value for Title property 	 *  	 * @param lang 	 *            the language concerned 	 * @return the title value for specified language 	 */
+comment|/**      * Return a language value for Title property      *       * @param lang      *            the language concerned      * @return the title value for specified language      */
 specifier|public
 name|String
 name|getTitle
@@ -1730,7 +1716,7 @@ name|lang
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the default value for the title. 	 * 	 * @return The default title of this resource. 	 */
+comment|/**      * Get the default value for the title.      *       * @return The default title of this resource.      */
 specifier|public
 name|String
 name|getTitle
@@ -1743,7 +1729,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the bag DC Type 	 *  	 * @return the type property 	 */
+comment|/**      * Return the bag DC Type      *       * @return the type property      */
 specifier|public
 name|ArrayProperty
 name|getTypesProperty
@@ -1759,7 +1745,7 @@ name|TYPE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the list of values defined in the DC Type 	 *  	 * @return the value of type property 	 */
+comment|/**      * Return the list of values defined in the DC Type      *       * @return the value of type property      */
 specifier|public
 name|List
 argument_list|<

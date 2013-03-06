@@ -173,7 +173,7 @@ operator|.
 name|namespaceToPrefix
 return|;
 block|}
-comment|/** 	 * Add a property to the current structure 	 *  	 * @param obj the property to add 	 */
+comment|/**      * Add a property to the current structure      *       * @param obj      *            the property to add      */
 specifier|public
 specifier|final
 name|void
@@ -191,7 +191,7 @@ name|obj
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Remove a property 	 *  	 * @param property 	 *            The property to remove 	 */
+comment|/**      * Remove a property      *       * @param property      *            The property to remove      */
 specifier|public
 specifier|final
 name|void
@@ -209,12 +209,12 @@ name|property
 argument_list|)
 expr_stmt|;
 block|}
-comment|//	/**
-comment|//	 * Return the container of this Array
-comment|//	 *
-comment|//	 * @return The complex property container that represents content of this
-comment|//	 *         property
-comment|//	 */
+comment|// /**
+comment|// * Return the container of this Array
+comment|// *
+comment|// * @return The complex property container that represents content of this
+comment|// * property
+comment|// */
 specifier|public
 specifier|final
 name|ComplexPropertyContainer

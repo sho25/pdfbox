@@ -211,20 +211,6 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|TypeMapping
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
 name|Types
 import|;
 end_import
@@ -2155,7 +2141,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a new supplemental category.      *       * @param s The supplemental category.      */
+comment|/**      * Add a new supplemental category.      *       * @param s      *            The supplemental category.      */
 specifier|public
 name|void
 name|addSupplementalCategory

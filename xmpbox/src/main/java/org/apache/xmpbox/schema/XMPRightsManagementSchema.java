@@ -286,7 +286,7 @@ name|WEBSTATEMENT
 init|=
 literal|"WebStatement"
 decl_stmt|;
-comment|/** 	 * Constructor of XMPRightsManagement Schema with preferred prefix 	 *  	 * @param metadata 	 *            The metadata to attach this schema 	 */
+comment|/**      * Constructor of XMPRightsManagement Schema with preferred prefix      *       * @param metadata      *            The metadata to attach this schema      */
 specifier|public
 name|XMPRightsManagementSchema
 parameter_list|(
@@ -300,7 +300,7 @@ name|metadata
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Constructor of XMPRightsManagement schema with specified prefix 	 *  	 * @param metadata 	 *            The metadata to attach this schema 	 * @param ownPrefix 	 *            The prefix to assign 	 */
+comment|/**      * Constructor of XMPRightsManagement schema with specified prefix      *       * @param metadata      *            The metadata to attach this schema      * @param ownPrefix      *            The prefix to assign      */
 specifier|public
 name|XMPRightsManagementSchema
 parameter_list|(
@@ -319,7 +319,7 @@ name|ownPrefix
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Add a legal owner for the described resource. 	 *  	 * @param value 	 *            value to add 	 */
+comment|/**      * Add a legal owner for the described resource.      *       * @param value      *            value to add      */
 specifier|public
 name|void
 name|addOwner
@@ -352,7 +352,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Return the Bag of owner(s) 	 *  	 * @return owners property 	 */
+comment|/**      * Return the Bag of owner(s)      *       * @return owners property      */
 specifier|public
 name|ArrayProperty
 name|getOwnersProperty
@@ -368,7 +368,7 @@ name|OWNER
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return a String list of owner(s) 	 *  	 * @return list of defined owners 	 */
+comment|/**      * Return a String list of owner(s)      *       * @return list of defined owners      */
 specifier|public
 name|List
 argument_list|<
@@ -384,7 +384,7 @@ name|OWNER
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Set Marked value 	 *  	 * @param marked 	 *            value to add 	 */
+comment|/**      * Set Marked value      *       * @param marked      *            value to add      */
 specifier|public
 name|void
 name|setMarked
@@ -420,7 +420,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set Marked property 	 *  	 * @param marked 	 *            Marked property to set 	 */
+comment|/**      * Set Marked property      *       * @param marked      *            Marked property to set      */
 specifier|public
 name|void
 name|setMarkedProperty
@@ -435,7 +435,7 @@ name|marked
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get Marked property 	 *  	 * @return Marked property 	 */
+comment|/**      * Get Marked property      *       * @return Marked property      */
 specifier|public
 name|BooleanType
 name|getMarkedProperty
@@ -451,7 +451,7 @@ name|MARKED
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get Marked value 	 *  	 * @return marked value 	 */
+comment|/**      * Get Marked value      *       * @return marked value      */
 specifier|public
 name|Boolean
 name|getMarked
@@ -483,7 +483,7 @@ name|getValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Add an usageTerms value 	 *  	 * @param lang 	 *            concerned language 	 * @param value 	 *            value to set 	 */
+comment|/**      * Add an usageTerms value      *       * @param lang      *            concerned language      * @param value      *            value to set      */
 specifier|public
 name|void
 name|addUsageTerms
@@ -505,7 +505,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the default usage terms for this resource.      *      * @param terms The resource usage terms.       */
+comment|/**      * Set the default usage terms for this resource.      *       * @param terms      *            The resource usage terms.      */
 specifier|public
 name|void
 name|setUsageTerms
@@ -522,7 +522,7 @@ name|terms
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *      * @see XMPRightsManagementSchema#addUsageTerms(String, String)      */
+comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPRightsManagementSchema#addUsageTerms(String, String)      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -544,7 +544,7 @@ name|terms
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Return the Lang alt UsageTerms 	 *  	 * @return usageterms property 	 */
+comment|/**      * Return the Lang alt UsageTerms      *       * @return usageterms property      */
 specifier|public
 name|ArrayProperty
 name|getUsageTermsProperty
@@ -560,7 +560,7 @@ name|USAGETERMS
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return a list of languages defined in description property 	 *  	 * @return list of languages defined for usageterms 	 */
+comment|/**      * Return a list of languages defined in description property      *       * @return list of languages defined for usageterms      */
 specifier|public
 name|List
 argument_list|<
@@ -576,7 +576,7 @@ name|USAGETERMS
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return a language value for description property 	 *  	 * @param lang 	 *            concerned language 	 * @return value of specified language 	 */
+comment|/**      * Return a language value for description property      *       * @param lang      *            concerned language      * @return value of specified language      */
 specifier|public
 name|String
 name|getUsageTerms
@@ -594,7 +594,7 @@ name|lang
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the default usage terms for the document.      *      * @return The terms for this resource.      */
+comment|/**      * Get the default usage terms for the document.      *       * @return The terms for this resource.      */
 specifier|public
 name|String
 name|getUsageTerms
@@ -607,7 +607,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the WebStatement URL as TextType. 	 *  	 * @return Webstatement URL property 	 */
+comment|/**      * Return the WebStatement URL as TextType.      *       * @return Webstatement URL property      */
 specifier|public
 name|TextType
 name|getWebStatementProperty
@@ -625,7 +625,7 @@ argument_list|)
 operator|)
 return|;
 block|}
-comment|/** 	 * Return the WebStatement URL as String. 	 *  	 * @return webStatement URL value 	 */
+comment|/**      * Return the WebStatement URL as String.      *       * @return webStatement URL value      */
 specifier|public
 name|String
 name|getWebStatement
@@ -657,7 +657,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Set the WebStatement url 	 *  	 * @param url 	 *            WebStatemen url value to set 	 */
+comment|/**      * Set the WebStatement url      *       * @param url      *            WebStatemen url value to set      */
 specifier|public
 name|void
 name|setWebStatement
@@ -685,7 +685,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the WebStatement url 	 *  	 * @param url 	 *            WebStatemen url property to set 	 */
+comment|/**      * Set the WebStatement url      *       * @param url      *            WebStatemen url property to set      */
 specifier|public
 name|void
 name|setWebStatementProperty
@@ -700,7 +700,7 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Return the Certificate URL as TextType. 	 *  	 * @return certificate url property 	 */
+comment|/**      * Return the Certificate URL as TextType.      *       * @return certificate url property      */
 specifier|public
 name|TextType
 name|getCertificateProperty
@@ -718,7 +718,7 @@ argument_list|)
 operator|)
 return|;
 block|}
-comment|/** 	 * Return the Certificate URL as String. 	 *  	 * @return certificate URL value 	 */
+comment|/**      * Return the Certificate URL as String.      *       * @return certificate URL value      */
 specifier|public
 name|String
 name|getCertificate
@@ -750,7 +750,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *      * @see XMPRightsManagementSchema#getCertificate()      */
+comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPRightsManagementSchema#getCertificate()      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -763,7 +763,7 @@ name|getCertificate
 argument_list|()
 return|;
 block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *      * @see XMPRightsManagementSchema#getCertificate()      */
+comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPRightsManagementSchema#getCertificate()      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -776,7 +776,7 @@ name|getCertificate
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Set the Certificate URL. 	 *  	 * @param url 	 *            certficate url value to set 	 */
+comment|/**      * Set the Certificate URL.      *       * @param url      *            certficate url value to set      */
 specifier|public
 name|void
 name|setCertificate
@@ -804,7 +804,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *      * @see XMPRightsManagementSchema#setCertificate(String)      */
+comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPRightsManagementSchema#setCertificate(String)      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -821,7 +821,7 @@ name|certificate
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *      * @see XMPRightsManagementSchema#setCertificate(String)      */
+comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPRightsManagementSchema#setCertificate(String)      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -838,7 +838,7 @@ name|certificate
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the Certificate URL. 	 *  	 * @param url 	 *            certificate url property to set 	 */
+comment|/**      * Set the Certificate URL.      *       * @param url      *            certificate url property to set      */
 specifier|public
 name|void
 name|setCertificateProperty

@@ -244,8 +244,8 @@ name|CONFORMANCE
 init|=
 literal|"conformance"
 decl_stmt|;
-comment|/* 	 *<rdf:Description rdf:about="" 	 * xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/"> 	 *<pdfaid:conformance>B</pdfaid:conformance><pdfaid:part>1</pdfaid:part> 	 *</rdf:Description> 	 */
-comment|/** 	 * Constructor of a PDF/A Identification schema 	 *  	 * @param metadata 	 *            The metadata to attach this schema 	 */
+comment|/*      *<rdf:Description rdf:about="" xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/">      *<pdfaid:conformance>B</pdfaid:conformance><pdfaid:part>1</pdfaid:part></rdf:Description>      */
+comment|/**      * Constructor of a PDF/A Identification schema      *       * @param metadata      *            The metadata to attach this schema      */
 specifier|public
 name|PDFAIdentificationSchema
 parameter_list|(
@@ -277,7 +277,7 @@ name|prefix
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDFA Version identifier (with string) 	 *  	 * @param value 	 *            The version Id value to set 	 *  	 */
+comment|/**      * Set the PDFA Version identifier (with string)      *       * @param value      *            The version Id value to set      *       */
 specifier|public
 name|void
 name|setPartValueWithString
@@ -305,7 +305,7 @@ name|part
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDFA Version identifier (with an int) 	 *  	 * @param value 	 *            The version Id value to set 	 */
+comment|/**      * Set the PDFA Version identifier (with an int)      *       * @param value      *            The version Id value to set      */
 specifier|public
 name|void
 name|setPartValueWithInt
@@ -333,7 +333,7 @@ name|part
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDF/A Version identifier (with an int) 	 *  	 * @param value 	 *            The version Id property to set 	 */
+comment|/**      * Set the PDF/A Version identifier (with an int)      *       * @param value      *            The version Id property to set      */
 specifier|public
 name|void
 name|setPart
@@ -351,7 +351,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDF/A Version identifier 	 *  	 * @param part 	 *            set the PDF/A Version id property 	 */
+comment|/**      * Set the PDF/A Version identifier      *       * @param part      *            set the PDF/A Version id property      */
 specifier|public
 name|void
 name|setPartProperty
@@ -366,7 +366,7 @@ name|part
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDF/A amendment identifier 	 *  	 * @param value 	 *            The amendment identifier value to set 	 */
+comment|/**      * Set the PDF/A amendment identifier      *       * @param value      *            The amendment identifier value to set      */
 specifier|public
 name|void
 name|setAmd
@@ -391,7 +391,7 @@ name|amd
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDF/A amendment identifier 	 *  	 * @param amd 	 *            The amendment identifier property to set 	 */
+comment|/**      * Set the PDF/A amendment identifier      *       * @param amd      *            The amendment identifier property to set      */
 specifier|public
 name|void
 name|setAmdProperty
@@ -406,7 +406,7 @@ name|amd
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the PDF/A conformance level 	 *  	 * @param value 	 *            The conformance level value to set 	 * @throws BadFieldValueException 	 *             If Conformance Value not 'A' or 'B' 	 */
+comment|/**      * Set the PDF/A conformance level      *       * @param value      *            The conformance level value to set      * @throws BadFieldValueException      *             If Conformance Value not 'A' or 'B'      */
 specifier|public
 name|void
 name|setConformance
@@ -461,7 +461,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Set the PDF/A conformance level 	 *  	 * @param conf 	 *            The conformance level property to set 	 * @throws BadFieldValueException 	 *             If Conformance Value not 'A' or 'B' 	 */
+comment|/**      * Set the PDF/A conformance level      *       * @param conf      *            The conformance level property to set      * @throws BadFieldValueException      *             If Conformance Value not 'A' or 'B'      */
 specifier|public
 name|void
 name|setConformanceProperty
@@ -514,7 +514,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Give the PDFAVersionId (as an integer) 	 *  	 * @return Part value (Integer) 	 */
+comment|/**      * Give the PDFAVersionId (as an integer)      *       * @return Part value (Integer)      */
 specifier|public
 name|Integer
 name|getPart
@@ -587,7 +587,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/** 	 * Give the property corresponding to the PDFA Version id 	 *  	 * @return Part property 	 */
+comment|/**      * Give the property corresponding to the PDFA Version id      *       * @return Part property      */
 specifier|public
 name|IntegerType
 name|getPartProperty
@@ -619,7 +619,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Give the PDFAAmendmentId (as an String) 	 *  	 * @return Amendment value 	 */
+comment|/**      * Give the PDFAAmendmentId (as an String)      *       * @return Amendment value      */
 specifier|public
 name|String
 name|getAmendment
@@ -656,7 +656,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Give the property corresponding to the PDFA Amendment id 	 *  	 * @return Amendment property 	 */
+comment|/**      * Give the property corresponding to the PDFA Amendment id      *       * @return Amendment property      */
 specifier|public
 name|TextType
 name|getAmdProperty
@@ -688,7 +688,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Give the PDFA Amendment Id (as an String) 	 *  	 * @return Amendment Value 	 */
+comment|/**      * Give the PDFA Amendment Id (as an String)      *       * @return Amendment Value      */
 specifier|public
 name|String
 name|getAmd
@@ -751,7 +751,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/** 	 * Give the property corresponding to the PDFA Conformance id 	 *  	 * @return conformance property 	 */
+comment|/**      * Give the property corresponding to the PDFA Conformance id      *       * @return conformance property      */
 specifier|public
 name|TextType
 name|getConformanceProperty
@@ -783,7 +783,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Give the Conformance id 	 *  	 * @return conformance id value 	 */
+comment|/**      * Give the Conformance id      *       * @return conformance id value      */
 specifier|public
 name|String
 name|getConformance

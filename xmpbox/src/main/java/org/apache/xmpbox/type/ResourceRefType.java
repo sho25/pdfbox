@@ -418,7 +418,7 @@ name|ALTERNATE_PATHS
 init|=
 literal|"alternatePaths"
 decl_stmt|;
-comment|/** 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param namespace 	 *            the namespace URI to associate to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this thumbnail type 	 */
+comment|/**      *       * @param metadata      *            The metadata to attach to this property      * @param namespace      *            the namespace URI to associate to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this thumbnail type      */
 specifier|public
 name|ResourceRefType
 parameter_list|(
@@ -1394,7 +1394,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get Versions property 	 *  	 * @return version property to set 	 */
+comment|/**      * Get Versions property      *       * @return version property to set      */
 specifier|public
 name|ArrayProperty
 name|getAlternatePathsProperty
@@ -1414,7 +1414,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get List of Versions values 	 *  	 * @return List of Versions values 	 */
+comment|/**      * Get List of Versions values      *       * @return List of Versions values      */
 specifier|public
 name|List
 argument_list|<

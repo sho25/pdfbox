@@ -153,7 +153,7 @@ name|IMAGE
 init|=
 literal|"image"
 decl_stmt|;
-comment|/** 	 *  	 * @param metadata 	 *            The metadata to attach to this property 	 * @param namespace 	 *            the namespace URI to associate to this property 	 * @param prefix 	 *            The prefix to set for this property 	 * @param propertyName 	 *            The local Name of this thumbnail type 	 */
+comment|/**      *       * @param metadata      *            The metadata to attach to this property      * @param namespace      *            the namespace URI to associate to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this thumbnail type      */
 specifier|public
 name|ThumbnailType
 parameter_list|(
@@ -182,7 +182,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get Height 	 *  	 * @return the height 	 */
+comment|/**      * Get Height      *       * @return the height      */
 specifier|public
 name|Integer
 name|getHeight
@@ -223,7 +223,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Set Height 	 *  	 * @param prefix 	 *            the prefix of Height property to set 	 * @param name 	 *            the name of Height property to set 	 * @param height 	 *            the value of Height property to set 	 */
+comment|/**      * Set Height      *       * @param prefix      *            the prefix of Height property to set      * @param name      *            the name of Height property to set      * @param height      *            the value of Height property to set      */
 specifier|public
 name|void
 name|setHeight
@@ -240,7 +240,7 @@ name|height
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get Width 	 *  	 * @return the width 	 */
+comment|/**      * Get Width      *       * @return the width      */
 specifier|public
 name|Integer
 name|getWidth
@@ -281,7 +281,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Set Width 	 *  	 * @param prefix 	 *            the prefix of width property to set 	 * @param name 	 *            the name of width property to set 	 * @param width 	 *            the value of width property to set 	 */
+comment|/**      * Set Width      *       * @param prefix      *            the prefix of width property to set      * @param name      *            the name of width property to set      * @param width      *            the value of width property to set      */
 specifier|public
 name|void
 name|setWidth
@@ -298,7 +298,7 @@ name|width
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get The img data 	 *  	 * @return the img 	 */
+comment|/**      * Get The img data      *       * @return the img      */
 specifier|public
 name|String
 name|getImage
@@ -339,7 +339,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Set Image data 	 *  	 * @param prefix 	 *            the prefix of image property to set 	 * @param name 	 *            the name of image property to set 	 * @param image 	 *            the value of image property to set 	 */
+comment|/**      * Set Image data      *       * @param prefix      *            the prefix of image property to set      * @param name      *            the name of image property to set      * @param image      *            the value of image property to set      */
 specifier|public
 name|void
 name|setImage
@@ -356,7 +356,7 @@ name|image
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get Format 	 *  	 * @return the format 	 */
+comment|/**      * Get Format      *       * @return the format      */
 specifier|public
 name|String
 name|getFormat
@@ -397,7 +397,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Set Format 	 *  	 * @param prefix 	 *            the prefix of format property to set 	 * @param name 	 *            the name of format property to set 	 * @param format 	 *            the value of format property to set 	 */
+comment|/**      * Set Format      *       * @param prefix      *            the prefix of format property to set      * @param name      *            the name of format property to set      * @param format      *            the value of format property to set      */
 specifier|public
 name|void
 name|setFormat

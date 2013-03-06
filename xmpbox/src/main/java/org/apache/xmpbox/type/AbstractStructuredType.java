@@ -277,7 +277,7 @@ else|:
 name|fieldPrefix
 expr_stmt|;
 block|}
-comment|/** 	 * Get the namespace URI of this entity 	 *  	 * @return the namespace URI 	 */
+comment|/**      * Get the namespace URI of this entity      *       * @return the namespace URI      */
 specifier|public
 specifier|final
 name|String
@@ -304,7 +304,7 @@ operator|=
 name|ns
 expr_stmt|;
 block|}
-comment|/** 	 * Get the prefix of this entity 	 *  	 * @return the prefix specified 	 */
+comment|/**      * Get the prefix of this entity      *       * @return the prefix specified      */
 specifier|public
 specifier|final
 name|String

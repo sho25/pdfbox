@@ -41,18 +41,6 @@ name|apache
 operator|.
 name|xmpbox
 operator|.
-name|XMPMetadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
 name|schema
 operator|.
 name|XMPSchema
@@ -362,7 +350,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * @Test public void displayResult() throws TransformException { 	 * System.out.println 	 * ("info used:\n XPacketBegin:"+metadata.getXpacketBegin()+ 	 * "\n XPacketID:"+metadata.getXpacketId()); 	 * SaveMetadataHelper.serialize(metadata, true, System.out); 	 *  	 * } 	 */
+comment|/*      * @Test public void displayResult() throws TransformException { System.out.println      * ("info used:\n XPacketBegin:"+metadata.getXpacketBegin()+ "\n XPacketID:"+metadata.getXpacketId());      * SaveMetadataHelper.serialize(metadata, true, System.out);      *       * }      */
 annotation|@
 name|Test
 argument_list|(

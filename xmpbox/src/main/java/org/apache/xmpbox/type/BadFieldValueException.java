@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception thrown when Value found to set/get property content is not  * compatible with object specifications (typically when trying to have a  * property in a type that is not compatible with specified original type of  * property concerned)  *   * @author a183132  *   */
+comment|/**  * Exception thrown when Value found to set/get property content is not compatible with object specifications (typically  * when trying to have a property in a type that is not compatible with specified original type of property concerned)  *   * @author a183132  *   */
 end_comment
 
 begin_class
@@ -26,7 +26,7 @@ name|BadFieldValueException
 extends|extends
 name|Exception
 block|{
-comment|/** 	 *  	 */
+comment|/**      *       */
 specifier|private
 specifier|static
 specifier|final
@@ -35,7 +35,7 @@ name|serialVersionUID
 init|=
 literal|8100277682314632644L
 decl_stmt|;
-comment|/** 	 * Create an instance of BadFieldValueException 	 *  	 * @param message 	 *            a description of the encountered problem 	 */
+comment|/**      * Create an instance of BadFieldValueException      *       * @param message      *            a description of the encountered problem      */
 specifier|public
 name|BadFieldValueException
 parameter_list|(
@@ -49,7 +49,7 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Create an instance of BadFieldValueException 	 *  	 * @param message 	 *            a description of the encountered problem 	 * @param cause 	 *            the cause of the exception 	 */
+comment|/**      * Create an instance of BadFieldValueException      *       * @param message      *            a description of the encountered problem      * @param cause      *            the cause of the exception      */
 specifier|public
 name|BadFieldValueException
 parameter_list|(

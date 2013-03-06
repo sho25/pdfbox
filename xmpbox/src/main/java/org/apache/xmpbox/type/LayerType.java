@@ -131,7 +131,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get The LayerName data 	 *  	 * @return the LayerName 	 */
+comment|/**      * Get The LayerName data      *       * @return the LayerName      */
 specifier|public
 name|String
 name|getLayerName
@@ -172,7 +172,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Set LayerName  	 *  	 * @param prefix 	 *            the prefix of LayerName property to set 	 * @param name 	 *            the name of LayerName property to set 	 * @param image 	 *            the value of LayerName property to set 	 */
+comment|/**      * Set LayerName      *       * @param prefix      *            the prefix of LayerName property to set      * @param name      *            the name of LayerName property to set      * @param image      *            the value of LayerName property to set      */
 specifier|public
 name|void
 name|setLayerName
@@ -194,7 +194,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get The LayerText data 	 *  	 * @return the LayerText 	 */
+comment|/**      * Get The LayerText data      *       * @return the LayerText      */
 specifier|public
 name|String
 name|getLayerText
@@ -235,7 +235,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Set LayerText  	 *  	 * @param prefix 	 *            the prefix of LayerText property to set 	 * @param name 	 *            the name of LayerText property to set 	 * @param image 	 *            the value of LayerText property to set 	 */
+comment|/**      * Set LayerText      *       * @param prefix      *            the prefix of LayerText property to set      * @param name      *            the name of LayerText property to set      * @param image      *            the value of LayerText property to set      */
 specifier|public
 name|void
 name|setLayerText

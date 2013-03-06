@@ -51,18 +51,6 @@ name|apache
 operator|.
 name|xmpbox
 operator|.
-name|XMPMetadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
 name|schema
 operator|.
 name|DublinCoreSchema
@@ -118,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test with 2 dublinCore with different prefix (Test comportment of  * XMPMetadata)  *   * @author a183132  *   */
+comment|/**  * Test with 2 dublinCore with different prefix (Test comportment of XMPMetadata)  *   * @author a183132  *   */
 end_comment
 
 begin_class

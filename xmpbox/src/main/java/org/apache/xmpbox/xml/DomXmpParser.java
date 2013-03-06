@@ -714,7 +714,7 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|//		document.normalizeDocument();
+comment|// document.normalizeDocument();
 name|XMPMetadata
 name|xmp
 init|=
@@ -3679,7 +3679,8 @@ operator|.
 name|getFirstChild
 argument_list|()
 decl_stmt|;
-comment|// always<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+comment|// always<rdf:RDF
+comment|// xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 name|expectNaming
 argument_list|(
 name|rdfRdf
@@ -3860,7 +3861,7 @@ throw|;
 block|}
 comment|// else OK
 block|}
-comment|/** 	 * Remove all the comments node in the parent element of the parameter 	 * @param node the first node of an element or document to clear 	 */
+comment|/**      * Remove all the comments node in the parent element of the parameter      *       * @param node      *            the first node of an element or document to clear      */
 specifier|private
 name|void
 name|removeComments

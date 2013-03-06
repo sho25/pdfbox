@@ -97,7 +97,7 @@ specifier|private
 name|String
 name|nsName
 decl_stmt|;
-comment|/** 	 * Factory Constructor for basic known schemas 	 *  	 * @param namespace 	 *            namespace URI to treat 	 * @param schemaClass 	 *            Class representation associated to this URI 	 * @param propDef 	 *            Properties Types list associated 	 */
+comment|/**      * Factory Constructor for basic known schemas      *       * @param namespace      *            namespace URI to treat      * @param schemaClass      *            Class representation associated to this URI      * @param propDef      *            Properties Types list associated      */
 specifier|public
 name|XMPSchemaFactory
 parameter_list|(
@@ -135,7 +135,7 @@ operator|=
 name|propDef
 expr_stmt|;
 block|}
-comment|/** 	 * Get namespace URI treated by this factory 	 *  	 * @return The namespace URI 	 */
+comment|/**      * Get namespace URI treated by this factory      *       * @return The namespace URI      */
 specifier|public
 name|String
 name|getNamespace
@@ -145,7 +145,7 @@ return|return
 name|namespace
 return|;
 block|}
-comment|/** 	 * Get type declared for the name property given 	 *  	 * @param name 	 *            The property name 	 * @return null if propery name is unknown 	 */
+comment|/**      * Get type declared for the name property given      *       * @param name      *            The property name      * @return null if propery name is unknown      */
 specifier|public
 name|PropertyType
 name|getPropertyType
@@ -163,7 +163,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Create a schema that corresponding to this factory and add it to metadata 	 *  	 * @param metadata 	 *            Metadata to attach the Schema created 	 * @param prefix 	 * 						The namespace prefix (optional) 	 * @return the schema created and added to metadata 	 * @throws XmpSchemaException 	 *             When Instancing specified Object Schema failed 	 */
+comment|/**      * Create a schema that corresponding to this factory and add it to metadata      *       * @param metadata      *            Metadata to attach the Schema created      * @param prefix      *            The namespace prefix (optional)      * @return the schema created and added to metadata      * @throws XmpSchemaException      *             When Instancing specified Object Schema failed      */
 specifier|public
 name|XMPSchema
 name|createXMPSchema

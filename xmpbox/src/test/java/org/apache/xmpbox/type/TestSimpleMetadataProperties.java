@@ -51,90 +51,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
-name|Attribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
-name|BooleanType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
-name|DateType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
-name|IntegerType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
-name|RealType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
-name|TextType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Assert
@@ -191,7 +107,7 @@ name|createXMPMetadata
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Check the detection of a bad type 	 *  	 * @throws InappropriateTypeException 	 */
+comment|/**      * Check the detection of a bad type      *       * @throws InappropriateTypeException      */
 annotation|@
 name|Test
 argument_list|(
@@ -221,7 +137,7 @@ literal|"Not a Boolean"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check the detection of a bad type 	 *  	 * @throws InappropriateTypeException 	 */
+comment|/**      * Check the detection of a bad type      *       * @throws InappropriateTypeException      */
 annotation|@
 name|Test
 argument_list|(
@@ -251,7 +167,7 @@ literal|"Bad Date"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check the detection of a bad type 	 *  	 * @throws InappropriateTypeException 	 */
+comment|/**      * Check the detection of a bad type      *       * @throws InappropriateTypeException      */
 annotation|@
 name|Test
 argument_list|(
@@ -281,7 +197,7 @@ literal|"Not an int"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check the detection of a bad type 	 *  	 * @throws InappropriateTypeException 	 */
+comment|/**      * Check the detection of a bad type      *       * @throws InappropriateTypeException      */
 annotation|@
 name|Test
 argument_list|(
@@ -313,7 +229,7 @@ literal|"Not a real"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check the detection of a bad type 	 *  	 * @throws InappropriateTypeException 	 */
+comment|/**      * Check the detection of a bad type      *       * @throws InappropriateTypeException      */
 annotation|@
 name|Test
 argument_list|(
@@ -348,7 +264,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check if information between objects and the elment generated are equals 	 *  	 * @throws Exception 	 */
+comment|/**      * Check if information between objects and the elment generated are equals      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -554,7 +470,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check the creation from string attributes 	 *  	 * @throws Exception 	 */
+comment|/**      * Check the creation from string attributes      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -735,7 +651,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check creation when a namespace is specified 	 *  	 * @throws Exception 	 */
+comment|/**      * Check creation when a namespace is specified      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -912,7 +828,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Throw InappropriateType Exception 	 *  	 * @throws InappropriateTypeException 	 */
+comment|/**      * Throw InappropriateType Exception      *       * @throws InappropriateTypeException      */
 annotation|@
 name|Test
 argument_list|(
@@ -941,7 +857,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-comment|/** 	 * Check if attributes management works 	 *  	 * @throws Exception 	 */
+comment|/**      * Check if attributes management works      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -1136,7 +1052,7 @@ operator|.
 name|getAllAttributes
 argument_list|()
 decl_stmt|;
-comment|/* 		 * for (Attribute attribute : atts) { 		 * System.out.println(attribute.getLocalName 		 * ()+" :"+attribute.getValue()); } 		 */
+comment|/*          * for (Attribute attribute : atts) { System.out.println(attribute.getLocalName ()+" :"+attribute.getValue()); }          */
 name|Assert
 operator|.
 name|assertFalse

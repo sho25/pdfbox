@@ -221,20 +221,6 @@ name|xmpbox
 operator|.
 name|type
 operator|.
-name|TypeMapping
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|xmpbox
-operator|.
-name|type
-operator|.
 name|Types
 import|;
 end_import
@@ -532,7 +518,7 @@ specifier|private
 name|ArrayProperty
 name|altThumbs
 decl_stmt|;
-comment|/** 	 * Constructor of XMPBasic schema with preferred prefix 	 *  	 * @param metadata 	 *            The metadata to attach this schema 	 */
+comment|/**      * Constructor of XMPBasic schema with preferred prefix      *       * @param metadata      *            The metadata to attach this schema      */
 specifier|public
 name|XMPBasicSchema
 parameter_list|(
@@ -546,7 +532,7 @@ name|metadata
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Constructor of XMPBasic schema with specified prefix 	 *  	 * @param metadata 	 *            The metadata to attach this schema 	 * @param ownPrefix 	 *            The prefix to assign 	 */
+comment|/**      * Constructor of XMPBasic schema with specified prefix      *       * @param metadata      *            The metadata to attach this schema      * @param ownPrefix      *            The prefix to assign      */
 specifier|public
 name|XMPBasicSchema
 parameter_list|(
@@ -565,7 +551,7 @@ name|ownPrefix
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Add thumbnail to thumbnails list 	 *  	 * @param height 	 *            height format 	 * @param width 	 *            width format 	 * @param format 	 *            thumbnail format 	 * @param img 	 *            Image data 	 */
+comment|/**      * Add thumbnail to thumbnails list      *       * @param height      *            height format      * @param width      *            width format      * @param format      *            thumbnail format      * @param img      *            Image data      */
 specifier|public
 name|void
 name|addThumbnails
@@ -656,7 +642,7 @@ name|thumb
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Add a property specification that were edited outside the authoring 	 * application 	 *  	 * @param xpath 	 *            the value to add 	 */
+comment|/**      * Add a property specification that were edited outside the authoring application      *       * @param xpath      *            the value to add      */
 specifier|public
 name|void
 name|addAdvisory
@@ -689,7 +675,7 @@ name|xpath
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the base URL for relative URLs in the document content 	 *  	 * @param url 	 *            the Base url value to set 	 */
+comment|/**      * Set the base URL for relative URLs in the document content      *       * @param url      *            the Base url value to set      */
 specifier|public
 name|void
 name|setBaseURL
@@ -717,7 +703,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the base URL property 	 *  	 * @param url 	 *            the Base url property to set 	 */
+comment|/**      * Set the base URL property      *       * @param url      *            the Base url property to set      */
 specifier|public
 name|void
 name|setBaseURLProperty
@@ -732,7 +718,7 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the date and time the resource was originally created 	 *  	 * @param date 	 *            the value to set 	 */
+comment|/**      * Set the date and time the resource was originally created      *       * @param date      *            the value to set      */
 specifier|public
 name|void
 name|setCreateDate
@@ -760,7 +746,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the create date property 	 *  	 * @param date 	 *            the create date property to set 	 */
+comment|/**      * Set the create date property      *       * @param date      *            the create date property to set      */
 specifier|public
 name|void
 name|setCreateDateProperty
@@ -775,7 +761,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set the name of the first known tool used to create this resource 	 *  	 * @param creatorTool 	 *            the creator tool value to set 	 */
+comment|/**      * set the name of the first known tool used to create this resource      *       * @param creatorTool      *            the creator tool value to set      */
 specifier|public
 name|void
 name|setCreatorTool
@@ -803,7 +789,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set the creatorTool property 	 *  	 * @param creatorTool 	 *            the creator tool property to set 	 */
+comment|/**      * set the creatorTool property      *       * @param creatorTool      *            the creator tool property to set      */
 specifier|public
 name|void
 name|setCreatorToolProperty
@@ -818,7 +804,7 @@ name|creatorTool
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Add a text string which unambiguously identify the resource within a 	 * given context 	 *  	 * @param text 	 *            the identifier value to add 	 */
+comment|/**      * Add a text string which unambiguously identify the resource within a given context      *       * @param text      *            the identifier value to add      */
 specifier|public
 name|void
 name|addIdentifier
@@ -851,7 +837,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set a word or a short phrase which identifies a document as a member of a 	 * user-defined collection 	 *  	 * @param text 	 *            the label value to set 	 */
+comment|/**      * set a word or a short phrase which identifies a document as a member of a user-defined collection      *       * @param text      *            the label value to set      */
 specifier|public
 name|void
 name|setLabel
@@ -879,7 +865,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * set the label property 	 *  	 * @param text 	 *            the label property to set 	 */
+comment|/**      * set the label property      *       * @param text      *            the label property to set      */
 specifier|public
 name|void
 name|setLabelProperty
@@ -894,7 +880,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the date and time that any metadata for this resource was last 	 * changed. (should be equals or more recent than the createDate) 	 *  	 * @param date 	 *            the Metadata Date value to set 	 */
+comment|/**      * Set the date and time that any metadata for this resource was last changed. (should be equals or more recent than      * the createDate)      *       * @param date      *            the Metadata Date value to set      */
 specifier|public
 name|void
 name|setMetadataDate
@@ -922,7 +908,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the MetadataDate property 	 *  	 * @param date 	 *            the Metadata Date property to set 	 */
+comment|/**      * Set the MetadataDate property      *       * @param date      *            the Metadata Date property to set      */
 specifier|public
 name|void
 name|setMetadataDateProperty
@@ -937,7 +923,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the date and time the resource was last modified 	 *  	 * @param date 	 *            the Modify Date value to set 	 */
+comment|/**      * Set the date and time the resource was last modified      *       * @param date      *            the Modify Date value to set      */
 specifier|public
 name|void
 name|setModifyDate
@@ -965,7 +951,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the ModifyDate property 	 *  	 * @param date 	 *            the Modify Date property to set 	 */
+comment|/**      * Set the ModifyDate property      *       * @param date      *            the Modify Date property to set      */
 specifier|public
 name|void
 name|setModifyDateProperty
@@ -980,7 +966,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set a short informal name for the resource 	 *  	 * @param text 	 *            the Nickname value to set 	 */
+comment|/**      * Set a short informal name for the resource      *       * @param text      *            the Nickname value to set      */
 specifier|public
 name|void
 name|setNickname
@@ -1008,7 +994,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the NickName property 	 *  	 * @param text 	 *            the Nickname property to set 	 */
+comment|/**      * Set the NickName property      *       * @param text      *            the Nickname property to set      */
 specifier|public
 name|void
 name|setNicknameProperty
@@ -1023,7 +1009,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set a number that indicates a document's status relative to other 	 * documents, used to organize documents in a file browser (values are 	 * user-defined within an application-defined range) 	 *  	 * @param rate 	 *            the rate value to set 	 */
+comment|/**      * Set a number that indicates a document's status relative to other documents, used to organize documents in a file      * browser (values are user-defined within an application-defined range)      *       * @param rate      *            the rate value to set      */
 specifier|public
 name|void
 name|setRating
@@ -1032,7 +1018,7 @@ name|Integer
 name|rate
 parameter_list|)
 block|{
-comment|//		addProperty(new IntegerType(metadata, localPrefix, RATING, rate));
+comment|// addProperty(new IntegerType(metadata, localPrefix, RATING, rate));
 name|IntegerType
 name|tt
 init|=
@@ -1052,7 +1038,7 @@ name|tt
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set Rating Property 	 *  	 * @param rate 	 *            the rate property to set 	 */
+comment|/**      * Set Rating Property      *       * @param rate      *            the rate property to set      */
 specifier|public
 name|void
 name|setRatingProperty
@@ -1067,7 +1053,7 @@ name|rate
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Get the Advisory property 	 *  	 * @return the advisory property 	 */
+comment|/**      * Get the Advisory property      *       * @return the advisory property      */
 specifier|public
 name|ArrayProperty
 name|getAdvisoryProperty
@@ -1083,7 +1069,7 @@ name|ADVISORY
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the Advisory property values 	 *  	 * @return list of adivory values 	 */
+comment|/**      * Get the Advisory property values      *       * @return list of adivory values      */
 specifier|public
 name|List
 argument_list|<
@@ -1099,7 +1085,7 @@ name|ADVISORY
 argument_list|)
 return|;
 block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *      * @see XMPBasicSchema#getAdvisory()      */
+comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPBasicSchema#getAdvisory()      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -1115,7 +1101,7 @@ name|getAdvisory
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Get the BaseURL property 	 *  	 * @return the base url property 	 */
+comment|/**      * Get the BaseURL property      *       * @return the base url property      */
 specifier|public
 name|TextType
 name|getBaseURLProperty
@@ -1131,7 +1117,7 @@ name|BASEURL
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the BaseURL property value 	 *  	 * @return the base url value 	 */
+comment|/**      * Get the BaseURL property value      *       * @return the base url value      */
 specifier|public
 name|String
 name|getBaseURL
@@ -1163,7 +1149,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Get the CreateDate property 	 *  	 * @return the CreateDate property 	 */
+comment|/**      * Get the CreateDate property      *       * @return the CreateDate property      */
 specifier|public
 name|DateType
 name|getCreateDateProperty
@@ -1179,7 +1165,7 @@ name|CREATEDATE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the CreateDate property value 	 *  	 * @return the CreateDate value 	 */
+comment|/**      * Get the CreateDate property value      *       * @return the CreateDate value      */
 specifier|public
 name|Calendar
 name|getCreateDate
@@ -1214,7 +1200,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Get the CreationTool property 	 *  	 * @return the CreationTool property 	 */
+comment|/**      * Get the CreationTool property      *       * @return the CreationTool property      */
 specifier|public
 name|TextType
 name|getCreatorToolProperty
@@ -1230,7 +1216,7 @@ name|CREATORTOOL
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the CreationTool property value 	 *  	 * @return the CreationTool value 	 */
+comment|/**      * Get the CreationTool property value      *       * @return the CreationTool value      */
 specifier|public
 name|String
 name|getCreatorTool
@@ -1262,7 +1248,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Get the Identifier property 	 *  	 * @return the Identifier property 	 */
+comment|/**      * Get the Identifier property      *       * @return the Identifier property      */
 specifier|public
 name|ArrayProperty
 name|getIdentifiersProperty
@@ -1278,7 +1264,7 @@ name|IDENTIFIER
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the Identifier property values 	 *  	 * @return list of all identifier values 	 */
+comment|/**      * Get the Identifier property values      *       * @return list of all identifier values      */
 specifier|public
 name|List
 argument_list|<
@@ -1294,7 +1280,7 @@ name|IDENTIFIER
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the label property 	 *  	 * @return the label property 	 */
+comment|/**      * Get the label property      *       * @return the label property      */
 specifier|public
 name|TextType
 name|getLabelProperty
@@ -1310,7 +1296,7 @@ name|LABEL
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the label property value 	 *  	 * @return the label value 	 */
+comment|/**      * Get the label property value      *       * @return the label value      */
 specifier|public
 name|String
 name|getLabel
@@ -1342,7 +1328,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Get the MetadataDate property 	 *  	 * @return the MetadataDate property 	 */
+comment|/**      * Get the MetadataDate property      *       * @return the MetadataDate property      */
 specifier|public
 name|DateType
 name|getMetadataDateProperty
@@ -1358,7 +1344,7 @@ name|METADATADATE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the MetadataDate property value 	 *  	 * @return the MetadataDate value 	 */
+comment|/**      * Get the MetadataDate property value      *       * @return the MetadataDate value      */
 specifier|public
 name|Calendar
 name|getMetadataDate
@@ -1390,7 +1376,7 @@ name|getValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Get the ModifyDate property 	 *  	 * @return the ModifyDate property 	 */
+comment|/**      * Get the ModifyDate property      *       * @return the ModifyDate property      */
 specifier|public
 name|DateType
 name|getModifyDateProperty
@@ -1406,7 +1392,7 @@ name|MODIFYDATE
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the ModifyDate property value 	 *  	 * @return the ModifyDate value 	 */
+comment|/**      * Get the ModifyDate property value      *       * @return the ModifyDate value      */
 specifier|public
 name|Calendar
 name|getModifyDate
@@ -1441,7 +1427,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * Get the Nickname property 	 *  	 * @return the Nickname property 	 */
+comment|/**      * Get the Nickname property      *       * @return the Nickname property      */
 specifier|public
 name|TextType
 name|getNicknameProperty
@@ -1457,7 +1443,7 @@ name|NICKNAME
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get the Nickname property value 	 *  	 * @return the Nickname value 	 */
+comment|/**      * Get the Nickname property value      *       * @return the Nickname value      */
 specifier|public
 name|String
 name|getNickname
@@ -1489,7 +1475,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Get the Rating property 	 *  	 * @return the Rating property 	 */
+comment|/**      * Get the Rating property      *       * @return the Rating property      */
 specifier|public
 name|IntegerType
 name|getRatingProperty
@@ -1507,7 +1493,7 @@ argument_list|)
 operator|)
 return|;
 block|}
-comment|/** 	 * Get the Rating property value 	 *  	 * @return the Rating value 	 */
+comment|/**      * Get the Rating property value      *       * @return the Rating value      */
 specifier|public
 name|Integer
 name|getRating
@@ -1539,7 +1525,7 @@ name|getValue
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Get list of Thumbnails 	 *  	 * @return List of all thumbnails properties defined 	 * @throws BadFieldValueException 	 *             if one thumbnail is not thumbnail type 	 */
+comment|/**      * Get list of Thumbnails      *       * @return List of all thumbnails properties defined      * @throws BadFieldValueException      *             if one thumbnail is not thumbnail type      */
 specifier|public
 name|List
 argument_list|<
