@@ -171,7 +171,7 @@ argument_list|()
 expr_stmt|;
 comment|// TODO appel sur le checkWidth
 block|}
-comment|/** 	 * Initialize the {@linkplain #cmapEncodingEntries} with CMaps that belong to the TrueType 	 * Font Program. 	 *  	 * Here the selection rules : 	 *<UL> 	 *<li>For a Symbolic TrueType, the Font Program has only one CMap (Checked in 	 * the checkFontFileElement method) 	 *<li>For a Non-Symbolic TrueType, the list of CMap is reordered to provide WinAnsi CMap first 	 * (plateformId : 3 / encodingId : 1) followed by MacRoman CMap (plateformId : 1 / 	 * encodingId : 0). This CMap returns the CMap which corresponds to the 	 * Encoding value of the FontDescriptor dictionary. 	 *</UL> 	 */
+comment|/**      * Initialize the {@linkplain #cmapEncodingEntries} with CMaps that belong to the TrueType Font Program.      *       * Here the selection rules :      *<UL>      *<li>For a Symbolic TrueType, the Font Program has only one CMap (Checked in the checkFontFileElement method)      *<li>For a Non-Symbolic TrueType, the list of CMap is reordered to provide WinAnsi CMap first (plateformId : 3 /      * encodingId : 1) followed by MacRoman CMap (plateformId : 1 / encodingId : 0). This CMap returns the CMap which      * corresponds to the Encoding value of the FontDescriptor dictionary.      *</UL>      */
 specifier|protected
 name|void
 name|initCMapEncodingEntries
@@ -449,7 +449,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * TrueType has internal CMap that map the CID used in the PDF file with an internal character identifier. 	 * This method converts the given CID in the internal font program identifier. (0 if no match found) 	 * @param cid 	 * @param cmap 	 * @return 	 */
+comment|/**      * TrueType has internal CMap that map the CID used in the PDF file with an internal character identifier. This      * method converts the given CID in the internal font program identifier. (0 if no match found)      *       * @param cid      * @param cmap      * @return      */
 specifier|private
 name|int
 name|extractGlyphID
@@ -663,7 +663,7 @@ operator|.
 name|getAdvanceWidth
 argument_list|()
 decl_stmt|;
-comment|/* 		 * In a Mono space font program, the length of the AdvanceWidth array must be one. 		 * According to the TrueType font specification, the Last Value of the AdvanceWidth array 		 * is apply to the subsequent glyphs. So if the GlyphId is greater than the length of the array 		 * the last entry is used. 		 */
+comment|/*          * In a Mono space font program, the length of the AdvanceWidth array must be one. According to the TrueType          * font specification, the Last Value of the AdvanceWidth array is apply to the subsequent glyphs. So if the          * GlyphId is greater than the length of the array the last entry is used.          */
 name|int
 name|numberOfLongHorMetrics
 init|=

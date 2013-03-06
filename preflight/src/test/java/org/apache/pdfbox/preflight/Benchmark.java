@@ -160,7 +160,7 @@ specifier|public
 class|class
 name|Benchmark
 block|{
-comment|/** 	 * @param args 	 */
+comment|/**      * @param args      */
 specifier|public
 specifier|static
 name|void

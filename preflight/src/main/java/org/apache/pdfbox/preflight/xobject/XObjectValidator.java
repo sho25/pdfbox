@@ -38,7 +38,7 @@ specifier|public
 interface|interface
 name|XObjectValidator
 block|{
-comment|/**    * Process the validation of the XObject.    * @throws ValidationException    */
+comment|/**      * Process the validation of the XObject.      *       * @throws ValidationException      */
 specifier|public
 specifier|abstract
 name|void

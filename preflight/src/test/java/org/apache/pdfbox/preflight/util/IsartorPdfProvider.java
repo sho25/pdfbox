@@ -32,16 +32,16 @@ specifier|public
 class|class
 name|IsartorPdfProvider
 block|{
-comment|//  public static File path;
-comment|//  static {
-comment|//    String ip = System.getProperty("isartor.path", null);
-comment|//    if (ip != null) {
-comment|//      path = new File(ip);
-comment|//      if (!path.exists() || !path.isDirectory()) {
-comment|//        path = null;
-comment|//      }
-comment|//    }
-comment|//  }
+comment|// public static File path;
+comment|// static {
+comment|// String ip = System.getProperty("isartor.path", null);
+comment|// if (ip != null) {
+comment|// path = new File(ip);
+comment|// if (!path.exists() || !path.isDirectory()) {
+comment|// path = null;
+comment|// }
+comment|// }
+comment|// }
 specifier|public
 specifier|static
 name|InputStream
@@ -62,23 +62,23 @@ name|name
 argument_list|)
 return|;
 comment|//
-comment|//    if (path == null) {
-comment|//      return null;
-comment|//    }
+comment|// if (path == null) {
+comment|// return null;
+comment|// }
 comment|//
-comment|//    String[] ext = { "pdf" };
-comment|//    Iterator<?> iter = FileUtils.iterateFiles(path, ext, true);
-comment|//    while (iter.hasNext()) {
-comment|//      Object o = iter.next();
-comment|//      if (o instanceof File) {
-comment|//        File isartorFile = (File) o;
-comment|//        if (isartorFile.isFile()&& name.equals(isartorFile.getName())) {
-comment|//          return isartorFile;
-comment|//        }
-comment|//      }
-comment|//    }
-comment|//    return null;
-comment|//  }
+comment|// String[] ext = { "pdf" };
+comment|// Iterator<?> iter = FileUtils.iterateFiles(path, ext, true);
+comment|// while (iter.hasNext()) {
+comment|// Object o = iter.next();
+comment|// if (o instanceof File) {
+comment|// File isartorFile = (File) o;
+comment|// if (isartorFile.isFile()&& name.equals(isartorFile.getName())) {
+comment|// return isartorFile;
+comment|// }
+comment|// }
+comment|// }
+comment|// return null;
+comment|// }
 block|}
 block|}
 end_class

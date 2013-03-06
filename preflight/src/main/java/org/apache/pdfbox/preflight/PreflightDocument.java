@@ -141,7 +141,7 @@ specifier|final
 name|Format
 name|specification
 decl_stmt|;
-comment|/** 	 * Create an empty preflight document  	 * and load the default configuration for the given format. 	 *  	 * @param format 	 * @throws IOException 	 */
+comment|/**      * Create an empty preflight document and load the default configuration for the given format.      *       * @param format      * @throws IOException      */
 specifier|public
 name|PreflightDocument
 parameter_list|(
@@ -162,7 +162,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Create a preflight document based on the COSDocument  	 * and load the default configuration for the given format. 	 *  	 * @param doc 	 * @param format 	 */
+comment|/**      * Create a preflight document based on the COSDocument and load the default configuration for the given format.      *       * @param doc      * @param format      */
 specifier|public
 name|PreflightDocument
 parameter_list|(
@@ -183,7 +183,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Create an empty preflight document that will use the given configuration bean to process the validation. 	 * if the configuration is null, a default configuration will be load using the given format. 	 *  	 * @param format 	 * @param cfg 	 * @throws IOException 	 */
+comment|/**      * Create an empty preflight document that will use the given configuration bean to process the validation. if the      * configuration is null, a default configuration will be load using the given format.      *       * @param format      * @param cfg      * @throws IOException      */
 specifier|public
 name|PreflightDocument
 parameter_list|(
@@ -208,7 +208,7 @@ name|cfg
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Create a preflight document based on the COSDocument that will use the given configuration bean to process the validation. 	 * if the configuration is null, a default configuration will be load using the given format. 	 *  	 * @param doc 	 * @param format 	 * @param cfg 	 * @throws IOException 	 */
+comment|/**      * Create a preflight document based on the COSDocument that will use the given configuration bean to process the      * validation. if the configuration is null, a default configuration will be load using the given format.      *       * @param doc      * @param format      * @param cfg      * @throws IOException      */
 specifier|public
 name|PreflightDocument
 parameter_list|(
@@ -268,9 +268,9 @@ condition|(
 name|format
 condition|)
 block|{
-comment|//		case PDF_A1A:
+comment|// case PDF_A1A:
 comment|//
-comment|//			break;
+comment|// break;
 default|default:
 comment|// default is PDF/A1-b
 name|this
@@ -423,7 +423,7 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-comment|/** 	 * Check that PDDocument is a valid file according to the format given during the object creation.  	 * @throws ValidationException 	 */
+comment|/**      * Check that PDDocument is a valid file according to the format given during the object creation.      *       * @throws ValidationException      */
 specifier|public
 name|void
 name|validate

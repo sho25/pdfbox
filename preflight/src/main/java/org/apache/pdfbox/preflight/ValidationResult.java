@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Object returned by the validate method of the PDFValidator. This object  * contains a boolean to know if the PDF is PDF/A-1<I>x</I> compliant. If the  * document isn't PDF/A-1<I>x</I> a list of errors is provided.  */
+comment|/**  * Object returned by the validate method of the PDFValidator. This object contains a boolean to know if the PDF is  * PDF/A-1<I>x</I> compliant. If the document isn't PDF/A-1<I>x</I> a list of errors is provided.  */
 end_comment
 
 begin_class
@@ -56,14 +56,14 @@ specifier|public
 class|class
 name|ValidationResult
 block|{
-comment|/** 	 * Boolean to know if the PDF is a valid PDF/A 	 */
+comment|/**      * Boolean to know if the PDF is a valid PDF/A      */
 specifier|private
 name|boolean
 name|isValid
 init|=
 literal|false
 decl_stmt|;
-comment|/** 	 * Errors to know why the PDF isn't valid. If the PDF is valid, this list is 	 * empty. 	 */
+comment|/**      * Errors to know why the PDF isn't valid. If the PDF is valid, this list is empty.      */
 specifier|private
 name|List
 argument_list|<
@@ -78,14 +78,14 @@ name|ValidationError
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Object representation of the XMPMetaData contained by the pdf file 	 * This attribute can be null if the Validation fails. 	 */
+comment|/**      * Object representation of the XMPMetaData contained by the pdf file This attribute can be null if the Validation      * fails.      */
 specifier|private
 name|XMPMetadata
 name|xmpMetaData
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * Create a Validation result object 	 *  	 * @param isValid 	 */
+comment|/**      * Create a Validation result object      *       * @param isValid      */
 specifier|public
 name|ValidationResult
 parameter_list|(
@@ -100,7 +100,7 @@ operator|=
 name|isValid
 expr_stmt|;
 block|}
-comment|/** 	 * Create a Validation Result object. This constructor force the isValid to 	 * false and add the given error to the list or ValidationErrors. 	 *  	 * @param error 	 *          if error is null, no error is added to the list. 	 */
+comment|/**      * Create a Validation Result object. This constructor force the isValid to false and add the given error to the      * list or ValidationErrors.      *       * @param error      *            if error is null, no error is added to the list.      */
 specifier|public
 name|ValidationResult
 parameter_list|(
@@ -132,7 +132,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Create a Validation Result object. This constructor force the isValid to 	 * false and add all the given errors to the list or ValidationErrors. 	 *  	 * @param error 	 *          if error is null, no error is added to the list. 	 */
+comment|/**      * Create a Validation Result object. This constructor force the isValid to false and add all the given errors to      * the list or ValidationErrors.      *       * @param error      *            if error is null, no error is added to the list.      */
 specifier|public
 name|ValidationResult
 parameter_list|(
@@ -156,7 +156,7 @@ operator|=
 name|errors
 expr_stmt|;
 block|}
-comment|/** 	 * Add the ValidationError object of the otherResult in the Error list of the current object. 	 * Apply a logical AND on the isValid boolean. 	 * @param otherResult 	 */
+comment|/**      * Add the ValidationError object of the otherResult in the Error list of the current object. Apply a logical AND on      * the isValid boolean.      *       * @param otherResult      */
 specifier|public
 name|void
 name|mergeResult
@@ -195,7 +195,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * @return the xmpMetaData 	 */
+comment|/**      * @return the xmpMetaData      */
 specifier|public
 name|XMPMetadata
 name|getXmpMetaData
@@ -205,7 +205,7 @@ return|return
 name|xmpMetaData
 return|;
 block|}
-comment|/** 	 * @param xmpMetaData the xmpMetaData to set 	 */
+comment|/**      * @param xmpMetaData      *            the xmpMetaData to set      */
 name|void
 name|setXmpMetaData
 parameter_list|(
@@ -220,7 +220,7 @@ operator|=
 name|xmpMetaData
 expr_stmt|;
 block|}
-comment|/** 	 * @return true if the PDF is valid,false otherwise 	 */
+comment|/**      * @return true if the PDF is valid,false otherwise      */
 specifier|public
 name|boolean
 name|isValid
@@ -230,7 +230,7 @@ return|return
 name|isValid
 return|;
 block|}
-comment|/** 	 * Add error to the list of ValidationError.  	 * If the given error is null, this method does nothing 	 *  	 * @param error 	 */
+comment|/**      * Add error to the list of ValidationError. If the given error is null, this method does nothing      *       * @param error      */
 specifier|public
 name|void
 name|addError
@@ -266,7 +266,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Add a set of errors to the list of ValidationError.  	 * If the given list is null, this method does nothing. 	 * @param errors 	 */
+comment|/**      * Add a set of errors to the list of ValidationError. If the given list is null, this method does nothing.      *       * @param errors      */
 specifier|public
 name|void
 name|addErrors
@@ -301,7 +301,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * @return the list of validation errors 	 */
+comment|/**      * @return the list of validation errors      */
 specifier|public
 name|List
 argument_list|<
@@ -316,23 +316,23 @@ operator|.
 name|lErrors
 return|;
 block|}
-comment|/** 	 * This Class represents an error of validation. It contains an error code and 	 * an error explanation. 	 */
+comment|/**      * This Class represents an error of validation. It contains an error code and an error explanation.      */
 specifier|public
 specifier|static
 class|class
 name|ValidationError
 block|{
-comment|/** 		 * Error identifier. This error code can be used as identifier to 		 * internationalize the logging message using i18n. 		 */
+comment|/**          * Error identifier. This error code can be used as identifier to internationalize the logging message using          * i18n.          */
 specifier|private
 name|String
 name|errorCode
 decl_stmt|;
-comment|/** 		 * Error details 		 */
+comment|/**          * Error details          */
 specifier|private
 name|String
 name|details
 decl_stmt|;
-comment|/** 		 * false : this error can't be ignore 		 * true : this error can be ignore 		 */
+comment|/**          * false : this error can't be ignore true : this error can be ignore          */
 specifier|private
 name|boolean
 name|isWarning
@@ -340,7 +340,7 @@ init|=
 literal|false
 decl_stmt|;
 comment|// TODO Add here COSObject or the PDObject that is linked to the error may a automatic fix can be done.
-comment|/** 		 * Create a validation error with the given error code 		 *  		 * @param errorCode 		 */
+comment|/**          * Create a validation error with the given error code          *           * @param errorCode          */
 specifier|public
 name|ValidationError
 parameter_list|(
@@ -744,7 +744,7 @@ literal|"Unknown error"
 expr_stmt|;
 block|}
 block|}
-comment|/** 		 * Create a validation error with the given error code and the error 		 * explanation. 		 *  		 * @param errorCode 		 *          the error code 		 * @param details 		 *          the error explanation 		 */
+comment|/**          * Create a validation error with the given error code and the error explanation.          *           * @param errorCode          *            the error code          * @param details          *            the error explanation          */
 specifier|public
 name|ValidationError
 parameter_list|(
@@ -818,7 +818,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/** 		 * @return the error code 		 */
+comment|/**          * @return the error code          */
 specifier|public
 name|String
 name|getErrorCode
@@ -828,7 +828,7 @@ return|return
 name|errorCode
 return|;
 block|}
-comment|/** 		 * @return the error explanation 		 */
+comment|/**          * @return the error explanation          */
 specifier|public
 name|String
 name|getDetails
@@ -838,7 +838,7 @@ return|return
 name|details
 return|;
 block|}
-comment|/** 		 * Set the error explanation 		 *  		 * @param details 		 */
+comment|/**          * Set the error explanation          *           * @param details          */
 specifier|public
 name|void
 name|setDetails

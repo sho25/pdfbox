@@ -338,7 +338,7 @@ specifier|public
 class|class
 name|FilterHelper
 block|{
-comment|/** 	 * This method checks if the filter is authorized for the PDF file according to the preflight document specification attribute. 	 * For example according to the PDF/A-1 specification, only the LZW filter is forbidden due to 	 * Copyright compatibility. Because of the PDF/A is based on the PDF1.4 specification,  	 * all filters that aren't declared in the PDF Reference Third Edition are rejected.  	 *  	 * @param context the preflight context 	 * @param filter the filter to checks 	 */
+comment|/**      * This method checks if the filter is authorized for the PDF file according to the preflight document specification      * attribute. For example according to the PDF/A-1 specification, only the LZW filter is forbidden due to Copyright      * compatibility. Because of the PDF/A is based on the PDF1.4 specification, all filters that aren't declared in the      * PDF Reference Third Edition are rejected.      *       * @param context      *            the preflight context      * @param filter      *            the filter to checks      */
 specifier|public
 specifier|static
 name|void
@@ -390,7 +390,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-comment|/** 	 * This method checks if the filter is authorized for a PDF/A file. 	 * According to the PDF/A-1 specification, only the LZW filter is forbidden due to 	 * Copyright compatibility. Because of the PDF/A is based on the PDF1.4 specification,  	 * all filters that aren't declared in the PDF Reference Third Edition are rejected.  	 *  	 * @param context 	 * @param filter 	 */
+comment|/**      * This method checks if the filter is authorized for a PDF/A file. According to the PDF/A-1 specification, only the      * LZW filter is forbidden due to Copyright compatibility. Because of the PDF/A is based on the PDF1.4      * specification, all filters that aren't declared in the PDF Reference Third Edition are rejected.      *       * @param context      * @param filter      */
 specifier|public
 specifier|static
 name|void

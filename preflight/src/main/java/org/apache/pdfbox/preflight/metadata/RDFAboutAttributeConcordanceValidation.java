@@ -70,7 +70,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class which all elements within an rdf:RDF have the same value for their  * rdf:about attributes  *   * @author Germain Costenobel  *   */
+comment|/**  * Class which all elements within an rdf:RDF have the same value for their rdf:about attributes  *   * @author Germain Costenobel  *   */
 end_comment
 
 begin_class
@@ -78,7 +78,7 @@ specifier|public
 class|class
 name|RDFAboutAttributeConcordanceValidation
 block|{
-comment|/**    *     * @param metadata    * @return    * @throws DifferentRDFAboutException    * @throws ValidationException    */
+comment|/**      *       * @param metadata      * @return      * @throws DifferentRDFAboutException      * @throws ValidationException      */
 specifier|public
 name|void
 name|validateRDFAboutAttributes

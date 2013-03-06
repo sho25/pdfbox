@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This Exception is thrown if an validation error occurs during the javacc  * validation in the PDF Body.  *   * Error codes provided by this exception should start by 1.2 or 1.0.  */
+comment|/**  * This Exception is thrown if an validation error occurs during the javacc validation in the PDF Body.  *   * Error codes provided by this exception should start by 1.2 or 1.0.  */
 end_comment
 
 begin_class
@@ -74,7 +74,7 @@ name|BodyParseException
 extends|extends
 name|PdfParseException
 block|{
-comment|/*    * (non-Javadoc)    *     * @see    * net.awl.edoc.pdfa.validation.PdfParseException#PdfParseException(net.awl    * .edoc.pdfa.validation.ParseException)    */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.PdfParseException#PdfParseException(net.awl      * .edoc.pdfa.validation.ParseException)      */
 specifier|public
 name|BodyParseException
 parameter_list|(
@@ -88,7 +88,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @see    * net.awl.edoc.pdfa.validation.PdfParseException#PdfParseException(java.lang    * .String,java.lang.String)    */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.PdfParseException#PdfParseException(java.lang .String,java.lang.String)      */
 specifier|public
 name|BodyParseException
 parameter_list|(
@@ -107,7 +107,7 @@ name|code
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @see    * net.awl.edoc.pdfa.validation.PdfParseException#PdfParseException(java.lang    * .String)    */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.PdfParseException#PdfParseException(java.lang .String)      */
 specifier|public
 name|BodyParseException
 parameter_list|(
@@ -121,7 +121,7 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @see net.awl.edoc.pdfa.validation.PdfParseException#getErrorCode()    */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.PdfParseException#getErrorCode()      */
 annotation|@
 name|Override
 specifier|public

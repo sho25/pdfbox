@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Because Type3 font program is an inner type of the PDF file,   * this font container is quite different from the other because  * all character/glyph are already checked.  */
+comment|/**  * Because Type3 font program is an inner type of the PDF file, this font container is quite different from the other  * because all character/glyph are already checked.  */
 end_comment
 
 begin_class

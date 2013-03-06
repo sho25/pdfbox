@@ -148,7 +148,7 @@ operator|>
 name|glyphIndex
 condition|)
 block|{
-comment|/* In a Mono space font program, the length of the AdvanceWidth array must be one. 			 * According to the TrueType font specification, the Last Value of the AdvanceWidth array 			 * is apply to the subsequent glyphs. So if the GlyphId is greater than the length of the array 			 * the last entry is used. 			 */
+comment|/*              * In a Mono space font program, the length of the AdvanceWidth array must be one. According to the TrueType              * font specification, the Last Value of the AdvanceWidth array is apply to the subsequent glyphs. So if the              * GlyphId is greater than the length of the array the last entry is used.              */
 name|int
 name|numberOfLongHorMetrics
 init|=
@@ -225,7 +225,7 @@ return|return
 name|foundWidth
 return|;
 block|}
-comment|/** 	 * If CIDToGID map is Identity, the GID equals to the CID. 	 * Otherwise the conversion is done by the CIDToGID map 	 * @param cid 	 * @return -1 CID doesn't match with a GID 	 */
+comment|/**      * If CIDToGID map is Identity, the GID equals to the CID. Otherwise the conversion is done by the CIDToGID map      *       * @param cid      * @return -1 CID doesn't match with a GID      */
 specifier|private
 name|int
 name|getGlyphIndex

@@ -472,7 +472,7 @@ argument_list|(
 name|fDescriptor
 argument_list|)
 decl_stmt|;
-comment|/* 		 * if the this font is a Subset, the CharSet entry must be present in 		 * the FontDescriptor 		 */
+comment|/*          * if the this font is a Subset, the CharSet entry must be present in the FontDescriptor          */
 if|if
 condition|(
 name|isSubSet
@@ -757,7 +757,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Try to load the font using the java.awt.font object. 	 * if the font is invalid, an exception will be pushed in the font container 	 * @param fontDescriptor 	 * @param fontFile 	 */
+comment|/**      * Try to load the font using the java.awt.font object. if the font is invalid, an exception will be pushed in the      * font container      *       * @param fontDescriptor      * @param fontFile      */
 specifier|protected
 name|void
 name|processFontFile1
@@ -941,7 +941,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Type1C is a CFF font format, extract all CFFFont object from the stream 	 *  	 * @param fontStream 	 * @return 	 * @throws ValidationException 	 */
+comment|/**      * Type1C is a CFF font format, extract all CFFFont object from the stream      *       * @param fontStream      * @return      * @throws ValidationException      */
 specifier|protected
 name|void
 name|processFontFile3

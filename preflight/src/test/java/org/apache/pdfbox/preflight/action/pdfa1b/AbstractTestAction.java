@@ -219,7 +219,7 @@ specifier|abstract
 class|class
 name|AbstractTestAction
 block|{
-comment|/** 	 * Read a simple PDF/A to create a valid Context 	 *  	 * @return 	 * @throws Exception 	 */
+comment|/**      * Read a simple PDF/A to create a valid Context      *       * @return      * @throws Exception      */
 specifier|protected
 name|PreflightContext
 name|createContext
@@ -292,7 +292,7 @@ return|return
 name|ctx
 return|;
 block|}
-comment|/** 	 * Run the Action validation and check the result. 	 *  	 * @param action action to check 	 * @param valid true if the Action must be valid, false if the action contains mistakes 	 * @throws Exception 	 */
+comment|/**      * Run the Action validation and check the result.      *       * @param action      *            action to check      * @param valid      *            true if the Action must be valid, false if the action contains mistakes      * @throws Exception      */
 specifier|protected
 name|void
 name|valid
@@ -339,7 +339,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Run the Action validation and check the result. 	 *  	 * @param action action to check 	 * @param valid true if the Action must be valid, false if the action contains mistakes 	 * @param expectedCode the expected error code (can be null) 	 * @throws Exception 	 */
+comment|/**      * Run the Action validation and check the result.      *       * @param action      *            action to check      * @param valid      *            true if the Action must be valid, false if the action contains mistakes      * @param expectedCode      *            the expected error code (can be null)      * @throws Exception      */
 specifier|protected
 name|void
 name|valid

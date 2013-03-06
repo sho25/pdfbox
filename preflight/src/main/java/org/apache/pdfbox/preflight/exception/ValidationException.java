@@ -34,7 +34,7 @@ name|ValidationException
 extends|extends
 name|IOException
 block|{
-comment|/**    * serial version number    */
+comment|/**      * serial version number      */
 specifier|private
 specifier|static
 specifier|final

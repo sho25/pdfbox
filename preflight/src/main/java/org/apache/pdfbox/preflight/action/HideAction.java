@@ -168,7 +168,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ActionManager for the Hide action. The Hide action isn't specifically  * prohibited by PDF/A-1, but should have been. So this action manager isn't an  * instance of InvalidAction but authorized only the H entry with the false  * value.  */
+comment|/**  * ActionManager for the Hide action. The Hide action isn't specifically prohibited by PDF/A-1, but should have been. So  * this action manager isn't an instance of InvalidAction but authorized only the H entry with the false value.  */
 end_comment
 
 begin_class
@@ -178,7 +178,7 @@ name|HideAction
 extends|extends
 name|AbstractActionManager
 block|{
-comment|/**    * @param amFact    *          Instance of ActionManagerFactory used to create ActionManager to    *          check Next actions.    * @param adict    *          the COSDictionary of the action wrapped by this class.    * @param ctx    *          the DocumentHandler from which the action comes from.    * @param aaKey    *          The name of the key which identify the action in a additional    *          action dictionary.    */
+comment|/**      * @param amFact      *            Instance of ActionManagerFactory used to create ActionManager to check Next actions.      * @param adict      *            the COSDictionary of the action wrapped by this class.      * @param ctx      *            the DocumentHandler from which the action comes from.      * @param aaKey      *            The name of the key which identify the action in a additional action dictionary.      */
 specifier|public
 name|HideAction
 parameter_list|(
@@ -207,7 +207,7 @@ name|aaKey
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @see    * net.awl.edoc.pdfa.validation.actions.AbstractActionManager#valid(java.util    * .List)    */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.actions.AbstractActionManager#valid(java.util .List)      */
 annotation|@
 name|Override
 specifier|protected
@@ -317,7 +317,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/*      * ---- H entry is optional but the default value is True (annotations of      * the T entry will be hidden) according to the aim of a PDF/A it should be      * false (annotations of the T entry will be shown).      *       * We check the H value and we throw an error if it is true because of the      * PDF/A Application Notes sentence :      *       * The PDF Reference supports a concept whereby something will happen when      * the user performs an explicit or implicit action in a PDF viewer - these      * "things" are called Actions. PDF/A-1 permits a limited set of these      * Actions, which are detailed in section 6.6.1. Specifically, any action      * that could change the visual representation of the document or is not      * documented in the PDF Reference is not permitted. This includes the /Hide      * action which isn't specifically prohibited by PDF/A-1, but should have      * been.      */
+comment|/*          * ---- H entry is optional but the default value is True (annotations of the T entry will be hidden) according          * to the aim of a PDF/A it should be false (annotations of the T entry will be shown).          *           * We check the H value and we throw an error if it is true because of the PDF/A Application Notes sentence :          *           * The PDF Reference supports a concept whereby something will happen when the user performs an explicit or          * implicit action in a PDF viewer - these "things" are called Actions. PDF/A-1 permits a limited set of these          * Actions, which are detailed in section 6.6.1. Specifically, any action that could change the visual          * representation of the document or is not documented in the PDF Reference is not permitted. This includes the          * /Hide action which isn't specifically prohibited by PDF/A-1, but should have been.          */
 name|boolean
 name|h
 init|=

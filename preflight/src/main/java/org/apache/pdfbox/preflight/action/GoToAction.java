@@ -152,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ActionManager for the GoTo action GoToAction is valid if the D entry is  * present.  */
+comment|/**  * ActionManager for the GoTo action GoToAction is valid if the D entry is present.  */
 end_comment
 
 begin_class
@@ -162,7 +162,7 @@ name|GoToAction
 extends|extends
 name|AbstractActionManager
 block|{
-comment|/**    *     * @param amFact    *          Instance of ActionManagerFactory used to create ActionManager to    *          check Next actions.    * @param adict    *          the COSDictionary of the action wrapped by this class.    * @param cDoc    *          the COSDocument from which the action comes from.    * @param aa    *          The name of the key which identify the action in a additional    *          action dictionary.    */
+comment|/**      *       * @param amFact      *            Instance of ActionManagerFactory used to create ActionManager to check Next actions.      * @param adict      *            the COSDictionary of the action wrapped by this class.      * @param cDoc      *            the COSDocument from which the action comes from.      * @param aa      *            The name of the key which identify the action in a additional action dictionary.      */
 specifier|public
 name|GoToAction
 parameter_list|(
@@ -191,7 +191,7 @@ name|aa
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @see    * net.awl.edoc.pdfa.validation.actions.AbstractActionManager#valid(java.util    * .List)    */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.actions.AbstractActionManager#valid(java.util .List)      */
 annotation|@
 name|Override
 specifier|protected

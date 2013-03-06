@@ -96,7 +96,7 @@ specifier|public
 class|class
 name|ContextHelper
 block|{
-comment|/** 	 * Check that the element parameter isn't null before calling  	 * the {@link #callValidation(PreflightContext, Object, String)} method. 	 * @param context 	 * @param element 	 * @param processName 	 * @throws ValidationException 	 */
+comment|/**      * Check that the element parameter isn't null before calling the      * {@link #callValidation(PreflightContext, Object, String)} method.      *       * @param context      * @param element      * @param processName      * @throws ValidationException      */
 specifier|public
 specifier|static
 name|void
@@ -139,7 +139,7 @@ name|processName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Put the element to check on the top of the ValidationPath and call the validation  	 * method on the Process. 	 *  	 * @param context (mandatory) the preflight context that contains all required information 	 * @param element 	 * @param processName the process to instantiate and to compute 	 * @throws ValidationException 	 */
+comment|/**      * Put the element to check on the top of the ValidationPath and call the validation method on the Process.      *       * @param context      *            (mandatory) the preflight context that contains all required information      * @param element      * @param processName      *            the process to instantiate and to compute      * @throws ValidationException      */
 specifier|private
 specifier|static
 name|void
@@ -225,7 +225,7 @@ name|pop
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * call directly the {@link #callValidation(PreflightContext, Object, String)} 	 * @param context 	 * @param processName 	 * @throws ValidationException 	 */
+comment|/**      * call directly the {@link #callValidation(PreflightContext, Object, String)}      *       * @param context      * @param processName      * @throws ValidationException      */
 specifier|public
 specifier|static
 name|void

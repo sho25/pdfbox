@@ -236,7 +236,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class which check if document information available in a document are  * synchronized with XMP  *   * @author Germain Costenobel  *   */
+comment|/**  * Class which check if document information available in a document are synchronized with XMP  *   * @author Germain Costenobel  *   */
 end_comment
 
 begin_class
@@ -244,7 +244,7 @@ specifier|public
 class|class
 name|SynchronizedMetaDataValidation
 block|{
-comment|/**    * Analyze if Title embedded in Document Information dictionary and in XMP    * properties are synchronized    *     * @param dico    *          Document Information Dictionary    * @param dc    *          Dublin Core Schema    * @param ve    *          The list of validation errors    */
+comment|/**      * Analyze if Title embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param dc      *            Dublin Core Schema      * @param ve      *            The list of validation errors      */
 specifier|protected
 name|void
 name|analyzeTitleProperty
@@ -482,7 +482,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Analyze if Author(s) embedded in Document Information dictionary and in XMP    * properties are synchronized    *     * @param dico    *          Document Information Dictionary    * @param dc    *          Dublin Core Schema    * @param ve    *          The list of validation errors    */
+comment|/**      * Analyze if Author(s) embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param dc      *            Dublin Core Schema      * @param ve      *            The list of validation errors      */
 specifier|protected
 name|void
 name|analyzeAuthorProperty
@@ -656,7 +656,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Analyze if Subject(s) embedded in Document Information dictionary and in    * XMP properties are synchronized    *     * @param dico    *          Document Information Dictionary    * @param dc    *          Dublin Core Schema    * @param ve    *          The list of validation errors    */
+comment|/**      * Analyze if Subject(s) embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param dc      *            Dublin Core Schema      * @param ve      *            The list of validation errors      */
 specifier|protected
 name|void
 name|analyzeSubjectProperty
@@ -797,7 +797,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Analyze if Keyword(s) embedded in Document Information dictionary and in    * XMP properties are synchronized    *     * @param dico    *          Document Information Dictionary    * @param pdf    *          PDF Schema    * @param ve    *          The list of validation errors    */
+comment|/**      * Analyze if Keyword(s) embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param pdf      *            PDF Schema      * @param ve      *            The list of validation errors      */
 specifier|protected
 name|void
 name|analyzeKeywordsProperty
@@ -906,7 +906,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Analyze if Producer embedded in Document Information dictionary and in XMP    * properties are synchronized    *     * @param dico    *          Document Information Dictionary    * @param pdf    *          PDF Schema    * @param ve    *          The list of validation errors    */
+comment|/**      * Analyze if Producer embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param pdf      *            PDF Schema      * @param ve      *            The list of validation errors      */
 specifier|protected
 name|void
 name|analyzeProducerProperty
@@ -1015,7 +1015,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Analyze if the creator tool embedded in Document Information dictionary and    * in XMP properties are synchronized    *     * @param dico    *          Document Information Dictionary    * @param xmp    *          XMP Basic Schema    * @param ve    *          The list of validation errors    *     */
+comment|/**      * Analyze if the creator tool embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param xmp      *            XMP Basic Schema      * @param ve      *            The list of validation errors      *       */
 specifier|protected
 name|void
 name|analyzeCreatorToolProperty
@@ -1124,7 +1124,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Analyze if the CreationDate embedded in Document Information dictionary and    * in XMP properties are synchronized    *     * @param dico    *          Document Information Dictionary    * @param xmp    *          XMP Basic Schema    * @param ve    *          The list of validation errors    * @throws ValidationException    */
+comment|/**      * Analyze if the CreationDate embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param xmp      *            XMP Basic Schema      * @param ve      *            The list of validation errors      * @throws ValidationException      */
 specifier|protected
 name|void
 name|analyzeCreationDateProperty
@@ -1270,7 +1270,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Analyze if the ModifyDate embedded in Document Information dictionary and    * in XMP properties are synchronized    *     * @param dico    *          Document Information Dictionary    * @param xmp    *          XMP Basic Schema    * @param ve    *          The list of validation errors    * @throws ValidationException    */
+comment|/**      * Analyze if the ModifyDate embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param xmp      *            XMP Basic Schema      * @param ve      *            The list of validation errors      * @throws ValidationException      */
 specifier|protected
 name|void
 name|analyzeModifyDateProperty
@@ -1416,7 +1416,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Check if document information entries and XMP information are synchronized    *     * @param document    *          the PDF Document    * @param metadata    *          the XMP MetaData    * @return List of validation errors    * @throws ValidationException    */
+comment|/**      * Check if document information entries and XMP information are synchronized      *       * @param document      *            the PDF Document      * @param metadata      *            the XMP MetaData      * @return List of validation errors      * @throws ValidationException      */
 specifier|public
 name|List
 argument_list|<
@@ -1598,7 +1598,7 @@ return|return
 name|ve
 return|;
 block|}
-comment|/**    * Return a validationError formatted when a schema has not the expected    * prefix    *     * @param prefFound    * @param prefExpected    * @param schema    * @return    */
+comment|/**      * Return a validationError formatted when a schema has not the expected prefix      *       * @param prefFound      * @param prefExpected      * @param schema      * @return      */
 specifier|protected
 name|ValidationError
 name|unexpectedPrefixFoundError
@@ -1669,7 +1669,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**    * Return an exception formatted on IOException when accessing metadata    *     * @param type    *          type of property (Document Info or XMP)    * @param target    *          the name of the metadata    * @param cause    *          the raised IOException    * @return the generated exception    */
+comment|/**      * Return an exception formatted on IOException when accessing metadata      *       * @param type      *            type of property (Document Info or XMP)      * @param target      *            the name of the metadata      * @param cause      *            the raised IOException      * @return the generated exception      */
 specifier|protected
 name|ValidationException
 name|formatAccessException
@@ -1733,7 +1733,7 @@ name|cause
 argument_list|)
 return|;
 block|}
-comment|/**    * Return an exception formatted on IOException when accessing on metadata    * schema    *     * @param target    *          the name of the schema    * @param cause    *          the raised IOException    * @return the generated exception    */
+comment|/**      * Return an exception formatted on IOException when accessing on metadata schema      *       * @param target      *            the name of the schema      * @param cause      *            the raised IOException      * @return the generated exception      */
 specifier|protected
 name|ValidationException
 name|SchemaAccessException
@@ -1784,7 +1784,7 @@ name|cause
 argument_list|)
 return|;
 block|}
-comment|/**    * Return a formatted validation error when metadata are not synchronized    *     * @param target    *          the concerned property    * @return the generated validation error    */
+comment|/**      * Return a formatted validation error when metadata are not synchronized      *       * @param target      *            the concerned property      * @return the generated validation error      */
 specifier|protected
 name|ValidationError
 name|unsynchronizedMetaDataError
@@ -1829,7 +1829,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**    * Return a formatted validation error when a specific metadata schema can't    * be found    *     * @param target    *          the concerned property    * @param schema    *          the XMP schema which can't be found    * @return the generated validation error    */
+comment|/**      * Return a formatted validation error when a specific metadata schema can't be found      *       * @param target      *            the concerned property      * @param schema      *            the XMP schema which can't be found      * @return the generated validation error      */
 specifier|protected
 name|ValidationError
 name|AbsentSchemaMetaDataError
@@ -1887,7 +1887,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**    * Return a formatted validation error when a specific XMP property can't be    * found    *     * @param target    *          the concerned property    * @param details    *          comments about the XMP property    * @return the generated validation error    */
+comment|/**      * Return a formatted validation error when a specific XMP property can't be found      *       * @param target      *            the concerned property      * @param details      *            comments about the XMP property      * @return the generated validation error      */
 specifier|protected
 name|ValidationError
 name|AbsentXMPPropertyError

@@ -884,7 +884,7 @@ name|PreflightParser
 extends|extends
 name|NonSequentialPDFParser
 block|{
-comment|/** 	 * Define a one byte encoding that hasn't specific encoding in UTF-8 charset. 	 * Avoid unexpected error when the encoding is Cp5816 	 */
+comment|/**      * Define a one byte encoding that hasn't specific encoding in UTF-8 charset. Avoid unexpected error when the      * encoding is Cp5816      */
 specifier|public
 specifier|static
 specifier|final
@@ -1006,7 +1006,7 @@ operator|=
 name|input
 expr_stmt|;
 block|}
-comment|/** 	 * Create an instance of ValidationResult with a 	 * ValidationError(UNKNOWN_ERROR) 	 *  	 * @return 	 */
+comment|/**      * Create an instance of ValidationResult with a ValidationError(UNKNOWN_ERROR)      *       * @return      */
 specifier|protected
 specifier|static
 name|ValidationResult
@@ -1037,7 +1037,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * Add the error to the ValidationResult. 	 * If the validationResult is null, an instance is created using the isWarning boolean of the  	 * ValidationError to know if the ValidationResult must be flagged as Valid. 	 * @param error 	 */
+comment|/**      * Add the error to the ValidationResult. If the validationResult is null, an instance is created using the      * isWarning boolean of the ValidationError to know if the ValidationResult must be flagged as Valid.      *       * @param error      */
 specifier|protected
 name|void
 name|addValidationError
@@ -1120,7 +1120,7 @@ name|PDF_A1B
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Parse the given file and check if it is a confirming file according to the given format. 	 *  	 * @param format format that the document should follow (default {@link Format#PDF_A1B}) 	 * @throws IOException 	 */
+comment|/**      * Parse the given file and check if it is a confirming file according to the given format.      *       * @param format      *            format that the document should follow (default {@link Format#PDF_A1B})      * @throws IOException      */
 specifier|public
 name|void
 name|parse
@@ -1139,7 +1139,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Parse the given file and check if it is a confirming file according to the given format. 	 *  	 * @param format format that the document should follow (default {@link Format#PDF_A1B}) 	 * @param config Configuration bean that will be used by the PreflightDocument.  	 * If null the format is used to determine the default configuration.  	 * @throws IOException 	 */
+comment|/**      * Parse the given file and check if it is a confirming file according to the given format.      *       * @param format      *            format that the document should follow (default {@link Format#PDF_A1B})      * @param config      *            Configuration bean that will be used by the PreflightDocument. If null the format is used to determine      *            the default configuration.      * @throws IOException      */
 specifier|public
 name|void
 name|parse
@@ -1258,7 +1258,7 @@ name|config
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Create a validation context. 	 * This context is set to the PreflightDocument. 	 */
+comment|/**      * Create a validation context. This context is set to the PreflightDocument.      */
 specifier|protected
 name|void
 name|createContext
@@ -1339,7 +1339,7 @@ comment|// - Below All methods that adds controls on the PDF syntax
 comment|// --------------------------------------------------------
 annotation|@
 name|Override
-comment|/** 	 * Fill the CosDocument with some object that isn't set by the NonSequentialParser 	 */
+comment|/**      * Fill the CosDocument with some object that isn't set by the NonSequentialParser      */
 specifier|protected
 name|void
 name|initialParse
@@ -1467,7 +1467,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Check that the PDF header match rules of the PDF/A specification. 	 * First line (offset 0) must be a comment with the PDF version (version 1.0 isn't conform to the PDF/A specification) 	 * Second line is a comment with at least 4 bytes greater than 0x80   	 */
+comment|/**      * Check that the PDF header match rules of the PDF/A specification. First line (offset 0) must be a comment with      * the PDF version (version 1.0 isn't conform to the PDF/A specification) Second line is a comment with at least 4      * bytes greater than 0x80      */
 specifier|protected
 name|void
 name|checkPdfHeader
@@ -1721,7 +1721,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Same method than the {@linkplain PDFParser#parseXrefTable(long)} with additional controls : 	 * - EOL mandatory after the 'xref' keyword 	 * - Cross reference subsection header uses single white space as separator 	 * - and so on 	 */
+comment|/**      * Same method than the {@linkplain PDFParser#parseXrefTable(long)} with additional controls : - EOL mandatory after      * the 'xref' keyword - Cross reference subsection header uses single white space as separator - and so on      */
 specifier|protected
 name|boolean
 name|parseXrefTable
@@ -1809,7 +1809,7 @@ argument_list|(
 name|startByteOffset
 argument_list|)
 expr_stmt|;
-comment|/* 		 * Xref tables can have multiple sections. 		 * Each starts with a starting object id and a count. 		 */
+comment|/*          * Xref tables can have multiple sections. Each starts with a starting object id and a count.          */
 while|while
 condition|(
 literal|true
@@ -1997,7 +1997,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-comment|//Ignore table contents
+comment|// Ignore table contents
 name|String
 name|currentLine
 init|=
@@ -2041,7 +2041,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-comment|/* This supports the corrupt table as reported in 				 * PDFBOX-474 (XXXX XXX XX n) */
+comment|/*                  * This supports the corrupt table as reported in PDFBOX-474 (XXXX XXX XX n)                  */
 if|if
 condition|(
 name|splitString
@@ -2204,7 +2204,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * Wraps the {@link NonSequentialPDFParser#parseCOSStream} to check rules on 'stream' and 'endstream' keywords. 	 * {@link #checkStreamKeyWord()} and {@link #checkEndstreamKeyWord()} 	 */
+comment|/**      * Wraps the {@link NonSequentialPDFParser#parseCOSStream} to check rules on 'stream' and 'endstream' keywords.      * {@link #checkStreamKeyWord()} and {@link #checkEndstreamKeyWord()}      */
 specifier|protected
 name|COSStream
 name|parseCOSStream
@@ -2240,7 +2240,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * 'stream' must be followed by<CR><LF> or only<LF> 	 * @throws IOException 	 */
+comment|/**      * 'stream' must be followed by<CR><LF> or only<LF>      *       * @throws IOException      */
 specifier|protected
 name|void
 name|checkStreamKeyWord
@@ -2338,7 +2338,7 @@ literal|7
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * 'endstream' must be preceded by an EOL 	 * @throws IOException 	 */
+comment|/**      * 'endstream' must be preceded by an EOL      *       * @throws IOException      */
 specifier|protected
 name|void
 name|checkEndstreamKeyWord
@@ -2476,7 +2476,7 @@ return|return
 name|succeed
 return|;
 block|}
-comment|/** 	 * @return true if the next character is a space. (The character is consumed) 	 * @throws IOException 	 */
+comment|/**      * @return true if the next character is a space. (The character is consumed)      * @throws IOException      */
 specifier|protected
 name|boolean
 name|nextIsSpace
@@ -2495,7 +2495,7 @@ return|;
 block|}
 annotation|@
 name|Override
-comment|/** 	 * Call {@link BaseParser#parseCOSArray()} and check the number of element in the array 	 */
+comment|/**      * Call {@link BaseParser#parseCOSArray()} and check the number of element in the array      */
 specifier|protected
 name|COSArray
 name|parseCOSArray
@@ -2548,7 +2548,7 @@ return|;
 block|}
 annotation|@
 name|Override
-comment|/** 	 * Call {@link BaseParser#parseCOSName()} and check the length of the name 	 */
+comment|/**      * Call {@link BaseParser#parseCOSName()} and check the length of the name      */
 specifier|protected
 name|COSName
 name|parseCOSName
@@ -2599,7 +2599,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * Check that the hexa string contains only an even number of Hexadecimal characters. 	 * Once it is done, reset the offset at the beginning of the string and call {@link BaseParser#parseCOSString()} 	 */
+comment|/**      * Check that the hexa string contains only an even number of Hexadecimal characters. Once it is done, reset the      * offset at the beginning of the string and call {@link BaseParser#parseCOSString()}      */
 specifier|protected
 name|COSString
 name|parseCOSString
@@ -2779,7 +2779,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * Call {@link BaseParser#parseDirObject()} check limit range for Float, Integer and number of Dictionary entries. 	 */
+comment|/**      * Call {@link BaseParser#parseDirObject()} check limit range for Float, Integer and number of Dictionary entries.      */
 specifier|protected
 name|COSBase
 name|parseDirObject
@@ -3461,7 +3461,7 @@ name|ce
 operator|.
 name|getMessage
 argument_list|()
-comment|/*, ce // TODO: remove remark with Java 1.6 */
+comment|/* , ce // TODO: remove remark with Java 1.6 */
 argument_list|)
 throw|;
 block|}
@@ -3615,7 +3615,8 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-comment|// TODO: specially handle 'Contents' entry of signature dictionary like in SecurityHandler#decryptDictionary
+comment|// TODO: specially handle 'Contents' entry of signature dictionary like in
+comment|// SecurityHandler#decryptDictionary
 if|if
 condition|(
 name|entry

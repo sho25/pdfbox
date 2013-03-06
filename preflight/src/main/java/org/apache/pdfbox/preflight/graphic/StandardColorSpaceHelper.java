@@ -418,7 +418,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class doesn't define restrictions on ColorSpace. It checks only the  * consistency of the Color space with the DestOutputIntent.  */
+comment|/**  * This class doesn't define restrictions on ColorSpace. It checks only the consistency of the Color space with the  * DestOutputIntent.  */
 end_comment
 
 begin_class
@@ -428,21 +428,21 @@ name|StandardColorSpaceHelper
 implements|implements
 name|ColorSpaceHelper
 block|{
-comment|/** 	 * The context which contains useful information to process the 	 * validation. 	 */
+comment|/**      * The context which contains useful information to process the validation.      */
 specifier|protected
 name|PreflightContext
 name|context
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * The ICCProfile contained in the DestOutputIntent 	 */
+comment|/**      * The ICCProfile contained in the DestOutputIntent      */
 specifier|protected
 name|ICCProfileWrapper
 name|iccpw
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * High level object which represents the colors space to check. 	 */
+comment|/**      * High level object which represents the colors space to check.      */
 specifier|protected
 name|PDColorSpace
 name|pdcs
@@ -472,7 +472,7 @@ operator|=
 name|_cs
 expr_stmt|;
 block|}
-comment|/* 	 * (non-Javadoc) 	 *  	 * @see 	 * net.awl.edoc.pdfa.validation.graphics.color.ColorSpaceHelper#validate(java 	 * .util.List) 	 */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.graphics.color.ColorSpaceHelper#validate(java .util.List)      */
 specifier|public
 specifier|final
 name|void
@@ -513,7 +513,7 @@ name|pdcs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Method called by the validate method. According to the ColorSpace, a 	 * specific ColorSpace method is called. 	 *  	 * @param pdcs 	 *          the color space object to check. 	 * @param result 	 *          the list of error to update if the validation fails. 	 * @return true if the validation succeed, false otherwise. 	 */
+comment|/**      * Method called by the validate method. According to the ColorSpace, a specific ColorSpace method is called.      *       * @param pdcs      *            the color space object to check.      * @param result      *            the list of error to update if the validation fails.      * @return true if the validation succeed, false otherwise.      */
 specifier|protected
 specifier|final
 name|void
@@ -661,7 +661,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Method called by the processAllColorSpace if the ColorSpace to check is 	 * DeviceRGB. 	 *  	 */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is DeviceRGB.      *       */
 specifier|protected
 name|void
 name|processRGBColorSpace
@@ -726,7 +726,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Method called by the processAllColorSpace if the ColorSpace to check is 	 * DeviceCYMK. 	 *  	 */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is DeviceCYMK.      *       */
 specifier|protected
 name|void
 name|processCYMKColorSpace
@@ -791,7 +791,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Method called by the processAllColorSpace if the ColorSpace to check is a 	 * Pattern. 	 */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is a Pattern.      */
 specifier|protected
 name|void
 name|processPatternColorSpace
@@ -822,7 +822,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Method called by the processAllColorSpace if the ColorSpace to check is 	 * DeviceGray. 	 *  	 */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is DeviceGray.      *       */
 specifier|protected
 name|void
 name|processGrayColorSpace
@@ -859,7 +859,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Method called by the processAllColorSpace if the ColorSpace to check is a 	 * Clibrated Color (CalGary, CalRGB, Lab). 	 *  	 */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is a Clibrated Color (CalGary, CalRGB, Lab).      *       */
 specifier|protected
 name|void
 name|processCalibratedColorSpace
@@ -870,7 +870,7 @@ parameter_list|)
 block|{
 comment|// ---- OutputIntent isn't mandatory
 block|}
-comment|/** 	 * Method called by the processAllColorSpace if the ColorSpace to check is a 	 * ICCBased color space. Because this kind of ColorSpace can have alternate 	 * color space, the processAllColorSpace is called to check this alternate 	 * color space. (Pattern is forbidden as Alternate Color Space) 	 *  	 * @param pdcs 	 *          the color space object to check. 	 */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is a ICCBased color space. Because this kind      * of ColorSpace can have alternate color space, the processAllColorSpace is called to check this alternate color      * space. (Pattern is forbidden as Alternate Color Space)      *       * @param pdcs      *            the color space object to check.      */
 specifier|protected
 name|void
 name|processICCBasedColorSpace
@@ -925,7 +925,7 @@ literal|"Unable to read ICCBase color space "
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return ;
+return|return;
 block|}
 name|List
 argument_list|<
@@ -990,7 +990,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* 					 * According to the ISO-19005-1:2005 					 *  					 * A conforming reader shall render ICCBased colour spaces as specified  					 * by the ICC specification, and shall not use the Alternate colour space  					 * specified in an ICC profile stream dictionary 					 *  					 * We don't check the alternate ColorSpaces 					 */
+comment|/*                      * According to the ISO-19005-1:2005                      *                       * A conforming reader shall render ICCBased colour spaces as specified by the ICC specification,                      * and shall not use the Alternate colour space specified in an ICC profile stream dictionary                      *                       * We don't check the alternate ColorSpaces                      */
 block|}
 block|}
 block|}
@@ -1020,7 +1020,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Method called by the processAllColorSpace if the ColorSpace to check is 	 * DeviceN. Because this kind of ColorSpace can have alternate color space, 	 * the processAllColorSpace is called to check this alternate color space. 	 * (There are no restrictions on the Alternate Color space) 	 *  	 * @param pdcs 	 *          the color space object to check. 	 */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is DeviceN. Because this kind of ColorSpace      * can have alternate color space, the processAllColorSpace is called to check this alternate color space. (There      * are no restrictions on the Alternate Color space)      *       * @param pdcs      *            the color space object to check.      */
 specifier|protected
 name|void
 name|processDeviceNColorSpace
@@ -1214,7 +1214,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Method called by the processAllColorSpace if the ColorSpace to check is 	 * Indexed. Because this kind of ColorSpace can have a Base color space, the 	 * processAllColorSpace is called to check this base color space. (Indexed and 	 * Pattern can't be a Base color space) 	 *  	 * @param pdcs 	 *          the color space object to check. 	 */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is Indexed. Because this kind of ColorSpace      * can have a Base color space, the processAllColorSpace is called to check this base color space. (Indexed and      * Pattern can't be a Base color space)      *       * @param pdcs      *            the color space object to check.      */
 specifier|protected
 name|void
 name|processIndexedColorSpace
@@ -1306,7 +1306,7 @@ literal|"Pattern color space can't be used as Base color space"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return ;
+return|return;
 block|}
 name|processAllColorSpace
 argument_list|(
@@ -1340,7 +1340,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Method called by the processAllColorSpace if the ColorSpace to check is 	 * Separation. Because this kind of ColorSpace can have an alternate color 	 * space, the processAllColorSpace is called to check this alternate color 	 * space. (Indexed, Separation, DeviceN and Pattern can't be a Base color 	 * space) 	 *  	 * @param pdcs 	 *          the color space object to check. 	 */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is Separation. Because this kind of      * ColorSpace can have an alternate color space, the processAllColorSpace is called to check this alternate color      * space. (Indexed, Separation, DeviceN and Pattern can't be a Base color space)      *       * @param pdcs      *            the color space object to check.      */
 specifier|protected
 name|void
 name|processSeparationColorSpace
@@ -1461,7 +1461,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Look up in the closest PDResources objects if there are a default ColorSpace. 	 * If there are, check that is a authorized ColorSpace. 	 * @param pdcs 	 * @return true if the default colorspace is a right one, false otherwise. 	 */
+comment|/**      * Look up in the closest PDResources objects if there are a default ColorSpace. If there are, check that is a      * authorized ColorSpace.      *       * @param pdcs      * @return true if the default colorspace is a right one, false otherwise.      */
 specifier|protected
 name|boolean
 name|processDefaultColorSpace

@@ -152,7 +152,7 @@ name|SquareCircleAnnotationValidator
 extends|extends
 name|AnnotationValidator
 block|{
-comment|/**    * PDFBox object which wraps the annotation dictionary    */
+comment|/**      * PDFBox object which wraps the annotation dictionary      */
 specifier|protected
 name|PDAnnotationSquareCircle
 name|pdSquareCircle
@@ -195,7 +195,7 @@ operator|.
 name|pdSquareCircle
 expr_stmt|;
 block|}
-comment|/**    * In addition of the AnnotationValidator.validate() method, this method    * executes the the checkIColors method.    *     * @see org.apache.padaf.preflight.annotation.AnnotationValidator#validate(java.util.List)    */
+comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the the checkIColors method.      *       * @see org.apache.padaf.preflight.annotation.AnnotationValidator#validate(java.util.List)      */
 annotation|@
 name|Override
 specifier|public
@@ -224,7 +224,7 @@ return|return
 name|isValide
 return|;
 block|}
-comment|/**    * Return true if the IC field is present in the Annotation dictionary and if    * the RGB profile is used in the DestOutputProfile of the OutputIntent    * dictionary.    *     * @param errors    *          list of errors with is updated if no RGB profile is found when the    *          IC element is present    * @return    */
+comment|/**      * Return true if the IC field is present in the Annotation dictionary and if the RGB profile is used in the      * DestOutputProfile of the OutputIntent dictionary.      *       * @param errors      *            list of errors with is updated if no RGB profile is found when the IC element is present      * @return      */
 specifier|protected
 name|boolean
 name|checkIColors
@@ -273,7 +273,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator#    * checkMandatoryFields(java.util.List)    */
+comment|/*      * (non-Javadoc)      *       * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator# checkMandatoryFields(java.util.List)      */
 specifier|protected
 name|boolean
 name|checkMandatoryFields
@@ -321,7 +321,7 @@ operator|.
 name|F
 argument_list|)
 decl_stmt|;
-comment|/*      * ---- After PDF 1.4, all additional entries in this annotation are      * optional and they seem to be compatible with the PDF/A specification.      */
+comment|/*          * ---- After PDF 1.4, all additional entries in this annotation are optional and they seem to be compatible          * with the PDF/A specification.          */
 name|boolean
 name|result
 init|=

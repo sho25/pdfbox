@@ -210,7 +210,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to parse a glyph of a Type3 font program. If the glyph is  * parsed without error, the width of the glyph is accessible through the  * getWidth method.  */
+comment|/**  * This class is used to parse a glyph of a Type3 font program. If the glyph is parsed without error, the width of the  * glyph is accessible through the getWidth method.  */
 end_comment
 
 begin_class
@@ -262,7 +262,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * This will parse a type3 stream and create an image from it.    *     * @param type3Stream    *          The stream containing the operators to draw the image.    *     * @return The image that was created.    *     * @throws IOException    *           If there is an error processing the stream.    */
+comment|/**      * This will parse a type3 stream and create an image from it.      *       * @param type3Stream      *            The stream containing the operators to draw the image.      *       * @return The image that was created.      *       * @throws IOException      *             If there is an error processing the stream.      */
 specifier|public
 name|Image
 name|createImage
@@ -292,7 +292,7 @@ name|createImage
 argument_list|()
 return|;
 block|}
-comment|/**    * This is used to handle an operation.    *     * @param operator    *          The operation to perform.    * @param arguments    *          The list of arguments.    *     * @throws IOException    *           If there is an error processing the operation.    */
+comment|/**      * This is used to handle an operation.      *       * @param operator      *            The operation to perform.      * @param arguments      *            The list of arguments.      *       * @throws IOException      *             If there is an error processing the operation.      */
 specifier|protected
 name|void
 name|processOperator
@@ -545,7 +545,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/**    * According to the PDF Reference, the first operator in a CharProc of a Type3    * font must be "d0" or "d1". This method process this validation. This method    * is called by the processOperator method.    *     * @param arguments    * @throws IOException    */
+comment|/**      * According to the PDF Reference, the first operator in a CharProc of a Type3 font must be "d0" or "d1". This      * method process this validation. This method is called by the processOperator method.      *       * @param arguments      * @throws IOException      */
 specifier|private
 name|void
 name|checkType3FirstOperator
@@ -661,7 +661,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * @return the width of the CharProc glyph description    */
+comment|/**      * @return the width of the CharProc glyph description      */
 specifier|public
 name|float
 name|getWidth

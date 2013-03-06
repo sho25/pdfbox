@@ -712,7 +712,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Check that the FontBBox element has the right format as declared in the PDF reference document. 	 */
+comment|/**      * Check that the FontBBox element has the right format as declared in the PDF reference document.      */
 specifier|private
 name|void
 name|checkFontBBox
@@ -760,7 +760,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* 		 * check the content of the FontBBox. 		 * Should be an array with 4 numbers 		 */
+comment|/*          * check the content of the FontBBox. Should be an array with 4 numbers          */
 name|COSArray
 name|bbox
 init|=
@@ -798,7 +798,7 @@ literal|"The FontBBox element is invalid"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return ;
+return|return;
 block|}
 else|else
 block|{
@@ -871,7 +871,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/** 	 * Check that the FontMatrix element has the right format as declared in the PDF reference document. 	 */
+comment|/**      * Check that the FontMatrix element has the right format as declared in the PDF reference document.      */
 specifier|private
 name|void
 name|checkFontMatrix
@@ -919,7 +919,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* 		 * Check the content of the FontMatrix. 		 * Should be an array with 6 numbers 		 */
+comment|/*          * Check the content of the FontMatrix. Should be an array with 6 numbers          */
 name|COSArray
 name|matrix
 init|=
@@ -1032,7 +1032,7 @@ block|}
 block|}
 annotation|@
 name|Override
-comment|/** 	 * For a Type3 font, the mapping between the Character Code and the Character 	 * name is entirely defined in the Encoding Entry. The Encoding Entry can be a 	 * Name (For the 5 predefined Encoding) or a Dictionary. If it is a 	 * dictionary, the "Differences" array contains the correspondence between a 	 * character code and a set of character name which are different from the 	 * encoding entry of the dictionary. 	 *  	 * This method checks that the encoding is : 	 *<UL> 	 *<li>An existing encoding name. 	 *<li>A dictionary with an existing encoding name (the name is optional) and 	 * a well formed "Differences" array (the array is optional) 	 *</UL> 	 *  	 * At the end of this method, if the validation succeed the Font encoding is kept in the {@link #encoding} attribute 	 * @return 	 */
+comment|/**      * For a Type3 font, the mapping between the Character Code and the Character      * name is entirely defined in the Encoding Entry. The Encoding Entry can be a      * Name (For the 5 predefined Encoding) or a Dictionary. If it is a      * dictionary, the "Differences" array contains the correspondence between a      * character code and a set of character name which are different from the      * encoding entry of the dictionary.      *       * This method checks that the encoding is :      *<UL>      *<li>An existing encoding name.      *<li>A dictionary with an existing encoding name (the name is optional) and      * a well formed "Differences" array (the array is optional)      *</UL>      *       * At the end of this method, if the validation succeed the Font encoding is kept in the {@link #encoding} attribute      * @return      */
 specifier|protected
 name|void
 name|checkEncoding
@@ -1107,7 +1107,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * This method is called by the CheckEncoding method if the Encoding entry is a String. 	 * In this case, the String must be an existing encoding name. (WinAnsi, MacRoman...) 	 * @param fontEncoding 	 */
+comment|/**      * This method is called by the CheckEncoding method if the Encoding entry is a String. In this case, the String      * must be an existing encoding name. (WinAnsi, MacRoman...)      *       * @param fontEncoding      */
 specifier|private
 name|void
 name|checkEncodingAsString
@@ -1178,7 +1178,7 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-comment|/** 	 * This method is called by the CheckEncoding method if the Encoding entry is an instance of COSDictionary. 	 * In this case, a new instance of {@link DictionaryEncoding} is created. If an IOException is thrown by the DictionaryEncoding 	 * constructor the {@link PreflightConstants.ERROR_FONTS_ENCODING} is pushed in the FontContainer. 	 *  	 * Differences entry validation is implicitly done by the DictionaryEncoding constructor. 	 * @param fontEncoding 	 */
+comment|/**      * This method is called by the CheckEncoding method if the Encoding entry is an instance of COSDictionary. In this      * case, a new instance of {@link DictionaryEncoding} is created. If an IOException is thrown by the      * DictionaryEncoding constructor the {@link PreflightConstants.ERROR_FONTS_ENCODING} is pushed in the      * FontContainer.      *       * Differences entry validation is implicitly done by the DictionaryEncoding constructor.      *       * @param fontEncoding      */
 specifier|private
 name|void
 name|checkEncodingAsDictionary
@@ -1235,7 +1235,7 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-comment|/** 	 * CharProcs is a dictionary where the key is a character name and the value 	 * is a Stream which contains the glyph representation of the key. 	 *  	 * This method checks that all characters codes defined in the Widths Array 	 * exist in the CharProcs dictionary. If the CharProcs doesn't know the 	 * Character, it is mapped with the .notdef one. 	 *  	 * For each character, the Glyph width must be the same as the Width value 	 * declared in the Widths array. 	 *  	 * @param errors 	 * @return 	 */
+comment|/**      * CharProcs is a dictionary where the key is a character name and the value is a Stream which contains the glyph      * representation of the key.      *       * This method checks that all characters codes defined in the Widths Array exist in the CharProcs dictionary. If      * the CharProcs doesn't know the Character, it is mapped with the .notdef one.      *       * For each character, the Glyph width must be the same as the Width value declared in the Widths array.      *       * @param errors      * @return      */
 specifier|private
 name|void
 name|checkCharProcsAndMetrics
@@ -1346,7 +1346,7 @@ operator|.
 name|getLastChar
 argument_list|()
 decl_stmt|;
-comment|/* 		 * wArr length = (lc - fc) + 1 and it is an array of int. 		 * If FirstChar is greater than LastChar, the validation will fail 		 * because of the array will have an expected size<= 0. 		 */
+comment|/*          * wArr length = (lc - fc) + 1 and it is an array of int. If FirstChar is greater than LastChar, the validation          * will fail because of the array will have an expected size<= 0.          */
 name|int
 name|expectedLength
 init|=
@@ -1522,7 +1522,8 @@ name|ContentStreamException
 name|e
 parameter_list|)
 block|{
-comment|// TODO spaces/isartor-6-2-3-3-t02-fail-h.pdf --> si ajout de l'erreur dans le container le test echoue... pourquoi si la font est utilisée ca devrait planter???
+comment|// TODO spaces/isartor-6-2-3-3-t02-fail-h.pdf --> si ajout de l'erreur dans le container le test
+comment|// echoue... pourquoi si la font est utilisée ca devrait planter???
 name|this
 operator|.
 name|context
@@ -1688,7 +1689,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|/*  			 * There are no character description, we declare the Glyph as Invalid. 			 * If the character is used in a Stream, the GlyphDetail will throw an exception. 			 */
+comment|/*              * There are no character description, we declare the Glyph as Invalid. If the character is used in a              * Stream, the GlyphDetail will throw an exception.              */
 name|GlyphException
 name|glyphEx
 init|=
@@ -1763,7 +1764,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Parse the Glyph description to obtain the Width 	 * @return the width of the character  	 */
+comment|/**      * Parse the Glyph description to obtain the Width      *       * @return the width of the character      */
 specifier|private
 name|float
 name|getWidthFromCharacterStream
@@ -1826,7 +1827,7 @@ name|getWidth
 argument_list|()
 return|;
 block|}
-comment|/** 	 * If the Resources entry is present, this method check its content. Only 	 * fonts and Images are checked because this resource describes glyphs. 	 *  	 * @return 	 */
+comment|/**      * If the Resources entry is present, this method check its content. Only fonts and Images are checked because this      * resource describes glyphs.      *       * @return      */
 specifier|private
 name|void
 name|checkResources
@@ -1926,7 +1927,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|/* 				 * Check that all referenced object are present in the PDF file 				 */
+comment|/*                  * Check that all referenced object are present in the PDF file                  */
 name|COSDictionary
 name|dicFonts
 init|=

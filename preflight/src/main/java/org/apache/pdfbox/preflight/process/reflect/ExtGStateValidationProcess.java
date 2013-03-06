@@ -462,7 +462,7 @@ name|listOfExtGState
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Create  a list Of ExtGState dictionaries using the given Resource dictionary and the COSDocument. 	 *  	 * @param context 	 *          the context which contains the Resource dictionary 	 * @param resources 	 *          a resource COSDictionary 	 * @throws ValidationException 	 *           thrown if a the Extended Graphic State isn't valid 	 */
+comment|/**      * Create a list Of ExtGState dictionaries using the given Resource dictionary and the COSDocument.      *       * @param context      *            the context which contains the Resource dictionary      * @param resources      *            a resource COSDictionary      * @throws ValidationException      *             thrown if a the Extended Graphic State isn't valid      */
 specifier|public
 name|List
 argument_list|<
@@ -607,7 +607,7 @@ return|return
 name|listOfExtGState
 return|;
 block|}
-comment|/** 	 * Validate all ExtGState dictionaries of this container 	 *  	 */
+comment|/**      * Validate all ExtGState dictionaries of this container      *       */
 specifier|protected
 name|void
 name|validateTransparencyRules
@@ -667,7 +667,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * This method checks the SMask value of the ExtGState dictionary. The Soft 	 * Mask is optional but must be "None" if it is present. 	 *  	 * @param egs 	 *          the Graphic state to check 	 */
+comment|/**      * This method checks the SMask value of the ExtGState dictionary. The Soft Mask is optional but must be "None" if      * it is present.      *       * @param egs      *            the Graphic state to check      */
 specifier|private
 name|void
 name|checkSoftMask
@@ -740,7 +740,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * This method checks the BM value of the ExtGState dictionary. The Blend Mode 	 * is optional but must be "Normal" or "Compatible" if it is present. 	 *  	 * @param egs 	 *          the graphic state to check 	 */
+comment|/**      * This method checks the BM value of the ExtGState dictionary. The Blend Mode is optional but must be "Normal" or      * "Compatible" if it is present.      *       * @param egs      *            the graphic state to check      */
 specifier|private
 name|void
 name|checkBlendMode
@@ -828,7 +828,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * This method checks the "CA" and "ca" values of the ExtGState dictionary. 	 * They are optional but must be 1.0 if they are present. 	 *  	 * @param egs 	 *          the graphic state to check 	 */
+comment|/**      * This method checks the "CA" and "ca" values of the ExtGState dictionary. They are optional but must be 1.0 if      * they are present.      *       * @param egs      *            the graphic state to check      */
 specifier|private
 name|void
 name|checkCA
@@ -1016,7 +1016,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Check the TR entry. A valid ExtGState hasn't TR entry. 	 *  	 * @param egs 	 *          the graphic state to check 	 */
+comment|/**      * Check the TR entry. A valid ExtGState hasn't TR entry.      *       * @param egs      *            the graphic state to check      */
 specifier|protected
 name|void
 name|checkTRKey
@@ -1055,7 +1055,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Check the TR2 entry. A valid ExtGState hasn't TR2 entry or a TR2 entry 	 * equals to "default". 	 *  	 * @param egs 	 *          the graphic state to check 	 */
+comment|/**      * Check the TR2 entry. A valid ExtGState hasn't TR2 entry or a TR2 entry equals to "default".      *       * @param egs      *            the graphic state to check      */
 specifier|protected
 name|void
 name|checkTR2Key
@@ -1121,28 +1121,28 @@ block|}
 block|}
 block|}
 comment|//
-comment|//	/**
-comment|//	 * Check the RI entry of the Graphic State. If the rendering intent entry is
-comment|//	 * present, the value must be one of the four values defined in the PDF
-comment|//	 * reference. (@see net.awl.edoc.pdfa.validation.utils.RenderingIntents)
-comment|//	 *
-comment|//	 * @param egs
-comment|//	 *          the graphic state to check
-comment|//	 * @param error
-comment|//	 *          the list of error to update if the validation fails.
-comment|//	 * @return true if RI entry is valid, false otherwise.
-comment|//	 */
-comment|//	protected boolean checkRIKey(COSDictionary egs, List<ValidationError> error) {
-comment|//		String rendenringIntent = egs.getNameAsString(COSName.getPDFName("RI"));
-comment|//		if (rendenringIntent != null&& !"".equals(rendenringIntent)
+comment|// /**
+comment|// * Check the RI entry of the Graphic State. If the rendering intent entry is
+comment|// * present, the value must be one of the four values defined in the PDF
+comment|// * reference. (@see net.awl.edoc.pdfa.validation.utils.RenderingIntents)
+comment|// *
+comment|// * @param egs
+comment|// * the graphic state to check
+comment|// * @param error
+comment|// * the list of error to update if the validation fails.
+comment|// * @return true if RI entry is valid, false otherwise.
+comment|// */
+comment|// protected boolean checkRIKey(COSDictionary egs, List<ValidationError> error) {
+comment|// String rendenringIntent = egs.getNameAsString(COSName.getPDFName("RI"));
+comment|// if (rendenringIntent != null&& !"".equals(rendenringIntent)
 comment|//&& !RenderingIntents.contains(rendenringIntent)) {
-comment|//			error.add(new ValidationError(
-comment|//					PreflightConstants.ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY,
-comment|//					"Invalid rendering intent value in Extended graphics state"));
-comment|//			return false;
-comment|//		}
-comment|//		return true;
-comment|//	}
+comment|// error.add(new ValidationError(
+comment|// PreflightConstants.ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY,
+comment|// "Invalid rendering intent value in Extended graphics state"));
+comment|// return false;
+comment|// }
+comment|// return true;
+comment|// }
 block|}
 end_class
 

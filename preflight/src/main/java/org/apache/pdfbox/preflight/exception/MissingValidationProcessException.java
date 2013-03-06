@@ -24,7 +24,7 @@ name|MissingValidationProcessException
 extends|extends
 name|ValidationException
 block|{
-comment|/** 	 * Name of the Missing process 	 */
+comment|/**      * Name of the Missing process      */
 specifier|private
 name|String
 name|processName

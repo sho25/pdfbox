@@ -120,7 +120,7 @@ name|PopupAnnotationValidator
 extends|extends
 name|AnnotationValidator
 block|{
-comment|/**    * PDFBox object which wraps the annotation dictionary    */
+comment|/**      * PDFBox object which wraps the annotation dictionary      */
 specifier|protected
 name|PDAnnotationPopup
 name|pdPopup
@@ -163,7 +163,7 @@ operator|.
 name|pdPopup
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator#    * checkMandatoryFields(java.util.List)    */
+comment|/*      * (non-Javadoc)      *       * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator# checkMandatoryFields(java.util.List)      */
 specifier|protected
 name|boolean
 name|checkMandatoryFields

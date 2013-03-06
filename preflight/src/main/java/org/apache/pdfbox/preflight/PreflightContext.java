@@ -176,7 +176,7 @@ specifier|public
 class|class
 name|PreflightContext
 block|{
-comment|/** 	 * Contains the list of font name embedded in the PDF document. 	 */
+comment|/**      * Contains the list of font name embedded in the PDF document.      */
 specifier|protected
 name|Map
 argument_list|<
@@ -195,14 +195,14 @@ name|FontContainer
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/** 	 * The PDFbox object representation of the PDF source. 	 */
+comment|/**      * The PDFbox object representation of the PDF source.      */
 specifier|protected
 name|PreflightDocument
 name|document
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * The datasource to load the document from 	 */
+comment|/**      * The datasource to load the document from      */
 specifier|protected
 name|DataSource
 name|source
@@ -210,31 +210,31 @@ init|=
 literal|null
 decl_stmt|;
 comment|//
-comment|//	/**
-comment|//	 * JavaCC Token Manager used to get some content of the PDF file as string (ex
-comment|//	 * : Trailers)
-comment|//	 */
-comment|//	protected ExtractorTokenManager pdfExtractor = null;
-comment|/** Contains all Xref/trailer objects and resolves them into single    *  object using startxref reference.     */
+comment|// /**
+comment|// * JavaCC Token Manager used to get some content of the PDF file as string (ex
+comment|// * : Trailers)
+comment|// */
+comment|// protected ExtractorTokenManager pdfExtractor = null;
+comment|/**      * Contains all Xref/trailer objects and resolves them into single object using startxref reference.      */
 specifier|private
 name|XrefTrailerResolver
 name|xrefTableResolver
 decl_stmt|;
-comment|/** 	 * This wrapper contains the ICCProfile used by the PDF file. 	 */
+comment|/**      * This wrapper contains the ICCProfile used by the PDF file.      */
 specifier|protected
 name|ICCProfileWrapper
 name|iccProfileWrapper
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 *  	 */
+comment|/**      *       */
 specifier|protected
 name|boolean
 name|iccProfileAlreadySearched
 init|=
 literal|false
 decl_stmt|;
-comment|/** 	 * MetaData of the current pdf file.  	 */
+comment|/**      * MetaData of the current pdf file.      */
 specifier|protected
 name|XMPMetadata
 name|metadata
@@ -255,7 +255,7 @@ operator|new
 name|PreflightPath
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Create the DocumentHandler using the DataSource which represent the PDF 	 * file to check. 	 *  	 * @param source 	 */
+comment|/**      * Create the DocumentHandler using the DataSource which represent the PDF file to check.      *       * @param source      */
 specifier|public
 name|PreflightContext
 parameter_list|(
@@ -287,7 +287,7 @@ operator|=
 name|source
 expr_stmt|;
 block|}
-comment|/** 	 * @return the metadata 	 */
+comment|/**      * @return the metadata      */
 specifier|public
 name|XMPMetadata
 name|getMetadata
@@ -297,7 +297,7 @@ return|return
 name|metadata
 return|;
 block|}
-comment|/** 	 * @param metadata the metadata to set 	 */
+comment|/**      * @param metadata      *            the metadata to set      */
 specifier|public
 name|void
 name|setMetadata
@@ -313,22 +313,22 @@ operator|=
 name|metadata
 expr_stmt|;
 block|}
-comment|//	/**
-comment|//	 * @return the value of the pdfExtractor attribute.
-comment|//	 */
-comment|//	public ExtractorTokenManager getPdfExtractor() {
-comment|//		return pdfExtractor;
-comment|//	}
+comment|// /**
+comment|// * @return the value of the pdfExtractor attribute.
+comment|// */
+comment|// public ExtractorTokenManager getPdfExtractor() {
+comment|// return pdfExtractor;
+comment|// }
 comment|//
-comment|//	/**
-comment|//	 * Initialize the pdfExtractor attribute.
-comment|//	 *
-comment|//	 * @param pdfExtractor
-comment|//	 */
-comment|//	public void setPdfExtractor(ExtractorTokenManager pdfExtractor) {
-comment|//		this.pdfExtractor = pdfExtractor;
-comment|//	}
-comment|/** 	 * @return the PDFBox object representation of the document 	 */
+comment|// /**
+comment|// * Initialize the pdfExtractor attribute.
+comment|// *
+comment|// * @param pdfExtractor
+comment|// */
+comment|// public void setPdfExtractor(ExtractorTokenManager pdfExtractor) {
+comment|// this.pdfExtractor = pdfExtractor;
+comment|// }
+comment|/**      * @return the PDFBox object representation of the document      */
 specifier|public
 name|PreflightDocument
 name|getDocument
@@ -362,7 +362,7 @@ operator|=
 name|xrefTableResolver
 expr_stmt|;
 block|}
-comment|/** 	 * Initialize the PDFBox object which present the PDF File. 	 *  	 * @param document 	 */
+comment|/**      * Initialize the PDFBox object which present the PDF File.      *       * @param document      */
 specifier|public
 name|void
 name|setDocument
@@ -378,7 +378,7 @@ operator|=
 name|document
 expr_stmt|;
 block|}
-comment|/** 	 *  	 * @return The datasource of the pdf document 	 */
+comment|/**      *       * @return The datasource of the pdf document      */
 specifier|public
 name|DataSource
 name|getSource
@@ -407,7 +407,7 @@ literal|null
 operator|)
 return|;
 block|}
-comment|/** 	 * Add a FontContainer to allow TextObject validation. 	 *  	 * @param fKey 	 * @param fc 	 */
+comment|/**      * Add a FontContainer to allow TextObject validation.      *       * @param fKey      * @param fc      */
 specifier|public
 name|void
 name|addFontContainer
@@ -431,7 +431,7 @@ name|fc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Return the FontContainer identified by the COSBase. If the given object 	 * is missing from the {@link #fontContainers} map, the null value is returned. 	 *  	 * @param fKey 	 * @return 	 */
+comment|/**      * Return the FontContainer identified by the COSBase. If the given object is missing from the      * {@link #fontContainers} map, the null value is returned.      *       * @param fKey      * @return      */
 specifier|public
 name|FontContainer
 name|getFontContainer
@@ -451,7 +451,7 @@ name|cBase
 argument_list|)
 return|;
 block|}
-comment|/** 	 * @return the iccProfileWrapper 	 */
+comment|/**      * @return the iccProfileWrapper      */
 specifier|public
 name|ICCProfileWrapper
 name|getIccProfileWrapper
@@ -461,7 +461,7 @@ return|return
 name|iccProfileWrapper
 return|;
 block|}
-comment|/** 	 * @param iccProfileWrapper 	 *          the iccProfileWrapper to set 	 */
+comment|/**      * @param iccProfileWrapper      *            the iccProfileWrapper to set      */
 specifier|public
 name|void
 name|setIccProfileWrapper
@@ -501,7 +501,7 @@ operator|=
 name|config
 expr_stmt|;
 block|}
-comment|/** 	 * Close all opened resources 	 */
+comment|/**      * Close all opened resources      */
 specifier|public
 name|void
 name|close
@@ -515,7 +515,7 @@ name|document
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Add the given error the PreflightDocument 	 * @param error 	 */
+comment|/**      * Add the given error the PreflightDocument      *       * @param error      */
 specifier|public
 name|void
 name|addValidationError
@@ -542,7 +542,7 @@ name|error
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Add the given errors the PreflightDocument 	 * @param error 	 */
+comment|/**      * Add the given errors the PreflightDocument      *       * @param error      */
 specifier|public
 name|void
 name|addValidationErrors

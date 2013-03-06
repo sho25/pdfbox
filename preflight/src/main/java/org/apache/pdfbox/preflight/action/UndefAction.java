@@ -78,7 +78,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ActionManager for Undefined Actions. An undefined action is an action which isn't  * declared in the PDF Reference Third Edition. This kind of actions are forbidden to   * avoid wrong result due to new features which can't be consistent with the PDF/A-1 format   */
+comment|/**  * ActionManager for Undefined Actions. An undefined action is an action which isn't declared in the PDF Reference Third  * Edition. This kind of actions are forbidden to avoid wrong result due to new features which can't be consistent with  * the PDF/A-1 format  */
 end_comment
 
 begin_class
@@ -94,7 +94,7 @@ name|actionName
 init|=
 literal|null
 decl_stmt|;
-comment|/**    *     * @param amFact    *          Instance of ActionManagerFactory used to create ActionManager to    *          check Next actions.    * @param adict    *          the COSDictionary of the action wrapped by this class.    * @param ctx    *          the COSDocument from which the action comes from.    * @param aaKey    *          The name of the key which identify the action in a additional    *          action dictionary.    * @param name    *          the action type    */
+comment|/**      *       * @param amFact      *            Instance of ActionManagerFactory used to create ActionManager to check Next actions.      * @param adict      *            the COSDictionary of the action wrapped by this class.      * @param ctx      *            the COSDocument from which the action comes from.      * @param aaKey      *            The name of the key which identify the action in a additional action dictionary.      * @param name      *            the action type      */
 specifier|public
 name|UndefAction
 parameter_list|(
@@ -132,7 +132,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @see    * net.awl.edoc.pdfa.validation.actions.AbstractActionManager#valid(java.util    * .List)    */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.actions.AbstractActionManager#valid(java.util .List)      */
 annotation|@
 name|Override
 specifier|protected

@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Contains a stack of objects to follow the validation path.  * Ex :   * - if the ValidationProcess computes a Type1Font object, this object  * should contains a path like PDPage|PDResources|PDFont.  * - if the ValidationProcess computes a XObject object, this object  * could contains a path like PDPage|PDResources|PDFontType3|PDResource|PDXObject.  */
+comment|/**  * Contains a stack of objects to follow the validation path. Ex : - if the ValidationProcess computes a Type1Font  * object, this object should contains a path like PDPage|PDResources|PDFont. - if the ValidationProcess computes a  * XObject object, this object could contains a path like PDPage|PDResources|PDFontType3|PDResource|PDXObject.  */
 end_comment
 
 begin_class
@@ -121,7 +121,7 @@ return|return
 name|pushed
 return|;
 block|}
-comment|/** 	 * Return the object at the given position. The object must be an 	 * instance of the given class. 	 * @param position 	 * @param expectedType 	 * @return 	 */
+comment|/**      * Return the object at the given position. The object must be an instance of the given class.      *       * @param position      * @param expectedType      * @return      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -178,7 +178,7 @@ name|position
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the index of the first object that have the given type.  	 * @param type 	 * @return the object position, -1 if the type doesn't exist in the stack. 	 */
+comment|/**      * Return the index of the first object that have the given type.      *       * @param type      * @return the object position, -1 if the type doesn't exist in the stack.      */
 specifier|public
 parameter_list|<
 name|T
@@ -265,7 +265,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Looks at the object at the top of this stack without removing it from the stack. 	 * @return 	 */
+comment|/**      * Looks at the object at the top of this stack without removing it from the stack.      *       * @return      */
 specifier|public
 name|Object
 name|peek

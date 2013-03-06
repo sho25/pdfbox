@@ -157,7 +157,7 @@ operator|.
 name|type
 return|;
 block|}
-comment|/**    * @param type    *          the type to set    */
+comment|/**      * @param type      *            the type to set      */
 specifier|public
 name|void
 name|setType
@@ -173,7 +173,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/**    * @param name    *          the name to set    */
+comment|/**      * @param name      *            the name to set      */
 specifier|public
 name|void
 name|setName

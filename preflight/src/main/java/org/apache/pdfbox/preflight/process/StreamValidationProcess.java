@@ -377,7 +377,7 @@ name|COSObject
 operator|)
 name|o
 decl_stmt|;
-comment|/* 			 *  If this object represents a Stream, the Dictionary must contain the Length key 			 */
+comment|/*              * If this object represents a Stream, the Dictionary must contain the Length key              */
 name|COSBase
 name|cBase
 init|=
@@ -454,7 +454,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This method checks if one of declared Filter is LZWdecode. If LZW is found, 	 * the result list is updated with an error code. 	 *  	 * @param stream 	 * @param handler 	 * @param result 	 */
+comment|/**      * This method checks if one of declared Filter is LZWdecode. If LZW is found, the result list is updated with an      * error code.      *       * @param stream      * @param handler      * @param result      */
 specifier|protected
 name|void
 name|checkFilters
@@ -599,7 +599,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//  else Filter entry is optional
+comment|// else Filter entry is optional
 block|}
 specifier|private
 name|boolean
@@ -616,7 +616,7 @@ name|search
 init|=
 literal|true
 decl_stmt|;
-comment|//    String stream = "";
+comment|// String stream = "";
 name|boolean
 name|maybe
 init|=
@@ -646,7 +646,7 @@ block|{
 case|case
 literal|'s'
 case|:
-comment|//      stream = "s";
+comment|// stream = "s";
 name|maybe
 operator|=
 literal|true
@@ -659,7 +659,7 @@ break|break;
 case|case
 literal|'t'
 case|:
-comment|//      if (maybe&& stream.endsWith("s")) {
+comment|// if (maybe&& stream.endsWith("s")) {
 if|if
 condition|(
 name|maybe
@@ -669,7 +669,7 @@ operator|==
 literal|'s'
 condition|)
 block|{
-comment|//          stream = stream + "t";
+comment|// stream = stream + "t";
 name|lastChar
 operator|=
 name|c
@@ -701,7 +701,7 @@ operator|==
 literal|'t'
 condition|)
 block|{
-comment|//        stream = stream + "r";
+comment|// stream = stream + "r";
 name|lastChar
 operator|=
 name|c
@@ -723,7 +723,7 @@ break|break;
 case|case
 literal|'e'
 case|:
-comment|//      if (maybe&& stream.endsWith("r")) {
+comment|// if (maybe&& stream.endsWith("r")) {
 if|if
 condition|(
 name|maybe
@@ -737,7 +737,7 @@ name|lastChar
 operator|=
 name|c
 expr_stmt|;
-comment|//        stream = stream + "e";
+comment|// stream = stream + "e";
 block|}
 else|else
 block|{
@@ -750,7 +750,7 @@ break|break;
 case|case
 literal|'a'
 case|:
-comment|//        if (maybe&& stream.endsWith("e")) {
+comment|// if (maybe&& stream.endsWith("e")) {
 if|if
 condition|(
 name|maybe
@@ -764,7 +764,7 @@ name|lastChar
 operator|=
 name|c
 expr_stmt|;
-comment|//        stream = stream + "a";
+comment|// stream = stream + "a";
 block|}
 else|else
 block|{
@@ -777,7 +777,7 @@ break|break;
 case|case
 literal|'m'
 case|:
-comment|//        if (maybe&& stream.endsWith("a")) {
+comment|// if (maybe&& stream.endsWith("a")) {
 if|if
 condition|(
 name|maybe
@@ -1351,7 +1351,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Check dictionary entries. Only the Length entry is mandatory. In a PDF/A 	 * file, F, FFilter and FDecodeParms are forbidden 	 *  	 * @param streamObj 	 * @param result 	 */
+comment|/**      * Check dictionary entries. Only the Length entry is mandatory. In a PDF/A file, F, FFilter and FDecodeParms are      * forbidden      *       * @param streamObj      * @param result      */
 specifier|protected
 name|void
 name|checkDictionaryEntries

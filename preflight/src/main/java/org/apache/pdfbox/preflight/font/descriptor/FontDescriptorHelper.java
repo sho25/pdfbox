@@ -932,7 +932,7 @@ name|PDFontDescriptorDictionary
 name|fontDescriptor
 parameter_list|)
 function_decl|;
-comment|/** 	 * Return true if the FontDescriptor has only one FontFile entry. 	 * @param fontDescriptor 	 * @return 	 */
+comment|/**      * Return true if the FontDescriptor has only one FontFile entry.      *       * @param fontDescriptor      * @return      */
 specifier|protected
 name|boolean
 name|hasOnlyOneFontFile
@@ -1041,7 +1041,7 @@ name|PDStream
 name|fontFile
 parameter_list|)
 function_decl|;
-comment|/** 	 * Type0, Type1 and TrueType FontValidator call this method to check the FontFile meta data. 	 *  	 * @param fontDescriptor The FontDescriptor which contains the FontFile stream 	 * @param fontFile The font file stream to check 	 */
+comment|/**      * Type0, Type1 and TrueType FontValidator call this method to check the FontFile meta data.      *       * @param fontDescriptor      *            The FontDescriptor which contains the FontFile stream      * @param fontFile      *            The font file stream to check      */
 specifier|protected
 name|void
 name|checkFontFileMetaData

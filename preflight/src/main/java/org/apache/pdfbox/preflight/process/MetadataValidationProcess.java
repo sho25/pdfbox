@@ -896,7 +896,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Return the xpacket from the dictionary's stream 	 */
+comment|/**      * Return the xpacket from the dictionary's stream      */
 specifier|public
 specifier|static
 name|byte
@@ -1064,7 +1064,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Check if metadata dictionary has no stream filter 	 *  	 * @param doc 	 * @return 	 */
+comment|/**      * Check if metadata dictionary has no stream filter      *       * @param doc      * @return      */
 specifier|protected
 name|List
 argument_list|<

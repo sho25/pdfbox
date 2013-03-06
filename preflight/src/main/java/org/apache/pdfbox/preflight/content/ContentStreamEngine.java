@@ -1086,7 +1086,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class inherits from org.apache.pdfbox.util.PDFStreamEngine to allow the  * validation of specific rules in ContentStream.  */
+comment|/**  * This class inherits from org.apache.pdfbox.util.PDFStreamEngine to allow the validation of specific rules in  * ContentStream.  */
 end_comment
 
 begin_class
@@ -1106,7 +1106,7 @@ block|,
 name|CMYK
 block|,
 name|ALL
-block|; 	}
+block|;     }
 specifier|protected
 name|PreflightContext
 name|context
@@ -1462,7 +1462,7 @@ name|SetHorizontalTextScaling
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|/* Do not use the PDFBox Operator, because of the PageDrawer class cast 		 * Or because the Operator doesn't exist 		 */
+comment|/*          * Do not use the PDFBox Operator, because of the PageDrawer class cast Or because the Operator doesn't exist          */
 name|StubOperator
 name|stubOp
 init|=
@@ -1782,7 +1782,7 @@ name|op
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check operands of the "ri" operator. Operands must exist in the 	 * RenderingIntent list. (net.awl.edoc.pdfa.validation.utils.RenderingIntents) 	 *  	 * @param operator 	 *          the "ri" operator 	 * @param arguments 	 *          the "ri" operands 	 * @throws ContentStreamException 	 *           ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY if the operand is invalid 	 */
+comment|/**      * Check operands of the "ri" operator. Operands must exist in the RenderingIntent list.      * (net.awl.edoc.pdfa.validation.utils.RenderingIntents)      *       * @param operator      *            the "ri" operator      * @param arguments      *            the "ri" operands      * @throws ContentStreamException      *             ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY if the operand is invalid      */
 specifier|protected
 name|void
 name|validRenderingIntent
@@ -1901,7 +1901,7 @@ return|return;
 block|}
 block|}
 block|}
-comment|/** 	 * Valid the number of graphic states if the operator is the Save Graphic state operator ("q") 	 * @param operator 	 * @throws ContentStreamException 	 */
+comment|/**      * Valid the number of graphic states if the operator is the Save Graphic state operator ("q")      *       * @param operator      * @throws ContentStreamException      */
 specifier|protected
 name|void
 name|validNumberOfGraphicStates
@@ -1954,7 +1954,7 @@ return|return;
 block|}
 block|}
 block|}
-comment|/** 	 * Throw a ContentStreamException if the LZW filter is used in a InlinedImage. 	 *  	 * @param operator 	 *          the InlinedImage object (BI to EI) 	 * @throws ContentStreamException 	 */
+comment|/**      * Throw a ContentStreamException if the LZW filter is used in a InlinedImage.      *       * @param operator      *            the InlinedImage object (BI to EI)      * @throws ContentStreamException      */
 specifier|protected
 name|void
 name|validImageFilter
@@ -1976,7 +1976,7 @@ operator|.
 name|getDictionary
 argument_list|()
 decl_stmt|;
-comment|/*  		 * Search a Filter declaration in the InlinedImage dictionary. 		 * The LZWDecode Filter is forbidden. 		 */
+comment|/*          * Search a Filter declaration in the InlinedImage dictionary. The LZWDecode Filter is forbidden.          */
 name|COSBase
 name|filter
 init|=
@@ -2018,7 +2018,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This method validates if the ColorSpace used by the InlinedImage is 	 * consistent with the color space defined in OutputIntent dictionaries. 	 *  	 * @param operator 	 *          the InlinedImage object (BI to EI) 	 * @throws ContentStreamException 	 */
+comment|/**      * This method validates if the ColorSpace used by the InlinedImage is consistent with the color space defined in      * OutputIntent dictionaries.      *       * @param operator      *            the InlinedImage object (BI to EI)      * @throws ContentStreamException      */
 specifier|protected
 name|void
 name|validImageColorSpace
@@ -2078,7 +2078,7 @@ name|cosDocument
 argument_list|)
 condition|)
 block|{
-comment|/* 				 * In InlinedImage only DeviceGray/RGB/CMYK and 				 * restricted Indexed color spaces are allowed. 				 */
+comment|/*                  * In InlinedImage only DeviceGray/RGB/CMYK and restricted Indexed color spaces are allowed.                  */
 name|String
 name|colorSpace
 init|=
@@ -2114,7 +2114,7 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|/*  					 * The color space is unknown.  					 * Try to access the resources dictionary, the color space can be a reference. 					 */
+comment|/*                      * The color space is unknown. Try to access the resources dictionary, the color space can be a                      * reference.                      */
 name|PDColorSpace
 name|pdCS
 init|=
@@ -2256,7 +2256,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * This method validates if the ColorOperator can be used with the color space 	 * defined in OutputIntent dictionaries. 	 *  	 * @param operator 	 *          the color operator 	 * @throws ContentStreamException 	 */
+comment|/**      * This method validates if the ColorOperator can be used with the color space defined in OutputIntent dictionaries.      *       * @param operator      *            the color operator      * @throws ContentStreamException      */
 specifier|protected
 name|void
 name|checkColorOperators
@@ -2561,7 +2561,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * Check if the ColorProfile provided by the DestOutputProfile entry isn't null and  	 * if the ColorSpace represented by the Profile has the right type (RGB or CMYK) 	 *  	 * @param expectedType 	 * @return 	 */
+comment|/**      * Check if the ColorProfile provided by the DestOutputProfile entry isn't null and if the ColorSpace represented by      * the Profile has the right type (RGB or CMYK)      *       * @param expectedType      * @return      */
 specifier|private
 name|boolean
 name|validColorSpaceDestOutputProfile
@@ -2652,7 +2652,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * Return true if the given ColorSpace is an independent device ColorSpace. 	 * If the color space is an ICCBased, check the embedded profile color (RGB or CMYK) 	 * @param cs 	 * @return 	 */
+comment|/**      * Return true if the given ColorSpace is an independent device ColorSpace. If the color space is an ICCBased, check      * the embedded profile color (RGB or CMYK)      *       * @param cs      * @return      */
 specifier|private
 name|boolean
 name|isDeviceIndependent
@@ -2769,7 +2769,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * Return the current color state used by the operation 	 * @param operation 	 * @return 	 */
+comment|/**      * Return the current color state used by the operation      *       * @param operation      * @return      */
 specifier|private
 name|PDColorState
 name|getColorState
@@ -2864,7 +2864,7 @@ return|return
 name|colorState
 return|;
 block|}
-comment|/** 	 * This method validates if the ColorSpace used as operand is consistent with 	 * the color space defined in OutputIntent dictionaries. 	 *  	 * @param operator 	 * @param arguments 	 * @throws IOException 	 */
+comment|/**      * This method validates if the ColorSpace used as operand is consistent with the color space defined in      * OutputIntent dictionaries.      *       * @param operator      * @param arguments      * @throws IOException      */
 specifier|protected
 name|void
 name|checkSetColorSpaceOperators
@@ -3040,7 +3040,7 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|/* 			 * The color space is unknown. 			 * Try to access the resources dictionary,  			 * the color space can be a reference.  			 */
+comment|/*              * The color space is unknown. Try to access the resources dictionary, the color space can be a reference.              */
 name|PDColorSpace
 name|pdCS
 init|=
@@ -3185,7 +3185,7 @@ name|validate
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Add a validation error into the PreflightContext 	 *  	 * @param msg exception details 	 * @param errorCode the error code. 	 */
+comment|/**      * Add a validation error into the PreflightContext      *       * @param msg      *            exception details      * @param errorCode      *            the error code.      */
 specifier|protected
 name|void
 name|registerError

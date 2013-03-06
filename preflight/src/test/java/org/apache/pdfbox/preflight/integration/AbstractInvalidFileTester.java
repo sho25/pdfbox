@@ -272,7 +272,7 @@ name|logger
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Prepare the test for one file      *       * @param path pdf/a file to test      * @param error expected error for this test      */
+comment|/**      * Prepare the test for one file      *       * @param path      *            pdf/a file to test      * @param error      *            expected error for this test      */
 specifier|public
 name|AbstractInvalidFileTester
 parameter_list|(

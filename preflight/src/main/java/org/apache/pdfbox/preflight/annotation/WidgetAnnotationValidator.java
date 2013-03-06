@@ -152,7 +152,7 @@ name|WidgetAnnotationValidator
 extends|extends
 name|AnnotationValidator
 block|{
-comment|/**    * PDFBox object which wraps the annotation dictionary    */
+comment|/**      * PDFBox object which wraps the annotation dictionary      */
 specifier|protected
 name|PDAnnotationWidget
 name|pdWidget
@@ -195,7 +195,7 @@ operator|.
 name|pdWidget
 expr_stmt|;
 block|}
-comment|/**    * In addition of the AnnotationValidator.validate() method, this method    * executes the the checkAAField method.    *     * @see org.apache.padaf.preflight.annotation.AnnotationValidator#validate(java.util.List)    */
+comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the the checkAAField method.      *       * @see org.apache.padaf.preflight.annotation.AnnotationValidator#validate(java.util.List)      */
 annotation|@
 name|Override
 specifier|public
@@ -224,7 +224,7 @@ return|return
 name|isValide
 return|;
 block|}
-comment|/**    * The AA field is forbidden for the Widget annotation when the PDF is a    * PDF/A. This method return false and update the errors list if this key is    * present. returns true otherwise    *     * @return    */
+comment|/**      * The AA field is forbidden for the Widget annotation when the PDF is a PDF/A. This method return false and update      * the errors list if this key is present. returns true otherwise      *       * @return      */
 specifier|protected
 name|boolean
 name|checkAAField
@@ -261,7 +261,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator#    * checkMandatoryFields()    */
+comment|/*      * (non-Javadoc)      *       * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator# checkMandatoryFields()      */
 specifier|protected
 name|boolean
 name|checkMandatoryFields

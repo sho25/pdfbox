@@ -198,7 +198,7 @@ name|LinkAnnotationValidator
 extends|extends
 name|AnnotationValidator
 block|{
-comment|/**    * PDFBox object which wraps the annotation dictionary    */
+comment|/**      * PDFBox object which wraps the annotation dictionary      */
 specifier|protected
 name|PDAnnotationLink
 name|pdLink
@@ -241,7 +241,7 @@ operator|.
 name|pdLink
 expr_stmt|;
 block|}
-comment|/**    * In addition of the AnnotationValidator.validate() method, this method    * executes the the checkDest method.    *     * @see org.apache.padaf.preflight.annotation.AnnotationValidator#validate()    */
+comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the the checkDest method.      *       * @see org.apache.padaf.preflight.annotation.AnnotationValidator#validate()      */
 annotation|@
 name|Override
 specifier|public
@@ -270,7 +270,7 @@ return|return
 name|isValide
 return|;
 block|}
-comment|/**    * Check if the Dest element is authorized according to the A entry    *     * @return    */
+comment|/**      * Check if the Dest element is authorized according to the A entry      *       * @return      */
 specifier|protected
 name|boolean
 name|checkDest
@@ -354,7 +354,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*    * (non-Javadoc)    * (new ValidationError(             ValidationConstants.    * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator#    * checkMandatoryFields(java.util.List)    */
+comment|/*      * (non-Javadoc) (new ValidationError( ValidationConstants.      *       * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator# checkMandatoryFields(java.util.List)      */
 specifier|protected
 name|boolean
 name|checkMandatoryFields

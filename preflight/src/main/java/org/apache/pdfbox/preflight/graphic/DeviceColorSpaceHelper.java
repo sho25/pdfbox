@@ -126,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class defines restrictions on Color Spaces. It checks the consistency of  * the Color space with the DestOutputIntent, if the color space isn't a Device  * Color space or a Indexed color space using Device the validation will fail.  */
+comment|/**  * This class defines restrictions on Color Spaces. It checks the consistency of the Color space with the  * DestOutputIntent, if the color space isn't a Device Color space or a Indexed color space using Device the validation  * will fail.  */
 end_comment
 
 begin_class
@@ -154,7 +154,7 @@ name|_cs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This method updates the given list with a ValidationError 	 * (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN) and returns false. 	 */
+comment|/**      * This method updates the given list with a ValidationError (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN)      * and returns false.      */
 specifier|protected
 name|void
 name|processPatternColorSpace
@@ -177,7 +177,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This method updates the given list with a ValidationError 	 * (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN) and returns false. 	 */
+comment|/**      * This method updates the given list with a ValidationError (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN)      * and returns false.      */
 specifier|protected
 name|void
 name|processDeviceNColorSpace
@@ -200,7 +200,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Indexed color space is authorized only if the BaseColorSpace is a DeviceXXX 	 * color space. In all other cases the given list is updated with a 	 * ValidationError (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN) and 	 * returns false. 	 */
+comment|/**      * Indexed color space is authorized only if the BaseColorSpace is a DeviceXXX color space. In all other cases the      * given list is updated with a ValidationError (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN) and returns      * false.      */
 specifier|protected
 name|void
 name|processIndexedColorSpace

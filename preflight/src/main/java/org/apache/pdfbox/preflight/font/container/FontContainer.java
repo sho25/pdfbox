@@ -147,7 +147,7 @@ specifier|abstract
 class|class
 name|FontContainer
 block|{
-comment|/** 	 * List of validation errors that occur during the font validation. 	 * If the font is used by an object in the PDF, all these errors will be appended  	 * to the Error list of the PreflightContext. 	 */
+comment|/**      * List of validation errors that occur during the font validation. If the font is used by an object in the PDF, all      * these errors will be appended to the Error list of the PreflightContext.      */
 specifier|protected
 name|List
 argument_list|<
@@ -162,14 +162,14 @@ name|ValidationError
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Boolean used to known if the font is embedded. 	 */
+comment|/**      * Boolean used to known if the font is embedded.      */
 specifier|protected
 name|boolean
 name|embeddedFont
 init|=
 literal|true
 decl_stmt|;
-comment|/** 	 * Link CID to an Object that contain information about the Glyph state (Valid or no) 	 */
+comment|/**      * Link CID to an Object that contain information about the Glyph state (Valid or no)      */
 specifier|protected
 name|Map
 argument_list|<
@@ -332,7 +332,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/** 	 *  	 * @param cid 	 * @throws GlyphException 	 */
+comment|/**      *       * @param cid      * @throws GlyphException      */
 specifier|public
 name|void
 name|checkGlyphWith
@@ -385,7 +385,7 @@ name|foundWidth
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check if the given CID is already computed 	 *  	 * @param cid the CID to check 	 * @return true if the CID has previously been marked as valid, false otherwise 	 * @throws GlyphException if the CID has previously been marked as invalid // TODO useful ?? 	 */
+comment|/**      * Check if the given CID is already computed      *       * @param cid      *            the CID to check      * @return true if the CID has previously been marked as valid, false otherwise      * @throws GlyphException      *             if the CID has previously been marked as invalid // TODO useful ??      */
 specifier|protected
 name|boolean
 name|isAlreadyComputedCid
@@ -434,7 +434,7 @@ return|return
 name|already
 return|;
 block|}
-comment|/** 	 * Extract the Glyph width for the given CID. 	 * @param cid 	 * @return The Glyph width in 'em' unit. 	 */
+comment|/**      * Extract the Glyph width for the given CID.      *       * @param cid      * @return The Glyph width in 'em' unit.      */
 specifier|protected
 specifier|abstract
 name|float
@@ -444,7 +444,7 @@ name|int
 name|cid
 parameter_list|)
 function_decl|;
-comment|/** 	 * Test if both width are consistent. At the end of this method, the CID is marked as valid or invalid. 	 *  	 * @param cid 	 * @param expectedWidth 	 * @param foundWidth the glyph width found in the font program, a negative value if the CID is missing from the font. 	 * @throws GlyphException 	 */
+comment|/**      * Test if both width are consistent. At the end of this method, the CID is marked as valid or invalid.      *       * @param cid      * @param expectedWidth      * @param foundWidth      *            the glyph width found in the font program, a negative value if the CID is missing from the font.      * @throws GlyphException      */
 specifier|protected
 name|void
 name|checkWidthsConsistency

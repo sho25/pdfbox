@@ -583,7 +583,7 @@ name|checkToUnicode
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * This methods extracts from the Font dictionary all mandatory fields. If a 	 * mandatory field is missing, the list of ValidationError in the 	 * FontContainer is updated.  	 */
+comment|/**      * This methods extracts from the Font dictionary all mandatory fields. If a mandatory field is missing, the list of      * ValidationError in the FontContainer is updated.      */
 specifier|protected
 name|void
 name|checkMandatoryFields
@@ -679,7 +679,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Extract the single CIDFont from the Descendant array. 	 * Create a FontValidator for this CODFont and launch its validation. 	 */
+comment|/**      * Extract the single CIDFont from the Descendant array. Create a FontValidator for this CODFont and launch its      * validation.      */
 specifier|protected
 name|void
 name|processDescendantFont
@@ -732,7 +732,7 @@ operator|!=
 literal|1
 condition|)
 block|{
-comment|/* 			 * in PDF 1.4, this array must contain only one element, 			 * because of a PDF/A should be a PDF 1.4, this method  			 * returns an error if the array has more than one element. 			 */
+comment|/*              * in PDF 1.4, this array must contain only one element, because of a PDF/A should be a PDF 1.4, this method              * returns an error if the array has more than one element.              */
 name|this
 operator|.
 name|fontContainer
@@ -924,7 +924,7 @@ return|return
 name|cidFontValidator
 return|;
 block|}
-comment|/** 	 * Create the validation object for CIDType0 Font 	 * @return 	 */
+comment|/**      * Create the validation object for CIDType0 Font      *       * @return      */
 specifier|protected
 name|FontValidator
 argument_list|<
@@ -952,7 +952,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Create the validation object for CIDType2 Font 	 * @return 	 */
+comment|/**      * Create the validation object for CIDType2 Font      *       * @return      */
 specifier|protected
 name|FontValidator
 argument_list|<
@@ -980,7 +980,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Check the CMap entry. 	 *  	 * The CMap entry must be a dictionary in a PDF/A. This entry can be a String 	 * only if the String value is Identity-H or Identity-V 	 *  	 * @param encoding 	 */
+comment|/**      * Check the CMap entry.      *       * The CMap entry must be a dictionary in a PDF/A. This entry can be a String only if the String value is Identity-H      * or Identity-V      *       * @param encoding      */
 specifier|protected
 name|void
 name|checkEncoding
@@ -1096,7 +1096,7 @@ name|cosDocument
 argument_list|)
 condition|)
 block|{
-comment|/* 			 * If the CMap is a stream, some fields are mandatory 			 * and the CIDSytemInfo must be compared with the CIDSystemInfo 			 * entry of the CIDFont. 			 */
+comment|/*              * If the CMap is a stream, some fields are mandatory and the CIDSytemInfo must be compared with the              * CIDSystemInfo entry of the CIDFont.              */
 name|processCMapAsStream
 argument_list|(
 name|COSUtils
@@ -1130,7 +1130,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Standard information of a stream element will be checked by the StreamValidationProcess. 	 *  	 * This method checks mandatory fields of the CMap stream. This method checks 	 * too if the CMap stream is damaged using the CMapParser of the fontbox api. 	 *  	 * @param aCMap 	 * @return 	 */
+comment|/**      * Standard information of a stream element will be checked by the StreamValidationProcess.      *       * This method checks mandatory fields of the CMap stream. This method checks too if the CMap stream is damaged      * using the CMapParser of the fontbox api.      *       * @param aCMap      * @return      */
 specifier|private
 name|void
 name|processCMapAsStream
@@ -1192,7 +1192,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/* 			 * According to the getInt javadoc, -1 is returned if there are no result. 			 * In the PDF Reference v1.7 p449, we can read that Default value is 0. 			 */
+comment|/*              * According to the getInt javadoc, -1 is returned if there are no result. In the PDF Reference v1.7 p449,              * we can read that Default value is 0.              */
 name|int
 name|wmode
 init|=
@@ -1393,7 +1393,7 @@ name|aCMap
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check the content of the CIDSystemInfo dictionary. A CIDSystemInfo dictionary must contain : 	 *<UL> 	 *<li>a Name - Registry 	 *<li>a Name - Ordering 	 *<li>a Integer - Supplement 	 *</UL> 	 *  	 * @param sysinfo 	 * @return 	 */
+comment|/**      * Check the content of the CIDSystemInfo dictionary. A CIDSystemInfo dictionary must contain :      *<UL>      *<li>a Name - Registry      *<li>a Name - Ordering      *<li>a Integer - Supplement      *</UL>      *       * @param sysinfo      * @return      */
 specifier|protected
 name|boolean
 name|checkCIDSystemInfo
@@ -1538,7 +1538,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * The CIDSystemInfo must have the same Registry and Ordering for CMap and 	 * CIDFont. This control is useless if CMap is Identity-H or Identity-V so 	 * this method is called by the checkCMap method. 	 *  	 * @param cmap 	 * @return 	 */
+comment|/**      * The CIDSystemInfo must have the same Registry and Ordering for CMap and CIDFont. This control is useless if CMap      * is Identity-H or Identity-V so this method is called by the checkCMap method.      *       * @param cmap      * @return      */
 specifier|private
 name|void
 name|compareCIDSystemInfo

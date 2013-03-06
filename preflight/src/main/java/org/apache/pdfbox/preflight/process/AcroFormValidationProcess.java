@@ -397,7 +397,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * This method checks if the NeedAppearances entry is present. If it is, the 	 * value must be false. 	 *  	 * If the entry is invalid, the ERROR_SYNTAX_DICT_INVALID (1.2.3) error is 	 * return. 	 *  	 * @param ctx 	 * @param acroForm 	 * @param result 	 */
+comment|/**      * This method checks if the NeedAppearances entry is present. If it is, the value must be false.      *       * If the entry is invalid, the ERROR_SYNTAX_DICT_INVALID (1.2.3) error is return.      *       * @param ctx      * @param acroForm      * @param result      */
 specifier|protected
 name|void
 name|checkNeedAppearences
@@ -439,7 +439,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * This function explores all fields and their children to check if the A or 	 * AA entry is present. 	 *  	 * @param ctx 	 * @param acroForm 	 * @param result 	 * @throws IOException 	 */
+comment|/**      * This function explores all fields and their children to check if the A or AA entry is present.      *       * @param ctx      * @param acroForm      * @param result      * @throws IOException      */
 specifier|protected
 name|boolean
 name|exploreFields
@@ -496,7 +496,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * A and AA field are forbidden, this method checks if they are present and 	 * checks all child of this field. If the an Additional Action is present the 	 * error code ERROR_ACTION_FORBIDDEN_ADDITIONAL_ACTIONS_FIELD (6.2.3) is added 	 * to the error list If the an Action is present (in the Widget Annotation) 	 * the error ERROR_ACTION_FORBIDDEN_WIDGET_ACTION_FIELD (6.2.4) is added to 	 * the error list. (Remark : The widget validation will be done by the 	 * AnnotationValidationHelper, but some actions are authorized in a standard 	 * Widget) 	 * 	 * @param ctx  	 * @param aField 	 * @return 	 * @throws IOException 	 */
+comment|/**      * A and AA field are forbidden, this method checks if they are present and checks all child of this field. If the      * an Additional Action is present the error code ERROR_ACTION_FORBIDDEN_ADDITIONAL_ACTIONS_FIELD (6.2.3) is added      * to the error list If the an Action is present (in the Widget Annotation) the error      * ERROR_ACTION_FORBIDDEN_WIDGET_ACTION_FIELD (6.2.4) is added to the error list. (Remark : The widget validation      * will be done by the AnnotationValidationHelper, but some actions are authorized in a standard Widget)      *       * @param ctx      * @param aField      * @return      * @throws IOException      */
 specifier|protected
 name|boolean
 name|valideField
@@ -548,7 +548,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/* 		 *  The widget validation will be done by the widget annotation, 		 *  a widget contained in a Field can't have action. 		 */
+comment|/*          * The widget validation will be done by the widget annotation, a widget contained in a Field can't have action.          */
 name|PDAnnotationWidget
 name|widget
 init|=

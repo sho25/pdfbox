@@ -236,14 +236,14 @@ operator|=
 name|_actionFact
 expr_stmt|;
 block|}
-comment|/** 	 * Initialize the map of Validation classes used to create a validation object according to the Annotation subtype. 	 */
+comment|/**      * Initialize the map of Validation classes used to create a validation object according to the Annotation subtype.      */
 specifier|protected
 specifier|abstract
 name|void
 name|initializeClasses
 parameter_list|()
 function_decl|;
-comment|/** 	 * Return an instance of AnnotationValidator. 	 *  	 * @param ctx 	 * @param annotDic 	 * @return 	 */
+comment|/**      * Return an instance of AnnotationValidator.      *       * @param ctx      * @param annotDic      * @return      */
 specifier|public
 specifier|final
 name|AnnotationValidator

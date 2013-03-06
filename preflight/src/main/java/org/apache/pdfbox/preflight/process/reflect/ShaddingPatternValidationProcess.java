@@ -404,7 +404,7 @@ name|shaddingResource
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Checks if the ColorSapce entry is consistent which rules of the PDF Reference  	 * and the ISO 190005-1:2005 Specification. 	 *  	 * This method is called by the validate method. 	 *  	 * @param shadingRes 	 *          the Shading pattern  to check 	 * @return true if the Shading pattern is valid, false otherwise. 	 * @throws ValidationException 	 */
+comment|/**      * Checks if the ColorSapce entry is consistent which rules of the PDF Reference and the ISO 190005-1:2005      * Specification.      *       * This method is called by the validate method.      *       * @param shadingRes      *            the Shading pattern to check      * @return true if the Shading pattern is valid, false otherwise.      * @throws ValidationException      */
 specifier|protected
 name|void
 name|checkColorSpace
@@ -493,7 +493,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Check the Extended Graphic State contains in the ShadingPattern dictionary 	 * if it is present. To check this ExtGState, this method uses the 	 * net.awl.edoc.pdfa.validation.graphics.ExtGStateContainer object. 	 *  	 * @return true is the ExtGState is missing or valid, false otherwise. 	 * @throws ValidationException 	 */
+comment|/**      * Check the Extended Graphic State contains in the ShadingPattern dictionary if it is present. To check this      * ExtGState, this method uses the net.awl.edoc.pdfa.validation.graphics.ExtGStateContainer object.      *       * @return true is the ExtGState is missing or valid, false otherwise.      * @throws ValidationException      */
 specifier|protected
 name|void
 name|checkGraphicState

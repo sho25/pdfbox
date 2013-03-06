@@ -44,7 +44,7 @@ name|XpacketParsingException
 extends|extends
 name|Exception
 block|{
-comment|/** 	 *  	 */
+comment|/**      *       */
 specifier|private
 specifier|static
 specifier|final
@@ -57,7 +57,7 @@ specifier|protected
 name|ValidationError
 name|error
 decl_stmt|;
-comment|/**    * Constructor    *     * @param message    *          the message    * @param cause    *          the cause    */
+comment|/**      * Constructor      *       * @param message      *            the message      * @param cause      *            the cause      */
 specifier|public
 name|XpacketParsingException
 parameter_list|(
@@ -76,7 +76,7 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructor    *     * @param message    *          the message    */
+comment|/**      * Constructor      *       * @param message      *            the message      */
 specifier|public
 name|XpacketParsingException
 parameter_list|(

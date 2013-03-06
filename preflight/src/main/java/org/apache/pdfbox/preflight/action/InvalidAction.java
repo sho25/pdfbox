@@ -78,7 +78,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ActionManager for InvalidAction. An invalid action is an action which isn't  * authorized in a PDF/A file but should be valid in a standard PDF file.  */
+comment|/**  * ActionManager for InvalidAction. An invalid action is an action which isn't authorized in a PDF/A file but should be  * valid in a standard PDF file.  */
 end_comment
 
 begin_class
@@ -94,7 +94,7 @@ name|actionName
 init|=
 literal|null
 decl_stmt|;
-comment|/**    *     * @param amFact    *          Instance of ActionManagerFactory used to create ActionManager to    *          check Next actions.    * @param adict    *          the COSDictionary of the action wrapped by this class.    * @param ctx    *          the DocumentHandler from which the action comes from.    * @param aaKey    *          The name of the key which identify the action in a additional    *          action dictionary.    * @param name    *          the action type    */
+comment|/**      *       * @param amFact      *            Instance of ActionManagerFactory used to create ActionManager to check Next actions.      * @param adict      *            the COSDictionary of the action wrapped by this class.      * @param ctx      *            the DocumentHandler from which the action comes from.      * @param aaKey      *            The name of the key which identify the action in a additional action dictionary.      * @param name      *            the action type      */
 specifier|public
 name|InvalidAction
 parameter_list|(
@@ -132,7 +132,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @see    * net.awl.edoc.pdfa.validation.actions.AbstractActionManager#valid(java.util    * .List)    */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.actions.AbstractActionManager#valid(java.util .List)      */
 annotation|@
 name|Override
 specifier|protected

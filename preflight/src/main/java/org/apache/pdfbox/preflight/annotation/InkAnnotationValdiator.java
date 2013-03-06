@@ -136,7 +136,7 @@ name|InkAnnotationValdiator
 extends|extends
 name|AnnotationValidator
 block|{
-comment|/**    * PDFBox which wraps the annotation dictionary    */
+comment|/**      * PDFBox which wraps the annotation dictionary      */
 specifier|protected
 name|PDAnnotationUnknown
 name|pdUnk
@@ -179,7 +179,7 @@ operator|.
 name|pdUnk
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator#    * checkMandatoryFields(java.util.List)    */
+comment|/*      * (non-Javadoc)      *       * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator# checkMandatoryFields(java.util.List)      */
 specifier|protected
 name|boolean
 name|checkMandatoryFields

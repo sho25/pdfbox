@@ -279,7 +279,7 @@ name|ctx
 parameter_list|)
 throws|throws
 name|ValidationException
-block|{ 		}
+block|{         }
 block|}
 specifier|public
 specifier|static
@@ -297,7 +297,7 @@ name|ctx
 parameter_list|)
 throws|throws
 name|ValidationException
-block|{ 		}
+block|{         }
 block|}
 block|}
 end_class

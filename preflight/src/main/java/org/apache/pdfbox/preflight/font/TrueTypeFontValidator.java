@@ -277,7 +277,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|/*  			 * only MacRomanEncoding or WinAnsiEncoding are allowed for a non symbolic font. 			 */
+comment|/*              * only MacRomanEncoding or WinAnsiEncoding are allowed for a non symbolic font.              */
 if|if
 condition|(
 name|fd
@@ -331,7 +331,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* 			 * For symbolic font, no encoding entry is allowed and only one 			 * encoding entry is expected into the FontFile CMap (Check latter when  			 * the FontFile stream will be checked) 			 */
+comment|/*              * For symbolic font, no encoding entry is allowed and only one encoding entry is expected into the FontFile              * CMap (Check latter when the FontFile stream will be checked)              */
 if|if
 condition|(
 name|fd

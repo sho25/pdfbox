@@ -512,7 +512,7 @@ specifier|public
 class|class
 name|ActionManagerFactory
 block|{
-comment|/** 	 * This method extract actions from the given dictionary. An action is 	 * identified by the following entries : 	 *<UL> 	 *<li>A (Action) : Available in Annotations, Outline items 	 *<li>OpenAction (OpenAction) : Available in the Catalog dictionary 	 *<li>AA (Additional Action) : Available in the Catalog dictionary, 	 * Annotations, Pages 	 *</UL> 	 *  	 * If there are no action, an empty list is returned. 	 *  	 * @param dictionary 	 * @param cDoc 	 * @return 	 * @throws ValidationException 	 */
+comment|/**      * This method extract actions from the given dictionary. An action is identified by the following entries :      *<UL>      *<li>A (Action) : Available in Annotations, Outline items      *<li>OpenAction (OpenAction) : Available in the Catalog dictionary      *<li>AA (Additional Action) : Available in the Catalog dictionary, Annotations, Pages      *</UL>      *       * If there are no action, an empty list is returned.      *       * @param dictionary      * @param cDoc      * @return      * @throws ValidationException      */
 specifier|public
 specifier|final
 name|List
@@ -732,7 +732,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * Call the callCreateAction(COSBase, COSDocument, List<ActionManager>, 	 * String) method with null as isAA parameter. 	 *  	 * @param aDict 	 *          a COSBase object (COSObject or COSDictionary) which represent the 	 *          action dictionary. 	 * @param ctx 	 *          the preflight context. 	 * @param result 	 *          the list of ActionManager to updated if the aDict parameter is 	 *          valid. 	 * @param alreadyCreated This map is used to know if an Action has already been validated. It is 	 * useful to avoid infinite loop in an action which has a Next entry. 	 * @throws ValidationException 	 */
+comment|/**      * Call the callCreateAction(COSBase, COSDocument, List<ActionManager>, String) method with null as isAA parameter.      *       * @param aDict      *            a COSBase object (COSObject or COSDictionary) which represent the action dictionary.      * @param ctx      *            the preflight context.      * @param result      *            the list of ActionManager to updated if the aDict parameter is valid.      * @param alreadyCreated      *            This map is used to know if an Action has already been validated. It is useful to avoid infinite loop      *            in an action which has a Next entry.      * @throws ValidationException      */
 specifier|private
 name|void
 name|callCreateAction
@@ -774,7 +774,7 @@ name|alreadyCreated
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Call the create action to add the ActionManager to the result list. If the 	 * aDict parameter isn't an instance of COSDictionary, this method throws a 	 * ValdiationException. If the aDict parameter is a reference to a 	 * COSDicitonary, the action manager is create only if the linked COSObjectKey 	 * is missing from the "alreadyCreated" map, in this case the action is added 	 * to the map. If the aDict parameter is an instance of COSDIctionary, it is 	 * impossible to check if the ActionManager already exists in the 	 * "alreadyCreated" map. 	 *  	 * @param aDict 	 *          a COSBase object (COSObject or COSDictionary) which represent the 	 *          action dictionary. 	 * @param ctx 	 *          the preflight validation context. 	 * @param result 	 *          the list of ActionManager to updated if the aDict parameter is 	 *          valid. 	 * @param additionActionKey 	 *          the Action identifier if it is an additional action      * @param alreadyCreated This map is used to know if an Action has already been validated. It is 	 * useful to avoid infinite loop in an action which has a Next entry. 	 * @throws ValidationException 	 */
+comment|/**      * Call the create action to add the ActionManager to the result list. If the aDict parameter isn't an instance of      * COSDictionary, this method throws a ValdiationException. If the aDict parameter is a reference to a      * COSDicitonary, the action manager is create only if the linked COSObjectKey is missing from the "alreadyCreated"      * map, in this case the action is added to the map. If the aDict parameter is an instance of COSDIctionary, it is      * impossible to check if the ActionManager already exists in the "alreadyCreated" map.      *       * @param aDict      *            a COSBase object (COSObject or COSDictionary) which represent the action dictionary.      * @param ctx      *            the preflight validation context.      * @param result      *            the list of ActionManager to updated if the aDict parameter is valid.      * @param additionActionKey      *            the Action identifier if it is an additional action      * @param alreadyCreated      *            This map is used to know if an Action has already been validated. It is useful to avoid infinite loop      *            in an action which has a Next entry.      * @throws ValidationException      */
 specifier|private
 name|void
 name|callCreateAction
@@ -926,7 +926,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Returns all actions contained by the Next entry. If the action dictionary 	 * doesn't have Next action, the result is an empty list. 	 *  	 * @param actionDictionary 	 *          the action dictionary which contains Next entry 	 * @param cDoc 	 *          the COSDocument which contains actions. 	 * @return 	 * @throws ValidationException 	 */
+comment|/**      * Returns all actions contained by the Next entry. If the action dictionary doesn't have Next action, the result is      * an empty list.      *       * @param actionDictionary      *            the action dictionary which contains Next entry      * @param cDoc      *            the COSDocument which contains actions.      * @return      * @throws ValidationException      */
 specifier|public
 specifier|final
 name|List
@@ -1085,7 +1085,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * Create an instance of ActionManager according to the value of the S entry. 	 * If the type entry isn't Action, a ValidationException will be thrown. 	 *  	 * If the action type isn't authorized in a PDF/A file, an instance of 	 * InvalidAction is returned. 	 *  	 * @param ctx 	 * @param action 	 *          the action dictionary used to instantiate the ActionManager 	 * @param isAA 	 *          the Action identifier if it is an additional action 	 * @return 	 * @throws ValidationException 	 */
+comment|/**      * Create an instance of ActionManager according to the value of the S entry. If the type entry isn't Action, a      * ValidationException will be thrown.      *       * If the action type isn't authorized in a PDF/A file, an instance of InvalidAction is returned.      *       * @param ctx      * @param action      *            the action dictionary used to instantiate the ActionManager      * @param isAA      *            the Action identifier if it is an additional action      * @return      * @throws ValidationException      */
 specifier|protected
 name|AbstractActionManager
 name|createActionManager

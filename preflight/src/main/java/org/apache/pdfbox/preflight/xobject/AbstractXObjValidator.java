@@ -227,21 +227,21 @@ name|AbstractXObjValidator
 implements|implements
 name|XObjectValidator
 block|{
-comment|/** 	 * The XObject to validate as a COSStream. 	 */
+comment|/**      * The XObject to validate as a COSStream.      */
 specifier|protected
 name|COSStream
 name|xobject
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * The validation context which contains useful information to process validation. 	 */
+comment|/**      * The validation context which contains useful information to process validation.      */
 specifier|protected
 name|PreflightContext
 name|context
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * The PDF document as COSDocument. 	 */
+comment|/**      * The PDF document as COSDocument.      */
 specifier|protected
 name|COSDocument
 name|cosDocument
@@ -283,7 +283,7 @@ name|getDocument
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * This method checks the SMask entry in the XObject dictionary. According to 	 * the PDF Reference, a SMask in a XObject is a Stream. So if it is not null, 	 * it should be an error but a SMask with the name None is authorized in the 	 * PDF/A Specification 6.4. If the validation fails (SMask not null and 	 * different from None), the error list is updated with the error code 	 * ERROR_GRAPHIC_TRANSPARENCY_SMASK (2.2.2). 	 *  	 */
+comment|/**      * This method checks the SMask entry in the XObject dictionary. According to the PDF Reference, a SMask in a      * XObject is a Stream. So if it is not null, it should be an error but a SMask with the name None is authorized in      * the PDF/A Specification 6.4. If the validation fails (SMask not null and different from None), the error list is      * updated with the error code ERROR_GRAPHIC_TRANSPARENCY_SMASK (2.2.2).      *       */
 specifier|protected
 name|void
 name|checkSMask
@@ -349,7 +349,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * According the ISO 190005:1-2005 specification, a XObject can't have an OPI 	 * entry in its dictionary. If the XObject has a OPI entry, the error list is 	 * updated with the error code ERROR_GRAPHIC_UNEXPECTED_KEY (2.3). 	 *  	 * @param errors 	 *          the list of error to update if the validation fails. 	 * @return true if the OPI is missing, false otherwise. 	 */
+comment|/**      * According the ISO 190005:1-2005 specification, a XObject can't have an OPI entry in its dictionary. If the      * XObject has a OPI entry, the error list is updated with the error code ERROR_GRAPHIC_UNEXPECTED_KEY (2.3).      *       * @param errors      *            the list of error to update if the validation fails.      * @return true if the OPI is missing, false otherwise.      */
 specifier|protected
 name|void
 name|checkOPI
@@ -390,7 +390,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * According the ISO 190005:1-2005 specification, a XObject can't have an Ref 	 * entry in its dictionary. If the XObject has a Ref entry, the error list is 	 * updated with the error code ERROR_GRAPHIC_UNEXPECTED_KEY (2.3). 	 *  	 */
+comment|/**      * According the ISO 190005:1-2005 specification, a XObject can't have an Ref entry in its dictionary. If the      * XObject has a Ref entry, the error list is updated with the error code ERROR_GRAPHIC_UNEXPECTED_KEY (2.3).      *       */
 specifier|protected
 name|void
 name|checkReferenceXObject
@@ -426,7 +426,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * According the ISO 190005:1-2005 specification, PostSCript XObject are 	 * forbidden. If the XObject is a PostScript XObject, the error list is 	 * updated with the error code ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY (2.3.2). 	 *  	 * To know the if the object a Postscript XObject, "Subtype" and "Subtype2" 	 * entries are checked. 	 */
+comment|/**      * According the ISO 190005:1-2005 specification, PostSCript XObject are forbidden. If the XObject is a PostScript      * XObject, the error list is updated with the error code ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY (2.3.2).      *       * To know the if the object a Postscript XObject, "Subtype" and "Subtype2" entries are checked.      */
 specifier|protected
 name|void
 name|checkPostscriptXObject
@@ -511,14 +511,14 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-comment|/** 	 * This method checks if required fields are present. 	 *  	 */
+comment|/**      * This method checks if required fields are present.      *       */
 specifier|protected
 specifier|abstract
 name|void
 name|checkMandatoryFields
 parameter_list|()
 function_decl|;
-comment|/* 	 * (non-Javadoc) 	 *  	 * @see net.awl.edoc.pdfa.validation.graphics.XObjectValidator#validate() 	 */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.graphics.XObjectValidator#validate()      */
 specifier|public
 name|void
 name|validate

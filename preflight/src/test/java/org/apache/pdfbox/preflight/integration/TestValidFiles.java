@@ -368,7 +368,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//		throw new Exception("Test badly configured");
+comment|// throw new Exception("Test badly configured");
 name|List
 argument_list|<
 name|Object

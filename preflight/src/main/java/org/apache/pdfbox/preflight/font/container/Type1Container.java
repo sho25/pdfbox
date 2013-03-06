@@ -128,14 +128,14 @@ name|Type1Container
 extends|extends
 name|FontContainer
 block|{
-comment|/** 	 * Represent the missingWidth value of the FontDescriptor dictionary. 	 * According to the PDF Reference, if this value is missing, the default  	 * one is 0. 	 */
+comment|/**      * Represent the missingWidth value of the FontDescriptor dictionary. According to the PDF Reference, if this value      * is missing, the default one is 0.      */
 specifier|private
 name|float
 name|defaultGlyphWidth
 init|=
 literal|0
 decl_stmt|;
-comment|/** 	 * true if information come from the FontFile1 Stream,  	 * false if they come from the FontFile3 	 */
+comment|/**      * true if information come from the FontFile1 Stream, false if they come from the FontFile3      */
 specifier|protected
 name|boolean
 name|isFontFile1
@@ -211,7 +211,7 @@ block|}
 block|}
 else|else
 block|{
-comment|/*  				 * Retrieves the SID with the Character Name in the encoding map 				 * Need more PDF with a Type1C subfont to valid this implementation   				 */
+comment|/*                  * Retrieves the SID with the Character Name in the encoding map Need more PDF with a Type1C subfont to                  * valid this implementation                  */
 name|String
 name|name
 init|=

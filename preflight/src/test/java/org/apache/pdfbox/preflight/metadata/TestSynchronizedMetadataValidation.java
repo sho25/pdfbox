@@ -350,7 +350,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Check detection of a null Document    *     * @throws ValidationException    */
+comment|/**      * Check detection of a null Document      *       * @throws ValidationException      */
 annotation|@
 name|Test
 argument_list|(
@@ -377,7 +377,7 @@ name|metadata
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Check detection of null metadata    *     * @throws ValidationException    */
+comment|/**      * Check detection of null metadata      *       * @throws ValidationException      */
 annotation|@
 name|Test
 argument_list|(
@@ -404,7 +404,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Check the detection of a PDF document without any information    *     * @throws Exception    */
+comment|/**      * Check the detection of a PDF document without any information      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -459,7 +459,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Check the detection of a completely empty XMP document (without any    * schemas)    *     * @throws Exception    */
+comment|/**      * Check the detection of a completely empty XMP document (without any schemas)      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -628,7 +628,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Check the detection of a XMP with empty common schemas    *     * @throws Exception    */
+comment|/**      * Check the detection of a XMP with empty common schemas      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -802,7 +802,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Check detection of a null value in array (for Subject and author    * properties)    *     * @throws Exception    */
+comment|/**      * Check detection of a null value in array (for Subject and author properties)      *       * @throws Exception      */
 annotation|@
 name|Test
 argument_list|(
@@ -904,7 +904,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * in XMP, Subject and Author must be embedded in a single entry text array    * This function check the detection of multiple entries for these properties    *     * @throws Exception    */
+comment|/**      * in XMP, Subject and Author must be embedded in a single entry text array This function check the detection of      * multiple entries for these properties      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -1154,7 +1154,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Check the detection of unsynchronized information between Document    * Information dictionary and XMP    *     * @throws Exception    */
+comment|/**      * Check the detection of unsynchronized information between Document Information dictionary and XMP      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -1390,7 +1390,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Check reaction when metadata are well-formed    *     * @throws Exception    */
+comment|/**      * Check reaction when metadata are well-formed      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -1634,7 +1634,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Check if FormatAccessException Generator is ok    *     * @throws Exception    */
+comment|/**      * Check if FormatAccessException Generator is ok      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -1673,7 +1673,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Check if SchemaAccessException Generator is ok    *     * @throws Exception    */
+comment|/**      * Check if SchemaAccessException Generator is ok      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -1710,7 +1710,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Check reaction when metadata are well-formed    *     * @throws Exception    */
+comment|/**      * Check reaction when metadata are well-formed      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -1994,7 +1994,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Check reaction when metadata are well-formed    *     * @throws Exception    */
+comment|/**      * Check reaction when metadata are well-formed      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -2342,7 +2342,7 @@ literal|"Error while closing PDF Document"
 argument_list|)
 throw|;
 block|}
-comment|/*      * Iterator<ValidationError> it=ve.iterator(); while(it.hasNext()){      * ValidationError tmp=it.next(); System.out.println("Error:"+      * tmp.getDetails()+"\n code: "+tmp.getErrorCode()); }      */
+comment|/*          * Iterator<ValidationError> it=ve.iterator(); while(it.hasNext()){ ValidationError tmp=it.next();          * System.out.println("Error:"+ tmp.getDetails()+"\n code: "+tmp.getErrorCode()); }          */
 block|}
 block|}
 end_class

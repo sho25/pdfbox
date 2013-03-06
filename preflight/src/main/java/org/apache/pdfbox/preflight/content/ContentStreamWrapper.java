@@ -446,7 +446,7 @@ name|_page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Process the validation of a PageContent (The page is initialized by the 	 * constructor) 	 *  	 * @return A list of validation error. This list is empty if the validation 	 *         succeed. 	 * @throws ValidationException. 	 */
+comment|/**      * Process the validation of a PageContent (The page is initialized by the constructor)      *       * @return A list of validation error. This list is empty if the validation succeed.      * @throws ValidationException.      */
 specifier|public
 name|void
 name|validPageContentStream
@@ -538,7 +538,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Process the validation of a XObject Form 	 *  	 * @param xobj 	 * @return A list of validation error. This list is empty if the validation 	 *         succeed. 	 * @throws ValidationException 	 */
+comment|/**      * Process the validation of a XObject Form      *       * @param xobj      * @return A list of validation error. This list is empty if the validation succeed.      * @throws ValidationException      */
 specifier|public
 name|void
 name|validXObjContentStream
@@ -620,7 +620,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Process the validation of a Tiling Pattern 	 *  	 * @param pattern 	 * @return A list of validation error. This list is empty if the validation 	 *         succeed. 	 * @throws ValidationException 	 */
+comment|/**      * Process the validation of a Tiling Pattern      *       * @param pattern      * @return A list of validation error. This list is empty if the validation succeed.      * @throws ValidationException      */
 specifier|public
 name|void
 name|validPatternContentStream
@@ -754,7 +754,7 @@ argument_list|()
 expr_stmt|;
 comment|// this.streamResourcesStack.clear();
 block|}
-comment|/* 	 * (non-Javadoc) 	 *  	 * @see 	 * org.apache.pdfbox.util.PDFStreamEngine#processOperator(org.apache.pdfbox 	 * .util.PDFOperator, java.util.List) 	 */
+comment|/*      * (non-Javadoc)      *       * @see org.apache.pdfbox.util.PDFStreamEngine#processOperator(org.apache.pdfbox .util.PDFOperator, java.util.List)      */
 specifier|protected
 name|void
 name|processOperator
@@ -768,7 +768,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|/* 		 * Here is a copy of the super method because the else block is different.  		 * (If the operator is unknown, throw an exception) 		 */
+comment|/*          * Here is a copy of the super method because the else block is different. (If the operator is unknown, throw an          * exception)          */
 name|String
 name|operation
 init|=
@@ -829,7 +829,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* 		 *  Process Specific Validation. 		 *  The Generic Processing is useless for PDFA validation 		 */
+comment|/*          * Process Specific Validation. The Generic Processing is useless for PDFA validation          */
 if|if
 condition|(
 literal|"BI"
@@ -883,7 +883,7 @@ name|operator
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Process Text Validation. According to the operator one of the both method 	 * will be called. (validStringDefinition(PDFOperator operator, List<?> 	 * arguments) / validStringArray(PDFOperator operator, List<?> arguments)) 	 *  	 * @param operator 	 * @param arguments 	 * @throws ContentStreamException 	 * @throws IOException 	 */
+comment|/**      * Process Text Validation. According to the operator one of the both method will be called.      * (validStringDefinition(PDFOperator operator, List<?> arguments) / validStringArray(PDFOperator operator, List<?>      * arguments))      *       * @param operator      * @param arguments      * @throws ContentStreamException      * @throws IOException      */
 specifier|protected
 name|void
 name|checkShowTextOperators
@@ -961,7 +961,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Process Text Validation for the Operands of a Tj, "'" and "\"" operator. 	 *  	 * If the validation fails for an unexpected reason, a IOException is thrown. 	 * If the validation fails due to validation error, a ContentStreamException 	 * is thrown. (Use the ValidationError attribute to know the cause) 	 *  	 * @param operator 	 * @param arguments 	 * @throws ContentStreamException 	 * @throws IOException 	 */
+comment|/**      * Process Text Validation for the Operands of a Tj, "'" and "\"" operator.      *       * If the validation fails for an unexpected reason, a IOException is thrown. If the validation fails due to      * validation error, a ContentStreamException is thrown. (Use the ValidationError attribute to know the cause)      *       * @param operator      * @param arguments      * @throws ContentStreamException      * @throws IOException      */
 specifier|private
 name|void
 name|validStringDefinition
@@ -980,7 +980,7 @@ name|ContentStreamException
 throws|,
 name|IOException
 block|{
-comment|/* For a Text operator, the arguments list should contain only one 		 * COSString object 		 */
+comment|/*          * For a Text operator, the arguments list should contain only one COSString object          */
 if|if
 condition|(
 literal|"\""
@@ -1185,7 +1185,7 @@ return|return;
 block|}
 block|}
 block|}
-comment|/** 	 * Process Text Validation for the Operands of a TJ operator. 	 *  	 * If the validation fails for an unexpected reason, a IOException is thrown. 	 * If the validation fails due to validation error, a ContentStreamException 	 * is thrown. (Use the ValidationError attribute to know the cause) 	 *  	 * @param operator 	 * @param arguments 	 * @throws ContentStreamException 	 * @throws IOException 	 */
+comment|/**      * Process Text Validation for the Operands of a TJ operator.      *       * If the validation fails for an unexpected reason, a IOException is thrown. If the validation fails due to      * validation error, a ContentStreamException is thrown. (Use the ValidationError attribute to know the cause)      *       * @param operator      * @param arguments      * @throws ContentStreamException      * @throws IOException      */
 specifier|private
 name|void
 name|validStringArray
@@ -1288,7 +1288,7 @@ return|return;
 block|}
 block|}
 block|}
-comment|/** 	 * Process the validation of a Text operand contains in a ContentStream This 	 * validation checks that : 	 *<UL> 	 *<li>The font isn't missing if the Rendering Mode isn't 3 	 *<li>The font metrics are consistent 	 *<li>All character used in the text are defined in the font program. 	 *</UL> 	 *  	 * @param string 	 * @throws IOException 	 */
+comment|/**      * Process the validation of a Text operand contains in a ContentStream This validation checks that :      *<UL>      *<li>The font isn't missing if the Rendering Mode isn't 3      *<li>The font metrics are consistent      *<li>All character used in the text are defined in the font program.      *</UL>      *       * @param string      * @throws IOException      */
 specifier|public
 name|void
 name|validText
@@ -1378,7 +1378,7 @@ operator|)
 condition|)
 block|{
 comment|// font not embedded and rendering mode is 3. Valid case and nothing to check
-return|return ;
+return|return;
 block|}
 elseif|else
 if|if

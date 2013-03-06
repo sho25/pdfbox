@@ -632,15 +632,15 @@ name|TILING_PATTERN_PROCESS
 init|=
 literal|"tiling-pattern-process"
 decl_stmt|;
-comment|/* TODO other configuration option should be possible : 	 * - skip some validation process ? 	 * - ??? 	 */
-comment|/** 	 * Boolean to know if an exception must be thrown if a ValidationProcess is missing. 	 */
+comment|/*      * TODO other configuration option should be possible : - skip some validation process ? - ???      */
+comment|/**      * Boolean to know if an exception must be thrown if a ValidationProcess is missing.      */
 specifier|private
 name|boolean
 name|errorOnMissingProcess
 init|=
 literal|true
 decl_stmt|;
-comment|/** 	 * Boolean to know mark some error as a Warning, if the validation result contains only warning 	 * the validation is successful  	 */
+comment|/**      * Boolean to know mark some error as a Warning, if the validation result contains only warning the validation is      * successful      */
 specifier|private
 name|boolean
 name|lazyValidation
@@ -704,17 +704,17 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Define the AnnotationFactory used by ValidationProcess 	 */
+comment|/**      * Define the AnnotationFactory used by ValidationProcess      */
 specifier|private
 name|AnnotationValidatorFactory
 name|annotFact
 decl_stmt|;
-comment|/** 	 * Define the ActionManagerFactory used by ValidationProcess 	 */
+comment|/**      * Define the ActionManagerFactory used by ValidationProcess      */
 specifier|private
 name|ActionManagerFactory
 name|actionFact
 decl_stmt|;
-comment|/** 	 * Define the ColorSpaceHelperFactory used by the validationProcess. 	 */
+comment|/**      * Define the ColorSpaceHelperFactory used by the validationProcess.      */
 specifier|private
 name|ColorSpaceHelperFactory
 name|colorSpaceHelperFact
@@ -975,7 +975,7 @@ name|keySet
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Return the validation process linked with the given name 	 * @param processName  	 * @return an instance of validationProcess, null if it doesn't exist and if the errorOnMissingProcess is false 	 * @throws MissingValidationProcessException if the Process doesn't exist (errorOnMissingProcess is true) 	 */
+comment|/**      * Return the validation process linked with the given name      *       * @param processName      * @return an instance of validationProcess, null if it doesn't exist and if the errorOnMissingProcess is false      * @throws MissingValidationProcessException      *             if the Process doesn't exist (errorOnMissingProcess is true)      */
 specifier|public
 name|ValidationProcess
 name|getInstanceOfProcess

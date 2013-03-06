@@ -352,7 +352,7 @@ name|fontContainer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * If the embedded font is a subset, the CIDSet entry is mandatory and must be 	 * a Stream. If the CIDSet entry doesn't respects conditions, the FontContainer is updated. 	 *  	 * @param pfDescriptor 	 */
+comment|/**      * If the embedded font is a subset, the CIDSet entry is mandatory and must be a Stream. If the CIDSet entry doesn't      * respects conditions, the FontContainer is updated.      *       * @param pfDescriptor      */
 specifier|protected
 name|void
 name|checkCIDSet
@@ -465,7 +465,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|/* 			 * Stream validation should be done by the StreamValidateHelper. 			 * Process font specific check 			 */
+comment|/*              * Stream validation should be done by the StreamValidateHelper. Process font specific check              */
 name|COSStream
 name|stream
 init|=
@@ -532,7 +532,7 @@ name|PDStream
 name|fontFile
 parameter_list|)
 block|{
-comment|/* 		 * try to load the font using the java.awt.font object. 		 * if the font is invalid, an exception will be thrown 		 */
+comment|/*          * try to load the font using the java.awt.font object. if the font is invalid, an exception will be thrown          */
 name|TrueTypeFont
 name|ttf
 init|=
@@ -540,7 +540,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-comment|/* 			 * According to PDF Reference, CIDFontType2 is a TrueType font. 			 * Remark : Java.awt.Font throws exception when a CIDFontType2 is 			 * parsed even if it is valid. 			 */
+comment|/*              * According to PDF Reference, CIDFontType2 is a TrueType font. Remark : Java.awt.Font throws exception when              * a CIDFontType2 is parsed even if it is valid.              */
 name|ttf
 operator|=
 operator|new
@@ -577,7 +577,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|/* 			 * Exceptionally, Exception is catched Here because of damaged font 			 * can throw NullPointer Exception... 			 */
+comment|/*              * Exceptionally, Exception is catched Here because of damaged font can throw NullPointer Exception...              */
 name|this
 operator|.
 name|fContainer

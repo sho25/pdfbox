@@ -409,7 +409,7 @@ name|PDStream
 name|fontFile
 parameter_list|)
 block|{
-comment|/* 		 * Try to load the font using the TTFParser object. If the font is 		 * invalid, an exception will be thrown. Because of it is a Embedded Font 		 * Program, some tables are required and other are optional see PDF 		 * Reference (§5.8) 		 */
+comment|/*          * Try to load the font using the TTFParser object. If the font is invalid, an exception will be thrown. Because          * of it is a Embedded Font Program, some tables are required and other are optional see PDF Reference (§5.8)          */
 name|ByteArrayInputStream
 name|bis
 init|=

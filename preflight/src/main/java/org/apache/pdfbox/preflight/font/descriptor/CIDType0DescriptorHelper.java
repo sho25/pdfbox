@@ -419,7 +419,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|/* 			 * Stream validation should be done by the StreamValidateHelper. 			 * Process font specific check  			 */
+comment|/*              * Stream validation should be done by the StreamValidateHelper. Process font specific check              */
 name|COSStream
 name|stream
 init|=
@@ -465,7 +465,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* 				 * Lengthx aren't mandatory for this type of font 				 * But the Subtype is a mandatory field with specific values 				 */
+comment|/*                  * Lengthx aren't mandatory for this type of font But the Subtype is a mandatory field with specific                  * values                  */
 name|String
 name|st
 init|=
@@ -530,7 +530,7 @@ return|return
 name|ff3
 return|;
 block|}
-comment|/** 	 * If the embedded font is a subset, the CIDSet entry is mandatory and must be 	 * a Stream. If the CIDSet entry doesn't respects conditions, the FontContainer is updated. 	 *  	 * @param pfDescriptor 	 */
+comment|/**      * If the embedded font is a subset, the CIDSet entry is mandatory and must be a Stream. If the CIDSet entry doesn't      * respects conditions, the FontContainer is updated.      *       * @param pfDescriptor      */
 specifier|protected
 name|void
 name|checkCIDSet
@@ -631,7 +631,7 @@ name|PDStream
 name|fontFile
 parameter_list|)
 block|{
-comment|/* 		 * try to load the font using the java.awt.font object. 		 * if the font is invalid, an exception will be thrown 		 */
+comment|/*          * try to load the font using the java.awt.font object. if the font is invalid, an exception will be thrown          */
 try|try
 block|{
 name|CFFParser

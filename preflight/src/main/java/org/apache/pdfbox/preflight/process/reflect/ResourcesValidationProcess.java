@@ -541,7 +541,7 @@ name|resources
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Check that fonts present in the Resources dictionary match with PDF/A-1 rules 	 * @param context 	 * @param resources 	 * @throws ValidationException 	 */
+comment|/**      * Check that fonts present in the Resources dictionary match with PDF/A-1 rules      *       * @param context      * @param resources      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateFonts
@@ -608,7 +608,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 *  	 * @param context 	 * @param resources 	 * @throws ValidationException 	 */
+comment|/**      *       * @param context      * @param resources      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateExtGStates
@@ -678,7 +678,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * This method check the Shading entry of the resource dictionary if exists. 	 * @param context 	 * @param resources 	 * @throws ValidationException 	 */
+comment|/**      * This method check the Shading entry of the resource dictionary if exists.      *       * @param context      * @param resources      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateShadingPattern
@@ -771,7 +771,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * This method check the Shading entry of the resource dictionary if exists. 	 * @param context 	 * @param resources 	 * @throws ValidationException 	 */
+comment|/**      * This method check the Shading entry of the resource dictionary if exists.      *       * @param context      * @param resources      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateTilingPattern

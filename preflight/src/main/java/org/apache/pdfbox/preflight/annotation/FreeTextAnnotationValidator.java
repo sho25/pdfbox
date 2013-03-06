@@ -120,7 +120,7 @@ name|FreeTextAnnotationValidator
 extends|extends
 name|AnnotationValidator
 block|{
-comment|/**    * PDFBox object which wraps the Annotation dictionary    */
+comment|/**      * PDFBox object which wraps the Annotation dictionary      */
 specifier|protected
 name|PDAnnotationTextMarkup
 name|pdFreeText
@@ -163,7 +163,7 @@ operator|.
 name|pdFreeText
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator#    * checkMandatoryFields(java.util.List)    */
+comment|/*      * (non-Javadoc)      *       * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator# checkMandatoryFields(java.util.List)      */
 specifier|protected
 name|boolean
 name|checkMandatoryFields
@@ -239,7 +239,7 @@ operator|.
 name|DA
 argument_list|)
 decl_stmt|;
-comment|/*      * After PDF 1.4, all additional entries in this annotation are      * optional and they seem to be compatible with the PDF/A specification.      */
+comment|/*          * After PDF 1.4, all additional entries in this annotation are optional and they seem to be compatible with the          * PDF/A specification.          */
 name|boolean
 name|result
 init|=

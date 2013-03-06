@@ -1027,7 +1027,7 @@ name|xrefTable
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Class used to check the catch block in COSUtils methods    */
+comment|/**      * Class used to check the catch block in COSUtils methods      */
 specifier|private
 class|class
 name|IOCOSDocument

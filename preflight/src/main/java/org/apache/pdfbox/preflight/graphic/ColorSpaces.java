@@ -18,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This enum makes ColorSpaces validation easier. Labels represent ColorSpace  * names as defined in the "PDF Reference 1.4". Enum entries with the "_SHORT"  * suffix are used to represent color spaces (DeviceGray, DeviceRGB, DeviceCMYK  * and Indexed) using the InlinedImage notation.  */
+comment|/**  * This enum makes ColorSpaces validation easier. Labels represent ColorSpace names as defined in the  * "PDF Reference 1.4". Enum entries with the "_SHORT" suffix are used to represent color spaces (DeviceGray, DeviceRGB,  * DeviceCMYK and Indexed) using the InlinedImage notation.  */
 end_comment
 
 begin_enum
@@ -101,7 +101,7 @@ argument_list|(
 literal|"Separation"
 argument_list|)
 block|;
-comment|/**    * Name of the ColorSpace    */
+comment|/**      * Name of the ColorSpace      */
 specifier|public
 name|String
 name|label
@@ -118,7 +118,7 @@ operator|=
 name|_label
 expr_stmt|;
 block|}
-comment|/**    * @return the label    */
+comment|/**      * @return the label      */
 specifier|public
 name|String
 name|getLabel
@@ -128,7 +128,7 @@ return|return
 name|label
 return|;
 block|}
-comment|/**    * @param label    *          the label to set    */
+comment|/**      * @param label      *            the label to set      */
 specifier|public
 name|void
 name|setLabel

@@ -283,7 +283,7 @@ return|return
 name|ve
 return|;
 block|}
-comment|/** 	 * Value of the dc:title must be the same as the FontName in the font 	 * descriptor. 	 *  	 * @param metadata 	 *          XMPMetaData of the Font File Stream 	 * @param fontDesc 	 *          The FontDescriptor dictionary 	 * @param ve 	 *          the list of validation error to update if the validation fails 	 */
+comment|/**      * Value of the dc:title must be the same as the FontName in the font descriptor.      *       * @param metadata      *            XMPMetaData of the Font File Stream      * @param fontDesc      *            The FontDescriptor dictionary      * @param ve      *            the list of validation error to update if the validation fails      */
 specifier|public
 name|boolean
 name|analyseFontName
@@ -645,7 +645,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * If XMP MetaData are present, they must have followings information : 	 *<UL> 	 *<li>dc:rights 	 *<li>Marked (with the value true) 	 *<li>Owner 	 *<li>UsageTerms 	 *</UL> 	 *  	 * @param metadata 	 *          XMPMetaData of the Font File Stream 	 * @param fontDesc 	 *          The FontDescriptor dictionary 	 * @param ve 	 *          the list of validation error to update if the validation fails 	 */
+comment|/**      * If XMP MetaData are present, they must have followings information :      *<UL>      *<li>dc:rights      *<li>Marked (with the value true)      *<li>Owner      *<li>UsageTerms      *</UL>      *       * @param metadata      *            XMPMetaData of the Font File Stream      * @param fontDesc      *            The FontDescriptor dictionary      * @param ve      *            the list of validation error to update if the validation fails      */
 specifier|public
 name|boolean
 name|analyseRights
@@ -786,7 +786,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/* 			 * rights.getUsageTerms()& rights.getOwnerValue() should be present but it is only a  			 * recommendation : may be it should be useful to append a Warning if these entries are missing.   			 */
+comment|/*              * rights.getUsageTerms()& rights.getOwnerValue() should be present but it is only a recommendation : may              * be it should be useful to append a Warning if these entries are missing.              */
 block|}
 return|return
 literal|true

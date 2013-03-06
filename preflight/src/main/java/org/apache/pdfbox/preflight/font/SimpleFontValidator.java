@@ -180,7 +180,7 @@ name|fContainer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Call this method to validate the font wrapped by this object.    * If the validation failed, the error is updated in the FontContainer     * with the right error code.    *     * Errors that are saved in the container will be added on the PreflightContext if the font is used later.    *     * @return    */
+comment|/**      * Call this method to validate the font wrapped by this object. If the validation failed, the error is updated in      * the FontContainer with the right error code.      *       * Errors that are saved in the container will be added on the PreflightContext if the font is used later.      *       * @return      */
 specifier|public
 name|void
 name|validate

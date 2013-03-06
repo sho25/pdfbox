@@ -230,7 +230,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class embeds an instance of java.awt.color.ICC_Profile which represent  * the ICCProfile defined by the DestOutputItents key of the OutputIntents of  * the PDF.  */
+comment|/**  * This class embeds an instance of java.awt.color.ICC_Profile which represent the ICCProfile defined by the  * DestOutputItents key of the OutputIntents of the PDF.  */
 end_comment
 
 begin_class
@@ -238,13 +238,13 @@ specifier|public
 class|class
 name|ICCProfileWrapper
 block|{
-comment|/**    * The ICCProfile extracted from DestOutputItents    */
+comment|/**      * The ICCProfile extracted from DestOutputItents      */
 specifier|private
 specifier|final
 name|ICC_Profile
 name|profile
 decl_stmt|;
-comment|/**    * The ICC ColorSpace created using the ICCProfile    */
+comment|/**      * The ICC ColorSpace created using the ICCProfile      */
 specifier|private
 specifier|final
 name|ICC_ColorSpace
@@ -275,7 +275,7 @@ name|_profile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Call the ICC_ColorSpace.getType method and return the value.    *     * @return    */
+comment|/**      * Call the ICC_ColorSpace.getType method and return the value.      *       * @return      */
 specifier|public
 name|int
 name|getColorSpaceType
@@ -288,7 +288,7 @@ name|getType
 argument_list|()
 return|;
 block|}
-comment|/**    * @return the profile    */
+comment|/**      * @return the profile      */
 specifier|public
 name|ICC_Profile
 name|getProfile
@@ -298,7 +298,7 @@ return|return
 name|profile
 return|;
 block|}
-comment|/**    * Return true if the ColourSpace is RGB    *     * @return    */
+comment|/**      * Return true if the ColourSpace is RGB      *       * @return      */
 specifier|public
 name|boolean
 name|isRGBColorSpace
@@ -315,7 +315,7 @@ name|getType
 argument_list|()
 return|;
 block|}
-comment|/**    * Return true if the ColourSpace is CMYK    *     * @return    */
+comment|/**      * Return true if the ColourSpace is CMYK      *       * @return      */
 specifier|public
 name|boolean
 name|isCMYKColorSpace
@@ -332,7 +332,7 @@ name|getType
 argument_list|()
 return|;
 block|}
-comment|/**    * Return true if the ColourSpace is Gray scale    *     * @return    */
+comment|/**      * Return true if the ColourSpace is Gray scale      *       * @return      */
 specifier|public
 name|boolean
 name|isGrayColorSpace
@@ -349,7 +349,7 @@ name|getType
 argument_list|()
 return|;
 block|}
-comment|/** 	 * This method read all outputIntent dictionary until on of them have a destOutputProfile stream. 	 * This stream is parsed and is used to create a IccProfileWrapper. 	 *   	 * @param context 	 * @return an instance of ICCProfileWrapper or null if there are no DestOutputProfile 	 * @throws ValidationException if an IOException occurs during the DestOutputProfile parsing  	 */
+comment|/**      * This method read all outputIntent dictionary until on of them have a destOutputProfile stream. This stream is      * parsed and is used to create a IccProfileWrapper.      *       * @param context      * @return an instance of ICCProfileWrapper or null if there are no DestOutputProfile      * @throws ValidationException      *             if an IOException occurs during the DestOutputProfile parsing      */
 specifier|private
 specifier|static
 name|ICCProfileWrapper

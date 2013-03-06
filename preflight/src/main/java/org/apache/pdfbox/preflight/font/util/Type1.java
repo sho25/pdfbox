@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|Type1
 block|{
-comment|/** 	 * This map links the character identifier to a internal font program label 	 * which is different from the standard Encoding 	 */
+comment|/**      * This map links the character identifier to a internal font program label which is different from the standard      * Encoding      */
 specifier|private
 name|Map
 argument_list|<
@@ -115,7 +115,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|/** 	 * This map links the character label to a character identifier which is 	 * different from the standard Encoding. 	 */
+comment|/**      * This map links the character label to a character identifier which is different from the standard Encoding.      */
 specifier|private
 name|Map
 argument_list|<
@@ -136,7 +136,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|/** 	 * This map link the character label to a container containing Glyph 	 * description. 	 */
+comment|/**      * This map link the character label to a container containing Glyph description.      */
 specifier|private
 name|Map
 argument_list|<
@@ -157,7 +157,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|/** 	 * The character encoding of the Font 	 */
+comment|/**      * The character encoding of the Font      */
 specifier|private
 name|Encoding
 name|encoding

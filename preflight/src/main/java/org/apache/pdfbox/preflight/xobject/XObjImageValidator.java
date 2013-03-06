@@ -433,7 +433,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* 	 * 6.2.4 no Alternates 	 */
+comment|/*      * 6.2.4 no Alternates      */
 specifier|protected
 name|void
 name|checkAlternates
@@ -470,7 +470,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* 	 * 6.2.4 if interpolates, value = false 	 */
+comment|/*      * 6.2.4 if interpolates, value = false      */
 specifier|protected
 name|void
 name|checkInterpolate
@@ -522,7 +522,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/* 	 * 6.2.4 Intent has specific values 	 */
+comment|/*      * 6.2.4 Intent has specific values      */
 specifier|protected
 name|void
 name|checkIntent
@@ -587,7 +587,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/* 	 * According to the PDF Reference file, there are some specific rules on following fields 	 * ColorSpace, Mask, ImageMask and BitsPerComponent. 	 * If ImageMask is set to true, ColorSpace and Mask entries are forbidden.  	 */
+comment|/*      * According to the PDF Reference file, there are some specific rules on following fields ColorSpace, Mask,      * ImageMask and BitsPerComponent. If ImageMask is set to true, ColorSpace and Mask entries are forbidden.      */
 specifier|protected
 name|void
 name|checkColorSpaceAndImageMask
@@ -819,7 +819,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/* 	 * (non-Javadoc) 	 *  	 * @see net.awl.edoc.pdfa.validation.graphics.AbstractXObjValidator#validate() 	 */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.graphics.AbstractXObjValidator#validate()      */
 annotation|@
 name|Override
 specifier|public

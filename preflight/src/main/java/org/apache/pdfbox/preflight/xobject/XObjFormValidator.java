@@ -352,7 +352,7 @@ name|XObjFormValidator
 extends|extends
 name|AbstractXObjValidator
 block|{
-comment|/** 	 * High level object which represents the XObjectForm 	 */
+comment|/**      * High level object which represents the XObjectForm      */
 name|PDXObjectForm
 name|pdXObj
 init|=
@@ -385,7 +385,7 @@ operator|=
 name|xobj
 expr_stmt|;
 block|}
-comment|/* 	 * (non-Javadoc) 	 *  	 * @see net.awl.edoc.pdfa.validation.graphics.AbstractXObjValidator#validate() 	 */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.graphics.AbstractXObjValidator#validate()      */
 annotation|@
 name|Override
 specifier|public
@@ -413,7 +413,7 @@ name|validateXObjectContent
 argument_list|()
 expr_stmt|;
 block|}
-comment|/* 	 * (non-Javadoc) 	 *  	 * @seenet.awl.edoc.pdfa.validation.graphics.AbstractXObjValidator# 	 * checkMandatoryFields(java.util.List) 	 */
+comment|/*      * (non-Javadoc)      *       * @seenet.awl.edoc.pdfa.validation.graphics.AbstractXObjValidator# checkMandatoryFields(java.util.List)      */
 annotation|@
 name|Override
 specifier|protected
@@ -518,7 +518,7 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-comment|/** 	 * An Form XObject is a ContentStream. This method method uses an instance of 	 * ContentStreamWrapper to check the Stream of this Form XObject. 	 */
+comment|/**      * An Form XObject is a ContentStream. This method method uses an instance of ContentStreamWrapper to check the      * Stream of this Form XObject.      */
 specifier|protected
 name|void
 name|validateXObjectContent
@@ -560,7 +560,7 @@ name|pdXObj
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * A Form XObject may contain a Group object (Key =" Group"). If a Group 	 * object is present, this method checks if the S entry is present and if its 	 * value is different from "Transparency". 	 *  	 * @throws ValidationException 	 */
+comment|/**      * A Form XObject may contain a Group object (Key =" Group"). If a Group object is present, this method checks if      * the S entry is present and if its value is different from "Transparency".      *       * @throws ValidationException      */
 specifier|protected
 name|void
 name|checkGroup
@@ -668,7 +668,7 @@ return|return;
 block|}
 block|}
 block|}
-comment|/** 	 * Check if there are no PS entry in the Form XObject dictionary 	 */
+comment|/**      * Check if there are no PS entry in the Form XObject dictionary      */
 specifier|protected
 name|void
 name|checkPS
@@ -710,7 +710,7 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-comment|/** 	 * Check the SUbtype2 entry according to the §6.2.5 of the ISO 190005-1:2005 	 * specification. 	 */
+comment|/**      * Check the SUbtype2 entry according to the §6.2.5 of the ISO 190005-1:2005 specification.      */
 specifier|protected
 name|void
 name|checkSubtype2Value
@@ -766,7 +766,7 @@ literal|"Unexpected 'PS' value for 'Subtype2' Key"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return ;
+return|return;
 block|}
 block|}
 block|}

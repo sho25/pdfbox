@@ -1967,7 +1967,7 @@ name|ctx
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This method validates if OpenAction entry contains forbidden action type. 	 * It checks too if an Additional Action is present. 	 *  	 * @param ctx 	 * @throws ValidationException Propagate the ActionManager exception 	 */
+comment|/**      * This method validates if OpenAction entry contains forbidden action type. It checks too if an Additional Action      * is present.      *       * @param ctx      * @throws ValidationException      *             Propagate the ActionManager exception      */
 specifier|protected
 name|void
 name|validateActions
@@ -1992,7 +1992,7 @@ argument_list|,
 name|ACTIONS_PROCESS
 argument_list|)
 expr_stmt|;
-comment|// 	AA entry if forbidden in PDF/A-1
+comment|// AA entry if forbidden in PDF/A-1
 name|COSBase
 name|aa
 init|=
@@ -2028,7 +2028,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * The Lang element is optional but it is recommended. This method check the 	 * Syntax of the Lang if this entry is present. 	 *  	 * @param ctx 	 * @throws ValidationException 	 */
+comment|/**      * The Lang element is optional but it is recommended. This method check the Syntax of the Lang if this entry is      * present.      *       * @param ctx      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateLang
@@ -2083,7 +2083,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * A Catalog shall not contain the EmbeddedFiles entry. 	 *  	 * @param ctx 	 * @throws ValidationException 	 */
+comment|/**      * A Catalog shall not contain the EmbeddedFiles entry.      *       * @param ctx      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateNames
@@ -2140,7 +2140,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * A Catalog shall not contain the OCPProperties (Optional Content Properties) entry. 	 *  	 * @param ctx 	 * @throws ValidationException 	 */
+comment|/**      * A Catalog shall not contain the OCPProperties (Optional Content Properties) entry.      *       * @param ctx      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateOCProperties
@@ -2176,7 +2176,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * This method checks the content of each OutputIntent. The S entry must 	 * contain GTS_PDFA1. The DestOuputProfile must contain a valid ICC Profile 	 * Stream. 	 *  	 * If there are more than one OutputIntent, they have to use the same ICC 	 * Profile. 	 *  	 * This method returns a list of ValidationError. It is empty if no errors 	 * have been found. 	 *  	 * @param ctx 	 * @throws ValidationException 	 */
+comment|/**      * This method checks the content of each OutputIntent. The S entry must contain GTS_PDFA1. The DestOuputProfile      * must contain a valid ICC Profile Stream.      *       * If there are more than one OutputIntent, they have to use the same ICC Profile.      *       * This method returns a list of ValidationError. It is empty if no errors have been found.      *       * @param ctx      * @throws ValidationException      */
 specifier|public
 name|void
 name|validateOutputIntent
@@ -2378,7 +2378,7 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-comment|/* If OutputConditionIdentifier is "Custom" or a non Standard ICC Characterization :  				 * DestOutputProfile and Info are mandatory   				 * DestOutputProfile must be a ICC Profile 				 *  				 * Because of PDF/A conforming file needs to specify the color characteristics, the DestOutputProfile 				 * is checked even if the OutputConditionIdentifier isn't "Custom" 				 */
+comment|/*                  * If OutputConditionIdentifier is "Custom" or a non Standard ICC Characterization : DestOutputProfile                  * and Info are mandatory DestOutputProfile must be a ICC Profile                  *                   * Because of PDF/A conforming file needs to specify the color characteristics, the DestOutputProfile is                  * checked even if the OutputConditionIdentifier isn't "Custom"                  */
 name|COSBase
 name|destOutputProfile
 init|=
@@ -2480,7 +2480,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/** 	 * This method checks the destOutputProfile which must be a valid ICCProfile. 	 *  	 * If an other ICCProfile exists in the mapDestOutputProfile, a 	 * ValdiationError (ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_MULTIPLE) is 	 * returned because of only one profile is authorized. If the ICCProfile 	 * already exist in the mapDestOutputProfile, the method returns null. If the 	 * destOutputProfile contains an invalid ICCProfile, a ValidationError 	 * (ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID) is returned If the 	 * destOutputProfile is an empty stream, a 	 * ValidationError(ERROR_GRAPHIC_OUTPUT_INTENT_INVALID_ENTRY) is returned. 	 *  	 * If the destOutputFile is valid, mapDestOutputProfile is updated, the 	 * ICCProfile is added to the document ctx and null is returned. 	 *  	 * @param destOutputProfile 	 * @param tmpDestOutputProfile 	 * @param ctx 	 * @return 	 * @throws ValidationException 	 */
+comment|/**      * This method checks the destOutputProfile which must be a valid ICCProfile.      *       * If an other ICCProfile exists in the mapDestOutputProfile, a ValdiationError      * (ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_MULTIPLE) is returned because of only one profile is authorized. If the      * ICCProfile already exist in the mapDestOutputProfile, the method returns null. If the destOutputProfile contains      * an invalid ICCProfile, a ValidationError (ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID) is returned If the      * destOutputProfile is an empty stream, a ValidationError(ERROR_GRAPHIC_OUTPUT_INTENT_INVALID_ENTRY) is returned.      *       * If the destOutputFile is valid, mapDestOutputProfile is updated, the ICCProfile is added to the document ctx and      * null is returned.      *       * @param destOutputProfile      * @param tmpDestOutputProfile      * @param ctx      * @return      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateICCProfile
@@ -2511,7 +2511,7 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return ;
+return|return;
 block|}
 comment|// destOutputProfile should be an instance of COSObject because of this is a object reference
 if|if
@@ -2539,7 +2539,7 @@ argument_list|)
 condition|)
 block|{
 comment|// the profile is already checked. continue
-return|return ;
+return|return;
 block|}
 elseif|else
 if|if
@@ -2567,7 +2567,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// else  the profile will be kept in the tmpDestOutputProfile if it is valid
+comment|// else the profile will be kept in the tmpDestOutputProfile if it is valid
 block|}
 comment|// keep reference to avoid multiple profile definition
 name|mapDestOutputProfile
@@ -2709,7 +2709,7 @@ argument_list|,
 name|error
 argument_list|)
 expr_stmt|;
-return|return ;
+return|return;
 block|}
 comment|// else OK
 block|}
@@ -2755,7 +2755,7 @@ argument_list|,
 name|error
 argument_list|)
 expr_stmt|;
-return|return ;
+return|return;
 block|}
 comment|// else seems less than 2, so correct
 if|if

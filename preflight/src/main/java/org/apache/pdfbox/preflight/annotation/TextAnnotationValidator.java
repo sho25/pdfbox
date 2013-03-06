@@ -136,7 +136,7 @@ name|TextAnnotationValidator
 extends|extends
 name|AnnotationValidator
 block|{
-comment|/**    * PDFBox object which wraps the annotation dictionary    */
+comment|/**      * PDFBox object which wraps the annotation dictionary      */
 specifier|protected
 name|PDAnnotationText
 name|pdText
@@ -179,7 +179,7 @@ operator|.
 name|pdText
 expr_stmt|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @see    * net.awl.edoc.pdfa.validation.annotation.AnnotationValidator#checkFlags(    * java.util.List)    */
+comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.annotation.AnnotationValidator#checkFlags( java.util.List)      */
 specifier|protected
 name|boolean
 name|checkFlags
@@ -194,7 +194,7 @@ operator|.
 name|checkFlags
 argument_list|()
 decl_stmt|;
-comment|/*      * For Text Annotation, this two flags should be set to avoid potential      * ambiguity between the annotation dictionary and the reader behavior.      */
+comment|/*          * For Text Annotation, this two flags should be set to avoid potential ambiguity between the annotation          * dictionary and the reader behavior.          */
 name|result
 operator|=
 name|result
@@ -239,7 +239,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator#    * checkMandatoryFields(java.util.List)    */
+comment|/*      * (non-Javadoc)      *       * @seenet.awl.edoc.pdfa.validation.annotation.AnnotationValidator# checkMandatoryFields(java.util.List)      */
 specifier|protected
 name|boolean
 name|checkMandatoryFields
@@ -301,7 +301,7 @@ operator|.
 name|CONTENTS
 argument_list|)
 decl_stmt|;
-comment|/*      * Since PDF 1.5, two optional entries are possible. These new entries      * seem to e compatible with the PDF/A specification (used to set a State to      * the annotation - ex : rejected, reviewed...)      */
+comment|/*          * Since PDF 1.5, two optional entries are possible. These new entries seem to e compatible with the PDF/A          * specification (used to set a State to the annotation - ex : rejected, reviewed...)          */
 name|boolean
 name|result
 init|=

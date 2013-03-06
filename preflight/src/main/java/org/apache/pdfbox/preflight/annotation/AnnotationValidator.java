@@ -389,14 +389,14 @@ name|cosDocument
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * COSDictionary of the annotation 	 */
+comment|/**      * COSDictionary of the annotation      */
 specifier|protected
 name|COSDictionary
 name|annotDictionary
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * Instance of PDAnnotation built using the annotDictionary 	 */
+comment|/**      * Instance of PDAnnotation built using the annotDictionary      */
 specifier|protected
 name|PDAnnotation
 name|pdAnnot
@@ -443,7 +443,7 @@ name|getDocument
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Checks if flags of the annotation are authorized. 	 *<UL> 	 *<li>Print flag must be 1 	 *<li>NoView flag must be 0 	 *<li>Hidden flag must be 0 	 *<li>Invisible flag must be 0 	 *</UL> 	 * If one of these flags is invalid, the errors list is updated with the 	 * ERROR_ANNOT_FORBIDDEN_FLAG ValidationError code. 	 *  	 * @return false if a flag is invalid, true otherwise. 	 */
+comment|/**      * Checks if flags of the annotation are authorized.      *<UL>      *<li>Print flag must be 1      *<li>NoView flag must be 0      *<li>Hidden flag must be 0      *<li>Invisible flag must be 0      *</UL>      * If one of these flags is invalid, the errors list is updated with the ERROR_ANNOT_FORBIDDEN_FLAG ValidationError      * code.      *       * @return false if a flag is invalid, true otherwise.      */
 specifier|protected
 name|boolean
 name|checkFlags
@@ -526,7 +526,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/** 	 * Check if the CA value is 1.0. Return true if the CA element is missing or 	 * if the value is 1.0. Return false otherwise and update the list of 	 * errors present in the DocumentHandler. 	 *  	 * @return 	 */
+comment|/**      * Check if the CA value is 1.0. Return true if the CA element is missing or if the value is 1.0. Return false      * otherwise and update the list of errors present in the DocumentHandler.      *       * @return      */
 specifier|protected
 name|boolean
 name|checkCA
@@ -596,12 +596,12 @@ literal|false
 return|;
 block|}
 block|}
-comment|//else  optional field,  ok
+comment|// else optional field, ok
 return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * Return true if the C field is present in the Annotation dictionary and if 	 * the RGB profile is used in the DestOutputProfile of the OutputIntent 	 * dictionary. 	 *  	 * @return 	 */
+comment|/**      * Return true if the C field is present in the Annotation dictionary and if the RGB profile is used in the      * DestOutputProfile of the OutputIntent dictionary.      *       * @return      */
 specifier|protected
 name|boolean
 name|checkColors
@@ -650,7 +650,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * Search the RGB Profile in OutputIntents dictionaries 	 *  	 * @return true if a rgb profile is found, false otherwise. 	 */
+comment|/**      * Search the RGB Profile in OutputIntents dictionaries      *       * @return true if a rgb profile is found, false otherwise.      */
 specifier|protected
 name|boolean
 name|searchRGBProfile
@@ -686,7 +686,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/** 	 * This method checks the AP entry of the Annotation Dictionary. If the AP key 	 * is missing, this method returns true. If the AP key exists, only the N 	 * entry is authorized and must be a Stream which define the appearance of the 	 * annotation. (Currently, only the type of the N entry is checked because of 	 * the Appearance stream is a Form XObject, so it will be checked by the 	 * Graphics Helper) 	 *  	 * If the AP content isn't valid, this method return false and updates the 	 * errors list. 	 * @return 	 */
+comment|/**      * This method checks the AP entry of the Annotation Dictionary. If the AP key is missing, this method returns true.      * If the AP key exists, only the N entry is authorized and must be a Stream which define the appearance of the      * annotation. (Currently, only the type of the N entry is checked because of the Appearance stream is a Form      * XObject, so it will be checked by the Graphics Helper)      *       * If the AP content isn't valid, this method return false and updates the errors list.      *       * @return      */
 specifier|protected
 name|boolean
 name|checkAP
@@ -865,12 +865,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//else  ok, nothing to check,this field is optional
+comment|// else ok, nothing to check,this field is optional
 return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * Extract a list of ActionManager from the Annotation dictionary and valid 	 * them. If an action is invalid, the errors list is updated and the method 	 * returns false. Otherwise, the method returns true and the errors list 	 * doesn't change. 	 *  	 * @return 	 * @throws ValidationException 	 */
+comment|/**      * Extract a list of ActionManager from the Annotation dictionary and valid them. If an action is invalid, the      * errors list is updated and the method returns false. Otherwise, the method returns true and the errors list      * doesn't change.      *       * @return      * @throws ValidationException      */
 specifier|protected
 name|boolean
 name|checkActions
@@ -893,7 +893,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * This method validates the Popup entry. This entry shall contain an other 	 * Annotation. This annotation is validated with the right 	 * AnnotationValidator. 	 *  	 * @param errors 	 * @return 	 * @throws ValidationException 	 */
+comment|/**      * This method validates the Popup entry. This entry shall contain an other Annotation. This annotation is validated      * with the right AnnotationValidator.      *       * @param errors      * @return      * @throws ValidationException      */
 specifier|protected
 name|boolean
 name|checkPopup
@@ -981,7 +981,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * Execute validation of the Annotation dictionary. 	 *  	 * @return true if validation succeed, false otherwise. 	 * @throws ValidationException 	 */
+comment|/**      * Execute validation of the Annotation dictionary.      *       * @return true if validation succeed, false otherwise.      * @throws ValidationException      */
 specifier|public
 name|boolean
 name|validate
@@ -1041,14 +1041,14 @@ return|return
 name|isValide
 return|;
 block|}
-comment|/** 	 * Checks if all mandatory fields of an annotation are present. If some fields 	 * are missing, the method returns false and the errors list is updated. 	 *  	 * @param errors 	 *          list of errors which is updated if validation fails 	 * @return true if validation succeed, false otherwise. 	 */
+comment|/**      * Checks if all mandatory fields of an annotation are present. If some fields are missing, the method returns false      * and the errors list is updated.      *       * @param errors      *            list of errors which is updated if validation fails      * @return true if validation succeed, false otherwise.      */
 specifier|protected
 specifier|abstract
 name|boolean
 name|checkMandatoryFields
 parameter_list|()
 function_decl|;
-comment|/** 	 * Initialize the annotFact attribute of this object. 	 * This method must be called by the Factory at the creation of this object. 	 * Only the Factory should call this method. 	 *   	 * @param fact 	 */
+comment|/**      * Initialize the annotFact attribute of this object. This method must be called by the Factory at the creation of      * this object. Only the Factory should call this method.      *       * @param fact      */
 specifier|public
 specifier|final
 name|void

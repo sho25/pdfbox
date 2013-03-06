@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This factory create the right Helper according to the owner of the ColorSpace  * entry.  */
+comment|/**  * This factory create the right Helper according to the owner of the ColorSpace entry.  */
 end_comment
 
 begin_class
@@ -58,7 +58,7 @@ specifier|public
 class|class
 name|ColorSpaceHelperFactory
 block|{
-comment|/**    * Return an instance of ColorSpaceHelper according to the    * ColorSpaceRestiction value.    *<UL>    *<li>ColorSpaceRestiction.NO_PATTERN : returns NoPatternColorSpaceHelper    *<li>ColorSpaceRestiction.ONLY_DEVICE : returns DeviceColorSpaceHelper    *<li>default : returns StandardColorSpaceHelper    *</UL>    *     * @param context    *          the PreflightContext to access useful data    * @param cs    *          the High level PDFBox object which represents the ColorSpace    * @param csr    *          the color space restriction    * @return    */
+comment|/**      * Return an instance of ColorSpaceHelper according to the ColorSpaceRestiction value.      *<UL>      *<li>ColorSpaceRestiction.NO_PATTERN : returns NoPatternColorSpaceHelper      *<li>ColorSpaceRestiction.ONLY_DEVICE : returns DeviceColorSpaceHelper      *<li>default : returns StandardColorSpaceHelper      *</UL>      *       * @param context      *            the PreflightContext to access useful data      * @param cs      *            the High level PDFBox object which represents the ColorSpace      * @param csr      *            the color space restriction      * @return      */
 specifier|public
 name|ColorSpaceHelper
 name|getColorSpaceHelper
@@ -114,7 +114,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**    * Enum used as argument of methods of this factory to return the right    * Helper.    */
+comment|/**      * Enum used as argument of methods of this factory to return the right Helper.      */
 specifier|public
 enum|enum
 name|ColorSpaceRestriction
@@ -124,7 +124,7 @@ block|,
 name|NO_PATTERN
 block|,
 name|ONLY_DEVICE
-block|;   }
+block|;     }
 block|}
 end_class
 

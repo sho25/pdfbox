@@ -442,7 +442,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Create the right "Validator" object for the given font type 	 * @param font 	 * @return 	 */
+comment|/**      * Create the right "Validator" object for the given font type      *       * @param font      * @return      */
 specifier|protected
 name|FontValidator
 argument_list|<

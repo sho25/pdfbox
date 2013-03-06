@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class contains a static list of RenderingIntent values to allow an easy  * RenderingIntent value validation. Here is the content of the RenderingIntent  * list :  *<UL>  *<li>Perceptual  *<li>Saturation  *<li>AbsoluteColorimetric  *<li>RelativeColorimetric  *</UL>  */
+comment|/**  * This class contains a static list of RenderingIntent values to allow an easy RenderingIntent value validation. Here  * is the content of the RenderingIntent list :  *<UL>  *<li>Perceptual  *<li>Saturation  *<li>AbsoluteColorimetric  *<li>RelativeColorimetric  *</UL>  */
 end_comment
 
 begin_class

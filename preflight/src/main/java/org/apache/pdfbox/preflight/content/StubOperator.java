@@ -358,7 +358,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This implementation of OperatorProcessor allow the operator validation  * according PDF/A rules without compute the operator actions.  */
+comment|/**  * This implementation of OperatorProcessor allow the operator validation according PDF/A rules without compute the  * operator actions.  */
 end_comment
 
 begin_class
@@ -368,7 +368,7 @@ name|StubOperator
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/*    * (non-Javadoc)    *     * @see    * org.apache.pdfbox.util.operator.OperatorProcessor#process(org.apache.pdfbox    * .util.PDFOperator, java.util.List)    */
+comment|/*      * (non-Javadoc)      *       * @see org.apache.pdfbox.util.operator.OperatorProcessor#process(org.apache.pdfbox .util.PDFOperator,      * java.util.List)      */
 annotation|@
 name|Override
 specifier|public
@@ -1127,7 +1127,7 @@ comment|// else
 comment|// ---- Some operators are processed by PDFBox Objects.
 comment|// ---- Other operators are authorized but it isn't used.
 block|}
-comment|/**    * If the arguments list of Operator isn't empty, this method throws a    * ContentStreamException.    *     * @param arguments    * @throws ContentStreamException    */
+comment|/**      * If the arguments list of Operator isn't empty, this method throws a ContentStreamException.      *       * @param arguments      * @throws ContentStreamException      */
 specifier|private
 name|void
 name|checkNoOperands
@@ -1160,7 +1160,7 @@ argument_list|()
 throw|;
 block|}
 block|}
-comment|/**    * If the arguments list of Operator doesn't have String parameter, this    * method throws a ContentStreamException.    *     * @param arguments    * @param length    * @throws ContentStreamException    */
+comment|/**      * If the arguments list of Operator doesn't have String parameter, this method throws a ContentStreamException.      *       * @param arguments      * @param length      * @throws ContentStreamException      */
 specifier|private
 name|void
 name|checkStringOperands
@@ -1314,7 +1314,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**    * If the arguments list of Operator doesn't have Array parameter, this method    * throws a ContentStreamException.    *     * @param arguments    * @param length    * @throws ContentStreamException    */
+comment|/**      * If the arguments list of Operator doesn't have Array parameter, this method throws a ContentStreamException.      *       * @param arguments      * @param length      * @throws ContentStreamException      */
 specifier|private
 name|void
 name|checkArrayOperands
@@ -1433,7 +1433,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**    * If the arguments list of Operator doesn't have Number parameters (Int,    * float...), this method throws a ContentStreamException.    *     * @param arguments    *          the arguments list to check    * @param length    *          the expected size of the list    * @throws ContentStreamException    */
+comment|/**      * If the arguments list of Operator doesn't have Number parameters (Int, float...), this method throws a      * ContentStreamException.      *       * @param arguments      *            the arguments list to check      * @param length      *            the expected size of the list      * @throws ContentStreamException      */
 specifier|private
 name|void
 name|checkNumberOperands
@@ -1611,7 +1611,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**    * The given arguments list is valid only if the first argument is a Tag (A    * String) and if the second argument is a String or a Dictionary    *     * @param arguments    * @throws ContentStreamException    */
+comment|/**      * The given arguments list is valid only if the first argument is a Tag (A String) and if the second argument is a      * String or a Dictionary      *       * @param arguments      * @throws ContentStreamException      */
 specifier|private
 name|void
 name|checkTagAndPropertyOperands
@@ -1889,7 +1889,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Create a ContentStreamException with    * ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT.    *     * @return    */
+comment|/**      * Create a ContentStreamException with ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT.      *       * @return      */
 specifier|private
 name|ContentStreamException
 name|createInvalidArgumentsError
@@ -1915,7 +1915,7 @@ return|return
 name|ex
 return|;
 block|}
-comment|/**    * Create a ContentStreamException with    * ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT.    *     * @return    */
+comment|/**      * Create a ContentStreamException with ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT.      *       * @return      */
 specifier|private
 name|ContentStreamException
 name|createLimitError

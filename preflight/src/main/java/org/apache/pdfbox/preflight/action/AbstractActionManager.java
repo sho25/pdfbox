@@ -109,35 +109,35 @@ specifier|abstract
 class|class
 name|AbstractActionManager
 block|{
-comment|/**    * ActionManager factory used to create new ActionManager    */
+comment|/**      * ActionManager factory used to create new ActionManager      */
 specifier|protected
 name|ActionManagerFactory
 name|actionFact
 init|=
 literal|null
 decl_stmt|;
-comment|/**    * Action name in a Additional Action dictionary    */
+comment|/**      * Action name in a Additional Action dictionary      */
 specifier|protected
 name|String
 name|aaKey
 init|=
 literal|null
 decl_stmt|;
-comment|/**    * The action dictionary checked by this class    */
+comment|/**      * The action dictionary checked by this class      */
 specifier|protected
 name|COSDictionary
 name|actionDictionnary
 init|=
 literal|null
 decl_stmt|;
-comment|/**    * The validation context    */
+comment|/**      * The validation context      */
 specifier|protected
 name|PreflightContext
 name|context
 init|=
 literal|null
 decl_stmt|;
-comment|/**    *     * @param amFact    *          Instance of ActionManagerFactory used to create ActionManager to    *          check Next actions.    * @param adict    *          the COSDictionary of the action wrapped by this class.    * @param ctx the validation context .    * @param aaKey    *          The name of the key which identify the action in a additional    *          action dictionary.    */
+comment|/**      *       * @param amFact      *            Instance of ActionManagerFactory used to create ActionManager to check Next actions.      * @param adict      *            the COSDictionary of the action wrapped by this class.      * @param ctx      *            the validation context .      * @param aaKey      *            The name of the key which identify the action in a additional action dictionary.      */
 name|AbstractActionManager
 parameter_list|(
 name|ActionManagerFactory
@@ -178,7 +178,7 @@ operator|=
 name|ctx
 expr_stmt|;
 block|}
-comment|/**    * @return the isAdditionalAction    */
+comment|/**      * @return the isAdditionalAction      */
 specifier|public
 name|boolean
 name|isAdditionalAction
@@ -192,7 +192,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**    * @return the actionDictionnary    */
+comment|/**      * @return the actionDictionnary      */
 specifier|public
 name|COSDictionary
 name|getActionDictionnary
@@ -202,7 +202,7 @@ return|return
 name|actionDictionnary
 return|;
 block|}
-comment|/**    * @return the aaKey    */
+comment|/**      * @return the aaKey      */
 specifier|public
 name|String
 name|getAdditionalActionKey
@@ -212,7 +212,7 @@ return|return
 name|aaKey
 return|;
 block|}
-comment|/**    * This method create a list of Action Managers which represent actions in the    * Next entry of the current action dictionary. For each Next Action, the    * innerValid is called and the method returns false if a validation fails.    *     * @return True if all Next Action are valid, false otherwise.    * @throws ValidationException    */
+comment|/**      * This method create a list of Action Managers which represent actions in the Next entry of the current action      * dictionary. For each Next Action, the innerValid is called and the method returns false if a validation fails.      *       * @return True if all Next Action are valid, false otherwise.      * @throws ValidationException      */
 specifier|protected
 name|boolean
 name|validNextActions
@@ -267,7 +267,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**    * Call the valid(boolean, List) method with the additonalActionAuth set to    * false.    *     * @param error    *          the validation error list to updated if the validation fails.    * @return    * @throws ValidationException    */
+comment|/**      * Call the valid(boolean, List) method with the additonalActionAuth set to false.      *       * @param error      *            the validation error list to updated if the validation fails.      * @return      * @throws ValidationException      */
 specifier|public
 name|boolean
 name|valid
@@ -282,7 +282,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**    * Validate an Action dictionary.    *     * Return false if the dictionary is invalid (ex : missing key). If the    * ActionManager represents an AdditionalAction, this method returns false and    * updates the error list when the additonalActionAuth parameter is set to    * false.    *     * This method call the innerValid method to process specific checks according    * to the action type.    *     * If innerValid successes, all actions contained in the Next entry of the    * Action dictionary are validated.    *     * @param additonalActionAuth    *          boolean to know if an additional action is authorized.    * @return     * @throws ValidationException    */
+comment|/**      * Validate an Action dictionary.      *       * Return false if the dictionary is invalid (ex : missing key). If the ActionManager represents an      * AdditionalAction, this method returns false and updates the error list when the additonalActionAuth parameter is      * set to false.      *       * This method call the innerValid method to process specific checks according to the action type.      *       * If innerValid successes, all actions contained in the Next entry of the Action dictionary are validated.      *       * @param additonalActionAuth      *            boolean to know if an additional action is authorized.      * @return      * @throws ValidationException      */
 specifier|public
 name|boolean
 name|valid
@@ -334,7 +334,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**    * This method must be implemented by inherited classes to process specific    * validation.    *     * @return True if the action is valid, false otherwise.    */
+comment|/**      * This method must be implemented by inherited classes to process specific validation.      *       * @return True if the action is valid, false otherwise.      */
 specifier|protected
 specifier|abstract
 name|boolean

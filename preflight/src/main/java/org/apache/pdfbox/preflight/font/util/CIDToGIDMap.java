@@ -96,7 +96,7 @@ name|map
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * Copy the unfiltered stream content in a byte array. 	 * @param stream 	 * @throws IOException if the stream can't be copied 	 */
+comment|/**      * Copy the unfiltered stream content in a byte array.      *       * @param stream      * @throws IOException      *             if the stream can't be copied      */
 specifier|public
 name|void
 name|parseStream
@@ -166,7 +166,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Return the glyph index according to the CID. 	 * @param cid 	 * @return 	 */
+comment|/**      * Return the glyph index according to the CID.      *       * @param cid      * @return      */
 specifier|public
 name|int
 name|getGID

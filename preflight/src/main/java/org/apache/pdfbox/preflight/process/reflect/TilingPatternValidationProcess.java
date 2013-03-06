@@ -393,7 +393,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Validate the Pattern content like Color and Show Text Operators using an 	 * instance of ContentStreamWrapper. 	 */
+comment|/**      * Validate the Pattern content like Color and Show Text Operators using an instance of ContentStreamWrapper.      */
 specifier|protected
 name|void
 name|parsePatternContent
@@ -435,7 +435,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This method checks if required fields are present. 	 */
+comment|/**      * This method checks if required fields are present.      */
 specifier|protected
 name|void
 name|checkMandatoryFields

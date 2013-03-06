@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to return a non null ValidationProcess when a missing process is asked  * to the ConfigurationBean only if the errorOnMissingProcess configuration attribute is set to false.  *  */
+comment|/**  * This class is used to return a non null ValidationProcess when a missing process is asked to the ConfigurationBean  * only if the errorOnMissingProcess configuration attribute is set to false.  *   */
 end_comment
 
 begin_class

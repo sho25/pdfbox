@@ -400,7 +400,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Return true if the Count entry is present in the given dictionary. 	 *  	 * @param outline 	 * @return 	 */
+comment|/**      * Return true if the Count entry is present in the given dictionary.      *       * @param outline      * @return      */
 specifier|private
 name|boolean
 name|isCountEntryPresent
@@ -425,7 +425,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/** 	 * return true if Count entry> 0 	 * @param outline 	 * @param doc 	 * @return 	 */
+comment|/**      * return true if Count entry> 0      *       * @param outline      * @param doc      * @return      */
 specifier|private
 name|boolean
 name|isCountEntryPositive
@@ -487,7 +487,7 @@ literal|0
 operator|)
 return|;
 block|}
-comment|/** 	 * This method explores the Outline Item Level and call a validation method on 	 * each Outline Item. If an invalid outline item is found, the result list is 	 * updated. 	 *  	 * @param inputItem 	 *          The first outline item of the level 	 * @param ctx 	 *          The document handler which provides useful data for the level 	 *          exploration (ex : access to the PDDocument) 	 * @return true if all items are valid in this level. 	 * @throws ValidationException 	 */
+comment|/**      * This method explores the Outline Item Level and call a validation method on each Outline Item. If an invalid      * outline item is found, the result list is updated.      *       * @param inputItem      *            The first outline item of the level      * @param ctx      *            The document handler which provides useful data for the level exploration (ex : access to the      *            PDDocument)      * @return true if all items are valid in this level.      * @throws ValidationException      */
 specifier|protected
 name|boolean
 name|exploreOutlineLevel
@@ -540,7 +540,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * This method checks the inputItem dictionary and call the 	 * exploreOutlineLevel method on the first child if it is not null. 	 *  	 * @param inputItem 	 *          outline item to validate 	 * @param ctx 	 *          The document handler which provides useful data for the level 	 *          exploration (ex : access to the PDDocument) 	 * @param result 	 * @return 	 * @throws ValidationException 	 */
+comment|/**      * This method checks the inputItem dictionary and call the exploreOutlineLevel method on the first child if it is      * not null.      *       * @param inputItem      *            outline item to validate      * @param ctx      *            The document handler which provides useful data for the level exploration (ex : access to the      *            PDDocument)      * @param result      * @return      * @throws ValidationException      */
 specifier|protected
 name|boolean
 name|validateItem

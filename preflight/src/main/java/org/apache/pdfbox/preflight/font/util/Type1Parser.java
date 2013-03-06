@@ -352,35 +352,35 @@ name|TOKEN_ENCODING
 init|=
 literal|"US-ASCII"
 decl_stmt|;
-comment|/** 	 * The PostScript font stream. 	 */
+comment|/**      * The PostScript font stream.      */
 specifier|private
 name|PeekInputStream
 name|fontProgram
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * The length in bytes of the clear-text portion of the Type1 font program. 	 */
+comment|/**      * The length in bytes of the clear-text portion of the Type1 font program.      */
 specifier|private
 name|int
 name|clearTextSize
 init|=
 literal|0
 decl_stmt|;
-comment|/** 	 * The length in bytes of the eexec encrypted portion of the type1 font 	 * program. 	 */
+comment|/**      * The length in bytes of the eexec encrypted portion of the type1 font program.      */
 specifier|private
 name|int
 name|eexecSize
 init|=
 literal|0
 decl_stmt|;
-comment|/** 	 * This counter is used to know how many byte have been read. 	 * It is used to read the clear part of the font. this computer is 	 * updated during the parsing of the encoding part too but it is not  	 * used. 	 */
+comment|/**      * This counter is used to know how many byte have been read. It is used to read the clear part of the font. this      * computer is updated during the parsing of the encoding part too but it is not used.      */
 specifier|private
 name|int
 name|numberOfReadBytes
 init|=
 literal|0
 decl_stmt|;
-comment|/** 	 * Object which contains information coming from the parsing. 	 */
+comment|/**      * Object which contains information coming from the parsing.      */
 specifier|private
 name|Type1
 name|type1Font
@@ -477,7 +477,7 @@ name|NOTDEF
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 *  	 * @param fontProgram the stream of the font program extracted from the PDF file. 	 * @param clearTextLength the length in bytes of the clear part of the font program. 	 * @param eexecLength the length in bytes of the encoded part. 	 * @return 	 * @throws IOException 	 */
+comment|/**      *       * @param fontProgram      *            the stream of the font program extracted from the PDF file.      * @param clearTextLength      *            the length in bytes of the clear part of the font program.      * @param eexecLength      *            the length in bytes of the encoded part.      * @return      * @throws IOException      */
 specifier|public
 specifier|static
 name|Type1Parser
@@ -516,7 +516,7 @@ name|encoding
 argument_list|)
 return|;
 block|}
-comment|/** 	 *  	 * @param fontProgram the stream of the font program extracted from the PDF file. 	 * @param clearTextLength the length in bytes of the clear part of the font program. 	 * @param eexecLength the length in bytes of the encoded part. 	 * @param encodingName The name of encoding which is used by this font program. 	 * @return 	 * @throws IOException 	 */
+comment|/**      *       * @param fontProgram      *            the stream of the font program extracted from the PDF file.      * @param clearTextLength      *            the length in bytes of the clear part of the font program.      * @param eexecLength      *            the length in bytes of the encoded part.      * @param encodingName      *            The name of encoding which is used by this font program.      * @return      * @throws IOException      */
 specifier|public
 specifier|static
 name|Type1Parser
@@ -649,7 +649,7 @@ return|return
 name|encoding
 return|;
 block|}
-comment|/** 	 *  	 * @param fontProgram the stream of the font program extracted from the PDF file. 	 * @param clearTextLength the length in bytes of the clear part of the font program. 	 * @param eexecLength the length in bytes of the encoded part. 	 * @param encodingName The encoding object which is used by this font program. 	 * @return 	 * @throws IOException 	 */
+comment|/**      *       * @param fontProgram      *            the stream of the font program extracted from the PDF file.      * @param clearTextLength      *            the length in bytes of the clear part of the font program.      * @param eexecLength      *            the length in bytes of the encoded part.      * @param encodingName      *            The encoding object which is used by this font program.      * @return      * @throws IOException      */
 specifier|public
 specifier|static
 name|Type1Parser

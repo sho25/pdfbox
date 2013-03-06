@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class defines restrictions on Pattern ColorSpace. It checks the  * consistency of the Color space with the DestOutputIntent, if the color space  * is a Pattern the validation will fail.  */
+comment|/**  * This class defines restrictions on Pattern ColorSpace. It checks the consistency of the Color space with the  * DestOutputIntent, if the color space is a Pattern the validation will fail.  */
 end_comment
 
 begin_class
@@ -110,7 +110,7 @@ name|_cs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * This method updates the given list with a ValidationError    * (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN) and returns false.    */
+comment|/**      * This method updates the given list with a ValidationError (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN)      * and returns false.      */
 specifier|protected
 name|void
 name|processPatternColorSpace

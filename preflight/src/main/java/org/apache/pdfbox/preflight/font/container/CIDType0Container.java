@@ -184,7 +184,7 @@ range|:
 name|cMapping
 control|)
 block|{
-comment|/* 				 * REMARK : May be this code must be changed like the Type1FontContainer to Map the SID with the character name? 				 * Not enough PDF with this kind of Font to test the current implementation 				 */
+comment|/*                  * REMARK : May be this code must be changed like the Type1FontContainer to Map the SID with the                  * character name? Not enough PDF with this kind of Font to test the current implementation                  */
 if|if
 condition|(
 name|mapping
@@ -302,7 +302,7 @@ block|}
 block|}
 else|else
 block|{
-comment|/* 			 * Cid 0 is commonly used as the NotDef Glyph. this glyph can be used as Space. 			 * IN PDF/A-1 the Notdef glyph can be used as space. Not in PDF/A-2 			 */
+comment|/*              * Cid 0 is commonly used as the NotDef Glyph. this glyph can be used as Space. IN PDF/A-1 the Notdef glyph              * can be used as space. Not in PDF/A-2              */
 name|widthInFontProgram
 operator|=
 operator|-
