@@ -93,6 +93,22 @@ name|pdmodel
 operator|.
 name|common
 operator|.
+name|COSObjectable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
 name|PDNameTreeNode
 import|;
 end_import
@@ -157,7 +173,7 @@ expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
 specifier|protected
-name|Object
+name|COSObjectable
 name|convertCOSToPD
 parameter_list|(
 name|COSBase
