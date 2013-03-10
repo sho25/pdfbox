@@ -375,7 +375,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|COSDictionary
+name|COSObjectable
 argument_list|>
 name|numbers
 init|=
@@ -390,7 +390,7 @@ name|Entry
 argument_list|<
 name|Integer
 argument_list|,
-name|COSDictionary
+name|COSObjectable
 argument_list|>
 name|i
 range|:
@@ -409,6 +409,7 @@ argument_list|()
 operator|>=
 literal|0
 condition|)
+block|{
 name|labels
 operator|.
 name|put
@@ -421,6 +422,9 @@ argument_list|,
 operator|new
 name|PDPageLabelRange
 argument_list|(
+operator|(
+name|COSDictionary
+operator|)
 name|i
 operator|.
 name|getValue
@@ -428,6 +432,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -484,6 +489,7 @@ name|item
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc}       */
 specifier|public
 name|COSBase
 name|getCOSObject
