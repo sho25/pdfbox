@@ -662,8 +662,8 @@ name|names
 operator|.
 name|size
 argument_list|()
-operator|>=
-literal|2
+operator|>
+literal|0
 condition|)
 block|{
 name|Object
