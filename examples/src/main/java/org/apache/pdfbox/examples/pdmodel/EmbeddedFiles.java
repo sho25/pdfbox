@@ -43,6 +43,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -63,17 +73,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|SortedMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|TreeMap
+name|List
 import|;
 end_import
 
@@ -436,8 +436,15 @@ argument_list|(
 name|ef
 argument_list|)
 expr_stmt|;
-comment|//now add the entry to the embedded file tree and set in the document.
-name|efTree
+comment|// create a new tree node and add the embedded file
+name|PDEmbeddedFilesNameTreeNode
+name|treeNode
+init|=
+operator|new
+name|PDEmbeddedFilesNameTreeNode
+argument_list|()
+decl_stmt|;
+name|treeNode
 operator|.
 name|setNames
 argument_list|(
@@ -451,6 +458,35 @@ name|fs
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// add the new node as kid to the root node
+name|List
+argument_list|<
+name|PDEmbeddedFilesNameTreeNode
+argument_list|>
+name|kids
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|PDEmbeddedFilesNameTreeNode
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|kids
+operator|.
+name|add
+argument_list|(
+name|treeNode
+argument_list|)
+expr_stmt|;
+name|efTree
+operator|.
+name|setKids
+argument_list|(
+name|kids
+argument_list|)
+expr_stmt|;
+comment|// add the tree to the document catalog
 name|PDDocumentNameDictionary
 name|names
 init|=
