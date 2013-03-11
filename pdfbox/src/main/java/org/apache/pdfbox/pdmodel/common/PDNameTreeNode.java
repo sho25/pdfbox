@@ -495,13 +495,13 @@ name|kids
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|calculateLimits
+comment|// root nodes with kids don't have Names
+if|if
+condition|(
+name|isRootNode
 argument_list|()
-expr_stmt|;
-block|}
-else|else
+condition|)
 block|{
-comment|// Remove Names and Limits if there are no kids
 name|node
 operator|.
 name|setItem
@@ -513,17 +513,11 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|node
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|LIMITS
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// remove kids
 name|node
 operator|.
 name|setItem
@@ -535,7 +529,22 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// remove Limits
+name|node
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|LIMITS
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
+name|calculateLimits
+argument_list|()
+expr_stmt|;
 block|}
 specifier|private
 name|void
