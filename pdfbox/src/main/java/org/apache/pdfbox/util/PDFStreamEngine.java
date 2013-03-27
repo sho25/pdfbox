@@ -1342,7 +1342,7 @@ name|pageHeight
 init|=
 name|page
 operator|.
-name|findMediaBox
+name|findCropBox
 argument_list|()
 operator|.
 name|getHeight
@@ -1353,7 +1353,7 @@ name|pageWidth
 init|=
 name|page
 operator|.
-name|findMediaBox
+name|findCropBox
 argument_list|()
 operator|.
 name|getWidth
