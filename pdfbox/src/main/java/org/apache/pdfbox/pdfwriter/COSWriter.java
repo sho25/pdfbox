@@ -4557,6 +4557,9 @@ comment|// the trailer section should only be used for xref tables not for xref 
 if|if
 condition|(
 operator|!
+name|incrementalUpdate
+operator|||
+operator|!
 name|doc
 operator|.
 name|isXRefStream
