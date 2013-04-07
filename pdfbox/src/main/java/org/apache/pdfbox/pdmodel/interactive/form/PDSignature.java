@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class for handling the PDF field as a signature.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
+comment|/**  * A class for handling the PDF field as a signature.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  *   * @deprecated Use {@link PDSignatureField} instead (see PDFBOX-1513).  */
 end_comment
 
 begin_class
@@ -72,6 +72,30 @@ argument_list|,
 name|field
 argument_list|)
 expr_stmt|;
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"The usage of "
+operator|+
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" is deprecated. Please use "
+operator|+
+name|PDSignatureField
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" instead (see PDFBOX-1513)"
+argument_list|)
+throw|;
 block|}
 comment|/**      * @see PDField#setValue(java.lang.String)      *      * @param value The new value for the field.      *      * @throws IOException If there is an error creating the appearance stream.      */
 specifier|public
