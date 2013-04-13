@@ -227,6 +227,24 @@ name|graphics
 operator|.
 name|color
 operator|.
+name|PDLab
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|color
+operator|.
 name|PDPattern
 import|;
 end_import
@@ -274,7 +292,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Set the stroking color space.</p>  *   * @author<a href="mailto:andreas@lehmi.de">Andreas Lehmkühler</a>  * @version $Revision: 1.0 $  */
+comment|/**  *<p>Set the stroking color space.</p>  *   * @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
@@ -289,7 +307,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -477,6 +495,21 @@ name|SetStrokingIndexed
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|colorSpace
+operator|instanceof
+name|PDLab
+condition|)
+block|{
+name|newOperator
+operator|=
+operator|new
+name|SetStrokingLabColor
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|newOperator
@@ -504,7 +537,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -527,7 +560,7 @@ block|}
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
