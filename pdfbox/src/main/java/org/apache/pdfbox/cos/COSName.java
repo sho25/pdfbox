@@ -1261,6 +1261,19 @@ argument_list|(
 literal|"Dests"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DEST_OUTPUT_PROFILE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DestOutputProfile"
+argument_list|)
+decl_stmt|;
 comment|/**     * A common COSName value.     */
 specifier|public
 specifier|static
@@ -2172,6 +2185,18 @@ literal|"Gamma"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|GTS_PDFA1
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"GTS_PDFA1"
+argument_list|)
+decl_stmt|;
 specifier|public
 specifier|static
 specifier|final
@@ -3189,6 +3214,58 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|OUTPUT_INTENT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"OutputIntent"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OUTPUT_INTENTS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"OutputIntents"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OUTPUT_CONDITION
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"OutputCondition"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|OUTPUT_CONDITION_IDENTIFIER
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"OutputConditionIdentifier"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|OPEN_ACTION
 init|=
 operator|new
@@ -3624,6 +3701,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Registry"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|REGISTRY_NAME
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"RegistryName"
 argument_list|)
 decl_stmt|;
 comment|/**     * A common COSName value.     */
