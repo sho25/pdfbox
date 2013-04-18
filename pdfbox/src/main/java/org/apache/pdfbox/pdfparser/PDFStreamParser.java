@@ -1308,11 +1308,12 @@ comment|//always appear before EI? Not sure, I found a PDF
 comment|//(UnderstandingWebSphereClassLoaders.pdf) which has EI as part
 comment|//of the image data and will stop parsing prematurely if there is
 comment|//not a check for<whitespace>EI<whitespace>.
+comment|// Not all whitespaces are allowed here. see PDFBOX1561
 while|while
 condition|(
 operator|!
 operator|(
-name|isWhitespace
+name|isSpaceOrReturn
 argument_list|(
 name|twoBytesAgo
 argument_list|)
@@ -1325,7 +1326,7 @@ name|currentByte
 operator|==
 literal|'I'
 operator|&&
-name|isWhitespace
+name|isSpaceOrReturn
 argument_list|()
 comment|//&&
 comment|//amyuni2_05d__pdf1_3_acro4x.pdf has image data that
@@ -1620,6 +1621,41 @@ name|buffer
 operator|.
 name|toString
 argument_list|()
+return|;
+block|}
+specifier|private
+name|boolean
+name|isSpaceOrReturn
+parameter_list|(
+name|int
+name|c
+parameter_list|)
+block|{
+return|return
+name|c
+operator|==
+literal|13
+operator|||
+name|c
+operator|==
+literal|32
+return|;
+block|}
+specifier|private
+name|boolean
+name|isSpaceOrReturn
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|isSpaceOrReturn
+argument_list|(
+name|pdfSource
+operator|.
+name|peek
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
