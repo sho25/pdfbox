@@ -247,14 +247,24 @@ name|ParserConfigurationException
 name|e
 parameter_list|)
 block|{
-throw|throw
+name|IOException
+name|ioe
+init|=
 operator|new
 name|IOException
 argument_list|(
 literal|"Failed to init document builder"
-argument_list|,
+argument_list|)
+decl_stmt|;
+name|ioe
+operator|.
+name|initCause
+argument_list|(
 name|e
 argument_list|)
+expr_stmt|;
+throw|throw
+name|ioe
 throw|;
 block|}
 block|}
