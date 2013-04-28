@@ -2269,6 +2269,17 @@ range|:
 name|cosObjects
 control|)
 block|{
+if|if
+condition|(
+operator|!
+name|annotNotFound
+operator|&&
+operator|!
+name|sigFieldNotFound
+condition|)
+block|{
+break|break;
+block|}
 name|COSBase
 name|base
 init|=
