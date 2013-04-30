@@ -209,7 +209,7 @@ name|bouncycastle
 operator|.
 name|asn1
 operator|.
-name|DERObject
+name|ASN1Primitive
 import|;
 end_import
 
@@ -1424,7 +1424,7 @@ index|]
 operator|=
 name|one
 expr_stmt|;
-name|DERObject
+name|ASN1Primitive
 name|obj
 init|=
 name|createDERForRecipient
@@ -1739,7 +1739,7 @@ throw|;
 block|}
 block|}
 specifier|private
-name|DERObject
+name|ASN1Primitive
 name|createDERForRecipient
 parameter_list|(
 name|byte
@@ -1800,7 +1800,7 @@ argument_list|(
 name|bytearrayinputstream
 argument_list|)
 decl_stmt|;
-name|DERObject
+name|ASN1Primitive
 name|derobject
 init|=
 name|asn1inputstream
@@ -1961,7 +1961,7 @@ decl_stmt|;
 return|return
 name|contentinfo
 operator|.
-name|getDERObject
+name|toASN1Primitive
 argument_list|()
 return|;
 block|}
