@@ -342,6 +342,14 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|/*              * Fix Oracle JVM Crashes.              * Tested with Oracle JRE 6.0_45-b06 and 7.0_21-b11              */
+name|awtFont
+operator|.
+name|canDisplay
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|awtFont
