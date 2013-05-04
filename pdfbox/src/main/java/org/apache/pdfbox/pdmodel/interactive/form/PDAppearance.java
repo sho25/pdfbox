@@ -1145,9 +1145,6 @@ block|{
 name|COSStream
 name|cosStream
 init|=
-operator|new
-name|COSStream
-argument_list|(
 name|acroForm
 operator|.
 name|getDocument
@@ -1156,9 +1153,8 @@ operator|.
 name|getDocument
 argument_list|()
 operator|.
-name|getScratchFile
+name|createCOSStream
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|appearanceStream
 operator|=

@@ -305,13 +305,6 @@ specifier|private
 name|COSDictionary
 name|trailer
 decl_stmt|;
-comment|/**      * Document signature dictionary.      */
-specifier|private
-name|COSDictionary
-name|signDictionary
-init|=
-literal|null
-decl_stmt|;
 comment|/**      * Signature interface.      */
 specifier|private
 name|SignatureInterface
@@ -481,14 +474,70 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the scratch file for this document.      *      * @return The scratch file.      */
+comment|/**      * This will get the scratch file for this document.      *      * @return The scratch file.      *       *       */
 specifier|public
 name|RandomAccess
 name|getScratchFile
 parameter_list|()
 block|{
+comment|// TODO the direct access to the scratch file should be removed.
+if|if
+condition|(
+operator|!
+name|closed
+condition|)
+block|{
 return|return
 name|scratchFile
+return|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Can't access the scratch file as it is already closed!"
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+block|}
+comment|/**      * Create a new COSStream using the underlying scratch file.      *       * @return the new COSStream      */
+specifier|public
+name|COSStream
+name|createCOSStream
+parameter_list|()
+block|{
+return|return
+operator|new
+name|COSStream
+argument_list|(
+name|getScratchFile
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Create a new COSStream using the underlying scratch file.      *      * @param dictionary the corresponding dictionary      *       * @return the new COSStream      */
+specifier|public
+name|COSStream
+name|createCOSStream
+parameter_list|(
+name|COSDictionary
+name|dictionary
+parameter_list|)
+block|{
+return|return
+operator|new
+name|COSStream
+argument_list|(
+name|dictionary
+argument_list|,
+name|getScratchFile
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * This will get the first dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      * @throws IOException If there is an error getting the object      */

@@ -273,17 +273,13 @@ parameter_list|)
 block|{
 name|stream
 operator|=
-operator|new
-name|COSStream
-argument_list|(
 name|document
 operator|.
 name|getDocument
 argument_list|()
 operator|.
-name|getScratchFile
+name|createCOSStream
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Constructor.      *       * @param str      *            The stream parameter.      */
@@ -347,17 +343,13 @@ try|try
 block|{
 name|stream
 operator|=
-operator|new
-name|COSStream
-argument_list|(
 name|doc
 operator|.
 name|getDocument
 argument_list|()
 operator|.
-name|getScratchFile
+name|createCOSStream
 argument_list|()
-argument_list|)
 expr_stmt|;
 if|if
 condition|(

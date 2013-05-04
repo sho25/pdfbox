@@ -319,7 +319,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the scratch file associated with this stream.      *      * @return The scratch file where this stream is being stored.      */
+comment|/**      * This will get the scratch file associated with this stream.      *      * @return The scratch file where this stream is being stored.      *       */
 specifier|public
 name|RandomAccess
 name|getScratchFile

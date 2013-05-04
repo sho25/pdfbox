@@ -1864,6 +1864,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|FIRST
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"First"
+argument_list|)
+decl_stmt|;
+comment|/**     * A common COSName value.     */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|FIRST_CHAR
 init|=
 operator|new
