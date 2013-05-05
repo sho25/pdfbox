@@ -3088,12 +3088,7 @@ argument_list|(
 name|document
 operator|.
 name|createCOSStream
-argument_list|(
-name|src
-operator|.
-name|getStream
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|importedPage
