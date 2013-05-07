@@ -83,6 +83,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|pdmodel
@@ -106,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will take a PDF document and strip out all of the text and ignore the  * formatting and such.  Please note; it is up to clients of this class to verify that  * a specific user has the correct permissions to extract text from the  * PDF document.  *<p>  * Patterned after PDFTextStripper.  *  * @author<a href="mailto:DanielWilson@Users.SourceForge.net">Daniel Wilson</a>  * @version $Revision: 1.1 $  */
+comment|/**  * This class writes single pages of a pdf to a file.  *   * @author<a href="mailto:DanielWilson@Users.SourceForge.net">Daniel Wilson</a>  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -116,12 +144,28 @@ name|PDFImageWriter
 extends|extends
 name|PDFStreamEngine
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDFImageWriter
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Instantiate a new PDFImageWriter object.      */
 specifier|public
 name|PDFImageWriter
 parameter_list|()
 block|{     }
-comment|/**      * Instantiate a new PDFImageWriter object.  Loading all of the operator mappings      * from the properties object that is passed in.      *      * @param props The properties containing the mapping of operators to PDFOperator      * classes.      *      * @throws IOException If there is an error reading the properties.      */
+comment|/**      * Instantiate a new PDFImageWriter object. Loading all of the operator mappings from the properties object that is      * passed in.      *       * @param props      *            The properties containing the mapping of operators to PDFOperator classes.      *       * @throws IOException      *             If there is an error reading the properties.      */
 specifier|public
 name|PDFImageWriter
 parameter_list|(
@@ -137,7 +181,7 @@ name|props
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Converts a given page range of a PDF document to bitmap images.      * @param document the PDF document      * @param imageType the target format (ex. "png")      * @param password the password (needed if the PDF is encrypted)      * @param startPage the start page (1 is the first page)      * @param endPage the end page (set to Integer.MAX_VALUE for all pages)      * @param outputPrefix used to construct the filename for the individual images      * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+comment|/**      * Converts a given page range of a PDF document to bitmap images.      *       * @param document      *            the PDF document      * @param imageType      *            the target format (ex. "png")      * @param password      *            the password (needed if the PDF is encrypted)      * @param startPage      *            the start page (1 is the first page)      * @param endPage      *            the end page (set to Integer.MAX_VALUE for all pages)      * @param outputPrefix      *            used to construct the filename for the individual images      * @return true if the images were produced, false if there was an error      * @throws IOException      *             if an I/O error occurs      */
 specifier|public
 name|boolean
 name|writeImage
@@ -211,7 +255,7 @@ name|resolution
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts a given page range of a PDF document to bitmap images.      * @param document the PDF document      * @param imageFormat the target format (ex. "png")      * @param password the password (needed if the PDF is encrypted)      * @param startPage the start page (1 is the first page)      * @param endPage the end page (set to Integer.MAX_VALUE for all pages)      * @param outputPrefix used to construct the filename for the individual images      * @param imageType the image type (see {@link BufferedImage}.TYPE_*)      * @param resolution the resolution in dpi (dots per inch)      * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+comment|/**      * Converts a given page range of a PDF document to bitmap images.      *       * @param document      *            the PDF document      * @param imageFormat      *            the target format (ex. "png")      * @param password      *            the password (needed if the PDF is encrypted)      * @param startPage      *            the start page (1 is the first page)      * @param endPage      *            the end page (set to Integer.MAX_VALUE for all pages)      * @param outputPrefix      *            used to construct the filename for the individual images      * @param imageType      *            the image type (see {@link BufferedImage}.TYPE_*)      * @param resolution      *            the resolution in dpi (dots per inch)      * @return true if the images were produced, false if there was an error      * @throws IOException      *             if an I/O error occurs      */
 specifier|public
 name|boolean
 name|writeImage
@@ -249,6 +293,9 @@ init|=
 literal|true
 decl_stmt|;
 name|List
+argument_list|<
+name|PDPage
+argument_list|>
 name|pages
 init|=
 name|document
@@ -257,6 +304,14 @@ name|getDocumentCatalog
 argument_list|()
 operator|.
 name|getAllPages
+argument_list|()
+decl_stmt|;
+name|int
+name|pagesSize
+init|=
+name|pages
+operator|.
+name|size
 argument_list|()
 decl_stmt|;
 for|for
@@ -274,10 +329,7 @@ name|endPage
 operator|&&
 name|i
 operator|<
-name|pages
-operator|.
-name|size
-argument_list|()
+name|pagesSize
 condition|;
 name|i
 operator|++
@@ -286,9 +338,6 @@ block|{
 name|PDPage
 name|page
 init|=
-operator|(
-name|PDPage
-operator|)
 name|pages
 operator|.
 name|get
@@ -319,11 +368,9 @@ operator|+
 literal|1
 operator|)
 decl_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Writing: "
 operator|+
