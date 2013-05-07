@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a string object in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.30 $  */
+comment|/**  * This represents a string object in a PDF document.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.30 $  */
 end_comment
 
 begin_class
@@ -115,7 +115,7 @@ block|{
 literal|40
 block|}
 decl_stmt|;
-comment|//"(".getBytes();
+comment|// "(".getBytes();
 comment|/**      * One of the close string tokens.      */
 specifier|public
 specifier|static
@@ -131,7 +131,7 @@ block|{
 literal|41
 block|}
 decl_stmt|;
-comment|//")".getBytes( "ISO-8859-1" );
+comment|// ")".getBytes( "ISO-8859-1" );
 comment|/**      * One of the open string tokens.      */
 specifier|public
 specifier|static
@@ -147,7 +147,7 @@ block|{
 literal|60
 block|}
 decl_stmt|;
-comment|//"<".getBytes( "ISO-8859-1" );
+comment|// "<".getBytes( "ISO-8859-1" );
 comment|/**      * One of the close string tokens.      */
 specifier|public
 specifier|static
@@ -163,7 +163,7 @@ block|{
 literal|62
 block|}
 decl_stmt|;
-comment|//">".getBytes( "ISO-8859-1" );
+comment|// ">".getBytes( "ISO-8859-1" );
 comment|/**      * the escape character in strings.      */
 specifier|public
 specifier|static
@@ -179,7 +179,7 @@ block|{
 literal|92
 block|}
 decl_stmt|;
-comment|//"\\".getBytes( "ISO-8859-1" );
+comment|// "\\".getBytes( "ISO-8859-1" );
 comment|/**      * CR escape characters.      */
 specifier|public
 specifier|static
@@ -197,7 +197,7 @@ block|,
 literal|114
 block|}
 decl_stmt|;
-comment|//"\\r".getBytes( "ISO-8859-1" );
+comment|// "\\r".getBytes( "ISO-8859-1" );
 comment|/**      * LF escape characters.      */
 specifier|public
 specifier|static
@@ -215,7 +215,7 @@ block|,
 literal|110
 block|}
 decl_stmt|;
-comment|//"\\n".getBytes( "ISO-8859-1" );
+comment|// "\\n".getBytes( "ISO-8859-1" );
 comment|/**      * HT escape characters.      */
 specifier|public
 specifier|static
@@ -233,7 +233,7 @@ block|,
 literal|116
 block|}
 decl_stmt|;
-comment|//"\\t".getBytes( "ISO-8859-1" );
+comment|// "\\t".getBytes( "ISO-8859-1" );
 comment|/**      * BS escape characters.      */
 specifier|public
 specifier|static
@@ -251,7 +251,7 @@ block|,
 literal|98
 block|}
 decl_stmt|;
-comment|//"\\b".getBytes( "ISO-8859-1" );
+comment|// "\\b".getBytes( "ISO-8859-1" );
 comment|/**      * FF escape characters.      */
 specifier|public
 specifier|static
@@ -269,7 +269,7 @@ block|,
 literal|102
 block|}
 decl_stmt|;
-comment|//"\\f".getBytes( "ISO-8859-1" );
+comment|// "\\f".getBytes( "ISO-8859-1" );
 specifier|private
 name|ByteArrayOutputStream
 name|out
@@ -282,7 +282,7 @@ name|str
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Forces the string to be serialized in hex form but not literal form, the default is to stream      * in literal form.      */
+comment|/**      * Forces the string to be serialized in hex form but not literal form, the default is to stream in literal form.      */
 specifier|private
 name|boolean
 name|forceHexForm
@@ -307,24 +307,23 @@ name|ByteArrayOutputStream
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**       * Constructor.      *       * @param isDictionaryValue determines if this string represents a dictionary      */
 specifier|public
 name|COSString
 parameter_list|(
 name|boolean
-name|isDictionary
+name|isDictionaryValue
 parameter_list|)
 block|{
 name|this
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
 name|isDictionary
 operator|=
-name|isDictionary
+name|isDictionaryValue
 expr_stmt|;
 block|}
-comment|/**      * Explicit constructor for ease of manual PDF construction.      *      * @param value The string value of the object.      */
+comment|/**      * Explicit constructor for ease of manual PDF construction.      *       * @param value      *            The string value of the object.      */
 specifier|public
 name|COSString
 parameter_list|(
@@ -480,10 +479,10 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
-comment|//should never happen
+comment|// should never happen
 block|}
 block|}
-comment|/**      * Explicit constructor for ease of manual PDF construction.      *      * @param value The string value of the object.      */
+comment|/**      * Explicit constructor for ease of manual PDF construction.      *       * @param value      *            The string value of the object.      */
 specifier|public
 name|COSString
 parameter_list|(
@@ -523,10 +522,10 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
-comment|//should never happen
+comment|// should never happen
 block|}
 block|}
-comment|/**      * Forces the string to be written in literal form instead of hexadecimal form.      *      * @param v if v is true the string will be written in literal form, otherwise it will      * be written in hexa if necessary.      */
+comment|/**      * Forces the string to be written in literal form instead of hexadecimal form.      *       * @param v      *            if v is true the string will be written in literal form, otherwise it will be written in hexa if      *            necessary.      */
 specifier|public
 name|void
 name|setForceLiteralForm
@@ -541,7 +540,7 @@ operator|!
 name|v
 expr_stmt|;
 block|}
-comment|/**      * Forces the string to be written in hexadecimal form instead of literal form.      *       * @param v if v is true the string will be written in hexadecimal form otherwise it will be written in literal if      *          necessary.      */
+comment|/**      * Forces the string to be written in hexadecimal form instead of literal form.      *       * @param v      *            if v is true the string will be written in hexadecimal form otherwise it will be written in literal if      *            necessary.      */
 specifier|public
 name|void
 name|setForceHexForm
@@ -555,7 +554,7 @@ operator|=
 name|v
 expr_stmt|;
 block|}
-comment|/**      * This will create a COS string from a string of hex characters.      *      * @param hex A hex string.      * @return A cos string with the hex characters converted to their actual bytes.      * @throws IOException If there is an error with the hex string.      */
+comment|/**      * This will create a COS string from a string of hex characters.      *       * @param hex      *            A hex string.      * @return A cos string with the hex characters converted to their actual bytes.      * @throws IOException      *             If there is an error with the hex string.      */
 specifier|public
 specifier|static
 name|COSString
@@ -576,7 +575,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a COS string from a string of hex characters, optionally      * ignoring malformed input.      *      * @param hex A hex string.      * @param force flag to ignore malformed input      * @return A cos string with the hex characters converted to their actual bytes.      * @throws IOException If there is an error with the hex string.      */
+comment|/**      * Creates a COS string from a string of hex characters, optionally ignoring malformed input.      *       * @param hex      *            A hex string.      * @param force      *            flag to ignore malformed input      * @return A cos string with the hex characters converted to their actual bytes.      * @throws IOException      *             If there is an error with the hex string.      */
 specifier|public
 specifier|static
 name|COSString
@@ -610,7 +609,7 @@ name|trim
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//if odd number then the last hex digit is assumed to be 0
+comment|// if odd number then the last hex digit is assumed to be 0
 if|if
 condition|(
 name|hexBuffer
@@ -730,7 +729,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will take this string and create a hex representation of the bytes that make the string.      *      * @return A hex string representing the bytes in this string.      */
+comment|/**      * This will take this string and create a hex representation of the bytes that make the string.      *       * @return A hex string representing the bytes in this string.      */
 specifier|public
 name|String
 name|getHexString
@@ -808,7 +807,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the string that this object wraps.      *      * @return The wrapped string.      */
+comment|/**      * This will get the string that this object wraps.      *       * @return The wrapped string.      */
 specifier|public
 name|String
 name|getString
@@ -971,10 +970,10 @@ range|:
 name|tmp
 control|)
 block|{
-name|sb
-operator|.
-name|append
-argument_list|(
+specifier|final
+name|String
+name|character
+init|=
 name|pde
 operator|.
 name|getCharacter
@@ -987,8 +986,22 @@ operator|)
 operator|%
 literal|256
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|character
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|character
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|retval
 operator|=
@@ -1027,7 +1040,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|//should never happen
+comment|// should never happen
 name|e
 operator|.
 name|printStackTrace
@@ -1053,7 +1066,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will append a byte[] to the string.      *      * @param data The byte[] to add to this string.      *      * @throws IOException If an IO error occurs while writing the byte.      */
+comment|/**      * This will append a byte[] to the string.      *       * @param data      *            The byte[] to add to this string.      *       * @throws IOException      *             If an IO error occurs while writing the byte.      */
 specifier|public
 name|void
 name|append
@@ -1079,7 +1092,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * This will append a byte to the string.      *      * @param in The byte to add to this string.      *      * @throws IOException If an IO error occurs while writing the byte.      */
+comment|/**      * This will append a byte to the string.      *       * @param in      *            The byte to add to this string.      *       * @throws IOException      *             If an IO error occurs while writing the byte.      */
 specifier|public
 name|void
 name|append
@@ -1122,7 +1135,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * This will get the bytes of the string.      *      * @return A byte array that represents the string.      */
+comment|/**      * This will get the bytes of the string.      *       * @return A byte array that represents the string.      */
 specifier|public
 name|byte
 index|[]
@@ -1155,7 +1168,7 @@ operator|+
 literal|"}"
 return|;
 block|}
-comment|/**      * This will output this string as a PDF object.      *      * @param output The stream to write to.      * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * This will output this string as a PDF object.      *       * @param output      *            The stream to write to.      * @throws IOException      *             If there is an error writing to the stream.      */
 specifier|public
 name|void
 name|writePDF
@@ -1171,7 +1184,7 @@ name|outsideASCII
 init|=
 literal|false
 decl_stmt|;
-comment|//Lets first check if we need to escape this string.
+comment|// Lets first check if we need to escape this string.
 name|byte
 index|[]
 name|bytes
@@ -1204,8 +1217,8 @@ name|i
 operator|++
 control|)
 block|{
-comment|//if the byte is negative then it is an eight bit byte and is
-comment|//outside the ASCII range.
+comment|// if the byte is negative then it is an eight bit byte and is
+comment|// outside the ASCII range.
 name|outsideASCII
 operator|=
 name|bytes
@@ -1298,7 +1311,7 @@ block|}
 case|case
 literal|10
 case|:
-comment|//LF
+comment|// LF
 block|{
 name|output
 operator|.
@@ -1440,7 +1453,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws COSVisitorException If an error occurs while visiting this object.      */
+comment|/**      * visitor pattern double dispatch method.      *       * @param visitor      *            The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws COSVisitorException      *             If an error occurs while visiting this object.      */
 annotation|@
 name|Override
 specifier|public
