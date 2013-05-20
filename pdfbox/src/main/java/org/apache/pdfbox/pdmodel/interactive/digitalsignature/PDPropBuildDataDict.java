@@ -182,7 +182,7 @@ parameter_list|)
 block|{
 name|dictionary
 operator|.
-name|setString
+name|setName
 argument_list|(
 name|COSName
 operator|.
