@@ -1383,7 +1383,7 @@ name|parseObjectDynamically
 argument_list|(
 name|tmpObj
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
