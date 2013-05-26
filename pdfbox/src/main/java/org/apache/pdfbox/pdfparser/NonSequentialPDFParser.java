@@ -682,6 +682,7 @@ name|DEFAULT_TRAIL_BYTECOUNT
 init|=
 literal|2048
 decl_stmt|;
+comment|/**      * EOF-marker.      */
 specifier|protected
 specifier|static
 specifier|final
@@ -704,6 +705,7 @@ block|,
 literal|'F'
 block|}
 decl_stmt|;
+comment|/**      * StartXRef-marker.      */
 specifier|protected
 specifier|static
 specifier|final
@@ -734,6 +736,7 @@ block|,
 literal|'f'
 block|}
 decl_stmt|;
+comment|/**      * obj-marker.      */
 specifier|protected
 specifier|static
 specifier|final
@@ -762,6 +765,7 @@ specifier|final
 name|RandomAccessBufferedFileInputStream
 name|raStream
 decl_stmt|;
+comment|/**      * The security handler.      */
 specifier|protected
 name|SecurityHandler
 name|securityHandler
@@ -1060,11 +1064,38 @@ operator|=
 name|decryptionPassword
 expr_stmt|;
 block|}
+comment|/**      * Constructor.      *       * @param input input stream representing the pdf.      * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
 name|InputStream
 name|input
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|this
+argument_list|(
+name|input
+argument_list|,
+literal|null
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Constructor.      *       * @param input input stream representing the pdf.      * @param raBuf the buffer to be used for parsing      * @param decryptionPassword password to be used for decryption.      * @throws IOException If something went wrong.      */
+specifier|public
+name|NonSequentialPDFParser
+parameter_list|(
+name|InputStream
+name|input
+parameter_list|,
+name|RandomAccess
+name|raBuf
+parameter_list|,
+name|String
+name|decryptionPassword
 parameter_list|)
 throws|throws
 name|IOException
@@ -1097,13 +1128,13 @@ name|init
 argument_list|(
 name|pdfFile
 argument_list|,
-literal|null
+name|raBuf
 argument_list|,
-literal|""
+name|decryptionPassword
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a temporary file with the input stream. If the creation succeed,      * the {@linkplain #isTmpPDFFile} is set to true. This Temporary file will      * be deleted at end of the parse method      *       * @param input      * @return      * @throws IOException      */
+comment|/**      * Create a temporary file with the input stream. If the creation succeed,      * the {@linkplain #isTmpPDFFile} is set to true. This Temporary file will      * be deleted at end of the parse method      *       * @param input      * @return      * @throws IOException If something went wrong.      */
 specifier|private
 name|File
 name|createTmpFile
@@ -1204,7 +1235,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/**      * The initial parse will first parse only the trailer, the xrefstart and      * all xref tables to have a pointer (offset) to all the pdf's objects. It      * can handle linearized pdfs, which will have an xref at the end pointing      * to an xref at the beginning of the file. Last the root object is parsed.      *       * @throws IOException      */
+comment|/**      * The initial parse will first parse only the trailer, the xrefstart and      * all xref tables to have a pointer (offset) to all the pdf's objects. It      * can handle linearized pdfs, which will have an xref at the end pointing      * to an xref at the beginning of the file. Last the root object is parsed.      *       * @throws IOException If something went wrong.      */
 specifier|protected
 name|void
 name|initialParse
@@ -1790,7 +1821,7 @@ name|getOffset
 argument_list|()
 return|;
 block|}
-comment|/** Sets {@link #pdfSource} to start next parsing at given file offset. */
+comment|/**      * Sets {@link #pdfSource} to start next parsing at given file offset.      *       * @param fileOffset file offset      * @throws IOException If something went wrong.      */
 specifier|protected
 specifier|final
 name|void
@@ -1818,7 +1849,7 @@ comment|// new BufferedInputStream(
 comment|// new FileInputStream( file ), 16384), 4096);
 comment|// pdfSource.skip( _fileOffset );
 block|}
-comment|/** Enable handling of alternative pdfSource implementation. */
+comment|/**      * Enable handling of alternative pdfSource implementation.      * @throws IOException If something went wrong.      */
 specifier|protected
 specifier|final
 name|void
@@ -1853,7 +1884,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/**      * Looks for and parses startxref. We first look for last '%%EOF' marker      * (within last {@link #DEFAULT_TRAIL_BYTECOUNT} bytes (or range set via      * {@link #setEOFLookupRange(int)}) and go back to find      *<code>startxref</code>.      */
+comment|/**      * Looks for and parses startxref. We first look for last '%%EOF' marker      * (within last {@link #DEFAULT_TRAIL_BYTECOUNT} bytes (or range set via      * {@link #setEOFLookupRange(int)}) and go back to find      *<code>startxref</code>.      *       * @return the offset of StartXref       * @throws IOException If something went wrong.      */
 specifier|protected
 specifier|final
 name|long
@@ -2202,7 +2233,7 @@ literal|1
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/**      * Reads given pattern from {@link #pdfSource}. Skipping whitespace at start      * and end.      *       * @throws IOException if pattern could not be read      */
+comment|/**      * Reads given pattern from {@link #pdfSource}. Skipping whitespace at start      * and end.      *       * @param pattern pattern to be skipped      * @throws IOException if pattern could not be read      */
 specifier|protected
 specifier|final
 name|void
@@ -2496,6 +2527,7 @@ block|{                 }
 block|}
 block|}
 block|}
+comment|/**      * Return the pdf file.      *       * @return the pdf file      */
 specifier|protected
 name|File
 name|getPdfFile
@@ -2528,6 +2560,7 @@ operator|.
 name|delete
 argument_list|()
 condition|)
+block|{
 name|LOG
 operator|.
 name|warn
@@ -2542,6 +2575,7 @@ operator|+
 literal|"' can't be deleted"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2604,6 +2638,7 @@ name|securityHandler
 operator|!=
 literal|null
 condition|)
+block|{
 name|pdDocument
 operator|.
 name|setSecurityHandler
@@ -2611,6 +2646,7 @@ argument_list|(
 name|securityHandler
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|pdDocument
 return|;
@@ -4531,7 +4567,7 @@ argument_list|()
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/** Decrypts given COSString. */
+comment|/**      * Decrypts given COSString.      *       * @param str the string to be decrypted      * @param objNr the object number      * @param objGenNr the object generation number      * @throws IOException ff something went wrong      */
 specifier|protected
 specifier|final
 name|void
@@ -5012,6 +5048,8 @@ name|remainBytes
 operator|==
 literal|35090
 condition|)
+block|{
+comment|// TODO debug system out, to be removed??
 name|System
 operator|.
 name|out
@@ -5019,6 +5057,7 @@ operator|.
 name|println
 argument_list|()
 expr_stmt|;
+block|}
 while|while
 condition|(
 name|remainBytes
