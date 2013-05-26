@@ -993,6 +993,26 @@ argument_list|(
 name|bpc
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|baseColorModel
+operator|.
+name|getTransferType
+argument_list|()
+operator|!=
+name|DataBuffer
+operator|.
+name|TYPE_BYTE
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Not implemented"
+argument_list|)
+throw|;
+block|}
 block|}
 return|return
 name|baseColorModel
@@ -1055,26 +1075,35 @@ init|=
 name|getLookupData
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+comment|// despite all definitions there may be less values within the lookup data
+name|int
+name|numberOfColorValuesFromIndex
+init|=
+operator|(
+name|index
+operator|.
+name|length
+operator|/
 name|baseColorModel
 operator|.
-name|getTransferType
+name|getNumComponents
 argument_list|()
-operator|!=
-name|DataBuffer
+operator|)
+operator|-
+literal|1
+decl_stmt|;
+name|maxIndex
+operator|=
+name|Math
 operator|.
-name|TYPE_BYTE
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
+name|min
 argument_list|(
-literal|"Not implemented"
+name|maxIndex
+argument_list|,
+name|numberOfColorValuesFromIndex
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
+comment|// does the colorspace have an alpha channel?
 name|boolean
 name|hasAlpha
 init|=
@@ -1168,6 +1197,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
+comment|// calculate RGB values
 name|indexedColorValues
 index|[
 name|bufferIndex
