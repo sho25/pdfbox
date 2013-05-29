@@ -3901,6 +3901,13 @@ init|=
 operator|new
 name|COSString
 argument_list|(
+literal|true
+argument_list|)
+decl_stmt|;
+name|copy
+operator|.
+name|append
+argument_list|(
 operator|(
 operator|(
 name|COSString
@@ -3908,10 +3915,10 @@ operator|)
 name|current
 operator|)
 operator|.
-name|getString
+name|getBytes
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|copy
 operator|.
 name|accept
