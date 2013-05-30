@@ -21,6 +21,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|File
 import|;
 end_import
@@ -189,6 +199,20 @@ name|pdfbox
 operator|.
 name|pdfparser
 operator|.
+name|NonSequentialPDFParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdfparser
+operator|.
 name|PDFObjectStreamParser
 import|;
 end_import
@@ -237,6 +261,8 @@ class|class
 name|COSDocument
 extends|extends
 name|COSBase
+implements|implements
+name|Closeable
 block|{
 comment|/**      * Log instance.      */
 specifier|private
