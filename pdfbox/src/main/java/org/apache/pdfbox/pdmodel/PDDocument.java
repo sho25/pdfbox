@@ -842,6 +842,11 @@ name|allSecurityToBeRemoved
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Keep tracking customized documentId for the trailer. If null, a new       * id will be generated for the document. This ID doesn't represent the      * actual documentId from the trailer.      */
+specifier|private
+name|Long
+name|documentId
+decl_stmt|;
 comment|/**      * Constructor, creates a new PDF Document with no pages.  You need to add      * at least one page for the document to be valid.      *      * @throws IOException If there is an error creating this document.      */
 specifier|public
 name|PDDocument
@@ -5044,6 +5049,28 @@ block|{
 name|allSecurityToBeRemoved
 operator|=
 name|removeAllSecurity
+expr_stmt|;
+block|}
+specifier|public
+name|Long
+name|getDocumentId
+parameter_list|()
+block|{
+return|return
+name|documentId
+return|;
+block|}
+specifier|public
+name|void
+name|setDocumentId
+parameter_list|(
+name|Long
+name|docId
+parameter_list|)
+block|{
+name|documentId
+operator|=
+name|docId
 expr_stmt|;
 block|}
 block|}
