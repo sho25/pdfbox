@@ -434,7 +434,7 @@ return|return
 name|already
 return|;
 block|}
-comment|/**      * Extract the Glyph width for the given CID.      *       * @param cid      * @return The Glyph width in 'em' unit.      */
+comment|/**      * Extract the Glyph width for the given CID.      *       * @param cid      * @return The Glyph width in 'em' unit.      * @throws GlyphException       */
 specifier|protected
 specifier|abstract
 name|float
@@ -443,6 +443,8 @@ parameter_list|(
 name|int
 name|cid
 parameter_list|)
+throws|throws
+name|GlyphException
 function_decl|;
 comment|/**      * Test if both width are consistent. At the end of this method, the CID is marked as valid or invalid.      *       * @param cid      * @param expectedWidth      * @param foundWidth      *            the glyph width found in the font program, a negative value if the CID is missing from the font.      * @throws GlyphException      */
 specifier|protected

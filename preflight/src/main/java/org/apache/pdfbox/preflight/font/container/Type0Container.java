@@ -61,6 +61,24 @@ name|ValidationError
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|font
+operator|.
+name|util
+operator|.
+name|GlyphException
+import|;
+end_import
+
 begin_class
 specifier|public
 class|class
@@ -94,6 +112,8 @@ parameter_list|(
 name|int
 name|cid
 parameter_list|)
+throws|throws
+name|GlyphException
 block|{
 name|float
 name|width
