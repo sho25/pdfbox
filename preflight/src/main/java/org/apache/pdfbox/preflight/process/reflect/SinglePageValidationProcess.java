@@ -858,7 +858,7 @@ name|thumbImg
 init|=
 name|PDXObjectImage
 operator|.
-name|createXObject
+name|createThumbnailXObject
 argument_list|(
 name|thumbBase
 argument_list|)
