@@ -387,6 +387,32 @@ operator|=
 name|fileSuffix
 expr_stmt|;
 block|}
+comment|/**      * Create the correct thumbnail from the cos base.      *      * @param xobject The cos level xobject to create.      *      * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
+specifier|public
+specifier|static
+name|PDXObject
+name|createThumbnailXObject
+parameter_list|(
+name|COSBase
+name|xobject
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|PDXObject
+name|retval
+init|=
+name|commonXObjectCreation
+argument_list|(
+name|xobject
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+return|return
+name|retval
+return|;
+block|}
 comment|/**      * Returns an java.awt.Image, that can be used for display etc.      *      * @return This PDF object as an AWT image.      *      * @throws IOException If there is an error creating the image.      */
 specifier|public
 specifier|abstract
