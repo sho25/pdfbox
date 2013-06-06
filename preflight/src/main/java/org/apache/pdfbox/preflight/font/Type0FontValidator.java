@@ -1280,11 +1280,11 @@ name|wmValue
 operator|==
 name|wmode
 operator|&&
-name|cmnValue
+name|cmapName
 operator|.
 name|equals
 argument_list|(
-name|cmapName
+name|cmnValue
 argument_list|)
 operator|)
 condition|)
