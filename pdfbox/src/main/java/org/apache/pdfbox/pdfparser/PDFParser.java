@@ -612,9 +612,38 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+name|skipSpaces
+argument_list|()
+expr_stmt|;
+name|long
+name|lastOffset
+init|=
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
+decl_stmt|;
 name|skipToNextObj
 argument_list|()
 expr_stmt|;
+comment|/* the nextObject is the one we want to skip                           * so read the 'Object Number' without interpret it                          * in order to force the skipObject                          */
+if|if
+condition|(
+name|lastOffset
+operator|==
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
+condition|)
+block|{
+name|readStringNumber
+argument_list|()
+expr_stmt|;
+name|skipToNextObj
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1705,7 +1734,7 @@ block|}
 comment|//we are going to parse an normal object
 else|else
 block|{
-name|int
+name|long
 name|number
 init|=
 operator|-
@@ -1756,7 +1785,7 @@ else|else
 block|{
 name|number
 operator|=
-name|readInt
+name|readObjectNumber
 argument_list|()
 expr_stmt|;
 block|}
@@ -1773,7 +1802,7 @@ comment|//but because we want to support as many PDFs as possible
 comment|//we will simply try again
 name|number
 operator|=
-name|readInt
+name|readObjectNumber
 argument_list|()
 expr_stmt|;
 block|}
@@ -1788,7 +1817,7 @@ argument_list|()
 expr_stmt|;
 name|genNum
 operator|=
-name|readInt
+name|readGenerationNumber
 argument_list|()
 expr_stmt|;
 name|objectKey
@@ -2308,7 +2337,7 @@ argument_list|()
 operator|.
 name|setStartXref
 argument_list|(
-name|readInt
+name|readLong
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2379,17 +2408,17 @@ condition|(
 literal|true
 condition|)
 block|{
-name|int
+name|long
 name|currObjID
 init|=
-name|readInt
+name|readObjectNumber
 argument_list|()
 decl_stmt|;
 comment|// first obj id
-name|int
+name|long
 name|count
 init|=
-name|readInt
+name|readLong
 argument_list|()
 decl_stmt|;
 comment|// the number of objects in the xref table

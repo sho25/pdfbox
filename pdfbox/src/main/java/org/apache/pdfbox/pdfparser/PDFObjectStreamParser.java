@@ -182,7 +182,7 @@ decl_stmt|;
 specifier|private
 name|List
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 name|objectNumbers
 init|=
@@ -277,7 +277,7 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 argument_list|(
 name|numberOfObjects
@@ -309,16 +309,16 @@ name|i
 operator|++
 control|)
 block|{
-name|int
+name|long
 name|objectNumber
 init|=
-name|readInt
+name|readObjectNumber
 argument_list|()
 decl_stmt|;
-name|int
+name|long
 name|offset
 init|=
-name|readInt
+name|readLong
 argument_list|()
 decl_stmt|;
 name|objectNumbers
@@ -326,7 +326,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|Integer
+name|Long
 argument_list|(
 name|objectNumber
 argument_list|)

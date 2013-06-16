@@ -1777,13 +1777,13 @@ literal|true
 condition|)
 block|{
 comment|// just after the xref<EOL> there are an integer
-name|int
+name|long
 name|currObjID
 init|=
 literal|0
 decl_stmt|;
 comment|// first obj id
-name|int
+name|long
 name|count
 init|=
 literal|0
@@ -1883,13 +1883,13 @@ argument_list|)
 expr_stmt|;
 name|currObjID
 operator|=
-name|readInt
+name|readObjectNumber
 argument_list|()
 expr_stmt|;
 comment|// first obj id
 name|count
 operator|=
-name|readInt
+name|readLong
 argument_list|()
 expr_stmt|;
 comment|// the number of objects in the xref table
@@ -3087,7 +3087,7 @@ name|offsetOrObjstmObNr
 argument_list|)
 expr_stmt|;
 comment|// ---- we must have an indirect object
-name|int
+name|long
 name|readObjNr
 init|=
 literal|0
@@ -3191,12 +3191,12 @@ argument_list|)
 expr_stmt|;
 name|readObjNr
 operator|=
-name|readInt
+name|readObjectNumber
 argument_list|()
 expr_stmt|;
 name|readObjGen
 operator|=
-name|readInt
+name|readGenerationNumber
 argument_list|()
 expr_stmt|;
 for|for

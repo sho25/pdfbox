@@ -1754,10 +1754,10 @@ throws|throws
 name|IOException
 block|{
 comment|// ---- parse indirect object head
-name|readInt
+name|readObjectNumber
 argument_list|()
 expr_stmt|;
-name|readInt
+name|readGenerationNumber
 argument_list|()
 expr_stmt|;
 name|readPattern
@@ -3953,17 +3953,17 @@ argument_list|)
 expr_stmt|;
 comment|// ---- we must have an indirect object
 specifier|final
-name|int
+name|long
 name|readObjNr
 init|=
-name|readInt
+name|readObjectNumber
 argument_list|()
 decl_stmt|;
 specifier|final
-name|int
+name|long
 name|readObjGen
 init|=
-name|readInt
+name|readGenerationNumber
 argument_list|()
 decl_stmt|;
 name|readPattern

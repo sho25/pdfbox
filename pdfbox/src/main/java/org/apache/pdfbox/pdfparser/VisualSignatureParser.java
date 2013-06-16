@@ -599,7 +599,7 @@ block|}
 else|else
 block|{
 comment|//we are going to parse an normal object
-name|int
+name|long
 name|number
 init|=
 operator|-
@@ -650,7 +650,7 @@ else|else
 block|{
 name|number
 operator|=
-name|readInt
+name|readObjectNumber
 argument_list|()
 expr_stmt|;
 block|}
@@ -667,7 +667,7 @@ comment|//but because we want to support as many PDFs as possible
 comment|//we will simply try again
 name|number
 operator|=
-name|readInt
+name|readObjectNumber
 argument_list|()
 expr_stmt|;
 block|}
@@ -682,7 +682,7 @@ argument_list|()
 expr_stmt|;
 name|genNum
 operator|=
-name|readInt
+name|readGenerationNumber
 argument_list|()
 expr_stmt|;
 name|objectKey
