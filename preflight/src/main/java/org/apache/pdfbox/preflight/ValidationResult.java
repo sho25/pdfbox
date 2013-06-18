@@ -132,7 +132,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create a Validation Result object. This constructor force the isValid to false and add all the given errors to      * the list or ValidationErrors.      *       * @param error      *            if error is null, no error is added to the list.      */
+comment|/**      * Create a Validation Result object. This constructor force the isValid to false and add all the given errors to      * the list or ValidationErrors.      *       * @param errors      *            if error is null, no error is added to the list.      */
 specifier|public
 name|ValidationResult
 parameter_list|(
@@ -878,6 +878,20 @@ operator|=
 name|isWarning
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|int
+name|hashCode
+parameter_list|()
+block|{
+return|return
+name|errorCode
+operator|.
+name|hashCode
+argument_list|()
+return|;
+block|}
 specifier|public
 name|boolean
 name|equals
@@ -930,6 +944,24 @@ argument_list|(
 name|ve
 operator|.
 name|errorCode
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|details
+operator|.
+name|equals
+argument_list|(
+name|ve
+operator|.
+name|details
 argument_list|)
 condition|)
 block|{
