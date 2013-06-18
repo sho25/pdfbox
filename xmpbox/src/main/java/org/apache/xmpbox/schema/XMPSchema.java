@@ -306,7 +306,7 @@ name|XMPSchema
 extends|extends
 name|AbstractStructuredType
 block|{
-comment|/**      * Create a new blank schema that can be populated.      *       * @param metadata      *            The parent XMP metadata that this schema will be part of.      * @param namespaceName      *            The name of the namespace, ie pdf,dc,...      * @param namespaceURI      *            The URI of the namespace, ie "http://ns.adobe.com/pdf/1.3/"      *       */
+comment|/**      * Create a new blank schema that can be populated.      *       * @param metadata      *            The parent XMP metadata that this schema will be part of.      * @param namespaceURI      *            The URI of the namespace, ie "http://ns.adobe.com/pdf/1.3/"      *       */
 specifier|public
 name|XMPSchema
 parameter_list|(
@@ -959,7 +959,7 @@ name|propertyValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get a TextProperty Type from its name      *       * @param qualifiedName      *            The full qualified name of the property wanted      * @return The Text Type property wanted      */
+comment|/**      * Get a TextProperty Type from its name      *       * @return The Text Type property wanted      */
 specifier|public
 name|TextType
 name|getUnqualifiedTextProperty
@@ -968,17 +968,12 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|String
-name|qualifiedName
-init|=
-name|name
-decl_stmt|;
 name|AbstractField
 name|prop
 init|=
 name|getAbstractProperty
 argument_list|(
-name|qualifiedName
+name|name
 argument_list|)
 decl_stmt|;
 if|if
@@ -1017,7 +1012,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Get the value of a simple text property.      *       * @param qualifiedName      *            The name of the property to get, it must include the namespace prefix. ie "pdf:Keywords".      *       * @return The value of the text property or the null if there is no value.      *       */
+comment|/**      * Get the value of a simple text property.      *       * @return The value of the text property or the null if there is no value.      *       */
 specifier|public
 name|String
 name|getUnqualifiedTextPropertyValue
@@ -1623,7 +1618,7 @@ name|intValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Generic array property removing      *       * @param qualifiedArrayName      *            the full qualified name of property wanted      * @param fieldValue      *            the field value      */
+comment|/**      * Generic array property removing      *       * @param fieldValue      *            the field value      */
 specifier|private
 name|void
 name|removeUnqualifiedArrayValue
@@ -1761,7 +1756,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Remove all matching entries with the given value from the bag.      *       * @param qualifiedBagName      *            The name of the bag, it must include the namespace prefix. ie "pdf:Keywords".      * @param bagValue      *            The value to remove from the bagList.      */
+comment|/**      * Remove all matching entries with the given value from the bag.      *       * @param bagValue      *            The value to remove from the bagList.      */
 specifier|public
 name|void
 name|removeUnqualifiedBagValue
@@ -1906,7 +1901,7 @@ name|bagValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get all the values of the bag property. This will return a list of java.lang.String objects, this is a read-only      * list.      *       * @param qualifiedBagName      *            The name of the bag property to get without namespace prefix.      *       * @return All values of the bag property in a list.      */
+comment|/**      * Get all the values of the bag property. This will return a list of java.lang.String objects, this is a read-only      * list.      *       * @return All values of the bag property in a list.      */
 specifier|public
 name|List
 argument_list|<
@@ -1970,7 +1965,7 @@ name|seqValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Generic method to remove a field from an array with an Elementable Object      *       * @param qualifiedArrayName      *            the full qualified name of the property concerned      * @param fieldValue      *            the elementable field value      */
+comment|/**      * Generic method to remove a field from an array with an Elementable Object      *       * @param arrayName      *            the name of the property concerned      * @param fieldValue      *            the elementable field value      */
 specifier|public
 name|void
 name|removeUnqualifiedArrayValue
@@ -2130,7 +2125,7 @@ name|seqValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a new value to a sequence property.      *       * @param qualifiedSeqName      *            The name of the sequence property without the namespace prefix      * @param seqValue      *            The value to add to the sequence.      */
+comment|/**      * Add a new value to a sequence property.      *       * @param simpleSeqName      *            The name of the sequence property without the namespace prefix      * @param seqValue      *            The value to add to the sequence.      */
 specifier|public
 name|void
 name|addUnqualifiedSequenceValue
@@ -2291,7 +2286,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Add a new value to a sequence property.      *       * @param qualifiedSeqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param seqValue      *            The value to add to the sequence.      */
+comment|/**      * Add a new value to a sequence property.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param seqValue      *            The value to add to the sequence.      */
 specifier|public
 name|void
 name|addUnqualifiedSequenceValue
@@ -2368,7 +2363,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get all the values in a sequence property.      *       * @param qualifiedSeqName      *            The name of the sequence property without namespace prefix.      *       * @return A read-only list of java.lang.String objects or null if the property does not exist.      */
+comment|/**      * Get all the values in a sequence property.      *       * @param seqName      *            The name of the sequence property without namespace prefix.      *       * @return A read-only list of java.lang.String objects or null if the property does not exist.      */
 specifier|public
 name|List
 argument_list|<
@@ -2412,7 +2407,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Remove a date sequence value from the list.      *       * @param qualifiedSeqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param date      *            The date to remove from the sequence property.      */
+comment|/**      * Remove a date sequence value from the list.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param date      *            The date to remove from the sequence property.      */
 specifier|public
 name|void
 name|removeUnqualifiedSequenceDateValue
@@ -2585,7 +2580,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a date sequence value to the list.      *       * @param qualifiedSeqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param date      *            The date to add to the sequence property.      */
+comment|/**      * Add a date sequence value to the list.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param date      *            The date to add to the sequence property.      */
 specifier|public
 name|void
 name|addUnqualifiedSequenceDateValue
@@ -2624,7 +2619,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get all the date values in a sequence property.      *       * @param qualifiedSeqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords".      *       * @return A read-only list of java.util.Calendar objects or null if the property does not exist.      *       */
+comment|/**      * Get all the date values in a sequence property.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords".      *       * @return A read-only list of java.util.Calendar objects or null if the property does not exist.      *       */
 specifier|public
 name|List
 argument_list|<
@@ -3003,7 +2998,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Set the value of a multi-lingual property.      *       * @param qualifiedName      *            The name of the property, it must include the namespace prefix. ie "pdf:Keywords"      * @param language      *            The language code of the value. If null then "x-default" is assumed.      * @param value      *            The value of the property in the specified language.      */
+comment|/**      * Set the value of a multi-lingual property.      *       * @param name      *            The name of the property, it must include the namespace prefix. ie "pdf:Keywords"      * @param language      *            The language code of the value. If null then "x-default" is assumed.      * @param value      *            The value of the property in the specified language.      */
 specifier|public
 name|void
 name|setUnqualifiedLanguagePropertyValue
@@ -3318,7 +3313,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the value of a multi-lingual property.      *       * @param qualifiedName      *            The name of the property, without the namespace prefix.      * @param language      *            The language code of the value. If null then "x-default" is assumed.      *       * @return The value of the language property.      */
+comment|/**      * Get the value of a multi-lingual property.      *       * @param name      *            The name of the property, without the namespace prefix.      * @param expectedLanguage      *            The language code of the value. If null then "x-default" is assumed.      *       * @return The value of the language property.      */
 specifier|public
 name|String
 name|getUnqualifiedLanguagePropertyValue
@@ -3481,7 +3476,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Get a list of all languages that are currently defined for a specific property.      *       * @param qualifiedName      *            The name of the property, it must include the namespace prefix. ie "pdf:Keywords"      *       * @return A list of all languages, this will return an non-null empty list if none have been defined.      */
+comment|/**      * Get a list of all languages that are currently defined for a specific property.      *       * @param name      *            The name of the property, it must include the namespace prefix. ie "pdf:Keywords"      *       * @return A list of all languages, this will return an non-null empty list if none have been defined.      */
 specifier|public
 name|List
 argument_list|<
@@ -3960,10 +3955,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|alreadyPresent
-operator|=
-literal|true
-expr_stmt|;
+return|return;
 block|}
 block|}
 if|if
@@ -4004,7 +3996,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Get an AbstractField list corresponding to the content of an array Return null if the property is unknown      *       * @param nam      *            the property name whitout namespace;      * @return List of property contained in the complex property      * @throws BadFieldValueException      *             Property not contains property (not complex property)      */
+comment|/**      * Get an AbstractField list corresponding to the content of an array Return null if the property is unknown      *       * @param name      *            the property name whitout namespace;      * @return List of property contained in the complex property      * @throws BadFieldValueException      *             Property not contains property (not complex property)      */
 specifier|public
 name|List
 argument_list|<
