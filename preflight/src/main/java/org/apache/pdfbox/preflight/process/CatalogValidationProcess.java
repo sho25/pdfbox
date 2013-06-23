@@ -1925,6 +1925,10 @@ operator|==
 literal|null
 condition|)
 block|{
+name|ctx
+operator|.
+name|addValidationError
+argument_list|(
 operator|new
 name|ValidationError
 argument_list|(
@@ -1932,15 +1936,11 @@ name|ERROR_SYNTAX_NOCATALOG
 argument_list|,
 literal|"There are no Catalog entry in the Document."
 argument_list|)
-expr_stmt|;
-throw|throw
-operator|new
-name|ValidationException
-argument_list|(
-literal|"There are no Catalog entry in the Document."
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
+else|else
+block|{
 name|validateActions
 argument_list|(
 name|ctx
@@ -1966,6 +1966,7 @@ argument_list|(
 name|ctx
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * This method validates if OpenAction entry contains forbidden action type. It checks too if an Additional Action      * is present.      *       * @param ctx      * @throws ValidationException      *             Propagate the ActionManager exception      */
 specifier|protected

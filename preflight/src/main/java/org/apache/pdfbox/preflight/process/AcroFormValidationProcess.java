@@ -98,6 +98,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_NOCATALOG
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -228,6 +244,20 @@ operator|.
 name|form
 operator|.
 name|PDField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
 import|;
 end_import
 
@@ -388,13 +418,19 @@ block|}
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|ValidationException
+name|ctx
+operator|.
+name|addValidationError
 argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_SYNTAX_NOCATALOG
+argument_list|,
 literal|"There are no Catalog entry in the Document."
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * This method checks if the NeedAppearances entry is present. If it is, the value must be false.      *       * If the entry is invalid, the ERROR_SYNTAX_DICT_INVALID (1.2.3) error is return.      *       * @param ctx      * @param acroForm      * @param result      */

@@ -1361,6 +1361,12 @@ name|ERROR_SYNTAX_STREAM_UNDEFINED_FILTER
 init|=
 literal|"1.2.12"
 decl_stmt|;
+comment|/**      * The stream can't be processed      */
+name|String
+name|ERROR_SYNTAX_STREAM_DAMAGED
+init|=
+literal|"1.2.13"
+decl_stmt|;
 name|String
 name|ERROR_SYNTAX_NOCATALOG
 init|=
@@ -1498,6 +1504,16 @@ name|ERROR_GRAPHIC_TOO_MANY_GRAPHIC_STATES
 init|=
 literal|"2.1.8"
 decl_stmt|;
+name|String
+name|ERROR_GRAPHIC_MISSING_OBJECT
+init|=
+literal|"2.1.9"
+decl_stmt|;
+name|String
+name|ERROR_GRAPHIC_XOBJECT_INVALID_TYPE
+init|=
+literal|"2.1.10"
+decl_stmt|;
 comment|/**      * Main error code for graphical transparency problems      */
 name|String
 name|ERROR_GRAPHIC_TRANSPARENCY
@@ -1599,6 +1615,12 @@ name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_ICCBASED
 init|=
 literal|"2.4.11"
 decl_stmt|;
+comment|/**      * Validation asked on a missing ColorSpace      */
+name|String
+name|ERROR_GRAPHIC_MISSING_COLOR_SPACE_ICCBASED
+init|=
+literal|"2.4.12"
+decl_stmt|;
 comment|// -----------------------------------------------------------
 comment|// ---- FONT ERRORS 3.x...
 comment|// -----------------------------------------------------------
@@ -1690,6 +1712,12 @@ name|String
 name|ERROR_FONTS_ENCODING_IO
 init|=
 literal|"3.1.13"
+decl_stmt|;
+comment|/**      * The font type is unknown      */
+name|String
+name|ERROR_FONTS_UNKNOWN_FONT_TYPE
+init|=
+literal|"3.1.14"
 decl_stmt|;
 comment|/**      * The embedded font is damaged      */
 name|String
@@ -1803,6 +1831,12 @@ name|ERROR_ANNOT_MISSING_AP_N_CONTENT
 init|=
 literal|"5.1.2"
 decl_stmt|;
+comment|/**      * An annotation validation is required but there are no element to validate      */
+name|String
+name|ERROR_ANNOT_MISSING_ANNOTATION_DICTIONARY
+init|=
+literal|"5.1.3"
+decl_stmt|;
 comment|/**      * Common forbidden field error in annotation dictionary      */
 name|String
 name|ERROR_ANNOT_FORBIDDEN_ELEMENT
@@ -1906,6 +1940,12 @@ name|String
 name|ERROR_ACTION_HIDE_H_INVALID
 init|=
 literal|"6.1.4"
+decl_stmt|;
+comment|/**      * An action validation is required but there are no element to validate      */
+name|String
+name|ERROR_ACTION_MISSING_ACTION_DICTIONARY
+init|=
+literal|"6.1.5"
 decl_stmt|;
 comment|/**      * Common forbidden action error      */
 name|String
@@ -2077,6 +2117,18 @@ name|String
 name|ERROR_METADATA_CATEGORY_PROPERTY_INVALID
 init|=
 literal|"7.5.1"
+decl_stmt|;
+comment|/**      * Error about PDF processing : that is not necessary a specific PDF/A validation error      * but a PDF specification requirement that isn't respected.      */
+name|String
+name|ERROR_PDF_PROCESSING
+init|=
+literal|"8"
+decl_stmt|;
+comment|/**      * A Mandatory element is missing      */
+name|String
+name|ERROR_PDF_PROCESSING_MISSING
+init|=
+literal|"8.1"
 decl_stmt|;
 block|}
 end_interface

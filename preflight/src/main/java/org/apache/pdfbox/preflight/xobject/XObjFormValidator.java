@@ -243,6 +243,20 @@ name|pdfbox
 operator|.
 name|preflight
 operator|.
+name|PreflightConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
 name|PreflightContext
 import|;
 end_import
@@ -560,13 +574,11 @@ name|pdXObj
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A Form XObject may contain a Group object (Key =" Group"). If a Group object is present, this method checks if      * the S entry is present and if its value is different from "Transparency".      *       * @throws ValidationException      */
+comment|/**      * A Form XObject may contain a Group object (Key =" Group"). If a Group object is present, this method checks if      * the S entry is present and if its value is different from "Transparency".      *       */
 specifier|protected
 name|void
 name|checkGroup
 parameter_list|()
-throws|throws
-name|ValidationException
 block|{
 name|COSBase
 name|baseGroup
@@ -617,14 +629,24 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-throw|throw
-operator|new
-name|ValidationException
+name|context
+operator|.
+name|addValidationError
 argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_MISSING_FIELD
+argument_list|,
 literal|"The Group dictionary hasn't Group as Type value"
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
+else|else
+block|{
 name|String
 name|sVal
 init|=
@@ -665,6 +687,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
 block|}
 block|}
 block|}

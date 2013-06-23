@@ -2044,10 +2044,17 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ValidationException
+name|context
+operator|.
+name|addValidationError
 argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|PreflightConstants
+operator|.
+name|ERROR_FONTS_DAMAGED
+argument_list|,
 literal|"Unable to valid the Type3 : "
 operator|+
 name|e
@@ -2055,7 +2062,8 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

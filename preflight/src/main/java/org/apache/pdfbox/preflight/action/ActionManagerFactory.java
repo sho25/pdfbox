@@ -323,6 +323,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|ValidationResult
+operator|.
+name|ValidationError
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -458,6 +474,20 @@ operator|.
 name|util
 operator|.
 name|COSObjectKey
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
 import|;
 end_import
 
@@ -917,13 +947,21 @@ block|}
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|ValidationException
+name|ctx
+operator|.
+name|addValidationError
 argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|PreflightConstants
+operator|.
+name|ERROR_ACTION_INVALID_TYPE
+argument_list|,
 literal|"Action entry isn't an instance of COSDictionary"
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Returns all actions contained by the Next entry. If the action dictionary doesn't have Next action, the result is      * an empty list.      *       * @param actionDictionary      *            the action dictionary which contains Next entry      * @param cDoc      *            the COSDocument which contains actions.      * @return      * @throws ValidationException      */

@@ -18,6 +18,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -91,6 +107,22 @@ name|ValidationProcess
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|ValidationResult
+operator|.
+name|ValidationError
+import|;
+end_import
+
 begin_class
 specifier|public
 class|class
@@ -121,14 +153,22 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|ValidationException
+name|context
+operator|.
+name|addValidationError
 argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_PDF_PROCESSING_MISSING
+argument_list|,
 literal|"Unable to process an element if it is null."
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
+else|else
+block|{
 name|callValidation
 argument_list|(
 name|context
@@ -138,6 +178,7 @@ argument_list|,
 name|processName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Put the element to check on the top of the ValidationPath and call the validation method on the Process.      *       * @param context      *            (mandatory) the preflight context that contains all required information      * @param element      * @param processName      *            the process to instantiate and to compute      * @throws ValidationException      */
 specifier|private
@@ -157,21 +198,6 @@ parameter_list|)
 throws|throws
 name|ValidationException
 block|{
-if|if
-condition|(
-name|context
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|ValidationException
-argument_list|(
-literal|"Unable to process an element without context."
-argument_list|)
-throw|;
-block|}
 name|PreflightPath
 name|validationPath
 init|=
@@ -219,11 +245,13 @@ if|if
 condition|(
 name|needPop
 condition|)
+block|{
 name|validationPath
 operator|.
 name|pop
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|/**      * call directly the {@link #callValidation(PreflightContext, Object, String)}      *       * @param context      * @param processName      * @throws ValidationException      */
 specifier|public

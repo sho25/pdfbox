@@ -34,6 +34,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_NOCATALOG
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -82,6 +98,22 @@ operator|.
 name|preflight
 operator|.
 name|PreflightContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|ValidationResult
+operator|.
+name|ValidationError
 import|;
 end_import
 
@@ -200,13 +232,19 @@ block|}
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|ValidationException
+name|context
+operator|.
+name|addValidationError
 argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_SYNTAX_NOCATALOG
+argument_list|,
 literal|"There are no Catalog entry in the Document."
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 specifier|protected

@@ -45,6 +45,22 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
+name|ERROR_SYNTAX_NOCATALOG
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
 name|ERROR_SYNTAX_TRAILER_OUTLINES_INVALID
 import|;
 end_import
@@ -156,6 +172,20 @@ operator|.
 name|outline
 operator|.
 name|PDOutlineItem
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
 import|;
 end_import
 
@@ -391,13 +421,19 @@ block|}
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|ValidationException
+name|ctx
+operator|.
+name|addValidationError
 argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_SYNTAX_NOCATALOG
+argument_list|,
 literal|"There are no Catalog entry in the Document."
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Return true if the Count entry is present in the given dictionary.      *       * @param outline      * @return      */
