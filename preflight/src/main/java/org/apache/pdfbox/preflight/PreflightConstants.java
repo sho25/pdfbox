@@ -1367,10 +1367,11 @@ name|ERROR_SYNTAX_STREAM_DAMAGED
 init|=
 literal|"1.2.13"
 decl_stmt|;
+comment|/**      * There are no catalog dictionary in the PDF File      */
 name|String
 name|ERROR_SYNTAX_NOCATALOG
 init|=
-literal|"1.2.13"
+literal|"1.2.14"
 decl_stmt|;
 comment|/**      * Common error about the cross ref table      */
 name|String
