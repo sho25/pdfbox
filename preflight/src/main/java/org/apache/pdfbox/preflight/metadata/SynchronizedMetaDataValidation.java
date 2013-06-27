@@ -1146,6 +1146,8 @@ name|ValidationException
 block|{
 name|Calendar
 name|creationDate
+init|=
+literal|null
 decl_stmt|;
 try|try
 block|{
@@ -1164,16 +1166,26 @@ name|e
 parameter_list|)
 block|{
 comment|// If there is an error while converting this property to a date
-throw|throw
-name|formatAccessException
+name|ve
+operator|.
+name|add
 argument_list|(
-literal|"Document Information"
+operator|new
+name|ValidationError
+argument_list|(
+name|PreflightConstants
+operator|.
+name|ERROR_METADATA_DICT_INFO_CORRUPT
 argument_list|,
-literal|"CreationDate"
-argument_list|,
+literal|"Document Information 'CreationDate' can't be read : "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1404,16 +1416,26 @@ name|e
 parameter_list|)
 block|{
 comment|// If there is an error while converting this property to a date
-throw|throw
-name|formatAccessException
+name|ve
+operator|.
+name|add
 argument_list|(
-literal|"Document Information"
+operator|new
+name|ValidationError
+argument_list|(
+name|PreflightConstants
+operator|.
+name|ERROR_METADATA_DICT_INFO_CORRUPT
 argument_list|,
-literal|"ModifyDate"
-argument_list|,
+literal|"Document Information 'ModifyDate' can't be read : "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Check if document information entries and XMP information are synchronized      *       * @param document      *            the PDF Document      * @param metadata      *            the XMP MetaData      * @return List of validation errors      * @throws ValidationException      */
@@ -1666,70 +1688,6 @@ name|sb
 operator|.
 name|toString
 argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * Return an exception formatted on IOException when accessing metadata      *       * @param type      *            type of property (Document Info or XMP)      * @param target      *            the name of the metadata      * @param cause      *            the raised IOException      * @return the generated exception      */
-specifier|protected
-name|ValidationException
-name|formatAccessException
-parameter_list|(
-name|String
-name|type
-parameter_list|,
-name|String
-name|target
-parameter_list|,
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|StringBuilder
-name|sb
-init|=
-operator|new
-name|StringBuilder
-argument_list|(
-literal|80
-argument_list|)
-decl_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|"Cannot treat "
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|type
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|" "
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|target
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|" property"
-argument_list|)
-expr_stmt|;
-return|return
-operator|new
-name|ValidationException
-argument_list|(
-name|sb
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|cause
 argument_list|)
 return|;
 block|}

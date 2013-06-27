@@ -2119,6 +2119,12 @@ name|ERROR_METADATA_CATEGORY_PROPERTY_INVALID
 init|=
 literal|"7.5.1"
 decl_stmt|;
+comment|/**      * the infor dictionary is corrupt or value can't be read      */
+name|String
+name|ERROR_METADATA_DICT_INFO_CORRUPT
+init|=
+literal|"7.12"
+decl_stmt|;
 comment|/**      * Error about PDF processing : that is not necessary a specific PDF/A validation error      * but a PDF specification requirement that isn't respected.      */
 name|String
 name|ERROR_PDF_PROCESSING
