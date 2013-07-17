@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  *   */
 end_comment
 
 begin_class
@@ -109,12 +109,6 @@ name|numGlyphs
 index|]
 decl_stmt|;
 name|long
-name|currentOffset
-init|=
-operator|-
-literal|1
-decl_stmt|;
-name|long
 name|offset
 init|=
 name|getOffset
@@ -156,26 +150,25 @@ condition|)
 block|{
 break|break;
 block|}
-comment|// don't repeat glyphs
+comment|// the current glyph isn't defined
+comment|// if the next offset equals the current index
 if|if
 condition|(
-name|currentOffset
+name|offsets
+index|[
+name|i
+index|]
 operator|==
 name|offsets
 index|[
 name|i
+operator|+
+literal|1
 index|]
 condition|)
 block|{
 continue|continue;
 block|}
-name|currentOffset
-operator|=
-name|offsets
-index|[
-name|i
-index|]
-expr_stmt|;
 name|glyphs
 index|[
 name|i
