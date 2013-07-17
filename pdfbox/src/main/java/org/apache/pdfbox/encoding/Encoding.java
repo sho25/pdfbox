@@ -21,16 +21,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|BufferedReader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|File
 import|;
 end_import
@@ -49,19 +39,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStreamReader
+name|Collections
 import|;
 end_import
 
@@ -71,7 +51,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|Enumeration
 import|;
 end_import
 
@@ -102,6 +82,16 @@ operator|.
 name|util
 operator|.
 name|MissingResourceException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
 import|;
 end_import
 
@@ -174,7 +164,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an interface to a text encoder.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.15 $  */
+comment|/**  * This is an interface to a text encoder.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -292,16 +282,16 @@ argument_list|()
 decl_stmt|;
 static|static
 block|{
-comment|//Loads the official Adobe Glyph List
-name|loadGlyphList
+comment|// Loads the official glyph List based on adobes glyph list
+name|loadGlyphProperties
 argument_list|(
-literal|"org/apache/pdfbox/resources/glyphlist.txt"
+literal|"org/apache/pdfbox/resources/glyphlist.properties"
 argument_list|)
 expr_stmt|;
-comment|//Loads some additional glyph mappings
-name|loadGlyphList
+comment|// Loads some additional glyph mappings
+name|loadGlyphProperties
 argument_list|(
-literal|"org/apache/pdfbox/resources/additional_glyphlist.txt"
+literal|"org/apache/pdfbox/resources/additional_glyphlist.properties"
 argument_list|)
 expr_stmt|;
 comment|// Load an external glyph list file that user can give as JVM property
@@ -339,7 +329,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
-name|loadGlyphList
+name|loadGlyphProperties
 argument_list|(
 name|location
 argument_list|)
@@ -435,36 +425,33 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Loads a glyph list from a given location and populates the NAME_TO_CHARACTER hashmap      * for character lookups.      * @param location - The string location of the glyphlist file      */
+comment|/**      * Loads a glyph list from a given location and populates the NAME_TO_CHARACTER hashmap for character lookups.      *       * @param location - The string location of the glyphlist file      */
 specifier|private
 specifier|static
 name|void
-name|loadGlyphList
+name|loadGlyphProperties
 parameter_list|(
 name|String
 name|location
 parameter_list|)
 block|{
-name|BufferedReader
-name|glyphStream
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
-name|InputStream
-name|resource
+name|Properties
+name|glyphProperties
 init|=
 name|ResourceLoader
 operator|.
-name|loadResource
+name|loadProperties
 argument_list|(
 name|location
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|resource
+name|glyphProperties
 operator|==
 literal|null
 condition|)
@@ -488,108 +475,48 @@ name|location
 argument_list|)
 throw|;
 block|}
-name|glyphStream
-operator|=
-operator|new
-name|BufferedReader
+name|Enumeration
+argument_list|<
+name|?
+argument_list|>
+name|names
+init|=
+name|glyphProperties
+operator|.
+name|propertyNames
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|Object
+name|name
+range|:
+name|Collections
+operator|.
+name|list
 argument_list|(
-operator|new
-name|InputStreamReader
-argument_list|(
-name|resource
+name|names
 argument_list|)
-argument_list|)
-expr_stmt|;
+control|)
+block|{
 name|String
-name|line
+name|glyphName
 init|=
-literal|null
-decl_stmt|;
-while|while
-condition|(
-operator|(
-name|line
-operator|=
-name|glyphStream
+name|name
 operator|.
-name|readLine
+name|toString
 argument_list|()
-operator|)
-operator|!=
-literal|null
-condition|)
-block|{
-name|line
-operator|=
-name|line
-operator|.
-name|trim
-argument_list|()
-expr_stmt|;
-comment|//lines starting with # are comments which we can ignore.
-if|if
-condition|(
-operator|!
-name|line
-operator|.
-name|startsWith
-argument_list|(
-literal|"#"
-argument_list|)
-condition|)
-block|{
-name|int
-name|semicolonIndex
-init|=
-name|line
-operator|.
-name|indexOf
-argument_list|(
-literal|';'
-argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|semicolonIndex
-operator|>=
-literal|0
-condition|)
-block|{
 name|String
 name|unicodeValue
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|String
-name|characterName
-init|=
-name|line
+name|glyphProperties
 operator|.
-name|substring
+name|getProperty
 argument_list|(
-literal|0
-argument_list|,
-name|semicolonIndex
+name|glyphName
 argument_list|)
 decl_stmt|;
-name|unicodeValue
-operator|=
-name|line
-operator|.
-name|substring
-argument_list|(
-name|semicolonIndex
-operator|+
-literal|1
-argument_list|,
-name|line
-operator|.
-name|length
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|StringTokenizer
 name|tokenizer
 init|=
@@ -650,7 +577,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|containsKey
 argument_list|(
-name|characterName
+name|glyphName
 argument_list|)
 condition|)
 block|{
@@ -660,7 +587,7 @@ name|warn
 argument_list|(
 literal|"duplicate value for characterName="
 operator|+
-name|characterName
+name|glyphName
 operator|+
 literal|","
 operator|+
@@ -674,7 +601,7 @@ name|NAME_TO_CHARACTER
 operator|.
 name|put
 argument_list|(
-name|characterName
+name|glyphName
 argument_list|,
 name|value
 operator|.
@@ -684,27 +611,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|nfe
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"malformed unicode value "
-operator|+
-name|unicodeValue
-argument_list|,
-name|nfe
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -716,49 +622,14 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"error while reading the glyph list."
+literal|"error while reading the glyph property file."
 argument_list|,
 name|io
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|glyphStream
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|glyphStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"error when closing the glyph list."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-block|}
-comment|/**      * Returns an unmodifiable view of the Code2Name mapping.      * @return the Code2Name map      */
+comment|/**      * Returns an unmodifiable view of the Code2Name mapping.      *       * @return the Code2Name map      */
 specifier|public
 name|Map
 argument_list|<
@@ -778,7 +649,7 @@ name|codeToName
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an unmodifiable view of the Name2Code mapping.      * @return the Name2Code map      */
+comment|/**      * Returns an unmodifiable view of the Name2Code mapping.      *       * @return the Name2Code map      */
 specifier|public
 name|Map
 argument_list|<
@@ -798,7 +669,7 @@ name|nameToCode
 argument_list|)
 return|;
 block|}
-comment|/**      * This will add a character encoding.      *      * @param code The character code that matches the character.      * @param name The name of the character.      */
+comment|/**      * This will add a character encoding.      *       * @param code The character code that matches the character.      * @param name The name of the character.      */
 specifier|public
 name|void
 name|addCharacterEncoding
@@ -829,7 +700,7 @@ name|code
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the character code for the name.      *      * @param name The name of the character.      *      * @return The code for the character.      *      * @throws IOException If there is no character code for the name.      */
+comment|/**      * This will get the character code for the name.      *       * @param name The name of the character.      *       * @return The code for the character.      *       * @throws IOException If there is no character code for the name.      */
 specifier|public
 name|int
 name|getCode
@@ -873,7 +744,7 @@ return|return
 name|code
 return|;
 block|}
-comment|/**      * This will take a character code and get the name from the code.      *      * @param code The character code.      *      * @return The name of the character.      *      * @throws IOException If there is no name for the code.      */
+comment|/**      * This will take a character code and get the name from the code.      *       * @param code The character code.      *       * @return The name of the character.      *       * @throws IOException If there is no name for the code.      */
 specifier|public
 name|String
 name|getName
@@ -893,7 +764,7 @@ name|code
 argument_list|)
 return|;
 block|}
-comment|/**      * This will take a character code and get the name from the code.      *      * @param c The character.      *      * @return The name of the character.      *      * @throws IOException If there is no name for the character.      */
+comment|/**      * This will take a character code and get the name from the code.      *       * @param c The character.      *       * @return The name of the character.      *       * @throws IOException If there is no name for the character.      */
 specifier|public
 name|String
 name|getNameFromCharacter
@@ -942,7 +813,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * This will get the character from the code.      *      * @param code The character code.      *      * @return The printable character for the code.      *      * @throws IOException If there is not name for the character.      */
+comment|/**      * This will get the character from the code.      *       * @param code The character code.      *       * @return The printable character for the code.      *       * @throws IOException If there is not name for the character.      */
 specifier|public
 name|String
 name|getCharacter
@@ -982,7 +853,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * This will get the character from the name.      *      * @param name The name of the character.      *      * @return The printable character for the code.      */
+comment|/**      * This will get the character from the name.      *       * @param name The name of the character.      *       * @return The printable character for the code.      */
 specifier|public
 name|String
 name|getCharacter
