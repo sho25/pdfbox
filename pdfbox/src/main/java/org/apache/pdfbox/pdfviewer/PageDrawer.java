@@ -61,6 +61,16 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Font
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|Graphics
 import|;
 end_import
@@ -81,6 +91,16 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Image
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|Paint
 import|;
 end_import
@@ -91,9 +111,7 @@ name|java
 operator|.
 name|awt
 operator|.
-name|geom
-operator|.
-name|Area
+name|RenderingHints
 import|;
 end_import
 
@@ -103,7 +121,21 @@ name|java
 operator|.
 name|awt
 operator|.
-name|RenderingHints
+name|font
+operator|.
+name|FontRenderContext
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|font
+operator|.
+name|GlyphVector
 import|;
 end_import
 
@@ -127,6 +159,18 @@ name|awt
 operator|.
 name|geom
 operator|.
+name|Area
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|geom
+operator|.
 name|GeneralPath
 import|;
 end_import
@@ -139,7 +183,7 @@ name|awt
 operator|.
 name|geom
 operator|.
-name|Point2D
+name|NoninvertibleTransformException
 import|;
 end_import
 
@@ -149,7 +193,9 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Image
+name|geom
+operator|.
+name|Point2D
 import|;
 end_import
 
@@ -208,6 +254,34 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSStream
 import|;
 end_import
 
@@ -283,7 +357,71 @@ name|pdmodel
 operator|.
 name|font
 operator|.
+name|PDCIDFontType2Font
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
 name|PDFont
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|PDSimpleFont
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|PDType0Font
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|PDType3Font
 import|;
 end_import
 
@@ -535,22 +673,8 @@ name|TextPosition
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSName
-import|;
-end_import
-
 begin_comment
-comment|/**  * This will paint a page in a PDF document to a graphics context.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.22 $  */
+comment|/**  * This will paint a page in a PDF document to a graphics context.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.22 $  */
 end_comment
 
 begin_class
@@ -606,7 +730,7 @@ operator|new
 name|GeneralPath
 argument_list|()
 decl_stmt|;
-comment|/**      * Default constructor, loads properties from file.      *      * @throws IOException If there is an error loading properties from the file.      */
+comment|/**      * Default constructor, loads properties from file.      *       * @throws IOException      *             If there is an error loading properties from the file.      */
 specifier|public
 name|PageDrawer
 parameter_list|()
@@ -626,7 +750,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will draw the page to the requested context.      *      * @param g The graphics context to draw onto.      * @param p The page to draw.      * @param pageDimension The size of the page to draw.      *      * @throws IOException If there is an IO error while drawing the page.      */
+comment|/**      * This will draw the page to the requested context.      *       * @param g      *            The graphics context to draw onto.      * @param p      *            The page to draw.      * @param pageDimension      *            The size of the page to draw.      *       * @throws IOException      *             If there is an IO error while drawing the page.      */
 specifier|public
 name|void
 name|drawPage
@@ -962,7 +1086,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * You should override this method if you want to perform an action when a      * text is being processed.      *      * @param text The text to process      */
+comment|/**      * You should override this method if you want to perform an action when a text is being processed.      *       * @param text      *            The text to process      */
 specifier|protected
 name|void
 name|processTextPosition
@@ -1091,7 +1215,7 @@ name|PDTextState
 operator|.
 name|RENDERING_MODE_NEITHER_FILL_NOR_STROKE_TEXT
 case|:
-comment|//basic support for text rendering mode "invisible"
+comment|// basic support for text rendering mode "invisible"
 name|Color
 name|nsc
 init|=
@@ -1255,7 +1379,16 @@ operator|.
 name|getYPosition
 argument_list|()
 decl_stmt|;
-comment|// Set translation to 0,0. We only need the scaling and shearing
+comment|// Set translation to 0,0. We only need the scaling and shearing except for type 3 fonts
+if|if
+condition|(
+operator|!
+name|font
+operator|.
+name|isType3Font
+argument_list|()
+condition|)
+block|{
 name|textPos
 operator|.
 name|setValue
@@ -1278,6 +1411,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 comment|// because of the moved 0,0-reference, we have to shear in the opposite direction
 name|textPos
 operator|.
@@ -1341,6 +1475,41 @@ operator|.
 name|getFontMatrix
 argument_list|()
 decl_stmt|;
+comment|// Type3 fonts don't use the same units within the font matrix as all the other fonts
+if|if
+condition|(
+name|font
+operator|.
+name|isType3Font
+argument_list|()
+condition|)
+block|{
+name|at
+operator|.
+name|scale
+argument_list|(
+name|fontMatrix
+operator|.
+name|getValue
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+argument_list|,
+name|fontMatrix
+operator|.
+name|getValue
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|at
 operator|.
 name|scale
@@ -1368,7 +1537,8 @@ operator|*
 literal|1000f
 argument_list|)
 expr_stmt|;
-comment|//TODO setClip() is a massive performance hot spot. Investigate optimization possibilities
+block|}
+comment|// TODO setClip() is a massive performance hot spot. Investigate optimization possibilities
 name|graphics
 operator|.
 name|setClip
@@ -1379,12 +1549,45 @@ name|getCurrentClippingPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the fontSize is no longer needed as it is already part of the transformation
-comment|// we should remove it from the parameter list in the long run
+comment|// use different methods to draw the string
+if|if
+condition|(
 name|font
 operator|.
+name|isType3Font
+argument_list|()
+condition|)
+block|{
+name|drawType3String
+argument_list|(
+operator|(
+name|PDType3Font
+operator|)
+name|font
+argument_list|,
+name|text
+operator|.
+name|getCharacter
+argument_list|()
+argument_list|,
+name|text
+operator|.
+name|getCodePoints
+argument_list|()
+argument_list|,
+name|at
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|drawString
 argument_list|(
+operator|(
+name|PDSimpleFont
+operator|)
+name|font
+argument_list|,
 name|text
 operator|.
 name|getCharacter
@@ -1397,8 +1600,6 @@ argument_list|()
 argument_list|,
 name|graphics
 argument_list|,
-literal|1
-argument_list|,
 name|at
 argument_list|,
 name|x
@@ -1406,6 +1607,7 @@ argument_list|,
 name|y
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1420,7 +1622,616 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the graphics that we are currently drawing on.      *      * @return The graphics we are drawing on.      */
+specifier|private
+name|void
+name|drawType3String
+parameter_list|(
+name|PDType3Font
+name|font
+parameter_list|,
+name|String
+name|string
+parameter_list|,
+name|int
+index|[]
+name|codePoints
+parameter_list|,
+name|AffineTransform
+name|at
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|int
+name|stringLength
+init|=
+name|string
+operator|.
+name|length
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|stringLength
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|COSStream
+name|stream
+init|=
+name|font
+operator|.
+name|getCharStream
+argument_list|(
+name|string
+operator|.
+name|charAt
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|stream
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// save the current graphics state
+name|getGraphicsStack
+argument_list|()
+operator|.
+name|push
+argument_list|(
+operator|(
+name|PDGraphicsState
+operator|)
+name|getGraphicsState
+argument_list|()
+operator|.
+name|clone
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|Matrix
+name|ctm
+init|=
+operator|new
+name|Matrix
+argument_list|()
+decl_stmt|;
+name|ctm
+operator|.
+name|setFromAffineTransform
+argument_list|(
+name|at
+argument_list|)
+expr_stmt|;
+name|getGraphicsState
+argument_list|()
+operator|.
+name|setCurrentTransformationMatrix
+argument_list|(
+name|ctm
+argument_list|)
+expr_stmt|;
+name|processSubStream
+argument_list|(
+name|page
+argument_list|,
+name|font
+operator|.
+name|getType3Resources
+argument_list|()
+argument_list|,
+name|stream
+argument_list|)
+expr_stmt|;
+comment|// restore the saved graphics state
+name|setGraphicsState
+argument_list|(
+operator|(
+name|PDGraphicsState
+operator|)
+name|getGraphicsStack
+argument_list|()
+operator|.
+name|pop
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"drawType3String: stream for character "
+operator|+
+name|string
+operator|.
+name|charAt
+argument_list|(
+name|i
+argument_list|)
+operator|+
+literal|" not found"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|/**      * This will draw a string on a canvas using the font.      *       * @param font      *            the font to be used to draw the string      * @param string      *            The string to draw.      * @param codePoints      *            The codePoints of the given string.      * @param g      *            The graphics to draw onto.      * @param at      *            The transformation matrix with all information for scaling and shearing of the font.      * @param x      *            The x coordinate to draw at.      * @param y      *            The y coordinate to draw at.      *       * @throws IOException      *             If there is an error drawing the specific string.      */
+specifier|private
+name|void
+name|drawString
+parameter_list|(
+name|PDSimpleFont
+name|font
+parameter_list|,
+name|String
+name|string
+parameter_list|,
+name|int
+index|[]
+name|codePoints
+parameter_list|,
+name|Graphics
+name|g
+parameter_list|,
+name|AffineTransform
+name|at
+parameter_list|,
+name|float
+name|x
+parameter_list|,
+name|float
+name|y
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|Font
+name|awtFont
+init|=
+name|font
+operator|.
+name|getawtFont
+argument_list|()
+decl_stmt|;
+name|FontRenderContext
+name|frc
+init|=
+operator|new
+name|FontRenderContext
+argument_list|(
+operator|new
+name|AffineTransform
+argument_list|()
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+name|GlyphVector
+name|glyphs
+init|=
+literal|null
+decl_stmt|;
+name|boolean
+name|useCodepoints
+init|=
+name|codePoints
+operator|!=
+literal|null
+operator|&&
+name|font
+operator|.
+name|isType0Font
+argument_list|()
+decl_stmt|;
+name|PDFont
+name|descendantFont
+init|=
+name|useCodepoints
+condition|?
+operator|(
+operator|(
+name|PDType0Font
+operator|)
+name|font
+operator|)
+operator|.
+name|getDescendantFont
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
+comment|// symbolic fonts may trigger the same fontmanager.so/dll error as described below
+if|if
+condition|(
+name|useCodepoints
+operator|&&
+operator|!
+name|descendantFont
+operator|.
+name|getFontDescriptor
+argument_list|()
+operator|.
+name|isSymbolic
+argument_list|()
+condition|)
+block|{
+name|PDCIDFontType2Font
+name|cid2Font
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|descendantFont
+operator|instanceof
+name|PDCIDFontType2Font
+condition|)
+block|{
+name|cid2Font
+operator|=
+operator|(
+name|PDCIDFontType2Font
+operator|)
+name|descendantFont
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|(
+name|cid2Font
+operator|!=
+literal|null
+operator|&&
+name|cid2Font
+operator|.
+name|hasCIDToGIDMap
+argument_list|()
+operator|)
+operator|||
+operator|(
+operator|(
+name|PDSimpleFont
+operator|)
+name|font
+operator|)
+operator|.
+name|isFontSubstituted
+argument_list|()
+condition|)
+block|{
+comment|// we still have to use the string if a CIDToGIDMap is used
+name|glyphs
+operator|=
+name|awtFont
+operator|.
+name|createGlyphVector
+argument_list|(
+name|frc
+argument_list|,
+name|string
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|glyphs
+operator|=
+name|awtFont
+operator|.
+name|createGlyphVector
+argument_list|(
+name|frc
+argument_list|,
+name|codePoints
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// mdavis - fix fontmanager.so/dll on sun.font.FileFont.getGlyphImage
+comment|// for font with bad cmaps?
+comment|// Type1 fonts are not affected as they don't have cmaps
+if|if
+condition|(
+operator|!
+name|font
+operator|.
+name|isType1Font
+argument_list|()
+operator|&&
+name|awtFont
+operator|.
+name|canDisplayUpTo
+argument_list|(
+name|string
+argument_list|)
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Changing font on<"
+operator|+
+name|string
+operator|+
+literal|"> from<"
+operator|+
+name|awtFont
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"> to the default font"
+argument_list|)
+expr_stmt|;
+name|awtFont
+operator|=
+name|Font
+operator|.
+name|decode
+argument_list|(
+literal|null
+argument_list|)
+operator|.
+name|deriveFont
+argument_list|(
+literal|1f
+argument_list|)
+expr_stmt|;
+block|}
+name|glyphs
+operator|=
+name|awtFont
+operator|.
+name|createGlyphVector
+argument_list|(
+name|frc
+argument_list|,
+name|string
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|font
+operator|.
+name|isType1Font
+argument_list|()
+condition|)
+block|{
+name|glyphs
+operator|=
+name|font
+operator|.
+name|remapGlyphs
+argument_list|(
+name|glyphs
+argument_list|,
+name|string
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|Graphics2D
+name|g2d
+init|=
+operator|(
+name|Graphics2D
+operator|)
+name|g
+decl_stmt|;
+name|g2d
+operator|.
+name|setRenderingHint
+argument_list|(
+name|RenderingHints
+operator|.
+name|KEY_ANTIALIASING
+argument_list|,
+name|RenderingHints
+operator|.
+name|VALUE_ANTIALIAS_ON
+argument_list|)
+expr_stmt|;
+name|writeFont
+argument_list|(
+name|g2d
+argument_list|,
+name|at
+argument_list|,
+name|x
+argument_list|,
+name|y
+argument_list|,
+name|glyphs
+argument_list|)
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|writeFont
+parameter_list|(
+specifier|final
+name|Graphics2D
+name|g2d
+parameter_list|,
+specifier|final
+name|AffineTransform
+name|at
+parameter_list|,
+specifier|final
+name|float
+name|x
+parameter_list|,
+specifier|final
+name|float
+name|y
+parameter_list|,
+specifier|final
+name|GlyphVector
+name|glyphs
+parameter_list|)
+block|{
+comment|// check if we have a rotation
+if|if
+condition|(
+operator|!
+name|at
+operator|.
+name|isIdentity
+argument_list|()
+condition|)
+block|{
+try|try
+block|{
+name|AffineTransform
+name|atInv
+init|=
+name|at
+operator|.
+name|createInverse
+argument_list|()
+decl_stmt|;
+comment|// do only apply the size of the transform, rotation will be realized by rotating the graphics,
+comment|// otherwise the hp printers will not render the font
+comment|// apply the transformation to the graphics, which should be the same as applying the
+comment|// transformation itself to the text
+name|g2d
+operator|.
+name|transform
+argument_list|(
+name|at
+argument_list|)
+expr_stmt|;
+comment|// translate the coordinates
+name|Point2D
+operator|.
+name|Float
+name|newXy
+init|=
+operator|new
+name|Point2D
+operator|.
+name|Float
+argument_list|(
+name|x
+argument_list|,
+name|y
+argument_list|)
+decl_stmt|;
+name|atInv
+operator|.
+name|transform
+argument_list|(
+operator|new
+name|Point2D
+operator|.
+name|Float
+argument_list|(
+name|x
+argument_list|,
+name|y
+argument_list|)
+argument_list|,
+name|newXy
+argument_list|)
+expr_stmt|;
+name|g2d
+operator|.
+name|drawGlyphVector
+argument_list|(
+name|glyphs
+argument_list|,
+operator|(
+name|float
+operator|)
+name|newXy
+operator|.
+name|getX
+argument_list|()
+argument_list|,
+operator|(
+name|float
+operator|)
+name|newXy
+operator|.
+name|getY
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// restore the original transformation
+name|g2d
+operator|.
+name|transform
+argument_list|(
+name|atInv
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoninvertibleTransformException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Error in "
+operator|+
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|".writeFont"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|g2d
+operator|.
+name|drawGlyphVector
+argument_list|(
+name|glyphs
+argument_list|,
+name|x
+argument_list|,
+name|y
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Get the graphics that we are currently drawing on.      *       * @return The graphics we are drawing on.      */
 specifier|public
 name|Graphics2D
 name|getGraphics
@@ -1430,7 +2241,7 @@ return|return
 name|graphics
 return|;
 block|}
-comment|/**      * Get the page that is currently being drawn.      *      * @return The page that is being drawn.      */
+comment|/**      * Get the page that is currently being drawn.      *       * @return The page that is being drawn.      */
 specifier|public
 name|PDPage
 name|getPage
@@ -1440,7 +2251,7 @@ return|return
 name|page
 return|;
 block|}
-comment|/**      * Get the size of the page that is currently being drawn.      *      * @return The size of the page that is being drawn.      */
+comment|/**      * Get the size of the page that is currently being drawn.      *       * @return The size of the page that is being drawn.      */
 specifier|public
 name|Dimension
 name|getPageSize
@@ -1450,7 +2261,7 @@ return|return
 name|pageSize
 return|;
 block|}
-comment|/**      * Fix the y coordinate.      *      * @param y The y coordinate.      * @return The updated y coordinate.      */
+comment|/**      * Fix the y coordinate.      *       * @param y      *            The y coordinate.      * @return The updated y coordinate.      */
 specifier|public
 name|double
 name|fixY
@@ -1468,7 +2279,7 @@ operator|-
 name|y
 return|;
 block|}
-comment|/**      * Get the current line path to be drawn.      *      * @return The current line path to be drawn.      */
+comment|/**      * Get the current line path to be drawn.      *       * @return The current line path to be drawn.      */
 specifier|public
 name|GeneralPath
 name|getLinePath
@@ -1478,7 +2289,7 @@ return|return
 name|linePath
 return|;
 block|}
-comment|/**      * Set the line path to draw.      *      * @param newLinePath Set the line path to draw.      */
+comment|/**      * Set the line path to draw.      *       * @param newLinePath      *            Set the line path to draw.      */
 specifier|public
 name|void
 name|setLinePath
@@ -1519,7 +2330,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Fill the path.      *      * @param windingRule The winding rule this path will use.      *       * @throws IOException If there is an IO error while filling the path.      */
+comment|/**      * Fill the path.      *       * @param windingRule      *            The winding rule this path will use.      *       * @throws IOException      *             If there is an IO error while filling the path.      */
 specifier|public
 name|void
 name|fillPath
@@ -1665,7 +2476,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will set the current stroke.      *      * @param newStroke The current stroke.      *       */
+comment|/**      * This will set the current stroke.      *       * @param newStroke      *            The current stroke.      *       */
 specifier|public
 name|void
 name|setStroke
@@ -1683,7 +2494,7 @@ name|newStroke
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the current stroke.      *      * @return The current stroke.      *       */
+comment|/**      * This will return the current stroke.      *       * @return The current stroke.      *       */
 specifier|public
 name|BasicStroke
 name|getStroke
@@ -1700,7 +2511,7 @@ name|getStroke
 argument_list|()
 return|;
 block|}
-comment|/**      * Stroke the path.      *      * @throws IOException If there is an IO error while stroking the path.      */
+comment|/**      * Stroke the path.      *       * @throws IOException      *             If there is an IO error while stroking the path.      */
 specifier|public
 name|void
 name|strokePath
@@ -1839,7 +2650,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Called when the color changed.      * @param bStroking true for the stroking color, false for the non-stroking color      * @throws IOException if an I/O error occurs      */
+comment|/**      * Called when the color changed.      *       * @param bStroking      *            true for the stroking color, false for the non-stroking color      * @throws IOException      *             if an I/O error occurs      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -1852,10 +2663,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//logger().info("changing " + (bStroking ? "" : "non") + "stroking color");
+comment|// logger().info("changing " + (bStroking ? "" : "non") + "stroking color");
 block|}
-comment|//This code generalizes the code Jim Lynch wrote for AppendRectangleToPath
-comment|/**      * use the current transformation matrix to transform a single point.      * @param x x-coordinate of the point to be transform      * @param y y-coordinate of the point to be transform      * @return the transformed coordinates as Point2D.Double      */
+comment|// This code generalizes the code Jim Lynch wrote for AppendRectangleToPath
+comment|/**      * use the current transformation matrix to transform a single point.      *       * @param x      *            x-coordinate of the point to be transform      * @param y      *            y-coordinate of the point to be transform      * @return the transformed coordinates as Point2D.Double      */
 specifier|public
 name|java
 operator|.
@@ -1938,7 +2749,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the clipping Path.      *      * @param windingRule The winding rule this path will use.      *       * @deprecated use {@link #setClippingWindingRule(int)} instead      *       */
+comment|/**      * Set the clipping Path.      *       * @param windingRule      *            The winding rule this path will use.      *       * @deprecated use {@link #setClippingWindingRule(int)} instead      *       */
 specifier|public
 name|void
 name|setClippingPath
@@ -1953,7 +2764,7 @@ name|windingRule
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the clipping winding rule.      *      * @param windingRule The winding rule which will be used for clipping.      *       */
+comment|/**      * Set the clipping winding rule.      *       * @param windingRule      *            The winding rule which will be used for clipping.      *       */
 specifier|public
 name|void
 name|setClippingWindingRule
@@ -1967,7 +2778,7 @@ operator|=
 name|windingRule
 expr_stmt|;
 block|}
-comment|/**      * Set the clipping Path.      *      */
+comment|/**      * Set the clipping Path.      *       */
 specifier|public
 name|void
 name|endPath
@@ -2077,7 +2888,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Draw the AWT image. Called by Invoke.      * Moved into PageDrawer so that Invoke doesn't have to reach in here for Graphics as that breaks extensibility.      *      * @param awtImage The image to draw.      * @param at The transformation to use when drawing.      *       */
+comment|/**      * Draw the AWT image. Called by Invoke. Moved into PageDrawer so that Invoke doesn't have to reach in here for      * Graphics as that breaks extensibility.      *       * @param awtImage      *            The image to draw.      * @param at      *            The transformation to use when drawing.      *       */
 specifier|public
 name|void
 name|drawImage
@@ -2123,7 +2934,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Fill with Shading.  Called by SHFill operator.      *      * @param ShadingName  The name of the Shading Dictionary to use for this fill instruction.      *      * @throws IOException If there is an IO error while shade-filling the path/clipping area.      *       * @deprecated use {@link #shFill(COSName)) instead.      */
+comment|/**      * Fill with Shading. Called by SHFill operator.      *       * @param ShadingName      *            The name of the Shading Dictionary to use for this fill instruction.      *       * @throws IOException      *             If there is an IO error while shade-filling the path/clipping area.      *       * @deprecated use {@link #shFill(COSName)) instead.      */
 specifier|public
 name|void
 name|SHFill
@@ -2140,7 +2951,7 @@ name|ShadingName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Fill with Shading.  Called by SHFill operator.      *      * @param shadingName  The name of the Shading Dictionary to use for this fill instruction.      *      * @throws IOException If there is an IO error while shade-filling the clipping area.      */
+comment|/**      * Fill with Shading. Called by SHFill operator.      *       * @param shadingName      *            The name of the Shading Dictionary to use for this fill instruction.      *       * @throws IOException      *             If there is an IO error while shade-filling the clipping area.      */
 specifier|public
 name|void
 name|shFill
@@ -2344,7 +3155,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Fill with a Function-based gradient / shading.        * If extending the class, override this and its siblings, not the public SHFill method.      *      * @param Shading  The Shading Dictionary to use for this fill instruction.      *      * @throws IOException If there is an IO error while shade-filling the path/clipping area.      */
+comment|/**      * Fill with a Function-based gradient / shading. If extending the class, override this and its siblings, not the      * public SHFill method.      *       * @param Shading      *            The Shading Dictionary to use for this fill instruction.      *       * @throws IOException      *             If there is an IO error while shade-filling the path/clipping area.      */
 specifier|protected
 name|void
 name|SHFill_Function
@@ -2363,7 +3174,7 @@ literal|"Not Implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Fill with an Axial Shading.        * If extending the class, override this and its siblings, not the public SHFill method.      *      * @param Shading  The Shading Dictionary to use for this fill instruction.      *      * @throws IOException If there is an IO error while shade-filling the path/clipping area.      */
+comment|/**      * Fill with an Axial Shading. If extending the class, override this and its siblings, not the public SHFill method.      *       * @param Shading      *            The Shading Dictionary to use for this fill instruction.      *       * @throws IOException      *             If there is an IO error while shade-filling the path/clipping area.      */
 specifier|protected
 name|void
 name|SHFill_Axial
@@ -2382,7 +3193,7 @@ literal|"Not Implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Fill with a Radial gradient / shading.        * If extending the class, override this and its siblings, not the public SHFill method.      *      * @param Shading  The Shading Dictionary to use for this fill instruction.      *      * @throws IOException If there is an IO error while shade-filling the path/clipping area.      */
+comment|/**      * Fill with a Radial gradient / shading. If extending the class, override this and its siblings, not the public      * SHFill method.      *       * @param Shading      *            The Shading Dictionary to use for this fill instruction.      *       * @throws IOException      *             If there is an IO error while shade-filling the path/clipping area.      */
 specifier|protected
 name|void
 name|SHFill_Radial
@@ -2401,7 +3212,7 @@ literal|"Not Implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Fill with a Free-form Gourad-shaded triangle mesh.      * If extending the class, override this and its siblings, not the public SHFill method.      *      * @param Shading  The Shading Dictionary to use for this fill instruction.      *      * @throws IOException If there is an IO error while shade-filling the path/clipping area.      */
+comment|/**      * Fill with a Free-form Gourad-shaded triangle mesh. If extending the class, override this and its siblings, not      * the public SHFill method.      *       * @param Shading      *            The Shading Dictionary to use for this fill instruction.      *       * @throws IOException      *             If there is an IO error while shade-filling the path/clipping area.      */
 specifier|protected
 name|void
 name|SHFill_FreeGourad
@@ -2420,7 +3231,7 @@ literal|"Not Implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Fill with a Lattice-form Gourad-shaded triangle mesh.      * If extending the class, override this and its siblings, not the public SHFill method.      *      * @param Shading  The Shading Dictionary to use for this fill instruction.      *      * @throws IOException If there is an IO error while shade-filling the path/clipping area.      */
+comment|/**      * Fill with a Lattice-form Gourad-shaded triangle mesh. If extending the class, override this and its siblings, not      * the public SHFill method.      *       * @param Shading      *            The Shading Dictionary to use for this fill instruction.      *       * @throws IOException      *             If there is an IO error while shade-filling the path/clipping area.      */
 specifier|protected
 name|void
 name|SHFill_LatticeGourad
@@ -2439,7 +3250,7 @@ literal|"Not Implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Fill with a Coons patch mesh      * If extending the class, override this and its siblings, not the public SHFill method.      *      * @param Shading  The Shading Dictionary to use for this fill instruction.      *      * @throws IOException If there is an IO error while shade-filling the path/clipping area.      */
+comment|/**      * Fill with a Coons patch mesh If extending the class, override this and its siblings, not the public SHFill      * method.      *       * @param Shading      *            The Shading Dictionary to use for this fill instruction.      *       * @throws IOException      *             If there is an IO error while shade-filling the path/clipping area.      */
 specifier|protected
 name|void
 name|SHFill_CoonsPatch
@@ -2458,7 +3269,7 @@ literal|"Not Implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Fill with a Tensor-product patch mesh.      * If extending the class, override this and its siblings, not the public SHFill method.      *      * @param Shading  The Shading Dictionary to use for this fill instruction.      *      * @throws IOException If there is an IO error while shade-filling the path/clipping area.      */
+comment|/**      * Fill with a Tensor-product patch mesh. If extending the class, override this and its siblings, not the public      * SHFill method.      *       * @param Shading      *            The Shading Dictionary to use for this fill instruction.      *       * @throws IOException      *             If there is an IO error while shade-filling the path/clipping area.      */
 specifier|protected
 name|void
 name|SHFill_TensorPatch

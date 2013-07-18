@@ -1206,9 +1206,6 @@ case|case
 literal|'I'
 case|:
 block|{
-comment|//ImageParameters imageParams = lastBIToken.getImageParameters();
-comment|//int expectedBytes = (int)Math.ceil(imageParams.getHeight() * imageParams.getWidth() *
-comment|//                    (imageParams.getBitsPerComponent()/8) );
 comment|//Special case for ID operator
 name|String
 name|id
@@ -1298,11 +1295,6 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-name|int
-name|count
-init|=
-literal|0
-decl_stmt|;
 comment|//PDF spec is kinda unclear about this.  Should a whitespace
 comment|//always appear before EI? Not sure, I found a PDF
 comment|//(UnderstandingWebSphereClassLoaders.pdf) which has EI as part
@@ -1362,9 +1354,6 @@ name|pdfSource
 operator|.
 name|read
 argument_list|()
-expr_stmt|;
-name|count
-operator|++
 expr_stmt|;
 block|}
 name|pdfSource
@@ -1632,6 +1621,10 @@ name|c
 parameter_list|)
 block|{
 return|return
+name|c
+operator|==
+literal|10
+operator|||
 name|c
 operator|==
 literal|13

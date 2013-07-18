@@ -161,6 +161,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|filter
 operator|.
 name|Filter
@@ -214,7 +228,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents an inlined image.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
+comment|/**  * This class represents an inlined image.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -231,7 +245,7 @@ name|byte
 index|[]
 name|imageData
 decl_stmt|;
-comment|/**      * This will get the image parameters.      *      * @return The image parameters.      */
+comment|/**      * This will get the image parameters.      *       * @return The image parameters.      */
 specifier|public
 name|ImageParameters
 name|getImageParameters
@@ -241,7 +255,7 @@ return|return
 name|params
 return|;
 block|}
-comment|/**      * This will set the image parameters for this image.      *      * @param imageParams The imageParams.      */
+comment|/**      * This will set the image parameters for this image.      *       * @param imageParams      *            The imageParams.      */
 specifier|public
 name|void
 name|setImageParameters
@@ -255,7 +269,7 @@ operator|=
 name|imageParams
 expr_stmt|;
 block|}
-comment|/**      * Get the bytes for the image.      *      * @return The image data.      */
+comment|/**      * Get the bytes for the image.      *       * @return The image data.      */
 specifier|public
 name|byte
 index|[]
@@ -266,7 +280,7 @@ return|return
 name|imageData
 return|;
 block|}
-comment|/**      * Set the bytes that make up the image.      *      * @param value The image data.      */
+comment|/**      * Set the bytes that make up the image.      *       * @param value      *            The image data.      */
 specifier|public
 name|void
 name|setImageData
@@ -281,7 +295,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * This will take the inlined image information and create a java.awt.Image from      * it.      *      * @return The image that this object represents.      *      * @throws IOException If there is an error creating the image.      */
+comment|/**      * This will take the inlined image information and create a java.awt.Image from it.      *       * @return The image that this object represents.      *       * @throws IOException      *             If there is an error creating the image.      */
 specifier|public
 name|BufferedImage
 name|createImage
@@ -296,19 +310,22 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * This will take the inlined image information and create a java.awt.Image from      * it.      *       * @param colorSpaces The ColorSpace dictionary from the current resources, if any.      *      * @return The image that this object represents.      *      * @throws IOException If there is an error creating the image.      */
+comment|/**      * This will take the inlined image information and create a java.awt.Image from it.      *       * @param colorSpaces      *            The ColorSpace dictionary from the current resources, if any.      *       * @return The image that this object represents.      *       * @throws IOException      *             If there is an error creating the image.      */
 specifier|public
 name|BufferedImage
 name|createImage
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PDColorSpace
+argument_list|>
 name|colorSpaces
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|/*          * This was the previous implementation, not sure which is better right now.          *         byte[] transparentColors = new byte[]{(byte)0xFF,(byte)0xFF};         byte[] colors=new byte[]{0, (byte)0xFF};         IndexColorModel colorModel = new IndexColorModel( 1, 2, colors, colors, colors, transparentColors );         BufferedImage image = new BufferedImage(             params.getWidth(),             params.getHeight(),             BufferedImage.TYPE_BYTE_BINARY,             colorModel );         DataBufferByte buffer = new DataBufferByte( getImageData(), 1 );         WritableRaster raster =             Raster.createPackedRaster(                 buffer,                 params.getWidth(),                 params.getHeight(),                 params.getBitsPerComponent(),                 new Point(0,0) );         image.setData( raster );         return image;          */
-comment|//verify again pci32.pdf before changing below
 name|PDColorSpace
 name|pcs
 init|=
@@ -369,6 +386,51 @@ name|byte
 index|[]
 name|colors
 init|=
+literal|null
+decl_stmt|;
+name|COSArray
+name|decode
+init|=
+name|params
+operator|.
+name|getDecodeValues
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|decode
+operator|!=
+literal|null
+operator|&&
+name|decode
+operator|.
+name|getInt
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+literal|1
+condition|)
+block|{
+name|colors
+operator|=
+operator|new
+name|byte
+index|[]
+block|{
+operator|(
+name|byte
+operator|)
+literal|0xFF
+block|,
+literal|0
+block|}
+expr_stmt|;
+block|}
+else|else
+block|{
+name|colors
+operator|=
 operator|new
 name|byte
 index|[]
@@ -380,7 +442,8 @@ name|byte
 operator|)
 literal|0xFF
 block|}
-decl_stmt|;
+expr_stmt|;
+block|}
 name|colorModel
 operator|=
 operator|new
@@ -401,6 +464,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|filters
 init|=
 name|params
@@ -553,7 +619,6 @@ name|getHeight
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/*    Raster.createPackedRaster(                 buffer,                 params.getWidth(),                 params.getHeight(),                 params.getBitsPerComponent(),                 new Point(0,0) );                 */
 name|DataBuffer
 name|rasterBuffer
 init|=

@@ -2030,7 +2030,7 @@ block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 name|GlyphVector
 name|remapGlyphs
 parameter_list|(

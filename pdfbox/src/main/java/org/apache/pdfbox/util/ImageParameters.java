@@ -17,6 +17,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -54,20 +84,6 @@ operator|.
 name|cos
 operator|.
 name|COSDictionary
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSInteger
 import|;
 end_import
 
@@ -151,38 +167,8 @@ name|PDColorSpaceFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
-comment|/**  * This contains all of the image parameters for in inlined image.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This contains all of the image parameters for in inlined image.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -206,7 +192,7 @@ name|COSDictionary
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param params The image parameters.      */
+comment|/**      * Constructor.      *       * @param params      *            The image parameters.      */
 specifier|public
 name|ImageParameters
 parameter_list|(
@@ -219,7 +205,7 @@ operator|=
 name|params
 expr_stmt|;
 block|}
-comment|/**      * This will get the dictionary that stores the image parameters.      *      * @return The COS dictionary that stores the image parameters.      */
+comment|/**      * This will get the dictionary that stores the image parameters.      *       * @return The COS dictionary that stores the image parameters.      */
 specifier|public
 name|COSDictionary
 name|getDictionary
@@ -320,7 +306,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * The bits per component of this image.  This will return -1 if one has not      * been set.      *      * @return The number of bits per component.      */
+comment|/**      * The bits per component of this image. This will return -1 if one has not been set.      *       * @return The number of bits per component.      */
 specifier|public
 name|int
 name|getBitsPerComponent
@@ -339,7 +325,7 @@ name|BITS_PER_COMPONENT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of bits per component.      *      * @param bpc The number of bits per component.      */
+comment|/**      * Set the number of bits per component.      *       * @param bpc      *            The number of bits per component.      */
 specifier|public
 name|void
 name|setBitsPerComponent
@@ -360,7 +346,7 @@ name|bpc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the color space or null if none exists.      *      * @return The color space for this image.      *      * @throws IOException If there is an error getting the colorspace.      */
+comment|/**      * This will get the color space or null if none exists.      *       * @return The color space for this image.      *       * @throws IOException      *             If there is an error getting the colorspace.      */
 specifier|public
 name|PDColorSpace
 name|getColorSpace
@@ -375,12 +361,17 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the color space or null if none exists.      *      * @param colorSpaces The ColorSpace dictionary from the current resources, if any.      *      * @return The color space for this image.      *      * @throws IOException If there is an error getting the colorspace.      */
+comment|/**      * This will get the color space or null if none exists.      *       * @param colorSpaces      *            The ColorSpace dictionary from the current resources, if any.      *       * @return The color space for this image.      *       * @throws IOException      *             If there is an error getting the colorspace.      */
 specifier|public
 name|PDColorSpace
 name|getColorSpace
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PDColorSpace
+argument_list|>
 name|colorSpaces
 parameter_list|)
 throws|throws
@@ -428,7 +419,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the color space for this image.      *      * @param cs The color space for this image.      */
+comment|/**      * This will set the color space for this image.      *       * @param cs      *            The color space for this image.      */
 specifier|public
 name|void
 name|setColorSpace
@@ -469,7 +460,7 @@ name|base
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The height of this image.  This will return -1 if one has not      * been set.      *      * @return The height.      */
+comment|/**      * The height of this image. This will return -1 if one has not been set.      *       * @return The height.      */
 specifier|public
 name|int
 name|getHeight
@@ -488,7 +479,7 @@ name|HEIGHT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the height of the image.      *      * @param h The height of the image.      */
+comment|/**      * Set the height of the image.      *       * @param h      *            The height of the image.      */
 specifier|public
 name|void
 name|setHeight
@@ -509,7 +500,7 @@ name|h
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The width of this image.  This will return -1 if one has not      * been set.      *      * @return The width.      */
+comment|/**      * The width of this image. This will return -1 if one has not been set.      *       * @return The width.      */
 specifier|public
 name|int
 name|getWidth
@@ -528,7 +519,7 @@ name|WIDTH
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the width of the image.      *      * @param w The width of the image.      */
+comment|/**      * Set the width of the image.      *       * @param w      *            The width of the image.      */
 specifier|public
 name|void
 name|setWidth
@@ -549,13 +540,19 @@ name|w
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the list of filters that are associated with this stream.  Or      * null if there are none.      * @return A list of all encoding filters to apply to this stream.      */
+comment|/**      * This will get the list of filters that are associated with this stream. Or null if there are none.      *       * @return A list of all encoding filters to apply to this stream.      */
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getFilters
 parameter_list|()
 block|{
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -567,14 +564,13 @@ name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
-literal|"Filter"
-block|,
-literal|"F"
-block|}
+name|COSName
+operator|.
+name|F
+argument_list|,
+name|COSName
+operator|.
+name|FILTER
 argument_list|)
 decl_stmt|;
 if|if
@@ -596,6 +592,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|(
 name|name
 operator|.
@@ -637,12 +636,15 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the filters that are part of this stream.      *      * @param filters The filters that are part of this stream.      */
+comment|/**      * This will set the filters that are part of this stream.      *       * @param filters      *            The filters that are part of this stream.      */
 specifier|public
 name|void
 name|setFilters
 parameter_list|(
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|filters
 parameter_list|)
 block|{
@@ -660,11 +662,65 @@ name|dictionary
 operator|.
 name|setItem
 argument_list|(
-literal|"Filter"
+name|COSName
+operator|.
+name|F
 argument_list|,
 name|obj
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * This will set the decode values.      *       * @param decodeValues      *            the new decode values.      */
+specifier|public
+name|void
+name|setDecodeValues
+parameter_list|(
+name|COSArray
+name|decodeValues
+parameter_list|)
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|D
+argument_list|,
+name|decodeValues
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Returns all decode values as COSArray.      *       * @return the decode array.      */
+specifier|public
+name|COSArray
+name|getDecodeValues
+parameter_list|()
+block|{
+name|COSArray
+name|decode
+init|=
+operator|(
+name|COSArray
+operator|)
+name|getDictionary
+argument_list|()
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|D
+argument_list|,
+name|COSName
+operator|.
+name|DECODE
+argument_list|)
+decl_stmt|;
+return|return
+name|decode
+return|;
 block|}
 block|}
 end_class

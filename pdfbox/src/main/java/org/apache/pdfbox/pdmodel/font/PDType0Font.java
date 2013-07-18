@@ -597,7 +597,7 @@ name|retval
 return|;
 block|}
 comment|/**      *      * Provides the descendant font.      * @return the descendant font.      *      */
-specifier|protected
+specifier|public
 name|PDFont
 name|getDescendantFont
 parameter_list|()
