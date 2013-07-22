@@ -162,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation of the CIDFontType2 Font.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
+comment|/**  * This is implementation of the CIDFontType2 Font.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -361,7 +361,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO FontFile3
 return|return
 name|awtFont
 return|;
@@ -433,22 +432,22 @@ name|numberOfInts
 index|]
 expr_stmt|;
 name|int
-name|index
+name|offset
 init|=
 literal|0
 decl_stmt|;
 for|for
 control|(
 name|int
-name|offset
+name|index
 init|=
 literal|0
 init|;
-name|offset
+name|index
 operator|<
 name|numberOfInts
 condition|;
-name|offset
+name|index
 operator|++
 control|)
 block|{
@@ -465,6 +464,10 @@ name|offset
 argument_list|,
 literal|2
 argument_list|)
+expr_stmt|;
+name|offset
+operator|+=
+literal|2
 expr_stmt|;
 block|}
 block|}
