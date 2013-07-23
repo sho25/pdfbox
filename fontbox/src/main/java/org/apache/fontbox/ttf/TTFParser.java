@@ -157,6 +157,9 @@ expr_stmt|;
 comment|// check others mandatory tables
 if|if
 condition|(
+operator|!
+name|isEmbedded
+operator|&&
 name|font
 operator|.
 name|getCMAP

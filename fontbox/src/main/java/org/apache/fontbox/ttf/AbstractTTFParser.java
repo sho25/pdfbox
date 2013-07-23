@@ -75,6 +75,10 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * This class represents a true type font parser.  *   */
+end_comment
+
 begin_class
 specifier|abstract
 class|class
@@ -86,21 +90,20 @@ name|isEmbedded
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Constructor.      *       * @param fontIsEmbedded indicates whether the font is embedded or not.      *       */
 specifier|public
 name|AbstractTTFParser
 parameter_list|(
 name|boolean
-name|isEmbedded
+name|fontIsEmbedded
 parameter_list|)
 block|{
-name|this
-operator|.
 name|isEmbedded
 operator|=
-name|isEmbedded
+name|fontIsEmbedded
 expr_stmt|;
 block|}
-comment|/**      * Parse a file and get a true type font.      * @param ttfFile The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Parse a file and get a true type font.      *       * @param ttfFile The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
 specifier|public
 name|TrueTypeFont
 name|parseTTF
@@ -129,7 +132,7 @@ name|raf
 argument_list|)
 return|;
 block|}
-comment|/**      * Parse a file and get a true type font.      * @param ttfFile The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Parse a file and get a true type font.      *       * @param ttfFile The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
 specifier|public
 name|TrueTypeFont
 name|parseTTF
@@ -158,7 +161,7 @@ name|raf
 argument_list|)
 return|;
 block|}
-comment|/**      * Parse a file and get a true type font.      * @param ttfData The TTF data to parse.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Parse a file and get a true type font.      *       * @param ttfData The TTF data to parse.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
 specifier|public
 name|TrueTypeFont
 name|parseTTF
@@ -180,7 +183,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Parse a file and get a true type font.      * @param raf The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Parse a file and get a true type font.      *       * @param raf The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
 specifier|public
 name|TrueTypeFont
 name|parseTTF
@@ -273,7 +276,7 @@ name|table
 argument_list|)
 expr_stmt|;
 block|}
-comment|//need to initialize a couple tables in a certain order
+comment|// need to initialize a couple tables in a certain order
 name|parseTables
 argument_list|(
 name|font
@@ -285,7 +288,7 @@ return|return
 name|font
 return|;
 block|}
-comment|/**      * Parse all tables and check if all needed tables are present.      * @param font the TrueTypeFont instance holding the parsed data.      * @param raf the data stream of the to be parsed ttf font      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Parse all tables and check if all needed tables are present.      *       * @param font the TrueTypeFont instance holding the parsed data.      * @param raf the data stream of the to be parsed ttf font      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|parseTables
@@ -569,19 +572,6 @@ argument_list|(
 name|loc
 argument_list|)
 expr_stmt|;
-name|boolean
-name|cvt
-init|=
-literal|false
-decl_stmt|,
-name|prep
-init|=
-literal|false
-decl_stmt|,
-name|fpgm
-init|=
-literal|false
-decl_stmt|;
 name|Iterator
 argument_list|<
 name|TTFTable
@@ -643,64 +633,8 @@ name|raf
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|table
-operator|.
-name|getTag
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"cvt"
-argument_list|)
-condition|)
-block|{
-name|cvt
-operator|=
-literal|true
-expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-literal|"prep"
-operator|.
-name|equals
-argument_list|(
-name|table
-operator|.
-name|getTag
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|prep
-operator|=
-literal|true
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"fpgm"
-operator|.
-name|equals
-argument_list|(
-name|table
-operator|.
-name|getTag
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|fpgm
-operator|=
-literal|true
-expr_stmt|;
-block|}
-block|}
-comment|// check others mandatory tables
+comment|// check other mandatory tables
 if|if
 condition|(
 name|font
@@ -757,56 +691,6 @@ argument_list|(
 literal|"hmtx is mandatory"
 argument_list|)
 throw|;
-block|}
-if|if
-condition|(
-name|isEmbedded
-condition|)
-block|{
-comment|// in a embedded truetype font prep, cvt_ and fpgm tables
-comment|// are mandatory
-if|if
-condition|(
-operator|!
-name|fpgm
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"fpgm is mandatory"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-operator|!
-name|prep
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"prep is mandatory"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-operator|!
-name|cvt
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"cvt_ is mandatory"
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 specifier|private
@@ -1055,7 +939,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//unknown table type but read it anyway.
+comment|// unknown table type but read it anyway.
 name|retval
 operator|=
 operator|new

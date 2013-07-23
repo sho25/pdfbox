@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * The CMAP table of a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  *   */
 end_comment
 
 begin_class
@@ -44,6 +44,24 @@ name|String
 name|TAG
 init|=
 literal|"cmap"
+decl_stmt|;
+comment|/**      * A constant for the platform.      */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|PLATFORM_MISC
+init|=
+literal|0
+decl_stmt|;
+comment|/**      * A constant for the platform.      */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|PLATFORM_MACINTOSH
+init|=
+literal|1
 decl_stmt|;
 comment|/**      * A constant for the platform.      */
 specifier|public
@@ -249,8 +267,6 @@ index|[]
 name|cmapsValue
 parameter_list|)
 block|{
-name|this
-operator|.
 name|cmaps
 operator|=
 name|cmapsValue

@@ -78,7 +78,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An encoding entry for a cmap.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * An encoding entry for a cmap.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -86,6 +86,36 @@ specifier|public
 class|class
 name|CMAPEncodingEntry
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|LEAD_OFFSET
+init|=
+literal|0xD800
+operator|-
+operator|(
+literal|0x10000
+operator|>>
+literal|10
+operator|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|SURROGATE_OFFSET
+init|=
+literal|0x10000
+operator|-
+operator|(
+literal|0xD800
+operator|<<
+literal|10
+operator|)
+operator|-
+literal|0xDC00
+decl_stmt|;
 specifier|private
 name|int
 name|platformId
@@ -121,7 +151,7 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/** 	 * This will read the required data from the stream. 	 *  	 * @param ttf The font that is being read. 	 * @param data The stream to read the data from. 	 * @throws IOException If there is an error reading the data. 	 */
+comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
 name|initData
@@ -157,7 +187,7 @@ name|readUnsignedInt
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * This will read the required data from the stream. 	 *  	 * @param ttf The font that is being read. 	 * @param data The stream to read the data from. 	 * @throws IOException If there is an error reading the data. 	 */
+comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
 name|initSubtable
@@ -400,7 +430,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Reads a format 8 subtable. 	 * @param ttf the TrueTypeFont instance holding the parsed data. 	 * @param data the data stream of the to be parsed ttf font 	 * @param numGlyphs number of glyphs to be read 	 * @throws IOException If there is an error parsing the true type font. 	 */
+comment|/**      * Reads a format 8 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype8
@@ -600,30 +630,6 @@ block|{
 comment|// the character code uses a 32bits format
 comment|// convert it in decimal : see http://www.unicode.org/faq//utf_bom.html#utf16-4
 name|long
-name|LEAD_OFFSET
-init|=
-literal|0xD800
-operator|-
-operator|(
-literal|0x10000
-operator|>>
-literal|10
-operator|)
-decl_stmt|;
-name|long
-name|SURROGATE_OFFSET
-init|=
-literal|0x10000
-operator|-
-operator|(
-literal|0xD800
-operator|<<
-literal|10
-operator|)
-operator|-
-literal|0xDC00
-decl_stmt|;
-name|long
 name|lead
 init|=
 name|LEAD_OFFSET
@@ -740,7 +746,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Reads a format 10 subtable. 	 * @param ttf the TrueTypeFont instance holding the parsed data. 	 * @param data the data stream of the to be parsed ttf font 	 * @param numGlyphs number of glyphs to be read 	 * @throws IOException If there is an error parsing the true type font. 	 */
+comment|/**      * Reads a format 10 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype10
@@ -836,7 +842,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Reads a format 12 subtable. 	 * @param ttf the TrueTypeFont instance holding the parsed data. 	 * @param data the data stream of the to be parsed ttf font 	 * @param numGlyphs number of glyphs to be read 	 * @throws IOException If there is an error parsing the true type font. 	 */
+comment|/**      * Reads a format 12 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype12
@@ -939,17 +945,18 @@ throw|;
 block|}
 if|if
 condition|(
+operator|(
 name|endCode
 operator|>
 literal|0
 operator|&&
-operator|(
 name|endCode
-argument_list|<
+operator|<
 name|firstCode
+operator|)
 operator|||
 name|endCode
-argument_list|>
+operator|>
 literal|0x0010FFFF
 operator|||
 operator|(
@@ -960,7 +967,6 @@ operator|&&
 name|endCode
 operator|<=
 literal|0x0000DFFF
-operator|)
 operator|)
 condition|)
 block|{
@@ -1081,7 +1087,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Reads a format 13 subtable. 	 * @param ttf the TrueTypeFont instance holding the parsed data. 	 * @param data the data stream of the to be parsed ttf font 	 * @param numGlyphs number of glyphs to be read 	 * @throws IOException If there is an error parsing the true type font. 	 */
+comment|/**      * Reads a format 13 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype13
@@ -1191,17 +1197,18 @@ throw|;
 block|}
 if|if
 condition|(
+operator|(
 name|endCode
 operator|>
 literal|0
 operator|&&
-operator|(
 name|endCode
-argument_list|<
+operator|<
 name|firstCode
+operator|)
 operator|||
 name|endCode
-argument_list|>
+operator|>
 literal|0x0010FFFF
 operator|||
 operator|(
@@ -1212,7 +1219,6 @@ operator|&&
 name|endCode
 operator|<=
 literal|0x0000DFFF
-operator|)
 operator|)
 condition|)
 block|{
@@ -1303,7 +1309,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Reads a format 14 subtable. 	 * @param ttf the TrueTypeFont instance holding the parsed data. 	 * @param data the data stream of the to be parsed ttf font 	 * @param numGlyphs number of glyphs to be read 	 * @throws IOException If there is an error parsing the true type font. 	 */
+comment|/**      * Reads a format 14 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype14
@@ -1328,7 +1334,7 @@ literal|"CMap subtype 14 not yet implemented"
 argument_list|)
 throw|;
 block|}
-comment|/** 	 * Reads a format 6 subtable. 	 * @param ttf the TrueTypeFont instance holding the parsed data. 	 * @param data the data stream of the to be parsed ttf font 	 * @param numGlyphs number of glyphs to be read 	 * @throws IOException If there is an error parsing the true type font. 	 */
+comment|/**      * Reads a format 6 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype6
@@ -1425,7 +1431,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Reads a format 4 subtable. 	 * @param ttf the TrueTypeFont instance holding the parsed data. 	 * @param data the data stream of the to be parsed ttf font 	 * @param numGlyphs number of glyphs to be read 	 * @throws IOException If there is an error parsing the true type font. 	 */
+comment|/**      * Reads a format 4 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype4
@@ -1682,14 +1688,12 @@ operator|/
 literal|2
 operator|)
 operator|+
-comment|//idRangeOffset[i]/2
 operator|(
 name|j
 operator|-
 name|start
 operator|)
 operator|+
-comment|//(c - startCount[i])
 operator|(
 name|i
 operator|-
@@ -1699,7 +1703,6 @@ operator|)
 operator|*
 literal|2
 decl_stmt|;
-comment|//&idRangeOffset[i]);
 name|data
 operator|.
 name|seek
@@ -1767,7 +1770,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/* this is the final result 		 * key=glyphId, value is character codes 		 * Create an array that contains MAX(GlyphIds) element and fill this array with the .notdef character 		 */
+comment|/*          * this is the final result key=glyphId, value is character codes Create an array that contains MAX(GlyphIds)          * element and fill this array with the .notdef character          */
 name|glyphIdToCharacterCode
 operator|=
 operator|new
@@ -1827,7 +1830,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Read a format 2 subtable. 	 * @param ttf the TrueTypeFont instance holding the parsed data. 	 * @param data the data stream of the to be parsed ttf font 	 * @param numGlyphs number of glyphs to be read 	 * @throws IOException If there is an error parsing the true type font. 	 */
+comment|/**      * Read a format 2 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype2
@@ -1966,6 +1969,20 @@ name|data
 operator|.
 name|readUnsignedShort
 argument_list|()
+operator|-
+operator|(
+name|maxSubHeaderIndex
+operator|+
+literal|1
+operator|-
+name|i
+operator|-
+literal|1
+operator|)
+operator|*
+literal|8
+operator|-
+literal|2
 decl_stmt|;
 name|subHeaders
 index|[
@@ -2032,6 +2049,39 @@ operator|.
 name|getFirstCode
 argument_list|()
 decl_stmt|;
+name|int
+name|idRangeOffset
+init|=
+name|sh
+operator|.
+name|getIdRangeOffset
+argument_list|()
+decl_stmt|;
+name|int
+name|idDelta
+init|=
+name|sh
+operator|.
+name|getIdDelta
+argument_list|()
+decl_stmt|;
+name|int
+name|entryCount
+init|=
+name|sh
+operator|.
+name|getEntryCount
+argument_list|()
+decl_stmt|;
+name|data
+operator|.
+name|seek
+argument_list|(
+name|startGlyphIndexOffset
+operator|+
+name|idRangeOffset
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -2041,10 +2091,7 @@ literal|0
 init|;
 name|j
 operator|<
-name|sh
-operator|.
-name|getEntryCount
-argument_list|()
+name|entryCount
 condition|;
 operator|++
 name|j
@@ -2054,11 +2101,7 @@ comment|// ---- compute the Character Code
 name|int
 name|charCode
 init|=
-operator|(
 name|i
-operator|*
-literal|8
-operator|)
 decl_stmt|;
 name|charCode
 operator|=
@@ -2075,27 +2118,9 @@ name|j
 operator|)
 expr_stmt|;
 comment|// ---- Go to the CharacterCOde position in the Sub Array
-comment|//      of the glyphIndexArray
-comment|//      glyphIndexArray contains Unsigned Short so add (j * 2) bytes
-comment|//      at the index position
-name|data
-operator|.
-name|seek
-argument_list|(
-name|startGlyphIndexOffset
-operator|+
-name|sh
-operator|.
-name|getIdRangeOffset
-argument_list|()
-operator|+
-operator|(
-name|j
-operator|*
-literal|2
-operator|)
-argument_list|)
-expr_stmt|;
+comment|// of the glyphIndexArray
+comment|// glyphIndexArray contains Unsigned Short so add (j * 2) bytes
+comment|// at the index position
 name|int
 name|p
 init|=
@@ -2105,17 +2130,24 @@ name|readUnsignedShort
 argument_list|()
 decl_stmt|;
 comment|// ---- compute the glyphIndex
+if|if
+condition|(
+name|p
+operator|>
+literal|0
+condition|)
+block|{
 name|p
 operator|=
+operator|(
 name|p
 operator|+
-name|sh
-operator|.
-name|getIdDelta
-argument_list|()
+name|idDelta
+operator|)
 operator|%
 literal|65536
 expr_stmt|;
+block|}
 name|glyphIdToCharacterCode
 index|[
 name|p
@@ -2135,7 +2167,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Initialize the CMapEntry when it is a subtype 0 	 *  	 * @param ttf 	 * @param data 	 * @throws IOException 	 */
+comment|/**      * Initialize the CMapEntry when it is a subtype 0.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype0
@@ -2217,7 +2249,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * @return Returns the glyphIdToCharacterCode. 	 */
+comment|/**      * @return Returns the glyphIdToCharacterCode.      */
 specifier|public
 name|int
 index|[]
@@ -2228,7 +2260,7 @@ return|return
 name|glyphIdToCharacterCode
 return|;
 block|}
-comment|/** 	 * @param glyphIdToCharacterCodeValue The glyphIdToCharacterCode to set. 	 */
+comment|/**      * @param glyphIdToCharacterCodeValue The glyphIdToCharacterCode to set.      */
 specifier|public
 name|void
 name|setGlyphIdToCharacterCode
@@ -2238,14 +2270,12 @@ index|[]
 name|glyphIdToCharacterCodeValue
 parameter_list|)
 block|{
-name|this
-operator|.
 name|glyphIdToCharacterCode
 operator|=
 name|glyphIdToCharacterCodeValue
 expr_stmt|;
 block|}
-comment|/** 	 * @return Returns the platformEncodingId. 	 */
+comment|/**      * @return Returns the platformEncodingId.      */
 specifier|public
 name|int
 name|getPlatformEncodingId
@@ -2255,7 +2285,7 @@ return|return
 name|platformEncodingId
 return|;
 block|}
-comment|/** 	 * @param platformEncodingIdValue The platformEncodingId to set. 	 */
+comment|/**      * @param platformEncodingIdValue The platformEncodingId to set.      */
 specifier|public
 name|void
 name|setPlatformEncodingId
@@ -2264,14 +2294,12 @@ name|int
 name|platformEncodingIdValue
 parameter_list|)
 block|{
-name|this
-operator|.
 name|platformEncodingId
 operator|=
 name|platformEncodingIdValue
 expr_stmt|;
 block|}
-comment|/** 	 * @return Returns the platformId. 	 */
+comment|/**      * @return Returns the platformId.      */
 specifier|public
 name|int
 name|getPlatformId
@@ -2281,7 +2309,7 @@ return|return
 name|platformId
 return|;
 block|}
-comment|/** 	 * @param platformIdValue The platformId to set. 	 */
+comment|/**      * @param platformIdValue The platformId to set.      */
 specifier|public
 name|void
 name|setPlatformId
@@ -2290,14 +2318,12 @@ name|int
 name|platformIdValue
 parameter_list|)
 block|{
-name|this
-operator|.
 name|platformId
 operator|=
 name|platformIdValue
 expr_stmt|;
 block|}
-comment|/** 	 * Returns the GlyphId linked with the given character code.  	 * @param characterCode 	 * @return glyphId 	 */
+comment|/**      * Returns the GlyphId linked with the given character code.      *       * @param characterCode the given character code to be mapped      * @return glyphId the corresponding glyph id for the given character code      */
 specifier|public
 name|int
 name|getGlyphId
@@ -2308,8 +2334,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|this
-operator|.
 name|characterCodeToGlyphId
 operator|.
 name|containsKey
@@ -2319,8 +2343,6 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|this
-operator|.
 name|characterCodeToGlyphId
 operator|.
 name|get
@@ -2336,7 +2358,7 @@ literal|0
 return|;
 block|}
 block|}
-comment|/** 	 * Class used to manage CMap - Format 2 	 */
+comment|/**      *       * Class used to manage CMap - Format 2.      *       */
 specifier|private
 class|class
 name|SubHeader
@@ -2349,12 +2371,12 @@ specifier|private
 name|int
 name|entryCount
 decl_stmt|;
-comment|/** 		 * used to compute the GlyphIndex : 		 * P = glyphIndexArray.SubArray[pos] 		 * GlyphIndex = P + idDelta % 65536 		 */
+comment|/**          * used to compute the GlyphIndex : P = glyphIndexArray.SubArray[pos] GlyphIndex = P + idDelta % 65536.          */
 specifier|private
 name|short
 name|idDelta
 decl_stmt|;
-comment|/** 		 * Number of bytes to skip to reach the firstCode in the  		 * glyphIndexArray  		 */
+comment|/**          * Number of bytes to skip to reach the firstCode in the glyphIndexArray.          */
 specifier|private
 name|int
 name|idRangeOffset
@@ -2363,44 +2385,36 @@ specifier|private
 name|SubHeader
 parameter_list|(
 name|int
-name|firstCode
+name|firstCodeValue
 parameter_list|,
 name|int
-name|entryCount
+name|entryCountValue
 parameter_list|,
 name|short
-name|idDelta
+name|idDeltaValue
 parameter_list|,
 name|int
-name|idRangeOffset
+name|idRangeOffsetValue
 parameter_list|)
 block|{
-name|this
-operator|.
 name|firstCode
 operator|=
-name|firstCode
+name|firstCodeValue
 expr_stmt|;
-name|this
-operator|.
 name|entryCount
 operator|=
-name|entryCount
+name|entryCountValue
 expr_stmt|;
-name|this
-operator|.
 name|idDelta
 operator|=
-name|idDelta
+name|idDeltaValue
 expr_stmt|;
-name|this
-operator|.
 name|idRangeOffset
 operator|=
-name|idRangeOffset
+name|idRangeOffsetValue
 expr_stmt|;
 block|}
-comment|/** 		 * @return the firstCode 		 */
+comment|/**          * @return the firstCode          */
 specifier|private
 name|int
 name|getFirstCode
@@ -2410,7 +2424,7 @@ return|return
 name|firstCode
 return|;
 block|}
-comment|/** 		 * @return the entryCount 		 */
+comment|/**          * @return the entryCount          */
 specifier|private
 name|int
 name|getEntryCount
@@ -2420,7 +2434,7 @@ return|return
 name|entryCount
 return|;
 block|}
-comment|/** 		 * @return the idDelta 		 */
+comment|/**          * @return the idDelta          */
 specifier|private
 name|short
 name|getIdDelta
@@ -2430,7 +2444,7 @@ return|return
 name|idDelta
 return|;
 block|}
-comment|/** 		 * @return the idRangeOffset 		 */
+comment|/**          * @return the idRangeOffset          */
 specifier|private
 name|int
 name|getIdRangeOffset
