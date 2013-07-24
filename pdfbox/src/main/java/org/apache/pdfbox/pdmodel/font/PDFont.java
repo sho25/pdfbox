@@ -19,6 +19,76 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -55,7 +125,7 @@ name|fontbox
 operator|.
 name|cmap
 operator|.
-name|CMapParser
+name|CMap
 import|;
 end_import
 
@@ -69,21 +139,7 @@ name|fontbox
 operator|.
 name|cmap
 operator|.
-name|CMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|encoding
-operator|.
-name|Encoding
+name|CMapParser
 import|;
 end_import
 
@@ -193,6 +249,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|encoding
+operator|.
+name|Encoding
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -263,78 +333,8 @@ name|ResourceLoader
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|UnsupportedEncodingException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
-comment|/**  * This is the base class for all PDF fonts.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.46 $  */
+comment|/**  * This is the base class for all PDF fonts.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -357,21 +357,21 @@ name|fontEncoding
 init|=
 literal|null
 decl_stmt|;
-comment|/**      *  The descriptor of the font.      */
+comment|/**      * The descriptor of the font.      */
 specifier|private
 name|PDFontDescriptor
 name|fontDescriptor
 init|=
 literal|null
 decl_stmt|;
-comment|/**      *  The font matrix.      */
+comment|/**      * The font matrix.      */
 specifier|protected
 name|PDMatrix
 name|fontMatrix
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * This is only used if this is a font object and it has an encoding and it is      * a type0 font with a cmap.      */
+comment|/**      * This is only used if this is a font object and it has an encoding and it is a type0 font with a cmap.      */
 specifier|protected
 name|CMap
 name|cmap
@@ -415,7 +415,7 @@ argument_list|>
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/**      *  A list a floats representing the widths.      */
+comment|/**      * A list a floats representing the widths.      */
 specifier|private
 name|List
 argument_list|<
@@ -686,7 +686,7 @@ block|{
 comment|// ignore
 block|}
 block|}
-comment|/**      * This will clear AFM resources that are stored statically.      * This is usually not a problem unless you want to reclaim      * resources for a long running process.      *      * SPECIAL NOTE: The font calculations are currently in COSObject, which      * is where they will reside until PDFont is mature enough to take them over.      * PDFont is the appropriate place for them and not in COSObject but we need font      * calculations for text extraction.  THIS METHOD WILL BE MOVED OR REMOVED      * TO ANOTHER LOCATION IN A FUTURE VERSION OF PDFBOX.      */
+comment|/**      * This will clear AFM resources that are stored statically. This is usually not a problem unless you want to      * reclaim resources for a long running process.      *       * SPECIAL NOTE: The font calculations are currently in COSObject, which is where they will reside until PDFont is      * mature enough to take them over. PDFont is the appropriate place for them and not in COSObject but we need font      * calculations for text extraction. THIS METHOD WILL BE MOVED OR REMOVED TO ANOTHER LOCATION IN A FUTURE VERSION OF      * PDFBOX.      */
 specifier|public
 specifier|static
 name|void
@@ -724,7 +724,7 @@ name|FONT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
+comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      */
 specifier|public
 name|PDFont
 parameter_list|(
@@ -740,7 +740,7 @@ name|determineEncoding
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will get the font descriptor for this font.      *      * @return The font descriptor for this font.      *      */
+comment|/**      * This will get the font descriptor for this font.      *       * @return The font descriptor for this font.      *       */
 specifier|public
 name|PDFontDescriptor
 name|getFontDescriptor
@@ -811,7 +811,7 @@ return|return
 name|fontDescriptor
 return|;
 block|}
-comment|/**      * This will set the font descriptor.      *      * @param fdDictionary The font descriptor.      */
+comment|/**      * This will set the font descriptor.      *       * @param fdDictionary The font descriptor.      */
 specifier|public
 name|void
 name|setFontDescriptor
@@ -856,7 +856,7 @@ operator|=
 name|fdDictionary
 expr_stmt|;
 block|}
-comment|/**      * Determines the encoding for the font.      * This method as to be overwritten, as there are different      * possibilities to define a mapping.      */
+comment|/**      * Determines the encoding for the font. This method as to be overwritten, as there are different possibilities to      * define a mapping.      */
 specifier|protected
 specifier|abstract
 name|void
@@ -873,7 +873,7 @@ return|return
 name|font
 return|;
 block|}
-comment|/**      * This will get the font width for a character.      *      * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font width for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
 specifier|public
 specifier|abstract
 name|float
@@ -892,7 +892,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * This will get the font width for a character.      *      * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font width for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
 specifier|public
 specifier|abstract
 name|float
@@ -911,7 +911,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * This will get the width of this string for this font.      *      * @param string The string to get the width of.      *      * @return The width of the string in 1000 units of text space, ie 333 567...      *      * @throws IOException If there is an error getting the width information.      */
+comment|/**      * This will get the width of this string for this font.      *       * @param string The string to get the width of.      *       * @return The width of the string in 1000 units of text space, ie 333 567...      *       * @throws IOException If there is an error getting the width information.      */
 specifier|public
 name|float
 name|getStringWidth
@@ -971,7 +971,7 @@ return|return
 name|totalWidth
 return|;
 block|}
-comment|/**      * This will get the average font width for all characters.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the average font width for all characters.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
 specifier|public
 specifier|abstract
 name|float
@@ -980,7 +980,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Used for multibyte encodings.      *      * @param data The array of data.      * @param offset The offset into the array.      * @param length The number of bytes to use.      *      * @return The int value of data from the array.      */
+comment|/**      * Used for multibyte encodings.      *       * @param data The array of data.      * @param offset The offset into the array.      * @param length The number of bytes to use.      *       * @return The int value of data from the array.      */
 specifier|public
 name|int
 name|getCodeFromArray
@@ -1040,7 +1040,7 @@ return|return
 name|code
 return|;
 block|}
-comment|/**      * This will attempt to get the font width from an AFM file.      *      * @param code The character code we are trying to get.      *      * @return The font width from the AFM file.      *      * @throws IOException if we cannot find the width.      */
+comment|/**      * This will attempt to get the font width from an AFM file.      *       * @param code The character code we are trying to get.      *       * @return The font width from the AFM file.      *       * @throws IOException if we cannot find the width.      */
 specifier|protected
 name|float
 name|getFontWidthFromAFMFile
@@ -1093,7 +1093,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will attempt to get the average font width from an AFM file.      *      * @return The average font width from the AFM file.      *      * @throws IOException if we cannot find the width.      */
+comment|/**      * This will attempt to get the average font width from an AFM file.      *       * @return The average font width from the AFM file.      *       * @throws IOException if we cannot find the width.      */
 specifier|protected
 name|float
 name|getAverageFontWidthFromAFMFile
@@ -1131,7 +1131,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get an AFM object if one exists.      *      * @return The afm object from the name.      *      */
+comment|/**      * This will get an AFM object if one exists.      *       * @return The afm object from the name.      *       */
 specifier|protected
 name|FontMetric
 name|getAFM
@@ -1272,7 +1272,7 @@ name|encoding
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * cache the {@link COSName#ENCODING} object from      * the font's dictionary since it is called so often.      *<p>      * Use this method instead of      *<pre>      *   font.getDictionaryObject(COSName.ENCODING);      *</pre>      * @return the encoding      */
+comment|/**      * cache the {@link COSName#ENCODING} object from the font's dictionary since it is called so often.      *<p>      * Use this method instead of      *       *<pre>      * font.getDictionaryObject(COSName.ENCODING);      *</pre>      *       * @return the encoding      */
 specifier|protected
 name|COSBase
 name|getEncoding
@@ -1301,7 +1301,7 @@ return|return
 name|encoding
 return|;
 block|}
-comment|/**      * Set the encoding object from the fonts dictionary.      * @param encodingValue the given encoding.      */
+comment|/**      * Set the encoding object from the fonts dictionary.      *       * @param encodingValue the given encoding.      */
 specifier|protected
 name|void
 name|setEncoding
@@ -1326,7 +1326,7 @@ operator|=
 name|encodingValue
 expr_stmt|;
 block|}
-comment|/**      * Encode the given value using the CMap of the font.      *      * @param code the code to encode.      * @param length the byte length of the given code.      * @param isCIDFont indicates that the used font is a CID font.      *      * @return The value of the encoded character.      * @throws IOException if something went wrong      */
+comment|/**      * Encode the given value using the CMap of the font.      *       * @param code the code to encode.      * @param length the byte length of the given code.      * @param isCIDFont indicates that the used font is a CID font.      *       * @return The value of the encoded character.      * @throws IOException if something went wrong      */
 specifier|protected
 name|String
 name|cmapEncoding
@@ -1406,7 +1406,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will perform the encoding of a character if needed.      *      * @param c The character to encode.      * @param offset The offset into the array to get the data      * @param length The number of bytes to read.      *      * @return The value of the encoded character.      *      * @throws IOException If there is an error during the encoding.      */
+comment|/**      * This will perform the encoding of a character if needed.      *       * @param c The character to encode.      * @param offset The offset into the array to get the data      * @param length The number of bytes to read.      *       * @return The value of the encoded character.      *       * @throws IOException If there is an error during the encoding.      */
 specifier|public
 name|String
 name|encode
@@ -1918,13 +1918,13 @@ parameter_list|(
 name|IOException
 name|exception
 parameter_list|)
-block|{}
+block|{             }
 block|}
 return|return
 name|targetCmap
 return|;
 block|}
-comment|/**      * The will set the encoding for this font.      *      * @param enc The font encoding.      */
+comment|/**      * The will set the encoding for this font.      *       * @param enc The font encoding.      */
 specifier|public
 name|void
 name|setFontEncoding
@@ -1938,7 +1938,7 @@ operator|=
 name|enc
 expr_stmt|;
 block|}
-comment|/**      * This will get or create the encoder.      *      * @return The encoding to use.      */
+comment|/**      * This will get or create the encoder.      *       * @return The encoding to use.      */
 specifier|public
 name|Encoding
 name|getFontEncoding
@@ -1948,7 +1948,7 @@ return|return
 name|fontEncoding
 return|;
 block|}
-comment|/**      * This will always return "Font" for fonts.      *      * @return The type of object that this is.      */
+comment|/**      * This will always return "Font" for fonts.      *       * @return The type of object that this is.      */
 specifier|public
 name|String
 name|getType
@@ -1988,7 +1988,7 @@ specifier|private
 name|boolean
 name|type0Font
 decl_stmt|;
-comment|/**      * This will get the subtype of font, Type1, Type3, ...      *      * @return The type of font that this is.      */
+comment|/**      * This will get the subtype of font, Type1, Type3, ...      *       * @return The type of font that this is.      */
 specifier|public
 name|String
 name|getSubType
@@ -2053,7 +2053,7 @@ return|return
 name|subtype
 return|;
 block|}
-comment|/**      * Determines if the font is a type 1 font.      * @return returns true if the font is a type 1 font      */
+comment|/**      * Determines if the font is a type 1 font.      *       * @return returns true if the font is a type 1 font      */
 specifier|public
 name|boolean
 name|isType1Font
@@ -2066,7 +2066,7 @@ return|return
 name|type1Font
 return|;
 block|}
-comment|/**      * Determines if the font is a type 3 font.      * @return returns true if the font is a type 3 font      */
+comment|/**      * Determines if the font is a type 3 font.      *       * @return returns true if the font is a type 3 font      */
 specifier|public
 name|boolean
 name|isType3Font
@@ -2079,7 +2079,7 @@ return|return
 name|type3Font
 return|;
 block|}
-comment|/**      * Determines if the font is a type 0 font.      * @return returns true if the font is a type 0 font      */
+comment|/**      * Determines if the font is a type 0 font.      *       * @return returns true if the font is a type 0 font      */
 specifier|public
 name|boolean
 name|isType0Font
@@ -2092,7 +2092,7 @@ return|return
 name|type0Font
 return|;
 block|}
-comment|/**      * Determines if the font is a true type font.      * @return returns true if the font is a true type font      */
+comment|/**      * Determines if the font is a true type font.      *       * @return returns true if the font is a true type font      */
 specifier|public
 name|boolean
 name|isTrueTypeFont
@@ -2105,7 +2105,33 @@ return|return
 name|trueTypeFont
 return|;
 block|}
-comment|/**      * The PostScript name of the font.      *      * @return The postscript name of the font.      */
+comment|/**      * Determines if the font is a symbolic font.      *       * @return returns true if the font is a symbolic font      */
+specifier|public
+name|boolean
+name|isSymbolicFont
+parameter_list|()
+block|{
+if|if
+condition|(
+name|getFontDescriptor
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|getFontDescriptor
+argument_list|()
+operator|.
+name|isSymbolic
+argument_list|()
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * The PostScript name of the font.      *       * @return The postscript name of the font.      */
 specifier|public
 name|String
 name|getBaseFont
@@ -2122,7 +2148,7 @@ name|BASE_FONT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the PostScript name of the font.      *      * @param baseFont The postscript name for the font.      */
+comment|/**      * Set the PostScript name of the font.      *       * @param baseFont The postscript name for the font.      */
 specifier|public
 name|void
 name|setBaseFont
@@ -2143,7 +2169,7 @@ name|baseFont
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The code for the first char or -1 if there is none.      *      * @return The code for the first character.      */
+comment|/**      * The code for the first char or -1 if there is none.      *       * @return The code for the first character.      */
 specifier|public
 name|int
 name|getFirstChar
@@ -2163,7 +2189,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the first character this font supports.      *      * @param firstChar The first character.      */
+comment|/**      * Set the first character this font supports.      *       * @param firstChar The first character.      */
 specifier|public
 name|void
 name|setFirstChar
@@ -2184,7 +2210,7 @@ name|firstChar
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The code for the last char or -1 if there is none.      *      * @return The code for the last character.      */
+comment|/**      * The code for the last char or -1 if there is none.      *       * @return The code for the last character.      */
 specifier|public
 name|int
 name|getLastChar
@@ -2204,7 +2230,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the last character this font supports.      *      * @param lastChar The last character.      */
+comment|/**      * Set the last character this font supports.      *       * @param lastChar The last character.      */
 specifier|public
 name|void
 name|setLastChar
@@ -2225,7 +2251,7 @@ name|lastChar
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The widths of the characters.  This will be null for the standard 14 fonts.      *      * @return The widths of the characters.      */
+comment|/**      * The widths of the characters. This will be null for the standard 14 fonts.      *       * @return The widths of the characters.      */
 specifier|public
 name|List
 argument_list|<
@@ -2278,7 +2304,7 @@ return|return
 name|widths
 return|;
 block|}
-comment|/**      * Set the widths of the characters code.      *      * @param widthsList The widths of the character codes.      */
+comment|/**      * Set the widths of the characters code.      *       * @param widthsList The widths of the character codes.      */
 specifier|public
 name|void
 name|setWidths
@@ -2311,7 +2337,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the matrix that is used to transform glyph space to      * text space.  By default there are 1000 glyph units to 1 text space      * unit, but type3 fonts can use any value.      *      * Note:If this is a type3 font then it can be modified via the PDType3Font.setFontMatrix, otherwise this      * is a read-only property.      *      * @return The matrix to transform from glyph space to text space.      */
+comment|/**      * This will get the matrix that is used to transform glyph space to text space. By default there are 1000 glyph      * units to 1 text space unit, but type3 fonts can use any value.      *       * Note:If this is a type3 font then it can be modified via the PDType3Font.setFontMatrix, otherwise this is a      * read-only property.      *       * @return The matrix to transform from glyph space to text space.      */
 specifier|public
 name|PDMatrix
 name|getFontMatrix
@@ -2424,7 +2450,7 @@ return|return
 name|fontMatrix
 return|;
 block|}
-comment|/**      * This will get the fonts bounding box.      *      * @return The fonts bounding box.      *      * @throws IOException If there is an error getting the bounding box.      */
+comment|/**      * This will get the fonts bounding box.      *       * @return The fonts bounding box.      *       * @throws IOException If there is an error getting the bounding box.      */
 specifier|public
 specifier|abstract
 name|PDRectangle
@@ -2479,7 +2505,7 @@ name|hashCode
 argument_list|()
 return|;
 block|}
-comment|/**      * Determines the width of the given character.      * @param charCode the code of the given character      * @return the width of the character      */
+comment|/**      * Determines the width of the given character.      *       * @param charCode the code of the given character      * @return the width of the character      */
 specifier|public
 name|float
 name|getFontWidth
@@ -2572,8 +2598,8 @@ return|return
 name|width
 return|;
 block|}
-comment|/**      * Determines if a font as a ToUnicode entry.      * @return true if the font has a ToUnicode entry      */
-specifier|protected
+comment|/**      * Determines if a font as a ToUnicode entry.      *       * @return true if the font has a ToUnicode entry      */
+specifier|public
 name|boolean
 name|hasToUnicode
 parameter_list|()
@@ -2582,7 +2608,7 @@ return|return
 name|hasToUnicode
 return|;
 block|}
-comment|/**      * Sets hasToUnicode to the given value.      * @param hasToUnicodeValue the given value for hasToUnicode      */
+comment|/**      * Sets hasToUnicode to the given value.      *       * @param hasToUnicodeValue the given value for hasToUnicode      */
 specifier|protected
 name|void
 name|setHasToUnicode
@@ -2596,13 +2622,23 @@ operator|=
 name|hasToUnicodeValue
 expr_stmt|;
 block|}
-comment|/**      * Determines the width of the space character.      * @return the width of the space character      */
+comment|/**      * Determines the width of the space character.      *       * @return the width of the space character      */
 specifier|public
 specifier|abstract
 name|float
 name|getSpaceWidth
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the toUnicode mapping if present.      *       * @return the CMap representing the toUnicode mapping      */
+specifier|public
+name|CMap
+name|getToUnicodeCMap
+parameter_list|()
+block|{
+return|return
+name|toUnicodeCmap
+return|;
+block|}
 block|}
 end_class
 

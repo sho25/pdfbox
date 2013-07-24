@@ -394,7 +394,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will run through a PDF content stream and execute certain operations  * and provide a callback interface for clients that want to do things with the stream.  * See the PDFTextStripper class for an example of how to use this class.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.38 $  */
+comment|/**  * This class will run through a PDF content stream and execute certain operations and provide a callback interface for  * clients that want to do things with the stream. See the PDFTextStripper class for an example of how to use this  * class.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.38 $  */
 end_comment
 
 begin_class
@@ -522,7 +522,7 @@ specifier|public
 name|PDFStreamEngine
 parameter_list|()
 block|{
-comment|//default constructor
+comment|// default constructor
 name|validCharCnt
 operator|=
 literal|0
@@ -532,7 +532,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/**      * Constructor with engine properties.  The property keys are all      * PDF operators, the values are class names used to execute those      * operators. An empty value means that the operator will be silently      * ignored.      *      * @param properties The engine properties.      *      * @throws IOException If there is an error setting the engine properties.      */
+comment|/**      * Constructor with engine properties. The property keys are all PDF operators, the values are class names used to      * execute those operators. An empty value means that the operator will be silently ignored.      *       * @param properties The engine properties.      *       * @throws IOException If there is an error setting the engine properties.      */
 specifier|public
 name|PDFStreamEngine
 parameter_list|(
@@ -708,7 +708,7 @@ operator|=
 name|forceParsingValue
 expr_stmt|;
 block|}
-comment|/**      * Register a custom operator processor with the engine.      *      * @param operator The operator as a string.      * @param op Processor instance.      */
+comment|/**      * Register a custom operator processor with the engine.      *       * @param operator The operator as a string.      * @param op Processor instance.      */
 specifier|public
 name|void
 name|registerOperatorProcessor
@@ -737,7 +737,7 @@ name|op
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method must be called between processing documents.  The      * PDFStreamEngine caches information for the document between pages      * and this will release the cached information.  This only needs      * to be called if processing a new document.      *      */
+comment|/**      * This method must be called between processing documents. The PDFStreamEngine caches information for the document      * between pages and this will release the cached information. This only needs to be called if processing a new      * document.      *       */
 specifier|public
 name|void
 name|resetEngine
@@ -752,7 +752,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/**      * This will process the contents of the stream.      *      * @param aPage The page.      * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      *      *      * @throws IOException if there is an error accessing the stream.      */
+comment|/**      * This will process the contents of the stream.      *       * @param aPage The page.      * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      *       *       * @throws IOException if there is an error accessing the stream.      */
 specifier|public
 name|void
 name|processStream
@@ -808,7 +808,7 @@ name|cosStream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process a sub stream of the current stream.      *      * @param aPage The page used for drawing.      * @param resources The resources used when processing the stream.      * @param cosStream The stream to process.      *      * @throws IOException If there is an exception while processing the stream.      */
+comment|/**      * Process a sub stream of the current stream.      *       * @param aPage The page used for drawing.      * @param resources The resources used when processing the stream.      * @param cosStream The stream to process.      *       * @throws IOException If there is an exception while processing the stream.      */
 specifier|public
 name|void
 name|processSubStream
@@ -1028,7 +1028,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A method provided as an event interface to allow a subclass to perform      * some specific functionality when text needs to be processed.      *      * @param text The text to be processed.      */
+comment|/**      * A method provided as an event interface to allow a subclass to perform some specific functionality when text      * needs to be processed.      *       * @param text The text to be processed.      */
 specifier|protected
 name|void
 name|processTextPosition
@@ -1037,9 +1037,9 @@ name|TextPosition
 name|text
 parameter_list|)
 block|{
-comment|//subclasses can override to provide specific functionality.
+comment|// subclasses can override to provide specific functionality.
 block|}
-comment|/**      * A method provided as an event interface to allow a subclass to perform      * some specific functionality on the string encoded by a glyph.      *      * @param str The string to be processed.      */
+comment|/**      * A method provided as an event interface to allow a subclass to perform some specific functionality on the string      * encoded by a glyph.      *       * @param str The string to be processed.      */
 specifier|protected
 name|String
 name|inspectFontEncoding
@@ -1052,7 +1052,7 @@ return|return
 name|str
 return|;
 block|}
-comment|/**      * Process encoded text from the PDF Stream.       * You should override this method if you want to perform an action when       * encoded text is being processed.      *      * @param string The encoded text      *      * @throws IOException If there is an error processing the string      */
+comment|/**      * Process encoded text from the PDF Stream. You should override this method if you want to perform an action when      * encoded text is being processed.      *       * @param string The encoded text      *       * @throws IOException If there is an error processing the string      */
 specifier|public
 name|void
 name|processEncodedText
@@ -1064,7 +1064,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|/* Note on variable names.  There are three different units being used          * in this code.  Character sizes are given in glyph units, text locations          * are initially given in text units, and we want to save the data in           * display units. The variable names should end with Text or Disp to           * represent if the values are in text or disp units (no glyph units are saved).          */
+comment|/*          * Note on variable names. There are three different units being used in this code. Character sizes are given in          * glyph units, text locations are initially given in text units, and we want to save the data in display units.          * The variable names should end with Text or Disp to represent if the values are in text or disp units (no          * glyph units are saved).          */
 specifier|final
 name|float
 name|fontSizeText
@@ -1091,7 +1091,7 @@ argument_list|()
 operator|/
 literal|100f
 decl_stmt|;
-comment|//float verticalScalingText = horizontalScaling;//not sure if this is right but what else to do???
+comment|// float verticalScalingText = horizontalScaling;//not sure if this is right but what else to do???
 specifier|final
 name|float
 name|riseText
@@ -1128,10 +1128,10 @@ operator|.
 name|getCharacterSpacing
 argument_list|()
 decl_stmt|;
-comment|//We won't know the actual number of characters until
-comment|//we process the byte data(could be two bytes each) but
-comment|//it won't ever be more than string.length*2(there are some cases
-comment|//were a single byte will result in two output characters "fi"
+comment|// We won't know the actual number of characters until
+comment|// we process the byte data(could be two bytes each) but
+comment|// it won't ever be more than string.length*2(there are some cases
+comment|// were a single byte will result in two output characters "fi"
 specifier|final
 name|PDFont
 name|font
@@ -1204,8 +1204,8 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//This will typically be 1000 but in the case of a type3 font
-comment|//this might be a different number
+comment|// This will typically be 1000 but in the case of a type3 font
+comment|// this might be a different number
 name|glyphSpaceToTextSpaceFactor
 operator|=
 literal|1f
@@ -1275,8 +1275,8 @@ operator|*
 name|glyphSpaceToTextSpaceFactor
 operator|)
 expr_stmt|;
-comment|//The average space width appears to be higher than necessary
-comment|//so lets make it a little bit smaller.
+comment|// The average space width appears to be higher than necessary
+comment|// so lets make it a little bit smaller.
 name|spaceWidthText
 operator|*=
 literal|.80f
@@ -1459,7 +1459,7 @@ operator|.
 name|length
 condition|)
 block|{
-comment|//maybe a multibyte encoding
+comment|// maybe a multibyte encoding
 name|codeLength
 operator|++
 expr_stmt|;
@@ -1476,6 +1476,27 @@ argument_list|,
 name|codeLength
 argument_list|)
 expr_stmt|;
+name|codePoints
+operator|=
+operator|new
+name|int
+index|[]
+block|{
+name|font
+operator|.
+name|getCodeFromArray
+argument_list|(
+name|string
+argument_list|,
+name|i
+argument_list|,
+name|codeLength
+argument_list|)
+block|}
+expr_stmt|;
+block|}
+else|else
+block|{
 name|codePoints
 operator|=
 operator|new
@@ -1523,7 +1544,7 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-comment|//todo, handle horizontal displacement
+comment|// todo, handle horizontal displacement
 comment|// get the width and height of this character in text units
 name|float
 name|characterHorizontalDisplacementText
@@ -1583,15 +1604,15 @@ comment|// Word spacing works the same was as character spacing, but applies
 comment|// only to the space character, code 32.
 comment|//
 comment|// Note: Word spacing is applied to every occurrence of the single-byte
-comment|// character code 32 in a string.  This can occur when using a simple
+comment|// character code 32 in a string. This can occur when using a simple
 comment|// font or a composite font that defines code 32 as a single-byte code.
 comment|// It does not apply to occurrences of the byte value 32 in multiple-byte
 comment|// codes.
 comment|//
 comment|// RDD - My interpretation of this is that only character code 32's that
-comment|// encode to spaces should have word spacing applied.  Cases have been
+comment|// encode to spaces should have word spacing applied. Cases have been
 comment|// observed where a font has a space character with a character code
-comment|// other than 32, and where word spacing (Tw) was used.  In these cases,
+comment|// other than 32, and where word spacing (Tw) was used. In these cases,
 comment|// applying word spacing to either the non-32 space or to the character
 comment|// code 32 non-space resulted in errors consistent with this interpretation.
 comment|//
@@ -1692,7 +1713,7 @@ argument_list|,
 name|ty
 argument_list|)
 expr_stmt|;
-comment|// The text matrix gets updated after each glyph is placed.  The updated
+comment|// The text matrix gets updated after each glyph is placed. The updated
 comment|// version will have the X and Y coordinates for the next glyph.
 comment|// textMatrixEnd contains the coordinates of the end of the last glyph without
 comment|// taking characterSpacingText and spacintText into account, otherwise it'll be
@@ -1793,9 +1814,9 @@ name|endXPosition
 operator|-
 name|startXPosition
 decl_stmt|;
-comment|//there are several cases where one character code will
-comment|//output multiple characters.  For example "fi" or a
-comment|//glyphname that has no mapping like "visiblespace"
+comment|// there are several cases where one character code will
+comment|// output multiple characters. For example "fi" or a
+comment|// glyphname that has no mapping like "visiblespace"
 if|if
 condition|(
 name|c
@@ -1879,7 +1900,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This is used to handle an operation.      *      * @param operation The operation to perform.      * @param arguments The list of arguments.      *      * @throws IOException If there is an error processing the operation.      */
+comment|/**      * This is used to handle an operation.      *       * @param operation The operation to perform.      * @param arguments The list of arguments.      *       * @throws IOException If there is an error processing the operation.      */
 specifier|public
 name|void
 name|processOperator
@@ -1933,7 +1954,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This is used to handle an operation.      *      * @param operator The operation to perform.      * @param arguments The list of arguments.      *      * @throws IOException If there is an error processing the operation.      */
+comment|/**      * This is used to handle an operation.      *       * @param operator The operation to perform.      * @param arguments The list of arguments.      *       * @throws IOException If there is an error processing the operation.      */
 specifier|protected
 name|void
 name|processOperator
@@ -2335,7 +2356,7 @@ name|peek
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the current page that is being processed.      *      * @return The page being processed.      */
+comment|/**      * Get the current page that is being processed.      *       * @return The page being processed.      */
 specifier|public
 name|PDPage
 name|getCurrentPage
@@ -2345,7 +2366,7 @@ return|return
 name|page
 return|;
 block|}
-comment|/**       * Get the total number of valid characters in the doc       * that could be decoded in processEncodedText().       * @return The number of valid characters.       */
+comment|/**      * Get the total number of valid characters in the doc that could be decoded in processEncodedText().      *       * @return The number of valid characters.      */
 specifier|public
 name|int
 name|getValidCharCnt
@@ -2355,7 +2376,7 @@ return|return
 name|validCharCnt
 return|;
 block|}
-comment|/**      * Get the total number of characters in the doc      * (including ones that could not be mapped).        * @return The number of characters.       */
+comment|/**      * Get the total number of characters in the doc (including ones that could not be mapped).      *       * @return The number of characters.      */
 specifier|public
 name|int
 name|getTotalCharCnt
