@@ -194,6 +194,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|checkClosed
+argument_list|()
+expr_stmt|;
 name|pointer
 operator|=
 name|position
@@ -234,6 +237,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|checkClosed
+argument_list|()
+expr_stmt|;
 return|return
 name|pointer
 return|;
@@ -246,6 +252,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|checkClosed
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|pointer
@@ -331,6 +340,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|checkClosed
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|pointer
@@ -547,6 +559,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|checkClosed
+argument_list|()
+expr_stmt|;
 return|return
 name|size
 return|;
@@ -562,6 +577,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|checkClosed
+argument_list|()
+expr_stmt|;
 comment|// end of buffer reached?
 if|if
 condition|(
@@ -676,6 +694,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|checkClosed
+argument_list|()
+expr_stmt|;
 name|long
 name|newSize
 init|=
@@ -971,6 +992,31 @@ operator|++
 name|bufferListIndex
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Ensure that the RandomAccessBuffer is not closed      * @throws IOException      */
+specifier|private
+name|void
+name|checkClosed
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|currentBuffer
+operator|==
+literal|null
+condition|)
+block|{
+comment|// consider that the rab is closed if there is no current buffer
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"RandomAccessBuffer already closed"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class
