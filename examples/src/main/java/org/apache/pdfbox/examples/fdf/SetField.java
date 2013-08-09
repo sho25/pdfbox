@@ -35,31 +35,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|exceptions
 operator|.
-name|interactive
-operator|.
-name|form
-operator|.
-name|PDAcroForm
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|form
-operator|.
-name|PDField
+name|COSVisitorException
 import|;
 end_import
 
@@ -99,9 +77,13 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
+name|pdmodel
 operator|.
-name|COSVisitorException
+name|interactive
+operator|.
+name|form
+operator|.
+name|PDAcroForm
 import|;
 end_import
 
@@ -113,24 +95,26 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|examples
+name|pdmodel
 operator|.
-name|AbstractExample
+name|interactive
+operator|.
+name|form
+operator|.
+name|PDField
 import|;
 end_import
 
 begin_comment
-comment|/**  * This example will take a PDF document and set a FDF field in it.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  */
+comment|/**  * This example will take a PDF document and set a FDF field in it.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
 specifier|public
 class|class
 name|SetField
-extends|extends
-name|AbstractExample
 block|{
-comment|/**      * This will set a single field in the document.      *      * @param pdfDocument The PDF to set the field in.      * @param name The name of the field to set.      * @param value The new value of the field.      *      * @throws IOException If there is an error setting the field.      */
+comment|/**      * This will set a single field in the document.      *       * @param pdfDocument The PDF to set the field in.      * @param name The name of the field to set.      * @param value The new value of the field.      *       * @throws IOException If there is an error setting the field.      */
 specifier|public
 name|void
 name|setField
@@ -203,7 +187,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will read a PDF file and set a field and then write it the pdf out again.      *<br />      * see usage() for commandline      *      * @param args command line arguments      *      * @throws IOException If there is an error importing the FDF document.      * @throws COSVisitorException If there is an error writing the PDF.      */
+comment|/**      * This will read a PDF file and set a field and then write it the pdf out again.<br />      * see usage() for commandline      *       * @param args command line arguments      *       * @throws IOException If there is an error importing the FDF document.      * @throws COSVisitorException If there is an error writing the PDF.      */
 specifier|public
 specifier|static
 name|void
