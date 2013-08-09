@@ -144,7 +144,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a color space and the color value for that colorspace.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  */
+comment|/**  * This class represents a color space and the color value for that colorspace.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -170,7 +170,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * The default color that can be set to replace all colors in      * {@link ICC_ColorSpace ICC color spaces}.      *      * @see #setIccOverrideColor(Color)      */
+comment|/**      * The default color that can be set to replace all colors in {@link ICC_ColorSpace ICC color spaces}.      *       * @see #setIccOverrideColor(Color)      */
 specifier|private
 specifier|static
 specifier|volatile
@@ -184,7 +184,7 @@ argument_list|(
 literal|"org.apache.pdfbox.ICC_override_color"
 argument_list|)
 decl_stmt|;
-comment|/**      * Sets the default color to replace all colors in      * {@link ICC_ColorSpace ICC color spaces}. This will work around      * a potential JVM crash caused by broken native ICC color manipulation      * code in the Sun class libraries.      *<p>      * The default override can be specified by setting the color code in      *<code>org.apache.pdfbox.ICC_override_color</code> system property      * (see {@link Color#getColor(String)}. If this system property is not      * specified, then the override is not enabled unless this method is      * explicitly called.      *      * @param color ICC override color,      *              or<code>null</code> to disable the override      * @see<a href="https://issues.apache.org/jira/browse/PDFBOX-511">PDFBOX-511</a>      * @since Apache PDFBox 0.8.1      */
+comment|/**      * Sets the default color to replace all colors in {@link ICC_ColorSpace ICC color spaces}. This will work around a      * potential JVM crash caused by broken native ICC color manipulation code in the Sun class libraries.      *<p>      * The default override can be specified by setting the color code in      *<code>org.apache.pdfbox.ICC_override_color</code> system property (see {@link Color#getColor(String)}. If this      * system property is not specified, then the override is not enabled unless this method is explicitly called.      *       * @param color ICC override color, or<code>null</code> to disable the override      * @see<a href="https://issues.apache.org/jira/browse/PDFBOX-511">PDFBOX-511</a>      * @since Apache PDFBox 0.8.1      */
 specifier|public
 specifier|static
 name|void
@@ -221,7 +221,7 @@ name|pattern
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Cached Java AWT color based on the current color space and value.      * The value is cleared whenever the color space or value is set.      *      * @see #getJavaColor()      */
+comment|/**      * Cached Java AWT color based on the current color space and value. The value is cleared whenever the color space      * or value is set.      *       * @see #getJavaColor()      */
 specifier|private
 name|Color
 name|color
@@ -234,7 +234,7 @@ name|paint
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Default constructor.      *      */
+comment|/**      * Default constructor.      *       */
 specifier|public
 name|PDColorState
 parameter_list|()
@@ -267,8 +267,6 @@ name|retval
 operator|.
 name|colorSpace
 operator|=
-name|this
-operator|.
 name|colorSpace
 expr_stmt|;
 name|retval
@@ -284,8 +282,6 @@ name|colorSpaceValue
 operator|.
 name|addAll
 argument_list|(
-name|this
-operator|.
 name|colorSpaceValue
 argument_list|)
 expr_stmt|;
@@ -301,7 +297,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Returns the Java AWT color based on the current color space and value.      *      * @return current Java AWT color      * @throws IOException if the current color can not be created      */
+comment|/**      * Returns the Java AWT color based on the current color space and value.      *       * @return current Java AWT color      * @throws IOException if the current color can not be created      */
 specifier|public
 name|Color
 name|getJavaColor
@@ -333,7 +329,7 @@ return|return
 name|color
 return|;
 block|}
-comment|/**      * Returns the Java AWT paint based on the current pattern.      *      * @param pageHeight the height of the current page      * @return current Java AWT paint      *       * @throws IOException if the current color can not be created      */
+comment|/**      * Returns the Java AWT paint based on the current pattern.      *       * @param pageHeight the height of the current page      * @return current Java AWT paint      *       * @throws IOException if the current color can not be created      */
 specifier|public
 name|Paint
 name|getPaint
@@ -369,7 +365,7 @@ return|return
 name|paint
 return|;
 block|}
-comment|/**      * Create the current color from the colorspace and values.      * @return The current awt color.      * @throws IOException If there is an error creating the color.      */
+comment|/**      * Create the current color from the colorspace and values.      *       * @return The current awt color.      * @throws IOException If there is an error creating the color.      */
 specifier|private
 name|Color
 name|createColor
@@ -388,18 +384,23 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-if|if
-condition|(
+name|String
+name|csName
+init|=
 name|colorSpace
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|equals
-argument_list|(
+decl_stmt|;
+if|if
+condition|(
 name|PDDeviceRGB
 operator|.
 name|NAME
+operator|.
+name|equals
+argument_list|(
+name|csName
 argument_list|)
 operator|&&
 name|components
@@ -409,10 +410,10 @@ operator|==
 literal|3
 condition|)
 block|{
-comment|//for some reason, when using RGB and the RGB colorspace
-comment|//the new Color doesn't maintain exactly the same values
-comment|//I think some color conversion needs to take place first
-comment|//for now we will just make rgb a special case.
+comment|// for some reason, when using RGB and the RGB colorspace
+comment|// the new Color doesn't maintain exactly the same values
+comment|// I think some color conversion needs to take place first
+comment|// for now we will just make rgb a special case.
 return|return
 operator|new
 name|Color
@@ -434,6 +435,55 @@ index|]
 argument_list|)
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|PDLab
+operator|.
+name|NAME
+operator|.
+name|equals
+argument_list|(
+name|csName
+argument_list|)
+condition|)
+block|{
+comment|// transform the color values from Lab- to RGB-space
+name|float
+index|[]
+name|csComponents
+init|=
+name|colorSpace
+operator|.
+name|getJavaColorSpace
+argument_list|()
+operator|.
+name|toRGB
+argument_list|(
+name|components
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|Color
+argument_list|(
+name|csComponents
+index|[
+literal|0
+index|]
+argument_list|,
+name|csComponents
+index|[
+literal|1
+index|]
+argument_list|,
+name|csComponents
+index|[
+literal|2
+index|]
+argument_list|)
+return|;
+block|}
 else|else
 block|{
 if|if
@@ -447,20 +497,17 @@ condition|)
 block|{
 if|if
 condition|(
-name|colorSpace
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|equals
-argument_list|(
 name|PDSeparation
 operator|.
 name|NAME
+operator|.
+name|equals
+argument_list|(
+name|csName
 argument_list|)
 condition|)
 block|{
-comment|//Use that component as a single-integer RGB value
+comment|// Use that component as a single-integer RGB value
 return|return
 operator|new
 name|Color
@@ -477,16 +524,13 @@ return|;
 block|}
 if|if
 condition|(
-name|colorSpace
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|equals
-argument_list|(
 name|PDDeviceGray
 operator|.
 name|NAME
+operator|.
+name|equals
+argument_list|(
+name|csName
 argument_list|)
 condition|)
 block|{
@@ -611,7 +655,7 @@ block|{
 case|case
 literal|1
 case|:
-comment|//Use that component as a single-integer RGB value
+comment|// Use that component as a single-integer RGB value
 name|cGuess
 operator|=
 operator|new
@@ -634,7 +678,7 @@ break|break;
 case|case
 literal|3
 case|:
-comment|//RGB
+comment|// RGB
 name|cGuess
 operator|=
 operator|new
@@ -664,9 +708,9 @@ break|break;
 case|case
 literal|4
 case|:
-comment|//CMYK
-comment|//do a rough conversion to RGB as I'm not getting the CMYK to work.
-comment|//http://www.codeproject.com/KB/applications/xcmyk.aspx
+comment|// CMYK
+comment|// do a rough conversion to RGB as I'm not getting the CMYK to work.
+comment|// http://www.codeproject.com/KB/applications/xcmyk.aspx
 name|float
 name|r
 decl_stmt|,
@@ -826,7 +870,7 @@ name|cGuess
 return|;
 block|}
 block|}
-comment|/**      * Constructor with an existing color set.  Default colorspace is PDDeviceGray.      *      * @param csValues The color space values.      */
+comment|/**      * Constructor with an existing color set. Default colorspace is PDDeviceGray.      *       * @param csValues The color space values.      */
 specifier|public
 name|PDColorState
 parameter_list|(
@@ -839,7 +883,7 @@ operator|=
 name|csValues
 expr_stmt|;
 block|}
-comment|/**      * This will get the current colorspace.      *      * @return The current colorspace.      */
+comment|/**      * This will get the current colorspace.      *       * @return The current colorspace.      */
 specifier|public
 name|PDColorSpace
 name|getColorSpace
@@ -849,7 +893,7 @@ return|return
 name|colorSpace
 return|;
 block|}
-comment|/**      * This will set the current colorspace.      *      * @param value The new colorspace.      */
+comment|/**      * This will set the current colorspace.      *       * @param value The new colorspace.      */
 specifier|public
 name|void
 name|setColorSpace
@@ -872,7 +916,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * This will get the color space values.  Either 1 for gray or 3 for RGB.      *      * @return The colorspace values.      */
+comment|/**      * This will get the color space values. Either 1 for gray or 3 for RGB.      *       * @return The colorspace values.      */
 specifier|public
 name|float
 index|[]
@@ -886,7 +930,7 @@ name|toFloatArray
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the color space values.  Either 1 for gray or 3 for RGB.      *      * @return The colorspace values.      */
+comment|/**      * This will get the color space values. Either 1 for gray or 3 for RGB.      *       * @return The colorspace values.      */
 specifier|public
 name|COSArray
 name|getCOSColorSpaceValue
@@ -896,7 +940,7 @@ return|return
 name|colorSpaceValue
 return|;
 block|}
-comment|/**      * This will update the colorspace values.      *      * @param value The new colorspace values.      */
+comment|/**      * This will update the colorspace values.      *       * @param value The new colorspace values.      */
 specifier|public
 name|void
 name|setColorSpaceValue
@@ -923,7 +967,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * This will get the current pattern.      *      * @return The current pattern.      */
+comment|/**      * This will get the current pattern.      *       * @return The current pattern.      */
 specifier|public
 name|PDPatternResources
 name|getPattern
@@ -933,7 +977,7 @@ return|return
 name|pattern
 return|;
 block|}
-comment|/**      * This will update the current pattern.      *      * @param patternValue The new pattern.      */
+comment|/**      * This will update the current pattern.      *       * @param patternValue The new pattern.      */
 specifier|public
 name|void
 name|setPattern
