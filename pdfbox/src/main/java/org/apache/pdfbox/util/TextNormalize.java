@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class allows a caller to normalize text in various ways.  * It will load the ICU4J jar file if it is defined on the classpath.  *   * @author<a href="mailto:carrier@digital-evidence.org">Brian Carrier</a>  * @version $Revision: 1.0 $  */
+comment|/**  * This class allows a caller to normalize text in various ways. It will load the ICU4J jar file if it is defined on the  * classpath.  *   * @author<a href="mailto:carrier@digital-evidence.org">Brian Carrier</a>  *   */
 end_comment
 
 begin_class
@@ -44,16 +44,32 @@ specifier|private
 specifier|static
 specifier|final
 name|HashMap
+argument_list|<
+name|Integer
+argument_list|,
+name|String
+argument_list|>
 name|DIACHASH
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|Integer
+argument_list|,
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
 name|String
 name|outputEncoding
 decl_stmt|;
+static|static
+block|{
+name|populateDiacHash
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      *       * @param encoding The Encoding that the text will eventually be written as (or null)      */
 specifier|public
 name|TextNormalize
@@ -65,11 +81,6 @@ block|{
 name|findICU4J
 argument_list|()
 expr_stmt|;
-name|populateDiacHash
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
 name|outputEncoding
 operator|=
 name|encoding
@@ -128,8 +139,9 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|/*      * Adds non-decomposing diacritics to the hash with their related      * combining character. These are values that the unicode spec claims      * are equivalent but are not mapped in the form NFKC normalization method.      * Determined by going through the Combining Diacritical Marks section of       * the Unicode spec and identifying which characters are not mapped to by       * the normalization.       */
+comment|/*      * Adds non-decomposing diacritics to the hash with their related combining character. These are values that the      * unicode spec claims are equivalent but are not mapped in the form NFKC normalization method. Determined by going      * through the Combining Diacritical Marks section of the Unicode spec and identifying which characters are not      * mapped to by the normalization.      */
 specifier|private
+specifier|static
 name|void
 name|populateDiacHash
 parameter_list|()
@@ -538,7 +550,7 @@ literal|"\u0359"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Takes a line of text in presentation order and converts it to logical order.      * For most text other than Arabic and Hebrew, the presentation and logical      * orders are the same. However, for Arabic and Hebrew, they are different and      * if the text involves both RTL and LTR text then the Unicode BIDI algorithm      * must be used to determine how to map between them.        *       * @param str Presentation form of line to convert (i.e. left most char is first char)      * @param isRtlDominant true if the PAGE has a dominant right to left ordering      * @return Logical form of string (or original string if ICU4J library is not on classpath)      */
+comment|/**      * Takes a line of text in presentation order and converts it to logical order. For most text other than Arabic and      * Hebrew, the presentation and logical orders are the same. However, for Arabic and Hebrew, they are different and      * if the text involves both RTL and LTR text then the Unicode BIDI algorithm must be used to determine how to map      * between them.      *       * @param str Presentation form of line to convert (i.e. left most char is first char)      * @param isRtlDominant true if the PAGE has a dominant right to left ordering      * @return Logical form of string (or original string if ICU4J library is not on classpath)      */
 specifier|public
 name|String
 name|makeLineLogicalOrder
@@ -575,7 +587,7 @@ name|str
 return|;
 block|}
 block|}
-comment|/**      * Normalize the presentation forms of characters in the string.      * For example, convert the single "fi" ligature to "f" and "i".      *       * @param str String to normalize      * @return Normalized string (or original string if ICU4J library is not on classpath)      */
+comment|/**      * Normalize the presentation forms of characters in the string. For example, convert the single "fi" ligature to      * "f" and "i".      *       * @param str String to normalize      * @return Normalized string (or original string if ICU4J library is not on classpath)      */
 specifier|public
 name|String
 name|normalizePres
@@ -607,7 +619,7 @@ name|str
 return|;
 block|}
 block|}
-comment|/**      * Normalize the diacritic, for example,       * convert non-combining diacritic characters to their combining      * counterparts.       *       * @param str String to normalize       * @return Normalized string (or original string if ICU4J library is not on classpath)      */
+comment|/**      * Normalize the diacritic, for example, convert non-combining diacritic characters to their combining counterparts.      *       * @param str String to normalize      * @return Normalized string (or original string if ICU4J library is not on classpath)      */
 specifier|public
 name|String
 name|normalizeDiac
@@ -616,7 +628,7 @@ name|String
 name|str
 parameter_list|)
 block|{
-comment|/*          * Unicode contains special combining forms of the diacritic characters          * and we want to use these.           */
+comment|/*          * Unicode contains special combining forms of the diacritic characters and we want to use these.          */
 if|if
 condition|(
 name|outputEncoding
