@@ -904,6 +904,11 @@ condition|(
 name|isSymbol
 condition|)
 block|{
+name|int
+name|glyphId
+init|=
+literal|0
+decl_stmt|;
 comment|// symbol fonts
 if|if
 condition|(
@@ -912,16 +917,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|int
 name|glyphId
-init|=
+operator|=
 name|cmapWinSymbol
 operator|.
 name|getGlyphId
 argument_list|(
 name|code
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// microsoft sometimes uses PUA unicode values for symbol fonts
 comment|// the range 0x0020 - 0x00FF maps to 0xF020 - 0xF0FF
 if|if
@@ -951,6 +955,46 @@ literal|0xF000
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|glyphId
+operator|!=
+literal|0
+condition|)
+block|{
+return|return
+name|getPathForGlyphId
+argument_list|(
+name|glyphId
+argument_list|)
+return|;
+block|}
+block|}
+comment|// use a mac related mapping
+if|if
+condition|(
+name|cmapMacintoshSymbol
+operator|!=
+literal|null
+condition|)
+block|{
+name|glyphId
+operator|=
+name|cmapMacintoshSymbol
+operator|.
+name|getGlyphId
+argument_list|(
+name|code
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|glyphId
+operator|!=
+literal|0
+condition|)
+block|{
 return|return
 name|getPathForGlyphId
 argument_list|(
@@ -1046,6 +1090,7 @@ argument_list|)
 return|;
 block|}
 comment|// use a mac related mapping
+comment|// Is this possible for non symbol fonts?
 if|if
 condition|(
 name|cmapMacintoshSymbol
@@ -1066,7 +1111,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// there isn't any mpping, but propably an optional CID2GID mapping
+comment|// there isn't any mapping, but probably an optional CID2GID mapping
 if|if
 condition|(
 name|cid2gid
