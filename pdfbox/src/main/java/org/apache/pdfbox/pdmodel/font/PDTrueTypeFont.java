@@ -1223,7 +1223,6 @@ operator|!
 name|isSymbolic
 argument_list|)
 expr_stmt|;
-comment|// todo retval.setFixedPitch
 comment|// todo retval.setItalic
 comment|// todo retval.setAllCap
 comment|// todo retval.setSmallCap
@@ -1656,11 +1655,10 @@ comment|// instead of an array containing the same value for every glyphid
 name|boolean
 name|isMonospaced
 init|=
-name|widthValues
+name|fd
 operator|.
-name|length
-operator|==
-literal|1
+name|isFixedPitch
+argument_list|()
 decl_stmt|;
 name|int
 name|nWidths
@@ -1673,26 +1671,28 @@ literal|1
 decl_stmt|;
 name|List
 argument_list|<
-name|Float
+name|Integer
 argument_list|>
 name|widths
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Float
+name|Integer
 argument_list|>
 argument_list|(
 name|nWidths
 argument_list|)
 decl_stmt|;
-comment|// width of the .notdef character.
-name|Float
-name|zero
+comment|// use the first width as default
+comment|// proportional fonts -> width of the .notdef character
+comment|// monospaced-fonts -> the first width
+name|int
+name|defaultWidth
 init|=
-name|Float
+name|Math
 operator|.
-name|valueOf
+name|round
 argument_list|(
 name|widthValues
 index|[
@@ -1721,7 +1721,7 @@ name|widths
 operator|.
 name|add
 argument_list|(
-name|zero
+name|defaultWidth
 argument_list|)
 expr_stmt|;
 block|}
@@ -1820,12 +1820,7 @@ argument_list|()
 operator|-
 name|firstChar
 argument_list|,
-name|widthValues
-index|[
-literal|0
-index|]
-operator|*
-name|scaling
+name|defaultWidth
 argument_list|)
 expr_stmt|;
 block|}
@@ -1845,12 +1840,17 @@ argument_list|()
 operator|-
 name|firstChar
 argument_list|,
+name|Math
+operator|.
+name|round
+argument_list|(
 name|widthValues
 index|[
 name|gid
 index|]
 operator|*
 name|scaling
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

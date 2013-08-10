@@ -419,7 +419,7 @@ comment|/**      * A list a floats representing the widths.      */
 specifier|private
 name|List
 argument_list|<
-name|Float
+name|Integer
 argument_list|>
 name|widths
 init|=
@@ -2255,7 +2255,7 @@ comment|/**      * The widths of the characters. This will be null for the stand
 specifier|public
 name|List
 argument_list|<
-name|Float
+name|Integer
 argument_list|>
 name|getWidths
 parameter_list|()
@@ -2293,7 +2293,7 @@ name|widths
 operator|=
 name|COSArrayList
 operator|.
-name|convertFloatCOSArrayToList
+name|convertIntegerCOSArrayToList
 argument_list|(
 name|array
 argument_list|)
@@ -2311,7 +2311,7 @@ name|setWidths
 parameter_list|(
 name|List
 argument_list|<
-name|Float
+name|Integer
 argument_list|>
 name|widthsList
 parameter_list|)

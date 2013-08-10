@@ -1245,7 +1245,7 @@ name|ValidationException
 block|{
 name|List
 argument_list|<
-name|Float
+name|Integer
 argument_list|>
 name|widths
 init|=

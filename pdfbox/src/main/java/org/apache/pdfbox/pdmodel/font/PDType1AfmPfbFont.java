@@ -151,6 +151,62 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSDictionary
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSInteger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|encoding
 operator|.
 name|AFMEncoding
@@ -231,64 +287,8 @@ name|PDStream
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSDictionary
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSInteger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSName
-import|;
-end_import
-
 begin_comment
-comment|/**  * This is implementation of the Type1 Font  * with a afm and a pfb file.  *  * @author<a href="mailto:m.g.n@gmx.de">Michael Niedermair</a>  * @version $Revision: 1.5 $  */
+comment|/**  * This is implementation of the Type1 Font with a afm and a pfb file.  *   * @author<a href="mailto:m.g.n@gmx.de">Michael Niedermair</a>  * @version $Revision: 1.5 $  */
 end_comment
 
 begin_class
@@ -312,7 +312,7 @@ specifier|private
 name|FontMetric
 name|metric
 decl_stmt|;
-comment|/**      * Create a new object.      * @param doc       The PDF document that will hold the embedded font.      * @param afmname   The font filename.      * @throws IOException If there is an error loading the data.      */
+comment|/**      * Create a new object.      *       * @param doc The PDF document that will hold the embedded font.      * @param afmname The font filename.      * @throws IOException If there is an error loading the data.      */
 specifier|public
 name|PDType1AfmPfbFont
 parameter_list|(
@@ -391,7 +391,7 @@ name|pfbin
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a new object.      * @param doc       The PDF document that will hold the embedded font.      * @param afm       The afm input.      * @param pfb       The pfb input.      * @throws IOException If there is an error loading the data.      */
+comment|/**      * Create a new object.      *       * @param doc The PDF document that will hold the embedded font.      * @param afm The afm input.      * @param pfb The pfb input.      * @throws IOException If there is an error loading the data.      */
 specifier|public
 name|PDType1AfmPfbFont
 parameter_list|(
@@ -423,7 +423,7 @@ name|pfb
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will load a afm and pfb to be embedding into a document.      *      * @param doc   The PDF document that will hold the embedded font.      * @param afm   The afm input.      * @param pfb   The pfb input.      * @throws IOException If there is an error loading the data.      */
+comment|/**      * This will load a afm and pfb to be embedding into a document.      *       * @param doc The PDF document that will hold the embedded font.      * @param afm The afm input.      * @param pfb The pfb input.      * @throws IOException If there is an error loading the data.      */
 specifier|private
 name|void
 name|load
@@ -748,20 +748,20 @@ literal|256
 decl_stmt|;
 name|List
 argument_list|<
-name|Float
+name|Integer
 argument_list|>
 name|widths
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Float
+name|Integer
 argument_list|>
 argument_list|(
 name|maxWidths
 argument_list|)
 decl_stmt|;
-name|float
+name|int
 name|zero
 init|=
 literal|250
@@ -863,13 +863,18 @@ operator|>
 literal|0
 condition|)
 block|{
-name|float
+name|int
 name|width
 init|=
+name|Math
+operator|.
+name|round
+argument_list|(
 name|m
 operator|.
 name|getWx
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|widths
 operator|.
@@ -877,11 +882,7 @@ name|set
 argument_list|(
 name|n
 argument_list|,
-operator|new
-name|Float
-argument_list|(
 name|width
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// germandbls has 2 character codes !! Don't ask me why .....
@@ -910,11 +911,7 @@ name|set
 argument_list|(
 literal|0337
 argument_list|,
-operator|new
-name|Float
-argument_list|(
 name|width
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -943,9 +940,6 @@ name|set
 argument_list|(
 literal|0344
 argument_list|,
-operator|(
-name|Float
-operator|)
 name|widths
 operator|.
 name|get
@@ -980,9 +974,6 @@ name|set
 argument_list|(
 literal|0366
 argument_list|,
-operator|(
-name|Float
-operator|)
 name|widths
 operator|.
 name|get
@@ -1017,9 +1008,6 @@ name|set
 argument_list|(
 literal|0374
 argument_list|,
-operator|(
-name|Float
-operator|)
 name|widths
 operator|.
 name|get
@@ -1054,9 +1042,6 @@ name|set
 argument_list|(
 literal|0304
 argument_list|,
-operator|(
-name|Float
-operator|)
 name|widths
 operator|.
 name|get
@@ -1091,9 +1076,6 @@ name|set
 argument_list|(
 literal|0326
 argument_list|,
-operator|(
-name|Float
-operator|)
 name|widths
 operator|.
 name|get
@@ -1128,9 +1110,6 @@ name|set
 argument_list|(
 literal|0334
 argument_list|,
-operator|(
-name|Float
-operator|)
 name|widths
 operator|.
 name|get
@@ -1163,7 +1142,7 @@ name|widths
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      *  This will generate a Encoding from the AFM-Encoding, because the AFM-Enconding isn't exported to the pdf      *  and consequently the StandardEncoding is used so that any special character is missing      *  I've copied the code from the pdfbox-forum posted by V0JT4 and made some additions concerning german umlauts      *  see also https://sourceforge.net/forum/message.php?msg_id=4705274      */
+comment|/*      * This will generate a Encoding from the AFM-Encoding, because the AFM-Enconding isn't exported to the pdf and      * consequently the StandardEncoding is used so that any special character is missing I've copied the code from the      * pdfbox-forum posted by V0JT4 and made some additions concerning german umlauts see also      * https://sourceforge.net/forum/message.php?msg_id=4705274      */
 specifier|private
 name|DictionaryEncoding
 name|afmToDictionary
