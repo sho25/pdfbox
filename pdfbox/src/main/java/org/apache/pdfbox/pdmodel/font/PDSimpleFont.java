@@ -21,28 +21,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|awt
-operator|.
-name|Font
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|font
-operator|.
-name|GlyphVector
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|io
 operator|.
 name|IOException
@@ -56,20 +34,6 @@ operator|.
 name|util
 operator|.
 name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|afm
-operator|.
-name|FontMetric
 import|;
 end_import
 
@@ -98,6 +62,20 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|afm
+operator|.
+name|FontMetric
 import|;
 end_import
 
@@ -258,7 +236,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class contains implementation details of the simple pdf fonts.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.18 $  */
+comment|/**  * This class contains implementation details of the simple pdf fonts.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -348,7 +326,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
+comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      */
 specifier|public
 name|PDSimpleFont
 parameter_list|(
@@ -362,32 +340,7 @@ name|fontDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**     * Looks up, creates, returns  the AWT Font.     *      * @return returns the awt font to bes used for rendering      * @throws IOException if something went wrong.     */
-specifier|public
-name|Font
-name|getawtFont
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Not yet implemented:"
-operator|+
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-literal|null
-return|;
-block|}
-comment|/**      * This will get the font height for a character.      *      * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font height for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
 specifier|public
 name|float
 name|getFontHeight
@@ -587,7 +540,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get the font width for a character.      *      * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font width for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
 specifier|public
 name|float
 name|getFontWidth
@@ -648,7 +601,7 @@ operator|<=
 literal|0
 condition|)
 block|{
-comment|//hmm should this be in PDType1Font??
+comment|// TODO should this be in PDType1Font??
 name|fontWidth
 operator|=
 name|getFontWidthFromAFMFile
@@ -671,7 +624,7 @@ return|return
 name|fontWidth
 return|;
 block|}
-comment|/**      * This will get the average font width for all characters.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the average font width for all characters.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
 specifier|public
 name|float
 name|getAverageFontWidth
@@ -684,7 +637,6 @@ name|average
 init|=
 literal|0.0f
 decl_stmt|;
-comment|//AJW
 if|if
 condition|(
 name|avgFontWidth
@@ -817,7 +769,7 @@ return|return
 name|average
 return|;
 block|}
-comment|/**      * This will get the ToUnicode object.      *      * @return The ToUnicode object.      */
+comment|/**      * This will get the ToUnicode object.      *       * @return The ToUnicode object.      */
 specifier|public
 name|COSBase
 name|getToUnicode
@@ -834,7 +786,7 @@ name|TO_UNICODE
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the ToUnicode object.      *      * @param unicode The unicode object.      */
+comment|/**      * This will set the ToUnicode object.      *       * @param unicode The unicode object.      */
 specifier|public
 name|void
 name|setToUnicode
@@ -855,7 +807,7 @@ name|unicode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the fonts bounding box.      *      * @return The fonts bouding box.      *      * @throws IOException If there is an error getting the bounding box.      */
+comment|/**      * This will get the fonts bounding box.      *       * @return The fonts bouding box.      *       * @throws IOException If there is an error getting the bounding box.      */
 specifier|public
 name|PDRectangle
 name|getFontBoundingBox
@@ -1362,7 +1314,7 @@ name|isFontSubstituted
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * This will get the value for isFontSubstituted, which indicates      * if the font was substituted due to a problem with the embedded one.      *       * @return true if the font was substituted      */
+comment|/**      * This will get the value for isFontSubstituted, which indicates if the font was substituted due to a problem with      * the embedded one.      *       * @return true if the font was substituted      */
 specifier|public
 name|boolean
 name|isFontSubstituted
@@ -1372,8 +1324,8 @@ return|return
 name|isFontSubstituted
 return|;
 block|}
-comment|/**      * This will set  the value for isFontSubstituted.      *       * @param isSubstituted true if the font was substituted      */
-specifier|protected
+comment|/**      * This will set the value for isFontSubstituted.      *       * @param isSubstituted true if the font was substituted      */
+specifier|public
 name|void
 name|setIsFontSubstituted
 parameter_list|(
@@ -1492,22 +1444,6 @@ block|}
 block|}
 return|return
 name|fontWidthOfSpace
-return|;
-block|}
-comment|/**      * Remap glyphs.      *       * @param glyphVector glyph vector to be remapped      * @param string the represented string      * @return the remapped glyph vector      */
-specifier|public
-name|GlyphVector
-name|remapGlyphs
-parameter_list|(
-name|GlyphVector
-name|glyphVector
-parameter_list|,
-name|String
-name|string
-parameter_list|)
-block|{
-return|return
-name|glyphVector
 return|;
 block|}
 block|}

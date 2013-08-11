@@ -767,7 +767,7 @@ block|}
 comment|/**      * This will take a character code and get the name from the code.      *       * @param c The character.      *       * @return The name of the character.      *       * @throws IOException If there is no name for the character.      */
 specifier|public
 name|String
-name|getNameFromCharacter
+name|getNameForCharacter
 parameter_list|(
 name|char
 name|c
@@ -811,6 +811,48 @@ throw|;
 block|}
 return|return
 name|name
+return|;
+block|}
+comment|/**      * This will take a name and get the character code for that name.      *       * @param name The name.      *       * @return The name of the character.      *       */
+specifier|public
+specifier|static
+name|String
+name|getCharacterForName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+if|if
+condition|(
+name|NAME_TO_CHARACTER
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No character for name "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|NAME_TO_CHARACTER
+operator|.
+name|get
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
 return|;
 block|}
 comment|/**      * This will get the character from the code.      *       * @param code The character code.      *       * @return The printable character for the code.      *       * @throws IOException If there is not name for the character.      */

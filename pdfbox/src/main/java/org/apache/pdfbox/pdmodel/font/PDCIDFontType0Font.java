@@ -21,19 +21,37 @@ begin_import
 import|import
 name|java
 operator|.
-name|awt
+name|io
 operator|.
-name|Font
+name|IOException
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -66,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation of the CIDFontType0 Font.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
+comment|/**  * This is implementation of the CIDFontType0 Font.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -76,6 +94,28 @@ name|PDCIDFontType0Font
 extends|extends
 name|PDCIDFont
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDCIDFontType0Font
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+specifier|private
+name|PDType1CFont
+name|type1CFont
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|PDCIDFontType0Font
@@ -98,7 +138,7 @@ name|CID_FONT_TYPE0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
+comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      */
 specifier|public
 name|PDCIDFontType0Font
 parameter_list|(
@@ -111,40 +151,14 @@ argument_list|(
 name|fontDictionary
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Returns the AWT font that corresponds with this CIDFontType0 font.      * By default we try to look up a system font with the same name. If that      * fails and the font file is embedded in the PDF document, we try to      * generate the AWT font using the {@link PDType1CFont} class. Ideally      * the embedded font would be used always if available, but since the      * code doesn't work correctly for all fonts yet we opt to use the      * system font by default.      *      * @return AWT font, or<code>null</code> if not available      */
-specifier|public
-name|Font
-name|getawtFont
-parameter_list|()
-throws|throws
-name|IOException
-block|{
 name|PDFontDescriptor
 name|fd
 init|=
 name|getFontDescriptor
 argument_list|()
 decl_stmt|;
-name|Font
-name|awtFont
-init|=
-name|FontManager
-operator|.
-name|getAwtFont
-argument_list|(
-name|fd
-operator|.
-name|getFontName
-argument_list|()
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-name|awtFont
-operator|==
-literal|null
-operator|&&
 name|fd
 operator|instanceof
 name|PDFontDescriptorDictionary
@@ -168,24 +182,44 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Create a font with the embedded data
-comment|// TODO: This still doesn't work right for
-comment|// some embedded fonts
-name|awtFont
+try|try
+block|{
+name|type1CFont
 operator|=
 operator|new
 name|PDType1CFont
 argument_list|(
 name|font
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|exception
+parameter_list|)
+block|{
+name|LOG
 operator|.
-name|getawtFont
-argument_list|()
+name|error
+argument_list|(
+literal|"Can't create the embedded CFF-font"
+argument_list|,
+name|exception
+argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+block|}
+comment|/**      * Returns the embedded Type1CFont.      *       * @return the Type1C font      */
+specifier|public
+name|PDType1CFont
+name|getType1CFont
+parameter_list|()
+block|{
 return|return
-name|awtFont
+name|type1CFont
 return|;
 block|}
 block|}

@@ -21,16 +21,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|awt
-operator|.
-name|Font
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|io
 operator|.
 name|File
@@ -136,34 +126,6 @@ operator|.
 name|util
 operator|.
 name|Properties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
 import|;
 end_import
 
@@ -476,36 +438,14 @@ name|PDTrueTypeFont
 extends|extends
 name|PDSimpleFont
 block|{
-comment|/**      * Log instance.      */
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|PDTrueTypeFont
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * This is the key to a property in the PDFBox_External_Fonts.properties file to load a Font when a mapping does not      * exist for the current font.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|String
 name|UNKNOWN_FONT
 init|=
 literal|"UNKNOWN_FONT"
-decl_stmt|;
-specifier|private
-name|Font
-name|awtFont
-init|=
-literal|null
 decl_stmt|;
 specifier|private
 specifier|static
@@ -1888,46 +1828,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|Font
-name|getawtFont
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-comment|// TODO remove if no longer needed
-comment|// fallback if getTTFFont doesn't provides a suitable font
-name|awtFont
-operator|=
-name|FontManager
-operator|.
-name|getStandardFont
-argument_list|()
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Using font "
-operator|+
-name|awtFont
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" instead"
-argument_list|)
-expr_stmt|;
-name|setIsFontSubstituted
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-return|return
-name|awtFont
-return|;
 block|}
 comment|/**      * Permit to load an external TTF Font program file      *       * Created by Pascal Allain Vertical7 Inc.      *       * @return A PDStream with the Font File program, null if fd is null      * @throws IOException If the font is not found      */
 specifier|private

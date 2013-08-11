@@ -21,16 +21,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|awt
-operator|.
-name|Font
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|io
 operator|.
 name|IOException
@@ -124,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation of the Type0 Font.  * See<a href="https://issues.apache.org/jira/browse/PDFBOX-605">PDFBOX-605</a>  * for the related improvement issue.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.9 $  */
+comment|/**  * This is implementation of the Type0 Font. See<a  * href="https://issues.apache.org/jira/browse/PDFBOX-605">PDFBOX-605</a> for the related improvement issue.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  */
 end_comment
 
 begin_class
@@ -162,10 +152,6 @@ specifier|private
 name|COSDictionary
 name|descendantFontDictionary
 decl_stmt|;
-specifier|private
-name|Font
-name|awtFont
-decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|PDType0Font
@@ -188,7 +174,7 @@ name|TYPE0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
+comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      */
 specifier|public
 name|PDType0Font
 parameter_list|(
@@ -249,118 +235,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|Font
-name|getawtFont
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|awtFont
-operator|==
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|descendantFont
-operator|!=
-literal|null
-condition|)
-block|{
-name|awtFont
-operator|=
-operator|(
-operator|(
-name|PDSimpleFont
-operator|)
-name|descendantFont
-operator|)
-operator|.
-name|getawtFont
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|awtFont
-operator|!=
-literal|null
-condition|)
-block|{
-name|setIsFontSubstituted
-argument_list|(
-operator|(
-operator|(
-name|PDSimpleFont
-operator|)
-name|descendantFont
-operator|)
-operator|.
-name|isFontSubstituted
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|/*                      * Fix Oracle JVM Crashes.                      * Tested with Oracle JRE 6.0_45-b06 and 7.0_21-b11                      */
-name|awtFont
-operator|.
-name|canDisplay
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-if|if
-condition|(
-name|awtFont
-operator|==
-literal|null
-condition|)
-block|{
-name|awtFont
-operator|=
-name|FontManager
-operator|.
-name|getStandardFont
-argument_list|()
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Using font "
-operator|+
-name|awtFont
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" instead of "
-operator|+
-name|descendantFont
-operator|.
-name|getFontDescriptor
-argument_list|()
-operator|.
-name|getFontName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|setIsFontSubstituted
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|return
-name|awtFont
-return|;
-block|}
-comment|/**      * This will get the fonts bounding box.      *      * @return The fonts bounding box.      *      * @throws IOException If there is an error getting the bounding box.      */
+comment|/**      * This will get the fonts bounding box.      *       * @return The fonts bounding box.      *       * @throws IOException If there is an error getting the bounding box.      */
 specifier|public
 name|PDRectangle
 name|getFontBoundingBox
@@ -376,7 +251,7 @@ literal|"Not yet implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      * This will get the font width for a character.      *      * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font width for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
 specifier|public
 name|float
 name|getFontWidth
@@ -407,7 +282,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the font height for a character.      *      * @param c The character code to get the height for.      * @param offset The offset into the array.      * @param length The length of the data.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font height for a character.      *       * @param c The character code to get the height for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
 specifier|public
 name|float
 name|getFontHeight
@@ -438,7 +313,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the average font width for all characters.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the average font width for all characters.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
 specifier|public
 name|float
 name|getAverageFontWidth
@@ -596,7 +471,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      *      * Provides the descendant font.      * @return the descendant font.      *      */
+comment|/**      *       * Provides the descendant font.      *       * @return the descendant font.      *       */
 specifier|public
 name|PDFont
 name|getDescendantFont
