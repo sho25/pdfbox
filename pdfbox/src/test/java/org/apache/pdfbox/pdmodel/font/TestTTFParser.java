@@ -178,7 +178,7 @@ specifier|public
 class|class
 name|TestTTFParser
 block|{
-comment|/**      * Test the post table parser.      * @throws IOException if an error occurs.      */
+comment|/**      * Test the post table parser.      *       * @throws IOException if an error occurs.      */
 annotation|@
 name|Test
 specifier|public
@@ -493,7 +493,7 @@ name|assertTrue
 argument_list|(
 name|enc
 operator|.
-name|getNameFromCharacter
+name|getNameForCharacter
 argument_list|(
 operator|(
 name|char
@@ -525,7 +525,7 @@ name|assertTrue
 argument_list|(
 name|enc
 operator|.
-name|getNameFromCharacter
+name|getNameForCharacter
 argument_list|(
 operator|(
 name|char
@@ -536,35 +536,6 @@ operator|.
 name|endsWith
 argument_list|(
 name|name
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"germandbls"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-condition|)
-block|{
-name|Assert
-operator|.
-name|assertEquals
-argument_list|(
-literal|"xff"
-argument_list|,
-name|enc
-operator|.
-name|getNameFromCharacter
-argument_list|(
-operator|(
-name|char
-operator|)
-name|charCode
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -588,7 +559,7 @@ literal|"softhyphen"
 argument_list|,
 name|enc
 operator|.
-name|getNameFromCharacter
+name|getNameForCharacter
 argument_list|(
 operator|(
 name|char
@@ -611,7 +582,7 @@ operator|&&
 operator|!
 name|enc
 operator|.
-name|getNameFromCharacter
+name|getNameForCharacter
 argument_list|(
 operator|(
 name|char
@@ -633,7 +604,7 @@ literal|"bulletoperator"
 argument_list|,
 name|enc
 operator|.
-name|getNameFromCharacter
+name|getNameForCharacter
 argument_list|(
 operator|(
 name|char
@@ -662,7 +633,7 @@ literal|"divisionslash"
 argument_list|,
 name|enc
 operator|.
-name|getNameFromCharacter
+name|getNameForCharacter
 argument_list|(
 operator|(
 name|char
@@ -691,7 +662,7 @@ literal|"mu1"
 argument_list|,
 name|enc
 operator|.
-name|getNameFromCharacter
+name|getNameForCharacter
 argument_list|(
 operator|(
 name|char
@@ -730,7 +701,7 @@ name|assertEquals
 argument_list|(
 name|enc
 operator|.
-name|getNameFromCharacter
+name|getNameForCharacter
 argument_list|(
 operator|(
 name|char
