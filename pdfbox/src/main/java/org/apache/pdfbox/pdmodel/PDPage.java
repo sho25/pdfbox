@@ -17,6 +17,56 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Calendar
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|GregorianCalendar
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -124,20 +174,6 @@ operator|.
 name|cos
 operator|.
 name|COSStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdfviewer
-operator|.
-name|PageDrawer
 import|;
 end_import
 
@@ -275,158 +311,8 @@ name|PDThreadBead
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|Color
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|Dimension
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|Graphics
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|Graphics2D
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|image
-operator|.
-name|BufferedImage
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|print
-operator|.
-name|PageFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|print
-operator|.
-name|Printable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|print
-operator|.
-name|PrinterException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|print
-operator|.
-name|PrinterIOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Calendar
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|GregorianCalendar
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * This represents a single page in a PDF document.  *<p>  * This class implements the {@link Printable} interface, but since PDFBox  * version 1.3.0 you should be using the {@link PDPageable} adapter instead  * (see<a href="https://issues.apache.org/jira/browse/PDFBOX-788">PDFBOX-788</a>).  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.29 $  */
+comment|/**  * This represents a single page in a PDF document.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -435,8 +321,6 @@ class|class
 name|PDPage
 implements|implements
 name|COSObjectable
-implements|,
-name|Printable
 block|{
 comment|/**      * Log instance.      */
 specifier|private
@@ -454,7 +338,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-specifier|private
+comment|/**      * Default DPI in user space.      */
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -477,25 +362,6 @@ literal|2.54f
 operator|)
 operator|*
 name|DEFAULT_USER_SPACE_UNIT_DPI
-decl_stmt|;
-comment|/**      * Fully transparent that can fall back to white when image type has no alpha.      */
-specifier|private
-specifier|static
-specifier|final
-name|Color
-name|TRANSPARENT_WHITE
-init|=
-operator|new
-name|Color
-argument_list|(
-literal|255
-argument_list|,
-literal|255
-argument_list|,
-literal|255
-argument_list|,
-literal|0
-argument_list|)
 decl_stmt|;
 specifier|private
 name|COSDictionary
@@ -687,7 +553,7 @@ name|PAGE_SIZE_LETTER
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new instance of PDPage.      *      * @param size The MediaBox or the page.      */
+comment|/**      * Creates a new instance of PDPage.      *       * @param size The MediaBox or the page.      */
 specifier|public
 name|PDPage
 parameter_list|(
@@ -720,7 +586,7 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new instance of PDPage.      *      * @param pageDic The existing page dictionary.      */
+comment|/**      * Creates a new instance of PDPage.      *       * @param pageDic The existing page dictionary.      */
 specifier|public
 name|PDPage
 parameter_list|(
@@ -733,7 +599,7 @@ operator|=
 name|pageDic
 expr_stmt|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+comment|/**      * Convert this standard java object to a COS object.      *       * @return The cos object that matches this Java object.      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -743,7 +609,7 @@ return|return
 name|page
 return|;
 block|}
-comment|/**      * This will get the underlying dictionary that this class acts on.      *      * @return The underlying dictionary for this class.      */
+comment|/**      * This will get the underlying dictionary that this class acts on.      *       * @return The underlying dictionary for this class.      */
 specifier|public
 name|COSDictionary
 name|getCOSDictionary
@@ -753,7 +619,7 @@ return|return
 name|page
 return|;
 block|}
-comment|/**      * This is the parent page node.  The parent is a required element of the      * page.  This will be null until this page is added to the document.      *      * @return The parent to this page.      */
+comment|/**      * This is the parent page node. The parent is a required element of the page. This will be null until this page is      * added to the document.      *       * @return The parent to this page.      */
 specifier|public
 name|PDPageNode
 name|getParent
@@ -812,7 +678,7 @@ name|parent
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * This will set the parent of this page.      *      * @param parentNode The parent to this page node.      */
+comment|/**      * This will set the parent of this page.      *       * @param parentNode The parent to this page node.      */
 specifier|public
 name|void
 name|setParent
@@ -860,7 +726,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the date that the content stream was last modified.  This      * may return null.      *      * @return The date the content stream was last modified.      *      * @throws IOException If there is an error accessing the date information.      */
+comment|/**      * This will get the date that the content stream was last modified. This may return null.      *       * @return The date the content stream was last modified.      *       * @throws IOException If there is an error accessing the date information.      */
 specifier|public
 name|Calendar
 name|getLastModified
@@ -879,7 +745,7 @@ name|LAST_MODIFIED
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the resources at this page and not look up the hierarchy.      * This attribute is inheritable, and findResources() should probably used.      * This will return null if no resources are available at this level.      *      * @return The resources at this level in the hierarchy.      */
+comment|/**      * This will get the resources at this page and not look up the hierarchy. This attribute is inheritable, and      * findResources() should probably used. This will return null if no resources are available at this level.      *       * @return The resources at this level in the hierarchy.      */
 specifier|public
 name|PDResources
 name|getResources
@@ -928,7 +794,7 @@ return|return
 name|pageResources
 return|;
 block|}
-comment|/**      * This will find the resources for this page by looking up the hierarchy until      * it finds them.      *      * @return The resources at this level in the hierarchy.      */
+comment|/**      * This will find the resources for this page by looking up the hierarchy until it finds them.      *       * @return The resources at this level in the hierarchy.      */
 specifier|public
 name|PDResources
 name|findResources
@@ -969,7 +835,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the resources for this page.      *      * @param resources The new resources for this page.      */
+comment|/**      * This will set the resources for this page.      *       * @param resources The new resources for this page.      */
 specifier|public
 name|void
 name|setResources
@@ -1014,7 +880,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A rectangle, expressed      * in default user space units, defining the boundaries of the physical      * medium on which the page is intended to be displayed or printed      *      * This will get the MediaBox at this page and not look up the hierarchy.      * This attribute is inheritable, and findMediaBox() should probably used.      * This will return null if no MediaBox are available at this level.      *      * @return The MediaBox at this level in the hierarchy.      */
+comment|/**      * A rectangle, expressed in default user space units, defining the boundaries of the physical medium on which the      * page is intended to be displayed or printed      *       * This will get the MediaBox at this page and not look up the hierarchy. This attribute is inheritable, and      * findMediaBox() should probably used. This will return null if no MediaBox are available at this level.      *       * @return The MediaBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
 name|getMediaBox
@@ -1069,7 +935,7 @@ name|mediaBox
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * This will find the MediaBox for this page by looking up the hierarchy until      * it finds them.      *      * @return The MediaBox at this level in the hierarchy.      */
+comment|/**      * This will find the MediaBox for this page by looking up the hierarchy until it finds them.      *       * @return The MediaBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
 name|findMediaBox
@@ -1127,7 +993,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the mediaBox for this page.      *      * @param mediaBoxValue The new mediaBox for this page.      */
+comment|/**      * This will set the mediaBox for this page.      *       * @param mediaBoxValue The new mediaBox for this page.      */
 specifier|public
 name|void
 name|setMediaBox
@@ -1177,7 +1043,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A rectangle, expressed in default user space units,      * defining the visible region of default user space. When the page is displayed      * or printed, its contents are to be clipped (cropped) to this rectangle      * and then imposed on the output medium in some implementationdefined      * manner      *      * This will get the CropBox at this page and not look up the hierarchy.      * This attribute is inheritable, and findCropBox() should probably used.      * This will return null if no CropBox is available at this level.      *      * @return The CropBox at this level in the hierarchy.      */
+comment|/**      * A rectangle, expressed in default user space units, defining the visible region of default user space. When the      * page is displayed or printed, its contents are to be clipped (cropped) to this rectangle and then imposed on the      * output medium in some implementationdefined manner      *       * This will get the CropBox at this page and not look up the hierarchy. This attribute is inheritable, and      * findCropBox() should probably used. This will return null if no CropBox is available at this level.      *       * @return The CropBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
 name|getCropBox
@@ -1223,7 +1089,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will find the CropBox for this page by looking up the hierarchy until      * it finds them.      *      * @return The CropBox at this level in the hierarchy.      */
+comment|/**      * This will find the CropBox for this page by looking up the hierarchy until it finds them.      *       * @return The CropBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
 name|findCropBox
@@ -1260,7 +1126,7 @@ name|parentNode
 argument_list|)
 expr_stmt|;
 block|}
-comment|//default value for cropbox is the media box
+comment|// default value for cropbox is the media box
 if|if
 condition|(
 name|retval
@@ -1278,7 +1144,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will search for a crop box in the parent and return null if it is not      * found.  It will NOT default to the media box if it cannot be found.      *      * @param node The node      */
+comment|/**      * This will search for a crop box in the parent and return null if it is not found. It will NOT default to the      * media box if it cannot be found.      *       * @param node The node      */
 specifier|private
 name|PDRectangle
 name|findParentCropBox
@@ -1326,7 +1192,7 @@ return|return
 name|rect
 return|;
 block|}
-comment|/**      * This will set the CropBox for this page.      *      * @param cropBox The new CropBox for this page.      */
+comment|/**      * This will set the CropBox for this page.      *       * @param cropBox The new CropBox for this page.      */
 specifier|public
 name|void
 name|setCropBox
@@ -1370,7 +1236,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A rectangle, expressed in default user space units, defining      * the region to which the contents of the page should be clipped      * when output in a production environment.  The default is the CropBox.      *      * @return The BleedBox attribute.      */
+comment|/**      * A rectangle, expressed in default user space units, defining the region to which the contents of the page should      * be clipped when output in a production environment. The default is the CropBox.      *       * @return The BleedBox attribute.      */
 specifier|public
 name|PDRectangle
 name|getBleedBox
@@ -1424,7 +1290,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the BleedBox for this page.      *      * @param bleedBox The new BleedBox for this page.      */
+comment|/**      * This will set the BleedBox for this page.      *       * @param bleedBox The new BleedBox for this page.      */
 specifier|public
 name|void
 name|setBleedBox
@@ -1468,7 +1334,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A rectangle, expressed in default user space units, defining      * the intended dimensions of the finished page after trimming.      * The default is the CropBox.      *      * @return The TrimBox attribute.      */
+comment|/**      * A rectangle, expressed in default user space units, defining the intended dimensions of the finished page after      * trimming. The default is the CropBox.      *       * @return The TrimBox attribute.      */
 specifier|public
 name|PDRectangle
 name|getTrimBox
@@ -1522,7 +1388,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the TrimBox for this page.      *      * @param trimBox The new TrimBox for this page.      */
+comment|/**      * This will set the TrimBox for this page.      *       * @param trimBox The new TrimBox for this page.      */
 specifier|public
 name|void
 name|setTrimBox
@@ -1566,7 +1432,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A rectangle, expressed in default user space units, defining      * the extent of the page's meaningful content (including potential      * white space) as intended by the page's creator  The default isthe CropBox.      *      * @return The ArtBox attribute.      */
+comment|/**      * A rectangle, expressed in default user space units, defining the extent of the page's meaningful content      * (including potential white space) as intended by the page's creator The default isthe CropBox.      *       * @return The ArtBox attribute.      */
 specifier|public
 name|PDRectangle
 name|getArtBox
@@ -1620,7 +1486,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the ArtBox for this page.      *      * @param artBox The new ArtBox for this page.      */
+comment|/**      * This will set the ArtBox for this page.      *       * @param artBox The new ArtBox for this page.      */
 specifier|public
 name|void
 name|setArtBox
@@ -1664,9 +1530,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//todo BoxColorInfo
-comment|//todo Contents
-comment|/**      * A value representing the rotation.  This will be null if not set at this level      * The number of degrees by which the page should      * be rotated clockwise when displayed or printed. The value must be a multiple      * of 90.      *      * This will get the rotation at this page and not look up the hierarchy.      * This attribute is inheritable, and findRotation() should probably used.      * This will return null if no rotation is available at this level.      *      * @return The rotation at this level in the hierarchy.      */
+comment|// todo BoxColorInfo
+comment|// todo Contents
+comment|/**      * A value representing the rotation. This will be null if not set at this level The number of degrees by which the      * page should be rotated clockwise when displayed or printed. The value must be a multiple of 90.      *       * This will get the rotation at this page and not look up the hierarchy. This attribute is inheritable, and      * findRotation() should probably used. This will return null if no rotation is available at this level.      *       * @return The rotation at this level in the hierarchy.      */
 specifier|public
 name|Integer
 name|getRotation
@@ -1715,7 +1581,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will find the rotation for this page by looking up the hierarchy until      * it finds them.      *      * @return The rotation at this level in the hierarchy.      */
+comment|/**      * This will find the rotation for this page by looking up the hierarchy until it finds them.      *       * @return The rotation at this level in the hierarchy.      */
 specifier|public
 name|int
 name|findRotation
@@ -1775,7 +1641,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the rotation for this page.      *      * @param rotation The new rotation for this page.      */
+comment|/**      * This will set the rotation for this page.      *       * @param rotation The new rotation for this page.      */
 specifier|public
 name|void
 name|setRotation
@@ -1796,7 +1662,7 @@ name|rotation
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the contents of the PDF Page, in the case that the contents      * of the page is an array then then the entire array of streams will be      * be wrapped and appear as a single stream.      *      * @return The page content stream.      *      * @throws IOException If there is an error obtaining the stream.      */
+comment|/**      * This will get the contents of the PDF Page, in the case that the contents of the page is an array then then the      * entire array of streams will be be wrapped and appear as a single stream.      *       * @return The page content stream.      *       * @throws IOException If there is an error obtaining the stream.      */
 specifier|public
 name|PDStream
 name|getContents
@@ -1820,7 +1686,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the contents of this page.      *      * @param contents The new contents of the page.      */
+comment|/**      * This will set the contents of this page.      *       * @param contents The new contents of the page.      */
 specifier|public
 name|void
 name|setContents
@@ -1841,7 +1707,7 @@ name|contents
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get a list of PDThreadBead objects, which are article threads in the      * document.  This will return an empty list of there are no thread beads.      *      * @return A list of article threads on this page.      */
+comment|/**      * This will get a list of PDThreadBead objects, which are article threads in the document. This will return an      * empty list of there are no thread beads.      *       * @return A list of article threads on this page.      */
 specifier|public
 name|List
 argument_list|<
@@ -1928,7 +1794,7 @@ name|bead
 init|=
 literal|null
 decl_stmt|;
-comment|//in some cases the bead is null
+comment|// in some cases the bead is null
 if|if
 condition|(
 name|beadDic
@@ -1966,7 +1832,7 @@ name|beads
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the list of thread beads.      *      * @param beads A list of PDThreadBead objects or null.      */
+comment|/**      * This will set the list of thread beads.      *       * @param beads A list of PDThreadBead objects or null.      */
 specifier|public
 name|void
 name|setThreadBeads
@@ -1995,7 +1861,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the metadata that is part of the document catalog.  This will      * return null if there is no meta data for this object.      *      * @return The metadata for this object.      */
+comment|/**      * Get the metadata that is part of the document catalog. This will return null if there is no meta data for this      * object.      *       * @return The metadata for this object.      */
 specifier|public
 name|PDMetadata
 name|getMetadata
@@ -2041,7 +1907,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the metadata for this object.  This can be null.      *      * @param meta The meta data for this object.      */
+comment|/**      * Set the metadata for this object. This can be null.      *       * @param meta The meta data for this object.      */
 specifier|public
 name|void
 name|setMetadata
@@ -2062,353 +1928,7 @@ name|meta
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convert this page to an output image with 8 bits per pixel and the double      * default screen resolution.      *      * @return A graphical representation of this page.      *      * @throws IOException If there is an error drawing to the image.      */
-specifier|public
-name|BufferedImage
-name|convertToImage
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-comment|//note we are doing twice as many pixels because
-comment|//the default size is not really good resolution,
-comment|//so create an image that is twice the size
-comment|//and let the client scale it down.
-return|return
-name|convertToImage
-argument_list|(
-literal|8
-argument_list|,
-literal|2
-operator|*
-name|DEFAULT_USER_SPACE_UNIT_DPI
-argument_list|)
-return|;
-block|}
-comment|/**      * Convert this page to an output image.      *      * @param imageType the image type (see {@link BufferedImage}.TYPE_*)      * @param resolution the resolution in dpi (dots per inch)      * @return A graphical representation of this page.      *      * @throws IOException If there is an error drawing to the image.      */
-specifier|public
-name|BufferedImage
-name|convertToImage
-parameter_list|(
-name|int
-name|imageType
-parameter_list|,
-name|int
-name|resolution
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|PDRectangle
-name|cropBox
-init|=
-name|findCropBox
-argument_list|()
-decl_stmt|;
-name|float
-name|widthPt
-init|=
-name|cropBox
-operator|.
-name|getWidth
-argument_list|()
-decl_stmt|;
-name|float
-name|heightPt
-init|=
-name|cropBox
-operator|.
-name|getHeight
-argument_list|()
-decl_stmt|;
-name|float
-name|scaling
-init|=
-name|resolution
-operator|/
-operator|(
-name|float
-operator|)
-name|DEFAULT_USER_SPACE_UNIT_DPI
-decl_stmt|;
-name|int
-name|widthPx
-init|=
-name|Math
-operator|.
-name|round
-argument_list|(
-name|widthPt
-operator|*
-name|scaling
-argument_list|)
-decl_stmt|;
-name|int
-name|heightPx
-init|=
-name|Math
-operator|.
-name|round
-argument_list|(
-name|heightPt
-operator|*
-name|scaling
-argument_list|)
-decl_stmt|;
-comment|//TODO The following reduces accuracy. It should really be a Dimension2D.Float.
-name|Dimension
-name|pageDimension
-init|=
-operator|new
-name|Dimension
-argument_list|(
-operator|(
-name|int
-operator|)
-name|widthPt
-argument_list|,
-operator|(
-name|int
-operator|)
-name|heightPt
-argument_list|)
-decl_stmt|;
-name|BufferedImage
-name|retval
-init|=
-literal|null
-decl_stmt|;
-name|int
-name|rotationAngle
-init|=
-name|findRotation
-argument_list|()
-decl_stmt|;
-comment|// normalize the rotation angle
-if|if
-condition|(
-name|rotationAngle
-operator|<
-literal|0
-condition|)
-block|{
-name|rotationAngle
-operator|+=
-literal|360
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|rotationAngle
-operator|>=
-literal|360
-condition|)
-block|{
-name|rotationAngle
-operator|-=
-literal|360
-expr_stmt|;
-block|}
-comment|// swap width and height
-if|if
-condition|(
-name|rotationAngle
-operator|==
-literal|90
-operator|||
-name|rotationAngle
-operator|==
-literal|270
-condition|)
-block|{
-name|retval
-operator|=
-operator|new
-name|BufferedImage
-argument_list|(
-name|heightPx
-argument_list|,
-name|widthPx
-argument_list|,
-name|imageType
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|retval
-operator|=
-operator|new
-name|BufferedImage
-argument_list|(
-name|widthPx
-argument_list|,
-name|heightPx
-argument_list|,
-name|imageType
-argument_list|)
-expr_stmt|;
-block|}
-name|Graphics2D
-name|graphics
-init|=
-operator|(
-name|Graphics2D
-operator|)
-name|retval
-operator|.
-name|getGraphics
-argument_list|()
-decl_stmt|;
-name|graphics
-operator|.
-name|setBackground
-argument_list|(
-name|TRANSPARENT_WHITE
-argument_list|)
-expr_stmt|;
-name|graphics
-operator|.
-name|clearRect
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-name|retval
-operator|.
-name|getWidth
-argument_list|()
-argument_list|,
-name|retval
-operator|.
-name|getHeight
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rotationAngle
-operator|!=
-literal|0
-condition|)
-block|{
-name|int
-name|translateX
-init|=
-literal|0
-decl_stmt|;
-name|int
-name|translateY
-init|=
-literal|0
-decl_stmt|;
-switch|switch
-condition|(
-name|rotationAngle
-condition|)
-block|{
-case|case
-literal|90
-case|:
-name|translateX
-operator|=
-name|retval
-operator|.
-name|getWidth
-argument_list|()
-expr_stmt|;
-break|break;
-case|case
-literal|270
-case|:
-name|translateY
-operator|=
-name|retval
-operator|.
-name|getHeight
-argument_list|()
-expr_stmt|;
-break|break;
-case|case
-literal|180
-case|:
-name|translateX
-operator|=
-name|retval
-operator|.
-name|getWidth
-argument_list|()
-expr_stmt|;
-name|translateY
-operator|=
-name|retval
-operator|.
-name|getHeight
-argument_list|()
-expr_stmt|;
-break|break;
-default|default:
-break|break;
-block|}
-name|graphics
-operator|.
-name|translate
-argument_list|(
-name|translateX
-argument_list|,
-name|translateY
-argument_list|)
-expr_stmt|;
-name|graphics
-operator|.
-name|rotate
-argument_list|(
-operator|(
-name|float
-operator|)
-name|Math
-operator|.
-name|toRadians
-argument_list|(
-name|rotationAngle
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-name|graphics
-operator|.
-name|scale
-argument_list|(
-name|scaling
-argument_list|,
-name|scaling
-argument_list|)
-expr_stmt|;
-name|PageDrawer
-name|drawer
-init|=
-operator|new
-name|PageDrawer
-argument_list|()
-decl_stmt|;
-name|drawer
-operator|.
-name|drawPage
-argument_list|(
-name|graphics
-argument_list|,
-name|this
-argument_list|,
-name|pageDimension
-argument_list|)
-expr_stmt|;
-return|return
-name|retval
-return|;
-block|}
-comment|/**      * Get the page actions.      *      * @return The Actions for this Page      */
+comment|/**      * Get the page actions.      *       * @return The Actions for this Page      */
 specifier|public
 name|PDPageAdditionalActions
 name|getActions
@@ -2462,7 +1982,7 @@ name|addAct
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the page actions.      *      * @param actions The actions for the page.      */
+comment|/**      * Set the page actions.      *       * @param actions The actions for the page.      */
 specifier|public
 name|void
 name|setActions
@@ -2483,7 +2003,7 @@ name|actions
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return a list of the Annotations for this page.      *      * @return List of the PDAnnotation objects.      *      * @throws IOException If there is an error while creating the annotations.      */
+comment|/**      * This will return a list of the Annotations for this page.      *       * @return List of the PDAnnotation objects.      *       * @throws IOException If there is an error while creating the annotations.      */
 specifier|public
 name|List
 argument_list|<
@@ -2634,7 +2154,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of annotations.      *      * @param annots The new list of annotations.      */
+comment|/**      * This will set the list of annotations.      *       * @param annots The new list of annotations.      */
 specifier|public
 name|void
 name|setAnnotations
@@ -2662,71 +2182,6 @@ name|annots
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * @deprecated Use the {@link PDPageable} adapter class      * {@inheritDoc}      */
-specifier|public
-name|int
-name|print
-parameter_list|(
-name|Graphics
-name|graphics
-parameter_list|,
-name|PageFormat
-name|pageFormat
-parameter_list|,
-name|int
-name|pageIndex
-parameter_list|)
-throws|throws
-name|PrinterException
-block|{
-try|try
-block|{
-name|PageDrawer
-name|drawer
-init|=
-operator|new
-name|PageDrawer
-argument_list|()
-decl_stmt|;
-name|PDRectangle
-name|cropBox
-init|=
-name|findCropBox
-argument_list|()
-decl_stmt|;
-name|drawer
-operator|.
-name|drawPage
-argument_list|(
-name|graphics
-argument_list|,
-name|this
-argument_list|,
-name|cropBox
-operator|.
-name|createDimension
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|PAGE_EXISTS
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|io
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|PrinterIOException
-argument_list|(
-name|io
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * {@inheritDoc}      */
 specifier|public

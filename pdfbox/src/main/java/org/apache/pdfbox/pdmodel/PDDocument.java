@@ -19,66 +19,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|awt
-operator|.
-name|print
-operator|.
-name|PageFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|print
-operator|.
-name|Pageable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|print
-operator|.
-name|Printable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|print
-operator|.
-name|PrinterException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|print
-operator|.
-name|PrinterJob
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|io
 operator|.
 name|BufferedInputStream
@@ -794,7 +734,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the in-memory representation of the PDF document.  You need to call  * close() on this object when you are done using it!!  *<p>  * This class implements the {@link Pageable} interface, but since PDFBox  * version 1.3.0 you should be using the {@link PDPageable} adapter instead  * (see<a href="https://issues.apache.org/jira/browse/PDFBOX-788">PDFBOX-788</a>).  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.47 $  */
+comment|/**  * This is the in-memory representation of the PDF document. You need to call close() on this object when you are done  * using it!!  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -802,15 +742,13 @@ specifier|public
 class|class
 name|PDDocument
 implements|implements
-name|Pageable
-implements|,
 name|Closeable
 block|{
 specifier|private
 name|COSDocument
 name|document
 decl_stmt|;
-comment|//cached values
+comment|// cached values
 specifier|private
 name|PDDocumentInformation
 name|documentInformation
@@ -819,9 +757,9 @@ specifier|private
 name|PDDocumentCatalog
 name|documentCatalog
 decl_stmt|;
-comment|//The encParameters will be cached here.  When the document is decrypted then
-comment|//the COSDocument will not have an "Encrypt" dictionary anymore and this object
-comment|//must be used.
+comment|// The encParameters will be cached here. When the document is decrypted then
+comment|// the COSDocument will not have an "Encrypt" dictionary anymore and this object
+comment|// must be used.
 specifier|private
 name|PDEncryptionDictionary
 name|encParameters
@@ -835,7 +773,7 @@ name|securityHandler
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * This assocates object ids with a page number.  It's used to determine      * the page number for bookmarks (or page numbers for anything else for      * which you have an object id for that matter).       */
+comment|/**      * This assocates object ids with a page number. It's used to determine the page number for bookmarks (or page      * numbers for anything else for which you have an object id for that matter).      */
 specifier|private
 name|Map
 argument_list|<
@@ -847,19 +785,19 @@ name|pageMap
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * This will hold a flag which tells us if we should remove all security      * from this documents.      */
+comment|/**      * This will hold a flag which tells us if we should remove all security from this documents.      */
 specifier|private
 name|boolean
 name|allSecurityToBeRemoved
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Keep tracking customized documentId for the trailer. If null, a new       * id will be generated for the document. This ID doesn't represent the      * actual documentId from the trailer.      */
+comment|/**      * Keep tracking customized documentId for the trailer. If null, a new id will be generated for the document. This      * ID doesn't represent the actual documentId from the trailer.      */
 specifier|private
 name|Long
 name|documentId
 decl_stmt|;
-comment|/**      * Constructor, creates a new PDF Document with no pages.  You need to add      * at least one page for the document to be valid.      *      * @throws IOException If there is an error creating this document.      */
+comment|/**      * Constructor, creates a new PDF Document with no pages. You need to add at least one page for the document to be      * valid.      *       * @throws IOException If there is an error creating this document.      */
 specifier|public
 name|PDDocument
 parameter_list|()
@@ -872,7 +810,7 @@ operator|new
 name|COSDocument
 argument_list|()
 expr_stmt|;
-comment|//First we need a trailer
+comment|// First we need a trailer
 name|COSDictionary
 name|trailer
 init|=
@@ -887,7 +825,7 @@ argument_list|(
 name|trailer
 argument_list|)
 expr_stmt|;
-comment|//Next we need the root dictionary.
+comment|// Next we need the root dictionary.
 name|COSDictionary
 name|rootDictionary
 init|=
@@ -935,7 +873,7 @@ literal|"1.4"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//next we need the pages tree structure
+comment|// next we need the pages tree structure
 name|COSDictionary
 name|pages
 init|=
@@ -1147,7 +1085,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will either add the page passed in, or, if it's a pointer to an array      * of pages, it'll recursivly call itself and process everything in the list.      */
+comment|/**      * This will either add the page passed in, or, if it's a pointer to an array of pages, it'll recursivly call itself      * and process everything in the list.      */
 specifier|private
 name|void
 name|parseCatalogObject
@@ -1508,7 +1446,7 @@ return|return
 name|pageMap
 return|;
 block|}
-comment|/**      * This will add a page to the document.  This is a convenience method, that      * will add the page to the root of the hierarchy and set the parent of the      * page to the root.      *      * @param page The page to add to the document.      */
+comment|/**      * This will add a page to the document. This is a convenience method, that will add the page to the root of the      * hierarchy and set the parent of the page to the root.      *       * @param page The page to add to the document.      */
 specifier|public
 name|void
 name|addPage
@@ -1589,7 +1527,7 @@ name|defaultOptions
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a signature to the document.       *      * @param sigObject is the PDSignature model      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      * @throws SignatureException if something went wrong      */
+comment|/**      * This will add a signature to the document.      *       * @param sigObject is the PDSignature model      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      * @throws SignatureException if something went wrong      */
 specifier|public
 name|void
 name|addSignature
@@ -1688,8 +1626,8 @@ name|signatureInterface
 argument_list|)
 expr_stmt|;
 comment|// #########################################
-comment|// # Create SignatureForm for signature    #
-comment|// # and appending it to the document      #
+comment|// # Create SignatureForm for signature #
+comment|// # and appending it to the document #
 comment|// #########################################
 comment|// Get the first page
 name|PDDocumentCatalog
@@ -1876,7 +1814,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*          * For invisible signatures, the annotation has a rectangle array with values [ 0 0 0 0 ].           * This annotation is usually attached to the viewed page when the signature is created.           * Despite not having an appearance, the annotation AP and N dictionaries may be present           * in some versions of Acrobat. If present, N references the DSBlankXObj (blank) XObject.          */
+comment|/*          * For invisible signatures, the annotation has a rectangle array with values [ 0 0 0 0 ]. This annotation is          * usually attached to the viewed page when the signature is created. Despite not having an appearance, the          * annotation AP and N dictionaries may be present in some versions of Acrobat. If present, N references the          * DSBlankXObj (blank) XObject.          */
 comment|// Create Annotation / Field for signature
 name|List
 argument_list|<
@@ -2649,7 +2587,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a signaturefield to the document.      * @param sigFields are the PDSignatureFields that should be added to the document      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      * @throws SignatureException       */
+comment|/**      * This will add a signaturefield to the document.      *       * @param sigFields are the PDSignatureFields that should be added to the document      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      * @throws SignatureException      */
 specifier|public
 name|void
 name|addSignatureField
@@ -2934,7 +2872,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Remove the page from the document.      *      * @param page The page to remove from the document.      *      * @return true if the page was found false otherwise.      */
+comment|/**      * Remove the page from the document.      *       * @param page The page to remove from the document.      *       * @return true if the page was found false otherwise.      */
 specifier|public
 name|boolean
 name|removePage
@@ -2969,7 +2907,7 @@ condition|(
 name|retval
 condition|)
 block|{
-comment|//do a recursive updateCount starting at the root of the document
+comment|// do a recursive updateCount starting at the root of the document
 name|getDocumentCatalog
 argument_list|()
 operator|.
@@ -2984,7 +2922,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Remove the page from the document.      *      * @param pageNumber 0 based index to page number.      * @return true if the page was found false otherwise.      */
+comment|/**      * Remove the page from the document.      *       * @param pageNumber 0 based index to page number.      * @return true if the page was found false otherwise.      */
 specifier|public
 name|boolean
 name|removePage
@@ -3042,7 +2980,7 @@ return|return
 name|removed
 return|;
 block|}
-comment|/**      * This will import and copy the contents from another location.  Currently      * the content stream is stored in a scratch file.  The scratch file is      * associated with the document.  If you are adding a page to this document      * from another document and want to copy the contents to this document's      * scratch file then use this method otherwise just use the addPage method.      *      * @param page The page to import.      * @return The page that was imported.      *      * @throws IOException If there is an error copying the page.      */
+comment|/**      * This will import and copy the contents from another location. Currently the content stream is stored in a scratch      * file. The scratch file is associated with the document. If you are adding a page to this document from another      * document and want to copy the contents to this document's scratch file then use this method otherwise just use      * the addPage method.      *       * @param page The page to import.      * @return The page that was imported.      *       * @throws IOException If there is an error copying the page.      */
 specifier|public
 name|PDPage
 name|importPage
@@ -3217,7 +3155,7 @@ return|return
 name|importedPage
 return|;
 block|}
-comment|/**      * Constructor that uses an existing document.  The COSDocument that      * is passed in must be valid.      *      * @param doc The COSDocument that this document wraps.      */
+comment|/**      * Constructor that uses an existing document. The COSDocument that is passed in must be valid.      *       * @param doc The COSDocument that this document wraps.      */
 specifier|public
 name|PDDocument
 parameter_list|(
@@ -3230,7 +3168,7 @@ operator|=
 name|doc
 expr_stmt|;
 block|}
-comment|/**      * This will get the low level document.      *      * @return The document that this layer sits on top of.      */
+comment|/**      * This will get the low level document.      *       * @return The document that this layer sits on top of.      */
 specifier|public
 name|COSDocument
 name|getDocument
@@ -3240,7 +3178,7 @@ return|return
 name|document
 return|;
 block|}
-comment|/**      * This will get the document info dictionary.  This is guaranteed to not return null.      *      * @return The documents /Info dictionary      */
+comment|/**      * This will get the document info dictionary. This is guaranteed to not return null.      *       * @return The documents /Info dictionary      */
 specifier|public
 name|PDDocumentInformation
 name|getDocumentInformation
@@ -3314,7 +3252,7 @@ return|return
 name|documentInformation
 return|;
 block|}
-comment|/**      * This will set the document information for this document.      *      * @param info The updated document information.      */
+comment|/**      * This will set the document information for this document.      *       * @param info The updated document information.      */
 specifier|public
 name|void
 name|setDocumentInformation
@@ -3345,7 +3283,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the document CATALOG.  This is guaranteed to not return null.      *      * @return The documents /Root dictionary      */
+comment|/**      * This will get the document CATALOG. This is guaranteed to not return null.      *       * @return The documents /Root dictionary      */
 specifier|public
 name|PDDocumentCatalog
 name|getDocumentCatalog
@@ -3415,7 +3353,7 @@ return|return
 name|documentCatalog
 return|;
 block|}
-comment|/**      * This will tell if this document is encrypted or not.      *      * @return true If this document is encrypted.      */
+comment|/**      * This will tell if this document is encrypted or not.      *       * @return true If this document is encrypted.      */
 specifier|public
 name|boolean
 name|isEncrypted
@@ -3428,7 +3366,7 @@ name|isEncrypted
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the encryption dictionary for this document.  This will still      * return the parameters if the document was decrypted.  If the document was      * never encrypted then this will return null.  As the encryption architecture      * in PDF documents is plugable this returns an abstract class, but the only      * supported subclass at this time is a PDStandardEncryption object.      *      * @return The encryption dictionary(most likely a PDStandardEncryption object)      *      * @throws IOException If there is an error determining which security handler to use.      */
+comment|/**      * This will get the encryption dictionary for this document. This will still return the parameters if the document      * was decrypted. If the document was never encrypted then this will return null. As the encryption architecture in      * PDF documents is plugable this returns an abstract class, but the only supported subclass at this time is a      * PDStandardEncryption object.      *       * @return The encryption dictionary(most likely a PDStandardEncryption object)      *       * @throws IOException If there is an error determining which security handler to use.      */
 specifier|public
 name|PDEncryptionDictionary
 name|getEncryptionDictionary
@@ -3466,7 +3404,7 @@ return|return
 name|encParameters
 return|;
 block|}
-comment|/**      * This will set the encryption dictionary for this document.      *      * @param encDictionary The encryption dictionary(most likely a PDStandardEncryption object)      *      * @throws IOException If there is an error determining which security handler to use.      */
+comment|/**      * This will set the encryption dictionary for this document.      *       * @param encDictionary The encryption dictionary(most likely a PDStandardEncryption object)      *       * @throws IOException If there is an error determining which security handler to use.      */
 specifier|public
 name|void
 name|setEncryptionDictionary
@@ -3482,22 +3420,7 @@ operator|=
 name|encDictionary
 expr_stmt|;
 block|}
-comment|/**      * This will return the last signature.      *      * @return the last signature as<code>PDSignature</code>.      * @throws IOException if no document catalog can be found.      * @deprecated use {@link #getLastSignatureDictionary()} instead.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|PDSignature
-name|getSignatureDictionary
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|getLastSignatureDictionary
-argument_list|()
-return|;
-block|}
-comment|/**      * This will return the last signature.      *      * @return the last signature as<code>PDSignature</code>.      * @throws IOException if no document catalog can be found.      */
+comment|/**      * This will return the last signature.      *       * @return the last signature as<code>PDSignature</code>.      * @throws IOException if no document catalog can be found.      */
 specifier|public
 name|PDSignature
 name|getLastSignatureDictionary
@@ -3544,7 +3467,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Retrieve all signature fields from the document.      *      * @return a<code>List</code> of<code>PDSignatureField</code>s      * @throws IOException if no document catalog can be found.      */
+comment|/**      * Retrieve all signature fields from the document.      *       * @return a<code>List</code> of<code>PDSignatureField</code>s      * @throws IOException if no document catalog can be found.      */
 specifier|public
 name|List
 argument_list|<
@@ -3624,7 +3547,7 @@ return|return
 name|fields
 return|;
 block|}
-comment|/**      * Retrieve all signature dictionaries from the document.      *      * @return a<code>List</code> of<code>PDSignature</code>s      * @throws IOException if no document catalog can be found.      */
+comment|/**      * Retrieve all signature dictionaries from the document.      *       * @return a<code>List</code> of<code>PDSignature</code>s      * @throws IOException if no document catalog can be found.      */
 specifier|public
 name|List
 argument_list|<
@@ -3683,45 +3606,7 @@ return|return
 name|signatures
 return|;
 block|}
-comment|/**      * This will determine if this is the user password.  This only applies when      * the document is encrypted and uses standard encryption.      *      * @param password The plain text user password.      *      * @return true If the password passed in matches the user password used to encrypt the document.      *      * @throws IOException If there is an error determining if it is the user password.      * @throws CryptographyException If there is an error in the encryption algorithms.      *      * @deprecated      */
-annotation|@
-name|Deprecated
-specifier|public
-name|boolean
-name|isUserPassword
-parameter_list|(
-name|String
-name|password
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|CryptographyException
-block|{
-return|return
-literal|false
-return|;
-block|}
-comment|/**      * This will determine if this is the owner password.  This only applies when      * the document is encrypted and uses standard encryption.      *      * @param password The plain text owner password.      *      * @return true If the password passed in matches the owner password used to encrypt the document.      *      * @throws IOException If there is an error determining if it is the user password.      * @throws CryptographyException If there is an error in the encryption algorithms.      *      * @deprecated      */
-annotation|@
-name|Deprecated
-specifier|public
-name|boolean
-name|isOwnerPassword
-parameter_list|(
-name|String
-name|password
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|CryptographyException
-block|{
-return|return
-literal|false
-return|;
-block|}
-comment|/**      * This will decrypt a document. This method is provided for compatibility reasons only. User should use      * the new security layer instead and the openProtection method especially.      *      * @param password Either the user or owner password.      *      * @throws CryptographyException If there is an error decrypting the document.      * @throws IOException If there is an error getting the stream data.      * @throws InvalidPasswordException If the password is not a user or owner password.      *      */
+comment|/**      * This will decrypt a document. This method is provided for compatibility reasons only. User should use the new      * security layer instead and the openProtection method especially.      *       * @param password Either the user or owner password.      *       * @throws CryptographyException If there is an error decrypting the document.      * @throws IOException If there is an error getting the stream data.      * @throws InvalidPasswordException If the password is not a user or owner password.      *       */
 specifier|public
 name|void
 name|decrypt
@@ -3775,19 +3660,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * This will tell if the document was decrypted with the master password.  This      * entry is invalid if the PDF was not decrypted.      *      * @return true if the pdf was decrypted with the master password.      *      * @deprecated use<code>getCurrentAccessPermission</code> instead      */
-annotation|@
-name|Deprecated
-specifier|public
-name|boolean
-name|wasDecryptedWithOwnerPassword
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-comment|/**      * This will<b>mark</b> a document to be encrypted.  The actual encryption      * will occur when the document is saved.      * This method is provided for compatibility reasons only. User should use      * the new security layer instead and the openProtection method especially.      *      * @param ownerPassword The owner password to encrypt the document.      * @param userPassword The user password to encrypt the document.      *      * @throws CryptographyException If an error occurs during encryption.      * @throws IOException If there is an error accessing the data.      *      */
+comment|/**      * This will<b>mark</b> a document to be encrypted. The actual encryption will occur when the document is saved.      * This method is provided for compatibility reasons only. User should use the new security layer instead and the      * openProtection method especially.      *       * @param ownerPassword The owner password to encrypt the document.      * @param userPassword The user password to encrypt the document.      *       * @throws CryptographyException If an error occurs during encryption.      * @throws IOException If there is an error accessing the data.      *       */
 specifier|public
 name|void
 name|encrypt
@@ -3843,7 +3716,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * The owner password that was passed into the encrypt method. You should      * never use this method.  This will not longer be valid once encryption      * has occured.      *      * @return The owner password passed to the encrypt method.      *      * @deprecated Do not rely on this method anymore.      */
+comment|/**      * The owner password that was passed into the encrypt method. You should never use this method. This will not      * longer be valid once encryption has occured.      *       * @return The owner password passed to the encrypt method.      *       * @deprecated Do not rely on this method anymore.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -3855,7 +3728,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * The user password that was passed into the encrypt method.  You should      * never use this method.  This will not longer be valid once encryption      * has occured.      *      * @return The user password passed to the encrypt method.      *      * @deprecated Do not rely on this method anymore.      */
+comment|/**      * The user password that was passed into the encrypt method. You should never use this method. This will not longer      * be valid once encryption has occured.      *       * @return The user password passed to the encrypt method.      *       * @deprecated Do not rely on this method anymore.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -3867,29 +3740,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Internal method do determine if the document will be encrypted when it is saved.      *      * @return True if encrypt has been called and the document      *              has not been saved yet.      *      * @deprecated Do not rely on this method anymore. It is the responsibility of      * COSWriter to hold this state      */
-annotation|@
-name|Deprecated
-specifier|public
-name|boolean
-name|willEncryptWhenSaving
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-comment|/**      * This shoule only be called by the COSWriter after encryption has completed.      *      * @deprecated Do not rely on this method anymore. It is the responsability of      * COSWriter to hold this state.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|void
-name|clearWillEncryptWhenSaving
-parameter_list|()
-block|{
-comment|//method is deprecated.
-block|}
-comment|/**      * This will load a document from a url.      *      * @param url The url to load the PDF from.      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from a url.      *       * @param url The url to load the PDF from.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3911,7 +3762,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from a url. Used for skipping corrupt      * pdf objects      *      * @param url The url to load the PDF from.      * @param force When true, the parser will skip corrupt pdf objects and       * will continue parsing at the next object in the file      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from a url. Used for skipping corrupt pdf objects      *       * @param url The url to load the PDF from.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3938,7 +3789,7 @@ name|force
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from a url.      *      * @param url The url to load the PDF from.      * @param scratchFile A location to store temp PDFBox data for this document.      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from a url.      *       * @param url The url to load the PDF from.      * @param scratchFile A location to store temp PDFBox data for this document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3965,7 +3816,7 @@ name|scratchFile
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from a file.      *      * @param filename The name of the file to load.      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from a file.      *       * @param filename The name of the file to load.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3988,7 +3839,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from a file. Allows for skipping corrupt pdf      * objects      *      * @param filename The name of the file to load.      * @param force When true, the parser will skip corrupt pdf objects and       * will continue parsing at the next object in the file      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from a file. Allows for skipping corrupt pdf objects      *       * @param filename The name of the file to load.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4016,7 +3867,7 @@ name|force
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from a file.      *      * @param filename The name of the file to load.      * @param scratchFile A location to store temp PDFBox data for this document.      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from a file.      *       * @param filename The name of the file to load.      * @param scratchFile A location to store temp PDFBox data for this document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4044,7 +3895,7 @@ name|scratchFile
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from a file.      *      * @param file The name of the file to load.      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from a file.      *       * @param file The name of the file to load.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4067,7 +3918,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from a file.      *      * @param file The name of the file to load.      * @param scratchFile A location to store temp PDFBox data for this document.      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from a file.      *       * @param file The name of the file to load.      * @param scratchFile A location to store temp PDFBox data for this document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4095,7 +3946,7 @@ name|scratchFile
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from an input stream.      *      * @param input The stream that contains the document.      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from an input stream.      *       * @param input The stream that contains the document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4116,7 +3967,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from an input stream.      * Allows for skipping corrupt pdf objects      *      * @param input The stream that contains the document.      * @param force When true, the parser will skip corrupt pdf objects and       * will continue parsing at the next object in the file      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from an input stream. Allows for skipping corrupt pdf objects      *       * @param input The stream that contains the document.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4142,7 +3993,7 @@ name|force
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from an input stream.      *      * @param input The stream that contains the document.      * @param scratchFile A location to store temp PDFBox data for this document.      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from an input stream.      *       * @param input The stream that contains the document.      * @param scratchFile A location to store temp PDFBox data for this document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4184,7 +4035,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * This will load a document from an input stream. Allows for skipping corrupt pdf objects      *       * @param input The stream that contains the document.      * @param scratchFile A location to store temp PDFBox data for this document.      * @param force When true, the parser will skip corrupt pdf objects and       * will continue parsing at the next object in the file      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from an input stream. Allows for skipping corrupt pdf objects      *       * @param input The stream that contains the document.      * @param scratchFile A location to store temp PDFBox data for this document.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4231,7 +4082,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *        * @param file  file to be loaded      * @param scratchFile  location to store temp PDFBox data for this document      *      * @return loaded document      *      * @throws IOException  in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param scratchFile location to store temp PDFBox data for this document      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4257,7 +4108,7 @@ literal|""
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *        * @param file  file to be loaded      * @param scratchFile  location to store temp PDFBox data for this document      * @param password password to be used for decryption      *      * @return loaded document      *      * @throws IOException  in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param scratchFile location to store temp PDFBox data for this document      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4300,7 +4151,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *        * @param input stream that contains the document.      * @param scratchFile location to store temp PDFBox data for this document      *      * @return loaded document      *      * @throws IOException  in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param scratchFile location to store temp PDFBox data for this document      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4326,7 +4177,7 @@ literal|""
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *        * @param input stream that contains the document.      * @param scratchFile location to store temp PDFBox data for this document      * @param password password to be used for decryption      *      * @return loaded document      *      * @throws IOException  in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param scratchFile location to store temp PDFBox data for this document      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4369,7 +4220,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * Save the document to a file.      *      * @param fileName The file to save as.      *      * @throws IOException If there is an error saving the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * Save the document to a file.      *       * @param fileName The file to save as.      *       * @throws IOException If there is an error saving the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
 specifier|public
 name|void
 name|save
@@ -4392,7 +4243,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Save the document to a file.      *      * @param file The file to save as.      *      * @throws IOException If there is an error saving the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * Save the document to a file.      *       * @param file The file to save as.      *       * @throws IOException If there is an error saving the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
 specifier|public
 name|void
 name|save
@@ -4415,7 +4266,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will save the document to an output stream.      *      * @param output The stream to write to.      *      * @throws IOException If there is an error writing the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * This will save the document to an output stream.      *       * @param output The stream to write to.      *       * @throws IOException If there is an error writing the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
 specifier|public
 name|void
 name|save
@@ -4428,7 +4279,7 @@ name|IOException
 throws|,
 name|COSVisitorException
 block|{
-comment|//update the count in case any pages have been added behind the scenes.
+comment|// update the count in case any pages have been added behind the scenes.
 name|getDocumentCatalog
 argument_list|()
 operator|.
@@ -4483,7 +4334,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**       * Save the pdf as incremental.      *       * @param fileName the filename to be used      * @throws IOException if something went wrong      * @throws COSVisitorException  if something went wrong      */
+comment|/**      * Save the pdf as incremental.      *       * @param fileName the filename to be used      * @throws IOException if something went wrong      * @throws COSVisitorException if something went wrong      */
 specifier|public
 name|void
 name|saveIncremental
@@ -4514,7 +4365,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * Save the pdf as incremental.      *       * @param input       * @param output      * @throws IOException if something went wrong      * @throws COSVisitorException  if something went wrong      */
+comment|/**      * Save the pdf as incremental.      *       * @param input      * @param output      * @throws IOException if something went wrong      * @throws COSVisitorException if something went wrong      */
 specifier|public
 name|void
 name|saveIncremental
@@ -4530,7 +4381,7 @@ name|IOException
 throws|,
 name|COSVisitorException
 block|{
-comment|//update the count in case any pages have been added behind the scenes.
+comment|// update the count in case any pages have been added behind the scenes.
 name|getDocumentCatalog
 argument_list|()
 operator|.
@@ -4549,7 +4400,7 @@ try|try
 block|{
 comment|// Sometimes the original file will be missing a newline at the end
 comment|// In order to avoid having %%EOF the first object on the same line
-comment|// as the %%EOF, we put a newline here.  If there's already one at
+comment|// as the %%EOF, we put a newline here. If there's already one at
 comment|// the end of the file, an extra one won't hurt. PDFBOX-1051
 name|output
 operator|.
@@ -4601,20 +4452,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will return the total page count of the PDF document.  Note: This method      * is deprecated in favor of the getNumberOfPages method.  The getNumberOfPages is      * a required interface method of the Pageable interface.  This method will      * be removed in a future version of PDFBox!!      *      * @return The total number of pages in the PDF document.      * @deprecated Use the getNumberOfPages method instead!      */
-annotation|@
-name|Deprecated
-specifier|public
-name|int
-name|getPageCount
-parameter_list|()
-block|{
-return|return
-name|getNumberOfPages
-argument_list|()
-return|;
-block|}
-comment|/**      * {@inheritDoc}      */
+comment|/**      * This will return the total page count of the PDF document.      *       * @return The total number of pages in the PDF document.      */
 specifier|public
 name|int
 name|getNumberOfPages
@@ -4639,216 +4477,7 @@ name|getCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the format of the page at the given index when using a      * default printer job returned by  {@link PrinterJob#getPrinterJob()}.      *      * @deprecated Use the {@link PDPageable} adapter class      * @param pageIndex page index, zero-based      * @return page format      */
-annotation|@
-name|Deprecated
-specifier|public
-name|PageFormat
-name|getPageFormat
-parameter_list|(
-name|int
-name|pageIndex
-parameter_list|)
-block|{
-try|try
-block|{
-name|PrinterJob
-name|printerJob
-init|=
-name|PrinterJob
-operator|.
-name|getPrinterJob
-argument_list|()
-decl_stmt|;
-return|return
-operator|new
-name|PDPageable
-argument_list|(
-name|this
-argument_list|,
-name|printerJob
-argument_list|)
-operator|.
-name|getPageFormat
-argument_list|(
-name|pageIndex
-argument_list|)
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|PrinterException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|Printable
-name|getPrintable
-parameter_list|(
-name|int
-name|pageIndex
-parameter_list|)
-block|{
-return|return
-operator|(
-name|Printable
-operator|)
-name|getDocumentCatalog
-argument_list|()
-operator|.
-name|getAllPages
-argument_list|()
-operator|.
-name|get
-argument_list|(
-name|pageIndex
-argument_list|)
-return|;
-block|}
-comment|/**      * @see PDDocument#print()      *      * @param printJob The printer job.      *      * @throws PrinterException If there is an error while sending the PDF to      * the printer, or you do not have permissions to print this document.      */
-specifier|public
-name|void
-name|print
-parameter_list|(
-name|PrinterJob
-name|printJob
-parameter_list|)
-throws|throws
-name|PrinterException
-block|{
-name|print
-argument_list|(
-name|printJob
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * This will send the PDF document to a printer.  The printing functionality      * depends on the org.apache.pdfbox.pdfviewer.PageDrawer functionality.  The PageDrawer      * is a work in progress and some PDFs will print correctly and some will      * not.  This is a convenience method to create the java.awt.print.PrinterJob.      * The PDDocument implements the java.awt.print.Pageable interface and      * PDPage implementes the java.awt.print.Printable interface, so advanced printing      * capabilities can be done by using those interfaces instead of this method.      *      * @throws PrinterException If there is an error while sending the PDF to      * the printer, or you do not have permissions to print this document.      */
-specifier|public
-name|void
-name|print
-parameter_list|()
-throws|throws
-name|PrinterException
-block|{
-name|print
-argument_list|(
-name|PrinterJob
-operator|.
-name|getPrinterJob
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * This will send the PDF to the default printer without prompting the user      * for any printer settings.      *      * @see PDDocument#print()      *      * @throws PrinterException If there is an error while printing.      */
-specifier|public
-name|void
-name|silentPrint
-parameter_list|()
-throws|throws
-name|PrinterException
-block|{
-name|silentPrint
-argument_list|(
-name|PrinterJob
-operator|.
-name|getPrinterJob
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * This will send the PDF to the default printer without prompting the user      * for any printer settings.      *      * @param printJob A printer job definition.      * @see PDDocument#print()      *      * @throws PrinterException If there is an error while printing.      */
-specifier|public
-name|void
-name|silentPrint
-parameter_list|(
-name|PrinterJob
-name|printJob
-parameter_list|)
-throws|throws
-name|PrinterException
-block|{
-name|print
-argument_list|(
-name|printJob
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-specifier|private
-name|void
-name|print
-parameter_list|(
-name|PrinterJob
-name|job
-parameter_list|,
-name|boolean
-name|silent
-parameter_list|)
-throws|throws
-name|PrinterException
-block|{
-if|if
-condition|(
-name|job
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|PrinterException
-argument_list|(
-literal|"The given printer job is null."
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
-name|job
-operator|.
-name|setPageable
-argument_list|(
-operator|new
-name|PDPageable
-argument_list|(
-name|this
-argument_list|,
-name|job
-argument_list|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|silent
-operator|||
-name|job
-operator|.
-name|printDialog
-argument_list|()
-condition|)
-block|{
-name|job
-operator|.
-name|print
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-block|}
-comment|/**      * This will close the underlying COSDocument object.      *      * @throws IOException If there is an error releasing resources.      */
+comment|/**      * This will close the underlying COSDocument object.      *       * @throws IOException If there is an error releasing resources.      */
 specifier|public
 name|void
 name|close
@@ -4862,7 +4491,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Protects the document with the protection policy pp. The document content will be really encrypted      * when it will be saved. This method only marks the document for encryption.      *      * @see org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyProtectionPolicy      *      * @param pp The protection policy.      *      * @throws BadSecurityHandlerException If there is an error during protection.      */
+comment|/**      * Protects the document with the protection policy pp. The document content will be really encrypted when it will      * be saved. This method only marks the document for encryption.      *       * @see org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyProtectionPolicy      *       * @param pp The protection policy.      *       * @throws BadSecurityHandlerException If there is an error during protection.      */
 specifier|public
 name|void
 name|protect
@@ -4891,7 +4520,7 @@ operator|=
 name|handler
 expr_stmt|;
 block|}
-comment|/**      * Tries to decrypt the document in memory using the provided decryption material.      *      *  @see org.apache.pdfbox.pdmodel.encryption.StandardDecryptionMaterial      *  @see org.apache.pdfbox.pdmodel.encryption.PublicKeyDecryptionMaterial      *      * @param pm The decryption material (password or certificate).      *      * @throws BadSecurityHandlerException If there is an error during decryption.      * @throws IOException If there is an error reading cryptographic information.      * @throws CryptographyException If there is an error during decryption.      */
+comment|/**      * Tries to decrypt the document in memory using the provided decryption material.      *       * @see org.apache.pdfbox.pdmodel.encryption.StandardDecryptionMaterial      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyDecryptionMaterial      *       * @param pm The decryption material (password or certificate).      *       * @throws BadSecurityHandlerException If there is an error during decryption.      * @throws IOException If there is an error reading cryptographic information.      * @throws CryptographyException If there is an error during decryption.      */
 specifier|public
 name|void
 name|openProtection
@@ -4972,7 +4601,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns the access permissions granted when the document was decrypted.      * If the document was not decrypted this method returns the access permission      * for a document owner (ie can do everything).      * The returned object is in read only mode so that permissions cannot be changed.      * Methods providing access to content should rely on this object to verify if the current      * user is allowed to proceed.      *      * @return the access permissions for the current user on the document.      */
+comment|/**      * Returns the access permissions granted when the document was decrypted. If the document was not decrypted this      * method returns the access permission for a document owner (ie can do everything). The returned object is in read      * only mode so that permissions cannot be changed. Methods providing access to content should rely on this object      * to verify if the current user is allowed to proceed.      *       * @return the access permissions for the current user on the document.      */
 specifier|public
 name|AccessPermission
 name|getCurrentAccessPermission
@@ -5001,7 +4630,7 @@ name|getCurrentAccessPermission
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the security handler that is used for document encryption.      *      * @return The handler used to encrypt/decrypt the document.      */
+comment|/**      * Get the security handler that is used for document encryption.      *       * @return The handler used to encrypt/decrypt the document.      */
 specifier|public
 name|SecurityHandler
 name|getSecurityHandler
@@ -5011,7 +4640,7 @@ return|return
 name|securityHandler
 return|;
 block|}
-comment|/**      * Sets security handler if none is set already.      *       * @param secHandler security handler to be assigned to document      * @return<code>true</code> if security handler was set,<code>false</code>      *          otherwise (a security handler was already set)      */
+comment|/**      * Sets security handler if none is set already.      *       * @param secHandler security handler to be assigned to document      * @return<code>true</code> if security handler was set,<code>false</code> otherwise (a security handler was      *         already set)      */
 specifier|public
 name|boolean
 name|setSecurityHandler
@@ -5039,7 +4668,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Indicates if all security is removed or not when writing the pdf.      * @return returns true if all security shall be removed otherwise false      */
+comment|/**      * Indicates if all security is removed or not when writing the pdf.      *       * @return returns true if all security shall be removed otherwise false      */
 specifier|public
 name|boolean
 name|isAllSecurityToBeRemoved
@@ -5049,7 +4678,7 @@ return|return
 name|allSecurityToBeRemoved
 return|;
 block|}
-comment|/**      * Activates/Deactivates the removal of all security when writing the pdf.      *        * @param removeAllSecurity remove all security if set to true      */
+comment|/**      * Activates/Deactivates the removal of all security when writing the pdf.      *       * @param removeAllSecurity remove all security if set to true      */
 specifier|public
 name|void
 name|setAllSecurityToBeRemoved

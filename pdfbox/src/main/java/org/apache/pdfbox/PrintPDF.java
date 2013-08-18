@@ -27,6 +27,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|print
@@ -57,24 +67,14 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|util
 operator|.
-name|PDPageable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
+name|RenderUtil
 import|;
 end_import
 
 begin_comment
-comment|/**  * This is a command line program that will print a PDF document.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This is a command line program that will print a PDF document.  *   * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
 end_comment
 
 begin_class
@@ -106,14 +106,14 @@ name|PRINTER_NAME
 init|=
 literal|"-printerName"
 decl_stmt|;
-comment|/**      * private constructor.     */
+comment|/**      * private constructor.      */
 specifier|private
 name|PrintPDF
 parameter_list|()
 block|{
-comment|//static class
+comment|// static class
 block|}
-comment|/**      * Infamous main method.      *      * @param args Command line arguments, should be one and a reference to a file.      *      * @throws Exception If there is an error parsing the document.      */
+comment|/**      * Infamous main method.      *       * @param args Command line arguments, should be one and a reference to a file.      *       * @throws Exception If there is an error parsing the document.      */
 specifier|public
 specifier|static
 name|void
@@ -410,33 +410,38 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|printJob
+if|if
+condition|(
+name|silentPrint
+condition|)
+block|{
+name|RenderUtil
 operator|.
-name|setPageable
-argument_list|(
-operator|new
-name|PDPageable
+name|silentPrint
 argument_list|(
 name|document
 argument_list|,
 name|printJob
 argument_list|)
-argument_list|)
 expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
-name|silentPrint
-operator|||
 name|printJob
 operator|.
 name|printDialog
 argument_list|()
 condition|)
 block|{
-name|printJob
+name|RenderUtil
 operator|.
 name|print
-argument_list|()
+argument_list|(
+name|document
+argument_list|,
+name|printJob
+argument_list|)
 expr_stmt|;
 block|}
 block|}

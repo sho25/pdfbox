@@ -180,7 +180,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Adapter class that implements the {@link Pageable} and {@link Printable}  * interfaces for printing a given PDF document. Note that the given PDF  * document should not be modified (pages added, removed, etc.) while an  * instance of this class is being used.  *  * @since Apache PDFBox 1.3.0  * @see<a href="https://issues.apache.org/jira/browse/PDFBOX-788">PDFBOX-788</a>  */
+comment|/**  * Adapter class that implements the {@link Pageable} and {@link Printable} interfaces for printing a given PDF  * document. Note that the given PDF document should not be modified (pages added, removed, etc.) while an instance of  * this class is being used.  *   * @since Apache PDFBox 1.3.0  * @see<a href="https://issues.apache.org/jira/browse/PDFBOX-788">PDFBOX-788</a>  */
 end_comment
 
 begin_class
@@ -214,7 +214,7 @@ specifier|final
 name|PrinterJob
 name|job
 decl_stmt|;
-comment|/**      * Creates a {@link Pageable} adapter for the given PDF document and      * printer job.      *      * @param document PDF document      * @param printerJob printer job      * @throws IllegalArgumentException if an argument is<code>null</code>      * @throws PrinterException if the document permissions prevent printing      */
+comment|/**      * Creates a {@link Pageable} adapter for the given PDF document and printer job.      *       * @param document PDF document      * @param printerJob printer job      * @throws IllegalArgumentException if an argument is<code>null</code>      * @throws PrinterException if the document permissions prevent printing      */
 specifier|public
 name|PDPageable
 parameter_list|(
@@ -298,7 +298,7 @@ name|printerJob
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates a {@link Pageable} adapter for the given PDF document using      * a default printer job returned by {@link PrinterJob#getPrinterJob()}.      *      * @param document PDF document      * @throws IllegalArgumentException if the argument is<code>null</code>      * @throws PrinterException if the document permissions prevent printing      */
+comment|/**      * Creates a {@link Pageable} adapter for the given PDF document using a default printer job returned by      * {@link PrinterJob#getPrinterJob()}.      *       * @param document PDF document      * @throws IllegalArgumentException if the argument is<code>null</code>      * @throws PrinterException if the document permissions prevent printing      */
 specifier|public
 name|PDPageable
 parameter_list|(
@@ -321,7 +321,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the printer job for printing the given PDF document.      *      * @return printer job      */
+comment|/**      * Returns the printer job for printing the given PDF document.      *       * @return printer job      */
 specifier|public
 name|PrinterJob
 name|getPrinterJob
@@ -331,8 +331,8 @@ return|return
 name|job
 return|;
 block|}
-comment|//------------------------------------------------------------< Pageable>
-comment|/**      * Returns the number of pages in the given PDF document.      *      * @return number of pages      */
+comment|// ------------------------------------------------------------< Pageable>
+comment|/**      * Returns the number of pages in the given PDF document.      *       * @return number of pages      */
 specifier|public
 name|int
 name|getNumberOfPages
@@ -345,7 +345,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the format of the page at the given index.      *      * @param i page index, zero-based      * @return page format      * @throws IndexOutOfBoundsException if the page index is invalid      */
+comment|/**      * Returns the format of the page at the given index.      *       * @param i page index, zero-based      * @return page format      * @throws IndexOutOfBoundsException if the page index is invalid      */
 specifier|public
 name|PageFormat
 name|getPageFormat
@@ -544,7 +544,7 @@ return|return
 name|format
 return|;
 block|}
-comment|/**      * Returns a {@link Printable} for the page at the given index.      * Currently this method simply returns the underlying {@link PDPage}      * object that directly implements the {@link Printable} interface, but      * future versions may choose to return a different adapter instance.      *      * @param i page index, zero-based      * @return printable      * @throws IndexOutOfBoundsException if the page index is invalid      */
+comment|/**      * Returns a {@link Printable} for the page at the given index. Currently this method simply returns the underlying      * {@link PDPage} object that directly implements the {@link Printable} interface, but future versions may choose to      * return a different adapter instance.      *       * @param i page index, zero-based      * @return printable      * @throws IndexOutOfBoundsException if the page index is invalid      */
 specifier|public
 name|Printable
 name|getPrintable
@@ -555,17 +555,39 @@ parameter_list|)
 throws|throws
 name|IndexOutOfBoundsException
 block|{
-return|return
+if|if
+condition|(
+name|i
+operator|>=
 name|pages
 operator|.
-name|get
+name|size
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IndexOutOfBoundsException
 argument_list|(
+literal|"Index: "
+operator|+
 name|i
+operator|+
+literal|", Size: "
+operator|+
+name|pages
+operator|.
+name|size
+argument_list|()
 argument_list|)
+throw|;
+block|}
+return|return
+name|this
 return|;
 block|}
-comment|//-----------------------------------------------------------< Printable>
-comment|/**      * Prints the page at the given index.      *      * @param graphics printing target      * @param format page format      * @param i page index, zero-based      * @return {@link Printable#PAGE_EXISTS} if the page was printed,      *         or {@link Printable#NO_SUCH_PAGE} if page index was invalid      * @throws PrinterException if printing failed      */
+comment|// -----------------------------------------------------------< Printable>
+comment|/**      * Prints the page at the given index.      *       * @param graphics printing target      * @param format page format      * @param i page index, zero-based      * @return {@link Printable#PAGE_EXISTS} if the page was printed, or {@link Printable#NO_SUCH_PAGE} if page index      *         was invalid      * @throws PrinterException if printing failed      */
 specifier|public
 name|int
 name|print
@@ -636,6 +658,11 @@ operator|.
 name|createDimension
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|drawer
+operator|.
+name|dispose
+argument_list|()
 expr_stmt|;
 return|return
 name|PAGE_EXISTS
