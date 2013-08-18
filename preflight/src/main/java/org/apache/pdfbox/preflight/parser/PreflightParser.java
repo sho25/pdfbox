@@ -3199,6 +3199,10 @@ operator|=
 name|readGenerationNumber
 argument_list|()
 expr_stmt|;
+name|skipSpaces
+argument_list|()
+expr_stmt|;
+comment|// skip spaces between Object Generation number and the 'obj' keyword
 for|for
 control|(
 name|char
