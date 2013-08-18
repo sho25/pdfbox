@@ -332,7 +332,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An image class for CCITT Fax.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @author paul king  *  */
+comment|/**  * An image class for CCITT Fax.  *   * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @author paul king  *   */
 end_comment
 
 begin_class
@@ -385,7 +385,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Standard constructor.      *      * @param ccitt The PDStream that already contains all ccitt information.      */
+comment|/**      * Standard constructor.      *       * @param ccitt The PDStream that already contains all ccitt information.      */
 specifier|public
 name|PDCcitt
 parameter_list|(
@@ -401,7 +401,7 @@ literal|"tiff"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Construct from a tiff file.      *      * @param doc The document to create the image as part of.      * @param raf The random access TIFF file which contains a suitable CCITT compressed image      * @throws IOException If there is an error reading the tiff data.      */
+comment|/**      * Construct from a tiff file.      *       * @param doc The document to create the image as part of.      * @param raf The random access TIFF file which contains a suitable CCITT compressed image      * @throws IOException If there is an error reading the tiff data.      */
 specifier|public
 name|PDCcitt
 parameter_list|(
@@ -538,7 +538,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns an image of the CCITT Fax, or null if TIFFs are not supported. (Requires additional JAI Image filters )      *      * {@inheritDoc}      */
+comment|/**      * Returns an image of the CCITT Fax, or null if TIFFs are not supported. (Requires additional JAI Image filters )      *       * {@inheritDoc}      */
 specifier|public
 name|BufferedImage
 name|getRGBImage
@@ -875,12 +875,12 @@ block|{
 operator|(
 name|byte
 operator|)
-literal|0xff
+literal|0x00
 block|,
 operator|(
 name|byte
 operator|)
-literal|0x00
+literal|0xff
 block|}
 decl_stmt|;
 name|colorModel
@@ -969,10 +969,10 @@ operator|!
 name|blackIsOne
 condition|)
 block|{
-comment|//Inverting the bitmap
-comment|//Note the previous approach with starting from an IndexColorModel didn't work
-comment|//reliably. In some cases the image wouldn't be painted for some reason.
-comment|//So a safe but slower approach was taken.
+comment|// Inverting the bitmap
+comment|// Note the previous approach with starting from an IndexColorModel didn't work
+comment|// reliably. In some cases the image wouldn't be painted for some reason.
+comment|// So a safe but slower approach was taken.
 name|invertBitmap
 argument_list|(
 name|bufferData
@@ -1182,7 +1182,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This writes a tiff to out.      *      * {@inheritDoc}      */
+comment|/**      * This writes a tiff to out.      *       * {@inheritDoc}      */
 specifier|public
 name|void
 name|write2OutputStream
@@ -1222,7 +1222,7 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Extract the ccitt stream from the tiff file.      *      * @param raf  - TIFF File      * @param os   - Stream to write raw ccitt data two      * @param parms - COSDictionary which the encoding parameters are added to      * @throws IOException If there is an error reading/writing to/from the stream      */
+comment|/**      * Extract the ccitt stream from the tiff file.      *       * @param raf - TIFF File      * @param os - Stream to write raw ccitt data two      * @param parms - COSDictionary which the encoding parameters are added to      * @throws IOException If there is an error reading/writing to/from the stream      */
 specifier|private
 name|void
 name|extractFromTiff
@@ -1281,7 +1281,7 @@ literal|"Not a valid tiff file"
 argument_list|)
 throw|;
 block|}
-comment|//ensure that endianess is either M or I
+comment|// ensure that endianess is either M or I
 if|if
 condition|(
 name|endianess
@@ -1349,7 +1349,7 @@ argument_list|,
 name|raf
 argument_list|)
 decl_stmt|;
-comment|//    The number 50 is somewhat arbitary, it just stops us load up junk from somewhere and tramping on
+comment|// The number 50 is somewhat arbitary, it just stops us load up junk from somewhere and tramping on
 if|if
 condition|(
 name|numtags
@@ -1492,7 +1492,7 @@ comment|// long value
 block|}
 default|default:
 block|{
-comment|//do nothing
+comment|// do nothing
 block|}
 block|}
 block|}
@@ -1685,7 +1685,7 @@ break|break;
 block|}
 default|default:
 block|{
-comment|//do nothing
+comment|// do nothing
 block|}
 block|}
 block|}
@@ -1947,7 +1947,7 @@ name|read
 argument_list|()
 return|;
 block|}
-comment|/**      * Extends InputStream to wrap the data from the CCITT Fax with a suitable TIFF Header.      * For details see www.tiff.org, which contains useful information including pointers to the      * TIFF 6.0 Specification      *      */
+comment|/**      * Extends InputStream to wrap the data from the CCITT Fax with a suitable TIFF Header. For details see      * www.tiff.org, which contains useful information including pointers to the TIFF 6.0 Specification      *       */
 specifier|private
 class|class
 name|TiffWrapper
@@ -2021,7 +2021,7 @@ literal|"reset not supported"
 argument_list|)
 throw|;
 block|}
-comment|/**          * For simple read, take a byte from the tiffheader array or pass through.          *          * {@inheritDoc}          */
+comment|/**          * For simple read, take a byte from the tiffheader array or pass through.          *           * {@inheritDoc}          */
 specifier|public
 name|int
 name|read
@@ -2053,7 +2053,7 @@ name|read
 argument_list|()
 return|;
 block|}
-comment|/**          * For read methods only return as many bytes as we have left in the header          * if we've exhausted the header, pass through to the InputStream of the raw CCITT data.          *          * {@inheritDoc}          */
+comment|/**          * For read methods only return as many bytes as we have left in the header if we've exhausted the header, pass          * through to the InputStream of the raw CCITT data.          *           * {@inheritDoc}          */
 specifier|public
 name|int
 name|read
@@ -2139,7 +2139,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**          * For read methods only return as many bytes as we have left in the header          * if we've exhausted the header, pass through to the InputStream of the raw CCITT data.          *          *  {@inheritDoc}          */
+comment|/**          * For read methods only return as many bytes as we have left in the header if we've exhausted the header, pass          * through to the InputStream of the raw CCITT data.          *           * {@inheritDoc}          */
 specifier|public
 name|int
 name|read
@@ -2233,7 +2233,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**          * When skipping if any header data not yet read, only allow to skip what we've in the buffer          * Otherwise just pass through.          *          * {@inheritDoc}          */
+comment|/**          * When skipping if any header data not yet read, only allow to skip what we've in the buffer Otherwise just          * pass through.          *           * {@inheritDoc}          */
 specifier|public
 name|long
 name|skip
@@ -2538,7 +2538,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//else find the first dictionary with Row/Column info and use that.
+comment|// else find the first dictionary with Row/Column info and use that.
 for|for
 control|(
 name|int
@@ -2693,7 +2693,7 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|//T6
+comment|// T6
 name|comptype
 operator|=
 literal|4
@@ -2706,7 +2706,7 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|//T4 2D
+comment|// T4 2D
 name|comptype
 operator|=
 literal|3
