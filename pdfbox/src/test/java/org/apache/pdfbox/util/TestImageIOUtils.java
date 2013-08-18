@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test suite for ImageIOUtil.  *  * @version $Revision: 1.0 $  */
+comment|/**  * Test suite for ImageIOUtil.  *   */
 end_comment
 
 begin_class
@@ -166,7 +166,7 @@ name|testFailed
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Validate page rendering for all supported image formats (JDK5).      *      * @param file The file to validate      * @param inDir Name of the input directory      * @param outDir Name of the output directory      * @throws Exception when there is an exception      */
+comment|/**      * Validate page rendering for all supported image formats (JDK5).      *       * @param file The file to validate      * @param inDir Name of the input directory      * @param outDir Name of the output directory      * @throws Exception when there is an exception      */
 specifier|private
 name|void
 name|doTestFile
@@ -387,6 +387,9 @@ throws|throws
 name|IOException
 block|{
 name|List
+argument_list|<
+name|PDPage
+argument_list|>
 name|pages
 init|=
 name|document
@@ -397,26 +400,20 @@ operator|.
 name|getAllPages
 argument_list|()
 decl_stmt|;
-name|PDPage
-name|page
+name|BufferedImage
+name|image
 init|=
-operator|(
-name|PDPage
-operator|)
+name|RenderUtil
+operator|.
+name|convertToImage
+argument_list|(
 name|pages
 operator|.
 name|get
 argument_list|(
 literal|0
 argument_list|)
-decl_stmt|;
-name|BufferedImage
-name|image
-init|=
-name|page
-operator|.
-name|convertToImage
-argument_list|(
+argument_list|,
 name|imageType
 argument_list|,
 name|resolution
@@ -460,7 +457,7 @@ name|resolution
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test to validate image rendering of file set.      *      * @throws Exception when there is an exception      */
+comment|/**      * Test to validate image rendering of file set.      *       * @throws Exception when there is an exception      */
 specifier|public
 name|void
 name|testRenderImage
