@@ -300,6 +300,12 @@ literal|null
 decl_stmt|;
 specifier|private
 name|int
+name|unicodeByteMapping
+init|=
+literal|1
+decl_stmt|;
+specifier|private
+name|int
 index|[]
 name|cid2gid
 init|=
@@ -399,6 +405,23 @@ name|toUnicode
 operator|=
 name|toUnicodeCMap
 expr_stmt|;
+if|if
+condition|(
+name|toUnicode
+operator|!=
+literal|null
+operator|&&
+name|toUnicode
+operator|.
+name|hasTwoByteMappings
+argument_list|()
+condition|)
+block|{
+name|unicodeByteMapping
+operator|=
+literal|2
+expr_stmt|;
+block|}
 name|cid2gid
 operator|=
 name|cid2gidMapping
@@ -1005,35 +1028,6 @@ block|}
 block|}
 else|else
 block|{
-comment|// non symbol fonts
-comment|// Unicode mapping
-if|if
-condition|(
-name|cmapWinUnicode
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|getPathForGlyphId
-argument_list|(
-name|cmapWinUnicode
-operator|.
-name|getGlyphId
-argument_list|(
-name|code
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|// some fonts provide a custom CMap
-if|if
-condition|(
-name|cmapMiscUnicode
-operator|!=
-literal|null
-condition|)
-block|{
 name|int
 name|unicode
 init|=
@@ -1056,7 +1050,7 @@ name|lookup
 argument_list|(
 name|code
 argument_list|,
-literal|1
+name|unicodeByteMapping
 argument_list|)
 decl_stmt|;
 if|if
@@ -1077,6 +1071,35 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// non symbol fonts
+comment|// Unicode mapping
+if|if
+condition|(
+name|cmapWinUnicode
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|getPathForGlyphId
+argument_list|(
+name|cmapWinUnicode
+operator|.
+name|getGlyphId
+argument_list|(
+name|unicode
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|// some fonts provide a custom CMap
+if|if
+condition|(
+name|cmapMiscUnicode
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|getPathForGlyphId
 argument_list|(
@@ -1105,7 +1128,7 @@ name|cmapMacintoshSymbol
 operator|.
 name|getGlyphId
 argument_list|(
-name|code
+name|unicode
 argument_list|)
 argument_list|)
 return|;
