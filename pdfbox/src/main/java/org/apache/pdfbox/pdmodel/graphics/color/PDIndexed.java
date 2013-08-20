@@ -21,6 +21,84 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|color
+operator|.
+name|ColorSpace
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|image
+operator|.
+name|ColorModel
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|image
+operator|.
+name|DataBuffer
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|image
+operator|.
+name|IndexColorModel
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -117,86 +195,8 @@ name|COSString
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|color
-operator|.
-name|ColorSpace
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|image
-operator|.
-name|ColorModel
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|image
-operator|.
-name|DataBuffer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|image
-operator|.
-name|IndexColorModel
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
-comment|/**  * This class represents an Indexed color space.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This class represents an Indexed color space.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -259,6 +259,15 @@ specifier|private
 name|int
 name|maxIndex
 decl_stmt|;
+comment|/**      * Indexed color values are always 8bit based.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|INDEXED_BPC
+init|=
+literal|8
+decl_stmt|;
 comment|/**      * Constructor, default DeviceRGB, hival 255.      */
 specifier|public
 name|PDIndexed
@@ -318,7 +327,7 @@ name|NULL
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param indexedArray The array containing the indexed parameters      */
+comment|/**      * Constructor.      *       * @param indexedArray The array containing the indexed parameters      */
 specifier|public
 name|PDIndexed
 parameter_list|(
@@ -331,7 +340,7 @@ operator|=
 name|indexedArray
 expr_stmt|;
 block|}
-comment|/**      * This will return the number of color components.  This will return the      * number of color components in the base color.      *      * @return The number of components in this color space.      *      * @throws IOException If there is an error getting the number of color components.      */
+comment|/**      * This will return the number of color components. This will return the number of color components in the base      * color.      *       * @return The number of components in this color space.      *       * @throws IOException If there is an error getting the number of color components.      */
 specifier|public
 name|int
 name|getNumberOfComponents
@@ -347,7 +356,7 @@ name|getNumberOfComponents
 argument_list|()
 return|;
 block|}
-comment|/**      * This will return the name of the color space.      *      * @return The name of the color space.      */
+comment|/**      * This will return the name of the color space.      *       * @return The name of the color space.      */
 specifier|public
 name|String
 name|getName
@@ -357,7 +366,7 @@ return|return
 name|NAME
 return|;
 block|}
-comment|/**      * Create a Java colorspace for this colorspace.      *      * @return A color space that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color space.      */
+comment|/**      * Create a Java colorspace for this colorspace.      *       * @return A color space that can be used for Java AWT operations.      *       * @throws IOException If there is an error creating the color space.      */
 specifier|protected
 name|ColorSpace
 name|createColorSpace
@@ -373,7 +382,7 @@ name|getJavaColorSpace
 argument_list|()
 return|;
 block|}
-comment|/**      * Create a Java color model for this colorspace.      *      * @param bpc The number of bits per component.      *      * @return A color model that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color model.      */
+comment|/**      * Create a Java color model for this colorspace.      *       * @param bpc The number of bits per component.      *       * @return A color model that can be used for Java AWT operations.      *       * @throws IOException If there is an error creating the color model.      */
 specifier|public
 name|ColorModel
 name|createColorModel
@@ -394,7 +403,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a Java color model for this colorspace including the given mask value.      *      * @param bpc The number of bits per component.      * @param mask the mask value, -1 indicates no mask      *      * @return A color model that can be used for Java AWT operations.      *      * @throws IOException If there is an error creating the color model.      */
+comment|/**      * Create a Java color model for this colorspace including the given mask value.      *       * @param bpc The number of bits per component of the indexed color model.      * @param mask the mask value, -1 indicates no mask      *       * @return A color model that can be used for Java AWT operations.      *       * @throws IOException If there is an error creating the color model.      */
 specifier|public
 name|ColorModel
 name|createColorModel
@@ -413,7 +422,7 @@ name|colorModel
 init|=
 name|getBaseColorModel
 argument_list|(
-name|bpc
+name|INDEXED_BPC
 argument_list|)
 decl_stmt|;
 name|calculateIndexedColorValues
@@ -478,7 +487,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * This will get the color space that acts as the index for this color space.      *      * @return The base color space.      *      * @throws IOException If there is error creating the base color space.      */
+comment|/**      * This will get the color space that acts as the index for this color space.      *       * @return The base color space.      *       * @throws IOException If there is error creating the base color space.      */
 specifier|public
 name|PDColorSpace
 name|getBaseColorSpace
@@ -517,7 +526,7 @@ return|return
 name|baseColorspace
 return|;
 block|}
-comment|/**      * This will set the base color space.      *      * @param base The base color space to use as the index.      */
+comment|/**      * This will set the base color space.      *       * @param base The base color space to use as the index.      */
 specifier|public
 name|void
 name|setBaseColorSpace
@@ -543,7 +552,7 @@ operator|=
 name|base
 expr_stmt|;
 block|}
-comment|/**      * Get the highest value for the lookup.      *      * @return The hival entry.      */
+comment|/**      * Get the highest value for the lookup.      *       * @return The hival entry.      */
 specifier|public
 name|int
 name|getHighValue
@@ -566,7 +575,7 @@ name|intValue
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the highest value that is allowed.  This cannot be higher      * than 255.      *      * @param high The highest value for the lookup table.      */
+comment|/**      * This will set the highest value that is allowed. This cannot be higher than 255.      *       * @param high The highest value for the lookup table.      */
 specifier|public
 name|void
 name|setHighValue
@@ -585,7 +594,7 @@ name|high
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will perform a lookup into the color lookup table.      *      * @param lookupIndex The zero-based index into the table, should not exceed the high value.      * @param componentNumber The component number, probably 1,2,3,3.      *      * @return The value that was from the lookup table.      *      * @throws IOException If there is an error looking up the color.      */
+comment|/**      * This will perform a lookup into the color lookup table.      *       * @param lookupIndex The zero-based index into the table, should not exceed the high value.      * @param componentNumber The component number, probably 1,2,3,3.      *       * @return The value that was from the lookup table.      *       * @throws IOException If there is an error looking up the color.      */
 specifier|public
 name|int
 name|lookupColor
@@ -691,8 +700,8 @@ operator|instanceof
 name|COSStream
 condition|)
 block|{
-comment|//Data will be small so just load the whole thing into memory for
-comment|//easier processing
+comment|// Data will be small so just load the whole thing into memory for
+comment|// easier processing
 name|COSStream
 name|lookupStream
 init|=
@@ -808,7 +817,7 @@ return|return
 name|lookupData
 return|;
 block|}
-comment|/**      * This will set a color in the color lookup table.      *      * @param lookupIndex The zero-based index into the table, should not exceed the high value.      * @param componentNumber The component number, probably 1,2,3,3.      * @param color The color that will go into the table.      *      * @throws IOException If there is an error looking up the color.      */
+comment|/**      * This will set a color in the color lookup table.      *       * @param lookupIndex The zero-based index into the table, should not exceed the high value.      * @param componentNumber The component number, probably 1,2,3,3.      * @param color The color that will go into the table.      *       * @throws IOException If there is an error looking up the color.      */
 specifier|public
 name|void
 name|setLookupColor
@@ -879,7 +888,7 @@ name|string
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the components of the color for the given index.      * @param index the index of the color value      * @return COSArray with the color components      * @throws IOException If the tint function is not supported      */
+comment|/**      * Returns the components of the color for the given index.      *       * @param index the index of the color value      * @return COSArray with the color components      * @throws IOException If the tint function is not supported      */
 specifier|public
 name|float
 index|[]
@@ -896,7 +905,7 @@ name|calculateIndexedColorValues
 argument_list|(
 name|getBaseColorModel
 argument_list|(
-literal|8
+name|INDEXED_BPC
 argument_list|)
 argument_list|,
 literal|8

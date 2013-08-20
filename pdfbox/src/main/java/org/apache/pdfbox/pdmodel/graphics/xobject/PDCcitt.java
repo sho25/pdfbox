@@ -833,7 +833,7 @@ name|csIndexed
 operator|.
 name|createColorModel
 argument_list|(
-literal|8
+literal|1
 argument_list|,
 operator|(
 operator|(
@@ -857,7 +857,7 @@ name|csIndexed
 operator|.
 name|createColorModel
 argument_list|(
-literal|8
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -880,7 +880,7 @@ block|,
 operator|(
 name|byte
 operator|)
-literal|0xff
+literal|0xFF
 block|}
 decl_stmt|;
 name|colorModel
