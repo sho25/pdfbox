@@ -31,7 +31,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
+name|IOException
 import|;
 end_import
 
@@ -41,12 +41,12 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|InputStream
 import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents an ASCII85 stream.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
+comment|/**  * This class represents an ASCII85 stream.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *  */
 end_comment
 
 begin_class
@@ -77,6 +77,62 @@ specifier|private
 name|byte
 index|[]
 name|b
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|char
+name|TERMINATOR
+init|=
+literal|'~'
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|char
+name|OFFSET
+init|=
+literal|'!'
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|char
+name|NEWLINE
+init|=
+literal|'\n'
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|char
+name|RETURN
+init|=
+literal|'\r'
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|char
+name|SPACE
+init|=
+literal|' '
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|char
+name|PADDING_U
+init|=
+literal|'u'
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|char
+name|Z
+init|=
+literal|'z'
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param is The input stream to actually read from.      */
 specifier|public
@@ -198,26 +254,22 @@ do|while
 condition|(
 name|z
 operator|==
-literal|'\n'
+name|NEWLINE
 operator|||
 name|z
 operator|==
-literal|'\r'
+name|RETURN
 operator|||
 name|z
 operator|==
-literal|' '
+name|SPACE
 condition|)
 do|;
 if|if
 condition|(
 name|z
 operator|==
-literal|'~'
-operator|||
-name|z
-operator|==
-literal|'x'
+name|TERMINATOR
 condition|)
 block|{
 name|eof
@@ -244,7 +296,7 @@ if|if
 condition|(
 name|z
 operator|==
-literal|'z'
+name|Z
 condition|)
 block|{
 name|b
@@ -340,15 +392,15 @@ do|while
 condition|(
 name|z
 operator|==
-literal|'\n'
+name|NEWLINE
 operator|||
 name|z
 operator|==
-literal|'\r'
+name|RETURN
 operator|||
 name|z
 operator|==
-literal|' '
+name|SPACE
 condition|)
 do|;
 name|ascii
@@ -362,13 +414,20 @@ if|if
 condition|(
 name|z
 operator|==
-literal|'~'
-operator|||
-name|z
-operator|==
-literal|'x'
+name|TERMINATOR
 condition|)
 block|{
+comment|// don't include ~ as padding byte
+name|ascii
+index|[
+name|k
+index|]
+operator|=
+operator|(
+name|byte
+operator|)
+name|PADDING_U
+expr_stmt|;
 break|break;
 block|}
 block|}
@@ -422,12 +481,16 @@ operator|++
 name|k
 control|)
 block|{
+comment|// use 'u' for padding
 name|ascii
 index|[
 name|k
 index|]
 operator|=
-literal|0x21
+operator|(
+name|byte
+operator|)
+name|PADDING_U
 expr_stmt|;
 block|}
 name|eof
@@ -466,7 +529,7 @@ index|[
 name|k
 index|]
 operator|-
-literal|0x21
+name|OFFSET
 argument_list|)
 expr_stmt|;
 if|if

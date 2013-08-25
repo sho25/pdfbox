@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents an ASCII85 output stream.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  */
+comment|/**  * This class represents an ASCII85 output stream.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *  */
 end_comment
 
 begin_class
@@ -86,6 +86,30 @@ decl_stmt|;
 specifier|private
 name|char
 name|terminator
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|char
+name|OFFSET
+init|=
+literal|'!'
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|char
+name|NEWLINE
+init|=
+literal|'\n'
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|char
+name|Z
+init|=
+literal|'z'
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param out The output stream to write to.      */
 specifier|public
@@ -162,7 +186,7 @@ literal|126
 operator|||
 name|term
 operator|==
-literal|'z'
+name|Z
 condition|)
 block|{
 throw|throw
@@ -233,21 +257,16 @@ parameter_list|()
 block|{
 name|long
 name|word
-decl_stmt|;
-name|word
-operator|=
-operator|(
-operator|(
-operator|(
-operator|(
+init|=
 name|indata
 index|[
 literal|0
 index|]
 operator|<<
 literal|8
-operator|)
-operator||
+decl_stmt|;
+name|word
+operator||=
 operator|(
 name|indata
 index|[
@@ -256,12 +275,11 @@ index|]
 operator|&
 literal|0xFF
 operator|)
-operator|)
 operator|<<
 literal|16
-operator|)
-operator||
-operator|(
+expr_stmt|;
+name|word
+operator||=
 operator|(
 name|indata
 index|[
@@ -272,8 +290,9 @@ literal|0xFF
 operator|)
 operator|<<
 literal|8
-operator|)
-operator||
+expr_stmt|;
+name|word
+operator||=
 operator|(
 name|indata
 index|[
@@ -282,11 +301,11 @@ index|]
 operator|&
 literal|0xFF
 operator|)
-operator|)
-operator|&
+expr_stmt|;
+name|word
+operator|&=
 literal|0xFFFFFFFFL
 expr_stmt|;
-comment|// System.out.println("word=0x"+Long.toString(word,16)+" "+word);
 if|if
 condition|(
 name|word
@@ -302,7 +321,7 @@ operator|=
 operator|(
 name|byte
 operator|)
-literal|'z'
+name|Z
 expr_stmt|;
 name|outdata
 index|[
@@ -330,7 +349,6 @@ operator|*
 literal|85L
 operator|)
 expr_stmt|;
-comment|// System.out.println("x0="+x);
 name|outdata
 index|[
 literal|0
@@ -342,7 +360,7 @@ call|)
 argument_list|(
 name|x
 operator|+
-literal|'!'
+name|OFFSET
 argument_list|)
 expr_stmt|;
 name|word
@@ -369,7 +387,6 @@ operator|*
 literal|85L
 operator|)
 expr_stmt|;
-comment|// System.out.println("x1="+x);
 name|outdata
 index|[
 literal|1
@@ -381,7 +398,7 @@ call|)
 argument_list|(
 name|x
 operator|+
-literal|'!'
+name|OFFSET
 argument_list|)
 expr_stmt|;
 name|word
@@ -404,7 +421,6 @@ operator|*
 literal|85L
 operator|)
 expr_stmt|;
-comment|// System.out.println("x2="+x);
 name|outdata
 index|[
 literal|2
@@ -416,7 +432,7 @@ call|)
 argument_list|(
 name|x
 operator|+
-literal|'!'
+name|OFFSET
 argument_list|)
 expr_stmt|;
 name|word
@@ -433,7 +449,6 @@ name|word
 operator|/
 literal|85L
 expr_stmt|;
-comment|// System.out.println("x3="+x);
 name|outdata
 index|[
 literal|3
@@ -445,11 +460,9 @@ call|)
 argument_list|(
 name|x
 operator|+
-literal|'!'
+name|OFFSET
 argument_list|)
 expr_stmt|;
-comment|// word-=x*85L;
-comment|// System.out.println("x4="+(word % 85L));
 name|outdata
 index|[
 literal|4
@@ -465,7 +478,7 @@ operator|%
 literal|85L
 operator|)
 operator|+
-literal|'!'
+name|OFFSET
 argument_list|)
 expr_stmt|;
 block|}
@@ -557,7 +570,7 @@ name|out
 operator|.
 name|write
 argument_list|(
-literal|'\n'
+name|NEWLINE
 argument_list|)
 expr_stmt|;
 name|lineBreak
@@ -570,76 +583,6 @@ name|count
 operator|=
 literal|0
 expr_stmt|;
-block|}
-comment|/**      * This will write a chunk of data to the stream.      *      * @param b The byte buffer to read from.      * @param off The offset into the buffer.      * @param sz The number of bytes to read from the buffer.      *      * @throws IOException If there is an error writing to the underlying stream.      */
-specifier|public
-specifier|final
-name|void
-name|write
-parameter_list|(
-name|byte
-index|[]
-name|b
-parameter_list|,
-name|int
-name|off
-parameter_list|,
-name|int
-name|sz
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|sz
-condition|;
-name|i
-operator|++
-control|)
-block|{
-if|if
-condition|(
-name|count
-operator|<
-literal|3
-condition|)
-block|{
-name|indata
-index|[
-name|count
-operator|++
-index|]
-operator|=
-name|b
-index|[
-name|off
-operator|+
-name|i
-index|]
-expr_stmt|;
-block|}
-else|else
-block|{
-name|write
-argument_list|(
-name|b
-index|[
-name|off
-operator|+
-name|i
-index|]
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 comment|/**      * This will flush the data to the stream.      *      * @throws IOException If there is an error writing the data to the stream.      */
 specifier|public
@@ -697,7 +640,7 @@ index|[
 literal|0
 index|]
 operator|==
-literal|'z'
+name|Z
 condition|)
 block|{
 for|for
@@ -724,7 +667,7 @@ operator|=
 operator|(
 name|byte
 operator|)
-literal|'!'
+name|OFFSET
 expr_stmt|;
 block|}
 block|}
@@ -767,7 +710,7 @@ name|out
 operator|.
 name|write
 argument_list|(
-literal|'\n'
+name|NEWLINE
 argument_list|)
 expr_stmt|;
 name|lineBreak
@@ -789,7 +732,7 @@ name|out
 operator|.
 name|write
 argument_list|(
-literal|'\n'
+name|NEWLINE
 argument_list|)
 expr_stmt|;
 block|}
@@ -804,7 +747,7 @@ name|out
 operator|.
 name|write
 argument_list|(
-literal|'\n'
+name|NEWLINE
 argument_list|)
 expr_stmt|;
 name|count
@@ -835,6 +778,9 @@ name|IOException
 block|{
 try|try
 block|{
+name|flush
+argument_list|()
+expr_stmt|;
 name|super
 operator|.
 name|close
@@ -848,29 +794,6 @@ operator|=
 name|outdata
 operator|=
 literal|null
-expr_stmt|;
-block|}
-block|}
-comment|/**      * This will flush the stream.      *      * @throws Throwable If there is an error.      */
-specifier|protected
-name|void
-name|finalize
-parameter_list|()
-throws|throws
-name|Throwable
-block|{
-try|try
-block|{
-name|flush
-argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|super
-operator|.
-name|finalize
-argument_list|()
 expr_stmt|;
 block|}
 block|}
