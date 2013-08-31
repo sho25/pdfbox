@@ -41,7 +41,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
+name|IOException
 import|;
 end_import
 
@@ -51,7 +51,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|InputStream
 import|;
 end_import
 
@@ -72,6 +72,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -120,7 +130,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will parser a CMap stream.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.9 $  */
+comment|/**  * This will parse a CMap stream.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -299,12 +309,12 @@ index|[
 literal|512
 index|]
 decl_stmt|;
-comment|/** 	 * Creates a new instance of CMapParser. 	 */
+comment|/**      * Creates a new instance of CMapParser.      */
 specifier|public
 name|CMapParser
 parameter_list|()
-block|{ 	}
-comment|/** 	 * Parse a CMAP file on the file system. 	 *  	 * @param file The file to parse. 	 *  	 * @return A parsed CMAP file. 	 *  	 * @throws IOException If there is an issue while parsing the CMAP. 	 */
+block|{     }
+comment|/**      * Parse a CMAP file on the file system.      *       * @param file The file to parse.      *       * @return A parsed CMAP file.      *       * @throws IOException If there is an issue while parsing the CMAP.      */
 specifier|public
 name|CMap
 name|parse
@@ -368,7 +378,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * This will parse the stream and create a cmap object. 	 * 	 * @param resourceRoot The root path to the cmap file.  This will be used 	 *                     to find referenced cmap files.  It can be null. 	 * @param input The CMAP stream to parse. 	 *  	 * @return The parsed stream as a java object. 	 * 	 * @throws IOException If there is an error parsing the stream. 	 */
+comment|/**      * This will parse the stream and create a cmap object.      *      * @param resourceRoot The root path to the cmap file.  This will be used      *                     to find referenced cmap files.  It can be null.      * @param input The CMAP stream to parse.      *       * @return The parsed stream as a java object.      *      * @throws IOException If there is an error parsing the stream.      */
 specifier|public
 name|CMap
 name|parse
@@ -1015,6 +1025,29 @@ operator|)
 name|nextToken
 expr_stmt|;
 block|}
+name|boolean
+name|done
+init|=
+literal|false
+decl_stmt|;
+comment|// don't add 1:1 mappings to reduce the memory footprint
+if|if
+condition|(
+name|Arrays
+operator|.
+name|equals
+argument_list|(
+name|startCode
+argument_list|,
+name|tokenBytes
+argument_list|)
+condition|)
+block|{
+name|done
+operator|=
+literal|true
+expr_stmt|;
+block|}
 name|String
 name|value
 init|=
@@ -1024,11 +1057,6 @@ name|int
 name|arrayIndex
 init|=
 literal|0
-decl_stmt|;
-name|boolean
-name|done
-init|=
-literal|false
 decl_stmt|;
 while|while
 condition|(
@@ -1424,7 +1452,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// TODO: Is this even possible?
+comment|// TODO Is this even possible?
 name|int
 name|endOfMappings
 init|=
@@ -1825,7 +1853,7 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-comment|//skip whitespace
+comment|// skip whitespace
 while|while
 condition|(
 name|nextByte
@@ -1862,8 +1890,8 @@ case|case
 literal|'%'
 case|:
 block|{
-comment|//header operations, for now return the entire line
-comment|//may need to smarter in the future
+comment|// header operations, for now return the entire line
+comment|// may need to smarter in the future
 name|StringBuffer
 name|buffer
 init|=
@@ -2094,7 +2122,7 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|//we are reading a dictionary
+comment|// we are reading a dictionary
 name|Object
 name|key
 init|=
@@ -2153,7 +2181,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//won't read more than 512 bytes
+comment|// won't read more than 512 bytes
 name|int
 name|multiplyer
 init|=
@@ -2427,7 +2455,7 @@ operator|-
 literal|1
 case|:
 block|{
-comment|//EOF return null;
+comment|// EOF return null;
 break|break;
 block|}
 case|case
@@ -3034,7 +3062,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * Internal class. 	 */
+comment|/**      * Internal class.      */
 specifier|private
 class|class
 name|LiteralName
@@ -3056,7 +3084,7 @@ name|theName
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Internal class. 	 */
+comment|/**      * Internal class.      */
 specifier|private
 class|class
 name|Operator
@@ -3078,7 +3106,7 @@ name|theOp
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * A simple class to test parsing of cmap files. 	 *  	 * @param args Some command line arguments. 	 *  	 * @throws Exception If there is an error parsing the file. 	 */
+comment|/**      * A simple class to test parsing of cmap files.      *       * @param args Some command line arguments.      *       * @throws Exception If there is an error parsing the file.      */
 specifier|public
 specifier|static
 name|void
@@ -3106,7 +3134,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java org.pdfbox.cmapparser.CMapParser<CMAP File>"
+literal|"usage: java org.apache.fontbox.cmap.CMapParser<CMAP File>"
 argument_list|)
 expr_stmt|;
 name|System
@@ -3123,7 +3151,7 @@ name|parser
 init|=
 operator|new
 name|CMapParser
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 name|File
 name|cmapFile
