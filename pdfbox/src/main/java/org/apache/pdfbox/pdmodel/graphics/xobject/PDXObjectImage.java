@@ -67,6 +67,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|FileOutputStream
 import|;
 end_import
@@ -88,16 +98,6 @@ operator|.
 name|io
 operator|.
 name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
 import|;
 end_import
 
@@ -288,7 +288,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The prototype for all PDImages.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @version $Revision: 1.9 $  */
+comment|/**  * The prototype for all PDImages.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  */
 end_comment
 
 begin_class
@@ -354,7 +354,7 @@ operator|=
 name|fileSuffix
 expr_stmt|;
 block|}
-comment|/**      * Standard constuctor.      *      * @param doc The document to store the stream in.      * @param fileSuffix The file suffix, jpg/png.      */
+comment|/**      * Standard constructor.      *      * @param doc The document to store the stream in.      * @param fileSuffix The file suffix, jpg/png.      */
 specifier|public
 name|PDXObjectImage
 parameter_list|(
@@ -399,18 +399,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDXObject
-name|retval
-init|=
+return|return
 name|commonXObjectCreation
 argument_list|(
 name|xobject
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
-return|return
-name|retval
 return|;
 block|}
 comment|/**      * Returns an java.awt.Image, that can be used for display etc.      *      * @return This PDF object as an AWT image.      *      * @throws IOException If there is an error creating the image.      */
@@ -477,7 +472,8 @@ argument_list|)
 return|;
 block|}
 block|}
-specifier|public
+comment|/**      * Add masked image to the given image.      *       * @param baseImage the base image.      * @return the masked image.      * @throws IOException if something went wrong      */
+specifier|protected
 name|BufferedImage
 name|applyMasks
 parameter_list|(
@@ -573,7 +569,8 @@ return|return
 name|baseImage
 return|;
 block|}
-specifier|public
+comment|/**      * Determines is the XObject has any mask.      *       * @return true if the XObkject has any mask      * @throws IOException if something went wrong      */
+specifier|protected
 name|boolean
 name|hasMask
 parameter_list|()
@@ -595,7 +592,7 @@ operator|!=
 literal|null
 return|;
 block|}
-specifier|public
+specifier|private
 name|BufferedImage
 name|imageMask
 parameter_list|(
@@ -720,11 +717,16 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|graphics
+operator|.
+name|dispose
+argument_list|()
+expr_stmt|;
 return|return
 name|stencilMask
 return|;
 block|}
-specifier|public
+specifier|private
 name|BufferedImage
 name|mask
 parameter_list|(
@@ -879,6 +881,11 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+name|graphics
+operator|.
+name|dispose
+argument_list|()
 expr_stmt|;
 return|return
 name|newImage
@@ -1220,8 +1227,8 @@ block|}
 block|}
 else|else
 block|{
-comment|//there are some cases where the 'required' CS value is not present
-comment|//but we know that it will be grayscale for a CCITT filter.
+comment|// there are some cases where the 'required' CS value is not present
+comment|// but we know that it will be grayscale for a CCITT filter.
 name|COSBase
 name|filter
 init|=

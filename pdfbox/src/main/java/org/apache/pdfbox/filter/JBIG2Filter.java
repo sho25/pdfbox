@@ -21,6 +21,16 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Graphics
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|image
 operator|.
 name|BufferedImage
@@ -233,6 +243,8 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|/**      * Decode JBIG2 data using Java ImageIO library.      *      * {@inheritDoc}      *      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|decode
@@ -473,10 +485,15 @@ operator|.
 name|TYPE_BYTE_BINARY
 argument_list|)
 decl_stmt|;
+name|Graphics
+name|graphics
+init|=
 name|packedImage
 operator|.
 name|getGraphics
 argument_list|()
+decl_stmt|;
+name|graphics
 operator|.
 name|drawImage
 argument_list|(
@@ -488,6 +505,11 @@ literal|0
 argument_list|,
 literal|null
 argument_list|)
+expr_stmt|;
+name|graphics
+operator|.
+name|dispose
+argument_list|()
 expr_stmt|;
 name|bi
 operator|=
@@ -561,6 +583,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|encode
