@@ -1383,42 +1383,6 @@ argument_list|(
 name|trailer
 argument_list|)
 expr_stmt|;
-comment|// JIRA-1557 - ensure that all COSObject are loaded in the trailer
-for|for
-control|(
-name|COSBase
-name|trailerEntry
-range|:
-name|trailer
-operator|.
-name|getValues
-argument_list|()
-control|)
-block|{
-if|if
-condition|(
-name|trailerEntry
-operator|instanceof
-name|COSObject
-condition|)
-block|{
-name|COSObject
-name|tmpObj
-init|=
-operator|(
-name|COSObject
-operator|)
-name|trailerEntry
-decl_stmt|;
-name|parseObjectDynamically
-argument_list|(
-name|tmpObj
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 comment|// ---- prepare encryption if necessary
 name|COSBase
 name|trailerEncryptItem
@@ -1629,9 +1593,46 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
-comment|/*, e TODO: remove remark with Java 1.6 */
+comment|/*                                                                                                  * , e TODO: remove                                                                                                  * remark with Java 1.6                                                                                                  */
 argument_list|)
 throw|;
+block|}
+block|}
+comment|// PDFBOX-1557 - ensure that all COSObject are loaded in the trailer
+comment|// PDFBOX-1606 - after securityHandler has been instantiated
+for|for
+control|(
+name|COSBase
+name|trailerEntry
+range|:
+name|trailer
+operator|.
+name|getValues
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|trailerEntry
+operator|instanceof
+name|COSObject
+condition|)
+block|{
+name|COSObject
+name|tmpObj
+init|=
+operator|(
+name|COSObject
+operator|)
+name|trailerEntry
+decl_stmt|;
+name|parseObjectDynamically
+argument_list|(
+name|tmpObj
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// ---- parse catalog or root object
@@ -3538,7 +3539,7 @@ name|contains
 argument_list|(
 name|objId
 argument_list|)
-comment|/*                                                          * ||                                                          * document.hasObjectInPool                                                          * ( objKey )                                                          */
+comment|/*                                                          * || document.hasObjectInPool ( objKey )                                                          */
 operator|)
 condition|)
 block|{
@@ -4983,7 +4984,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*              * This needs to be dic.getItem because when we are parsing, the              * underlying object might still be null.              */
+comment|/*              * This needs to be dic.getItem because when we are parsing, the underlying object might still be null.              */
 name|COSNumber
 name|streamLengthObj
 init|=
