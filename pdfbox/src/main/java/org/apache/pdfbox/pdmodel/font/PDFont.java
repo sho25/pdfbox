@@ -2223,6 +2223,16 @@ return|return
 name|toUnicodeCmap
 return|;
 block|}
+comment|/**      * Returns the CMap if present.      *       * @return the CMap representing the character encoding      */
+specifier|public
+name|CMap
+name|getCMap
+parameter_list|()
+block|{
+return|return
+name|cmap
+return|;
+block|}
 block|}
 end_class
 
