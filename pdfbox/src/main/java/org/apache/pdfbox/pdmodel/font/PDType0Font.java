@@ -235,7 +235,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will get the fonts bounding box.      *       * @return The fonts bounding box.      *       * @throws IOException If there is an error getting the bounding box.      */
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|PDRectangle
 name|getFontBoundingBox
@@ -251,7 +253,9 @@ literal|"Not yet implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      * This will get the font width for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getFontWidth
@@ -303,45 +307,19 @@ name|cidType2Font
 operator|.
 name|hasIdentityCIDToGIDMap
 argument_list|()
-condition|)
-block|{
-return|return
-name|cidType2Font
-operator|.
-name|getFontWidth
-argument_list|(
-name|code
-argument_list|)
-return|;
-block|}
-elseif|else
-if|if
-condition|(
+operator|||
 name|cidType2Font
 operator|.
 name|hasCIDToGIDMap
 argument_list|()
-operator|&&
-name|cidType2Font
-operator|.
-name|mapCIDToGID
-argument_list|(
-name|code
-argument_list|)
-operator|>
-operator|-
-literal|1
 condition|)
 block|{
 return|return
-name|getFontWidth
-argument_list|(
 name|cidType2Font
 operator|.
-name|mapCIDToGID
+name|getFontWidth
 argument_list|(
 name|code
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -403,7 +381,9 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the font height for a character.      *       * @param c The character code to get the height for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getFontHeight
@@ -434,7 +414,9 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the average font width for all characters.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getAverageFontWidth
@@ -481,6 +463,8 @@ name|descendantFontArray
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getFontWidth
@@ -498,6 +482,7 @@ name|charCode
 argument_list|)
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
