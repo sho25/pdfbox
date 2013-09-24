@@ -153,22 +153,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|encoding
-operator|.
-name|conversion
-operator|.
-name|CMapSubstitution
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|common
@@ -192,7 +176,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation for the CIDFontType0/CIDFontType2 Fonts.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.11 $  */
+comment|/**  * This is implementation for the CIDFontType0/CIDFontType2 Fonts.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -208,7 +192,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -262,7 +246,9 @@ name|extractWidths
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will get the fonts bouding box.      *      * @return The fonts bouding box.      *      * @throws IOException If there is an error getting the font bounding box.      */
+comment|/**      * This will get the fonts bounding box.      *      * @return The fonts bounding box.      *      * @throws IOException If there is an error getting the font bounding box.      */
+annotation|@
+name|Override
 specifier|public
 name|PDRectangle
 name|getFontBoundingBox
@@ -359,6 +345,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will get the font width for a character.      *      * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getFontWidth
@@ -667,6 +655,8 @@ block|}
 block|}
 block|}
 comment|/**      * This will get the font height for a character.      *      * @param c The character code to get the height for.      * @param offset The offset into the array.      * @param length The length of the data.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getFontHeight
@@ -722,7 +712,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-comment|//do an average of these two.  Can we do better???
+comment|// do an average of these two. Can we do better???
 name|retval
 operator|=
 operator|(
@@ -787,6 +777,8 @@ name|retval
 return|;
 block|}
 comment|/**      * This will get the average font width for all characters.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getAverageFontWidth
@@ -803,12 +795,6 @@ name|float
 name|characterCount
 init|=
 literal|0.0f
-decl_stmt|;
-name|float
-name|defaultWidth
-init|=
-name|getDefaultWidth
-argument_list|()
 decl_stmt|;
 name|COSArray
 name|widths
@@ -992,7 +978,8 @@ condition|)
 block|{
 name|average
 operator|=
-name|defaultWidth
+name|getDefaultWidth
+argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -1000,6 +987,8 @@ name|average
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getFontWidth
@@ -1011,8 +1000,8 @@ block|{
 name|float
 name|width
 init|=
-operator|-
-literal|1
+name|getDefaultWidth
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1242,7 +1231,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -1261,7 +1250,7 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
