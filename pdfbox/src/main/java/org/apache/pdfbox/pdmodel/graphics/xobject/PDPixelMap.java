@@ -69,6 +69,30 @@ name|awt
 operator|.
 name|image
 operator|.
+name|BufferedImage
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|image
+operator|.
+name|ColorModel
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|image
+operator|.
 name|ComponentColorModel
 import|;
 end_import
@@ -94,30 +118,6 @@ operator|.
 name|image
 operator|.
 name|DataBufferByte
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|image
-operator|.
-name|BufferedImage
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|image
-operator|.
-name|ColorModel
 import|;
 end_import
 
@@ -420,7 +420,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class contains a PixelMap Image.  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @version $Revision: 1.10 $  */
+comment|/**  * This class contains a PixelMap Image.  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  *   */
 end_comment
 
 begin_class
@@ -1663,6 +1663,8 @@ argument_list|)
 expr_stmt|;
 name|image
 operator|=
+name|applyMasks
+argument_list|(
 operator|new
 name|BufferedImage
 argument_list|(
@@ -1674,12 +1676,10 @@ literal|false
 argument_list|,
 literal|null
 argument_list|)
+argument_list|)
 expr_stmt|;
 return|return
-name|applyMasks
-argument_list|(
 name|image
-argument_list|)
 return|;
 block|}
 catch|catch
@@ -1697,8 +1697,8 @@ argument_list|,
 name|exception
 argument_list|)
 expr_stmt|;
-comment|//A NULL return is caught in pagedrawer.Invoke.process() so don't re-throw.
-comment|//Returning the NULL falls through to Phillip Koch's TODO section.
+comment|// A NULL return is caught in pagedrawer.Invoke.process() so don't re-throw.
+comment|// Returning the NULL falls through to Phillip Koch's TODO section.
 return|return
 literal|null
 return|;
@@ -1790,7 +1790,7 @@ comment|// not implemented yet, which index should we use?
 return|return
 literal|null
 return|;
-comment|//(COSDictionary)((COSArray)decodeParms).get(0);
+comment|// (COSDictionary)((COSArray)decodeParms).get(0);
 block|}
 else|else
 block|{
