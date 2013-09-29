@@ -154,7 +154,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RenderUtil contains some convenience methods to print or draw a single page of a document.  *   */
+comment|/**  * RenderUtil provides some convenience methods to print or draw a single page of a document.  *   */
 end_comment
 
 begin_class
@@ -371,7 +371,7 @@ name|page
 argument_list|,
 name|BufferedImage
 operator|.
-name|TYPE_USHORT_565_RGB
+name|TYPE_INT_RGB
 argument_list|,
 literal|2
 operator|*
