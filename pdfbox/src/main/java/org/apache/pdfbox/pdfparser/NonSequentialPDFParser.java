@@ -1289,6 +1289,10 @@ argument_list|(
 name|prev
 argument_list|)
 expr_stmt|;
+comment|// skip white spaces
+name|skipSpaces
+argument_list|()
+expr_stmt|;
 comment|// -- parse xref
 if|if
 condition|(
