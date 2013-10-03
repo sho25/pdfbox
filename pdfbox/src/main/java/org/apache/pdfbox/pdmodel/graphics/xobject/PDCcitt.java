@@ -776,6 +776,36 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// maybe a decode array is defined
+name|COSArray
+name|decode
+init|=
+name|getDecode
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|decode
+operator|!=
+literal|null
+operator|&&
+name|decode
+operator|.
+name|getInt
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+literal|1
+condition|)
+block|{
+comment|// [1.0, 0.0] -> invert the "color" values
+name|blackIsOne
+operator|=
+operator|!
+name|blackIsOne
+expr_stmt|;
+block|}
 name|byte
 index|[]
 name|bufferData
