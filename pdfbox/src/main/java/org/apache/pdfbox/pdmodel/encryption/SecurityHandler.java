@@ -390,7 +390,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a security handler as described in the PDF specifications.  * A security handler is responsible of documents protection.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  * @version $Revision: 1.4 $  */
+comment|/**  * This class represents a security handler as described in the PDF specifications.  * A security handler is responsible of documents protection.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  */
 end_comment
 
 begin_class
@@ -399,7 +399,7 @@ specifier|abstract
 class|class
 name|SecurityHandler
 block|{
-comment|/* ------------------------------------------------      * CONSTANTS      -------------------------------------------------- */
+comment|/**      * CONSTANTS.      */
 specifier|private
 specifier|static
 specifier|final
@@ -410,8 +410,8 @@ literal|40
 decl_stmt|;
 comment|/*      * See 7.6.2, page 58, PDF 32000-1:2008      */
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|byte
 index|[]
 name|AES_SALT
@@ -498,7 +498,7 @@ name|COSDictionary
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/*      * If true, AES will be used      */
+comment|/**      * If true, AES will be used.      */
 specifier|private
 name|boolean
 name|aes
@@ -595,8 +595,8 @@ argument_list|(
 literal|"Root/AcroForm/Fields"
 argument_list|)
 decl_stmt|;
-comment|//We need to collect all the signature dictionaries, for some
-comment|//reason the 'Contents' entry of signatures is not really encrypted
+comment|// We need to collect all the signature dictionaries, for some
+comment|// reason the 'Contents' entry of signatures is not really encrypted
 if|if
 condition|(
 name|fields
@@ -935,10 +935,10 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-comment|//PDF 1.4 reference pg 73
-comment|//step 1
-comment|//we have the reference
-comment|//step 2
+comment|// PDF 1.4 reference pg 73
+comment|// step 1
+comment|// we have the reference
+comment|// step 2
 name|newKey
 index|[
 name|newKey
@@ -1041,7 +1041,7 @@ operator|&
 literal|0xff
 argument_list|)
 expr_stmt|;
-comment|//step 3
+comment|// step 3
 name|byte
 index|[]
 name|digestedKey
@@ -1102,7 +1102,7 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|//step 4
+comment|// step 4
 name|int
 name|length
 init|=
@@ -1229,8 +1229,8 @@ decl_stmt|;
 try|try
 block|{
 name|byte
-name|buffer
 index|[]
+name|buffer
 init|=
 operator|new
 name|byte
@@ -1687,23 +1687,21 @@ decl_stmt|;
 comment|// within a dictionary only strings and streams have to be decrypted
 if|if
 condition|(
-operator|!
-operator|(
 name|value
 operator|instanceof
 name|COSString
-operator|)
-operator|&&
-operator|!
-operator|(
+operator|||
 name|value
 operator|instanceof
 name|COSStream
-operator|)
+operator|||
+name|value
+operator|instanceof
+name|COSArray
 condition|)
-continue|continue;
-comment|//if we are a signature dictionary and contain a Contents entry then
-comment|//we don't decrypt it.
+block|{
+comment|// if we are a signature dictionary and contain a Contents entry then
+comment|// we don't decrypt it.
 if|if
 condition|(
 operator|!
@@ -1746,6 +1744,7 @@ argument_list|,
 name|genNum
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1906,7 +1905,7 @@ return|return
 name|currentAccessPermission
 return|;
 block|}
-comment|/*      * True if AES is used for encryption and decryption.      */
+comment|/**      * True if AES is used for encryption and decryption.      *       * @return true if AEs is used       */
 specifier|public
 name|boolean
 name|isAES
@@ -1916,20 +1915,18 @@ return|return
 name|aes
 return|;
 block|}
-comment|/*      * Set to true if AES for encryption and decryption should be used.      */
+comment|/**      * Set to true if AES for encryption and decryption should be used.      *       * @param aes if true AES will be used       *       */
 specifier|public
 name|void
 name|setAES
 parameter_list|(
 name|boolean
-name|aes
+name|aesValue
 parameter_list|)
 block|{
-name|this
-operator|.
 name|aes
 operator|=
-name|aes
+name|aesValue
 expr_stmt|;
 block|}
 block|}
