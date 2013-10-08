@@ -11,6 +11,8 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|examples
+operator|.
 name|lucene
 package|;
 end_package
@@ -41,7 +43,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
+name|IOException
 import|;
 end_import
 
@@ -51,7 +53,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|InputStream
 import|;
 end_import
 
@@ -89,16 +91,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
-operator|.
-name|Calendar
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URL
@@ -112,6 +104,16 @@ operator|.
 name|net
 operator|.
 name|URLConnection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Calendar
 import|;
 end_import
 
@@ -173,11 +175,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|pdfbox
+name|lucene
 operator|.
-name|pdmodel
+name|document
 operator|.
-name|PDDocument
+name|FieldType
 import|;
 end_import
 
@@ -187,11 +189,25 @@ name|org
 operator|.
 name|apache
 operator|.
-name|pdfbox
+name|lucene
 operator|.
-name|pdmodel
+name|document
 operator|.
-name|PDDocumentInformation
+name|StringField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|TextField
 import|;
 end_import
 
@@ -231,6 +247,34 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|PDDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|PDDocumentInformation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|util
 operator|.
 name|PDFTextStripper
@@ -238,7 +282,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to create a document for the lucene search engine.  * This should easily plug into the IndexHTML or IndexFiles that comes with  * the lucene project.  This class will populate the following fields.  *<table>  *<tr>  *<th>Lucene Field Name</th>  *<th>Description</th>  *</tr>  *<tr>  *<td>path</td>  *<td>File system path if loaded from a file</td>  *</tr>  *<tr>  *<td>url</td>  *<td>URL to PDF document</td>  *</tr>  *<tr>  *<td>contents</td>  *<td>Entire contents of PDF document, indexed but not stored</td>  *</tr>  *<tr>  *<td>summary</td>  *<td>First 500 characters of content</td>  *</tr>  *<tr>  *<td>modified</td>  *<td>The modified date/time according to the url or path</td>  *</tr>  *<tr>  *<td>uid</td>  *<td>A unique identifier for the Lucene document.</td>  *</tr>  *<tr>  *<td>CreationDate</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>Creator</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>Keywords</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>ModificationDate</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>Producer</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>Subject</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>Trapped</td>  *<td>From PDF meta-data if available</td>  *</tr>  *</table>  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.23 $  */
+comment|/**  * This class is used to create a document for the lucene search engine. This should easily plug into the IndexPDFFiles  * that comes with the lucene project. This class will populate the following fields.  *<table>  *<tr>  *<th>Lucene Field Name</th>  *<th>Description</th>  *</tr>  *<tr>  *<td>path</td>  *<td>File system path if loaded from a file</td>  *</tr>  *<tr>  *<td>url</td>  *<td>URL to PDF document</td>  *</tr>  *<tr>  *<td>contents</td>  *<td>Entire contents of PDF document, indexed but not stored</td>  *</tr>  *<tr>  *<td>summary</td>  *<td>First 500 characters of content</td>  *</tr>  *<tr>  *<td>modified</td>  *<td>The modified date/time according to the url or path</td>  *</tr>  *<tr>  *<td>uid</td>  *<td>A unique identifier for the Lucene document.</td>  *</tr>  *<tr>  *<td>CreationDate</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>Creator</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>Keywords</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>ModificationDate</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>Producer</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>Subject</td>  *<td>From PDF meta-data if available</td>  *</tr>  *<tr>  *<td>Trapped</td>  *<td>From PDF meta-data if available</td>  *</tr>  *</table>  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -265,12 +309,14 @@ literal|0
 argument_list|)
 decl_stmt|;
 comment|// given caveat of increased search times when using
-comment|//MICROSECOND, only use SECOND by default
+comment|// MICROSECOND, only use SECOND by default
 specifier|private
+specifier|static
+specifier|final
 name|DateTools
 operator|.
 name|Resolution
-name|dateTimeResolution
+name|DATE_TIME_RES
 init|=
 name|DateTools
 operator|.
@@ -284,12 +330,75 @@ name|stripper
 init|=
 literal|null
 decl_stmt|;
+specifier|private
+name|boolean
+name|useNonSeqParser
+decl_stmt|;
+comment|/** not Indexed, tokenized, stored. */
+specifier|public
+specifier|static
+specifier|final
+name|FieldType
+name|TYPE_STORED_NOT_INDEXED
+init|=
+operator|new
+name|FieldType
+argument_list|()
+decl_stmt|;
+static|static
+block|{
+name|TYPE_STORED_NOT_INDEXED
+operator|.
+name|setIndexed
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|TYPE_STORED_NOT_INDEXED
+operator|.
+name|setStored
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|TYPE_STORED_NOT_INDEXED
+operator|.
+name|setTokenized
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|TYPE_STORED_NOT_INDEXED
+operator|.
+name|freeze
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Constructor.      */
 specifier|public
 name|LucenePDFDocument
 parameter_list|()
-block|{     }
-comment|/**      * Set the text stripper that will be used during extraction.      *      * @param aStripper The new pdf text stripper.      */
+block|{
+name|this
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Constructor.      *       * @param nonSequentialParser indicates if the non-sequential parser should be used      *       */
+specifier|public
+name|LucenePDFDocument
+parameter_list|(
+name|boolean
+name|nonSequentialParser
+parameter_list|)
+block|{
+name|useNonSeqParser
+operator|=
+name|nonSequentialParser
+expr_stmt|;
+block|}
+comment|/**      * Set the text stripper that will be used during extraction.      *       * @param aStripper The new pdf text stripper.      */
 specifier|public
 name|void
 name|setTextStripper
@@ -303,38 +412,8 @@ operator|=
 name|aStripper
 expr_stmt|;
 block|}
-comment|/**      * Get the Lucene data time resolution.      *      * @return current date/time resolution      */
-specifier|public
-name|DateTools
-operator|.
-name|Resolution
-name|getDateTimeResolution
-parameter_list|()
-block|{
-return|return
-name|dateTimeResolution
-return|;
-block|}
-comment|/**      * Set the Lucene data time resolution.      *      * @param resolution set new date/time resolution      */
-specifier|public
-name|void
-name|setDateTimeResolution
-parameter_list|(
-name|DateTools
-operator|.
-name|Resolution
-name|resolution
-parameter_list|)
-block|{
-name|dateTimeResolution
-operator|=
-name|resolution
-expr_stmt|;
-block|}
-comment|//
-comment|// compatibility methods for lucene-1.9+
-comment|//
 specifier|private
+specifier|static
 name|String
 name|timeToString
 parameter_list|(
@@ -349,7 +428,7 @@ name|timeToString
 argument_list|(
 name|time
 argument_list|,
-name|dateTimeResolution
+name|DATE_TIME_RES
 argument_list|)
 return|;
 block|}
@@ -379,7 +458,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|Field
+name|StringField
 argument_list|(
 name|name
 argument_list|,
@@ -390,12 +469,6 @@ operator|.
 name|Store
 operator|.
 name|YES
-argument_list|,
-name|Field
-operator|.
-name|Index
-operator|.
-name|NOT_ANALYZED
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -427,7 +500,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|Field
+name|TextField
 argument_list|(
 name|name
 argument_list|,
@@ -463,7 +536,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|Field
+name|TextField
 argument_list|(
 name|name
 argument_list|,
@@ -474,12 +547,6 @@ operator|.
 name|Store
 operator|.
 name|YES
-argument_list|,
-name|Field
-operator|.
-name|Index
-operator|.
-name|ANALYZED
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -518,7 +585,7 @@ name|dateToString
 argument_list|(
 name|value
 argument_list|,
-name|dateTimeResolution
+name|DATE_TIME_RES
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -592,17 +659,7 @@ name|name
 argument_list|,
 name|value
 argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|YES
-argument_list|,
-name|Field
-operator|.
-name|Index
-operator|.
-name|NO
+name|TYPE_STORED_NOT_INDEXED
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -640,23 +697,15 @@ name|name
 argument_list|,
 name|value
 argument_list|,
-name|Field
+name|TextField
 operator|.
-name|Store
-operator|.
-name|NO
-argument_list|,
-name|Field
-operator|.
-name|Index
-operator|.
-name|NOT_ANALYZED
+name|TYPE_NOT_STORED
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Convert the PDF stream to a lucene document.      *      * @param is The input stream.      * @return The input stream converted to a lucene document.      * @throws IOException If there is an error converting the PDF.      */
+comment|/**      * Convert the PDF stream to a lucene document.      *       * @param is The input stream.      * @return The input stream converted to a lucene document.      * @throws IOException If there is an error converting the PDF.      */
 specifier|public
 name|Document
 name|convertDocument
@@ -687,7 +736,7 @@ return|return
 name|document
 return|;
 block|}
-comment|/**      * This will take a reference to a PDF document and create a lucene document.      *      * @param file A reference to a PDF document.      * @return The converted lucene document.      *      * @throws IOException If there is an exception while converting the document.      */
+comment|/**      * This will take a reference to a PDF document and create a lucene document.      *       * @param file A reference to a PDF document.      * @return The converted lucene document.      *       * @throws IOException If there is an exception while converting the document.      */
 specifier|public
 name|Document
 name|convertDocument
@@ -705,7 +754,7 @@ operator|new
 name|Document
 argument_list|()
 decl_stmt|;
-comment|// Add the url as a field named "url".  Use an UnIndexed field, so
+comment|// Add the url as a field named "url". Use an UnIndexed field, so
 comment|// that the url is just stored with the document, but is not searchable.
 name|addUnindexedField
 argument_list|(
@@ -738,7 +787,7 @@ literal|'/'
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Add the last modified date of the file a field named "modified".  Use a
+comment|// Add the last modified date of the file a field named "modified". Use a
 comment|// Keyword field, so that it's searchable, but so that no attempt is made
 comment|// to tokenize the field into words.
 name|addKeywordField
@@ -759,26 +808,9 @@ expr_stmt|;
 name|String
 name|uid
 init|=
-name|file
-operator|.
-name|getPath
-argument_list|()
-operator|.
-name|replace
-argument_list|(
-name|FILE_SEPARATOR
-argument_list|,
-literal|'\u0000'
-argument_list|)
-operator|+
-literal|"\u0000"
-operator|+
-name|timeToString
+name|createUID
 argument_list|(
 name|file
-operator|.
-name|lastModified
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Add the uid as a field, so that index can be incrementally maintained.
@@ -842,7 +874,7 @@ return|return
 name|document
 return|;
 block|}
-comment|/**      * Convert the document from a PDF to a lucene document.      *      * @param url A url to a PDF document.      * @return The PDF converted to a lucene document.      * @throws IOException If there is an error while converting the document.      */
+comment|/**      * Convert the document from a PDF to a lucene document.      *       * @param url A url to a PDF document.      * @return The PDF converted to a lucene document.      * @throws IOException If there is an error while converting the document.      */
 specifier|public
 name|Document
 name|convertDocument
@@ -873,7 +905,7 @@ operator|.
 name|connect
 argument_list|()
 expr_stmt|;
-comment|// Add the url as a field named "url".  Use an UnIndexed field, so
+comment|// Add the url as a field named "url". Use an UnIndexed field, so
 comment|// that the url is just stored with the document, but is not searchable.
 name|addUnindexedField
 argument_list|(
@@ -887,7 +919,7 @@ name|toExternalForm
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Add the last modified date of the file a field named "modified".  Use a
+comment|// Add the last modified date of the file a field named "modified". Use a
 comment|// Keyword field, so that it's searchable, but so that no attempt is made
 comment|// to tokenize the field into words.
 name|addKeywordField
@@ -908,22 +940,10 @@ expr_stmt|;
 name|String
 name|uid
 init|=
+name|createUID
+argument_list|(
 name|url
-operator|.
-name|toExternalForm
-argument_list|()
-operator|.
-name|replace
-argument_list|(
-name|FILE_SEPARATOR
 argument_list|,
-literal|'\u0000'
-argument_list|)
-operator|+
-literal|"\u0000"
-operator|+
-name|timeToString
-argument_list|(
 name|connection
 operator|.
 name|getLastModified
@@ -990,7 +1010,7 @@ return|return
 name|document
 return|;
 block|}
-comment|/**      * This will get a lucene document from a PDF file.      *      * @param is The stream to read the PDF from.      *      * @return The lucene document.      *      * @throws IOException If there is an error parsing or indexing the document.      */
+comment|/**      * This will get a lucene document from a PDF file.      *       * @param is The stream to read the PDF from.      *       * @return The lucene document.      *       * @throws IOException If there is an error parsing or indexing the document.      */
 specifier|public
 specifier|static
 name|Document
@@ -1002,12 +1022,38 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+return|return
+name|getDocument
+argument_list|(
+name|is
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * This will get a lucene document from a PDF file.      *       * @param is The stream to read the PDF from.      * @param nonSeqParser indicates if the non-sequential parser should be used      *       * @return The lucene document.      *       * @throws IOException If there is an error parsing or indexing the document.      */
+specifier|public
+specifier|static
+name|Document
+name|getDocument
+parameter_list|(
+name|InputStream
+name|is
+parameter_list|,
+name|boolean
+name|nonSeqParser
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|LucenePDFDocument
 name|converter
 init|=
 operator|new
 name|LucenePDFDocument
-argument_list|()
+argument_list|(
+name|nonSeqParser
+argument_list|)
 decl_stmt|;
 return|return
 name|converter
@@ -1018,7 +1064,7 @@ name|is
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get a lucene document from a PDF file.      *      * @param file The file to get the document for.      *      * @return The lucene document.      *      * @throws IOException If there is an error parsing or indexing the document.      */
+comment|/**      * This will get a lucene document from a PDF file.      *       * @param file The file to get the document for.      *       * @return The lucene document.      *       * @throws IOException If there is an error parsing or indexing the document.      */
 specifier|public
 specifier|static
 name|Document
@@ -1030,12 +1076,38 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+return|return
+name|getDocument
+argument_list|(
+name|file
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * This will get a lucene document from a PDF file.      *       * @param file The file to get the document for.      * @param nonSeqParser indicates if the non-sequential parser should be used      *       * @return The lucene document.      *       * @throws IOException If there is an error parsing or indexing the document.      */
+specifier|public
+specifier|static
+name|Document
+name|getDocument
+parameter_list|(
+name|File
+name|file
+parameter_list|,
+name|boolean
+name|nonSeqParser
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|LucenePDFDocument
 name|converter
 init|=
 operator|new
 name|LucenePDFDocument
-argument_list|()
+argument_list|(
+name|nonSeqParser
+argument_list|)
 decl_stmt|;
 return|return
 name|converter
@@ -1046,7 +1118,7 @@ name|file
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get a lucene document from a PDF file.      *      * @param url The file to get the document for.      *      * @return The lucene document.      *      * @throws IOException If there is an error parsing or indexing the document.      */
+comment|/**      * This will get a lucene document from a PDF file.      *       * @param url The file to get the document for.      *       * @return The lucene document.      *       * @throws IOException If there is an error parsing or indexing the document.      */
 specifier|public
 specifier|static
 name|Document
@@ -1058,12 +1130,38 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+return|return
+name|getDocument
+argument_list|(
+name|url
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * This will get a lucene document from a PDF file.      *       * @param url The file to get the document for.      * @param nonSeqParser indicates if the non-sequential parser should be used      *       * @return The lucene document.      *       * @throws IOException If there is an error parsing or indexing the document.      */
+specifier|public
+specifier|static
+name|Document
+name|getDocument
+parameter_list|(
+name|URL
+name|url
+parameter_list|,
+name|boolean
+name|nonSeqParser
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|LucenePDFDocument
 name|converter
 init|=
 operator|new
 name|LucenePDFDocument
-argument_list|()
+argument_list|(
+name|nonSeqParser
+argument_list|)
 decl_stmt|;
 return|return
 name|converter
@@ -1074,7 +1172,7 @@ name|url
 argument_list|)
 return|;
 block|}
-comment|/**      * This will add the contents to the lucene document.      *      * @param document The document to add the contents to.      * @param is The stream to get the contents from.      * @param documentLocation The location of the document, used just for debug messages.      *      * @throws IOException If there is an error parsing the document.      */
+comment|/**      * This will add the contents to the lucene document.      *       * @param document The document to add the contents to.      * @param is The stream to get the contents from.      * @param documentLocation The location of the document, used just for debug messages.      *       * @throws IOException If there is an error parsing the document.      */
 specifier|private
 name|void
 name|addContent
@@ -1098,6 +1196,27 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|useNonSeqParser
+condition|)
+block|{
+name|pdfDocument
+operator|=
+name|PDDocument
+operator|.
+name|loadNonSeq
+argument_list|(
+name|is
+argument_list|,
+literal|null
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|pdfDocument
 operator|=
 name|PDDocument
@@ -1115,7 +1234,7 @@ name|isEncrypted
 argument_list|()
 condition|)
 block|{
-comment|//Just try using the default password and move on
+comment|// Just try using the default password and move on
 name|pdfDocument
 operator|.
 name|decrypt
@@ -1124,7 +1243,8 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
-comment|//create a writer where to append the text content.
+block|}
+comment|// create a writer where to append the text content.
 name|StringWriter
 name|writer
 init|=
@@ -1246,7 +1366,7 @@ name|IOException
 name|io
 parameter_list|)
 block|{
-comment|//ignore, bad date but continue with indexing
+comment|// ignore, bad date but continue with indexing
 block|}
 name|addTextField
 argument_list|(
@@ -1293,7 +1413,7 @@ name|IOException
 name|io
 parameter_list|)
 block|{
-comment|//ignore, bad date but continue with indexing
+comment|// ignore, bad date but continue with indexing
 block|}
 name|addTextField
 argument_list|(
@@ -1409,7 +1529,7 @@ name|InvalidPasswordException
 name|e
 parameter_list|)
 block|{
-comment|//they didn't suppply a password and the default of "" was wrong.
+comment|// they didn't suppply a password and the default of "" was wrong.
 throw|throw
 operator|new
 name|IOException
@@ -1439,80 +1559,73 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will test creating a document.      *      * usage: java pdfparser.searchengine.lucene.LucenePDFDocument&lt;pdf-document&gt;      *      * @param args command line arguments.      *      * @throws IOException If there is an error.      */
+comment|/**      * Create an UID for the given file using the given time.      *       * @param file the file we have to create an UID for      * @param time the time to used to the UID      *       * @return the created UID      */
 specifier|public
 specifier|static
-name|void
-name|main
+name|String
+name|createUID
 parameter_list|(
-name|String
-index|[]
-name|args
+name|URL
+name|url
+parameter_list|,
+name|long
+name|time
 parameter_list|)
-throws|throws
-name|IOException
 block|{
-if|if
-condition|(
-name|args
+return|return
+name|url
 operator|.
-name|length
-operator|!=
-literal|1
-condition|)
-block|{
-name|String
-name|us
-init|=
-name|LucenePDFDocument
-operator|.
-name|class
-operator|.
-name|getName
+name|toExternalForm
 argument_list|()
-decl_stmt|;
-name|System
 operator|.
-name|err
-operator|.
-name|println
+name|replace
 argument_list|(
-literal|"usage: java "
-operator|+
-name|us
-operator|+
-literal|"<pdf-document>"
+name|FILE_SEPARATOR
+argument_list|,
+literal|'\u0000'
 argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|exit
+operator|+
+literal|"\u0000"
+operator|+
+name|timeToString
 argument_list|(
-literal|1
+name|time
 argument_list|)
-expr_stmt|;
+return|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Document="
-operator|+
-name|getDocument
-argument_list|(
-operator|new
+comment|/**      * Create an UID for the given file.      *       * @param file the file we have to create an UID for      *       * @return the created UID      */
+specifier|public
+specifier|static
+name|String
+name|createUID
+parameter_list|(
 name|File
+name|file
+parameter_list|)
+block|{
+return|return
+name|file
+operator|.
+name|getPath
+argument_list|()
+operator|.
+name|replace
 argument_list|(
-name|args
-index|[
-literal|0
-index|]
+name|FILE_SEPARATOR
+argument_list|,
+literal|'\u0000'
 argument_list|)
+operator|+
+literal|"\u0000"
+operator|+
+name|timeToString
+argument_list|(
+name|file
+operator|.
+name|lastModified
+argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 end_class
