@@ -61,7 +61,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|LinkedList
+name|LinkedHashMap
 import|;
 end_import
 
@@ -71,7 +71,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|LinkedHashMap
+name|LinkedList
 import|;
 end_import
 
@@ -243,6 +243,30 @@ class|class
 name|CFFParser
 block|{
 specifier|private
+specifier|static
+specifier|final
+name|String
+name|TAG_OTTO
+init|=
+literal|"OTTO"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TAG_TTCF
+init|=
+literal|"ttcf"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TAG_TTFONLY
+init|=
+literal|"\u0000\u0001\u0000\u0000"
+decl_stmt|;
+specifier|private
 name|CFFDataInput
 name|input
 init|=
@@ -303,13 +327,14 @@ argument_list|(
 name|input
 argument_list|)
 decl_stmt|;
+comment|// try to determine which kind of font we have
 if|if
 condition|(
-name|firstTag
+name|TAG_OTTO
 operator|.
 name|equals
 argument_list|(
-literal|"OTTO"
+name|firstTag
 argument_list|)
 condition|)
 block|{
@@ -471,6 +496,44 @@ literal|"CFF tag not found in this OpenType font."
 argument_list|)
 throw|;
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|TAG_TTCF
+operator|.
+name|equals
+argument_list|(
+name|firstTag
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"True Type Collection fonts are not supported."
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|TAG_TTFONLY
+operator|.
+name|equals
+argument_list|(
+name|firstTag
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"OpenType fonts containing a true type font are not supported."
+argument_list|)
+throw|;
 block|}
 else|else
 block|{
@@ -4841,7 +4904,7 @@ name|owner
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)          * @see org.apache.fontbox.cff.CIDKeyedFDSelect#getFd(int)          */
+comment|/*          * (non-Javadoc)          *           * @see org.apache.fontbox.cff.CIDKeyedFDSelect#getFd(int)          */
 annotation|@
 name|Override
 specifier|public
@@ -5058,7 +5121,7 @@ name|owner
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)          * @see org.apache.fontbox.cff.CIDKeyedFDSelect#getFd(int)          */
+comment|/*          * (non-Javadoc)          *           * @see org.apache.fontbox.cff.CIDKeyedFDSelect#getFd(int)          */
 annotation|@
 name|Override
 specifier|public
