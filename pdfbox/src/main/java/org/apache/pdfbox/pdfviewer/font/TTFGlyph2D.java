@@ -298,15 +298,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Default scaling value.      */
-specifier|private
-specifier|static
-specifier|final
-name|float
-name|DEFAULT_SCALING
-init|=
-literal|0.001f
-decl_stmt|;
 comment|/**      * Start of coderanges.      */
 specifier|private
 specifier|static
@@ -347,6 +338,14 @@ decl_stmt|;
 specifier|private
 name|float
 name|scale
+init|=
+literal|1.0f
+decl_stmt|;
+specifier|private
+name|boolean
+name|hasScaling
+init|=
+literal|false
 decl_stmt|;
 specifier|private
 name|CMAPEncodingEntry
@@ -479,23 +478,29 @@ condition|(
 name|header
 operator|!=
 literal|null
+operator|&&
+name|header
+operator|.
+name|getUnitsPerEm
+argument_list|()
+operator|!=
+literal|1000
 condition|)
 block|{
+comment|// in most case the scaling factor is set to 1.0f
+comment|// due to the fact that units per em is set to 1000
 name|scale
 operator|=
-literal|1f
+literal|1000f
 operator|/
 name|header
 operator|.
 name|getUnitsPerEm
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-name|scale
+name|hasScaling
 operator|=
-name|DEFAULT_SCALING
+literal|true
 expr_stmt|;
 block|}
 name|extractCMaps
@@ -831,7 +836,6 @@ argument_list|(
 name|i
 argument_list|)
 argument_list|,
-operator|-
 name|gd
 operator|.
 name|getYCoordinate
@@ -960,6 +964,11 @@ argument_list|(
 name|points
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hasScaling
+condition|)
+block|{
 name|AffineTransform
 name|atScale
 init|=
@@ -979,6 +988,7 @@ argument_list|(
 name|atScale
 argument_list|)
 expr_stmt|;
+block|}
 name|glyphs
 operator|.
 name|put
