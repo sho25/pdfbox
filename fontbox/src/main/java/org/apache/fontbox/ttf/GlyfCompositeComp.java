@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is based on code from Apache Batik a subproject of Apache XMLGraphics.  * see http://xmlgraphics.apache.org/batik/ for further details.  */
+comment|/**  * This class is based on code from Apache Batik a subproject of Apache XMLGraphics. see  * http://xmlgraphics.apache.org/batik/ for further details.  */
 end_comment
 
 begin_class
@@ -107,7 +107,7 @@ name|WE_HAVE_INSTRUCTIONS
 init|=
 literal|0x0100
 decl_stmt|;
-comment|/**      * If set, this forces the aw and lsb (and rsb) for the composite to be equal to      * those from this original glyph.      */
+comment|/**      * If set, this forces the aw and lsb (and rsb) for the composite to be equal to those from this original glyph.      */
 specifier|protected
 specifier|static
 specifier|final
@@ -249,7 +249,7 @@ name|short
 operator|)
 name|bais
 operator|.
-name|read
+name|readUnsignedByte
 argument_list|()
 expr_stmt|;
 name|argument2
@@ -259,7 +259,7 @@ name|short
 operator|)
 name|bais
 operator|.
-name|read
+name|readUnsignedByte
 argument_list|()
 expr_stmt|;
 block|}
@@ -286,6 +286,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// TODO unused?
 name|point1
 operator|=
 name|argument1
@@ -473,7 +474,7 @@ literal|0x4000
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Sets the first index.      * @param idx the first index      */
+comment|/**      * Sets the first index.      *       * @param idx the first index      */
 specifier|public
 name|void
 name|setFirstIndex
@@ -487,7 +488,7 @@ operator|=
 name|idx
 expr_stmt|;
 block|}
-comment|/**      * Returns the first index.      * @return the first index.      */
+comment|/**      * Returns the first index.      *       * @return the first index.      */
 specifier|public
 name|int
 name|getFirstIndex
@@ -497,7 +498,7 @@ return|return
 name|firstIndex
 return|;
 block|}
-comment|/**      * Sets the index for the first contour.      * @param idx the index of the first contour      */
+comment|/**      * Sets the index for the first contour.      *       * @param idx the index of the first contour      */
 specifier|public
 name|void
 name|setFirstContour
@@ -511,7 +512,7 @@ operator|=
 name|idx
 expr_stmt|;
 block|}
-comment|/**      * Returns the index of the first contour.      * @return the index of the first contour.      */
+comment|/**      * Returns the index of the first contour.      *       * @return the index of the first contour.      */
 specifier|public
 name|int
 name|getFirstContour
@@ -521,7 +522,7 @@ return|return
 name|firstContour
 return|;
 block|}
-comment|/**      * Returns argument 1.      * @return argument 1.      */
+comment|/**      * Returns argument 1.      *       * @return argument 1.      */
 specifier|public
 name|short
 name|getArgument1
@@ -531,7 +532,7 @@ return|return
 name|argument1
 return|;
 block|}
-comment|/**      * Returns argument 2.      * @return argument 2.      */
+comment|/**      * Returns argument 2.      *       * @return argument 2.      */
 specifier|public
 name|short
 name|getArgument2
@@ -541,7 +542,7 @@ return|return
 name|argument2
 return|;
 block|}
-comment|/**      * Returns the flags of the glyph.      * @return the flags.      */
+comment|/**      * Returns the flags of the glyph.      *       * @return the flags.      */
 specifier|public
 name|short
 name|getFlags
@@ -551,7 +552,7 @@ return|return
 name|flags
 return|;
 block|}
-comment|/**      * Returns the index of the first contour.      * @return index of the first contour.      */
+comment|/**      * Returns the index of the first contour.      *       * @return index of the first contour.      */
 specifier|public
 name|int
 name|getGlyphIndex
@@ -561,7 +562,7 @@ return|return
 name|glyphIndex
 return|;
 block|}
-comment|/**      * Returns the scale-01 value.      * @return the scale-01 value.      */
+comment|/**      * Returns the scale-01 value.      *       * @return the scale-01 value.      */
 specifier|public
 name|double
 name|getScale01
@@ -571,7 +572,7 @@ return|return
 name|scale01
 return|;
 block|}
-comment|/**      * Returns the scale-10 value.      * @return the scale-10 value.      */
+comment|/**      * Returns the scale-10 value.      *       * @return the scale-10 value.      */
 specifier|public
 name|double
 name|getScale10
@@ -581,7 +582,7 @@ return|return
 name|scale10
 return|;
 block|}
-comment|/**      * Returns the x-scaling value.      * @return the x-scaling value.      */
+comment|/**      * Returns the x-scaling value.      *       * @return the x-scaling value.      */
 specifier|public
 name|double
 name|getXScale
@@ -591,7 +592,7 @@ return|return
 name|xscale
 return|;
 block|}
-comment|/**      * Returns the y-scaling value.      * @return the y-scaling value.      */
+comment|/**      * Returns the y-scaling value.      *       * @return the y-scaling value.      */
 specifier|public
 name|double
 name|getYScale
@@ -601,7 +602,7 @@ return|return
 name|yscale
 return|;
 block|}
-comment|/**      * Returns the x-translation value.      * @return the x-translation value.      */
+comment|/**      * Returns the x-translation value.      *       * @return the x-translation value.      */
 specifier|public
 name|int
 name|getXTranslate
@@ -611,7 +612,7 @@ return|return
 name|xtranslate
 return|;
 block|}
-comment|/**      * Returns the y-translation value.      * @return the y-translation value.      */
+comment|/**      * Returns the y-translation value.      *       * @return the y-translation value.      */
 specifier|public
 name|int
 name|getYTranslate
@@ -621,7 +622,7 @@ return|return
 name|ytranslate
 return|;
 block|}
-comment|/**      * Transforms an x-coordinate of a point for this component.      * @param x The x-coordinate of the point to transform      * @param y The y-coordinate of the point to transform      * @return The transformed x-coordinate      */
+comment|/**      * Transforms an x-coordinate of a point for this component.      *       * @param x The x-coordinate of the point to transform      * @param y The y-coordinate of the point to transform      * @return The transformed x-coordinate      */
 specifier|public
 name|int
 name|scaleX
@@ -653,7 +654,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Transforms a y-coordinate of a point for this component.      * @param x The x-coordinate of the point to transform      * @param y The y-coordinate of the point to transform      * @return The transformed y-coordinate      */
+comment|/**      * Transforms a y-coordinate of a point for this component.      *       * @param x The x-coordinate of the point to transform      * @param y The y-coordinate of the point to transform      * @return The transformed y-coordinate      */
 specifier|public
 name|int
 name|scaleY

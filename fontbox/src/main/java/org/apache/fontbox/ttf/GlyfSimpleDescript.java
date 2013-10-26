@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is based on code from Apache Batik a subproject of Apache XMLGraphics.  * see http://xmlgraphics.apache.org/batik/ for further details.  */
+comment|/**  * This class is based on code from Apache Batik a subproject of Apache XMLGraphics. see  * http://xmlgraphics.apache.org/batik/ for further details.  */
 end_comment
 
 begin_class
@@ -60,7 +60,7 @@ specifier|private
 name|int
 name|pointCount
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param numberOfContours number of contours      * @param bais the stream to be read      * @throws IOException is thrown if something went wrong       */
+comment|/**      * Constructor.      *       * @param numberOfContours number of contours      * @param bais the stream to be read      * @throws IOException is thrown if something went wrong      */
 specifier|public
 name|GlyfSimpleDescript
 parameter_list|(
@@ -80,7 +80,7 @@ argument_list|,
 name|bais
 argument_list|)
 expr_stmt|;
-comment|/* https://developer.apple.com/fonts/TTRefMan/RM06/Chap6glyf.html          * "If a glyph has zero contours, it need not have any glyph data."          * set the pointCount to zero to initialize attributes and avoid nullpointer but           * maybe there shouldn't have GlyphDescript in the GlyphData?          */
+comment|/*          * https://developer.apple.com/fonts/TTRefMan/RM06/Chap6glyf.html          * "If a glyph has zero contours, it need not have any glyph data." set the pointCount to zero to initialize          * attributes and avoid nullpointer but maybe there shouldn't have GlyphDescript in the GlyphData?          */
 if|if
 condition|(
 name|numberOfContours
@@ -336,7 +336,7 @@ name|short
 operator|)
 name|bais
 operator|.
-name|read
+name|readUnsignedByte
 argument_list|()
 expr_stmt|;
 block|}
@@ -369,7 +369,7 @@ name|short
 operator|)
 name|bais
 operator|.
-name|read
+name|readUnsignedByte
 argument_list|()
 operator|)
 expr_stmt|;
@@ -443,7 +443,7 @@ name|short
 operator|)
 name|bais
 operator|.
-name|read
+name|readUnsignedByte
 argument_list|()
 expr_stmt|;
 block|}
@@ -476,7 +476,7 @@ name|short
 operator|)
 name|bais
 operator|.
-name|read
+name|readUnsignedByte
 argument_list|()
 operator|)
 expr_stmt|;
@@ -542,7 +542,7 @@ name|byte
 operator|)
 name|bais
 operator|.
-name|read
+name|readUnsignedByte
 argument_list|()
 expr_stmt|;
 if|if
@@ -564,7 +564,7 @@ name|repeats
 init|=
 name|bais
 operator|.
-name|read
+name|readUnsignedByte
 argument_list|()
 decl_stmt|;
 for|for

@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  *   */
 end_comment
 
 begin_class
@@ -1436,14 +1436,14 @@ name|familyClass
 operator|=
 name|data
 operator|.
-name|read
+name|readUnsignedByte
 argument_list|()
 expr_stmt|;
 name|familySubClass
 operator|=
 name|data
 operator|.
-name|read
+name|readUnsignedByte
 argument_list|()
 expr_stmt|;
 name|panose

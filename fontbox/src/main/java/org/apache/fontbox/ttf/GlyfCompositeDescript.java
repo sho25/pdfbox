@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Glyph description for composite glyphs.  Composite glyphs are made up of one  * or more simple glyphs, usually with some sort of transformation applied to each.  *  * This class is based on code from Apache Batik a subproject of Apache XMLGraphics.  * see http://xmlgraphics.apache.org/batik/ for further details.  */
+comment|/**  * Glyph description for composite glyphs. Composite glyphs are made up of one or more simple glyphs, usually with some  * sort of transformation applied to each.  *   * This class is based on code from Apache Batik a subproject of Apache XMLGraphics. see  * http://xmlgraphics.apache.org/batik/ for further details.  */
 end_comment
 
 begin_class
@@ -99,7 +99,7 @@ name|resolved
 init|=
 literal|false
 decl_stmt|;
-comment|/** 	 * Constructor. 	 *  	 * @param bais the stream to be read 	 * @param glyphTable the Glyphtable containing all glyphs 	 * @throws IOException is thrown if something went wrong 	 */
+comment|/**      * Constructor.      *       * @param bais the stream to be read      * @param glyphTable the Glyphtable containing all glyphs      * @throws IOException is thrown if something went wrong      */
 specifier|public
 name|GlyfCompositeDescript
 parameter_list|(
@@ -192,21 +192,14 @@ argument_list|,
 operator|(
 name|bais
 operator|.
-name|read
-argument_list|()
-operator|<<
-literal|8
-operator||
-name|bais
-operator|.
-name|read
+name|readUnsignedShort
 argument_list|()
 operator|)
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * {@inheritDoc} 	 */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|void
 name|resolve
@@ -343,7 +336,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/** 	 * {@inheritDoc} 	 */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|int
 name|getEndPtOfContours
@@ -401,7 +394,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/** 	 * {@inheritDoc} 	 */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|byte
 name|getFlags
@@ -454,7 +447,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/** 	 * {@inheritDoc} 	 */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|short
 name|getXCoordinate
@@ -549,7 +542,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/** 	 * {@inheritDoc} 	 */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|short
 name|getYCoordinate
@@ -644,7 +637,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/** 	 * {@inheritDoc} 	 */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|boolean
 name|isComposite
@@ -654,7 +647,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * {@inheritDoc} 	 */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|int
 name|getPointCount
@@ -712,7 +705,7 @@ name|getPointCount
 argument_list|()
 return|;
 block|}
-comment|/** 	 * {@inheritDoc} 	 */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|int
 name|getContourCount
@@ -770,7 +763,7 @@ name|getContourCount
 argument_list|()
 return|;
 block|}
-comment|/** 	 * {@inheritDoc} 	 */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|int
 name|getComponentCount
@@ -988,12 +981,14 @@ name|glyph
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|glyph
 operator|.
 name|getDescription
 argument_list|()
 return|;
+block|}
 block|}
 return|return
 literal|null

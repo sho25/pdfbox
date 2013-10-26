@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface into a data stream.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * An interface into a data stream.  *   * @author Ben Litchfield (ben@benlitchfield.com)  *   */
 end_comment
 
 begin_class
@@ -75,7 +75,7 @@ specifier|abstract
 class|class
 name|TTFDataStream
 block|{
-comment|/**      * Read a 16.16 fixed value, where the first 16 bits are the decimal and the last      * 16 bits are the fraction.      * @return A 32 bit value.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read a 16.16 fixed value, where the first 16 bits are the decimal and the last 16 bits are the fraction.      *       * @return A 32 bit value.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|float
 name|read32Fixed
@@ -106,7 +106,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Read a fixed length ascii string.      * @param length The length of the string to read.      * @return A string of the desired length.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read a fixed length ascii string.      *       * @param length The length of the string to read.      * @return A string of the desired length.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|String
 name|readString
@@ -126,7 +126,7 @@ literal|"ISO-8859-1"
 argument_list|)
 return|;
 block|}
-comment|/**      * Read a fixed length ascii string.      * @param length The length of the string to read in bytes.      * @param charset The expected character set of the string.      * @return A string of the desired length.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read a fixed length ascii string.      *       * @param length The length of the string to read in bytes.      * @param charset The expected character set of the string.      * @return A string of the desired length.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|String
 name|readString
@@ -159,7 +159,7 @@ name|charset
 argument_list|)
 return|;
 block|}
-comment|/**      * Read an unsigned byte.      * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read an unsigned byte.      *       * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 specifier|abstract
 name|int
@@ -168,7 +168,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Read an unsigned byte.      * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read an unsigned byte.      *       * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 specifier|abstract
 name|long
@@ -177,7 +177,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Read a signed byte.      * @return A signed byte.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read a signed byte.      *       * @return A signed byte.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|int
 name|readSignedByte
@@ -203,7 +203,41 @@ operator|-
 literal|256
 return|;
 block|}
-comment|/**      * Read an unsigned integer.      * @return An unsiged integer.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read a unsigned byte. Similar to {@link #read()}, but throws an exception if EOF is unexpectedly reached.      *       * @return A unsigned byte.      * @throws IOException If there is an error reading the data.      */
+specifier|public
+name|int
+name|readUnsignedByte
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|int
+name|unsignedByte
+init|=
+name|read
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|unsignedByte
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|EOFException
+argument_list|(
+literal|"premature EOF"
+argument_list|)
+throw|;
+block|}
+return|return
+name|unsignedByte
+return|;
+block|}
+comment|/**      * Read an unsigned integer.      *       * @return An unsiged integer.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|long
 name|readUnsignedInt
@@ -467,7 +501,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Read a specific number of bytes from the stream.      * @param numberOfBytes The number of bytes to read.      * @return The byte buffer.      * @throws IOException If there is an error while reading.      */
+comment|/**      * Read a specific number of bytes from the stream.      *       * @param numberOfBytes The number of bytes to read.      * @return The byte buffer.      * @throws IOException If there is an error while reading.      */
 specifier|public
 name|byte
 index|[]
@@ -499,7 +533,7 @@ name|totalAmountRead
 init|=
 literal|0
 decl_stmt|;
-comment|//read at most numberOfBytes bytes from the stream.
+comment|// read at most numberOfBytes bytes from the stream.
 while|while
 condition|(
 name|totalAmountRead
@@ -552,7 +586,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * @see java.io.InputStream#read( byte[], int, int )      *       * @param b The buffer to write to.      * @param off The offset into the buffer.      * @param len The length into the buffer.      *       * @return The number of bytes read, or -1 at the end of the stream      *       * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * @see java.io.InputStream#read(byte[], int, int )      *       * @param b The buffer to write to.      * @param off The offset into the buffer.      * @param len The length into the buffer.      *       * @return The number of bytes read, or -1 at the end of the stream      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|abstract
 name|int
@@ -571,7 +605,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Get the current position in the stream.      * @return The current position in the stream.      * @throws IOException If an error occurs while reading the stream.      */
+comment|/**      * Get the current position in the stream.      *       * @return The current position in the stream.      * @throws IOException If an error occurs while reading the stream.      */
 specifier|public
 specifier|abstract
 name|long
@@ -580,7 +614,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * This will get the original data file that was used for this      * stream.      *       * @return The data that was read from.      * @throws IOException If there is an issue reading the data.      */
+comment|/**      * This will get the original data file that was used for this stream.      *       * @return The data that was read from.      * @throws IOException If there is an issue reading the data.      */
 specifier|public
 specifier|abstract
 name|InputStream

@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  *   */
 end_comment
 
 begin_class
@@ -194,7 +194,7 @@ operator|==
 literal|1.0f
 condition|)
 block|{
-comment|/*              * This TrueType font file contains exactly the 258 glyphs in the standard               * Macintosh TrueType.              */
+comment|/*              * This TrueType font file contains exactly the 258 glyphs in the standard Macintosh TrueType.              */
 name|glyphNames
 operator|=
 operator|new
@@ -373,7 +373,7 @@ name|numberOfChars
 init|=
 name|data
 operator|.
-name|read
+name|readUnsignedByte
 argument_list|()
 decl_stmt|;
 name|nameArray
@@ -601,7 +601,7 @@ operator|==
 literal|3.0f
 condition|)
 block|{
-comment|//no postscript information is provided.
+comment|// no postscript information is provided.
 block|}
 block|}
 comment|/**      * @return Returns the formatType.      */
