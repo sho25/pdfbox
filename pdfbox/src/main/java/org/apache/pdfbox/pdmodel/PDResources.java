@@ -344,7 +344,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a set of resources available at the page/pages/stream level.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.16 $  */
+comment|/**  * This represents a set of resources available at the page/pages/stream level.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -492,7 +492,7 @@ name|COSDictionary
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Prepopulated resources.      *      * @param resourceDictionary The cos dictionary for this resource.      */
+comment|/**      * Prepopulated resources.      *       * @param resourceDictionary The cos dictionary for this resource.      */
 specifier|public
 name|PDResources
 parameter_list|(
@@ -505,7 +505,7 @@ operator|=
 name|resourceDictionary
 expr_stmt|;
 block|}
-comment|/**      * This will get the underlying dictionary.      *      * @return The dictionary for these resources.      */
+comment|/**      * This will get the underlying dictionary.      *       * @return The dictionary for these resources.      */
 specifier|public
 name|COSDictionary
 name|getCOSDictionary
@@ -515,7 +515,7 @@ return|return
 name|resources
 return|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+comment|/**      * Convert this standard java object to a COS object.      *       * @return The cos object that matches this Java object.      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -685,7 +685,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the map of fonts.  This will never return null.  The keys are string      * and the values are PDFont objects.      *      * @param fontCache A map of existing PDFont objects to reuse.      * @return The map of fonts.      *      * @throws IOException If there is an error getting the fonts.      *       * @deprecated due to some side effects font caching is no longer supported, use {@link #getFonts()} instead      */
+comment|/**      * This will get the map of fonts. This will never return null. The keys are string and the values are PDFont      * objects.      *       * @param fontCache A map of existing PDFont objects to reuse.      * @return The map of fonts.      *       * @throws IOException If there is an error getting the fonts.      *       * @deprecated due to some side effects font caching is no longer supported, use {@link #getFonts()} instead      */
 specifier|public
 name|Map
 argument_list|<
@@ -711,7 +711,7 @@ name|getFonts
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the map of fonts. This will never return null.      *      * @return The map of fonts.      */
+comment|/**      * This will get the map of fonts. This will never return null.      *       * @return The map of fonts.      */
 specifier|public
 name|Map
 argument_list|<
@@ -805,8 +805,8 @@ argument_list|(
 name|fontName
 argument_list|)
 decl_stmt|;
-comment|//data-000174.pdf contains a font that is a COSArray, looks to be an error in the
-comment|//PDF, we will just ignore entries that are not dictionaries.
+comment|// data-000174.pdf contains a font that is a COSArray, looks to be an error in the
+comment|// PDF, we will just ignore entries that are not dictionaries.
 if|if
 condition|(
 name|font
@@ -873,12 +873,17 @@ block|}
 block|}
 block|}
 block|}
+name|setFonts
+argument_list|(
+name|fonts
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|fonts
 return|;
 block|}
-comment|/**      * This will get the map of PDXObjects that are in the resource dictionary.      * This will never return null.      *      * @return The map of xobjects.      */
+comment|/**      * This will get the map of PDXObjects that are in the resource dictionary. This will never return null.      *       * @return The map of xobjects.      */
 specifier|public
 name|Map
 argument_list|<
@@ -1033,12 +1038,17 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|setXObjects
+argument_list|(
+name|xobjects
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|xobjects
 return|;
 block|}
-comment|/**      * This will get the map of images.  An empty map will be returned if there      * are no underlying images.      * So far the keys are COSName of the image      * and the value is the corresponding PDXObjectImage.      *      * @author By BM      * @return The map of images.      * @throws IOException If there is an error writing the picture.      */
+comment|/**      * This will get the map of images. An empty map will be returned if there are no underlying images. So far the keys      * are COSName of the image and the value is the corresponding PDXObjectImage.      *       * @author By BM      * @return The map of images.      * @throws IOException If there is an error writing the picture.      *       * @deprecated use {@link #getXObjects()} instead, as the images map isn't synchronized with the XObjects map.      */
 specifier|public
 name|Map
 argument_list|<
@@ -1135,7 +1145,7 @@ return|return
 name|images
 return|;
 block|}
-comment|/**      * This will set the map of fonts.      *      * @param fontsValue The new map of fonts.      */
+comment|/**      * This will set the map of fonts.      *       * @param fontsValue The new map of fonts.      */
 specifier|public
 name|void
 name|setFonts
@@ -1176,6 +1186,17 @@ name|fontsValue
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fontMappings
+operator|=
+name|reverseMap
+argument_list|(
+name|fontsValue
+argument_list|,
+name|PDFont
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1188,9 +1209,13 @@ operator|.
 name|FONT
 argument_list|)
 expr_stmt|;
+name|fontMappings
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
-comment|/**      * This will set the map of xobjects.      *      * @param xobjectsValue The new map of xobjects.      */
+comment|/**      * This will set the map of xobjects.      *       * @param xobjectsValue The new map of xobjects.      */
 specifier|public
 name|void
 name|setXObjects
@@ -1231,6 +1256,17 @@ name|xobjectsValue
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|xobjectMappings
+operator|=
+name|reverseMap
+argument_list|(
+name|xobjects
+argument_list|,
+name|PDXObject
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1243,9 +1279,13 @@ operator|.
 name|XOBJECT
 argument_list|)
 expr_stmt|;
+name|xobjectMappings
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the map of colorspaces.  This will return null if the underlying      * resources dictionary does not have a colorspace dictionary.  The keys are string      * and the values are PDColorSpace objects.      *      * @return The map of colorspaces.      */
+comment|/**      * This will get the map of colorspaces. This will return null if the underlying resources dictionary does not have      * a colorspace dictionary. The keys are string and the values are PDColorSpace objects.      *       * @return The map of colorspaces.      */
 specifier|public
 name|Map
 argument_list|<
@@ -1377,7 +1417,7 @@ return|return
 name|colorspaces
 return|;
 block|}
-comment|/**      * This will set the map of colorspaces.      *      * @param csValue The new map of colorspaces.      */
+comment|/**      * This will set the map of colorspaces.      *       * @param csValue The new map of colorspaces.      */
 specifier|public
 name|void
 name|setColorSpaces
@@ -1432,7 +1472,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the map of graphic states.  This will return null if the underlying      * resources dictionary does not have a graphics dictionary.  The keys are the graphic state      * name as a String and the values are PDExtendedGraphicsState objects.      *      * @return The map of extended graphic state objects.      */
+comment|/**      * This will get the map of graphic states. This will return null if the underlying resources dictionary does not      * have a graphics dictionary. The keys are the graphic state name as a String and the values are      * PDExtendedGraphicsState objects.      *       * @return The map of extended graphic state objects.      */
 specifier|public
 name|Map
 argument_list|<
@@ -1530,7 +1570,7 @@ return|return
 name|graphicsStates
 return|;
 block|}
-comment|/**      * This will set the map of graphics states.      *      * @param states The new map of states.      */
+comment|/**      * This will set the map of graphics states.      *       * @param states The new map of states.      */
 specifier|public
 name|void
 name|setGraphicsStates
@@ -1648,7 +1688,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the dictionary mapping resource names to property list dictionaries for marked      * content.      * @return the property list      */
+comment|/**      * Returns the dictionary mapping resource names to property list dictionaries for marked content.      *       * @return the property list      */
 specifier|public
 name|PDPropertyList
 name|getProperties
@@ -1694,7 +1734,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Sets the dictionary mapping resource names to property list dictionaries for marked      * content.      * @param props the property list      */
+comment|/**      * Sets the dictionary mapping resource names to property list dictionaries for marked content.      *       * @param props the property list      */
 specifier|public
 name|void
 name|setProperties
@@ -1718,7 +1758,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the map of patterns.  This will return null if the underlying      * resources dictionary does not have a patterns dictionary. The keys are the pattern      * name as a String and the values are PDPatternResources objects.      *      * @return The map of pattern resources objects.      *       * @throws IOException If there is an error getting the pattern resources.      */
+comment|/**      * This will get the map of patterns. This will return null if the underlying resources dictionary does not have a      * patterns dictionary. The keys are the pattern name as a String and the values are PDPatternResources objects.      *       * @return The map of pattern resources objects.      *       * @throws IOException If there is an error getting the pattern resources.      */
 specifier|public
 name|Map
 argument_list|<
@@ -1819,7 +1859,7 @@ return|return
 name|patterns
 return|;
 block|}
-comment|/**      * This will set the map of patterns.      *      * @param patternsValue The new map of patterns.      */
+comment|/**      * This will set the map of patterns.      *       * @param patternsValue The new map of patterns.      */
 specifier|public
 name|void
 name|setPatterns
@@ -1934,7 +1974,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the map of shadings.  This will return null if the underlying      * resources dictionary does not have a shading dictionary. The keys are the shading      * name as a String and the values are PDShadingResources objects.      *      * @return The map of shading resources objects.      *       * @throws IOException If there is an error getting the shading resources.      */
+comment|/**      * This will get the map of shadings. This will return null if the underlying resources dictionary does not have a      * shading dictionary. The keys are the shading name as a String and the values are PDShadingResources objects.      *       * @return The map of shading resources objects.      *       * @throws IOException If there is an error getting the shading resources.      */
 specifier|public
 name|Map
 argument_list|<
@@ -2035,7 +2075,7 @@ return|return
 name|shadings
 return|;
 block|}
-comment|/**      * This will set the map of shadings.      *      * @param shadingsValue The new map of shadings.      */
+comment|/**      * This will set the map of shadings.      *       * @param shadingsValue The new map of shadings.      */
 specifier|public
 name|void
 name|setShadings
@@ -2159,6 +2199,7 @@ name|PDFont
 name|font
 parameter_list|)
 block|{
+comment|// use the getter to initialize a possible empty fonts map
 return|return
 name|addFont
 argument_list|(
@@ -2168,7 +2209,8 @@ name|MapUtil
 operator|.
 name|getNextUniqueKey
 argument_list|(
-name|fonts
+name|getFonts
+argument_list|()
 argument_list|,
 literal|"F"
 argument_list|)
@@ -2194,26 +2236,9 @@ operator|==
 literal|null
 condition|)
 block|{
-name|fonts
-operator|=
+comment|// initialize fonts map
 name|getFonts
 argument_list|()
-expr_stmt|;
-name|fontMappings
-operator|=
-name|reverseMap
-argument_list|(
-name|fonts
-argument_list|,
-name|PDFont
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|setFonts
-argument_list|(
-name|fonts
-argument_list|)
 expr_stmt|;
 block|}
 name|String
@@ -2322,26 +2347,9 @@ operator|==
 literal|null
 condition|)
 block|{
-name|xobjects
-operator|=
+comment|// initialize XObject map
 name|getXObjects
 argument_list|()
-expr_stmt|;
-name|xobjectMappings
-operator|=
-name|reverseMap
-argument_list|(
-name|xobjects
-argument_list|,
-name|PDXObject
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|setXObjects
-argument_list|(
-name|xobjects
-argument_list|)
 expr_stmt|;
 block|}
 name|String
