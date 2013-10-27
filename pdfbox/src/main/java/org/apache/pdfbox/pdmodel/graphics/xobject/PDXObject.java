@@ -172,7 +172,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The base class for all XObjects in the PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @author Marcel Kammer  * @version $Revision: 1.14 $  */
+comment|/**  * The base class for all XObjects in the PDF document.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author mathiak  * @author Marcel Kammer  */
 end_comment
 
 begin_class
@@ -203,7 +203,7 @@ specifier|private
 name|PDStream
 name|xobject
 decl_stmt|;
-comment|/**      * Standard constructor.      *      * @param xobj The XObject dictionary.      */
+comment|/**      * Standard constructor.      *       * @param xobj The XObject dictionary.      */
 specifier|public
 name|PDXObject
 parameter_list|(
@@ -219,22 +219,22 @@ argument_list|(
 name|xobj
 argument_list|)
 expr_stmt|;
-name|xobject
-operator|.
-name|getStream
+name|getCOSStream
 argument_list|()
 operator|.
-name|setName
+name|setItem
 argument_list|(
 name|COSName
 operator|.
 name|TYPE
 argument_list|,
-literal|"XObject"
+name|COSName
+operator|.
+name|XOBJECT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Standard constuctor.      *      * @param xobj The XObject dictionary.      */
+comment|/**      * Standard constuctor.      *       * @param xobj The XObject dictionary.      */
 specifier|public
 name|PDXObject
 parameter_list|(
@@ -246,22 +246,22 @@ name|xobject
 operator|=
 name|xobj
 expr_stmt|;
-name|xobject
-operator|.
-name|getStream
+name|getCOSStream
 argument_list|()
 operator|.
-name|setName
+name|setItem
 argument_list|(
 name|COSName
 operator|.
 name|TYPE
 argument_list|,
-literal|"XObject"
+name|COSName
+operator|.
+name|XOBJECT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Standard constuctor.      *      * @param doc The doc to store the object contents.      */
+comment|/**      * Standard constuctor.      *       * @param doc The doc to store the object contents.      */
 specifier|public
 name|PDXObject
 parameter_list|(
@@ -277,22 +277,22 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|xobject
-operator|.
-name|getStream
+name|getCOSStream
 argument_list|()
 operator|.
-name|setName
+name|setItem
 argument_list|(
 name|COSName
 operator|.
 name|TYPE
 argument_list|,
-literal|"XObject"
+name|COSName
+operator|.
+name|XOBJECT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the stream.      *      * {@inheritDoc}      */
+comment|/**      * Returns the stream.      *       * {@inheritDoc}      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -305,7 +305,7 @@ name|getCOSObject
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the stream.      * @return The stream for this object.      */
+comment|/**      * Returns the stream.      *       * @return The stream for this object.      */
 specifier|public
 name|COSStream
 name|getCOSStream
@@ -318,7 +318,7 @@ name|getStream
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the stream.      * @return The stream for this object.      */
+comment|/**      * Returns the stream.      *       * @return The stream for this object.      */
 specifier|public
 name|PDStream
 name|getPDStream
@@ -328,7 +328,7 @@ return|return
 name|xobject
 return|;
 block|}
-comment|/**      * Create the correct xobject from the cos base.      *      * @param xobject The cos level xobject to create.      *      * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
+comment|/**      * Create the correct xobject from the cos base.      *       * @param xobject The cos level xobject to create.      *       * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
 specifier|public
 specifier|static
 name|PDXObject
@@ -340,21 +340,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDXObject
-name|retval
-init|=
+return|return
 name|commonXObjectCreation
 argument_list|(
 name|xobject
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
-return|return
-name|retval
 return|;
 block|}
-comment|/**      * Create the correct xobject from the cos base.      *      * @param xobject The cos level xobject to create.      * @param isthumb specify if the xobject represent a Thumbnail Image (in this case, the subtype null must be considered as an Image)      * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
+comment|/**      * Create the correct xobject from the cos base.      *       * @param xobject The cos level xobject to create.      * @param isthumb specify if the xobject represent a Thumbnail Image (in this case, the subtype null must be      * considered as an Image)      * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
 specifier|protected
 specifier|static
 name|PDXObject
@@ -522,11 +517,11 @@ name|JPX_DECODE
 argument_list|)
 condition|)
 block|{
-comment|//throw new IOException( "JPXDecode has not been implemented for images" );
-comment|//JPX Decode is not really supported right now, but if we are just doing
-comment|//text extraction then we don't want to throw an exception, so for now
-comment|//just return a PDPixelMap, which will break later on if it is
-comment|//actually used, but for text extraction it is not used.
+comment|// throw new IOException( "JPXDecode has not been implemented for images" );
+comment|// JPX Decode is not really supported right now, but if we are just doing
+comment|// text extraction then we don't want to throw an exception, so for now
+comment|// just return a PDPixelMap, which will break later on if it is
+comment|// actually used, but for text extraction it is not used.
 return|return
 operator|new
 name|PDPixelMap
@@ -588,7 +583,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Get the metadata that is part of the document catalog.  This will      * return null if there is no meta data for this object.      *      * @return The metadata for this object.      */
+comment|/**      * Get the metadata that is part of the document catalog. This will return null if there is no meta data for this      * object.      *       * @return The metadata for this object.      */
 specifier|public
 name|PDMetadata
 name|getMetadata
@@ -605,9 +600,7 @@ init|=
 operator|(
 name|COSStream
 operator|)
-name|xobject
-operator|.
-name|getStream
+name|getCOSStream
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -637,7 +630,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the metadata for this object.  This can be null.      *      * @param meta The meta data for this object.      */
+comment|/**      * Set the metadata for this object. This can be null.      *       * @param meta The meta data for this object.      */
 specifier|public
 name|void
 name|setMetadata
@@ -646,9 +639,7 @@ name|PDMetadata
 name|meta
 parameter_list|)
 block|{
-name|xobject
-operator|.
-name|getStream
+name|getCOSStream
 argument_list|()
 operator|.
 name|setItem
@@ -658,6 +649,48 @@ operator|.
 name|METADATA
 argument_list|,
 name|meta
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This will get the key of this XObject in the structural parent tree. Required if the form XObject is a structural      * content item.      *       * @return the integer key of the XObject's entry in the structural parent tree      */
+specifier|public
+name|int
+name|getStructParent
+parameter_list|()
+block|{
+return|return
+name|getCOSStream
+argument_list|()
+operator|.
+name|getInt
+argument_list|(
+name|COSName
+operator|.
+name|STRUCT_PARENT
+argument_list|,
+literal|0
+argument_list|)
+return|;
+block|}
+comment|/**      * This will set the key for this XObject in the structural parent tree.      *       * @param structParent The new key for this XObject.      */
+specifier|public
+name|void
+name|setStructParent
+parameter_list|(
+name|int
+name|structParent
+parameter_list|)
+block|{
+name|getCOSStream
+argument_list|()
+operator|.
+name|setInt
+argument_list|(
+name|COSName
+operator|.
+name|STRUCT_PARENT
+argument_list|,
+name|structParent
 argument_list|)
 expr_stmt|;
 block|}

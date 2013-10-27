@@ -176,7 +176,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A form xobject.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
+comment|/**  * A form xobject.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
 end_comment
 
 begin_class
@@ -195,7 +195,7 @@ name|SUB_TYPE
 init|=
 literal|"Form"
 decl_stmt|;
-comment|/**      * Standard constuctor.      *      * @param formStream The XObject is passed as a COSStream.      */
+comment|/**      * Standard constuctor.      *       * @param formStream The XObject is passed as a COSStream.      */
 specifier|public
 name|PDXObjectForm
 parameter_list|(
@@ -221,7 +221,7 @@ name|SUB_TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Standard constuctor.      *      * @param formStream The XObject is passed as a COSStream.      */
+comment|/**      * Standard constuctor.      *       * @param formStream The XObject is passed as a COSStream.      */
 specifier|public
 name|PDXObjectForm
 parameter_list|(
@@ -247,7 +247,7 @@ name|SUB_TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the form type, currently 1 is the only form type.      *      * @return The form type.      */
+comment|/**      * This will get the form type, currently 1 is the only form type.      *       * @return The form type.      */
 specifier|public
 name|int
 name|getFormType
@@ -265,7 +265,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the form type.      *      * @param formType The new form type.      */
+comment|/**      * Set the form type.      *       * @param formType The new form type.      */
 specifier|public
 name|void
 name|setFormType
@@ -285,7 +285,7 @@ name|formType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the resources at this page and not look up the hierarchy.      * This attribute is inheritable, and findResources() should probably used.      * This will return null if no resources are available at this level.      *      * @return The resources at this level in the hierarchy.      */
+comment|/**      * This will get the resources at this page and not look up the hierarchy. This attribute is inheritable, and      * findResources() should probably used. This will return null if no resources are available at this level.      *       * @return The resources at this level in the hierarchy.      */
 specifier|public
 name|PDResources
 name|getResources
@@ -332,7 +332,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the resources for this page.      *      * @param resources The new resources for this page.      */
+comment|/**      * This will set the resources for this page.      *       * @param resources The new resources for this page.      */
 specifier|public
 name|void
 name|setResources
@@ -354,7 +354,7 @@ name|resources
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * An array of four numbers in the form coordinate system (see      * below), giving the coordinates of the left, bottom, right, and top edges,      * respectively, of the form XObject's bounding box. These boundaries are used      * to clip the form XObject and to determine its size for caching.      *      * @return The BBox of the form.      */
+comment|/**      * An array of four numbers in the form coordinate system (see below), giving the coordinates of the left, bottom,      * right, and top edges, respectively, of the form XObject's bounding box. These boundaries are used to clip the      * form XObject and to determine its size for caching.      *       * @return The BBox of the form.      */
 specifier|public
 name|PDRectangle
 name|getBBox
@@ -401,7 +401,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the BBox (bounding box) for this form.      *      * @param bbox The new BBox for this form.      */
+comment|/**      * This will set the BBox (bounding box) for this form.      *       * @param bbox The new BBox for this form.      */
 specifier|public
 name|void
 name|setBBox
@@ -447,7 +447,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the optional Matrix of an XObjectForm.      * It maps the form space into the user space      * @return the form matrix      */
+comment|/**      * This will get the optional Matrix of an XObjectForm. It maps the form space into the user space      *       * @return the form matrix      */
 specifier|public
 name|Matrix
 name|getMatrix
@@ -636,7 +636,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Sets the optional Matrix entry for the form XObject.      * @param transform the transformation matrix      */
+comment|/**      * Sets the optional Matrix entry for the form XObject.      *       * @param transform the transformation matrix      */
 specifier|public
 name|void
 name|setMatrix
@@ -702,6 +702,48 @@ operator|.
 name|MATRIX
 argument_list|,
 name|matrix
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This will get the key of this XObjectForm in the structural parent tree. Required if the form XObject contains      * marked-content sequences that are structural content items.      *       * @return the integer key of the XObjectForm's entry in the structural parent tree      */
+specifier|public
+name|int
+name|getStructParents
+parameter_list|()
+block|{
+return|return
+name|getCOSStream
+argument_list|()
+operator|.
+name|getInt
+argument_list|(
+name|COSName
+operator|.
+name|STRUCT_PARENTS
+argument_list|,
+literal|0
+argument_list|)
+return|;
+block|}
+comment|/**      * This will set the key for this XObjectForm in the structural parent tree.      *       * @param structParent The new key for this XObjectForm.      */
+specifier|public
+name|void
+name|setStructParents
+parameter_list|(
+name|int
+name|structParent
+parameter_list|)
+block|{
+name|getCOSStream
+argument_list|()
+operator|.
+name|setInt
+argument_list|(
+name|COSName
+operator|.
+name|STRUCT_PARENTS
+argument_list|,
+name|structParent
 argument_list|)
 expr_stmt|;
 block|}

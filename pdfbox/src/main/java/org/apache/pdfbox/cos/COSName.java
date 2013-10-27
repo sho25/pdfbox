@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a PDF named object.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.42 $  */
+comment|/**  * This class represents a PDF named object.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -114,7 +114,7 @@ argument_list|<
 name|COSName
 argument_list|>
 block|{
-comment|/**      * Note: This is a ConcurrentHashMap because a HashMap must be synchronized if accessed by      * multiple threads.      */
+comment|/**      * Note: This is a ConcurrentHashMap because a HashMap must be synchronized if accessed by multiple threads.      */
 specifier|private
 specifier|static
 name|Map
@@ -136,7 +136,7 @@ argument_list|(
 literal|8192
 argument_list|)
 decl_stmt|;
-comment|/**      * All common COSName values are stored in a simple HashMap. They are already defined as      * static constants and don't need to be synchronized for multithreaded environments.      */
+comment|/**      * All common COSName values are stored in a simple HashMap. They are already defined as static constants and don't      * need to be synchronized for multithreaded environments.      */
 specifier|private
 specifier|static
 name|Map
@@ -182,7 +182,7 @@ argument_list|(
 literal|"AA"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -247,7 +247,7 @@ argument_list|(
 literal|"Alternate"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -325,7 +325,7 @@ argument_list|(
 literal|"ArtBox"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -351,7 +351,7 @@ argument_list|(
 literal|"ASCII85Decode"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -403,7 +403,7 @@ argument_list|(
 literal|"ASCIIHexDecode"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -481,7 +481,7 @@ argument_list|(
 literal|"B"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -494,7 +494,7 @@ argument_list|(
 literal|"Background"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -507,7 +507,7 @@ argument_list|(
 literal|"BaseEncoding"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -663,7 +663,7 @@ argument_list|(
 literal|"BPC"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -741,7 +741,7 @@ argument_list|(
 literal|"ca"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -754,7 +754,7 @@ argument_list|(
 literal|"CalGray"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -780,7 +780,7 @@ argument_list|(
 literal|"CapHeight"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -793,7 +793,7 @@ argument_list|(
 literal|"CCITTFaxDecode"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -845,7 +845,7 @@ argument_list|(
 literal|"CFM"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -858,7 +858,7 @@ argument_list|(
 literal|"CharProcs"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -871,7 +871,7 @@ argument_list|(
 literal|"CharSet"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -884,7 +884,7 @@ argument_list|(
 literal|"CIDFontType0"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -897,7 +897,7 @@ argument_list|(
 literal|"CIDFontType2"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1001,7 +1001,7 @@ argument_list|(
 literal|"Contents"
 argument_list|)
 decl_stmt|;
-comment|/**       * A common COSName value.       */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1014,7 +1014,7 @@ argument_list|(
 literal|"Coords"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1287,7 +1287,7 @@ argument_list|(
 literal|"DestOutputProfile"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1300,7 +1300,7 @@ argument_list|(
 literal|"DeviceCMYK"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1313,7 +1313,7 @@ argument_list|(
 literal|"DeviceGray"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1326,7 +1326,7 @@ argument_list|(
 literal|"DeviceN"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1846,7 +1846,7 @@ argument_list|(
 literal|"Fields"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1859,7 +1859,7 @@ argument_list|(
 literal|"Filespec"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1872,7 +1872,7 @@ argument_list|(
 literal|"Filter"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1885,7 +1885,7 @@ argument_list|(
 literal|"First"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1911,7 +1911,7 @@ argument_list|(
 literal|"FitWindow"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1950,7 +1950,7 @@ argument_list|(
 literal|"FlateDecode"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -1963,7 +1963,7 @@ argument_list|(
 literal|"Fl"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2067,7 +2067,7 @@ argument_list|(
 literal|"FontMatrix"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2080,7 +2080,7 @@ argument_list|(
 literal|"FontName"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2106,7 +2106,7 @@ argument_list|(
 literal|"FontWeight"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2235,7 +2235,7 @@ argument_list|(
 literal|"H"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2287,7 +2287,7 @@ argument_list|(
 literal|"HideWindowUI"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2352,7 +2352,7 @@ argument_list|(
 literal|"Identity"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2365,7 +2365,7 @@ argument_list|(
 literal|"Identity-H"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2404,7 +2404,7 @@ argument_list|(
 literal|"Index"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2482,7 +2482,7 @@ argument_list|(
 literal|"JBIG2Globals"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2534,7 +2534,7 @@ argument_list|(
 literal|"Kids"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2625,7 +2625,7 @@ argument_list|(
 literal|"Leading"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2638,7 +2638,7 @@ argument_list|(
 literal|"LegalAttestation"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2702,7 +2702,7 @@ argument_list|(
 literal|"LJ"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2728,7 +2728,7 @@ argument_list|(
 literal|"LZWDecode"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2754,7 +2754,7 @@ argument_list|(
 literal|"M"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2767,7 +2767,7 @@ argument_list|(
 literal|"Mac"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2876,6 +2876,32 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|STRUCT_PARENT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"StructParent"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|STRUCT_PARENTS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"StructParents"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|METADATA
 init|=
 operator|new
@@ -2910,7 +2936,7 @@ argument_list|(
 literal|"ML"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2936,7 +2962,7 @@ argument_list|(
 literal|"ModDate"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2949,7 +2975,7 @@ argument_list|(
 literal|"N"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -3391,7 +3417,7 @@ argument_list|(
 literal|"PageMode"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -3404,7 +3430,7 @@ argument_list|(
 literal|"Pages"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -3417,7 +3443,7 @@ argument_list|(
 literal|"PaintType"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -3435,6 +3461,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|PARENT_TREE
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ParentTree"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|PARENT_TREE_NEXT_KEY
 init|=
 operator|new
@@ -3443,7 +3482,7 @@ argument_list|(
 literal|"ParentTreeNextKey"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -3456,7 +3495,7 @@ argument_list|(
 literal|"Pattern"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -3469,7 +3508,7 @@ argument_list|(
 literal|"PatternType"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -3742,7 +3781,7 @@ argument_list|(
 literal|"RegistryName"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -3781,7 +3820,7 @@ argument_list|(
 literal|"RoleMap"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -3820,7 +3859,7 @@ argument_list|(
 literal|"Rows"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -3833,7 +3872,7 @@ argument_list|(
 literal|"RunLengthDecode"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -4002,7 +4041,7 @@ argument_list|(
 literal|"Size"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -4119,7 +4158,7 @@ argument_list|(
 literal|"SubFilter"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -4327,7 +4366,7 @@ argument_list|(
 literal|"TrustedMode"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -4353,7 +4392,7 @@ argument_list|(
 literal|"TU"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -4379,7 +4418,7 @@ argument_list|(
 literal|"Type0"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -4392,7 +4431,7 @@ argument_list|(
 literal|"Type1"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -4483,7 +4522,7 @@ argument_list|(
 literal|"URL"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -4600,7 +4639,7 @@ argument_list|(
 literal|"Widths"
 argument_list|)
 decl_stmt|;
-comment|/**     * A common COSName value.     */
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -4735,7 +4774,7 @@ block|{
 literal|35
 block|}
 decl_stmt|;
-comment|//The # character
+comment|// The # character
 comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
@@ -4913,7 +4952,7 @@ specifier|private
 name|int
 name|hashCode
 decl_stmt|;
-comment|/**      * This will get a COSName object with that name.      *      * @param aName The name of the object.      *      * @return A COSName with the specified name.      */
+comment|/**      * This will get a COSName object with that name.      *       * @param aName The name of the object.      *       * @return A COSName with the specified name.      */
 specifier|public
 specifier|static
 specifier|final
@@ -4970,7 +5009,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|//name is added to the synchronized map in the constructor
+comment|// name is added to the synchronized map in the constructor
 name|name
 operator|=
 operator|new
@@ -4988,7 +5027,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * Private constructor.  This will limit the number of COSName objects.      * that are created.      *      * @param aName The name of the COSName object.      * @param staticValue Indicates if the COSName object is static so that it can      *        be stored in the HashMap without synchronizing.      */
+comment|/**      * Private constructor. This will limit the number of COSName objects. that are created.      *       * @param aName The name of the COSName object.      * @param staticValue Indicates if the COSName object is static so that it can be stored in the HashMap without      * synchronizing.      */
 specifier|private
 name|COSName
 parameter_list|(
@@ -5038,7 +5077,7 @@ name|hashCode
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Private constructor.  This will limit the number of COSName objects.      * that are created.      *      * @param aName The name of the COSName object.      */
+comment|/**      * Private constructor. This will limit the number of COSName objects. that are created.      *       * @param aName The name of the COSName object.      */
 specifier|private
 name|COSName
 parameter_list|(
@@ -5054,7 +5093,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the name of this COSName object.      *      * @return The name of the object.      */
+comment|/**      * This will get the name of this COSName object.      *       * @return The name of the object.      */
 specifier|public
 name|String
 name|getName
@@ -5166,7 +5205,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws COSVisitorException If an error occurs while visiting this object.      */
+comment|/**      * visitor pattern double dispatch method.      *       * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws COSVisitorException If an error occurs while visiting this object.      */
 specifier|public
 name|Object
 name|accept
@@ -5186,7 +5225,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * This will output this string as a PDF object.      *      * @param output The stream to write to.      * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * This will output this string as a PDF object.      *       * @param output The stream to write to.      * @throws IOException If there is an error writing to the stream.      */
 specifier|public
 name|void
 name|writePDF
@@ -5331,7 +5370,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**       * Not usually needed except if resources need to be reclaimed in a ong       * running process.       * Patch provided by flester@GMail.com       * incorporated 5/23/08, Danielwilson@users.SourceForge.net       */
+comment|/**      * Not usually needed except if resources need to be reclaimed in a long running process. Patch provided by      * flester@GMail.com incorporated 5/23/08, Danielwilson@users.SourceForge.net      */
 specifier|public
 specifier|static
 specifier|synchronized

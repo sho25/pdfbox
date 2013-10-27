@@ -880,6 +880,46 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * This will get the key of this Page in the structural parent tree.      *       * @return the integer key of the page's entry in the structural parent tree      */
+specifier|public
+name|int
+name|getStructParents
+parameter_list|()
+block|{
+return|return
+name|page
+operator|.
+name|getInt
+argument_list|(
+name|COSName
+operator|.
+name|STRUCT_PARENTS
+argument_list|,
+literal|0
+argument_list|)
+return|;
+block|}
+comment|/**      * This will set the key for this page in the structural parent tree.      *       * @param structParents The new key for this page.      */
+specifier|public
+name|void
+name|setStructParents
+parameter_list|(
+name|int
+name|structParents
+parameter_list|)
+block|{
+name|page
+operator|.
+name|setInt
+argument_list|(
+name|COSName
+operator|.
+name|STRUCT_PARENTS
+argument_list|,
+name|structParents
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * A rectangle, expressed in default user space units, defining the boundaries of the physical medium on which the      * page is intended to be displayed or printed      *       * This will get the MediaBox at this page and not look up the hierarchy. This attribute is inheritable, and      * findMediaBox() should probably used. This will return null if no MediaBox are available at this level.      *       * @return The MediaBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
