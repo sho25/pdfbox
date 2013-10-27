@@ -21,69 +21,31 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|action
-operator|.
-name|PDFormFieldAdditionalActions
+name|IOException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|annotation
-operator|.
-name|PDAnnotationWidget
+name|ArrayList
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
-name|COSArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
-name|COSObjectable
+name|List
 import|;
 end_import
 
@@ -169,6 +131,38 @@ name|pdmodel
 operator|.
 name|common
 operator|.
+name|COSArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|COSObjectable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
 name|PDTextStream
 import|;
 end_import
@@ -197,44 +191,50 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|action
+operator|.
+name|PDFormFieldAdditionalActions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|annotation
+operator|.
+name|PDAnnotationWidget
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|util
 operator|.
 name|BitFlagHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * This is the superclass for a Field element in a PDF.  * Based on the COS object model from PDFBox.  *  * @author sug  * @version $Revision: 1.23 $  */
+comment|/**  * This is the superclass for a Field element in a PDF. Based on the COS object model from PDFBox.  *   * @author sug  *   */
 end_comment
 
 begin_class
@@ -284,7 +284,7 @@ specifier|private
 name|COSDictionary
 name|dictionary
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param theAcroForm The form that this field is part of.      */
+comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      */
 specifier|public
 name|PDField
 parameter_list|(
@@ -302,9 +302,9 @@ operator|new
 name|COSDictionary
 argument_list|()
 expr_stmt|;
-comment|//no required fields in base field class
+comment|// no required fields in base field class
 block|}
-comment|/**      * Creates a COSField from a COSDictionary, expected to be      * a correct object definition for a field in PDF.      *      * @param theAcroForm The form that this field is part of.      * @param field the PDF objet to represent as a field.      */
+comment|/**      * Creates a COSField from a COSDictionary, expected to be a correct object definition for a field in PDF.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF objet to represent as a field.      */
 specifier|public
 name|PDField
 parameter_list|(
@@ -324,7 +324,7 @@ operator|=
 name|field
 expr_stmt|;
 block|}
-comment|/**      * Returns the partial name of the field.      *      * @return the name of the field      */
+comment|/**      * Returns the partial name of the field.      *       * @return the name of the field      */
 specifier|public
 name|String
 name|getPartialName
@@ -342,7 +342,7 @@ name|T
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the partial name of the field.      *      * @param name The new name for the field.      */
+comment|/**      * This will set the partial name of the field.      *       * @param name The new name for the field.      */
 specifier|public
 name|void
 name|setPartialName
@@ -364,7 +364,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the fully qualified name of the field, which is a concatenation of      * the names of all the parents fields.      *      * @return the name of the field      *      * @throws IOException If there is an error generating the fully qualified name.      */
+comment|/**      * Returns the fully qualified name of the field, which is a concatenation of the names of all the parents fields.      *       * @return the name of the field      *       * @throws IOException If there is an error generating the fully qualified name.      */
 specifier|public
 name|String
 name|getFullyQualifiedName
@@ -468,7 +468,7 @@ name|alternateFieldName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the FT entry of the field.  This is a read only field and is set depending      * on the actual type.  The field type is an inheritable attribute.  This method will      * return only the direct value on this object.  Use the findFieldType for an upward      * recursive search.      *      * @return The Field type.      *      * @see PDField#findFieldType()      */
+comment|/**      * Get the FT entry of the field. This is a read only field and is set depending on the actual type. The field type      * is an inheritable attribute. This method will return only the direct value on this object. Use the findFieldType      * for an upward recursive search.      *       * @return The Field type.      *       * @see PDField#findFieldType()      */
 specifier|public
 name|String
 name|getFieldType
@@ -486,7 +486,7 @@ name|FT
 argument_list|)
 return|;
 block|}
-comment|/**      * Find the field type and optionally do a recursive upward search.  Sometimes the fieldtype      * will be specified on the parent instead of the direct object.  This will look at this      * object for the field type, if none is specified then it will look to the parent if there      * is a parent.  If there is no parent and no field type has been found then this      * will return null.      *      * @return The field type or null if none was found.      */
+comment|/**      * Find the field type and optionally do a recursive upward search. Sometimes the fieldtype will be specified on the      * parent instead of the direct object. This will look at this object for the field type, if none is specified then      * it will look to the parent if there is a parent. If there is no parent and no field type has been found then this      * will return null.      *       * @return The field type or null if none was found.      */
 specifier|public
 name|String
 name|findFieldType
@@ -566,7 +566,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * setValue sets the fields value to a given string.      *      * @param value the string value      *      * @throws IOException If there is an error creating the appearance stream.      */
+comment|/**      * setValue sets the fields value to a given string.      *       * @param value the string value      *       * @throws IOException If there is an error creating the appearance stream.      */
 specifier|public
 specifier|abstract
 name|void
@@ -578,7 +578,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * getValue gets the fields value to as a string.      *      * @return The string value of this field.      *      * @throws IOException If there is an error getting the value.      */
+comment|/**      * getValue gets the fields value to as a string.      *       * @return The string value of this field.      *       * @throws IOException If there is an error getting the value.      */
 specifier|public
 specifier|abstract
 name|String
@@ -587,7 +587,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * sets the field to be read-only.      *      * @param readonly The new flag for readonly.      */
+comment|/**      * sets the field to be read-only.      *       * @param readonly The new flag for readonly.      */
 specifier|public
 name|void
 name|setReadonly
@@ -613,7 +613,7 @@ name|readonly
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *      * @return true if the field is readonly      */
+comment|/**      *       * @return true if the field is readonly      */
 specifier|public
 name|boolean
 name|isReadonly
@@ -635,7 +635,7 @@ name|FLAG_READ_ONLY
 argument_list|)
 return|;
 block|}
-comment|/**      * sets the field to be required.      *      * @param required The new flag for required.      */
+comment|/**      * sets the field to be required.      *       * @param required The new flag for required.      */
 specifier|public
 name|void
 name|setRequired
@@ -661,7 +661,7 @@ name|required
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *      * @return true if the field is required      */
+comment|/**      *       * @return true if the field is required      */
 specifier|public
 name|boolean
 name|isRequired
@@ -683,7 +683,7 @@ name|FLAG_REQUIRED
 argument_list|)
 return|;
 block|}
-comment|/**      * sets the field to be not exported..      *      * @param noExport The new flag for noExport.      */
+comment|/**      * sets the field to be not exported..      *       * @param noExport The new flag for noExport.      */
 specifier|public
 name|void
 name|setNoExport
@@ -709,7 +709,7 @@ name|noExport
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *      * @return true if the field is not to be exported.      */
+comment|/**      *       * @return true if the field is not to be exported.      */
 specifier|public
 name|boolean
 name|isNoExport
@@ -731,7 +731,7 @@ name|FLAG_NO_EXPORT
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the flags for this field.      *      * @return flags The set of flags.      */
+comment|/**      * This will get the flags for this field.      *       * @return flags The set of flags.      */
 specifier|public
 name|int
 name|getFieldFlags
@@ -777,7 +777,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the flags for this field.      *      * @param flags The new flags.      */
+comment|/**      * This will set the flags for this field.      *       * @param flags The new flags.      */
 specifier|public
 name|void
 name|setFieldFlags
@@ -799,7 +799,7 @@ name|flags
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will import a fdf field from a fdf document.      *      * @param fdfField The fdf field to import.      *      * @throws IOException If there is an error importing the data for this field.      */
+comment|/**      * This will import a fdf field from a fdf document.      *       * @param fdfField The fdf field to import.      *       * @throws IOException If there is an error importing the data for this field.      */
 specifier|public
 name|void
 name|importFDF
@@ -914,7 +914,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//these are suppose to be ignored if the Ff is set.
+comment|// these are suppose to be ignored if the Ff is set.
 name|Integer
 name|setFf
 init|=
@@ -965,14 +965,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//we have to clear the bits of the document fields for every bit that is
-comment|//set in this field.
+comment|// we have to clear the bits of the document fields for every bit that is
+comment|// set in this field.
 comment|//
-comment|//Example:
-comment|//docFf = 1011
-comment|//clrFf = 1101
-comment|//clrFfValue = 0010;
-comment|//newValue = 1011& 0010 which is 0010
+comment|// Example:
+comment|// docFf = 1011
+comment|// clrFf = 1101
+comment|// clrFfValue = 0010;
+comment|// newValue = 1011& 0010 which is 0010
 name|int
 name|clrFfValue
 init|=
@@ -1051,7 +1051,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//these are suppose to be ignored if the F is set.
+comment|// these are suppose to be ignored if the F is set.
 name|Integer
 name|setF
 init|=
@@ -1099,14 +1099,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//we have to clear the bits of the document fields for every bit that is
-comment|//set in this field.
+comment|// we have to clear the bits of the document fields for every bit that is
+comment|// set in this field.
 comment|//
-comment|//Example:
-comment|//docF = 1011
-comment|//clrF = 1101
-comment|//clrFValue = 0010;
-comment|//newValue = 1011& 0010 which is 0010
+comment|// Example:
+comment|// docF = 1011
+comment|// clrF = 1101
+comment|// clrFValue = 0010;
+comment|// newValue = 1011& 0010 which is 0010
 name|int
 name|clrFValue
 init|=
@@ -1267,7 +1267,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * This will get the single associated widget that is part of this field.  This      * occurs when the Widget is embedded in the fields dictionary.  Sometimes there      * are multiple sub widgets associated with this field, in which case you want to      * use getKids().  If the kids entry is specified, then the first entry in that      * list will be returned.      *      * @return The widget that is associated with this field.      * @throws IOException If there is an error getting the widget object.      */
+comment|/**      * This will get the single associated widget that is part of this field. This occurs when the Widget is embedded in      * the fields dictionary. Sometimes there are multiple sub widgets associated with this field, in which case you      * want to use getKids(). If the kids entry is specified, then the first entry in that list will be returned.      *       * @return The widget that is associated with this field.      * @throws IOException If there is an error getting the widget object.      */
 specifier|public
 name|PDAnnotationWidget
 name|getWidget
@@ -1369,7 +1369,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Get the parent field to this field, or null if none exists.      *      * @return The parent field.      *      * @throws IOException If there is an error creating the parent field.      */
+comment|/**      * Get the parent field to this field, or null if none exists.      *       * @return The parent field.      *       * @throws IOException If there is an error creating the parent field.      */
 specifier|public
 name|PDField
 name|getParent
@@ -1426,7 +1426,7 @@ return|return
 name|parent
 return|;
 block|}
-comment|/**      * Set the parent of this field.      *      * @param parent The parent to this field.      */
+comment|/**      * Set the parent of this field.      *       * @param parent The parent to this field.      */
 specifier|public
 name|void
 name|setParent
@@ -1446,7 +1446,7 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will find one of the child elements.  The name array are the components      * of the name to search down the tree of names.  The nameIndex is where to      * start in that array.  This method is called recursively until it finds      * the end point based on the name array.      *      * @param name An array that picks the path to the field.      * @param nameIndex The index into the array.      * @return The field at the endpoint or null if none is found.      * @throws IOException If there is an error creating the field.      */
+comment|/**      * This will find one of the child elements. The name array are the components of the name to search down the tree      * of names. The nameIndex is where to start in that array. This method is called recursively until it finds the end      * point based on the name array.      *       * @param name An array that picks the path to the field.      * @param nameIndex The index into the array.      * @return The field at the endpoint or null if none is found.      * @throws IOException If there is an error creating the field.      */
 specifier|public
 name|PDField
 name|findKid
@@ -1585,7 +1585,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get all the kids of this field.  The values in the list      * will either be PDWidget or PDField.  Normally they will be PDWidget objects      * unless this is a non-terminal field and they will be child PDField objects.      *      * @return A list of either PDWidget or PDField objects.      * @throws IOException If there is an error retrieving the kids.      */
+comment|/**      * This will get all the kids of this field. The values in the list will either be PDWidget or PDField. Normally      * they will be PDWidget objects unless this is a non-terminal field and they will be child PDField objects.      *       * @return A list of either PDWidget or PDField objects.      * @throws IOException If there is an error retrieving the kids.      */
 specifier|public
 name|List
 argument_list|<
@@ -1671,6 +1671,15 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|kidDictionary
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|COSDictionary
 name|parent
 init|=
@@ -1789,6 +1798,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|COSObjectable
+argument_list|>
 argument_list|(
 name|kidsList
 argument_list|,
@@ -1800,7 +1812,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of kids.      *      * @param kids The list of child widgets.      */
+comment|/**      * This will set the list of kids.      *       * @param kids The list of child widgets.      */
 specifier|public
 name|void
 name|setKids
@@ -1835,7 +1847,7 @@ name|kidsArray
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return a string representation of this field.      *      * @return A string representation of this field.      */
+comment|/**      * This will return a string representation of this field.      *       * @return A string representation of this field.      */
 annotation|@
 name|Override
 specifier|public
@@ -1857,7 +1869,7 @@ name|V
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the acroform that this field is part of.      *      * @return The form this field is on.      */
+comment|/**      * This will get the acroform that this field is part of.      *       * @return The form this field is on.      */
 specifier|public
 name|PDAcroForm
 name|getAcroForm
@@ -1867,7 +1879,7 @@ return|return
 name|acroForm
 return|;
 block|}
-comment|/**      * This will set the form this field is on.      *      * @param value The new form to use.      */
+comment|/**      * This will set the form this field is on.      *       * @param value The new form to use.      */
 specifier|public
 name|void
 name|setAcroForm
@@ -1881,7 +1893,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * This will get the dictionary associated with this field.      *      * @return The dictionary that this class wraps.      */
+comment|/**      * This will get the dictionary associated with this field.      *       * @return The dictionary that this class wraps.      */
 specifier|public
 name|COSDictionary
 name|getDictionary
@@ -1891,7 +1903,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+comment|/**      * Convert this standard java object to a COS object.      *       * @return The cos object that matches this Java object.      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -1901,7 +1913,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Get the additional actions for this field.  This will return null      * if there are no additional actions for this field.      *      * @return The actions of the field.      */
+comment|/**      * Get the additional actions for this field. This will return null if there are no additional actions for this      * field.      *       * @return The actions of the field.      */
 specifier|public
 name|PDFormFieldAdditionalActions
 name|getActions
@@ -1947,7 +1959,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the actions of the field.      *      * @param actions The field actions.      */
+comment|/**      * Set the actions of the field.      *       * @param actions The field actions.      */
 specifier|public
 name|void
 name|setActions

@@ -55,42 +55,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|form
-operator|.
-name|PDAcroForm
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|form
-operator|.
-name|PDField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|exceptions
 operator|.
 name|CryptographyException
@@ -139,8 +103,78 @@ name|PDDocumentCatalog
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|COSObjectable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|form
+operator|.
+name|PDAcroForm
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|form
+operator|.
+name|PDField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|form
+operator|.
+name|PDSignatureField
+import|;
+end_import
+
 begin_comment
-comment|/**  * This example will take a PDF document and print all the fields from the file.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.16 $  */
+comment|/**  * This example will take a PDF document and print all the fields from the file.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -148,7 +182,7 @@ specifier|public
 class|class
 name|PrintFields
 block|{
-comment|/**      * This will print all the fields from the document.      *      * @param pdfDocument The PDF to get the fields from.      *      * @throws IOException If there is an error getting the fields.      */
+comment|/**      * This will print all the fields from the document.      *       * @param pdfDocument The PDF to get the fields from.      *       * @throws IOException If there is an error getting the fields.      */
 specifier|public
 name|void
 name|printFields
@@ -262,6 +296,9 @@ throws|throws
 name|IOException
 block|{
 name|List
+argument_list|<
+name|COSObjectable
+argument_list|>
 name|kids
 init|=
 name|field
@@ -277,6 +314,9 @@ literal|null
 condition|)
 block|{
 name|Iterator
+argument_list|<
+name|COSObjectable
+argument_list|>
 name|kidsIter
 init|=
 name|kids
@@ -321,7 +361,7 @@ operator|+
 name|sParent
 argument_list|)
 expr_stmt|;
-comment|//System.out.println(sParent + " is of type " + field.getClass().getName());
+comment|// System.out.println(sParent + " is of type " + field.getClass().getName());
 while|while
 condition|(
 name|kidsIter
@@ -370,6 +410,34 @@ block|}
 else|else
 block|{
 name|String
+name|fieldValue
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|field
+operator|instanceof
+name|PDSignatureField
+condition|)
+block|{
+comment|// PDSignature doesn't have a value
+name|fieldValue
+operator|=
+literal|"PDSignatureField"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|fieldValue
+operator|=
+name|field
+operator|.
+name|getValue
+argument_list|()
+expr_stmt|;
+block|}
+name|String
 name|outputString
 init|=
 name|sLevel
@@ -385,10 +453,7 @@ argument_list|()
 operator|+
 literal|" = "
 operator|+
-name|field
-operator|.
-name|getValue
-argument_list|()
+name|fieldValue
 operator|+
 literal|",  type="
 operator|+
@@ -411,7 +476,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will read a PDF file and print out the form elements.      *<br />      * see usage() for commandline      *      * @param args command line arguments      *      * @throws IOException If there is an error importing the FDF document.      * @throws CryptographyException If there is an error decrypting the document.      */
+comment|/**      * This will read a PDF file and print out the form elements.<br />      * see usage() for commandline      *       * @param args command line arguments      *       * @throws IOException If there is an error importing the FDF document.      * @throws CryptographyException If there is an error decrypting the document.      */
 specifier|public
 specifier|static
 name|void
