@@ -3348,7 +3348,8 @@ continue|continue;
 block|}
 else|else
 block|{
-comment|// if invalid chars was found
+comment|// if invalid chars was found: discard last
+comment|// hex character if it is not part of a pair
 if|if
 condition|(
 name|sBuf
@@ -3365,9 +3366,10 @@ name|sBuf
 operator|.
 name|deleteCharAt
 argument_list|(
-name|strmBuf
+name|sBuf
 operator|.
 name|length
+argument_list|()
 operator|-
 literal|1
 argument_list|)

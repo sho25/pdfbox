@@ -574,8 +574,9 @@ break|break;
 block|}
 try|try
 block|{
+comment|// don't reset flag to false if it is already true
 name|wasLastParsedObjectEOF
-operator|=
+operator||=
 name|parseObject
 argument_list|()
 expr_stmt|;
