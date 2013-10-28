@@ -348,6 +348,22 @@ name|FDF_HEADER
 init|=
 literal|"%FDF-"
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|PDF_DEFAULT_VERSION
+init|=
+literal|"1.4"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|FDF_DEFAULT_VERSION
+init|=
+literal|"1.0"
+decl_stmt|;
 comment|/**      * A list of duplicate objects found when Parsing the PDF      * File.      */
 specifier|private
 name|List
@@ -1138,6 +1154,42 @@ literal|"\\d.\\d"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|header
+operator|.
+name|length
+argument_list|()
+operator|<
+name|PDF_HEADER
+operator|.
+name|length
+argument_list|()
+operator|+
+literal|3
+condition|)
+block|{
+comment|// No version number at all, set to 1.4 as default
+name|header
+operator|=
+name|PDF_HEADER
+operator|+
+name|PDF_DEFAULT_VERSION
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No pdf version found, set to "
+operator|+
+name|PDF_DEFAULT_VERSION
+operator|+
+literal|" as default."
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|String
 name|headerGarbage
 init|=
@@ -1188,6 +1240,7 @@ literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 else|else
@@ -1205,6 +1258,42 @@ literal|"\\d.\\d"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|header
+operator|.
+name|length
+argument_list|()
+operator|<
+name|FDF_HEADER
+operator|.
+name|length
+argument_list|()
+operator|+
+literal|3
+condition|)
+block|{
+comment|// No version number at all, set to 1.0 as default
+name|header
+operator|=
+name|FDF_HEADER
+operator|+
+name|FDF_DEFAULT_VERSION
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No fdf version found, set to "
+operator|+
+name|FDF_DEFAULT_VERSION
+operator|+
+literal|" as default."
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|String
 name|headerGarbage
 init|=
@@ -1255,6 +1344,7 @@ literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|document
