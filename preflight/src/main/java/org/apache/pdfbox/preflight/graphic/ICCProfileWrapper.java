@@ -45,7 +45,23 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|OUTPUT_INTENT_DICTIONARY_KEY_DEST_OUTPUT_PROFILE
+name|ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|*
 import|;
 end_import
 
@@ -194,6 +210,22 @@ operator|.
 name|preflight
 operator|.
 name|PreflightDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|ValidationResult
+operator|.
+name|ValidationError
 import|;
 end_import
 
@@ -526,15 +558,24 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ValidationException
+name|context
+operator|.
+name|addValidationError
 argument_list|(
-literal|"DestOutputProfile isn't a ICCProfile"
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID
 argument_list|,
+literal|"DestOutputProfile isn't a valid ICCProfile. Caused by : "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -542,15 +583,24 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ValidationException
+name|context
+operator|.
+name|addValidationError
 argument_list|(
-literal|"Unable to parse the ICCProfile"
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID
 argument_list|,
+literal|"Unable to parse the ICCProfile. Caused by : "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

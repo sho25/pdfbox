@@ -1123,7 +1123,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-literal|"default"
+literal|"Default"
 operator|.
 name|equals
 argument_list|(
@@ -1140,7 +1140,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|,
-literal|"TR2 key only expect 'default' value, not '"
+literal|"TR2 key only expect 'Default' value, not '"
 operator|+
 name|s
 operator|+

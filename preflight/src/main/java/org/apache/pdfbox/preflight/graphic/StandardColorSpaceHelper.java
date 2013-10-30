@@ -996,6 +996,32 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|// this is not a ICC_Profile
+name|context
+operator|.
+name|addValidationError
+argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_ICCBASED
+argument_list|,
+literal|"ICCBase color space is invalid. Caused By: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
 name|IOException
 name|e
 parameter_list|)
@@ -1009,7 +1035,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE
 argument_list|,
-literal|"Unable to read ICCBase color space : "
+literal|"Unable to read ICCBase color space. Caused by : "
 operator|+
 name|e
 operator|.

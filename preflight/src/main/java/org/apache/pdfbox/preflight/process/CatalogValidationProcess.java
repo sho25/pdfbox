@@ -2798,7 +2798,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID
 argument_list|,
-literal|"DestOutputProfile isn't a ICCProfile"
+literal|"DestOutputProfile isn't a valid ICCProfile. Caused by : "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2813,7 +2818,7 @@ throw|throw
 operator|new
 name|ValidationException
 argument_list|(
-literal|"Unable to parse the ICC Profile"
+literal|"Unable to parse the ICC Profile."
 argument_list|,
 name|e
 argument_list|)
