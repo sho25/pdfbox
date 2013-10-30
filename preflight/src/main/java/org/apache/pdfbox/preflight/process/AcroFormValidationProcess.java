@@ -647,7 +647,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_ACTION_FORBIDDEN_WIDGET_ACTION_FIELD
 argument_list|,
-literal|"\"A\" must not be used in a Field dictionary"
+literal|"\"A\" must not be used in a widget annotation"
 argument_list|)
 argument_list|)
 expr_stmt|;
