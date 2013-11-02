@@ -130,7 +130,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a type 0 function in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This class represents a type 0 function in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -156,14 +156,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * An array of 2 × m numbers specifying the linear mapping of input values       * into the domain of the function’s sample table.       * Default value: [ 0 (Size0 − 1) 0 (Size1 − 1) … ].      */
+comment|/**      * An array of 2 x m numbers specifying the linear mapping of input values       * into the domain of the function's sample table.       * Default value: [ 0 (Size0 - 1) 0 (Size1 - 1) ...].      */
 specifier|private
 name|COSArray
 name|encode
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * An array of 2 × n numbers specifying the linear mapping of sample values       * into the range appropriate for the function’s output values.       * Default value: same as the value of Range      */
+comment|/**      * An array of 2 x n numbers specifying the linear mapping of sample values       * into the range appropriate for the function's output values.       * Default value: same as the value of Range      */
 specifier|private
 name|COSArray
 name|decode
@@ -962,24 +962,14 @@ name|getNumberOfOutputParameters
 argument_list|()
 decl_stmt|;
 name|int
-index|[]
 name|intInputValuesPrevious
 init|=
-operator|new
-name|int
-index|[
-name|numberOfInputValues
-index|]
+literal|0
 decl_stmt|;
 name|int
-index|[]
 name|intInputValuesNext
 init|=
-operator|new
-name|int
-index|[
-name|numberOfInputValues
-index|]
+literal|0
 decl_stmt|;
 for|for
 control|(
@@ -1091,10 +1081,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 name|intInputValuesPrevious
-index|[
-name|i
-index|]
-operator|=
+operator|+=
 operator|(
 name|int
 operator|)
@@ -1109,10 +1096,7 @@ index|]
 argument_list|)
 expr_stmt|;
 name|intInputValuesNext
-index|[
-name|i
-index|]
-operator|=
+operator|+=
 operator|(
 name|int
 operator|)
@@ -1280,84 +1264,32 @@ return|return
 name|outputValues
 return|;
 block|}
-comment|/**      * Get the samples for the given input values.      *       * @param inputValues an array containing the input values      * @return an array with the corresponding samples      */
+comment|/**      * Get the samples for the given input values.      *       * @param indexValue the index into the sample values array      * @return an array with the corresponding samples      */
 specifier|private
 name|float
 index|[]
 name|getSample
 parameter_list|(
 name|int
-index|[]
-name|inputValues
+name|indexValue
 parameter_list|)
 block|{
 name|int
-index|[]
 index|[]
 name|sampleValues
 init|=
 name|getSamples
 argument_list|()
-decl_stmt|;
-name|COSArray
-name|sizes
-init|=
-name|getSize
-argument_list|()
-decl_stmt|;
-name|int
-name|numberOfInputValues
-init|=
-name|getNumberOfInputParameters
-argument_list|()
-decl_stmt|;
-name|int
-name|index
-init|=
-literal|0
-decl_stmt|;
-name|int
-name|previousSize
-init|=
-literal|1
-decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|numberOfInputValues
-condition|;
-name|i
-operator|++
-control|)
-block|{
-name|index
-operator|+=
-name|inputValues
 index|[
-name|i
+name|indexValue
 index|]
-expr_stmt|;
-name|previousSize
-operator|*=
-name|sizes
-operator|.
-name|getInt
-argument_list|(
-name|i
-argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 name|int
-name|numberOfOutputValues
+name|numberOfValues
 init|=
-name|getNumberOfOutputParameters
-argument_list|()
+name|sampleValues
+operator|.
+name|length
 decl_stmt|;
 name|float
 index|[]
@@ -1366,7 +1298,7 @@ init|=
 operator|new
 name|float
 index|[
-name|numberOfOutputValues
+name|numberOfValues
 index|]
 decl_stmt|;
 for|for
@@ -1378,7 +1310,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|numberOfOutputValues
+name|numberOfValues
 condition|;
 name|i
 operator|++
@@ -1390,9 +1322,6 @@ name|i
 index|]
 operator|=
 name|sampleValues
-index|[
-name|index
-index|]
 index|[
 name|i
 index|]

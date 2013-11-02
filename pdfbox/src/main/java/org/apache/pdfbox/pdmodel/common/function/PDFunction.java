@@ -39,6 +39,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSBase
 import|;
 end_import
@@ -82,20 +96,6 @@ operator|.
 name|cos
 operator|.
 name|COSObject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSArray
 import|;
 end_import
 
@@ -162,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a function in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * This class represents a function in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -197,6 +197,20 @@ name|range
 init|=
 literal|null
 decl_stmt|;
+specifier|private
+name|int
+name|numberOfInputValues
+init|=
+operator|-
+literal|1
+decl_stmt|;
+specifier|private
+name|int
+name|numberOfOutputValues
+init|=
+operator|-
+literal|1
+decl_stmt|;
 comment|/**      * Constructor.      *      * @param function The function stream.      *       */
 specifier|public
 name|PDFunction
@@ -228,13 +242,15 @@ operator|.
 name|getStream
 argument_list|()
 operator|.
-name|setName
+name|setItem
 argument_list|(
 name|COSName
 operator|.
 name|TYPE
 argument_list|,
-literal|"Function"
+name|COSName
+operator|.
+name|FUNCTION
 argument_list|)
 expr_stmt|;
 block|}
@@ -472,19 +488,32 @@ name|int
 name|getNumberOfOutputParameters
 parameter_list|()
 block|{
+if|if
+condition|(
+name|numberOfOutputValues
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
 name|COSArray
 name|rangeValues
 init|=
 name|getRangeValues
 argument_list|()
 decl_stmt|;
-return|return
+name|numberOfOutputValues
+operator|=
 name|rangeValues
 operator|.
 name|size
 argument_list|()
 operator|/
 literal|2
+expr_stmt|;
+block|}
+return|return
+name|numberOfOutputValues
 return|;
 block|}
 comment|/**      * This will get the range for a certain output parameters.  This is will never      * return null.  If it is not present then the range 0 to 0 will      * be returned.      *      * @param n The output parameter number to get the range for.      *      * @return The range for this component.      */
@@ -544,19 +573,32 @@ name|int
 name|getNumberOfInputParameters
 parameter_list|()
 block|{
+if|if
+condition|(
+name|numberOfInputValues
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
 name|COSArray
 name|array
 init|=
 name|getDomainValues
 argument_list|()
 decl_stmt|;
-return|return
+name|numberOfInputValues
+operator|=
 name|array
 operator|.
 name|size
 argument_list|()
 operator|/
 literal|2
+expr_stmt|;
+block|}
+return|return
+name|numberOfInputValues
 return|;
 block|}
 comment|/**      * This will get the range for a certain input parameter.  This is will never      * return null.  If it is not present then the range 0 to 0 will      * be returned.      *      * @param n The parameter number to get the domain for.      *      * @return The domain range for this component.      */
