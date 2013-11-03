@@ -489,7 +489,7 @@ name|ABOUT_NAME
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the RDF about value.      *       * @return The RDF 'about' value.      */
+comment|/**      * Get the RDF about value.      *       * @return The RDF 'about' value. If there are not rdf:about attribute, an empty string is returned.      */
 specifier|public
 name|String
 name|getAboutValue
@@ -520,8 +520,9 @@ argument_list|()
 return|;
 block|}
 return|return
-literal|null
+literal|""
 return|;
+comment|// PDFBOX-1685 : if missing rdf:about should be considered as empty string
 block|}
 comment|/**      * Set the RDF 'about' attribute      *       * @param about      *            the well-formed attribute      * @throws BadFieldValueException      *             Bad Attribute name (not corresponding to about attribute)      */
 specifier|public
