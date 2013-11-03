@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a file specification.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This represents a file specification.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -893,6 +893,44 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Set the file description.      *       * @param description The file description      */
+specifier|public
+name|void
+name|setFileDescription
+parameter_list|(
+name|String
+name|description
+parameter_list|)
+block|{
+name|fs
+operator|.
+name|setString
+argument_list|(
+name|COSName
+operator|.
+name|DESC
+argument_list|,
+name|description
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This will get the description.      *      * @return The file description.      */
+specifier|public
+name|String
+name|getFileDescription
+parameter_list|()
+block|{
+return|return
+name|fs
+operator|.
+name|getString
+argument_list|(
+name|COSName
+operator|.
+name|DESC
+argument_list|)
+return|;
 block|}
 block|}
 end_class

@@ -1227,6 +1227,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|DESC
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Desc"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|DESCENT
 init|=
 operator|new
