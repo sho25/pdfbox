@@ -79,6 +79,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -88,6 +98,20 @@ operator|.
 name|cos
 operator|.
 name|COSArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSDocument
 import|;
 end_import
 
@@ -162,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * The class implements the standard security handler as decribed  * in the PDF specifications. This security handler protects document  * with password.  *  * @see StandardProtectionPolicy to see how to protect document with this security handler.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  * @version $Revision: 1.5 $  */
+comment|/**  *  * The class implements the standard security handler as decribed  * in the PDF specifications. This security handler protects document  * with password.  *  * @see StandardProtectionPolicy to see how to protect document with this security handler.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  */
 end_comment
 
 begin_class
@@ -220,6 +244,9 @@ specifier|public
 specifier|static
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|PROTECTION_POLICY_CLASS
 init|=
 name|StandardProtectionPolicy
@@ -451,7 +478,7 @@ block|{
 if|if
 condition|(
 name|version
-operator|==
+operator|<
 literal|2
 operator|&&
 operator|!
@@ -460,25 +487,7 @@ operator|.
 name|getPermissions
 argument_list|()
 operator|.
-name|canFillInForm
-argument_list|()
-operator|&&
-operator|!
-name|policy
-operator|.
-name|getPermissions
-argument_list|()
-operator|.
-name|canExtractForAccessibility
-argument_list|()
-operator|&&
-operator|!
-name|policy
-operator|.
-name|getPermissions
-argument_list|()
-operator|.
-name|canPrintDegraded
+name|hasAnyRevision3PermissionSet
 argument_list|()
 condition|)
 block|{
@@ -486,8 +495,31 @@ return|return
 literal|2
 return|;
 block|}
+if|if
+condition|(
+name|version
+operator|==
+literal|2
+operator|||
+name|version
+operator|==
+literal|3
+operator|||
+name|policy
+operator|.
+name|getPermissions
+argument_list|()
+operator|.
+name|hasAnyRevision3PermissionSet
+argument_list|()
+condition|)
+block|{
 return|return
 literal|3
+return|;
+block|}
+return|return
+literal|4
 return|;
 block|}
 comment|/**      * Decrypt the document.      *      * @param doc The document to be decrypted.      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
@@ -1385,7 +1417,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check for owner password.      *      * @param ownerPassword The owner password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      *      * @return True If the ownerPassword param is the owner password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check for owner password.      *      * @param ownerPassword The owner password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -1670,7 +1702,6 @@ operator|==
 literal|4
 condition|)
 block|{
-comment|/**                 byte[] iterationKey = new byte[ rc4Key.length ];                 byte[] dataToEncrypt = o;                 for( int i=19; i>=0; i-- )                 {                     System.arraycopy( rc4Key, 0, iterationKey, 0, rc4Key.length );                     for( int j=0; j< iterationKey.length; j++ )                     {                         iterationKey[j] = (byte)(iterationKey[j] ^ (byte)i);                     }                     rc4.setKey( iterationKey );                     rc4.write( dataToEncrypt, result );                     dataToEncrypt = result.toByteArray();                     result.reset();                 }                 result.write( dataToEncrypt, 0, dataToEncrypt.length );                 */
 name|byte
 index|[]
 name|iterationKey
@@ -1849,7 +1880,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Compute the encryption key.      *      * @param password The password to compute the encrypted key.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions for the document.      * @param id The document id.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      *      * @return The encrypted key bytes.      *      * @throws CryptographyException If there is an error with encryption.      */
+comment|/**      * Compute the encryption key.      *      * @param password The password to compute the encrypted key.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions for the document.      * @param id The document id.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return The encrypted key bytes.      *      * @throws CryptographyException If there is an error with encryption.      */
 specifier|public
 specifier|final
 name|byte
@@ -2178,7 +2209,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * This will compute the user password hash.      *      * @param password The plain text password.      * @param o The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param encRevision The revision of the encryption.      * @param length The length of the encryption key.      *      * @return The user password.      *      * @throws CryptographyException If there is an error computing the user password.      * @throws IOException If there is an IO error.      */
+comment|/**      * This will compute the user password hash.      *      * @param password The plain text password.      * @param o The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param encRevision The revision of the encryption.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return The user password.      *      * @throws CryptographyException If there is an error computing the user password.      * @throws IOException If there is an IO error.      */
 specifier|public
 specifier|final
 name|byte
@@ -2947,7 +2978,7 @@ return|return
 name|padded
 return|;
 block|}
-comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      *      * @return true If the plaintext password is the user password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -3023,7 +3054,9 @@ block|{
 comment|//STEP 2
 name|matches
 operator|=
-name|arraysEqual
+name|Arrays
+operator|.
+name|equals
 argument_list|(
 name|u
 argument_list|,
@@ -3072,7 +3105,7 @@ return|return
 name|matches
 return|;
 block|}
-comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      *      * @return true If the plaintext password is the user password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -3136,7 +3169,7 @@ name|encryptMetadata
 argument_list|)
 return|;
 block|}
-comment|/**      * Check for owner password.      *      * @param password The owner password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      *      * @return True If the ownerPassword param is the owner password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check for owner password.      *      * @param password The owner password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -3218,82 +3251,26 @@ name|int
 name|count
 parameter_list|)
 block|{
-name|boolean
-name|equal
-init|=
+comment|// both arrays have to have a minimum length of count
+if|if
+condition|(
 name|first
 operator|.
 name|length
-operator|>=
-name|count
-operator|&&
-name|second
-operator|.
-name|length
-operator|>=
-name|count
-decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
 operator|<
 name|count
-operator|&&
-name|equal
-condition|;
-name|i
-operator|++
-control|)
-block|{
-name|equal
-operator|=
-name|first
-index|[
-name|i
-index|]
-operator|==
+operator|||
 name|second
-index|[
-name|i
-index|]
-expr_stmt|;
-block|}
+operator|.
+name|length
+operator|<
+name|count
+condition|)
+block|{
 return|return
-name|equal
+literal|false
 return|;
 block|}
-comment|/**      * This will compare two byte[] for equality.      *      * @param first The first byte array.      * @param second The second byte array.      *      * @return true If the arrays contain the exact same data.      */
-specifier|private
-specifier|static
-specifier|final
-name|boolean
-name|arraysEqual
-parameter_list|(
-name|byte
-index|[]
-name|first
-parameter_list|,
-name|byte
-index|[]
-name|second
-parameter_list|)
-block|{
-name|boolean
-name|equal
-init|=
-name|first
-operator|.
-name|length
-operator|==
-name|second
-operator|.
-name|length
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -3303,31 +3280,32 @@ literal|0
 init|;
 name|i
 operator|<
-name|first
-operator|.
-name|length
-operator|&&
-name|equal
+name|count
 condition|;
 name|i
 operator|++
 control|)
 block|{
-name|equal
-operator|=
+if|if
+condition|(
 name|first
 index|[
 name|i
 index|]
-operator|==
+operator|!=
 name|second
 index|[
 name|i
 index|]
-expr_stmt|;
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 return|return
-name|equal
+literal|true
 return|;
 block|}
 block|}

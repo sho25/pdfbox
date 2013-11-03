@@ -18,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This class represents the access permissions to a document.  * These permissions are specified in the PDF format specifications, they include:  *<ul>  *<li>print the document</li>  *<li>modify the content of the document</li>  *<li>copy or extract content of the document</li>  *<li>add or modify annotations</li>  *<li>fill in interactive form fields</li>  *<li>extract text and graphics for accessibility to visually impaired people</li>  *<li>assemble the document</li>  *<li>print in degraded quality</li>  *</ul>  *  * This class can be used to protect a document by assigning access permissions to recipients.  * In this case, it must be used with a specific ProtectionPolicy.  *  *  * When a document is decrypted, it has a currentAccessPermission property which is the access permissions  * granted to the user who decrypted the document.  *  * @see ProtectionPolicy  * @see org.apache.pdfbox.pdmodel.PDDocument#getCurrentAccessPermission()  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  * @version $Revision: 1.4 $  */
+comment|/**  * This class represents the access permissions to a document.  * These permissions are specified in the PDF format specifications, they include:  *<ul>  *<li>print the document</li>  *<li>modify the content of the document</li>  *<li>copy or extract content of the document</li>  *<li>add or modify annotations</li>  *<li>fill in interactive form fields</li>  *<li>extract text and graphics for accessibility to visually impaired people</li>  *<li>assemble the document</li>  *<li>print in degraded quality</li>  *</ul>  *  * This class can be used to protect a document by assigning access permissions to recipients.  * In this case, it must be used with a specific ProtectionPolicy.  *  *  * When a document is decrypted, it has a currentAccessPermission property which is the access permissions  * granted to the user who decrypted the document.  *  * @see ProtectionPolicy  * @see org.apache.pdfbox.pdmodel.PDDocument#getCurrentAccessPermission()  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  */
 end_comment
 
 begin_class
@@ -806,6 +806,56 @@ parameter_list|()
 block|{
 return|return
 name|readOnly
+return|;
+block|}
+comment|/**      * Indicates if any revision 3 access permission is set or not.      *       * @return true if any revision 3 access permission is set      */
+specifier|protected
+name|boolean
+name|hasAnyRevision3PermissionSet
+parameter_list|()
+block|{
+if|if
+condition|(
+name|canFillInForm
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|canExtractForAccessibility
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|canAssembleDocument
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|canPrintDegraded
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
 return|;
 block|}
 block|}
