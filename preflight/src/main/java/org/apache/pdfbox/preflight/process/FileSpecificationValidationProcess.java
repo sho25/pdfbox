@@ -319,6 +319,18 @@ name|equals
 argument_list|(
 name|type
 argument_list|)
+operator|||
+name|COSName
+operator|.
+name|F
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
 condition|)
 block|{
 comment|// ---- It is a file specification
