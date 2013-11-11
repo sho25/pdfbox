@@ -152,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a metadata schema that can be stored in an XMP  * document. It handles all generic properties that are available. See  * subclasses for access to specific properties.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.8 $  */
+comment|/**  * This class represents a metadata schema that can be stored in an XMP  * document. It handles all generic properties that are available. See  * subclasses for access to specific properties.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -624,6 +624,13 @@ name|Calendar
 name|date
 parameter_list|)
 block|{
+if|if
+condition|(
+name|date
+operator|!=
+literal|null
+condition|)
+block|{
 name|setTextProperty
 argument_list|(
 name|propertyName
@@ -636,6 +643,18 @@ name|date
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// remove the value for the given property
+name|setTextProperty
+argument_list|(
+name|propertyName
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Get the value of the property as a boolean.      *       * @param propertyName      *            The fully qualified property name for the boolean.      *       * @return The value of the property as a boolean.      */
 specifier|public
