@@ -67,6 +67,26 @@ name|VisualSignatureParser
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|digitalsignature
+operator|.
+name|visible
+operator|.
+name|PDVisibleSigProperties
+import|;
+end_import
+
 begin_class
 specifier|public
 class|class
@@ -141,6 +161,26 @@ name|visParser
 operator|.
 name|getDocument
 argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Reads the visual signature from the given visual signature properties      *        * @param is the<code>PDVisibleSigProperties</code> object containing the visual signature      *       * @throws IOException when something went wrong during parsing      *       * @since 1.8.3      */
+specifier|public
+name|void
+name|setVisualSignature
+parameter_list|(
+name|PDVisibleSigProperties
+name|visSignatureProperties
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|setVisualSignature
+argument_list|(
+name|visSignatureProperties
+operator|.
+name|getVisibleSignature
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Get the visual signature.      *       * @return the visual signature      */
