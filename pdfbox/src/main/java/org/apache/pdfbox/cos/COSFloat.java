@@ -80,7 +80,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a floating point number in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.17 $  */
+comment|/**  * This class represents a floating point number in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -319,7 +319,7 @@ name|formatDecimal
 operator|.
 name|setMaximumFractionDigits
 argument_list|(
-literal|10
+literal|5
 argument_list|)
 expr_stmt|;
 name|formatDecimal
