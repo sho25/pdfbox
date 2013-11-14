@@ -330,7 +330,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to contain parsing logic that will be used by both the  * PDFParser and the COSStreamParser.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.61 $  */
+comment|/**  * This class is used to contain parsing logic that will be used by both the  * PDFParser and the COSStreamParser.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -1381,6 +1381,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|value
+operator|.
+name|setDirect
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|obj
 operator|.
 name|setItem

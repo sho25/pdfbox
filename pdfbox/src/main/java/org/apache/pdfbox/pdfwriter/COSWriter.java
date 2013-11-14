@@ -556,7 +556,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * this class acts on a in-memory representation of a pdf document.  *  * todo no support for incremental updates  * todo single xref section only  * todo no linearization  *  * @author Michael Traut  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.36 $  */
+comment|/**  * this class acts on a in-memory representation of a pdf document.  *  * todo no support for incremental updates  * todo single xref section only  * todo no linearization  *  * @author Michael Traut  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -4272,6 +4272,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|subValue
+operator|.
+name|isDirect
+argument_list|()
+condition|)
+block|{
 name|subValue
 operator|.
 name|accept
@@ -4279,6 +4287,20 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|addObjectToWrite
+argument_list|(
+name|subValue
+argument_list|)
+expr_stmt|;
+name|writeReference
+argument_list|(
+name|subValue
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 else|else
