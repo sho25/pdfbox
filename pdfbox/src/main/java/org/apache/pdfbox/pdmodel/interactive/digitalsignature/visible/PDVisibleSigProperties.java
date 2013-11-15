@@ -27,16 +27,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -51,36 +41,8 @@ name|InputStream
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSDictionary
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSDocument
-import|;
-end_import
-
 begin_comment
-comment|/**  * This builder class is in order to create visible signature properties.  *   * @author Vakhtang koroghlishvili (Gogebashvili)  *   */
+comment|/**  * This builder class is in order to create visible signature properties.  *   * @author<a href="mailto:vakhtang.koroghlishvili@gmail.com"> vakhtang koroghlishvili (gogebashvili)</a>  *   */
 end_comment
 
 begin_class
@@ -166,7 +128,7 @@ return|return
 name|signerName
 return|;
 block|}
-comment|/**      * sets signer name      * @param signerName      * @return      */
+comment|/**      * Sets signer name      * @param signerName      * @return      */
 specifier|public
 name|PDVisibleSigProperties
 name|signerName
@@ -185,7 +147,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *       * @return - location      */
+comment|/**      * Gets signer locations      * @return - location      */
 specifier|public
 name|String
 name|getSignerLocation

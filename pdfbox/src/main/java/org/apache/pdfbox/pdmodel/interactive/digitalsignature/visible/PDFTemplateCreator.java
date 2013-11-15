@@ -99,20 +99,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|cos
-operator|.
-name|COSDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|exceptions
 operator|.
 name|COSVisitorException
@@ -248,7 +234,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   * @author Vakhtang koroghlishvili (Gogebashvili)  *   */
+comment|/**  * Using that class, we  build pdf template  * @author<a href="mailto:vakhtang.koroghlishvili@gmail.com"> vakhtang koroghlishvili (gogebashvili)</a>  */
 end_comment
 
 begin_class
@@ -304,7 +290,7 @@ name|getStructure
 argument_list|()
 return|;
 block|}
-comment|/**      * this method build pdf, step by step, and finally it returns stream of visible signature      *       * @param properties      * @return InputStream      * @throws IOException      * @throws COSVisitorException      */
+comment|/**      * this method builds pdf  step by step, and finally it returns stream of visible signature      * @param properties      * @return InputStream      * @throws IOException      * @throws COSVisitorException      */
 specifier|public
 name|InputStream
 name|buildPDF
@@ -330,6 +316,7 @@ operator|.
 name|getStructure
 argument_list|()
 decl_stmt|;
+comment|// we create array of [Text, ImageB, ImageC, ImageI]
 name|this
 operator|.
 name|pdfBuilder
@@ -337,6 +324,7 @@ operator|.
 name|createProcSetArray
 argument_list|()
 expr_stmt|;
+comment|//create page
 name|this
 operator|.
 name|pdfBuilder
@@ -354,6 +342,7 @@ operator|.
 name|getPage
 argument_list|()
 decl_stmt|;
+comment|//create template
 name|this
 operator|.
 name|pdfBuilder
@@ -371,6 +360,7 @@ operator|.
 name|getTemplate
 argument_list|()
 decl_stmt|;
+comment|//create /AcroForm
 name|this
 operator|.
 name|pdfBuilder
@@ -388,6 +378,7 @@ operator|.
 name|getAcroForm
 argument_list|()
 decl_stmt|;
+comment|// AcroForm contains singature fields
 name|this
 operator|.
 name|pdfBuilder
@@ -405,6 +396,7 @@ operator|.
 name|getSignatureField
 argument_list|()
 decl_stmt|;
+comment|// create signature
 name|this
 operator|.
 name|pdfBuilder
@@ -421,6 +413,7 @@ name|getSignatureFieldName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// that is /AcroForm/DR entry
 name|this
 operator|.
 name|pdfBuilder
@@ -432,6 +425,7 @@ argument_list|,
 name|pdSignatureField
 argument_list|)
 expr_stmt|;
+comment|// create AffineTransform
 name|this
 operator|.
 name|pdfBuilder
@@ -452,6 +446,7 @@ operator|.
 name|getAffineTransform
 argument_list|()
 decl_stmt|;
+comment|// rectangle, formatter, image. /AcroForm/DR/XObject contains that form
 name|this
 operator|.
 name|pdfBuilder
@@ -497,6 +492,7 @@ name|getImageStream
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// create form stream, form and  resource.
 name|this
 operator|.
 name|pdfBuilder
@@ -542,6 +538,7 @@ argument_list|,
 name|formater
 argument_list|)
 expr_stmt|;
+comment|// that is /AP entry the appearance dictionary.
 name|this
 operator|.
 name|pdfBuilder
@@ -556,6 +553,7 @@ argument_list|,
 name|pdSignatureField
 argument_list|)
 expr_stmt|;
+comment|// inner formstream, form and resource (hlder form containts inner form)
 name|this
 operator|.
 name|pdfBuilder
@@ -604,6 +602,7 @@ operator|.
 name|getInnerForm
 argument_list|()
 decl_stmt|;
+comment|// inner form must be in the holder form as we wrote
 name|this
 operator|.
 name|pdfBuilder
@@ -615,6 +614,7 @@ argument_list|,
 name|holderFormResources
 argument_list|)
 expr_stmt|;
+comment|//  Image form is in this structure: /AcroForm/DR/FRM0/Resources/XObject/n0
 name|this
 operator|.
 name|pdfBuilder
@@ -669,6 +669,7 @@ name|getJpedImage
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// now inject procSetArray
 name|this
 operator|.
 name|pdfBuilder
@@ -715,6 +716,7 @@ operator|.
 name|getInnerFormName
 argument_list|()
 decl_stmt|;
+comment|// now create Streams of AP
 name|this
 operator|.
 name|pdfBuilder
@@ -767,7 +769,7 @@ name|in
 operator|=
 name|pdfStructure
 operator|.
-name|templateAppearanceStream
+name|getTemplateAppearanceStream
 argument_list|()
 expr_stmt|;
 block|}
@@ -781,7 +783,7 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"COSVisitorException: cant get apereance stream "
+literal|"COSVisitorException: can't get apereance stream "
 argument_list|,
 name|e
 argument_list|)
@@ -799,11 +801,13 @@ name|available
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// we must close the document
 name|template
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// return result of the stream
 return|return
 name|in
 return|;

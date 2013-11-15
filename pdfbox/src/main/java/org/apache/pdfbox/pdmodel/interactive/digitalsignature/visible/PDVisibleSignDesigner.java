@@ -160,7 +160,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   * That class is in order to build  your   * visible signature design. Because of   * this is builder, instead of setParam()  * we use param() methods.  * @author Vakhtang koroghlishvili (Gogebashvili)   */
+comment|/**  *   * That class is in order to build  your   * visible signature design. Because of   * this is builder, instead of setParam()  * we use param() methods.  * @author<a href="mailto:vakhtang.koroghlishvili@gmail.com"> vakhtang koroghlishvili (gogebashvili)</a>  */
 end_comment
 
 begin_class
@@ -287,7 +287,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *       * @param documentPath      * @param imageStream      * @param page -which page are you going to add visible signature      * @throws IOException      */
+comment|/**      *       * @param documentPath - path of your pdf document      * @param imageStream - stream of image      * @param page -which page are you going to add visible signature      * @throws IOException      */
 specifier|public
 name|PDVisibleSignDesigner
 parameter_list|(
@@ -333,6 +333,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      *       * @param doc - Already created PDDocument of your PDF document      * @param imageStream      * @param page      * @throws IOException - If we can't read, flush, or can't close stream      */
 specifier|public
 name|PDVisibleSignDesigner
 parameter_list|(
@@ -767,13 +768,13 @@ return|return
 name|imgageStream
 return|;
 block|}
-comment|/**      *       * @param imgageStream- stream of your visible signature image      * @return Visible Signature Configuration Object      * @throws IOException      */
+comment|/**      *       * @param imgageStream- stream of your visible signature image      * @return Visible Signature Configuration Object      * @throws IOException - If we can't read, flush, or close stream of image      */
 specifier|private
 name|PDVisibleSignDesigner
 name|signatureImageStream
 parameter_list|(
 name|InputStream
-name|imgageStream
+name|imageStream
 parameter_list|)
 throws|throws
 name|IOException
@@ -803,7 +804,7 @@ condition|(
 operator|(
 name|len
 operator|=
-name|imgageStream
+name|imageStream
 operator|.
 name|read
 argument_list|(
@@ -902,7 +903,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * calculates image width and height. sported formats: all      *       * @param fis - input stream of image      * @throws IOException      */
+comment|/**      * calculates image width and height. sported formats: all      *       * @param fis - input stream of image      * @throws IOException - if can't read input stream      */
 specifier|private
 name|void
 name|calcualteImageSize

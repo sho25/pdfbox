@@ -362,7 +362,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   * @author Vakhtang koroghlishvili (Gogebashvili)  *   */
+comment|/**  * That's implementation of<b>PDFTemplateBuilder</b>  * @see org.apache.pdfbox.pdmodel.interactive.digitalsignature.visible.PDFTemplateBuilder  * @author<a href="mailto:vakhtang.koroghlishvili@gmail.com"> vakhtang koroghlishvili (gogebashvili)</a>  *   */
 end_comment
 
 begin_class
