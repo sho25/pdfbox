@@ -33,8 +33,22 @@ name|COSDictionary
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
 begin_comment
-comment|/**  * A class for handling the PDF field as a textbox.  *  * @author sug  * @version $Revision: 1.9 $  */
+comment|/**  * A class for handling the PDF field as a textbox.  *  * @author sug  *   */
 end_comment
 
 begin_class
@@ -74,6 +88,46 @@ argument_list|(
 name|theAcroForm
 argument_list|,
 name|field
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Returns the maximum number of characters of the text field.      *       * @return the maximum number of characters, returns -1 if the value isn't present      */
+specifier|public
+name|int
+name|getMaxLen
+parameter_list|()
+block|{
+return|return
+name|getDictionary
+argument_list|()
+operator|.
+name|getInt
+argument_list|(
+name|COSName
+operator|.
+name|MAX_LEN
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets the maximum number of characters of the text field.      *       * @param maxLen the maximum number of characters      */
+specifier|public
+name|void
+name|setMaxLen
+parameter_list|(
+name|int
+name|maxLen
+parameter_list|)
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|setInt
+argument_list|(
+name|COSName
+operator|.
+name|MAX_LEN
+argument_list|,
+name|maxLen
 argument_list|)
 expr_stmt|;
 block|}

@@ -2837,6 +2837,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|MAX_LEN
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"MaxLen"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|MAX_WIDTH
 init|=
 operator|new
