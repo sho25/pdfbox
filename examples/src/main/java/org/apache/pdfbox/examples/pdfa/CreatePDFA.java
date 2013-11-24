@@ -23,16 +23,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -409,18 +399,16 @@ argument_list|(
 name|xmp
 argument_list|)
 expr_stmt|;
-comment|// retrieve icc
-comment|// this file cannot be added in PDFBox, it must be downloaded
-comment|// its localization is http://www.color.org/sRGB_IEC61966-2-1_black_scaled.icc
-comment|// UNIX command to retrieve :
-comment|// wget -O target/sRGB_IEC61966-2-1_black_scaled.icc http://www.color.org/sRGB_IEC61966-2-1_black_scaled.icc
 name|InputStream
 name|colorProfile
 init|=
-operator|new
-name|FileInputStream
+name|CreatePDFA
+operator|.
+name|class
+operator|.
+name|getResourceAsStream
 argument_list|(
-literal|"target/sRGB_IEC61966-2-1_black_scaled.icc"
+literal|"/org/apache/pdfbox/resources/pdfa/sRGB Color Space Profile.icm"
 argument_list|)
 decl_stmt|;
 comment|// create output intent
