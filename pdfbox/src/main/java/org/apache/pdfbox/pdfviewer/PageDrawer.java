@@ -1289,6 +1289,16 @@ argument_list|()
 decl_stmt|;
 name|at
 operator|.
+name|scale
+argument_list|(
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|at
+operator|.
 name|transform
 argument_list|(
 name|point
@@ -1297,7 +1307,7 @@ name|point
 argument_list|)
 expr_stmt|;
 block|}
-name|g
+name|graphics
 operator|.
 name|translate
 argument_list|(
@@ -1334,7 +1344,7 @@ name|getStream
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|g
+name|graphics
 operator|.
 name|translate
 argument_list|(
