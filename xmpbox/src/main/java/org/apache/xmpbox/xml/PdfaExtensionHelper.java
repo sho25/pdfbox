@@ -739,6 +739,9 @@ name|st
 operator|.
 name|getNamespaceURI
 argument_list|()
+operator|.
+name|trim
+argument_list|()
 decl_stmt|;
 name|String
 name|prefix
@@ -1372,6 +1375,21 @@ argument_list|)
 return|;
 block|}
 comment|// else all other cases
+if|if
+condition|(
+literal|"closed Choice of Text"
+operator|.
+name|equals
+argument_list|(
+name|valueType
+argument_list|)
+condition|)
+block|{
+name|valueType
+operator|=
+literal|"Text"
+expr_stmt|;
+block|}
 name|int
 name|pos
 init|=
