@@ -3398,8 +3398,30 @@ condition|(
 name|c
 operator|!=
 literal|'>'
+operator|&&
+name|c
+operator|<
+literal|0
 condition|)
 do|;
+comment|// might have reached EOF while looking for the closing bracket
+comment|// this can happen for malformed PDFs only. Make sure that there is
+comment|// no endless loop.
+if|if
+condition|(
+name|c
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Missing closing bracket for hex string. Reached EOS."
+argument_list|)
+throw|;
+block|}
 comment|// exit loop
 break|break;
 block|}
