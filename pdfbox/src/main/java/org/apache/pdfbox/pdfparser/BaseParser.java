@@ -3400,7 +3400,7 @@ operator|!=
 literal|'>'
 operator|&&
 name|c
-operator|<
+operator|>=
 literal|0
 condition|)
 do|;
