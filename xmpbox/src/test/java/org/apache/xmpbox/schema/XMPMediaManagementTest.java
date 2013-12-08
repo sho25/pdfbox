@@ -193,6 +193,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Parameters
+argument_list|(
+name|name
+operator|=
+literal|"{0} {1} '{2}'"
+argument_list|)
 specifier|public
 specifier|static
 name|Collection

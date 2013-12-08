@@ -338,7 +338,7 @@ name|getPreferedPrefix
 parameter_list|()
 block|{
 return|return
-name|prefix
+name|preferedPrefix
 return|;
 block|}
 specifier|protected

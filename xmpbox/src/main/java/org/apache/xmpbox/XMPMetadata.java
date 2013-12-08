@@ -287,7 +287,7 @@ specifier|private
 name|TypeMapping
 name|typeMapping
 decl_stmt|;
-comment|/**      * Contructor of an empty default XMPMetaData      *       * @throws CreateXMPMetadataException      *             If DOM Document associated could not be created      */
+comment|/**      * Contructor of an empty default XMPMetaData      *        */
 specifier|protected
 name|XMPMetadata
 parameter_list|()
@@ -312,7 +312,7 @@ name|DEFAULT_XPACKET_ENCODING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * creates blank XMP doc with specified parameters      *       * @throws CreateXMPMetadataException      * @param xpacketBegin      *            Value of xpacketBegin      * @param xpacketId      *            Value of xpacketId      * @param xpacketBytes      *            Value of xpacketBytes      * @param xpacketEncoding      *            Value of xpacket encoding      * @throws CreateXMPMetadataException      *             If DOM Document associated could not be created      */
+comment|/**      * creates blank XMP doc with specified parameters      *       * @param xpacketBegin      *            Value of xpacketBegin      * @param xpacketId      *            Value of xpacketId      * @param xpacketBytes      *            Value of xpacketBytes      * @param xpacketEncoding      *            Value of xpacket encoding      */
 specifier|protected
 name|XMPMetadata
 parameter_list|(
@@ -1060,7 +1060,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the Photoshop schema This method return null if not found      *       * @return The PhotoshopSchema schema or null if not declared      */
+comment|/*      * Get the Photoshop schema This method return null if not found      *      * @return The PhotoshopSchema schema or null if not declared      */
 specifier|public
 name|PhotoshopSchema
 name|getPhotoshopSchema
@@ -1074,7 +1074,7 @@ name|getSchema
 argument_list|(
 name|PhotoshopSchema
 operator|.
-name|PHOTOSHOPURI
+name|class
 argument_list|)
 return|;
 block|}
