@@ -5419,6 +5419,9 @@ argument_list|(
 name|expectedEndOfStream
 argument_list|)
 expr_stmt|;
+name|skipSpaces
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|!
