@@ -571,6 +571,11 @@ name|selem
 argument_list|,
 name|fields
 argument_list|,
+name|schema
+operator|.
+name|getPrefix
+argument_list|()
+argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
@@ -594,6 +599,9 @@ argument_list|<
 name|AbstractField
 argument_list|>
 name|fields
+parameter_list|,
+name|String
+name|resourceNS
 parameter_list|,
 name|boolean
 name|wrapWithProperty
@@ -759,6 +767,8 @@ name|econtainer
 argument_list|,
 name|innerFields
 argument_list|,
+name|resourceNS
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -808,10 +818,7 @@ name|doc
 operator|.
 name|createElement
 argument_list|(
-name|structured
-operator|.
-name|getPrefix
-argument_list|()
+name|resourceNS
 operator|+
 literal|":"
 operator|+
@@ -882,6 +889,8 @@ name|estructured
 argument_list|,
 name|innerFields
 argument_list|,
+name|resourceNS
+argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
@@ -920,6 +929,8 @@ argument_list|,
 name|econtainer
 argument_list|,
 name|innerFields
+argument_list|,
+name|resourceNS
 argument_list|,
 literal|true
 argument_list|)
