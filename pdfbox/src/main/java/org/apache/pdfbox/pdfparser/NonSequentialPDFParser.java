@@ -5177,15 +5177,6 @@ init|=
 literal|false
 decl_stmt|;
 comment|// ---- get output stream to copy data to
-name|out
-operator|=
-name|stream
-operator|.
-name|createFilteredStream
-argument_list|(
-name|streamLengthObj
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|validateStreamLength
@@ -5197,6 +5188,15 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|out
+operator|=
+name|stream
+operator|.
+name|createFilteredStream
+argument_list|(
+name|streamLengthObj
+argument_list|)
+expr_stmt|;
 name|long
 name|remainBytes
 init|=
@@ -5253,6 +5253,11 @@ block|{
 name|useReadUntilEnd
 operator|=
 literal|true
+expr_stmt|;
+name|out
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|pdfSource
 operator|.
@@ -5517,10 +5522,12 @@ operator|>
 literal|0
 condition|)
 block|{
-name|bufSize
-operator|+=
+comment|// number of already matching chars
+name|int
+name|startingMatchCount
+init|=
 name|charMatchCount
-expr_stmt|;
+decl_stmt|;
 name|int
 name|bIdx
 init|=
@@ -5770,8 +5777,8 @@ operator|.
 name|length
 condition|)
 block|{
-comment|// keyword matched; unread matched keyword (endstream/endobj)
-comment|// and following buffered content
+comment|// keyword matched;
+comment|// unread matched keyword (endstream/endobj) and following buffered content
 name|pdfSource
 operator|.
 name|unread
@@ -5783,6 +5790,12 @@ argument_list|,
 name|bufSize
 operator|-
 name|contentBytes
+operator|-
+name|keyw
+operator|.
+name|length
+operator|+
+name|startingMatchCount
 argument_list|)
 expr_stmt|;
 break|break;
@@ -6388,11 +6401,17 @@ argument_list|(
 name|objectKey
 argument_list|)
 decl_stmt|;
+comment|// a negative offset number represents a object number itself
+comment|// see type 2 entry in xref stream
 if|if
 condition|(
 name|objectOffset
 operator|!=
 literal|null
+operator|&&
+name|objectOffset
+operator|>
+literal|0
 condition|)
 block|{
 name|long
