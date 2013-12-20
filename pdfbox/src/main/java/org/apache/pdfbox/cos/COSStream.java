@@ -151,6 +151,20 @@ name|pdfbox
 operator|.
 name|io
 operator|.
+name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
 name|RandomAccess
 import|;
 end_import
@@ -184,7 +198,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a stream object in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.41 $  */
+comment|/**  * This class represents a stream object in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -693,9 +707,6 @@ argument_list|(
 name|filterName
 argument_list|)
 decl_stmt|;
-name|InputStream
-name|input
-decl_stmt|;
 name|boolean
 name|done
 init|=
@@ -777,6 +788,11 @@ name|tryCount
 operator|++
 control|)
 block|{
+name|InputStream
+name|input
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
 name|input
@@ -835,6 +851,16 @@ expr_stmt|;
 name|exception
 operator|=
 name|io
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|input
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -869,6 +895,11 @@ name|tryCount
 operator|++
 control|)
 block|{
+name|InputStream
+name|input
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
 name|input
@@ -927,6 +958,16 @@ expr_stmt|;
 name|exception
 operator|=
 name|io
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|input
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1081,9 +1122,7 @@ argument_list|)
 decl_stmt|;
 name|InputStream
 name|input
-decl_stmt|;
-name|input
-operator|=
+init|=
 operator|new
 name|BufferedInputStream
 argument_list|(
@@ -1105,7 +1144,7 @@ argument_list|)
 argument_list|,
 name|BUFFER_SIZE
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|filteredStream
 operator|=
 operator|new
@@ -1125,6 +1164,13 @@ argument_list|,
 name|this
 argument_list|,
 name|filterIndex
+argument_list|)
+expr_stmt|;
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|input
 argument_list|)
 expr_stmt|;
 block|}
