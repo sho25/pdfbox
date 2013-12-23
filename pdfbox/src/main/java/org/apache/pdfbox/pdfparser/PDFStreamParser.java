@@ -1651,6 +1651,37 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clearResources
+parameter_list|()
+block|{
+name|super
+operator|.
+name|clearResources
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|streamObjects
+operator|!=
+literal|null
+condition|)
+block|{
+name|streamObjects
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|streamObjects
+operator|=
+literal|null
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 
