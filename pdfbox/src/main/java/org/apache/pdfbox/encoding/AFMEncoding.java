@@ -68,7 +68,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will handle the encoding from an AFM font.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.8 $  */
+comment|/**  * This will handle the encoding from an AFM font.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -78,12 +78,6 @@ name|AFMEncoding
 extends|extends
 name|Encoding
 block|{
-specifier|private
-name|FontMetric
-name|metric
-init|=
-literal|null
-decl_stmt|;
 comment|/**      * Constructor.      *      * @param fontInfo The font metric information.      */
 specifier|public
 name|AFMEncoding
@@ -92,17 +86,13 @@ name|FontMetric
 name|fontInfo
 parameter_list|)
 block|{
-name|metric
-operator|=
-name|fontInfo
-expr_stmt|;
 name|Iterator
 argument_list|<
 name|CharMetric
 argument_list|>
 name|characters
 init|=
-name|metric
+name|fontInfo
 operator|.
 name|getCharMetrics
 argument_list|()

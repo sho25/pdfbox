@@ -288,7 +288,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation of the Type1 Font with a afm and a pfb file.  *   * @author<a href="mailto:m.g.n@gmx.de">Michael Niedermair</a>  * @version $Revision: 1.5 $  */
+comment|/**  * This is implementation of the Type1 Font with a afm and a pfb file.  *   * @author<a href="mailto:m.g.n@gmx.de">Michael Niedermair</a>  *   */
 end_comment
 
 begin_class
@@ -568,16 +568,11 @@ argument_list|(
 name|afm
 argument_list|)
 decl_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 name|metric
 operator|=
 name|parser
 operator|.
-name|getResult
+name|parse
 argument_list|()
 expr_stmt|;
 name|setFontEncoding

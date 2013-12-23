@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to parse AFM(Adobe Font Metrics) documents.  *  * @see<A href="http://partners.adobe.com/asn/developer/type/">AFM Documentation</A>  *  * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * This class is used to parse AFM(Adobe Font Metrics) documents.  *  * @see<A href="http://partners.adobe.com/asn/developer/type/">AFM Documentation</A>  *  * @author Ben Litchfield (ben@benlitchfield.com)  *   */
 end_comment
 
 begin_class
@@ -638,10 +638,6 @@ specifier|private
 name|InputStream
 name|input
 decl_stmt|;
-specifier|private
-name|FontMetric
-name|result
-decl_stmt|;
 comment|/**      * A method to test parsing of all AFM documents in the resources      * directory.      *      * @param args Ignored.      *      * @throws IOException If there is an error parsing one of the documents.      */
 specifier|public
 specifier|static
@@ -812,28 +808,17 @@ operator|=
 name|in
 expr_stmt|;
 block|}
-comment|/**      * This will parse the AFM document.  This will close the Input stream      * when the parsing is finished.      *      * @throws IOException If there is an IO error reading the document.      */
+comment|/**      * This will parse the AFM document.  This will close the Input stream      * when the parsing is finished.      *      * @return the parsed FontMetric      *       * @throws IOException If there is an IO error reading the document.      */
 specifier|public
-name|void
+name|FontMetric
 name|parse
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|result
-operator|=
+return|return
 name|parseFontMetric
 argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * This will get the result of the parsing.      *      * @return The parsed java object.      */
-specifier|public
-name|FontMetric
-name|getResult
-parameter_list|()
-block|{
-return|return
-name|result
 return|;
 block|}
 comment|/**      * This will parse a font metrics item.      *      * @return The parse font metrics item.      *      * @throws IOException If there is an error reading the AFM file.      */

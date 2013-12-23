@@ -1949,17 +1949,12 @@ argument_list|(
 name|is
 argument_list|)
 decl_stmt|;
-name|afmParser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 name|FontMetric
 name|result
 init|=
 name|afmParser
 operator|.
-name|getResult
+name|parse
 argument_list|()
 decl_stmt|;
 comment|// Replace default FontBBox value with a newly computed one
