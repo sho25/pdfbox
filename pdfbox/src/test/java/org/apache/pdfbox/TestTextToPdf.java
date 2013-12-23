@@ -179,11 +179,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|pdfDoc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 comment|// In order for the PDF document to be openable by Adobe Reader, it needs
 comment|// to have some pages in it. So we'll check that.
 name|PDDocumentCatalog
@@ -220,6 +215,11 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|pdfDoc
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Set the tests in the suite for this test class.      *      * @return the Suite.      */
