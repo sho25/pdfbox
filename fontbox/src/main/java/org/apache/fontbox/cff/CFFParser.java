@@ -3871,13 +3871,11 @@ return|;
 block|}
 else|else
 block|{
+comment|// technically this maps to .notdef, but we need a unique glyph name
 return|return
-name|CFFStandardString
-operator|.
-name|getName
-argument_list|(
-literal|0
-argument_list|)
+literal|"SID"
+operator|+
+name|index
 return|;
 block|}
 block|}
