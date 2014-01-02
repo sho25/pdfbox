@@ -256,7 +256,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will parse a PDF byte stream and extract operands and such.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.32 $  */
+comment|/**  * This will parse a PDF byte stream and extract operands and such.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -285,12 +285,6 @@ decl_stmt|;
 specifier|private
 name|RandomAccess
 name|file
-decl_stmt|;
-specifier|private
-name|PDFOperator
-name|lastBIToken
-init|=
-literal|null
 decl_stmt|;
 comment|/**      * Constructor that takes a stream to parse.      *      * @since Apache PDFBox 1.3.0      * @param stream The stream to read data from.      * @param raf The random access file.      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error reading from the stream.      */
 specifier|public
@@ -1116,13 +1110,14 @@ literal|"BI"
 argument_list|)
 condition|)
 block|{
-name|lastBIToken
-operator|=
+name|PDFOperator
+name|beginImageOP
+init|=
 operator|(
 name|PDFOperator
 operator|)
 name|retval
-expr_stmt|;
+decl_stmt|;
 name|COSDictionary
 name|imageParams
 init|=
@@ -1130,7 +1125,7 @@ operator|new
 name|COSDictionary
 argument_list|()
 decl_stmt|;
-name|lastBIToken
+name|beginImageOP
 operator|.
 name|setImageParameters
 argument_list|(
@@ -1189,7 +1184,7 @@ name|PDFOperator
 operator|)
 name|nextToken
 decl_stmt|;
-name|lastBIToken
+name|beginImageOP
 operator|.
 name|setImageData
 argument_list|(
@@ -1258,11 +1253,8 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
-comment|//boolean foundEnd = false;
 if|if
 condition|(
-name|this
-operator|.
 name|isWhitespace
 argument_list|()
 condition|)
@@ -1275,11 +1267,6 @@ argument_list|()
 expr_stmt|;
 block|}
 name|int
-name|twoBytesAgo
-init|=
-literal|0
-decl_stmt|;
-name|int
 name|lastByte
 init|=
 name|pdfSource
@@ -1295,21 +1282,14 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-comment|//PDF spec is kinda unclear about this.  Should a whitespace
-comment|//always appear before EI? Not sure, I found a PDF
-comment|//(UnderstandingWebSphereClassLoaders.pdf) which has EI as part
-comment|//of the image data and will stop parsing prematurely if there is
-comment|//not a check for<whitespace>EI<whitespace>.
-comment|// Not all whitespaces are allowed here. see PDFBOX1561
+comment|// PDF spec is kinda unclear about this. Should a whitespace
+comment|// always appear before EI? Not sure, so that we just read
+comment|// until EI<whitespace>.
+comment|// Be aware not all kind of whitespaces are allowed here. see PDFBOX1561
 while|while
 condition|(
 operator|!
 operator|(
-name|isSpaceOrReturn
-argument_list|(
-name|twoBytesAgo
-argument_list|)
-operator|&&
 name|lastByte
 operator|==
 literal|'E'
@@ -1320,10 +1300,6 @@ literal|'I'
 operator|&&
 name|isSpaceOrReturn
 argument_list|()
-comment|//&&
-comment|//amyuni2_05d__pdf1_3_acro4x.pdf has image data that
-comment|//is compressed, so expectedBytes is useless here.
-comment|//count>= expectedBytes
 operator|)
 operator|&&
 operator|!
@@ -1340,10 +1316,6 @@ argument_list|(
 name|lastByte
 argument_list|)
 expr_stmt|;
-name|twoBytesAgo
-operator|=
-name|lastByte
-expr_stmt|;
 name|lastByte
 operator|=
 name|currentByte
@@ -1356,21 +1328,7 @@ name|read
 argument_list|()
 expr_stmt|;
 block|}
-name|pdfSource
-operator|.
-name|unread
-argument_list|(
-literal|'I'
-argument_list|)
-expr_stmt|;
-comment|//unread the EI operator
-name|pdfSource
-operator|.
-name|unread
-argument_list|(
-literal|'E'
-argument_list|)
-expr_stmt|;
+comment|// the EI operator isn't unread, as it won't be processed anyway
 name|retval
 operator|=
 name|PDFOperator
@@ -1380,6 +1338,7 @@ argument_list|(
 literal|"ID"
 argument_list|)
 expr_stmt|;
+comment|// save the image data to the operator, so that it can be accessed it later
 operator|(
 operator|(
 name|PDFOperator
@@ -1634,6 +1593,7 @@ operator|==
 literal|32
 return|;
 block|}
+comment|/**      * Checks if the next char is a space or a return.      *       * @return true if the next char is a space or a return      * @throws IOException if something went wrong      */
 specifier|private
 name|boolean
 name|isSpaceOrReturn
