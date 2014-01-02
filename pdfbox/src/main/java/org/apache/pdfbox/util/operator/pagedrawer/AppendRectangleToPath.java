@@ -126,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -385,14 +385,13 @@ operator|+
 name|height
 argument_list|)
 expr_stmt|;
+comment|// close the subpath instead of adding the last line
+comment|// so that a possible set line cap style isn't taken into account
+comment|// at the "beginning" of the rectangle
 name|path
 operator|.
-name|lineTo
-argument_list|(
-name|xStart
-argument_list|,
-name|yStart
-argument_list|)
+name|closePath
+argument_list|()
 expr_stmt|;
 block|}
 block|}
