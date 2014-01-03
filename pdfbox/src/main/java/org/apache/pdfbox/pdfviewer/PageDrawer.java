@@ -1788,9 +1788,6 @@ operator|)
 name|font
 argument_list|,
 name|text
-operator|.
-name|getCharacter
-argument_list|()
 argument_list|,
 name|at
 argument_list|)
@@ -2079,7 +2076,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Render the text using a type 3 font.      *       * @param font the type3 font      * @param string the string to be rendered      * @param at the transformation      *       * @throws IOException if something went wrong      */
+comment|/**      * Render the text using a type 3 font.      *       * @param font the type3 font      * @param text the text to be rendered      * @param at the transformation      *       * @throws IOException if something went wrong      */
 specifier|private
 name|void
 name|drawType3String
@@ -2087,8 +2084,8 @@ parameter_list|(
 name|PDType3Font
 name|font
 parameter_list|,
-name|String
-name|string
+name|TextPosition
+name|text
 parameter_list|,
 name|AffineTransform
 name|at
@@ -2097,12 +2094,20 @@ throws|throws
 name|IOException
 block|{
 name|int
-name|stringLength
+index|[]
+name|codePoints
 init|=
-name|string
+name|text
+operator|.
+name|getCodePoints
+argument_list|()
+decl_stmt|;
+name|int
+name|textLength
+init|=
+name|codePoints
 operator|.
 name|length
-argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -2113,7 +2118,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|stringLength
+name|textLength
 condition|;
 name|i
 operator|++
@@ -2126,12 +2131,13 @@ name|font
 operator|.
 name|getCharStream
 argument_list|(
-name|string
-operator|.
-name|charAt
-argument_list|(
+operator|(
+name|char
+operator|)
+name|codePoints
+index|[
 name|i
-argument_list|)
+index|]
 argument_list|)
 decl_stmt|;
 if|if
@@ -2213,12 +2219,13 @@ name|debug
 argument_list|(
 literal|"drawType3String: stream for character "
 operator|+
-name|string
-operator|.
-name|charAt
-argument_list|(
+operator|(
+name|char
+operator|)
+name|codePoints
+index|[
 name|i
-argument_list|)
+index|]
 operator|+
 literal|" not found"
 argument_list|)
