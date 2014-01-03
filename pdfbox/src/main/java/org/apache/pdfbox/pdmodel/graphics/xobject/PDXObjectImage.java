@@ -532,6 +532,13 @@ operator|.
 name|getRGBImage
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|smaskBI
+operator|!=
+literal|null
+condition|)
+block|{
 name|COSArray
 name|decodeArray
 init|=
@@ -564,6 +571,18 @@ decl_stmt|;
 return|return
 name|rgbImage
 return|;
+block|}
+else|else
+block|{
+comment|// this may happen if the smask is somehow broken, e.g. unsupported filter
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"masking getRGBImage returned NULL"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|baseImage
