@@ -1083,6 +1083,26 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// initialize the used stroke with CAP_BUTT instead of CAP_SQUARE
+name|graphics
+operator|.
+name|setStroke
+argument_list|(
+operator|new
+name|BasicStroke
+argument_list|(
+literal|1.0f
+argument_list|,
+name|BasicStroke
+operator|.
+name|CAP_BUTT
+argument_list|,
+name|BasicStroke
+operator|.
+name|JOIN_MITER
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Only if there is some content, we have to process it.
 comment|// Otherwise we are done here and we will produce an empty page
 if|if
