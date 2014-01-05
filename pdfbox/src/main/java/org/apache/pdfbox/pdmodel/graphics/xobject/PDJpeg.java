@@ -532,7 +532,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An image class for JPegs.  *  * @author mathiak  * @version $Revision: 1.5 $  */
+comment|/**  * An image class for JPegs.  *  * @author mathiak  *   */
 end_comment
 
 begin_class
@@ -1860,11 +1860,6 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|input
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeException
@@ -2065,6 +2060,30 @@ parameter_list|)
 block|{                      }
 finally|finally
 block|{
+try|try
+block|{
+if|if
+condition|(
+name|input
+operator|!=
+literal|null
+condition|)
+block|{
+name|input
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|exception
+parameter_list|)
+block|{
+comment|// swallow the exception
+block|}
 if|if
 condition|(
 name|reader

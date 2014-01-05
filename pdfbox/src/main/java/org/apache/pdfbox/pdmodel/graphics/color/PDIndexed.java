@@ -195,6 +195,20 @@ name|COSString
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
+name|IOUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class represents an Indexed color space.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
@@ -781,6 +795,13 @@ name|output
 operator|.
 name|toByteArray
 argument_list|()
+expr_stmt|;
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|input
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
