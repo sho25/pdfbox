@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class creates all needed AFM font metric data from a CFFFont ready to be read from a AFMPaser.  *   * @author Villu Ruusmann  * @version $Revision$  */
+comment|/**  * This class creates all needed AFM font metric data from a CFFFont ready to be read from a AFMPaser.  *   * @author Villu Ruusmann  *   */
 end_comment
 
 begin_class
@@ -632,14 +632,6 @@ name|CharMetric
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|CharStringRenderer
-name|renderer
-init|=
-name|font
-operator|.
-name|createRenderer
-argument_list|()
-decl_stmt|;
 name|Collection
 argument_list|<
 name|CFFFont
@@ -688,21 +680,14 @@ operator|.
 name|getName
 argument_list|()
 expr_stmt|;
-name|renderer
-operator|.
-name|render
-argument_list|(
-name|mapping
-operator|.
-name|toType1Sequence
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|metric
 operator|.
 name|width
 operator|=
-name|renderer
+name|mapping
+operator|.
+name|getType1CharString
+argument_list|()
 operator|.
 name|getWidth
 argument_list|()
@@ -711,7 +696,10 @@ name|metric
 operator|.
 name|bounds
 operator|=
-name|renderer
+name|mapping
+operator|.
+name|getType1CharString
+argument_list|()
 operator|.
 name|getBounds
 argument_list|()

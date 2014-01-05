@@ -953,7 +953,10 @@ name|format
 argument_list|(
 name|mapping
 operator|.
-name|toType1Sequence
+name|getType1CharString
+argument_list|()
+operator|.
+name|getType1Sequence
 argument_list|()
 argument_list|)
 decl_stmt|;

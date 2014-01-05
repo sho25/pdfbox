@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an interface to a text encoder.  *  * @author Ben Litchfield  * @version $Revision: 1.1 $  *   *   */
+comment|/**  * This is an interface to a text encoder.  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class
@@ -815,7 +815,7 @@ name|intValue
 argument_list|()
 return|;
 block|}
-comment|/**      * This will take a character code and get the name from the code.      *      * @param code The character code.      *      * @return The name of the character.      *      * @throws IOException If there is no name for the code.      */
+comment|/**      * This will take a character code and get the name from the code.      *      * @param code The character code.      *      * @return The name of the character.      */
 specifier|public
 name|String
 name|getName
@@ -823,8 +823,6 @@ parameter_list|(
 name|int
 name|code
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|String
 name|name

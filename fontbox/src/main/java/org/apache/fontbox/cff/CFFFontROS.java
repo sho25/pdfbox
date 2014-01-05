@@ -55,6 +55,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * This class represents a CID-Keyed CFF/Type2 Font.  *  * @author Villu Ruusmann  * @author John Hewson  */
+end_comment
+
 begin_class
 specifier|public
 class|class
@@ -128,7 +132,7 @@ name|fdSelect
 init|=
 literal|null
 decl_stmt|;
-comment|/** 	 * Returns the registry value. 	 * @return the registry 	 */
+comment|/**      * Returns the registry value.      * * @return the registry      */
 specifier|public
 name|String
 name|getRegistry
@@ -138,7 +142,7 @@ return|return
 name|registry
 return|;
 block|}
-comment|/** 	 * Sets the registry value. 	 *  	 * @param registry the registry to set 	 */
+comment|/**      * Sets the registry value.      *      * @param registry the registry to set      */
 specifier|public
 name|void
 name|setRegistry
@@ -154,7 +158,7 @@ operator|=
 name|registry
 expr_stmt|;
 block|}
-comment|/** 	 * Returns the ordering value. 	 *  	 * @return the ordering 	 */
+comment|/**      * Returns the ordering value.      *      * @return the ordering      */
 specifier|public
 name|String
 name|getOrdering
@@ -164,7 +168,7 @@ return|return
 name|ordering
 return|;
 block|}
-comment|/** 	 * Sets the ordering value. 	 *  	 * @param ordering the ordering to set 	 */
+comment|/**      * Sets the ordering value.      *      * @param ordering the ordering to set      */
 specifier|public
 name|void
 name|setOrdering
@@ -180,7 +184,7 @@ operator|=
 name|ordering
 expr_stmt|;
 block|}
-comment|/** 	 * Returns the supplement value. 	 *  	 * @return the supplement 	 */
+comment|/**      * Returns the supplement value.      *      * @return the supplement      */
 specifier|public
 name|int
 name|getSupplement
@@ -190,7 +194,7 @@ return|return
 name|supplement
 return|;
 block|}
-comment|/** 	 * Sets the supplement value. 	 *  	 * @param supplement the supplement to set 	 */
+comment|/**      * Sets the supplement value.      *      * @param supplement the supplement to set      */
 specifier|public
 name|void
 name|setSupplement
@@ -206,7 +210,7 @@ operator|=
 name|supplement
 expr_stmt|;
 block|}
-comment|/** 	 * Returns the font dictionaries. 	 *  	 * @return the fontDict 	 */
+comment|/**      * Returns the font dictionaries.      *      * @return the fontDict      */
 specifier|public
 name|List
 argument_list|<
@@ -224,7 +228,7 @@ return|return
 name|fontDictionaries
 return|;
 block|}
-comment|/** 	 * Sets the font dictionaries. 	 *  	 * @param fontDict the fontDict to set 	 */
+comment|/**      * Sets the font dictionaries.      *      * @param fontDict the fontDict to set      */
 specifier|public
 name|void
 name|setFontDict
@@ -248,7 +252,7 @@ operator|=
 name|fontDict
 expr_stmt|;
 block|}
-comment|/** 	 * Returns the private dictionary. 	 *  	 * @return the privDict 	 */
+comment|/**      * Returns the private dictionary.      *      * @return the privDict      */
 specifier|public
 name|List
 argument_list|<
@@ -266,7 +270,7 @@ return|return
 name|privateDictionaries
 return|;
 block|}
-comment|/** 	 * Sets the private dictionary. 	 *  	 * @param privDict the privDict to set 	 */
+comment|/**      * Sets the private dictionary.      *      * @param privDict the privDict to set      */
 specifier|public
 name|void
 name|setPrivDict
@@ -290,7 +294,7 @@ operator|=
 name|privDict
 expr_stmt|;
 block|}
-comment|/** 	 * Returns the fdSelect value. 	 *  	 * @return the fdSelect 	 */
+comment|/**      * Returns the fdSelect value.      *      * @return the fdSelect      */
 specifier|public
 name|CIDKeyedFDSelect
 name|getFdSelect
@@ -300,7 +304,7 @@ return|return
 name|fdSelect
 return|;
 block|}
-comment|/** 	 * Sets the fdSelect value. 	 *  	 * @param fdSelect the fdSelect to set 	 */
+comment|/**      * Sets the fdSelect value.      *      * @param fdSelect the fdSelect to set      */
 specifier|public
 name|void
 name|setFdSelect
@@ -316,20 +320,20 @@ operator|=
 name|fdSelect
 expr_stmt|;
 block|}
-comment|/** 	 * Returns the Width value of the given Glyph identifier 	 *  	 * @param CID 	 * @return -1 if the SID is missing from the Font. 	 * @throws IOException 	 */
+comment|/**      * Returns the Width value of the given Glyph identifier      *      * @param cid CID      * @return -1 if the CID is missing from the Font.      * @throws IOException      */
 specifier|public
 name|int
 name|getWidth
 parameter_list|(
 name|int
-name|CID
+name|cid
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// ---- search the right FDArray index in the FDSelect according to the Character identifier
-comment|// 		this index will be used to access the private dictionary which contains useful values
-comment|//		to compute width.
+comment|// search the right FDArray index in the FDSelect according to the Character identifier
+comment|// this index will be used to access the private dictionary which contains useful values
+comment|// to compute width.
 name|int
 name|fdArrayIndex
 init|=
@@ -339,7 +343,7 @@ name|fdSelect
 operator|.
 name|getFd
 argument_list|(
-name|CID
+name|cid
 argument_list|)
 decl_stmt|;
 if|if
@@ -349,18 +353,18 @@ operator|==
 operator|-
 literal|1
 operator|&&
-name|CID
+name|cid
 operator|==
 literal|0
 condition|)
+comment|// notdef char
 block|{
-comment|// --- notdef char
 return|return
 name|super
 operator|.
 name|getWidth
 argument_list|(
-name|CID
+name|cid
 argument_list|)
 return|;
 block|}
@@ -377,23 +381,100 @@ return|return
 literal|1000
 return|;
 block|}
-name|Map
-argument_list|<
-name|String
+for|for
+control|(
+name|Mapping
+name|m
+range|:
+name|getMappings
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|m
+operator|.
+name|getSID
+argument_list|()
+operator|==
+name|cid
+condition|)
+block|{
+name|Type1CharString
+name|charstring
+init|=
+name|m
+operator|.
+name|getType1CharString
+argument_list|()
+decl_stmt|;
+return|return
+name|charstring
+operator|.
+name|getWidth
+argument_list|()
+return|;
+block|}
+block|}
+comment|// CID not found, return the notdef width
+name|int
+name|nominalWidth
+init|=
+name|getNominalWidthX
+argument_list|(
+name|cid
+argument_list|)
+decl_stmt|;
+name|int
+name|defaultWidth
+init|=
+name|getDefaultWidthX
+argument_list|(
+name|cid
+argument_list|)
+decl_stmt|;
+return|return
+name|getNotDefWidth
+argument_list|(
+name|defaultWidth
 argument_list|,
-name|Object
-argument_list|>
-name|fontDict
+name|nominalWidth
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns the defaultWidthX for the given CID.      *      * @param cid CID      * @return defaultWidthX      */
+specifier|protected
+name|int
+name|getDefaultWidthX
+parameter_list|(
+name|int
+name|cid
+parameter_list|)
+block|{
+name|int
+name|fdArrayIndex
 init|=
 name|this
 operator|.
-name|fontDictionaries
+name|fdSelect
 operator|.
-name|get
+name|getFd
 argument_list|(
-name|fdArrayIndex
+name|cid
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|fdArrayIndex
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+return|return
+literal|1000
+return|;
+block|}
 name|Map
 argument_list|<
 name|String
@@ -411,36 +492,7 @@ argument_list|(
 name|fdArrayIndex
 argument_list|)
 decl_stmt|;
-name|int
-name|nominalWidth
-init|=
-name|privDict
-operator|.
-name|containsKey
-argument_list|(
-literal|"nominalWidthX"
-argument_list|)
-condition|?
-operator|(
-operator|(
-name|Number
-operator|)
-name|privDict
-operator|.
-name|get
-argument_list|(
-literal|"nominalWidthX"
-argument_list|)
-operator|)
-operator|.
-name|intValue
-argument_list|()
-else|:
-literal|0
-decl_stmt|;
-name|int
-name|defaultWidth
-init|=
+return|return
 name|privDict
 operator|.
 name|containsKey
@@ -464,135 +516,82 @@ name|intValue
 argument_list|()
 else|:
 literal|1000
-decl_stmt|;
-for|for
-control|(
-name|Mapping
-name|m
-range|:
-name|getMappings
-argument_list|()
-control|)
+return|;
+block|}
+comment|/**      * Returns the nominalWidthX for the given CID.      *      * @param cid CID      * @return defaultWidthX      */
+specifier|protected
+name|int
+name|getNominalWidthX
+parameter_list|(
+name|int
+name|cid
+parameter_list|)
 block|{
+name|int
+name|fdArrayIndex
+init|=
+name|this
+operator|.
+name|fdSelect
+operator|.
+name|getFd
+argument_list|(
+name|cid
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|m
-operator|.
-name|getSID
-argument_list|()
+name|fdArrayIndex
 operator|==
-name|CID
+operator|-
+literal|1
 condition|)
 block|{
-name|CharStringRenderer
-name|csr
+return|return
+literal|0
+return|;
+block|}
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|privDict
 init|=
-literal|null
+name|this
+operator|.
+name|privateDictionaries
+operator|.
+name|get
+argument_list|(
+name|fdArrayIndex
+argument_list|)
 decl_stmt|;
-name|Number
-name|charStringType
-init|=
+return|return
+name|privDict
+operator|.
+name|containsKey
+argument_list|(
+literal|"nominalWidthX"
+argument_list|)
+condition|?
+operator|(
 operator|(
 name|Number
 operator|)
-name|getProperty
+name|privDict
+operator|.
+name|get
 argument_list|(
-literal|"CharstringType"
+literal|"nominalWidthX"
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|charStringType
+operator|)
 operator|.
 name|intValue
 argument_list|()
-operator|==
-literal|2
-condition|)
-block|{
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|lSeq
-init|=
-name|m
-operator|.
-name|toType2Sequence
-argument_list|()
-decl_stmt|;
-name|csr
-operator|=
-operator|new
-name|CharStringRenderer
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|csr
-operator|.
-name|render
-argument_list|(
-name|lSeq
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|lSeq
-init|=
-name|m
-operator|.
-name|toType1Sequence
-argument_list|()
-decl_stmt|;
-name|csr
-operator|=
-operator|new
-name|CharStringRenderer
-argument_list|()
-expr_stmt|;
-name|csr
-operator|.
-name|render
-argument_list|(
-name|lSeq
-argument_list|)
-expr_stmt|;
-block|}
-comment|// ---- If the CharString has a Width nominalWidthX must be added,
-comment|//	    otherwise it is the default width.
-return|return
-name|csr
-operator|.
-name|getWidth
-argument_list|()
-operator|!=
-literal|0
-condition|?
-name|csr
-operator|.
-name|getWidth
-argument_list|()
-operator|+
-name|nominalWidth
 else|:
-name|defaultWidth
-return|;
-block|}
-block|}
-comment|// ---- CID Width not found, return the notdef width
-return|return
-name|getNotDefWidth
-argument_list|(
-name|defaultWidth
-argument_list|,
-name|nominalWidth
-argument_list|)
+literal|0
 return|;
 block|}
 block|}
