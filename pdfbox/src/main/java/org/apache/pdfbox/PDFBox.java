@@ -189,25 +189,6 @@ name|command
 operator|.
 name|equals
 argument_list|(
-literal|"Overlay"
-argument_list|)
-condition|)
-block|{
-name|Overlay
-operator|.
-name|main
-argument_list|(
-name|arguments
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|command
-operator|.
-name|equals
-argument_list|(
 literal|"OverlayPDF"
 argument_list|)
 condition|)
@@ -521,15 +502,6 @@ operator|.
 name|println
 argument_list|(
 literal|"  ExtractImages"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  Overlay"
 argument_list|)
 expr_stmt|;
 name|System
