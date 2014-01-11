@@ -33,6 +33,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -72,7 +100,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @author Huault : huault@free.fr  * @version $Revision: 1.4 $  */
+comment|/**  * Process the Q operator.  *   * @author Huault : huault@free.fr  *   */
 end_comment
 
 begin_class
@@ -82,7 +110,23 @@ name|GRestore
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * process : Q : Restore graphics state.      * @param operator The operator that is being executed.      * @param arguments List      */
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|GRestore
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|void
 name|process
@@ -96,6 +140,19 @@ name|COSBase
 argument_list|>
 name|arguments
 parameter_list|)
+block|{
+if|if
+condition|(
+name|context
+operator|.
+name|getGraphicsStack
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
 block|{
 name|context
 operator|.
@@ -113,6 +170,19 @@ name|pop
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// this shouldn't happen but it does, see PDFBOX-161
+comment|// TODO make this self healing mechanism optional for preflight??
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"GRestore: no graphics state left to be restored."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
