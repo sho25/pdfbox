@@ -4580,6 +4580,13 @@ name|securityHandler
 operator|=
 literal|null
 expr_stmt|;
+if|if
+condition|(
+name|document
+operator|!=
+literal|null
+condition|)
+block|{
 name|document
 operator|.
 name|close
@@ -4589,6 +4596,7 @@ name|document
 operator|=
 literal|null
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|parser
