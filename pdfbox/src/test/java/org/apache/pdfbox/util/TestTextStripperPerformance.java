@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test the performance of the PDF text stripper utility.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * Test the performance of the PDF text stripper utility.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -372,6 +372,15 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
+operator|new
+name|File
+argument_list|(
+literal|"src/test/resources/output"
+argument_list|)
+operator|.
+name|mkdir
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int

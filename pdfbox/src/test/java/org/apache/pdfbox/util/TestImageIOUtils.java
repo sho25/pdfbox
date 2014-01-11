@@ -475,6 +475,15 @@ name|outDir
 init|=
 literal|"target/test-output/"
 decl_stmt|;
+operator|new
+name|File
+argument_list|(
+name|outDir
+argument_list|)
+operator|.
+name|mkdir
+argument_list|()
+expr_stmt|;
 name|File
 index|[]
 name|testFiles
