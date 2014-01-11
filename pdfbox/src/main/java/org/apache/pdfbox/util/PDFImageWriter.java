@@ -181,7 +181,7 @@ name|props
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Converts a given page range of a PDF document to bitmap images.      *       * @param document the PDF document      * @param imageType the target format (ex. "png")      * @param password the password (needed if the PDF is encrypted)      * @param startPage the start page (1 is the first page)      * @param endPage the end page (set to Integer.MAX_VALUE for all pages)      * @param outputPrefix used to construct the filename for the individual images      * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+comment|/**      * Converts a given page range of a PDF document to bitmap images by calling      * {@link writeImage(PDDocument document, String imageFormat, String password, int startPage, int endPage,      * String outputPrefix, int imageType, int resolution)} with imageType {@link BufferedImage}.TYPE_INT_RGB      * and screen resolution, or 96dpi if screen resolution is unavailable.      *        * @param document the PDF document      * @param imageFormat the target format (ex. "png")      * @param password the password (needed if the PDF is encrypted)      * @param startPage the start page (1 is the first page)      * @param endPage the end page (set to Integer.MAX_VALUE for all pages)      * @param outputPrefix used to construct the filename for the individual images      * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
 specifier|public
 name|boolean
 name|writeImage
@@ -190,7 +190,7 @@ name|PDDocument
 name|document
 parameter_list|,
 name|String
-name|imageType
+name|imageFormat
 parameter_list|,
 name|String
 name|password
@@ -239,7 +239,7 @@ name|writeImage
 argument_list|(
 name|document
 argument_list|,
-name|imageType
+name|imageFormat
 argument_list|,
 name|password
 argument_list|,
@@ -249,7 +249,9 @@ name|endPage
 argument_list|,
 name|outputPrefix
 argument_list|,
-literal|8
+name|BufferedImage
+operator|.
+name|TYPE_INT_RGB
 argument_list|,
 name|resolution
 argument_list|)
