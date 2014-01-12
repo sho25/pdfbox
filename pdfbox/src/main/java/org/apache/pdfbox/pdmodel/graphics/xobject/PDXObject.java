@@ -341,15 +341,41 @@ throws|throws
 name|IOException
 block|{
 return|return
+name|createXObject
+argument_list|(
+name|xobject
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Create the correct xobject from the cos base.      *       * @param xobject The cos level xobject to create.      * @param xobjectName The name of the xobject, sued to detect a possible recursion      *       * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
+specifier|public
+specifier|static
+name|PDXObject
+name|createXObject
+parameter_list|(
+name|COSBase
+name|xobject
+parameter_list|,
+name|String
+name|xobjectName
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
 name|commonXObjectCreation
 argument_list|(
 name|xobject
 argument_list|,
 literal|false
+argument_list|,
+name|xobjectName
 argument_list|)
 return|;
 block|}
-comment|/**      * Create the correct xobject from the cos base.      *       * @param xobject The cos level xobject to create.      * @param isthumb specify if the xobject represent a Thumbnail Image (in this case, the subtype null must be      * considered as an Image)      * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
+comment|/**      * Create the correct xobject from the cos base.      *       * @param xobject The cos level xobject to create.      * @param isthumb specify if the xobject represent a Thumbnail Image (in this case, the subtype null must be      * considered as an Image)      * @param xobjectName The name of the xobject, used to detect a possible recursion      *       * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
 specifier|protected
 specifier|static
 name|PDXObject
@@ -360,6 +386,9 @@ name|xobject
 parameter_list|,
 name|boolean
 name|isThumb
+parameter_list|,
+name|String
+name|xobjectName
 parameter_list|)
 block|{
 name|PDXObject
@@ -561,6 +590,8 @@ operator|new
 name|PDXObjectForm
 argument_list|(
 name|xstream
+argument_list|,
+name|xobjectName
 argument_list|)
 expr_stmt|;
 block|}

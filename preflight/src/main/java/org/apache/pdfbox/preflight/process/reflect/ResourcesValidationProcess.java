@@ -1021,6 +1021,14 @@ operator|.
 name|createXObject
 argument_list|(
 name|stream
+argument_list|,
+name|entry
+operator|.
+name|getKey
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

@@ -33,6 +33,44 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -176,7 +214,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A form xobject.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
+comment|/**  * A form xobject.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -186,6 +224,22 @@ name|PDXObjectForm
 extends|extends
 name|PDXObject
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDXObjectForm
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * The XObject subtype.      */
 specifier|public
 specifier|static
@@ -194,6 +248,12 @@ name|String
 name|SUB_TYPE
 init|=
 literal|"Form"
+decl_stmt|;
+specifier|private
+name|String
+name|name
+init|=
+literal|null
 decl_stmt|;
 comment|/**      * Standard constuctor.      *       * @param formStream The XObject is passed as a COSStream.      */
 specifier|public
@@ -221,12 +281,31 @@ name|SUB_TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Standard constuctor.      *       * @param formStream The XObject is passed as a COSStream.      */
+comment|/**      * Standard constructor.      *       * @param formStream The XObject is passed as a COSStream.      */
 specifier|public
 name|PDXObjectForm
 parameter_list|(
 name|COSStream
 name|formStream
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|formStream
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Standard constructor including the name of the XObjectForm      * to avoid recursions.      *       * @param formStream The XObject is passed as a COSStream.      * @param xobjectName The name of the XObjectForm.      */
+specifier|public
+name|PDXObjectForm
+parameter_list|(
+name|COSStream
+name|formStream
+parameter_list|,
+name|String
+name|xobjectName
 parameter_list|)
 block|{
 name|super
@@ -246,6 +325,10 @@ argument_list|,
 name|SUB_TYPE
 argument_list|)
 expr_stmt|;
+name|name
+operator|=
+name|xobjectName
+expr_stmt|;
 block|}
 comment|/**      * This will get the form type, currently 1 is the only form type.      *       * @return The form type.      */
 specifier|public
@@ -259,7 +342,9 @@ argument_list|()
 operator|.
 name|getInt
 argument_list|(
-literal|"FormType"
+name|COSName
+operator|.
+name|FORMTYPE
 argument_list|,
 literal|1
 argument_list|)
@@ -279,7 +364,9 @@ argument_list|()
 operator|.
 name|setInt
 argument_list|(
-literal|"FormType"
+name|COSName
+operator|.
+name|FORMTYPE
 argument_list|,
 name|formType
 argument_list|)
@@ -327,6 +414,61 @@ argument_list|(
 name|resources
 argument_list|)
 expr_stmt|;
+comment|// check for a recursion, see PDFBOX-1813
+if|if
+condition|(
+name|name
+operator|!=
+literal|null
+condition|)
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PDXObject
+argument_list|>
+name|xobjects
+init|=
+name|retval
+operator|.
+name|getXObjects
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|xobjects
+operator|!=
+literal|null
+operator|&&
+name|xobjects
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+name|retval
+operator|.
+name|removeXObject
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Removed XObjectForm "
+operator|+
+name|name
+operator|+
+literal|" to avoid a recursion"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 return|return
 name|retval
