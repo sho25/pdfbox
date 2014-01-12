@@ -5662,11 +5662,12 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Error: Expected an integer type, actual='"
+literal|"Error: Expected an integer type at offset "
 operator|+
-name|intBuffer
-operator|+
-literal|"'"
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -5736,11 +5737,12 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Error: Expected a long type, actual='"
+literal|"Error: Expected a long type at offset "
 operator|+
-name|longBuffer
-operator|+
-literal|"'"
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
