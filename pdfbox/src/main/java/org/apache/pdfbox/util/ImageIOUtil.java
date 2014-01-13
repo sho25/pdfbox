@@ -529,6 +529,13 @@ argument_list|,
 name|resolution
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|meta
+operator|!=
+literal|null
+condition|)
+block|{
 name|imageWriter
 operator|.
 name|setOutput
@@ -559,6 +566,7 @@ name|foundWriter
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -731,6 +739,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|meta
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|meta
 operator|.
