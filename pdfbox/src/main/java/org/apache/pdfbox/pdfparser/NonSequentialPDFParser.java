@@ -817,6 +817,13 @@ specifier|final
 name|RandomAccessBufferedFileInputStream
 name|raStream
 decl_stmt|;
+comment|/**      * is parser using auto healing capacity ?      */
+specifier|private
+name|boolean
+name|isLenient
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * The security handler.      */
 specifier|protected
 name|SecurityHandler
@@ -1314,6 +1321,11 @@ name|getStartXref
 argument_list|()
 decl_stmt|;
 comment|// check the startxref offset
+if|if
+condition|(
+name|isLenient
+condition|)
+block|{
 name|startXrefOffset
 operator|-=
 name|calculateFixingOffset
@@ -1328,6 +1340,7 @@ argument_list|(
 name|startXrefOffset
 argument_list|)
 expr_stmt|;
+block|}
 name|long
 name|prev
 init|=
@@ -1413,6 +1426,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|isLenient
+operator|&&
 name|prev
 operator|>
 operator|-
@@ -1465,6 +1480,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|isLenient
+operator|&&
 name|prev
 operator|>
 operator|-
@@ -1538,9 +1555,15 @@ name|trailer
 argument_list|)
 expr_stmt|;
 comment|// check the offsets of all referenced objects
+if|if
+condition|(
+name|isLenient
+condition|)
+block|{
 name|checkXrefOffsets
 argument_list|()
 expr_stmt|;
+block|}
 comment|// ---- prepare encryption if necessary
 name|COSBase
 name|trailerEncryptItem
@@ -2695,6 +2718,47 @@ name|this
 operator|.
 name|pdfFile
 return|;
+block|}
+comment|/**      * Return true if parser is lenient. Meaning auto healing capacity of the parser are used.      *      * @return true if parser is lenient      */
+specifier|public
+name|boolean
+name|isLenient
+parameter_list|()
+block|{
+return|return
+name|isLenient
+return|;
+block|}
+comment|/**      * Change the parser leniency flag.      *      * This method can only be called before the parsing of the file.      *      * @param lenient      *      * @throws IllegalArgumentException if the method is called after parsing.      */
+specifier|public
+name|void
+name|setLenient
+parameter_list|(
+name|boolean
+name|lenient
+parameter_list|)
+throws|throws
+name|IllegalArgumentException
+block|{
+if|if
+condition|(
+name|initialParseDone
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot change leniency after parsing"
+argument_list|)
+throw|;
+block|}
+name|this
+operator|.
+name|isLenient
+operator|=
+name|lenient
+expr_stmt|;
 block|}
 comment|/**      * Remove the temporary file. A temporary file is created if this class is      * instantiated with an InputStream      */
 specifier|protected

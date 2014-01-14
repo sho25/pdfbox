@@ -935,6 +935,13 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|setLenient
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
 name|originalDocument
 operator|=
 operator|new
@@ -997,6 +1004,13 @@ name|input
 operator|.
 name|getInputStream
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|setLenient
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 name|this
