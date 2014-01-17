@@ -866,9 +866,7 @@ return|return
 name|points
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
+comment|/**      * Returns the path describing the glyph for the given glyphId.      *      * @param glyphId the glyphId      *      * @return the GeneralPath for the given glyphId      */
 specifier|public
 name|GeneralPath
 name|getPathForGlyphId
@@ -1384,7 +1382,7 @@ annotation|@
 name|Override
 specifier|public
 name|GeneralPath
-name|getPathForCharactercode
+name|getPathForCharacterCode
 parameter_list|(
 name|int
 name|code

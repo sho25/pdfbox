@@ -17,6 +17,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|type1
+operator|.
+name|Type1CharStringReader
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -91,12 +105,18 @@ name|Object
 argument_list|>
 name|type2sequence
 decl_stmt|;
-comment|/**      * Constructor.      * @param font Parent CFF font      * @param sequence Type 2 char string sequence      * @param defaultWidthX default width      * @param nomWidthX nominal width width      */
+comment|/**      * Constructor.      * @param reader Parent CFF font      * @param fontName font name      * @param glyphName glyph name      * @param sequence Type 2 char string sequence      * @param defaultWidthX default width      * @param nomWidthX nominal width      */
 specifier|public
 name|Type2CharString
 parameter_list|(
-name|CFFFont
-name|font
+name|Type1CharStringReader
+name|reader
+parameter_list|,
+name|String
+name|fontName
+parameter_list|,
+name|String
+name|glyphName
 parameter_list|,
 name|List
 argument_list|<
@@ -113,7 +133,11 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|font
+name|reader
+argument_list|,
+name|fontName
+argument_list|,
+name|glyphName
 argument_list|)
 expr_stmt|;
 name|type2sequence
@@ -162,8 +186,6 @@ block|}
 else|else
 block|{
 return|return
-name|nominalWidthX
-operator|+
 name|width
 return|;
 block|}
@@ -214,7 +236,10 @@ name|CharStringHandler
 argument_list|()
 block|{
 specifier|public
-name|void
+name|List
+argument_list|<
+name|Integer
+argument_list|>
 name|handleCommand
 parameter_list|(
 name|List
@@ -227,6 +252,7 @@ name|CharStringCommand
 name|command
 parameter_list|)
 block|{
+return|return
 name|Type2CharString
 operator|.
 name|this
@@ -237,7 +263,7 @@ name|numbers
 argument_list|,
 name|command
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 decl_stmt|;
@@ -259,7 +285,10 @@ literal|"unchecked"
 block|}
 argument_list|)
 specifier|private
-name|void
+name|List
+argument_list|<
+name|Integer
+argument_list|>
 name|handleCommand
 parameter_list|(
 name|List
@@ -1458,6 +1487,9 @@ name|command
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+literal|null
+return|;
 block|}
 specifier|private
 name|List

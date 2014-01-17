@@ -38,19 +38,10 @@ specifier|public
 interface|interface
 name|Glyph2D
 block|{
-comment|/**      * Returns the path describing the glyph for the given glyphId.      *       * @param glyphId the glyphId      *       * @return the GeneralPath for the given glyphId      */
-specifier|public
-name|GeneralPath
-name|getPathForGlyphId
-parameter_list|(
-name|int
-name|glyphId
-parameter_list|)
-function_decl|;
 comment|/**      * Returns the path describing the glyph for the given character code.      *       * @param code the character code      *       * @return the GeneralPath for the given character code      */
 specifier|public
 name|GeneralPath
-name|getPathForCharactercode
+name|getPathForCharacterCode
 parameter_list|(
 name|int
 name|code

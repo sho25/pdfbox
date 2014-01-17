@@ -768,51 +768,22 @@ name|code
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the character code for the name.      *      * @param name The name of the character.      *      * @return The code for the character.      *      * @throws IOException If there is no character code for the name.      */
+comment|/**      * This will get the character code for the name.      *      * @param name The name of the character.      *      * @return The code for the character or null if it is not in the encoding.      */
 specifier|public
-name|int
+name|Integer
 name|getCode
 parameter_list|(
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|IOException
 block|{
-name|Integer
-name|code
-init|=
+return|return
 name|nameToCode
 operator|.
 name|get
 argument_list|(
 name|name
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|code
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"No character code for character name '"
-operator|+
-name|name
-operator|+
-literal|"'"
-argument_list|)
-throw|;
-block|}
-return|return
-name|code
-operator|.
-name|intValue
-argument_list|()
 return|;
 block|}
 comment|/**      * This will take a character code and get the name from the code.      *      * @param code The character code.      *      * @return The name of the character.      */
