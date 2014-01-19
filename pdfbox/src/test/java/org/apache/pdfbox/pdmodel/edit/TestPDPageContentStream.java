@@ -125,7 +125,7 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|ColorSpaceCMYK
+name|PDDeviceCMYK
 import|;
 end_import
 
@@ -205,8 +205,11 @@ decl_stmt|;
 name|ColorSpace
 name|colorSpace
 init|=
-operator|new
-name|ColorSpaceCMYK
+name|PDDeviceCMYK
+operator|.
+name|INSTANCE
+operator|.
+name|getJavaColorSpace
 argument_list|()
 decl_stmt|;
 name|PDPage

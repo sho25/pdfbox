@@ -709,8 +709,58 @@ case|case
 literal|4
 case|:
 comment|// CMYK
-comment|// do a rough conversion to RGB as I'm not getting the CMYK to work.
-comment|// http://www.codeproject.com/KB/applications/xcmyk.aspx
+try|try
+block|{
+comment|// try to use the default CMYK color profile
+name|float
+index|[]
+name|rgb
+init|=
+name|PDDeviceCMYK
+operator|.
+name|INSTANCE
+operator|.
+name|getJavaColorSpace
+argument_list|()
+operator|.
+name|toRGB
+argument_list|(
+name|components
+argument_list|)
+decl_stmt|;
+name|cGuess
+operator|=
+operator|new
+name|Color
+argument_list|(
+name|rgb
+index|[
+literal|0
+index|]
+argument_list|,
+name|rgb
+index|[
+literal|1
+index|]
+argument_list|,
+name|rgb
+index|[
+literal|2
+index|]
+argument_list|)
+expr_stmt|;
+name|sMsg
+operator|+=
+literal|"\nInterpretating as CMYK using default ICC profile"
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e1
+parameter_list|)
+block|{
+comment|// fallback to naive conversion to RGB
 name|float
 name|r
 decl_stmt|,
@@ -810,8 +860,9 @@ argument_list|)
 expr_stmt|;
 name|sMsg
 operator|+=
-literal|"\nInterpretating as CMYK"
+literal|"\nInterpretating as CMYK without ICC profile"
 expr_stmt|;
+block|}
 break|break;
 default|default:
 name|sMsg
