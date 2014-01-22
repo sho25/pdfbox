@@ -1377,6 +1377,13 @@ operator|==
 name|X
 condition|)
 block|{
+name|document
+operator|.
+name|setIsXRefStream
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 comment|// xref table and trailer
 comment|// use existing parser to parse xref table
 name|parseXrefTable
@@ -1470,6 +1477,13 @@ block|}
 block|}
 else|else
 block|{
+name|document
+operator|.
+name|setIsXRefStream
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// parse xref stream
 name|prev
 operator|=

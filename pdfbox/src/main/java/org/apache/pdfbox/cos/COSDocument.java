@@ -378,6 +378,10 @@ name|closed
 init|=
 literal|false
 decl_stmt|;
+specifier|private
+name|boolean
+name|isXRefStream
+decl_stmt|;
 comment|/**      * Flag to skip malformed or otherwise unparseable input where possible.      */
 specifier|private
 specifier|final
@@ -2024,40 +2028,29 @@ return|return
 name|startXref
 return|;
 block|}
-comment|/**      * Determines it the trailer is a XRef stream or not.      *       * @return true if the trailer is a XRef stream      */
+comment|/**      * Determines if the trailer is a XRef stream or not.      *       * @return true if the trailer is a XRef stream      */
 specifier|public
 name|boolean
 name|isXRefStream
 parameter_list|()
 block|{
-if|if
-condition|(
-name|trailer
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
-name|COSName
-operator|.
-name|XREF
-operator|.
-name|equals
-argument_list|(
-name|trailer
-operator|.
-name|getItem
-argument_list|(
-name|COSName
-operator|.
-name|TYPE
-argument_list|)
-argument_list|)
+name|isXRefStream
 return|;
 block|}
-return|return
-literal|false
-return|;
+comment|/**      * Sets isXRefStream to the given value.      *       * @param isXRefStreamValue the new value for isXRefStream      */
+specifier|public
+name|void
+name|setIsXRefStream
+parameter_list|(
+name|boolean
+name|isXRefStreamValue
+parameter_list|)
+block|{
+name|isXRefStream
+operator|=
+name|isXRefStreamValue
+expr_stmt|;
 block|}
 block|}
 end_class
