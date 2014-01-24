@@ -181,20 +181,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|persistence
 operator|.
 name|util
@@ -222,6 +208,10 @@ name|COSDictionary
 name|trailer
 init|=
 literal|null
+decl_stmt|;
+specifier|private
+name|XRefType
+name|xrefType
 decl_stmt|;
 specifier|private
 specifier|final
@@ -285,6 +275,17 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**       * The XRefType of a trailer.      */
+specifier|public
+enum|enum
+name|XRefType
+block|{
+comment|/**          * XRef table type.          */
+name|TABLE
+block|,
+comment|/**          * XRef stream type.          */
+name|STREAM
+block|;     }
 specifier|private
 specifier|final
 name|Map
@@ -332,6 +333,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/**      * Returns the first trailer if at least one exists.      *       * @return the first trailer or null      */
 specifier|public
 specifier|final
 name|COSDictionary
@@ -345,9 +347,11 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 return|return
 literal|null
 return|;
+block|}
 name|Set
 argument_list|<
 name|Long
@@ -388,6 +392,7 @@ operator|.
 name|trailer
 return|;
 block|}
+comment|/**      * Returns the last trailer if at least one exists.      *       * @return the last trailer ir null      */
 specifier|public
 specifier|final
 name|COSDictionary
@@ -401,9 +406,11 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 return|return
 literal|null
 return|;
+block|}
 name|Set
 argument_list|<
 name|Long
@@ -444,7 +451,7 @@ operator|.
 name|trailer
 return|;
 block|}
-comment|/**      * Signals that a new XRef object (table or stream) starts.      * @param startBytePos the offset to start at      *      */
+comment|/**      * Signals that a new XRef object (table or stream) starts.      * @param startBytePos the offset to start at      * @param type the type of the Xref object      */
 specifier|public
 name|void
 name|nextXrefObj
@@ -452,6 +459,9 @@ parameter_list|(
 specifier|final
 name|long
 name|startBytePos
+parameter_list|,
+name|XRefType
+name|type
 parameter_list|)
 block|{
 name|bytePosToXrefMap
@@ -467,6 +477,32 @@ name|XrefTrailerObj
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|curXrefTrailerObj
+operator|.
+name|xrefType
+operator|=
+name|type
+expr_stmt|;
+block|}
+comment|/**      * Returns the XRefTxpe of the resolved trailer.      *       * @return the XRefType or null.      */
+specifier|public
+name|XRefType
+name|getXrefType
+parameter_list|()
+block|{
+return|return
+operator|(
+name|resolvedXrefTrailer
+operator|==
+literal|null
+operator|)
+condition|?
+literal|null
+else|:
+name|resolvedXrefTrailer
+operator|.
+name|xrefType
+return|;
 block|}
 comment|/**      * Populate XRef HashMap of current XRef object.      * Will add an Xreftable entry that maps ObjectKeys to byte offsets in the file.      * @param objKey The objkey, with id and gen numbers      * @param offset The byte offset in this file      */
 specifier|public

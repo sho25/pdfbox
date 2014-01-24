@@ -739,6 +739,22 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdfparser
+operator|.
+name|XrefTrailerResolver
+operator|.
+name|XRefType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -1782,6 +1798,10 @@ operator|.
 name|nextXrefObj
 argument_list|(
 name|startByteOffset
+argument_list|,
+name|XRefType
+operator|.
+name|TABLE
 argument_list|)
 expr_stmt|;
 comment|/*          * Xref tables can have multiple sections. Each starts with a starting object id and a count.          */

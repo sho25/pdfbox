@@ -487,6 +487,22 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdfparser
+operator|.
+name|XrefTrailerResolver
+operator|.
+name|XRefType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -1377,13 +1393,6 @@ operator|==
 name|X
 condition|)
 block|{
-name|document
-operator|.
-name|setIsXRefStream
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 comment|// xref table and trailer
 comment|// use existing parser to parse xref table
 name|parseXrefTable
@@ -1477,13 +1486,6 @@ block|}
 block|}
 else|else
 block|{
-name|document
-operator|.
-name|setIsXRefStream
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 comment|// parse xref stream
 name|prev
 operator|=
@@ -1566,6 +1568,20 @@ operator|.
 name|setTrailer
 argument_list|(
 name|trailer
+argument_list|)
+expr_stmt|;
+name|document
+operator|.
+name|setIsXRefStream
+argument_list|(
+name|XRefType
+operator|.
+name|STREAM
+operator|==
+name|xrefTrailerResolver
+operator|.
+name|getXrefType
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// check the offsets of all referenced objects
