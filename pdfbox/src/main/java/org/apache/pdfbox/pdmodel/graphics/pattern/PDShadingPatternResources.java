@@ -897,7 +897,8 @@ operator|)
 name|getShading
 argument_list|()
 argument_list|,
-literal|null
+name|getMatrix
+argument_list|()
 argument_list|,
 name|pageHeight
 argument_list|)
@@ -919,7 +920,8 @@ operator|)
 name|getShading
 argument_list|()
 argument_list|,
-literal|null
+name|getMatrix
+argument_list|()
 argument_list|,
 name|pageHeight
 argument_list|)
