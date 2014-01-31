@@ -53,6 +53,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSBase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSDictionary
 import|;
 end_import
@@ -106,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents resources for a shading type 5 (Lattice-Form Gouraud-Shaded Triangle Meshes).  *  * @version $Revision: 1.0 $  */
+comment|/**  * This represents resources for a shading type 5 (Lattice-Form Gouraud-Shaded Triangle Meshes).  *  */
 end_comment
 
 begin_class
@@ -122,7 +136,7 @@ name|function
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * An array of 2 × n numbers specifying the linear mapping of sample values       * into the range appropriate for the function’s output values.       * Default value: same as the value of Range      */
+comment|/**      * An array of 2^n numbers specifying the linear mapping of sample values       * into the range appropriate for the function's output values.       * Default value: same as the value of Range      */
 specifier|private
 name|COSArray
 name|decode
@@ -196,12 +210,9 @@ operator|==
 literal|null
 condition|)
 block|{
-name|function
-operator|=
-name|PDFunction
-operator|.
-name|create
-argument_list|(
+name|COSBase
+name|dictionaryFunctionObject
+init|=
 name|getCOSDictionary
 argument_list|()
 operator|.
@@ -211,6 +222,20 @@ name|COSName
 operator|.
 name|FUNCTION
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|dictionaryFunctionObject
+operator|!=
+literal|null
+condition|)
+name|function
+operator|=
+name|PDFunction
+operator|.
+name|create
+argument_list|(
+name|dictionaryFunctionObject
 argument_list|)
 expr_stmt|;
 block|}
