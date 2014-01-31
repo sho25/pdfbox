@@ -630,6 +630,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
 name|writeString
 argument_list|(
 name|fontState
@@ -638,6 +640,7 @@ name|clear
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// do not escape HTML
 name|super
 operator|.
 name|writeParagraphEnd
