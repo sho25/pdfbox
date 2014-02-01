@@ -1109,16 +1109,6 @@ name|int
 name|h
 parameter_list|)
 block|{
-name|float
-index|[]
-name|values
-init|=
-operator|new
-name|float
-index|[
-name|numberOfColorComponents
-index|]
-decl_stmt|;
 name|WritableRaster
 name|raster
 init|=
@@ -1199,6 +1189,16 @@ name|y
 operator|+
 name|row
 argument_list|)
+decl_stmt|;
+name|float
+index|[]
+name|values
+init|=
+operator|new
+name|float
+index|[
+name|numberOfColorComponents
+index|]
 decl_stmt|;
 comment|//TODO test optmization after ch14.pdf works:
 comment|// check whether point is in combined java area
