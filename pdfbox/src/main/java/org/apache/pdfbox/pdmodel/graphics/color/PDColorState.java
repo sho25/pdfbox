@@ -957,8 +957,12 @@ name|colorSpace
 operator|=
 name|value
 expr_stmt|;
-comment|// Clear color cache and current pattern
+comment|// Clear color/paint cache and current pattern
 name|color
+operator|=
+literal|null
+expr_stmt|;
+name|paint
 operator|=
 literal|null
 expr_stmt|;
@@ -1008,8 +1012,12 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-comment|// Clear color cache and current pattern
+comment|// Clear color/paint and current pattern
 name|color
+operator|=
+literal|null
+expr_stmt|;
+name|paint
 operator|=
 literal|null
 expr_stmt|;
@@ -1041,8 +1049,12 @@ name|pattern
 operator|=
 name|patternValue
 expr_stmt|;
-comment|// Clear color cache
+comment|// Clear color/paint cache
 name|color
+operator|=
+literal|null
+expr_stmt|;
+name|paint
 operator|=
 literal|null
 expr_stmt|;
