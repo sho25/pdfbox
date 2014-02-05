@@ -3839,7 +3839,7 @@ condition|(
 name|index
 operator|-
 literal|391
-operator|<=
+operator|<
 name|stringIndex
 operator|.
 name|getCount
