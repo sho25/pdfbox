@@ -426,11 +426,9 @@ name|outputPrefix
 operator|+
 literal|1
 decl_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Writing: "
 operator|+
@@ -468,12 +466,12 @@ block|{
 name|String
 name|inDir
 init|=
-literal|"src/test/resources/input/rendering"
+literal|"src/test/resources/input/ImageIOUtil"
 decl_stmt|;
 name|String
 name|outDir
 init|=
-literal|"target/test-output/"
+literal|"target/test-output/ImageIOUtil/"
 decl_stmt|;
 operator|new
 name|File
