@@ -11,6 +11,8 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|examples
+operator|.
 name|ant
 package|;
 end_package
