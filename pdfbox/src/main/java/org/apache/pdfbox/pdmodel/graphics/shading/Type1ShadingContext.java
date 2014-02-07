@@ -561,7 +561,8 @@ expr_stmt|;
 block|}
 try|try
 block|{
-comment|// get inverse transform to be independent of current user / device space
+comment|// get inverse transform to be independent of
+comment|// shading matrix and current user / device space
 comment|// when handling actual pixels in getRaster()
 name|rat
 operator|=
@@ -572,6 +573,19 @@ argument_list|()
 operator|.
 name|createInverse
 argument_list|()
+expr_stmt|;
+name|rat
+operator|.
+name|concatenate
+argument_list|(
+name|currentTransformationMatrix
+operator|.
+name|createAffineTransform
+argument_list|()
+operator|.
+name|createInverse
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|rat
 operator|.
