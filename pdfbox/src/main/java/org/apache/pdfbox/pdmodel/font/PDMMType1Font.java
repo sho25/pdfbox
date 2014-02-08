@@ -54,7 +54,7 @@ specifier|public
 class|class
 name|PDMMType1Font
 extends|extends
-name|PDSimpleFont
+name|PDType1Font
 block|{
 comment|/**      * Constructor.      */
 specifier|public
