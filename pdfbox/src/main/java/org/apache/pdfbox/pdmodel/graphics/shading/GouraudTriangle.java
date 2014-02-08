@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper class to deal with Gouraud triangles for type 4 and 5 shading.  *   * @author Tilman Hausherr  */
+comment|/**  * Helper class to deal with Gouraud triangles for type 4 and 5 shading.  *  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -60,46 +60,82 @@ operator|new
 name|Polygon
 argument_list|()
 decl_stmt|;
-comment|/**       * point A of the triangle.      */
+comment|/**      * point A of the triangle.      */
 specifier|protected
 specifier|final
 name|Point2D
 name|pointA
 decl_stmt|;
-comment|/**       * point B of the triangle.      */
+comment|/**      * point B of the triangle.      */
 specifier|protected
 specifier|final
 name|Point2D
 name|pointB
 decl_stmt|;
-comment|/**       * point C of the triangle.      */
+comment|/**      * point C of the triangle.      */
 specifier|protected
 specifier|final
 name|Point2D
 name|pointC
 decl_stmt|;
-comment|/**       * the color of point A.      */
+comment|/**      * the color of point A.      */
 specifier|protected
 specifier|final
 name|float
 index|[]
 name|colorA
 decl_stmt|;
-comment|/**       * the color of point B.      */
+comment|/**      * the color of point B.      */
 specifier|protected
 specifier|final
 name|float
 index|[]
 name|colorB
 decl_stmt|;
-comment|/**       * the color of point C.      */
+comment|/**      * the color of point C.      */
 specifier|protected
 specifier|final
 name|float
 index|[]
 name|colorC
 decl_stmt|;
-comment|/**      * Constructor for using 3 points and their colors.      * @param a point A of the triangle      * @param aColor color of point A      * @param b point B of the triangle      * @param bColor color of point B      * @param c point C of the triangle      * @param cColor color of point C      */
+comment|/*      * intermediate constants      */
+specifier|private
+specifier|final
+name|double
+name|xBminusA
+decl_stmt|;
+specifier|private
+specifier|final
+name|double
+name|yBminusA
+decl_stmt|;
+specifier|private
+specifier|final
+name|double
+name|xCminusA
+decl_stmt|;
+specifier|private
+specifier|final
+name|double
+name|yCminusA
+decl_stmt|;
+specifier|private
+specifier|final
+name|double
+name|xCminusB
+decl_stmt|;
+specifier|private
+specifier|final
+name|double
+name|yCminusB
+decl_stmt|;
+specifier|private
+specifier|final
+name|double
+name|area
+decl_stmt|;
+comment|/**      * Constructor for using 3 points and their colors.      *      * @param a point A of the triangle      * @param aColor color of point A      * @param b point B of the triangle      * @param bColor color of point B      * @param c point C of the triangle      * @param cColor color of point C      */
 specifier|public
 name|GouraudTriangle
 parameter_list|(
@@ -148,6 +184,90 @@ expr_stmt|;
 name|colorC
 operator|=
 name|cColor
+expr_stmt|;
+comment|// calculate constants
+name|xBminusA
+operator|=
+name|pointB
+operator|.
+name|getX
+argument_list|()
+operator|-
+name|pointA
+operator|.
+name|getX
+argument_list|()
+expr_stmt|;
+name|yBminusA
+operator|=
+name|pointB
+operator|.
+name|getY
+argument_list|()
+operator|-
+name|pointA
+operator|.
+name|getY
+argument_list|()
+expr_stmt|;
+name|xCminusA
+operator|=
+name|pointC
+operator|.
+name|getX
+argument_list|()
+operator|-
+name|pointA
+operator|.
+name|getX
+argument_list|()
+expr_stmt|;
+name|yCminusA
+operator|=
+name|pointC
+operator|.
+name|getY
+argument_list|()
+operator|-
+name|pointA
+operator|.
+name|getY
+argument_list|()
+expr_stmt|;
+name|xCminusB
+operator|=
+name|pointC
+operator|.
+name|getX
+argument_list|()
+operator|-
+name|pointB
+operator|.
+name|getX
+argument_list|()
+expr_stmt|;
+name|yCminusB
+operator|=
+name|pointC
+operator|.
+name|getY
+argument_list|()
+operator|-
+name|pointB
+operator|.
+name|getY
+argument_list|()
+expr_stmt|;
+name|area
+operator|=
+name|getArea
+argument_list|(
+name|pointA
+argument_list|,
+name|pointB
+argument_list|,
+name|pointC
+argument_list|)
 expr_stmt|;
 name|polygon
 operator|.
@@ -243,7 +363,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check whether the point is within the triangle.      *       * @param p Point      *       * @return true if yes, false if no      */
+comment|/**      * Check whether the point is within the triangle.      *      * @param p Point      *      * @return true if yes, false if no      */
 specifier|public
 name|boolean
 name|contains
@@ -252,16 +372,117 @@ name|Point2D
 name|p
 parameter_list|)
 block|{
-comment|// if there is ever a need to optimize, go here
+comment|// inspiration:
 comment|// http://stackoverflow.com/a/9755252/535646
+comment|// see also:
 comment|// http://math.stackexchange.com/q/51326
-return|return
-name|polygon
-operator|.
-name|contains
-argument_list|(
+comment|// http://www.gamedev.net/topic/295943-is-this-a-better-point-in-triangle-test-2d/
+comment|// java function can't be used because polygon takes integer coordinates
+name|double
+name|xPminusA
+init|=
 name|p
-argument_list|)
+operator|.
+name|getX
+argument_list|()
+operator|-
+name|pointA
+operator|.
+name|getX
+argument_list|()
+decl_stmt|;
+name|double
+name|yPminusA
+init|=
+name|p
+operator|.
+name|getY
+argument_list|()
+operator|-
+name|pointA
+operator|.
+name|getY
+argument_list|()
+decl_stmt|;
+name|boolean
+name|signAB
+init|=
+operator|(
+name|xBminusA
+operator|*
+name|yPminusA
+operator|-
+name|yBminusA
+operator|*
+name|xPminusA
+operator|)
+operator|>
+literal|0
+decl_stmt|;
+if|if
+condition|(
+operator|(
+name|xCminusA
+operator|*
+name|yPminusA
+operator|-
+name|yCminusA
+operator|*
+name|xPminusA
+operator|>
+literal|0
+operator|)
+operator|==
+name|signAB
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+operator|(
+name|xCminusB
+operator|*
+operator|(
+name|p
+operator|.
+name|getY
+argument_list|()
+operator|-
+name|pointB
+operator|.
+name|getY
+argument_list|()
+operator|)
+operator|-
+name|yCminusB
+operator|*
+operator|(
+name|p
+operator|.
+name|getX
+argument_list|()
+operator|-
+name|pointB
+operator|.
+name|getX
+argument_list|()
+operator|)
+operator|>
+literal|0
+operator|)
+operator|!=
+name|signAB
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+return|return
+literal|true
 return|;
 block|}
 comment|/**      * Get the area of a triangle.      *      */
@@ -338,7 +559,7 @@ operator|/
 literal|2
 return|;
 block|}
-comment|/**      * calculate color weights with barycentric interpolation.      *       * @param p Point within triangle      *      * @return array of weights (between 0 and 1) for a b c      */
+comment|/**      * calculate color weights with barycentric interpolation.      *      * @param p Point within triangle      *      * @return array of weights (between 0 and 1) for a b c      */
 specifier|public
 name|double
 index|[]
@@ -349,18 +570,6 @@ name|p
 parameter_list|)
 block|{
 comment|// http://classes.soe.ucsc.edu/cmps160/Fall10/resources/barycentricInterpolation.pdf
-name|double
-name|area
-init|=
-name|getArea
-argument_list|(
-name|pointA
-argument_list|,
-name|pointB
-argument_list|,
-name|pointC
-argument_list|)
-decl_stmt|;
 return|return
 operator|new
 name|double
