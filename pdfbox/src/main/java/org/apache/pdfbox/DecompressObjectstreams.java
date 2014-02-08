@@ -23,6 +23,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSObject
 import|;
 end_import
@@ -92,7 +106,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|PdfDecompressor
+name|DecompressObjectstreams
 block|{
 comment|/**      * This is a very simple program, so everything is in the main method.      * @param args arguments to the program      */
 specifier|public
@@ -202,7 +216,9 @@ argument_list|()
 operator|.
 name|getObjectsByType
 argument_list|(
-literal|"ObjStm"
+name|COSName
+operator|.
+name|OBJ_STM
 argument_list|)
 control|)
 block|{
@@ -361,9 +377,9 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java -cp /path/to/pdfbox.jar;/path/to/commons-logging-api.jar "
+literal|"Usage: java -cp pdfbox-app-x.y.z.jar "
 operator|+
-literal|"org.apache.pdfbox.PdfDecompressor<input PDF File> [<Output PDF File>]\n"
+literal|"org.apache.pdfbox.DecompressObjectstreams<input PDF File> [<Output PDF File>]\n"
 operator|+
 literal|"<input PDF File>       The PDF document to decompress\n"
 operator|+
