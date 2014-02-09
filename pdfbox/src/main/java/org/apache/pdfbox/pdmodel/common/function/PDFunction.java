@@ -774,7 +774,7 @@ return|return
 name|domain
 return|;
 block|}
-comment|/**      * Clip the given input values to the ranges.      *       * @param inputArray the input values      * @return the clipped values      */
+comment|/**      * Clip the given input values to the ranges.      *       * @param inputValues the input values      * @return the clipped values      */
 specifier|protected
 name|float
 index|[]

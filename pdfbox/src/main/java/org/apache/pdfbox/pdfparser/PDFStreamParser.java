@@ -476,7 +476,7 @@ return|return
 name|streamObjects
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/**      * This will close the underlying pdfSource object.      *       * @throws IOException If there is an error releasing resources.      */
 specifier|public
 name|void
 name|close

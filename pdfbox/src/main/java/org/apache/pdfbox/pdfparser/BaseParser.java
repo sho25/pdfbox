@@ -5518,7 +5518,7 @@ expr_stmt|;
 block|}
 comment|//log( "skipSpaces() done peek='" + (char)pdfSource.peek() + "'" );
 block|}
-comment|/**      * This will read a long from the Stream and throw an {@link IllegalArgumentException} if the long value      * has more than 10 digits (i.e. : bigger than {@link #OBJECT_NUMBER_THRESHOLD})      * @return      * @throws IOException      */
+comment|/**      * This will read a long from the Stream and throw an {@link IllegalArgumentException} if the long value      * has more than 10 digits (i.e. : bigger than {@link #OBJECT_NUMBER_THRESHOLD})      * @return the object number being read.      * @throws IOException      */
 specifier|protected
 name|long
 name|readObjectNumber
@@ -5559,7 +5559,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will read a integer from the Stream and throw an {@link IllegalArgumentException} if the integer value      * has more than the maximum object revision (i.e. : bigger than {@link #GENERATION_NUMBER_THRESHOLD})      * @return      * @throws IOException      */
+comment|/**      * This will read a integer from the Stream and throw an {@link IllegalArgumentException} if the integer value      * has more than the maximum object revision (i.e. : bigger than {@link #GENERATION_NUMBER_THRESHOLD})      * @return the generation number being read.      * @throws IOException      */
 specifier|protected
 name|int
 name|readGenerationNumber

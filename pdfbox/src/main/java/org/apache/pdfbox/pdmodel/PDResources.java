@@ -344,7 +344,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a set of resources available at the page/pages/stream level.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This represents a set of resources available at the page/pages/stream level.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author By BM  *   */
 end_comment
 
 begin_class
@@ -1053,7 +1053,7 @@ return|return
 name|xobjects
 return|;
 block|}
-comment|/**      * This will get the map of images. An empty map will be returned if there are no underlying images. So far the keys      * are COSName of the image and the value is the corresponding PDXObjectImage.      *       * @author By BM      * @return The map of images.      * @throws IOException If there is an error writing the picture.      *       * @deprecated use {@link #getXObjects()} instead, as the images map isn't synchronized with the XObjects map.      */
+comment|/**      * This will get the map of images. An empty map will be returned if there are no underlying images. So far the keys      * are COSName of the image and the value is the corresponding PDXObjectImage.      *       * @return The map of images.      * @throws IOException If there is an error writing the picture.      *       * @deprecated use {@link #getXObjects()} instead, as the images map isn't synchronized with the XObjects map.      */
 specifier|public
 name|Map
 argument_list|<

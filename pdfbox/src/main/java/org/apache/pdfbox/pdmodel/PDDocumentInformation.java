@@ -114,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the document metadata.  Each getXXX method will return the entry if  * it exists or null if it does not exist.  If you pass in null for the setXXX  * method then it will clear the value.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.12 $  */
+comment|/**  * This is the document metadata.  Each getXXX method will return the entry if  * it exists or null if it does not exist.  If you pass in null for the setXXX  * method then it will clear the value.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author  Gerardo Ortiz  *  * @version $Revision: 1.12 $  */
 end_comment
 
 begin_class
@@ -546,7 +546,7 @@ return|return
 name|keys
 return|;
 block|}
-comment|/**      *  This will get the value of a custom metadata information field for the document.      *  This will return null if one is not found.      *      * @param fieldName Name of custom metadata field from pdf document.      *      * @return String Value of metadata field      *      * @author  Gerardo Ortiz      */
+comment|/**      *  This will get the value of a custom metadata information field for the document.      *  This will return null if one is not found.      *      * @param fieldName Name of custom metadata field from pdf document.      *      * @return String Value of metadata field      */
 specifier|public
 name|String
 name|getCustomMetadataValue

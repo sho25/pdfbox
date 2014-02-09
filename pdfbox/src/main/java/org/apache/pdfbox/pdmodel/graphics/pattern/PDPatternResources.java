@@ -448,7 +448,7 @@ return|return
 name|pattern
 return|;
 block|}
-comment|/**      * This will return the paint of the pattern.      *       * @param the height of the current page      *       * @return the paint of the pattern      */
+comment|/**      * This will return the paint of the pattern.      *       * @param pageHeight the height of the current page      *       * @return the paint of the pattern      */
 specifier|public
 specifier|abstract
 name|Paint

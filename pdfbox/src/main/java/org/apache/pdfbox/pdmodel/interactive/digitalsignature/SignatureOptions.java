@@ -163,7 +163,7 @@ name|getDocument
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Reads the visual signature from the given visual signature properties      *        * @param is the<code>PDVisibleSigProperties</code> object containing the visual signature      *       * @throws IOException when something went wrong during parsing      *       * @since 1.8.3      */
+comment|/**      * Reads the visual signature from the given visual signature properties      *        * @param visSignatureProperties the<code>PDVisibleSigProperties</code> object containing the visual signature      *       * @throws IOException when something went wrong during parsing      *       * @since 1.8.3      */
 specifier|public
 name|void
 name|setVisualSignature

@@ -89,7 +89,7 @@ name|endPage
 init|=
 literal|0
 decl_stmt|;
-comment|/**       * Creates a new instance of PageExtractor      * @param document The document to split.      */
+comment|/**       * Creates a new instance of PageExtractor      * @param sourceDocument The document to split.      */
 specifier|public
 name|PageExtractor
 parameter_list|(
@@ -111,7 +111,7 @@ name|getNumberOfPages
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**       * Creates a new instance of PageExtractor      * @param document The document to split.      * @param startPage The first page you want extracted (inclusive)      * @param endPage The last page you want extracted (inclusive)      */
+comment|/**       * Creates a new instance of PageExtractor      * @param sourceDocument The document to split.      * @param startPage The first page you want extracted (inclusive)      * @param endPage The last page you want extracted (inclusive)      */
 specifier|public
 name|PageExtractor
 parameter_list|(

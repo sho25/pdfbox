@@ -200,7 +200,7 @@ name|input
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/**      * This will parse the tokens making up the visual signature.      *      * @throws IOException If there is an error while parsing the visual signature.      */
 specifier|public
 name|void
 name|parse

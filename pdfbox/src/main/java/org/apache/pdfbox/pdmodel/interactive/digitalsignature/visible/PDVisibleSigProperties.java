@@ -128,7 +128,7 @@ return|return
 name|signerName
 return|;
 block|}
-comment|/**      * Sets signer name      * @param signerName      * @return      */
+comment|/**      * Sets signer name      * @param signerName      * @return the visible signature properties.      */
 specifier|public
 name|PDVisibleSigProperties
 name|signerName
@@ -157,7 +157,7 @@ return|return
 name|signerLocation
 return|;
 block|}
-comment|/**      * Sets location      * @param signerLocation      * @return      */
+comment|/**      * Sets location      * @param signerLocation      * @return the visible signature properties.      */
 specifier|public
 name|PDVisibleSigProperties
 name|signerLocation
@@ -176,7 +176,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * gets reason of signing      * @return       */
+comment|/**      * gets reason of signing      * @return  the signing reason.       */
 specifier|public
 name|String
 name|getSignatureReason
@@ -186,7 +186,7 @@ return|return
 name|signatureReason
 return|;
 block|}
-comment|/**      * sets reason of signing      * @param signatureReason      * @return      */
+comment|/**      * sets reason of signing      * @param signatureReason      * @return the visible signature properties.      */
 specifier|public
 name|PDVisibleSigProperties
 name|signatureReason
@@ -205,7 +205,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * returns your page      * @return       */
+comment|/**      * returns your page      * @return  the page number.      */
 specifier|public
 name|int
 name|getPage
@@ -215,7 +215,7 @@ return|return
 name|page
 return|;
 block|}
-comment|/**      * sets page number      * @param page      * @return      */
+comment|/**      * sets page number      * @param page      * @return the visible signature properties.      */
 specifier|public
 name|PDVisibleSigProperties
 name|page
@@ -234,7 +234,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * gets our preferred size      * @return      */
+comment|/**      * gets our preferred size      * @return the signature's preferred size.      */
 specifier|public
 name|int
 name|getPreferredSize
@@ -244,7 +244,7 @@ return|return
 name|preferredSize
 return|;
 block|}
-comment|/**      * sets our preferred size      * @param preferredSize      * @return      */
+comment|/**      * sets our preferred size      * @param preferredSize      * @return the visible signature properties.      */
 specifier|public
 name|PDVisibleSigProperties
 name|preferredSize
@@ -263,7 +263,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * checks if we need to add visible signature      * @return      */
+comment|/**      * checks if we need to add visible signature      * @return state if visible signature is needed.      */
 specifier|public
 name|boolean
 name|isVisualSignEnabled
@@ -273,7 +273,7 @@ return|return
 name|visualSignEnabled
 return|;
 block|}
-comment|/**      * sets visible signature to be added or not      * @param visualSignEnabled      * @return      */
+comment|/**      * sets visible signature to be added or not      * @param visualSignEnabled      * @return the visible signature properties.      */
 specifier|public
 name|PDVisibleSigProperties
 name|visualSignEnabled
@@ -292,7 +292,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * this method gets visible signature configuration object      * @return      */
+comment|/**      * this method gets visible signature configuration object      * @return the visible signature configuration.      */
 specifier|public
 name|PDVisibleSignDesigner
 name|getPdVisibleSignature
@@ -302,7 +302,7 @@ return|return
 name|pdVisibleSignature
 return|;
 block|}
-comment|/**      * Sets visible signature configuration Object      * @param pdVisibleSignature      * @return      */
+comment|/**      * Sets visible signature configuration Object      * @param pdVisibleSignature      * @return the visible signature properties.      */
 specifier|public
 name|PDVisibleSigProperties
 name|setPdVisibleSignature
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * returns visible signature configuration object      * @return      */
+comment|/**      * returns visible signature configuration object      * @return the input stream representing the visible signature.      */
 specifier|public
 name|InputStream
 name|getVisibleSignature

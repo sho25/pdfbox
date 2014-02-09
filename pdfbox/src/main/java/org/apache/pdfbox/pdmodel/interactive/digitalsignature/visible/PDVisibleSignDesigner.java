@@ -249,7 +249,7 @@ name|document
 init|=
 literal|null
 decl_stmt|;
-comment|/**      *       * @param originalDocumenStream      * @param imageStream      * @param page-which page are you going to add visible signature      * @throws IOException      */
+comment|/**      *       * @param originalDocumenStream      * @param imageStream      * @param page the page the visible signature is added to.      * @throws IOException      */
 specifier|public
 name|PDVisibleSignDesigner
 parameter_list|(
@@ -287,7 +287,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *       * @param documentPath - path of your pdf document      * @param imageStream - stream of image      * @param page -which page are you going to add visible signature      * @throws IOException      */
+comment|/**      *       * @param documentPath - path of your pdf document      * @param imageStream - stream of image      * @param page the page the visible signature is added to.      * @throws IOException      */
 specifier|public
 name|PDVisibleSignDesigner
 parameter_list|(
@@ -520,7 +520,7 @@ name|fin
 argument_list|)
 return|;
 block|}
-comment|/**      * zoom signature image with some percent.      *       * @param percent- x % increase image with x percent.      * @return Visible Signature Configuration Object      */
+comment|/**      * zoom signature image with some percent.      *       * @param percent the percentage for zooming the image.      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|zoom
@@ -557,7 +557,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *       * @param xAxis - x coordinate       * @param yAxis - y coordinate      * @return Visible Signature Configuration Object      */
+comment|/**      *       * @param x the x coordinate.      * @param y the y coordinate.      * @return Visible Signature Configuration Object.      */
 specifier|public
 name|PDVisibleSignDesigner
 name|coordinates
@@ -651,7 +651,7 @@ return|return
 name|sigImgWidth
 return|;
 block|}
-comment|/**      *       * @param sets signature image width      * @return Visible Signature Configuration Object      */
+comment|/**      *       * @param signatureImgWidth the signature image width.      * @return Visible Signature Configuration Object.      */
 specifier|public
 name|PDVisibleSignDesigner
 name|width
@@ -680,7 +680,7 @@ return|return
 name|sigImgHeight
 return|;
 block|}
-comment|/**      *       * @param set signature image Height      * @return Visible Signature Configuration Object      */
+comment|/**      *       * @param signatureImgHeight the signature image height      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|height
@@ -1025,7 +1025,7 @@ return|return
 name|pageWidth
 return|;
 block|}
-comment|/**      *       * @param sets pageWidth      * @return Visible Signature Configuration Object      */
+comment|/**      *       * @param pageWidth the pageWidth.      * @return Visible Signature Configuration Object.      */
 specifier|public
 name|PDVisibleSignDesigner
 name|pageWidth
@@ -1054,7 +1054,7 @@ return|return
 name|pageHeight
 return|;
 block|}
-comment|/**      * get image size in percents      * @return      */
+comment|/**      * get image size in percents      * @return image size in percents.      */
 specifier|public
 name|float
 name|getImageSizeInPercents
@@ -1080,7 +1080,7 @@ operator|=
 name|imageSizeInPercents
 expr_stmt|;
 block|}
-comment|/**      * returns visible signature text      * @return      */
+comment|/**      * returns visible signature text      * @return visible signature text.      */
 specifier|public
 name|String
 name|getSignatureText
@@ -1094,7 +1094,7 @@ literal|"That method is not yet implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      *       * @param signatureText - adds the text on visible signature      * @return      */
+comment|/**      *       * @param signatureText - adds the text on visible signature      * @return the signature design representing the text.      */
 specifier|public
 name|PDVisibleSignDesigner
 name|signatureText

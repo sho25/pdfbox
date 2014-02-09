@@ -1560,7 +1560,7 @@ name|dest
 return|;
 comment|// dest has at least a year value
 block|}
-comment|/**      * See if text can be parsed as a date according to any of a list of       * formats. The time zone may be included as part of the format, or      * omitted in favor of later testing for a trailing time zone.      *       * @param text The text to be parsed.      *       * @param fmts A list of formats to be tried. The syntax is that for       *      {@link #java.text.SimpleDateFormat}      *       * @param initialWhere At start this is the position to begin      *      examining the text. Upon return it will have been      *      incremented to refer to the next non-space character after the date.      *      If no date was found, the value is unchanged.      *      The error index is ignored and unchanged.      *       * @return null for failure to find a date, or the GregorianCalendar      *      for the date that was found. Unless a time zone was       *      part of the format, the time zone will be GMT+0      */
+comment|/**      * See if text can be parsed as a date according to any of a list of       * formats. The time zone may be included as part of the format, or      * omitted in favor of later testing for a trailing time zone.      *       * @param text The text to be parsed.      *       * @param fmts A list of formats to be tried. The syntax is that for       *      {@link java.text.SimpleDateFormat}      *       * @param initialWhere At start this is the position to begin      *      examining the text. Upon return it will have been      *      incremented to refer to the next non-space character after the date.      *      If no date was found, the value is unchanged.      *      The error index is ignored and unchanged.      *       * @return null for failure to find a date, or the GregorianCalendar      *      for the date that was found. Unless a time zone was       *      part of the format, the time zone will be GMT+0      */
 specifier|public
 specifier|static
 name|GregorianCalendar
@@ -2043,7 +2043,7 @@ return|return
 name|retCal
 return|;
 block|}
-comment|/**      * Converts a string to a Calendar by parsing the String for a date.      * @see toCalendar(String).      *      * The returned value will have 0 for DST_OFFSET.      *       * @param text The COSString representation of a date.      * @return The Calendar that the text string represents.       *      Or null if text was null.      * @throws IOException If the date string is not in the correct format.      * @deprecated This method throws an IOException for failure. Replace      *      calls to it with {@link #toCalendar(text.getString(), null)}       *      and test for failure with      *          (value == null || value.get(Calendar.YEAR) == INVALID_YEAR)      */
+comment|/**      * Converts a string to a Calendar by parsing the String for a date.      * @see #toCalendar(String).      *      * The returned value will have 0 for DST_OFFSET.      *       * @param text The COSString representation of a date.      * @return The Calendar that the text string represents.       *      Or null if text was null.      * @throws IOException If the date string is not in the correct format.      * @deprecated This method throws an IOException for failure. Replace      *      calls to it with {@link #toCalendar(String, String[])}       *      and test for failure with      *          (value == null || value.get(Calendar.YEAR) == INVALID_YEAR)      */
 specifier|public
 specifier|static
 name|Calendar
@@ -2076,7 +2076,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts a string date to a Calendar date value; equivalent to       * {@link #toCalendar(String, null)},       * but throws an IOException for failure.      *       * The returned value will have 0 for DST_OFFSET.      *       * @param text The string representation of the calendar.      * @return The Calendar that this string represents       *      or null if the incoming text is null.      * @throws IOException If the date string is non-null       *      and not a parseable date.      * @deprecated This method throws an IOException for failure. Replace      *      calls to it with {@link #toCalendar(text, null)}       *      and test for failure with      *          (value == null || value.get(Calendar.YEAR) == INVALID_YEAR)      */
+comment|/**      * Converts a string date to a Calendar date value; equivalent to       * {@link #toCalendar(String, String[])} using<pre>null</pre> for the second parameter,       * but throws an IOException for failure.      *       * The returned value will have 0 for DST_OFFSET.      *       * @param text The string representation of the calendar.      * @return The Calendar that this string represents       *      or null if the incoming text is null.      * @throws IOException If the date string is non-null       *      and not a parseable date.      * @deprecated This method throws an IOException for failure. Replace      *      calls to it with {@link #toCalendar(String, String[])}       *      using<pre>null</pre> for the second parameter      *      and test for failure with      *          (value == null || value.get(Calendar.YEAR) == INVALID_YEAR)      */
 specifier|public
 specifier|static
 name|Calendar

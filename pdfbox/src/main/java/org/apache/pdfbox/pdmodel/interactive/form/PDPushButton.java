@@ -82,7 +82,7 @@ name|PDPushButton
 extends|extends
 name|PDField
 block|{
-comment|/**      * @see org.apache.pdfbox.pdmodel.field.PDField#COSField(org.apache.pdfbox.cos.COSDictionary)      *      * @param theAcroForm The acroForm for this field.      * @param field The field for this push button.      */
+comment|/**      * @see PDField#PDField(PDAcroForm, COSDictionary)      *      * @param theAcroForm The acroForm for this field.      * @param field The field for this push button.      */
 specifier|public
 name|PDPushButton
 parameter_list|(
@@ -101,7 +101,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @see as.interactive.pdf.form.cos.COSField#setValue(java.lang.String)      *      * @param value The new value for the field.      *      * @throws IOException If there is an error creating the appearance stream.      */
+comment|/**      * @see PDField#setValue(java.lang.String)      *      * @param value The new value for the field.      *      * @throws IOException If there is an error creating the appearance stream.      */
 specifier|public
 name|void
 name|setValue

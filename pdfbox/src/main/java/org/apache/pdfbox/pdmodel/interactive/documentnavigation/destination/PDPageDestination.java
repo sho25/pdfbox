@@ -298,7 +298,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Returns the page number for this destination, regardless of whether      * this is a page number or a reference to a page.      *      * @since Apache PDFBox 1.0.0      * @see PDOutlineItem      * @return page number, or -1 if the destination type is unknown      */
+comment|/**      * Returns the page number for this destination, regardless of whether      * this is a page number or a reference to a page.      *      * @since Apache PDFBox 1.0.0      * @see org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDOutlineItem      * @return page number, or -1 if the destination type is unknown      */
 specifier|public
 name|int
 name|findPageNumber

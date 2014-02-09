@@ -278,7 +278,7 @@ return|return
 name|pos
 return|;
 block|}
-comment|/**      * This will get the current position in the stream.      *      * @return The current position in the stream.      * @throws IOException       */
+comment|/**      * This will set the current position in the stream.      *      * @throws IOException       */
 specifier|public
 name|void
 name|setPos

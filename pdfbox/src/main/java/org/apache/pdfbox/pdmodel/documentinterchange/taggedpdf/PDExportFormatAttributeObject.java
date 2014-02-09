@@ -155,7 +155,7 @@ name|dictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets the list numbering (ListNumbering). The default value is      * {@link #LIST_NUMBERING_NONE}.      *       * @return the list numbering      */
+comment|/**      * Gets the list numbering (ListNumbering). The default value is      * {@link PDListAttributeObject#LIST_NUMBERING_NONE}.      *       * @return the list numbering      */
 specifier|public
 name|String
 name|getListNumbering
@@ -176,7 +176,7 @@ name|LIST_NUMBERING_NONE
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the list numbering (ListNumbering). The value shall be one of the      * following:      *<ul>      *<li>{@link #LIST_NUMBERING_NONE},</li>      *<li>{@link #LIST_NUMBERING_DISC},</li>      *<li>{@link #LIST_NUMBERING_CIRCLE},</li>      *<li>{@link #LIST_NUMBERING_SQUARE},</li>      *<li>{@link #LIST_NUMBERING_DECIMAL},</li>      *<li>{@link #LIST_NUMBERING_UPPER_ROMAN},</li>      *<li>{@link #LIST_NUMBERING_LOWER_ROMAN},</li>      *<li>{@link #LIST_NUMBERING_UPPER_ALPHA},</li>      *<li>{@link #LIST_NUMBERING_LOWER_ALPHA}.</li>      *</ul>      *       * @param listNumbering the list numbering      */
+comment|/**      * Sets the list numbering (ListNumbering). The value shall be one of the      * following:      *<ul>      *<li>{@link PDListAttributeObject#LIST_NUMBERING_NONE},</li>      *<li>{@link PDListAttributeObject#LIST_NUMBERING_DISC},</li>      *<li>{@link PDListAttributeObject#LIST_NUMBERING_CIRCLE},</li>      *<li>{@link PDListAttributeObject#LIST_NUMBERING_SQUARE},</li>      *<li>{@link PDListAttributeObject#LIST_NUMBERING_DECIMAL},</li>      *<li>{@link PDListAttributeObject#LIST_NUMBERING_UPPER_ROMAN},</li>      *<li>{@link PDListAttributeObject#LIST_NUMBERING_LOWER_ROMAN},</li>      *<li>{@link PDListAttributeObject#LIST_NUMBERING_UPPER_ALPHA},</li>      *<li>{@link PDListAttributeObject#LIST_NUMBERING_LOWER_ALPHA}.</li>      *</ul>      *       * @param listNumbering the list numbering      */
 specifier|public
 name|void
 name|setListNumbering
@@ -334,7 +334,7 @@ name|SCOPE
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the scope (Scope). It shall reflect whether the header cell applies      * to the rest of the cells in the row that contains it, the column that      * contains it, or both the row and the column that contain it. The value      * shall be one of the following:      *<ul>      *<li>{@link #SCOPE_ROW},</li>      *<li>{@link #SCOPE_COLUMN}, or</li>      *<li>{@link #SCOPE_BOTH}.</li>      *</ul>      *       * @param scope the scope      */
+comment|/**      * Sets the scope (Scope). It shall reflect whether the header cell applies      * to the rest of the cells in the row that contains it, the column that      * contains it, or both the row and the column that contain it. The value      * shall be one of the following:      *<ul>      *<li>{@link PDTableAttributeObject#SCOPE_ROW},</li>      *<li>{@link PDTableAttributeObject#SCOPE_COLUMN}, or</li>      *<li>{@link PDTableAttributeObject#SCOPE_BOTH}.</li>      *</ul>      *       * @param scope the scope      */
 specifier|public
 name|void
 name|setScope

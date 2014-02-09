@@ -3714,7 +3714,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Fill with Shading. Called by SHFill operator.      *       * @param ShadingName The name of the Shading Dictionary to use for this fill instruction.      *       * @throws IOException If there is an IO error while shade-filling the path/clipping area.      *       * @deprecated use {@link #shFill(COSName)) instead.      */
+comment|/**      * Fill with Shading. Called by SHFill operator.      *       * @param ShadingName The name of the Shading Dictionary to use for this fill instruction.      *       * @throws IOException If there is an IO error while shade-filling the path/clipping area.      *       * @deprecated use {@link #shFill(COSName)} instead.      */
 specifier|public
 name|void
 name|SHFill

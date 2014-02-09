@@ -130,7 +130,7 @@ specifier|private
 name|COSArray
 name|C1
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param functionStream The function .      */
+comment|/**      * Constructor.      *      * @param function The function .      */
 specifier|public
 name|PDFunctionType2
 parameter_list|(

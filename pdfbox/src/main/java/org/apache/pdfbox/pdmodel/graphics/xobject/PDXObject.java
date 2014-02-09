@@ -375,7 +375,7 @@ name|xobjectName
 argument_list|)
 return|;
 block|}
-comment|/**      * Create the correct xobject from the cos base.      *       * @param xobject The cos level xobject to create.      * @param isthumb specify if the xobject represent a Thumbnail Image (in this case, the subtype null must be      * considered as an Image)      * @param xobjectName The name of the xobject, used to detect a possible recursion      *       * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
+comment|/**      * Create the correct xobject from the cos base.      *       * @param xobject The cos level xobject to create.      * @param isThumb specify if the xobject represent a Thumbnail Image (in this case, the subtype null must be      * considered as an Image)      * @param xobjectName The name of the xobject, used to detect a possible recursion      *       * @return a pdmodel xobject      * @throws IOException If there is an error creating the xobject.      */
 specifier|protected
 specifier|static
 name|PDXObject

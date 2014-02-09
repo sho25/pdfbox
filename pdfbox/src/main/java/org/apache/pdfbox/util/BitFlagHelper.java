@@ -159,7 +159,7 @@ name|currentFlags
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets the boolean value from the flags at the given bit      * position.      *      * @param dic The dictionary to get the field from.      * @param field The name of the field to get the flag from.      * @param bitFlag the bitPosition to get the value from.      *      * @return true if the number at bitPos is '1'      *      * @deprecated  use {@link #getFlag(COSDictionary, COSName, boolean)} using COSName constants instead      */
+comment|/**      * Gets the boolean value from the flags at the given bit      * position.      *      * @param dic The dictionary to get the field from.      * @param field The name of the field to get the flag from.      * @param bitFlag the bitPosition to get the value from.      *      * @return true if the number at bitPos is '1'      *      * @deprecated  use {@link #getFlag(COSDictionary, COSName, int)} using COSName constants instead      */
 specifier|public
 specifier|static
 specifier|final

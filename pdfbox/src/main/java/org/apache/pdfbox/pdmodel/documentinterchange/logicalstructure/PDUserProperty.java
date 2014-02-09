@@ -93,7 +93,7 @@ specifier|final
 name|PDUserAttributeObject
 name|userAttributeObject
 decl_stmt|;
-comment|/**      * Creates a new user property.      *       * @param the user attribute object      */
+comment|/**      * Creates a new user property.      *       * @param userAttributeObject the user attribute object      */
 specifier|public
 name|PDUserProperty
 parameter_list|(
@@ -108,7 +108,7 @@ operator|=
 name|userAttributeObject
 expr_stmt|;
 block|}
-comment|/**      * Creates a user property with a given dictionary.      *       * @param dictionary the dictionary      * @param the user attribute object      */
+comment|/**      * Creates a user property with a given dictionary.      *       * @param dictionary the dictionary      * @param userAttributeObject the user attribute object      */
 specifier|public
 name|PDUserProperty
 parameter_list|(

@@ -769,7 +769,7 @@ name|float
 name|getMissingWidth
 parameter_list|()
 function_decl|;
-comment|/**      * This will set the missing width for the font.      *      * @param charSet The new missing width for the font.      */
+comment|/**      * This will set the missing width for the font.      *      * @param missingWidth The new missing width for the font.      */
 specifier|public
 specifier|abstract
 name|void

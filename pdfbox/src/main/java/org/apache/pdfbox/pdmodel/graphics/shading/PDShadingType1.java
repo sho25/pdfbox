@@ -715,7 +715,7 @@ return|return
 name|functionArray
 return|;
 block|}
-comment|/**      * Convert the input value using the functions of the shading dictionary.      *       * @param inputValue the input value      * @return the output values      * @throws IOException thrown if something went wrong      */
+comment|/**      * Convert the input value using the functions of the shading dictionary.      *       * @param input the input values      * @return the output values      * @throws IOException thrown if something went wrong      */
 specifier|public
 name|float
 index|[]

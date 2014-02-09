@@ -217,7 +217,7 @@ specifier|private
 name|PDDocument
 name|doc
 decl_stmt|;
-comment|/**      * Creates an empty page label dictionary for the given document.      *       *<p>      * Note that the page label dictionary won't be automatically added to the      * document; you will still need to do it manually (see      * {@link PDDocumentCatalog#setPageLabels(PDPageLabels)}.      *</p>      *       * @param document      *            The document the page label dictionary is created for.      * @see PDDocumentCatalog#setPageLabels(PDPageLabels)      */
+comment|/**      * Creates an empty page label dictionary for the given document.      *       *<p>      * Note that the page label dictionary won't be automatically added to the      * document; you will still need to do it manually (see      * {@link org.apache.pdfbox.pdmodel.PDDocumentCatalog#setPageLabels(PDPageLabels)}.      *</p>      *       * @param document      *            The document the page label dictionary is created for.      * @see org.apache.pdfbox.pdmodel.PDDocumentCatalog#setPageLabels(PDPageLabels)      */
 specifier|public
 name|PDPageLabels
 parameter_list|(
@@ -268,7 +268,7 @@ name|defaultRange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates an page label dictionary for a document using the information in      * the given COS dictionary.      *       *<p>      * Note that the page label dictionary won't be automatically added to the      * document; you will still need to do it manually (see      * {@link PDDocumentCatalog#setPageLabels(PDPageLabels)}.      *</p>      *       * @param document      *            The document the page label dictionary is created for.      * @param dict      *            an existing page label dictionary      * @see PDDocumentCatalog#setPageLabels(PDPageLabels)      * @throws IOException      *             If something goes wrong during the number tree conversion.      */
+comment|/**      * Creates an page label dictionary for a document using the information in      * the given COS dictionary.      *       *<p>      * Note that the page label dictionary won't be automatically added to the      * document; you will still need to do it manually (see      * {@link org.apache.pdfbox.pdmodel.PDDocumentCatalog#setPageLabels(PDPageLabels)}.      *</p>      *       * @param document      *            The document the page label dictionary is created for.      * @param dict      *            an existing page label dictionary      * @see org.apache.pdfbox.pdmodel.PDDocumentCatalog#setPageLabels(PDPageLabels)      * @throws IOException      *             If something goes wrong during the number tree conversion.      */
 specifier|public
 name|PDPageLabels
 parameter_list|(

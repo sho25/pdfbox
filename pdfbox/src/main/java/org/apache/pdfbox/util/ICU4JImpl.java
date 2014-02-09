@@ -77,7 +77,7 @@ name|REORDER_INVERSE_LIKE_DIRECT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Takes a line of text in presentation order and converts it to logical order.      * @see TextNormalize.makeLineLogicalOrder(String, boolean)           *        * @param str String to convert      * @param isRtlDominant RTL (right-to-left) will be the dominant text direction      * @return The converted string      */
+comment|/**      * Takes a line of text in presentation order and converts it to logical order.      * @see TextNormalize#makeLineLogicalOrder(String, boolean)           *        * @param str String to convert      * @param isRtlDominant RTL (right-to-left) will be the dominant text direction      * @return The converted string      */
 specifier|public
 name|String
 name|makeLineLogicalOrder
@@ -120,7 +120,7 @@ name|DO_MIRRORING
 argument_list|)
 return|;
 block|}
-comment|/**      * Normalize presentation forms of characters to the separate parts.       * @see TextNormalize.normalizePres(String)      *       * @param str String to normalize      * @return Normalized form      */
+comment|/**      * Normalize presentation forms of characters to the separate parts.       * @see TextNormalize#normalizePres(String)      *       * @param str String to normalize      * @return Normalized form      */
 specifier|public
 name|String
 name|normalizePres

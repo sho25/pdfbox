@@ -1869,7 +1869,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Getter of the property<tt>keyLength</tt>.      * @return  Returns the keyLength.      * @uml.property  name="keyLength"      */
+comment|/**      * Getter of the property<tt>keyLength</tt>.      * @return  Returns the keyLength.      */
 specifier|public
 name|int
 name|getKeyLength
@@ -1915,7 +1915,7 @@ return|return
 name|aes
 return|;
 block|}
-comment|/**      * Set to true if AES for encryption and decryption should be used.      *       * @param aes if true AES will be used       *       */
+comment|/**      * Set to true if AES for encryption and decryption should be used.      *       * @param aesValue if true AES will be used       *       */
 specifier|public
 name|void
 name|setAES

@@ -350,7 +350,7 @@ name|recursivlyRead
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param input The input stream that contains the PDF document.      *      * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor.      *      * @param inputFile The input stream that contains the PDF document.      *      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|ConformingPDFParser
 parameter_list|(
@@ -1679,7 +1679,7 @@ name|generation
 argument_list|)
 return|;
 block|}
-comment|/**      * This will read an object from the inputFile at whatever our currentOffset      * is.  If the object and generation are not the expected values and this      * object is set to throw an exception for non-conforming documents, then an      * exception will be thrown.      * @param objectNumber the object number you expect to read      * @param generation the generation you expect this object to be      * @return      */
+comment|/**      * This will read an object from the inputFile at whatever our currentOffset      * is.  If the object and generation are not the expected values and this      * object is set to throw an exception for non-conforming documents, then an      * exception will be thrown.      * @param objectNumber the object number you expect to read      * @param generation the generation you expect this object to be      * @return the object being read.      */
 specifier|public
 name|COSBase
 name|readObject
@@ -2844,7 +2844,7 @@ return|return
 name|dict
 return|;
 block|}
-comment|/**      * This will read a line starting with the byte at offset and going       * backwards until it finds a newline.  This should only be used if we are      * certain that the data will only be text, and not binary data.      *       * @param offset the location of the file where we should start reading      * @return the string which was read      * @throws IOException if there was an error reading data from the file      */
+comment|/**      * This will read a line starting with the byte at offset and going       * backwards until it finds a newline.  This should only be used if we are      * certain that the data will only be text, and not binary data.      *       * @return the string which was read      * @throws IOException if there was an error reading data from the file      */
 specifier|protected
 name|String
 name|readLineBackwards
@@ -2950,7 +2950,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * This will read a line starting with the byte at offset and going      * forward until it finds a newline.  This should only be used if we are      * certain that the data will only be text, and not binary data.      * @param offset the location of the file where we should start reading      * @return the string which was read      * @throws IOException if there was an error reading data from the file      */
+comment|/**      * This will read a line starting with the byte at offset and going      * forward until it finds a newline.  This should only be used if we are      * certain that the data will only be text, and not binary data.      * @return the string which was read      * @throws IOException if there was an error reading data from the file      */
 annotation|@
 name|Override
 specifier|protected

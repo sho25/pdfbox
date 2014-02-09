@@ -152,7 +152,7 @@ name|TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor for an existing marked content reference.      *       * @param pageDic the page dictionary      * @param mcid the marked content indentifier      */
+comment|/**      * Constructor for an existing marked content reference.      *       * @param dictionary the page dictionary      */
 specifier|public
 name|PDMarkedContentReference
 parameter_list|(

@@ -1912,7 +1912,7 @@ name|inlineAlign
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets the style of the border drawn on each edge of a table cell      * (TBorderStyle).      *       * @return      */
+comment|/**      * Gets the style of the border drawn on each edge of a table cell      * (TBorderStyle).      *       * @return the border style.      */
 specifier|public
 name|Object
 name|getTBorderStyle

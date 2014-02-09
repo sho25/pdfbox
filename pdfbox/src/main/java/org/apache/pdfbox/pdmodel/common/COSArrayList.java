@@ -328,7 +328,7 @@ operator|=
 name|dictionaryKey
 expr_stmt|;
 block|}
-comment|/**      * @deprecated use the {@link #COSArrayList(E, COSBase, COSDictionary, COSName)} method instead      */
+comment|/**      * @deprecated use the {@link #COSArrayList(Object, COSBase, COSDictionary, COSName)} method instead      */
 specifier|public
 name|COSArrayList
 parameter_list|(
