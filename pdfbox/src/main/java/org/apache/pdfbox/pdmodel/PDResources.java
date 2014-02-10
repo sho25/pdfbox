@@ -997,11 +997,6 @@ name|getDictionaryObject
 argument_list|(
 name|objName
 argument_list|)
-argument_list|,
-name|objName
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
