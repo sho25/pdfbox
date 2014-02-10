@@ -1627,7 +1627,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * A convenience method to get this stream as a string. Uses the default      * system encoding.      *       * @return a String representation of this (input) stream.      *       * @throws IOException      *             if there is an error while converting the stream to a string.      */
+comment|/**      * A convenience method to get this stream as a string.      * The string is returned using ISO-8559-1 encoding.      *       * @return a String representation of this (input) stream using IS0-8559-1 encoding.      *       * @throws IOException      *             if there is an error while converting the stream to a string.      */
 specifier|public
 name|String
 name|getInputStreamAsString
