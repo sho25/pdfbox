@@ -1813,8 +1813,6 @@ name|parser
 operator|.
 name|processSubStream
 argument_list|(
-literal|null
-argument_list|,
 name|resources
 argument_list|,
 name|charStream

@@ -51,16 +51,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Dimension
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|Font
 import|;
 end_import
@@ -934,16 +924,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * Size of the page.      */
-specifier|protected
-name|Dimension
-name|pageSize
-decl_stmt|;
-comment|/**      * Current page to be rendered.      */
-specifier|protected
-name|PDPage
-name|page
-decl_stmt|;
 specifier|private
 name|GeneralPath
 name|linePath
@@ -988,6 +968,10 @@ name|Font
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|private
+name|int
+name|pageHeight
+decl_stmt|;
 comment|/**      * Default constructor, loads properties from file.      *       * @throws IOException If there is an error loading properties from the file.      */
 specifier|public
 name|PageDrawer
@@ -1008,7 +992,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will draw the page to the requested context.      *       * @param g The graphics context to draw onto.      * @param p The page to draw.      * @param pageDimension The size of the page to draw.      *       * @throws IOException If there is an IO error while drawing the page.      */
+comment|/**      * This will draw the page to the requested context.      *       * @param g The graphics context to draw onto.      * @param page The page to draw.      * @param pageSize The size of the page to draw.      *       * @throws IOException If there is an IO error while drawing the page.      */
 specifier|public
 name|void
 name|drawPage
@@ -1017,10 +1001,10 @@ name|Graphics
 name|g
 parameter_list|,
 name|PDPage
-name|p
+name|page
 parameter_list|,
-name|Dimension
-name|pageDimension
+name|PDRectangle
+name|pageSize
 parameter_list|)
 throws|throws
 name|IOException
@@ -1032,13 +1016,15 @@ name|Graphics2D
 operator|)
 name|g
 expr_stmt|;
-name|page
+name|pageHeight
 operator|=
-name|p
-expr_stmt|;
+operator|(
+name|int
+operator|)
 name|pageSize
-operator|=
-name|pageDimension
+operator|.
+name|getHeight
+argument_list|()
 expr_stmt|;
 name|graphics
 operator|.
@@ -1072,9 +1058,7 @@ name|translate
 argument_list|(
 literal|0
 argument_list|,
-name|pageSize
-operator|.
-name|height
+name|pageHeight
 argument_list|)
 expr_stmt|;
 name|graphics
@@ -1129,8 +1113,6 @@ argument_list|()
 decl_stmt|;
 name|processStream
 argument_list|(
-name|page
-argument_list|,
 name|resources
 argument_list|,
 name|page
@@ -1139,6 +1121,16 @@ name|getContents
 argument_list|()
 operator|.
 name|getStream
+argument_list|()
+argument_list|,
+name|page
+operator|.
+name|findCropBox
+argument_list|()
+argument_list|,
+name|page
+operator|.
+name|findRotation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1355,8 +1347,6 @@ argument_list|)
 expr_stmt|;
 name|processSubStream
 argument_list|(
-name|page
-argument_list|,
 name|appearance
 operator|.
 name|getResources
@@ -1470,14 +1460,6 @@ name|linePath
 operator|=
 literal|null
 expr_stmt|;
-name|page
-operator|=
-literal|null
-expr_stmt|;
-name|pageSize
-operator|=
-literal|null
-expr_stmt|;
 block|}
 comment|/**      * You should override this method if you want to perform an action when a text is being processed.      *       * @param text The text to process      */
 specifier|protected
@@ -1551,9 +1533,7 @@ argument_list|()
 operator|.
 name|getPaint
 argument_list|(
-name|pageSize
-operator|.
-name|height
+name|pageHeight
 argument_list|)
 expr_stmt|;
 block|}
@@ -1596,9 +1576,7 @@ argument_list|()
 operator|.
 name|getPaint
 argument_list|(
-name|pageSize
-operator|.
-name|height
+name|pageHeight
 argument_list|)
 expr_stmt|;
 block|}
@@ -2211,8 +2189,6 @@ argument_list|)
 expr_stmt|;
 name|processSubStream
 argument_list|(
-name|page
-argument_list|,
 name|font
 operator|.
 name|getType3Resources
@@ -2999,26 +2975,6 @@ return|return
 name|graphics
 return|;
 block|}
-comment|/**      * Get the page that is currently being drawn.      *       * @return The page that is being drawn.      */
-specifier|public
-name|PDPage
-name|getPage
-parameter_list|()
-block|{
-return|return
-name|page
-return|;
-block|}
-comment|/**      * Get the size of the page that is currently being drawn.      *       * @return The size of the page that is being drawn.      */
-specifier|public
-name|Dimension
-name|getPageSize
-parameter_list|()
-block|{
-return|return
-name|pageSize
-return|;
-block|}
 comment|/**      * Get the current line path to be drawn.      *       * @return The current line path to be drawn.      */
 specifier|public
 name|GeneralPath
@@ -3121,9 +3077,7 @@ argument_list|()
 operator|.
 name|getPaint
 argument_list|(
-name|pageSize
-operator|.
-name|height
+name|pageHeight
 argument_list|)
 expr_stmt|;
 block|}
@@ -3299,9 +3253,7 @@ argument_list|()
 operator|.
 name|getPaint
 argument_list|(
-name|pageSize
-operator|.
-name|height
+name|pageHeight
 argument_list|)
 expr_stmt|;
 block|}
@@ -3825,9 +3777,7 @@ name|shading
 argument_list|,
 name|ctm
 argument_list|,
-name|pageSize
-operator|.
-name|height
+name|pageHeight
 argument_list|)
 expr_stmt|;
 break|break;
@@ -3846,9 +3796,7 @@ name|shading
 argument_list|,
 name|ctm
 argument_list|,
-name|pageSize
-operator|.
-name|height
+name|pageHeight
 argument_list|)
 expr_stmt|;
 break|break;

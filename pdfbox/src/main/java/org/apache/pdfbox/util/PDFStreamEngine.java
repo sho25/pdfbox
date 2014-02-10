@@ -243,20 +243,6 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|PDPage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
 name|PDResources
 import|;
 end_import
@@ -274,6 +260,22 @@ operator|.
 name|common
 operator|.
 name|PDMatrix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|PDRectangle
 import|;
 end_import
 
@@ -394,7 +396,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will run through a PDF content stream and execute certain operations and provide a callback interface for  * clients that want to do things with the stream. See the PDFTextStripper class for an example of how to use this  * class.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.38 $  */
+comment|/**  * This class will run through a PDF content stream and execute certain operations and provide a callback interface for  * clients that want to do things with the stream. See the PDFTextStripper class for an example of how to use this  * class.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -499,16 +501,24 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
-name|PDPage
-name|page
-decl_stmt|;
-specifier|private
 name|int
 name|validCharCnt
 decl_stmt|;
 specifier|private
 name|int
 name|totalCharCnt
+decl_stmt|;
+specifier|private
+name|int
+name|pageRotation
+init|=
+literal|0
+decl_stmt|;
+specifier|private
+name|PDRectangle
+name|drawingRectangle
+init|=
+literal|null
 decl_stmt|;
 comment|/**      * Flag to skip malformed or otherwise unparseable input where possible.      */
 specifier|private
@@ -751,33 +761,45 @@ name|totalCharCnt
 operator|=
 literal|0
 expr_stmt|;
+name|drawingRectangle
+operator|=
+literal|null
+expr_stmt|;
 block|}
-comment|/**      * This will process the contents of the stream.      *       * @param aPage The page.      * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      *       *       * @throws IOException if there is an error accessing the stream.      */
+comment|/**      * This will process the contents of the stream.      *       * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      * @param drawingSize the size of the page      * @param rotation the page rotation      *       * @throws IOException if there is an error accessing the stream.      */
 specifier|public
 name|void
 name|processStream
 parameter_list|(
-name|PDPage
-name|aPage
-parameter_list|,
 name|PDResources
 name|resources
 parameter_list|,
 name|COSStream
 name|cosStream
+parameter_list|,
+name|PDRectangle
+name|drawingSize
+parameter_list|,
+name|int
+name|rotation
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|drawingRectangle
+operator|=
+name|drawingSize
+expr_stmt|;
+name|pageRotation
+operator|=
+name|rotation
+expr_stmt|;
 name|graphicsState
 operator|=
 operator|new
 name|PDGraphicsState
 argument_list|(
-name|aPage
-operator|.
-name|findCropBox
-argument_list|()
+name|drawingRectangle
 argument_list|)
 expr_stmt|;
 name|textMatrix
@@ -800,22 +822,17 @@ argument_list|()
 expr_stmt|;
 name|processSubStream
 argument_list|(
-name|aPage
-argument_list|,
 name|resources
 argument_list|,
 name|cosStream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process a sub stream of the current stream.      *       * @param aPage The page used for drawing.      * @param resources The resources used when processing the stream.      * @param cosStream The stream to process.      *       * @throws IOException If there is an exception while processing the stream.      */
+comment|/**      * Process a sub stream of the current stream.      *       * @param resources The resources used when processing the stream.      * @param cosStream The stream to process.      *       * @throws IOException If there is an exception while processing the stream.      */
 specifier|public
 name|void
 name|processSubStream
 parameter_list|(
-name|PDPage
-name|aPage
-parameter_list|,
 name|PDResources
 name|resources
 parameter_list|,
@@ -825,10 +842,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|page
-operator|=
-name|aPage
-expr_stmt|;
 if|if
 condition|(
 name|resources
@@ -1039,7 +1052,7 @@ parameter_list|)
 block|{
 comment|// subclasses can override to provide specific functionality.
 block|}
-comment|/**      * A method provided as an event interface to allow a subclass to perform some specific functionality on the string      * encoded by a glyph.      *       * @param str The string to be processed.      */
+comment|/**      * A method provided as an event interface to allow a subclass to perform some specific functionality on the string      * encoded by a glyph.      *       * @param str The string to be processed.      *       * @return the processed string.      */
 specifier|protected
 name|String
 name|inspectFontEncoding
@@ -1329,21 +1342,10 @@ argument_list|,
 name|riseText
 argument_list|)
 expr_stmt|;
-name|int
-name|pageRotation
-init|=
-name|page
-operator|.
-name|findRotation
-argument_list|()
-decl_stmt|;
 name|float
 name|pageHeight
 init|=
-name|page
-operator|.
-name|findCropBox
-argument_list|()
+name|drawingRectangle
 operator|.
 name|getHeight
 argument_list|()
@@ -1351,10 +1353,7 @@ decl_stmt|;
 name|float
 name|pageWidth
 init|=
-name|page
-operator|.
-name|findCropBox
-argument_list|()
+name|drawingRectangle
 operator|.
 name|getWidth
 argument_list|()
@@ -2354,16 +2353,6 @@ name|streamResourcesStack
 operator|.
 name|peek
 argument_list|()
-return|;
-block|}
-comment|/**      * Get the current page that is being processed.      *       * @return The page being processed.      */
-specifier|public
-name|PDPage
-name|getCurrentPage
-parameter_list|()
-block|{
-return|return
-name|page
 return|;
 block|}
 comment|/**      * Get the total number of valid characters in the doc that could be decoded in processEncodedText().      *       * @return The number of valid characters.      */

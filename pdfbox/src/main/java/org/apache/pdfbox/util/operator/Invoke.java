@@ -350,11 +350,6 @@ name|context
 operator|.
 name|processSubStream
 argument_list|(
-name|context
-operator|.
-name|getCurrentPage
-argument_list|()
-argument_list|,
 name|pdResources
 argument_list|,
 name|formContentstream

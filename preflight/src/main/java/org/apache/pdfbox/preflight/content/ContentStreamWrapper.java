@@ -490,8 +490,6 @@ block|{
 name|processStream
 argument_list|(
 name|processeedPage
-argument_list|,
-name|processeedPage
 operator|.
 name|findResources
 argument_list|()
@@ -499,6 +497,16 @@ argument_list|,
 name|pstream
 operator|.
 name|getStream
+argument_list|()
+argument_list|,
+name|processeedPage
+operator|.
+name|findCropBox
+argument_list|()
+argument_list|,
+name|processeedPage
+operator|.
+name|findRotation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -570,10 +578,6 @@ argument_list|()
 expr_stmt|;
 name|processSubStream
 argument_list|(
-name|this
-operator|.
-name|processeedPage
-argument_list|,
 name|xobj
 operator|.
 name|getResources
@@ -667,10 +671,6 @@ argument_list|()
 expr_stmt|;
 name|processSubStream
 argument_list|(
-name|this
-operator|.
-name|processeedPage
-argument_list|,
 operator|new
 name|PDResources
 argument_list|(

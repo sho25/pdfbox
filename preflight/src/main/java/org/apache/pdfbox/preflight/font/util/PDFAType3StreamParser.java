@@ -280,8 +280,6 @@ name|processSubStream
 argument_list|(
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|type3Stream
 argument_list|)
 expr_stmt|;

@@ -630,14 +630,6 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|PDRectangle
-name|cropBox
-init|=
-name|page
-operator|.
-name|findCropBox
-argument_list|()
-decl_stmt|;
 name|PageDrawer
 name|drawer
 init|=
@@ -653,9 +645,9 @@ name|graphics
 argument_list|,
 name|page
 argument_list|,
-name|cropBox
+name|page
 operator|.
-name|createDimension
+name|findCropBox
 argument_list|()
 argument_list|)
 expr_stmt|;

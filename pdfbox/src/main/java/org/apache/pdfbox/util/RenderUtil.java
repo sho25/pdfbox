@@ -727,7 +727,6 @@ operator|new
 name|PageDrawer
 argument_list|()
 decl_stmt|;
-comment|// TODO The following reduces accuracy. It should really be a Dimension2D.Float.
 name|drawer
 operator|.
 name|drawPage
@@ -739,9 +738,6 @@ argument_list|,
 name|page
 operator|.
 name|findCropBox
-argument_list|()
-operator|.
-name|createDimension
 argument_list|()
 argument_list|)
 expr_stmt|;
