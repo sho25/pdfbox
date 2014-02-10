@@ -150,13 +150,16 @@ name|void
 name|setUp
 parameter_list|()
 block|{     }
-comment|/**      * Validate text extraction on a single file.      *      * @param file The file to validate      * @param bLogResult Whether to log the extracted text      * @throws Exception when there is an exception      */
+comment|/**      * Validate text extraction on a single file.      *      * @param file The file to validate      * @param outDir the output directory      * @param bLogResult Whether to log the extracted text      *       * @throws Exception when there is an exception      */
 specifier|public
 name|void
 name|doTestFile
 parameter_list|(
 name|File
 name|file
+parameter_list|,
+name|String
+name|outDir
 parameter_list|,
 name|boolean
 name|bLogResult
@@ -203,15 +206,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|file
-operator|.
-name|getParentFile
-argument_list|()
-operator|.
-name|getParentFile
-argument_list|()
-argument_list|,
-literal|"output/"
+name|outDir
+operator|+
+literal|"/"
 operator|+
 name|file
 operator|.
@@ -308,13 +305,23 @@ argument_list|(
 literal|"org.apache.pdfbox.util.TextStripper.file"
 argument_list|)
 decl_stmt|;
+name|String
+name|inDir
+init|=
+literal|"src/test/resources/input"
+decl_stmt|;
+name|String
+name|outDir
+init|=
+literal|"target/test-output/performance"
+decl_stmt|;
 name|File
 name|testDir
 init|=
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/input"
+name|inDir
 argument_list|)
 decl_stmt|;
 if|if
@@ -375,7 +382,7 @@ decl_stmt|;
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/output"
+name|outDir
 argument_list|)
 operator|.
 name|mkdir
@@ -404,6 +411,8 @@ name|testFiles
 index|[
 name|n
 index|]
+argument_list|,
+name|outDir
 argument_list|,
 literal|false
 argument_list|)
