@@ -818,7 +818,7 @@ name|retval
 operator|==
 literal|null
 operator|&&
-name|parent
+name|parentNode
 operator|!=
 literal|null
 condition|)
@@ -1284,8 +1284,6 @@ parameter_list|()
 block|{
 name|PDRectangle
 name|retval
-init|=
-literal|null
 decl_stmt|;
 name|COSArray
 name|array
@@ -1382,8 +1380,6 @@ parameter_list|()
 block|{
 name|PDRectangle
 name|retval
-init|=
-literal|null
 decl_stmt|;
 name|COSArray
 name|array
@@ -1480,8 +1476,6 @@ parameter_list|()
 block|{
 name|PDRectangle
 name|retval
-init|=
-literal|null
 decl_stmt|;
 name|COSArray
 name|array
@@ -2059,8 +2053,6 @@ argument_list|<
 name|PDAnnotation
 argument_list|>
 name|retval
-init|=
-literal|null
 decl_stmt|;
 name|COSArray
 name|annots
