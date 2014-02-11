@@ -48,6 +48,11 @@ name|String
 name|getNextUniqueKey
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
 name|map
 parameter_list|,
 name|String
