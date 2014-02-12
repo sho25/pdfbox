@@ -1961,6 +1961,13 @@ name|readCount
 argument_list|)
 expr_stmt|;
 block|}
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|writtenStreamBytes
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|pdfSource
@@ -2001,14 +2008,7 @@ name|ioe
 argument_list|)
 throw|;
 block|}
-comment|// create new filtered stream
-if|if
-condition|(
-name|out
-operator|!=
-literal|null
-condition|)
-block|{
+comment|// close and create new filtered stream
 name|IOUtils
 operator|.
 name|closeQuietly
@@ -2016,7 +2016,6 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-block|}
 name|out
 operator|=
 name|stream
@@ -2112,17 +2111,6 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|endStream
-operator|=
-name|endStream
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-literal|9
-argument_list|)
-expr_stmt|;
 name|byte
 index|[]
 name|array
@@ -2292,7 +2280,7 @@ block|{
 comment|// reduce compare operations by first test last character we would have to
 comment|// match if current one matches; if it is not a character from keywords
 comment|// we can move behind the test character;
-comment|// this shortcut is inspired by Boyer–Moore string search algorithm
+comment|// this shortcut is inspired by the Boyer-Moore string search algorithm
 comment|// and can reduce parsing time by approx. 20%
 if|if
 condition|(
@@ -3262,7 +3250,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will parse a PDF HEX string with fail fast semantic      * meaning that we stop if a not allowed character is found.      * This is necessary in order to detect malformed input and      * be able to skip to next object start.      *      * We assume starting '<' was already read.      *       * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will parse a PDF HEX string with fail fast semantic      * meaning that we stop if a not allowed character is found.      * This is necessary in order to detect malformed input and      * be able to skip to next object start.      *      * We assume starting '&lt;' was already read.      *       * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      */
 specifier|private
 specifier|final
 name|COSString
@@ -3516,16 +3504,12 @@ argument_list|()
 decl_stmt|;
 name|COSBase
 name|pbo
-init|=
-literal|null
 decl_stmt|;
 name|skipSpaces
 argument_list|()
 expr_stmt|;
 name|int
 name|i
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -3834,11 +3818,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|COSName
-name|retval
-init|=
-literal|null
-decl_stmt|;
 name|int
 name|c
 init|=
@@ -4080,8 +4059,7 @@ name|c
 argument_list|)
 expr_stmt|;
 block|}
-name|retval
-operator|=
+return|return
 name|COSName
 operator|.
 name|getPDFName
@@ -4091,9 +4069,6 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
-expr_stmt|;
-return|return
-name|retval
 return|;
 block|}
 comment|/**      * This will parse a boolean object from the stream.      *      * @return The parsed boolean object.      *      * @throws IOException If an IO error occurs during parsing.      */
