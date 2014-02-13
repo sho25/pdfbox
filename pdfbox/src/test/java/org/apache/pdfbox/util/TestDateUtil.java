@@ -212,8 +212,6 @@ literal|"UTC"
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|assertCalendarEquals
 argument_list|(
 operator|new
@@ -260,21 +258,6 @@ literal|"5/12/2005 15:57:16"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ex
-parameter_list|)
-block|{
-name|ex
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
 name|TimeZone
 operator|.
 name|setDefault
@@ -282,34 +265,20 @@ argument_list|(
 name|timezone
 argument_list|)
 expr_stmt|;
-block|}
-comment|// check that new toCalendar gives NullPointer for a null arg
-try|try
-block|{
+comment|// check that new toCalendarSTATIC gives null for a null arg
+name|assertNull
+argument_list|(
 name|DateConverter
 operator|.
 name|toCalendar
 argument_list|(
-literal|null
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
+argument_list|)
 expr_stmt|;
-comment|// failed to have expected exception
-block|}
-catch|catch
-parameter_list|(
-name|NullPointerException
-name|ex
-parameter_list|)
-block|{
-comment|// expected outcome
-block|}
 block|}
 comment|/**      * Calendar.equals test case.      *       * @param expect the expected calendar value      * @param was the calendar value to be checked      */
 specifier|public
@@ -475,7 +444,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check toCalendar.      * @param yr expected year value      *  If an IOException is the expected result, yr should be null      * @param mon expected month value      * @param day expected dayofmonth value      * @param hr expected hour value      * @param min expected minute value      * @param sec expected second value      * @param tz represents expected timezone offset       * @param orig  A date to be parsed.      * @throws Exception If an unexpected error occurs.      */
+comment|/**      * Check toCalendarSTATIC.      * @param yr expected year value      *  If an IOException is the expected result, yr should be null      * @param mon expected month value      * @param day expected dayofmonth value      * @param hr expected hour value      * @param min expected minute value      * @param sec expected second value      * @param offset represents expected timezone offset      * @param orig  A date to be parsed.      * @throws Exception If an unexpected error occurs.      */
 specifier|private
 specifier|static
 name|void
@@ -561,34 +530,13 @@ decl_stmt|;
 name|Calendar
 name|cal
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|cal
-operator|=
 name|DateConverter
 operator|.
 name|toCalendar
 argument_list|(
 name|orig
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ex
-parameter_list|)
-block|{
-name|assertEquals
-argument_list|(
-name|yr
-argument_list|,
-name|BAD
-argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|cal
@@ -621,7 +569,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// new toCalendar()
+comment|// new toCalendarSTATIC()
 name|cal
 operator|=
 name|DateConverter
@@ -629,8 +577,6 @@ operator|.
 name|toCalendar
 argument_list|(
 name|orig
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 if|if
@@ -642,18 +588,9 @@ condition|)
 block|{
 name|assertEquals
 argument_list|(
-name|cal
-operator|.
-name|get
-argument_list|(
-name|Calendar
-operator|.
-name|YEAR
-argument_list|)
+literal|null
 argument_list|,
-name|DateConverter
-operator|.
-name|INVALID_YEAR
+name|cal
 argument_list|)
 expr_stmt|;
 block|}

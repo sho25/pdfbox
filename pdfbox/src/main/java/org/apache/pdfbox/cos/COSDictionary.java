@@ -1822,7 +1822,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a string. 	 * @throws IOException If there is an error converting to a date. 	 */
+comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary or if the date was invalid. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a date. 	 */
 specifier|public
 name|Calendar
 name|getDate
@@ -1830,8 +1830,6 @@ parameter_list|(
 name|String
 name|key
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|getDate
@@ -1845,7 +1843,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a string. 	 * 	 * @throws IOException If there is an error converting to a date. 	 */
+comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary or if the date was invalid. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a date. 	 */
 specifier|public
 name|Calendar
 name|getDate
@@ -1853,8 +1851,6 @@ parameter_list|(
 name|COSName
 name|key
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|COSString
 name|date
@@ -1876,7 +1872,7 @@ name|date
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a date.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a string. 	 * @throws IOException If there is an error converting to a date. 	 */
+comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a date.  Null is returned 	 * if the entry does not exist in the dictionary or if the date was invalid. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a date. 	 */
 specifier|public
 name|Calendar
 name|getDate
@@ -1887,8 +1883,6 @@ parameter_list|,
 name|Calendar
 name|defaultValue
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|getDate
@@ -1904,7 +1898,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a date.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a string. 	 * @throws IOException If there is an error converting to a date. 	 */
+comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a date.  Null is returned 	 * if the entry does not exist in the dictionary or if the date was invalid. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a date. 	 */
 specifier|public
 name|Calendar
 name|getDate
@@ -1915,8 +1909,6 @@ parameter_list|,
 name|Calendar
 name|defaultValue
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|Calendar
 name|retval

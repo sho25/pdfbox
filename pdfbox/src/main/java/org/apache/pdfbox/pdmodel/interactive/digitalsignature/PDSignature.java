@@ -614,8 +614,6 @@ name|Calendar
 name|getSignDate
 parameter_list|()
 block|{
-try|try
-block|{
 return|return
 name|dictionary
 operator|.
@@ -626,17 +624,6 @@ operator|.
 name|M
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 comment|/**    * Sets the byte range.    *     * @param range the byte range to be used    */
 specifier|public
