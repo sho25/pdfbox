@@ -21,16 +21,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -40,20 +30,6 @@ operator|.
 name|cos
 operator|.
 name|COSArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSBase
 import|;
 end_import
 
@@ -101,26 +77,8 @@ name|PDRange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
-name|function
-operator|.
-name|PDFunction
-import|;
-end_import
-
 begin_comment
-comment|/**  * This represents resources for a shading type 4 (Free-Form Gouraud-Shaded Triangle Meshes).  *  */
+comment|/**  * This represents resources for a shading type 4 (Free-Form Gouraud-Shaded  * Triangle Meshes).  *  */
 end_comment
 
 begin_class
@@ -130,13 +88,7 @@ name|PDShadingType4
 extends|extends
 name|PDShadingResources
 block|{
-specifier|private
-name|PDFunction
-name|function
-init|=
-literal|null
-decl_stmt|;
-comment|/**      * An array of 2^n numbers specifying the linear mapping of sample values       * into the range appropriate for the function's output values.       * Default value: same as the value of Range      */
+comment|/**      * An array of 2^n numbers specifying the linear mapping of sample values      * into the range appropriate for the function's output values. Default      * value: same as the value of Range      */
 specifier|private
 name|COSArray
 name|decode
@@ -169,81 +121,7 @@ operator|.
 name|SHADING_TYPE4
 return|;
 block|}
-comment|/**      * This will set the function for the color conversion.      *      * @param newFunction The new function.      */
-specifier|public
-name|void
-name|setFunction
-parameter_list|(
-name|PDFunction
-name|newFunction
-parameter_list|)
-block|{
-name|function
-operator|=
-name|newFunction
-expr_stmt|;
-name|getCOSDictionary
-argument_list|()
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|FUNCTION
-argument_list|,
-name|newFunction
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * This will return the function used to convert the color values.      *      * @return The function      * @exception IOException If we are unable to create the PDFunction object.       */
-specifier|public
-name|PDFunction
-name|getFunction
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|function
-operator|==
-literal|null
-condition|)
-block|{
-name|COSBase
-name|dictionaryFunctionObject
-init|=
-name|getCOSDictionary
-argument_list|()
-operator|.
-name|getDictionaryObject
-argument_list|(
-name|COSName
-operator|.
-name|FUNCTION
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|dictionaryFunctionObject
-operator|!=
-literal|null
-condition|)
-name|function
-operator|=
-name|PDFunction
-operator|.
-name|create
-argument_list|(
-name|dictionaryFunctionObject
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|function
-return|;
-block|}
-comment|/**      * The bits per component of this shading.        * This will return -1 if one has not been set.      *      * @return The number of bits per component.      */
+comment|/**      * The bits per component of this shading. This will return -1 if one has      * not been set.      *      * @return The number of bits per component.      */
 specifier|public
 name|int
 name|getBitsPerComponent
@@ -286,7 +164,7 @@ name|bpc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The bits per coordinate of this shading.        * This will return -1 if one has not been set.      *      * @return The number of bits per coordinate.      */
+comment|/**      * The bits per coordinate of this shading. This will return -1 if one has      * not been set.      *      * @return The number of bits per coordinate.      */
 specifier|public
 name|int
 name|getBitsPerCoordinate
@@ -329,7 +207,7 @@ name|bpc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The bits per flag of this shading.        * This will return -1 if one has not been set.      *      * @return The number of bits per flag.      */
+comment|/**      * The bits per flag of this shading. This will return -1 if one has not      * been set.      *      * @return The number of bits per flag.      */
 specifier|public
 name|int
 name|getBitsPerFlag
@@ -372,7 +250,7 @@ name|bpf
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns all decode values as COSArray.      *       * @return the decode array.       */
+comment|/**      * Returns all decode values as COSArray.      *      * @return the decode array.      */
 specifier|private
 name|COSArray
 name|getDecodeValues

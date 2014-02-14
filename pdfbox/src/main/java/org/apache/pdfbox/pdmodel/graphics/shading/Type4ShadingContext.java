@@ -224,7 +224,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents the Paint of a type 4 (Gouraud triangle mesh) shading context.  *   * @author Tilman Hausherr  */
+comment|/**  * This represents the Paint of a type 4 (Gouraud triangle mesh) shading  * context.  *  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -249,14 +249,10 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
-name|PDShadingType4
-name|shadingType
-decl_stmt|;
-specifier|private
 name|int
 name|bitsPerFlag
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *       * @param shadingType4 the shading type to be used      * @param colorModelValue the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      *       */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shadingType4 the shading type to be used      * @param colorModelValue the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      *      */
 specifier|public
 name|Type4ShadingContext
 parameter_list|(
@@ -304,10 +300,6 @@ name|Vertex
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|shadingType
-operator|=
-name|shadingType4
-expr_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -317,7 +309,7 @@ argument_list|)
 expr_stmt|;
 name|bitsPerColorComponent
 operator|=
-name|shadingType
+name|shadingType4
 operator|.
 name|getBitsPerComponent
 argument_list|()
@@ -333,7 +325,7 @@ argument_list|)
 expr_stmt|;
 name|bitsPerCoordinate
 operator|=
-name|shadingType
+name|shadingType4
 operator|.
 name|getBitsPerCoordinate
 argument_list|()
@@ -409,7 +401,7 @@ expr_stmt|;
 name|COSDictionary
 name|cosDictionary
 init|=
-name|shadingType
+name|shadingType4
 operator|.
 name|getCOSDictionary
 argument_list|()
@@ -540,7 +532,7 @@ index|[
 name|i
 index|]
 operator|=
-name|shadingType
+name|shadingType4
 operator|.
 name|getDecodeForParameter
 argument_list|(
@@ -561,42 +553,11 @@ argument_list|)
 expr_stmt|;
 name|bitsPerFlag
 operator|=
-name|shadingType
+name|shadingType4
 operator|.
 name|getBitsPerFlag
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|shadingType
-operator|.
-name|getFunction
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"function based type 4 shading not implemented, please file issue with sample file"
-argument_list|)
-expr_stmt|;
-block|}
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"function: "
-operator|+
-name|shadingType
-operator|.
-name|getFunction
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|//TODO implement function based shading
 name|LOG
 operator|.
 name|debug
@@ -627,7 +588,7 @@ comment|// get background values if available
 name|COSArray
 name|bg
 init|=
-name|shadingType
+name|shadingType4
 operator|.
 name|getBackground
 argument_list|()
@@ -1034,11 +995,8 @@ argument_list|(
 name|vertexList
 argument_list|)
 expr_stmt|;
-name|createArea
-argument_list|()
-expr_stmt|;
 block|}
-comment|/**      * Create GouraudTriangle list from vertices, see p.316 of pdf spec 1.7.      *       * @param vertexList list of vertices      */
+comment|/**      * Create GouraudTriangle list from vertices, see p.316 of pdf spec 1.7.      *      * @param vertexList list of vertices      */
 specifier|private
 name|void
 name|createTriangleList
@@ -1288,10 +1246,6 @@ name|super
 operator|.
 name|dispose
 argument_list|()
-expr_stmt|;
-name|shadingType
-operator|=
-literal|null
 expr_stmt|;
 block|}
 block|}
