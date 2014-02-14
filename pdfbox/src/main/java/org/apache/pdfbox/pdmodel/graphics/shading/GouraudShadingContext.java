@@ -167,30 +167,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|imageio
@@ -1002,8 +978,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
 specifier|public
 name|void
 name|dispose
@@ -1031,8 +1005,6 @@ literal|null
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
 specifier|public
 specifier|final
 name|ColorModel
@@ -1078,8 +1050,6 @@ operator|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
 specifier|public
 specifier|final
 name|Raster
