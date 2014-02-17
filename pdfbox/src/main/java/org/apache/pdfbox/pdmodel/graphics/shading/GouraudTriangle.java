@@ -446,6 +446,17 @@ operator|/
 literal|2
 return|;
 block|}
+comment|/**      * Tell whether a triangle is empty.      *       * @return true if the area is empty, false if not.      */
+name|boolean
+name|isEmpty
+parameter_list|()
+block|{
+return|return
+name|area
+operator|==
+literal|0
+return|;
+block|}
 comment|/**      * calculate color weights with barycentric interpolation.      *      * @param p Point within triangle      *      * @return array of weights (between 0 and 1) for a b c      */
 specifier|public
 name|double

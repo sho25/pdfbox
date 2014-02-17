@@ -1095,6 +1095,19 @@ operator|*
 literal|4
 index|]
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|triangleList
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
+name|background
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|int
@@ -1448,6 +1461,8 @@ operator|=
 literal|255
 expr_stmt|;
 block|}
+block|}
+block|}
 name|raster
 operator|.
 name|setPixels
@@ -1463,7 +1478,6 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|raster
 return|;
