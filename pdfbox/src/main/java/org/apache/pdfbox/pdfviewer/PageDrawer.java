@@ -932,7 +932,6 @@ name|PageDrawer
 extends|extends
 name|PDFStreamEngine
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -946,6 +945,24 @@ argument_list|(
 name|PageDrawer
 operator|.
 name|class
+argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|Color
+name|COLOR_TRANSPARENT
+init|=
+operator|new
+name|Color
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 specifier|private
@@ -1646,9 +1663,7 @@ comment|// basic support for text rendering mode "invisible"
 comment|// TODO why are we drawing anything at all?
 name|paint
 operator|=
-name|Color
-operator|.
-name|BLACK
+name|COLOR_TRANSPARENT
 expr_stmt|;
 name|composite
 operator|=
