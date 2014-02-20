@@ -118,7 +118,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:andreas@lehmi.de">Andreas Lehmkühler</a>  * @version $Revision: 1.0 $  */
+comment|/**  * Implementation of content stream operator for page drawer.  *  * @author Andreas Lehmkühler  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -138,7 +138,7 @@ name|operator
 operator|.
 name|SetLineDashPattern
 block|{
-comment|/**      * Set the line dash pattern.      * @param operator The operator that is being executed.      * @param arguments List      *      * @throws IOException If an error occurs while processing the font.      */
+comment|/**      * Set the line dash pattern.      * @param operator the operator that is being executed.      * @param arguments arguments      */
 specifier|public
 name|void
 name|process
@@ -152,8 +152,6 @@ name|COSBase
 argument_list|>
 name|arguments
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 operator|.
@@ -302,7 +300,6 @@ operator|.
 name|toFloatArray
 argument_list|()
 decl_stmt|;
-comment|// TODO !!!!
 name|float
 name|phase
 init|=
@@ -311,7 +308,6 @@ operator|.
 name|getPhaseStart
 argument_list|()
 decl_stmt|;
-comment|// TODO !!!
 name|drawer
 operator|.
 name|setStroke
