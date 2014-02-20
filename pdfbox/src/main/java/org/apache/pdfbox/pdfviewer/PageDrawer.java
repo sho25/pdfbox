@@ -3572,7 +3572,7 @@ argument_list|(
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getStrokeJavaComposite
+name|getNonStrokeJavaComposite
 argument_list|()
 argument_list|)
 expr_stmt|;
