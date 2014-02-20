@@ -319,25 +319,68 @@ literal|"a suitable JAI I/O image filter is not installed"
 argument_list|)
 throw|;
 block|}
-comment|// I'd planned to use ImageReader#readRaster but it is buggy
-name|BufferedImage
-name|hack
+name|ImageInputStream
+name|iis
 init|=
 name|ImageIO
 operator|.
-name|read
+name|createImageInputStream
 argument_list|(
 name|input
 argument_list|)
 decl_stmt|;
+name|reader
+operator|.
+name|setInput
+argument_list|(
+name|iis
+argument_list|)
+expr_stmt|;
+comment|// get the raster using horrible JAI workarounds
 name|Raster
 name|raster
+decl_stmt|;
+try|try
+block|{
+comment|// I'd like to use ImageReader#readRaster but it is buggy and can't read RGB correctly
+name|BufferedImage
+name|image
 init|=
-name|hack
+name|reader
+operator|.
+name|read
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+name|raster
+operator|=
+name|image
 operator|.
 name|getRaster
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IIOException
+name|e
+parameter_list|)
+block|{
+comment|// JAI can't read CMYK JPEGs using ImageReader#read or ImageIO.read but
+comment|// fortunately ImageReader#readRaster isn't buggy when reading 4-channel files
+name|raster
+operator|=
+name|reader
+operator|.
+name|readRaster
+argument_list|(
+literal|0
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|// special handling for 4-component images
 if|if
 condition|(
