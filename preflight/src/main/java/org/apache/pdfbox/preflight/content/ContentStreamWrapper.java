@@ -287,9 +287,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|form
 operator|.
-name|PDXObjectForm
+name|PDFormXObject
 import|;
 end_import
 
@@ -306,20 +306,6 @@ operator|.
 name|text
 operator|.
 name|PDTextState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
 import|;
 end_import
 
@@ -460,7 +446,7 @@ name|_page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process the validation of a PageContent (The page is initialized by the constructor)      *       * @return A list of validation error. This list is empty if the validation succeed.      * @throws ValidationException.      */
+comment|/**      * Process the validation of a PageContent (The page is initialized by the constructor)      *      * @return A list of validation error. This list is empty if the validation succeed.      * @throws ValidationException      */
 specifier|public
 name|void
 name|validPageContentStream
@@ -565,7 +551,7 @@ specifier|public
 name|void
 name|validXObjContentStream
 parameter_list|(
-name|PDXObjectForm
+name|PDFormXObject
 name|xobj
 parameter_list|)
 throws|throws

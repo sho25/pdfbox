@@ -131,9 +131,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDCcitt
+name|CCITTFactory
 import|;
 end_import
 
@@ -149,9 +149,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDJpeg
+name|JPEGFactory
 import|;
 end_import
 
@@ -167,9 +167,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDXObjectImage
+name|PDImageXObject
 import|;
 end_import
 
@@ -238,10 +238,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|PDXObjectImage
+name|PDImageXObject
 name|ximage
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -258,8 +256,9 @@ condition|)
 block|{
 name|ximage
 operator|=
-operator|new
-name|PDJpeg
+name|JPEGFactory
+operator|.
+name|createFromStream
 argument_list|(
 name|doc
 argument_list|,
@@ -297,8 +296,9 @@ condition|)
 block|{
 name|ximage
 operator|=
-operator|new
-name|PDCcitt
+name|CCITTFactory
+operator|.
+name|createFromRandomAccess
 argument_list|(
 name|doc
 argument_list|,

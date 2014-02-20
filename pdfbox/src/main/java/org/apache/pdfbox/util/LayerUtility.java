@@ -277,6 +277,24 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
+name|form
+operator|.
+name|PDFormXObject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
 name|optionalcontent
 operator|.
 name|PDOptionalContentGroup
@@ -298,24 +316,6 @@ operator|.
 name|optionalcontent
 operator|.
 name|PDOptionalContentProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|xobject
-operator|.
-name|PDXObjectForm
 import|;
 end_import
 
@@ -624,7 +624,7 @@ block|}
 block|}
 comment|/**      * Imports a page from some PDF file as a Form XObject so it can be placed on another page      * in the target document.      * @param sourceDoc the source PDF document that contains the page to be copied      * @param pageNumber the page number of the page to be copied      * @return a Form XObject containing the original page's content      * @throws IOException if an I/O error occurs      */
 specifier|public
-name|PDXObjectForm
+name|PDFormXObject
 name|importPageAsForm
 parameter_list|(
 name|PDDocument
@@ -702,7 +702,7 @@ argument_list|)
 decl_stmt|;
 comment|/**      * Imports a page from some PDF file as a Form XObject so it can be placed on another page      * in the target document.      * @param sourceDoc the source PDF document that contains the page to be copied      * @param page the page in the source PDF document to be copied      * @return a Form XObject containing the original page's content      * @throws IOException if an I/O error occurs      */
 specifier|public
-name|PDXObjectForm
+name|PDFormXObject
 name|importPageAsForm
 parameter_list|(
 name|PDDocument
@@ -744,11 +744,11 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|PDXObjectForm
+name|PDFormXObject
 name|form
 init|=
 operator|new
-name|PDXObjectForm
+name|PDFormXObject
 argument_list|(
 name|newStream
 argument_list|)
@@ -1139,7 +1139,7 @@ parameter_list|(
 name|PDPage
 name|targetPage
 parameter_list|,
-name|PDXObjectForm
+name|PDFormXObject
 name|form
 parameter_list|,
 name|AffineTransform

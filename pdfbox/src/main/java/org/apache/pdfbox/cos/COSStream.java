@@ -912,6 +912,9 @@ argument_list|,
 name|unFilteredStream
 argument_list|,
 name|this
+operator|.
+name|asUnmodifiableDictionary
+argument_list|()
 argument_list|,
 name|filterIndex
 argument_list|)
@@ -1026,6 +1029,9 @@ argument_list|,
 name|unFilteredStream
 argument_list|,
 name|this
+operator|.
+name|asUnmodifiableDictionary
+argument_list|()
 argument_list|,
 name|filterIndex
 argument_list|)

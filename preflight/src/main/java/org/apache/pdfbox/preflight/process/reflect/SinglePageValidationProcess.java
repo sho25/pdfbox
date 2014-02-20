@@ -273,6 +273,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDPage
@@ -323,9 +337,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDXObject
+name|PDImageXObject
 import|;
 end_import
 
@@ -341,9 +355,7 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
-operator|.
-name|PDXObjectImage
+name|PDXObject
 import|;
 end_import
 
@@ -887,10 +899,13 @@ block|}
 name|PDXObject
 name|thumbImg
 init|=
-name|PDXObjectImage
+name|PDImageXObject
 operator|.
-name|createThumbnailXObject
+name|createThumbnail
 argument_list|(
+operator|(
+name|COSStream
+operator|)
 name|thumbBase
 argument_list|)
 decl_stmt|;

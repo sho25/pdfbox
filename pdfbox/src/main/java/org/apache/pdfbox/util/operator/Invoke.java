@@ -85,8 +85,6 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
-operator|.
 name|PDXObject
 import|;
 end_import
@@ -103,9 +101,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|form
 operator|.
-name|PDXObjectForm
+name|PDFormXObject
 import|;
 end_import
 
@@ -192,7 +190,7 @@ name|Invoke
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * process : Do - Invoke a named xobject.      *       * @param operator The operator that is being executed.      * @param arguments List      *      * @throws IOException If there is an error processing this operator.      */
+comment|/**      * Do: Invoke the named XObject.      *       * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If there is an error processing this operator.      */
 specifier|public
 name|void
 name|process
@@ -238,9 +236,6 @@ decl_stmt|;
 name|PDXObject
 name|xobject
 init|=
-operator|(
-name|PDXObject
-operator|)
 name|xobjects
 operator|.
 name|get
@@ -275,14 +270,14 @@ if|if
 condition|(
 name|xobject
 operator|instanceof
-name|PDXObjectForm
+name|PDFormXObject
 condition|)
 block|{
-name|PDXObjectForm
+name|PDFormXObject
 name|form
 init|=
 operator|(
-name|PDXObjectForm
+name|PDFormXObject
 operator|)
 name|xobject
 decl_stmt|;

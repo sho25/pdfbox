@@ -131,24 +131,6 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDColorSpaceFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
 name|PDColorSpace
 import|;
 end_import
@@ -182,7 +164,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a Shading Pattern color space.  *  See section 4.6.3 of the PDF 1.7 specification.  *  * @author<a href="mailto:Daniel.Wilson@BlackLocustSoftware.com">Daniel wilson</a>  * @version $Revision: 1.0 $  */
+comment|/**  * This class represents a Shading Pattern.  *  See section 4.6.3 of the PDF 1.7 specification.  *  * @author<a href="mailto:Daniel.Wilson@BlackLocustSoftware.com">Daniel wilson</a>  * @version $Revision: 1.0 $  */
 end_comment
 
 begin_class
@@ -220,7 +202,7 @@ literal|null
 decl_stmt|;
 specifier|private
 name|PDColorSpace
-name|colorspace
+name|colorSpace
 init|=
 literal|null
 decl_stmt|;
@@ -325,16 +307,16 @@ name|IOException
 block|{
 if|if
 condition|(
-name|colorspace
+name|colorSpace
 operator|==
 literal|null
 condition|)
 block|{
-name|colorspace
+name|colorSpace
 operator|=
-name|PDColorSpaceFactory
+name|PDColorSpace
 operator|.
-name|createColorSpace
+name|create
 argument_list|(
 name|DictShading
 operator|.
@@ -348,7 +330,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|colorspace
+name|colorSpace
 return|;
 block|}
 comment|/**     * This will return a boolean flag indicating whether to antialias the shading pattern.     *     * @return The antialias flag, defaulting to False     */

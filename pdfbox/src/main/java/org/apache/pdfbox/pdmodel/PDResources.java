@@ -235,24 +235,6 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|color
-operator|.
-name|PDColorSpaceFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
 name|pattern
 operator|.
 name|PDPatternResources
@@ -289,9 +271,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDXObject
+name|PDImageXObject
 import|;
 end_import
 
@@ -307,9 +289,7 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
-operator|.
-name|PDXObjectImage
+name|PDXObject
 import|;
 end_import
 
@@ -344,7 +324,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a set of resources available at the page/pages/stream level.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author By BM  *   */
+comment|/**  * This represents a set of resources available at the page/pages/stream level.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
@@ -425,7 +405,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|PDXObjectImage
+name|PDImageXObject
 argument_list|>
 name|images
 init|=
@@ -915,7 +895,7 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 name|COSDictionary
-name|xobjectsDictionary
+name|dict
 init|=
 operator|(
 name|COSDictionary
@@ -931,12 +911,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|xobjectsDictionary
+name|dict
 operator|==
 literal|null
 condition|)
 block|{
-name|xobjectsDictionary
+name|dict
 operator|=
 operator|new
 name|COSDictionary
@@ -950,7 +930,7 @@ name|COSName
 operator|.
 name|XOBJECT
 argument_list|,
-name|xobjectsDictionary
+name|dict
 argument_list|)
 expr_stmt|;
 block|}
@@ -972,7 +952,7 @@ control|(
 name|COSName
 name|objName
 range|:
-name|xobjectsDictionary
+name|dict
 operator|.
 name|keySet
 argument_list|()
@@ -991,12 +971,19 @@ name|PDXObject
 operator|.
 name|createXObject
 argument_list|(
-name|xobjectsDictionary
+name|dict
 operator|.
 name|getDictionaryObject
 argument_list|(
 name|objName
 argument_list|)
+argument_list|,
+name|objName
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -1048,13 +1035,13 @@ return|return
 name|xobjects
 return|;
 block|}
-comment|/**      * This will get the map of images. An empty map will be returned if there are no underlying images. So far the keys      * are COSName of the image and the value is the corresponding PDXObjectImage.      *       * @return The map of images.      * @throws IOException If there is an error writing the picture.      *       * @deprecated use {@link #getXObjects()} instead, as the images map isn't synchronized with the XObjects map.      */
+comment|/**      * This will get the map of images. An empty map will be returned if there are no underlying images. So far the keys      * are COSName of the image and the value is the corresponding PDXObjectImage.      *      * @return The map of images.      * @throws IOException If there is an error writing the picture.      *       * @deprecated use {@link #getXObjects()} instead, as the images map isn't synchronized with the XObjects map.      */
 specifier|public
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDXObjectImage
+name|PDImageXObject
 argument_list|>
 name|getImages
 parameter_list|()
@@ -1086,7 +1073,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|PDXObjectImage
+name|PDImageXObject
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -1120,7 +1107,7 @@ if|if
 condition|(
 name|xobject
 operator|instanceof
-name|PDXObjectImage
+name|PDImageXObject
 condition|)
 block|{
 name|images
@@ -1133,7 +1120,7 @@ name|getKey
 argument_list|()
 argument_list|,
 operator|(
-name|PDXObjectImage
+name|PDImageXObject
 operator|)
 name|xobject
 argument_list|)
@@ -1366,11 +1353,16 @@ try|try
 block|{
 name|colorspace
 operator|=
-name|PDColorSpaceFactory
+name|PDColorSpace
 operator|.
-name|createColorSpace
+name|create
 argument_list|(
 name|cs
+argument_list|,
+literal|null
+argument_list|,
+name|getPatterns
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

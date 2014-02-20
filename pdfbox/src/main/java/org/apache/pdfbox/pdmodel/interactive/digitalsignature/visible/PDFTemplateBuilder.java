@@ -37,9 +37,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|awt
 operator|.
-name|IOException
+name|image
+operator|.
+name|BufferedImage
 import|;
 end_import
 
@@ -49,7 +51,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
+name|IOException
 import|;
 end_import
 
@@ -153,9 +155,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|form
 operator|.
-name|PDJpeg
+name|PDFormXObject
 import|;
 end_import
 
@@ -171,9 +173,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDXObjectForm
+name|PDImageXObject
 import|;
 end_import
 
@@ -323,7 +325,7 @@ name|void
 name|createProcSetArray
 parameter_list|()
 function_decl|;
-comment|/**      * Creates signature image      * @param template      * @param InputStream      * @throws IOException      */
+comment|/**      * Creates signature image      * @param template      * @param image      * @throws IOException      */
 specifier|public
 name|void
 name|createSignatureImage
@@ -331,8 +333,8 @@ parameter_list|(
 name|PDDocument
 name|template
 parameter_list|,
-name|InputStream
-name|InputStream
+name|BufferedImage
+name|image
 parameter_list|)
 throws|throws
 name|IOException
@@ -382,7 +384,7 @@ specifier|public
 name|void
 name|createAppearanceDictionary
 parameter_list|(
-name|PDXObjectForm
+name|PDFormXObject
 name|holderForml
 parameter_list|,
 name|PDSignatureField
@@ -426,7 +428,7 @@ specifier|public
 name|void
 name|insertInnerFormToHolerResources
 parameter_list|(
-name|PDXObjectForm
+name|PDFormXObject
 name|innerForm
 parameter_list|,
 name|PDResources
@@ -468,7 +470,7 @@ parameter_list|,
 name|AffineTransform
 name|affineTransform
 parameter_list|,
-name|PDJpeg
+name|PDImageXObject
 name|img
 parameter_list|)
 throws|throws
@@ -479,7 +481,7 @@ specifier|public
 name|void
 name|injectProcSetArray
 parameter_list|(
-name|PDXObjectForm
+name|PDFormXObject
 name|innerForm
 parameter_list|,
 name|PDPage

@@ -37,9 +37,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|awt
 operator|.
-name|IOException
+name|image
+operator|.
+name|BufferedImage
 import|;
 end_import
 
@@ -49,7 +51,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
+name|IOException
 import|;
 end_import
 
@@ -229,9 +231,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|form
 operator|.
-name|PDJpeg
+name|PDFormXObject
 import|;
 end_import
 
@@ -247,9 +249,27 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDXObjectForm
+name|JPEGFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|image
+operator|.
+name|PDImageXObject
 import|;
 end_import
 
@@ -1056,28 +1076,24 @@ parameter_list|(
 name|PDDocument
 name|template
 parameter_list|,
-name|InputStream
-name|inputStream
+name|BufferedImage
+name|image
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDJpeg
-name|img
-init|=
-operator|new
-name|PDJpeg
+name|pdfStructure
+operator|.
+name|setImage
+argument_list|(
+name|JPEGFactory
+operator|.
+name|createFromImage
 argument_list|(
 name|template
 argument_list|,
-name|inputStream
+name|image
 argument_list|)
-decl_stmt|;
-name|pdfStructure
-operator|.
-name|setJpedImage
-argument_list|(
-name|img
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1087,12 +1103,7 @@ argument_list|(
 literal|"Visible Signature Image has been created"
 argument_list|)
 expr_stmt|;
-comment|// pdfStructure.setTemplate(template);
-name|inputStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+comment|// pdfStructure.setTemplate(template);'
 block|}
 annotation|@
 name|Override
@@ -1246,11 +1257,11 @@ name|PDRectangle
 name|formrect
 parameter_list|)
 block|{
-name|PDXObjectForm
+name|PDFormXObject
 name|holderForm
 init|=
 operator|new
-name|PDXObjectForm
+name|PDFormXObject
 argument_list|(
 name|holderFormStream
 argument_list|)
@@ -1297,7 +1308,7 @@ specifier|public
 name|void
 name|createAppearanceDictionary
 parameter_list|(
-name|PDXObjectForm
+name|PDFormXObject
 name|holderForml
 parameter_list|,
 name|PDSignatureField
@@ -1446,11 +1457,11 @@ name|PDRectangle
 name|formrect
 parameter_list|)
 block|{
-name|PDXObjectForm
+name|PDFormXObject
 name|innerForm
 init|=
 operator|new
-name|PDXObjectForm
+name|PDFormXObject
 argument_list|(
 name|innerFormStream
 argument_list|)
@@ -1497,7 +1508,7 @@ specifier|public
 name|void
 name|insertInnerFormToHolerResources
 parameter_list|(
-name|PDXObjectForm
+name|PDFormXObject
 name|innerForm
 parameter_list|,
 name|PDResources
@@ -1613,20 +1624,20 @@ name|PDRectangle
 name|formrect
 parameter_list|,
 name|AffineTransform
-name|affineTransform
+name|at
 parameter_list|,
-name|PDJpeg
+name|PDImageXObject
 name|img
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 comment|/*          * if you need text on the visible signature           *           * PDFont font = PDTrueTypeFont.loadTTF(this.pdfStructure.getTemplate(), new File("D:\\arial.ttf"));           * font.setFontEncoding(new WinAnsiEncoding());          *           * Map<String, PDFont> fonts = new HashMap<String, PDFont>(); fonts.put("arial", font);          */
-name|PDXObjectForm
+name|PDFormXObject
 name|imageForm
 init|=
 operator|new
-name|PDXObjectForm
+name|PDFormXObject
 argument_list|(
 name|imageFormStream
 argument_list|)
@@ -1642,7 +1653,7 @@ name|imageForm
 operator|.
 name|setMatrix
 argument_list|(
-name|affineTransform
+name|at
 argument_list|)
 expr_stmt|;
 name|imageForm
@@ -1735,7 +1746,7 @@ specifier|public
 name|void
 name|injectProcSetArray
 parameter_list|(
-name|PDXObjectForm
+name|PDFormXObject
 name|innerForm
 parameter_list|,
 name|PDPage

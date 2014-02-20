@@ -17,6 +17,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSDictionary
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -46,7 +60,7 @@ index|[]
 name|imageData
 decl_stmt|;
 specifier|private
-name|ImageParameters
+name|COSDictionary
 name|imageParameters
 decl_stmt|;
 comment|/** map for singleton operator objects; use {@link ConcurrentHashMap} for better scalability with multiple threads */
@@ -259,7 +273,7 @@ expr_stmt|;
 block|}
 comment|/**      * This will get the image parameters, this is only valid for BI operators.      *      * @return The image parameters.      */
 specifier|public
-name|ImageParameters
+name|COSDictionary
 name|getImageParameters
 parameter_list|()
 block|{
@@ -272,7 +286,7 @@ specifier|public
 name|void
 name|setImageParameters
 parameter_list|(
-name|ImageParameters
+name|COSDictionary
 name|params
 parameter_list|)
 block|{

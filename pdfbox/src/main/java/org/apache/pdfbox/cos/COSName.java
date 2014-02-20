@@ -941,6 +941,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|PROCESS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Process"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|COLORS
 init|=
 operator|new
@@ -1006,6 +1019,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|COMPONENTS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Components"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|COORDS
 init|=
 operator|new
@@ -1051,6 +1077,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"ClrFf"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CMYK
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"CMYK"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -2215,6 +2254,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|G
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"G"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|GAMMA
 init|=
 operator|new
@@ -2236,6 +2288,7 @@ argument_list|(
 literal|"GTS_PDFA1"
 argument_list|)
 decl_stmt|;
+comment|/**      * A common COSName value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -2389,6 +2442,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Image"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|IM
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"IM"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */
@@ -3578,6 +3644,19 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|PS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"PS"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|PREDICTOR
 init|=
 operator|new
@@ -3818,6 +3897,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Resources"
+argument_list|)
+decl_stmt|;
+comment|/**      * A common COSName value.      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|RGB
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"RGB"
 argument_list|)
 decl_stmt|;
 comment|/**      * A common COSName value.      */

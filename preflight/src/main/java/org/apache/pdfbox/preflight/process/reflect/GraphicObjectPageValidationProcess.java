@@ -75,9 +75,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|form
 operator|.
-name|PDXObjectForm
+name|PDFormXObject
 import|;
 end_import
 
@@ -93,9 +93,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDXObjectImage
+name|PDImageXObject
 import|;
 end_import
 
@@ -295,7 +295,7 @@ name|vPath
 operator|.
 name|isExpectedType
 argument_list|(
-name|PDXObjectImage
+name|PDImageXObject
 operator|.
 name|class
 argument_list|)
@@ -309,7 +309,7 @@ argument_list|(
 name|context
 argument_list|,
 operator|(
-name|PDXObjectImage
+name|PDImageXObject
 operator|)
 name|vPath
 operator|.
@@ -331,7 +331,7 @@ name|vPath
 operator|.
 name|isExpectedType
 argument_list|(
-name|PDXObjectForm
+name|PDFormXObject
 operator|.
 name|class
 argument_list|)
@@ -345,7 +345,7 @@ argument_list|(
 name|context
 argument_list|,
 operator|(
-name|PDXObjectForm
+name|PDFormXObject
 operator|)
 name|vPath
 operator|.

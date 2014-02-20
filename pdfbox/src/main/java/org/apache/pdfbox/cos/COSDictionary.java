@@ -160,7 +160,6 @@ literal|"/"
 decl_stmt|;
 comment|/** 	 * The name-value pairs of this dictionary. The pairs are kept in the 	 * order they were added to the dictionary. 	 */
 specifier|protected
-specifier|final
 name|Map
 argument_list|<
 name|COSName
@@ -3297,6 +3296,20 @@ block|}
 block|}
 return|return
 name|retval
+return|;
+block|}
+comment|/**      * Returns an unmodifiable view of this dictionary.      * @return      */
+specifier|public
+name|COSDictionary
+name|asUnmodifiableDictionary
+parameter_list|()
+block|{
+return|return
+operator|new
+name|UnmodifiableCOSDictionary
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 comment|/** 	 * {@inheritDoc} 	 */

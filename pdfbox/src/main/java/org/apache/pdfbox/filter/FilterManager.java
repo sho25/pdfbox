@@ -119,7 +119,7 @@ name|Filter
 name|ccittFaxFilter
 init|=
 operator|new
-name|CCITTFaxDecodeFilter
+name|CCITTFaxFilter
 argument_list|()
 decl_stmt|;
 name|Filter

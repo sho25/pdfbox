@@ -141,8 +141,13 @@ name|PDStream
 import|;
 end_import
 
+begin_comment
+comment|/**  * An Output Intent describes the colour reproduction characteristics of a possible output  * device or production condition.  * Output intents provide a means for matching the colour characteristics of a PDF document with  * those of a target output device or production environment in which the document will be printed.  *  * @author Guillaume Bailleul  */
+end_comment
+
 begin_class
 specifier|public
+specifier|final
 class|class
 name|PDOutputIntent
 implements|implements

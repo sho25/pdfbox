@@ -131,9 +131,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|form
 operator|.
-name|PDJpeg
+name|PDFormXObject
 import|;
 end_import
 
@@ -149,9 +149,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDXObjectForm
+name|JPEGFactory
 import|;
 end_import
 
@@ -167,9 +167,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDXObjectImage
+name|PDImageXObject
 import|;
 end_import
 
@@ -549,11 +549,12 @@ literal|2
 index|]
 argument_list|)
 decl_stmt|;
-name|PDJpeg
+name|PDImageXObject
 name|mypic
 init|=
-operator|new
-name|PDJpeg
+name|JPEGFactory
+operator|.
+name|createFromStream
 argument_list|(
 name|document
 argument_list|,
@@ -596,7 +597,7 @@ argument_list|(
 literal|550
 argument_list|)
 expr_stmt|;
-comment|// Create a PDXObjectForm
+comment|// Create a PDFormXObject
 name|PDStream
 name|formstream
 init|=
@@ -614,11 +615,11 @@ operator|.
 name|createOutputStream
 argument_list|()
 decl_stmt|;
-name|PDXObjectForm
+name|PDFormXObject
 name|form
 init|=
 operator|new
-name|PDXObjectForm
+name|PDFormXObject
 argument_list|(
 name|formstream
 argument_list|)
@@ -785,7 +786,7 @@ specifier|private
 name|void
 name|drawXObject
 parameter_list|(
-name|PDXObjectImage
+name|PDImageXObject
 name|xobject
 parameter_list|,
 name|PDResources

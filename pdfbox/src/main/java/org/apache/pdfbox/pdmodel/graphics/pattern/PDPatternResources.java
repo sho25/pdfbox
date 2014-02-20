@@ -23,16 +23,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|awt
-operator|.
-name|Paint
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|io
 operator|.
 name|IOException
@@ -97,44 +87,8 @@ name|COSObjectable
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|pattern
-operator|.
-name|PDShadingPatternResources
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|pattern
-operator|.
-name|PDTilingPatternResources
-import|;
-end_import
-
 begin_comment
-comment|/**  * This represents the resources for a pattern colorspace.  *  * @version $Revision: 1.0 $  */
+comment|/**  * This represents the resources for a pattern color space.  */
 end_comment
 
 begin_class
@@ -448,18 +402,6 @@ return|return
 name|pattern
 return|;
 block|}
-comment|/**      * This will return the paint of the pattern.      *       * @param pageHeight the height of the current page      *       * @return the paint of the pattern      */
-specifier|public
-specifier|abstract
-name|Paint
-name|getPaint
-parameter_list|(
-name|int
-name|pageHeight
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 block|}
 end_class
 

@@ -373,8 +373,6 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
-operator|.
 name|PDXObject
 import|;
 end_import
@@ -2062,27 +2060,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @return Returns the colorSpaces.      */
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|PDColorSpace
-argument_list|>
-name|getColorSpaces
-parameter_list|()
-block|{
-return|return
-name|streamResourcesStack
-operator|.
-name|peek
-argument_list|()
-operator|.
-name|getColorSpaces
-argument_list|()
-return|;
-block|}
+comment|/**      * Transforms the given point using the current transformation matrix      *      * @param x x-coordinate of the point to be transformed      * @param y y-coordinate of the point to be transformed      * @return the transformed point      */
+comment|/* public Point2D.Double transformPoint(double x, double y)     {         double[] position = { x, y };         Matrix ctm = graphicsState.getCurrentTransformationMatrix();         ctm.createAffineTransform().transform(position, 0, position, 0, 1);         return new Point2D.Double(position[0], position[1]);     }*/
+comment|/**      * Transforms the given width using the current transformation matrix      *      * @param width the width to be transformed      * @return the transformed width      */
+comment|/*public double transformWidth(double width) {         Matrix ctm = graphicsState.getCurrentTransformationMatrix();         double x = ctm.getValue(0, 0) + ctm.getValue(1, 0);         double y = ctm.getValue(0, 1) + ctm.getValue(1, 1);         return width * Math.sqrt(0.5 * (x * x + y * y));     }*/
 comment|/**      * @return Returns the colorSpaces.      */
 specifier|public
 name|Map

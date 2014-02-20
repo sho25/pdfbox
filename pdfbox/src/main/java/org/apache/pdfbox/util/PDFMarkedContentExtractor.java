@@ -143,8 +143,6 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
-operator|.
 name|PDXObject
 import|;
 end_import

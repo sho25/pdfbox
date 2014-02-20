@@ -227,9 +227,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|form
 operator|.
-name|PDXObjectForm
+name|PDFormXObject
 import|;
 end_import
 
@@ -367,7 +367,7 @@ extends|extends
 name|AbstractXObjValidator
 block|{
 comment|/**      * High level object which represents the XObjectForm      */
-name|PDXObjectForm
+name|PDFormXObject
 name|pdXObj
 init|=
 literal|null
@@ -378,7 +378,7 @@ parameter_list|(
 name|PreflightContext
 name|context
 parameter_list|,
-name|PDXObjectForm
+name|PDFormXObject
 name|xobj
 parameter_list|)
 block|{

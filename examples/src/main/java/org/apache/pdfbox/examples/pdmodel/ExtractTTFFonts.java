@@ -231,8 +231,6 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
-operator|.
 name|PDXObject
 import|;
 end_import
@@ -249,9 +247,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|form
 operator|.
-name|PDXObjectForm
+name|PDFormXObject
 import|;
 end_import
 
@@ -932,14 +930,14 @@ if|if
 condition|(
 name|xobject
 operator|instanceof
-name|PDXObjectForm
+name|PDFormXObject
 condition|)
 block|{
-name|PDXObjectForm
+name|PDFormXObject
 name|xObjectForm
 init|=
 operator|(
-name|PDXObjectForm
+name|PDFormXObject
 operator|)
 name|xobject
 decl_stmt|;

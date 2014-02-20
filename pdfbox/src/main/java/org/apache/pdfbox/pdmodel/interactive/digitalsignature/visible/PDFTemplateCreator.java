@@ -191,9 +191,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|form
 operator|.
-name|PDXObjectForm
+name|PDFormXObject
 import|;
 end_import
 
@@ -488,7 +488,7 @@ name|template
 argument_list|,
 name|properties
 operator|.
-name|getImageStream
+name|getImage
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -594,7 +594,7 @@ argument_list|,
 name|formater
 argument_list|)
 expr_stmt|;
-name|PDXObjectForm
+name|PDFormXObject
 name|innerForm
 init|=
 name|pdfStructure
@@ -665,7 +665,7 @@ name|transform
 argument_list|,
 name|pdfStructure
 operator|.
-name|getJpedImage
+name|getImage
 argument_list|()
 argument_list|)
 expr_stmt|;

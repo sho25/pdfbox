@@ -153,24 +153,6 @@ name|PDColorSpace
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDColorSpaceFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * This represents resources for a shading.  *  * @version $Revision: 1.0 $  */
 end_comment
@@ -201,7 +183,7 @@ literal|null
 decl_stmt|;
 specifier|private
 name|PDColorSpace
-name|colorspace
+name|colorSpace
 init|=
 literal|null
 decl_stmt|;
@@ -563,7 +545,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the color space or null if none exists.      *      * @return The color space for the shading.      *      * @throws IOException If there is an error getting the colorspace.      */
+comment|/**      * This will get the color space or null if none exists.      *      * @return The color space for the shading.      *      * @throws IOException If there is an error getting the color space.      */
 specifier|public
 name|PDColorSpace
 name|getColorSpace
@@ -573,7 +555,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|colorspace
+name|colorSpace
 operator|==
 literal|null
 condition|)
@@ -594,36 +576,38 @@ operator|.
 name|COLORSPACE
 argument_list|)
 decl_stmt|;
-name|colorspace
+name|colorSpace
 operator|=
-name|PDColorSpaceFactory
+name|PDColorSpace
 operator|.
-name|createColorSpace
+name|create
 argument_list|(
 name|colorSpaceDictionary
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|colorspace
+name|colorSpace
 return|;
 block|}
-comment|/**      * This will set the color space for the shading.      *      * @param newColorspace The color space      */
+comment|/**      * This will set the color space for the shading.      *      * @param colorSpace The color space      */
 specifier|public
 name|void
 name|setColorSpace
 parameter_list|(
 name|PDColorSpace
-name|newColorspace
+name|colorSpace
 parameter_list|)
 block|{
-name|colorspace
+name|this
+operator|.
+name|colorSpace
 operator|=
-name|newColorspace
+name|colorSpace
 expr_stmt|;
 if|if
 condition|(
-name|newColorspace
+name|colorSpace
 operator|!=
 literal|null
 condition|)
@@ -636,7 +620,7 @@ name|COSName
 operator|.
 name|COLORSPACE
 argument_list|,
-name|newColorspace
+name|colorSpace
 operator|.
 name|getCOSObject
 argument_list|()

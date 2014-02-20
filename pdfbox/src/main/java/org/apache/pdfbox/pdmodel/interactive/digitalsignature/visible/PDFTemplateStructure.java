@@ -229,9 +229,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|form
 operator|.
-name|PDJpeg
+name|PDFormXObject
 import|;
 end_import
 
@@ -247,9 +247,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDXObjectForm
+name|PDImageXObject
 import|;
 end_import
 
@@ -389,8 +389,8 @@ name|COSArray
 name|procSet
 decl_stmt|;
 specifier|private
-name|PDJpeg
-name|jpedImage
+name|PDImageXObject
+name|image
 decl_stmt|;
 specifier|private
 name|PDRectangle
@@ -405,7 +405,7 @@ name|PDResources
 name|holderFormResources
 decl_stmt|;
 specifier|private
-name|PDXObjectForm
+name|PDFormXObject
 name|holderForm
 decl_stmt|;
 specifier|private
@@ -421,7 +421,7 @@ name|PDResources
 name|innerFormResources
 decl_stmt|;
 specifier|private
-name|PDXObjectForm
+name|PDFormXObject
 name|innerForm
 decl_stmt|;
 specifier|private
@@ -456,14 +456,14 @@ name|COSDocument
 name|visualSignature
 decl_stmt|;
 specifier|private
-name|PDXObjectForm
+name|PDFormXObject
 name|imageForm
 decl_stmt|;
 specifier|private
 name|COSDictionary
 name|widgetDictionary
 decl_stmt|;
-comment|/**      * Returns document page.      * @return the document page.      */
+comment|/**      * Returns document page.      * @return      */
 specifier|public
 name|PDPage
 name|getPage
@@ -489,7 +489,7 @@ operator|=
 name|page
 expr_stmt|;
 block|}
-comment|/**      * Gets PDDocument template.      * This represents a digital signature      *  that can be attached to a document      * @return the template to be used.      */
+comment|/**      * Gets PDDocument template.      * This represents a digital signature      *  that can be attached to a document      * @return      */
 specifier|public
 name|PDDocument
 name|getTemplate
@@ -515,7 +515,7 @@ operator|=
 name|template
 expr_stmt|;
 block|}
-comment|/**      * Gets Acroform      * @return the documents AcroForm.        */
+comment|/**      * Gets Acroform      * @return      */
 specifier|public
 name|PDAcroForm
 name|getAcroForm
@@ -541,7 +541,7 @@ operator|=
 name|acroForm
 expr_stmt|;
 block|}
-comment|/**      * Gets Signature field      * @return the signature filed to be used.      */
+comment|/**      * Gets Signature field      * @return      */
 specifier|public
 name|PDSignatureField
 name|getSignatureField
@@ -567,7 +567,7 @@ operator|=
 name|signatureField
 expr_stmt|;
 block|}
-comment|/**      * Gets PDSignature      * @return the signature object.      */
+comment|/**      * Gets PDSignature      * @return      */
 specifier|public
 name|PDSignature
 name|getPdSignature
@@ -593,7 +593,7 @@ operator|=
 name|pdSignature
 expr_stmt|;
 block|}
-comment|/**      * Gets Dictionary of AcroForm. Thats<b> /DR</b>      * entry in the AcroForm      * @return the AcroForms dictionary object.      */
+comment|/**      * Gets Dictionary of AcroForm. Thats<b> /DR</b>      * entry in the AcroForm      * @return      */
 specifier|public
 name|COSDictionary
 name|getAcroFormDictionary
@@ -619,7 +619,7 @@ operator|=
 name|acroFormDictionary
 expr_stmt|;
 block|}
-comment|/**      * Gets SignatureRectangle      * @return the signatures rectangle.      */
+comment|/**      * Gets SignatureRectangle      * @return      */
 specifier|public
 name|PDRectangle
 name|getSingatureRectangle
@@ -645,7 +645,7 @@ operator|=
 name|singatureRectangle
 expr_stmt|;
 block|}
-comment|/**      * Gets AffineTransform      * @return the affine transform.      */
+comment|/**      * Gets AffineTransform      * @return      */
 specifier|public
 name|AffineTransform
 name|getAffineTransform
@@ -671,7 +671,7 @@ operator|=
 name|affineTransform
 expr_stmt|;
 block|}
-comment|/**      * Gets ProcSet Array      * @return the proc set array.      */
+comment|/**      * Gets ProcSet Array      * @return      */
 specifier|public
 name|COSArray
 name|getProcSet
@@ -697,33 +697,33 @@ operator|=
 name|procSet
 expr_stmt|;
 block|}
-comment|/**      * Gets the image of visible signature      * @return the image used for a visioble signature.      */
+comment|/**      * Gets the image of visible signature      * @return      */
 specifier|public
-name|PDJpeg
-name|getJpedImage
+name|PDImageXObject
+name|getImage
 parameter_list|()
 block|{
 return|return
-name|jpedImage
+name|image
 return|;
 block|}
-comment|/**      * Sets the image of visible signature      * @param jpedImage      */
+comment|/**      * Sets the image of visible signature      * @param image Image XObject      */
 specifier|public
 name|void
-name|setJpedImage
+name|setImage
 parameter_list|(
-name|PDJpeg
-name|jpedImage
+name|PDImageXObject
+name|image
 parameter_list|)
 block|{
 name|this
 operator|.
-name|jpedImage
+name|image
 operator|=
-name|jpedImage
+name|image
 expr_stmt|;
 block|}
-comment|/**      * Gets formatter rectangle      * @return the rectangle used by the formatter.      */
+comment|/**      * Gets formatter rectangle      * @return      */
 specifier|public
 name|PDRectangle
 name|getFormaterRectangle
@@ -749,7 +749,7 @@ operator|=
 name|formaterRectangle
 expr_stmt|;
 block|}
-comment|/**      * Sets HolderFormStream      * @return the form stream of the holder.      */
+comment|/**      * Sets HolderFormStream      * @return      */
 specifier|public
 name|PDStream
 name|getHolderFormStream
@@ -775,9 +775,9 @@ operator|=
 name|holderFormStream
 expr_stmt|;
 block|}
-comment|/**      * Gets Holder form.      * That form is here<b> AcroForm/DR/XObject/{holder form name}</b>      * By default, name stars with FRM. We also add number of form      * to the name.      * @return the holder form.      */
+comment|/**      * Gets Holder form.      * That form is here<b> AcroForm/DR/XObject/{holder form name}</b>      * By default, name stars with FRM. We also add number of form      * to the name.      * @return      */
 specifier|public
-name|PDXObjectForm
+name|PDFormXObject
 name|getHolderForm
 parameter_list|()
 block|{
@@ -790,7 +790,7 @@ specifier|public
 name|void
 name|setHolderForm
 parameter_list|(
-name|PDXObjectForm
+name|PDFormXObject
 name|holderForm
 parameter_list|)
 block|{
@@ -801,7 +801,7 @@ operator|=
 name|holderForm
 expr_stmt|;
 block|}
-comment|/**      * Gets Holder form resources      * @return the holder forms ressources.      */
+comment|/**      * Gets Holder form resources      * @return      */
 specifier|public
 name|PDResources
 name|getHolderFormResources
@@ -827,7 +827,7 @@ operator|=
 name|holderFormResources
 expr_stmt|;
 block|}
-comment|/**      * Gets AppearanceDictionary      * That is<b>/AP</b> entry the appearance dictionary.      * @return the appearance dictionary.      */
+comment|/**      * Gets AppearanceDictionary      * That is<b>/AP</b> entry the appearance dictionary.      * @return      */
 specifier|public
 name|PDAppearanceDictionary
 name|getAppearanceDictionary
@@ -853,7 +853,7 @@ operator|=
 name|appearanceDictionary
 expr_stmt|;
 block|}
-comment|/**      * Gets Inner form Stream.      * @return the inner form's stream.      */
+comment|/**      * Gets Inner form Stream.      * @return      */
 specifier|public
 name|PDStream
 name|getInnterFormStream
@@ -879,7 +879,7 @@ operator|=
 name|innterFormStream
 expr_stmt|;
 block|}
-comment|/**      * Gets inner form Resource      * @return the inner form's resources.      */
+comment|/**      * Gets inner form Resource      * @return      */
 specifier|public
 name|PDResources
 name|getInnerFormResources
@@ -905,9 +905,9 @@ operator|=
 name|innerFormResources
 expr_stmt|;
 block|}
-comment|/**      * Gets inner form that is in this location:      *<b> AcroForm/DR/XObject/{holder form name}/Resources/XObject/{inner name}</b>      * By default inner form name starts with "n". Then we add number of form      * to the name.      * @return the inner form.      */
+comment|/**      * Gets inner form that is in this location:      *<b> AcroForm/DR/XObject/{holder form name}/Resources/XObject/{inner name}</b>      * By default inner form name starts with "n". Then we add number of form      * to the name.      * @return      */
 specifier|public
-name|PDXObjectForm
+name|PDFormXObject
 name|getInnerForm
 parameter_list|()
 block|{
@@ -920,7 +920,7 @@ specifier|public
 name|void
 name|setInnerForm
 parameter_list|(
-name|PDXObjectForm
+name|PDFormXObject
 name|innerForm
 parameter_list|)
 block|{
@@ -931,7 +931,7 @@ operator|=
 name|innerForm
 expr_stmt|;
 block|}
-comment|/**      * Gets name of inner form      * @return the inner form's name.      */
+comment|/**      * Gets name of inner form      * @return      */
 specifier|public
 name|String
 name|getInnerFormName
@@ -957,7 +957,7 @@ operator|=
 name|innerFormName
 expr_stmt|;
 block|}
-comment|/**      * Gets Image form stream      * @return the image form's stream.      */
+comment|/**      * Gets Image form stream      * @return      */
 specifier|public
 name|PDStream
 name|getImageFormStream
@@ -983,7 +983,7 @@ operator|=
 name|imageFormStream
 expr_stmt|;
 block|}
-comment|/**      * Gets image form resources      * @return the image form's resources.      */
+comment|/**      * Gets image form resources      * @return      */
 specifier|public
 name|PDResources
 name|getImageFormResources
@@ -1009,9 +1009,9 @@ operator|=
 name|imageFormResources
 expr_stmt|;
 block|}
-comment|/**      * Gets Image form. Image form is in this structure:       *<b>/AcroForm/DR/{holder form}/Resources/XObject /{inner form}</b>      * /Resources/XObject/{image form name}.      * @return the image form.      */
+comment|/**      * Gets Image form. Image form is in this structure:       *<b>/AcroForm/DR/{holder form}/Resources/XObject /{inner form}</b>      * /Resources/XObject/{image form name}.      * @return      */
 specifier|public
-name|PDXObjectForm
+name|PDFormXObject
 name|getImageForm
 parameter_list|()
 block|{
@@ -1024,7 +1024,7 @@ specifier|public
 name|void
 name|setImageForm
 parameter_list|(
-name|PDXObjectForm
+name|PDFormXObject
 name|imageForm
 parameter_list|)
 block|{
@@ -1035,7 +1035,7 @@ operator|=
 name|imageForm
 expr_stmt|;
 block|}
-comment|/**      * Gets image form name      * @return the image form's name.      */
+comment|/**      * Gets image form name      * @return      */
 specifier|public
 name|String
 name|getImageFormName
@@ -1061,7 +1061,7 @@ operator|=
 name|imageFormName
 expr_stmt|;
 block|}
-comment|/**      * Gets visible signature image name      * @return the visible signature image's name       */
+comment|/**      * Gets visible signature image name      * @return      */
 specifier|public
 name|String
 name|getImageName
@@ -1087,7 +1087,7 @@ operator|=
 name|imageName
 expr_stmt|;
 block|}
-comment|/**      * Gets COSDocument of visible Signature.      * @see org.apache.pdfbox.cos.COSDocument      * @return the document representing the visual signature.       */
+comment|/**      * Gets COSDocument of visible Signature.      * @see org.apache.pdfbox.cos.COSDocument      * @return      */
 specifier|public
 name|COSDocument
 name|getVisualSignature
@@ -1113,7 +1113,7 @@ operator|=
 name|visualSignature
 expr_stmt|;
 block|}
-comment|/**      * Gets acroFormFields      * @return the fields within the AcroForm.      */
+comment|/**      * Gets acroFormFields      * @return      */
 specifier|public
 name|List
 argument_list|<
@@ -1145,7 +1145,7 @@ operator|=
 name|acroFormFields
 expr_stmt|;
 block|}
-comment|/**     * Gets AP of the created template     * @return the appearance stream of the created template.     * @throws IOException     * @throws COSVisitorException     */
+comment|/**     * Gets AP of the created template     * @return     * @throws IOException     * @throws COSVisitorException     */
 specifier|public
 name|ByteArrayInputStream
 name|getTemplateAppearanceStream
@@ -1206,7 +1206,7 @@ return|return
 name|input
 return|;
 block|}
-comment|/**      * Gets Widget Dictionary.      * {@link org.apache.pdfbox.pdmodel.interactive.form.PDField}      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#getWidget()       * @return the dictionary representing the widget.      */
+comment|/**      * Gets Widget Dictionary.      * {@link org.apache.pdfbox.pdmodel.interactive.form.PDField}      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#getWidget()      * @return      */
 specifier|public
 name|COSDictionary
 name|getWidgetDictionary
@@ -1216,7 +1216,7 @@ return|return
 name|widgetDictionary
 return|;
 block|}
-comment|/**      * Sets Widget Dictionary.      * {@link org.apache.pdfbox.pdmodel.interactive.form.PDField}      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#getWidget()       * @param widgetDictionary      */
+comment|/**      * Sets Widget Dictionary.      * {@link org.apache.pdfbox.pdmodel.interactive.form.PDField}      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#getWidget()      * @param widgetDictionary      */
 specifier|public
 name|void
 name|setWidgetDictionary

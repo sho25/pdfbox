@@ -243,11 +243,27 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|common
+operator|.
+name|PDStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|graphics
 operator|.
-name|xobject
+name|form
 operator|.
-name|PDXObjectForm
+name|PDFormXObject
 import|;
 end_import
 
@@ -864,7 +880,10 @@ argument_list|(
 name|ctx
 argument_list|,
 operator|new
-name|PDXObjectForm
+name|PDFormXObject
+argument_list|(
+operator|new
+name|PDStream
 argument_list|(
 name|COSUtils
 operator|.
@@ -874,6 +893,9 @@ name|apn
 argument_list|,
 name|cosDocument
 argument_list|)
+argument_list|)
+argument_list|,
+literal|"N"
 argument_list|)
 argument_list|,
 name|GRAPHIC_PROCESS
@@ -909,7 +931,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * This method validates the Popup entry. This entry shall contain an other Annotation. This annotation is validated      * with the right AnnotationValidator.      *       * @param errors      * @return      * @throws ValidationException      */
+comment|/**      * This method validates the Popup entry. This entry shall contain an other Annotation. This annotation is validated      * with the right AnnotationValidator.      *      * @throws ValidationException      */
 specifier|protected
 name|boolean
 name|checkPopup
@@ -1057,7 +1079,7 @@ return|return
 name|isValide
 return|;
 block|}
-comment|/**      * Checks if all mandatory fields of an annotation are present. If some fields are missing, the method returns false      * and the errors list is updated.      *       * @param errors      *            list of errors which is updated if validation fails      * @return true if validation succeed, false otherwise.      */
+comment|/**      * Checks if all mandatory fields of an annotation are present. If some fields are missing, the method returns false      * and the errors list is updated.      *      * @return true if validation succeed, false otherwise.      */
 specifier|protected
 name|boolean
 name|checkMandatoryFields

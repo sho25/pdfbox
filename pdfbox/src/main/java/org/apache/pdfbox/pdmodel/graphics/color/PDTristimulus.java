@@ -92,11 +92,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A tristimulus, or collection of three floating point parameters used for  * color operations.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * A tristimulus, or collection of three floating point parameters used for color operations.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|PDTristimulus
 implements|implements
@@ -108,7 +109,7 @@ name|values
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor.  Defaults all values to 0, 0, 0.      */
+comment|/**      * Constructor. Defaults all values to 0, 0, 0.      */
 specifier|public
 name|PDTristimulus
 parameter_list|()
@@ -153,7 +154,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor from COS object.      *      * @param array The array containing the XYZ values.      */
+comment|/**      * Constructor from COS object.      * @param array the array containing the XYZ values      */
 specifier|public
 name|PDTristimulus
 parameter_list|(
@@ -166,7 +167,7 @@ operator|=
 name|array
 expr_stmt|;
 block|}
-comment|/**      * Constructor from COS object.      *      * @param array The array containing the XYZ values.      */
+comment|/**      * Constructor from COS object.      * @param array the array containing the XYZ values      */
 specifier|public
 name|PDTristimulus
 parameter_list|(
@@ -218,7 +219,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+comment|/**      * Convert this standard java object to a COS object.      * @return the cos object that matches this Java object      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -228,7 +229,7 @@ return|return
 name|values
 return|;
 block|}
-comment|/**      * This will get the x value of the tristimulus.      *      * @return The X value.      */
+comment|/**      * Returns the x value of the tristimulus.      * @return the X value      */
 specifier|public
 name|float
 name|getX
@@ -251,7 +252,7 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the x value of the tristimulus.      *      * @param x The x value for the tristimulus.      */
+comment|/**      * Sets the x value of the tristimulus.      * @param x the x value for the tristimulus      */
 specifier|public
 name|void
 name|setX
@@ -274,7 +275,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the y value of the tristimulus.      *      * @return The Y value.      */
+comment|/**      * Returns the y value of the tristimulus.      * @return the Y value      */
 specifier|public
 name|float
 name|getY
@@ -297,7 +298,7 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the y value of the tristimulus.      *      * @param y The y value for the tristimulus.      */
+comment|/**      * Sets the y value of the tristimulus.      * @param y the y value for the tristimulus      */
 specifier|public
 name|void
 name|setY
@@ -320,7 +321,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the z value of the tristimulus.      *      * @return The Z value.      */
+comment|/**      * Returns the z value of the tristimulus.      * @return the Z value      */
 specifier|public
 name|float
 name|getZ
@@ -343,7 +344,7 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the z value of the tristimulus.      *      * @param z The z value for the tristimulus.      */
+comment|/**      * Sets the z value of the tristimulus.      * @param z the z value for the tristimulus      */
 specifier|public
 name|void
 name|setZ

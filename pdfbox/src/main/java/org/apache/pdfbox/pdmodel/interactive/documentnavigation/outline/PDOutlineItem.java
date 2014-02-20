@@ -209,25 +209,7 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDColorState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDDeviceRGB
+name|PDColor
 import|;
 end_import
 
@@ -1134,13 +1116,13 @@ name|structureElement
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the text color of this node.  Default is black and this method      * will never return null.      *      * @return The structure element of this node.      */
+comment|/**      * Get the RGB text color of this node.  Default is black and this method      * will never return null.      *      * @return The structure element of this node.      */
 specifier|public
-name|PDColorState
+name|PDColor
 name|getTextColor
 parameter_list|()
 block|{
-name|PDColorState
+name|PDColor
 name|retval
 init|=
 literal|null
@@ -1201,30 +1183,24 @@ block|}
 name|retval
 operator|=
 operator|new
-name|PDColorState
+name|PDColor
 argument_list|(
 name|csValues
-argument_list|)
-expr_stmt|;
-name|retval
 operator|.
-name|setColorSpace
-argument_list|(
-name|PDDeviceRGB
-operator|.
-name|INSTANCE
+name|toFloatArray
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the text color for this node.  The colorspace must be a PDDeviceRGB.      *      * @param textColor The text color for this node.      */
+comment|/**      * Set the RGB text color for this node.      *      * @param textColor The text color for this node.      */
 specifier|public
 name|void
 name|setTextColor
 parameter_list|(
-name|PDColorState
+name|PDColor
 name|textColor
 parameter_list|)
 block|{
@@ -1238,12 +1214,12 @@ name|C
 argument_list|,
 name|textColor
 operator|.
-name|getCOSColorSpaceValue
+name|toCOSArray
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the text color for this node.  The colorspace must be a PDDeviceRGB.      *      * @param textColor The text color for this node.      */
+comment|/**      * Set the RGB text color for this node.      *      * @param textColor The text color for this node.      */
 specifier|public
 name|void
 name|setTextColor

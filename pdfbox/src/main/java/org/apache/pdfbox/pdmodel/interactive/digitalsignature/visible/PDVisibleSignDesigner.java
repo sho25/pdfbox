@@ -49,16 +49,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|FileInputStream
 import|;
 end_import
@@ -100,6 +90,20 @@ operator|.
 name|imageio
 operator|.
 name|ImageIO
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
+name|IOUtils
 import|;
 end_import
 
@@ -160,7 +164,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   * That class is in order to build  your   * visible signature design. Because of   * this is builder, instead of setParam()  * we use param() methods.  * @author<a href="mailto:vakhtang.koroghlishvili@gmail.com"> vakhtang koroghlishvili (gogebashvili)</a>  */
+comment|/**  * Builder for visible signature design.  *  * Uses use param() instead of setParam()  *  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -170,11 +174,11 @@ name|PDVisibleSignDesigner
 block|{
 specifier|private
 name|Float
-name|sigImgWidth
+name|imageWidth
 decl_stmt|;
 specifier|private
 name|Float
-name|sigImgHeight
+name|imageHeight
 decl_stmt|;
 specifier|private
 name|float
@@ -193,8 +197,8 @@ name|float
 name|pageWidth
 decl_stmt|;
 specifier|private
-name|InputStream
-name|imgageStream
+name|BufferedImage
+name|image
 decl_stmt|;
 specifier|private
 name|String
@@ -243,21 +247,15 @@ specifier|private
 name|float
 name|imageSizeInPercents
 decl_stmt|;
-specifier|private
-name|PDDocument
-name|document
-init|=
-literal|null
-decl_stmt|;
-comment|/**      *       * @param originalDocumenStream      * @param imageStream      * @param page the page the visible signature is added to.      * @throws IOException      */
+comment|/**      * Constructor.      *      * @param filename Path of the PDF file      * @param jpegStream JPEG image as a stream      * @param page The page are you going to add visible signature      * @throws IOException      */
 specifier|public
 name|PDVisibleSignDesigner
 parameter_list|(
-name|InputStream
-name|originalDocumenStream
+name|String
+name|filename
 parameter_list|,
 name|InputStream
-name|imageStream
+name|jpegStream
 parameter_list|,
 name|int
 name|page
@@ -265,37 +263,29 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|signatureImageStream
+name|this
 argument_list|(
-name|imageStream
+operator|new
+name|FileInputStream
+argument_list|(
+name|filename
 argument_list|)
-expr_stmt|;
-name|document
-operator|=
-name|PDDocument
-operator|.
-name|load
-argument_list|(
-name|originalDocumenStream
-argument_list|)
-expr_stmt|;
-name|calculatePageSize
-argument_list|(
-name|document
+argument_list|,
+name|jpegStream
 argument_list|,
 name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *       * @param documentPath - path of your pdf document      * @param imageStream - stream of image      * @param page the page the visible signature is added to.      * @throws IOException      */
+comment|/**      * Constructor.      *      * @param documentStream Original PDF document as stream      * @param jpegStream JPEG image as a stream      * @param page The page are you going to add visible signature      * @throws IOException      */
 specifier|public
 name|PDVisibleSignDesigner
 parameter_list|(
-name|String
-name|documentPath
+name|InputStream
+name|documentStream
 parameter_list|,
 name|InputStream
-name|imageStream
+name|jpegStream
 parameter_list|,
 name|int
 name|page
@@ -306,19 +296,20 @@ block|{
 comment|// set visible singature image Input stream
 name|signatureImageStream
 argument_list|(
-name|imageStream
+name|jpegStream
 argument_list|)
 expr_stmt|;
 comment|// create PD document
+name|PDDocument
 name|document
-operator|=
+init|=
 name|PDDocument
 operator|.
 name|load
 argument_list|(
-name|documentPath
+name|documentStream
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// calculate height an width of document
 name|calculatePageSize
 argument_list|(
@@ -333,7 +324,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      *       * @param doc - Already created PDDocument of your PDF document      * @param imageStream      * @param page      * @throws IOException - If we can't read, flush, or can't close stream      */
+comment|/**      * Constructor.      *      * @param doc - Already created PDDocument of your PDF document      * @param jpegStream      * @param page      * @throws IOException - If we can't read, flush, or can't close stream      */
 specifier|public
 name|PDVisibleSignDesigner
 parameter_list|(
@@ -341,7 +332,7 @@ name|PDDocument
 name|doc
 parameter_list|,
 name|InputStream
-name|imageStream
+name|jpegStream
 parameter_list|,
 name|int
 name|page
@@ -351,7 +342,7 @@ name|IOException
 block|{
 name|signatureImageStream
 argument_list|(
-name|imageStream
+name|jpegStream
 argument_list|)
 expr_stmt|;
 name|calculatePageSize
@@ -520,7 +511,7 @@ name|fin
 argument_list|)
 return|;
 block|}
-comment|/**      * zoom signature image with some percent.      *       * @param percent the percentage for zooming the image.      * @return Visible Signature Configuration Object      */
+comment|/**      * zoom signature image with some percent.      *       * @param percent- x % increase image with x percent.      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|zoom
@@ -529,24 +520,24 @@ name|float
 name|percent
 parameter_list|)
 block|{
-name|sigImgHeight
+name|imageHeight
 operator|=
-name|sigImgHeight
+name|imageHeight
 operator|+
 operator|(
-name|sigImgHeight
+name|imageHeight
 operator|*
 name|percent
 operator|)
 operator|/
 literal|100
 expr_stmt|;
-name|sigImgWidth
+name|imageWidth
 operator|=
-name|sigImgWidth
+name|imageWidth
 operator|+
 operator|(
-name|sigImgWidth
+name|imageWidth
 operator|*
 name|percent
 operator|)
@@ -557,7 +548,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *       * @param x the x coordinate.      * @param y the y coordinate.      * @return Visible Signature Configuration Object.      */
+comment|/**      *       * @param x - x coordinate      * @param y - y coordinate      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|coordinates
@@ -648,23 +639,23 @@ name|getWidth
 parameter_list|()
 block|{
 return|return
-name|sigImgWidth
+name|imageWidth
 return|;
 block|}
-comment|/**      *       * @param signatureImgWidth the signature image width.      * @return Visible Signature Configuration Object.      */
+comment|/**      *       * @param width signature image width      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|width
 parameter_list|(
 name|float
-name|signatureImgWidth
+name|width
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sigImgWidth
+name|imageWidth
 operator|=
-name|signatureImgWidth
+name|width
 expr_stmt|;
 return|return
 name|this
@@ -677,23 +668,23 @@ name|getHeight
 parameter_list|()
 block|{
 return|return
-name|sigImgHeight
+name|imageHeight
 return|;
 block|}
-comment|/**      *       * @param signatureImgHeight the signature image height      * @return Visible Signature Configuration Object      */
+comment|/**      *       * @param height signature image Height      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|height
 parameter_list|(
 name|float
-name|signatureImgHeight
+name|height
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sigImgHeight
+name|imageHeight
 operator|=
-name|signatureImgHeight
+name|height
 expr_stmt|;
 return|return
 name|this
@@ -758,202 +749,66 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *       * @return image Stream      */
+comment|/**      *       * @return image Image      */
 specifier|public
-name|InputStream
-name|getImageStream
+name|BufferedImage
+name|getImage
 parameter_list|()
 block|{
 return|return
-name|imgageStream
+name|image
 return|;
 block|}
-comment|/**      *       * @param imgageStream- stream of your visible signature image      * @return Visible Signature Configuration Object      * @throws IOException - If we can't read, flush, or close stream of image      */
+comment|/**      *       * @param stream stream of your visible signature image      * @return Visible Signature Configuration Object      * @throws IOException If we can't read, flush, or close stream of image      */
 specifier|private
 name|PDVisibleSignDesigner
 name|signatureImageStream
 parameter_list|(
 name|InputStream
-name|imageStream
+name|stream
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ByteArrayOutputStream
-name|baos
-init|=
-operator|new
-name|ByteArrayOutputStream
-argument_list|()
-decl_stmt|;
-name|byte
-index|[]
-name|buffer
-init|=
-operator|new
-name|byte
-index|[
-literal|1024
-index|]
-decl_stmt|;
-name|int
-name|len
-decl_stmt|;
-while|while
-condition|(
-operator|(
-name|len
+name|ImageIO
+operator|.
+name|setUseCache
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|image
 operator|=
-name|imageStream
-operator|.
-name|read
-argument_list|(
-name|buffer
-argument_list|)
-operator|)
-operator|>
-operator|-
-literal|1
-condition|)
-block|{
-name|baos
-operator|.
-name|write
-argument_list|(
-name|buffer
-argument_list|,
-literal|0
-argument_list|,
-name|len
-argument_list|)
-expr_stmt|;
-block|}
-name|baos
-operator|.
-name|flush
-argument_list|()
-expr_stmt|;
-name|baos
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|byte
-index|[]
-name|byteArray
-init|=
-name|baos
-operator|.
-name|toByteArray
-argument_list|()
-decl_stmt|;
-name|byte
-index|[]
-name|byteArraySecond
-init|=
-name|Arrays
-operator|.
-name|clone
-argument_list|(
-name|byteArray
-argument_list|)
-decl_stmt|;
-name|InputStream
-name|inputForBufferedImage
-init|=
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-name|byteArray
-argument_list|)
-decl_stmt|;
-name|InputStream
-name|revertInputStream
-init|=
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-name|byteArraySecond
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|sigImgHeight
-operator|==
-literal|null
-operator|||
-name|sigImgWidth
-operator|==
-literal|null
-condition|)
-block|{
-name|calcualteImageSize
-argument_list|(
-name|inputForBufferedImage
-argument_list|)
-expr_stmt|;
-block|}
-name|this
-operator|.
-name|imgageStream
-operator|=
-name|revertInputStream
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * calculates image width and height. sported formats: all      *       * @param fis - input stream of image      * @throws IOException - if can't read input stream      */
-specifier|private
-name|void
-name|calcualteImageSize
-parameter_list|(
-name|InputStream
-name|fis
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|BufferedImage
-name|bimg
-init|=
 name|ImageIO
 operator|.
 name|read
 argument_list|(
-name|fis
+name|stream
 argument_list|)
-decl_stmt|;
-name|int
-name|width
-init|=
-name|bimg
-operator|.
-name|getWidth
-argument_list|()
-decl_stmt|;
-name|int
-name|height
-init|=
-name|bimg
+expr_stmt|;
+name|imageHeight
+operator|=
+operator|(
+name|float
+operator|)
+name|image
 operator|.
 name|getHeight
 argument_list|()
-decl_stmt|;
-name|sigImgHeight
+expr_stmt|;
+name|imageWidth
 operator|=
 operator|(
 name|float
 operator|)
-name|height
+name|image
+operator|.
+name|getWidth
+argument_list|()
 expr_stmt|;
-name|sigImgWidth
-operator|=
-operator|(
-name|float
-operator|)
-name|width
-expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      *       * @return Affine Transform parameters of for PDF Matrix      */
 specifier|public
@@ -1025,7 +880,7 @@ return|return
 name|pageWidth
 return|;
 block|}
-comment|/**      *       * @param pageWidth the pageWidth.      * @return Visible Signature Configuration Object.      */
+comment|/**      *       * @param pageWidth pageWidth      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|pageWidth
@@ -1054,7 +909,7 @@ return|return
 name|pageHeight
 return|;
 block|}
-comment|/**      * get image size in percents      * @return image size in percents.      */
+comment|/**      * get image size in percents      * @return      */
 specifier|public
 name|float
 name|getImageSizeInPercents
@@ -1080,7 +935,7 @@ operator|=
 name|imageSizeInPercents
 expr_stmt|;
 block|}
-comment|/**      * returns visible signature text      * @return visible signature text.      */
+comment|/**      * returns visible signature text      * @return      */
 specifier|public
 name|String
 name|getSignatureText
@@ -1094,7 +949,7 @@ literal|"That method is not yet implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      *       * @param signatureText - adds the text on visible signature      * @return the signature design representing the text.      */
+comment|/**      *       * @param signatureText - adds the text on visible signature      * @return      */
 specifier|public
 name|PDVisibleSignDesigner
 name|signatureText

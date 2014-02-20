@@ -121,25 +121,7 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDColorState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDDeviceRGB
+name|PDColor
 import|;
 end_import
 
@@ -221,9 +203,9 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Get the color to be used for the guidelines.  This is guaranteed to      * not return null.  The color space will always be DeviceRGB and the      * default color is [0,0,0].      *      *@return The guideline color.      */
+comment|/**      * Get the RGB color to be used for the guidelines.  This is guaranteed to      * not return null. The default color is [0,0,0].      *      *@return The guideline color.      */
 specifier|public
-name|PDColorState
+name|PDColor
 name|getGuidelineColor
 parameter_list|()
 block|{
@@ -290,26 +272,20 @@ name|colorValues
 argument_list|)
 expr_stmt|;
 block|}
-name|PDColorState
-name|instance
+name|PDColor
+name|color
 init|=
 operator|new
-name|PDColorState
+name|PDColor
 argument_list|(
 name|colorValues
+operator|.
+name|toFloatArray
+argument_list|()
 argument_list|)
 decl_stmt|;
-name|instance
-operator|.
-name|setColorSpace
-argument_list|(
-name|PDDeviceRGB
-operator|.
-name|INSTANCE
-argument_list|)
-expr_stmt|;
 return|return
-name|instance
+name|color
 return|;
 block|}
 comment|/**      * Set the color space instance for this box style.  This must be a      * PDDeviceRGB!      *      * @param color The new colorspace value.      */
@@ -317,7 +293,7 @@ specifier|public
 name|void
 name|setGuideLineColor
 parameter_list|(
-name|PDColorState
+name|PDColor
 name|color
 parameter_list|)
 block|{
@@ -337,7 +313,7 @@ name|values
 operator|=
 name|color
 operator|.
-name|getCOSColorSpaceValue
+name|toCOSArray
 argument_list|()
 expr_stmt|;
 block|}

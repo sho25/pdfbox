@@ -336,7 +336,7 @@ name|DCTFilter
 operator|||
 name|filter
 operator|instanceof
-name|CCITTFaxDecodeFilter
+name|CCITTFaxFilter
 operator|||
 name|filter
 operator|instanceof
@@ -403,6 +403,9 @@ name|decoded
 argument_list|,
 operator|new
 name|COSDictionary
+argument_list|()
+operator|.
+name|asUnmodifiableDictionary
 argument_list|()
 argument_list|,
 literal|0

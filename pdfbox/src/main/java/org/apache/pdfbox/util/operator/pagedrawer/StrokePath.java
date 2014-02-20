@@ -268,9 +268,6 @@ block|}
 name|BasicStroke
 name|stroke
 init|=
-operator|(
-name|BasicStroke
-operator|)
 name|drawer
 operator|.
 name|getStroke

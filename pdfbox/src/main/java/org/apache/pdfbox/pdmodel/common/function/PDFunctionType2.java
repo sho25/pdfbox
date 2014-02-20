@@ -110,7 +110,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a type 2 function in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This class represents a Type 2 (exponential interpolation) function in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
 end_comment
 
 begin_class
@@ -154,7 +154,7 @@ return|return
 literal|2
 return|;
 block|}
-comment|/**     * {@inheritDoc}     */
+comment|/**      * Performs exponential interpolation      *     * {@inheritDoc}     */
 specifier|public
 name|float
 index|[]
@@ -167,23 +167,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//This function performs exponential interpolation.
-comment|//It uses only a single value as its input, but may produce a multi-valued output.
-comment|//See PDF Reference section 3.9.2.
-name|double
-name|inputValue
-init|=
-name|input
-index|[
-literal|0
-index|]
-decl_stmt|;
-name|double
-name|exponent
-init|=
-name|getN
-argument_list|()
-decl_stmt|;
 name|COSArray
 name|c0
 init|=
@@ -196,22 +179,38 @@ init|=
 name|getC1
 argument_list|()
 decl_stmt|;
-name|int
-name|c0Size
+comment|// exponential interpolation
+name|float
+name|xToN
 init|=
-name|c0
+operator|(
+name|float
+operator|)
+name|Math
 operator|.
-name|size
+name|pow
+argument_list|(
+name|input
+index|[
+literal|0
+index|]
+argument_list|,
+name|getN
 argument_list|()
+argument_list|)
 decl_stmt|;
+comment|// x^N
 name|float
 index|[]
-name|functionResult
+name|result
 init|=
 operator|new
 name|float
 index|[
-name|c0Size
+name|c0
+operator|.
+name|size
+argument_list|()
 index|]
 decl_stmt|;
 for|for
@@ -223,18 +222,17 @@ literal|0
 init|;
 name|j
 operator|<
-name|c0Size
+name|result
+operator|.
+name|length
 condition|;
 name|j
 operator|++
 control|)
 block|{
-comment|//y[j] = C0[j] + x^N*(C1[j] - C0[j])
-name|functionResult
-index|[
-name|j
-index|]
-operator|=
+name|float
+name|C0j
+init|=
 operator|(
 operator|(
 name|COSNumber
@@ -249,20 +247,10 @@ operator|)
 operator|.
 name|floatValue
 argument_list|()
-operator|+
-operator|(
+decl_stmt|;
 name|float
-operator|)
-name|Math
-operator|.
-name|pow
-argument_list|(
-name|inputValue
-argument_list|,
-name|exponent
-argument_list|)
-operator|*
-operator|(
+name|C1j
+init|=
 operator|(
 operator|(
 name|COSNumber
@@ -277,29 +265,27 @@ operator|)
 operator|.
 name|floatValue
 argument_list|()
-operator|-
-operator|(
-operator|(
-name|COSNumber
-operator|)
-name|c0
-operator|.
-name|get
-argument_list|(
+decl_stmt|;
+name|result
+index|[
 name|j
-argument_list|)
-operator|)
-operator|.
-name|floatValue
-argument_list|()
+index|]
+operator|=
+name|C0j
+operator|+
+name|xToN
+operator|*
+operator|(
+name|C1j
+operator|-
+name|C0j
 operator|)
 expr_stmt|;
 block|}
-comment|// clip to range if available
 return|return
 name|clipToRange
 argument_list|(
-name|functionResult
+name|result
 argument_list|)
 return|;
 block|}
@@ -437,6 +423,30 @@ name|COSName
 operator|.
 name|N
 argument_list|)
+return|;
+block|}
+comment|/**      * {@inheritDoc}      */
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"FunctionType2{"
+operator|+
+literal|"C0:"
+operator|+
+name|getC0
+argument_list|()
+operator|+
+literal|" "
+operator|+
+literal|"C1:"
+operator|+
+name|getC1
+argument_list|()
+operator|+
+literal|"}"
 return|;
 block|}
 block|}

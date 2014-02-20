@@ -121,18 +121,6 @@ name|awt
 operator|.
 name|color
 operator|.
-name|ColorSpace
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|color
-operator|.
 name|ICC_ColorSpace
 import|;
 end_import
@@ -275,25 +263,7 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDCalGray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDCalRGB
+name|PDCIEBasedColorSpace
 import|;
 end_import
 
@@ -329,61 +299,7 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDColorSpaceFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDColorState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
 name|PDICCBased
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDLab
 import|;
 end_import
 
@@ -889,7 +805,7 @@ name|util
 operator|.
 name|operator
 operator|.
-name|SetNonStrokingCMYKColor
+name|SetNonStrokingDeviceCMYKColor
 import|;
 end_import
 
@@ -937,7 +853,7 @@ name|util
 operator|.
 name|operator
 operator|.
-name|SetNonStrokingRGBColor
+name|SetNonStrokingDeviceRGBColor
 import|;
 end_import
 
@@ -953,7 +869,7 @@ name|util
 operator|.
 name|operator
 operator|.
-name|SetStrokingCMYKColor
+name|SetStrokingDeviceCMYKColor
 import|;
 end_import
 
@@ -1001,7 +917,7 @@ name|util
 operator|.
 name|operator
 operator|.
-name|SetStrokingRGBColor
+name|SetStrokingDeviceRGBColor
 import|;
 end_import
 
@@ -1106,7 +1022,7 @@ block|,
 name|CMYK
 block|,
 name|ALL
-block|;     }
+block|}
 specifier|protected
 name|PreflightContext
 name|context
@@ -1258,7 +1174,7 @@ argument_list|(
 literal|"K"
 argument_list|,
 operator|new
-name|SetStrokingCMYKColor
+name|SetStrokingDeviceCMYKColor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1267,7 +1183,7 @@ argument_list|(
 literal|"k"
 argument_list|,
 operator|new
-name|SetNonStrokingCMYKColor
+name|SetNonStrokingDeviceCMYKColor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1276,7 +1192,7 @@ argument_list|(
 literal|"rg"
 argument_list|,
 operator|new
-name|SetNonStrokingRGBColor
+name|SetNonStrokingDeviceRGBColor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1285,7 +1201,7 @@ argument_list|(
 literal|"RG"
 argument_list|,
 operator|new
-name|SetStrokingRGBColor
+name|SetStrokingDeviceRGBColor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1975,7 +1891,7 @@ return|return;
 block|}
 block|}
 block|}
-comment|/**      * Throw a ContentStreamException if the LZW filter is used in a InlinedImage.      *       * @param operator      *            the InlinedImage object (BI to EI)      * @throws ContentStreamException      */
+comment|/**      * Throw a ContentStreamException if the LZW filter is used in a InlinedImage.      *       * @param operator the InlinedImage object (BI to EI)      * @throws ContentStreamException      */
 specifier|protected
 name|void
 name|validImageFilter
@@ -1992,9 +1908,6 @@ init|=
 name|operator
 operator|.
 name|getImageParameters
-argument_list|()
-operator|.
-name|getDictionary
 argument_list|()
 decl_stmt|;
 comment|/*          * Search a Filter declaration in the InlinedImage dictionary. The LZWDecode Filter is forbidden.          */
@@ -2039,7 +1952,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method validates if the ColorSpace used by the InlinedImage is consistent with the color space defined in      * OutputIntent dictionaries.      *       * @param operator      *            the InlinedImage object (BI to EI)      * @throws ContentStreamException      */
+comment|/**      * This method validates if the ColorSpace used by the InlinedImage is consistent with      * the color space defined in OutputIntent dictionaries.      *       * @param operator the InlinedImage object (BI to EI)      * @throws ContentStreamException      */
 specifier|protected
 name|void
 name|validImageColorSpace
@@ -2048,8 +1961,6 @@ name|PDFOperator
 name|operator
 parameter_list|)
 throws|throws
-name|ContentStreamException
-throws|,
 name|IOException
 block|{
 name|COSDictionary
@@ -2058,9 +1969,6 @@ init|=
 name|operator
 operator|.
 name|getImageParameters
-argument_list|()
-operator|.
-name|getDictionary
 argument_list|()
 decl_stmt|;
 name|COSBase
@@ -2099,7 +2007,8 @@ name|cosDocument
 argument_list|)
 condition|)
 block|{
-comment|/*                  * In InlinedImage only DeviceGray/RGB/CMYK and restricted Indexed color spaces are allowed.                  */
+comment|// In InlinedImage only DeviceGray/RGB/CMYK and restricted Indexed
+comment|// color spaces are allowed.
 name|String
 name|colorSpace
 init|=
@@ -2135,7 +2044,8 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|/*                      * The color space is unknown. Try to access the resources dictionary, the color space can be a                      * reference.                      */
+comment|// The color space is unknown. Try to access the resources dictionary,
+comment|// the color space can be a reference.
 name|PDColorSpace
 name|pdCS
 init|=
@@ -2143,6 +2053,9 @@ operator|(
 name|PDColorSpace
 operator|)
 name|this
+operator|.
+name|getResources
+argument_list|()
 operator|.
 name|getColorSpaces
 argument_list|()
@@ -2231,9 +2144,9 @@ block|{
 name|PDColorSpace
 name|pdCS
 init|=
-name|PDColorSpaceFactory
+name|PDColorSpace
 operator|.
-name|createColorSpace
+name|create
 argument_list|(
 name|csInlinedBase
 argument_list|)
@@ -2277,7 +2190,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This method validates if the ColorOperator can be used with the color space defined in OutputIntent dictionaries.      *       * @param operator      *            the color operator      * @throws ContentStreamException      */
+comment|/**      * This method validates if the ColorOperator can be used with the color space      * defined in OutputIntent dictionaries.      *       * @param operation the color operator      * @throws ContentStreamException      */
 specifier|protected
 name|void
 name|checkColorOperators
@@ -2288,10 +2201,10 @@ parameter_list|)
 throws|throws
 name|ContentStreamException
 block|{
-name|PDColorState
+name|PDColorSpace
 name|cs
 init|=
-name|getColorState
+name|getColorSpace
 argument_list|(
 name|operation
 argument_list|)
@@ -2513,8 +2426,8 @@ specifier|private
 name|boolean
 name|validColorSpace
 parameter_list|(
-name|PDColorState
-name|colorState
+name|PDColorSpace
+name|colorSpace
 parameter_list|,
 name|ColorSpaceType
 name|expectedType
@@ -2522,67 +2435,38 @@ parameter_list|)
 throws|throws
 name|ContentStreamException
 block|{
-name|boolean
-name|result
-init|=
-literal|true
-decl_stmt|;
 if|if
 condition|(
-name|colorState
+name|colorSpace
 operator|==
 literal|null
 condition|)
 block|{
-name|result
-operator|=
+return|return
 name|validColorSpaceDestOutputProfile
 argument_list|(
 name|expectedType
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
-name|PDColorSpace
-name|cs
-init|=
-name|colorState
-operator|.
-name|getColorSpace
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
+return|return
 name|isDeviceIndependent
 argument_list|(
-name|cs
+name|colorSpace
 argument_list|,
 name|expectedType
 argument_list|)
-condition|)
-block|{
-name|result
-operator|=
-literal|true
-expr_stmt|;
-block|}
-else|else
-block|{
-name|result
-operator|=
+operator|||
 name|validColorSpaceDestOutputProfile
 argument_list|(
 name|expectedType
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|return
-name|result
 return|;
 block|}
-comment|/**      * Check if the ColorProfile provided by the DestOutputProfile entry isn't null and if the ColorSpace represented by      * the Profile has the right type (RGB or CMYK)      *       * @param expectedType      * @return      */
+block|}
+comment|/*      * Check if the ColorProfile provided by the DestOutputProfile entry isn't null and      * if the ColorSpace represented by the Profile has the right type (RGB or CMYK)      *       * @param expectedType      * @return      */
 specifier|private
 name|boolean
 name|validColorSpaceDestOutputProfile
@@ -2673,7 +2557,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Return true if the given ColorSpace is an independent device ColorSpace. If the color space is an ICCBased, check      * the embedded profile color (RGB or CMYK)      *       * @param cs      * @return      */
+comment|/*      * Return true if the given ColorSpace is an independent device ColorSpace.      * If the color space is an ICCBased, check the embedded profile color (RGB or CMYK)      */
 specifier|private
 name|boolean
 name|isDeviceIndependent
@@ -2685,23 +2569,6 @@ name|ColorSpaceType
 name|expectedType
 parameter_list|)
 block|{
-name|boolean
-name|result
-init|=
-operator|(
-name|cs
-operator|instanceof
-name|PDCalGray
-operator|||
-name|cs
-operator|instanceof
-name|PDCalRGB
-operator|||
-name|cs
-operator|instanceof
-name|PDLab
-operator|)
-decl_stmt|;
 if|if
 condition|(
 name|cs
@@ -2709,22 +2576,17 @@ operator|instanceof
 name|PDICCBased
 condition|)
 block|{
-name|PDICCBased
-name|iccBased
+name|int
+name|type
 init|=
+operator|(
 operator|(
 name|PDICCBased
 operator|)
 name|cs
-decl_stmt|;
-try|try
-block|{
-name|ColorSpace
-name|iccColorSpace
-init|=
-name|iccBased
+operator|)
 operator|.
-name|getJavaColorSpace
+name|getColorSpaceType
 argument_list|()
 decl_stmt|;
 switch|switch
@@ -2735,65 +2597,42 @@ block|{
 case|case
 name|RGB
 case|:
-name|result
-operator|=
-operator|(
-name|iccColorSpace
-operator|.
-name|getType
-argument_list|()
+return|return
+name|type
 operator|==
 name|ICC_ColorSpace
 operator|.
 name|TYPE_RGB
-operator|)
-expr_stmt|;
-break|break;
+return|;
 case|case
 name|CMYK
 case|:
-name|result
-operator|=
-operator|(
-name|iccColorSpace
-operator|.
-name|getType
-argument_list|()
+return|return
+name|type
 operator|==
 name|ICC_ColorSpace
 operator|.
 name|TYPE_CMYK
-operator|)
-expr_stmt|;
-break|break;
+return|;
 default|default:
-name|result
-operator|=
-literal|true
-expr_stmt|;
-break|break;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|result
-operator|=
-literal|false
-expr_stmt|;
-block|}
-block|}
 return|return
-name|result
+literal|true
 return|;
 block|}
-comment|/**      * Return the current color state used by the operation      *       * @param operation      * @return      */
+block|}
+else|else
+block|{
+return|return
+name|cs
+operator|instanceof
+name|PDCIEBasedColorSpace
+return|;
+block|}
+block|}
+comment|/*      * Return the current color space used by the operation      */
 specifier|private
-name|PDColorState
-name|getColorState
+name|PDColorSpace
+name|getColorSpace
 parameter_list|(
 name|String
 name|operation
@@ -2811,9 +2650,6 @@ return|return
 literal|null
 return|;
 block|}
-name|PDColorState
-name|colorState
-decl_stmt|;
 if|if
 condition|(
 name|operation
@@ -2860,32 +2696,27 @@ argument_list|)
 condition|)
 block|{
 comment|// non stroking operator
-name|colorState
-operator|=
+return|return
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getNonStrokingColor
+name|getNonStrokingColorSpace
 argument_list|()
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
 comment|// stroking operator
-name|colorState
-operator|=
+return|return
 name|getGraphicsState
 argument_list|()
 operator|.
-name|getStrokingColor
+name|getStrokingColorSpace
 argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|colorState
 return|;
 block|}
-comment|/**      * This method validates if the ColorSpace used as operand is consistent with the color space defined in      * OutputIntent dictionaries.      *       * @param operator      * @param arguments      * @throws IOException      */
+block|}
+comment|/**      * This method validates if the ColorSpace used as operand is consistent with      * the color space defined in OutputIntent dictionaries.      *       * @param operator      * @param arguments      * @throws IOException      */
 specifier|protected
 name|void
 name|checkSetColorSpaceOperators
@@ -3070,6 +2901,9 @@ name|PDColorSpace
 operator|)
 name|this
 operator|.
+name|getResources
+argument_list|()
+operator|.
 name|getColorSpaces
 argument_list|()
 operator|.
@@ -3156,9 +2990,9 @@ block|{
 name|PDColorSpace
 name|pdCS
 init|=
-name|PDColorSpaceFactory
+name|PDColorSpace
 operator|.
-name|createColorSpace
+name|create
 argument_list|(
 name|COSName
 operator|.

@@ -119,23 +119,9 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
+name|image
 operator|.
-name|PDInlinedImage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|ImageParameters
+name|PDInlineImage
 import|;
 end_import
 
@@ -184,7 +170,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  */
+comment|/**  * Begins an inline image.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -194,23 +180,7 @@ name|BeginInlineImage
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * Log instance.      */
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|log
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|BeginInlineImage
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-comment|/**      * process : BI : begin inline image.      * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If there is an error displaying the inline image.      */
+comment|/**      * BI begin inline image.      * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If there is an error displaying the inline image.      */
 specifier|public
 name|void
 name|process
@@ -235,68 +205,39 @@ name|PageDrawer
 operator|)
 name|context
 decl_stmt|;
-comment|//begin inline image object
-name|ImageParameters
-name|params
+name|PDInlineImage
+name|image
 init|=
+operator|new
+name|PDInlineImage
+argument_list|(
 name|operator
 operator|.
 name|getImageParameters
 argument_list|()
-decl_stmt|;
-name|PDInlinedImage
-name|image
-init|=
-operator|new
-name|PDInlinedImage
-argument_list|()
-decl_stmt|;
-name|image
-operator|.
-name|setImageParameters
-argument_list|(
-name|params
-argument_list|)
-expr_stmt|;
-name|image
-operator|.
-name|setImageData
-argument_list|(
+argument_list|,
 name|operator
 operator|.
 name|getImageData
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|BufferedImage
-name|awtImage
-init|=
-name|image
-operator|.
-name|createImage
-argument_list|(
+argument_list|,
 name|context
+operator|.
+name|getResources
+argument_list|()
 operator|.
 name|getColorSpaces
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+name|BufferedImage
 name|awtImage
-operator|==
-literal|null
-condition|)
-block|{
-name|log
+init|=
+name|image
 operator|.
-name|warn
-argument_list|(
-literal|"BeginInlineImage.process(): createImage returned NULL"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
+name|getImage
+argument_list|()
+decl_stmt|;
 name|Matrix
 name|ctm
 init|=

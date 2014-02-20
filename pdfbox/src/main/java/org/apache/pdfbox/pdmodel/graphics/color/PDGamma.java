@@ -92,11 +92,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A gamma array, or collection of three floating point parameters used for  * color operations.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * A gamma array, or collection of three floating point parameters used for color operations.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|PDGamma
 implements|implements
@@ -108,7 +109,7 @@ name|values
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor.  Defaults all values to 0, 0, 0.      */
+comment|/**      * Creates a new gamma.      * Defaults all values to 0, 0, 0.      */
 specifier|public
 name|PDGamma
 parameter_list|()
@@ -153,7 +154,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor from COS object.      *      * @param array The array containing the XYZ values.      */
+comment|/**      * Creates a new gamma from a COS array.      * @param array the array containing the XYZ values      */
 specifier|public
 name|PDGamma
 parameter_list|(
@@ -166,7 +167,7 @@ operator|=
 name|array
 expr_stmt|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+comment|/**      * Convert this standard java object to a COS object.      * @return the cos object that matches this Java object      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -176,7 +177,7 @@ return|return
 name|values
 return|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+comment|/**      * Convert this standard java object to a COS object.      * @return the cos object that matches this Java object      */
 specifier|public
 name|COSArray
 name|getCOSArray
@@ -186,7 +187,7 @@ return|return
 name|values
 return|;
 block|}
-comment|/**      * This will get the r value of the tristimulus.      *      * @return The R value.      */
+comment|/**      * Returns the r value of the tristimulus.      * @return the R value.      */
 specifier|public
 name|float
 name|getR
@@ -209,7 +210,7 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the r value of the tristimulus.      *      * @param r The r value for the tristimulus.      */
+comment|/**      * Sets the r value of the tristimulus.      * @param r the r value for the tristimulus      */
 specifier|public
 name|void
 name|setR
@@ -232,7 +233,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the g value of the tristimulus.      *      * @return The g value.      */
+comment|/**      * Returns the g value of the tristimulus.      * @return the g value      */
 specifier|public
 name|float
 name|getG
@@ -255,7 +256,7 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the g value of the tristimulus.      *      * @param g The g value for the tristimulus.      */
+comment|/**      * Sets the g value of the tristimulus.      * @param g the g value for the tristimulus      */
 specifier|public
 name|void
 name|setG
@@ -278,7 +279,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the b value of the tristimulus.      *      * @return The B value.      */
+comment|/**      * Returns the b value of the tristimulus.      * @return the B value      */
 specifier|public
 name|float
 name|getB
@@ -301,7 +302,7 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the b value of the tristimulus.      *      * @param b The b value for the tristimulus.      */
+comment|/**      * Sets the b value of the tristimulus.      * @param b he b value for the tristimulus      */
 specifier|public
 name|void
 name|setB

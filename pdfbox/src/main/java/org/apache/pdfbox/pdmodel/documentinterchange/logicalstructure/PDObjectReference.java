@@ -99,8 +99,6 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
-operator|.
 name|PDXObject
 import|;
 end_import
@@ -274,8 +272,13 @@ operator|.
 name|createXObject
 argument_list|(
 name|obj
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
+comment|//<-- TODO: valid?
 if|if
 condition|(
 name|xobject

@@ -329,8 +329,6 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|xobject
-operator|.
 name|PDXObject
 import|;
 end_import
@@ -1021,6 +1019,16 @@ operator|.
 name|createXObject
 argument_list|(
 name|stream
+argument_list|,
+name|entry
+operator|.
+name|getKey
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|resources
 argument_list|)
 decl_stmt|;
 if|if
