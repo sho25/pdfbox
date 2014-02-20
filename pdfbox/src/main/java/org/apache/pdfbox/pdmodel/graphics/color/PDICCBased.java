@@ -572,7 +572,7 @@ name|initial
 argument_list|)
 expr_stmt|;
 comment|// create a color in order to trigger a ProfileDataException
-comment|// or CMMException due to invalid profiles, see PDFBOX-1295
+comment|// or CMMException due to invalid profiles, see PDFBOX-1295 and PDFBOX-1740
 operator|new
 name|Color
 argument_list|(
@@ -609,10 +609,14 @@ block|{
 comment|// fall back to alternateColorSpace color space
 name|LOG
 operator|.
-name|debug
+name|error
 argument_list|(
-literal|"Can't read ICC-profile, using alternate color space"
+literal|"Can't read embedded ICC profile, using alternate color space"
 argument_list|)
+expr_stmt|;
+name|awtColorSpace
+operator|=
+literal|null
 expr_stmt|;
 name|alternateColorSpace
 operator|=
