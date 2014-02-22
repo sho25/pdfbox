@@ -343,6 +343,13 @@ name|iis
 argument_list|)
 expr_stmt|;
 comment|// get the raster using horrible JAI workarounds
+name|ImageIO
+operator|.
+name|setUseCache
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|Raster
 name|raster
 decl_stmt|;
