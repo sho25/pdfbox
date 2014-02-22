@@ -445,7 +445,7 @@ name|functionText
 init|=
 literal|"{ pop }"
 decl_stmt|;
-comment|//pops the top-most argument and returns the second as is.
+comment|// pops an argument (2nd) and returns the next argument (1st)
 name|PDFunctionType4
 name|function
 init|=
@@ -515,7 +515,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0.0f
+operator|-
+literal|0.7f
 argument_list|,
 name|output
 index|[
@@ -525,7 +526,6 @@ argument_list|,
 literal|0.0001f
 argument_list|)
 expr_stmt|;
-comment|//TODO not sure if this is really correct
 block|}
 block|}
 end_class
