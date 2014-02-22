@@ -220,13 +220,6 @@ throws|throws
 name|IOException
 block|{
 comment|//Setup the input values
-name|int
-name|numberOfInputValues
-init|=
-name|input
-operator|.
-name|length
-decl_stmt|;
 name|ExecutionContext
 name|context
 init|=
@@ -241,16 +234,16 @@ control|(
 name|int
 name|i
 init|=
-name|numberOfInputValues
-operator|-
-literal|1
+literal|0
 init|;
 name|i
-operator|>=
-literal|0
+operator|<
+name|input
+operator|.
+name|length
 condition|;
 name|i
-operator|--
+operator|++
 control|)
 block|{
 name|PDRange
