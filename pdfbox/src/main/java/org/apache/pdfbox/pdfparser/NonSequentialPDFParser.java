@@ -4650,6 +4650,44 @@ literal|"endobj"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|endObjectKey
+operator|.
+name|endsWith
+argument_list|(
+literal|" obj"
+argument_list|)
+operator|&&
+name|isLenient
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Object ("
+operator|+
+name|readObjNr
+operator|+
+literal|":"
+operator|+
+name|readObjGen
+operator|+
+literal|") at offset "
+operator|+
+name|offsetOrObjstmObNr
+operator|+
+literal|" does not end with 'endobj' but with '"
+operator|+
+name|endObjectKey
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -4666,9 +4704,14 @@ literal|") at offset "
 operator|+
 name|offsetOrObjstmObNr
 operator|+
-literal|" does not end with 'endobj'."
+literal|" does not end with 'endobj' but with '"
+operator|+
+name|endObjectKey
+operator|+
+literal|"'"
 argument_list|)
 throw|;
+block|}
 block|}
 name|releasePdfSourceInputStream
 argument_list|()
