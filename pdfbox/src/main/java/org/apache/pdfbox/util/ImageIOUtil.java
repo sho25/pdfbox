@@ -700,7 +700,7 @@ name|writerParams
 operator|.
 name|setCompressionQuality
 argument_list|(
-literal|0
+name|quality
 argument_list|)
 expr_stmt|;
 block|}
