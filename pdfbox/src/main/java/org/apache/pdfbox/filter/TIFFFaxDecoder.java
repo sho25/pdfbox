@@ -19,7 +19,12 @@ name|filter
 package|;
 end_package
 
+begin_comment
+comment|/**  * CCITT Fax decoder  */
+end_comment
+
 begin_class
+specifier|final
 class|class
 name|TIFFFaxDecoder
 block|{

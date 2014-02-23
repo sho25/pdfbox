@@ -35,7 +35,7 @@ name|pdfbox
 operator|.
 name|filter
 operator|.
-name|FilterManager
+name|FilterFactory
 import|;
 end_import
 
@@ -56,23 +56,6 @@ specifier|protected
 name|COSBase
 name|testCOSBase
 decl_stmt|;
-comment|/**      * Tests getFilterManager() - test that a filter manager is obtained... Not much to test here.      */
-specifier|public
-name|void
-name|testGetFilterManager
-parameter_list|()
-block|{
-name|assertTrue
-argument_list|(
-name|testCOSBase
-operator|.
-name|getFilterManager
-argument_list|()
-operator|instanceof
-name|FilterManager
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Tests getCOSObject() - tests that the underlying object is returned.      */
 specifier|public
 name|void

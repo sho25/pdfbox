@@ -3298,7 +3298,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Returns an unmodifiable view of this dictionary.      * @return      */
+comment|/**      * Returns an unmodifiable view of this dictionary.      * @return an unmodifiable view of this dictionary      */
 specifier|public
 name|COSDictionary
 name|asUnmodifiableDictionary

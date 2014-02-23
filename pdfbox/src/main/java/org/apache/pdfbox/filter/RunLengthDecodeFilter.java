@@ -88,17 +88,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a filter for the RunLength Decoder.  *  * From the PDF Reference  *<pre>  * The RunLengthDecode filter decodes data that has been encoded in a simple  * byte-oriented format based on run length. The encoded data is a sequence of  * runs, where each run consists of a length byte followed by 1 to 128 bytes of data. If  * the length byte is in the range 0 to 127, the following length + 1 (1 to 128) bytes  * are copied literally during decompression. If length is in the range 129 to 255, the  * following single byte is to be copied 257 ? length (2 to 128) times during decompression.  * A length value of 128 denotes EOD.  *  * The compression achieved by run-length encoding depends on the input data. In  * the best case (all zeros), a compression of approximately 64:1 is achieved for long  * files. The worst case (the hexadecimal sequence 00 alternating with FF) results in  * an expansion of 127:128.  *</pre>  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
+comment|/**  * Decompresses data encoded using a byte-oriented run-length encoding algorithm,  * reproducing the original text or binary data  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
-specifier|public
+specifier|final
 class|class
 name|RunLengthDecodeFilter
-implements|implements
+extends|extends
 name|Filter
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -122,38 +121,27 @@ name|RUN_LENGTH_EOD
 init|=
 literal|128
 decl_stmt|;
-comment|/**      * Constructor.      */
-specifier|public
-name|RunLengthDecodeFilter
-parameter_list|()
-block|{
-comment|//default constructor
-block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|void
+annotation|@
+name|Override
+specifier|protected
+specifier|final
+name|DecodeResult
 name|decode
 parameter_list|(
 name|InputStream
-name|compressedData
+name|encoded
 parameter_list|,
 name|OutputStream
-name|result
+name|decoded
 parameter_list|,
 name|COSDictionary
-name|options
-parameter_list|,
-name|int
-name|filterIndex
+name|parameters
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 name|int
 name|dupAmount
-init|=
-operator|-
-literal|1
 decl_stmt|;
 name|byte
 index|[]
@@ -170,7 +158,7 @@ condition|(
 operator|(
 name|dupAmount
 operator|=
-name|compressedData
+name|encoded
 operator|.
 name|read
 argument_list|()
@@ -200,8 +188,6 @@ literal|1
 decl_stmt|;
 name|int
 name|compressedRead
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -212,7 +198,7 @@ condition|)
 block|{
 name|compressedRead
 operator|=
-name|compressedData
+name|encoded
 operator|.
 name|read
 argument_list|(
@@ -223,7 +209,7 @@ argument_list|,
 name|amountToCopy
 argument_list|)
 expr_stmt|;
-name|result
+name|decoded
 operator|.
 name|write
 argument_list|(
@@ -245,7 +231,7 @@ block|{
 name|int
 name|dupByte
 init|=
-name|compressedData
+name|encoded
 operator|.
 name|read
 argument_list|()
@@ -267,7 +253,7 @@ name|i
 operator|++
 control|)
 block|{
-name|result
+name|decoded
 operator|.
 name|write
 argument_list|(
@@ -277,23 +263,29 @@ expr_stmt|;
 block|}
 block|}
 block|}
+return|return
+operator|new
+name|DecodeResult
+argument_list|(
+name|parameters
+argument_list|)
+return|;
 block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
+annotation|@
+name|Override
+specifier|protected
+specifier|final
 name|void
 name|encode
 parameter_list|(
 name|InputStream
-name|rawData
+name|input
 parameter_list|,
 name|OutputStream
-name|result
+name|encoded
 parameter_list|,
 name|COSDictionary
-name|options
-parameter_list|,
-name|int
-name|filterIndex
+name|parameters
 parameter_list|)
 throws|throws
 name|IOException

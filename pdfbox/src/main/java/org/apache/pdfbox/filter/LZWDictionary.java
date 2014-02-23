@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the used for the LZWDecode filter.  This represents the dictionary mappings  * between codes and their values.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This is the used for the LZWDecode filter. This represents the dictionary mappings  * between codes and their values.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -125,7 +125,7 @@ name|current
 init|=
 name|root
 decl_stmt|;
-comment|/**      * This will get the value for the code.  It will return null if the code is not      * defined.      *      * @param code The key to the data.      *      * @return The data that is mapped to the code.      */
+comment|/*      * This will get the value for the code.  It will return null if the code is not defined.      */
 specifier|public
 name|byte
 index|[]
@@ -179,7 +179,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * This will take a visit from a byte[].  This will create new code entries as      * necessary.      *      * @param data The byte to get a visit from.      *      * @throws IOException If there is an error visiting this data.      */
+comment|/*      * This will take a visit from a byte[].  This will create new code entries as necessary.      */
 specifier|public
 name|void
 name|visit
@@ -218,7 +218,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will take a visit from a byte.  This will create new code entries as      * necessary.      *      * @param data The byte to get a visit from.      *      * @throws IOException If there is an error visiting this data.      */
+comment|/*      * This will take a visit from a byte.  This will create new code entries as necessary.      */
 specifier|public
 name|void
 name|visit
@@ -380,7 +380,7 @@ argument_list|,
 name|sav
 argument_list|)
 expr_stmt|;
-comment|/**             System.out.print( "Adding " + code + "='" );             for( int i=0; i<bufferNextWrite; i++ )             {                 String hex = Integer.toHexString( ((buffer[i]&0xFF );                 if( hex.length()<=1 )                 {                     hex = "0" + hex;                 }                 if( i != bufferNextWrite -1 )                 {                     hex += " ";                 }                 System.out.print( hex.toUpperCase() );             }             System.out.println( "'" );             **/
+comment|/*             System.out.print("Adding " + code + "='");             for(int i=0; i<bufferNextWrite; i++)             {                 String hex = Integer.toHexString(((buffer[i]&0xFF);                 if(hex.length()<=1)                 {                     hex = "0" + hex;                 }                 if(i != bufferNextWrite -1)                 {                     hex += " ";                 }                 System.out.print(hex.toUpperCase());             }             System.out.println("'");             **/
 name|bufferNextWrite
 operator|=
 literal|0
@@ -399,7 +399,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the next code that will be created.      *      * @return The next code to be created.      */
+comment|/*      * This will get the next code that will be created.      * @return The next code to be created.      */
 specifier|public
 name|long
 name|getNextCode
@@ -409,7 +409,7 @@ return|return
 name|nextCode
 return|;
 block|}
-comment|/**      * This will get the size of the code in bits, 9, 10, or 11.      *      * @return The size of the code in bits.      */
+comment|/*      * This will get the size of the code in bits, 9, 10, or 11.      */
 specifier|public
 name|int
 name|getCodeSize
@@ -419,7 +419,7 @@ return|return
 name|codeSize
 return|;
 block|}
-comment|/**      * This will determine the code size.      */
+comment|/*      * This will return the code size.      */
 specifier|private
 name|void
 name|resetCodeSize
@@ -471,7 +471,7 @@ literal|12
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will clear the internal buffer that the dictionary uses.      */
+comment|/*      * This will clear the internal buffer that the dictionary uses.      */
 specifier|public
 name|void
 name|clear
@@ -490,7 +490,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * This will folow the path to the data node.      *      * @param data The path to the node.      *      * @return The node that resides at that path.      */
+comment|/*      * This will follow the path to the data node.      */
 specifier|public
 name|LZWNode
 name|getNode

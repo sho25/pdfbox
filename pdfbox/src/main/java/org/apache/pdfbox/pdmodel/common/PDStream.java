@@ -205,7 +205,7 @@ name|pdfbox
 operator|.
 name|filter
 operator|.
-name|FilterManager
+name|FilterFactory
 import|;
 end_import
 
@@ -671,14 +671,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|FilterManager
-name|manager
-init|=
-name|stream
-operator|.
-name|getFilterManager
-argument_list|()
-decl_stmt|;
 name|InputStream
 name|is
 init|=
@@ -762,7 +754,9 @@ block|{
 name|Filter
 name|filter
 init|=
-name|manager
+name|FilterFactory
+operator|.
+name|INSTANCE
 operator|.
 name|getFilter
 argument_list|(

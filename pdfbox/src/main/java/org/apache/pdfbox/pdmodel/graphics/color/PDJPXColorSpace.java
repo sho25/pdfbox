@@ -174,13 +174,14 @@ operator|<
 name|n
 condition|;
 name|i
-operator|+=
-literal|2
+operator|++
 control|)
 block|{
 name|decode
 index|[
 name|i
+operator|*
+literal|2
 index|]
 operator|=
 name|awtColorSpace
@@ -193,6 +194,8 @@ expr_stmt|;
 name|decode
 index|[
 name|i
+operator|*
+literal|2
 operator|+
 literal|1
 index|]

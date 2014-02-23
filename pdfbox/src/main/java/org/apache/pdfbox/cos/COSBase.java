@@ -23,20 +23,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|filter
-operator|.
-name|FilterManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|common
@@ -60,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The base object that all objects in the PDF document will extend.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.14 $  */
+comment|/**  * The base object that all objects in the PDF document will extend.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -71,7 +57,6 @@ name|COSBase
 implements|implements
 name|COSObjectable
 block|{
-comment|/**      * Constructor.      */
 specifier|private
 name|boolean
 name|needToBeUpdate
@@ -80,6 +65,7 @@ specifier|private
 name|boolean
 name|direct
 decl_stmt|;
+comment|/**      * Constructor.      */
 specifier|public
 name|COSBase
 parameter_list|()
@@ -88,19 +74,6 @@ name|needToBeUpdate
 operator|=
 literal|false
 expr_stmt|;
-block|}
-comment|/**      * This will get the filter manager to use to filter streams.      *      * @return The filter manager.      */
-specifier|public
-name|FilterManager
-name|getFilterManager
-parameter_list|()
-block|{
-comment|/**          * @todo move this to PDFdocument or something better          */
-return|return
-operator|new
-name|FilterManager
-argument_list|()
-return|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
 specifier|public

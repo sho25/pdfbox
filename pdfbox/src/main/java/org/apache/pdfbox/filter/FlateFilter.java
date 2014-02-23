@@ -139,34 +139,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSDictionary
 import|;
 end_import
@@ -186,17 +158,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the used for the FlateDecode filter.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Marcel Kammer  * @version $Revision: 1.12 $  */
+comment|/**  * Decompresses data encoded using the zlib/deflate compression method,  * reproducing the original text or binary data.  *  * @author Ben Litchfield  * @author Marcel Kammer  */
 end_comment
 
 begin_class
-specifier|public
+specifier|final
 class|class
 name|FlateFilter
-implements|implements
+extends|extends
 name|Filter
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -220,126 +191,25 @@ name|BUFFER_SIZE
 init|=
 literal|16348
 decl_stmt|;
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|void
+annotation|@
+name|Override
+specifier|protected
+specifier|final
+name|DecodeResult
 name|decode
 parameter_list|(
 name|InputStream
-name|compressedData
+name|encoded
 parameter_list|,
 name|OutputStream
-name|result
+name|decoded
 parameter_list|,
 name|COSDictionary
-name|options
-parameter_list|,
-name|int
-name|filterIndex
+name|parameters
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|COSBase
-name|baseObj
-init|=
-name|options
-operator|.
-name|getDictionaryObject
-argument_list|(
-name|COSName
-operator|.
-name|DECODE_PARMS
-argument_list|,
-name|COSName
-operator|.
-name|DP
-argument_list|)
-decl_stmt|;
-name|COSDictionary
-name|dict
-init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|baseObj
-operator|instanceof
-name|COSDictionary
-condition|)
-block|{
-name|dict
-operator|=
-operator|(
-name|COSDictionary
-operator|)
-name|baseObj
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|baseObj
-operator|instanceof
-name|COSArray
-condition|)
-block|{
-name|COSArray
-name|paramArray
-init|=
-operator|(
-name|COSArray
-operator|)
-name|baseObj
-decl_stmt|;
-if|if
-condition|(
-name|filterIndex
-operator|<
-name|paramArray
-operator|.
-name|size
-argument_list|()
-condition|)
-block|{
-name|dict
-operator|=
-operator|(
-name|COSDictionary
-operator|)
-name|paramArray
-operator|.
-name|getObject
-argument_list|(
-name|filterIndex
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-elseif|else
-if|if
-condition|(
-name|baseObj
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Error: Expected COSArray or COSDictionary and not "
-operator|+
-name|baseObj
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-throw|;
-block|}
 name|int
 name|predictor
 init|=
@@ -364,26 +234,35 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-name|ByteArrayInputStream
-name|bais
+name|COSDictionary
+name|decodeParams
 init|=
-literal|null
-decl_stmt|;
-name|ByteArrayOutputStream
-name|baos
-init|=
-literal|null
+operator|(
+name|COSDictionary
+operator|)
+name|parameters
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|DECODE_PARMS
+argument_list|,
+name|COSName
+operator|.
+name|DP
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|dict
+name|decodeParams
 operator|!=
 literal|null
 condition|)
 block|{
 name|predictor
 operator|=
-name|dict
+name|decodeParams
 operator|.
 name|getInt
 argument_list|(
@@ -401,7 +280,7 @@ condition|)
 block|{
 name|colors
 operator|=
-name|dict
+name|decodeParams
 operator|.
 name|getInt
 argument_list|(
@@ -412,7 +291,7 @@ argument_list|)
 expr_stmt|;
 name|bitsPerPixel
 operator|=
-name|dict
+name|decodeParams
 operator|.
 name|getInt
 argument_list|(
@@ -423,7 +302,7 @@ argument_list|)
 expr_stmt|;
 name|columns
 operator|=
-name|dict
+name|decodeParams
 operator|.
 name|getInt
 argument_list|(
@@ -434,16 +313,26 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|ByteArrayInputStream
+name|bais
+init|=
+literal|null
+decl_stmt|;
+name|ByteArrayOutputStream
+name|baos
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
 name|baos
 operator|=
 name|decompress
 argument_list|(
-name|compressedData
+name|encoded
 argument_list|)
 expr_stmt|;
-comment|// Decode data using given predictor
+comment|// decode data using given predictor
 if|if
 condition|(
 name|predictor
@@ -456,7 +345,7 @@ operator|==
 literal|1
 condition|)
 block|{
-name|result
+name|decoded
 operator|.
 name|write
 argument_list|(
@@ -469,7 +358,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/*                  * Reverting back to default values                  */
+comment|// reverting back to default values
 if|if
 condition|(
 name|colors
@@ -509,7 +398,7 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-comment|// Copy data to ByteArrayInputStream for reading
+comment|// copy data to ByteArrayInputStream for reading
 name|bais
 operator|=
 operator|new
@@ -547,7 +436,7 @@ name|bais
 operator|=
 literal|null
 expr_stmt|;
-name|result
+name|decoded
 operator|.
 name|write
 argument_list|(
@@ -555,7 +444,7 @@ name|decodedData
 argument_list|)
 expr_stmt|;
 block|}
-name|result
+name|decoded
 operator|.
 name|flush
 argument_list|()
@@ -564,7 +453,7 @@ block|}
 catch|catch
 parameter_list|(
 name|DataFormatException
-name|exception
+name|e
 parameter_list|)
 block|{
 comment|// if the stream is corrupt a DataFormatException may occur
@@ -575,23 +464,13 @@ argument_list|(
 literal|"FlateFilter: stop reading corrupt stream due to a DataFormatException"
 argument_list|)
 expr_stmt|;
-comment|// re-throw the exception, caller has to handle it
-name|IOException
-name|io
-init|=
+comment|// re-throw the exception
+throw|throw
 operator|new
 name|IOException
-argument_list|()
-decl_stmt|;
-name|io
-operator|.
-name|initCause
 argument_list|(
-name|exception
+name|e
 argument_list|)
-expr_stmt|;
-throw|throw
-name|io
 throw|;
 block|}
 finally|finally
@@ -623,6 +502,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+return|return
+operator|new
+name|DecodeResult
+argument_list|(
+name|parameters
+argument_list|)
+return|;
 block|}
 comment|// Use Inflater instead of InflateInputStream to avoid an EOFException due to a probably
 comment|// missing Z_STREAM_END, see PDFBOX-1232 for details
@@ -835,11 +721,9 @@ operator|==
 literal|1
 condition|)
 block|{
-comment|// No prediction
+comment|// no prediction
 name|int
 name|i
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -915,7 +799,6 @@ index|[
 name|rowlength
 index|]
 decl_stmt|;
-comment|// Initialize lastline with Zeros according to PNG-specification
 name|byte
 index|[]
 name|lastline
@@ -993,10 +876,7 @@ block|}
 comment|// read line
 name|int
 name|i
-init|=
-literal|0
-decl_stmt|;
-name|int
+decl_stmt|,
 name|offset
 init|=
 literal|0
@@ -1035,7 +915,7 @@ operator|+=
 name|i
 expr_stmt|;
 block|}
-comment|// Do prediction as specified in PNG-Specification 1.2
+comment|// do prediction as specified in PNG-Specification 1.2
 switch|switch
 condition|(
 name|linepredictor
@@ -1045,7 +925,8 @@ case|case
 literal|2
 case|:
 comment|// PRED TIFF SUB
-comment|/**                          * @TODO decode tiff with bitsPerComponent != 8;                          * e.g. for 4 bpc each nibble must be subtracted separately                          */
+comment|// TODO decode tiff with bitsPerComponent != 8;
+comment|// e.g. for 4 bpc each nibble must be subtracted separately
 if|if
 condition|(
 name|bitsPerComponent
@@ -1585,22 +1466,21 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
+annotation|@
+name|Override
+specifier|protected
+specifier|final
 name|void
 name|encode
 parameter_list|(
 name|InputStream
-name|rawData
+name|input
 parameter_list|,
 name|OutputStream
-name|result
+name|encoded
 parameter_list|,
 name|COSDictionary
-name|options
-parameter_list|,
-name|int
-name|filterIndex
+name|parameters
 parameter_list|)
 throws|throws
 name|IOException
@@ -1611,18 +1491,16 @@ init|=
 operator|new
 name|DeflaterOutputStream
 argument_list|(
-name|result
+name|encoded
 argument_list|)
 decl_stmt|;
 name|int
 name|amountRead
-init|=
-literal|0
 decl_stmt|;
 name|int
 name|mayRead
 init|=
-name|rawData
+name|input
 operator|.
 name|available
 argument_list|()
@@ -1656,7 +1534,7 @@ condition|(
 operator|(
 name|amountRead
 operator|=
-name|rawData
+name|input
 operator|.
 name|read
 argument_list|(
@@ -1697,7 +1575,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|result
+name|encoded
 operator|.
 name|flush
 argument_list|()

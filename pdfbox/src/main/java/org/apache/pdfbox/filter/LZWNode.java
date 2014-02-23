@@ -36,10 +36,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the used for the LZWDecode filter.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This is the used for the LZWDecode filter.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
+specifier|final
 class|class
 name|LZWNode
 block|{
@@ -79,7 +80,7 @@ operator|=
 name|codeValue
 expr_stmt|;
 block|}
-comment|/**      * This will get the number of children.      *      * @return The number of children.      */
+comment|/*      * This will get the number of children.      */
 specifier|public
 name|int
 name|childCount
@@ -92,7 +93,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the node for a particular byte.      *      * @param b The byte for that node.      * @param node The node to add.      */
+comment|/*      * This will set the node for a particular byte.      */
 specifier|public
 name|void
 name|setNode
@@ -114,7 +115,7 @@ name|node
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the node that is a direct sub node of this node.      *      * @param data The byte code to the node.      *      * @return The node at that value if it exists.      */
+comment|/*      * This will get the node that is a direct sub node of this node.      */
 specifier|public
 name|LZWNode
 name|getNode
@@ -132,7 +133,7 @@ name|data
 argument_list|)
 return|;
 block|}
-comment|/**      * This will traverse the tree until it gets to the sub node.      * This will return null if the node does not exist.      *      * @param data The path to the node.      *      * @return The node that resides at the data path.      */
+comment|/*      * This will traverse the tree until it gets to the sub node.      * This will return null if the node does not exist.      */
 specifier|public
 name|LZWNode
 name|getNode
@@ -185,7 +186,7 @@ return|return
 name|current
 return|;
 block|}
-comment|/** Getter for property code.      * @return Value of property code.      */
+comment|/*      * Returns the property code      */
 specifier|public
 name|long
 name|getCode

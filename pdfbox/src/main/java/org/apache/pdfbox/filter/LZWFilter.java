@@ -118,17 +118,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the used for the LZWDecode filter.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.15 $  */
+comment|/**  * This is the used for the LZWDecode filter.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
-specifier|public
+specifier|final
 class|class
 name|LZWFilter
-implements|implements
+extends|extends
 name|Filter
 block|{
-comment|/**      * The LZW clear table code.      */
 specifier|public
 specifier|static
 specifier|final
@@ -137,7 +136,6 @@ name|CLEAR_TABLE
 init|=
 literal|256
 decl_stmt|;
-comment|/**      * The LZW end of data code.      */
 specifier|public
 specifier|static
 specifier|final
@@ -146,40 +144,35 @@ name|EOD
 init|=
 literal|257
 decl_stmt|;
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|void
+annotation|@
+name|Override
+specifier|protected
+specifier|final
+name|DecodeResult
 name|decode
 parameter_list|(
 name|InputStream
-name|compressedData
+name|encoded
 parameter_list|,
 name|OutputStream
-name|result
+name|decoded
 parameter_list|,
 name|COSDictionary
-name|options
-parameter_list|,
-name|int
-name|filterIndex
+name|parameters
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//log.debug("decode( )");
+comment|//log.debug("decode()");
 name|NBitInputStream
 name|in
 init|=
-literal|null
-decl_stmt|;
-name|in
-operator|=
 operator|new
 name|NBitInputStream
 argument_list|(
-name|compressedData
+name|encoded
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|in
 operator|.
 name|setBitsInChunk
@@ -201,8 +194,6 @@ literal|0
 decl_stmt|;
 name|long
 name|nextCommand
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -218,7 +209,7 @@ operator|!=
 name|EOD
 condition|)
 block|{
-comment|// log.debug( "decode - nextCommand=" + nextCommand + ", bitsInChunk: " + in.getBitsInChunk());
+comment|// log.debug("decode - nextCommand=" + nextCommand + ", bitsInChunk: " + in.getBitsInChunk());
 if|if
 condition|(
 name|nextCommand
@@ -304,7 +295,7 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
-comment|//log.debug( "decode - dic.getNextCode(): " + dic.getNextCode());
+comment|//log.debug("decode - dic.getNextCode(): " + dic.getNextCode());
 if|if
 condition|(
 name|dic
@@ -371,7 +362,7 @@ literal|9
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**                 if( in.getBitsInChunk() != dic.getCodeSize() )                 {                     in.unread( nextCommand );                     in.setBitsInChunk( dic.getCodeSize() );                     System.out.print( "Switching " + nextCommand + " to " );                     nextCommand = in.read();                     System.out.println( "" +  nextCommand );                     data = dic.getData( nextCommand );                 }**/
+comment|/**                 if (in.getBitsInChunk() != dic.getCodeSize())                 {                     in.unread(nextCommand);                     in.setBitsInChunk(dic.getCodeSize());                     System.out.print("Switching " + nextCommand + " to ");                     nextCommand = in.read();                     System.out.println("" +  nextCommand);                     data = dic.getData(nextCommand);                 }**/
 name|firstByte
 operator|=
 name|data
@@ -379,7 +370,7 @@ index|[
 literal|0
 index|]
 expr_stmt|;
-name|result
+name|decoded
 operator|.
 name|write
 argument_list|(
@@ -388,14 +379,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|result
+name|decoded
 operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+return|return
+operator|new
+name|DecodeResult
+argument_list|(
+name|parameters
+argument_list|)
+return|;
 block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
+annotation|@
+name|Override
+specifier|protected
+specifier|final
 name|void
 name|encode
 parameter_list|(
@@ -403,18 +403,15 @@ name|InputStream
 name|rawData
 parameter_list|,
 name|OutputStream
-name|result
+name|encoded
 parameter_list|,
 name|COSDictionary
-name|options
-parameter_list|,
-name|int
-name|filterIndex
+name|parameters
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//log.debug("encode( )");
+comment|//log.debug("encode()");
 name|PushbackInputStream
 name|input
 init|=
@@ -439,7 +436,7 @@ init|=
 operator|new
 name|NBitOutputStream
 argument_list|(
-name|result
+name|encoded
 argument_list|)
 decl_stmt|;
 name|out
@@ -492,7 +489,7 @@ name|i
 operator|++
 control|)
 block|{
-comment|//log.debug( "byteRead = '" + (char)byteRead + "' (0x" + Integer.toHexString(byteRead) + "), i=" + i);
+comment|//log.debug("byteRead = '" + (char)byteRead + "' (0x" + Integer.toHexString(byteRead) + "), i=" + i);
 name|buffer
 operator|.
 name|write
@@ -520,7 +517,7 @@ name|getCodeSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//log.debug( "Getting node '" + new String( buffer.toByteArray() ) + "', buffer.size = " + buffer.size() );
+comment|//log.debug("Getting node '" + new String(buffer.toByteArray()) + "', buffer.size = " + buffer.size());
 name|LZWNode
 name|node
 init|=
@@ -550,7 +547,7 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|//log.debug( "nextByte = '" + (char)nextByte + "' (0x" + Integer.toHexString(nextByte) + ")");
+comment|//log.debug("nextByte = '" + (char)nextByte + "' (0x" + Integer.toHexString(nextByte) + ")");
 name|LZWNode
 name|next
 init|=
@@ -748,7 +745,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|result
+name|encoded
 operator|.
 name|flush
 argument_list|()
