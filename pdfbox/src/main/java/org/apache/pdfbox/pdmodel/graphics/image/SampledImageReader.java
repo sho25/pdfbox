@@ -487,7 +487,7 @@ literal|"Image stream is empty"
 argument_list|)
 throw|;
 block|}
-comment|// get parameters
+comment|// get parameters, they must be valid or have been repaired
 specifier|final
 name|PDColorSpace
 name|colorSpace
@@ -515,7 +515,6 @@ operator|.
 name|getWidth
 argument_list|()
 decl_stmt|;
-comment|// todo: what if -1?
 specifier|final
 name|int
 name|height
@@ -525,7 +524,6 @@ operator|.
 name|getHeight
 argument_list|()
 decl_stmt|;
-comment|// todo: what if -1?
 specifier|final
 name|int
 name|bitsPerComponent
@@ -535,7 +533,6 @@ operator|.
 name|getBitsPerComponent
 argument_list|()
 decl_stmt|;
-comment|// todo: what if -1?
 specifier|final
 name|float
 index|[]

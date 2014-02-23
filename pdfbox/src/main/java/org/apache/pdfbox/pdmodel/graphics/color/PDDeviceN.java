@@ -1403,7 +1403,7 @@ argument_list|,
 name|intSrc
 argument_list|)
 expr_stmt|;
-comment|// subtractive -> additive& scale to 0..1
+comment|// scale to 0..1
 for|for
 control|(
 name|int
@@ -1424,15 +1424,12 @@ index|[
 name|s
 index|]
 operator|=
-comment|/*1 -*/
-operator|(
 name|src
 index|[
 name|s
 index|]
 operator|/
 literal|255
-operator|)
 expr_stmt|;
 block|}
 comment|// convert to alternate color space via tint transform

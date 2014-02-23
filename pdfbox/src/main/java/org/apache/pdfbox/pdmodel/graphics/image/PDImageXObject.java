@@ -1060,6 +1060,42 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|COSBase
+name|mask
+init|=
+name|getCOSStream
+argument_list|()
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|MASK
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|mask
+operator|instanceof
+name|COSArray
+condition|)
+block|{
+comment|// ...
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"color key"
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+else|else
+block|{
 name|COSStream
 name|cosStream
 init|=
@@ -1101,6 +1137,7 @@ block|}
 return|return
 literal|null
 return|;
+block|}
 block|}
 comment|/**      * Returns the Soft Mask Image XObject associated with this image, or null if there is none.      * @return the SMask Image XObject, or null.      */
 specifier|public

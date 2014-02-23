@@ -795,12 +795,12 @@ operator|.
 name|getRaster
 argument_list|()
 decl_stmt|;
-name|int
+name|float
 index|[]
 name|src
 init|=
 operator|new
-name|int
+name|float
 index|[
 literal|1
 index|]
@@ -846,6 +846,20 @@ argument_list|,
 name|src
 argument_list|)
 expr_stmt|;
+comment|// scale to 0..1
+name|src
+index|[
+literal|0
+index|]
+operator|=
+name|src
+index|[
+literal|0
+index|]
+operator|/
+literal|255
+expr_stmt|;
+comment|// scale to 0..hival and lookup
 name|int
 name|index
 init|=
@@ -853,10 +867,17 @@ name|Math
 operator|.
 name|min
 argument_list|(
+name|Math
+operator|.
+name|round
+argument_list|(
 name|src
 index|[
 literal|0
 index|]
+operator|*
+name|actualMaxIndex
+argument_list|)
 argument_list|,
 name|actualMaxIndex
 argument_list|)
