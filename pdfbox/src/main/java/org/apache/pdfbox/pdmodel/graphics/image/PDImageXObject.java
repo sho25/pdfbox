@@ -593,6 +593,9 @@ operator|.
 name|getRGBImage
 argument_list|(
 name|this
+argument_list|,
+name|getColorKeyMask
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// soft mask (overrides explicit mask)
@@ -715,6 +718,8 @@ operator|.
 name|getRGBImage
 argument_list|(
 name|this
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -747,7 +752,6 @@ return|return
 name|image
 return|;
 block|}
-comment|// TODO color key masking (not a Stream?)
 name|int
 name|width
 init|=
@@ -1080,16 +1084,7 @@ operator|instanceof
 name|COSArray
 condition|)
 block|{
-comment|// ...
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"color key"
-argument_list|)
-expr_stmt|;
+comment|// color key mask, no explicit mask to return
 return|return
 literal|null
 return|;
@@ -1138,6 +1133,43 @@ return|return
 literal|null
 return|;
 block|}
+block|}
+comment|/**      * Returns the color key mask array associated with this image, or null if there is none.      * @return Mask Image XObject      */
+specifier|public
+name|COSArray
+name|getColorKeyMask
+parameter_list|()
+block|{
+name|COSBase
+name|mask
+init|=
+name|getCOSStream
+argument_list|()
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|MASK
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|mask
+operator|instanceof
+name|COSArray
+condition|)
+block|{
+return|return
+operator|(
+name|COSArray
+operator|)
+name|mask
+return|;
+block|}
+return|return
+literal|null
+return|;
 block|}
 comment|/**      * Returns the Soft Mask Image XObject associated with this image, or null if there is none.      * @return the SMask Image XObject, or null.      */
 specifier|public
