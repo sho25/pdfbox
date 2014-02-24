@@ -389,14 +389,11 @@ specifier|public
 name|float
 index|[]
 name|getDefaultDecode
-parameter_list|()
-block|{
+parameter_list|(
 name|int
-name|n
-init|=
-name|getNumberOfComponents
-argument_list|()
-decl_stmt|;
+name|bitsPerComponent
+parameter_list|)
+block|{
 return|return
 operator|new
 name|float
@@ -413,10 +410,10 @@ name|pow
 argument_list|(
 literal|2
 argument_list|,
-name|n
+name|bitsPerComponent
+argument_list|)
 operator|-
 literal|1
-argument_list|)
 block|}
 return|;
 block|}
@@ -795,12 +792,19 @@ operator|.
 name|getRaster
 argument_list|()
 decl_stmt|;
-name|float
+specifier|final
+name|int
+name|hival
+init|=
+name|gettHival
+argument_list|()
+decl_stmt|;
+name|int
 index|[]
 name|src
 init|=
 operator|new
-name|float
+name|int
 index|[
 literal|1
 index|]
@@ -847,18 +851,7 @@ name|src
 argument_list|)
 expr_stmt|;
 comment|// scale to 0..1
-name|src
-index|[
-literal|0
-index|]
-operator|=
-name|src
-index|[
-literal|0
-index|]
-operator|/
-literal|255
-expr_stmt|;
+comment|//src[0] = src[0] / 255f;
 comment|// scale to 0..hival and lookup
 name|int
 name|index
@@ -867,21 +860,15 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|Math
-operator|.
-name|round
-argument_list|(
 name|src
 index|[
 literal|0
 index|]
-operator|*
-name|actualMaxIndex
-argument_list|)
 argument_list|,
 name|actualMaxIndex
 argument_list|)
 decl_stmt|;
+comment|//         ARRRRRGH WHY WONT ALTONA P9 WORK!?!?!?!
 name|rgbRaster
 operator|.
 name|setPixel

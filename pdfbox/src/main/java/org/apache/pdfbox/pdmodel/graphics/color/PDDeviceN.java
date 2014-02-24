@@ -1833,7 +1833,10 @@ specifier|public
 name|float
 index|[]
 name|getDefaultDecode
-parameter_list|()
+parameter_list|(
+name|int
+name|bitsPerComponent
+parameter_list|)
 block|{
 name|int
 name|n

@@ -670,7 +670,10 @@ specifier|abstract
 name|float
 index|[]
 name|getDefaultDecode
-parameter_list|()
+parameter_list|(
+name|int
+name|bitsPerComponent
+parameter_list|)
 function_decl|;
 comment|/**      * Returns the initial color value for this color space.      * @return the initial color value for this color space      */
 specifier|public

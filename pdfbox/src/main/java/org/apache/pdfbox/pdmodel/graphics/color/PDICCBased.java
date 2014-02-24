@@ -776,7 +776,10 @@ specifier|public
 name|float
 index|[]
 name|getDefaultDecode
-parameter_list|()
+parameter_list|(
+name|int
+name|bitsPerComponent
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -859,7 +862,9 @@ return|return
 name|alternateColorSpace
 operator|.
 name|getDefaultDecode
-argument_list|()
+argument_list|(
+name|bitsPerComponent
+argument_list|)
 return|;
 block|}
 block|}

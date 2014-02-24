@@ -169,6 +169,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|color
+operator|.
+name|PDIndexed
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|imageio
@@ -610,6 +628,14 @@ argument_list|)
 operator|-
 literal|1f
 decl_stmt|;
+specifier|final
+name|boolean
+name|isIndexed
+init|=
+name|colorSpace
+operator|instanceof
+name|PDIndexed
+decl_stmt|;
 name|int
 name|padding
 init|=
@@ -758,6 +784,32 @@ name|sampleMax
 operator|)
 operator|)
 decl_stmt|;
+if|if
+condition|(
+name|isIndexed
+condition|)
+block|{
+comment|// indexed color spaces get the raw value, because the TYPE_BYTE
+comment|// below cannot be reversed by the color space without it having
+comment|// knowledge of the number of bits per component
+name|srcColorValues
+index|[
+name|c
+index|]
+operator|=
+operator|(
+name|byte
+operator|)
+name|Math
+operator|.
+name|round
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// interpolate to TYPE_BYTE
 name|int
 name|outputByte
@@ -803,6 +855,7 @@ name|byte
 operator|)
 name|outputByte
 expr_stmt|;
+block|}
 block|}
 name|raster
 operator|.
@@ -1007,7 +1060,12 @@ name|getColorSpace
 argument_list|()
 operator|.
 name|getDefaultDecode
+argument_list|(
+name|pdImage
+operator|.
+name|getBitsPerComponent
 argument_list|()
+argument_list|)
 return|;
 block|}
 return|return
