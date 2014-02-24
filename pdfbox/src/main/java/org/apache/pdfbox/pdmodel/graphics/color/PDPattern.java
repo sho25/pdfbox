@@ -75,7 +75,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDPatternResources
+name|PDPatternDictionary
 import|;
 end_import
 
@@ -93,7 +93,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDShadingPatternResources
+name|PDShadingPattern
 import|;
 end_import
 
@@ -111,7 +111,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDTilingPatternResources
+name|PDTilingPattern
 import|;
 end_import
 
@@ -131,7 +131,7 @@ name|pattern
 operator|.
 name|tiling
 operator|.
-name|ColoredTilingPaint
+name|TilingPaint
 import|;
 end_import
 
@@ -429,11 +429,15 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 argument_list|>
 name|patterns
 decl_stmt|;
-comment|/**      * Creates a new Pattern color space.      */
+specifier|private
+name|PDColorSpace
+name|underlyingColorSpace
+decl_stmt|;
+comment|/**      * Creates a new pattern color space.      */
 specifier|public
 name|PDPattern
 parameter_list|(
@@ -441,7 +445,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 argument_list|>
 name|patterns
 parameter_list|)
@@ -451,6 +455,35 @@ operator|.
 name|patterns
 operator|=
 name|patterns
+expr_stmt|;
+block|}
+comment|/**      * Creates a new uncolored tiling pattern color space.      */
+specifier|public
+name|PDPattern
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PDPatternDictionary
+argument_list|>
+name|patterns
+parameter_list|,
+name|PDColorSpace
+name|colorSpace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|patterns
+operator|=
+name|patterns
+expr_stmt|;
+name|this
+operator|.
+name|underlyingColorSpace
+operator|=
+name|colorSpace
 expr_stmt|;
 block|}
 annotation|@
@@ -610,7 +643,7 @@ literal|" was not found"
 argument_list|)
 throw|;
 block|}
-name|PDPatternResources
+name|PDPatternDictionary
 name|pattern
 init|=
 name|patterns
@@ -627,14 +660,14 @@ if|if
 condition|(
 name|pattern
 operator|instanceof
-name|PDTilingPatternResources
+name|PDTilingPattern
 condition|)
 block|{
 return|return
 name|toTilingPaint
 argument_list|(
 operator|(
-name|PDTilingPatternResources
+name|PDTilingPattern
 operator|)
 name|pattern
 argument_list|,
@@ -648,7 +681,7 @@ return|return
 name|toShadingPaint
 argument_list|(
 operator|(
-name|PDShadingPatternResources
+name|PDShadingPattern
 operator|)
 name|pattern
 argument_list|,
@@ -661,7 +694,7 @@ specifier|public
 name|Paint
 name|toTilingPaint
 parameter_list|(
-name|PDTilingPatternResources
+name|PDTilingPattern
 name|tilingPattern
 parameter_list|,
 name|PDColor
@@ -674,19 +707,18 @@ if|if
 condition|(
 name|tilingPattern
 operator|.
-name|getPatternType
+name|getPaintType
 argument_list|()
 operator|==
-name|PDTilingPatternResources
+name|PDTilingPattern
 operator|.
-name|COLORED_TILING_PATTERN
+name|PAINT_COLORED
 condition|)
 block|{
 comment|// colored tiling pattern
-comment|// TODO we should be passing the color to ColoredTilingPaint
 return|return
 operator|new
-name|ColoredTilingPaint
+name|TilingPaint
 argument_list|(
 name|tilingPattern
 argument_list|)
@@ -695,35 +727,24 @@ block|}
 else|else
 block|{
 comment|// uncolored tiling pattern
-comment|// TODO ...
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Not implemented: uncoloured tiling patterns"
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
-name|Color
+name|TilingPaint
 argument_list|(
-literal|0
+name|tilingPattern
 argument_list|,
-literal|0
+name|underlyingColorSpace
 argument_list|,
-literal|0
-argument_list|,
-literal|0
+name|color
 argument_list|)
 return|;
-comment|// transparent
 block|}
 block|}
 specifier|public
 name|Paint
 name|toShadingPaint
 parameter_list|(
-name|PDShadingPatternResources
+name|PDShadingPattern
 name|shadingPattern
 parameter_list|,
 name|int

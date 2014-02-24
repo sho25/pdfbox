@@ -402,7 +402,6 @@ specifier|public
 class|class
 name|PDFStreamEngine
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -760,25 +759,17 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/**      * This will process the contents of the stream.      *       * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      * @param drawingSize the size of the page      * @param rotation the page rotation      *       * @throws IOException if there is an error accessing the stream.      */
-specifier|public
+comment|/**      * Initialises a stream for processing.      *      * @param drawingSize the size of the page      * @param rotation the page rotation      */
+specifier|protected
 name|void
-name|processStream
+name|initStream
 parameter_list|(
-name|PDResources
-name|resources
-parameter_list|,
-name|COSStream
-name|cosStream
-parameter_list|,
 name|PDRectangle
 name|drawingSize
 parameter_list|,
 name|int
 name|rotation
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|drawingRectangle
 operator|=
@@ -813,6 +804,34 @@ name|streamResourcesStack
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * This will initialise and process the contents of the stream.      *       * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      * @param drawingSize the size of the page      * @param rotation the page rotation      *       * @throws IOException if there is an error accessing the stream.      */
+specifier|public
+name|void
+name|processStream
+parameter_list|(
+name|PDResources
+name|resources
+parameter_list|,
+name|COSStream
+name|cosStream
+parameter_list|,
+name|PDRectangle
+name|drawingSize
+parameter_list|,
+name|int
+name|rotation
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|initStream
+argument_list|(
+name|drawingSize
+argument_list|,
+name|rotation
+argument_list|)
 expr_stmt|;
 name|processSubStream
 argument_list|(

@@ -160,15 +160,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents the resources for a shading pattern.  *  */
+comment|/**  * A shading pattern dictionary.  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|PDShadingPatternResources
+name|PDShadingPattern
 extends|extends
-name|PDPatternResources
+name|PDPatternDictionary
 block|{
 specifier|private
 name|PDExtendedGraphicsState
@@ -184,9 +184,9 @@ name|matrix
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Default constructor.      */
+comment|/**      * Creates a new shading pattern.      */
 specifier|public
-name|PDShadingPatternResources
+name|PDShadingPattern
 parameter_list|()
 block|{
 name|super
@@ -201,15 +201,15 @@ name|COSName
 operator|.
 name|PATTERN_TYPE
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 operator|.
-name|SHADING_PATTERN
+name|TYPE_SHADING_PATTERN
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Prepopulated pattern resources.      *      * @param resourceDictionary The COSDictionary for this pattern resource.      */
+comment|/**      * Creates a new shading pattern from the given COS dictionary.      * @param resourceDictionary The COSDictionary for this pattern resource.      */
 specifier|public
-name|PDShadingPatternResources
+name|PDShadingPattern
 parameter_list|(
 name|COSDictionary
 name|resourceDictionary
@@ -221,19 +221,20 @@ name|resourceDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getPatternType
 parameter_list|()
 block|{
 return|return
-name|PDPatternResources
+name|PDPatternDictionary
 operator|.
-name|SHADING_PATTERN
+name|TYPE_SHADING_PATTERN
 return|;
 block|}
-comment|/**      * This will get the optional Matrix of a Pattern.      * It maps the form space into the user space      * @return the form matrix      */
+comment|/**      * This will get the optional Matrix of a Pattern.      * It maps the form space into the user space.      * @return the form matrix      */
 specifier|public
 name|Matrix
 name|getMatrix
@@ -497,7 +498,7 @@ name|matrix
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the extended graphics state for this pattern.      *      * @return The extended graphics state for this pattern.      */
+comment|/**      * This will get the extended graphics state for this pattern.      * @return The extended graphics state for this pattern.      */
 specifier|public
 name|PDExtendedGraphicsState
 name|getExtendedGraphicsState
@@ -547,7 +548,7 @@ return|return
 name|extendedGraphicsState
 return|;
 block|}
-comment|/**      * This will set the extended graphics state for this pattern.      *      * @param extendedGraphicsState The new extended graphics state for this pattern.      */
+comment|/**      * This will set the extended graphics state for this pattern.      * @param extendedGraphicsState The new extended graphics state for this pattern.      */
 specifier|public
 name|void
 name|setExtendedGraphicsState
@@ -596,7 +597,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the shading resources for this pattern.      *      * @return The shading resourcesfor this pattern.      *       * @throws IOException if something went wrong      */
+comment|/**      * This will get the shading resources for this pattern.      * @return The shading resources for this pattern.      * @throws IOException if something went wrong      */
 specifier|public
 name|PDShadingResources
 name|getShading
@@ -649,7 +650,7 @@ return|return
 name|shading
 return|;
 block|}
-comment|/**      * This will set the shading resources for this pattern.      *      * @param shadingResources The new shading resources for this pattern.      */
+comment|/**      * This will set the shading resources for this pattern.      * @param shadingResources The new shading resources for this pattern.      */
 specifier|public
 name|void
 name|setShading

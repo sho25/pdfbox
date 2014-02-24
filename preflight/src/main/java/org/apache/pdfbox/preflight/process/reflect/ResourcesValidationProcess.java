@@ -277,7 +277,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDPatternResources
+name|PDPatternDictionary
 import|;
 end_import
 
@@ -295,7 +295,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDTilingPatternResources
+name|PDTilingPattern
 import|;
 end_import
 
@@ -820,7 +820,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 argument_list|>
 name|patternResources
 init|=
@@ -842,7 +842,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 argument_list|>
 name|entry
 range|:
@@ -859,7 +859,7 @@ operator|.
 name|getValue
 argument_list|()
 operator|instanceof
-name|PDTilingPatternResources
+name|PDTilingPattern
 condition|)
 block|{
 name|ContextHelper

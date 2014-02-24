@@ -91,7 +91,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDPatternResources
+name|PDPatternDictionary
 import|;
 end_import
 
@@ -285,7 +285,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 argument_list|>
 name|patterns
 parameter_list|)
@@ -616,6 +616,18 @@ operator|new
 name|PDPattern
 argument_list|(
 name|patterns
+argument_list|,
+name|PDColorSpace
+operator|.
+name|create
+argument_list|(
+name|array
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
 argument_list|)
 return|;
 block|}

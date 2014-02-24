@@ -237,7 +237,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDPatternResources
+name|PDPatternDictionary
 import|;
 end_import
 
@@ -427,7 +427,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 argument_list|>
 name|patterns
 init|=
@@ -1762,13 +1762,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the map of patterns. This will return null if the underlying resources dictionary does not have a      * patterns dictionary. The keys are the pattern name as a String and the values are PDPatternResources objects.      *       * @return The map of pattern resources objects.      *       * @throws IOException If there is an error getting the pattern resources.      */
+comment|/**      * This will get the map of patterns. This will return null if the underlying resources dictionary does not have a      * patterns dictionary. The keys are the pattern name as a String and the values are PDPatternDictionary objects.      *       * @return The map of pattern resources objects.      *       * @throws IOException If there is an error getting the pattern resources.      */
 specifier|public
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 argument_list|>
 name|getPatterns
 parameter_list|()
@@ -1811,7 +1811,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -1848,7 +1848,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 operator|.
 name|create
 argument_list|(
@@ -1872,7 +1872,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 argument_list|>
 name|patternsValue
 parameter_list|)
@@ -1925,7 +1925,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|PDPatternResources
+name|PDPatternDictionary
 name|pattern
 init|=
 name|patternsValue

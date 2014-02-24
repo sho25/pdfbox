@@ -88,40 +88,115 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents the resources for a pattern color space.  */
+comment|/**  * A Pattern dictionary from a page's resources.  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
 specifier|public
 specifier|abstract
 class|class
-name|PDPatternResources
+name|PDPatternDictionary
 implements|implements
 name|COSObjectable
 block|{
+comment|/** Tiling pattern type. */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|TYPE_TILING_PATTERN
+init|=
+literal|1
+decl_stmt|;
+comment|/** Shading pattern type. */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|TYPE_SHADING_PATTERN
+init|=
+literal|2
+decl_stmt|;
+comment|/**      * Create the correct PD Model pattern based on the COS base pattern.      * @param resourceDictionary the COS pattern dictionary      * @return the newly created pattern resources object      * @throws IOException If we are unable to create the PDPattern object.      */
+specifier|public
+specifier|static
+name|PDPatternDictionary
+name|create
+parameter_list|(
+name|COSDictionary
+name|resourceDictionary
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|PDPatternDictionary
+name|pattern
+decl_stmt|;
+name|int
+name|patternType
+init|=
+name|resourceDictionary
+operator|.
+name|getInt
+argument_list|(
+name|COSName
+operator|.
+name|PATTERN_TYPE
+argument_list|,
+literal|0
+argument_list|)
+decl_stmt|;
+switch|switch
+condition|(
+name|patternType
+condition|)
+block|{
+case|case
+name|TYPE_TILING_PATTERN
+case|:
+name|pattern
+operator|=
+operator|new
+name|PDTilingPattern
+argument_list|(
+name|resourceDictionary
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|TYPE_SHADING_PATTERN
+case|:
+name|pattern
+operator|=
+operator|new
+name|PDShadingPattern
+argument_list|(
+name|resourceDictionary
+argument_list|)
+expr_stmt|;
+break|break;
+default|default:
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: Unknown pattern type "
+operator|+
+name|patternType
+argument_list|)
+throw|;
+block|}
+return|return
+name|pattern
+return|;
+block|}
 specifier|private
 name|COSDictionary
 name|patternDictionary
 decl_stmt|;
+comment|/**      * Creates a new Pattern dictionary.      */
 specifier|public
-specifier|static
-specifier|final
-name|int
-name|TILING_PATTERN
-init|=
-literal|1
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|SHADING_PATTERN
-init|=
-literal|2
-decl_stmt|;
-comment|/**      * Default constructor.      */
-specifier|public
-name|PDPatternResources
+name|PDPatternDictionary
 parameter_list|()
 block|{
 name|patternDictionary
@@ -147,9 +222,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Prepopulated pattern resources.      *      * @param resourceDictionary The COSDictionary for this pattern resource.      */
+comment|/**      * Creates a new Pattern dictionary from the given COS dictionary.      * @param resourceDictionary The COSDictionary for this pattern resource.      */
 specifier|public
-name|PDPatternResources
+name|PDPatternDictionary
 parameter_list|(
 name|COSDictionary
 name|resourceDictionary
@@ -160,7 +235,7 @@ operator|=
 name|resourceDictionary
 expr_stmt|;
 block|}
-comment|/**      * This will get the underlying dictionary.      *      * @return The dictionary for these pattern resources.      */
+comment|/**      * This will get the underlying dictionary.      * @return The dictionary for these pattern resources.      */
 specifier|public
 name|COSDictionary
 name|getCOSDictionary
@@ -170,7 +245,7 @@ return|return
 name|patternDictionary
 return|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+comment|/**      * Convert this standard java object to a COS object.      * @return The cos object that matches this Java object.      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -180,7 +255,7 @@ return|return
 name|patternDictionary
 return|;
 block|}
-comment|/**      * Sets the filter entry of the encryption dictionary.      *      * @param filter The filter name.      */
+comment|/**      * Sets the filter entry of the encryption dictionary.      * @param filter The filter name.      */
 specifier|public
 name|void
 name|setFilter
@@ -206,7 +281,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the name of the filter.      *      * @return The filter name contained in this encryption dictionary.      */
+comment|/**      * Get the name of the filter.      * @return The filter name contained in this encryption dictionary.      */
 specifier|public
 name|String
 name|getFilter
@@ -223,7 +298,7 @@ name|FILTER
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the length of the content stream.      *      * @param length The new stream length.      */
+comment|/**      * This will set the length of the content stream.      * @param length The new stream length.      */
 specifier|public
 name|void
 name|setLength
@@ -244,7 +319,7 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the length of the content stream.      *      * @return The length of the content stream      */
+comment|/**      * This will return the length of the content stream.      * @return The length of the content stream      */
 specifier|public
 name|int
 name|getLength
@@ -263,7 +338,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the paint type.      *      * @param paintType The new paint type.      */
+comment|/**      * This will set the paint type.      * @param paintType The new paint type.      */
 specifier|public
 name|void
 name|setPaintType
@@ -284,7 +359,7 @@ name|paintType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the paint type.      *      * @return The type of object that this is.      */
+comment|/**      * This will return the paint type.      * @return The type of object that this is.      */
 specifier|public
 name|String
 name|getType
@@ -299,7 +374,7 @@ name|getName
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the pattern type.      *      * @param patternType The new pattern type.      */
+comment|/**      * This will set the pattern type.      * @param patternType The new pattern type.      */
 specifier|public
 name|void
 name|setPatternType
@@ -320,88 +395,13 @@ name|patternType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the pattern type.      *      * @return The pattern type      */
+comment|/**      * This will return the pattern type.      * @return The pattern type      */
 specifier|public
 specifier|abstract
 name|int
 name|getPatternType
 parameter_list|()
 function_decl|;
-comment|/**      * Create the correct PD Model pattern based on the COS base pattern.      *       * @param resourceDictionary the COS pattern dictionary      *       * @return the newly created pattern resources object      *       * @throws IOException If we are unable to create the PDPattern object.      */
-specifier|public
-specifier|static
-name|PDPatternResources
-name|create
-parameter_list|(
-name|COSDictionary
-name|resourceDictionary
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|PDPatternResources
-name|pattern
-init|=
-literal|null
-decl_stmt|;
-name|int
-name|patternType
-init|=
-name|resourceDictionary
-operator|.
-name|getInt
-argument_list|(
-name|COSName
-operator|.
-name|PATTERN_TYPE
-argument_list|,
-literal|0
-argument_list|)
-decl_stmt|;
-switch|switch
-condition|(
-name|patternType
-condition|)
-block|{
-case|case
-name|TILING_PATTERN
-case|:
-name|pattern
-operator|=
-operator|new
-name|PDTilingPatternResources
-argument_list|(
-name|resourceDictionary
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-name|SHADING_PATTERN
-case|:
-name|pattern
-operator|=
-operator|new
-name|PDShadingPatternResources
-argument_list|(
-name|resourceDictionary
-argument_list|)
-expr_stmt|;
-break|break;
-default|default:
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Error: Unknown pattern type "
-operator|+
-name|patternType
-argument_list|)
-throw|;
-block|}
-return|return
-name|pattern
-return|;
-block|}
 block|}
 end_class
 

@@ -135,7 +135,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDTilingPatternResources
+name|PDTilingPattern
 import|;
 end_import
 
@@ -304,7 +304,7 @@ name|vPath
 operator|.
 name|isExpectedType
 argument_list|(
-name|PDTilingPatternResources
+name|PDTilingPattern
 operator|.
 name|class
 argument_list|)
@@ -328,11 +328,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|PDTilingPatternResources
+name|PDTilingPattern
 name|tilingPattern
 init|=
 operator|(
-name|PDTilingPatternResources
+name|PDTilingPattern
 operator|)
 name|vPath
 operator|.
@@ -390,7 +390,7 @@ parameter_list|,
 name|PDPage
 name|page
 parameter_list|,
-name|PDTilingPatternResources
+name|PDTilingPattern
 name|pattern
 parameter_list|)
 throws|throws
@@ -435,7 +435,7 @@ parameter_list|,
 name|PDPage
 name|page
 parameter_list|,
-name|PDTilingPatternResources
+name|PDTilingPattern
 name|pattern
 parameter_list|)
 throws|throws
@@ -477,7 +477,7 @@ parameter_list|,
 name|PDPage
 name|page
 parameter_list|,
-name|PDTilingPatternResources
+name|PDTilingPattern
 name|pattern
 parameter_list|)
 block|{

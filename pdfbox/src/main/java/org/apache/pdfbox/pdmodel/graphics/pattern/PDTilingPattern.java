@@ -146,35 +146,35 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents the resources for a tiling pattern.  */
+comment|/**  * A tiling pattern dictionary.  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|PDTilingPatternResources
+name|PDTilingPattern
 extends|extends
-name|PDPatternResources
+name|PDPatternDictionary
 block|{
-comment|/**      * paint type 1 = colored tiling pattern.      */
+comment|/** paint type 1 = colored tiling pattern. */
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|COLORED_TILING_PATTERN
+name|PAINT_COLORED
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * paint type 2 = uncolored tiling pattern.      */
+comment|/** paint type 2 = uncolored tiling pattern. */
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|UNCOLORED_TILING_PATTERN
+name|PAINT_UNCOLORED
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * tiling type 1 = constant spacing.      */
+comment|/** tiling type 1 = constant spacing.*/
 specifier|public
 specifier|static
 specifier|final
@@ -183,7 +183,7 @@ name|TILING_CONSTANT_SPACING
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * tiling type 2 = no distortion.      */
+comment|/**  tiling type 2 = no distortion. */
 specifier|public
 specifier|static
 specifier|final
@@ -192,7 +192,7 @@ name|TILING_NO_DISTORTION
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * tiling type 3 = constant spacing and faster tiling.      */
+comment|/** tiling type 3 = constant spacing and faster tiling. */
 specifier|public
 specifier|static
 specifier|final
@@ -201,9 +201,9 @@ name|TILING_CONSTANT_SPACING_FASTER_TILING
 init|=
 literal|3
 decl_stmt|;
-comment|/**      * Default constructor.      */
+comment|/**      * Creates a new tiling pattern.      */
 specifier|public
-name|PDTilingPatternResources
+name|PDTilingPattern
 parameter_list|()
 block|{
 name|super
@@ -218,15 +218,15 @@ name|COSName
 operator|.
 name|PATTERN_TYPE
 argument_list|,
-name|PDPatternResources
+name|PDPatternDictionary
 operator|.
-name|TILING_PATTERN
+name|TYPE_TILING_PATTERN
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Prepopulated pattern resources.      *      * @param resourceDictionary The COSDictionary for this pattern resource.      */
+comment|/**      * Creates a new tiling pattern from the given COS dictionary.      * @param resourceDictionary The COSDictionary for this pattern resource.      */
 specifier|public
-name|PDTilingPatternResources
+name|PDTilingPattern
 parameter_list|(
 name|COSDictionary
 name|resourceDictionary
@@ -238,19 +238,20 @@ name|resourceDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getPatternType
 parameter_list|()
 block|{
 return|return
-name|PDPatternResources
+name|PDPatternDictionary
 operator|.
-name|TILING_PATTERN
+name|TYPE_TILING_PATTERN
 return|;
 block|}
-comment|/**      * This will set the length of the content stream.      *      * @param length The new stream length.      */
+comment|/**      * This will set the length of the content stream.      * @param length The new stream length.      */
 specifier|public
 name|void
 name|setLength
@@ -272,7 +273,7 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the length of the content stream.      *      * @return The length of the content stream      */
+comment|/**      * This will return the length of the content stream.      * @return The length of the content stream      */
 specifier|public
 name|int
 name|getLength
@@ -292,7 +293,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the paint type.      *      * @param paintType The new paint type.      */
+comment|/**      * This will set the paint type.      * @param paintType The new paint type.      */
 specifier|public
 name|void
 name|setPaintType
@@ -314,7 +315,7 @@ name|paintType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the paint type.      *      * @return The paint type      */
+comment|/**      * This will return the paint type.      * @return The paint type      */
 specifier|public
 name|int
 name|getPaintType
@@ -334,7 +335,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the tiling type.      *      * @param tilingType The new tiling type.      */
+comment|/**      * This will set the tiling type.      * @param tilingType The new tiling type.      */
 specifier|public
 name|void
 name|setTilingType
@@ -356,7 +357,7 @@ name|tilingType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the tiling type.      *      * @return The tiling type      */
+comment|/**      * This will return the tiling type.      * @return The tiling type      */
 specifier|public
 name|int
 name|getTilingType
@@ -376,7 +377,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the XStep value.      *      * @param xStep The new XStep value.      */
+comment|/**      * This will set the XStep value.      * @param xStep The new XStep value.      */
 specifier|public
 name|void
 name|setXStep
@@ -398,7 +399,7 @@ name|xStep
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the XStep value.      *      * @return The XStep value      */
+comment|/**      * This will return the XStep value.      * @return The XStep value      */
 specifier|public
 name|int
 name|getXStep
@@ -418,7 +419,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the YStep value.      *      * @param yStep The new YStep value.      */
+comment|/**      * This will set the YStep value.      * @param yStep The new YStep value.      */
 specifier|public
 name|void
 name|setYStep
@@ -440,7 +441,7 @@ name|yStep
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the YStep value.      *      * @return The YStep value      */
+comment|/**      * This will return the YStep value.      * @return The YStep value      */
 specifier|public
 name|int
 name|getYStep
@@ -460,7 +461,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the resources for this pattern.      * This will return null if no resources are available at this level.      *      * @return The resources for this pattern.      */
+comment|/**      * This will get the resources for this pattern.      * This will return null if no resources are available at this level.      * @return The resources for this pattern.      */
 specifier|public
 name|PDResources
 name|getResources
@@ -507,7 +508,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the resources for this pattern.      *      * @param resources The new resources for this pattern.      */
+comment|/**      * This will set the resources for this pattern.      * @param resources The new resources for this pattern.      */
 specifier|public
 name|void
 name|setResources
@@ -597,7 +598,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the BBox (bounding box) for this Pattern.      *      * @param bbox The new BBox for this Pattern.      */
+comment|/**      * This will set the BBox (bounding box) for this Pattern.      * @param bbox The new BBox for this Pattern.      */
 specifier|public
 name|void
 name|setBBox
@@ -643,14 +644,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the optional Matrix of a Pattern.      * It maps the form space into the user space      * @return the form matrix      */
+comment|/**      * This will get the optional Matrix of a Pattern.      * It maps the form space into the user space.      * @return the form matrix      */
 specifier|public
 name|Matrix
 name|getMatrix
 parameter_list|()
 block|{
 name|Matrix
-name|retval
+name|matrix
 init|=
 literal|null
 decl_stmt|;
@@ -677,13 +678,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|retval
+name|matrix
 operator|=
 operator|new
 name|Matrix
 argument_list|()
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -707,7 +708,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -731,7 +732,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -755,7 +756,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -779,7 +780,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -803,7 +804,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -829,7 +830,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|retval
+name|matrix
 return|;
 block|}
 comment|/**      * Sets the optional Matrix entry for the Pattern.      * @param transform the transformation matrix      */
