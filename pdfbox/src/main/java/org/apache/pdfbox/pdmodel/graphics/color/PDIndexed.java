@@ -792,13 +792,6 @@ operator|.
 name|getRaster
 argument_list|()
 decl_stmt|;
-specifier|final
-name|int
-name|hival
-init|=
-name|gettHival
-argument_list|()
-decl_stmt|;
 name|int
 index|[]
 name|src
@@ -850,9 +843,7 @@ argument_list|,
 name|src
 argument_list|)
 expr_stmt|;
-comment|// scale to 0..1
-comment|//src[0] = src[0] / 255f;
-comment|// scale to 0..hival and lookup
+comment|// lookup
 name|int
 name|index
 init|=
@@ -868,7 +859,6 @@ argument_list|,
 name|actualMaxIndex
 argument_list|)
 decl_stmt|;
-comment|//         ARRRRRGH WHY WONT ALTONA P9 WORK!?!?!?!
 name|rgbRaster
 operator|.
 name|setPixel
