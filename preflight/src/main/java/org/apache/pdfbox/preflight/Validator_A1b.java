@@ -81,7 +81,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|List
 import|;
 end_import
 
@@ -91,7 +91,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Properties
 import|;
 end_import
 
@@ -213,18 +213,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|preflight
 operator|.
 name|ValidationResult
@@ -278,6 +266,20 @@ operator|.
 name|parser
 operator|.
 name|XmlResultParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|ResourceLoader
 import|;
 end_import
 
@@ -829,7 +831,33 @@ specifier|static
 name|void
 name|usage
 parameter_list|()
+throws|throws
+name|IOException
 block|{
+name|Properties
+name|props
+init|=
+name|ResourceLoader
+operator|.
+name|loadProperties
+argument_list|(
+literal|"org/apache/pdfbox/resources/pdfbox.properties"
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+name|String
+name|version
+init|=
+name|props
+operator|.
+name|getProperty
+argument_list|(
+literal|"pdfbox.version"
+argument_list|,
+literal|"unknown"
+argument_list|)
+decl_stmt|;
 name|System
 operator|.
 name|out
@@ -890,10 +918,7 @@ name|println
 argument_list|(
 literal|"Version : "
 operator|+
-name|Version
-operator|.
-name|getVersion
-argument_list|()
+name|version
 argument_list|)
 expr_stmt|;
 block|}

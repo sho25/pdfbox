@@ -15,18 +15,6 @@ name|tools
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|Version
-import|;
-end_import
-
 begin_comment
 comment|/**  * Simple wrapper around all the command line utilities included in PDFBox.  * Used as the main class in the runnable standalone PDFBox jar.  *  * @see<a href="https://issues.apache.org/jira/browse/PDFBOX-687">PDFBOX-687</a>  */
 end_comment
