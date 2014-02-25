@@ -51,17 +51,20 @@ literal|0
 block|,
 literal|0
 block|,
+comment|//  a  b  0
 literal|0
 block|,
 literal|1
 block|,
 literal|0
 block|,
+comment|//  c  d  0
 literal|0
 block|,
 literal|0
 block|,
 literal|1
+comment|//  tx ty 1
 block|}
 decl_stmt|;
 specifier|private
