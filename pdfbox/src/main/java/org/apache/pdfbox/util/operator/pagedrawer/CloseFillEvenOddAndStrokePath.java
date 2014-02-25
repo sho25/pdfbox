@@ -59,23 +59,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_comment
-comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:andreas@lehmi.de">Andreas Lehmkühler</a>  * @version $Revision: 1.0 $  */
-end_comment
-
-begin_class
-specifier|public
-class|class
-name|CloseFillEvenOddAndStrokePath
-extends|extends
 name|org
 operator|.
 name|apache
@@ -87,8 +70,33 @@ operator|.
 name|operator
 operator|.
 name|OperatorProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_comment
+comment|/**  * F Close, fill and stroke the path with even-odd winding rule.  * @author Andreas Lehmkühler  */
+end_comment
+
+begin_class
+specifier|public
+specifier|final
+class|class
+name|CloseFillEvenOddAndStrokePath
+extends|extends
+name|OperatorProcessor
 block|{
-comment|/**      * fill and stroke the path.      * @param operator The operator that is being executed.      * @param arguments List      *      * @throws IOException If an error occurs while processing the font.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|process
@@ -100,31 +108,31 @@ name|List
 argument_list|<
 name|COSBase
 argument_list|>
-name|arguments
+name|operands
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// execute ClosePath
 name|context
 operator|.
 name|processOperator
 argument_list|(
 literal|"h"
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
-comment|// execute FillEvenOddAndStroke
+comment|// ClosePath
 name|context
 operator|.
 name|processOperator
 argument_list|(
 literal|"B*"
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
+comment|// FillEvenOddAndStroke
 block|}
 block|}
 end_class

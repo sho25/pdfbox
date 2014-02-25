@@ -84,17 +84,19 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.1 $  */
+comment|/**  * b Close, fill and stroke the path with non-zero winding rule.  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|CloseFillNonZeroAndStrokePath
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * fill and stroke the path.      * @param operator The operator that is being executed.      * @param arguments List      *      * @throws IOException If an error occurs while processing the font.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|process
@@ -106,31 +108,31 @@ name|List
 argument_list|<
 name|COSBase
 argument_list|>
-name|arguments
+name|operands
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// execute ClosePath
 name|context
 operator|.
 name|processOperator
 argument_list|(
 literal|"h"
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
-comment|// execute FillNonZeroAndStroke
+comment|// ClosePath
 name|context
 operator|.
 name|processOperator
 argument_list|(
 literal|"B"
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
+comment|// FillNonZeroAndStroke
 block|}
 block|}
 end_class

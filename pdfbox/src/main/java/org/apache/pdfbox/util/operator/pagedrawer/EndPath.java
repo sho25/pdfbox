@@ -88,17 +88,19 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * n End the path.  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|EndPath
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * process : n : End path.      * @param operator The operator that is being executed.      * @param arguments List      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|process
@@ -110,18 +112,15 @@ name|List
 argument_list|<
 name|COSBase
 argument_list|>
-name|arguments
+name|operands
 parameter_list|)
 block|{
-name|PageDrawer
-name|drawer
-init|=
+operator|(
 operator|(
 name|PageDrawer
 operator|)
 name|context
-decl_stmt|;
-name|drawer
+operator|)
 operator|.
 name|endPath
 argument_list|()

@@ -126,17 +126,19 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * re Appends a rectangle to the path.  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|AppendRectangleToPath
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * process : re : append rectangle to path.      * @param operator The operator that is being executed.      * @param arguments List      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|process
@@ -148,7 +150,7 @@ name|List
 argument_list|<
 name|COSBase
 argument_list|>
-name|arguments
+name|operands
 parameter_list|)
 block|{
 name|PageDrawer
@@ -165,7 +167,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -178,7 +180,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -191,7 +193,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -204,7 +206,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -330,9 +332,8 @@ operator|.
 name|getY
 argument_list|()
 decl_stmt|;
-comment|// To ensure that the path is created in the right direction,
-comment|// we have to create it by combining single lines instead of
-comment|// creating a simple rectangle
+comment|// to ensure that the path is created in the right direction, we have to create
+comment|// it by combining single lines instead of creating a simple rectangle
 name|GeneralPath
 name|path
 init|=
@@ -385,9 +386,8 @@ operator|+
 name|height
 argument_list|)
 expr_stmt|;
-comment|// close the subpath instead of adding the last line
-comment|// so that a possible set line cap style isn't taken into account
-comment|// at the "beginning" of the rectangle
+comment|// close the subpath instead of adding the last line so that a possible set line
+comment|// cap style isn't taken into account at the "beginning" of the rectangle
 name|path
 operator|.
 name|closePath

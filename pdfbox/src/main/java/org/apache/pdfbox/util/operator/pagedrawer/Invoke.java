@@ -334,11 +334,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of content stream operator for page drawer.  *   * @author Ben Litchfield  * @author John Hewson  */
+comment|/**  * Do Draws an XObject.  * @author Ben Litchfield  * @author John Hewson  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|Invoke
 extends|extends
@@ -359,7 +360,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Do: Paint the specified XObject.      * @param operator the operator that is being executed.      * @param arguments list      * @throws IOException if there is an error invoking the sub object.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|process
@@ -371,7 +373,7 @@ name|List
 argument_list|<
 name|COSBase
 argument_list|>
-name|arguments
+name|operands
 parameter_list|)
 throws|throws
 name|IOException
@@ -390,7 +392,7 @@ init|=
 operator|(
 name|COSName
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(

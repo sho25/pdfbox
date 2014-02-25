@@ -114,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of content stream operator for page drawer.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * c Append curved segment to path.  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -124,7 +124,8 @@ name|CurveTo
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * process : c : Append curved segment to path.      * @param operator The operator that is being executed.      * @param arguments List      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|process
@@ -136,7 +137,7 @@ name|List
 argument_list|<
 name|COSBase
 argument_list|>
-name|arguments
+name|operands
 parameter_list|)
 block|{
 name|PageDrawer
@@ -153,7 +154,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -166,7 +167,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -179,7 +180,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -192,7 +193,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -205,7 +206,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -218,7 +219,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(

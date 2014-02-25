@@ -80,7 +80,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Huault : huault@free.fr  * @version $Revision: 1.3 $  */
+comment|/**  * Processes a PDF operator.  * @author Laurent Huault  */
 end_comment
 
 begin_class
@@ -89,19 +89,19 @@ specifier|abstract
 class|class
 name|OperatorProcessor
 block|{
-comment|/**      * The stream engine processing context.      */
+comment|/** The processing context. */
 specifier|protected
 name|PDFStreamEngine
 name|context
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor.      *      */
+comment|/**      * Creates a new OperatorProcessor.      */
 specifier|protected
 name|OperatorProcessor
 parameter_list|()
 block|{     }
-comment|/**      * Get the context for processing.      *      * @return The processing context.      */
+comment|/**      * Returns the processing context.      * @return the processing context      */
 specifier|protected
 name|PDFStreamEngine
 name|getContext
@@ -111,21 +111,23 @@ return|return
 name|context
 return|;
 block|}
-comment|/**      * Set the processing context.      *      * @param ctx The context for processing.      */
+comment|/**      * Sets the processing context.      * @param context the processing context.      */
 specifier|public
 name|void
 name|setContext
 parameter_list|(
 name|PDFStreamEngine
-name|ctx
+name|context
 parameter_list|)
 block|{
+name|this
+operator|.
 name|context
 operator|=
-name|ctx
+name|context
 expr_stmt|;
 block|}
-comment|/**      * process the operator.      * @param operator The operator that is being processed.      * @param arguments arguments needed by this operator.      *      * @throws IOException If there is an error processing the operator.      */
+comment|/**      * Process the operator.      * @param operator the operator to process      * @param operands the operands to use when processing      * @throws IOException if the operator cannot be processed      */
 specifier|public
 specifier|abstract
 name|void
@@ -138,7 +140,7 @@ name|List
 argument_list|<
 name|COSBase
 argument_list|>
-name|arguments
+name|operands
 parameter_list|)
 throws|throws
 name|IOException

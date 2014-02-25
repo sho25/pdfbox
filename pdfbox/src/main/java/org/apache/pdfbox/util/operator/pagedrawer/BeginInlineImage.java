@@ -57,34 +57,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -170,17 +142,18 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Begins an inline image.  *  * @author Ben Litchfield  */
+comment|/**  * BI Begins an inline image.  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|BeginInlineImage
 extends|extends
 name|OperatorProcessor
 block|{
-comment|/**      * BI begin inline image.      * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If there is an error displaying the inline image.      */
+comment|/**      * @throws IOException If there is an error displaying the inline image.      */
 specifier|public
 name|void
 name|process
@@ -192,7 +165,7 @@ name|List
 argument_list|<
 name|COSBase
 argument_list|>
-name|arguments
+name|operands
 parameter_list|)
 throws|throws
 name|IOException
