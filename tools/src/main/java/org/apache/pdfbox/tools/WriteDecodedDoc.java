@@ -10,6 +10,8 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|tools
 package|;
 end_package
 

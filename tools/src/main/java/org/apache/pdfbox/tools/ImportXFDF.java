@@ -10,18 +10,10 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|tools
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
 
 begin_import
 import|import
@@ -85,18 +77,28 @@ name|PDAcroForm
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
-comment|/**  * This example will take a PDF document and fill the fields with data from the  * FDF fields.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This example will take a PDF document and fill the fields with data from the  * XFDF fields.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|ImportFDF
+name|ImportXFDF
 block|{
 comment|/**      * Creates a new instance of ImportFDF.      */
 specifier|public
-name|ImportFDF
+name|ImportXFDF
 parameter_list|()
 block|{     }
 comment|/**      * This will takes the values from the fdf document and import them into the      * PDF document.      *      * @param pdfDocument The document to put the fdf data into.      * @param fdfDocument The FDF document to get the data from.      *      * @throws IOException If there is an error setting the data in the field.      */
@@ -157,16 +159,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ImportFDF
+name|ImportXFDF
 name|importer
 init|=
 operator|new
-name|ImportFDF
+name|ImportXFDF
 argument_list|()
 decl_stmt|;
 name|importer
 operator|.
-name|importFDF
+name|importXFDF
 argument_list|(
 name|args
 argument_list|)
@@ -174,7 +176,7 @@ expr_stmt|;
 block|}
 specifier|private
 name|void
-name|importFDF
+name|importXFDF
 parameter_list|(
 name|String
 index|[]
@@ -233,7 +235,7 @@ name|fdf
 operator|=
 name|FDFDocument
 operator|.
-name|load
+name|loadXFDF
 argument_list|(
 name|args
 index|[
@@ -258,6 +260,13 @@ name|args
 index|[
 literal|2
 index|]
+argument_list|)
+expr_stmt|;
+name|fdf
+operator|.
+name|save
+argument_list|(
+literal|"tmp/outputXFDFtoPDF.fdf"
 argument_list|)
 expr_stmt|;
 block|}
@@ -289,7 +298,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: org.apache.pdfbox.ImportFDF<pdf-file><fdf-file><output-file>"
+literal|"usage: org.apache.pdfbox.tools.ImportXFDF<pdf-file><fdf-file><output-file>"
 argument_list|)
 expr_stmt|;
 block|}

@@ -10,6 +10,8 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|tools
 package|;
 end_package
 
@@ -244,7 +246,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will read a read pdf and extract images.<br/><br/>  *  * usage: java org.apache.pdfbox.ExtractImages&lt;pdffile&gt;&lt;password&gt; [imageprefix]  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  */
+comment|/**  * This will read a read pdf and extract images.<br/><br/>  *  * usage: java org.apache.pdfbox.tools.ExtractImages&lt;pdffile&gt;&lt;password&gt; [imageprefix]  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  */
 end_comment
 
 begin_class
@@ -1130,7 +1132,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.ExtractImages [OPTIONS]<PDF file>\n"
+literal|"Usage: java org.apache.pdfbox.tools.ExtractImages [OPTIONS]<PDF file>\n"
 operator|+
 literal|"  -password<password>        Password to decrypt document\n"
 operator|+

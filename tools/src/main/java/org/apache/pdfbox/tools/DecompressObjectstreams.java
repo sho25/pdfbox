@@ -10,6 +10,8 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|tools
 package|;
 end_package
 
@@ -379,7 +381,7 @@ name|println
 argument_list|(
 literal|"Usage: java -cp pdfbox-app-x.y.z.jar "
 operator|+
-literal|"org.apache.pdfbox.DecompressObjectstreams<input PDF File> [<Output PDF File>]\n"
+literal|"org.apache.pdfbox.tools.DecompressObjectstreams<input PDF File> [<Output PDF File>]\n"
 operator|+
 literal|"<input PDF File>       The PDF document to decompress\n"
 operator|+

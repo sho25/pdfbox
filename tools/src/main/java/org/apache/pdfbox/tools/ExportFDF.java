@@ -10,6 +10,8 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|tools
 package|;
 end_package
 
@@ -78,11 +80,11 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|ExportXFDF
+name|ExportFDF
 block|{
 comment|/**      * Creates a new instance of ImportFDF.      */
 specifier|public
-name|ExportXFDF
+name|ExportFDF
 parameter_list|()
 block|{     }
 comment|/**      * This will import an fdf document and write out another pdf.      *<br />      * see usage() for commandline      *      * @param args command line arguments      *      * @throws Exception If there is an error importing the FDF document.      */
@@ -98,16 +100,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ExportXFDF
+name|ExportFDF
 name|exporter
 init|=
 operator|new
-name|ExportXFDF
+name|ExportFDF
 argument_list|()
 decl_stmt|;
 name|exporter
 operator|.
-name|exportXFDF
+name|exportFDF
 argument_list|(
 name|args
 argument_list|)
@@ -115,7 +117,7 @@ expr_stmt|;
 block|}
 specifier|private
 name|void
-name|exportXFDF
+name|exportFDF
 parameter_list|(
 name|String
 index|[]
@@ -258,7 +260,7 @@ operator|-
 literal|4
 argument_list|)
 operator|+
-literal|".xfdf"
+literal|".fdf"
 expr_stmt|;
 block|}
 block|}
@@ -271,7 +273,7 @@ argument_list|()
 expr_stmt|;
 name|fdf
 operator|.
-name|saveXFDF
+name|save
 argument_list|(
 name|fdfName
 argument_list|)
@@ -306,7 +308,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: org.apache.pdfbox.ExortXFDF<pdf-file> [output-xfdf-file]"
+literal|"usage: org.apache.pdfbox.ExortFDF<pdf-file> [output-fdf-file]"
 argument_list|)
 expr_stmt|;
 name|System
@@ -315,7 +317,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"    [output-xfdf-file] - Default is pdf name, test.pdf->test.xfdf"
+literal|"    [output-fdf-file] - Default is pdf name, test.pdf->test.fdf"
 argument_list|)
 expr_stmt|;
 block|}

@@ -109,6 +109,8 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|tools
+operator|.
 name|TextToPDF
 import|;
 end_import

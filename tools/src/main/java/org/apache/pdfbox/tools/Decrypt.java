@@ -10,6 +10,8 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|tools
 package|;
 end_package
 
@@ -122,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will read a document from the filesystem, decrypt it and and then write  * the results to the filesystem.<br/><br/>  *  * usage: java org.apache.pdfbox.Decrypt&lt;password&gt;&lt;inputfile&gt;&lt;outputfile&gt;  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
+comment|/**  * This will read a document from the filesystem, decrypt it and and then write  * the results to the filesystem.<br/><br/>  *  * usage: java org.apache.pdfbox.tools.Decrypt&lt;password&gt;&lt;inputfile&gt;&lt;outputfile&gt;  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
 end_comment
 
 begin_class

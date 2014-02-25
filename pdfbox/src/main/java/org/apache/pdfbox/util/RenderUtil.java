@@ -154,20 +154,116 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RenderUtil provides some convenience methods to print or draw a single page of a document.  *   */
+comment|/**  * RenderUtil provides some convenience methods to print or draw a single page of a document.  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|RenderUtil
 block|{
 specifier|private
 name|RenderUtil
 parameter_list|()
+block|{     }
+comment|/**      * Prints the given document using the default printer without prompting the user.      * @param document the document to be printed      * @throws PrinterException if the document cannot be printed      */
+specifier|public
+specifier|static
+name|void
+name|silentPrint
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|)
+throws|throws
+name|PrinterException
 block|{
-comment|// Utility class. Don't instantiate.
+name|silentPrint
+argument_list|(
+name|document
+argument_list|,
+name|PrinterJob
+operator|.
+name|getPrinterJob
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
+comment|/**      * Prints the given document using the default printer without prompting the user.      * @param document the document to be printed      * @param printerJob a printer job definition      * @throws PrinterException if the document cannot be printed      */
+specifier|public
+specifier|static
+name|void
+name|silentPrint
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|,
+name|PrinterJob
+name|printerJob
+parameter_list|)
+throws|throws
+name|PrinterException
+block|{
+name|print
+argument_list|(
+name|document
+argument_list|,
+name|printerJob
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Prints the given document using the default printer without prompting the user.      * The image is generated using {@link org.apache.pdfbox.pdfviewer.PageDrawer}.      * This is a convenience method to create the java.awt.print.PrinterJob.      * Advanced printing tasks can be performed using {@link PDPageable} instead.      * @param document the document to be printed      * @throws PrinterException if the document cannot be printed      */
+specifier|public
+specifier|static
+name|void
+name|print
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|)
+throws|throws
+name|PrinterException
+block|{
+name|print
+argument_list|(
+name|document
+argument_list|,
+name|PrinterJob
+operator|.
+name|getPrinterJob
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Prints the given document using the default printer without prompting the user.      * @param document the document to be printed      * @param printerJob The printer job.      * @throws PrinterException if the document cannot be printed      */
+specifier|public
+specifier|static
+name|void
+name|print
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|,
+name|PrinterJob
+name|printerJob
+parameter_list|)
+throws|throws
+name|PrinterException
+block|{
+name|print
+argument_list|(
+name|document
+argument_list|,
+name|printerJob
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|// prints a document
 specifier|private
 specifier|static
 name|void
@@ -180,7 +276,7 @@ name|PrinterJob
 name|job
 parameter_list|,
 name|boolean
-name|silent
+name|isSilent
 parameter_list|)
 throws|throws
 name|PrinterException
@@ -194,9 +290,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|PrinterException
+name|IllegalArgumentException
 argument_list|(
-literal|"The given printer job is null."
+literal|"job cannot be null"
 argument_list|)
 throw|;
 block|}
@@ -217,7 +313,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|silent
+name|isSilent
 operator|||
 name|job
 operator|.
@@ -233,103 +329,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will send the PDF to the default printer without prompting the user for any printer settings.      *       * @param document the document to be printed      * @param printJob A printer job definition.      * @see RenderUtil#print(PDDocument)      *       * @throws PrinterException If there is an error while printing.      */
-specifier|public
-specifier|static
-name|void
-name|silentPrint
-parameter_list|(
-name|PDDocument
-name|document
-parameter_list|,
-name|PrinterJob
-name|printJob
-parameter_list|)
-throws|throws
-name|PrinterException
-block|{
-name|print
-argument_list|(
-name|document
-argument_list|,
-name|printJob
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * @see RenderUtil#print(PDDocument)      *       * @param document the document to be printed      * @param printJob The printer job.      *       * @throws PrinterException If there is an error while sending the PDF to the printer, or you do not have      *             permissions to print this document.      */
-specifier|public
-specifier|static
-name|void
-name|print
-parameter_list|(
-name|PDDocument
-name|document
-parameter_list|,
-name|PrinterJob
-name|printJob
-parameter_list|)
-throws|throws
-name|PrinterException
-block|{
-name|print
-argument_list|(
-name|document
-argument_list|,
-name|printJob
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * This will send the PDF document to a printer. The printing functionality depends on the      * org.apache.pdfbox.pdfviewer.PageDrawer functionality. The PageDrawer is a work in progress and some PDFs will      * print correctly and some will not. This is a convenience method to create the java.awt.print.PrinterJob. The      * PDPageable implements the java.awt.print.Pageable interface and the java.awt.print.Printable interface, so      * advanced printing capabilities can be done by using those interfaces instead of this method.      *       * @param document the document to be printed      * @throws PrinterException If there is an error while sending the PDF to the printer, or you do not have      *             permissions to print the document.      */
-specifier|public
-specifier|static
-name|void
-name|print
-parameter_list|(
-name|PDDocument
-name|document
-parameter_list|)
-throws|throws
-name|PrinterException
-block|{
-name|print
-argument_list|(
-name|document
-argument_list|,
-name|PrinterJob
-operator|.
-name|getPrinterJob
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * This will send the given PDF to the default printer without prompting the user for any printer settings.      *       * @param document the document to be printed      * @see RenderUtil#print(PDDocument)      *       * @throws PrinterException If there is an error while printing.      */
-specifier|public
-specifier|static
-name|void
-name|silentPrint
-parameter_list|(
-name|PDDocument
-name|document
-parameter_list|)
-throws|throws
-name|PrinterException
-block|{
-name|silentPrint
-argument_list|(
-name|document
-argument_list|,
-name|PrinterJob
-operator|.
-name|getPrinterJob
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Convert the given page to an output image with 8 bits per pixel and the double default screen resolution.      *       * @param page the page to be converted.      * @return A graphical representation of this page.      *       * @throws IOException If there is an error drawing to the image.      */
+comment|// =============================================================================================
+comment|/**      * Convert the given page to an output image with 8 bits per pixel and the double default screen resolution.      *      * @param page the page to be converted.      * @return A graphical representation of this page.      * @throws IOException If there is an error drawing to the image.      */
 specifier|public
 specifier|static
 name|BufferedImage
@@ -362,7 +363,7 @@ name|DEFAULT_USER_SPACE_UNIT_DPI
 argument_list|)
 return|;
 block|}
-comment|/**      * Convert the given page to an output image.      *       * @param page the page to be converted.      * @param imageType the image type (see {@link BufferedImage}.TYPE_*)      * @param resolution the resolution in dpi (dots per inch)      * @return A graphical representation of this page.      *       * @throws IOException If there is an error drawing to the image.      */
+comment|/**      * Convert the given page to an output image.      *      * @param page the page to be converted.      * @param imageType the image type (see {@link BufferedImage}.TYPE_*)      * @param resolution the resolution in dpi (dots per inch)      * @return A graphical representation of this page.      * @throws IOException If there is an error drawing to the image.      */
 specifier|public
 specifier|static
 name|BufferedImage
@@ -578,6 +579,7 @@ return|return
 name|image
 return|;
 block|}
+comment|// renders a page to the given graphics
 specifier|private
 specifier|static
 name|void
