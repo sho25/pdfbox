@@ -665,6 +665,22 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
+name|PDLineDashPattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
 name|PDShading
 import|;
 end_import
@@ -1004,12 +1020,6 @@ name|GeneralPath
 argument_list|()
 decl_stmt|;
 specifier|private
-name|BasicStroke
-name|stroke
-init|=
-literal|null
-decl_stmt|;
-specifier|private
 name|Map
 argument_list|<
 name|PDFont
@@ -1148,7 +1158,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// initialize the used stroke with CAP_BUTT instead of CAP_SQUARE
+comment|// TODO use getStroke() to set the initial stroke
 name|graphics
 operator|.
 name|setStroke
@@ -3078,16 +3088,6 @@ return|return
 name|glyph2D
 return|;
 block|}
-comment|/**      * Get the graphics that we are currently drawing on.      *       * @return The graphics we are drawing on.      */
-specifier|public
-name|Graphics2D
-name|getGraphics
-parameter_list|()
-block|{
-return|return
-name|graphics
-return|;
-block|}
 comment|/**      * Get the current line path to be drawn.      *       * @return The current line path to be drawn.      */
 specifier|public
 name|GeneralPath
@@ -3253,7 +3253,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|// returns the stroking AWT Paint.
+comment|// returns the stroking AWT Paint
 specifier|private
 name|Paint
 name|getStrokingPaint
@@ -3280,7 +3280,7 @@ name|pageHeight
 argument_list|)
 return|;
 block|}
-comment|// returns the non-stroking AWT Paint.
+comment|// returns the non-stroking AWT Paint
 specifier|private
 name|Paint
 name|getNonStrokingPaint
@@ -3307,48 +3307,27 @@ name|pageHeight
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the current stroke.      *       * @param newStroke The current stroke.      *       */
-specifier|public
-name|void
-name|setStroke
-parameter_list|(
-name|BasicStroke
-name|newStroke
-parameter_list|)
-block|{
-name|stroke
-operator|=
-name|newStroke
-expr_stmt|;
-block|}
-comment|/**      * This will return the current stroke.      *       * @return The current stroke.      *       */
-specifier|public
+comment|// create a new stroke based on the current CTM and the current stroke
+specifier|private
 name|BasicStroke
 name|getStroke
 parameter_list|()
 block|{
-return|return
-name|stroke
-return|;
-block|}
-comment|/**      * Create a new stroke based on the current ctm and the current stroke.      *       * @return the transformed stroke      */
-specifier|private
-name|BasicStroke
-name|calculateStroke
-parameter_list|()
-block|{
+name|PDGraphicsState
+name|state
+init|=
+name|getGraphicsState
+argument_list|()
+decl_stmt|;
 name|float
 name|lineWidth
 init|=
-operator|(
-name|float
-operator|)
-name|getGraphicsState
-argument_list|()
+name|state
 operator|.
 name|getLineWidth
 argument_list|()
 decl_stmt|;
+comment|// apply the CTM
 name|Matrix
 name|ctm
 init|=
@@ -3382,6 +3361,7 @@ name|getXScale
 argument_list|()
 expr_stmt|;
 block|}
+comment|// minimum line width as used by Adobe Reader
 if|if
 condition|(
 name|lineWidth
@@ -3394,42 +3374,27 @@ operator|=
 literal|0.25f
 expr_stmt|;
 block|}
-name|BasicStroke
-name|currentStroke
+name|PDLineDashPattern
+name|dashPattern
 init|=
-literal|null
+name|state
+operator|.
+name|getLineDashPattern
+argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|stroke
-operator|==
-literal|null
-condition|)
-block|{
-name|currentStroke
-operator|=
-operator|new
-name|BasicStroke
-argument_list|(
-name|lineWidth
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|float
+name|int
 name|phaseStart
 init|=
-name|stroke
+name|dashPattern
 operator|.
-name|getDashPhase
+name|getPhase
 argument_list|()
 decl_stmt|;
 name|float
 index|[]
 name|dashArray
 init|=
-name|stroke
+name|dashPattern
 operator|.
 name|getDashArray
 argument_list|()
@@ -3483,7 +3448,6 @@ name|getXScale
 argument_list|()
 expr_stmt|;
 block|}
-block|}
 name|phaseStart
 operator|*=
 name|ctm
@@ -3491,25 +3455,40 @@ operator|.
 name|getXScale
 argument_list|()
 expr_stmt|;
-block|}
-name|currentStroke
+comment|// empty dash array is illegal
+if|if
+condition|(
+name|dashArray
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+name|dashArray
 operator|=
+literal|null
+expr_stmt|;
+block|}
+block|}
+block|}
+return|return
 operator|new
 name|BasicStroke
 argument_list|(
 name|lineWidth
 argument_list|,
-name|stroke
+name|state
 operator|.
-name|getEndCap
+name|getLineCap
 argument_list|()
 argument_list|,
-name|stroke
+name|state
 operator|.
 name|getLineJoin
 argument_list|()
 argument_list|,
-name|stroke
+name|state
 operator|.
 name|getMiterLimit
 argument_list|()
@@ -3518,10 +3497,6 @@ name|dashArray
 argument_list|,
 name|phaseStart
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|currentStroke
 return|;
 block|}
 comment|/**      * Stroke the path.      *       * @throws IOException If there is an IO error while stroking the path.      */
@@ -3592,7 +3567,7 @@ name|graphics
 operator|.
 name|setStroke
 argument_list|(
-name|calculateStroke
+name|getStroke
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -256,9 +256,6 @@ name|setLineWidth
 argument_list|(
 name|getLineWidth
 argument_list|()
-operator|.
-name|doubleValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -324,9 +321,6 @@ operator|.
 name|setMiterLimit
 argument_list|(
 name|getMiterLimit
-argument_list|()
-operator|.
-name|doubleValue
 argument_list|()
 argument_list|)
 expr_stmt|;

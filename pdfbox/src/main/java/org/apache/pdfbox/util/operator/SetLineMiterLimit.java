@@ -129,7 +129,7 @@ name|setMiterLimit
 argument_list|(
 name|miterLimit
 operator|.
-name|doubleValue
+name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;

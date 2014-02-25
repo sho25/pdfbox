@@ -289,13 +289,13 @@ name|STYLE_SOLID
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the dash style used for drawing the border.      *      * @param d      *            the dash style to use      */
+comment|/**      * This will set the dash style used for drawing the border.      *      * @param dashArray      *            the dash style to use      */
 specifier|public
 name|void
 name|setDashStyle
 parameter_list|(
-name|PDLineDashPattern
-name|d
+name|COSArray
+name|dashArray
 parameter_list|)
 block|{
 name|COSArray
@@ -305,17 +305,14 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|d
+name|dashArray
 operator|!=
 literal|null
 condition|)
 block|{
 name|array
 operator|=
-name|d
-operator|.
-name|getCOSDashPattern
-argument_list|()
+name|dashArray
 expr_stmt|;
 block|}
 name|getDictionary

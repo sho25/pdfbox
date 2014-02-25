@@ -129,7 +129,7 @@ name|setLineWidth
 argument_list|(
 name|width
 operator|.
-name|doubleValue
+name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;

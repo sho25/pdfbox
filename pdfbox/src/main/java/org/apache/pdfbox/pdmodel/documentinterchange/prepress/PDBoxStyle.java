@@ -491,13 +491,13 @@ return|return
 name|pattern
 return|;
 block|}
-comment|/**      * Set the line dash pattern associated with this box style.      *      * @param pattern The patter for this box style.      */
+comment|/**      * Set the line dash pattern associated with this box style.      *      * @param dashArray The patter for this box style.      */
 specifier|public
 name|void
 name|setLineDashPattern
 parameter_list|(
-name|PDLineDashPattern
-name|pattern
+name|COSArray
+name|dashArray
 parameter_list|)
 block|{
 name|COSArray
@@ -507,17 +507,14 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|pattern
+name|dashArray
 operator|!=
 literal|null
 condition|)
 block|{
 name|array
 operator|=
-name|pattern
-operator|.
-name|getCOSDashPattern
-argument_list|()
+name|dashArray
 expr_stmt|;
 block|}
 name|dictionary
