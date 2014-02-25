@@ -335,20 +335,6 @@ name|PDRectangle
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|MapUtil
-import|;
-end_import
-
 begin_comment
 comment|/**  * Adds an overlay to an existing PDF document.  *    * Based on code contributed by Balazs Jerk.   *   */
 end_comment
@@ -571,7 +557,7 @@ name|NONSEQ
 init|=
 literal|"-nonSeq"
 decl_stmt|;
-comment|/**      * This will overlay a document and write out the results.      *      * @param args command line arguments      * @throws Exception if something went wrong      * @see #USAGE      */
+comment|/**      * This will overlay a document and write out the results.      *      * @param args command line arguments      * @throws Exception if something went wrong      */
 specifier|public
 specifier|static
 name|void
@@ -2701,8 +2687,6 @@ block|}
 name|String
 name|xObjectId
 init|=
-name|MapUtil
-operator|.
 name|getNextUniqueKey
 argument_list|(
 name|resources
@@ -2952,6 +2936,57 @@ argument_list|)
 expr_stmt|;
 return|return
 name|xObjectId
+return|;
+block|}
+comment|// TODO this is obsolete, should be using PDResources#addXObject instead
+specifier|private
+specifier|static
+name|String
+name|getNextUniqueKey
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
+name|map
+parameter_list|,
+name|String
+name|prefix
+parameter_list|)
+block|{
+name|int
+name|counter
+init|=
+literal|0
+decl_stmt|;
+while|while
+condition|(
+name|map
+operator|!=
+literal|null
+operator|&&
+name|map
+operator|.
+name|get
+argument_list|(
+name|prefix
+operator|+
+name|counter
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+name|counter
+operator|++
+expr_stmt|;
+block|}
+return|return
+name|prefix
+operator|+
+name|counter
 return|;
 block|}
 specifier|private
