@@ -174,13 +174,6 @@ name|phase
 operator|=
 literal|0
 expr_stmt|;
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"this is a fail"
-argument_list|)
-throw|;
 block|}
 comment|/**      * Creates a new line dash pattern from a COS array.      * @param dashPattern the COS line dash pattern      */
 comment|// todo: get rid of this constructor?
