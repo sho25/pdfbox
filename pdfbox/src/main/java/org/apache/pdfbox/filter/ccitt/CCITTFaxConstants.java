@@ -15,7 +15,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
+name|filter
 operator|.
 name|ccitt
 package|;
@@ -25,24 +25,27 @@ begin_comment
 comment|/**  * Constants for CCITT Fax Filter.  * @version $Revision$  */
 end_comment
 
-begin_interface
-specifier|public
-interface|interface
+begin_class
+specifier|final
+class|class
 name|CCITTFaxConstants
 block|{
 comment|/** A constant for group 3 1D encoding (ITU T.4). */
+specifier|final
 name|int
 name|COMPRESSION_GROUP3_1D
 init|=
 literal|0
 decl_stmt|;
 comment|/** A constant for group 3 2D encoding (ITU T.4). */
+specifier|final
 name|int
 name|COMPRESSION_GROUP3_2D
 init|=
 literal|1
 decl_stmt|;
 comment|/** A constant for group 4 2D encoding (ITU T.6). */
+specifier|final
 name|int
 name|COMPRESSION_GROUP4_2D
 init|=
@@ -514,7 +517,7 @@ init|=
 literal|0x0C01
 decl_stmt|;
 block|}
-end_interface
+end_class
 
 end_unit
 

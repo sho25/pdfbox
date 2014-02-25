@@ -15,7 +15,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
+name|filter
 operator|.
 name|ccitt
 package|;

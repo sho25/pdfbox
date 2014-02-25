@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
+name|filter
 package|;
 end_package
 
@@ -50,7 +50,7 @@ comment|/**  * This class represents an ASCII85 stream.  *  * @author<a href="ma
 end_comment
 
 begin_class
-specifier|public
+specifier|final
 class|class
 name|ASCII85InputStream
 extends|extends

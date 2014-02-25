@@ -15,7 +15,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
+name|filter
 operator|.
 name|ccitt
 package|;
@@ -47,12 +47,11 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|CCITTFaxG31DDecodeInputStream
 extends|extends
 name|InputStream
-implements|implements
-name|CCITTFaxConstants
 block|{
 specifier|private
 specifier|static
@@ -743,6 +742,8 @@ parameter_list|()
 block|{
 name|buildUpTerminating
 argument_list|(
+name|CCITTFaxConstants
+operator|.
 name|WHITE_TERMINATING
 argument_list|,
 name|WHITE_LOOKUP_TREE_ROOT
@@ -752,6 +753,8 @@ argument_list|)
 expr_stmt|;
 name|buildUpTerminating
 argument_list|(
+name|CCITTFaxConstants
+operator|.
 name|BLACK_TERMINATING
 argument_list|,
 name|BLACK_LOOKUP_TREE_ROOT
@@ -761,6 +764,8 @@ argument_list|)
 expr_stmt|;
 name|buildUpMakeUp
 argument_list|(
+name|CCITTFaxConstants
+operator|.
 name|WHITE_MAKE_UP
 argument_list|,
 name|WHITE_LOOKUP_TREE_ROOT
@@ -768,6 +773,8 @@ argument_list|)
 expr_stmt|;
 name|buildUpMakeUp
 argument_list|(
+name|CCITTFaxConstants
+operator|.
 name|BLACK_MAKE_UP
 argument_list|,
 name|BLACK_LOOKUP_TREE_ROOT
@@ -775,6 +782,8 @@ argument_list|)
 expr_stmt|;
 name|buildUpMakeUpLong
 argument_list|(
+name|CCITTFaxConstants
+operator|.
 name|LONG_MAKE_UP
 argument_list|,
 name|WHITE_LOOKUP_TREE_ROOT
@@ -782,6 +791,8 @@ argument_list|)
 expr_stmt|;
 name|buildUpMakeUpLong
 argument_list|(
+name|CCITTFaxConstants
+operator|.
 name|LONG_MAKE_UP
 argument_list|,
 name|BLACK_LOOKUP_TREE_ROOT

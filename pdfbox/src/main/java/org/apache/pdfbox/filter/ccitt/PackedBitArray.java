@@ -15,7 +15,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
+name|filter
 operator|.
 name|ccitt
 package|;
@@ -26,7 +26,7 @@ comment|/**  * Represents an array of bits packed in a byte array of fixed size.
 end_comment
 
 begin_class
-specifier|public
+specifier|final
 class|class
 name|PackedBitArray
 block|{

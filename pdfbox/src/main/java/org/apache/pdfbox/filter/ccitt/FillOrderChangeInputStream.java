@@ -15,7 +15,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
+name|filter
 operator|.
 name|ccitt
 package|;
@@ -57,6 +57,7 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|FillOrderChangeInputStream
 extends|extends
