@@ -10,6 +10,8 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|tools
 package|;
 end_package
 
@@ -98,20 +100,6 @@ operator|.
 name|pdmodel
 operator|.
 name|PDDocumentCatalog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|tools
-operator|.
-name|TextToPDF
 import|;
 end_import
 
