@@ -351,20 +351,6 @@ name|PDPageXYZDestination
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|BitFlagHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * This represents an outline in a pdf document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  */
 end_comment
@@ -1302,12 +1288,10 @@ name|isItalic
 parameter_list|()
 block|{
 return|return
-name|BitFlagHelper
+name|node
 operator|.
 name|getFlag
 argument_list|(
-name|node
-argument_list|,
 name|COSName
 operator|.
 name|F
@@ -1325,12 +1309,10 @@ name|boolean
 name|italic
 parameter_list|)
 block|{
-name|BitFlagHelper
+name|node
 operator|.
 name|setFlag
 argument_list|(
-name|node
-argument_list|,
 name|COSName
 operator|.
 name|F
@@ -1348,12 +1330,10 @@ name|isBold
 parameter_list|()
 block|{
 return|return
-name|BitFlagHelper
+name|node
 operator|.
 name|getFlag
 argument_list|(
-name|node
-argument_list|,
 name|COSName
 operator|.
 name|F
@@ -1371,12 +1351,10 @@ name|boolean
 name|bold
 parameter_list|)
 block|{
-name|BitFlagHelper
+name|node
 operator|.
 name|setFlag
 argument_list|(
-name|node
-argument_list|,
 name|COSName
 operator|.
 name|F

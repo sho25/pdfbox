@@ -107,20 +107,6 @@ name|COSArrayList
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|BitFlagHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * A class for handling the PDF field as a Radio Collection.  * This class automatically keeps track of the child radio buttons  * in the collection.  *  * @see PDCheckbox  * @author sug  * @version $Revision: 1.13 $  */
 end_comment
@@ -171,13 +157,11 @@ name|boolean
 name|radiosInUnison
 parameter_list|)
 block|{
-name|BitFlagHelper
+name|getDictionary
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
-name|getDictionary
-argument_list|()
-argument_list|,
 name|COSName
 operator|.
 name|FF
@@ -195,13 +179,11 @@ name|isRadiosInUnison
 parameter_list|()
 block|{
 return|return
-name|BitFlagHelper
+name|getDictionary
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
-name|getDictionary
-argument_list|()
-argument_list|,
 name|COSName
 operator|.
 name|FF
