@@ -16,6 +16,8 @@ operator|.
 name|pdfbox
 operator|.
 name|filter
+operator|.
+name|ccitt
 package|;
 end_package
 
@@ -24,6 +26,7 @@ comment|/**  * CCITT Fax decoder  */
 end_comment
 
 begin_class
+specifier|public
 specifier|final
 class|class
 name|TIFFFaxDecoder
