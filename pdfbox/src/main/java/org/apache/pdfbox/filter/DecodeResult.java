@@ -57,6 +57,21 @@ specifier|final
 class|class
 name|DecodeResult
 block|{
+comment|/** Default decode result. */
+specifier|public
+specifier|final
+specifier|static
+name|DecodeResult
+name|DEFAULT
+init|=
+operator|new
+name|DecodeResult
+argument_list|(
+operator|new
+name|COSDictionary
+argument_list|()
+argument_list|)
+decl_stmt|;
 specifier|private
 name|COSDictionary
 name|parameters

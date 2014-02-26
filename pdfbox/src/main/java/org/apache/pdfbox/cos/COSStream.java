@@ -651,6 +651,10 @@ condition|(
 name|unFilteredStream
 operator|==
 literal|null
+operator|||
+name|decodeResult
+operator|==
+literal|null
 condition|)
 block|{
 throw|throw
@@ -715,6 +719,12 @@ literal|null
 condition|)
 block|{
 comment|//then do nothing
+name|decodeResult
+operator|=
+name|DecodeResult
+operator|.
+name|DEFAULT
+expr_stmt|;
 block|}
 elseif|else
 if|if
