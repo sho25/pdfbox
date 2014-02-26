@@ -305,7 +305,9 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|text
+name|graphics
+operator|.
+name|state
 operator|.
 name|PDTextState
 import|;

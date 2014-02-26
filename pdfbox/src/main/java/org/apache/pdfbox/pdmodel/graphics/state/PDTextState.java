@@ -13,7 +13,9 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|text
+name|graphics
+operator|.
+name|state
 package|;
 end_package
 
