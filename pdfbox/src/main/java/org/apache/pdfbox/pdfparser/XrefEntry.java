@@ -11,18 +11,15 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|common
+name|pdfparser
 package|;
 end_package
 
 begin_comment
-comment|/**  *  * @author adam  */
+comment|/**  * XRef Entry.  * @author Adam Nichols  */
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|XrefEntry
 block|{
@@ -50,10 +47,6 @@ name|inUse
 init|=
 literal|true
 decl_stmt|;
-specifier|public
-name|XrefEntry
-parameter_list|()
-block|{     }
 specifier|public
 name|XrefEntry
 parameter_list|(
