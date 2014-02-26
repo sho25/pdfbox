@@ -6690,6 +6690,19 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|// workaround for PDFBOX-1916, it is not clear whether the
+comment|// code in the class is to blame or if the PDF is corrupt
+if|if
+condition|(
+name|cce
+operator|.
+name|length
+operator|==
+name|currIndex
+condition|)
+block|{
+break|break;
+block|}
 comment|// Add the changing element beyond the current scanline for the
 comment|// other color too
 name|cce
