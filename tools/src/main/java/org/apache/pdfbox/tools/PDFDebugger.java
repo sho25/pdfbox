@@ -37,7 +37,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|tools
+operator|.
+name|gui
 operator|.
 name|PDFTreeModel
 import|;
@@ -51,7 +53,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|tools
+operator|.
+name|gui
 operator|.
 name|PDFTreeCellRenderer
 import|;
@@ -65,7 +69,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|tools
+operator|.
+name|gui
 operator|.
 name|ArrayEntry
 import|;
@@ -79,7 +85,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|tools
+operator|.
+name|gui
 operator|.
 name|MapEntry
 import|;

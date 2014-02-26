@@ -11,7 +11,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|tools
+operator|.
+name|gui
 package|;
 end_package
 

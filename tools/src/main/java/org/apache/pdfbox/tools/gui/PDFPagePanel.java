@@ -11,7 +11,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|tools
+operator|.
+name|gui
 package|;
 end_package
 
@@ -62,6 +64,20 @@ operator|.
 name|swing
 operator|.
 name|JPanel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdfviewer
+operator|.
+name|PageDrawer
 import|;
 end_import
 
