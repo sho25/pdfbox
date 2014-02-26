@@ -16,8 +16,6 @@ operator|.
 name|graphics
 operator|.
 name|pattern
-operator|.
-name|tiling
 package|;
 end_package
 

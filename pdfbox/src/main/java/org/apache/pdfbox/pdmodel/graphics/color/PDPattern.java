@@ -129,8 +129,6 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|tiling
-operator|.
 name|TilingPaint
 import|;
 end_import
