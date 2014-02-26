@@ -11,7 +11,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|pdmodel
+operator|.
+name|fdf
 package|;
 end_package
 
@@ -124,7 +126,7 @@ comment|/**  * This class with handle some simple XML operations.  *  * @author<
 end_comment
 
 begin_class
-specifier|public
+specifier|final
 class|class
 name|XMLUtil
 block|{
