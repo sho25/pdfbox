@@ -124,7 +124,7 @@ specifier|public
 class|class
 name|PDShadingType1
 extends|extends
-name|PDShadingResources
+name|PDShading
 block|{
 specifier|private
 name|COSArray
@@ -153,7 +153,7 @@ name|getShadingType
 parameter_list|()
 block|{
 return|return
-name|PDShadingResources
+name|PDShading
 operator|.
 name|SHADING_TYPE1
 return|;

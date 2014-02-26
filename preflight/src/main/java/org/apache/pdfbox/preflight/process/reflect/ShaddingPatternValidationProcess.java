@@ -137,7 +137,7 @@ name|graphics
 operator|.
 name|shading
 operator|.
-name|PDShadingResources
+name|PDShading
 import|;
 end_import
 
@@ -354,7 +354,7 @@ name|vPath
 operator|.
 name|isExpectedType
 argument_list|(
-name|PDShadingResources
+name|PDShading
 operator|.
 name|class
 argument_list|)
@@ -378,11 +378,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|PDShadingResources
+name|PDShading
 name|shaddingResource
 init|=
 operator|(
-name|PDShadingResources
+name|PDShading
 operator|)
 name|vPath
 operator|.
@@ -432,7 +432,7 @@ parameter_list|,
 name|PDPage
 name|page
 parameter_list|,
-name|PDShadingResources
+name|PDShading
 name|shadingRes
 parameter_list|)
 throws|throws
@@ -521,7 +521,7 @@ parameter_list|,
 name|PDPage
 name|page
 parameter_list|,
-name|PDShadingResources
+name|PDShading
 name|shadingRes
 parameter_list|)
 throws|throws

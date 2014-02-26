@@ -277,7 +277,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDPatternDictionary
+name|PDAbstractPattern
 import|;
 end_import
 
@@ -313,7 +313,7 @@ name|graphics
 operator|.
 name|shading
 operator|.
-name|PDShadingResources
+name|PDShading
 import|;
 end_import
 
@@ -727,7 +727,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDShadingResources
+name|PDShading
 argument_list|>
 name|shadingResources
 init|=
@@ -749,7 +749,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|PDShadingResources
+name|PDShading
 argument_list|>
 name|entry
 range|:
@@ -820,7 +820,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 argument_list|>
 name|patternResources
 init|=
@@ -842,7 +842,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 argument_list|>
 name|entry
 range|:

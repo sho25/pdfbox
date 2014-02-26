@@ -141,7 +141,7 @@ name|graphics
 operator|.
 name|shading
 operator|.
-name|PDShadingResources
+name|PDShading
 import|;
 end_import
 
@@ -168,14 +168,14 @@ specifier|public
 class|class
 name|PDShadingPattern
 extends|extends
-name|PDPatternDictionary
+name|PDAbstractPattern
 block|{
 specifier|private
 name|PDExtendedGraphicsState
 name|extendedGraphicsState
 decl_stmt|;
 specifier|private
-name|PDShadingResources
+name|PDShading
 name|shading
 decl_stmt|;
 specifier|private
@@ -201,7 +201,7 @@ name|COSName
 operator|.
 name|PATTERN_TYPE
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 operator|.
 name|TYPE_SHADING_PATTERN
 argument_list|)
@@ -229,7 +229,7 @@ name|getPatternType
 parameter_list|()
 block|{
 return|return
-name|PDPatternDictionary
+name|PDAbstractPattern
 operator|.
 name|TYPE_SHADING_PATTERN
 return|;
@@ -599,7 +599,7 @@ block|}
 block|}
 comment|/**      * This will get the shading resources for this pattern.      * @return The shading resources for this pattern.      * @throws IOException if something went wrong      */
 specifier|public
-name|PDShadingResources
+name|PDShading
 name|getShading
 parameter_list|()
 throws|throws
@@ -637,7 +637,7 @@ condition|)
 block|{
 name|shading
 operator|=
-name|PDShadingResources
+name|PDShading
 operator|.
 name|create
 argument_list|(
@@ -655,7 +655,7 @@ specifier|public
 name|void
 name|setShading
 parameter_list|(
-name|PDShadingResources
+name|PDShading
 name|shadingResources
 parameter_list|)
 block|{

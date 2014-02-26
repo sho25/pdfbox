@@ -154,14 +154,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents resources for a shading.  *  * @version $Revision: 1.0 $  */
+comment|/**  * This represents resources for a shading.  *  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
 specifier|public
 specifier|abstract
 class|class
-name|PDShadingResources
+name|PDShading
 implements|implements
 name|COSObjectable
 block|{
@@ -265,7 +265,7 @@ literal|7
 decl_stmt|;
 comment|/**      * Default constructor.      */
 specifier|public
-name|PDShadingResources
+name|PDShading
 parameter_list|()
 block|{
 name|dictionary
@@ -277,7 +277,7 @@ expr_stmt|;
 block|}
 comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary The dictionary for this shading.      */
 specifier|public
-name|PDShadingResources
+name|PDShading
 parameter_list|(
 name|COSDictionary
 name|shadingDictionary
@@ -643,7 +643,7 @@ block|}
 comment|/**      * Create the correct PD Model shading based on the COS base shading.      *       * @param resourceDictionary the COS shading dictionary      *       * @return the newly created shading resources object      *       * @throws IOException If we are unable to create the PDShading object.      */
 specifier|public
 specifier|static
-name|PDShadingResources
+name|PDShading
 name|create
 parameter_list|(
 name|COSDictionary
@@ -652,7 +652,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDShadingResources
+name|PDShading
 name|shading
 init|=
 literal|null

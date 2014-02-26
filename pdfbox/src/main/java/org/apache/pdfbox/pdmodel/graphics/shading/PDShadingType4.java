@@ -86,7 +86,7 @@ specifier|public
 class|class
 name|PDShadingType4
 extends|extends
-name|PDShadingResources
+name|PDShading
 block|{
 comment|/**      * An array of 2^n numbers specifying the linear mapping of sample values      * into the range appropriate for the function's output values. Default      * value: same as the value of Range      */
 specifier|private
@@ -116,7 +116,7 @@ name|getShadingType
 parameter_list|()
 block|{
 return|return
-name|PDShadingResources
+name|PDShading
 operator|.
 name|SHADING_TYPE4
 return|;

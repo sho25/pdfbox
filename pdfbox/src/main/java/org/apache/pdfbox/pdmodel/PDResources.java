@@ -237,7 +237,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDPatternDictionary
+name|PDAbstractPattern
 import|;
 end_import
 
@@ -255,7 +255,7 @@ name|graphics
 operator|.
 name|shading
 operator|.
-name|PDShadingResources
+name|PDShading
 import|;
 end_import
 
@@ -413,7 +413,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 argument_list|>
 name|patterns
 init|=
@@ -424,7 +424,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDShadingResources
+name|PDShading
 argument_list|>
 name|shadings
 init|=
@@ -1651,13 +1651,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the map of patterns. This will return null if the underlying resources dictionary does not have a      * patterns dictionary. The keys are the pattern name as a String and the values are PDPatternDictionary objects.      *       * @return The map of pattern resources objects.      *       * @throws IOException If there is an error getting the pattern resources.      */
+comment|/**      * This will get the map of patterns. This will return null if the underlying resources dictionary does not have a      * patterns dictionary. The keys are the pattern name as a String and the values are PDAbstractPattern objects.      *       * @return The map of pattern resources objects.      *       * @throws IOException If there is an error getting the pattern resources.      */
 specifier|public
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 argument_list|>
 name|getPatterns
 parameter_list|()
@@ -1700,7 +1700,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -1737,7 +1737,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 operator|.
 name|create
 argument_list|(
@@ -1761,7 +1761,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 argument_list|>
 name|patternsValue
 parameter_list|)
@@ -1814,7 +1814,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|PDPatternDictionary
+name|PDAbstractPattern
 name|pattern
 init|=
 name|patternsValue
@@ -1867,13 +1867,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the map of shadings. This will return null if the underlying resources dictionary does not have a      * shading dictionary. The keys are the shading name as a String and the values are PDShadingResources objects.      *       * @return The map of shading resources objects.      *       * @throws IOException If there is an error getting the shading resources.      */
+comment|/**      * This will get the map of shadings. This will return null if the underlying resources dictionary does not have a      * shading dictionary. The keys are the shading name as a String and the values are PDShading objects.      *       * @return The map of shading resources objects.      *       * @throws IOException If there is an error getting the shading resources.      */
 specifier|public
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDShadingResources
+name|PDShading
 argument_list|>
 name|getShadings
 parameter_list|()
@@ -1916,7 +1916,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|PDShadingResources
+name|PDShading
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -1953,7 +1953,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|PDShadingResources
+name|PDShading
 operator|.
 name|create
 argument_list|(
@@ -1977,7 +1977,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDShadingResources
+name|PDShading
 argument_list|>
 name|shadingsValue
 parameter_list|)
@@ -2030,7 +2030,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|PDShadingResources
+name|PDShading
 name|shading
 init|=
 name|shadingsValue

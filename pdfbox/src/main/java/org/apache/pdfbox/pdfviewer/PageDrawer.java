@@ -755,7 +755,7 @@ name|graphics
 operator|.
 name|shading
 operator|.
-name|PDShadingResources
+name|PDShading
 import|;
 end_import
 
@@ -3957,7 +3957,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDShadingResources
+name|PDShading
 name|shading
 init|=
 name|getResources

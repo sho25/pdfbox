@@ -65,7 +65,7 @@ name|getShadingType
 parameter_list|()
 block|{
 return|return
-name|PDShadingResources
+name|PDShading
 operator|.
 name|SHADING_TYPE3
 return|;

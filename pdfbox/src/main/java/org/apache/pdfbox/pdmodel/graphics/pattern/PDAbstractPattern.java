@@ -95,7 +95,7 @@ begin_class
 specifier|public
 specifier|abstract
 class|class
-name|PDPatternDictionary
+name|PDAbstractPattern
 implements|implements
 name|COSObjectable
 block|{
@@ -120,7 +120,7 @@ decl_stmt|;
 comment|/**      * Create the correct PD Model pattern based on the COS base pattern.      * @param resourceDictionary the COS pattern dictionary      * @return the newly created pattern resources object      * @throws IOException If we are unable to create the PDPattern object.      */
 specifier|public
 specifier|static
-name|PDPatternDictionary
+name|PDAbstractPattern
 name|create
 parameter_list|(
 name|COSDictionary
@@ -129,7 +129,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDPatternDictionary
+name|PDAbstractPattern
 name|pattern
 decl_stmt|;
 name|int
@@ -196,7 +196,7 @@ name|patternDictionary
 decl_stmt|;
 comment|/**      * Creates a new Pattern dictionary.      */
 specifier|public
-name|PDPatternDictionary
+name|PDAbstractPattern
 parameter_list|()
 block|{
 name|patternDictionary
@@ -224,7 +224,7 @@ expr_stmt|;
 block|}
 comment|/**      * Creates a new Pattern dictionary from the given COS dictionary.      * @param resourceDictionary The COSDictionary for this pattern resource.      */
 specifier|public
-name|PDPatternDictionary
+name|PDAbstractPattern
 parameter_list|(
 name|COSDictionary
 name|resourceDictionary

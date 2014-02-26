@@ -75,7 +75,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDPatternDictionary
+name|PDAbstractPattern
 import|;
 end_import
 
@@ -167,7 +167,7 @@ name|graphics
 operator|.
 name|shading
 operator|.
-name|PDShadingResources
+name|PDShading
 import|;
 end_import
 
@@ -429,7 +429,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 argument_list|>
 name|patterns
 decl_stmt|;
@@ -445,7 +445,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 argument_list|>
 name|patterns
 parameter_list|)
@@ -465,7 +465,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 argument_list|>
 name|patterns
 parameter_list|,
@@ -643,7 +643,7 @@ literal|" was not found"
 argument_list|)
 throw|;
 block|}
-name|PDPatternDictionary
+name|PDAbstractPattern
 name|pattern
 init|=
 name|patterns
@@ -753,7 +753,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDShadingResources
+name|PDShading
 name|shadingResources
 init|=
 name|shadingPattern
@@ -781,7 +781,7 @@ name|shadingType
 condition|)
 block|{
 case|case
-name|PDShadingResources
+name|PDShading
 operator|.
 name|SHADING_TYPE1
 case|:
@@ -803,7 +803,7 @@ name|pageHeight
 argument_list|)
 return|;
 case|case
-name|PDShadingResources
+name|PDShading
 operator|.
 name|SHADING_TYPE2
 case|:
@@ -825,7 +825,7 @@ name|pageHeight
 argument_list|)
 return|;
 case|case
-name|PDShadingResources
+name|PDShading
 operator|.
 name|SHADING_TYPE3
 case|:
@@ -847,7 +847,7 @@ name|pageHeight
 argument_list|)
 return|;
 case|case
-name|PDShadingResources
+name|PDShading
 operator|.
 name|SHADING_TYPE4
 case|:
@@ -869,7 +869,7 @@ name|pageHeight
 argument_list|)
 return|;
 case|case
-name|PDShadingResources
+name|PDShading
 operator|.
 name|SHADING_TYPE5
 case|:
@@ -891,12 +891,12 @@ name|pageHeight
 argument_list|)
 return|;
 case|case
-name|PDShadingResources
+name|PDShading
 operator|.
 name|SHADING_TYPE6
 case|:
 case|case
-name|PDShadingResources
+name|PDShading
 operator|.
 name|SHADING_TYPE7
 case|:

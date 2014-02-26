@@ -91,7 +91,7 @@ name|graphics
 operator|.
 name|pattern
 operator|.
-name|PDPatternDictionary
+name|PDAbstractPattern
 import|;
 end_import
 
@@ -285,7 +285,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 argument_list|>
 name|patterns
 parameter_list|)

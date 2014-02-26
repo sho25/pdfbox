@@ -154,7 +154,7 @@ specifier|public
 class|class
 name|PDTilingPattern
 extends|extends
-name|PDPatternDictionary
+name|PDAbstractPattern
 block|{
 comment|/** paint type 1 = colored tiling pattern. */
 specifier|public
@@ -218,7 +218,7 @@ name|COSName
 operator|.
 name|PATTERN_TYPE
 argument_list|,
-name|PDPatternDictionary
+name|PDAbstractPattern
 operator|.
 name|TYPE_TILING_PATTERN
 argument_list|)
@@ -246,7 +246,7 @@ name|getPatternType
 parameter_list|()
 block|{
 return|return
-name|PDPatternDictionary
+name|PDAbstractPattern
 operator|.
 name|TYPE_TILING_PATTERN
 return|;
