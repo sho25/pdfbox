@@ -295,22 +295,6 @@ name|PDXObject
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|markedcontent
-operator|.
-name|PDPropertyList
-import|;
-end_import
-
 begin_comment
 comment|/**  * This represents a set of resources available at the page/pages/stream level.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment

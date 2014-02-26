@@ -12,8 +12,6 @@ operator|.
 name|pdfbox
 operator|.
 name|pdmodel
-operator|.
-name|markedcontent
 package|;
 end_package
 

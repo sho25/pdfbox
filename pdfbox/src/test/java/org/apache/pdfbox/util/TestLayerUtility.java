@@ -279,8 +279,6 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|markedcontent
-operator|.
 name|PDPropertyList
 import|;
 end_import
