@@ -323,6 +323,8 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
+name|state
+operator|.
 name|PDExtendedGraphicsState
 import|;
 end_import
@@ -338,6 +340,8 @@ operator|.
 name|pdmodel
 operator|.
 name|graphics
+operator|.
+name|state
 operator|.
 name|PDGraphicsState
 import|;

@@ -14,6 +14,8 @@ operator|.
 name|pdmodel
 operator|.
 name|graphics
+operator|.
+name|state
 package|;
 end_package
 
@@ -41,11 +43,17 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|PDRectangle
 import|;
 end_import
 
@@ -59,9 +67,9 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|common
+name|graphics
 operator|.
-name|PDRectangle
+name|PDLineDashPattern
 import|;
 end_import
 
@@ -746,7 +754,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * This will get the rendering intent.      *      * @see PDExtendedGraphicsState      *      * @return The rendering intent      */
+comment|/**      * This will get the rendering intent.      *      * @see org.apache.pdfbox.pdmodel.graphics.state.PDExtendedGraphicsState      *      * @return The rendering intent      */
 specifier|public
 name|String
 name|getRenderingIntent

@@ -649,6 +649,8 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
+name|state
+operator|.
 name|PDGraphicsState
 import|;
 end_import
