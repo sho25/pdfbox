@@ -317,8 +317,6 @@ name|interactive
 operator|.
 name|action
 operator|.
-name|type
-operator|.
 name|PDURIDictionary
 import|;
 end_import

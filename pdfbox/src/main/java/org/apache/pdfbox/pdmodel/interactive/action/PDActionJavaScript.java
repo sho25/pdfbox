@@ -16,8 +16,6 @@ operator|.
 name|interactive
 operator|.
 name|action
-operator|.
-name|type
 package|;
 end_package
 

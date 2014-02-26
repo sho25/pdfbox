@@ -141,8 +141,6 @@ name|interactive
 operator|.
 name|action
 operator|.
-name|type
-operator|.
 name|PDActionURI
 import|;
 end_import

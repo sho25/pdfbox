@@ -16,8 +16,6 @@ operator|.
 name|interactive
 operator|.
 name|action
-operator|.
-name|type
 package|;
 end_package
 
@@ -126,24 +124,6 @@ operator|.
 name|common
 operator|.
 name|PDDestinationOrAction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|action
-operator|.
-name|PDActionFactory
 import|;
 end_import
 

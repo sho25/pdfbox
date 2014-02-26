@@ -63,26 +63,6 @@ name|COSObjectable
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|action
-operator|.
-name|type
-operator|.
-name|PDAction
-import|;
-end_import
-
 begin_comment
 comment|/**  * This represents a dictionary of actions that occur due to events.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
 end_comment

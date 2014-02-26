@@ -45,8 +45,6 @@ name|interactive
 operator|.
 name|action
 operator|.
-name|type
-operator|.
 name|PDActionJavaScript
 import|;
 end_import

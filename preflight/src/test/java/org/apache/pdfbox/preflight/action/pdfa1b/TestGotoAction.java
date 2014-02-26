@@ -75,8 +75,6 @@ name|interactive
 operator|.
 name|action
 operator|.
-name|type
-operator|.
 name|PDActionGoTo
 import|;
 end_import

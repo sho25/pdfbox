@@ -117,8 +117,6 @@ name|interactive
 operator|.
 name|action
 operator|.
-name|type
-operator|.
 name|PDAction
 import|;
 end_import
