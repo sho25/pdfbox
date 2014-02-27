@@ -334,6 +334,32 @@ name|PDTilingPattern
 name|pattern
 parameter_list|)
 block|{
+if|if
+condition|(
+name|pattern
+operator|.
+name|getMatrix
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|Rectangle
+argument_list|(
+name|pattern
+operator|.
+name|getBBox
+argument_list|()
+operator|.
+name|createDimension
+argument_list|()
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 name|AffineTransform
 name|at
 init|=
@@ -371,6 +397,7 @@ operator|.
 name|getBounds
 argument_list|()
 return|;
+block|}
 block|}
 comment|// gets image in parent stream coordinates
 specifier|private
@@ -492,10 +519,33 @@ literal|null
 argument_list|)
 decl_stmt|;
 comment|// TODO xStep and yStep
-comment|// undo translation
+comment|// matrix
 name|Matrix
 name|matrix
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|.
+name|getMatrix
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// identity
+name|matrix
+operator|=
+operator|new
+name|Matrix
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// undo translation
+name|matrix
+operator|=
 operator|(
 name|Matrix
 operator|)
@@ -506,7 +556,7 @@ argument_list|()
 operator|.
 name|clone
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|matrix
 operator|.
 name|setValue
@@ -561,6 +611,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// ty
+block|}
 name|PageDrawer
 name|drawer
 init|=
