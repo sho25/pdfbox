@@ -2594,6 +2594,16 @@ literal|null
 condition|)
 block|{
 comment|// check if the font is part of our environment
+if|if
+condition|(
+name|fd
+operator|.
+name|getFontName
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|awtFont
 operator|=
 name|FontManager
@@ -2606,6 +2616,7 @@ name|getFontName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|awtFont
