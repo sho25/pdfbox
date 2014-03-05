@@ -470,21 +470,14 @@ name|d
 argument_list|)
 expr_stmt|;
 comment|//dash phase is not specified and assumed to be zero.
-name|lineArray
-operator|.
-name|add
-argument_list|(
-name|COSInteger
-operator|.
-name|ZERO
-argument_list|)
-expr_stmt|;
 name|pattern
 operator|=
 operator|new
 name|PDLineDashPattern
 argument_list|(
 name|lineArray
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 return|return

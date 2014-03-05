@@ -175,27 +175,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/**      * Creates a new line dash pattern from a COS array.      * @param dashPattern the COS line dash pattern      */
-comment|// todo: get rid of this constructor?
-specifier|public
-name|PDLineDashPattern
-parameter_list|(
-name|COSArray
-name|dashPattern
-parameter_list|)
-block|{
-name|array
-operator|=
-name|dashPattern
-operator|.
-name|toFloatArray
-argument_list|()
-expr_stmt|;
-name|phase
-operator|=
-literal|0
-expr_stmt|;
-block|}
 comment|/**      * Creates a new line dash pattern from a dash array and phase.      * @param array the dash array      * @param phase the phase      */
 specifier|public
 name|PDLineDashPattern
@@ -280,9 +259,6 @@ return|return
 name|phase
 return|;
 block|}
-comment|/**      * This will set the line dash pattern phase.      *      * @param phase The new line dash patter phase.      */
-comment|// todo: make immutable?
-comment|/*public void setPhase(int phase)     {         this.phase = phase;     }*/
 comment|/**      * Returns the dash array.      * @return the dash array      */
 specifier|public
 name|float
@@ -296,20 +272,6 @@ operator|.
 name|clone
 argument_list|()
 return|;
-block|}
-comment|/**      * Checks if the dashPattern is empty or all values equals 0.      *       * @return true if the dashPattern is empty or all values equals 0        */
-specifier|public
-name|boolean
-name|isDashPatternEmpty
-parameter_list|()
-block|{
-comment|/*float[] dashPattern = getCOSDashArray().toFloatArray();         boolean dashPatternEmpty = true;         if (dashPattern != null)          {             for (float x : dashPattern)             {                 if (x> 0)                 {                     dashPatternEmpty = false;                     break;                 }             }         }         return dashPatternEmpty;*/
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-comment|// todo???
 block|}
 block|}
 end_class
