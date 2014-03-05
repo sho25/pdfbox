@@ -137,6 +137,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|ImageIOUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -367,7 +381,7 @@ literal|0.75f
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new JPEG Image XObject from a Buffered Image and a given quality.      * The image will be embedded at 72 DPI.      * @param document the document where the image will be created      * @param image the buffered image to embed      * @param quality the desired JPEG compression quality      * @return a new Image XObject      * @throws IOException if the JPEG data cannot be written      */
+comment|/**      * Creates a new JPEG Image XObject from a Buffered Image and a given quality.      * @param document the document where the image will be created      * @param image the buffered image to embed      * @param quality the desired JPEG compression quality      * @return a new Image XObject      * @throws IOException if the JPEG data cannot be written      */
 specifier|public
 specifier|static
 name|PDImageXObject
@@ -394,7 +408,9 @@ name|image
 argument_list|,
 name|quality
 argument_list|,
-literal|72
+name|ImageIOUtil
+operator|.
+name|DEFAULT_SCREEN_RESOLUTION
 argument_list|)
 return|;
 block|}
