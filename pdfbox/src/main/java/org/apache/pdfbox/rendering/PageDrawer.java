@@ -3768,21 +3768,6 @@ literal|0.5
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the clipping Path.      *       * @param windingRule The winding rule this path will use.      *       * @deprecated use {@link #setClippingWindingRule(int)} instead      *       */
-specifier|public
-name|void
-name|setClippingPath
-parameter_list|(
-name|int
-name|windingRule
-parameter_list|)
-block|{
-name|setClippingWindingRule
-argument_list|(
-name|windingRule
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Set the clipping winding rule.      *       * @param windingRule The winding rule which will be used for clipping.      *       */
 specifier|public
 name|void
