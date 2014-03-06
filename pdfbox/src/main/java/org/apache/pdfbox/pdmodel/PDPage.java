@@ -338,8 +338,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Default DPI in user space.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int

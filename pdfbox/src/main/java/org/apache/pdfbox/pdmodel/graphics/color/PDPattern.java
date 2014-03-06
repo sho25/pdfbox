@@ -333,6 +333,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|rendering
+operator|.
+name|PDFRenderer
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|awt
@@ -585,6 +599,9 @@ specifier|public
 name|Paint
 name|toPaint
 parameter_list|(
+name|PDFRenderer
+name|renderer
+parameter_list|,
 name|PDColor
 name|color
 parameter_list|)
@@ -603,6 +620,9 @@ specifier|public
 name|Paint
 name|toPaint
 parameter_list|(
+name|PDFRenderer
+name|renderer
+parameter_list|,
 name|PDColor
 name|color
 parameter_list|,
@@ -664,6 +684,8 @@ block|{
 return|return
 name|toTilingPaint
 argument_list|(
+name|renderer
+argument_list|,
 operator|(
 name|PDTilingPattern
 operator|)
@@ -692,6 +714,9 @@ specifier|public
 name|Paint
 name|toTilingPaint
 parameter_list|(
+name|PDFRenderer
+name|renderer
+parameter_list|,
 name|PDTilingPattern
 name|tilingPattern
 parameter_list|,
@@ -718,6 +743,8 @@ return|return
 operator|new
 name|TilingPaint
 argument_list|(
+name|renderer
+argument_list|,
 name|tilingPattern
 argument_list|)
 return|;
@@ -729,6 +756,8 @@ return|return
 operator|new
 name|TilingPaint
 argument_list|(
+name|renderer
+argument_list|,
 name|tilingPattern
 argument_list|,
 name|underlyingColorSpace

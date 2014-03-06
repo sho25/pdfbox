@@ -97,6 +97,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|rendering
+operator|.
+name|PDFRenderer
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|awt
@@ -841,6 +855,9 @@ specifier|public
 name|Paint
 name|toPaint
 parameter_list|(
+name|PDFRenderer
+name|renderer
+parameter_list|,
 name|PDColor
 name|color
 parameter_list|)
@@ -850,6 +867,8 @@ block|{
 return|return
 name|toPaint
 argument_list|(
+name|renderer
+argument_list|,
 name|color
 argument_list|,
 literal|0
@@ -861,6 +880,9 @@ specifier|public
 name|Paint
 name|toPaint
 parameter_list|(
+name|PDFRenderer
+name|renderer
+parameter_list|,
 name|PDColor
 name|color
 parameter_list|,

@@ -374,7 +374,7 @@ parameter_list|()
 block|{
 comment|// Default constructor
 block|}
-comment|/**      * Writes a buffered image to a file using the given image format.      *       * @param image the image to be written      * @param imageFormat the target format (ex. "png")      * @param filename used to construct the filename for the individual images      * @param imageType the image type (see {@link BufferedImage}.TYPE_*)      * @param resolution the resolution in dpi (dots per inch)      *       * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+comment|/**      * Writes a buffered image to a file using the given image format.      *       * @param image the image to be written      * @param imageFormat the target format (ex. "png")      * @param filename used to construct the filename for the individual images      * @param resolution the resolution in dpi (dots per inch)      *       * @return true if the images were produced, false if there was an error      * @throws IOException if an I/O error occurs      */
 specifier|public
 specifier|static
 name|boolean
@@ -388,9 +388,6 @@ name|imageFormat
 parameter_list|,
 name|String
 name|filename
-parameter_list|,
-name|int
-name|imageType
 parameter_list|,
 name|int
 name|resolution

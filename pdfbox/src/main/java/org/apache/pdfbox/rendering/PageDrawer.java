@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|rendering
 package|;
 end_package
 
@@ -987,11 +987,17 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+comment|// parent document renderer
+specifier|private
+specifier|final
+name|PDFRenderer
+name|renderer
+decl_stmt|;
 specifier|private
 name|Graphics2D
 name|graphics
 decl_stmt|;
-comment|/**      * clipping winding rule used for the clipping path.      */
+comment|// clipping winding rule used for the clipping path.
 specifier|private
 name|int
 name|clippingWindingRule
@@ -1050,7 +1056,10 @@ decl_stmt|;
 comment|/**      * Default constructor, loads properties from file.      *       * @throws IOException If there is an error loading properties from the file.      */
 specifier|public
 name|PageDrawer
-parameter_list|()
+parameter_list|(
+name|PDFRenderer
+name|renderer
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -1066,6 +1075,22 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|renderer
+operator|=
+name|renderer
+expr_stmt|;
+block|}
+comment|/**      * Returns the parent renderer.      * @return the parent renderer.      */
+specifier|public
+name|PDFRenderer
+name|getRenderer
+parameter_list|()
+block|{
+return|return
+name|renderer
+return|;
 block|}
 comment|/**      * This will draw the page to the requested context.      *       * @param g The graphics context to draw onto.      * @param page The page to draw.      * @param pageSize The size of the page to draw.      *       * @throws IOException If there is an IO error while drawing the page.      */
 specifier|public
@@ -3130,6 +3155,8 @@ argument_list|()
 operator|.
 name|toPaint
 argument_list|(
+name|renderer
+argument_list|,
 name|getGraphicsState
 argument_list|()
 operator|.
@@ -3157,6 +3184,8 @@ argument_list|()
 operator|.
 name|toPaint
 argument_list|(
+name|renderer
+argument_list|,
 name|getGraphicsState
 argument_list|()
 operator|.

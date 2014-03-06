@@ -77,7 +77,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|rendering
 operator|.
 name|PageDrawer
 import|;

@@ -165,7 +165,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|rendering
 operator|.
 name|PageDrawer
 import|;
@@ -513,6 +513,11 @@ name|colorSpace
 operator|.
 name|toPaint
 argument_list|(
+name|drawer
+operator|.
+name|getRenderer
+argument_list|()
+argument_list|,
 name|color
 argument_list|)
 argument_list|)

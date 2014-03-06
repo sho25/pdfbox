@@ -4514,6 +4514,31 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * Returns the page at the given index.      * @param pageIndex the page index      * @return the page at the given index.      */
+specifier|public
+name|PDPage
+name|getPage
+parameter_list|(
+name|int
+name|pageIndex
+parameter_list|)
+block|{
+return|return
+operator|(
+name|PDPage
+operator|)
+name|getDocumentCatalog
+argument_list|()
+operator|.
+name|getAllPages
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|pageIndex
+argument_list|)
+return|;
+block|}
 comment|/**      * This will return the total page count of the PDF document.      *       * @return The total number of pages in the PDF document.      */
 specifier|public
 name|int
