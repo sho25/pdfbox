@@ -399,9 +399,9 @@ index|[
 literal|2
 index|]
 operator|*=
-name|at
+name|ctm
 operator|.
-name|getScaleX
+name|getXScale
 argument_list|()
 expr_stmt|;
 name|coords
@@ -409,9 +409,9 @@ index|[
 literal|5
 index|]
 operator|*=
-name|at
+name|ctm
 operator|.
-name|getScaleX
+name|getXScale
 argument_list|()
 expr_stmt|;
 block|}
