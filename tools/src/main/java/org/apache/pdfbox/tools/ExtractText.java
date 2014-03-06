@@ -1268,6 +1268,10 @@ decl_stmt|;
 if|if
 condition|(
 name|file
+operator|!=
+literal|null
+operator|&&
+name|file
 operator|.
 name|getSubtype
 argument_list|()

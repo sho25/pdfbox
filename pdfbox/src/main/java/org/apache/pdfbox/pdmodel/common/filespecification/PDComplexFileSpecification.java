@@ -115,7 +115,7 @@ name|FILESPEC
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param dict The dictionary that fulfils this file specification.      */
+comment|/**      * Constructor. Creates empty COSDictionary if dict is null.      *      * @param dict The dictionary that fulfils this file specification.      */
 specifier|public
 name|PDComplexFileSpecification
 parameter_list|(
@@ -123,10 +123,40 @@ name|COSDictionary
 name|dict
 parameter_list|)
 block|{
+if|if
+condition|(
+name|dict
+operator|==
+literal|null
+condition|)
+block|{
+name|fs
+operator|=
+operator|new
+name|COSDictionary
+argument_list|()
+expr_stmt|;
+name|fs
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|,
+name|COSName
+operator|.
+name|FILESPEC
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|fs
 operator|=
 name|dict
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
 specifier|public
