@@ -1094,7 +1094,7 @@ name|image
 init|=
 name|renderer
 operator|.
-name|renderImage
+name|renderImageWithDPI
 argument_list|(
 name|i
 argument_list|,
@@ -1125,8 +1125,6 @@ argument_list|,
 name|fileName
 argument_list|,
 name|imageType
-argument_list|,
-name|dpi
 argument_list|)
 expr_stmt|;
 block|}
