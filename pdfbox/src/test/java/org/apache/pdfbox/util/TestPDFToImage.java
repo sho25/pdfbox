@@ -340,11 +340,14 @@ name|image
 init|=
 name|renderer
 operator|.
-name|renderImage
+name|renderImageWithDPI
 argument_list|(
 name|i
+argument_list|,
+literal|96
 argument_list|)
 decl_stmt|;
+comment|// Windows native DPI
 name|String
 name|fileName
 init|=
