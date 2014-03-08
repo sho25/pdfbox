@@ -710,7 +710,7 @@ argument_list|)
 return|;
 block|}
 block|}
-specifier|public
+specifier|private
 name|Paint
 name|toTilingPaint
 parameter_list|(
@@ -767,7 +767,7 @@ argument_list|)
 return|;
 block|}
 block|}
-specifier|public
+specifier|private
 name|Paint
 name|toShadingPaint
 parameter_list|(
