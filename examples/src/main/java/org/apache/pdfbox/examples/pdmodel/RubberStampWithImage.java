@@ -298,7 +298,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to add a rubber stamp with an image to pages of a PDF document.  *  * @version $Revision: 1.0 $  */
+comment|/**  * This is an example on how to add a rubber stamp with an image to pages of a PDF document.  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
@@ -422,34 +422,6 @@ literal|"Encrypted documents are not supported for this example"
 argument_list|)
 throw|;
 block|}
-name|List
-name|allpages
-init|=
-operator|new
-name|ArrayList
-argument_list|()
-decl_stmt|;
-name|document
-operator|.
-name|getDocumentCatalog
-argument_list|()
-operator|.
-name|getPages
-argument_list|()
-operator|.
-name|getAllKids
-argument_list|(
-name|allpages
-argument_list|)
-expr_stmt|;
-name|int
-name|numberOfPages
-init|=
-name|allpages
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -459,21 +431,21 @@ literal|0
 init|;
 name|i
 operator|<
-name|numberOfPages
+name|document
+operator|.
+name|getNumberOfPages
+argument_list|()
 condition|;
 name|i
 operator|++
 control|)
 block|{
 name|PDPage
-name|apage
+name|page
 init|=
-operator|(
-name|PDPage
-operator|)
-name|allpages
+name|document
 operator|.
-name|get
+name|getPage
 argument_list|(
 name|i
 argument_list|)
@@ -481,7 +453,7 @@ decl_stmt|;
 name|List
 name|annotations
 init|=
-name|apage
+name|page
 operator|.
 name|getAnnotations
 argument_list|()
@@ -509,7 +481,7 @@ argument_list|(
 operator|new
 name|PDRectangle
 argument_list|(
-literal|100
+literal|200
 argument_list|,
 literal|100
 argument_list|)
@@ -522,7 +494,7 @@ argument_list|(
 literal|"A top secret note"
 argument_list|)
 expr_stmt|;
-comment|// Create a PDXObjectImage with the given jpg
+comment|// create a PDXObjectImage with the given jpg
 name|FileInputStream
 name|fin
 init|=
@@ -536,7 +508,7 @@ index|]
 argument_list|)
 decl_stmt|;
 name|PDImageXObject
-name|mypic
+name|image
 init|=
 name|JPEGFactory
 operator|.
@@ -547,36 +519,36 @@ argument_list|,
 name|fin
 argument_list|)
 decl_stmt|;
-comment|//Define and set the target rectangle
+comment|// define and set the target rectangle
 name|PDRectangle
-name|myrect
+name|rect
 init|=
 operator|new
 name|PDRectangle
 argument_list|()
 decl_stmt|;
-name|myrect
+name|rect
 operator|.
 name|setUpperRightX
 argument_list|(
-literal|275
+literal|400
 argument_list|)
 expr_stmt|;
-name|myrect
+name|rect
 operator|.
 name|setUpperRightY
 argument_list|(
 literal|575
 argument_list|)
 expr_stmt|;
-name|myrect
+name|rect
 operator|.
 name|setLowerLeftX
 argument_list|(
 literal|250
 argument_list|)
 expr_stmt|;
-name|myrect
+name|rect
 operator|.
 name|setLowerLeftY
 argument_list|(
@@ -585,7 +557,7 @@ argument_list|)
 expr_stmt|;
 comment|// Create a PDFormXObject
 name|PDStream
-name|formstream
+name|stream
 init|=
 operator|new
 name|PDStream
@@ -596,7 +568,7 @@ decl_stmt|;
 name|OutputStream
 name|os
 init|=
-name|formstream
+name|stream
 operator|.
 name|createOutputStream
 argument_list|()
@@ -607,7 +579,7 @@ init|=
 operator|new
 name|PDFormXObject
 argument_list|(
-name|formstream
+name|stream
 argument_list|)
 decl_stmt|;
 name|form
@@ -623,7 +595,7 @@ name|form
 operator|.
 name|setBBox
 argument_list|(
-name|myrect
+name|rect
 argument_list|)
 expr_stmt|;
 name|form
@@ -636,7 +608,7 @@ expr_stmt|;
 comment|// adjust the image to the target rectangle and add it to the stream
 name|drawXObject
 argument_list|(
-name|mypic
+name|image
 argument_list|,
 name|form
 operator|.
@@ -649,7 +621,7 @@ literal|250
 argument_list|,
 literal|550
 argument_list|,
-literal|25
+literal|50
 argument_list|,
 literal|25
 argument_list|)
@@ -700,10 +672,10 @@ name|rubberStamp
 operator|.
 name|setRectangle
 argument_list|(
-name|myrect
+name|rect
 argument_list|)
 expr_stmt|;
-comment|//Add the new RubberStamp to the document
+comment|// add the new RubberStamp to the document
 name|annotations
 operator|.
 name|add

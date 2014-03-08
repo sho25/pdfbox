@@ -204,6 +204,8 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
+name|x
+operator|+
 name|width
 argument_list|)
 argument_list|)
@@ -215,6 +217,8 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
+name|y
+operator|+
 name|height
 argument_list|)
 argument_list|)

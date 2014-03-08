@@ -297,6 +297,12 @@ condition|(
 name|awtColorSpace
 operator|instanceof
 name|ICC_ColorSpace
+operator|&&
+operator|!
+name|awtColorSpace
+operator|.
+name|isCS_sRGB
+argument_list|()
 condition|)
 block|{
 throw|throw
