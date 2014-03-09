@@ -61,8 +61,32 @@ name|COSName
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|Paint
+import|;
+end_import
+
 begin_comment
-comment|/**  * This represents resources for an axial shading.  *  * @version $Revision: 1.0 $  */
+comment|/**  * Resources for an axial shading.  */
 end_comment
 
 begin_class
@@ -90,7 +114,7 @@ name|extend
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary The dictionary for this shading.      */
+comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShadingType2
 parameter_list|(
@@ -104,7 +128,8 @@ name|shadingDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getShadingType
@@ -116,7 +141,7 @@ operator|.
 name|SHADING_TYPE2
 return|;
 block|}
-comment|/**      * This will get the optional Extend values for this shading.      *      * @return the extend values      */
+comment|/**      * This will get the optional Extend values for this shading.      * @return the extend values      */
 specifier|public
 name|COSArray
 name|getExtend
@@ -149,7 +174,7 @@ return|return
 name|extend
 return|;
 block|}
-comment|/**      * Sets the optional Extend entry for this shading.      *      * @param newExtend the extend array      */
+comment|/**      * Sets the optional Extend entry for this shading.      * @param newExtend the extend array      */
 specifier|public
 name|void
 name|setExtend
@@ -196,7 +221,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the optional Domain values for this shading.      *      * @return the domain values      */
+comment|/**      * This will get the optional Domain values for this shading.      * @return the domain values      */
 specifier|public
 name|COSArray
 name|getDomain
@@ -229,7 +254,7 @@ return|return
 name|domain
 return|;
 block|}
-comment|/**      * Sets the optional Domain entry for this shading.      *      * @param newDomain the domain array      */
+comment|/**      * Sets the optional Domain entry for this shading.      * @param newDomain the domain array      */
 specifier|public
 name|void
 name|setDomain
@@ -276,7 +301,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the Coords values for this shading.      *      * @return the coords values      */
+comment|/**      * This will get the Coords values for this shading.      * @return the coordinate values      */
 specifier|public
 name|COSArray
 name|getCoords
@@ -309,7 +334,7 @@ return|return
 name|coords
 return|;
 block|}
-comment|/**      * Sets the Coords entry for this shading.      *      * @param newCoords the coords array      */
+comment|/**      * Sets the Coords entry for this shading.      * @param newCoords the coordinates array      */
 specifier|public
 name|void
 name|setCoords
@@ -355,6 +380,31 @@ name|newCoords
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Paint
+name|toPaint
+parameter_list|(
+name|Matrix
+name|matrix
+parameter_list|,
+name|int
+name|pageHeight
+parameter_list|)
+block|{
+return|return
+operator|new
+name|AxialShadingPaint
+argument_list|(
+name|this
+argument_list|,
+name|matrix
+argument_list|,
+name|pageHeight
+argument_list|)
+return|;
 block|}
 block|}
 end_class

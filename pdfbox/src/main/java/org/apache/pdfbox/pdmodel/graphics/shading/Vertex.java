@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   * Helper class to deal with Vertices for type 4 and 5 shading.  *  * @author Tilman Hausherr  */
+comment|/**  * Vertex for Type 4 and Type 5 shadings.  * @author Tilman Hausherr  */
 end_comment
 
 begin_class

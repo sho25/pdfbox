@@ -23,6 +23,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|awt
+operator|.
+name|Paint
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|io
 operator|.
 name|IOException
@@ -153,8 +163,22 @@ name|PDColorSpace
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
 begin_comment
-comment|/**  * This represents resources for a shading.  *  * @author Andreas Lehmkühler  */
+comment|/**  * A Shading Resource.  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
@@ -200,7 +224,7 @@ name|functionArray
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * shading type 1 = function based shading.      */
+comment|/** shading type 1 = function based shading. */
 specifier|public
 specifier|static
 specifier|final
@@ -209,7 +233,7 @@ name|SHADING_TYPE1
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * shading type 2 = axial shading.      */
+comment|/** shading type 2 = axial shading. */
 specifier|public
 specifier|static
 specifier|final
@@ -218,7 +242,7 @@ name|SHADING_TYPE2
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * shading type 3 = radial shading.      */
+comment|/** shading type 3 = radial shading. */
 specifier|public
 specifier|static
 specifier|final
@@ -227,7 +251,7 @@ name|SHADING_TYPE3
 init|=
 literal|3
 decl_stmt|;
-comment|/**      * shading type 4 = Free-Form Gouraud-Shaded Triangle Meshes.      */
+comment|/** shading type 4 = Free-Form Gouraud-Shaded Triangle Meshes. */
 specifier|public
 specifier|static
 specifier|final
@@ -236,7 +260,7 @@ name|SHADING_TYPE4
 init|=
 literal|4
 decl_stmt|;
-comment|/**      * shading type 5 = Lattice-Form Gouraud-Shaded Triangle Meshes.      */
+comment|/** shading type 5 = Lattice-Form Gouraud-Shaded Triangle Meshes. */
 specifier|public
 specifier|static
 specifier|final
@@ -245,7 +269,7 @@ name|SHADING_TYPE5
 init|=
 literal|5
 decl_stmt|;
-comment|/**      * shading type 6 = Coons Patch Meshes.      */
+comment|/** shading type 6 = Coons Patch Meshes. */
 specifier|public
 specifier|static
 specifier|final
@@ -254,7 +278,7 @@ name|SHADING_TYPE6
 init|=
 literal|6
 decl_stmt|;
-comment|/**      * shading type 7 = Tensor-Product Patch Meshes.      */
+comment|/** shading type 7 = Tensor-Product Patch Meshes. */
 specifier|public
 specifier|static
 specifier|final
@@ -275,7 +299,7 @@ name|COSDictionary
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary The dictionary for this shading.      */
+comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShading
 parameter_list|(
@@ -288,7 +312,7 @@ operator|=
 name|shadingDictionary
 expr_stmt|;
 block|}
-comment|/**      * This will get the underlying dictionary.      *      * @return The dictionary for this shading.      */
+comment|/**      * This will get the underlying dictionary.      * @return the dictionary for this shading      */
 specifier|public
 name|COSDictionary
 name|getCOSDictionary
@@ -298,7 +322,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+comment|/**      * Convert this standard java object to a COS object.      * @return the cos object that matches this Java object      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -308,7 +332,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * This will return the type.      *      * @return The type of object that this is.      */
+comment|/**      * This will return the type.      * @return the type of object that this is      */
 specifier|public
 name|String
 name|getType
@@ -323,7 +347,7 @@ name|getName
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the shading type.      *      * @param shadingType The new shading type.      */
+comment|/**      * This will set the shading type.      * @param shadingType the new shading type      */
 specifier|public
 name|void
 name|setShadingType
@@ -344,14 +368,14 @@ name|shadingType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the shading type.      *      * @return The shading type      */
+comment|/**      * This will return the shading type.      * @return the shading typ      */
 specifier|public
 specifier|abstract
 name|int
 name|getShadingType
 parameter_list|()
 function_decl|;
-comment|/**      * This will set the background.      *      * @param newBackground The new background.      */
+comment|/**      * This will set the background.      * @param newBackground the new background      */
 specifier|public
 name|void
 name|setBackground
@@ -376,7 +400,7 @@ name|newBackground
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the background.      *      * @return The background      */
+comment|/**      * This will return the background.      * @return the background      */
 specifier|public
 name|COSArray
 name|getBackground
@@ -408,7 +432,7 @@ return|return
 name|background
 return|;
 block|}
-comment|/**      * An array of four numbers in the form coordinate system (see      * below), giving the coordinates of the left, bottom, right, and top edges,      * respectively, of the shadings's bounding box.      *      * @return The BBox of the form.      */
+comment|/**      * An array of four numbers in the form coordinate system (see below),      * giving the coordinates of the left, bottom, right, and top edges, respectively,      * of the shading's bounding box.      * @return the BBox of the form      */
 specifier|public
 name|PDRectangle
 name|getBBox
@@ -457,7 +481,7 @@ return|return
 name|bBox
 return|;
 block|}
-comment|/**      * This will set the BBox (bounding box) for this Shading.      *      * @param newBBox The new BBox.      */
+comment|/**      * This will set the BBox (bounding box) for this Shading.      * @param newBBox the new BBox      */
 specifier|public
 name|void
 name|setBBox
@@ -505,7 +529,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will set the AntiAlias value.      *      * @param antiAlias The new AntiAlias value.      */
+comment|/**      * This will set the AntiAlias value.      * @param antiAlias the new AntiAlias value      */
 specifier|public
 name|void
 name|setAntiAlias
@@ -526,7 +550,7 @@ name|antiAlias
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the AntiAlias value.      *      * @return The AntiAlias value      */
+comment|/**      * This will return the AntiAlias value.      * @return the AntiAlias value      */
 specifier|public
 name|boolean
 name|getAntiAlias
@@ -545,7 +569,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the color space or null if none exists.      *      * @return The color space for the shading.      *      * @throws IOException If there is an error getting the color space.      */
+comment|/**      * This will get the color space or null if none exists.      * @return the color space for the shading      * @throws IOException if there is an error getting the color space      */
 specifier|public
 name|PDColorSpace
 name|getColorSpace
@@ -590,7 +614,7 @@ return|return
 name|colorSpace
 return|;
 block|}
-comment|/**      * This will set the color space for the shading.      *      * @param colorSpace The color space      */
+comment|/**      * This will set the color space for the shading.      * @param colorSpace the color space      */
 specifier|public
 name|void
 name|setColorSpace
@@ -640,7 +664,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create the correct PD Model shading based on the COS base shading.      *       * @param resourceDictionary the COS shading dictionary      *       * @return the newly created shading resources object      *       * @throws IOException If we are unable to create the PDShading object.      */
+comment|/**      * Create the correct PD Model shading based on the COS base shading.      * @param resourceDictionary the COS shading dictionary      * @return the newly created shading resources object      * @throws IOException if we are unable to create the PDShading object      */
 specifier|public
 specifier|static
 name|PDShading
@@ -775,7 +799,7 @@ return|return
 name|shading
 return|;
 block|}
-comment|/**      * This will set the function for the color conversion.      *      * @param newFunction The new function.      */
+comment|/**      * This will set the function for the color conversion.      * @param newFunction the new function      */
 specifier|public
 name|void
 name|setFunction
@@ -826,7 +850,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will set the functions COSArray for the color conversion.      *      * @param newFunctions The new COSArray containing all functions.      */
+comment|/**      * This will set the functions COSArray for the color conversion.      * @param newFunctions the new COSArray containing all functions      */
 specifier|public
 name|void
 name|setFunction
@@ -877,7 +901,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will return the function used to convert the color values.      *      * @return The function      * @exception IOException If we are unable to create the PDFunction object.      */
+comment|/**      * This will return the function used to convert the color values.      * @return the function      * @exception IOException if we are unable to create the PDFunction object      */
 specifier|public
 name|PDFunction
 name|getFunction
@@ -925,7 +949,7 @@ return|return
 name|function
 return|;
 block|}
-comment|/**      * Provide the function(s) of the shading dictionary as array.      *       * @return an array containing the function(s)       * @throws IOException throw if something went wrong      */
+comment|/**      * Provide the function(s) of the shading dictionary as array.      * @return an array containing the function(s)       * @throws IOException if something went wrong      */
 specifier|private
 name|PDFunction
 index|[]
@@ -1047,7 +1071,7 @@ return|return
 name|functionArray
 return|;
 block|}
-comment|/**      * Convert the input value using the functions of the shading dictionary.      *      * @param inputValue the input value      * @return the output values      * @throws IOException thrown if something went wrong      */
+comment|/**      * Convert the input value using the functions of the shading dictionary.      * @param inputValue the input value      * @return the output values      * @throws IOException thrown if something went wrong      */
 specifier|public
 name|float
 index|[]
@@ -1071,7 +1095,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Convert the input values using the functions of the shading dictionary.      *       * @param input the input values      * @return the output values      * @throws IOException thrown if something went wrong      */
+comment|/**      * Convert the input values using the functions of the shading dictionary.      * @param input the input values      * @return the output values      * @throws IOException thrown if something went wrong      */
 specifier|public
 name|float
 index|[]
@@ -1179,6 +1203,19 @@ return|return
 name|returnValues
 return|;
 block|}
+comment|/**      * Returns an AWT paint which corresponds to this shading      * @param matrix the pattern matrix      * @param pageHeight the height of the current page      * @return an AWT Paint instance      */
+specifier|public
+specifier|abstract
+name|Paint
+name|toPaint
+parameter_list|(
+name|Matrix
+name|matrix
+parameter_list|,
+name|int
+name|pageHeight
+parameter_list|)
+function_decl|;
 block|}
 end_class
 

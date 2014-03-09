@@ -25,6 +25,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -33,8 +61,42 @@ name|COSDictionary
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|Color
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|Paint
+import|;
+end_import
+
 begin_comment
-comment|/**  * This represents resources for a shading type 6 (Coons Patch Meshes).  *  * @version $Revision: 1.0 $  */
+comment|/**  * Resources for a shading type 6 (Coons Patch Mesh).  */
 end_comment
 
 begin_class
@@ -44,7 +106,22 @@ name|PDShadingType6
 extends|extends
 name|PDShadingType4
 block|{
-comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary The dictionary for this shading.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDShadingType6
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShadingType6
 parameter_list|(
@@ -58,7 +135,8 @@ name|shadingDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getShadingType
@@ -69,6 +147,42 @@ name|PDShading
 operator|.
 name|SHADING_TYPE6
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Paint
+name|toPaint
+parameter_list|(
+name|Matrix
+name|matrix
+parameter_list|,
+name|int
+name|pageHeight
+parameter_list|)
+block|{
+comment|// TODO ...
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Type 6 Shading not implemented"
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|Color
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+return|;
+comment|// transparent
 block|}
 block|}
 end_class

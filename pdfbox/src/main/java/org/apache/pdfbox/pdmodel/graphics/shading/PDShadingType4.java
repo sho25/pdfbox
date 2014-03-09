@@ -77,8 +77,32 @@ name|PDRange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|Paint
+import|;
+end_import
+
 begin_comment
-comment|/**  * This represents resources for a shading type 4 (Free-Form Gouraud-Shaded  * Triangle Meshes).  *  */
+comment|/**  * Resources for a shading type 4 (Free-Form Gouraud-Shaded Triangle Mesh).  */
 end_comment
 
 begin_class
@@ -88,14 +112,16 @@ name|PDShadingType4
 extends|extends
 name|PDShading
 block|{
-comment|/**      * An array of 2^n numbers specifying the linear mapping of sample values      * into the range appropriate for the function's output values. Default      * value: same as the value of Range      */
+comment|// an array of 2^n numbers specifying the linear mapping of sample values
+comment|// into the range appropriate for the function's output values. Default
+comment|// value: same as the value of Range
 specifier|private
 name|COSArray
 name|decode
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary The dictionary for this shading.      */
+comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShadingType4
 parameter_list|(
@@ -109,7 +135,8 @@ name|shadingDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getShadingType
@@ -121,7 +148,7 @@ operator|.
 name|SHADING_TYPE4
 return|;
 block|}
-comment|/**      * The bits per component of this shading. This will return -1 if one has      * not been set.      *      * @return The number of bits per component.      */
+comment|/**      * The bits per component of this shading. This will return -1 if one has not been set.      * @return the number of bits per component      */
 specifier|public
 name|int
 name|getBitsPerComponent
@@ -142,13 +169,13 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of bits per component.      *      * @param bpc The number of bits per component.      */
+comment|/**      * Set the number of bits per component.      * @param bitsPerComponent the number of bits per component      */
 specifier|public
 name|void
 name|setBitsPerComponent
 parameter_list|(
 name|int
-name|bpc
+name|bitsPerComponent
 parameter_list|)
 block|{
 name|getCOSDictionary
@@ -160,11 +187,11 @@ name|COSName
 operator|.
 name|BITS_PER_COMPONENT
 argument_list|,
-name|bpc
+name|bitsPerComponent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The bits per coordinate of this shading. This will return -1 if one has      * not been set.      *      * @return The number of bits per coordinate.      */
+comment|/**      * The bits per coordinate of this shading. This will return -1 if one has not been set.      * @return the number of bits per coordinate      */
 specifier|public
 name|int
 name|getBitsPerCoordinate
@@ -185,13 +212,13 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of bits per coordinate.      *      * @param bpc The number of bits per coordinate.      */
+comment|/**      * Set the number of bits per coordinate.      * @param bitsPerComponent the number of bits per coordinate      */
 specifier|public
 name|void
 name|setBitsPerCoordinate
 parameter_list|(
 name|int
-name|bpc
+name|bitsPerComponent
 parameter_list|)
 block|{
 name|getCOSDictionary
@@ -203,11 +230,11 @@ name|COSName
 operator|.
 name|BITS_PER_COORDINATE
 argument_list|,
-name|bpc
+name|bitsPerComponent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The bits per flag of this shading. This will return -1 if one has not      * been set.      *      * @return The number of bits per flag.      */
+comment|/**      * The bits per flag of this shading. This will return -1 if one has not been set.      * @return The number of bits per flag.      */
 specifier|public
 name|int
 name|getBitsPerFlag
@@ -228,13 +255,13 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of bits per flag.      *      * @param bpf The number of bits per flag.      */
+comment|/**      * Set the number of bits per flag.      * @param bitsPerFlag the number of bits per flag      */
 specifier|public
 name|void
 name|setBitsPerFlag
 parameter_list|(
 name|int
-name|bpf
+name|bitsPerFlag
 parameter_list|)
 block|{
 name|getCOSDictionary
@@ -246,11 +273,11 @@ name|COSName
 operator|.
 name|BITS_PER_FLAG
 argument_list|,
-name|bpf
+name|bitsPerFlag
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns all decode values as COSArray.      *      * @return the decode array.      */
+comment|/**      * Returns all decode values as COSArray.      * @return the decode array      */
 specifier|private
 name|COSArray
 name|getDecodeValues
@@ -283,7 +310,7 @@ return|return
 name|decode
 return|;
 block|}
-comment|/**      * This will set the decode values.      *      * @param decodeValues The new decode values.      */
+comment|/**      * This will set the decode values.      * @param decodeValues the new decode values      */
 specifier|public
 name|void
 name|setDecodeValues
@@ -309,7 +336,7 @@ name|decodeValues
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the decode for the input parameter.      *      * @param paramNum The function parameter number.      *      * @return The decode parameter range or null if none is set.      */
+comment|/**      * Get the decode for the input parameter.      * @param paramNum the function parameter number      * @return the decode parameter range or null if none is set      */
 specifier|public
 name|PDRange
 name|getDecodeForParameter
@@ -360,6 +387,31 @@ expr_stmt|;
 block|}
 return|return
 name|retval
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Paint
+name|toPaint
+parameter_list|(
+name|Matrix
+name|matrix
+parameter_list|,
+name|int
+name|pageHeight
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Type4ShadingPaint
+argument_list|(
+name|this
+argument_list|,
+name|matrix
+argument_list|,
+name|pageHeight
+argument_list|)
 return|;
 block|}
 block|}

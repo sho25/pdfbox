@@ -33,8 +33,32 @@ name|COSDictionary
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|Paint
+import|;
+end_import
+
 begin_comment
-comment|/**  * This represents resources for a radial shading.  *  * @version $Revision: 1.0 $  */
+comment|/**  * Resources for a radial shading.  */
 end_comment
 
 begin_class
@@ -44,7 +68,7 @@ name|PDShadingType3
 extends|extends
 name|PDShadingType2
 block|{
-comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary The dictionary for this shading.      */
+comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShadingType3
 parameter_list|(
@@ -58,7 +82,8 @@ name|shadingDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getShadingType
@@ -68,6 +93,31 @@ return|return
 name|PDShading
 operator|.
 name|SHADING_TYPE3
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Paint
+name|toPaint
+parameter_list|(
+name|Matrix
+name|matrix
+parameter_list|,
+name|int
+name|pageHeight
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RadialShadingPaint
+argument_list|(
+name|this
+argument_list|,
+name|matrix
+argument_list|,
+name|pageHeight
+argument_list|)
 return|;
 block|}
 block|}

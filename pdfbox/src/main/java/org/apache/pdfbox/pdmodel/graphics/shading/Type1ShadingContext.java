@@ -197,83 +197,11 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|common
-operator|.
-name|function
-operator|.
-name|PDFunction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
 name|graphics
 operator|.
 name|color
 operator|.
 name|PDColorSpace
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDDeviceN
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDDeviceRGB
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDSeparation
 import|;
 end_import
 
@@ -292,7 +220,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents the Paint of a type 1 (Function based) shading context.  *  * @author lehmi  * @author Tilman Hausherr<tilman@snafu.de>  */
+comment|/**  * AWT PaintContext for function-based (Type 1) shading.  * @author Andreas Lehmkühler  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -326,7 +254,7 @@ name|shadingColorSpace
 decl_stmt|;
 specifier|private
 name|PDShadingType1
-name|shadingType
+name|shading
 decl_stmt|;
 specifier|private
 name|AffineTransform
@@ -346,15 +274,15 @@ name|float
 index|[]
 name|background
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shadingType1 the shading type to be used      * @param colorModelValue the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      *      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      */
 specifier|public
 name|Type1ShadingContext
 parameter_list|(
 name|PDShadingType1
-name|shadingType1
+name|shading
 parameter_list|,
 name|ColorModel
-name|colorModelValue
+name|cm
 parameter_list|,
 name|AffineTransform
 name|xform
@@ -368,14 +296,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|=
-name|shadingType1
+name|shading
 expr_stmt|;
 comment|// color space
 name|shadingColorSpace
 operator|=
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|.
 name|getColorSpace
 argument_list|()
@@ -419,7 +351,9 @@ comment|// specifying the rectangular domain of coordinates over which the
 comment|// color function(s) are defined. Default value: [ 0.0 1.0 0.0 1.0 ].
 if|if
 condition|(
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|.
 name|getDomain
 argument_list|()
@@ -429,7 +363,9 @@ condition|)
 block|{
 name|domain
 operator|=
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|.
 name|getDomain
 argument_list|()
@@ -458,7 +394,9 @@ expr_stmt|;
 block|}
 name|matrix
 operator|=
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|.
 name|getMatrix
 argument_list|()
@@ -536,7 +474,7 @@ comment|// get background values if available
 name|COSArray
 name|bg
 init|=
-name|shadingType1
+name|shading
 operator|.
 name|getBackground
 argument_list|()
@@ -557,7 +495,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -573,12 +510,11 @@ name|shadingColorSpace
 operator|=
 literal|null
 expr_stmt|;
-name|shadingType
+name|shading
 operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -590,7 +526,6 @@ return|return
 name|outputColorModel
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -610,7 +545,6 @@ name|int
 name|h
 parameter_list|)
 block|{
-comment|// create writable raster
 name|WritableRaster
 name|raster
 init|=
@@ -795,7 +729,7 @@ try|try
 block|{
 name|values
 operator|=
-name|shadingType
+name|shading
 operator|.
 name|evalFunction
 argument_list|(

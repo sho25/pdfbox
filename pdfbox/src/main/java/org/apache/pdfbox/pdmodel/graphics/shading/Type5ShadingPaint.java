@@ -107,30 +107,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -172,11 +148,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents the Paint of a Type 5 shading.  */
+comment|/**  * AWT Paint for Gouraud Triangle Lattice (Type 5) shading.  */
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|Type5ShadingPaint
 implements|implements
@@ -203,40 +178,45 @@ name|shading
 decl_stmt|;
 specifier|private
 name|Matrix
-name|currentTransformationMatrix
+name|ctm
 decl_stmt|;
 specifier|private
 name|int
 name|pageHeight
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param shadingType5 the shading resources      * @param ctm current transformation matrix      * @param pageHeightValue      */
+comment|/**      * Constructor.      * @param shading the shading resources      * @param ctm current transformation matrix      * @param pageHeight the height of the page      */
 specifier|public
 name|Type5ShadingPaint
 parameter_list|(
 name|PDShadingType5
-name|shadingType5
+name|shading
 parameter_list|,
 name|Matrix
 name|ctm
 parameter_list|,
 name|int
-name|pageHeightValue
+name|pageHeight
 parameter_list|)
 block|{
+name|this
+operator|.
 name|shading
 operator|=
-name|shadingType5
+name|shading
 expr_stmt|;
-name|currentTransformationMatrix
+name|this
+operator|.
+name|ctm
 operator|=
 name|ctm
 expr_stmt|;
+name|this
+operator|.
 name|pageHeight
 operator|=
-name|pageHeightValue
+name|pageHeight
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -248,7 +228,6 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -283,7 +262,7 @@ name|cm
 argument_list|,
 name|xform
 argument_list|,
-name|currentTransformationMatrix
+name|ctm
 argument_list|,
 name|pageHeight
 argument_list|)

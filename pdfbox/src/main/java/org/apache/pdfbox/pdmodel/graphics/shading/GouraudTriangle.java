@@ -32,54 +32,53 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper class to deal with Gouraud triangles for type 4 and 5 shading.  *  * @author Tilman Hausherr  */
+comment|/**  * A Gouraud triangle, used in Type 4 and Type 5 shadings.  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|GouraudTriangle
 block|{
-comment|/**      * point A of the triangle.      */
+comment|/** point A of the triangle. */
 specifier|protected
 specifier|final
 name|Point2D
 name|pointA
 decl_stmt|;
-comment|/**      * point B of the triangle.      */
+comment|/** point B of the triangle. */
 specifier|protected
 specifier|final
 name|Point2D
 name|pointB
 decl_stmt|;
-comment|/**      * point C of the triangle.      */
+comment|/** point C of the triangle. */
 specifier|protected
 specifier|final
 name|Point2D
 name|pointC
 decl_stmt|;
-comment|/**      * the color of point A.      */
+comment|/** the color of point A. */
 specifier|protected
 specifier|final
 name|float
 index|[]
 name|colorA
 decl_stmt|;
-comment|/**      * the color of point B.      */
+comment|/** the color of point B. */
 specifier|protected
 specifier|final
 name|float
 index|[]
 name|colorB
 decl_stmt|;
-comment|/**      * the color of point C.      */
+comment|/** the color of point C. */
 specifier|protected
 specifier|final
 name|float
 index|[]
 name|colorC
 decl_stmt|;
-comment|/*      * intermediate constants      */
+comment|// intermediate constants
 specifier|private
 specifier|final
 name|double
@@ -115,7 +114,7 @@ specifier|final
 name|double
 name|area
 decl_stmt|;
-comment|/**      * Constructor for using 3 points and their colors.      *      * @param a point A of the triangle      * @param aColor color of point A      * @param b point B of the triangle      * @param bColor color of point B      * @param c point C of the triangle      * @param cColor color of point C      */
+comment|/**      * Constructor for using 3 points and their colors.      * @param a point A of the triangle      * @param aColor color of point A      * @param b point B of the triangle      * @param bColor color of point B      * @param c point C of the triangle      * @param cColor color of point C      */
 specifier|public
 name|GouraudTriangle
 parameter_list|(
@@ -250,7 +249,7 @@ name|pointC
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check whether the point is within the triangle.      *      * @param p Point      *      * @return true if yes, false if no      */
+comment|/**      * Check whether the point is within the triangle.      * @param p Point      * @return true if yes, false if no      */
 specifier|public
 name|boolean
 name|contains
@@ -372,7 +371,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Get the area of a triangle.      *      */
+comment|// returns the area of a triangle
 specifier|private
 name|double
 name|getArea
@@ -446,7 +445,8 @@ operator|/
 literal|2
 return|;
 block|}
-comment|/**      * Tell whether a triangle is empty.      *       * @return true if the area is empty, false if not.      */
+comment|/**      * Tell whether a triangle is empty.      * @return true if the area is empty, false if not      */
+specifier|public
 name|boolean
 name|isEmpty
 parameter_list|()
@@ -457,7 +457,7 @@ operator|==
 literal|0
 return|;
 block|}
-comment|/**      * calculate color weights with barycentric interpolation.      *      * @param p Point within triangle      *      * @return array of weights (between 0 and 1) for a b c      */
+comment|/**      * calculate color weights with barycentric interpolation.      * @param p point within triangle      * @return array of weights (between 0 and 1) for a b c      */
 specifier|public
 name|double
 index|[]

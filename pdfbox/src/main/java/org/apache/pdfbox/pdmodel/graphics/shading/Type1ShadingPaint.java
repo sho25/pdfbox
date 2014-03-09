@@ -148,11 +148,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents the Paint of an type1 shading.  */
+comment|/**  * AWT PaintContext for function-based (Type 1) shading.  */
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|Type1ShadingPaint
 implements|implements
@@ -185,12 +184,12 @@ specifier|private
 name|int
 name|pageHeight
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param shadingType1 the shading resources      * @param ctm current transformation matrix      * @param pageHeight the height of the page      */
+comment|/**      * Constructor.      * @param shading the shading resources      * @param ctm current transformation matrix      * @param pageHeight the height of the page      */
 specifier|public
 name|Type1ShadingPaint
 parameter_list|(
 name|PDShadingType1
-name|shadingType1
+name|shading
 parameter_list|,
 name|Matrix
 name|ctm
@@ -199,9 +198,11 @@ name|int
 name|pageHeight
 parameter_list|)
 block|{
+name|this
+operator|.
 name|shading
 operator|=
-name|shadingType1
+name|shading
 expr_stmt|;
 name|this
 operator|.
@@ -216,7 +217,6 @@ operator|=
 name|pageHeight
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -228,7 +228,6 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public

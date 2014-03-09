@@ -254,11 +254,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * Helper class that Type4ShadingContext and Type5ShadingContext must extend;  * does the shading of Gouraud triangles.  *  * @author lehmi  * @author Tilman Hausherr  *  */
+comment|/**  * Shades Gouraud triangles for  Type4ShadingContext and Type5ShadingContext.  * @author Andreas Lehmkühler  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
-specifier|public
 specifier|abstract
 class|class
 name|GouraudShadingContext
@@ -288,12 +287,12 @@ specifier|private
 name|PDColorSpace
 name|shadingColorSpace
 decl_stmt|;
-comment|/**      * number of color components.      */
+comment|/** number of color components. */
 specifier|protected
 name|int
 name|numberOfColorComponents
 decl_stmt|;
-comment|/**      * triangle list.      */
+comment|/** triangle list. */
 specifier|protected
 name|ArrayList
 argument_list|<
@@ -301,17 +300,17 @@ name|GouraudTriangle
 argument_list|>
 name|triangleList
 decl_stmt|;
-comment|/**      * bits per coordinate.      */
+comment|/** bits per coordinate. */
 specifier|protected
 name|int
 name|bitsPerCoordinate
 decl_stmt|;
-comment|/**      * bits per color component.      */
+comment|/** bits per color component. */
 specifier|protected
 name|int
 name|bitsPerColorComponent
 decl_stmt|;
-comment|/**      * background values.      */
+comment|/** background values.*/
 specifier|protected
 name|float
 index|[]
@@ -327,15 +326,15 @@ specifier|final
 name|PDShading
 name|gouraudShadingType
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shadingType the shading type to be used      * @param colorModelValue the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @throws IOException if something went wrong      *      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @throws IOException if something went wrong      */
 specifier|protected
 name|GouraudShadingContext
 parameter_list|(
 name|PDShading
-name|shadingType
+name|shading
 parameter_list|,
 name|ColorModel
-name|colorModelValue
+name|colorModel
 parameter_list|,
 name|AffineTransform
 name|xform
@@ -351,7 +350,7 @@ name|IOException
 block|{
 name|gouraudShadingType
 operator|=
-name|shadingType
+name|shading
 expr_stmt|;
 name|triangleList
 operator|=
@@ -364,7 +363,7 @@ argument_list|()
 expr_stmt|;
 name|hasFunction
 operator|=
-name|shadingType
+name|shading
 operator|.
 name|getFunction
 argument_list|()
@@ -373,7 +372,7 @@ literal|null
 expr_stmt|;
 name|shadingColorSpace
 operator|=
-name|shadingType
+name|shading
 operator|.
 name|getColorSpace
 argument_list|()
@@ -400,7 +399,7 @@ name|debug
 argument_list|(
 literal|"BBox: "
 operator|+
-name|shadingType
+name|shading
 operator|.
 name|getBBox
 argument_list|()
@@ -412,7 +411,7 @@ name|debug
 argument_list|(
 literal|"Background: "
 operator|+
-name|shadingType
+name|shading
 operator|.
 name|getBackground
 argument_list|()
@@ -452,7 +451,7 @@ name|TYPE_BYTE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Read a vertex from the bit input stream and do the interpolations      * described in the PDF specification.      *      * @param input bit input stream      * @param flag the flag or any value if not relevant      * @param maxSrcCoord max value for source coordinate (2^bits-1)      * @param maxSrcColor max value for source color (2^bits-1)      * @param rangeX dest range for X      * @param rangeY dest range for Y      * @param colRangeTab dest range array for colors      *      * @return a new vertex with the flag and the interpolated values      *      * @throws IOException if something went wrong      */
+comment|/**      * Read a vertex from the bit input stream performs interpolations.      * @param input bit input stream      * @param flag the flag or any value if not relevant      * @param maxSrcCoord max value for source coordinate (2^bits-1)      * @param maxSrcColor max value for source color (2^bits-1)      * @param rangeX dest range for X      * @param rangeY dest range for Y      * @param colRangeTab dest range array for colors      * @return a new vertex with the flag and the interpolated values      * @throws IOException if something went wrong      */
 specifier|protected
 name|Vertex
 name|readVertex
@@ -686,7 +685,7 @@ name|colorComponentTab
 argument_list|)
 return|;
 block|}
-comment|/**      * transform a list of vertices from shading to user space (if applicable)      * and from user to device space.      *      * @param vertexList list of vertices      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      */
+comment|/**      * Transforms vertices from shading to user space (if applicable) and from user to device space.      * @param vertexList list of vertices      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      */
 specifier|protected
 name|void
 name|transformVertices
@@ -808,7 +807,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|dispose
@@ -827,7 +827,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|ColorModel
@@ -838,7 +839,7 @@ return|return
 name|outputColorModel
 return|;
 block|}
-comment|/**      * Calculate the interpolation, see p.345 pdf spec 1.7.      *      * @param src src value      * @param srcMax max src value (2^bits-1)      * @param dstMin min dst value      * @param dstMax max dst value      * @return interpolated value      */
+comment|/**      * Calculate the interpolation, see p.345 pdf spec 1.7.      * @param src src value      * @param srcMax max src value (2^bits-1)      * @param dstMin min dst value      * @param dstMax max dst value      * @return interpolated value      */
 specifier|private
 name|float
 name|interpolate
@@ -872,7 +873,8 @@ name|srcMax
 operator|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|Raster

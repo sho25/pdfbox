@@ -25,6 +25,16 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Paint
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|geom
 operator|.
 name|AffineTransform
@@ -116,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents resources for a function based shading.  *  */
+comment|/**  * Resources for a function based shading.  */
 end_comment
 
 begin_class
@@ -132,7 +142,7 @@ name|domain
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary The dictionary for this shading.      */
+comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShadingType1
 parameter_list|(
@@ -146,7 +156,8 @@ name|shadingDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getShadingType
@@ -158,14 +169,14 @@ operator|.
 name|SHADING_TYPE1
 return|;
 block|}
-comment|/**      * This will get the optional Matrix of a function based shading.      *      * @return the matrix      */
+comment|/**      * This will get the optional Matrix of a function based shading.      * @return the matrix      */
 specifier|public
 name|Matrix
 name|getMatrix
 parameter_list|()
 block|{
 name|Matrix
-name|retval
+name|matrix
 init|=
 literal|null
 decl_stmt|;
@@ -192,13 +203,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|retval
+name|matrix
 operator|=
 operator|new
 name|Matrix
 argument_list|()
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -222,7 +233,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -246,7 +257,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -270,7 +281,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -294,7 +305,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -318,7 +329,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -344,10 +355,10 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|retval
+name|matrix
 return|;
 block|}
-comment|/**      * Sets the optional Matrix entry for the function based shading.      *      * @param transform the transformation matrix      */
+comment|/**      * Sets the optional Matrix entry for the function based shading.      * @param transform the transformation matrix      */
 specifier|public
 name|void
 name|setMatrix
@@ -416,7 +427,7 @@ name|matrix
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the optional Domain values of a function based shading.      *      * @return the domain values      */
+comment|/**      * This will get the optional Domain values of a function based shading.      * @return the domain values      */
 specifier|public
 name|COSArray
 name|getDomain
@@ -449,7 +460,7 @@ return|return
 name|domain
 return|;
 block|}
-comment|/**      * Sets the optional Domain entry for the function based shading.      *      * @param newDomain the domain array      */
+comment|/**      * Sets the optional Domain entry for the function based shading.      * @param newDomain the domain array      */
 specifier|public
 name|void
 name|setDomain
@@ -474,6 +485,31 @@ argument_list|,
 name|newDomain
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Paint
+name|toPaint
+parameter_list|(
+name|Matrix
+name|matrix
+parameter_list|,
+name|int
+name|pageHeight
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Type1ShadingPaint
+argument_list|(
+name|this
+argument_list|,
+name|matrix
+argument_list|,
+name|pageHeight
+argument_list|)
+return|;
 block|}
 block|}
 end_class

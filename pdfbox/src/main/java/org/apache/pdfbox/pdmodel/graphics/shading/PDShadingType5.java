@@ -77,8 +77,42 @@ name|PDRange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|Paint
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
-comment|/**  * This represents resources for a shading type 5 (Lattice-Form Gouraud-Shaded  * Triangle Meshes).  *  */
+comment|/**  * Resources for a shading type 5 (Lattice-Form Gouraud-Shade Triangle Mesh).  */
 end_comment
 
 begin_class
@@ -88,14 +122,16 @@ name|PDShadingType5
 extends|extends
 name|PDShading
 block|{
-comment|/**      * An array of 2^n numbers specifying the linear mapping of sample values      * into the range appropriate for the function's output values. Default      * value: same as the value of Range      */
+comment|// an array of 2^n numbers specifying the linear mapping of sample values
+comment|// into the range appropriate for the function's output values. Default
+comment|// value: same as the value of Range
 specifier|private
 name|COSArray
 name|decode
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary The dictionary for this shading.      */
+comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShadingType5
 parameter_list|(
@@ -109,7 +145,8 @@ name|shadingDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getShadingType
@@ -121,7 +158,7 @@ operator|.
 name|SHADING_TYPE5
 return|;
 block|}
-comment|/**      * The bits per component of this shading. This will return -1 if one has      * not been set.      *      * @return The number of bits per component.      */
+comment|/**      * The bits per component of this shading. This will return -1 if one has not been set.      * @return the number of bits per component      */
 specifier|public
 name|int
 name|getBitsPerComponent
@@ -142,13 +179,13 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of bits per component.      *      * @param bpc The number of bits per component.      */
+comment|/**      * Set the number of bits per component.      * @param bitsPerComponent the number of bits per component      */
 specifier|public
 name|void
 name|setBitsPerComponent
 parameter_list|(
 name|int
-name|bpc
+name|bitsPerComponent
 parameter_list|)
 block|{
 name|getCOSDictionary
@@ -160,11 +197,11 @@ name|COSName
 operator|.
 name|BITS_PER_COMPONENT
 argument_list|,
-name|bpc
+name|bitsPerComponent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The bits per coordinate of this shading. This will return -1 if one has      * not been set.      *      * @return The number of bits per coordinate.      */
+comment|/**      * The bits per coordinate of this shading. This will return -1 if one has not been set.      * @return the number of bits per coordinate      */
 specifier|public
 name|int
 name|getBitsPerCoordinate
@@ -185,13 +222,13 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of bits per coordinate.      *      * @param bpc The number of bits per coordinate.      */
+comment|/**      * Set the number of bits per coordinate.      * @param bitsPerComponent the number of bits per coordinate      */
 specifier|public
 name|void
 name|setBitsPerCoordinate
 parameter_list|(
 name|int
-name|bpc
+name|bitsPerComponent
 parameter_list|)
 block|{
 name|getCOSDictionary
@@ -203,11 +240,11 @@ name|COSName
 operator|.
 name|BITS_PER_COORDINATE
 argument_list|,
-name|bpc
+name|bitsPerComponent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The vertices per row of this shading. This will return -1 if one has not      * been set.      *      * @return The number of vertices per row.      */
+comment|/**      * The vertices per row of this shading. This will return -1 if one has not been set.      * @return the number of vertices per row      */
 specifier|public
 name|int
 name|getVerticesPerRow
@@ -228,13 +265,13 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of vertices per row.      *      * @param vpr The number of vertices per row.      */
+comment|/**      * Set the number of vertices per row.      * @param verticesPerRow the number of vertices per row      */
 specifier|public
 name|void
 name|setVerticesPerRow
 parameter_list|(
 name|int
-name|vpr
+name|verticesPerRow
 parameter_list|)
 block|{
 name|getCOSDictionary
@@ -246,11 +283,11 @@ name|COSName
 operator|.
 name|VERTICES_PER_ROW
 argument_list|,
-name|vpr
+name|verticesPerRow
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns all decode values as COSArray.      *      * @return the decode array.      */
+comment|/**      * Returns all decode values as COSArray.      * @return the decode array.      */
 specifier|private
 name|COSArray
 name|getDecodeValues
@@ -283,7 +320,7 @@ return|return
 name|decode
 return|;
 block|}
-comment|/**      * This will set the decode values.      *      * @param decodeValues The new decode values.      */
+comment|/**      * This will set the decode values.      * @param decodeValues The new decode values.      */
 specifier|public
 name|void
 name|setDecodeValues
@@ -309,7 +346,7 @@ name|decodeValues
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the decode for the input parameter.      *      * @param paramNum The function parameter number.      *      * @return The decode parameter range or null if none is set.      */
+comment|/**      * Get the decode for the input parameter.      * @param paramNum The function parameter number.      * @return The decode parameter range or null if none is set.      */
 specifier|public
 name|PDRange
 name|getDecodeForParameter
@@ -360,6 +397,31 @@ expr_stmt|;
 block|}
 return|return
 name|retval
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Paint
+name|toPaint
+parameter_list|(
+name|Matrix
+name|matrix
+parameter_list|,
+name|int
+name|pageHeight
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Type5ShadingPaint
+argument_list|(
+name|this
+argument_list|,
+name|matrix
+argument_list|,
+name|pageHeight
+argument_list|)
 return|;
 block|}
 block|}

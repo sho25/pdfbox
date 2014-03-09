@@ -148,11 +148,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents the Paint of an axial shading.  *   * @author lehmi  */
+comment|/**  * AWT Paint for axial shading.  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|AxialShadingPaint
 implements|implements
@@ -185,7 +184,7 @@ specifier|private
 name|int
 name|pageHeight
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param shadingType2 the shading resources      * @param ctm current transformation matrix      * @param pageHeight size of the current page      */
+comment|/**      * Constructor.      * @param shadingType2 the shading resources      * @param ctm current transformation matrix      * @param pageHeight size of the current page      */
 specifier|public
 name|AxialShadingPaint
 parameter_list|(
@@ -216,7 +215,8 @@ operator|=
 name|pageHeight
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getTransparency
@@ -226,7 +226,8 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|PaintContext
 name|createContext

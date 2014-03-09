@@ -222,16 +222,30 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents the PaintContext of an radial shading.  *   */
+comment|/**  * AWT PaintContext for radial shading.  */
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|RadialShadingContext
 implements|implements
 name|PaintContext
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|RadialShadingContext
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|ColorModel
 name|outputColorModel
@@ -242,7 +256,7 @@ name|shadingColorSpace
 decl_stmt|;
 specifier|private
 name|PDShadingType3
-name|shadingType
+name|shading
 decl_stmt|;
 specifier|private
 name|float
@@ -296,31 +310,15 @@ specifier|private
 name|double
 name|denom
 decl_stmt|;
-comment|/**      * Log instance.      */
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|RadialShadingContext
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *       * @param shadingType3 the shading type to be used      * @param colorModelValue the color model to be used      * @param xform transformation for user to device space      * @param ctm the transformation matrix      * @param pageHeight height of the current page      *       */
+comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param ctm the transformation matrix      * @param pageHeight height of the current page      */
 specifier|public
 name|RadialShadingContext
 parameter_list|(
 name|PDShadingType3
-name|shadingType3
+name|shading
 parameter_list|,
 name|ColorModel
-name|colorModelValue
+name|cm
 parameter_list|,
 name|AffineTransform
 name|xform
@@ -334,13 +332,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|=
-name|shadingType3
+name|shading
 expr_stmt|;
 name|coords
 operator|=
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|.
 name|getCoords
 argument_list|()
@@ -470,7 +472,9 @@ expr_stmt|;
 comment|// get the shading colorSpace
 name|shadingColorSpace
 operator|=
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|.
 name|getColorSpace
 argument_list|()
@@ -511,7 +515,9 @@ expr_stmt|;
 comment|// domain values
 if|if
 condition|(
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|.
 name|getDomain
 argument_list|()
@@ -521,7 +527,9 @@ condition|)
 block|{
 name|domain
 operator|=
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|.
 name|getDomain
 argument_list|()
@@ -549,14 +557,18 @@ comment|// extend values
 name|COSArray
 name|extendValues
 init|=
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|.
 name|getExtend
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|shadingType
+name|this
+operator|.
+name|shading
 operator|.
 name|getExtend
 argument_list|()
@@ -732,7 +744,7 @@ comment|// get background values if available
 name|COSArray
 name|bg
 init|=
-name|shadingType3
+name|shading
 operator|.
 name|getBackground
 argument_list|()
@@ -753,7 +765,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|dispose
@@ -763,7 +776,7 @@ name|outputColorModel
 operator|=
 literal|null
 expr_stmt|;
-name|shadingType
+name|shading
 operator|=
 literal|null
 expr_stmt|;
@@ -772,7 +785,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|ColorModel
 name|getColorModel
@@ -782,7 +796,8 @@ return|return
 name|outputColorModel
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|Raster
 name|getRaster
@@ -1280,7 +1295,7 @@ argument_list|)
 decl_stmt|;
 name|values
 operator|=
-name|shadingType
+name|shading
 operator|.
 name|evalFunction
 argument_list|(
@@ -1431,7 +1446,22 @@ name|int
 name|y
 parameter_list|)
 block|{
-comment|/**          * According to Adobes Technical Note #5600 we have to do the following          *           * x0, y0, r0 defines the start circle x1, y1, r1 defines the end circle          *           * The parametric equations for the center and radius of the gradient fill circle moving between the start          * circle and the end circle as a function of s are as follows:          *           * xc(s) = x0 + s * (x1 - x0) yc(s) = y0 + s * (y1 - y0) r(s) = r0 + s * (r1 - r0)          *           * Given a geometric coordinate position (x, y) in or along the gradient fill, the corresponding value of s can          * be determined by solving the quadratic constraint equation:          *           * [x - xc(s)]2 + [y - yc(s)]2 = [r(s)]2          *           * The following code calculates the 2 possible values of s          */
+comment|// According to Adobes Technical Note #5600 we have to do the following
+comment|//
+comment|// x0, y0, r0 defines the start circle x1, y1, r1 defines the end circle
+comment|//
+comment|// The parametric equations for the center and radius of the gradient fill circle moving
+comment|// between the start circle and the end circle as a function of s are as follows:
+comment|//
+comment|// xc(s) = x0 + s * (x1 - x0) yc(s) = y0 + s * (y1 - y0) r(s) = r0 + s * (r1 - r0)
+comment|//
+comment|// Given a geometric coordinate position (x, y) in or along the gradient fill, the
+comment|// corresponding value of s can be determined by solving the quadratic constraint equation:
+comment|//
+comment|// [x - xc(s)]2 + [y - yc(s)]2 = [r(s)]2
+comment|//
+comment|// The following code calculates the 2 possible values of s
+comment|//
 name|double
 name|p
 init|=
@@ -1582,7 +1612,7 @@ block|}
 return|;
 block|}
 block|}
-comment|/**      * Returns the coords values.      *       * @return the coords values as array      */
+comment|/**      * Returns the coords values.      * @return the coords values as array      */
 specifier|public
 name|float
 index|[]
@@ -1593,7 +1623,7 @@ return|return
 name|coords
 return|;
 block|}
-comment|/**      * Returns the domain values.      *       * @return the domain values as array      */
+comment|/**      * Returns the domain values.      * @return the domain values as array      */
 specifier|public
 name|float
 index|[]
@@ -1604,7 +1634,7 @@ return|return
 name|domain
 return|;
 block|}
-comment|/**      * Returns the extend values.      *       * @return the extend values as array      */
+comment|/**      * Returns the extend values.      * @return the extend values as array      */
 specifier|public
 name|boolean
 index|[]
