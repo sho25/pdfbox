@@ -397,6 +397,22 @@ name|OperatorProcessor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|operator
+operator|.
+name|PDFOperator
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class will run through a PDF content stream and execute certain operations and provide a callback interface for  * clients that want to do things with the stream. See the PDFTextStripper class for an example of how to use this  * class.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment

@@ -85,30 +85,6 @@ name|PDLineDashPattern
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|PDFOperator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Implementation of content stream operator for page drawer.  *  * @author Ben Litchfield  */
 end_comment

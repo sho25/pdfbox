@@ -503,6 +503,8 @@ name|pdfbox
 operator|.
 name|util
 operator|.
+name|operator
+operator|.
 name|PDFOperator
 import|;
 end_import

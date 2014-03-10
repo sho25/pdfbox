@@ -87,20 +87,6 @@ name|PDGraphicsState
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|PDFOperator
-import|;
-end_import
-
 begin_comment
 comment|/**  * Process the Q operator.  *   * @author Huault : huault@free.fr  *   */
 end_comment

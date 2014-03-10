@@ -93,20 +93,6 @@ name|PDFMarkedContentExtractor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|PDFOperator
-import|;
-end_import
-
 begin_comment
 comment|/**  * BDC : Begins a marked-content sequence with property list.  *  * @author koch  * @version $Revision$  */
 end_comment
