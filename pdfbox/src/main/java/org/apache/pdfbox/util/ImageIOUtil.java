@@ -697,7 +697,7 @@ init|=
 operator|new
 name|IIOMetadataNode
 argument_list|(
-literal|"HorizontalPixelSize"
+literal|"VerticalPixelSize"
 argument_list|)
 decl_stmt|;
 name|v
