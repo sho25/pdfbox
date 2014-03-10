@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|text
 package|;
 end_package
 
@@ -42,6 +42,20 @@ operator|.
 name|font
 operator|.
 name|PDFont
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
 import|;
 end_import
 

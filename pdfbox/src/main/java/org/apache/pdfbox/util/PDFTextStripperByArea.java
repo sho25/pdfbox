@@ -161,6 +161,20 @@ name|PDStream
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|text
+operator|.
+name|TextPosition
+import|;
+end_import
+
 begin_comment
 comment|/**  * This will extract text from a specified region in the PDF.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
 end_comment

@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|text
 package|;
 end_package
 

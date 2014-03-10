@@ -147,6 +147,34 @@ name|PDXObject
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|text
+operator|.
+name|TextNormalize
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|text
+operator|.
+name|TextPosition
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an stream engine to extract the marked content of a pdf.  * @author koch  * @version $Revision$  */
 end_comment
