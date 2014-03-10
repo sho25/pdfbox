@@ -466,6 +466,15 @@ name|canWriteCompressed
 argument_list|()
 condition|)
 block|{
+name|param
+operator|.
+name|setCompressionMode
+argument_list|(
+name|ImageWriteParam
+operator|.
+name|MODE_EXPLICIT
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|formatName
@@ -493,15 +502,6 @@ block|}
 else|else
 block|{
 comment|// JPEG, PNG compression
-name|param
-operator|.
-name|setCompressionMode
-argument_list|(
-name|ImageWriteParam
-operator|.
-name|MODE_EXPLICIT
-argument_list|)
-expr_stmt|;
 name|param
 operator|.
 name|setCompressionType
