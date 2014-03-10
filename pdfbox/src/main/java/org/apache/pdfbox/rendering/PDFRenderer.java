@@ -172,7 +172,9 @@ name|pageIndex
 argument_list|,
 name|scale
 argument_list|,
-literal|false
+name|ImageType
+operator|.
+name|RGB
 argument_list|)
 return|;
 block|}
@@ -184,7 +186,7 @@ parameter_list|(
 name|int
 name|pageIndex
 parameter_list|,
-name|int
+name|float
 name|dpi
 parameter_list|)
 throws|throws
@@ -199,11 +201,13 @@ name|dpi
 operator|/
 literal|72f
 argument_list|,
-literal|false
+name|ImageType
+operator|.
+name|RGB
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the given page as an RGB image at the given DPI.      * @param pageIndex the zero-based index of the page to be converted      * @param dpi the DPI (dots per inch) to render at      * @return the rendered page image      * @throws IOException if the PDF cannot be read      */
+comment|/**      * Returns the given page as an RGB image at the given DPI.      * @param pageIndex the zero-based index of the page to be converted      * @param dpi the DPI (dots per inch) to render at      * @param imageType the type of image to return      * @return the rendered page image      * @throws IOException if the PDF cannot be read      */
 specifier|public
 name|BufferedImage
 name|renderImageWithDPI
@@ -211,11 +215,11 @@ parameter_list|(
 name|int
 name|pageIndex
 parameter_list|,
-name|int
+name|float
 name|dpi
 parameter_list|,
-name|boolean
-name|useAlpha
+name|ImageType
+name|imageType
 parameter_list|)
 throws|throws
 name|IOException
@@ -229,11 +233,11 @@ name|dpi
 operator|/
 literal|72f
 argument_list|,
-name|useAlpha
+name|imageType
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the given page as an RGB or ARGB image at the given scale.      * @param pageIndex the zero-based index of the page to be converted      * @param scale the scaling factor, where 1 = 72 DPI      * @param useAlpha true if an ARGB image is to be returned      * @return the rendered page image      * @throws IOException if the PDF cannot be read      */
+comment|/**      * Returns the given page as an RGB or ARGB image at the given scale.      * @param pageIndex the zero-based index of the page to be converted      * @param scale the scaling factor, where 1 = 72 DPI      * @param imageType the type of image to return      * @return the rendered page image      * @throws IOException if the PDF cannot be read      */
 specifier|public
 name|BufferedImage
 name|renderImage
@@ -244,8 +248,8 @@ parameter_list|,
 name|float
 name|scale
 parameter_list|,
-name|boolean
-name|useAlpha
+name|ImageType
+name|imageType
 parameter_list|)
 throws|throws
 name|IOException
@@ -342,19 +346,6 @@ operator|-=
 literal|360
 expr_stmt|;
 block|}
-name|int
-name|imageType
-init|=
-name|useAlpha
-condition|?
-name|BufferedImage
-operator|.
-name|TYPE_INT_ARGB
-else|:
-name|BufferedImage
-operator|.
-name|TYPE_INT_RGB
-decl_stmt|;
 comment|// swap width and height
 name|BufferedImage
 name|image
@@ -380,6 +371,9 @@ argument_list|,
 name|widthPx
 argument_list|,
 name|imageType
+operator|.
+name|toBufferedImageType
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -395,6 +389,9 @@ argument_list|,
 name|heightPx
 argument_list|,
 name|imageType
+operator|.
+name|toBufferedImageType
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -409,8 +406,11 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|useAlpha
+name|imageType
+operator|!=
+name|ImageType
+operator|.
+name|ARGB
 condition|)
 block|{
 name|g

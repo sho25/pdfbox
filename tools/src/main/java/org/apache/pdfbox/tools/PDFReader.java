@@ -1660,10 +1660,6 @@ literal|"png"
 argument_list|,
 name|imageFilename
 argument_list|,
-name|BufferedImage
-operator|.
-name|TYPE_USHORT_565_RGB
-argument_list|,
 literal|300
 argument_list|)
 expr_stmt|;
