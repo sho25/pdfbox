@@ -645,13 +645,6 @@ argument_list|(
 literal|"Dimension"
 argument_list|)
 decl_stmt|;
-name|root
-operator|.
-name|appendChild
-argument_list|(
-name|dimension
-argument_list|)
-expr_stmt|;
 name|Element
 name|h
 init|=
@@ -714,6 +707,13 @@ operator|.
 name|appendChild
 argument_list|(
 name|v
+argument_list|)
+expr_stmt|;
+name|root
+operator|.
+name|appendChild
+argument_list|(
+name|dimension
 argument_list|)
 expr_stmt|;
 try|try
