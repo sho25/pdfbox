@@ -24,7 +24,7 @@ specifier|public
 class|class
 name|COSVisitorException
 extends|extends
-name|WrappedException
+name|Exception
 block|{
 comment|/**      * COSVisitorException constructor comment.      *      * @param e The root exception that caused this exception.      */
 specifier|public
