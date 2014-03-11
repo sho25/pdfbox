@@ -279,20 +279,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|WrappedIOException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|io
 operator|.
 name|IOUtils
@@ -1989,7 +1975,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|WrappedIOException
+name|IOException
 argument_list|(
 literal|"Could not push back "
 operator|+

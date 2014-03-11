@@ -369,20 +369,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|WrappedIOException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -1291,7 +1277,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|WrappedIOException
+name|IOException
 argument_list|(
 name|e
 argument_list|)
@@ -1305,7 +1291,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|WrappedIOException
+name|IOException
 argument_list|(
 name|e
 argument_list|)
@@ -1319,7 +1305,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|WrappedIOException
+name|IOException
 argument_list|(
 name|e
 argument_list|)
@@ -1333,7 +1319,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|WrappedIOException
+name|IOException
 argument_list|(
 name|e
 argument_list|)

@@ -213,20 +213,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|WrappedIOException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdfparser
 operator|.
 name|PDFStreamParser
@@ -428,7 +414,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will run through a PDF content stream and execute certain operations and provide a callback interface for  * clients that want to do things with the stream. See the PDFTextStripper class for an example of how to use this  * class.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * Processes a PDF content stream and executes certain operations.  * Provides a callback interface for clients that want to do things with the stream.  * {@see org.apache.pdfbox.util.PDFTextStripper}  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -451,7 +437,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * The PDF operators that are ignored by this engine.      */
 specifier|private
 specifier|final
 name|Set
@@ -464,38 +449,6 @@ operator|new
 name|HashSet
 argument_list|<
 name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
-specifier|private
-name|PDGraphicsState
-name|graphicsState
-init|=
-literal|null
-decl_stmt|;
-specifier|private
-name|Matrix
-name|textMatrix
-init|=
-literal|null
-decl_stmt|;
-specifier|private
-name|Matrix
-name|textLineMatrix
-init|=
-literal|null
-decl_stmt|;
-specifier|private
-name|Stack
-argument_list|<
-name|PDGraphicsState
-argument_list|>
-name|graphicsStack
-init|=
-operator|new
-name|Stack
-argument_list|<
-name|PDGraphicsState
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -514,6 +467,32 @@ argument_list|<
 name|String
 argument_list|,
 name|OperatorProcessor
+argument_list|>
+argument_list|()
+decl_stmt|;
+specifier|private
+name|PDGraphicsState
+name|graphicsState
+decl_stmt|;
+specifier|private
+name|Matrix
+name|textMatrix
+decl_stmt|;
+specifier|private
+name|Matrix
+name|textLineMatrix
+decl_stmt|;
+specifier|private
+name|Stack
+argument_list|<
+name|PDGraphicsState
+argument_list|>
+name|graphicsStack
+init|=
+operator|new
+name|Stack
+argument_list|<
+name|PDGraphicsState
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -542,37 +521,21 @@ decl_stmt|;
 specifier|private
 name|int
 name|pageRotation
-init|=
-literal|0
 decl_stmt|;
 specifier|private
 name|PDRectangle
 name|drawingRectangle
-init|=
-literal|null
 decl_stmt|;
-comment|/**      * Flag to skip malformed or otherwise unparseable input where possible.      */
+comment|// skip malformed or otherwise unparseable input where possible
 specifier|private
 name|boolean
 name|forceParsing
-init|=
-literal|false
 decl_stmt|;
-comment|/**      * Constructor.      */
+comment|/**      * Creates a new PDFStreamEngine.      */
 specifier|public
 name|PDFStreamEngine
 parameter_list|()
-block|{
-comment|// default constructor
-name|validCharCnt
-operator|=
-literal|0
-expr_stmt|;
-name|totalCharCnt
-operator|=
-literal|0
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Constructor with engine properties. The property keys are all PDF operators, the values are class names used to      * execute those operators. An empty value means that the operator will be silently ignored.      *       * @param properties The engine properties.      *       * @throws IOException If there is an error setting the engine properties.      */
 specifier|public
 name|PDFStreamEngine
@@ -666,7 +629,7 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|klass
+name|cls
 init|=
 name|Class
 operator|.
@@ -681,7 +644,7 @@ init|=
 operator|(
 name|OperatorProcessor
 operator|)
-name|klass
+name|cls
 operator|.
 name|newInstance
 argument_list|()
@@ -702,7 +665,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|WrappedIOException
+name|IOException
 argument_list|(
 literal|"OperatorProcessor class "
 operator|+
@@ -716,14 +679,6 @@ throw|;
 block|}
 block|}
 block|}
-name|validCharCnt
-operator|=
-literal|0
-expr_stmt|;
-name|totalCharCnt
-operator|=
-literal|0
-expr_stmt|;
 block|}
 comment|/**      * Indicates if force parsing is activated.      *       * @return true if force parsing is active      */
 specifier|public
