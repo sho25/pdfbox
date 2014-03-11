@@ -406,6 +406,25 @@ argument_list|,
 name|dpi
 argument_list|)
 expr_stmt|;
+name|checkResolution
+argument_list|(
+name|outDir
+operator|+
+name|file
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"-1."
+operator|+
+name|imageType
+argument_list|,
+operator|(
+name|int
+operator|)
+name|dpi
+argument_list|)
+expr_stmt|;
 comment|// testing JPG/JPEG
 name|imageType
 operator|=
