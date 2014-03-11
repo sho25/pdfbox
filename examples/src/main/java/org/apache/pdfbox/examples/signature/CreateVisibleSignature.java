@@ -237,7 +237,7 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
 import|;
 end_import
 
@@ -414,7 +414,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>  * This is an example for signing a pdf with bouncy castle.  *</p>  *<p>  * And also you can create visible signature too  *</p>  *<p>  * A keystore can be created with the java keytool (e.g. keytool -genkeypair -storepass 123456 -storetype pkcs12 -alias  * test -validity 365 -v -keyalg RSA -keystore keystore.p12 )  *</p>  *   * @author Vakhtang koroghlishvili (Gogebashvili)  */
+comment|/**  * This is an example for visual signing a pdf with bouncy castle.  *  * {@see org.apache.pdfbox.examples.signature.CreateSignature}  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -446,7 +446,7 @@ specifier|private
 name|SignatureOptions
 name|options
 decl_stmt|;
-comment|/**    * Initialize the signature creator with a keystore (pkcs12) and pin that    * should be used for the signature.    *     * @param keystore    *          is a pkcs12 keystore.    * @param pin    *          is the pin for the keystore / private key    */
+comment|/**      * Initialize the signature creator with a keystore (pkcs12) and pin that      * should be used for the signature.      *      * @param keystore is a pkcs12 keystore.      * @param pin is the pin for the keystore / private key      */
 specifier|public
 name|CreateVisibleSignature
 parameter_list|(
@@ -460,7 +460,9 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|/*        * grabs the first alias from the keystore and get the private key. An        * alternative method or constructor could be used for setting a specific        * alias that should be used.        */
+comment|// grabs the first alias from the keystore and get the private key. An
+comment|// alternative method or constructor could be used for setting a specific
+comment|// alias that should be used.
 name|Enumeration
 argument_list|<
 name|String
@@ -582,7 +584,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Signs the given pdf file.    *     * @param document is the pdf document    * @param signatureProperties    * @return the signed pdf document    * @throws IOException    * @throws COSVisitorException    * @throws SignatureException    */
+comment|/**      * Signs the given pdf file.      *      * @param document is the pdf document      * @param signatureProperties      * @return the signed pdf document      * @throws IOException      * @throws SignatureException      */
 specifier|public
 name|File
 name|signPDF
@@ -596,9 +598,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
 throws|,
 name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|byte
 index|[]
@@ -874,7 +878,7 @@ return|return
 name|outputDocument
 return|;
 block|}
-comment|/**    *<p>    * SignatureInterface implementation.    *</p>    *<p>    * This method will be called from inside of the pdfbox and create the pkcs7 signature. The given InputStream contains    * the bytes that are providen by the byte range.    *</p>    *<p>    * This method is for internal use only.    *</p>    *<p>    * Here the user should use his favorite cryptographic library and implement a pkcs7 signature creation.    *</p>    */
+comment|/**      * SignatureInterface implementation.      *      * This method will be called from inside of the pdfbox and create the pkcs7 signature.      * The given InputStream contains the bytes that are given by the byte range.      *      * This method is for internal use only.<-- TODO this method should be private      *      * Use your favorite cryptographic library to implement pkcs7 signature creation.      */
 annotation|@
 name|Override
 specifier|public
@@ -1023,7 +1027,7 @@ literal|"Problem while preparing signature"
 argument_list|)
 throw|;
 block|}
-comment|/**    * Arguments are    * [0] key store    * [1] pin    * [2] document that will be signed    * [3] image of visible signature    */
+comment|/**      * Arguments are      * [0] key store      * [1] pin      * [2] document that will be signed      * [3] image of visible signature      */
 specifier|public
 specifier|static
 name|void
@@ -1036,17 +1040,15 @@ parameter_list|)
 throws|throws
 name|KeyStoreException
 throws|,
-name|NoSuchAlgorithmException
-throws|,
 name|CertificateException
-throws|,
-name|FileNotFoundException
 throws|,
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
 throws|,
 name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 if|if
 condition|(
@@ -1254,7 +1256,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * This will print the usage for this program.    */
+comment|/**      * This will print the usage for this program.      */
 specifier|private
 specifier|static
 name|void

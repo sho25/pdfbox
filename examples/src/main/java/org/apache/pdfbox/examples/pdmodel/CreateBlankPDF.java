@@ -29,6 +29,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -37,7 +47,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -78,7 +102,7 @@ specifier|public
 class|class
 name|CreateBlankPDF
 block|{
-comment|/**      * This will create a blank PDF and write the contents to a file.      *      * @param file The name of the file to write to.      *      * @throws IOException If there is an error writing the data.      * @throws COSVisitorException If there is an error while generating the document.      */
+comment|/**      * This will create a blank PDF and write the contents to a file.      *      * @param file The name of the file to write to.      *      * @throws IOException If there is an error writing the data.      */
 specifier|public
 name|void
 name|create
@@ -89,7 +113,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|PDDocument
 name|document
@@ -145,7 +173,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will create a blank document.      *      * @param args The command line arguments.      *      * @throws IOException If there is an error writing the document data.      * @throws COSVisitorException If there is an error generating the data.      */
+comment|/**      * This will create a blank document.      *      * @param args The command line arguments.      *      * @throws IOException If there is an error writing the document data.      */
 specifier|public
 specifier|static
 name|void
@@ -158,7 +186,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 if|if
 condition|(

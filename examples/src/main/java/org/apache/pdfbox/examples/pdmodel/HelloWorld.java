@@ -29,6 +29,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -37,7 +47,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -135,7 +159,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * create the second sample document from the PDF file format specification.      *      * @param file The file to write the PDF to.      * @param message The message to write in the file.      *      * @throws IOException If there is an error writing the data.      * @throws COSVisitorException If there is an error writing the PDF.      */
+comment|/**      * create the second sample document from the PDF file format specification.      *      * @param file The file to write the PDF to.      * @param message The message to write in the file.      *      * @throws IOException If there is an error writing the data.      */
 specifier|public
 name|void
 name|doIt
@@ -149,7 +173,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 comment|// the document
 name|PDDocument

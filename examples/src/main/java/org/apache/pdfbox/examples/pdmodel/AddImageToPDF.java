@@ -49,6 +49,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -57,7 +67,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -182,7 +206,7 @@ specifier|public
 class|class
 name|AddImageToPDF
 block|{
-comment|/**      * Add an image to an existing PDF document.      *      * @param inputFile The input PDF to add the image to.      * @param image The filename of the image to put in the PDF.      * @param outputFile The file to write to the pdf to.      *      * @throws IOException If there is an error writing the data.      * @throws COSVisitorException If there is an error writing the PDF.      */
+comment|/**      * Add an image to an existing PDF document.      *      * @param inputFile The input PDF to add the image to.      * @param image The filename of the image to put in the PDF.      * @param outputFile The file to write to the pdf to.      *      * @throws IOException If there is an error writing the data.      */
 specifier|public
 name|void
 name|createPDFFromImage
@@ -199,7 +223,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 comment|// the document
 name|PDDocument

@@ -29,6 +29,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -37,7 +47,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -187,7 +211,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will read a PDF file and set a field and then write it the pdf out again.<br />      * see usage() for commandline      *       * @param args command line arguments      *       * @throws IOException If there is an error importing the FDF document.      * @throws COSVisitorException If there is an error writing the PDF.      */
+comment|/**      * This will read a PDF file and set a field and then write it the pdf out again.<br />      * see usage() for commandline      *       * @param args command line arguments      *       * @throws IOException If there is an error importing the FDF document.      */
 specifier|public
 specifier|static
 name|void
@@ -200,7 +224,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|SetField
 name|setter
@@ -228,7 +256,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|PDDocument
 name|pdf

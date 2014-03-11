@@ -29,6 +29,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -38,6 +48,34 @@ operator|.
 name|cos
 operator|.
 name|COSDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -69,20 +107,6 @@ name|COSWriter
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|COSVisitorException
-import|;
-end_import
-
 begin_comment
 comment|/**  * This is an example used to copy a documents contents from a source doc to destination doc  * via an in-memory document representation.  *  * @author Michael Traut  * @version $Revision: 1.7 $  */
 end_comment
@@ -101,7 +125,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will perform the document copy.      *      * @param in The filename used for input.      * @param out The filename used for output.      *      * @throws IOException If there is an error parsing the document.      * @throws COSVisitorException If there is an error while copying the document.      */
+comment|/**      * This will perform the document copy.      *      * @param in The filename used for input.      * @param out The filename used for output.      *      * @throws IOException If there is an error parsing the document.      */
 specifier|public
 name|void
 name|doIt
@@ -115,7 +139,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|java
 operator|.

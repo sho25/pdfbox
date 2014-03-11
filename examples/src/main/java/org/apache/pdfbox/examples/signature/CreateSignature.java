@@ -43,16 +43,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|FileOutputStream
 import|;
 end_import
@@ -247,7 +237,7 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
 import|;
 end_import
 
@@ -408,7 +398,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>This is an example for singing a pdf with bouncy castle.</p>  *<p>A keystore can be created with the java keytool   * (e.g. keytool -genkeypair -storepass 123456 -storetype pkcs12 -alias test -validity 365 -v -keyalg RSA -keystore keystore.p12 )   *</p>  *   * @author Thomas Chojecki  *   */
+comment|/**  * An example for singing a PDF with bouncy castle.  * A keystore can be created with the java keytool, for example:  *  * {@code keytool -genkeypair -storepass 123456 -storetype pkcs12 -alias test -validity 365  *        -v -keyalg RSA -keystore keystore.p12 }  *  * @author Thomas Chojecki  */
 end_comment
 
 begin_class
@@ -440,7 +430,7 @@ specifier|private
 name|SignatureOptions
 name|options
 decl_stmt|;
-comment|/**    * Initialize the signature creator with a keystore (pkcs12) and pin that    * should be used for the signature.    *     * @param keystore    *          is a pkcs12 keystore.    * @param pin    *          is the pin for the keystore / private key    */
+comment|/**      * Initialize the signature creator with a keystore (pkcs12) and pin that      * should be used for the signature.      *      * @param keystore is a pkcs12 keystore.      * @param pin is the pin for the keystore / private key      */
 specifier|public
 name|CreateSignature
 parameter_list|(
@@ -454,7 +444,9 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|/*        * grabs the first alias from the keystore and get the private key. An        * alternative method or constructor could be used for setting a specific        * alias that should be used.        */
+comment|// grabs the first alias from the keystore and get the private key. An
+comment|// alternative method or constructor could be used for setting a specific
+comment|// alias that should be used.
 name|Enumeration
 argument_list|<
 name|String
@@ -576,7 +568,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Signs the given pdf file.    *     * @param document is the pdf document    * @return the signed pdf document    * @throws IOException     * @throws COSVisitorException    * @throws SignatureException    */
+comment|/**      * Signs the given pdf file.      *      * @param document is the pdf document      * @return the signed pdf document      * @throws IOException      * @throws SignatureException      */
 specifier|public
 name|File
 name|signPDF
@@ -587,9 +579,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
 throws|,
 name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|byte
 index|[]
@@ -845,7 +839,7 @@ return|return
 name|outputDocument
 return|;
 block|}
-comment|/**    *<p>    * SignatureInterface implementation.    *</p>    *     *<p>    * This method will be called from inside of the pdfbox and create the pkcs7    * signature. The given InputStream contains the bytes that are providen by    * the byte range.    *</p>    *     *<p>    * This method is for internal use only.    *</p>    *     *<p>    * Here the user should use his favorite cryptographic library and implement a    * pkcs7 signature creation.    *</p>    */
+comment|/**      * SignatureInterface implementation.      *      * This method will be called from inside of the pdfbox and create the pkcs7 signature.      * The given InputStream contains the bytes that are given by the byte range.      *      * This method is for internal use only.<-- TODO this method should be private      *      * Use your favorite cryptographic library to implement pkcs7 signature creation.      */
 specifier|public
 name|byte
 index|[]
@@ -1004,17 +998,15 @@ parameter_list|)
 throws|throws
 name|KeyStoreException
 throws|,
-name|NoSuchAlgorithmException
-throws|,
 name|CertificateException
-throws|,
-name|FileNotFoundException
 throws|,
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
 throws|,
 name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 if|if
 condition|(
@@ -1122,7 +1114,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * This will print the usage for this program.    */
 specifier|private
 specifier|static
 name|void
@@ -1146,106 +1137,6 @@ argument_list|()
 operator|+
 literal|"<pkcs12-keystore-file><pin><input-pdf>"
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-end_class
-
-begin_comment
-comment|/**  * Wrap a InputStream into a CMSProcessable object for bouncy castle. It's an  * alternative to the CMSProcessableByteArray.  *   * @author Thomas Chojecki  *   */
-end_comment
-
-begin_class
-class|class
-name|CMSProcessableInputStream
-implements|implements
-name|CMSProcessable
-block|{
-name|InputStream
-name|in
-decl_stmt|;
-specifier|public
-name|CMSProcessableInputStream
-parameter_list|(
-name|InputStream
-name|is
-parameter_list|)
-block|{
-name|in
-operator|=
-name|is
-expr_stmt|;
-block|}
-specifier|public
-name|Object
-name|getContent
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-specifier|public
-name|void
-name|write
-parameter_list|(
-name|OutputStream
-name|out
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|CMSException
-block|{
-comment|// read the content only one time
-name|byte
-index|[]
-name|buffer
-init|=
-operator|new
-name|byte
-index|[
-literal|8
-operator|*
-literal|1024
-index|]
-decl_stmt|;
-name|int
-name|read
-decl_stmt|;
-while|while
-condition|(
-operator|(
-name|read
-operator|=
-name|in
-operator|.
-name|read
-argument_list|(
-name|buffer
-argument_list|)
-operator|)
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-name|out
-operator|.
-name|write
-argument_list|(
-name|buffer
-argument_list|,
-literal|0
-argument_list|,
-name|read
-argument_list|)
-expr_stmt|;
-block|}
-name|in
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

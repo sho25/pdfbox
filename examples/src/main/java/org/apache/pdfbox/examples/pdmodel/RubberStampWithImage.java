@@ -41,7 +41,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -261,9 +275,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|text
+name|security
 operator|.
-name|NumberFormat
+name|NoSuchAlgorithmException
 import|;
 end_import
 
@@ -271,9 +285,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|text
 operator|.
-name|ArrayList
+name|NumberFormat
 import|;
 end_import
 
@@ -371,6 +385,12 @@ name|args
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 if|if
 condition|(
@@ -692,33 +712,6 @@ name|args
 index|[
 literal|1
 index|]
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|COSVisitorException
-name|exception
-parameter_list|)
-block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"An error occured during saving the document."
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Exception:"
-operator|+
-name|exception
 argument_list|)
 expr_stmt|;
 block|}
