@@ -661,6 +661,35 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|int
+name|pushbacksize
+init|=
+literal|65536
+decl_stmt|;
+try|try
+block|{
+name|pushbacksize
+operator|=
+name|Integer
+operator|.
+name|getInteger
+argument_list|(
+name|PROP_PUSHBACK_SIZE
+argument_list|,
+literal|65536
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|e
+parameter_list|)
+block|{
+comment|// PDFBOX-1946 getInteger calls System.getProperties,
+comment|// which can get exception in an applet
+comment|// ignore and use default
+block|}
 name|this
 operator|.
 name|pdfSource
@@ -676,14 +705,7 @@ argument_list|,
 literal|16384
 argument_list|)
 argument_list|,
-name|Integer
-operator|.
-name|getInteger
-argument_list|(
-name|PROP_PUSHBACK_SIZE
-argument_list|,
-literal|65536
-argument_list|)
+name|pushbacksize
 argument_list|)
 expr_stmt|;
 name|this

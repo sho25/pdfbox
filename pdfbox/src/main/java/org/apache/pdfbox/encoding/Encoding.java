@@ -295,6 +295,8 @@ literal|"org/apache/pdfbox/resources/additional_glyphlist.properties"
 argument_list|)
 expr_stmt|;
 comment|// Load an external glyph list file that user can give as JVM property
+try|try
+block|{
 name|String
 name|location
 init|=
@@ -335,6 +337,16 @@ name|location
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|e
+parameter_list|)
+comment|// can occur on Sytem.getProperty
+block|{
+comment|// PDFBOX-1946 ignore and continue
 block|}
 name|NAME_TO_CHARACTER
 operator|.

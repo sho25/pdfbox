@@ -96,13 +96,28 @@ block|{
 name|ClassLoader
 name|loader
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|loader
+operator|=
 name|ResourceLoader
 operator|.
 name|class
 operator|.
 name|getClassLoader
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore and try other alternatives
+block|}
 name|InputStream
 name|is
 init|=
@@ -127,6 +142,8 @@ expr_stmt|;
 block|}
 comment|//see sourceforge bug 863053, this is a fix for a user that
 comment|//needed to have PDFBox loaded by the bootstrap classloader
+try|try
+block|{
 if|if
 condition|(
 name|is
@@ -192,6 +209,15 @@ name|f
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|ex
+parameter_list|)
+block|{
+comment|// PDFBOX-1946 ignore and continue
 block|}
 return|return
 name|is
