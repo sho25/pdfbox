@@ -47,6 +47,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -55,7 +65,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -1274,6 +1298,14 @@ specifier|public
 name|void
 name|testAccept
 parameter_list|()
+throws|throws
+name|IOException
+throws|,
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|ByteArrayOutputStream
 name|outStream
@@ -1300,8 +1332,6 @@ argument_list|(
 name|ESC_CHAR_STRING
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|testSubj
 operator|.
 name|accept
@@ -1359,22 +1389,6 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|COSVisitorException
-name|e
-parameter_list|)
-block|{
-name|fail
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Tests equals(Object) - ensure that the Object.equals() contract is obeyed.      */
 specifier|public

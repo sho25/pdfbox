@@ -69,7 +69,7 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
 import|;
 end_import
 
@@ -1453,7 +1453,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * visitor pattern double dispatch method.      *       * @param visitor      *            The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws COSVisitorException      *             If an error occurs while visiting this object.      */
+comment|/**      * visitor pattern double dispatch method.      *       * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException If an error occurs while visiting this object.      * @throws CryptographyException If an error occurs while visiting this object.      */
 annotation|@
 name|Override
 specifier|public
@@ -1464,7 +1464,9 @@ name|ICOSVisitor
 name|visitor
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
+throws|,
+name|CryptographyException
 block|{
 return|return
 name|visitor

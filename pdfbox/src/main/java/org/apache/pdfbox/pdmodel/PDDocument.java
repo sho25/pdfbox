@@ -109,6 +109,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -264,20 +274,6 @@ operator|.
 name|cos
 operator|.
 name|COSStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|COSVisitorException
 import|;
 end_import
 
@@ -4282,7 +4278,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * Save the document to a file.      *       * @param fileName The file to save as.      *       * @throws IOException If there is an error saving the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * Save the document to a file.      *       * @param fileName The file to save as.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
 specifier|public
 name|void
 name|save
@@ -4293,7 +4289,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|save
 argument_list|(
@@ -4305,7 +4305,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Save the document to a file.      *       * @param file The file to save as.      *       * @throws IOException If there is an error saving the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * Save the document to a file.      *       * @param file The file to save as.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
 specifier|public
 name|void
 name|save
@@ -4316,7 +4316,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|save
 argument_list|(
@@ -4328,7 +4332,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will save the document to an output stream.      *       * @param output The stream to write to.      *       * @throws IOException If there is an error writing the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * This will save the document to an output stream.      *       * @param output The stream to write to.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
 specifier|public
 name|void
 name|save
@@ -4339,7 +4343,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 comment|// update the count in case any pages have been added behind the scenes.
 name|getDocumentCatalog
@@ -4396,7 +4404,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Save the pdf as incremental.      *       * @param fileName the filename to be used      * @throws IOException if something went wrong      * @throws COSVisitorException if something went wrong      */
+comment|/**      * Save the pdf as incremental.      *       * @param fileName the filename to be used      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
 specifier|public
 name|void
 name|saveIncremental
@@ -4407,7 +4415,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|saveIncremental
 argument_list|(
@@ -4427,7 +4439,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Save the pdf as incremental.      *       * @param input      * @param output      * @throws IOException if something went wrong      * @throws COSVisitorException if something went wrong      */
+comment|/**      * Save the pdf as incremental.      *       * @param input stream to read      * @param output stream to write      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
 specifier|public
 name|void
 name|saveIncremental
@@ -4441,7 +4453,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 comment|// update the count in case any pages have been added behind the scenes.
 name|getDocumentCatalog

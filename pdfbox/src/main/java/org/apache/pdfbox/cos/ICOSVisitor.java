@@ -25,7 +25,31 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -38,7 +62,7 @@ specifier|public
 interface|interface
 name|ICOSVisitor
 block|{
-comment|/**      * Notification of visit to Array object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws COSVisitorException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to Array object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromArray
@@ -47,9 +71,13 @@ name|COSArray
 name|obj
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
+throws|,
+name|CryptographyException
+throws|,
+name|SignatureException
 function_decl|;
-comment|/**      * Notification of visit to boolean object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws COSVisitorException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to boolean object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromBoolean
@@ -58,9 +86,9 @@ name|COSBoolean
 name|obj
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
 function_decl|;
-comment|/**      * Notification of visit to dictionary object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws COSVisitorException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to dictionary object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromDictionary
@@ -69,9 +97,13 @@ name|COSDictionary
 name|obj
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
+throws|,
+name|CryptographyException
+throws|,
+name|SignatureException
 function_decl|;
-comment|/**      * Notification of visit to document object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws COSVisitorException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to document object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      * @throws SignatureException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromDocument
@@ -80,9 +112,13 @@ name|COSDocument
 name|obj
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
+throws|,
+name|CryptographyException
+throws|,
+name|SignatureException
 function_decl|;
-comment|/**      * Notification of visit to float object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws COSVisitorException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to float object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromFloat
@@ -91,9 +127,9 @@ name|COSFloat
 name|obj
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
 function_decl|;
-comment|/**      * Notification of visit to integer object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws COSVisitorException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to integer object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromInt
@@ -102,9 +138,9 @@ name|COSInteger
 name|obj
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
 function_decl|;
-comment|/**      * Notification of visit to name object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws COSVisitorException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to name object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromName
@@ -113,9 +149,9 @@ name|COSName
 name|obj
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
 function_decl|;
-comment|/**      * Notification of visit to null object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws COSVisitorException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to null object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromNull
@@ -124,9 +160,9 @@ name|COSNull
 name|obj
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
 function_decl|;
-comment|/**      * Notification of visit to stream object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws COSVisitorException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to stream object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      * @throws CryptographyException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromStream
@@ -135,9 +171,13 @@ name|COSStream
 name|obj
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
+throws|,
+name|CryptographyException
+throws|,
+name|SignatureException
 function_decl|;
-comment|/**      * Notification of visit to string object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws COSVisitorException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to string object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      * @throws CryptographyException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromString
@@ -146,7 +186,9 @@ name|COSString
 name|obj
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
+throws|,
+name|CryptographyException
 function_decl|;
 block|}
 end_interface

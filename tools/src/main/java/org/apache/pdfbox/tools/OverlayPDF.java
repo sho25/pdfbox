@@ -59,6 +59,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -231,7 +241,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -1190,7 +1214,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add overlays to a documents.      *      * @param specificPageOverlayFile map of overlay files for specific pages      * @throws IOException exception      * @throws COSVisitorException exception      */
+comment|/**      * This will add overlays to a documents.      *      * @param specificPageOverlayFile map of overlay files for specific pages      */
 specifier|public
 name|void
 name|overlay
@@ -1206,7 +1230,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|PDDocument
 name|sourcePDFDocument

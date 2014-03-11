@@ -119,6 +119,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -169,7 +179,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -681,7 +705,7 @@ name|doc
 argument_list|)
 return|;
 block|}
-comment|/**      * This will save this document to the filesystem.      *      * @param fileName The file to save as.      *      * @throws IOException If there is an error saving the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * This will save this document to the filesystem.      *      * @param fileName The file to save as.      *      * @throws IOException If there is an error saving the document.      */
 specifier|public
 name|void
 name|save
@@ -692,7 +716,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|save
 argument_list|(
@@ -704,7 +732,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will save this document to the filesystem.      *      * @param fileName The file to save as.      *      * @throws IOException If there is an error saving the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * This will save this document to the filesystem.      *      * @param fileName The file to save as.      *      * @throws IOException If there is an error saving the document.      */
 specifier|public
 name|void
 name|save
@@ -715,7 +743,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|save
 argument_list|(
@@ -727,7 +759,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will save the document to an output stream.      *      * @param output The stream to write to.      *      * @throws IOException If there is an error writing the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * This will save the document to an output stream.      *      * @param output The stream to write to.      *      * @throws IOException If there is an error writing the document.      * @throws CryptographyException If there is an error writing the document.      * @throws SignatureException If there is an error writing the document.      */
 specifier|public
 name|void
 name|save
@@ -738,7 +770,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|COSWriter
 name|writer
@@ -785,7 +821,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will save this document to the filesystem.      *      * @param fileName The file to save as.      *      * @throws IOException If there is an error saving the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * This will save this document to the filesystem.      *      * @param fileName The file to save as.      *      * @throws IOException If there is an error saving the document.      */
 specifier|public
 name|void
 name|saveXFDF
@@ -795,8 +831,6 @@ name|fileName
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|COSVisitorException
 block|{
 name|saveXFDF
 argument_list|(
@@ -812,7 +846,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will save this document to the filesystem.      *      * @param fileName The file to save as.      *      * @throws IOException If there is an error saving the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * This will save this document to the filesystem.      *      * @param fileName The file to save as.      *      * @throws IOException If there is an error saving the document.      */
 specifier|public
 name|void
 name|saveXFDF
@@ -822,8 +856,6 @@ name|fileName
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|COSVisitorException
 block|{
 name|saveXFDF
 argument_list|(
@@ -839,7 +871,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will save the document to an output stream and close the stream.      *      * @param output The stream to write to.      *      * @throws IOException If there is an error writing the document.      * @throws COSVisitorException If an error occurs while generating the data.      */
+comment|/**      * This will save the document to an output stream and close the stream.      *      * @param output The stream to write to.      *      * @throws IOException If there is an error writing the document.      */
 specifier|public
 name|void
 name|saveXFDF
@@ -849,8 +881,6 @@ name|output
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|COSVisitorException
 block|{
 try|try
 block|{

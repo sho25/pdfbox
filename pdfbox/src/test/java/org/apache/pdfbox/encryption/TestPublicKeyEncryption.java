@@ -71,6 +71,16 @@ name|java
 operator|.
 name|security
 operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
 name|cert
 operator|.
 name|CertificateFactory
@@ -119,7 +129,7 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
 import|;
 end_import
 
@@ -133,7 +143,7 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
+name|SignatureException
 import|;
 end_import
 
@@ -979,8 +989,14 @@ parameter_list|(
 name|PDDocument
 name|doc
 parameter_list|)
-block|{
-try|try
+throws|throws
+name|IOException
+throws|,
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|ByteArrayOutputStream
 name|buffer
@@ -1011,35 +1027,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Unexpected failure"
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|COSVisitorException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Unexpected failure"
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Returns a recipient specification with the given access permissions      * and an X.509 certificate read from the given classpath resource.      *      * @param certificate X.509 certificate resource, relative to this class      * @param permission access permissions      * @return recipient specification      * @throws Exception if the certificate could not be read      */
 specifier|private

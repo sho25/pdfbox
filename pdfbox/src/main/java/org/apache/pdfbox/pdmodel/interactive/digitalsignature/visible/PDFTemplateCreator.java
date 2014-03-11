@@ -65,6 +65,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -101,7 +111,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -290,7 +314,7 @@ name|getStructure
 argument_list|()
 return|;
 block|}
-comment|/**      * this method builds pdf  step by step, and finally it returns stream of visible signature      * @param properties      * @return InputStream      * @throws IOException      * @throws COSVisitorException      */
+comment|/**      * this method builds pdf  step by step, and finally it returns stream of visible signature      * @param properties      * @return InputStream      * @throws IOException      */
 specifier|public
 name|InputStream
 name|buildPDF
@@ -300,6 +324,12 @@ name|properties
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|logger
 operator|.
@@ -761,34 +791,11 @@ expr_stmt|;
 name|ByteArrayInputStream
 name|in
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|in
-operator|=
 name|pdfStructure
 operator|.
 name|getTemplateAppearanceStream
 argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|COSVisitorException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|error
-argument_list|(
-literal|"COSVisitorException: can't get apereance stream "
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 name|logger
 operator|.
 name|info

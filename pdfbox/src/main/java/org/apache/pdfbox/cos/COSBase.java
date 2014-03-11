@@ -23,11 +23,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|exceptions
 operator|.
-name|common
-operator|.
-name|COSObjectable
+name|CryptographyException
 import|;
 end_import
 
@@ -41,7 +39,33 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|SignatureException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|COSObjectable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -85,7 +109,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws COSVisitorException If an error occurs while visiting this object.      */
+comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException If an error occurs while visiting this object.      * @throws CryptographyException If an error occurs while visiting this object.      */
 specifier|public
 specifier|abstract
 name|Object
@@ -95,7 +119,11 @@ name|ICOSVisitor
 name|visitor
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
+throws|,
+name|CryptographyException
+throws|,
+name|SignatureException
 function_decl|;
 specifier|public
 name|void

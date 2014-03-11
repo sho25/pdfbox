@@ -75,20 +75,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|COSVisitorException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|persistence
 operator|.
 name|util
@@ -5323,7 +5309,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * visitor pattern double dispatch method.      *       * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws COSVisitorException If an error occurs while visiting this object.      */
+comment|/**      * visitor pattern double dispatch method.      *       * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException If an error occurs while visiting this object.      */
 specifier|public
 name|Object
 name|accept
@@ -5332,7 +5318,7 @@ name|ICOSVisitor
 name|visitor
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
 block|{
 return|return
 name|visitor

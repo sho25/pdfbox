@@ -67,6 +67,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -125,7 +135,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -1145,7 +1169,7 @@ operator|=
 name|acroFormFields
 expr_stmt|;
 block|}
-comment|/**     * Gets AP of the created template     * @return     * @throws IOException     * @throws COSVisitorException     */
+comment|/**     * Gets AP of the created template     * @return     * @throws IOException     */
 specifier|public
 name|ByteArrayInputStream
 name|getTemplateAppearanceStream
@@ -1153,7 +1177,11 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|COSDocument
 name|visualSignature

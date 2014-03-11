@@ -23,20 +23,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|COSVisitorException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdfparser
 operator|.
 name|ConformingPDFParser
@@ -136,8 +122,6 @@ parameter_list|(
 name|ICOSVisitor
 name|visitor
 parameter_list|)
-throws|throws
-name|COSVisitorException
 block|{
 comment|// TODO: read the object using the parser (if available) and visit that object
 throw|throw

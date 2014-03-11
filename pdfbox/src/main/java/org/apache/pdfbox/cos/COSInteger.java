@@ -35,20 +35,6 @@ name|OutputStream
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|COSVisitorException
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class represents an integer number in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.12 $  */
 end_comment
@@ -411,7 +397,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws COSVisitorException If an error occurs while visiting this object.      */
+comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException If an error occurs while visiting this object.      */
 specifier|public
 name|Object
 name|accept
@@ -420,7 +406,7 @@ name|ICOSVisitor
 name|visitor
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
 block|{
 return|return
 name|visitor

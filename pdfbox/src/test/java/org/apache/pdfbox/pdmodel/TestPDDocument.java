@@ -79,6 +79,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -95,7 +105,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -178,7 +202,7 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test document save/load using a stream.      * @throws IOException if something went wrong      * @throws COSVisitorException  if something went wrong      */
+comment|/**      * Test document save/load using a stream.      */
 specifier|public
 name|void
 name|testSaveLoadStream
@@ -186,7 +210,11 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 comment|// Create PDF with one blank page
 name|PDDocument
@@ -329,7 +357,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test document save/load using a file.      * @throws IOException if something went wrong      * @throws COSVisitorException  if something went wrong      */
+comment|/**      * Test document save/load using a file.      */
 specifier|public
 name|void
 name|testSaveLoadFile
@@ -337,7 +365,11 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 comment|// Create PDF with one blank page
 name|PDDocument
@@ -506,7 +538,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test document save/loadNonSeq using a stream.      * @throws IOException if something went wrong      * @throws COSVisitorException  if something went wrong      */
+comment|/**      * Test document save/loadNonSeq using a stream.      */
 specifier|public
 name|void
 name|testSaveLoadNonSeqStream
@@ -514,7 +546,11 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 comment|// Create PDF with one blank page
 name|PDDocument
@@ -657,7 +693,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test document save/loadNonSeq using a file.      * @throws IOException if something went wrong      * @throws COSVisitorException  if something went wrong      */
+comment|/**      * Test document save/loadNonSeq using a file.      */
 specifier|public
 name|void
 name|testSaveLoadNonSeqFile
@@ -665,7 +701,11 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 comment|// Create PDF with one blank page
 name|PDDocument

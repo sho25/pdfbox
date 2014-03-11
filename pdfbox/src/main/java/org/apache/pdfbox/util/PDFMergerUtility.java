@@ -69,6 +69,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -227,7 +237,21 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|COSVisitorException
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
 import|;
 end_import
 
@@ -717,7 +741,7 @@ name|sourcesList
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Merge the list of source documents, saving the result in the destination file.      *       * @throws IOException If there is an error saving the document.      * @throws COSVisitorException If an error occurs while saving the destination file.      */
+comment|/**      * Merge the list of source documents, saving the result in the destination file.      *       * @throws IOException If there is an error saving the document.      */
 specifier|public
 name|void
 name|mergeDocuments
@@ -725,7 +749,11 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|COSVisitorException
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|PDDocument
 name|destination

@@ -23,6 +23,34 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -38,6 +66,16 @@ operator|.
 name|io
 operator|.
 name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
 import|;
 end_import
 
@@ -82,13 +120,19 @@ specifier|private
 name|PDVisibleSignDesigner
 name|pdVisibleSignature
 decl_stmt|;
-comment|/**      * start building of visible signature      *       * @throws IOException      */
+comment|/**      * start building of visible signature      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
 specifier|public
 name|void
 name|buildSignature
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|CryptographyException
+throws|,
+name|SignatureException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 name|PDFTemplateBuilder
 name|builder

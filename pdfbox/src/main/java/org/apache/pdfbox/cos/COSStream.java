@@ -121,6 +121,34 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|exceptions
+operator|.
+name|CryptographyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|exceptions
+operator|.
+name|SignatureException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|filter
 operator|.
 name|DecodeResult
@@ -180,20 +208,6 @@ operator|.
 name|pdfparser
 operator|.
 name|PDFStreamParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|COSVisitorException
 import|;
 end_import
 
@@ -672,7 +686,7 @@ name|decodeResult
 return|;
 block|}
 block|}
-comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws COSVisitorException If an error occurs while visiting this object.      */
+comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws CryptographyException If an error occurs while visiting this object.      */
 specifier|public
 name|Object
 name|accept
@@ -681,7 +695,11 @@ name|ICOSVisitor
 name|visitor
 parameter_list|)
 throws|throws
-name|COSVisitorException
+name|IOException
+throws|,
+name|CryptographyException
+throws|,
+name|SignatureException
 block|{
 return|return
 name|visitor
