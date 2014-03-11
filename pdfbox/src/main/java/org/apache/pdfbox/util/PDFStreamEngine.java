@@ -1306,6 +1306,12 @@ operator|*=
 literal|.80f
 expr_stmt|;
 block|}
+else|else
+name|spaceWidthText
+operator|=
+literal|1.0f
+expr_stmt|;
+comment|// if could not find font, use a generic value
 name|float
 name|maxVerticalDisplacementText
 init|=
