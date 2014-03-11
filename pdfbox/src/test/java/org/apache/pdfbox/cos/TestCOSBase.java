@@ -55,35 +55,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|filter
-operator|.
-name|FilterFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|NoSuchAlgorithmException
 import|;
 end_import
 
@@ -133,8 +109,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 function_decl|;
 comment|/**      * Tests isNeedToBeUpdate() and setNeedToBeUpdate() - tests the getter/setter methods.      */
 specifier|public

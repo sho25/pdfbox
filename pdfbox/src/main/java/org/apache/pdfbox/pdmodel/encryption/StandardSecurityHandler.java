@@ -71,16 +71,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|security
-operator|.
-name|NoSuchAlgorithmException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Arrays
@@ -98,20 +88,6 @@ operator|.
 name|cos
 operator|.
 name|COSArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSDocument
 import|;
 end_import
 
@@ -186,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * The class implements the standard security handler as decribed  * in the PDF specifications. This security handler protects document  * with password.  *  * @see StandardProtectionPolicy to see how to protect document with this security handler.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  */
+comment|/**  * The standard security handler. This security handler protects document with password.  * @see StandardProtectionPolicy to see how to protect document with this security handler.  * @author Ben Litchfield  * @author Benoit Guillon  */
 end_comment
 
 begin_class
@@ -196,7 +172,7 @@ name|StandardSecurityHandler
 extends|extends
 name|SecurityHandler
 block|{
-comment|/**      * Type of security handler.      */
+comment|/** Type of security handler. */
 specifier|public
 specifier|static
 specifier|final
@@ -205,41 +181,7 @@ name|FILTER
 init|=
 literal|"Standard"
 decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_VERSION
-init|=
-literal|1
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_REVISION
-init|=
-literal|3
-decl_stmt|;
-specifier|private
-name|int
-name|revision
-init|=
-name|DEFAULT_REVISION
-decl_stmt|;
-specifier|private
-name|StandardProtectionPolicy
-name|policy
-decl_stmt|;
-specifier|private
-name|ARCFour
-name|rc4
-init|=
-operator|new
-name|ARCFour
-argument_list|()
-decl_stmt|;
-comment|/**      * Protection policy class for this handler.      */
+comment|/** Protection policy class for this handler. */
 specifier|public
 specifier|static
 specifier|final
@@ -253,7 +195,7 @@ name|StandardProtectionPolicy
 operator|.
 name|class
 decl_stmt|;
-comment|/**      * Standard padding for encryption.      */
+comment|/** Standard padding for encryption. */
 specifier|public
 specifier|static
 specifier|final
@@ -423,6 +365,40 @@ operator|)
 literal|0x7A
 block|}
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_VERSION
+init|=
+literal|1
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_REVISION
+init|=
+literal|3
+decl_stmt|;
+specifier|private
+name|int
+name|revision
+init|=
+name|DEFAULT_REVISION
+decl_stmt|;
+specifier|private
+name|StandardProtectionPolicy
+name|policy
+decl_stmt|;
+specifier|private
+name|ARCFour
+name|rc4
+init|=
+operator|new
+name|ARCFour
+argument_list|()
+decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|StandardSecurityHandler
@@ -576,7 +552,7 @@ name|proceedDecryption
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Prepares everything to decrypt the document.      *      * If {@link #decryptDocument(PDDocument, DecryptionMaterial)} is used, this method is      * called from there. Only if decryption of single objects is needed this should be called instead.      *      * @param encDictionary  encryption dictionary, can be retrieved via {@link PDDocument#getEncryptionDictionary()}      * @param documentIDArray  document id which is returned via {@link COSDocument#getDocumentID()}      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
+comment|/**      * Prepares everything to decrypt the document.      *      * Called from {@link #decryptDocument(PDDocument, DecryptionMaterial)}.      * Only if decryption of single objects is needed this should be called instead.      *      * @param encDictionary  encryption dictionary      * @param documentIDArray  document id      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
 specifier|public
 name|void
 name|prepareForDecryption
@@ -609,7 +585,9 @@ throw|throw
 operator|new
 name|CryptographyException
 argument_list|(
-literal|"Provided decryption material is not compatible with the document"
+literal|"Provided decryption material is not compatible "
+operator|+
+literal|"with the document"
 argument_list|)
 throw|;
 block|}
@@ -732,7 +710,7 @@ argument_list|()
 decl_stmt|;
 name|byte
 index|[]
-name|u
+name|userKey
 init|=
 name|encDictionary
 operator|.
@@ -741,70 +719,38 @@ argument_list|()
 decl_stmt|;
 name|byte
 index|[]
-name|o
+name|ownerKey
 init|=
 name|encDictionary
 operator|.
 name|getOwnerKey
 argument_list|()
 decl_stmt|;
-name|boolean
-name|isUserPassword
-init|=
-name|isUserPassword
-argument_list|(
-name|password
-operator|.
-name|getBytes
-argument_list|(
-literal|"ISO-8859-1"
-argument_list|)
-argument_list|,
-name|u
-argument_list|,
-name|o
-argument_list|,
-name|dicPermissions
-argument_list|,
-name|documentIDBytes
-argument_list|,
-name|dicRevision
-argument_list|,
-name|dicLength
-argument_list|,
-name|encryptMetadata
-argument_list|)
-decl_stmt|;
-name|boolean
-name|isOwnerPassword
-init|=
-name|isOwnerPassword
-argument_list|(
-name|password
-operator|.
-name|getBytes
-argument_list|(
-literal|"ISO-8859-1"
-argument_list|)
-argument_list|,
-name|u
-argument_list|,
-name|o
-argument_list|,
-name|dicPermissions
-argument_list|,
-name|documentIDBytes
-argument_list|,
-name|dicRevision
-argument_list|,
-name|dicLength
-argument_list|,
-name|encryptMetadata
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|isUserPassword
+argument_list|(
+name|password
+operator|.
+name|getBytes
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
+argument_list|,
+name|userKey
+argument_list|,
+name|ownerKey
+argument_list|,
+name|dicPermissions
+argument_list|,
+name|documentIDBytes
+argument_list|,
+name|dicRevision
+argument_list|,
+name|dicLength
+argument_list|,
+name|encryptMetadata
+argument_list|)
 condition|)
 block|{
 name|currentAccessPermission
@@ -826,7 +772,7 @@ argument_list|(
 literal|"ISO-8859-1"
 argument_list|)
 argument_list|,
-name|o
+name|ownerKey
 argument_list|,
 name|dicPermissions
 argument_list|,
@@ -844,6 +790,28 @@ elseif|else
 if|if
 condition|(
 name|isOwnerPassword
+argument_list|(
+name|password
+operator|.
+name|getBytes
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
+argument_list|,
+name|userKey
+argument_list|,
+name|ownerKey
+argument_list|,
+name|dicPermissions
+argument_list|,
+name|documentIDBytes
+argument_list|,
+name|dicRevision
+argument_list|,
+name|dicLength
+argument_list|,
+name|encryptMetadata
+argument_list|)
 condition|)
 block|{
 name|currentAccessPermission
@@ -855,7 +823,7 @@ argument_list|()
 expr_stmt|;
 name|byte
 index|[]
-name|computedUserPassword
+name|userPassword
 init|=
 name|getUserPassword
 argument_list|(
@@ -866,7 +834,7 @@ argument_list|(
 literal|"ISO-8859-1"
 argument_list|)
 argument_list|,
-name|o
+name|ownerKey
 argument_list|,
 name|dicRevision
 argument_list|,
@@ -877,9 +845,9 @@ name|encryptionKey
 operator|=
 name|computeEncryptedKey
 argument_list|(
-name|computedUserPassword
+name|userPassword
 argument_list|,
-name|o
+name|ownerKey
 argument_list|,
 name|dicPermissions
 argument_list|,
@@ -899,7 +867,9 @@ throw|throw
 operator|new
 name|CryptographyException
 argument_list|(
-literal|"Error: The supplied password does not match either the owner or user password in the document."
+literal|"The supplied password does not match either the "
+operator|+
+literal|"owner or user password in the document"
 argument_list|)
 throw|;
 block|}
@@ -1120,23 +1090,13 @@ operator|<
 literal|2
 condition|)
 block|{
-name|idArray
-operator|=
-operator|new
-name|COSArray
-argument_list|()
-expr_stmt|;
-try|try
-block|{
 name|MessageDigest
 name|md
 init|=
-name|MessageDigest
+name|MessageDigests
 operator|.
-name|getInstance
-argument_list|(
-literal|"MD5"
-argument_list|)
+name|getMD5
+argument_list|()
 decl_stmt|;
 name|BigInteger
 name|time
@@ -1235,6 +1195,12 @@ name|id
 argument_list|)
 expr_stmt|;
 name|idArray
+operator|=
+operator|new
+name|COSArray
+argument_list|()
+expr_stmt|;
+name|idArray
 operator|.
 name|add
 argument_list|(
@@ -1259,35 +1225,6 @@ name|idArray
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|NoSuchAlgorithmException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|CryptographyException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|CryptographyException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
 name|COSString
 name|id
 init|=
@@ -1303,7 +1240,7 @@ argument_list|)
 decl_stmt|;
 name|byte
 index|[]
-name|o
+name|ownerBytes
 init|=
 name|computeOwnerPassword
 argument_list|(
@@ -1328,7 +1265,7 @@ argument_list|)
 decl_stmt|;
 name|byte
 index|[]
-name|u
+name|userBytes
 init|=
 name|computeUserPassword
 argument_list|(
@@ -1339,7 +1276,7 @@ argument_list|(
 literal|"ISO-8859-1"
 argument_list|)
 argument_list|,
-name|o
+name|ownerBytes
 argument_list|,
 name|permissionInt
 argument_list|,
@@ -1366,7 +1303,7 @@ argument_list|(
 literal|"ISO-8859-1"
 argument_list|)
 argument_list|,
-name|o
+name|ownerBytes
 argument_list|,
 name|permissionInt
 argument_list|,
@@ -1386,14 +1323,14 @@ name|encryptionDictionary
 operator|.
 name|setOwnerKey
 argument_list|(
-name|o
+name|ownerBytes
 argument_list|)
 expr_stmt|;
 name|encryptionDictionary
 operator|.
 name|setUserKey
 argument_list|(
-name|u
+name|userBytes
 argument_list|)
 expr_stmt|;
 name|document
@@ -1417,7 +1354,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check for owner password.      *      * @param ownerPassword The owner password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check for owner password.      *      * @param ownerPassword The owner password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -1429,11 +1366,11 @@ name|ownerPassword
 parameter_list|,
 name|byte
 index|[]
-name|u
+name|user
 parameter_list|,
 name|byte
 index|[]
-name|o
+name|owner
 parameter_list|,
 name|int
 name|permissions
@@ -1464,7 +1401,7 @@ name|getUserPassword
 argument_list|(
 name|ownerPassword
 argument_list|,
-name|o
+name|owner
 argument_list|,
 name|encRevision
 argument_list|,
@@ -1476,9 +1413,9 @@ name|isUserPassword
 argument_list|(
 name|userPassword
 argument_list|,
-name|u
+name|user
 argument_list|,
-name|o
+name|owner
 argument_list|,
 name|permissions
 argument_list|,
@@ -1492,7 +1429,7 @@ name|encryptMetadata
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the user password based on the owner password.      *      * @param ownerPassword The plaintext owner password.      * @param o The o entry of the encryption dictionary.      * @param encRevision The encryption revision number.      * @param length The key length.      *      * @return The u entry of the encryption dictionary.      *      * @throws CryptographyException If there is an error generating the user password.      * @throws IOException If there is an error accessing data while generating the user password.      */
+comment|/**      * Get the user password based on the owner password.      *      * @param ownerPassword The plaintext owner password.      * @param owner The o entry of the encryption dictionary.      * @param encRevision The encryption revision number.      * @param length The key length.      *      * @return The u entry of the encryption dictionary.      *      * @throws CryptographyException If there is an error generating the user password.      * @throws IOException If there is an error accessing data while generating the user password.      */
 specifier|public
 specifier|final
 name|byte
@@ -1505,7 +1442,7 @@ name|ownerPassword
 parameter_list|,
 name|byte
 index|[]
-name|o
+name|owner
 parameter_list|,
 name|int
 name|encRevision
@@ -1518,8 +1455,6 @@ name|CryptographyException
 throws|,
 name|IOException
 block|{
-try|try
-block|{
 name|ByteArrayOutputStream
 name|result
 init|=
@@ -1527,7 +1462,6 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
-comment|//3.3 STEP 1
 name|byte
 index|[]
 name|ownerPadded
@@ -1537,16 +1471,13 @@ argument_list|(
 name|ownerPassword
 argument_list|)
 decl_stmt|;
-comment|//3.3 STEP 2
 name|MessageDigest
 name|md
 init|=
-name|MessageDigest
+name|MessageDigests
 operator|.
-name|getInstance
-argument_list|(
-literal|"MD5"
-argument_list|)
+name|getMD5
+argument_list|()
 decl_stmt|;
 name|md
 operator|.
@@ -1564,7 +1495,6 @@ operator|.
 name|digest
 argument_list|()
 decl_stmt|;
-comment|//3.3 STEP 3
 if|if
 condition|(
 name|encRevision
@@ -1633,7 +1563,6 @@ name|length
 argument_list|)
 throw|;
 block|}
-comment|//3.3 STEP 4
 name|byte
 index|[]
 name|rc4Key
@@ -1665,7 +1594,6 @@ operator|)
 name|length
 argument_list|)
 expr_stmt|;
-comment|//3.7 step 2
 if|if
 condition|(
 name|encRevision
@@ -1684,7 +1612,7 @@ name|rc4
 operator|.
 name|write
 argument_list|(
-name|o
+name|owner
 argument_list|,
 name|result
 argument_list|)
@@ -1721,7 +1649,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|o
+name|owner
 operator|.
 name|length
 index|]
@@ -1731,7 +1659,7 @@ name|System
 operator|.
 name|arraycopy
 argument_list|(
-name|o
+name|owner
 argument_list|,
 literal|0
 argument_list|,
@@ -1739,7 +1667,7 @@ name|otemp
 argument_list|,
 literal|0
 argument_list|,
-name|o
+name|owner
 operator|.
 name|length
 argument_list|)
@@ -1749,7 +1677,7 @@ name|rc4
 operator|.
 name|write
 argument_list|(
-name|o
+name|owner
 argument_list|,
 name|result
 argument_list|)
@@ -1865,21 +1793,6 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-catch|catch
-parameter_list|(
-name|NoSuchAlgorithmException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|CryptographyException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
 comment|/**      * Compute the encryption key.      *      * @param password The password to compute the encrypted key.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions for the document.      * @param id The document id.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return The encrypted key bytes.      *      * @throws CryptographyException If there is an error with encryption.      */
 specifier|public
 specifier|final
@@ -1924,10 +1837,7 @@ index|[
 name|length
 index|]
 decl_stmt|;
-try|try
-block|{
 comment|//PDFReference 1.4 pg 78
-comment|//step1
 name|byte
 index|[]
 name|padded
@@ -1937,16 +1847,13 @@ argument_list|(
 name|password
 argument_list|)
 decl_stmt|;
-comment|//step 2
 name|MessageDigest
 name|md
 init|=
-name|MessageDigest
+name|MessageDigests
 operator|.
-name|getInstance
-argument_list|(
-literal|"MD5"
-argument_list|)
+name|getMD5
+argument_list|()
 decl_stmt|;
 name|md
 operator|.
@@ -1955,7 +1862,6 @@ argument_list|(
 name|padded
 argument_list|)
 expr_stmt|;
-comment|//step 3
 name|md
 operator|.
 name|update
@@ -1963,22 +1869,20 @@ argument_list|(
 name|o
 argument_list|)
 expr_stmt|;
-comment|//step 4
-name|byte
-name|zero
-init|=
-call|(
-name|byte
-call|)
+name|md
+operator|.
+name|update
 argument_list|(
-name|permissions
-operator|>>>
-literal|0
-argument_list|)
-decl_stmt|;
+operator|(
 name|byte
-name|one
-init|=
+operator|)
+name|permissions
+argument_list|)
+expr_stmt|;
+name|md
+operator|.
+name|update
+argument_list|(
 call|(
 name|byte
 call|)
@@ -1987,10 +1891,12 @@ name|permissions
 operator|>>>
 literal|8
 argument_list|)
-decl_stmt|;
-name|byte
-name|two
-init|=
+argument_list|)
+expr_stmt|;
+name|md
+operator|.
+name|update
+argument_list|(
 call|(
 name|byte
 call|)
@@ -1999,10 +1905,12 @@ name|permissions
 operator|>>>
 literal|16
 argument_list|)
-decl_stmt|;
-name|byte
-name|three
-init|=
+argument_list|)
+expr_stmt|;
+name|md
+operator|.
+name|update
+argument_list|(
 call|(
 name|byte
 call|)
@@ -2011,36 +1919,8 @@ name|permissions
 operator|>>>
 literal|24
 argument_list|)
-decl_stmt|;
-name|md
-operator|.
-name|update
-argument_list|(
-name|zero
 argument_list|)
 expr_stmt|;
-name|md
-operator|.
-name|update
-argument_list|(
-name|one
-argument_list|)
-expr_stmt|;
-name|md
-operator|.
-name|update
-argument_list|(
-name|two
-argument_list|)
-expr_stmt|;
-name|md
-operator|.
-name|update
-argument_list|(
-name|three
-argument_list|)
-expr_stmt|;
-comment|//step 5
 name|md
 operator|.
 name|update
@@ -2101,7 +1981,6 @@ operator|.
 name|digest
 argument_list|()
 decl_stmt|;
-comment|//step 6
 if|if
 condition|(
 name|encRevision
@@ -2153,7 +2032,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|//step 7
 if|if
 condition|(
 name|encRevision
@@ -2190,26 +2068,11 @@ argument_list|,
 name|length
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NoSuchAlgorithmException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|CryptographyException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 return|return
 name|result
 return|;
 block|}
-comment|/**      * This will compute the user password hash.      *      * @param password The plain text password.      * @param o The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param encRevision The revision of the encryption.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return The user password.      *      * @throws CryptographyException If there is an error computing the user password.      * @throws IOException If there is an IO error.      */
+comment|/**      * This will compute the user password hash.      *      * @param password The plain text password.      * @param owner The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param encRevision The revision of the encryption.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return The user password.      *      * @throws CryptographyException If there is an error computing the user password.      * @throws IOException If there is an IO error.      */
 specifier|public
 specifier|final
 name|byte
@@ -2222,7 +2085,7 @@ name|password
 parameter_list|,
 name|byte
 index|[]
-name|o
+name|owner
 parameter_list|,
 name|int
 name|permissions
@@ -2252,7 +2115,6 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
-comment|//STEP 1
 name|byte
 index|[]
 name|encryptionKey
@@ -2261,7 +2123,7 @@ name|computeEncryptedKey
 argument_list|(
 name|password
 argument_list|,
-name|o
+name|owner
 argument_list|,
 name|permissions
 argument_list|,
@@ -2281,7 +2143,6 @@ operator|==
 literal|2
 condition|)
 block|{
-comment|//STEP 2
 name|rc4
 operator|.
 name|setKey
@@ -2311,20 +2172,14 @@ operator|==
 literal|4
 condition|)
 block|{
-try|try
-block|{
-comment|//STEP 2
 name|MessageDigest
 name|md
 init|=
-name|MessageDigest
+name|MessageDigests
 operator|.
-name|getInstance
-argument_list|(
-literal|"MD5"
-argument_list|)
+name|getMD5
+argument_list|()
 decl_stmt|;
-comment|//md.update( truncateOrPad( password ) );
 name|md
 operator|.
 name|update
@@ -2332,7 +2187,6 @@ argument_list|(
 name|ENCRYPT_PADDING
 argument_list|)
 expr_stmt|;
-comment|//STEP 3
 name|md
 operator|.
 name|update
@@ -2350,7 +2204,6 @@ name|digest
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//STEP 4 and 5
 name|byte
 index|[]
 name|iterationKey
@@ -2464,7 +2317,6 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-comment|//step 6
 name|byte
 index|[]
 name|finalResult
@@ -2521,21 +2373,6 @@ name|finalResult
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|NoSuchAlgorithmException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|CryptographyException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
 return|return
 name|result
 operator|.
@@ -2569,9 +2406,6 @@ name|CryptographyException
 throws|,
 name|IOException
 block|{
-try|try
-block|{
-comment|//STEP 1
 name|byte
 index|[]
 name|ownerPadded
@@ -2581,16 +2415,13 @@ argument_list|(
 name|ownerPassword
 argument_list|)
 decl_stmt|;
-comment|//STEP 2
 name|MessageDigest
 name|md
 init|=
-name|MessageDigest
+name|MessageDigests
 operator|.
-name|getInstance
-argument_list|(
-literal|"MD5"
-argument_list|)
+name|getMD5
+argument_list|()
 decl_stmt|;
 name|md
 operator|.
@@ -2608,7 +2439,6 @@ operator|.
 name|digest
 argument_list|()
 decl_stmt|;
-comment|//STEP 3
 if|if
 condition|(
 name|encRevision
@@ -2675,13 +2505,12 @@ throw|throw
 operator|new
 name|CryptographyException
 argument_list|(
-literal|"Error: Expected length=5 actual="
+literal|"Expected length=5 actual="
 operator|+
 name|length
 argument_list|)
 throw|;
 block|}
-comment|//STEP 4
 name|byte
 index|[]
 name|rc4Key
@@ -2707,7 +2536,6 @@ argument_list|,
 name|length
 argument_list|)
 expr_stmt|;
-comment|//STEP 5
 name|byte
 index|[]
 name|paddedUser
@@ -2717,7 +2545,6 @@ argument_list|(
 name|userPassword
 argument_list|)
 decl_stmt|;
-comment|//STEP 6
 name|rc4
 operator|.
 name|setKey
@@ -2745,7 +2572,6 @@ argument_list|,
 name|crypted
 argument_list|)
 expr_stmt|;
-comment|//STEP 7
 if|if
 condition|(
 name|encRevision
@@ -2874,7 +2700,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//STEP 8
 return|return
 name|crypted
 operator|.
@@ -2882,27 +2707,8 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-catch|catch
-parameter_list|(
-name|NoSuchAlgorithmException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|CryptographyException
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-throw|;
-block|}
-block|}
 comment|/**      * This will take the password and truncate or pad it as necessary.      *      * @param password The password to pad or truncate.      *      * @return The padded or truncated password.      */
 specifier|private
-specifier|final
 name|byte
 index|[]
 name|truncateOrPad
@@ -2978,7 +2784,7 @@ return|return
 name|padded
 return|;
 block|}
-comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -2990,11 +2796,11 @@ name|password
 parameter_list|,
 name|byte
 index|[]
-name|u
+name|user
 parameter_list|,
 name|byte
 index|[]
-name|o
+name|owner
 parameter_list|,
 name|int
 name|permissions
@@ -3017,21 +2823,15 @@ name|CryptographyException
 throws|,
 name|IOException
 block|{
-name|boolean
-name|matches
-init|=
-literal|false
-decl_stmt|;
-comment|//STEP 1
 name|byte
 index|[]
-name|computedValue
+name|passwordBytes
 init|=
 name|computeUserPassword
 argument_list|(
 name|password
 argument_list|,
-name|o
+name|owner
 argument_list|,
 name|permissions
 argument_list|,
@@ -3051,18 +2851,16 @@ operator|==
 literal|2
 condition|)
 block|{
-comment|//STEP 2
-name|matches
-operator|=
+return|return
 name|Arrays
 operator|.
 name|equals
 argument_list|(
-name|u
+name|user
 argument_list|,
-name|computedValue
+name|passwordBytes
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
@@ -3076,18 +2874,22 @@ operator|==
 literal|4
 condition|)
 block|{
-comment|//STEP 2
-name|matches
-operator|=
-name|arraysEqual
+return|return
+name|Arrays
+operator|.
+name|equals
 argument_list|(
-name|u
+name|user
 argument_list|,
-name|computedValue
-argument_list|,
-literal|16
+name|passwordBytes
 argument_list|)
-expr_stmt|;
+operator|&&
+name|user
+operator|.
+name|length
+operator|>=
+literal|16
+return|;
 block|}
 else|else
 block|{
@@ -3101,11 +2903,8 @@ name|encRevision
 argument_list|)
 throw|;
 block|}
-return|return
-name|matches
-return|;
 block|}
-comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -3116,11 +2915,11 @@ name|password
 parameter_list|,
 name|byte
 index|[]
-name|u
+name|user
 parameter_list|,
 name|byte
 index|[]
-name|o
+name|owner
 parameter_list|,
 name|int
 name|permissions
@@ -3153,9 +2952,9 @@ argument_list|(
 literal|"ISO-8859-1"
 argument_list|)
 argument_list|,
-name|u
+name|user
 argument_list|,
-name|o
+name|owner
 argument_list|,
 name|permissions
 argument_list|,
@@ -3169,7 +2968,7 @@ name|encryptMetadata
 argument_list|)
 return|;
 block|}
-comment|/**      * Check for owner password.      *      * @param password The owner password.      * @param u The u entry of the encryption dictionary.      * @param o The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check for owner password.      *      * @param password The owner password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -3180,11 +2979,11 @@ name|password
 parameter_list|,
 name|byte
 index|[]
-name|u
+name|user
 parameter_list|,
 name|byte
 index|[]
-name|o
+name|owner
 parameter_list|,
 name|int
 name|permissions
@@ -3217,9 +3016,9 @@ argument_list|(
 literal|"ISO-8859-1"
 argument_list|)
 argument_list|,
-name|u
+name|user
 argument_list|,
-name|o
+name|owner
 argument_list|,
 name|permissions
 argument_list|,
@@ -3231,81 +3030,6 @@ name|length
 argument_list|,
 name|encryptMetadata
 argument_list|)
-return|;
-block|}
-specifier|private
-specifier|static
-specifier|final
-name|boolean
-name|arraysEqual
-parameter_list|(
-name|byte
-index|[]
-name|first
-parameter_list|,
-name|byte
-index|[]
-name|second
-parameter_list|,
-name|int
-name|count
-parameter_list|)
-block|{
-comment|// both arrays have to have a minimum length of count
-if|if
-condition|(
-name|first
-operator|.
-name|length
-operator|<
-name|count
-operator|||
-name|second
-operator|.
-name|length
-operator|<
-name|count
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|count
-condition|;
-name|i
-operator|++
-control|)
-block|{
-if|if
-condition|(
-name|first
-index|[
-name|i
-index|]
-operator|!=
-name|second
-index|[
-name|i
-index|]
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-block|}
-return|return
-literal|true
 return|;
 block|}
 block|}

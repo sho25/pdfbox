@@ -69,16 +69,6 @@ name|InputStream
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|NoSuchAlgorithmException
-import|;
-end_import
-
 begin_comment
 comment|/**  * This builder class is in order to create visible signature properties.  *   * @author<a href="mailto:vakhtang.koroghlishvili@gmail.com"> vakhtang koroghlishvili (gogebashvili)</a>  *   */
 end_comment
@@ -120,7 +110,7 @@ specifier|private
 name|PDVisibleSignDesigner
 name|pdVisibleSignature
 decl_stmt|;
-comment|/**      * start building of visible signature      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
+comment|/**      * start building of visible signature      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|buildSignature
@@ -131,8 +121,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 name|PDFTemplateBuilder
 name|builder

@@ -109,16 +109,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|security
-operator|.
-name|NoSuchAlgorithmException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -4278,7 +4268,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * Save the document to a file.      *       * @param fileName The file to save as.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
+comment|/**      * Save the document to a file.      *       * @param fileName The file to save as.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|save
@@ -4292,8 +4282,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 name|save
 argument_list|(
@@ -4305,7 +4293,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Save the document to a file.      *       * @param file The file to save as.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
+comment|/**      * Save the document to a file.      *       * @param file The file to save as.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|save
@@ -4319,8 +4307,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 name|save
 argument_list|(
@@ -4332,7 +4318,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will save the document to an output stream.      *       * @param output The stream to write to.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
+comment|/**      * This will save the document to an output stream.      *       * @param output The stream to write to.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|save
@@ -4346,8 +4332,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 comment|// update the count in case any pages have been added behind the scenes.
 name|getDocumentCatalog
@@ -4404,7 +4388,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Save the pdf as incremental.      *       * @param fileName the filename to be used      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
+comment|/**      * Save the pdf as incremental.      *       * @param fileName the filename to be used      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|saveIncremental
@@ -4418,8 +4402,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 name|saveIncremental
 argument_list|(
@@ -4439,7 +4421,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Save the pdf as incremental.      *       * @param input stream to read      * @param output stream to write      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      * @throws NoSuchAlgorithmException if the cryptographic algorithm is not available      */
+comment|/**      * Save the pdf as incremental.      *       * @param input stream to read      * @param output stream to write      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|saveIncremental
@@ -4456,8 +4438,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 comment|// update the count in case any pages have been added behind the scenes.
 name|getDocumentCatalog

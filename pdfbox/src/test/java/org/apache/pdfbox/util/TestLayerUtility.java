@@ -59,16 +59,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|security
-operator|.
-name|NoSuchAlgorithmException
-import|;
-end_import
-
-begin_import
-import|import
 name|junit
 operator|.
 name|framework
@@ -640,8 +630,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 name|File
 name|targetFile
@@ -892,8 +880,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 name|File
 name|targetFile

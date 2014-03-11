@@ -5158,8 +5158,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 name|PDDocument
 name|pdDoc
@@ -5190,8 +5188,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 name|Long
 name|idTime
@@ -5346,19 +5342,39 @@ operator|||
 name|incrementalUpdate
 condition|)
 block|{
-comment|//algorithm says to use time/path/size/values in doc to generate
-comment|//the id.  We don't have path or size, so do the best we can
 name|MessageDigest
-name|md
-init|=
+name|md5
+decl_stmt|;
+try|try
+block|{
+name|md5
+operator|=
 name|MessageDigest
 operator|.
 name|getInstance
 argument_list|(
 literal|"MD5"
 argument_list|)
-decl_stmt|;
-name|md
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchAlgorithmException
+name|e
+parameter_list|)
+block|{
+comment|// should never happen
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+comment|// algorithm says to use time/path/size/values in doc to generate the id.
+comment|// we don't have path or size, so do the best we can
+name|md5
 operator|.
 name|update
 argument_list|(
@@ -5419,7 +5435,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|md
+name|md5
 operator|.
 name|update
 argument_list|(
@@ -5451,7 +5467,7 @@ init|=
 operator|new
 name|COSString
 argument_list|(
-name|md
+name|md5
 operator|.
 name|digest
 argument_list|()

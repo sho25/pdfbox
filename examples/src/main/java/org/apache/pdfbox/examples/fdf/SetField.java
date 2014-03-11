@@ -227,8 +227,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 name|SetField
 name|setter
@@ -259,8 +257,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 name|PDDocument
 name|pdf

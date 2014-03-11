@@ -75,16 +75,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|NoSuchAlgorithmException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Test for RubberStampWithImage  */
 end_comment
@@ -106,8 +96,6 @@ throws|,
 name|CryptographyException
 throws|,
 name|SignatureException
-throws|,
-name|NoSuchAlgorithmException
 block|{
 name|String
 name|documentFile

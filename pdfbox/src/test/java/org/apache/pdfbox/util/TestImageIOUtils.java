@@ -163,7 +163,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Validate page rendering for all supported image formats (JDK5).      *       * @param file The file to validate      * @param outDir Name of the output directory      * @throws Exception when there is an exception      */
+comment|/**      * Validate page rendering for all supported image formats (JDK5).      * @param file The file to validate      * @param outDir Name of the output directory      * @throws IOException when there is an exception      */
 specifier|private
 name|void
 name|doTestFile
@@ -175,7 +175,7 @@ name|String
 name|outDir
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|PDDocument
 name|document
@@ -470,7 +470,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test to validate image rendering of file set.      *       * @throws Exception when there is an exception      */
+comment|/**      * Test to validate image rendering of file set.      * @throws Exception when there is an exception      */
 specifier|public
 name|void
 name|testRenderImage
