@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Manages security handlers for the application.  * It follows the singleton pattern.  * To be usable, security managers must be registered in it.  * Security managers are retrieved by the application when necessary.  *  * @author Benoit Guillon  */
+comment|/**  * Manages security handlers for the application.  * It follows the singleton pattern.  * To be usable, security managers must be registered in it.  * Security managers are retrieved by the application when necessary.  *  * @author Benoit Guillon  * @author John Hewson  */
 end_comment
 
 begin_class
