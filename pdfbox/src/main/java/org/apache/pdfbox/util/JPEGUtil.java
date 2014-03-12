@@ -17,18 +17,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|image
-operator|.
-name|BufferedImage
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|imageio
@@ -78,6 +66,7 @@ name|JPEG_NATIVE_FORMAT
 init|=
 literal|"javax_imageio_jpeg_image_1.0"
 decl_stmt|;
+comment|/**      * Set dpi ina JPEG file      *       * @param metadata the meta data      * @param dpi the dpi      *       * @throws IIOInvalidTreeException if something goes wrong      */
 specifier|static
 name|void
 name|updateMetadata
