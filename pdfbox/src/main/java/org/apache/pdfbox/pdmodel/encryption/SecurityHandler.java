@@ -376,7 +376,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a security handler as described in the PDF specifications.  * A security handler is responsible of documents protection.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  */
+comment|/**  * A security handler as described in the PDF specifications.  * A security handler is responsible of documents protection.  *  * @author Ben Litchfield  * @author Benoit Guillon  */
 end_comment
 
 begin_class
@@ -385,7 +385,6 @@ specifier|abstract
 class|class
 name|SecurityHandler
 block|{
-comment|/**      * CONSTANTS.      */
 specifier|private
 specifier|static
 specifier|final
@@ -394,7 +393,7 @@ name|DEFAULT_KEY_LENGTH
 init|=
 literal|40
 decl_stmt|;
-comment|/*      * See 7.6.2, page 58, PDF 32000-1:2008      */
+comment|// see 7.6.2, page 58, PDF 32000-1:2008
 specifier|private
 specifier|static
 specifier|final
@@ -424,30 +423,30 @@ operator|)
 literal|0x54
 block|}
 decl_stmt|;
-comment|/**      * The value of V field of the Encryption dictionary.      */
+comment|/** The value of V field of the Encryption dictionary. */
 specifier|protected
 name|int
 name|version
 decl_stmt|;
-comment|/**      * The length of the secret key used to encrypt the document.      */
+comment|/** The length of the secret key used to encrypt the document. */
 specifier|protected
 name|int
 name|keyLength
 init|=
 name|DEFAULT_KEY_LENGTH
 decl_stmt|;
-comment|/**      * The encryption key that will used to encrypt / decrypt.      */
+comment|/** The encryption key that will used to encrypt / decrypt.*/
 specifier|protected
 name|byte
 index|[]
 name|encryptionKey
 decl_stmt|;
-comment|/**      * The document whose security is handled by this security handler.      */
+comment|/** The document whose security is handled by this security handler.*/
 specifier|protected
 name|PDDocument
 name|document
 decl_stmt|;
-comment|/**      * The RC4 implementation used for cryptographic functions.      */
+comment|/** The RC4 implementation used for cryptographic functions. */
 specifier|protected
 name|ARCFour
 name|rc4
@@ -457,6 +456,7 @@ name|ARCFour
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|COSBase
@@ -471,6 +471,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|COSDictionary
@@ -484,10 +485,9 @@ name|COSDictionary
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * If true, AES will be used.      */
 specifier|private
 name|boolean
-name|aes
+name|useAES
 decl_stmt|;
 comment|/**      * The access permission granted to the current user for the document. These      * permissions are computed during decryption and are in read only mode.      */
 specifier|protected
@@ -876,7 +876,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|aes
+name|useAES
 operator|&&
 operator|!
 name|decrypt
@@ -1045,7 +1045,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|aes
+name|useAES
 condition|)
 block|{
 name|md
@@ -1107,7 +1107,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|aes
+name|useAES
 condition|)
 block|{
 name|byte
@@ -1155,8 +1155,6 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Could not find a suitable javax.crypto provider"
-argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -1883,7 +1881,7 @@ name|isAES
 parameter_list|()
 block|{
 return|return
-name|aes
+name|useAES
 return|;
 block|}
 comment|/**      * Set to true if AES for encryption and decryption should be used.      *       * @param aesValue if true AES will be used       *       */
@@ -1895,7 +1893,7 @@ name|boolean
 name|aesValue
 parameter_list|)
 block|{
-name|aes
+name|useAES
 operator|=
 name|aesValue
 expr_stmt|;

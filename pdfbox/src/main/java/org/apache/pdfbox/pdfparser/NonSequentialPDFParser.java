@@ -615,7 +615,7 @@ name|pdmodel
 operator|.
 name|encryption
 operator|.
-name|SecurityHandlersManager
+name|SecurityHandlerFactory
 import|;
 end_import
 
@@ -1656,8 +1656,6 @@ argument_list|)
 decl_stmt|;
 name|DecryptionMaterial
 name|decryptionMaterial
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1718,12 +1716,11 @@ expr_stmt|;
 block|}
 name|securityHandler
 operator|=
-name|SecurityHandlersManager
+name|SecurityHandlerFactory
 operator|.
-name|getInstance
-argument_list|()
+name|INSTANCE
 operator|.
-name|getSecurityHandler
+name|newSecurityHandler
 argument_list|(
 name|encParameters
 operator|.
@@ -1731,6 +1728,26 @@ name|getFilter
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|securityHandler
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"No security handler for filter "
+operator|+
+name|encParameters
+operator|.
+name|getFilter
+argument_list|()
+argument_list|)
+throw|;
+block|}
 name|securityHandler
 operator|.
 name|prepareForDecryption

@@ -18,11 +18,12 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This class represents the protection policy to add to a document  * for password-based protection.  *  * The following example shows how to protect a PDF document with password.  * In this example, the document will be protected so that someone opening  * the document with the user password<code>user_pwd</code> will not be  * able to modify the document.  *  *<pre>  * AccessPermission ap = new AccessPermission();  * ap.setCanModify(false);  * StandardProtectionPolicy policy = new StandardProtectionPolicy(owner_pwd, user_pwd, ap);  * doc.protect(policy);  *</pre>  *  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  * @version $Revision: 1.3 $  */
+comment|/**  * The protection policy to add to a document for password-based protection.  *  * The following example shows how to protect a PDF document with password.  * In this example, the document will be protected so that someone opening  * the document with the user password<code>user_pwd</code> will not be  * able to modify the document.  *  *<pre>  * AccessPermission ap = new AccessPermission();  * ap.setCanModify(false);  * StandardProtectionPolicy policy = new StandardProtectionPolicy(owner_pwd, user_pwd, ap);  * doc.protect(policy);  *</pre>  *  * @author Benoit Guillon  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|StandardProtectionPolicy
 extends|extends
@@ -44,40 +45,40 @@ name|userPassword
 init|=
 literal|""
 decl_stmt|;
-comment|/**      * Creates an new instance of the standard protection policy      * in order to protect a PDF document with passwords.      *      * @param ownerPass The owner's password.      * @param userPass The users's password.      * @param perms The access permissions given to the user.      */
+comment|/**      * Creates an new instance of the standard protection policy      * in order to protect a PDF document with passwords.      *      * @param ownerPassword The owner's password.      * @param userPassword The users's password.      * @param permissions The access permissions given to the user.      */
 specifier|public
 name|StandardProtectionPolicy
 parameter_list|(
 name|String
-name|ownerPass
+name|ownerPassword
 parameter_list|,
 name|String
-name|userPass
+name|userPassword
 parameter_list|,
 name|AccessPermission
-name|perms
+name|permissions
 parameter_list|)
 block|{
 name|this
 operator|.
-name|permissions
+name|ownerPassword
 operator|=
-name|perms
+name|ownerPassword
 expr_stmt|;
 name|this
 operator|.
 name|userPassword
 operator|=
-name|userPass
+name|userPassword
 expr_stmt|;
 name|this
 operator|.
-name|ownerPassword
+name|permissions
 operator|=
-name|ownerPass
+name|permissions
 expr_stmt|;
 block|}
-comment|/**      * Getter of the property<tt>permissions</tt>.      *      * @return Returns the permissions.      */
+comment|/**      * Returns the access permissions      * @return the access permissions      */
 specifier|public
 name|AccessPermission
 name|getPermissions
@@ -87,23 +88,23 @@ return|return
 name|permissions
 return|;
 block|}
-comment|/**      * Setter of the property<tt>permissions</tt>.      *      * @param perms The permissions to set.      */
+comment|/**      * Sets the access permissions      * @param permissions the new access permissions      */
 specifier|public
 name|void
 name|setPermissions
 parameter_list|(
 name|AccessPermission
-name|perms
+name|permissions
 parameter_list|)
 block|{
 name|this
 operator|.
 name|permissions
 operator|=
-name|perms
+name|permissions
 expr_stmt|;
 block|}
-comment|/**      * Getter of the property<tt>ownerPassword</tt>.      *      * @return Returns the ownerPassword.      */
+comment|/**      * Returns the owner password.      * @return the owner password      */
 specifier|public
 name|String
 name|getOwnerPassword
@@ -113,23 +114,23 @@ return|return
 name|ownerPassword
 return|;
 block|}
-comment|/**      * Setter of the property<tt>ownerPassword</tt>.      *      * @param ownerPass The ownerPassword to set.      */
+comment|/**      * Sets the owner password      * @param ownerPassword the new owner password      */
 specifier|public
 name|void
 name|setOwnerPassword
 parameter_list|(
 name|String
-name|ownerPass
+name|ownerPassword
 parameter_list|)
 block|{
 name|this
 operator|.
 name|ownerPassword
 operator|=
-name|ownerPass
+name|ownerPassword
 expr_stmt|;
 block|}
-comment|/**      * Getter of the property<tt>userPassword</tt>.      *      * @return Returns the userPassword.      */
+comment|/**      * Returns the user password.      * @return the user password      */
 specifier|public
 name|String
 name|getUserPassword
@@ -139,20 +140,20 @@ return|return
 name|userPassword
 return|;
 block|}
-comment|/**      * Setter of the property<tt>userPassword</tt>.      *      * @param userPass The userPassword to set.      */
+comment|/**      * Sets the user password.      * @param userPassword the new user password      */
 specifier|public
 name|void
 name|setUserPassword
 parameter_list|(
 name|String
-name|userPass
+name|userPassword
 parameter_list|)
 block|{
 name|this
 operator|.
 name|userPassword
 operator|=
-name|userPass
+name|userPassword
 expr_stmt|;
 block|}
 block|}

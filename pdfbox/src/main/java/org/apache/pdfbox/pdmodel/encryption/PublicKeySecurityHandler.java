@@ -562,7 +562,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class implements the public key security handler  * described in the PDF specification.  *  * [PDF 1.6: p 104]  *  * @see PublicKeyProtectionPolicy to see how to protect document with this security handler.  *  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  * @version $Revision: 1.3 $  */
+comment|/**  * This class implements the public key security handler described in the PDF specification.  *  * @see PublicKeyProtectionPolicy to see how to protect document with this security handler.  * @author Benoit Guillon  */
 end_comment
 
 begin_class
@@ -572,7 +572,7 @@ name|PublicKeySecurityHandler
 extends|extends
 name|SecurityHandler
 block|{
-comment|/**      * The filter name.      */
+comment|/** The filter name. */
 specifier|public
 specifier|static
 specifier|final
@@ -1247,7 +1247,7 @@ name|byte
 index|[
 name|policy
 operator|.
-name|getRecipientsNumber
+name|getNumberOfRecipients
 argument_list|()
 index|]
 index|[]
@@ -1289,8 +1289,6 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Could not find a suitable javax.crypto provider"
-argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -1843,7 +1841,7 @@ name|NoSuchAlgorithmException
 name|e
 parameter_list|)
 block|{
-comment|// should never happen
+comment|// should never happen, if this happens throw IOException instead
 throw|throw
 operator|new
 name|RuntimeException
@@ -1860,7 +1858,7 @@ name|NoSuchPaddingException
 name|e
 parameter_list|)
 block|{
-comment|// should never happen
+comment|// should never happen, if this happens throw IOException instead
 throw|throw
 operator|new
 name|RuntimeException
@@ -2141,7 +2139,7 @@ name|NoSuchAlgorithmException
 name|e
 parameter_list|)
 block|{
-comment|// should never happen
+comment|// should never happen, if this happens throw IOException instead
 throw|throw
 operator|new
 name|RuntimeException
@@ -2158,7 +2156,7 @@ name|NoSuchPaddingException
 name|e
 parameter_list|)
 block|{
-comment|// should never happen
+comment|// should never happen, if this happens throw IOException instead
 throw|throw
 operator|new
 name|RuntimeException
