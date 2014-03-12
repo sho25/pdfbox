@@ -759,6 +759,15 @@ name|outDir
 init|=
 literal|"target/test-output/ImageIOUtil/"
 decl_stmt|;
+operator|new
+name|File
+argument_list|(
+name|outDir
+argument_list|)
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -768,7 +777,7 @@ argument_list|(
 name|outDir
 argument_list|)
 operator|.
-name|mkdirs
+name|exists
 argument_list|()
 condition|)
 block|{
