@@ -492,6 +492,35 @@ argument_list|)
 expr_stmt|;
 comment|//TODO sometimes empty, sometimes correct?????
 comment|//checkResolution(outDir + file.getName() + "-1." + imageType, (int) dpi);
+comment|// testing GIF
+name|imageType
+operator|=
+literal|"gif"
+expr_stmt|;
+name|writeImage
+argument_list|(
+name|document
+argument_list|,
+name|imageType
+argument_list|,
+name|outDir
+operator|+
+name|file
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"-"
+argument_list|,
+name|ImageType
+operator|.
+name|RGB
+argument_list|,
+name|dpi
+argument_list|)
+expr_stmt|;
+comment|//TODO
+comment|//checkResolution(outDir + file.getName() + "-1." + imageType, (int) dpi);
 comment|// testing WBMP
 comment|//TODO this doesn't work at all, am empty image is always created
 name|imageType
