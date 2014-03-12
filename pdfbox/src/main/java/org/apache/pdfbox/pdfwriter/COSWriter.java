@@ -421,20 +421,6 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
 name|SignatureException
 import|;
 end_import
@@ -1494,8 +1480,6 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 block|{
 name|COSDictionary
@@ -1837,8 +1821,6 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 block|{
 name|writtenObjects
@@ -2098,8 +2080,6 @@ name|doc
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -2555,8 +2535,6 @@ name|hybridPrev
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -3724,8 +3702,6 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 block|{
 name|int
@@ -4022,8 +3998,6 @@ name|obj
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -4436,8 +4410,6 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 block|{
 if|if
@@ -4799,8 +4771,6 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 block|{
 if|if
@@ -5103,8 +5073,6 @@ name|obj
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 block|{
 if|if
 condition|(
@@ -5155,8 +5123,6 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 block|{
 name|PDDocument
@@ -5174,7 +5140,7 @@ name|pdDoc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will write the pdf document.      *      * @param doc The document to write.      *      * @throws IOException If an error occurs while generating the data.      * @throws CryptographyException If an error occurs while generating the data.      */
+comment|/**      * This will write the pdf document.      *      * @param doc The document to write.      *      * @throws IOException If an error occurs while generating the data.      */
 specifier|public
 name|void
 name|write
@@ -5184,8 +5150,6 @@ name|doc
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{

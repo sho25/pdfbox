@@ -641,20 +641,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|io
 operator|.
 name|IOUtils
@@ -3426,8 +3412,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-try|try
-block|{
 name|securityHandler
 operator|.
 name|decryptStream
@@ -3439,31 +3423,6 @@ argument_list|,
 name|objGenNr
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CryptographyException
-name|ce
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Error decrypting stream object "
-operator|+
-name|objNr
-operator|+
-literal|": "
-operator|+
-name|ce
-operator|.
-name|getMessage
-argument_list|()
-comment|/* , ce // TODO: remove remark with Java 1.6 */
-argument_list|)
-throw|;
-block|}
 block|}
 name|pb
 operator|=

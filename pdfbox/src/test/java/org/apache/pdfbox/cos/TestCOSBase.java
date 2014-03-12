@@ -35,20 +35,6 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
 name|SignatureException
 import|;
 end_import
@@ -105,8 +91,6 @@ name|testAccept
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 function_decl|;
@@ -184,7 +168,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A simple utility function to compare two byte arrays.      * @param str1 the expected byte array      * @param str2 the byte array being compared      */
+comment|/**      * A simple utility function to compare two byte arrays.      * @param byteArr1 the expected byte array      * @param byteArr2 the byte array being compared      */
 specifier|protected
 name|void
 name|testByteArrays

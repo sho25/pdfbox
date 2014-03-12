@@ -85,20 +85,6 @@ name|NoSuchAlgorithmException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|CryptographyException
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class will deal with PDF encryption algorithms.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.15 $  *  * @deprecated use the new security layer instead  *  * @see org.apache.pdfbox.pdmodel.encryption.StandardSecurityHandler  */
 end_comment
@@ -287,7 +273,7 @@ operator|)
 literal|0x7A
 block|}
 decl_stmt|;
-comment|/**      * This will encrypt a piece of data.      *      * @param objectNumber The id for the object.      * @param genNumber The generation id for the object.      * @param key The key used to encrypt the data.      * @param data The data to encrypt/decrypt.      * @param output The stream to write to.      *      * @throws CryptographyException If there is an error encrypting the data.      * @throws IOException If there is an io error.      */
+comment|/**      * This will encrypt a piece of data.      *      * @param objectNumber The id for the object.      * @param genNumber The generation id for the object.      * @param key The key used to encrypt the data.      * @param data The data to encrypt/decrypt.      * @param output The stream to write to.      *      * @throws IOException If there is an io error.      */
 specifier|public
 specifier|final
 name|void
@@ -310,8 +296,6 @@ name|OutputStream
 name|output
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|byte
@@ -535,7 +519,7 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will get the user password from the owner password and the documents o value.      *      * @param ownerPassword The plaintext owner password.      * @param o The document's o entry.      * @param revision The document revision number.      * @param length The length of the encryption.      *      * @return The plaintext padded user password.      *      * @throws CryptographyException If there is an error getting the user password.      * @throws IOException If there is an error reading data.      */
+comment|/**      * This will get the user password from the owner password and the documents o value.      *      * @param ownerPassword The plaintext owner password.      * @param o The document's o entry.      * @param revision The document revision number.      * @param length The length of the encryption.      *      * @return The plaintext padded user password.      *      * @throws IOException If there is an error reading data.      */
 specifier|public
 specifier|final
 name|byte
@@ -557,8 +541,6 @@ name|long
 name|length
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|ByteArrayOutputStream
@@ -662,7 +644,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 literal|"Error: Expected length=5 actual="
 operator|+
@@ -903,7 +885,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * This will tell if this is the owner password or not.      *      * @param ownerPassword The plaintext owner password.      * @param u The U value from the PDF Document.      * @param o The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param revision The revision of the encryption.      * @param length The length of the encryption key.      *      * @return true if the owner password matches the one from the document.      *      * @throws CryptographyException If there is an error while executing crypt functions.      * @throws IOException If there is an error while checking owner password.      */
+comment|/**      * This will tell if this is the owner password or not.      *      * @param ownerPassword The plaintext owner password.      * @param u The U value from the PDF Document.      * @param o The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param revision The revision of the encryption.      * @param length The length of the encryption key.      *      * @return true if the owner password matches the one from the document.      *      * @throws IOException If there is an error while checking owner password.      */
 specifier|public
 specifier|final
 name|boolean
@@ -935,8 +917,6 @@ name|int
 name|length
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|byte
@@ -973,7 +953,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * This will tell if this is a valid user password.      *      * Algorithm 3.6 pg 80      *      * @param password The password to test.      * @param u The U value from the PDF Document.      * @param o The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param revision The revision of the encryption.      * @param length The length of the encryption key.      *      * @return true If this is the correct user password.      *      * @throws CryptographyException If there is an error computing the value.      * @throws IOException If there is an IO error while computing the owners password.      */
+comment|/**      * This will tell if this is a valid user password.      *      * Algorithm 3.6 pg 80      *      * @param password The password to test.      * @param u The U value from the PDF Document.      * @param o The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param revision The revision of the encryption.      * @param length The length of the encryption key.      *      * @return true If this is the correct user password.      *      * @throws IOException If there is an IO error while computing the owners password.      */
 specifier|public
 specifier|final
 name|boolean
@@ -1005,8 +985,6 @@ name|int
 name|length
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|boolean
@@ -1210,7 +1188,7 @@ return|return
 name|equal
 return|;
 block|}
-comment|/**      * This will compute the user password hash.      *      * @param password The plain text password.      * @param o The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param revision The revision of the encryption.      * @param length The length of the encryption key.      *      * @return The user password.      *      * @throws CryptographyException If there is an error computing the user password.      * @throws IOException If there is an IO error.      */
+comment|/**      * This will compute the user password hash.      *      * @param password The plain text password.      * @param o The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param revision The revision of the encryption.      * @param length The length of the encryption key.      *      * @return The user password.      *      * @throws IOException If there is an IO error.      */
 specifier|public
 specifier|final
 name|byte
@@ -1239,8 +1217,6 @@ name|int
 name|length
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|ByteArrayOutputStream
@@ -1518,7 +1494,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * This will compute the encrypted key.      *      * @param password The password used to compute the encrypted key.      * @param o The owner password hash.      * @param permissions The permissions for the document.      * @param id The document id.      * @param revision The security revision.      * @param length The length of the encryption key.      *      * @return The encryption key.      *      * @throws CryptographyException If there is an error computing the key.      */
+comment|/**      * This will compute the encrypted key.      *      * @param password The password used to compute the encrypted key.      * @param o The owner password hash.      * @param permissions The permissions for the document.      * @param id The document id.      * @param revision The security revision.      * @param length The length of the encryption key.      *      * @return The encryption key.      *      * @throws IOException If there is an error computing the key.      */
 specifier|public
 specifier|final
 name|byte
@@ -1547,7 +1523,7 @@ name|int
 name|length
 parameter_list|)
 throws|throws
-name|CryptographyException
+name|IOException
 block|{
 name|byte
 index|[]
@@ -1752,7 +1728,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 literal|"Error: length should be 5 when revision is two actual="
 operator|+
@@ -1779,7 +1755,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * This algorithm is taked from PDF Reference 1.4 Algorithm 3.3 Page 79.      *      * @param ownerPassword The plain owner password.      * @param userPassword The plain user password.      * @param revision The version of the security.      * @param length The length of the document.      *      * @return The computed owner password.      *      * @throws CryptographyException If there is an error computing O.      * @throws IOException If there is an error computing O.      */
+comment|/**      * This algorithm is taked from PDF Reference 1.4 Algorithm 3.3 Page 79.      *      * @param ownerPassword The plain owner password.      * @param userPassword The plain user password.      * @param revision The version of the security.      * @param length The length of the document.      *      * @return The computed owner password.      *      * @throws IOException If there is an error computing O.      */
 specifier|public
 specifier|final
 name|byte
@@ -1801,8 +1777,6 @@ name|int
 name|length
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 comment|//STEP 1
@@ -1903,7 +1877,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 literal|"Error: Expected length=5 actual="
 operator|+

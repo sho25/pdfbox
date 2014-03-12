@@ -277,20 +277,6 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
 name|InvalidPasswordException
 import|;
 end_import
@@ -3654,7 +3640,7 @@ return|return
 name|signatures
 return|;
 block|}
-comment|/**      * This will decrypt a document.      *      * @deprecated This method is provided for compatibility reasons only. User should use the new      * security layer instead and the openProtection method especially.      *       * @param password Either the user or owner password.      *       * @throws CryptographyException If there is an error decrypting the document.      * @throws IOException If there is an error getting the stream data.      * @throws InvalidPasswordException If the password is not a user or owner password.      */
+comment|/**      * This will decrypt a document.      *      * @deprecated This method is provided for compatibility reasons only. User should use the new      * security layer instead and the openProtection method especially.      *       * @param password Either the user or owner password.      *      * @throws IOException If there is an error getting the stream data.      * @throws InvalidPasswordException If the password is not a user or owner password.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -3665,8 +3651,6 @@ name|String
 name|password
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 throws|,
 name|InvalidPasswordException
@@ -4230,7 +4214,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * Save the document to a file.      *       * @param fileName The file to save as.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
+comment|/**      * Save the document to a file.      *       * @param fileName The file to save as.      *      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|save
@@ -4240,8 +4224,6 @@ name|fileName
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -4255,7 +4237,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Save the document to a file.      *       * @param file The file to save as.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
+comment|/**      * Save the document to a file.      *       * @param file The file to save as.      *      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|save
@@ -4265,8 +4247,6 @@ name|file
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -4280,7 +4260,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will save the document to an output stream.      *       * @param output The stream to write to.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
+comment|/**      * This will save the document to an output stream.      *       * @param output The stream to write to.      *      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|save
@@ -4290,8 +4270,6 @@ name|output
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -4350,7 +4328,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Save the pdf as incremental.      *       * @param fileName the filename to be used      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
+comment|/**      * Save the pdf as incremental.      *       * @param fileName the filename to be used      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|saveIncremental
@@ -4360,8 +4338,6 @@ name|fileName
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -4383,7 +4359,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Save the pdf as incremental.      *       * @param input stream to read      * @param output stream to write      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
+comment|/**      * Save the pdf as incremental.      *       * @param input stream to read      * @param output stream to write      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|saveIncremental
@@ -4396,8 +4372,6 @@ name|output
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -4638,7 +4612,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Tries to decrypt the document in memory using the provided decryption material.      *       * @see org.apache.pdfbox.pdmodel.encryption.StandardDecryptionMaterial      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyDecryptionMaterial      *       * @param decryptionMaterial The decryption material (password or certificate).      *      * @throws IOException If there is an error reading cryptographic information.      * @throws CryptographyException If there is an error during decryption.      */
+comment|/**      * Tries to decrypt the document in memory using the provided decryption material.      *       * @see org.apache.pdfbox.pdmodel.encryption.StandardDecryptionMaterial      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyDecryptionMaterial      *       * @param decryptionMaterial The decryption material (password or certificate).      *      * @throws IOException If there is an error reading cryptographic information.      */
 specifier|public
 name|void
 name|openProtection
@@ -4648,8 +4622,6 @@ name|decryptionMaterial
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 block|{
 name|PDEncryptionDictionary
 name|encryption

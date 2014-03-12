@@ -25,20 +25,6 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
 name|SignatureException
 import|;
 end_import
@@ -73,8 +59,6 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 function_decl|;
 comment|/**      * Notification of visit to boolean object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
@@ -99,8 +83,6 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 function_decl|;
 comment|/**      * Notification of visit to document object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      * @throws SignatureException If there is an error while visiting this object.      */
@@ -113,8 +95,6 @@ name|obj
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 function_decl|;
@@ -162,7 +142,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Notification of visit to stream object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      * @throws CryptographyException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to stream object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromStream
@@ -173,11 +153,9 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 function_decl|;
-comment|/**      * Notification of visit to string object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      * @throws CryptographyException If there is an error while visiting this object.      */
+comment|/**      * Notification of visit to string object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
 specifier|public
 name|Object
 name|visitFromString
@@ -187,8 +165,6 @@ name|obj
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 function_decl|;
 block|}
 end_interface

@@ -221,20 +221,6 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
 name|InvalidPasswordException
 import|;
 end_import
@@ -1502,26 +1488,6 @@ argument_list|,
 name|summary
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CryptographyException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Error decrypting document("
-operator|+
-name|documentLocation
-operator|+
-literal|"): "
-operator|+
-name|e
-argument_list|)
-throw|;
 block|}
 catch|catch
 parameter_list|(

@@ -355,20 +355,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -496,7 +482,7 @@ name|currentAccessPermission
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Prepare the document for encryption.      *      * @param doc The document that will be encrypted.      *      * @throws CryptographyException If there is an error while preparing.      * @throws IOException If there is an error with the document.      */
+comment|/**      * Prepare the document for encryption.      *      * @param doc The document that will be encrypted.      *      * @throws IOException If there is an error with the document.      */
 specifier|public
 specifier|abstract
 name|void
@@ -506,11 +492,9 @@ name|PDDocument
 name|doc
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 function_decl|;
-comment|/**      * Prepares everything to decrypt the document.      *       * If {@link #decryptDocument(PDDocument, DecryptionMaterial)} is used, this method is      * called from there. Only if decryption of single objects is needed this should be called instead.      *      * @param encDictionary  encryption dictionary, can be retrieved via {@link PDDocument#getEncryptionDictionary()}      * @param documentIDArray  document id which is returned via {@link COSDocument#getDocumentID()}      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
+comment|/**      * Prepares everything to decrypt the document.      *       * If {@link #decryptDocument(PDDocument, DecryptionMaterial)} is used, this method is      * called from there. Only if decryption of single objects is needed this should be called instead.      *      * @param encDictionary  encryption dictionary, can be retrieved via {@link PDDocument#getEncryptionDictionary()}      * @param documentIDArray  document id which is returned via {@link COSDocument#getDocumentID()}      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|abstract
 name|void
@@ -526,11 +510,9 @@ name|DecryptionMaterial
 name|decryptionMaterial
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 function_decl|;
-comment|/**      * Prepare the document for decryption.      *      * @param doc The document to decrypt.      * @param mat Information required to decrypt the document.      * @throws CryptographyException If there is an error while preparing.      * @throws IOException If there is an error with the document.      */
+comment|/**      * Prepare the document for decryption.      *      * @param doc The document to decrypt.      * @param mat Information required to decrypt the document.      * @throws IOException If there is an error with the document.      */
 specifier|public
 specifier|abstract
 name|void
@@ -543,19 +525,15 @@ name|DecryptionMaterial
 name|mat
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 function_decl|;
-comment|/**      * This method must be called by an implementation of this class to really proceed      * to decryption.      *      * @throws IOException If there is an error in the decryption.      * @throws CryptographyException If there is an error in the decryption.      */
+comment|/**      * This method must be called by an implementation of this class to really proceed      * to decryption.      *      * @throws IOException If there is an error in the decryption.      */
 specifier|protected
 name|void
 name|proceedDecryption
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 block|{
 name|COSDictionary
 name|trailer
@@ -812,7 +790,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Encrypt a set of data.      *      * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      * @throws CryptographyException If there is an error during the encryption.      * @throws IOException If there is an error reading the data.      * @deprecated While this works fine for RC4 encryption, it will never decrypt AES data      *             You should use encryptData(objectNumber, genNumber, data, output, decrypt)      *             which can do everything.  This function is just here for compatibility      *             reasons and will be removed in the future.      */
+comment|/**      * Encrypt a set of data.      *      * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      * @throws IOException If there is an error reading the data.      * @deprecated While this works fine for RC4 encryption, it will never decrypt AES data      *             You should use encryptData(objectNumber, genNumber, data, output, decrypt)      *             which can do everything.  This function is just here for compatibility      *             reasons and will be removed in the future.      */
 specifier|public
 name|void
 name|encryptData
@@ -830,8 +808,6 @@ name|OutputStream
 name|output
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 comment|// default to encrypting since the function is named "encryptData"
@@ -849,7 +825,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Encrypt a set of data.      *      * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      * @param decrypt true to decrypt the data, false to encrypt it      *      * @throws CryptographyException If there is an error during the encryption.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Encrypt a set of data.      *      * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      * @param decrypt true to decrypt the data, false to encrypt it      *      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
 name|encryptData
@@ -870,8 +846,6 @@ name|boolean
 name|decrypt
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 if|if
@@ -1334,7 +1308,7 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will decrypt an object in the document.      *      * @param object The object to decrypt.      *      * @throws CryptographyException If there is an error decrypting the stream.      * @throws IOException If there is an error getting the stream data.      */
+comment|/**      * This will decrypt an object in the document.      *      * @param object The object to decrypt.      *      * @throws IOException If there is an error getting the stream data.      */
 specifier|private
 name|void
 name|decryptObject
@@ -1343,8 +1317,6 @@ name|COSObject
 name|object
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|long
@@ -1387,7 +1359,7 @@ name|genNum
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will dispatch to the correct method.      *      * @param obj The object to decrypt.      * @param objNum The object number.      * @param genNum The object generation Number.      *      * @throws CryptographyException If there is an error decrypting the stream.      * @throws IOException If there is an error getting the stream data.      */
+comment|/**      * This will dispatch to the correct method.      *      * @param obj The object to decrypt.      * @param objNum The object number.      * @param genNum The object generation Number.      *      * @throws IOException If there is an error getting the stream data.      */
 specifier|private
 name|void
 name|decrypt
@@ -1402,8 +1374,6 @@ name|long
 name|genNum
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 if|if
@@ -1509,7 +1479,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will decrypt a stream.      *      * @param stream The stream to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws CryptographyException If there is an error getting the stream.      * @throws IOException If there is an error getting the stream data.      */
+comment|/**      * This will decrypt a stream.      *      * @param stream The stream to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error getting the stream data.      */
 specifier|public
 name|void
 name|decryptStream
@@ -1524,8 +1494,6 @@ name|long
 name|genNum
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|decryptDictionary
@@ -1563,7 +1531,7 @@ comment|/* decrypt */
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will encrypt a stream, but not the dictionary as the dictionary is      * encrypted by visitFromString() in COSWriter and we don't want to encrypt      * it twice.      *      * @param stream The stream to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws CryptographyException If there is an error getting the stream.      * @throws IOException If there is an error getting the stream data.      */
+comment|/**      * This will encrypt a stream, but not the dictionary as the dictionary is      * encrypted by visitFromString() in COSWriter and we don't want to encrypt      * it twice.      *      * @param stream The stream to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error getting the stream data.      */
 specifier|public
 name|void
 name|encryptStream
@@ -1578,8 +1546,6 @@ name|long
 name|genNum
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|InputStream
@@ -1608,7 +1574,7 @@ comment|/* encrypt */
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will decrypt a dictionary.      *      * @param dictionary The dictionary to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws CryptographyException If there is an error decrypting the document.      * @throws IOException If there is an error creating a new string.      */
+comment|/**      * This will decrypt a dictionary.      *      * @param dictionary The dictionary to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error creating a new string.      */
 specifier|private
 name|void
 name|decryptDictionary
@@ -1623,8 +1589,6 @@ name|long
 name|genNum
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 for|for
@@ -1717,7 +1681,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * This will decrypt a string.      *      * @param string the string to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws CryptographyException If an error occurs during decryption.      * @throws IOException If an error occurs writing the new string.      */
+comment|/**      * This will decrypt a string.      *      * @param string the string to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If an error occurs writing the new string.      */
 specifier|public
 name|void
 name|decryptString
@@ -1732,8 +1696,6 @@ name|long
 name|genNum
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|ByteArrayInputStream
@@ -1785,7 +1747,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will decrypt an array.      *      * @param array The array to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws CryptographyException If an error occurs during decryption.      * @throws IOException If there is an error accessing the data.      */
+comment|/**      * This will decrypt an array.      *      * @param array The array to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error accessing the data.      */
 specifier|private
 name|void
 name|decryptArray
@@ -1800,8 +1762,6 @@ name|long
 name|genNum
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 for|for

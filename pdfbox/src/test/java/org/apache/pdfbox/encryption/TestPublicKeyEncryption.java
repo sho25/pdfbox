@@ -129,20 +129,6 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
 name|SignatureException
 import|;
 end_import
@@ -542,14 +528,6 @@ argument_list|(
 literal|"No exception when using an incorrect decryption key"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CryptographyException
-name|expected
-parameter_list|)
-block|{
-comment|// do nothing
 block|}
 finally|finally
 block|{
@@ -991,8 +969,6 @@ name|doc
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 throws|,

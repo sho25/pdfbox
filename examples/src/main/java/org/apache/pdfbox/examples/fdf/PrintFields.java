@@ -57,20 +57,6 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
 name|InvalidPasswordException
 import|;
 end_import
@@ -476,7 +462,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will read a PDF file and print out the form elements.<br />      * see usage() for commandline      *       * @param args command line arguments      *       * @throws IOException If there is an error importing the FDF document.      * @throws CryptographyException If there is an error decrypting the document.      */
+comment|/**      * This will read a PDF file and print out the form elements.<br />      * see usage() for commandline      *       * @param args command line arguments      *       * @throws IOException If there is an error importing the FDF document.      */
 specifier|public
 specifier|static
 name|void
@@ -488,8 +474,6 @@ name|args
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 block|{
 name|PDDocument
 name|pdf

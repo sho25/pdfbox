@@ -257,20 +257,6 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
 name|InvalidPasswordException
 import|;
 end_import
@@ -399,14 +385,12 @@ operator|=
 name|doc
 expr_stmt|;
 block|}
-comment|/**      * This will encrypt the given document, given the owner password and user password.      * The encryption method used is the standard filter.      *      * @throws CryptographyException If an error occurs during encryption.      * @throws IOException If there is an error accessing the data.      */
+comment|/**      * This will encrypt the given document, given the owner password and user password.      * The encryption method used is the standard filter.      *      * @throws IOException If there is an error accessing the data.      */
 specifier|public
 name|void
 name|initForEncryption
 parameter_list|()
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|String
@@ -788,7 +772,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will decrypt the document.      *      * @param password The password for the document.      *      * @throws CryptographyException If there is an error decrypting the document.      * @throws IOException If there is an error getting the stream data.      * @throws InvalidPasswordException If the password is not a user or owner password.      */
+comment|/**      * This will decrypt the document.      *      * @param password The password for the document.      *      * @throws IOException If there is an error getting the stream data.      * @throws InvalidPasswordException If the password is not a user or owner password.      */
 specifier|public
 name|void
 name|decryptDocument
@@ -797,8 +781,6 @@ name|String
 name|password
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 throws|,
 name|InvalidPasswordException
@@ -1258,7 +1240,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will decrypt an object in the document.      *      * @param object The object to decrypt.      *      * @throws CryptographyException If there is an error decrypting the stream.      * @throws IOException If there is an error getting the stream data.      */
+comment|/**      * This will decrypt an object in the document.      *      * @param object The object to decrypt.      *      * @throws IOException If there is an error getting the stream data.      */
 specifier|private
 name|void
 name|decryptObject
@@ -1267,8 +1249,6 @@ name|COSObject
 name|object
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|long
@@ -1311,7 +1291,7 @@ name|genNum
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will dispatch to the correct method.      *      * @param obj The object to decrypt.      * @param objNum The object number.      * @param genNum The object generation Number.      *      * @throws CryptographyException If there is an error decrypting the stream.      * @throws IOException If there is an error getting the stream data.      */
+comment|/**      * This will dispatch to the correct method.      *      * @param obj The object to decrypt.      * @param objNum The object number.      * @param genNum The object generation Number.      *      * @throws IOException If there is an error getting the stream data.      */
 specifier|public
 name|void
 name|decrypt
@@ -1326,8 +1306,6 @@ name|long
 name|genNum
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 if|if
@@ -1433,7 +1411,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will decrypt a stream.      *      * @param stream The stream to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws CryptographyException If there is an error getting the stream.      * @throws IOException If there is an error getting the stream data.      */
+comment|/**      * This will decrypt a stream.      *      * @param stream The stream to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error getting the stream data.      */
 specifier|private
 name|void
 name|decryptStream
@@ -1448,8 +1426,6 @@ name|long
 name|genNum
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|decryptDictionary
@@ -1488,7 +1464,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will decrypt a dictionary.      *      * @param dictionary The dictionary to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws CryptographyException If there is an error decrypting the document.      * @throws IOException If there is an error creating a new string.      */
+comment|/**      * This will decrypt a dictionary.      *      * @param dictionary The dictionary to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error creating a new string.      */
 specifier|private
 name|void
 name|decryptDictionary
@@ -1503,8 +1479,6 @@ name|long
 name|genNum
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 for|for
@@ -1575,7 +1549,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will decrypt a string.      *      * @param string the string to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws CryptographyException If an error occurs during decryption.      * @throws IOException If an error occurs writing the new string.      */
+comment|/**      * This will decrypt a string.      *      * @param string the string to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If an error occurs writing the new string.      */
 specifier|private
 name|void
 name|decryptString
@@ -1590,8 +1564,6 @@ name|long
 name|genNum
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|ByteArrayInputStream
@@ -1644,7 +1616,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will decrypt an array.      *      * @param array The array to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws CryptographyException If an error occurs during decryption.      * @throws IOException If there is an error accessing the data.      */
+comment|/**      * This will decrypt an array.      *      * @param array The array to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error accessing the data.      */
 specifier|private
 name|void
 name|decryptArray
@@ -1659,8 +1631,6 @@ name|long
 name|genNum
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 for|for

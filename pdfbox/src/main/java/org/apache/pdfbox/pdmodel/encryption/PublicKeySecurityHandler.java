@@ -541,20 +541,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -623,7 +609,7 @@ name|getEncryptionKeyLength
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Decrypt the document.      *      * @param doc The document to decrypt.      * @param decryptionMaterial The data used to decrypt the document.      *      * @throws CryptographyException If there is an error during decryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Decrypt the document.      *      * @param doc The document to decrypt.      * @param decryptionMaterial The data used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|void
 name|decryptDocument
@@ -635,8 +621,6 @@ name|DecryptionMaterial
 name|decryptionMaterial
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|this
@@ -672,7 +656,7 @@ name|proceedDecryption
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Prepares everything to decrypt the document.      *      * If {@link #decryptDocument(PDDocument, DecryptionMaterial)} is used, this method is      * called from there. Only if decryption of single objects is needed this should be called instead.      *      * @param encDictionary  encryption dictionary, can be retrieved via {@link PDDocument#getEncryptionDictionary()}      * @param documentIDArray  document id which is returned via {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()} (not used by this handler)      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
+comment|/**      * Prepares everything to decrypt the document.      *      * If {@link #decryptDocument(PDDocument, DecryptionMaterial)} is used, this method is      * called from there. Only if decryption of single objects is needed this should be called instead.      *      * @param encDictionary  encryption dictionary, can be retrieved via {@link PDDocument#getEncryptionDictionary()}      * @param documentIDArray  document id which is returned via {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()} (not used by this handler)      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|void
 name|prepareForDecryption
@@ -688,8 +672,6 @@ name|decryptionMaterial
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 block|{
 if|if
 condition|(
@@ -723,7 +705,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 literal|"Provided decryption material is not compatible with the document"
 argument_list|)
@@ -920,7 +902,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 literal|"The certificate matches no recipient entry"
 argument_list|)
@@ -937,7 +919,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 literal|"The enveloped data does not contain 24 bytes"
 argument_list|)
@@ -1129,7 +1111,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 name|e
 argument_list|)
@@ -1143,7 +1125,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 name|e
 argument_list|)
@@ -1157,14 +1139,14 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 name|e
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Prepare the document for encryption.      *      * @param doc The document that will be encrypted.      *      * @throws CryptographyException If there is an error while encrypting.      */
+comment|/**      * Prepare the document for encryption.      *      * @param doc The document that will be encrypted.      *      * @throws IOException If there is an error while encrypting.      */
 specifier|public
 name|void
 name|prepareDocumentForEncryption
@@ -1173,7 +1155,7 @@ name|PDDocument
 name|doc
 parameter_list|)
 throws|throws
-name|CryptographyException
+name|IOException
 block|{
 try|try
 block|{
@@ -1755,21 +1737,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
 name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|CryptographyException
 argument_list|(
 name|e
 argument_list|)

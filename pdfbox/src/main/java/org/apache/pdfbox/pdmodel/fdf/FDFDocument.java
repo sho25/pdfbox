@@ -169,20 +169,6 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
 name|SignatureException
 import|;
 end_import
@@ -706,8 +692,6 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 block|{
 name|save
@@ -731,8 +715,6 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 block|{
 name|save
@@ -745,7 +727,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will save the document to an output stream.      *      * @param output The stream to write to.      *      * @throws IOException If there is an error writing the document.      * @throws CryptographyException If there is an error writing the document.      * @throws SignatureException If there is an error writing the document.      */
+comment|/**      * This will save the document to an output stream.      *      * @param output The stream to write to.      *      * @throws IOException If there is an error writing the document.      * @throws SignatureException If there is an error writing the document.      */
 specifier|public
 name|void
 name|save
@@ -755,8 +737,6 @@ name|output
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{

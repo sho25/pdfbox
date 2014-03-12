@@ -141,20 +141,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -499,7 +485,7 @@ return|return
 literal|4
 return|;
 block|}
-comment|/**      * Decrypt the document.      *      * @param doc The document to be decrypted.      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
+comment|/**      * Decrypt the document.      *      * @param doc The document to be decrypted.      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|void
 name|decryptDocument
@@ -511,8 +497,6 @@ name|DecryptionMaterial
 name|decryptionMaterial
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|document
@@ -547,13 +531,11 @@ argument_list|,
 name|decryptionMaterial
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|proceedDecryption
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Prepares everything to decrypt the document.      *      * Called from {@link #decryptDocument(PDDocument, DecryptionMaterial)}.      * Only if decryption of single objects is needed this should be called instead.      *      * @param encDictionary  encryption dictionary      * @param documentIDArray  document id      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
+comment|/**      * Prepares everything to decrypt the document.      *      * Called from {@link #decryptDocument(PDDocument, DecryptionMaterial)}.      * Only if decryption of single objects is needed this should be called instead.      *      * @param encDictionary  encryption dictionary      * @param documentIDArray  document id      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|void
 name|prepareForDecryption
@@ -568,8 +550,6 @@ name|DecryptionMaterial
 name|decryptionMaterial
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 if|if
@@ -584,11 +564,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
-literal|"Provided decryption material is not compatible "
-operator|+
-literal|"with the document"
+literal|"Decryption material is not compatible with the document"
 argument_list|)
 throw|;
 block|}
@@ -864,13 +842,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// TODO perhaps we could return a boolean to indicate if the password was correct
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
-literal|"The supplied password does not match either the "
-operator|+
-literal|"owner or user password in the document"
+literal|"Cannot decrypt PDF, the password is incorrect"
 argument_list|)
 throw|;
 block|}
@@ -922,7 +899,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Prepare document for encryption.      *      * @param doc The documeent to encrypt.      *      * @throws IOException If there is an error accessing data.      * @throws CryptographyException If there is an error with decryption.      */
+comment|/**      * Prepare document for encryption.      *      * @param doc The documeent to encrypt.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|void
 name|prepareDocumentForEncryption
@@ -931,8 +908,6 @@ name|PDDocument
 name|doc
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|document
@@ -1355,7 +1330,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check for owner password.      *      * @param ownerPassword The owner password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check for owner password.      *      * @param ownerPassword The owner password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -1390,8 +1365,6 @@ name|boolean
 name|encryptMetadata
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|byte
@@ -1430,7 +1403,7 @@ name|encryptMetadata
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the user password based on the owner password.      *      * @param ownerPassword The plaintext owner password.      * @param owner The o entry of the encryption dictionary.      * @param encRevision The encryption revision number.      * @param length The key length.      *      * @return The u entry of the encryption dictionary.      *      * @throws CryptographyException If there is an error generating the user password.      * @throws IOException If there is an error accessing data while generating the user password.      */
+comment|/**      * Get the user password based on the owner password.      *      * @param ownerPassword The plaintext owner password.      * @param owner The o entry of the encryption dictionary.      * @param encRevision The encryption revision number.      * @param length The key length.      *      * @return The u entry of the encryption dictionary.      *      * @throws IOException If there is an error accessing data while generating the user password.      */
 specifier|public
 specifier|final
 name|byte
@@ -1452,8 +1425,6 @@ name|long
 name|length
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|ByteArrayOutputStream
@@ -1556,7 +1527,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 literal|"Error: Expected length=5 actual="
 operator|+
@@ -1794,7 +1765,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * Compute the encryption key.      *      * @param password The password to compute the encrypted key.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions for the document.      * @param id The document id.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return The encrypted key bytes.      *      * @throws CryptographyException If there is an error with encryption.      */
+comment|/**      * Compute the encryption key.      *      * @param password The password to compute the encrypted key.      * @param o The o entry of the encryption dictionary.      * @param permissions The permissions for the document.      * @param id The document id.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return The encrypted key bytes.      *      * @throws IOException If there is an error with encryption.      */
 specifier|public
 specifier|final
 name|byte
@@ -1826,7 +1797,7 @@ name|boolean
 name|encryptMetadata
 parameter_list|)
 throws|throws
-name|CryptographyException
+name|IOException
 block|{
 name|byte
 index|[]
@@ -2046,7 +2017,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 literal|"Error: length should be 5 when revision is two actual="
 operator|+
@@ -2073,7 +2044,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * This will compute the user password hash.      *      * @param password The plain text password.      * @param owner The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param encRevision The revision of the encryption.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return The user password.      *      * @throws CryptographyException If there is an error computing the user password.      * @throws IOException If there is an IO error.      */
+comment|/**      * This will compute the user password hash.      *      * @param password The plain text password.      * @param owner The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param encRevision The revision of the encryption.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return The user password.      *      * @throws IOException if the password could not be computed      */
 specifier|public
 specifier|final
 name|byte
@@ -2105,8 +2076,6 @@ name|boolean
 name|encryptMetadata
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|ByteArrayOutputStream
@@ -2381,7 +2350,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * Compute the owner entry in the encryption dictionary.      *      * @param ownerPassword The plaintext owner password.      * @param userPassword The plaintext user password.      * @param encRevision The revision number of the encryption algorithm.      * @param length The length of the encryption key.      *      * @return The o entry of the encryption dictionary.      *      * @throws CryptographyException If there is an error with encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Compute the owner entry in the encryption dictionary.      *      * @param ownerPassword The plaintext owner password.      * @param userPassword The plaintext user password.      * @param encRevision The revision number of the encryption algorithm.      * @param length The length of the encryption key.      *      * @return The o entry of the encryption dictionary.      *      * @throws IOException if the owner password could not be computed      */
 specifier|public
 specifier|final
 name|byte
@@ -2403,8 +2372,6 @@ name|int
 name|length
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|byte
@@ -2504,7 +2471,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CryptographyException
+name|IOException
 argument_list|(
 literal|"Expected length=5 actual="
 operator|+
@@ -2785,7 +2752,7 @@ return|return
 name|padded
 return|;
 block|}
-comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -2820,8 +2787,6 @@ name|boolean
 name|encryptMetadata
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 name|byte
@@ -2905,7 +2870,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -2939,8 +2904,6 @@ name|boolean
 name|encryptMetadata
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 return|return
@@ -2969,7 +2932,7 @@ name|encryptMetadata
 argument_list|)
 return|;
 block|}
-comment|/**      * Check for owner password.      *      * @param password The owner password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws CryptographyException If there is an error during encryption.      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check for owner password.      *      * @param password The owner password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|final
 name|boolean
@@ -3003,8 +2966,6 @@ name|boolean
 name|encryptMetadata
 parameter_list|)
 throws|throws
-name|CryptographyException
-throws|,
 name|IOException
 block|{
 return|return

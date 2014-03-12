@@ -97,20 +97,6 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
 name|SignatureException
 import|;
 end_import
@@ -177,7 +163,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will perform the document reading, decoding and writing.      *      * @param in The filename used for input.      * @param out The filename used for output.      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      *       * @deprecated use {@link WriteDecodedDoc#doIt(String, String, String, boolean)} instead.      */
+comment|/**      * This will perform the document reading, decoding and writing.      *      * @param in The filename used for input.      * @param out The filename used for output.      *      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      *       * @deprecated use {@link WriteDecodedDoc#doIt(String, String, String, boolean)} instead.      */
 specifier|public
 name|void
 name|doIt
@@ -190,8 +176,6 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -207,7 +191,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will perform the document reading, decoding and writing.      *      * @param in The filename used for input.      * @param out The filename used for output.      * @param password The password to open the document.      * @param useNonSeqParser use the non sequential parser      *      * @throws IOException if the output could not be written      * @throws CryptographyException if something went wrong during a cryptography operation      * @throws SignatureException if signing failed      */
+comment|/**      * This will perform the document reading, decoding and writing.      *      * @param in The filename used for input.      * @param out The filename used for output.      * @param password The password to open the document.      * @param useNonSeqParser use the non sequential parser      *      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
 specifier|public
 name|void
 name|doIt
@@ -226,8 +210,6 @@ name|useNonSeqParser
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -345,27 +327,6 @@ literal|"Wrong password!!"
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
-block|}
-catch|catch
-parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|CryptographyException
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 return|return;
 block|}
 block|}

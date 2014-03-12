@@ -95,20 +95,6 @@ name|pdfbox
 operator|.
 name|exceptions
 operator|.
-name|CryptographyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
 name|SignatureException
 import|;
 end_import
@@ -199,8 +185,6 @@ name|testSaveLoadStream
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -352,8 +336,6 @@ name|testSaveLoadFile
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
@@ -532,8 +514,6 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|CryptographyException
-throws|,
 name|SignatureException
 block|{
 comment|// Create PDF with one blank page
@@ -684,8 +664,6 @@ name|testSaveLoadNonSeqFile
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|CryptographyException
 throws|,
 name|SignatureException
 block|{
