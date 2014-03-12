@@ -462,6 +462,7 @@ argument_list|,
 name|dpi
 argument_list|)
 expr_stmt|;
+comment|//TODO this one doesn't save the meta data
 comment|// testing BMP
 name|imageType
 operator|=
@@ -489,7 +490,10 @@ argument_list|,
 name|dpi
 argument_list|)
 expr_stmt|;
+comment|//TODO sometimes empty, sometimes correct?????
+comment|//checkResolution(outDir + file.getName() + "-1." + imageType, (int) dpi);
 comment|// testing WBMP
+comment|//TODO this doesn't work at all, am empty image is always created
 name|imageType
 operator|=
 literal|"wbmp"
@@ -543,6 +547,41 @@ argument_list|,
 name|dpi
 argument_list|)
 expr_stmt|;
+name|checkResolution
+argument_list|(
+name|outDir
+operator|+
+name|file
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"-bw-1."
+operator|+
+name|imageType
+argument_list|,
+operator|(
+name|int
+operator|)
+name|dpi
+argument_list|)
+expr_stmt|;
+name|checkTiffCompression
+argument_list|(
+name|outDir
+operator|+
+name|file
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"-bw-1."
+operator|+
+name|imageType
+argument_list|,
+literal|"CCITT T.6"
+argument_list|)
+expr_stmt|;
 name|writeImage
 argument_list|(
 name|document
@@ -563,6 +602,41 @@ operator|.
 name|RGB
 argument_list|,
 name|dpi
+argument_list|)
+expr_stmt|;
+name|checkResolution
+argument_list|(
+name|outDir
+operator|+
+name|file
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"-co-1."
+operator|+
+name|imageType
+argument_list|,
+operator|(
+name|int
+operator|)
+name|dpi
+argument_list|)
+expr_stmt|;
+name|checkTiffCompression
+argument_list|(
+name|outDir
+operator|+
+name|file
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"-co-1."
+operator|+
+name|imageType
+argument_list|,
+literal|"LZW"
 argument_list|)
 expr_stmt|;
 block|}
@@ -793,6 +867,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|assertFalse
+argument_list|(
+literal|"Empty file "
+operator|+
+name|filename
+argument_list|,
+operator|new
+name|File
+argument_list|(
+name|filename
+argument_list|)
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+argument_list|)
+expr_stmt|;
 name|String
 name|suffix
 init|=
@@ -1266,12 +1358,15 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Get the compression of a TIFF file      *      * @param filename Filename      * @return the TIFF compression      *      * @throws IOException      */
-name|String
-name|getTiffCompression
+comment|/**      * checks whether the compression of a TIFF file is as expected.      *      * @param filename Filename      * @param the expected TIFF compression      *      * @throws IOException if something goes wrong      */
+name|void
+name|checkTiffCompression
 parameter_list|(
 name|String
 name|filename
+parameter_list|,
+name|String
+name|expectedCompression
 parameter_list|)
 throws|throws
 name|IOException
@@ -1375,7 +1470,7 @@ literal|0
 argument_list|)
 decl_stmt|;
 name|String
-name|compression
+name|actualCompression
 init|=
 name|comprTypeNode
 operator|.
@@ -1390,6 +1485,17 @@ operator|.
 name|getNodeValue
 argument_list|()
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Incorrect TIFF compression in file "
+operator|+
+name|filename
+argument_list|,
+name|expectedCompression
+argument_list|,
+name|actualCompression
+argument_list|)
+expr_stmt|;
 name|iis
 operator|.
 name|close
@@ -1400,9 +1506,6 @@ operator|.
 name|dispose
 argument_list|()
 expr_stmt|;
-return|return
-name|compression
-return|;
 block|}
 block|}
 end_class
