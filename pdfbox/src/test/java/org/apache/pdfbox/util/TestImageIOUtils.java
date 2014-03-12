@@ -1396,7 +1396,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * checks whether the compression of a TIFF file is as expected.      *      * @param filename Filename      * @param the expected TIFF compression      *      * @throws IOException if something goes wrong      */
+comment|/**      * checks whether the compression of a TIFF file is as expected.      *      * @param filename Filename      * @param expectedCompression expected TIFF compression      *      * @throws IOException if something goes wrong      */
 name|void
 name|checkTiffCompression
 parameter_list|(
