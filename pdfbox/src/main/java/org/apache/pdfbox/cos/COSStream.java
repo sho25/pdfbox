@@ -121,20 +121,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|SignatureException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|filter
 operator|.
 name|DecodeResult
@@ -212,7 +198,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a stream object in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This class represents a stream object in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  */
 end_comment
 
 begin_class
@@ -682,8 +668,6 @@ name|visitor
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 return|return
 name|visitor

@@ -289,20 +289,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|SignatureException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|io
 operator|.
 name|RandomAccess
@@ -1477,7 +1463,7 @@ name|updateCount
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Add a signature.      *       * @param sigObject is the PDSignature model      * @param signatureInterface is a interface which provides signing capabilities      * @throws IOException if there is an error creating required fields      * @throws SignatureException if something went wrong      */
+comment|/**      * Add a signature.      *       * @param sigObject is the PDSignature model      * @param signatureInterface is a interface which provides signing capabilities      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignature
@@ -1490,8 +1476,6 @@ name|signatureInterface
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|SignatureOptions
 name|defaultOptions
@@ -1517,7 +1501,7 @@ name|defaultOptions
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a signature to the document.      *       * @param sigObject is the PDSignature model      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      * @throws SignatureException if something went wrong      */
+comment|/**      * This will add a signature to the document.      *       * @param sigObject is the PDSignature model      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignature
@@ -1533,8 +1517,6 @@ name|options
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 comment|// Reserve content
 comment|// We need to reserve some space for the signature. Some signatures including
@@ -1679,13 +1661,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SignatureException
+name|IllegalStateException
 argument_list|(
-name|SignatureException
-operator|.
-name|INVALID_PAGE_FOR_SIGNATURE
-argument_list|,
-literal|"The PDF file has no pages"
+literal|"Cannot sign an empty document"
 argument_list|)
 throw|;
 block|}
@@ -2496,13 +2474,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SignatureException
+name|IllegalArgumentException
 argument_list|(
-name|SignatureException
-operator|.
-name|VISUAL_SIGNATURE_INVALID
-argument_list|,
-literal|"Could not read all needed objects from template"
+literal|"Template is missing required objects"
 argument_list|)
 throw|;
 block|}
@@ -2598,7 +2572,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a signaturefield to the document.      *       * @param sigFields are the PDSignatureFields that should be added to the document      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      * @throws SignatureException      */
+comment|/**      * This will add a signaturefield to the document.      *       * @param sigFields are the PDSignatureFields that should be added to the document      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignatureField
@@ -2617,8 +2591,6 @@ name|options
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|PDDocumentCatalog
 name|catalog
@@ -4214,7 +4186,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * Save the document to a file.      *       * @param fileName The file to save as.      *      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
+comment|/**      * Save the document to a file.      *       * @param fileName The file to save as.      *      * @throws IOException if the output could not be written      */
 specifier|public
 name|void
 name|save
@@ -4224,8 +4196,6 @@ name|fileName
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|save
 argument_list|(
@@ -4237,7 +4207,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Save the document to a file.      *       * @param file The file to save as.      *      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
+comment|/**      * Save the document to a file.      *       * @param file The file to save as.      *      * @throws IOException if the output could not be written      */
 specifier|public
 name|void
 name|save
@@ -4247,8 +4217,6 @@ name|file
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|save
 argument_list|(
@@ -4260,7 +4228,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will save the document to an output stream.      *       * @param output The stream to write to.      *      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
+comment|/**      * This will save the document to an output stream.      *       * @param output The stream to write to.      *      * @throws IOException if the output could not be written      */
 specifier|public
 name|void
 name|save
@@ -4270,8 +4238,6 @@ name|output
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 comment|// update the count in case any pages have been added behind the scenes.
 name|getDocumentCatalog
@@ -4328,7 +4294,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Save the pdf as incremental.      *       * @param fileName the filename to be used      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
+comment|/**      * Save the pdf as incremental.      *       * @param fileName the filename to be used      * @throws IOException if the output could not be written      */
 specifier|public
 name|void
 name|saveIncremental
@@ -4338,8 +4304,6 @@ name|fileName
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|saveIncremental
 argument_list|(
@@ -4359,7 +4323,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Save the pdf as incremental.      *       * @param input stream to read      * @param output stream to write      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
+comment|/**      * Save the pdf as incremental.      *       * @param input stream to read      * @param output stream to write      * @throws IOException if the output could not be written      */
 specifier|public
 name|void
 name|saveIncremental
@@ -4372,8 +4336,6 @@ name|output
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 comment|// update the count in case any pages have been added behind the scenes.
 name|getDocumentCatalog

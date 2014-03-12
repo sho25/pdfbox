@@ -27,20 +27,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|SignatureException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -91,8 +77,6 @@ name|testAccept
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 function_decl|;
 comment|/**      * Tests isNeedToBeUpdate() and setNeedToBeUpdate() - tests the getter/setter methods.      */
 specifier|public

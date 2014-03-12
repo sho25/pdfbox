@@ -23,20 +23,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|SignatureException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -96,15 +82,13 @@ specifier|private
 name|PDVisibleSignDesigner
 name|pdVisibleSignature
 decl_stmt|;
-comment|/**      * start building of visible signature      *      * @throws IOException if the output could not be written      * @throws SignatureException if signing failed      */
+comment|/**      * start building of visible signature      *      * @throws IOException if the output could not be written      */
 specifier|public
 name|void
 name|buildSignature
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|PDFTemplateBuilder
 name|builder

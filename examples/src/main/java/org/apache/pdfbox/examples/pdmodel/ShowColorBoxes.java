@@ -45,20 +45,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|SignatureException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -123,8 +109,6 @@ name|file
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 comment|// the document
 name|PDDocument

@@ -93,20 +93,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|SignatureException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|io
 operator|.
 name|IOUtils
@@ -185,8 +171,6 @@ name|testSaveLoadStream
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 comment|// Create PDF with one blank page
 name|PDDocument
@@ -336,8 +320,6 @@ name|testSaveLoadFile
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 comment|// Create PDF with one blank page
 name|PDDocument
@@ -513,8 +495,6 @@ name|testSaveLoadNonSeqStream
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 comment|// Create PDF with one blank page
 name|PDDocument
@@ -664,8 +644,6 @@ name|testSaveLoadNonSeqFile
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 comment|// Create PDF with one blank page
 name|PDDocument

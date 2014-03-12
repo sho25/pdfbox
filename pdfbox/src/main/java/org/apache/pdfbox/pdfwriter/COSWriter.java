@@ -419,20 +419,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|SignatureException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdfparser
 operator|.
 name|PDFXRefStream
@@ -1479,8 +1465,6 @@ name|doc
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|COSDictionary
 name|trailer
@@ -1820,8 +1804,6 @@ name|obj
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|writtenObjects
 operator|.
@@ -2080,8 +2062,6 @@ name|doc
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|getStandardOutput
 argument_list|()
@@ -2535,8 +2515,6 @@ name|hybridPrev
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 if|if
 condition|(
@@ -2873,8 +2851,6 @@ name|doc
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 comment|// need to calculate the ByteRange
 if|if
@@ -3701,8 +3677,6 @@ name|obj
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|int
 name|count
@@ -3998,8 +3972,6 @@ name|obj
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|getStandardOutput
 argument_list|()
@@ -4409,8 +4381,6 @@ name|doc
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 if|if
 condition|(
@@ -4770,8 +4740,6 @@ name|obj
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 if|if
 condition|(
@@ -5122,8 +5090,6 @@ name|doc
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|PDDocument
 name|pdDoc
@@ -5150,8 +5116,6 @@ name|doc
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|Long
 name|idTime

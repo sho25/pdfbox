@@ -29,20 +29,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|exceptions
-operator|.
-name|SignatureException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -78,8 +64,6 @@ name|test
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|String
 name|documentFile

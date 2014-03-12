@@ -225,20 +225,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|SignatureException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -560,7 +546,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Signs the given pdf file.      *      * @param document is the pdf document      * @param signatureProperties      * @return the signed pdf document      * @throws IOException      * @throws SignatureException      */
+comment|/**      * Signs the given pdf file.      *      * @param document is the pdf document      * @param signatureProperties      * @return the signed pdf document      * @throws IOException      */
 specifier|public
 name|File
 name|signPDF
@@ -573,8 +559,6 @@ name|signatureProperties
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SignatureException
 block|{
 name|byte
 index|[]
@@ -862,8 +846,6 @@ name|InputStream
 name|content
 parameter_list|)
 throws|throws
-name|SignatureException
-throws|,
 name|IOException
 block|{
 name|CMSProcessableInputStream
@@ -1015,8 +997,6 @@ throws|,
 name|CertificateException
 throws|,
 name|IOException
-throws|,
-name|SignatureException
 throws|,
 name|NoSuchAlgorithmException
 block|{
