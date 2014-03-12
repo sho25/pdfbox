@@ -16,10 +16,12 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An exception that indicates an invalid password was supplied.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * An exception that indicates an invalid password was supplied.  *  * @deprecated Only used by deprecated DocumentEncryption class.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 specifier|public
 class|class
 name|InvalidPasswordException
