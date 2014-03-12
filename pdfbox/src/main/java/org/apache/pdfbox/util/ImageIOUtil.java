@@ -537,17 +537,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// metadata
-name|setDPI
-argument_list|(
-name|metadata
-argument_list|,
-name|dpi
-argument_list|,
-name|formatName
-argument_list|)
-expr_stmt|;
-comment|// TIFF metadata
 if|if
 condition|(
 name|formatName
@@ -561,6 +550,7 @@ literal|"tif"
 argument_list|)
 condition|)
 block|{
+comment|// TIFF metadata
 name|TIFFUtil
 operator|.
 name|updateMetadata
@@ -570,6 +560,57 @@ argument_list|,
 name|image
 argument_list|,
 name|dpi
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"jpeg"
+operator|.
+name|equals
+argument_list|(
+name|formatName
+operator|.
+name|toLowerCase
+argument_list|()
+argument_list|)
+operator|||
+literal|"jpg"
+operator|.
+name|equals
+argument_list|(
+name|formatName
+operator|.
+name|toLowerCase
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// This segment must be run before other meta operations,
+comment|// or else "IIOInvalidTreeException: Invalid node: app0JFIF"
+comment|// The other (general) "meta" methods may not be used, because
+comment|// this will break the reading of the meta data in tests
+name|JPEGUtil
+operator|.
+name|updateMetadata
+argument_list|(
+name|metadata
+argument_list|,
+name|dpi
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// metadata
+name|setDPI
+argument_list|(
+name|metadata
+argument_list|,
+name|dpi
+argument_list|,
+name|formatName
 argument_list|)
 expr_stmt|;
 block|}
