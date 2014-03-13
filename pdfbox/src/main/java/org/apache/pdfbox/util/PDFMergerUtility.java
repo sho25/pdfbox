@@ -225,6 +225,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|io
+operator|.
+name|RandomAccess
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -484,7 +498,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will take a list of pdf documents and merge them, saving the result in a new document.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This class will take a list of pdf documents and merge them, saving the  * result in a new document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *  */
 end_comment
 
 begin_class
@@ -536,7 +550,7 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Get the name of the destination file.      *       * @return Returns the destination.      */
+comment|/**      * Get the name of the destination file.      *      * @return Returns the destination.      */
 specifier|public
 name|String
 name|getDestinationFileName
@@ -546,7 +560,7 @@ return|return
 name|destinationFileName
 return|;
 block|}
-comment|/**      * Set the name of the destination file.      *       * @param destination The destination to set.      */
+comment|/**      * Set the name of the destination file.      *      * @param destination The destination to set.      */
 specifier|public
 name|void
 name|setDestinationFileName
@@ -562,7 +576,7 @@ operator|=
 name|destination
 expr_stmt|;
 block|}
-comment|/**      * Get the destination OutputStream.      *       * @return Returns the destination OutputStream.      */
+comment|/**      * Get the destination OutputStream.      *      * @return Returns the destination OutputStream.      */
 specifier|public
 name|OutputStream
 name|getDestinationStream
@@ -572,7 +586,7 @@ return|return
 name|destinationStream
 return|;
 block|}
-comment|/**      * Set the destination OutputStream.      *       * @param destStream The destination to set.      */
+comment|/**      * Set the destination OutputStream.      *      * @param destStream The destination to set.      */
 specifier|public
 name|void
 name|setDestinationStream
@@ -586,7 +600,7 @@ operator|=
 name|destStream
 expr_stmt|;
 block|}
-comment|/**      * Add a source file to the list of files to merge.      *       * @param source Full path and file name of source document.      */
+comment|/**      * Add a source file to the list of files to merge.      *      * @param source Full path and file name of source document.      */
 specifier|public
 name|void
 name|addSource
@@ -628,7 +642,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Add a source file to the list of files to merge.      *       * @param source File representing source document      */
+comment|/**      * Add a source file to the list of files to merge.      *      * @param source File representing source document      */
 specifier|public
 name|void
 name|addSource
@@ -666,7 +680,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Add a source to the list of documents to merge.      *       * @param source InputStream representing source document      */
+comment|/**      * Add a source to the list of documents to merge.      *      * @param source InputStream representing source document      */
 specifier|public
 name|void
 name|addSource
@@ -683,7 +697,7 @@ name|source
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a list of sources to the list of documents to merge.      *       * @param sourcesList List of InputStream objects representing source documents      */
+comment|/**      * Add a list of sources to the list of documents to merge.      *      * @param sourcesList List of InputStream objects representing source      * documents      */
 specifier|public
 name|void
 name|addSources
@@ -703,11 +717,51 @@ name|sourcesList
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Merge the list of source documents, saving the result in the destination file.      *       * @throws IOException If there is an error saving the document.      */
+comment|/**      * Merge the list of source documents, saving the result in the destination      * file.      *      * @throws IOException If there is an error saving the document.      */
 specifier|public
 name|void
 name|mergeDocuments
 parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|mergeDocuments
+argument_list|(
+literal|false
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Merge the list of source documents with the non sequential parser, saving      * the result in the destination file.      *      * @param scratchFile location to store temp PDFBox data for this output      * document      * @throws IOException If there is an error saving the document.      */
+specifier|public
+name|void
+name|mergeDocumentsNonSeq
+parameter_list|(
+name|RandomAccess
+name|scratchFile
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|mergeDocuments
+argument_list|(
+literal|true
+argument_list|,
+name|scratchFile
+argument_list|)
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|mergeDocuments
+parameter_list|(
+name|boolean
+name|isNonSeq
+parameter_list|,
+name|RandomAccess
+name|scratchFile
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -777,6 +831,25 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|isNonSeq
+condition|)
+block|{
+name|destination
+operator|=
+name|PDDocument
+operator|.
+name|loadNonSeq
+argument_list|(
+name|sourceFile
+argument_list|,
+name|scratchFile
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|destination
 operator|=
 name|PDDocument
@@ -786,6 +859,7 @@ argument_list|(
 name|sourceFile
 argument_list|)
 expr_stmt|;
+block|}
 while|while
 condition|(
 name|sit
@@ -801,6 +875,25 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|isNonSeq
+condition|)
+block|{
+name|source
+operator|=
+name|PDDocument
+operator|.
+name|loadNonSeq
+argument_list|(
+name|sourceFile
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|source
 operator|=
 name|PDDocument
@@ -810,6 +903,7 @@ argument_list|(
 name|sourceFile
 argument_list|)
 expr_stmt|;
+block|}
 name|tobeclosed
 operator|.
 name|add
@@ -883,7 +977,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * append all pages from source to destination.      *       * @param destination the document to receive the pages      * @param source the document originating the new pages      *       * @throws IOException If there is an error accessing data from either document.      */
+comment|/**      * append all pages from source to destination.      *      * @param destination the document to receive the pages      * @param source the document originating the new pages      *      * @throws IOException If there is an error accessing data from either      * document.      */
 specifier|public
 name|void
 name|appendDocument
@@ -2497,7 +2591,7 @@ name|nextFieldNum
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * Merge the contents of the source form into the destination form for the destination file.      *       * @param cloner the object cloner for the destination document      * @param destAcroForm the destination form      * @param srcAcroForm the source form      * @throws IOException If an error occurs while adding the field.      */
+comment|/**      * Merge the contents of the source form into the destination form for the      * destination file.      *      * @param cloner the object cloner for the destination document      * @param destAcroForm the destination form      * @param srcAcroForm the source form      * @throws IOException If an error occurs while adding the field.      */
 specifier|private
 name|void
 name|mergeAcroForm
@@ -2648,7 +2742,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Indicates if acroform errors are ignored or not.      *       * @return true if acroform errors are ignored      */
+comment|/**      * Indicates if acroform errors are ignored or not.      *      * @return true if acroform errors are ignored      */
 specifier|public
 name|boolean
 name|isIgnoreAcroFormErrors
@@ -2658,7 +2752,7 @@ return|return
 name|ignoreAcroFormErrors
 return|;
 block|}
-comment|/**      * Set to true to ignore acroform errors.      *       * @param ignoreAcroFormErrorsValue true if acroform errors should be ignored      */
+comment|/**      * Set to true to ignore acroform errors.      *      * @param ignoreAcroFormErrorsValue true if acroform errors should be      * ignored      */
 specifier|public
 name|void
 name|setIgnoreAcroFormErrors
@@ -2672,7 +2766,7 @@ operator|=
 name|ignoreAcroFormErrorsValue
 expr_stmt|;
 block|}
-comment|/**      * Update the Pg and Obj references to the new (merged) page.      *       * @param parentTreeEntry      * @param objMapping mapping between old and new references      */
+comment|/**      * Update the Pg and Obj references to the new (merged) page.      *      * @param parentTreeEntry      * @param objMapping mapping between old and new references      */
 specifier|private
 name|void
 name|updatePageReferences
@@ -2916,7 +3010,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Update the P reference to the new parent dictionary.      *       * @param kArray the kids array      * @param newParent the new parent      */
+comment|/**      * Update the P reference to the new parent dictionary.      *      * @param kArray the kids array      * @param newParent the new parent      */
 specifier|private
 name|void
 name|updateParentEntry
@@ -3000,7 +3094,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Update the StructParents and StructParent values in a PDPage.      *       * @param page the new page      * @param structParentOffset the offset which should be applied      */
+comment|/**      * Update the StructParents and StructParent values in a PDPage.      *      * @param page the new page      * @param structParentOffset the offset which should be applied      */
 specifier|private
 name|void
 name|updateStructParentEntries
