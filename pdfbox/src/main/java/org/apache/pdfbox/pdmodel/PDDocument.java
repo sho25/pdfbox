@@ -708,7 +708,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the in-memory representation of the PDF document. You need to call close() on this object when you are done  * using it!!  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This is the in-memory representation of the PDF document.  * The #close() method must be called once the document is no longer needed.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -731,23 +731,19 @@ specifier|private
 name|PDDocumentCatalog
 name|documentCatalog
 decl_stmt|;
-comment|// The encParameters will be cached here. When the document is decrypted then
-comment|// the COSDocument will not have an "Encrypt" dictionary anymore and this object
-comment|// must be used.
+comment|// the encParameters will be cached here. When the document is decrypted then
+comment|// the COSDocument will not have an "Encrypt" dictionary anymore and this object must be used
 specifier|private
 name|PDEncryptionDictionary
 name|encParameters
-init|=
-literal|null
 decl_stmt|;
-comment|/**      * The security handler used to decrypt / encrypt the document.      */
+comment|// the security handler used to decrypt / encrypt the document
 specifier|private
 name|SecurityHandler
 name|securityHandler
-init|=
-literal|null
 decl_stmt|;
-comment|/**      * This assocates object ids with a page number. It's used to determine the page number for bookmarks (or page      * numbers for anything else for which you have an object id for that matter).      */
+comment|// associates object ids with a page number. Used to determine the page number for bookmarks
+comment|// (or page numbers for anything else for which you have an object id for that matter)
 specifier|private
 name|Map
 argument_list|<
@@ -756,17 +752,14 @@ argument_list|,
 name|Integer
 argument_list|>
 name|pageMap
-init|=
-literal|null
 decl_stmt|;
-comment|/**      * This will hold a flag which tells us if we should remove all security from this documents.      */
+comment|// holds a flag which tells us if we should remove all security from this documents.
 specifier|private
 name|boolean
 name|allSecurityToBeRemoved
-init|=
-literal|false
 decl_stmt|;
-comment|/**      * Keep tracking customized documentId for the trailer. If null, a new id will be generated for the document. This      * ID doesn't represent the actual documentId from the trailer.      */
+comment|// keep tracking customized documentId for the trailer. If null, a new id will be generated
+comment|// this ID doesn't represent the actual documentId from the trailer
 specifier|private
 name|Long
 name|documentId
@@ -775,7 +768,7 @@ specifier|private
 name|BaseParser
 name|parser
 decl_stmt|;
-comment|/**      * Constructor, creates a new PDF Document with no pages. You need to add at least one page for the document to be      * valid.      *       * @throws IOException If there is an error creating this document.      */
+comment|/**      * Creates an empty PDF document.      * You need to add at least one page for the document to be valid.      *       * @throws IOException If there is an error creating this document.      */
 specifier|public
 name|PDDocument
 parameter_list|()
@@ -1063,7 +1056,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will either add the page passed in, or, if it's a pointer to an array of pages, it'll recursivly call itself      * and process everything in the list.      */
+comment|// either adds the page passed in, or, if it's a pointer to an array of pages,
+comment|// it will recursively call itself and process everything in the list
 specifier|private
 name|void
 name|parseCatalogObject
@@ -1205,9 +1199,6 @@ literal|","
 operator|+
 name|genStr
 argument_list|,
-operator|new
-name|Integer
-argument_list|(
 name|getPageMap
 argument_list|()
 operator|.
@@ -1215,7 +1206,6 @@ name|size
 argument_list|()
 operator|+
 literal|1
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1234,11 +1224,9 @@ name|COSArray
 name|kidsArray
 init|=
 operator|(
-operator|(
 name|COSArray
 operator|)
 name|kidsBase
-operator|)
 decl_stmt|;
 for|for
 control|(
@@ -1314,9 +1302,6 @@ literal|","
 operator|+
 name|genStr
 argument_list|,
-operator|new
-name|Integer
-argument_list|(
 name|getPageMap
 argument_list|()
 operator|.
@@ -1324,7 +1309,6 @@ name|size
 argument_list|()
 operator|+
 literal|1
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1335,32 +1319,11 @@ comment|// this object is an array of references to other arrays
 name|COSArray
 name|list
 init|=
-literal|null
+operator|(
+name|COSArray
+operator|)
+name|kidsBase
 decl_stmt|;
-if|if
-condition|(
-name|kidsBase
-operator|instanceof
-name|COSArray
-condition|)
-block|{
-name|list
-operator|=
-operator|(
-operator|(
-name|COSArray
-operator|)
-name|kidsBase
-operator|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|list
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
 name|int
@@ -1392,7 +1355,6 @@ name|arrayCounter
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2510,19 +2472,14 @@ if|if
 condition|(
 operator|!
 operator|(
-operator|(
 name|annotations
 operator|instanceof
 name|COSArrayList
-operator|)
 operator|&&
-operator|(
 name|acroFormFields
 operator|instanceof
 name|COSArrayList
-operator|)
 operator|&&
-operator|(
 operator|(
 operator|(
 name|COSArrayList
@@ -2545,11 +2502,9 @@ operator|.
 name|toList
 argument_list|()
 argument_list|)
-operator|)
-operator|)
 operator|&&
-operator|!
 name|checkFields
+operator|)
 condition|)
 block|{
 name|annotations
@@ -4461,6 +4416,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * This will close the underlying COSDocument object.      *       * @throws IOException If there is an error releasing resources.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -4678,8 +4635,6 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|this
-operator|.
 name|securityHandler
 operator|==
 literal|null

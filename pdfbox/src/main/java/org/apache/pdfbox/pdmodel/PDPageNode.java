@@ -206,7 +206,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a page node in a pdf document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.8 $  */
+comment|/**  * A page tree node. This is an intermediate node in the page tree, and may have page objects or  * other page tree nodes as children, but does not itself represent a page.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -216,11 +216,6 @@ name|PDPageNode
 implements|implements
 name|COSObjectable
 block|{
-specifier|private
-name|COSDictionary
-name|page
-decl_stmt|;
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -236,18 +231,22 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Creates a new instance of PDPage.      */
+specifier|private
+name|COSDictionary
+name|node
+decl_stmt|;
+comment|/**      * Creates a new instance of PDPage.      * Creates a new instance of PDPage.      */
 specifier|public
 name|PDPageNode
 parameter_list|()
 block|{
-name|page
+name|node
 operator|=
 operator|new
 name|COSDictionary
 argument_list|()
 expr_stmt|;
-name|page
+name|node
 operator|.
 name|setItem
 argument_list|(
@@ -260,7 +259,7 @@ operator|.
 name|PAGES
 argument_list|)
 expr_stmt|;
-name|page
+name|node
 operator|.
 name|setItem
 argument_list|(
@@ -273,7 +272,7 @@ name|COSArray
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|page
+name|node
 operator|.
 name|setItem
 argument_list|(
@@ -295,7 +294,7 @@ name|COSDictionary
 name|pages
 parameter_list|)
 block|{
-name|page
+name|node
 operator|=
 name|pages
 expr_stmt|;
@@ -371,7 +370,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|page
+name|node
 operator|.
 name|setLong
 argument_list|(
@@ -386,7 +385,7 @@ return|return
 name|totalCount
 return|;
 block|}
-comment|/**      * This will get the count of descendent page objects.      *      * @return The total number of descendent page objects.      */
+comment|/**      * This will get the count of descendant page objects.      *      * @return The total number of descendant page objects.      */
 specifier|public
 name|long
 name|getCount
@@ -394,7 +393,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|page
+name|node
 operator|==
 literal|null
 condition|)
@@ -406,7 +405,7 @@ block|}
 name|COSBase
 name|num
 init|=
-name|page
+name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -445,7 +444,7 @@ name|getDictionary
 parameter_list|()
 block|{
 return|return
-name|page
+name|node
 return|;
 block|}
 comment|/**      * This is the parent page node.      *      * @return The parent to this page.      */
@@ -465,7 +464,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|page
+name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -507,7 +506,7 @@ name|PDPageNode
 name|parent
 parameter_list|)
 block|{
-name|page
+name|node
 operator|.
 name|setItem
 argument_list|(
@@ -522,17 +521,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
 parameter_list|()
 block|{
 return|return
-name|page
+name|node
 return|;
 block|}
-comment|/**      * This will return all kids of this node, either PDPageNode or PDPage.      *      * @return All direct descendents of this node.      */
+comment|/**      * This will return all kids of this node, either PDPageNode or PDPage.      *      * @return All direct descendants of this node.      */
 specifier|public
 name|List
 name|getKids
@@ -552,7 +552,7 @@ name|getAllKids
 argument_list|(
 name|actuals
 argument_list|,
-name|page
+name|node
 argument_list|,
 literal|false
 argument_list|)
@@ -567,7 +567,7 @@ name|kids
 argument_list|)
 return|;
 block|}
-comment|/**      * This will return all kids of this node as PDPage.      *      * @param result All direct and indirect descendents of this node are added to this list.      */
+comment|/**      * This will return all kids of this node as PDPage.      *      * @param result All direct and indirect descendants of this node are added to this list.      */
 specifier|public
 name|void
 name|getAllKids
@@ -580,13 +580,13 @@ name|getAllKids
 argument_list|(
 name|result
 argument_list|,
-name|page
+name|node
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return all kids of the given page node as PDPage.      *      * @param result All direct and optionally indirect descendents of this node are added to this list.      * @param page Page dictionary of a page node.      * @param recurse if true indirect descendents are processed recursively      */
+comment|/**      * This will return all kids of the given page node as PDPage.      *      * @param result All direct and optionally indirect descendants of this node are added to this list.      * @param page Page dictionary of a page node.      * @param recurse if true indirect descendants are processed recursively      */
 specifier|private
 specifier|static
 name|COSArray
@@ -608,9 +608,11 @@ name|page
 operator|==
 literal|null
 condition|)
+block|{
 return|return
 literal|null
 return|;
+block|}
 name|COSArray
 name|kids
 init|=
@@ -773,7 +775,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|page
+name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -859,7 +861,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|page
+name|node
 operator|.
 name|removeItem
 argument_list|(
@@ -871,7 +873,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|page
+name|node
 operator|.
 name|setItem
 argument_list|(
@@ -904,7 +906,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|page
+name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -990,7 +992,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|page
+name|node
 operator|.
 name|removeItem
 argument_list|(
@@ -1002,7 +1004,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|page
+name|node
 operator|.
 name|setItem
 argument_list|(
@@ -1035,7 +1037,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|page
+name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -1183,7 +1185,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|page
+name|node
 operator|.
 name|removeItem
 argument_list|(
@@ -1195,7 +1197,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|page
+name|node
 operator|.
 name|setItem
 argument_list|(
@@ -1228,7 +1230,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|page
+name|node
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -1246,14 +1248,10 @@ condition|)
 block|{
 name|retval
 operator|=
-operator|new
-name|Integer
-argument_list|(
 name|value
 operator|.
 name|intValue
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -1287,9 +1285,6 @@ block|{
 name|retval
 operator|=
 name|rotation
-operator|.
-name|intValue
-argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -1329,7 +1324,7 @@ name|int
 name|rotation
 parameter_list|)
 block|{
-name|page
+name|node
 operator|.
 name|setInt
 argument_list|(
