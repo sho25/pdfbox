@@ -462,7 +462,25 @@ argument_list|,
 name|dpi
 argument_list|)
 expr_stmt|;
-comment|//TODO this one doesn't save the meta data
+name|checkResolution
+argument_list|(
+name|outDir
+operator|+
+name|file
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"-1."
+operator|+
+name|imageType
+argument_list|,
+operator|(
+name|int
+operator|)
+name|dpi
+argument_list|)
+expr_stmt|;
 comment|// testing BMP
 name|imageType
 operator|=
@@ -490,8 +508,25 @@ argument_list|,
 name|dpi
 argument_list|)
 expr_stmt|;
-comment|//TODO sometimes empty, sometimes correct?????
-comment|//checkResolution(outDir + file.getName() + "-1." + imageType, (int) dpi);
+name|checkResolution
+argument_list|(
+name|outDir
+operator|+
+name|file
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"-1."
+operator|+
+name|imageType
+argument_list|,
+operator|(
+name|int
+operator|)
+name|dpi
+argument_list|)
+expr_stmt|;
 comment|// testing GIF
 name|imageType
 operator|=
@@ -522,7 +557,6 @@ expr_stmt|;
 comment|//TODO
 comment|//checkResolution(outDir + file.getName() + "-1." + imageType, (int) dpi);
 comment|// testing WBMP
-comment|//TODO this doesn't work at all, am empty image is always created
 name|imageType
 operator|=
 literal|"wbmp"
@@ -544,11 +578,12 @@ literal|"-"
 argument_list|,
 name|ImageType
 operator|.
-name|RGB
+name|BINARY
 argument_list|,
 name|dpi
 argument_list|)
 expr_stmt|;
+comment|//TODO check that it isn't empty, i.e. that a real image is created
 comment|// testing TIFF
 name|imageType
 operator|=
