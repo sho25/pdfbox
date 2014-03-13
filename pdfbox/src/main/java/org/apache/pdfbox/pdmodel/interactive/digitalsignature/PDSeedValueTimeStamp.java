@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * If exist, it describe where the signature handler can request a rfc3161  * timestamp and if it is a must have for the signature.  *  * @author Thomas Chojecki  * @version $Revision: 1.1 $  */
+comment|/**  * If exist, it describe where the signature handler can request a RFC3161  * timestamp and if it is a must have for the signature.  *  * @author Thomas Chojecki  */
 end_comment
 
 begin_class

@@ -269,6 +269,24 @@ name|pdmodel
 operator|.
 name|interactive
 operator|.
+name|digitalsignature
+operator|.
+name|PDSignature
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
 name|form
 operator|.
 name|PDAcroForm
@@ -312,7 +330,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Structure of PDF document with visible signature  *   * @author<a href="mailto:vakhtang.koroghlishvili@gmail.com"> vakhtang koroghlishvili (gogebashvili)</a>  *   */
+comment|/**  * Structure of PDF document with visible signature.  *   * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -337,18 +355,6 @@ name|PDSignatureField
 name|signatureField
 decl_stmt|;
 specifier|private
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|digitalsignature
-operator|.
 name|PDSignature
 name|pdSignature
 decl_stmt|;
@@ -495,7 +501,7 @@ operator|=
 name|template
 expr_stmt|;
 block|}
-comment|/**      * Gets Acroform      * @return      */
+comment|/**      * Gets AcroForm      * @return      */
 specifier|public
 name|PDAcroForm
 name|getAcroForm
@@ -505,7 +511,7 @@ return|return
 name|acroForm
 return|;
 block|}
-comment|/**      * Sets Acroform      * @param acroForm      */
+comment|/**      * Sets AcroForm      * @param acroForm      */
 specifier|public
 name|void
 name|setAcroForm
@@ -549,18 +555,6 @@ expr_stmt|;
 block|}
 comment|/**      * Gets PDSignatureField      * @return      */
 specifier|public
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|digitalsignature
-operator|.
 name|PDSignature
 name|getPdSignature
 parameter_list|()
@@ -574,18 +568,6 @@ specifier|public
 name|void
 name|setPdSignature
 parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|digitalsignature
-operator|.
 name|PDSignature
 name|pdSignature
 parameter_list|)

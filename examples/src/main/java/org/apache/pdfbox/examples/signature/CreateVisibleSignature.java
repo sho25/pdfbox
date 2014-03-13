@@ -376,7 +376,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example for visual signing a pdf with bouncy castle.  *  * {@see org.apache.pdfbox.examples.signature.CreateSignature}  * @author Vakhtang Koroghlishvili  */
+comment|/**  * This is an example for visual signing a pdf with bouncy castle.   * {@see CreateSignature}  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class

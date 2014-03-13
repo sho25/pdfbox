@@ -164,7 +164,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for visible signature design.  *  * Uses use param() instead of setParam()  *  * @author Vakhtang Koroghlishvili  */
+comment|/**  * Builder for visible signature design.  * Uses use param() instead of setParam()  *  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -419,8 +419,6 @@ operator|.
 name|findMediaBox
 argument_list|()
 decl_stmt|;
-name|this
-operator|.
 name|pageHeight
 argument_list|(
 name|mediaBox
@@ -429,8 +427,6 @@ name|getHeight
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|pageWidth
 operator|=
 name|mediaBox
@@ -450,8 +446,6 @@ name|y
 init|=
 literal|0
 decl_stmt|;
-name|this
-operator|.
 name|pageWidth
 operator|=
 name|this
@@ -475,8 +469,6 @@ name|y
 operator|)
 operator|)
 decl_stmt|;
-name|this
-operator|.
 name|imageSizeInPercents
 operator|=
 literal|100
@@ -484,7 +476,7 @@ operator|-
 name|tPercent
 expr_stmt|;
 block|}
-comment|/**      *       * @param path  of image location      * @return image Stream      * @throws IOException      */
+comment|/**      *      * @param path  of image location      * @return image Stream      * @throws IOException      */
 specifier|public
 name|PDVisibleSignDesigner
 name|signatureImage
@@ -548,7 +540,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *       * @param x - x coordinate      * @param y - y coordinate      * @return Visible Signature Configuration Object      */
+comment|/**      *      * @param x - x coordinate      * @param y - y coordinate      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|coordinates
@@ -574,7 +566,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *       * @return xAxis - gets x coordinates      */
+comment|/**      *      * @return xAxis - gets x coordinates      */
 specifier|public
 name|float
 name|getxAxis
@@ -584,7 +576,7 @@ return|return
 name|xAxis
 return|;
 block|}
-comment|/**      *       * @param xAxis  - x coordinate       * @return Visible Signature Configuration Object      */
+comment|/**      *      * @param xAxis  - x coordinate       * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|xAxis
@@ -603,7 +595,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *       * @return yAxis      */
+comment|/**      *      * @return yAxis      */
 specifier|public
 name|float
 name|getyAxis
@@ -613,7 +605,7 @@ return|return
 name|yAxis
 return|;
 block|}
-comment|/**      *       * @param yAxis      * @return Visible Signature Configuration Object      */
+comment|/**      *      * @param yAxis      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|yAxis

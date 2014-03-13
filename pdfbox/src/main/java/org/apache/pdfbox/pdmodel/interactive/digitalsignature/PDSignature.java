@@ -174,7 +174,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a digital signature that can be attached to a document.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Thomas Chojecki  * @version $Revision: 1.2 $  */
+comment|/**  * This represents a digital signature that can be attached to a document.  *  * @author Ben Litchfield  * @author Thomas Chojecki  */
 end_comment
 
 begin_class
@@ -188,7 +188,7 @@ specifier|private
 name|COSDictionary
 name|dictionary
 decl_stmt|;
-comment|/**    * A signature filter value.    */
+comment|/**      * A signature filter value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -199,7 +199,7 @@ name|COSName
 operator|.
 name|ADOBE_PPKLITE
 decl_stmt|;
-comment|/**    * A signature filter value.    */
+comment|/**      * A signature filter value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -210,7 +210,7 @@ name|COSName
 operator|.
 name|ENTRUST_PPKEF
 decl_stmt|;
-comment|/**    * A signature filter value.    */
+comment|/**      * A signature filter value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -221,7 +221,7 @@ name|COSName
 operator|.
 name|CICI_SIGNIT
 decl_stmt|;
-comment|/**    * A signature filter value.    */
+comment|/**      * A signature filter value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -232,7 +232,7 @@ name|COSName
 operator|.
 name|VERISIGN_PPKVS
 decl_stmt|;
-comment|/**    * A signature subfilter value.    */
+comment|/**      * A signature subfilter value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -243,7 +243,7 @@ name|COSName
 operator|.
 name|ADBE_X509_RSA_SHA1
 decl_stmt|;
-comment|/**    * A signature subfilter value.    */
+comment|/**      * A signature subfilter value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -254,7 +254,7 @@ name|COSName
 operator|.
 name|ADBE_PKCS7_DETACHED
 decl_stmt|;
-comment|/**    * A signature subfilter value.    */
+comment|/**      * A signature subfilter value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -268,7 +268,7 @@ argument_list|(
 literal|"ETSI.CAdES.detached"
 argument_list|)
 decl_stmt|;
-comment|/**    * A signature subfilter value.    */
+comment|/**      * A signature subfilter value.      */
 specifier|public
 specifier|static
 specifier|final
@@ -279,7 +279,7 @@ name|COSName
 operator|.
 name|ADBE_PKCS7_SHA1
 decl_stmt|;
-comment|/**    * Default constructor.    */
+comment|/**      * Default constructor.      */
 specifier|public
 name|PDSignature
 parameter_list|()
@@ -304,7 +304,7 @@ name|SIG
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructor.    *     * @param dict The signature dictionary.    */
+comment|/**      * Constructor.      *      * @param dict The signature dictionary.      */
 specifier|public
 name|PDSignature
 parameter_list|(
@@ -317,7 +317,7 @@ operator|=
 name|dict
 expr_stmt|;
 block|}
-comment|/**    * Convert this standard java object to a COS object.    *     * @return The cos object that matches this Java object.    */
+comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -328,7 +328,7 @@ name|getDictionary
 argument_list|()
 return|;
 block|}
-comment|/**    * Convert this standard java object to a COS dictionary.    *     * @return The COS dictionary that matches this Java object.    */
+comment|/**      * Convert this standard java object to a COS dictionary.      *      * @return The COS dictionary that matches this Java object.      */
 specifier|public
 name|COSDictionary
 name|getDictionary
@@ -338,7 +338,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**    * Set the dictionary type.    *    * @param type is the dictionary type.    */
+comment|/**      * Set the dictionary type.      *      * @param type is the dictionary type.      */
 specifier|public
 name|void
 name|setType
@@ -359,7 +359,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Set the filter.    *     * @param filter the filter to be used    */
+comment|/**      * Set the filter.      *      * @param filter the filter to be used      */
 specifier|public
 name|void
 name|setFilter
@@ -380,7 +380,7 @@ name|filter
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Set a subfilter that specify the signature that should be used.     *     * @param subfilter the subfilter that shall be used.    */
+comment|/**      * Set a subfilter that specify the signature that should be used.      *      * @param subfilter the subfilter that shall be used.      */
 specifier|public
 name|void
 name|setSubFilter
@@ -401,7 +401,7 @@ name|subfilter
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Sets the name.    * @param name the name to be used    */
+comment|/**      * Sets the name.      * @param name the name to be used      */
 specifier|public
 name|void
 name|setName
@@ -422,7 +422,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Sets the location.    * @param location the location to be used    */
+comment|/**      * Sets the location.      * @param location the location to be used      */
 specifier|public
 name|void
 name|setLocation
@@ -443,7 +443,7 @@ name|location
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Sets the reason.    *     * @param reason the reason to be used    */
+comment|/**      * Sets the reason.      *      * @param reason the reason to be used      */
 specifier|public
 name|void
 name|setReason
@@ -464,7 +464,7 @@ name|reason
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Sets the contact info.    *     * @param contactInfo the contact info to be used    */
+comment|/**      * Sets the contact info.      *      * @param contactInfo the contact info to be used      */
 specifier|public
 name|void
 name|setContactInfo
@@ -485,7 +485,7 @@ name|contactInfo
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Set the sign date.    *     * @param cal the date to be used as sign date    */
+comment|/**      * Set the sign date.      *      * @param cal the date to be used as sign date      */
 specifier|public
 name|void
 name|setSignDate
@@ -506,7 +506,7 @@ name|cal
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Returns the filter.    * @return the filter    */
+comment|/**      * Returns the filter.      * @return the filter      */
 specifier|public
 name|String
 name|getFilter
@@ -523,7 +523,7 @@ name|FILTER
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns the subfilter.    *     * @return the subfilter    */
+comment|/**      * Returns the subfilter.      *      * @return the subfilter      */
 specifier|public
 name|String
 name|getSubFilter
@@ -540,7 +540,7 @@ name|SUBFILTER
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns the name.    *     * @return the name    */
+comment|/**      * Returns the name.      *      * @return the name      */
 specifier|public
 name|String
 name|getName
@@ -557,7 +557,7 @@ name|NAME
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns the location.    *     * @return the location    */
+comment|/**      * Returns the location.      *      * @return the location      */
 specifier|public
 name|String
 name|getLocation
@@ -574,7 +574,7 @@ name|LOCATION
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns the reason.    *     * @return the reason    */
+comment|/**      * Returns the reason.      *      * @return the reason      */
 specifier|public
 name|String
 name|getReason
@@ -591,7 +591,7 @@ name|REASON
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns the contact info.    *     * @return teh contact info    */
+comment|/**      * Returns the contact info.      *      * @return teh contact info      */
 specifier|public
 name|String
 name|getContactInfo
@@ -608,7 +608,7 @@ name|CONTACT_INFO
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns the sign date.    *     * @return the sign date    */
+comment|/**      * Returns the sign date.      *      * @return the sign date      */
 specifier|public
 name|Calendar
 name|getSignDate
@@ -625,7 +625,7 @@ name|M
 argument_list|)
 return|;
 block|}
-comment|/**    * Sets the byte range.    *     * @param range the byte range to be used    */
+comment|/**      * Sets the byte range.      *      * @param range the byte range to be used      */
 specifier|public
 name|void
 name|setByteRange
@@ -686,7 +686,7 @@ name|ary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Read out the byterange from the file.    *     * @return a integer array with the byterange    */
+comment|/**      * Read out the byterange from the file.      *      * @return a integer array with the byterange      */
 specifier|public
 name|int
 index|[]
@@ -755,7 +755,7 @@ return|return
 name|ary
 return|;
 block|}
-comment|/**    * Will return the embedded signature between the byterange gap.    *     * @param pdfFile The signed pdf file as InputStream    * @return a byte array containing the signature    * @throws IOException if the pdfFile can't be read    */
+comment|/**      * Will return the embedded signature between the byterange gap.      *      * @param pdfFile The signed pdf file as InputStream      * @return a byte array containing the signature      * @throws IOException if the pdfFile can't be read      */
 specifier|public
 name|byte
 index|[]
@@ -819,7 +819,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * Will return the embedded signature between the byterange gap.    *     * @param pdfFile The signed pdf file as byte array    * @return a byte array containing the signature    * @throws IOException if the pdfFile can't be read    */
+comment|/**      * Will return the embedded signature between the byterange gap.      *      * @param pdfFile The signed pdf file as byte array      * @return a byte array containing the signature      * @throws IOException if the pdfFile can't be read      */
 specifier|public
 name|byte
 index|[]
@@ -1036,7 +1036,7 @@ name|getBytes
 argument_list|()
 return|;
 block|}
-comment|/**    * Sets the contents.    *     * @param bytes contents to be used    */
+comment|/**      * Sets the contents.      *      * @param bytes contents to be used      */
 specifier|public
 name|void
 name|setContents
@@ -1074,7 +1074,7 @@ name|string
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Will return the signed content of the document.    *     * @param pdfFile The signed pdf file as InputStream    * @return a byte array containing only the signed part of the content    * @throws IOException if the pdfFile can't be read    */
+comment|/**      * Will return the signed content of the document.      *      * @param pdfFile The signed pdf file as InputStream      * @return a byte array containing only the signed part of the content      * @throws IOException if the pdfFile can't be read      */
 specifier|public
 name|byte
 index|[]
@@ -1128,7 +1128,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Will return the signed content of the document.    *     * @param pdfFile The signed pdf file as byte array    * @return a byte array containing only the signed part of the content    * @throws IOException if the pdfFile can't be read    */
+comment|/**      * Will return the signed content of the document.      *      * @param pdfFile The signed pdf file as byte array      * @return a byte array containing only the signed part of the content      * @throws IOException if the pdfFile can't be read      */
 specifier|public
 name|byte
 index|[]
@@ -1183,7 +1183,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * PDF signature build dictionary. Provides informations about the signature handler.    *    * @return the pdf signature build dictionary.    */
+comment|/**      * PDF signature build dictionary. Provides informations about the signature handler.      *      * @return the pdf signature build dictionary.      */
 specifier|public
 name|PDPropBuild
 name|getPropBuild
@@ -1229,7 +1229,7 @@ return|return
 name|propBuild
 return|;
 block|}
-comment|/**    * PDF signature build dictionary. Provides informations about the signature handler.    *    * @param propBuild the prop build    */
+comment|/**      * PDF signature build dictionary. Provides informations about the signature handler.      *      * @param propBuild the prop build      */
 specifier|public
 name|void
 name|setPropBuild

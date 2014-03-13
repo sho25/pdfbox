@@ -87,6 +87,10 @@ name|PDVisibleSigProperties
 import|;
 end_import
 
+begin_comment
+comment|/**  * TODO description needed  */
+end_comment
+
 begin_class
 specifier|public
 class|class
@@ -104,7 +108,7 @@ specifier|private
 name|int
 name|pageNo
 decl_stmt|;
-comment|/**      * Set the page number.      *       * @param pageNo the page number      *       */
+comment|/**      * Set the page number.      *       * @param pageNo the page number      */
 specifier|public
 name|void
 name|setPage
@@ -163,7 +167,7 @@ name|getDocument
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Reads the visual signature from the given visual signature properties      *        * @param visSignatureProperties the<code>PDVisibleSigProperties</code> object containing the visual signature      *       * @throws IOException when something went wrong during parsing      *       * @since 1.8.3      */
+comment|/**      * Reads the visual signature from the given visual signature properties      *        * @param visSignatureProperties the<code>PDVisibleSigProperties</code> object containing the visual signature      *       * @throws IOException when something went wrong during parsing      */
 specifier|public
 name|void
 name|setVisualSignature

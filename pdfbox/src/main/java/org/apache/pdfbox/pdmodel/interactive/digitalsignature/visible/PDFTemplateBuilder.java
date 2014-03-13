@@ -216,7 +216,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * That class builds visible signature template  * which will be added in our pdf document  * @author Vakhtang koroghlishvili (Gogebashvili)  *  */
+comment|/**  * That class builds visible signature template which will be added in our PDF document.  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_interface
@@ -224,7 +224,7 @@ specifier|public
 interface|interface
 name|PDFTemplateBuilder
 block|{
-comment|/**      * In order to create  Affine Transform, using parameters      * @param params      */
+comment|/**      * In order to create Affine Transform, using parameters      * @param params      */
 specifier|public
 name|void
 name|createAffineTransform

@@ -321,6 +321,24 @@ name|pdmodel
 operator|.
 name|interactive
 operator|.
+name|digitalsignature
+operator|.
+name|PDSignature
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
 name|form
 operator|.
 name|PDAcroForm
@@ -364,7 +382,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * That's implementation of<b>PDFTemplateBuilder</b>  * @see org.apache.pdfbox.pdmodel.interactive.digitalsignature.visible.PDFTemplateBuilder  * @author<a href="mailto:vakhtang.koroghlishvili@gmail.com"> vakhtang koroghlishvili (gogebashvili)</a>  *   */
+comment|/**  * Implementation of PDFTemplateBuilder.  * @see PDFTemplateBuilder  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -382,7 +400,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|logger
+name|log
 init|=
 name|LogFactory
 operator|.
@@ -436,7 +454,7 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -488,7 +506,7 @@ operator|new
 name|PDFTemplateStructure
 argument_list|()
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -532,7 +550,7 @@ argument_list|(
 name|theAcroForm
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -579,7 +597,7 @@ argument_list|(
 name|sf
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -605,34 +623,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|digitalsignature
-operator|.
 name|PDSignature
 name|pdSignature
 init|=
 operator|new
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|digitalsignature
-operator|.
 name|PDSignature
 argument_list|()
 decl_stmt|;
@@ -709,7 +703,7 @@ argument_list|(
 name|pdSignature
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -806,7 +800,7 @@ argument_list|(
 name|acroFormDict
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -913,7 +907,7 @@ argument_list|(
 name|rect
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -976,7 +970,7 @@ argument_list|(
 name|transform
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1065,7 +1059,7 @@ argument_list|(
 name|procSetArr
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1102,14 +1096,13 @@ name|image
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
 literal|"Visible Signature Image has been created"
 argument_list|)
 expr_stmt|;
-comment|// pdfStructure.setTemplate(template);'
 block|}
 annotation|@
 name|Override
@@ -1176,7 +1169,7 @@ argument_list|(
 name|formrect
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1210,7 +1203,7 @@ argument_list|(
 name|holderForm
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1239,7 +1232,7 @@ argument_list|(
 name|holderFormResources
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1300,7 +1293,7 @@ argument_list|(
 name|holderForm
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1376,7 +1369,7 @@ argument_list|(
 name|appearance
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1410,11 +1403,13 @@ argument_list|(
 name|innterFormStream
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
-literal|"Strean of another form (inner form - it would be inside holder form) has been created"
+literal|"Stream of another form (inner form - it would be inside holder form) "
+operator|+
+literal|"has been created"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1439,11 +1434,13 @@ argument_list|(
 name|innerFormResources
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
-literal|"Resources of another form (inner form - it would be inside holder form) have been created"
+literal|"Resources of another form (inner form - it would be inside holder form)"
+operator|+
+literal|"have been created"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1500,7 +1497,7 @@ argument_list|(
 name|innerForm
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1540,7 +1537,7 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1574,7 +1571,7 @@ argument_list|(
 name|imageFormStream
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1603,7 +1600,7 @@ argument_list|(
 name|imageFormResources
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1638,7 +1635,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|/*          * if you need text on the visible signature           *           * PDFont font = PDTrueTypeFont.loadTTF(this.pdfStructure.getTemplate(), new File("D:\\arial.ttf"));           * font.setFontEncoding(new WinAnsiEncoding());          *           * Map<String, PDFont> fonts = new HashMap<String, PDFont>(); fonts.put("arial", font);          */
+comment|// if you need text on the visible signature:
+comment|//
+comment|// PDFont font = PDTrueTypeFont.loadTTF(this.pdfStructure.getTemplate(),
+comment|//                                      new File("D:\\arial.ttf"));
+comment|// font.setFontEncoding(new WinAnsiEncoding());
+comment|//
+comment|// Map<String, PDFont> fonts = new HashMap<String, PDFont>(); fonts.put("arial", font);
 name|PDFormXObject
 name|imageForm
 init|=
@@ -1676,7 +1679,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|/*          * imageForm.getResources().addFont(font);           * imageForm.getResources().setFonts(fonts);          */
+comment|// imageForm.getResources().addFont(font);
+comment|// imageForm.getResources().setFonts(fonts);
 name|imageFormResources
 operator|.
 name|getCOSObject
@@ -1711,8 +1715,6 @@ argument_list|,
 literal|"img"
 argument_list|)
 decl_stmt|;
-name|this
-operator|.
 name|pdfStructure
 operator|.
 name|setImageForm
@@ -1720,8 +1722,6 @@ argument_list|(
 name|imageForm
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|pdfStructure
 operator|.
 name|setImageFormName
@@ -1729,8 +1729,6 @@ argument_list|(
 name|imageFormName
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|pdfStructure
 operator|.
 name|setImageName
@@ -1738,7 +1736,7 @@ argument_list|(
 name|imageName
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1788,7 +1786,6 @@ argument_list|,
 name|procSet
 argument_list|)
 expr_stmt|;
-comment|//
 name|page
 operator|.
 name|getCOSDictionary
@@ -1845,7 +1842,7 @@ argument_list|,
 name|procSet
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1957,7 +1954,7 @@ argument_list|,
 name|imgFormComment
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2006,8 +2003,6 @@ name|PDDocument
 name|template
 parameter_list|)
 block|{
-name|this
-operator|.
 name|pdfStructure
 operator|.
 name|setVisualSignature
@@ -2018,7 +2013,7 @@ name|getDocument
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2080,7 +2075,7 @@ argument_list|(
 name|widgetDict
 argument_list|)
 expr_stmt|;
-name|logger
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2105,8 +2100,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
 name|pdfStructure
 operator|.
 name|getTemplate

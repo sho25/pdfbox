@@ -220,7 +220,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Using that class, we  build pdf template  * @author<a href="mailto:vakhtang.koroghlishvili@gmail.com"> vakhtang koroghlishvili (gogebashvili)</a>  */
+comment|/**  * Using that class, we build pdf template.  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -254,22 +254,18 @@ name|PDFTemplateBuilder
 name|bookBuilder
 parameter_list|)
 block|{
-name|this
-operator|.
 name|pdfBuilder
 operator|=
 name|bookBuilder
 expr_stmt|;
 block|}
-comment|/**      * that method returns object of PDFStructur      *       * @return PDFStructure      */
+comment|/**      * that method returns object of PDFStructure      *       * @return PDFStructure      */
 specifier|public
 name|PDFTemplateStructure
 name|getPdfStructure
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|getStructure
@@ -303,16 +299,12 @@ name|getStructure
 argument_list|()
 decl_stmt|;
 comment|// we create array of [Text, ImageB, ImageC, ImageI]
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createProcSetArray
 argument_list|()
 expr_stmt|;
 comment|//create page
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createPage
@@ -329,8 +321,6 @@ name|getPage
 argument_list|()
 decl_stmt|;
 comment|//create template
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createTemplate
@@ -347,8 +337,6 @@ name|getTemplate
 argument_list|()
 decl_stmt|;
 comment|//create /AcroForm
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createAcroForm
@@ -365,8 +353,6 @@ name|getAcroForm
 argument_list|()
 decl_stmt|;
 comment|// AcroForm contains singature fields
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createSignatureField
@@ -383,8 +369,6 @@ name|getSignatureField
 argument_list|()
 decl_stmt|;
 comment|// create signature
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createSignature
@@ -400,8 +384,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// that is /AcroForm/DR entry
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createAcroFormDictionary
@@ -412,8 +394,6 @@ name|pdSignatureField
 argument_list|)
 expr_stmt|;
 comment|// create AffineTransform
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createAffineTransform
@@ -433,8 +413,6 @@ name|getAffineTransform
 argument_list|()
 decl_stmt|;
 comment|// rectangle, formatter, image. /AcroForm/DR/XObject contains that form
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createSignatureRectangle
@@ -444,8 +422,6 @@ argument_list|,
 name|properties
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createFormaterRectangle
@@ -464,8 +440,6 @@ operator|.
 name|getFormaterRectangle
 argument_list|()
 decl_stmt|;
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createSignatureImage
@@ -479,8 +453,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// create form stream, form and  resource.
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createHolderFormStream
@@ -496,8 +468,6 @@ operator|.
 name|getHolderFormStream
 argument_list|()
 decl_stmt|;
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createHolderFormResources
@@ -511,8 +481,6 @@ operator|.
 name|getHolderFormResources
 argument_list|()
 decl_stmt|;
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createHolderForm
@@ -525,8 +493,6 @@ name|formater
 argument_list|)
 expr_stmt|;
 comment|// that is /AP entry the appearance dictionary.
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createAppearanceDictionary
@@ -539,9 +505,7 @@ argument_list|,
 name|pdSignatureField
 argument_list|)
 expr_stmt|;
-comment|// inner formstream, form and resource (hlder form containts inner form)
-name|this
-operator|.
+comment|// inner form stream, form and resource (hlder form containts inner form)
 name|pdfBuilder
 operator|.
 name|createInnerFormStream
@@ -549,8 +513,6 @@ argument_list|(
 name|template
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createInnerFormResource
@@ -564,8 +526,6 @@ operator|.
 name|getInnerFormResources
 argument_list|()
 decl_stmt|;
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createInnerForm
@@ -589,8 +549,6 @@ name|getInnerForm
 argument_list|()
 decl_stmt|;
 comment|// inner form must be in the holder form as we wrote
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|insertInnerFormToHolerResources
@@ -601,8 +559,6 @@ name|holderFormResources
 argument_list|)
 expr_stmt|;
 comment|//  Image form is in this structure: /AcroForm/DR/FRM0/Resources/XObject/n0
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createImageFormStream
@@ -618,8 +574,6 @@ operator|.
 name|getImageFormStream
 argument_list|()
 decl_stmt|;
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createImageFormResources
@@ -633,8 +587,6 @@ operator|.
 name|getImageFormResources
 argument_list|()
 decl_stmt|;
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createImageForm
@@ -656,8 +608,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// now inject procSetArray
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|injectProcSetArray
@@ -703,8 +653,6 @@ name|getInnerFormName
 argument_list|()
 decl_stmt|;
 comment|// now create Streams of AP
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|injectAppearanceStreams
@@ -724,8 +672,6 @@ argument_list|,
 name|properties
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createVisualSignature
@@ -733,8 +679,6 @@ argument_list|(
 name|template
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|pdfBuilder
 operator|.
 name|createWidgetDictionary

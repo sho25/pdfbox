@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Providing an interface for accessing necessary functions for signing a pdf document.  *   * @author<a href="mailto:mail@thomas-chojecki.de">Thomas Chojecki</a>  */
+comment|/**  * Providing an interface for accessing necessary functions for signing a PDF document.  *  * @author Thomas Chojecki  */
 end_comment
 
 begin_interface
@@ -48,7 +48,7 @@ specifier|public
 interface|interface
 name|SignatureInterface
 block|{
-comment|/**    * Creates a cms signature for the given content    *    * @param content is the content as a (Filter)InputStream    * @return signature as a byte array    */
+comment|/**      * Creates a cms signature for the given content      *      * @param content is the content as a (Filter)InputStream      * @return signature as a byte array      */
 specifier|public
 name|byte
 index|[]

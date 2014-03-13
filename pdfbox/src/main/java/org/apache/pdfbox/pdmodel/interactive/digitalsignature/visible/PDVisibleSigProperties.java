@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This builder class is in order to create visible signature properties.  *   * @author<a href="mailto:vakhtang.koroghlishvili@gmail.com"> vakhtang koroghlishvili (gogebashvili)</a>  *   */
+comment|/**  * This builder class is in order to create visible signature properties.  *   * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class

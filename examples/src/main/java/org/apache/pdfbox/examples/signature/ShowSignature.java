@@ -45,6 +45,18 @@ name|security
 operator|.
 name|cert
 operator|.
+name|CertificateException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|cert
+operator|.
 name|CertificateFactory
 import|;
 end_import
@@ -129,8 +141,24 @@ name|PDDocument
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|encryption
+operator|.
+name|InvalidPasswordException
+import|;
+end_import
+
 begin_comment
-comment|/**  * This will read a document from the filesystem, decrypt it and do something with the signature.  *  * usage: java org.apache.pdfbox.examples.signature.ShowSignature&lt;password&gt;&lt;inputfile&gt;  *  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.9 $  */
+comment|/**  * This will read a document from the filesystem, decrypt it and do something with the signature.  * usage: java org.apache.pdfbox.examples.signature.ShowSignature&lt;password&gt;&lt;inputfile&gt;  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -153,7 +181,9 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|CertificateException
 block|{
 name|ShowSignature
 name|show
@@ -179,7 +209,9 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|CertificateException
 block|{
 if|if
 condition|(

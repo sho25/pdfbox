@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a pdf signature seed value dictionary.  *  * @author Thomas Chojecki  * @version $Revision: 1.1 $  */
+comment|/**  * This represents a pdf signature seed value dictionary.  *  * @author Thomas Chojecki  */
 end_comment
 
 begin_class
