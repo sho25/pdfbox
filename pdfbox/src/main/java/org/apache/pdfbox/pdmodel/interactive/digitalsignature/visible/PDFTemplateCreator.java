@@ -215,7 +215,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDSignature
+name|PDSignatureField
 import|;
 end_import
 
@@ -374,7 +374,7 @@ argument_list|(
 name|acroForm
 argument_list|)
 expr_stmt|;
-name|PDSignature
+name|PDSignatureField
 name|pdSignatureField
 init|=
 name|pdfStructure

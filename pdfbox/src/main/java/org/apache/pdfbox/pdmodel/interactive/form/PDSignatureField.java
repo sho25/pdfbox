@@ -144,13 +144,13 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|PDSignature
+name|PDSignatureField
 extends|extends
 name|PDField
 block|{
 comment|/**      * @see PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroForm for this field.      * @param field The dictionary for the signature.      * @throws IOException If there is an error while resolving partital name for the signature field      */
 specifier|public
-name|PDSignature
+name|PDSignatureField
 parameter_list|(
 name|PDAcroForm
 name|theAcroForm
@@ -200,7 +200,7 @@ expr_stmt|;
 block|}
 comment|/**      * @see PDField#PDField(PDAcroForm)      *      * @param theAcroForm The acroForm for this field.      * @throws IOException If there is an error while resolving partial name for the signature field      *         or getting the widget object.      */
 specifier|public
-name|PDSignature
+name|PDSignatureField
 parameter_list|(
 name|PDAcroForm
 name|theAcroForm
@@ -335,7 +335,7 @@ if|if
 condition|(
 name|object
 operator|instanceof
-name|PDSignature
+name|PDSignatureField
 condition|)
 block|{
 name|sigNames
@@ -344,7 +344,7 @@ name|add
 argument_list|(
 operator|(
 operator|(
-name|PDSignature
+name|PDSignatureField
 operator|)
 name|object
 operator|)
@@ -377,7 +377,7 @@ operator|+
 name|i
 return|;
 block|}
-comment|/**      * @see PDField#setValue(java.lang.String)      *      * @param value The new value for the field.      *      * @throws IOException If there is an error creating the appearance stream.      * @deprecated use setSignature(PDSignature) instead      */
+comment|/**      * @see PDField#setValue(java.lang.String)      *      * @param value The new value for the field.      *      * @throws IOException If there is an error creating the appearance stream.      * @deprecated use setSignature(PDSignatureField) instead      */
 annotation|@
 name|Override
 annotation|@
@@ -396,7 +396,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Can't set signature as String, use setSignature(PDSignature) instead"
+literal|"Can't set signature as String, use setSignature(PDSignatureField) instead"
 argument_list|)
 throw|;
 block|}
@@ -429,10 +429,10 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"PDSignature"
+literal|"PDSignatureField"
 return|;
 block|}
-comment|/**      * Add a signature dictionary to the signature field.      *       * @param value is the PDSignature       */
+comment|/**      * Add a signature dictionary to the signature field.      *       * @param value is the PDSignatureField      */
 specifier|public
 name|void
 name|setSignature

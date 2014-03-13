@@ -157,7 +157,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDSignature
+name|PDSignatureField
 import|;
 end_import
 
@@ -406,13 +406,13 @@ if|if
 condition|(
 name|field
 operator|instanceof
-name|PDSignature
+name|PDSignatureField
 condition|)
 block|{
-comment|// PDSignature doesn't have a value
+comment|// PDSignatureField doesn't have a value
 name|fieldValue
 operator|=
-literal|"PDSignature"
+literal|"PDSignatureField"
 expr_stmt|;
 block|}
 else|else

@@ -685,7 +685,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDSignature
+name|PDSignatureField
 import|;
 end_import
 
@@ -1447,7 +1447,7 @@ name|updateCount
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Add a signature.      *       * @param sigObject is the PDSignature model      * @param signatureInterface is a interface which provides signing capabilities      * @throws IOException if there is an error creating required fields      */
+comment|/**      * Add a signature.      *       * @param sigObject is the PDSignatureField model      * @param signatureInterface is a interface which provides signing capabilities      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignature
@@ -1497,7 +1497,7 @@ name|defaultOptions
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a signature to the document.      *       * @param sigObject is the PDSignature model      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
+comment|/**      * This will add a signature to the document.      *       * @param sigObject is the PDSignatureField model      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignature
@@ -1814,7 +1814,7 @@ operator|.
 name|getFields
 argument_list|()
 decl_stmt|;
-name|PDSignature
+name|PDSignatureField
 name|signatureField
 init|=
 literal|null
@@ -1852,7 +1852,7 @@ if|if
 condition|(
 name|pdField
 operator|instanceof
-name|PDSignature
+name|PDSignatureField
 condition|)
 block|{
 name|org
@@ -1872,7 +1872,7 @@ name|signature
 init|=
 operator|(
 operator|(
-name|PDSignature
+name|PDSignatureField
 operator|)
 name|pdField
 operator|)
@@ -1903,7 +1903,7 @@ block|{
 name|signatureField
 operator|=
 operator|(
-name|PDSignature
+name|PDSignatureField
 operator|)
 name|pdField
 expr_stmt|;
@@ -1920,7 +1920,7 @@ block|{
 name|signatureField
 operator|=
 operator|new
-name|PDSignature
+name|PDSignatureField
 argument_list|(
 name|acroForm
 argument_list|)
@@ -2000,14 +2000,14 @@ if|if
 condition|(
 name|field
 operator|instanceof
-name|PDSignature
+name|PDSignatureField
 condition|)
 block|{
 if|if
 condition|(
 operator|(
 operator|(
-name|PDSignature
+name|PDSignatureField
 operator|)
 name|field
 operator|)
@@ -2599,7 +2599,7 @@ name|addSignatureField
 parameter_list|(
 name|List
 argument_list|<
-name|PDSignature
+name|PDSignatureField
 argument_list|>
 name|sigFields
 parameter_list|,
@@ -2734,7 +2734,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|PDSignature
+name|PDSignatureField
 name|sigField
 range|:
 name|sigFields
@@ -2788,14 +2788,14 @@ if|if
 condition|(
 name|obj
 operator|instanceof
-name|PDSignature
+name|PDSignatureField
 condition|)
 block|{
 if|if
 condition|(
 operator|(
 operator|(
-name|PDSignature
+name|PDSignatureField
 operator|)
 name|obj
 operator|)
@@ -3458,7 +3458,7 @@ operator|=
 name|encDictionary
 expr_stmt|;
 block|}
-comment|/**      * This will return the last signature.      *       * @return the last signature as<code>PDSignature</code>.      * @throws IOException if no document catalog can be found.      */
+comment|/**      * This will return the last signature.      *       * @return the last signature as<code>PDSignatureField</code>.      * @throws IOException if no document catalog can be found.      */
 specifier|public
 name|org
 operator|.
@@ -3529,11 +3529,11 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Retrieve all signature fields from the document.      *       * @return a<code>List</code> of<code>PDSignature</code>s      * @throws IOException if no document catalog can be found.      */
+comment|/**      * Retrieve all signature fields from the document.      *       * @return a<code>List</code> of<code>PDSignatureField</code>s      * @throws IOException if no document catalog can be found.      */
 specifier|public
 name|List
 argument_list|<
-name|PDSignature
+name|PDSignatureField
 argument_list|>
 name|getSignatureFields
 parameter_list|()
@@ -3542,14 +3542,14 @@ name|IOException
 block|{
 name|List
 argument_list|<
-name|PDSignature
+name|PDSignatureField
 argument_list|>
 name|fields
 init|=
 operator|new
 name|LinkedList
 argument_list|<
-name|PDSignature
+name|PDSignatureField
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -3595,7 +3595,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PDSignature
+name|PDSignatureField
 argument_list|(
 name|acroForm
 argument_list|,
@@ -3609,7 +3609,7 @@ return|return
 name|fields
 return|;
 block|}
-comment|/**      * Retrieve all signature dictionaries from the document.      *       * @return a<code>List</code> of<code>PDSignature</code>s      * @throws IOException if no document catalog can be found.      */
+comment|/**      * Retrieve all signature dictionaries from the document.      *       * @return a<code>List</code> of<code>PDSignatureField</code>s      * @throws IOException if no document catalog can be found.      */
 specifier|public
 name|List
 argument_list|<

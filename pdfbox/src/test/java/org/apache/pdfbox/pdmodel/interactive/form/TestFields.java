@@ -182,11 +182,11 @@ argument_list|(
 name|doc
 argument_list|)
 decl_stmt|;
-name|PDText
+name|PDTextField
 name|textBox
 init|=
 operator|new
-name|PDText
+name|PDTextField
 argument_list|(
 name|form
 argument_list|)

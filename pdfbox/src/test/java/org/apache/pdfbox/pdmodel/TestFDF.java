@@ -257,7 +257,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDText
+name|PDTextField
 import|;
 end_import
 
@@ -423,11 +423,11 @@ operator|.
 name|getAcroForm
 argument_list|()
 decl_stmt|;
-name|PDText
+name|PDTextField
 name|field
 init|=
 operator|(
-name|PDText
+name|PDTextField
 operator|)
 name|form
 operator|.
@@ -544,11 +544,11 @@ operator|.
 name|getAcroForm
 argument_list|()
 decl_stmt|;
-name|PDText
+name|PDTextField
 name|feld2
 init|=
 operator|(
-name|PDText
+name|PDTextField
 operator|)
 name|form
 operator|.
@@ -779,11 +779,11 @@ argument_list|(
 name|fdf
 argument_list|)
 expr_stmt|;
-name|PDText
+name|PDTextField
 name|feld2
 init|=
 operator|(
-name|PDText
+name|PDTextField
 operator|)
 name|form
 operator|.

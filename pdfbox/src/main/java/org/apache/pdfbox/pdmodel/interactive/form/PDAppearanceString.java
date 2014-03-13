@@ -1878,7 +1878,7 @@ if|if
 condition|(
 name|q
 operator|==
-name|PDText
+name|PDTextField
 operator|.
 name|QUADDING_LEFT
 condition|)
@@ -1890,13 +1890,13 @@ if|if
 condition|(
 name|q
 operator|==
-name|PDText
+name|PDTextField
 operator|.
 name|QUADDING_CENTERED
 operator|||
 name|q
 operator|==
-name|PDText
+name|PDTextField
 operator|.
 name|QUADDING_RIGHT
 condition|)
@@ -1938,7 +1938,7 @@ if|if
 condition|(
 name|q
 operator|==
-name|PDText
+name|PDTextField
 operator|.
 name|QUADDING_CENTERED
 condition|)

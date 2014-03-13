@@ -55,13 +55,13 @@ begin_class
 specifier|public
 specifier|final
 class|class
-name|PDText
+name|PDTextField
 extends|extends
 name|PDVariableText
 block|{
 comment|/**      * @see PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroform.      */
 specifier|public
-name|PDText
+name|PDTextField
 parameter_list|(
 name|PDAcroForm
 name|theAcroForm
@@ -75,7 +75,7 @@ expr_stmt|;
 block|}
 comment|/**      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroForm for this field.      * @param field The field's dictionary.      */
 specifier|public
-name|PDText
+name|PDTextField
 parameter_list|(
 name|PDAcroForm
 name|theAcroForm

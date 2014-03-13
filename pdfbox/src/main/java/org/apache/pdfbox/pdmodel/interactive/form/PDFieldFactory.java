@@ -315,7 +315,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|PDText
+name|PDTextField
 argument_list|(
 name|form
 argument_list|,
@@ -336,7 +336,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|PDSignature
+name|PDSignatureField
 argument_list|(
 name|form
 argument_list|,

@@ -307,7 +307,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDSignature
+name|PDSignatureField
 import|;
 end_import
 
@@ -333,7 +333,7 @@ name|PDAcroForm
 name|acroForm
 decl_stmt|;
 specifier|private
-name|PDSignature
+name|PDSignatureField
 name|signatureField
 decl_stmt|;
 specifier|private
@@ -523,7 +523,7 @@ expr_stmt|;
 block|}
 comment|/**      * Gets Signature field      * @return      */
 specifier|public
-name|PDSignature
+name|PDSignatureField
 name|getSignatureField
 parameter_list|()
 block|{
@@ -536,7 +536,7 @@ specifier|public
 name|void
 name|setSignatureField
 parameter_list|(
-name|PDSignature
+name|PDSignatureField
 name|signatureField
 parameter_list|)
 block|{
@@ -547,7 +547,7 @@ operator|=
 name|signatureField
 expr_stmt|;
 block|}
-comment|/**      * Gets PDSignature      * @return      */
+comment|/**      * Gets PDSignatureField      * @return      */
 specifier|public
 name|org
 operator|.
@@ -569,7 +569,7 @@ return|return
 name|pdSignature
 return|;
 block|}
-comment|/**      * Sets PDSignature      * @param pdSignature      */
+comment|/**      * Sets PDSignatureField      * @param pdSignature      */
 specifier|public
 name|void
 name|setPdSignature

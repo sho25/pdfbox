@@ -359,7 +359,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDSignature
+name|PDSignatureField
 import|;
 end_import
 
@@ -563,11 +563,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDSignature
+name|PDSignatureField
 name|sf
 init|=
 operator|new
-name|PDSignature
+name|PDSignatureField
 argument_list|(
 name|acroForm
 argument_list|)
@@ -593,7 +593,7 @@ specifier|public
 name|void
 name|createSignature
 parameter_list|(
-name|PDSignature
+name|PDSignatureField
 name|pdSignatureField
 parameter_list|,
 name|PDPage
@@ -726,7 +726,7 @@ parameter_list|(
 name|PDAcroForm
 name|acroForm
 parameter_list|,
-name|PDSignature
+name|PDSignatureField
 name|signatureField
 parameter_list|)
 throws|throws
@@ -820,7 +820,7 @@ specifier|public
 name|void
 name|createSignatureRectangle
 parameter_list|(
-name|PDSignature
+name|PDSignatureField
 name|signatureField
 parameter_list|,
 name|PDVisibleSignDesigner
@@ -1317,7 +1317,7 @@ parameter_list|(
 name|PDFormXObject
 name|holderForml
 parameter_list|,
-name|PDSignature
+name|PDSignatureField
 name|signatureField
 parameter_list|)
 throws|throws
@@ -2032,7 +2032,7 @@ specifier|public
 name|void
 name|createWidgetDictionary
 parameter_list|(
-name|PDSignature
+name|PDSignatureField
 name|signatureField
 parameter_list|,
 name|PDResources
