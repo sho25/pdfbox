@@ -11,34 +11,43 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
+name|pdmodel
+operator|.
+name|encryption
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
-comment|/**  * An exception that indicates an invalid password was supplied.  *  * @deprecated Only used by deprecated DocumentEncryption class.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * Indicates that an invalid password was supplied.  * @author Ben Litchfield  */
 end_comment
 
 begin_class
-annotation|@
-name|Deprecated
 specifier|public
 class|class
 name|InvalidPasswordException
 extends|extends
-name|Exception
+name|IOException
 block|{
-comment|/**      * Constructor.      *      * @param msg A msg to go with this exception.      */
-specifier|public
+comment|/**      * Creates a new InvalidPasswordException.      * @param message A msg to go with this exception.      */
 name|InvalidPasswordException
 parameter_list|(
 name|String
-name|msg
+name|message
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|msg
+name|message
 argument_list|)
 expr_stmt|;
 block|}

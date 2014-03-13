@@ -127,20 +127,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|encryption
-operator|.
-name|ARCFour
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -379,11 +365,11 @@ name|StandardProtectionPolicy
 name|policy
 decl_stmt|;
 specifier|private
-name|ARCFour
+name|RC4Cipher
 name|rc4
 init|=
 operator|new
-name|ARCFour
+name|RC4Cipher
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      */
@@ -842,7 +828,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// TODO perhaps we could return a boolean to indicate if the password was correct
 throw|throw
 operator|new
 name|IOException

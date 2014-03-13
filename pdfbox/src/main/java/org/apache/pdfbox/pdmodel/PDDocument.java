@@ -275,20 +275,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|InvalidPasswordException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|io
 operator|.
 name|RandomAccess
@@ -428,6 +414,22 @@ operator|.
 name|encryption
 operator|.
 name|DecryptionMaterial
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|encryption
+operator|.
+name|InvalidPasswordException
 import|;
 end_import
 
@@ -3714,7 +3716,7 @@ return|return
 name|signatures
 return|;
 block|}
-comment|/**      * This will decrypt a document.      *      * @deprecated This method is provided for compatibility reasons only. User should use the new      * security layer instead and the openProtection method especially.      *       * @param password Either the user or owner password.      *      * @throws IOException If there is an error getting the stream data.      * @throws InvalidPasswordException If the password is not a user or owner password.      */
+comment|/**      * This will decrypt a document.      *      * @deprecated This method is provided for compatibility reasons only. User should use the new      * security layer instead and the openProtection method especially.      *       * @param password Either the user or owner password.      *      * @throws InvalidPasswordException If the password is not a user or owner password.      * @throws IOException If there is an error getting the stream data.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -3725,9 +3727,9 @@ name|String
 name|password
 parameter_list|)
 throws|throws
-name|IOException
-throws|,
 name|InvalidPasswordException
+throws|,
+name|IOException
 block|{
 name|StandardDecryptionMaterial
 name|m

@@ -341,20 +341,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|encryption
-operator|.
-name|ARCFour
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -434,11 +420,11 @@ name|document
 decl_stmt|;
 comment|/** The RC4 implementation used for cryptographic functions. */
 specifier|protected
-name|ARCFour
+name|RC4Cipher
 name|rc4
 init|=
 operator|new
-name|ARCFour
+name|RC4Cipher
 argument_list|()
 decl_stmt|;
 specifier|private

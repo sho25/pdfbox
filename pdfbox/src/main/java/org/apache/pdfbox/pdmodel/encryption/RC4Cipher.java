@@ -11,6 +11,8 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
 name|encryption
 package|;
 end_package
@@ -46,13 +48,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is an implementation of the alleged RC4 algorithm.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.8 $  */
+comment|/**  * An implementation of the RC4 stream cipher.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
-specifier|public
 class|class
-name|ARCFour
+name|RC4Cipher
 block|{
 specifier|private
 name|int
@@ -67,9 +68,9 @@ specifier|private
 name|int
 name|c
 decl_stmt|;
-comment|/**      * Constructor.      *      */
+comment|/**      * Constructor.      */
 specifier|public
-name|ARCFour
+name|RC4Cipher
 parameter_list|()
 block|{
 name|salt
@@ -81,7 +82,7 @@ literal|256
 index|]
 expr_stmt|;
 block|}
-comment|/**      * This will reset the key to be used.      *      * @param key The RC4 key used during encryption.     */
+comment|/**      * This will reset the key to be used.      *      * @param key The RC4 key used during encryption.      */
 specifier|public
 name|void
 name|setKey

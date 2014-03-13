@@ -219,20 +219,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
-operator|.
-name|InvalidPasswordException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -250,6 +236,22 @@ operator|.
 name|pdmodel
 operator|.
 name|PDDocumentInformation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|encryption
+operator|.
+name|InvalidPasswordException
 import|;
 end_import
 
@@ -1525,7 +1527,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Create an UID for the given file using the given time.      *       * @param file the file we have to create an UID for      * @param time the time to used to the UID      *       * @return the created UID      */
+comment|/**      * Create an UID for the given file using the given time.      *       * @param url the file we have to create an UID for      * @param time the time to used to the UID      *       * @return the created UID      */
 specifier|public
 specifier|static
 name|String

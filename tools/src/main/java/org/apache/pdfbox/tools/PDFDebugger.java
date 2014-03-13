@@ -23,7 +23,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
+name|pdmodel
+operator|.
+name|encryption
 operator|.
 name|InvalidPasswordException
 import|;
@@ -1894,7 +1896,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will parse a document.      *      * @param input The file addressing the document.      *      * @throws IOException If there is an error parsing the document.      */
+comment|/**      * This will parse a document.      *      * @param file The file addressing the document.      *      * @throws IOException If there is an error parsing the document.      */
 specifier|private
 name|void
 name|parseDocument

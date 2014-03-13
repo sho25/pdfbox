@@ -63,7 +63,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|exceptions
+name|pdmodel
+operator|.
+name|encryption
 operator|.
 name|InvalidPasswordException
 import|;
