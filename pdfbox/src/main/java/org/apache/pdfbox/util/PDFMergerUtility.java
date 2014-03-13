@@ -733,7 +733,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Merge the list of source documents with the non sequential parser, saving      * the result in the destination file.      *      * @param scratchFile location to store temp PDFBox data for this output      * document      * @throws IOException If there is an error saving the document.      */
+comment|/**      * Merge the list of source documents with the non sequential parser, saving      * the result in the destination file.      *      * @param scratchFile location to store temp PDFBox data for this output      * document, can be null if temp data is to be stored in memory      * @throws IOException If there is an error saving the document.      */
 specifier|public
 name|void
 name|mergeDocumentsNonSeq
