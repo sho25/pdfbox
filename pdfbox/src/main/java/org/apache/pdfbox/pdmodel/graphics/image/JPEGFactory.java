@@ -37,16 +37,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|BufferedInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|ByteArrayInputStream
 import|;
 end_import
@@ -305,7 +295,7 @@ specifier|private
 name|JPEGFactory
 parameter_list|()
 block|{     }
-comment|/**      * Creates a new JPEG Image XObject from an input stream containing JPEG data.      * The input stream data will be preserved and embedded in the PDF file without modification.      * @param document the document where the image will be created      * @param stream a stream of JPEG data      * @return a new Image XObject      * @throws IOException if the input stream cannot be read      */
+comment|/**      * Creates a new JPEG Image XObject from an input stream containing JPEG data.      *       * The input stream data will be preserved and embedded in the PDF file without modification.      * @param document the document where the image will be created      * @param stream a stream of JPEG data      * @return a new Image XObject      *       * @throws IOException if the input stream cannot be read      */
 specifier|public
 specifier|static
 name|PDImageXObject
