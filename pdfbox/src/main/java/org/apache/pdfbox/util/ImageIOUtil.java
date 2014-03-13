@@ -402,6 +402,9 @@ name|metadata
 init|=
 literal|null
 decl_stmt|;
+comment|// Loop until we get the best driver, i.e. one that supports
+comment|// setting dpi in the standard metadata format; however we'd also
+comment|// accept a driver that can't if a better one can't be found
 while|while
 condition|(
 name|writers
@@ -410,6 +413,19 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|writer
+operator|!=
+literal|null
+condition|)
+block|{
+name|writer
+operator|.
+name|dispose
+argument_list|()
+expr_stmt|;
+block|}
 name|writer
 operator|=
 name|writers
@@ -442,21 +458,22 @@ expr_stmt|;
 if|if
 condition|(
 name|metadata
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|metadata
 operator|.
 name|isReadOnly
 argument_list|()
-operator|||
-operator|!
+operator|&&
 name|metadata
 operator|.
 name|isStandardMetadataFormatSupported
 argument_list|()
 condition|)
 block|{
-name|writer
-operator|=
-literal|null
-expr_stmt|;
+break|break;
 block|}
 block|}
 if|if
@@ -473,6 +490,10 @@ block|}
 comment|// compression
 if|if
 condition|(
+name|param
+operator|!=
+literal|null
+operator|&&
 name|param
 operator|.
 name|canWriteCompressed
@@ -514,7 +535,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// JPEG, PNG compression
 name|param
 operator|.
 name|setCompressionType
@@ -603,7 +623,25 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// metadata
+comment|// write metadata is possible
+if|if
+condition|(
+name|metadata
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|metadata
+operator|.
+name|isReadOnly
+argument_list|()
+operator|&&
+name|metadata
+operator|.
+name|isStandardMetadataFormatSupported
+argument_list|()
+condition|)
+block|{
 name|setDPI
 argument_list|(
 name|metadata
@@ -613,6 +651,7 @@ argument_list|,
 name|formatName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// write
 name|imageOutput
