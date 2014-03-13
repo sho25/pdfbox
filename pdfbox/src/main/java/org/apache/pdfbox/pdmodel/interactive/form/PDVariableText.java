@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class for handling PDF fields that display text.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  */
+comment|/**  * Base class for fields which use "Variable Text".  * These fields construct an appearance stream dynamically at viewing time.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -96,6 +96,7 @@ class|class
 name|PDVariableText
 extends|extends
 name|PDField
+comment|// TODO mixin, not really a field
 block|{
 comment|/**      * A Ff flag.      */
 specifier|public
@@ -180,7 +181,7 @@ name|COSString
 name|da
 decl_stmt|;
 specifier|private
-name|PDAppearance
+name|PDAppearanceString
 name|appearance
 decl_stmt|;
 comment|/**      * A Q value.      */
@@ -211,7 +212,6 @@ init|=
 literal|2
 decl_stmt|;
 comment|/**      * @see PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroform.      */
-specifier|public
 name|PDVariableText
 parameter_list|(
 name|PDAcroForm
@@ -225,7 +225,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroForm for this field.      * @param field The field's dictionary.      */
-specifier|public
 name|PDVariableText
 parameter_list|(
 name|PDAcroForm
@@ -305,7 +304,7 @@ operator|.
 name|appearance
 operator|=
 operator|new
-name|PDAppearance
+name|PDAppearanceString
 argument_list|(
 name|getAcroForm
 argument_list|()

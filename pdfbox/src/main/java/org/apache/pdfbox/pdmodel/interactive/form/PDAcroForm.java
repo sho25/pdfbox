@@ -274,11 +274,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents the acroform of a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.14 $  */
+comment|/**  * An interactive form, also known as an AcroForm.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|PDAcroForm
 implements|implements
@@ -1297,11 +1298,11 @@ return|;
 block|}
 comment|/**      * Get the XFA resource, the XFA resource is only used for PDF 1.5+ forms.      *      * @return The xfa resource or null if it does not exist.      */
 specifier|public
-name|PDXFA
+name|PDXFAResource
 name|getXFA
 parameter_list|()
 block|{
-name|PDXFA
+name|PDXFAResource
 name|xfa
 init|=
 literal|null
@@ -1326,7 +1327,7 @@ block|{
 name|xfa
 operator|=
 operator|new
-name|PDXFA
+name|PDXFAResource
 argument_list|(
 name|base
 argument_list|)
@@ -1341,7 +1342,7 @@ specifier|public
 name|void
 name|setXFA
 parameter_list|(
-name|PDXFA
+name|PDXFAResource
 name|xfa
 parameter_list|)
 block|{

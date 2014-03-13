@@ -418,13 +418,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This one took me a while, but i'm proud to say that it handles  * the appearance of a textbox. This allows you to apply a value to  * a field in the document and handle the appearance so that the  * value is actually visible too.  * The problem was described by Ben Litchfield, the author of the  * example: org.apache.pdfbox.examlpes.fdf.ImportFDF. So Ben, here is the  * solution.  *  * @author sug  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.20 $  */
+comment|/**  * A default appearance string contains any graphics state or text state operators needed to  * establish the graphics state parameters, such as text size and colour, for displaying the field?s  * variable text. Only operators that are allowed within text objects shall occur in this string.  *  * @author Stephan Gerhard  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
-name|PDAppearance
+name|PDAppearanceString
 block|{
 specifier|private
 name|PDVariableText
@@ -458,7 +459,7 @@ argument_list|()
 decl_stmt|;
 comment|/**      * Constructs a COSAppearnce from the given field.      *      * @param theAcroForm the acro form that this field is part of.      * @param field the field which you wish to control the appearance of      * @throws IOException If there is an error creating the appearance.      */
 specifier|public
-name|PDAppearance
+name|PDAppearanceString
 parameter_list|(
 name|PDAcroForm
 name|theAcroForm
@@ -1877,7 +1878,7 @@ if|if
 condition|(
 name|q
 operator|==
-name|PDTextbox
+name|PDText
 operator|.
 name|QUADDING_LEFT
 condition|)
@@ -1889,13 +1890,13 @@ if|if
 condition|(
 name|q
 operator|==
-name|PDTextbox
+name|PDText
 operator|.
 name|QUADDING_CENTERED
 operator|||
 name|q
 operator|==
-name|PDTextbox
+name|PDText
 operator|.
 name|QUADDING_RIGHT
 condition|)
@@ -1937,7 +1938,7 @@ if|if
 condition|(
 name|q
 operator|==
-name|PDTextbox
+name|PDText
 operator|.
 name|QUADDING_CENTERED
 condition|)

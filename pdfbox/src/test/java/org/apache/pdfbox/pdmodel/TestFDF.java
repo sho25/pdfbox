@@ -239,7 +239,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDRadioCollection
+name|PDRadioButton
 import|;
 end_import
 
@@ -257,7 +257,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDTextbox
+name|PDText
 import|;
 end_import
 
@@ -423,11 +423,11 @@ operator|.
 name|getAcroForm
 argument_list|()
 decl_stmt|;
-name|PDTextbox
+name|PDText
 name|field
 init|=
 operator|(
-name|PDTextbox
+name|PDText
 operator|)
 name|form
 operator|.
@@ -544,11 +544,11 @@ operator|.
 name|getAcroForm
 argument_list|()
 decl_stmt|;
-name|PDTextbox
+name|PDText
 name|feld2
 init|=
 operator|(
-name|PDTextbox
+name|PDText
 operator|)
 name|form
 operator|.
@@ -642,11 +642,11 @@ argument_list|,
 name|expected
 argument_list|)
 expr_stmt|;
-name|PDRadioCollection
+name|PDRadioButton
 name|feld3
 init|=
 operator|(
-name|PDRadioCollection
+name|PDRadioButton
 operator|)
 name|form
 operator|.
@@ -779,11 +779,11 @@ argument_list|(
 name|fdf
 argument_list|)
 expr_stmt|;
-name|PDTextbox
+name|PDText
 name|feld2
 init|=
 operator|(
-name|PDTextbox
+name|PDText
 operator|)
 name|form
 operator|.

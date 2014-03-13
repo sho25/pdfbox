@@ -220,7 +220,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the superclass for a Field element in a PDF. Based on the COS object model from PDFBox.  *   * @author sug  *   */
+comment|/**  * A field in an interactive form.  * Fields may be one of four types: button, text, choice, or signature.  *  * @author sug  */
 end_comment
 
 begin_class
@@ -271,7 +271,6 @@ name|COSDictionary
 name|dictionary
 decl_stmt|;
 comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      */
-specifier|public
 name|PDField
 parameter_list|(
 name|PDAcroForm
@@ -291,7 +290,7 @@ expr_stmt|;
 comment|// no required fields in base field class
 block|}
 comment|/**      * Creates a COSField from a COSDictionary, expected to be a correct object definition for a field in PDF.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF objet to represent as a field.      */
-specifier|public
+specifier|protected
 name|PDField
 parameter_list|(
 name|PDAcroForm
@@ -486,7 +485,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-specifier|private
+comment|// used by factory class
+specifier|static
 name|String
 name|findFieldType
 parameter_list|(
@@ -1559,7 +1559,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get all the kids of this field. The values in the list will either be PDWidget or PDField. Normally      * they will be PDWidget objects unless this is a non-terminal field and they will be child PDField objects.      *       * @return A list of either PDWidget or PDField objects.      * @throws IOException If there is an error retrieving the kids.      */
+comment|/**      * This will get all the kids of this field. The values in the list will either be PDWidget or PDField. Normally      * they will be PDWidget objects unless this is a non-terminal field and they will be child PDField objects.      *      * @return A list of either PDWidget or PDField objects.      * @throws IOException If there is an error retrieving the kids.      */
 specifier|public
 name|List
 argument_list|<
@@ -1567,6 +1567,33 @@ name|COSObjectable
 argument_list|>
 name|getKids
 parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|getKids
+argument_list|(
+name|acroForm
+argument_list|,
+name|getDictionary
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|// used by factory class
+specifier|static
+name|List
+argument_list|<
+name|COSObjectable
+argument_list|>
+name|getKids
+parameter_list|(
+name|PDAcroForm
+name|form
+parameter_list|,
+name|COSDictionary
+name|dictionary
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -1584,8 +1611,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
-argument_list|()
+name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -1712,7 +1738,7 @@ name|PDFieldFactory
 operator|.
 name|createField
 argument_list|(
-name|acroForm
+name|form
 argument_list|,
 name|kidDictionary
 argument_list|)
@@ -1760,7 +1786,7 @@ name|PDFieldFactory
 operator|.
 name|createField
 argument_list|(
-name|acroForm
+name|form
 argument_list|,
 name|kidDictionary
 argument_list|)

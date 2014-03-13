@@ -21,16 +21,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -114,44 +104,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class for handling the PDF field as a choicefield.  *  * @author sug  * @version $Revision: 1.7 $  */
+comment|/**  * A choice field contains several text items,  * one or more of which shall be selected as the field value.  * @author sug  * @author John Hewson  */
 end_comment
 
 begin_class
 specifier|public
+specifier|abstract
 class|class
-name|PDChoiceField
+name|PDChoice
 extends|extends
 name|PDVariableText
 block|{
-comment|/**      * A Ff flag.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|FLAG_COMBO
-init|=
-literal|1
-operator|<<
-literal|17
-decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|FLAG_EDIT
-init|=
-literal|1
-operator|<<
-literal|18
-decl_stmt|;
-comment|/**      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroForm for this field.      * @param field The field for this choice field.      */
-specifier|public
-name|PDChoiceField
+name|PDChoice
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|,
 name|COSDictionary
 name|field
@@ -159,22 +126,20 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|,
 name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#setValue(java.lang.String)      *      * @param optionValue The new value for this text field.      *      * @throws IOException If there is an error calculating the appearance stream or the value in not one      *   of the existing options.      */
-specifier|public
-name|void
-name|setValue
+comment|// returns the "Opt" index for the given string
+specifier|protected
+name|int
+name|getSelectedIndex
 parameter_list|(
 name|String
 name|optionValue
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|int
 name|indexSelected
@@ -198,54 +163,6 @@ operator|.
 name|OPT
 argument_list|)
 decl_stmt|;
-name|int
-name|fieldFlags
-init|=
-name|getFieldFlags
-argument_list|()
-decl_stmt|;
-name|boolean
-name|isEditable
-init|=
-operator|(
-name|FLAG_COMBO
-operator|&
-name|fieldFlags
-operator|)
-operator|!=
-literal|0
-operator|&&
-operator|(
-name|FLAG_EDIT
-operator|&
-name|fieldFlags
-operator|)
-operator|!=
-literal|0
-decl_stmt|;
-if|if
-condition|(
-name|options
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|0
-operator|&&
-operator|!
-name|isEditable
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Error: You cannot set a value for a choice field if there are no options."
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
 comment|// YXJ: Changed the order of the loops. Acrobat produces PDF's
 comment|// where sometimes there is 1 string and the rest arrays.
 comment|// This code works either way.
@@ -346,18 +263,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|//have the parent draw the appearance stream with the value
-name|super
-operator|.
-name|setValue
-argument_list|(
-name|value
-operator|.
-name|getString
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|//but then use the key as the V entry
+comment|// have the parent draw the appearance stream with the value
+comment|// but then use the key as the V entry
 name|getDictionary
 argument_list|()
 operator|.
@@ -399,13 +306,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|super
-operator|.
-name|setValue
-argument_list|(
-name|optionValue
-argument_list|)
-expr_stmt|;
 name|indexSelected
 operator|=
 name|i
@@ -413,47 +313,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-if|if
-condition|(
+return|return
 name|indexSelected
-operator|==
-operator|-
-literal|1
-operator|&&
-name|isEditable
-condition|)
-block|{
-name|super
-operator|.
-name|setValue
-argument_list|(
-name|optionValue
-argument_list|)
-expr_stmt|;
+return|;
 block|}
-elseif|else
-if|if
-condition|(
-name|indexSelected
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Error: '"
-operator|+
-name|optionValue
-operator|+
-literal|"' was not an available option."
-argument_list|)
-throw|;
-block|}
-else|else
+comment|// implements "MultiSelect"
+specifier|protected
+name|void
+name|selectMultiple
+parameter_list|(
+name|int
+name|selectedIndex
+parameter_list|)
 block|{
 name|COSArray
 name|indexArray
@@ -491,11 +362,10 @@ name|COSInteger
 operator|.
 name|get
 argument_list|(
-name|indexSelected
+name|selectedIndex
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

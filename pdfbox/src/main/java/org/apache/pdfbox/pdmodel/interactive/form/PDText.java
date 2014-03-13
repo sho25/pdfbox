@@ -21,11 +21,15 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSDictionary
 import|;
 end_import
 
@@ -39,24 +43,39 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSDictionary
+name|COSName
 import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a form field with an unknown type.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * A text field is a box or space for text fill-in data typically entered from a keyboard.  * The text may be restricted to a single line or may be permitted to span multiple lines  *  * @author sug  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
-name|PDUnknownField
+name|PDText
 extends|extends
-name|PDField
+name|PDVariableText
 block|{
-comment|/**      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#PDField(PDAcroForm, COSDictionary)      *      * @param theAcroForm The acroForm for this field.      * @param field The field's dictionary.      */
+comment|/**      * @see PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroform.      */
 specifier|public
-name|PDUnknownField
+name|PDText
+parameter_list|(
+name|PDAcroForm
+name|theAcroForm
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|theAcroForm
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroForm for this field.      * @param field The field's dictionary.      */
+specifier|public
+name|PDText
 parameter_list|(
 name|PDAcroForm
 name|theAcroForm
@@ -73,30 +92,45 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/**      * Returns the maximum number of characters of the text field.      *       * @return the maximum number of characters, returns -1 if the value isn't present      */
 specifier|public
-name|void
-name|setValue
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|//do nothing
-block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|String
-name|getValue
+name|int
+name|getMaxLen
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
-literal|null
+name|getDictionary
+argument_list|()
+operator|.
+name|getInt
+argument_list|(
+name|COSName
+operator|.
+name|MAX_LEN
+argument_list|)
 return|;
+block|}
+comment|/**      * Sets the maximum number of characters of the text field.      *       * @param maxLen the maximum number of characters      */
+specifier|public
+name|void
+name|setMaxLen
+parameter_list|(
+name|int
+name|maxLen
+parameter_list|)
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|setInt
+argument_list|(
+name|COSName
+operator|.
+name|MAX_LEN
+argument_list|,
+name|maxLen
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

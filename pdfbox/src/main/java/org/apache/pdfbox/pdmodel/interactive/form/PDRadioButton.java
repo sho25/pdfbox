@@ -108,15 +108,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class for handling the PDF field as a Radio Collection.  * This class automatically keeps track of the child radio buttons  * in the collection.  *  * @see PDCheckbox  * @author sug  * @version $Revision: 1.13 $  */
+comment|/**  * Radio button fields contain a set of related buttons that can each be on or off.  *  * @author sug  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
-name|PDRadioCollection
+name|PDRadioButton
 extends|extends
-name|PDChoiceButton
+name|PDButton
 block|{
 comment|/**      * A Ff flag.      */
 specifier|public
@@ -131,7 +132,7 @@ literal|25
 decl_stmt|;
 comment|/**      * @param theAcroForm The acroForm for this field.      * @param field The field that makes up the radio collection.      *      * {@inheritDoc}      */
 specifier|public
-name|PDRadioCollection
+name|PDRadioButton
 parameter_list|(
 name|PDAcroForm
 name|theAcroForm

@@ -178,13 +178,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents an XML Forms Architecture Data packet.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * An XML Forms Architecture (XFA) resource.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
-name|PDXFA
+name|PDXFAResource
 implements|implements
 name|COSObjectable
 block|{
@@ -194,7 +195,7 @@ name|xfa
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param xfaBase The xfa resource.      */
 specifier|public
-name|PDXFA
+name|PDXFAResource
 parameter_list|(
 name|COSBase
 name|xfaBase

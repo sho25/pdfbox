@@ -72,15 +72,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class for handling the PDF field as a checkbox.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author sug  * @version $Revision: 1.11 $  */
+comment|/**  * A check box toggles between two states, on and off.  *  * @author Ben Litchfield  * @author sug  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|PDCheckbox
 extends|extends
-name|PDChoiceButton
+name|PDButton
 block|{
 specifier|private
 specifier|static

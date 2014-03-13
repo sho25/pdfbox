@@ -112,23 +112,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This holds common functionality for check boxes and radio buttons.  *  * @author sug  * @version $Revision: 1.4 $  */
+comment|/**  * A button field represents an interactive control on the screen  * that the user can manipulate with the mouse.  *  * @author sug  */
 end_comment
 
 begin_class
 specifier|public
 specifier|abstract
 class|class
-name|PDChoiceButton
+name|PDButton
 extends|extends
 name|PDField
 block|{
-comment|/**      * @see PDField#PDField(PDAcroForm,org.apache.pdfbox.cos.COSDictionary)      *      * @param theAcroForm The acroForm for this field.      * @param field The field for this button.      */
-specifier|public
-name|PDChoiceButton
+name|PDButton
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|,
 name|COSDictionary
 name|field
@@ -136,7 +134,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|,
 name|field
 argument_list|)
