@@ -600,7 +600,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * This will get the font width for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font height for a character.      *       * @param c The character code to get the height for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The height is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
 specifier|public
 specifier|abstract
 name|float
