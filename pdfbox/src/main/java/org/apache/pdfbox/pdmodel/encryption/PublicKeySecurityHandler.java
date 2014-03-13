@@ -629,12 +629,12 @@ name|document
 operator|=
 name|doc
 expr_stmt|;
-name|PDEncryptionDictionary
+name|PDEncryption
 name|dictionary
 init|=
 name|doc
 operator|.
-name|getEncryptionDictionary
+name|getEncryption
 argument_list|()
 decl_stmt|;
 name|prepareForDecryption
@@ -656,13 +656,13 @@ name|proceedDecryption
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Prepares everything to decrypt the document.      *      * If {@link #decryptDocument(PDDocument, DecryptionMaterial)} is used, this method is      * called from there. Only if decryption of single objects is needed this should be called instead.      *      * @param encDictionary  encryption dictionary, can be retrieved via {@link PDDocument#getEncryptionDictionary()}      * @param documentIDArray  document id which is returned via {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()} (not used by this handler)      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Prepares everything to decrypt the document.      *      * If {@link #decryptDocument(PDDocument, DecryptionMaterial)} is used, this method is      * called from there. Only if decryption of single objects is needed this should be called instead.      *      * @param encryption  encryption dictionary, can be retrieved via {@link PDDocument#getEncryption()}      * @param documentIDArray  document id which is returned via {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()} (not used by this handler)      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|void
 name|prepareForDecryption
 parameter_list|(
-name|PDEncryptionDictionary
-name|encDictionary
+name|PDEncryption
+name|encryption
 parameter_list|,
 name|COSArray
 name|documentIDArray
@@ -675,7 +675,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|encDictionary
+name|encryption
 operator|.
 name|getLength
 argument_list|()
@@ -687,7 +687,7 @@ name|this
 operator|.
 name|keyLength
 operator|=
-name|encDictionary
+name|encryption
 operator|.
 name|getLength
 argument_list|()
@@ -743,7 +743,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|encDictionary
+name|encryption
 operator|.
 name|getRecipientsLength
 argument_list|()
@@ -764,7 +764,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|encDictionary
+name|encryption
 operator|.
 name|getRecipientsLength
 argument_list|()
@@ -776,7 +776,7 @@ block|{
 name|COSString
 name|recipientFieldString
 init|=
-name|encDictionary
+name|encryption
 operator|.
 name|getRecipientStringAt
 argument_list|(
@@ -1168,12 +1168,12 @@ name|BouncyCastleProvider
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|PDEncryptionDictionary
+name|PDEncryption
 name|dictionary
 init|=
 name|doc
 operator|.
-name|getEncryptionDictionary
+name|getEncryption
 argument_list|()
 decl_stmt|;
 if|if
@@ -1186,7 +1186,7 @@ block|{
 name|dictionary
 operator|=
 operator|new
-name|PDEncryptionDictionary
+name|PDEncryption
 argument_list|()
 expr_stmt|;
 block|}
@@ -1725,7 +1725,8 @@ name|setEncryptionDictionary
 argument_list|(
 name|dictionary
 operator|.
-name|encryptionDictionary
+name|getCOSDictionary
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -489,12 +489,12 @@ name|document
 operator|=
 name|doc
 expr_stmt|;
-name|PDEncryptionDictionary
+name|PDEncryption
 name|dictionary
 init|=
 name|document
 operator|.
-name|getEncryptionDictionary
+name|getEncryption
 argument_list|()
 decl_stmt|;
 name|COSArray
@@ -521,13 +521,13 @@ name|proceedDecryption
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Prepares everything to decrypt the document.      *      * Called from {@link #decryptDocument(PDDocument, DecryptionMaterial)}.      * Only if decryption of single objects is needed this should be called instead.      *      * @param encDictionary  encryption dictionary      * @param documentIDArray  document id      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Prepares everything to decrypt the document.      *      * Called from {@link #decryptDocument(PDDocument, DecryptionMaterial)}.      * Only if decryption of single objects is needed this should be called instead.      *      * @param encryption  encryption dictionary      * @param documentIDArray  document id      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|void
 name|prepareForDecryption
 parameter_list|(
-name|PDEncryptionDictionary
-name|encDictionary
+name|PDEncryption
+name|encryption
 parameter_list|,
 name|COSArray
 name|documentIDArray
@@ -587,7 +587,7 @@ block|}
 name|int
 name|dicPermissions
 init|=
-name|encDictionary
+name|encryption
 operator|.
 name|getPermissions
 argument_list|()
@@ -595,7 +595,7 @@ decl_stmt|;
 name|int
 name|dicRevision
 init|=
-name|encDictionary
+name|encryption
 operator|.
 name|getRevision
 argument_list|()
@@ -603,7 +603,7 @@ decl_stmt|;
 name|int
 name|dicLength
 init|=
-name|encDictionary
+name|encryption
 operator|.
 name|getLength
 argument_list|()
@@ -668,7 +668,7 @@ comment|// we need to know whether the meta data was encrypted for password calc
 name|boolean
 name|encryptMetadata
 init|=
-name|encDictionary
+name|encryption
 operator|.
 name|isEncryptMetaData
 argument_list|()
@@ -677,7 +677,7 @@ name|byte
 index|[]
 name|userKey
 init|=
-name|encDictionary
+name|encryption
 operator|.
 name|getUserKey
 argument_list|()
@@ -686,7 +686,7 @@ name|byte
 index|[]
 name|ownerKey
 init|=
-name|encDictionary
+name|encryption
 operator|.
 name|getOwnerKey
 argument_list|()
@@ -841,7 +841,7 @@ comment|// stored in the PDCryptFilterDictionary
 name|PDCryptFilterDictionary
 name|stdCryptFilterDictionary
 init|=
-name|encDictionary
+name|encryption
 operator|.
 name|getStdCryptFilterDictionary
 argument_list|()
@@ -899,12 +899,12 @@ name|document
 operator|=
 name|doc
 expr_stmt|;
-name|PDEncryptionDictionary
+name|PDEncryption
 name|encryptionDictionary
 init|=
 name|document
 operator|.
-name|getEncryptionDictionary
+name|getEncryption
 argument_list|()
 decl_stmt|;
 if|if
@@ -917,7 +917,7 @@ block|{
 name|encryptionDictionary
 operator|=
 operator|new
-name|PDEncryptionDictionary
+name|PDEncryption
 argument_list|()
 expr_stmt|;
 block|}

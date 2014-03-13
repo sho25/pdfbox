@@ -480,14 +480,14 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Prepares everything to decrypt the document.      *       * If {@link #decryptDocument(PDDocument, DecryptionMaterial)} is used, this method is      * called from there. Only if decryption of single objects is needed this should be called instead.      *      * @param encDictionary  encryption dictionary, can be retrieved via {@link PDDocument#getEncryptionDictionary()}      * @param documentIDArray  document id which is returned via {@link COSDocument#getDocumentID()}      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Prepares everything to decrypt the document.      *       * If {@link #decryptDocument(PDDocument, DecryptionMaterial)} is used, this method is      * called from there. Only if decryption of single objects is needed this should be called instead.      *      * @param encryption  encryption dictionary, can be retrieved via {@link PDDocument#getEncryption()}      * @param documentIDArray  document id which is returned via {@link COSDocument#getDocumentID()}      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|abstract
 name|void
 name|prepareForDecryption
 parameter_list|(
-name|PDEncryptionDictionary
-name|encDictionary
+name|PDEncryption
+name|encryption
 parameter_list|,
 name|COSArray
 name|documentIDArray
