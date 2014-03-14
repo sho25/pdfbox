@@ -285,16 +285,105 @@ throws|throws
 name|Exception
 block|{
 comment|//TODO enable this test when JPEGFactory.createFromImage() works
-comment|//        PDDocument document = new PDDocument();
-comment|//        BufferedImage bim = ImageIO.read(new File("src/test/resources/org/apache/pdfbox/pdmodel/graphics/image/jpeg.jpg"));
-comment|//        PDImageXObject ximage = JPEGFactory.createFromImage(document, bim);
-comment|//        assertNotNull(ximage);
-comment|//        assertNotNull(ximage.getCOSStream());
-comment|//        assertTrue(ximage.getCOSStream().getFilteredLength()> 0);
-comment|//        assertEquals(8, ximage.getBitsPerComponent());
-comment|//        assertEquals(344, ximage.getWidth());
-comment|//        assertEquals(287, ximage.getHeight());
-comment|//        assertEquals("jpg", ximage.getSuffix());
+name|PDDocument
+name|document
+init|=
+operator|new
+name|PDDocument
+argument_list|()
+decl_stmt|;
+name|BufferedImage
+name|bim
+init|=
+name|ImageIO
+operator|.
+name|read
+argument_list|(
+operator|new
+name|File
+argument_list|(
+literal|"src/test/resources/org/apache/pdfbox/pdmodel/graphics/image/jpeg.jpg"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|PDImageXObject
+name|ximage
+init|=
+name|JPEGFactory
+operator|.
+name|createFromImage
+argument_list|(
+name|document
+argument_list|,
+name|bim
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|ximage
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|ximage
+operator|.
+name|getCOSStream
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|ximage
+operator|.
+name|getCOSStream
+argument_list|()
+operator|.
+name|getFilteredLength
+argument_list|()
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|8
+argument_list|,
+name|ximage
+operator|.
+name|getBitsPerComponent
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|344
+argument_list|,
+name|ximage
+operator|.
+name|getWidth
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|287
+argument_list|,
+name|ximage
+operator|.
+name|getHeight
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"jpg"
+argument_list|,
+name|ximage
+operator|.
+name|getSuffix
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|//TODO shouldn't ximage.getImage() return a real image?
 comment|//        assertNotNull(ximage.getImage());
 comment|//        assertEquals(344, ximage.getImage().getWidth());
