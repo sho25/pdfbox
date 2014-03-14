@@ -1436,7 +1436,7 @@ block|}
 comment|/**      * This is a convenience method that will get the dictionary object that      * is expected to be a name. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The COS name.      */
 specifier|public
 name|COSName
-name|getName
+name|getCOSName
 parameter_list|(
 name|COSName
 name|key
@@ -1479,7 +1479,7 @@ block|}
 comment|/**      * This is a convenience method that will get the dictionary object that      * is expected to be a name. Default is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The COS name.      */
 specifier|public
 name|COSName
-name|getName
+name|getCOSName
 parameter_list|(
 name|COSName
 name|key

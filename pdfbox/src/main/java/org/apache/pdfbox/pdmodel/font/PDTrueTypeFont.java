@@ -528,15 +528,13 @@ name|TRUE_TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      *       * @throws IOException exception if something went wrong when loading the font.      */
+comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      */
 specifier|public
 name|PDTrueTypeFont
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

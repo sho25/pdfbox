@@ -1240,14 +1240,6 @@ name|spaceWidthText
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
-name|font
-operator|!=
-literal|null
-condition|)
-comment|// PDFBOX-1946 font might still be null if in applet
-block|{
 try|try
 block|{
 comment|// to avoid crash as described in PDFBOX-614
@@ -1279,7 +1271,6 @@ argument_list|,
 name|exception
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
