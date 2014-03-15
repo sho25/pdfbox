@@ -176,6 +176,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|MetaUtil
+operator|.
+name|STANDARD_METADATA_FORMAT
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -196,14 +212,6 @@ specifier|public
 class|class
 name|ImageIOUtil
 block|{
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|STANDARD_METADATA_FORMAT
-init|=
-literal|"javax_imageio_1.0"
-decl_stmt|;
 specifier|private
 name|ImageIOUtil
 parameter_list|()
