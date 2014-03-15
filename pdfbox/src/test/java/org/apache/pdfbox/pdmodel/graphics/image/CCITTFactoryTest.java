@@ -31,23 +31,21 @@ end_import
 
 begin_import
 import|import
-name|junit
+name|java
 operator|.
-name|framework
+name|io
 operator|.
-name|TestCase
+name|IOException
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|junit
 operator|.
 name|framework
 operator|.
 name|TestCase
-operator|.
-name|assertEquals
 import|;
 end_import
 
@@ -93,30 +91,8 @@ name|PDDocument
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
-comment|/**  *  * @author Tilman Hausherr  */
+comment|/**  * Unit tests for CCITTFactory  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -126,32 +102,19 @@ name|CCITTFactoryTest
 extends|extends
 name|TestCase
 block|{
-comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * Test of createFromRandomAccess method, of class CCITTFactory.      */
-annotation|@
-name|Test
+comment|/**      * Tests CCITTFactory#createFromRandomAccess(PDDocument document, RandomAccess reader)      */
 specifier|public
 name|void
 name|testCreateFromRandomAccess
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
+name|String
+name|tiffPath
+init|=
+literal|"src/test/resources/org/apache/pdfbox/pdmodel/graphics/image/ccittg4.tif"
+decl_stmt|;
 name|PDDocument
 name|document
 init|=
@@ -168,7 +131,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/org/apache/pdfbox/pdmodel/graphics/image/ccittg4.tif"
+name|tiffPath
 argument_list|)
 argument_list|,
 literal|"r"
@@ -186,6 +149,7 @@ argument_list|,
 name|reader
 argument_list|)
 decl_stmt|;
+comment|// check the dictionary
 name|assertNotNull
 argument_list|(
 name|ximage
@@ -252,10 +216,41 @@ name|getSuffix
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//TODO shouldn't ximage.getImage() return a real image?
-comment|//        assertNotNull(ximage.getImage());
-comment|//        assertEquals(344, ximage.getImage().getWidth());
-comment|//        assertEquals(287, ximage.getImage().getHeight());
+comment|// check the image
+name|assertNotNull
+argument_list|(
+name|ximage
+operator|.
+name|getImage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|344
+argument_list|,
+name|ximage
+operator|.
+name|getImage
+argument_list|()
+operator|.
+name|getWidth
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|287
+argument_list|,
+name|ximage
+operator|.
+name|getImage
+argument_list|()
+operator|.
+name|getHeight
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|document
 operator|.
 name|close

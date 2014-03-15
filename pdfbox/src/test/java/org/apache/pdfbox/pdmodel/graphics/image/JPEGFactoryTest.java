@@ -25,16 +25,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Color
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|Graphics
 import|;
 end_import
@@ -57,17 +47,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileInputStream
+name|IOException
 import|;
 end_import
 
@@ -102,18 +82,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -127,30 +95,8 @@ name|PDDocument
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
-comment|/**  *  * @author Tilman Hausherr  */
+comment|/**  * Unit tests for JPEGFactory  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -160,31 +106,13 @@ name|JPEGFactoryTest
 extends|extends
 name|TestCase
 block|{
-comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * Test of createFromStream method, of class JPEGFactory.      */
-annotation|@
-name|Test
+comment|/**      * Tests JPEGFactory#createFromStream(PDDocument document, InputStream stream)      */
 specifier|public
 name|void
 name|testCreateFromStream
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|PDDocument
 name|document
@@ -196,14 +124,13 @@ decl_stmt|;
 name|InputStream
 name|stream
 init|=
-operator|new
-name|FileInputStream
+name|JPEGFactoryTest
+operator|.
+name|class
+operator|.
+name|getResourceAsStream
 argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"src/test/resources/org/apache/pdfbox/pdmodel/graphics/image/jpeg.jpg"
-argument_list|)
+literal|"jpeg.jpg"
 argument_list|)
 decl_stmt|;
 name|PDImageXObject
@@ -218,91 +145,24 @@ argument_list|,
 name|stream
 argument_list|)
 decl_stmt|;
-name|assertNotNull
+name|validate
 argument_list|(
 name|ximage
 argument_list|)
 expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|ximage
-operator|.
-name|getCOSStream
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|ximage
-operator|.
-name|getCOSStream
-argument_list|()
-operator|.
-name|getFilteredLength
-argument_list|()
-operator|>
-literal|0
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|8
-argument_list|,
-name|ximage
-operator|.
-name|getBitsPerComponent
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|344
-argument_list|,
-name|ximage
-operator|.
-name|getWidth
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|287
-argument_list|,
-name|ximage
-operator|.
-name|getHeight
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"jpg"
-argument_list|,
-name|ximage
-operator|.
-name|getSuffix
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|//TODO shouldn't ximage.getImage() return a real image?
-comment|//        assertNotNull(ximage.getImage());
-comment|//        assertEquals(344, ximage.getImage().getWidth());
-comment|//        assertEquals(287, ximage.getImage().getHeight());
 name|document
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test of createFromImage method, of class JPEGFactory.      */
-annotation|@
-name|Test
+comment|/**      * Tests RGB JPEGFactory#createFromImage(PDDocument document, BufferedImage image)      */
 specifier|public
 name|void
-name|testCreateFromImage
+name|testCreateFromImageRGB
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|PDDocument
 name|document
@@ -312,24 +172,82 @@ name|PDDocument
 argument_list|()
 decl_stmt|;
 name|BufferedImage
-name|rgbImage
+name|image
 init|=
 name|ImageIO
 operator|.
 name|read
 argument_list|(
-operator|new
-name|File
+name|JPEGFactoryTest
+operator|.
+name|class
+operator|.
+name|getResourceAsStream
 argument_list|(
-literal|"src/test/resources/org/apache/pdfbox/pdmodel/graphics/image/jpeg.jpg"
+literal|"jpeg.jpg"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// Create an ARGB image
+name|PDImageXObject
+name|ximage
+init|=
+name|JPEGFactory
+operator|.
+name|createFromImage
+argument_list|(
+name|document
+argument_list|,
+name|image
+argument_list|)
+decl_stmt|;
+name|validate
+argument_list|(
+name|ximage
+argument_list|)
+expr_stmt|;
+name|document
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Tests ARGB JPEGFactory#createFromImage(PDDocument document, BufferedImage image)      */
+specifier|public
+name|void
+name|testCreateFromImageARGB
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|PDDocument
+name|document
+init|=
+operator|new
+name|PDDocument
+argument_list|()
+decl_stmt|;
+name|BufferedImage
+name|image
+init|=
+name|ImageIO
+operator|.
+name|read
+argument_list|(
+name|JPEGFactoryTest
+operator|.
+name|class
+operator|.
+name|getResourceAsStream
+argument_list|(
+literal|"jpeg.jpg"
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// create an ARGB image
 name|int
 name|w
 init|=
-name|rgbImage
+name|image
 operator|.
 name|getWidth
 argument_list|()
@@ -337,7 +255,7 @@ decl_stmt|;
 name|int
 name|h
 init|=
-name|rgbImage
+name|image
 operator|.
 name|getHeight
 argument_list|()
@@ -369,7 +287,7 @@ name|ag
 operator|.
 name|drawImage
 argument_list|(
-name|rgbImage
+name|image
 argument_list|,
 literal|0
 argument_list|,
@@ -383,7 +301,7 @@ operator|.
 name|dispose
 argument_list|()
 expr_stmt|;
-comment|// left half of image with 1/2 transparency
+comment|// left half of image with 50% alpha
 for|for
 control|(
 name|int
@@ -424,7 +342,7 @@ name|x
 argument_list|,
 name|y
 argument_list|,
-name|rgbImage
+name|image
 operator|.
 name|getRGB
 argument_list|(
@@ -447,9 +365,39 @@ name|createFromImage
 argument_list|(
 name|document
 argument_list|,
-name|rgbImage
+name|image
 argument_list|)
 decl_stmt|;
+name|validate
+argument_list|(
+name|ximage
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+name|ximage
+operator|.
+name|getSoftMask
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|document
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|validate
+parameter_list|(
+name|PDImageXObject
+name|ximage
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// check the dictionary
 name|assertNotNull
 argument_list|(
 name|ximage
@@ -516,23 +464,41 @@ name|getSuffix
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+comment|// check the image
+name|assertNotNull
 argument_list|(
 name|ximage
 operator|.
-name|getSoftMask
+name|getImage
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//TODO when ARGB works
-comment|//        PDImageXObject ximage = JPEGFactory.createFromImage(document, argbImage);
-comment|//        assertNotNull(ximage.getSoftMask());
-comment|// etc...
-comment|//TODO shouldn't ximage.getImage() return a real image?
-comment|//        assertNotNull(ximage.getImage());
-comment|//        assertEquals(344, ximage.getImage().getWidth());
-comment|//        assertEquals(287, ximage.getImage().getHeight());
-comment|//        document.close();
+name|assertEquals
+argument_list|(
+literal|344
+argument_list|,
+name|ximage
+operator|.
+name|getImage
+argument_list|()
+operator|.
+name|getWidth
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|287
+argument_list|,
+name|ximage
+operator|.
+name|getImage
+argument_list|()
+operator|.
+name|getHeight
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

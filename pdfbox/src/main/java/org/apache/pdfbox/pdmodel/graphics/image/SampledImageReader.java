@@ -496,7 +496,10 @@ operator|.
 name|getStream
 argument_list|()
 operator|.
-name|getLength
+name|getStream
+argument_list|()
+operator|.
+name|getFilteredLength
 argument_list|()
 operator|==
 literal|0

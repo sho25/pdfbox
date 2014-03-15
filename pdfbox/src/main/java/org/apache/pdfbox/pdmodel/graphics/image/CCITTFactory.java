@@ -219,17 +219,9 @@ init|=
 operator|new
 name|PDImageXObject
 argument_list|(
-operator|new
-name|PDStream
-argument_list|(
 name|document
 argument_list|,
 name|byteStream
-argument_list|,
-literal|true
-argument_list|)
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|COSDictionary
