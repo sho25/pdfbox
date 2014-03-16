@@ -209,6 +209,22 @@ name|MemoryCacheImageInputStream
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|PDMemoryStream
+import|;
+end_import
+
 begin_comment
 comment|/**  * Reads a sampled image from a PDF file.  * @author John Hewson  */
 end_comment
@@ -489,6 +505,40 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|pdImage
+operator|.
+name|getStream
+argument_list|()
+operator|instanceof
+name|PDMemoryStream
+condition|)
+block|{
+comment|// for inline images
+if|if
+condition|(
+name|pdImage
+operator|.
+name|getStream
+argument_list|()
+operator|.
+name|getLength
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Image stream is empty"
+argument_list|)
+throw|;
+block|}
+block|}
+elseif|else
 if|if
 condition|(
 name|pdImage
