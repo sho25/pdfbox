@@ -1613,7 +1613,7 @@ name|isStencil
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the suffix for this image type, e.g. jpg/png.      * @return The image suffix.      */
+comment|/**      * This will get the suffix for this image type, e.g. jpg/png.      * @return The image suffix or null if not available.      */
 specifier|public
 name|String
 name|getSuffix
@@ -1631,6 +1631,18 @@ operator|.
 name|getFilters
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|filters
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|"png"
+return|;
+block|}
+elseif|else
 if|if
 condition|(
 name|filters
@@ -1691,6 +1703,15 @@ argument_list|(
 name|COSName
 operator|.
 name|FLATE_DECODE
+argument_list|)
+operator|||
+name|filters
+operator|.
+name|contains
+argument_list|(
+name|COSName
+operator|.
+name|LZW_DECODE
 argument_list|)
 condition|)
 block|{
