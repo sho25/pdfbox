@@ -50,6 +50,18 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -88,6 +100,20 @@ operator|.
 name|pdmodel
 operator|.
 name|PDDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|ImageIOUtil
 import|;
 end_import
 
@@ -249,6 +275,31 @@ argument_list|()
 operator|.
 name|getHeight
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// dummy write the image
+name|boolean
+name|writeOk
+init|=
+name|ImageIOUtil
+operator|.
+name|writeImage
+argument_list|(
+name|ximage
+operator|.
+name|getImage
+argument_list|()
+argument_list|,
+literal|"png"
+argument_list|,
+operator|new
+name|NullOutputStream
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|writeOk
 argument_list|)
 expr_stmt|;
 name|document
