@@ -759,9 +759,15 @@ specifier|private
 name|Long
 name|documentId
 decl_stmt|;
+comment|// the PDF parser
 specifier|private
 name|BaseParser
 name|parser
+decl_stmt|;
+comment|// the File to read incremental data from
+specifier|private
+name|File
+name|incrementalFile
 decl_stmt|;
 comment|/**      * Creates an empty PDF document.      * You need to add at least one page for the document to be valid.      *       * @throws IOException If there is an error creating this document.      */
 specifier|public
@@ -1436,27 +1442,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|SignatureOptions
-name|defaultOptions
-init|=
-operator|new
-name|SignatureOptions
-argument_list|()
-decl_stmt|;
-name|defaultOptions
-operator|.
-name|setPage
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|addSignature
 argument_list|(
 name|sigObject
 argument_list|,
 name|signatureInterface
 argument_list|,
-name|defaultOptions
+operator|new
+name|SignatureOptions
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1556,10 +1550,10 @@ argument_list|(
 name|signatureInterface
 argument_list|)
 expr_stmt|;
-comment|// #########################################
-comment|// # Create SignatureForm for signature #
-comment|// # and appending it to the document #
-comment|// #########################################
+comment|//
+comment|// Create SignatureForm for signature
+comment|// and appending it to the document
+comment|//
 comment|// Get the first page
 name|PDDocumentCatalog
 name|root
@@ -1741,7 +1735,10 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*          * For invisible signatures, the annotation has a rectangle array with values [ 0 0 0 0 ]. This annotation is          * usually attached to the viewed page when the signature is created. Despite not having an appearance, the          * annotation AP and N dictionaries may be present in some versions of Acrobat. If present, N references the          * DSBlankXObj (blank) XObject.          */
+comment|// For invisible signatures, the annotation has a rectangle array with values [ 0 0 0 0 ]. This annotation is
+comment|// usually attached to the viewed page when the signature is created. Despite not having an appearance, the
+comment|// annotation AP and N dictionaries may be present in some versions of Acrobat. If present, N references the
+comment|// DSBlankXObj (blank) XObject.
 comment|// Create Annotation / Field for signature
 name|List
 argument_list|<
@@ -3781,7 +3778,7 @@ return|return
 name|load
 argument_list|(
 operator|new
-name|FileInputStream
+name|File
 argument_list|(
 name|filename
 argument_list|)
@@ -3807,7 +3804,7 @@ return|return
 name|load
 argument_list|(
 operator|new
-name|FileInputStream
+name|File
 argument_list|(
 name|filename
 argument_list|)
@@ -3835,12 +3832,14 @@ return|return
 name|load
 argument_list|(
 operator|new
-name|FileInputStream
+name|File
 argument_list|(
 name|filename
 argument_list|)
 argument_list|,
 name|scratchFile
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -3859,15 +3858,13 @@ block|{
 return|return
 name|load
 argument_list|(
-operator|new
-name|FileInputStream
-argument_list|(
 name|file
-argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from a file.      *       * @param file The name of the file to load.      * @param scratchFile A location to store temp PDFBox data for this document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from a file. Allows for skipping corrupt pdf objects      *      * @param file The name of the file to load.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3876,8 +3873,8 @@ parameter_list|(
 name|File
 name|file
 parameter_list|,
-name|RandomAccess
-name|scratchFile
+name|boolean
+name|force
 parameter_list|)
 throws|throws
 name|IOException
@@ -3885,13 +3882,11 @@ block|{
 return|return
 name|load
 argument_list|(
-operator|new
-name|FileInputStream
-argument_list|(
 name|file
-argument_list|)
 argument_list|,
-name|scratchFile
+literal|null
+argument_list|,
+name|force
 argument_list|)
 return|;
 block|}
@@ -3940,6 +3935,94 @@ literal|null
 argument_list|,
 name|force
 argument_list|)
+return|;
+block|}
+comment|/**      * This will load a document from an input stream.      *      * @param file The name of the file to load.      * @param scratchFile A location to store temp PDFBox data for this document.      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+specifier|public
+specifier|static
+name|PDDocument
+name|load
+parameter_list|(
+name|File
+name|file
+parameter_list|,
+name|RandomAccess
+name|scratchFile
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|load
+argument_list|(
+name|file
+argument_list|,
+name|scratchFile
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * This will load a document from an input stream.      *      * @param file The name of the file to load.      * @param scratchFile A location to store temp PDFBox data for this document.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+specifier|public
+specifier|static
+name|PDDocument
+name|load
+parameter_list|(
+name|File
+name|file
+parameter_list|,
+name|RandomAccess
+name|scratchFile
+parameter_list|,
+name|boolean
+name|force
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|PDFParser
+name|parser
+init|=
+operator|new
+name|PDFParser
+argument_list|(
+operator|new
+name|BufferedInputStream
+argument_list|(
+operator|new
+name|FileInputStream
+argument_list|(
+name|file
+argument_list|)
+argument_list|)
+argument_list|,
+name|scratchFile
+argument_list|,
+name|force
+argument_list|)
+decl_stmt|;
+name|parser
+operator|.
+name|parse
+argument_list|()
+expr_stmt|;
+name|PDDocument
+name|doc
+init|=
+name|parser
+operator|.
+name|getPDDocument
+argument_list|()
+decl_stmt|;
+name|doc
+operator|.
+name|incrementalFile
+operator|=
+name|file
+expr_stmt|;
+return|return
+name|doc
 return|;
 block|}
 comment|/**      * This will load a document from an input stream.      *       * @param input The stream that contains the document.      * @param scratchFile A location to store temp PDFBox data for this document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
@@ -4277,7 +4360,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Save the pdf as incremental.      *       * @param fileName the filename to be used      * @throws IOException if the output could not be written      */
+comment|/**      * Save the pdf as incremental.      *      * @deprecated Use {@link #saveIncremental(OutputStream output)} instead.      *      * @param fileName the filename to be used      * @throws IOException if the output could not be written      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|saveIncremental
@@ -4306,12 +4391,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Save the pdf as incremental.      *       * @param input stream to read      * @param output stream to write      * @throws IOException if the output could not be written      */
+comment|/**      * Save the PDF as an incremental update, explicitly providing the original input stream again.      *      * Use of this method is discouraged, use {@link #saveIncremental(OutputStream)} instead.      *      * @param input stream to read, must contain the same data used in the call to load().      * @param output stream to write      * @throws IOException if the output could not be written      */
 specifier|public
 name|void
 name|saveIncremental
 parameter_list|(
-name|FileInputStream
+name|InputStream
 name|input
 parameter_list|,
 name|OutputStream
@@ -4337,20 +4422,6 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-comment|// Sometimes the original file will be missing a newline at the end
-comment|// In order to avoid having %%EOF the first object on the same line
-comment|// as the %%EOF, we put a newline here. If there's already one at
-comment|// the end of the file, an extra one won't hurt. PDFBOX-1051
-name|output
-operator|.
-name|write
-argument_list|(
-literal|"\r\n"
-operator|.
-name|getBytes
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|writer
 operator|=
 operator|new
@@ -4390,6 +4461,44 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|/**      * Save the PDF as an incremental update, if it was loaded from a File.      * This method can only be used when the PDDocument was created by passing a File or filename      * to one of the load() constructors.      *      * @param output stream to write      * @throws IOException if the output could not be written      */
+specifier|public
+name|void
+name|saveIncremental
+parameter_list|(
+name|OutputStream
+name|output
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|incrementalFile
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"PDDocument.load must be called with a File or String"
+argument_list|)
+throw|;
+block|}
+name|saveIncremental
+argument_list|(
+operator|new
+name|FileInputStream
+argument_list|(
+name|incrementalFile
+argument_list|)
+argument_list|,
+name|output
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Returns the page at the given index.      * @param pageIndex the page index      * @return the page at the given index.      */
 specifier|public

@@ -68,12 +68,12 @@ block|{
 name|String
 name|documentFile
 init|=
-literal|"src/test/resources/org.apache.pdfbox.examples.pdmodel/document.pdf"
+literal|"src/test/resources/org/apache/pdfbox/examples/pdmodel/document.pdf"
 decl_stmt|;
 name|String
 name|stampFile
 init|=
-literal|"src/test/resources/org.apache.pdfbox.examples.pdmodel/stamp.jpg"
+literal|"src/test/resources/org/apache/pdfbox/examples/pdmodel/stamp.jpg"
 decl_stmt|;
 name|String
 name|outFile

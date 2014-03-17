@@ -108,6 +108,16 @@ specifier|private
 name|int
 name|pageNo
 decl_stmt|;
+comment|/**      * Creates the default signature options.      */
+specifier|public
+name|SignatureOptions
+parameter_list|()
+block|{
+name|pageNo
+operator|=
+literal|1
+expr_stmt|;
+block|}
 comment|/**      * Set the page number.      *       * @param pageNo the page number      */
 specifier|public
 name|void
