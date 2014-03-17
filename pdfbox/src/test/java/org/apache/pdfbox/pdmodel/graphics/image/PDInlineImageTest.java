@@ -99,6 +99,20 @@ name|COSName
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|ImageIOUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit tests for PDInlineImage  *  * @author Tilman Hausherr  */
 end_comment
