@@ -164,6 +164,7 @@ comment|/**  * Factory for creating a PDImageXObject containing a lossless compr
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|LosslessFactory
 block|{
