@@ -169,6 +169,7 @@ class|class
 name|LosslessFactory
 block|{
 comment|/**      * Creates a new lossless encoded Image XObject from a Buffered Image.      *      * @param document the document where the image will be created      * @param image the buffered image to embed      * @return a new Image XObject      * @throws IOException if something goes wrong      */
+specifier|public
 specifier|static
 name|PDImageXObject
 name|createLosslessFromImage
