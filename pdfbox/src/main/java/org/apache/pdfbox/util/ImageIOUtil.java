@@ -176,6 +176,34 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -212,6 +240,22 @@ specifier|public
 class|class
 name|ImageIOUtil
 block|{
+comment|/**      * Log instance      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|ImageIOUtil
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|ImageIOUtil
 parameter_list|()
@@ -412,7 +456,7 @@ literal|null
 decl_stmt|;
 comment|// Loop until we get the best driver, i.e. one that supports
 comment|// setting dpi in the standard metadata format; however we'd also
-comment|// accept a driver that can't if a better one can't be found
+comment|// accept a driver that can't, if a better one can't be found
 while|while
 condition|(
 name|writers
@@ -491,6 +535,65 @@ operator|==
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"No ImageWriter found for '"
+operator|+
+name|formatName
+operator|+
+literal|"' format"
+argument_list|)
+expr_stmt|;
+name|StringBuilder
+name|sb
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
+name|String
+index|[]
+name|writerFormatNames
+init|=
+name|ImageIO
+operator|.
+name|getWriterFormatNames
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|String
+name|fmt
+range|:
+name|writerFormatNames
+control|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|fmt
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|' '
+argument_list|)
+expr_stmt|;
+block|}
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Supported formats: "
+operator|+
+name|sb
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
