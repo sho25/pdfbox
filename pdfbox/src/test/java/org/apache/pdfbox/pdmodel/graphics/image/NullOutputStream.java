@@ -62,6 +62,38 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{     }
+annotation|@
+name|Override
+specifier|public
+name|void
+name|write
+parameter_list|(
+name|byte
+index|[]
+name|b
+parameter_list|,
+name|int
+name|off
+parameter_list|,
+name|int
+name|len
+parameter_list|)
+throws|throws
+name|IOException
+block|{     }
+annotation|@
+name|Override
+specifier|public
+name|void
+name|write
+parameter_list|(
+name|byte
+index|[]
+name|b
+parameter_list|)
+throws|throws
+name|IOException
+block|{     }
 block|}
 end_class
 
