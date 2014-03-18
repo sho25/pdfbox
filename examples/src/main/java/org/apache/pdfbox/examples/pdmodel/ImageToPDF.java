@@ -380,7 +380,7 @@ name|pdImage
 operator|=
 name|LosslessFactory
 operator|.
-name|createLosslessFromImage
+name|createFromImage
 argument_list|(
 name|doc
 argument_list|,
