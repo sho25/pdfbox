@@ -160,7 +160,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for creating a PDImageXObject containing a lossless compressed image.  *   * @author Tilman Hausherr  */
+comment|/**  * Factory for creating a PDImageXObject containing a lossless compressed image.  *  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -172,13 +172,13 @@ comment|/**      * Creates a new lossless encoded Image XObject from a Buffered 
 specifier|public
 specifier|static
 name|PDImageXObject
-name|createLosslessFromImage
+name|createFromImage
 parameter_list|(
 name|PDDocument
 name|document
 parameter_list|,
 name|BufferedImage
-name|bim
+name|image
 parameter_list|)
 throws|throws
 name|IOException
@@ -194,7 +194,7 @@ comment|//TODO use bit writing, indexed, etc
 name|int
 name|h
 init|=
-name|bim
+name|image
 operator|.
 name|getHeight
 argument_list|()
@@ -202,7 +202,7 @@ decl_stmt|;
 name|int
 name|w
 init|=
-name|bim
+name|image
 operator|.
 name|getWidth
 argument_list|()
@@ -238,12 +238,12 @@ name|x
 control|)
 block|{
 name|Color
-name|co
+name|color
 init|=
 operator|new
 name|Color
 argument_list|(
-name|bim
+name|image
 operator|.
 name|getRGB
 argument_list|(
@@ -257,7 +257,7 @@ name|bos
 operator|.
 name|write
 argument_list|(
-name|co
+name|color
 operator|.
 name|getRed
 argument_list|()
@@ -267,7 +267,7 @@ name|bos
 operator|.
 name|write
 argument_list|(
-name|co
+name|color
 operator|.
 name|getGreen
 argument_list|()
@@ -277,7 +277,7 @@ name|bos
 operator|.
 name|write
 argument_list|(
-name|co
+name|color
 operator|.
 name|getBlue
 argument_list|()
@@ -399,7 +399,7 @@ name|pdImage
 operator|.
 name|setHeight
 argument_list|(
-name|bim
+name|image
 operator|.
 name|getHeight
 argument_list|()
@@ -409,7 +409,7 @@ name|pdImage
 operator|.
 name|setWidth
 argument_list|(
-name|bim
+name|image
 operator|.
 name|getWidth
 argument_list|()

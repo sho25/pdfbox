@@ -100,7 +100,7 @@ name|LosslessFactoryTest
 extends|extends
 name|TestCase
 block|{
-comment|/**      * Tests LosslessFactoryTest#createLosslessFromImage(PDDocument document,      * BufferedImage image)      */
+comment|/**      * Tests LosslessFactoryTest#createFromImage(PDDocument document,      * BufferedImage image)      */
 specifier|public
 name|void
 name|testCreateLosslessFromImage
@@ -137,7 +137,7 @@ name|ximage
 init|=
 name|LosslessFactory
 operator|.
-name|createLosslessFromImage
+name|createFromImage
 argument_list|(
 name|document
 argument_list|,
