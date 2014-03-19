@@ -260,7 +260,7 @@ specifier|private
 name|ImageIOUtil
 parameter_list|()
 block|{     }
-comment|/**      * Writes a buffered image to a file using the given image format. See           * {@link #writeImage(BufferedImage image, String formatName,       * OutputStream output, int dpi, float quality)} for more details.      *      * @param image the image to be written      * @param formatName the target format (ex. "png") which is also the suffix      * @param filename used to construct the filename for the individual image.      * Its suffix will be used as the image format.      * @param dpi the resolution in dpi (dots per inch)      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
+comment|/**      * Writes a buffered image to a file using the given image format. See           * {@link #writeImage(BufferedImage image, String formatName,       * OutputStream output, int dpi, float quality)} for more details.      *      * @param image the image to be written      * @param filename used to construct the filename for the individual image.      * Its suffix will be used as the image format.      * @param dpi the resolution in dpi (dots per inch)      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
 specifier|public
 specifier|static
 name|boolean
