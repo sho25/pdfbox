@@ -260,7 +260,84 @@ specifier|private
 name|ImageIOUtil
 parameter_list|()
 block|{     }
-comment|/**      * Writes a buffered image to a file using the given image format.      * @param image the image to be written      * @param formatName the target format (ex. "png") which is also the suffix      * @param filename used to construct the filename for the individual images, without the suffix      * @param dpi the resolution in dpi (dots per inch)      * @return true if the image file was produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+comment|/**      * Writes a buffered image to a file using the given image format. See           * {@link #writeImage(BufferedImage image, String formatName,       * OutputStream output, int dpi, float quality)} for more details.      *      * @param image the image to be written      * @param formatName the target format (ex. "png") which is also the suffix      * @param filename used to construct the filename for the individual image.      * Its suffix will be used as the image format.      * @param dpi the resolution in dpi (dots per inch)      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
+specifier|public
+specifier|static
+name|boolean
+name|writeImage
+parameter_list|(
+name|BufferedImage
+name|image
+parameter_list|,
+name|String
+name|filename
+parameter_list|,
+name|int
+name|dpi
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|filename
+argument_list|)
+decl_stmt|;
+name|FileOutputStream
+name|output
+init|=
+operator|new
+name|FileOutputStream
+argument_list|(
+name|file
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|String
+name|formatName
+init|=
+name|filename
+operator|.
+name|substring
+argument_list|(
+name|filename
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|'.'
+argument_list|)
+operator|+
+literal|1
+argument_list|)
+decl_stmt|;
+return|return
+name|writeImage
+argument_list|(
+name|image
+argument_list|,
+name|formatName
+argument_list|,
+name|output
+argument_list|,
+name|dpi
+argument_list|)
+return|;
+block|}
+finally|finally
+block|{
+name|output
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Writes a buffered image to a file using the given image format. See            * {@link #writeImage(BufferedImage image, String formatName,       * OutputStream output, int dpi, float quality)} for more details.      *      * @param image the image to be written      * @param formatName the target format (ex. "png") which is also the suffix      * for the filename      * @param filename used to construct the filename for the individual image.      * The formatName parameter will be used as the suffix.      * @param dpi the resolution in dpi (dots per inch)      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      * @deprecated use      * {@link #writeImage(BufferedImage image, String filename, int dpi)}, which      * uses the full filename instead of just the prefix.      */
 specifier|public
 specifier|static
 name|boolean
@@ -327,7 +404,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Writes a buffered image to a file using the given image format.      * @param image the image to be written      * @param formatName the target format (ex. "png")      * @param output the output stream to be used for writing      * @return true if the image file was produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+comment|/**      * Writes a buffered image to a file using the given image format. See            * {@link #writeImage(BufferedImage image, String formatName,       * OutputStream output, int dpi, float quality)} for more details.      *      * @param image the image to be written      * @param formatName the target format (ex. "png")      * @param output the output stream to be used for writing      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
 specifier|public
 specifier|static
 name|boolean
@@ -358,7 +435,7 @@ literal|72
 argument_list|)
 return|;
 block|}
-comment|/**      * Writes a buffered image to a file using the given image format.      * @param image the image to be written      * @param formatName the target format (ex. "png")      * @param output the output stream to be used for writing      * @param dpi resolution to be used when writing the image      * @return true if the image file was produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+comment|/**      * Writes a buffered image to a file using the given image format. See            * {@link #writeImage(BufferedImage image, String formatName,       * OutputStream output, int dpi, float quality)} for more details.      *      * @param image the image to be written      * @param formatName the target format (ex. "png")      * @param output the output stream to be used for writing      * @param dpi resolution to be used when writing the image      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
 specifier|public
 specifier|static
 name|boolean
@@ -394,7 +471,7 @@ literal|1.0f
 argument_list|)
 return|;
 block|}
-comment|/**      * Writes a buffered image to a file using the given image format.      * @param image the image to be written      * @param formatName the target format (ex. "png")      * @param output the output stream to be used for writing      * @param dpi resolution to be used when writing the image      * @param quality quality to be used when compressing the image (0&lt; quality&lt; 1.0f)      * @return true if the image file was produced, false if there was an error      * @throws IOException if an I/O error occurs      */
+comment|/**      * Writes a buffered image to a file using the given image format.      * Compression is fixed for PNG, GIF, BMP and WBMP, dependent of the quality      * parameter for JPG, and dependent of bit count for TIFF (a bitonal image      * will be compressed with CCITT G4, a color image with LZW). Creating a      * TIFF image is only supported if the jai_imageio library is in the class      * path.      *      * @param image the image to be written      * @param formatName the target format (ex. "png")      * @param output the output stream to be used for writing      * @param dpi resolution to be used when writing the image      * @param quality quality to be used when compressing the image (0&lt;      * quality&lt; 1.0f)      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
 specifier|public
 specifier|static
 name|boolean
@@ -834,7 +911,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Gets the named child node, or creates and attaches it.      *       * @param parentNode the parent node      * @param name name of the child node      *       * @return the existing or just created child node      */
+comment|/**      * Gets the named child node, or creates and attaches it.      *      * @param parentNode the parent node      * @param name name of the child node      *      * @return the existing or just created child node      */
 specifier|private
 specifier|static
 name|IIOMetadataNode
