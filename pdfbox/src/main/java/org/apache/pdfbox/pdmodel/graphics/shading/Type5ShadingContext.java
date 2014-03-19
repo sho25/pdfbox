@@ -661,8 +661,6 @@ argument_list|,
 name|ctm
 argument_list|,
 name|xform
-argument_list|,
-name|pageHeight
 argument_list|)
 expr_stmt|;
 comment|// create the triangles from two rows

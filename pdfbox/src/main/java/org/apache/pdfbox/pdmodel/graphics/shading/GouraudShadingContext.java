@@ -685,7 +685,7 @@ name|colorComponentTab
 argument_list|)
 return|;
 block|}
-comment|/**      * Transforms vertices from shading to user space (if applicable) and from user to device space.      * @param vertexList list of vertices      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      */
+comment|/**      * Transforms vertices from shading to user space (if applicable) and from user to device space.      * @param vertexList list of vertices      * @param xform transformation for user to device space      * @param ctm current transformation matrix      */
 specifier|protected
 name|void
 name|transformVertices
@@ -701,9 +701,6 @@ name|ctm
 parameter_list|,
 name|AffineTransform
 name|xform
-parameter_list|,
-name|int
-name|pageHeight
 parameter_list|)
 block|{
 for|for
@@ -758,43 +755,6 @@ argument_list|,
 name|v
 operator|.
 name|point
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// the shading is used as pattern colorspace in combination
-comment|// with a fill-, stroke- or showText-operator
-comment|// move the 0,0-reference including the y-translation from user to device space
-name|v
-operator|.
-name|point
-operator|=
-operator|new
-name|Point
-operator|.
-name|Double
-argument_list|(
-name|v
-operator|.
-name|point
-operator|.
-name|getX
-argument_list|()
-argument_list|,
-name|pageHeight
-operator|+
-name|xform
-operator|.
-name|getTranslateY
-argument_list|()
-operator|-
-name|v
-operator|.
-name|point
-operator|.
-name|getY
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
