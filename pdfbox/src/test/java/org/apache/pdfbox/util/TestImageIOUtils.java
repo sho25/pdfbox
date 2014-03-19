@@ -1475,9 +1475,11 @@ name|writeImage
 argument_list|(
 name|image
 argument_list|,
-name|imageFormat
-argument_list|,
 name|fileName
+operator|+
+literal|"."
+operator|+
+name|imageFormat
 argument_list|,
 name|Math
 operator|.
