@@ -338,6 +338,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Writes a buffered image to a file using the given image format. See            * {@link #writeImage(BufferedImage image, String formatName,       * OutputStream output, int dpi, float quality)} for more details.      *      * @param image the image to be written      * @param formatName the target format (ex. "png") which is also the suffix      * for the filename      * @param filename used to construct the filename for the individual image.      * The formatName parameter will be used as the suffix.      * @param dpi the resolution in dpi (dots per inch)      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      * @deprecated use      * {@link #writeImage(BufferedImage image, String filename, int dpi)}, which      * uses the full filename instead of just the prefix.      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 name|boolean
