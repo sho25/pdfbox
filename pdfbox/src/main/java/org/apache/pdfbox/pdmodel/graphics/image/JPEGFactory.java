@@ -139,22 +139,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
-name|PDStream
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|imageio

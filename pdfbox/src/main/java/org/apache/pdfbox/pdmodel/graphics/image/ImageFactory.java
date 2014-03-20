@@ -379,6 +379,10 @@ name|BufferedImage
 name|image
 parameter_list|)
 block|{
+comment|//FIXME This doesn't work. The raster returned has a
+comment|// SinglePixelPackedSampleModel, and ComponentColorModel created is not
+comment|// compatible with it, because the BufferedImage constructor expects a
+comment|// ComponentSampleModel, and with the same number of bands.
 if|if
 condition|(
 operator|!
