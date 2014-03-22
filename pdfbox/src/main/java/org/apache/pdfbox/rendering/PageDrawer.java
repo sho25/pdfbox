@@ -3499,7 +3499,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Strokes and fills the path.      *      * @param windingRule The winding rule this path will use.      *      * @throws IOException If there is an IO error while filling the path.      */
+comment|/**      * Fills and then strokes the path.      *      * @param windingRule The winding rule this path will use.      *      * @throws IOException If there is an IO error while filling the path.      */
 specifier|public
 name|void
 name|strokeAndFillPath
@@ -3510,6 +3510,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//TODO rename this method
 comment|// TODO can we avoid cloning the path?
 name|GeneralPath
 name|path
@@ -3522,17 +3523,17 @@ operator|.
 name|clone
 argument_list|()
 decl_stmt|;
-name|strokePath
-argument_list|()
+name|fillPath
+argument_list|(
+name|windingRule
+argument_list|)
 expr_stmt|;
 name|linePath
 operator|=
 name|path
 expr_stmt|;
-name|fillPath
-argument_list|(
-name|windingRule
-argument_list|)
+name|strokePath
+argument_list|()
 expr_stmt|;
 block|}
 comment|// This code generalizes the code Jim Lynch wrote for AppendRectangleToPath
