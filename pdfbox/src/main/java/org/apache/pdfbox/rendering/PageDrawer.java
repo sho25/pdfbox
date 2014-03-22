@@ -1020,6 +1020,16 @@ return|return
 name|renderer
 return|;
 block|}
+comment|/**      * Returns the page height.      * @return the page height      */
+specifier|public
+name|int
+name|getPageHeight
+parameter_list|()
+block|{
+return|return
+name|pageHeight
+return|;
+block|}
 comment|/**      * This will draw the page to the requested context.      *       * @param g The graphics context to draw onto.      * @param page The page to draw.      * @param pageSize The size of the page to draw.      *       * @throws IOException If there is an IO error while drawing the page.      */
 specifier|public
 name|void
