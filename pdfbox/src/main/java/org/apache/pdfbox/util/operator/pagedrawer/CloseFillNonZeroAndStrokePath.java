@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * b Close, fill and stroke the path with non-zero winding rule.  * @author Ben Litchfield  */
+comment|/**  * b Close, fill and stroke the path with non-zero winding rule.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

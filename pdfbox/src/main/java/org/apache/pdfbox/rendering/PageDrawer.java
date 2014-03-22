@@ -3502,7 +3502,7 @@ block|}
 comment|/**      * Fills and then strokes the path.      *      * @param windingRule The winding rule this path will use.      *      * @throws IOException If there is an IO error while filling the path.      */
 specifier|public
 name|void
-name|strokeAndFillPath
+name|fillAndStrokePath
 parameter_list|(
 name|int
 name|windingRule
@@ -3510,7 +3510,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//TODO rename this method
 comment|// TODO can we avoid cloning the path?
 name|GeneralPath
 name|path

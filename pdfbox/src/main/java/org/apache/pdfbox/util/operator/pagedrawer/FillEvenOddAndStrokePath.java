@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * B* Fill and stroke the path.  * @author Andreas LehmkÃ¼hler  */
+comment|/**  * B* Fill and then stroke the path, using the even-odd rule to determine the  * region to fill.  *  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
@@ -148,7 +148,7 @@ operator|)
 name|context
 operator|)
 operator|.
-name|strokeAndFillPath
+name|fillAndStrokePath
 argument_list|(
 name|GeneralPath
 operator|.

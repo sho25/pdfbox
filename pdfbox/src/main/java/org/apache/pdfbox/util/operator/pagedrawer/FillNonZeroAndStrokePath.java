@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * B Fill and stroke the path using the non-zero winding rule.  * @author Ben Litchfield  */
+comment|/**  * B Fill and then stroke the path, using the nonzero winding number rule to  * determine the region to fill.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -147,7 +147,7 @@ operator|)
 name|context
 operator|)
 operator|.
-name|strokeAndFillPath
+name|fillAndStrokePath
 argument_list|(
 name|GeneralPath
 operator|.
