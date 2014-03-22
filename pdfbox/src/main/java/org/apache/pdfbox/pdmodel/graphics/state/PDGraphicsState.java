@@ -215,7 +215,7 @@ name|lineCap
 init|=
 name|BasicStroke
 operator|.
-name|CAP_SQUARE
+name|CAP_BUTT
 decl_stmt|;
 specifier|private
 name|int
