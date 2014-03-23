@@ -285,12 +285,18 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
-comment|//TODO: using the grayscale branch for BufferedImage.TYPE_BYTE_GRAY
-comment|// fails the test. We use the RGB branch instead until this is fixed.
 if|if
 condition|(
 operator|(
-comment|//image.getType() == BufferedImage.TYPE_BYTE_GRAY ||
+name|image
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|BufferedImage
+operator|.
+name|TYPE_BYTE_GRAY
+operator|||
 name|image
 operator|.
 name|getType
