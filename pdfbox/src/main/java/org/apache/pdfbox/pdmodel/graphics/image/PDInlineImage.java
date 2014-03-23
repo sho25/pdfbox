@@ -516,6 +516,18 @@ name|int
 name|getBitsPerComponent
 parameter_list|()
 block|{
+if|if
+condition|(
+name|isStencil
+argument_list|()
+condition|)
+block|{
+return|return
+literal|1
+return|;
+block|}
+else|else
+block|{
 return|return
 name|parameters
 operator|.
@@ -533,6 +545,7 @@ operator|-
 literal|1
 argument_list|)
 return|;
+block|}
 block|}
 specifier|public
 name|void
