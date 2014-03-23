@@ -41,7 +41,7 @@ name|encryptionKeyLength
 init|=
 name|DEFAULT_KEY_LENGTH
 decl_stmt|;
-comment|/**      * set the length in (bits) of the secret key that will be      * used to encrypt document data.      * The default value is 40 bits, which provides a low security level      * but is compatible with old versions of Acrobat Reader.      *      * @param l the length in bits (must be 40 or 128)      */
+comment|/**      * set the length in (bits) of the secret key that will be      * used to encrypt document data.      * The default value is 40 bits, which provides a low security level      * but is compatible with old versions of Acrobat Reader.      *      * @param l the length in bits (must be 40, 128 or 256)      */
 specifier|public
 name|void
 name|setEncryptionKeyLength
@@ -59,17 +59,21 @@ operator|&&
 name|l
 operator|!=
 literal|128
+operator|&&
+name|l
+operator|!=
+literal|256
 condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IllegalArgumentException
 argument_list|(
 literal|"Invalid key length '"
 operator|+
 name|l
 operator|+
-literal|"' value must be 40 or 128!"
+literal|"' value must be 40, 128 or 256!"
 argument_list|)
 throw|;
 block|}

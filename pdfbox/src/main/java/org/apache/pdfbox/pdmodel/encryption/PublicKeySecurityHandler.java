@@ -1157,6 +1157,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|keyLength
+operator|==
+literal|256
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"256 bit key length is not supported yet for public key security"
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 name|Security
