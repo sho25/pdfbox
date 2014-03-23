@@ -5290,8 +5290,10 @@ if|if
 condition|(
 name|document
 operator|.
-name|isEncrypted
+name|getEncryption
 argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|SecurityHandler
