@@ -437,7 +437,7 @@ name|SequenceInputStream
 argument_list|(
 name|globals
 operator|.
-name|getFilteredStream
+name|getUnfilteredStream
 argument_list|()
 argument_list|,
 name|encoded
