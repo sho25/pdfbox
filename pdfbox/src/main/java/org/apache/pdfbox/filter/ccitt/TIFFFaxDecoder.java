@@ -5956,6 +5956,9 @@ name|height
 parameter_list|,
 name|long
 name|tiffT6Options
+parameter_list|,
+name|boolean
+name|encodedByteAlign
 parameter_list|)
 block|{
 name|this
@@ -6094,6 +6097,23 @@ name|lines
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|encodedByteAlign
+operator|&&
+name|bitPointer
+operator|!=
+literal|0
+condition|)
+block|{
+name|bitPointer
+operator|=
+literal|0
+expr_stmt|;
+name|bytePointer
+operator|++
+expr_stmt|;
+block|}
 comment|// a0 has to be set just before the start of the scanline.
 name|a0
 operator|=
