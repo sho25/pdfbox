@@ -91,6 +91,10 @@ specifier|private
 name|int
 name|rows
 decl_stmt|;
+specifier|private
+name|boolean
+name|encodedByteAlign
+decl_stmt|;
 comment|//for reading compressed bits
 specifier|private
 name|int
@@ -161,7 +165,7 @@ name|buildLookupTree
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Creates a new decoder.      * @param source the input stream containing the compressed data.      * @param columns the number of columns      * @param rows the number of rows (0 if undefined)      */
+comment|/**      * Creates a new decoder.      *       * @param source the input stream containing the compressed data.      * @param columns the number of columns      * @param rows the number of rows (0 if undefined)      * @param encodedByteAlign true if each encoded scan line is filled       * to a byte boundary, false if not      */
 specifier|public
 name|CCITTFaxG31DDecodeInputStream
 parameter_list|(
@@ -173,6 +177,9 @@ name|columns
 parameter_list|,
 name|int
 name|rows
+parameter_list|,
+name|boolean
+name|encodedByteAlign
 parameter_list|)
 block|{
 name|this
@@ -214,8 +221,14 @@ operator|.
 name|getByteCount
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|encodedByteAlign
+operator|=
+name|encodedByteAlign
+expr_stmt|;
 block|}
-comment|/**      * Creates a new decoder.      * @param source the input stream containing the compressed data.      * @param columns the number of columns      */
+comment|/**      * Creates a new decoder.      *       * @param source the input stream containing the compressed data.      * @param columns the number of columns      * @param encodedByteAlign true if each encoded scan line is filled       * to a byte boundary, false if not      */
 specifier|public
 name|CCITTFaxG31DDecodeInputStream
 parameter_list|(
@@ -224,6 +237,9 @@ name|source
 parameter_list|,
 name|int
 name|columns
+parameter_list|,
+name|boolean
+name|encodedByteAlign
 parameter_list|)
 block|{
 name|this
@@ -233,6 +249,8 @@ argument_list|,
 name|columns
 argument_list|,
 literal|0
+argument_list|,
+name|encodedByteAlign
 argument_list|)
 expr_stmt|;
 block|}
@@ -317,6 +335,21 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|encodedByteAlign
+operator|&&
+name|this
+operator|.
+name|bitPos
+operator|!=
+literal|0
+condition|)
+block|{
+name|readByte
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|this

@@ -432,6 +432,8 @@ argument_list|,
 name|columns
 argument_list|,
 name|rows
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|byte
@@ -609,6 +611,8 @@ name|data
 argument_list|)
 argument_list|,
 name|columns
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|byte
