@@ -1658,8 +1658,6 @@ name|writeImage
 argument_list|(
 name|pageAsImage
 argument_list|,
-literal|"png"
-argument_list|,
 name|imageFilename
 argument_list|,
 literal|300
