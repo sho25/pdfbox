@@ -193,6 +193,22 @@ name|InvalidPasswordException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|encryption
+operator|.
+name|StandardDecryptionMaterial
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an example on how to extract all embedded files from a PDF document.  *<p>  * Usage: java org.apache.pdfbox.examples.pdmodel.ExtractEmbeddedFiles&lt;input-pdf&gt;  *  * @version $Revision$  */
 end_comment
@@ -294,11 +310,20 @@ condition|)
 block|{
 try|try
 block|{
-name|document
-operator|.
-name|decrypt
+name|StandardDecryptionMaterial
+name|sdm
+init|=
+operator|new
+name|StandardDecryptionMaterial
 argument_list|(
 literal|""
+argument_list|)
+decl_stmt|;
+name|document
+operator|.
+name|openProtection
+argument_list|(
+name|sdm
 argument_list|)
 expr_stmt|;
 block|}

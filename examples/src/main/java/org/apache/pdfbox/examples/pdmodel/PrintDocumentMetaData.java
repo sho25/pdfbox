@@ -145,6 +145,22 @@ name|Calendar
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|encryption
+operator|.
+name|StandardDecryptionMaterial
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an example on how to get a documents metadata information.  *  * Usage: java org.apache.pdfbox.examples.pdmodel.PrintDocumentMetaData&lt;input-pdf&gt;  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.11 $  */
 end_comment
@@ -236,11 +252,20 @@ condition|)
 block|{
 try|try
 block|{
-name|document
-operator|.
-name|decrypt
+name|StandardDecryptionMaterial
+name|sdm
+init|=
+operator|new
+name|StandardDecryptionMaterial
 argument_list|(
 literal|""
+argument_list|)
+decl_stmt|;
+name|document
+operator|.
+name|openProtection
+argument_list|(
+name|sdm
 argument_list|)
 expr_stmt|;
 block|}

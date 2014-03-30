@@ -157,6 +157,22 @@ name|InvalidPasswordException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|encryption
+operator|.
+name|StandardDecryptionMaterial
+import|;
+end_import
+
 begin_comment
 comment|/**  * This will read a document from the filesystem, decrypt it and do something with the signature.  * usage: java org.apache.pdfbox.examples.signature.ShowSignature&lt;password&gt;&lt;inputfile&gt;  *  * @author Ben Litchfield  */
 end_comment
@@ -268,11 +284,20 @@ name|isEncrypted
 argument_list|()
 condition|)
 block|{
-name|document
-operator|.
-name|decrypt
+name|StandardDecryptionMaterial
+name|sdm
+init|=
+operator|new
+name|StandardDecryptionMaterial
 argument_list|(
 name|password
+argument_list|)
+decl_stmt|;
+name|document
+operator|.
+name|openProtection
+argument_list|(
+name|sdm
 argument_list|)
 expr_stmt|;
 block|}

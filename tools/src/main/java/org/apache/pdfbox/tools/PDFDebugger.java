@@ -315,6 +315,22 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|encryption
+operator|.
+name|StandardDecryptionMaterial
+import|;
+end_import
+
 begin_comment
 comment|/**  *  * @author  wurtz  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
 end_comment
@@ -1950,11 +1966,20 @@ condition|)
 block|{
 try|try
 block|{
-name|document
-operator|.
-name|decrypt
+name|StandardDecryptionMaterial
+name|sdm
+init|=
+operator|new
+name|StandardDecryptionMaterial
 argument_list|(
 name|password
+argument_list|)
+decl_stmt|;
+name|document
+operator|.
+name|openProtection
+argument_list|(
+name|sdm
 argument_list|)
 expr_stmt|;
 block|}
