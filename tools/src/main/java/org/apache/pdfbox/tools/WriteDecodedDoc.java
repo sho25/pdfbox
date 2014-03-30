@@ -277,7 +277,7 @@ init|=
 operator|new
 name|StandardDecryptionMaterial
 argument_list|(
-literal|""
+name|password
 argument_list|)
 decl_stmt|;
 name|doc
