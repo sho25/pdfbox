@@ -207,9 +207,13 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Parent"
+name|COSName
+operator|.
+name|PARENT
 argument_list|,
-literal|"P"
+name|COSName
+operator|.
+name|P
 argument_list|)
 argument_list|)
 expr_stmt|;
