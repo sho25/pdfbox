@@ -1122,6 +1122,10 @@ name|i
 operator|+
 literal|1
 operator|)
+operator|+
+literal|"."
+operator|+
+name|imageFormat
 decl_stmt|;
 name|success
 operator|&=

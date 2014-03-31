@@ -1675,6 +1675,8 @@ argument_list|(
 name|pageAsImage
 argument_list|,
 name|imageFilename
+operator|+
+literal|".png"
 argument_list|,
 literal|300
 argument_list|)
