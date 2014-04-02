@@ -1469,6 +1469,9 @@ operator|+
 name|imageFormat
 argument_list|)
 expr_stmt|;
+name|boolean
+name|res
+init|=
 name|ImageIOUtil
 operator|.
 name|writeImage
@@ -1487,6 +1490,15 @@ name|round
 argument_list|(
 name|dpi
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"ImageIOUtil.writeImage() failed for file "
+operator|+
+name|fileName
+argument_list|,
+name|res
 argument_list|)
 expr_stmt|;
 if|if
