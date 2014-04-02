@@ -5559,11 +5559,11 @@ decl_stmt|;
 if|if
 condition|(
 name|retval
-operator|<
+argument_list|<
 literal|0
 operator|||
 name|retval
-operator|>=
+argument_list|>
 name|GENERATION_NUMBER_THRESHOLD
 condition|)
 block|{
