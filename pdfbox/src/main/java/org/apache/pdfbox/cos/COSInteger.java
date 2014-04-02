@@ -49,6 +49,7 @@ block|{
 comment|/**      * The lowest integer to be kept in the {@link #STATIC} array.      */
 specifier|private
 specifier|static
+specifier|final
 name|int
 name|LOW
 init|=
@@ -58,6 +59,7 @@ decl_stmt|;
 comment|/**      * The highest integer to be kept in the {@link #STATIC} array.      */
 specifier|private
 specifier|static
+specifier|final
 name|int
 name|HIGH
 init|=
@@ -205,8 +207,8 @@ specifier|private
 name|long
 name|value
 decl_stmt|;
-comment|/**      * constructor.      *      * @deprecated use the static {@link #get(long)} method instead      * @param val The integer value of this object.      */
-specifier|public
+comment|/**      * constructor.      *      * @param val The integer value of this object.      */
+specifier|private
 name|COSInteger
 parameter_list|(
 name|long
@@ -217,66 +219,10 @@ name|value
 operator|=
 name|val
 expr_stmt|;
-block|}
-comment|/**      * constructor.      *      * @deprecated use the static {@link #get(long)} method instead      * @param val The integer value of this object.      */
-specifier|public
-name|COSInteger
-parameter_list|(
-name|int
-name|val
-parameter_list|)
-block|{
-name|this
-argument_list|(
-operator|(
-name|long
-operator|)
-name|val
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * This will create a new PDF Int object using a string.      *      * @param val The string value of the integer.      * @deprecated use the static {@link #get(long)} method instead      * @throws IOException If the val is not an integer type.      */
-specifier|public
-name|COSInteger
-parameter_list|(
-name|String
-name|val
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-try|try
-block|{
-name|value
-operator|=
-name|Long
-operator|.
-name|parseLong
-argument_list|(
-name|val
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Error: value is not an integer type actual='"
-operator|+
-name|val
-operator|+
-literal|"'"
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
@@ -305,6 +251,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode
@@ -327,6 +275,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -355,6 +305,8 @@ name|newValue
 expr_stmt|;
 block|}
 comment|/**      * polymorphic access to value as float.      *      * @return The float value of this object.      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|floatValue
@@ -365,6 +317,8 @@ name|value
 return|;
 block|}
 comment|/**      * polymorphic access to value as float.      *      * @return The double value of this object.      */
+annotation|@
+name|Override
 specifier|public
 name|double
 name|doubleValue
@@ -375,6 +329,8 @@ name|value
 return|;
 block|}
 comment|/**      * Polymorphic access to value as int      * This will get the integer value of this object.      *      * @return The int value of this object,      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|intValue
@@ -388,6 +344,8 @@ name|value
 return|;
 block|}
 comment|/**      * Polymorphic access to value as int      * This will get the integer value of this object.      *      * @return The int value of this object,      */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|longValue
@@ -398,6 +356,8 @@ name|value
 return|;
 block|}
 comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException If an error occurs while visiting this object.      */
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|accept
