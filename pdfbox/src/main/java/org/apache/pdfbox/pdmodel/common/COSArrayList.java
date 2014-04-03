@@ -328,41 +328,9 @@ operator|=
 name|dictionaryKey
 expr_stmt|;
 block|}
-comment|/**      * @deprecated use the {@link #COSArrayList(Object, COSBase, COSDictionary, COSName)} method instead      */
-specifier|public
-name|COSArrayList
-parameter_list|(
-name|E
-name|actualObject
-parameter_list|,
-name|COSBase
-name|item
-parameter_list|,
-name|COSDictionary
-name|dictionary
-parameter_list|,
-name|String
-name|dictionaryKey
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|actualObject
-argument_list|,
-name|item
-argument_list|,
-name|dictionary
-argument_list|,
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
-name|dictionaryKey
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|size
@@ -376,6 +344,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isEmpty
@@ -389,6 +359,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|contains
@@ -407,6 +379,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|Iterator
 argument_list|<
@@ -423,6 +397,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|Object
 index|[]
@@ -437,6 +413,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|X
@@ -460,6 +438,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|add
@@ -589,6 +569,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|remove
@@ -646,6 +628,8 @@ name|retval
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|containsAll
@@ -667,6 +651,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|addAll
@@ -732,6 +718,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|addAll
@@ -1779,6 +1767,8 @@ name|cosObjects
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|removeAll
@@ -1810,6 +1800,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|retainAll
@@ -1841,6 +1833,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|clear
@@ -1880,6 +1874,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
@@ -1898,6 +1894,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode
@@ -1911,6 +1909,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|E
 name|get
@@ -1929,6 +1929,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|E
 name|set
@@ -2098,6 +2100,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|add
@@ -2236,6 +2240,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|E
 name|remove
@@ -2299,6 +2305,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|indexOf
@@ -2317,6 +2325,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|lastIndexOf
@@ -2335,6 +2345,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|ListIterator
 argument_list|<
@@ -2351,6 +2363,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|ListIterator
 argument_list|<
@@ -2372,6 +2386,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -2398,6 +2414,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
