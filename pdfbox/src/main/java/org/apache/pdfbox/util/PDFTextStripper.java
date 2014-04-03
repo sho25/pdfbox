@@ -1012,33 +1012,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated      * @see PDFTextStripper#writeText( PDDocument, Writer )      * @param doc The document to extract the text.      * @param outputStream The stream to write the text to.      * @throws IOException If there is an error extracting the text.      */
-specifier|public
-name|void
-name|writeText
-parameter_list|(
-name|COSDocument
-name|doc
-parameter_list|,
-name|Writer
-name|outputStream
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|writeText
-argument_list|(
-operator|new
-name|PDDocument
-argument_list|(
-name|doc
-argument_list|)
-argument_list|,
-name|outputStream
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|resetEngine
@@ -2948,6 +2924,8 @@ name|variance
 return|;
 block|}
 comment|/**      * This will process a TextPosition object and add the      * text to the list of characters on a page.  It takes care of      * overlapping text.      *      * @param text The text to process.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|processTextPosition
@@ -4181,6 +4159,8 @@ name|articleEndValue
 expr_stmt|;
 block|}
 comment|/**      * Reverse characters of a compound Arabic glyph.      * When getSortByPosition() is true, inspect the sequence encoded      * by one glyph. If the glyph encodes two or more Arabic characters,      * reverse these characters from a logical order to a visual order.      * This ensures that the bidirectional algorithm that runs later will      * convert them back to a logical order.      *       * @param str a string obtained from font.encoding()      *       * @return the reversed string      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|inspectFontEncoding
