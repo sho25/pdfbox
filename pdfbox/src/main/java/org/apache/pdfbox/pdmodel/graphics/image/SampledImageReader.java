@@ -353,21 +353,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|ColorSpace
-name|COLOR_SPACE_RGB
-init|=
-name|ColorSpace
-operator|.
-name|getInstance
-argument_list|(
-name|ColorSpace
-operator|.
-name|CS_sRGB
-argument_list|)
-decl_stmt|;
 comment|/**      * Returns an ARGB image filled with the given paint and using the given image as a mask.      * @param paint the paint to fill the visible portions of the image with      * @return a masked image filled with the given paint      * @throws IOException if the image cannot be read      * @throws IllegalStateException if the image is not a stencil.      */
 specifier|public
 specifier|static
