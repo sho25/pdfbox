@@ -787,9 +787,13 @@ name|Transparency
 operator|.
 name|OPAQUE
 argument_list|,
-name|DataBuffer
+name|raster
 operator|.
-name|TYPE_BYTE
+name|getDataBuffer
+argument_list|()
+operator|.
+name|getDataType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|BufferedImage
