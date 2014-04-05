@@ -470,7 +470,7 @@ name|StandardAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_43
+name|LUCENE_46
 argument_list|)
 decl_stmt|;
 name|IndexWriterConfig
@@ -481,7 +481,7 @@ name|IndexWriterConfig
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_43
+name|LUCENE_46
 argument_list|,
 name|analyzer
 argument_list|)
