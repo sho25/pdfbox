@@ -99,6 +99,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -109,6 +111,8 @@ name|action
 return|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
 name|getCOSDictionary
@@ -152,7 +156,7 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the uniform resource identifier to resolve, encoded in 7-bit ASCII.      *      * @return The URI entry of the specific URI action dictionary.      */
+comment|/**      * This will get the uniform resource identifier to resolve, encoded in      * 7-bit ASCII.      *      * @return The URI entry of the specific URI action dictionary.      */
 specifier|public
 name|String
 name|getURI
@@ -167,7 +171,7 @@ literal|"URI"
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the uniform resource identifier to resolve, encoded in 7-bit ASCII.      *      * @param uri The uniform resource identifier.      */
+comment|/**      * This will set the uniform resource identifier to resolve, encoded in      * 7-bit ASCII.      *      * @param uri The uniform resource identifier.      */
 specifier|public
 name|void
 name|setURI
@@ -186,7 +190,7 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will specify whether to track the mouse position when the URI is resolved.      * Default value: false.      * This entry applies only to actions triggered by the user's clicking an annotation;      * it is ignored for actions associated with outline items or with a document's OpenAction entry.      *      * @return A flag specifying whether to track the mouse position when the URI is resolved.      */
+comment|/**      * This will specify whether to track the mouse position when the URI is      * resolved. Default value: false. This entry applies only to actions      * triggered by the user's clicking an annotation; it is ignored for actions      * associated with outline items or with a document's OpenAction entry.      *      * @return A flag specifying whether to track the mouse position when the      * URI is resolved.      */
 specifier|public
 name|boolean
 name|shouldTrackMousePosition
@@ -205,7 +209,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * This will specify whether to track the mouse position when the URI is resolved.      *      * @param value The flag value.      */
+comment|/**      * This will specify whether to track the mouse position when the URI is      * resolved.      *      * @param value The flag value.      */
 specifier|public
 name|void
 name|setTrackMousePosition
@@ -223,42 +227,6 @@ argument_list|(
 literal|"IsMap"
 argument_list|,
 name|value
-argument_list|)
-expr_stmt|;
-block|}
-comment|// TODO this must go into PDURIDictionary
-comment|/**      * This will get the base URI to be used in resolving relative URI references.      * URI actions within the document may specify URIs in partial form, to be interpreted      * relative to this base address. If no base URI is specified, such partial URIs      * will be interpreted relative to the location of the document itself.      * The use of this entry is parallel to that of the body element&lt;BASE&gt;, as described      * in the HTML 4.01 Specification.      *      * @return The URI entry of the specific URI dictionary.      * @deprecated use {@link PDURIDictionary#getBase()} instead      */
-specifier|public
-name|String
-name|getBase
-parameter_list|()
-block|{
-return|return
-name|action
-operator|.
-name|getString
-argument_list|(
-literal|"Base"
-argument_list|)
-return|;
-block|}
-comment|// TODO this must go into PDURIDictionary
-comment|/**      * This will set the base URI to be used in resolving relative URI references.      * URI actions within the document may specify URIs in partial form, to be interpreted      * relative to this base address. If no base URI is specified, such partial URIs      * will be interpreted relative to the location of the document itself.      * The use of this entry is parallel to that of the body element&lt;BASE&gt;, as described      * in the HTML 4.01 Specification.      *      * @param base The the base URI to be used.      * @deprecated use {@link PDURIDictionary#setBase(String)} instead      */
-specifier|public
-name|void
-name|setBase
-parameter_list|(
-name|String
-name|base
-parameter_list|)
-block|{
-name|action
-operator|.
-name|setString
-argument_list|(
-literal|"Base"
-argument_list|,
-name|base
 argument_list|)
 expr_stmt|;
 block|}
