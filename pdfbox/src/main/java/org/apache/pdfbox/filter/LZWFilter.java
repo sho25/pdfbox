@@ -186,17 +186,8 @@ name|EOD
 init|=
 literal|257
 decl_stmt|;
-comment|/**      * The LZW code table.      */
-specifier|private
-name|ArrayList
-argument_list|<
-name|byte
-index|[]
-argument_list|>
-name|codeTable
-init|=
-literal|null
-decl_stmt|;
+comment|//BEWARE: codeTable must be local to each method, because there is only
+comment|// one instance of each filter
 comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
@@ -217,10 +208,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ArrayList
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|codeTable
-operator|=
+init|=
 literal|null
-expr_stmt|;
+decl_stmt|;
 name|int
 name|chunk
 init|=
@@ -275,7 +271,9 @@ name|chunk
 operator|=
 literal|9
 expr_stmt|;
-name|initCodeTable
+name|codeTable
+operator|=
+name|createCodeTable
 argument_list|()
 expr_stmt|;
 name|prevCommand
@@ -504,9 +502,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|initCodeTable
+name|ArrayList
+argument_list|<
+name|byte
+index|[]
+argument_list|>
+name|codeTable
+init|=
+name|createCodeTable
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|int
 name|chunk
 init|=
@@ -691,7 +696,9 @@ name|chunk
 operator|=
 literal|9
 expr_stmt|;
-name|initCodeTable
+name|codeTable
+operator|=
+name|createCodeTable
 argument_list|()
 expr_stmt|;
 block|}
@@ -790,11 +797,6 @@ name|flush
 argument_list|()
 expr_stmt|;
 comment|// must do or file will be empty :-(
-name|codeTable
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * Find the longest matching pattern in the code table.      *      * @param codeTable The LZW code table.      * @param pattern The pattern to be searched for.      * @return The index of the longest matching pattern or -1 if nothing is      * found.      */
 specifier|private
@@ -938,12 +940,21 @@ return|;
 block|}
 comment|/**      * Init the code table with 1 byte entries and the EOD and CLEAR_TABLE      * markers.      */
 specifier|private
-name|void
-name|initCodeTable
+name|ArrayList
+argument_list|<
+name|byte
+index|[]
+argument_list|>
+name|createCodeTable
 parameter_list|()
 block|{
+name|ArrayList
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|codeTable
-operator|=
+init|=
 operator|new
 name|ArrayList
 argument_list|<
@@ -953,7 +964,7 @@ argument_list|>
 argument_list|(
 literal|4096
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1005,6 +1016,9 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// 257 CLEAR_TABLE
+return|return
+name|codeTable
+return|;
 block|}
 comment|/**      * Calculate the appropriate chunk size      *      * @param tabSize the size of the code table      *      * @return a value between 9 and 12      */
 specifier|private
