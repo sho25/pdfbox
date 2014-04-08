@@ -91,22 +91,8 @@ name|PDFPrinter
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|rendering
-operator|.
-name|PDFRenderer
-import|;
-end_import
-
 begin_comment
-comment|/**  * This is a command line program that will print a PDF document.  *   * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This is a command line program that will print a PDF document.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -425,13 +411,10 @@ operator|.
 name|getName
 argument_list|()
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 name|printerName
 argument_list|)
-operator|!=
-operator|-
-literal|1
 condition|)
 block|{
 name|printJob
@@ -473,14 +456,7 @@ name|printJob
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|printJob
-operator|.
-name|printDialog
-argument_list|()
-condition|)
+else|else
 block|{
 name|printer
 operator|.
