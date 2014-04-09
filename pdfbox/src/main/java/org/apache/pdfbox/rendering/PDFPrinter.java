@@ -1104,6 +1104,15 @@ operator|.
 name|clone
 argument_list|()
 decl_stmt|;
+name|graphics2D
+operator|.
+name|setBackground
+argument_list|(
+name|Color
+operator|.
+name|WHITE
+argument_list|)
+expr_stmt|;
 name|renderer
 operator|.
 name|renderPageToGraphics
