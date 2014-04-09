@@ -248,7 +248,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prints a PDF document using AWT.  * This class may be overridden in order to perform custom printing.  *  * @author Andreas Lehmkühler  * @author John Hewson  */
+comment|/**  * Prints a PDF document using AWT.  * This class may be overridden in order to perform custom printing.  *  * @author Andreas Lehmkï¿½hler  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -553,10 +553,7 @@ name|PrinterException
 block|{
 name|silentPrint
 argument_list|(
-name|PrinterJob
-operator|.
-name|getPrinterJob
-argument_list|()
+name|printerJob
 argument_list|)
 expr_stmt|;
 block|}
@@ -589,10 +586,7 @@ name|PrinterException
 block|{
 name|print
 argument_list|(
-name|PrinterJob
-operator|.
-name|getPrinterJob
-argument_list|()
+name|printerJob
 argument_list|)
 expr_stmt|;
 block|}
