@@ -137,6 +137,7 @@ implements|implements
 name|MouseMotionListener
 block|{
 specifier|private
+specifier|final
 name|JPanel
 name|pageWrapper
 init|=
@@ -225,7 +226,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will display the PDF page in this component.      * @param page The PDF page to display.      */
+comment|/**      *       * This will display the PDF page in this component.      * @param renderer The renderer to render the page.      * @param page The PDF page to display.      * @param pageNum The number of the page.      * @throws IOException if something goes wrong.      */
 specifier|public
 name|void
 name|displayPage
@@ -235,6 +236,9 @@ name|renderer
 parameter_list|,
 name|PDPage
 name|page
+parameter_list|,
+name|int
+name|pageNum
 parameter_list|)
 throws|throws
 name|IOException
@@ -246,6 +250,8 @@ argument_list|(
 name|renderer
 argument_list|,
 name|page
+argument_list|,
+name|pageNum
 argument_list|)
 expr_stmt|;
 name|pagePanel

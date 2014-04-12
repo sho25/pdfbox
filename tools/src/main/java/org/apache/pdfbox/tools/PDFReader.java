@@ -353,6 +353,7 @@ name|JMenuItem
 name|previousPageItem
 decl_stmt|;
 specifier|private
+specifier|final
 name|JPanel
 name|documentPanel
 init|=
@@ -361,6 +362,7 @@ name|JPanel
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|ReaderBottomPanel
 name|bottomStatusPanel
 init|=
@@ -514,6 +516,8 @@ operator|.
 name|WindowAdapter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|windowClosing
@@ -616,6 +620,8 @@ operator|.
 name|ActionListener
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|actionPerformed
@@ -667,6 +673,8 @@ operator|.
 name|ActionListener
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|actionPerformed
@@ -834,6 +842,8 @@ operator|.
 name|ActionListener
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|actionPerformed
@@ -909,6 +919,8 @@ operator|.
 name|ActionListener
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|actionPerformed
@@ -970,6 +982,8 @@ operator|.
 name|ActionListener
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|actionPerformed
@@ -1550,6 +1564,8 @@ name|get
 argument_list|(
 name|pageNumber
 argument_list|)
+argument_list|,
+name|pageNumber
 argument_list|)
 expr_stmt|;
 if|if
@@ -1604,15 +1620,6 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|PDFRenderer
-name|renderer
-init|=
-operator|new
-name|PDFRenderer
-argument_list|(
-name|document
-argument_list|)
-decl_stmt|;
 name|BufferedImage
 name|pageAsImage
 init|=
@@ -1742,6 +1749,7 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
+block|}
 name|renderer
 operator|=
 operator|new
@@ -1792,7 +1800,6 @@ argument_list|(
 literal|"Error: The document is encrypted."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
