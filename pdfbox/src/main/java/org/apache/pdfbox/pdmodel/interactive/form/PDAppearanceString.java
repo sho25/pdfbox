@@ -1972,15 +1972,23 @@ name|q
 argument_list|)
 throw|;
 block|}
+comment|// add the value as hex string to deal with non ISO-8859-1 data values
 name|printWriter
 operator|.
 name|println
 argument_list|(
-literal|"("
+literal|"<"
 operator|+
+operator|new
+name|COSString
+argument_list|(
 name|value
+argument_list|)
+operator|.
+name|getHexString
+argument_list|()
 operator|+
-literal|") Tj"
+literal|"> Tj"
 argument_list|)
 expr_stmt|;
 name|printWriter
