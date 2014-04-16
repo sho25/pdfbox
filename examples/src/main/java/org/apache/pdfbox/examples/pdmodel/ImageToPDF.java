@@ -390,13 +390,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//BufferedImage awtImage = ImageIO.read( new File( image ) );
-comment|//ximage = new PDPixelMap(doc, awtImage);
 throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Image type not supported:"
+literal|"Image type not supported: "
 operator|+
 name|image
 argument_list|)
@@ -413,15 +411,37 @@ argument_list|,
 name|page
 argument_list|)
 decl_stmt|;
+comment|//contentStream.drawImage(pdImage, 20, 20 );
+comment|// better method inspired by http://stackoverflow.com/a/22318681/535646
+name|float
+name|scale
+init|=
+literal|1f
+decl_stmt|;
+comment|// reduce this value if the image is too large
 name|contentStream
 operator|.
-name|drawImage
+name|drawXObject
 argument_list|(
 name|pdImage
 argument_list|,
 literal|20
 argument_list|,
 literal|20
+argument_list|,
+name|pdImage
+operator|.
+name|getWidth
+argument_list|()
+operator|*
+name|scale
+argument_list|,
+name|pdImage
+operator|.
+name|getHeight
+argument_list|()
+operator|*
+name|scale
 argument_list|)
 expr_stmt|;
 name|contentStream
