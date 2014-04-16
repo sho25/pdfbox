@@ -500,7 +500,7 @@ init|=
 literal|0
 init|;
 name|i
-operator|<=
+operator|<
 name|nbGroups
 condition|;
 operator|++
@@ -883,7 +883,7 @@ init|=
 literal|0
 init|;
 name|i
-operator|<=
+operator|<
 name|nbGroups
 condition|;
 operator|++
@@ -1120,7 +1120,7 @@ init|=
 literal|0
 init|;
 name|i
-operator|<=
+operator|<
 name|nbGroups
 condition|;
 operator|++
