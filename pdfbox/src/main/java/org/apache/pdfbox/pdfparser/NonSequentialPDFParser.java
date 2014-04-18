@@ -3173,7 +3173,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Creates a unique object id using object number and object generation      * number. (requires object number< 2^31))      */
+comment|/**      * Creates a unique object id using object number and object generation      * number. (requires object number&lt; 2^31))      */
 specifier|private
 specifier|final
 name|long

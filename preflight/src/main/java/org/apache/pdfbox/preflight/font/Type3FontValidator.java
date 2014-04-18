@@ -1346,7 +1346,7 @@ operator|.
 name|getLastChar
 argument_list|()
 decl_stmt|;
-comment|/*          * wArr length = (lc - fc) + 1 and it is an array of int. If FirstChar is greater than LastChar, the validation          * will fail because of the array will have an expected size<= 0.          */
+comment|/*          * wArr length = (lc - fc) + 1 and it is an array of int.           * If FirstChar is greater than LastChar, the validation          * will fail because of the array will have an expected size&lt;= 0.          */
 name|int
 name|expectedLength
 init|=

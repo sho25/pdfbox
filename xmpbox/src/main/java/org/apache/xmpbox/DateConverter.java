@@ -974,7 +974,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Append Zero to String Buffer before number< 10 ('1' become '01')      *       * @param out      *            The String buffer      * @param number      *            The concerned number      */
+comment|/**      * Append Zero to String Buffer before number&lt; 10 ('1' become '01')      *       * @param out      *            The String buffer      * @param number      *            The concerned number      */
 specifier|private
 specifier|static
 name|void

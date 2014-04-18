@@ -395,7 +395,7 @@ name|getMappings
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the mapping (code/SID/charname/bytes) for this font.      *       * @return mappings for codes< 256 and for codes> = 256      */
+comment|/**      * Get the mapping (code/SID/charname/bytes) for this font.      *       * @return mappings for codes&lt; 256 and for codes&gt;= 256      */
 specifier|public
 name|Collection
 argument_list|<

@@ -219,7 +219,7 @@ name|length
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Thie will ensure that the value for a byte>=0.      *      * @param aByte The byte to test against.      *      * @return A value>=0 and< 256      */
+comment|/**      * Thie will ensure that the value for a byte&gt;=0.      *      * @param aByte The byte to test against.      *      * @return A value&gt;=0 and&lt; 256      */
 specifier|private
 specifier|static
 specifier|final

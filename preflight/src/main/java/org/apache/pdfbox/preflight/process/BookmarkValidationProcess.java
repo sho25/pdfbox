@@ -461,7 +461,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * return true if Count entry> 0      *       * @param outline      * @param doc      * @return      */
+comment|/**      * return true if Count entry&gt; 0      *       * @param outline      * @param doc      * @return      */
 specifier|private
 name|boolean
 name|isCountEntryPositive
