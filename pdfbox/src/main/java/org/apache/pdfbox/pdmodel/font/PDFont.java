@@ -93,6 +93,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|afm
@@ -303,6 +331,22 @@ name|PDFont
 implements|implements
 name|COSObjectable
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDFont
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * The cos dictionary for this font.      */
 specifier|protected
 name|COSDictionary
@@ -1502,7 +1546,17 @@ parameter_list|(
 name|IOException
 name|exception
 parameter_list|)
-block|{             }
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"An error occurs while reading a CMap"
+argument_list|,
+name|exception
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|targetCmap

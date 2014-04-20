@@ -230,6 +230,14 @@ specifier|private
 specifier|static
 specifier|final
 name|String
+name|END_CMAP
+init|=
+literal|"endcmap"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
 name|WMODE
 init|=
 literal|"WMode"
@@ -517,6 +525,22 @@ argument_list|(
 name|useCMap
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|op
+operator|.
+name|op
+operator|.
+name|equals
+argument_list|(
+name|END_CMAP
+argument_list|)
+condition|)
+block|{
+comment|// end of CMap reached, stop reading as there isn't any interesting info anymore
+break|break;
 block|}
 elseif|else
 if|if
@@ -2270,12 +2294,15 @@ operator|-
 literal|'a'
 expr_stmt|;
 block|}
+comment|// all kind of whitespaces may occur in malformed CMap files
+comment|// see PDFBOX-2035
 elseif|else
 if|if
 condition|(
+name|isWhitespaceOrEOF
+argument_list|(
 name|theNextByte
-operator|==
-literal|0x20
+argument_list|)
 condition|)
 block|{
 comment|// skipping whitespaces
@@ -2631,6 +2658,8 @@ operator|.
 name|read
 argument_list|()
 expr_stmt|;
+comment|// newline separator may be missing in malformed CMap files
+comment|// see PDFBOX-2035
 while|while
 condition|(
 operator|!
@@ -2638,6 +2667,10 @@ name|isWhitespaceOrEOF
 argument_list|(
 name|nextByte
 argument_list|)
+operator|&&
+name|nextByte
+operator|!=
+literal|'<'
 condition|)
 block|{
 name|buffer
@@ -2656,6 +2689,21 @@ name|is
 operator|.
 name|read
 argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|nextByte
+operator|==
+literal|'<'
+condition|)
+block|{
+name|is
+operator|.
+name|unread
+argument_list|(
+name|nextByte
+argument_list|)
 expr_stmt|;
 block|}
 name|retval
