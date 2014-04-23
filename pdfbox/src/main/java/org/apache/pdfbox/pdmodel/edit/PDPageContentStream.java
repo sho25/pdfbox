@@ -79,6 +79,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -485,6 +495,8 @@ begin_class
 specifier|public
 class|class
 name|PDPageContentStream
+implements|implements
+name|Closeable
 block|{
 comment|/**      * Log instance.      */
 specifier|private

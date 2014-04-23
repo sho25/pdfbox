@@ -21,6 +21,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|EOFException
 import|;
 end_import
@@ -74,6 +84,8 @@ specifier|public
 specifier|abstract
 class|class
 name|TTFDataStream
+implements|implements
+name|Closeable
 block|{
 comment|/**      * Read a 16.16 fixed value, where the first 16 bits are the decimal and the last 16 bits are the fraction.      *       * @return A 32 bit value.      * @throws IOException If there is an error reading the data.      */
 specifier|public
@@ -481,6 +493,8 @@ name|cal
 return|;
 block|}
 comment|/**      * Close the underlying resources.      *       * @throws IOException If there is an error closing the resources.      */
+annotation|@
+name|Override
 specifier|public
 specifier|abstract
 name|void

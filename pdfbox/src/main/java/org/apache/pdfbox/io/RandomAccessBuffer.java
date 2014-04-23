@@ -21,6 +21,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -45,6 +55,8 @@ class|class
 name|RandomAccessBuffer
 implements|implements
 name|RandomAccess
+implements|,
+name|Closeable
 block|{
 comment|// chunk size is 16kb
 specifier|private
@@ -300,6 +312,8 @@ name|copy
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -334,6 +348,8 @@ literal|0
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|seek
@@ -380,6 +396,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|getPosition
@@ -395,6 +413,8 @@ name|pointer
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -473,6 +493,8 @@ literal|0xff
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -702,6 +724,8 @@ name|maxLength
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|length
@@ -717,6 +741,8 @@ name|size
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|write
@@ -827,6 +853,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|write

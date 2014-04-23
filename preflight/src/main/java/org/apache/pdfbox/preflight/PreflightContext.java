@@ -19,6 +19,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -42,16 +52,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|SortedMap
 import|;
 end_import
 
@@ -175,6 +175,8 @@ begin_class
 specifier|public
 class|class
 name|PreflightContext
+implements|implements
+name|Closeable
 block|{
 comment|/**      * Contains the list of font name embedded in the PDF document.      */
 specifier|protected
