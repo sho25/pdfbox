@@ -41,6 +41,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -527,6 +537,8 @@ class|class
 name|COSWriter
 implements|implements
 name|ICOSVisitor
+implements|,
+name|Closeable
 block|{
 comment|/**      * The dictionary open token.      */
 specifier|public
