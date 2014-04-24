@@ -100,6 +100,9 @@ name|getNumGlyphs
 argument_list|()
 decl_stmt|;
 comment|// the end of the glyph table
+comment|// should not be 0, but sometimes is, see PDFBOX-2044
+comment|// structure of this table: see
+comment|// https://developer.apple.com/fonts/TTRefMan/RM06/Chap6loca.html
 name|long
 name|endOfGlyphs
 init|=
@@ -141,6 +144,10 @@ comment|// end of glyphs reached?
 if|if
 condition|(
 name|endOfGlyphs
+operator|!=
+literal|0
+operator|&&
+name|endOfGlyphs
 operator|==
 name|offsets
 index|[
@@ -151,19 +158,19 @@ block|{
 break|break;
 block|}
 comment|// the current glyph isn't defined
-comment|// if the next offset equals the current index
+comment|// if the next offset is equal or smaller to the current offset
 if|if
 condition|(
 name|offsets
 index|[
 name|i
+operator|+
+literal|1
 index|]
-operator|==
+operator|<=
 name|offsets
 index|[
 name|i
-operator|+
-literal|1
 index|]
 condition|)
 block|{
