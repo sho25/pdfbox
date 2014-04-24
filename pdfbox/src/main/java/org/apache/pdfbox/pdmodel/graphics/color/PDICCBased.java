@@ -1105,14 +1105,17 @@ return|return
 name|list
 return|;
 block|}
+comment|/**      * Get the range array, create and fill it with default values (0, 1) if      * needed so that it has enough value pairs for the position.      *      * @param pos The zero-based position that should exist after this call is      * completed.      * @return A valid range array.      */
 specifier|private
 name|COSArray
 name|getRangeArray
 parameter_list|(
 name|int
-name|n
+name|pos
 parameter_list|)
 block|{
+comment|//TODO per "clean code", a method should either
+comment|// return something or modify something, but not both.
 name|COSArray
 name|rangeArray
 init|=
@@ -1158,6 +1161,8 @@ argument_list|,
 name|rangeArray
 argument_list|)
 expr_stmt|;
+block|}
+comment|// extend range array with default values if needed
 while|while
 condition|(
 name|rangeArray
@@ -1165,7 +1170,11 @@ operator|.
 name|size
 argument_list|()
 operator|<
-name|n
+operator|(
+name|pos
+operator|+
+literal|1
+operator|)
 operator|*
 literal|2
 condition|)
@@ -1177,8 +1186,7 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
-operator|-
-literal|100
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1189,11 +1197,10 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
-literal|100
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|rangeArray
