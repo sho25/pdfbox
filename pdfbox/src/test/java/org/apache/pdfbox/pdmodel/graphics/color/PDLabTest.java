@@ -248,7 +248,7 @@ operator|.
 name|getWhitepoint
 argument_list|()
 operator|.
-name|getX
+name|getY
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -261,7 +261,7 @@ operator|.
 name|getWhitepoint
 argument_list|()
 operator|.
-name|getX
+name|getZ
 argument_list|()
 argument_list|)
 expr_stmt|;
