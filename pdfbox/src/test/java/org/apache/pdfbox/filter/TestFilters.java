@@ -124,7 +124,7 @@ name|TestFilters
 extends|extends
 name|TestCase
 block|{
-comment|/**      * This will test all of the filters in the system.      *      * @throws IOException If there is an exception while encoding.      */
+comment|/**      * This will test all of the filters in the system. There will be COUNT      * of deterministic tests and COUNT of non-deterministic tests, see also      * the discussion in PDFBOX-1977.      *      * @throws IOException If there is an exception while encoding.      */
 specifier|public
 name|void
 name|testFilters
@@ -132,6 +132,21 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|int
+name|COUNT
+init|=
+literal|10
+decl_stmt|;
+name|Random
+name|rd
+init|=
+operator|new
+name|Random
+argument_list|(
+literal|123456
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -141,23 +156,46 @@ literal|0
 init|;
 name|iter
 operator|<
-literal|10
+name|COUNT
+operator|*
+literal|2
 condition|;
 name|iter
 operator|++
 control|)
 block|{
-specifier|final
 name|long
 name|seed
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|iter
+operator|<
+name|COUNT
+condition|)
+block|{
+comment|// deterministic seed
+name|seed
+operator|=
+name|rd
+operator|.
+name|nextLong
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// non-deterministic seed
+name|seed
+operator|=
 operator|new
 name|Random
 argument_list|()
 operator|.
 name|nextLong
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 name|boolean
 name|success
 init|=
@@ -230,7 +268,7 @@ operator|<
 literal|2
 condition|)
 block|{
-comment|// Fill w/ truly random bytes:
+comment|// Fill w/ pseudo-random bytes:
 specifier|final
 name|int
 name|end
