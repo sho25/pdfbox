@@ -934,6 +934,10 @@ condition|(
 name|length
 operator|==
 literal|0
+operator|&&
+name|writtenLength
+operator|==
+literal|0
 condition|)
 block|{
 comment|//if the length is zero then don't bother trying to decode
@@ -971,6 +975,10 @@ name|tryCount
 init|=
 literal|0
 init|;
+name|length
+operator|>
+literal|0
+operator|&&
 operator|!
 name|done
 operator|&&
