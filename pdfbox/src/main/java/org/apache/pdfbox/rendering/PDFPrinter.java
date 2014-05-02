@@ -731,8 +731,7 @@ name|job
 operator|.
 name|setPageable
 argument_list|(
-operator|new
-name|PDFPageable
+name|getPageable
 argument_list|()
 argument_list|)
 expr_stmt|;
