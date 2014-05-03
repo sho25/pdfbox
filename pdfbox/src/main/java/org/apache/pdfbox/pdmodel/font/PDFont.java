@@ -1304,10 +1304,14 @@ name|e
 parameter_list|)
 block|{
 comment|// Nothing should happen here
-name|e
+name|LOG
 operator|.
-name|printStackTrace
-argument_list|()
+name|error
+argument_list|(
+name|e
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 for|for
@@ -1364,10 +1368,14 @@ name|e
 parameter_list|)
 block|{
 comment|// Nothing should happen here
-name|e
+name|LOG
 operator|.
-name|printStackTrace
-argument_list|()
+name|error
+argument_list|(
+name|e
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}

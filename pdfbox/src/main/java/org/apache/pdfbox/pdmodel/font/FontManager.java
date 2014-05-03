@@ -210,10 +210,14 @@ name|IOException
 name|io
 parameter_list|)
 block|{
-name|io
+name|LOG
 operator|.
-name|printStackTrace
-argument_list|()
+name|error
+argument_list|(
+name|io
+argument_list|,
+name|io
+argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
