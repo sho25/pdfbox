@@ -25,6 +25,34 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class is based on code from Apache Batik a subproject of Apache XMLGraphics. see  * http://xmlgraphics.apache.org/batik/ for further details.  */
 end_comment
@@ -36,6 +64,22 @@ name|GlyfSimpleDescript
 extends|extends
 name|GlyfDescript
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|GlyfSimpleDescript
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|int
 index|[]
@@ -608,13 +652,13 @@ name|ArrayIndexOutOfBoundsException
 name|e
 parameter_list|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"error: array index out of bounds"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

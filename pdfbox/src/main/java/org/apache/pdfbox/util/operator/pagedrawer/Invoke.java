@@ -590,11 +590,6 @@ name|e
 parameter_list|)
 block|{
 comment|// TODO we probably shouldn't catch Exception, what errors are expected here?
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 name|LOG
 operator|.
 name|error
