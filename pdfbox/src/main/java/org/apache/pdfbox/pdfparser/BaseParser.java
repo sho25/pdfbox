@@ -5726,6 +5726,12 @@ name|pdfSource
 operator|.
 name|getOffset
 argument_list|()
+operator|+
+literal|", instead got '"
+operator|+
+name|longBuffer
+operator|+
+literal|"'"
 argument_list|)
 throw|;
 block|}
@@ -5780,6 +5786,11 @@ operator|!=
 literal|60
 operator|&&
 comment|//see sourceforge bug 1714707
+name|lastByte
+operator|!=
+literal|'['
+operator|&&
+comment|// PDFBOX-1845
 name|lastByte
 operator|!=
 literal|0
