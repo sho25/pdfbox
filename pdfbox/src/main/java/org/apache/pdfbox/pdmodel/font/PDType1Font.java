@@ -2279,7 +2279,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return
+name|String
+name|character
+init|=
 name|type1CFont
 operator|.
 name|encode
@@ -2290,10 +2292,19 @@ name|offset
 argument_list|,
 name|length
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|character
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|character
 return|;
 block|}
-else|else
-block|{
+block|}
 return|return
 name|super
 operator|.
@@ -2306,7 +2317,6 @@ argument_list|,
 name|length
 argument_list|)
 return|;
-block|}
 block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@
