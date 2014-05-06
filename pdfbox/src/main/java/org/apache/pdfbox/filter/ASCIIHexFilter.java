@@ -496,6 +496,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|firstByte
+operator|==
+operator|-
+literal|1
+operator|||
 name|isEOD
 argument_list|(
 name|firstByte
@@ -550,6 +555,11 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|secondByte
+operator|==
+operator|-
+literal|1
+operator|||
 name|isEOD
 argument_list|(
 name|secondByte
