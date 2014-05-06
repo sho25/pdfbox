@@ -583,7 +583,7 @@ argument_list|)
 decl_stmt|;
 comment|// create XObject
 name|ByteArrayOutputStream
-name|bos
+name|baos
 init|=
 operator|new
 name|ByteArrayOutputStream
@@ -597,7 +597,7 @@ name|image
 argument_list|,
 literal|"jpeg"
 argument_list|,
-name|bos
+name|baos
 argument_list|,
 name|dpi
 argument_list|,
@@ -610,7 +610,7 @@ init|=
 operator|new
 name|ByteArrayInputStream
 argument_list|(
-name|bos
+name|baos
 operator|.
 name|toByteArray
 argument_list|()
