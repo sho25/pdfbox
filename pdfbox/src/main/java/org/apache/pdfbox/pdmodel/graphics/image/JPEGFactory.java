@@ -593,7 +593,7 @@ name|ImageIOUtil
 operator|.
 name|writeImage
 argument_list|(
-name|image
+name|awtColorImage
 argument_list|,
 literal|"jpeg"
 argument_list|,
