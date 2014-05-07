@@ -105,18 +105,6 @@ name|PDMatrix
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|color
-operator|.
-name|ColorSpace
-import|;
-end_import
-
 begin_comment
 comment|/**  * A CalRGB colour space is a CIE-based colour space with one transformation stage instead of two.  * In this type of space, A, B, and C represent calibrated red, green, and blue colour values.  *  * @author Ben Litchfield  * @author John Hewson  */
 end_comment
@@ -148,10 +136,6 @@ block|,
 literal|0
 block|}
 argument_list|)
-decl_stmt|;
-specifier|protected
-name|COSArray
-name|array
 decl_stmt|;
 specifier|protected
 name|COSDictionary

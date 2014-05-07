@@ -259,17 +259,6 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|array
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
 name|String
 name|toString
 parameter_list|()

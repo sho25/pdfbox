@@ -183,18 +183,6 @@ name|awt
 operator|.
 name|image
 operator|.
-name|DataBuffer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|image
-operator|.
 name|WritableRaster
 import|;
 end_import
@@ -929,13 +917,17 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts this standard java object to a COS object.      * @return The COS object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
-specifier|abstract
 name|COSBase
 name|getCOSObject
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|array
+return|;
+block|}
 block|}
 end_class
 

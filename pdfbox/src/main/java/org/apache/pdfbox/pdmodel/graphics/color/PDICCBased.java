@@ -454,17 +454,6 @@ name|getName
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|array
-return|;
-block|}
 comment|/**      * Get the underlying ICC profile stream.      * @return the underlying ICC profile stream      */
 specifier|public
 name|PDStream
