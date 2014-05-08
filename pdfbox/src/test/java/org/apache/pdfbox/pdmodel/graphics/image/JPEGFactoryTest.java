@@ -92,6 +92,18 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -168,6 +180,26 @@ operator|.
 name|color
 operator|.
 name|PDDeviceRGB
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|image
+operator|.
+name|ValidateXImage
+operator|.
+name|colorCount
 import|;
 end_import
 
@@ -802,6 +834,27 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|colorCount
+argument_list|(
+name|ximage
+operator|.
+name|getSoftMask
+argument_list|()
+operator|.
+name|getImage
+argument_list|()
+argument_list|)
+operator|>
+name|image
+operator|.
+name|getHeight
+argument_list|()
+operator|/
+literal|10
+argument_list|)
+expr_stmt|;
 comment|// This part isn't really needed because this test doesn't break
 comment|// if the mask has the wrong colorspace (PDFBOX-2057), but it is still useful
 comment|// if something goes wrong in the future and we want to have a PDF to open.
@@ -1144,6 +1197,27 @@ name|INSTANCE
 operator|.
 name|getName
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|colorCount
+argument_list|(
+name|ximage
+operator|.
+name|getSoftMask
+argument_list|()
+operator|.
+name|getImage
+argument_list|()
+argument_list|)
+operator|>
+name|image
+operator|.
+name|getHeight
+argument_list|()
+operator|/
+literal|10
 argument_list|)
 expr_stmt|;
 comment|// This part isn't really needed because this test doesn't break
