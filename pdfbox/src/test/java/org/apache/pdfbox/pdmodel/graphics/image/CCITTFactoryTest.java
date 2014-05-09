@@ -110,24 +110,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDDeviceRGB
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.

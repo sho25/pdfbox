@@ -267,25 +267,12 @@ argument_list|(
 name|document
 argument_list|,
 name|byteStream
-argument_list|)
-decl_stmt|;
-comment|// add DCT filter
-name|pdImage
-operator|.
-name|getCOSStream
-argument_list|()
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|FILTER
 argument_list|,
 name|COSName
 operator|.
 name|DCT_DECODE
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// no alpha
 if|if
 condition|(
@@ -625,30 +612,12 @@ argument_list|(
 name|document
 argument_list|,
 name|byteStream
-argument_list|)
-decl_stmt|;
-comment|// add DCT filter
-name|COSStream
-name|dict
-init|=
-name|pdImage
-operator|.
-name|getCOSStream
-argument_list|()
-decl_stmt|;
-name|dict
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|FILTER
 argument_list|,
 name|COSName
 operator|.
 name|DCT_DECODE
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// alpha -> soft mask
 if|if
 condition|(
@@ -671,7 +640,10 @@ argument_list|,
 name|quality
 argument_list|)
 decl_stmt|;
-name|dict
+name|pdImage
+operator|.
+name|getCOSStream
+argument_list|()
 operator|.
 name|setItem
 argument_list|(

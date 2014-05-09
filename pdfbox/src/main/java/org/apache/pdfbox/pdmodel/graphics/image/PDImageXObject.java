@@ -335,7 +335,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an Image XObject in the given document.      * @param document the current document      */
+comment|/**      * Creates an Image XObject in the given document.      * @param document the current document      * @throws java.io.IOException if there is an error creating the XObject.      */
 specifier|public
 name|PDImageXObject
 parameter_list|(
@@ -357,7 +357,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates an Image XObject in the given document using the given filtered stream.      * @param document the current document      * @param filteredStream a filtered stream of image data      * @throws IOException      */
+comment|/**      * Creates an Image XObject in the given document using the given filtered stream.      * @param document the current document      * @param filteredStream a filtered stream of image data      * @param cosFilter the filter or a COSArray of filters      * @throws IOException if there is an error creating the XObject.      */
 specifier|public
 name|PDImageXObject
 parameter_list|(
@@ -366,6 +366,9 @@ name|document
 parameter_list|,
 name|InputStream
 name|filteredStream
+parameter_list|,
+name|COSBase
+name|cosFilter
 parameter_list|)
 throws|throws
 name|IOException
@@ -387,6 +390,18 @@ operator|.
 name|IMAGE
 argument_list|)
 expr_stmt|;
+name|getCOSStream
+argument_list|()
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|FILTER
+argument_list|,
+name|cosFilter
+argument_list|)
+expr_stmt|;
 name|colorSpaces
 operator|=
 literal|null
@@ -396,7 +411,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Creates an Image XObject with the given stream as its contents and current color spaces.      * @param stream the XObject stream to read      * @param colorSpaces the color spaces in the current resources dictionary, null for masks      */
+comment|/**      * Creates an Image XObject with the given stream as its contents and current color spaces.      * @param stream the XObject stream to read      * @param colorSpaces the color spaces in the current resources dictionary, null for masks      * @throws java.io.IOException if there is an error creating the XObject.      */
 specifier|public
 name|PDImageXObject
 parameter_list|(
@@ -615,6 +630,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      * The returned images are cached for the lifetime of this XObject.      */
+annotation|@
+name|Override
 specifier|public
 name|BufferedImage
 name|getImage
@@ -717,6 +734,8 @@ name|image
 return|;
 block|}
 comment|/**      * {@inheritDoc}      * The returned images are not cached.      */
+annotation|@
+name|Override
 specifier|public
 name|BufferedImage
 name|getStencilImage
@@ -1270,6 +1289,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getBitsPerComponent
@@ -1304,6 +1325,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setBitsPerComponent
@@ -1325,6 +1348,8 @@ name|bpc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|PDColorSpace
 name|getColorSpace
@@ -1407,6 +1432,8 @@ return|return
 name|colorSpace
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|PDStream
 name|getStream
@@ -1419,6 +1446,8 @@ name|getPDStream
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setColorSpace
@@ -1449,6 +1478,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getHeight
@@ -1466,6 +1497,8 @@ name|HEIGHT
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setHeight
@@ -1487,6 +1520,8 @@ name|h
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getWidth
@@ -1504,6 +1539,8 @@ name|WIDTH
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setWidth
@@ -1525,6 +1562,8 @@ name|w
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setDecode
@@ -1546,6 +1585,8 @@ name|decode
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|COSArray
 name|getDecode
@@ -1586,6 +1627,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isStencil
@@ -1605,6 +1648,8 @@ literal|false
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setStencil
