@@ -5191,6 +5191,15 @@ literal|'>'
 operator|||
 name|current
 operator|==
+literal|'{'
+operator|||
+name|current
+operator|==
+literal|'}'
+comment|// PDFBOX-2073
+operator|||
+name|current
+operator|==
 name|NAME_ESCAPE
 index|[
 literal|0
