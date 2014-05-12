@@ -1297,7 +1297,12 @@ operator|*=
 literal|.80f
 expr_stmt|;
 block|}
-else|else
+if|if
+condition|(
+name|spaceWidthText
+operator|==
+literal|0
+condition|)
 block|{
 name|spaceWidthText
 operator|=
@@ -1537,21 +1542,13 @@ name|horizontalScalingText
 operator|*
 name|textMatrix
 operator|.
-name|getValue
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
+name|getXScale
+argument_list|()
 operator|*
 name|ctm
 operator|.
-name|getValue
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
+name|getXScale
+argument_list|()
 decl_stmt|;
 comment|// todo, handle horizontal displacement
 comment|// get the width and height of this character in text units
@@ -1651,8 +1648,6 @@ operator|+=
 name|wordSpacingText
 expr_stmt|;
 block|}
-name|textXctm
-operator|=
 name|textMatrix
 operator|.
 name|multiply
@@ -1727,8 +1722,6 @@ comment|// version will have the X and Y coordinates for the next glyph.
 comment|// textMatrixEnd contains the coordinates of the end of the last glyph without
 comment|// taking characterSpacingText and spacintText into account, otherwise it'll be
 comment|// impossible to detect new words within text extraction
-name|tempMatrix
-operator|=
 name|textStateParameters
 operator|.
 name|multiply
@@ -1738,8 +1731,6 @@ argument_list|,
 name|tempMatrix
 argument_list|)
 expr_stmt|;
-name|textMatrixEnd
-operator|=
 name|tempMatrix
 operator|.
 name|multiply
@@ -1795,8 +1786,6 @@ argument_list|,
 name|tx
 argument_list|)
 expr_stmt|;
-name|textMatrix
-operator|=
 name|td
 operator|.
 name|multiply
