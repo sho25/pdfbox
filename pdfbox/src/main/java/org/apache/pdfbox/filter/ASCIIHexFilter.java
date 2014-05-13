@@ -438,7 +438,7 @@ block|}
 decl_stmt|;
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 specifier|final
 name|DecodeResult
 name|decode
@@ -451,6 +451,9 @@ name|decoded
 parameter_list|,
 name|COSDictionary
 name|parameters
+parameter_list|,
+name|int
+name|index
 parameter_list|)
 throws|throws
 name|IOException

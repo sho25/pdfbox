@@ -225,7 +225,7 @@ comment|// one instance of each filter
 comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 specifier|final
 name|DecodeResult
 name|decode
@@ -238,6 +238,9 @@ name|decoded
 parameter_list|,
 name|COSDictionary
 name|parameters
+parameter_list|,
+name|int
+name|index
 parameter_list|)
 throws|throws
 name|IOException
@@ -251,20 +254,11 @@ decl_stmt|;
 name|COSDictionary
 name|decodeParams
 init|=
-operator|(
-name|COSDictionary
-operator|)
-name|parameters
-operator|.
-name|getDictionaryObject
+name|getDecodeParams
 argument_list|(
-name|COSName
-operator|.
-name|DECODE_PARMS
+name|parameters
 argument_list|,
-name|COSName
-operator|.
-name|DP
+name|index
 argument_list|)
 decl_stmt|;
 if|if

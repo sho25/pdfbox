@@ -160,7 +160,7 @@ parameter_list|()
 block|{     }
 comment|/**      * Decodes data, producing the original non-encoded data.      * @param encoded the encoded byte stream      * @param decoded the stream where decoded data will be written      * @param parameters the parameters used for decoding      * @return repaired parameters dictionary, or the original parameters dictionary      * @throws IOException if the stream cannot be decoded      */
 specifier|public
-specifier|final
+specifier|abstract
 name|DecodeResult
 name|decode
 parameter_list|(
@@ -175,68 +175,6 @@ name|parameters
 parameter_list|,
 name|int
 name|index
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|COSDictionary
-name|params
-init|=
-operator|new
-name|COSDictionary
-argument_list|()
-decl_stmt|;
-name|params
-operator|.
-name|addAll
-argument_list|(
-name|parameters
-argument_list|)
-expr_stmt|;
-name|params
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|DECODE_PARMS
-argument_list|,
-name|getDecodeParams
-argument_list|(
-name|params
-argument_list|,
-name|index
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-name|decode
-argument_list|(
-name|encoded
-argument_list|,
-name|decoded
-argument_list|,
-name|params
-operator|.
-name|asUnmodifiableDictionary
-argument_list|()
-argument_list|)
-return|;
-block|}
-comment|// implemented in subclasses
-specifier|protected
-specifier|abstract
-name|DecodeResult
-name|decode
-parameter_list|(
-name|InputStream
-name|encoded
-parameter_list|,
-name|OutputStream
-name|decoded
-parameter_list|,
-name|COSDictionary
-name|parameters
 parameter_list|)
 throws|throws
 name|IOException
@@ -295,7 +233,7 @@ name|IOException
 function_decl|;
 comment|// gets the decode params for a specific filter index, this is used to
 comment|// normalise the DecodeParams entry so that it is always a dictionary
-specifier|private
+specifier|protected
 name|COSDictionary
 name|getDecodeParams
 parameter_list|(

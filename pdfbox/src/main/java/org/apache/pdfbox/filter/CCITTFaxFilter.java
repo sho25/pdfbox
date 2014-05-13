@@ -201,7 +201,7 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 specifier|final
 name|DecodeResult
 name|decode
@@ -214,6 +214,9 @@ name|decoded
 parameter_list|,
 name|COSDictionary
 name|parameters
+parameter_list|,
+name|int
+name|index
 parameter_list|)
 throws|throws
 name|IOException
@@ -243,20 +246,11 @@ comment|// get decode parameters
 name|COSDictionary
 name|decodeParms
 init|=
-operator|(
-name|COSDictionary
-operator|)
-name|parameters
-operator|.
-name|getDictionaryObject
+name|getDecodeParams
 argument_list|(
-name|COSName
-operator|.
-name|DECODE_PARMS
+name|parameters
 argument_list|,
-name|COSName
-operator|.
-name|DP
+name|index
 argument_list|)
 decl_stmt|;
 comment|// parse dimensions
