@@ -1795,7 +1795,7 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-comment|// within a dictionary only strings and streams have to be decrypted
+comment|// within a dictionary only the following kind of COS objects have to be decrypted
 if|if
 condition|(
 name|value
@@ -1809,6 +1809,10 @@ operator|||
 name|value
 operator|instanceof
 name|COSArray
+operator|||
+name|value
+operator|instanceof
+name|COSDictionary
 condition|)
 block|{
 comment|// if we are a signature dictionary and contain a Contents entry then
@@ -1822,12 +1826,11 @@ operator|.
 name|getKey
 argument_list|()
 operator|.
-name|getName
-argument_list|()
-operator|.
 name|equals
 argument_list|(
-literal|"Contents"
+name|COSName
+operator|.
+name|CONTENTS
 argument_list|)
 operator|&&
 name|value
@@ -1845,10 +1848,7 @@ condition|)
 block|{
 name|decrypt
 argument_list|(
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|,
 name|objNum
 argument_list|,
