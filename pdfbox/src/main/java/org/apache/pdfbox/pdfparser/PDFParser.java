@@ -923,7 +923,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-specifier|private
+specifier|protected
 name|void
 name|parseHeader
 parameter_list|()
