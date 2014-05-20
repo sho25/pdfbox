@@ -314,10 +314,16 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|doWritePDF
+argument_list|(
 name|document
-operator|.
-name|close
-argument_list|()
+argument_list|,
+name|ximage
+argument_list|,
+name|testResultsDir
+argument_list|,
+literal|"jpegrgbstream.pdf"
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests JPEGFactory#createFromStream(PDDocument document, InputStream      * stream) with gray JPEG file      */
@@ -379,10 +385,16 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|doWritePDF
+argument_list|(
 name|document
-operator|.
-name|close
-argument_list|()
+argument_list|,
+name|ximage
+argument_list|,
+name|testResultsDir
+argument_list|,
+literal|"jpeg256stream.pdf"
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests RGB JPEGFactory#createFromImage(PDDocument document, BufferedImage      * image) with color JPEG image      */
@@ -462,10 +474,16 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|doWritePDF
+argument_list|(
 name|document
-operator|.
-name|close
-argument_list|()
+argument_list|,
+name|ximage
+argument_list|,
+name|testResultsDir
+argument_list|,
+literal|"jpegrgb.pdf"
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests RGB JPEGFactory#createFromImage(PDDocument document, BufferedImage      * image) with gray JPEG image      */
@@ -545,10 +563,16 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|doWritePDF
+argument_list|(
 name|document
-operator|.
-name|close
-argument_list|()
+argument_list|,
+name|ximage
+argument_list|,
+name|testResultsDir
+argument_list|,
+literal|"jpeg256.pdf"
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests ARGB JPEGFactory#createFromImage(PDDocument document, BufferedImage      * image)      */
