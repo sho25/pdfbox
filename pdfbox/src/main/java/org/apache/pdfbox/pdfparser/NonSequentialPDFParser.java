@@ -1926,6 +1926,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// PDFBOX-1922: read the version again now that all objects have been resolved
+name|readVersionInTrailer
+argument_list|(
+name|trailer
+argument_list|)
+expr_stmt|;
 name|initialParseDone
 operator|=
 literal|true

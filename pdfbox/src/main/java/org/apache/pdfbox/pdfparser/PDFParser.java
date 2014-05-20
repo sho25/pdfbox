@@ -2890,7 +2890,7 @@ literal|true
 return|;
 block|}
 comment|/**      * The document catalog can also have a /Version parameter which overrides the version specified      * in the header if, and only if it is greater.      *      * @param parsedTrailer the parsed catalog in the trailer      */
-specifier|private
+specifier|protected
 name|void
 name|readVersionInTrailer
 parameter_list|(
