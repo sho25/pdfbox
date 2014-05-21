@@ -200,7 +200,7 @@ argument_list|()
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"org/apache/pdfbox/resources/ttf/ArialMT.ttf"
+literal|"org/apache/pdfbox/ttf/ArialMT.ttf"
 argument_list|)
 decl_stmt|;
 name|Assert
