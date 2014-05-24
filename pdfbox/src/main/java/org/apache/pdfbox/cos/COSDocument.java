@@ -682,7 +682,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Expected a /Name object after /Type, got '"
 operator|+
