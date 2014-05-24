@@ -1951,12 +1951,9 @@ name|COSDictionary
 operator|)
 name|obj
 decl_stmt|;
-name|COSName
-name|item
+name|COSBase
+name|itemType
 init|=
-operator|(
-name|COSName
-operator|)
 name|dict
 operator|.
 name|getItem
@@ -1965,6 +1962,21 @@ name|COSName
 operator|.
 name|TYPE
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|itemType
+operator|instanceof
+name|COSName
+condition|)
+block|{
+name|COSName
+name|item
+init|=
+operator|(
+name|COSName
+operator|)
+name|itemType
 decl_stmt|;
 if|if
 condition|(
@@ -1991,6 +2003,7 @@ name|reachedSignature
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// find the physical reference
