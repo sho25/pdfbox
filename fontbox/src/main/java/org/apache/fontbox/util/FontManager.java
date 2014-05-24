@@ -414,6 +414,20 @@ operator|.
 name|getNaming
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|namingTable
+operator|!=
+literal|null
+operator|&&
+name|namingTable
+operator|.
+name|getPSName
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|String
 name|normalizedName
 init|=
@@ -434,6 +448,7 @@ argument_list|,
 name|ttfFilename
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Normalize the fontname.      *       * @param fontname The name of the font.      *       * @return The normalized name of the font.      */
@@ -807,6 +822,15 @@ argument_list|,
 name|fontMappingTTF
 argument_list|)
 expr_stmt|;
+name|addFontFamilyMapping
+argument_list|(
+literal|"CourierNew"
+argument_list|,
+literal|"Courier"
+argument_list|,
+name|fontMappingTTF
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Create a mapping for the given font family.      *       * @param fontfamily the font family to be mapped      * @param mappedFontfamily the mapped font family      */
 specifier|private
@@ -903,13 +927,21 @@ name|fontfile
 init|=
 literal|null
 decl_stmt|;
+name|String
+name|normalizedFontname
+init|=
+name|normalizeFontname
+argument_list|(
+name|fontname
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|ttfFontfiles
 operator|.
 name|containsKey
 argument_list|(
-name|fontname
+name|normalizedFontname
 argument_list|)
 condition|)
 block|{
@@ -919,7 +951,7 @@ name|ttfFontfiles
 operator|.
 name|get
 argument_list|(
-name|fontname
+name|normalizedFontname
 argument_list|)
 expr_stmt|;
 block|}

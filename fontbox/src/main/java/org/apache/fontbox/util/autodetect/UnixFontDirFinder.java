@@ -162,7 +162,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"ArialNarrow,BoldItalic"
+literal|"Arial,BoldItalic"
 argument_list|,
 literal|"LiberationSans-BoldItalic"
 argument_list|)
@@ -171,7 +171,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"ArialNarrow,Italic"
+literal|"Arial,Italic"
 argument_list|,
 literal|"LiberationSans-Italic"
 argument_list|)
@@ -180,7 +180,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"ArialNarrow,Bold"
+literal|"Arial,Bold"
 argument_list|,
 literal|"LiberationSans-Bold"
 argument_list|)
