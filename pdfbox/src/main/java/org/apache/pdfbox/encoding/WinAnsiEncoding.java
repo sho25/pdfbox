@@ -17,16 +17,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -54,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This the win ansi encoding.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.10 $  */
+comment|/**  * This the win ansi encoding.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  */
 end_comment
 
 begin_class
@@ -64,7 +54,7 @@ name|WinAnsiEncoding
 extends|extends
 name|Encoding
 block|{
-comment|/** 	 * Singleton instance of this class. 	 * 	 * @since Apache PDFBox 1.3.0 	 */
+comment|/**      * Singleton instance of this class.      *       * @since Apache PDFBox 1.3.0      */
 specifier|public
 specifier|static
 specifier|final
@@ -75,7 +65,7 @@ operator|new
 name|WinAnsiEncoding
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Constructor. 	 */
+comment|/**      * Constructor.      */
 specifier|public
 name|WinAnsiEncoding
 parameter_list|()
@@ -1592,16 +1582,41 @@ argument_list|,
 literal|"zero"
 argument_list|)
 expr_stmt|;
-block|}
-specifier|public
-name|String
-name|getName
-parameter_list|(
+comment|// adding some additional mappings as defined in Appendix D of the pdf spec
+comment|// we must not add them to both mappings as the nameToCode mapping
+comment|// wouldn't be unique
+name|codeToName
+operator|.
+name|put
+argument_list|(
+literal|0240
+argument_list|,
+literal|"space"
+argument_list|)
+expr_stmt|;
+name|codeToName
+operator|.
+name|put
+argument_list|(
+literal|0255
+argument_list|,
+literal|"hyphen"
+argument_list|)
+expr_stmt|;
+for|for
+control|(
 name|int
-name|code
-parameter_list|)
-throws|throws
-name|IOException
+name|i
+init|=
+literal|041
+init|;
+name|i
+operator|<=
+literal|255
+condition|;
+name|i
+operator|++
+control|)
 block|{
 if|if
 condition|(
@@ -1610,50 +1625,23 @@ name|codeToName
 operator|.
 name|containsKey
 argument_list|(
-name|code
+name|i
 argument_list|)
-operator|&&
-name|code
-operator|>
-literal|040
 condition|)
 block|{
-switch|switch
-condition|(
-name|code
-condition|)
-block|{
-case|case
-literal|0240
-case|:
-comment|/* 				 * The space character is also encoded as 0312 in MacRoman and 0240 in WinAnsi.  				 * The meaning of this duplicate code is "nonbreaking space" but it is  				 * typographically the same as space.  				 */
-return|return
-literal|"space"
-return|;
-case|case
-literal|0255
-case|:
-comment|/* 				 * The hyphen character is also encoded as 0255 in WinAnsi.  				 * The meaning of this duplicate code is "soft hyphen" but it is  				 * typographically the same as hyphen.  				 */
-return|return
-literal|"hyphen"
-return|;
-default|default:
-comment|/* 				 * According to the PDFReference Appendix D : 				 * In WinAnsiEncoding, all unused codes greater than 40 map to the bullet character.  				 * However, only code 0225 is specifically assigned to the bullet character; 				 * other codes are subject to future reassignment 				 */
-return|return
-literal|"bullet"
-return|;
-block|}
-block|}
-return|return
 name|codeToName
 operator|.
-name|get
+name|put
 argument_list|(
-name|code
+name|i
+argument_list|,
+literal|"bullet"
 argument_list|)
-return|;
+expr_stmt|;
 block|}
-comment|/** 	 * Convert this standard java object to a COS object. 	 * 	 * @return The cos object that matches this Java object. 	 */
+block|}
+block|}
+comment|/**      * Convert this standard java object to a COS object.      *       * @return The cos object that matches this Java object.      */
 specifier|public
 name|COSBase
 name|getCOSObject

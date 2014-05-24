@@ -17,16 +17,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -54,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an interface to a text encoder.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.10 $  */
+comment|/**  * This is an interface to a text encoder.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  */
 end_comment
 
 begin_class
@@ -1529,45 +1519,18 @@ argument_list|,
 literal|"zero"
 argument_list|)
 expr_stmt|;
-block|}
-specifier|public
-name|String
-name|getName
-parameter_list|(
-name|int
-name|code
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-operator|!
+comment|// adding an additional mapping as defined in Appendix D of the pdf spec
+comment|// we must not add it to both mappings as the nameToCode mapping
+comment|// wouldn't be unique
 name|codeToName
 operator|.
-name|containsKey
+name|put
 argument_list|(
-name|code
-argument_list|)
-operator|&&
-name|code
-operator|==
 literal|0312
-condition|)
-block|{
-comment|/*   				 * The space character is also encoded as 0312 in MacRoman and 0240 in WinAnsi.    				 * The meaning of this duplicate code is "nonbreaking space" but it is    				 * typographically the same as space.    				 */
-return|return
+argument_list|,
 literal|"space"
-return|;
-block|}
-return|return
-name|codeToName
-operator|.
-name|get
-argument_list|(
-name|code
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
 specifier|public
