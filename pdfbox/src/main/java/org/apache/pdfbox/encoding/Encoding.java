@@ -712,6 +712,42 @@ name|code
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Determines if the encoding has a mapping for the given name value.      *       * @param name the source value for the mapping      * @return the mapped value      */
+specifier|public
+name|boolean
+name|hasCodeForName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|nameToCode
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * Determines if the encoding has a mapping for the given code value.      *       * @param code the source value for the mapping      * @return the mapped value      */
+specifier|public
+name|boolean
+name|hasNameForCode
+parameter_list|(
+name|int
+name|code
+parameter_list|)
+block|{
+return|return
+name|codeToName
+operator|.
+name|containsKey
+argument_list|(
+name|code
+argument_list|)
+return|;
+block|}
 comment|/**      * This will get the character code for the name.      *       * @param name The name of the character.      *       * @return The code for the character.      *       * @throws IOException If there is no character code for the name.      */
 specifier|public
 name|int

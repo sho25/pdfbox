@@ -1133,6 +1133,15 @@ condition|(
 name|cmapMacintoshSymbol
 operator|!=
 literal|null
+operator|&&
+name|MacOSRomanEncoding
+operator|.
+name|INSTANCE
+operator|.
+name|hasCodeForName
+argument_list|(
+name|charactername
+argument_list|)
 condition|)
 block|{
 name|result
@@ -1153,6 +1162,27 @@ operator|.
 name|getGlyphId
 argument_list|(
 name|result
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|cmapWinSymbol
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// fallback scenario if the glyph can't be found yet
+comment|// maybe the 3,0 cmap provides a suitable mapping
+comment|// see PDFBOX-2091
+name|result
+operator|=
+name|cmapWinSymbol
+operator|.
+name|getGlyphId
+argument_list|(
+name|code
 argument_list|)
 expr_stmt|;
 block|}
