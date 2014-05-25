@@ -5346,7 +5346,11 @@ argument_list|)
 expr_stmt|;
 name|readUntilEndStream
 argument_list|(
+operator|new
+name|EndstreamOutputStream
+argument_list|(
 name|out
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5593,7 +5597,7 @@ comment|// would have to
 comment|// match if current one matches; if it is not a character from
 comment|// keywords
 comment|// we can move behind the test character;
-comment|// this shortcut is inspired by Boyer–Moore string search
+comment|// this shortcut is inspired by Boyer-Moore string search
 comment|// algorithm
 comment|// and can reduce parsing time by approx. 20%
 if|if
@@ -5855,6 +5859,12 @@ expr_stmt|;
 block|}
 block|}
 comment|// while
+name|out
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
+comment|// this writes a lonely CR or drops trailing CR LF and LF
 block|}
 comment|/**      *       * @param startXRefOffset      * @return      * @throws IOException      */
 specifier|private

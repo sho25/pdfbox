@@ -1705,7 +1705,11 @@ comment|// Couldn't determine length from dict: just
 comment|// scan until we find endstream:
 name|readUntilEndStream
 argument_list|(
+operator|new
+name|EndstreamOutputStream
+argument_list|(
 name|out
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2036,7 +2040,11 @@ expr_stmt|;
 comment|// scan until we find endstream:
 name|readUntilEndStream
 argument_list|(
+operator|new
+name|EndstreamOutputStream
+argument_list|(
 name|out
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2143,7 +2151,11 @@ block|{
 comment|/*                      * If for some reason we get something else here, Read until we find the next                      * "endstream"                      */
 name|readUntilEndStream
 argument_list|(
+operator|new
+name|EndstreamOutputStream
+argument_list|(
 name|out
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|endStream
@@ -2535,6 +2547,12 @@ expr_stmt|;
 block|}
 block|}
 comment|// while
+name|out
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
+comment|// this writes a lonely CR or drops trailing CR LF and LF
 block|}
 comment|/**      * This is really a bug in the Document creators code, but it caused a crash      * in PDFBox, the first bug was in this format:      * /Title ( (5)      * /Creator which was patched in 1 place.      * However it missed the case where the Close Paren was escaped      *      * The second bug was in this format      * /Title (c:\)      * /Producer      *      * This patch  moves this code out of the parseCOSString method, so it can be used twice.      *      *      * @param bracesParameter the number of braces currently open.      *      * @return the corrected value of the brace counter      * @throws IOException      */
 specifier|private
