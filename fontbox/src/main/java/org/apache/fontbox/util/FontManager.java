@@ -387,7 +387,11 @@ name|ttfParser
 init|=
 operator|new
 name|TTFParser
-argument_list|()
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 name|TrueTypeFont
 name|ttfFont

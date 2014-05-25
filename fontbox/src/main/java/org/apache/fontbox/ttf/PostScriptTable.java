@@ -116,14 +116,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|MaximumProfileTable
-name|maxp
-init|=
-name|ttf
-operator|.
-name|getMaximumProfile
-argument_list|()
-decl_stmt|;
 name|formatType
 operator|=
 name|data
@@ -493,9 +485,9 @@ init|=
 operator|new
 name|int
 index|[
-name|maxp
+name|ttf
 operator|.
-name|getNumGlyphs
+name|getNumberOfGlyphs
 argument_list|()
 index|]
 decl_stmt|;
@@ -603,6 +595,10 @@ condition|)
 block|{
 comment|// no postscript information is provided.
 block|}
+name|initialized
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|/**      * @return Returns the formatType.      */
 specifier|public

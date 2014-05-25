@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  */
 end_comment
 
 begin_class
@@ -82,14 +82,6 @@ operator|.
 name|getHorizontalHeader
 argument_list|()
 decl_stmt|;
-name|MaximumProfileTable
-name|maxp
-init|=
-name|ttf
-operator|.
-name|getMaximumProfile
-argument_list|()
-decl_stmt|;
 name|int
 name|numHMetrics
 init|=
@@ -101,9 +93,9 @@ decl_stmt|;
 name|int
 name|numGlyphs
 init|=
-name|maxp
+name|ttf
 operator|.
-name|getNumGlyphs
+name|getNumberOfGlyphs
 argument_list|()
 decl_stmt|;
 name|advanceWidth
@@ -199,6 +191,10 @@ name|readSignedShort
 argument_list|()
 expr_stmt|;
 block|}
+name|initialized
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|/**      * @return Returns the advanceWidth.      */
 specifier|public
@@ -221,8 +217,6 @@ index|[]
 name|advanceWidthValue
 parameter_list|)
 block|{
-name|this
-operator|.
 name|advanceWidth
 operator|=
 name|advanceWidthValue

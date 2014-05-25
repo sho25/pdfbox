@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  */
 end_comment
 
 begin_class
@@ -88,20 +88,12 @@ operator|.
 name|getHeader
 argument_list|()
 decl_stmt|;
-name|MaximumProfileTable
-name|maxp
-init|=
-name|ttf
-operator|.
-name|getMaximumProfile
-argument_list|()
-decl_stmt|;
 name|int
 name|numGlyphs
 init|=
-name|maxp
+name|ttf
 operator|.
-name|getNumGlyphs
+name|getNumberOfGlyphs
 argument_list|()
 decl_stmt|;
 name|offsets
@@ -187,6 +179,10 @@ argument_list|)
 throw|;
 block|}
 block|}
+name|initialized
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|/**      * @return Returns the offsets.      */
 specifier|public
@@ -209,8 +205,6 @@ index|[]
 name|offsetsValue
 parameter_list|)
 block|{
-name|this
-operator|.
 name|offsets
 operator|=
 name|offsetsValue

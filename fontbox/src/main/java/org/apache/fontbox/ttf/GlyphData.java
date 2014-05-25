@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A glyph data record in the glyf table.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * A glyph data record in the glyf table.  *   * @author Ben Litchfield (ben@benlitchfield.com)  */
 end_comment
 
 begin_class
@@ -80,13 +80,13 @@ name|glyphDescription
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * This will read the required data from the stream.      *       * @param glyphTable The glyph table this glyph belongs to.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
 name|initData
 parameter_list|(
-name|TrueTypeFont
-name|ttf
+name|GlyphTable
+name|glyphTable
 parameter_list|,
 name|TTFDataStream
 name|data
@@ -172,10 +172,7 @@ name|GlyfCompositeDescript
 argument_list|(
 name|data
 argument_list|,
-name|ttf
-operator|.
-name|getGlyph
-argument_list|()
+name|glyphTable
 argument_list|)
 expr_stmt|;
 block|}

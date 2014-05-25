@@ -204,8 +204,6 @@ name|cmap
 operator|.
 name|initData
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
@@ -239,12 +237,21 @@ index|]
 operator|.
 name|initSubtable
 argument_list|(
+name|this
+argument_list|,
 name|ttf
+operator|.
+name|getNumberOfGlyphs
+argument_list|()
 argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
 block|}
+name|initialized
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|/**      * @return Returns the cmaps.      */
 specifier|public

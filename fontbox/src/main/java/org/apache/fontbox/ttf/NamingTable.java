@@ -418,6 +418,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|initialized
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|/**      * This will get the name records for this naming table.      *       * @return A list of NameRecord objects.      */
 specifier|public

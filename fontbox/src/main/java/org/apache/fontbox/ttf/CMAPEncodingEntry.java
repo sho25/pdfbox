@@ -151,14 +151,11 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * This will read the required data from the stream.      *       * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
 name|initData
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|)
@@ -187,13 +184,16 @@ name|readUnsignedInt
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * This will read the required data from the stream.      *       * @param cmap the CMAP this encoding belongs to.      * @param numGlyphs number of glyphs.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
 name|initSubtable
 parameter_list|(
-name|TrueTypeFont
-name|ttf
+name|CMAPTable
+name|cmap
+parameter_list|,
+name|int
+name|numGlyphs
 parameter_list|,
 name|TTFDataStream
 name|data
@@ -205,10 +205,7 @@ name|data
 operator|.
 name|seek
 argument_list|(
-name|ttf
-operator|.
-name|getCMAP
-argument_list|()
+name|cmap
 operator|.
 name|getOffset
 argument_list|()
@@ -230,9 +227,6 @@ decl_stmt|;
 name|long
 name|version
 decl_stmt|;
-name|int
-name|numGlyphs
-decl_stmt|;
 if|if
 condition|(
 name|subtableFormat
@@ -252,16 +246,6 @@ operator|=
 name|data
 operator|.
 name|readUnsignedShort
-argument_list|()
-expr_stmt|;
-name|numGlyphs
-operator|=
-name|ttf
-operator|.
-name|getMaximumProfile
-argument_list|()
-operator|.
-name|getNumGlyphs
 argument_list|()
 expr_stmt|;
 block|}
@@ -287,16 +271,6 @@ operator|.
 name|readUnsignedInt
 argument_list|()
 expr_stmt|;
-name|numGlyphs
-operator|=
-name|ttf
-operator|.
-name|getMaximumProfile
-argument_list|()
-operator|.
-name|getNumGlyphs
-argument_list|()
-expr_stmt|;
 block|}
 switch|switch
 condition|(
@@ -308,8 +282,6 @@ literal|0
 case|:
 name|processSubtype0
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
@@ -319,8 +291,6 @@ literal|2
 case|:
 name|processSubtype2
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|,
 name|numGlyphs
@@ -332,8 +302,6 @@ literal|4
 case|:
 name|processSubtype4
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|,
 name|numGlyphs
@@ -345,8 +313,6 @@ literal|6
 case|:
 name|processSubtype6
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|,
 name|numGlyphs
@@ -358,8 +324,6 @@ literal|8
 case|:
 name|processSubtype8
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|,
 name|numGlyphs
@@ -371,8 +335,6 @@ literal|10
 case|:
 name|processSubtype10
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|,
 name|numGlyphs
@@ -384,8 +346,6 @@ literal|12
 case|:
 name|processSubtype12
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|,
 name|numGlyphs
@@ -397,8 +357,6 @@ literal|13
 case|:
 name|processSubtype13
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|,
 name|numGlyphs
@@ -410,8 +368,6 @@ literal|14
 case|:
 name|processSubtype14
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|,
 name|numGlyphs
@@ -430,14 +386,11 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Reads a format 8 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Reads a format 8 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype8
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|,
@@ -746,14 +699,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Reads a format 10 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Reads a format 10 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype10
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|,
@@ -842,14 +792,11 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Reads a format 12 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Reads a format 12 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype12
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|,
@@ -1087,14 +1034,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Reads a format 13 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Reads a format 13 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype13
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|,
@@ -1309,14 +1253,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Reads a format 14 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Reads a format 14 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype14
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|,
@@ -1334,14 +1275,11 @@ literal|"CMap subtype 14 not yet implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Reads a format 6 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Reads a format 6 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype6
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|,
@@ -1431,14 +1369,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Reads a format 4 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Reads a format 4 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype4
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|,
@@ -1830,14 +1765,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Read a format 2 subtable.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Read a format 2 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype2
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|,
@@ -2162,14 +2094,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Initialize the CMapEntry when it is a subtype 0.      *       * @param ttf the TrueTypeFont instance holding the parsed data.      * @param data the data stream of the to be parsed ttf font      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Initialize the CMapEntry when it is a subtype 0.      *       * @param data the data stream of the to be parsed ttf font      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
 name|void
 name|processSubtype0
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|)

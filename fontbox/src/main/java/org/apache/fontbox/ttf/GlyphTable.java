@@ -64,14 +64,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|MaximumProfileTable
-name|maxp
-init|=
-name|ttf
-operator|.
-name|getMaximumProfile
-argument_list|()
-decl_stmt|;
 name|IndexToLocationTable
 name|loc
 init|=
@@ -94,9 +86,9 @@ comment|// number of glyphs
 name|int
 name|numGlyphs
 init|=
-name|maxp
+name|ttf
 operator|.
-name|getNumGlyphs
+name|getNumberOfGlyphs
 argument_list|()
 decl_stmt|;
 comment|// the end of the glyph table
@@ -204,7 +196,7 @@ index|]
 operator|.
 name|initData
 argument_list|(
-name|ttf
+name|this
 argument_list|,
 name|data
 argument_list|)
@@ -259,6 +251,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|initialized
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|/**      * @return Returns the glyphs.      */
 specifier|public

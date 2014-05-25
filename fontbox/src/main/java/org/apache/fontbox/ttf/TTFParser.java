@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A true type font file parser.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.2 $  */
+comment|/**  * A true type font file parser.  *   * @author Ben Litchfield (ben@benlitchfield.com)  */
 end_comment
 
 begin_class
@@ -36,6 +36,7 @@ name|TTFParser
 extends|extends
 name|AbstractTTFParser
 block|{
+comment|/**      * Constructor.      */
 specifier|public
 name|TTFParser
 parameter_list|()
@@ -46,6 +47,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructor.      *        * @param isEmbedded indicates whether the font is embedded or not.      */
 specifier|public
 name|TTFParser
 parameter_list|(
@@ -56,6 +58,25 @@ block|{
 name|super
 argument_list|(
 name|isEmbedded
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      *  Constructor.      *        * @param isEmbedded indicates whether the font is embedded or not.      * @param parseOnDemand indicates whether the tables of the font should be parsed on demand only or not.      */
+specifier|public
+name|TTFParser
+parameter_list|(
+name|boolean
+name|isEmbedded
+parameter_list|,
+name|boolean
+name|parseOnDemand
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|isEmbedded
+argument_list|,
+name|parseOnDemand
 argument_list|)
 expr_stmt|;
 block|}

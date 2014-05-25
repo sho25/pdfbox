@@ -1570,6 +1570,10 @@ name|readUnsignedInt
 argument_list|()
 expr_stmt|;
 block|}
+name|initialized
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 end_class

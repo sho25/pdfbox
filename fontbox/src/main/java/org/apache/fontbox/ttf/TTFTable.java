@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  */
 end_comment
 
 begin_class
@@ -49,6 +49,13 @@ decl_stmt|;
 specifier|private
 name|long
 name|length
+decl_stmt|;
+comment|/**      * Indicates if the table is initialized or not.      */
+specifier|protected
+name|boolean
+name|initialized
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * @return Returns the checkSum.      */
 specifier|public
@@ -153,6 +160,16 @@ name|tag
 operator|=
 name|tagValue
 expr_stmt|;
+block|}
+comment|/**      * Indicates if the table is already initialized.      *       * @return true if the table is initialized      */
+specifier|public
+name|boolean
+name|getInitialized
+parameter_list|()
+block|{
+return|return
+name|initialized
+return|;
 block|}
 comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
 specifier|public
