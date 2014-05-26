@@ -162,14 +162,6 @@ name|IOException
 block|{
 name|instructions
 operator|=
-operator|new
-name|int
-index|[
-name|count
-index|]
-expr_stmt|;
-name|instructions
-operator|=
 name|bais
 operator|.
 name|readUnsignedByteArray
