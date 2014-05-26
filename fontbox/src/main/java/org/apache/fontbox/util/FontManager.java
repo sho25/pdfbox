@@ -21,6 +21,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -32,6 +42,16 @@ operator|.
 name|io
 operator|.
 name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
 import|;
 end_import
 
@@ -271,10 +291,21 @@ range|:
 name|fonts
 control|)
 block|{
+try|try
+block|{
+comment|// the URL may contain some escaped characters like spaces
+comment|// use the URI to decode such escape sequences
 name|String
 name|fontfilename
 init|=
+operator|new
+name|File
+argument_list|(
 name|font
+operator|.
+name|toURI
+argument_list|()
+argument_list|)
 operator|.
 name|getPath
 argument_list|()
@@ -292,13 +323,24 @@ literal|".ttf"
 argument_list|)
 condition|)
 block|{
-try|try
-block|{
 name|analyzeTTF
 argument_list|(
 name|fontfilename
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Unsupported font format for external font: "
+operator|+
+name|fontfilename
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -312,22 +354,33 @@ name|debug
 argument_list|(
 literal|"Can't read external font: "
 operator|+
-name|fontfilename
+name|font
+operator|.
+name|getPath
+argument_list|()
 argument_list|,
 name|exception
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
+catch|catch
+parameter_list|(
+name|URISyntaxException
+name|exception
+parameter_list|)
 block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Unsupported font format for external font: "
+literal|"Can't read external font: "
 operator|+
-name|fontfilename
+name|font
+operator|.
+name|getPath
+argument_list|()
+argument_list|,
+name|exception
 argument_list|)
 expr_stmt|;
 block|}
@@ -831,6 +884,15 @@ argument_list|(
 literal|"CourierNew"
 argument_list|,
 literal|"Courier"
+argument_list|,
+name|fontMappingTTF
+argument_list|)
+expr_stmt|;
+name|addFontFamilyMapping
+argument_list|(
+literal|"TimesNewRomanPSMT"
+argument_list|,
+literal|"TimesNewRoman"
 argument_list|,
 name|fontMappingTTF
 argument_list|)
