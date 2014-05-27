@@ -51,17 +51,7 @@ name|java
 operator|.
 name|net
 operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
+name|URI
 import|;
 end_import
 
@@ -274,7 +264,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|URL
+name|URI
 argument_list|>
 name|fonts
 init|=
@@ -285,7 +275,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|URL
+name|URI
 name|font
 range|:
 name|fonts
@@ -302,9 +292,6 @@ operator|new
 name|File
 argument_list|(
 name|font
-operator|.
-name|toURI
-argument_list|()
 argument_list|)
 operator|.
 name|getPath
@@ -345,27 +332,6 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|exception
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Can't read external font: "
-operator|+
-name|font
-operator|.
-name|getPath
-argument_list|()
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|URISyntaxException
 name|exception
 parameter_list|)
 block|{
