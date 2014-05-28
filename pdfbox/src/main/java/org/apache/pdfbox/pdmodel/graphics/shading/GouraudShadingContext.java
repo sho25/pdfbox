@@ -370,6 +370,15 @@ argument_list|()
 operator|!=
 literal|null
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"hasFunction: "
+operator|+
+name|hasFunction
+argument_list|)
+expr_stmt|;
 name|shadingColorSpace
 operator|=
 name|shading
@@ -388,10 +397,23 @@ argument_list|)
 expr_stmt|;
 name|numberOfColorComponents
 operator|=
+name|hasFunction
+condition|?
+literal|1
+else|:
 name|shadingColorSpace
 operator|.
 name|getNumberOfComponents
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"numberOfColorComponents: "
+operator|+
+name|numberOfColorComponents
+argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
