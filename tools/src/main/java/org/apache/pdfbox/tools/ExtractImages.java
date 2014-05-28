@@ -942,6 +942,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|resources
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Writes the image to a file with the filename + an appropriate suffix, like "Image.jpg".      * The suffix is automatically set by the      * @param filename the filename      * @throws IOException When somethings wrong with the corresponding file.      */
 specifier|private
