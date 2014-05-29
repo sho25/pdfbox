@@ -430,14 +430,10 @@ name|ImageIOUtil
 operator|.
 name|writeImage
 argument_list|(
-name|SampledImageReader
-operator|.
-name|getRGBImage
-argument_list|(
 name|ximage
-argument_list|,
-literal|null
-argument_list|)
+operator|.
+name|getOpaqueImage
+argument_list|()
 argument_list|,
 name|format
 argument_list|,
