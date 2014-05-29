@@ -1124,6 +1124,8 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+comment|//TODO insert color profile in the output
+comment|// if one was assigned explicitely inside the PDF file
 block|}
 comment|/**      * Writes the image to a file with the filename + an appropriate suffix, like "Image.jpg".      * The suffix is automatically set by the      * @param filename the filename      * @throws IOException When somethings wrong with the corresponding file.      */
 specifier|private
