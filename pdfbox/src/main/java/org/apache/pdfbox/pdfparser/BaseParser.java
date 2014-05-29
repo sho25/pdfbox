@@ -330,7 +330,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to contain parsing logic that will be used by both the  * PDFParser and the COSStreamParser.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This class is used to contain parsing logic that will be used by both the  * PDFParser and the COSStreamParser.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -1945,34 +1945,15 @@ argument_list|(
 name|length
 argument_list|)
 decl_stmt|;
-while|while
-condition|(
-operator|(
-name|readCount
-operator|=
+name|IOUtils
+operator|.
+name|copy
+argument_list|(
 name|writtenStreamBytes
-operator|.
-name|read
-argument_list|(
-name|strmBuf
-argument_list|)
-operator|)
-operator|>=
-literal|0
-condition|)
-block|{
+argument_list|,
 name|bout
-operator|.
-name|write
-argument_list|(
-name|strmBuf
-argument_list|,
-literal|0
-argument_list|,
-name|readCount
 argument_list|)
 expr_stmt|;
-block|}
 name|IOUtils
 operator|.
 name|closeQuietly
@@ -2692,7 +2673,9 @@ return|return
 name|braces
 return|;
 block|}
-comment|/**      * This will parse a PDF string.      *      * @param isDictionary indicates if the stream is a dictionary or not      * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will parse a PDF string.      *      * @param isDictionary indicates if the stream is a dictionary or not      * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      * @deprecated Not needed anymore. Use {@link #parseCOSString()} instead. PDFBOX-1437      */
+annotation|@
+name|Deprecated
 specifier|protected
 name|COSString
 name|parseCOSString
@@ -2700,6 +2683,19 @@ parameter_list|(
 name|boolean
 name|isDictionary
 parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|parseCOSString
+argument_list|()
+return|;
+block|}
+comment|/**      * This will parse a PDF string.      *      * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      */
+specifier|protected
+name|COSString
+name|parseCOSString
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -2719,9 +2715,7 @@ name|retval
 init|=
 operator|new
 name|COSString
-argument_list|(
-name|isDictionary
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|char
 name|openBrace
@@ -3711,7 +3705,12 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Corrupt object reference"
+literal|"Corrupt object reference at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// This could also be an "endobj" or "endstream" which means we can assume that
@@ -4341,9 +4340,7 @@ block|{
 name|retval
 operator|=
 name|parseCOSString
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 break|break;
@@ -4366,9 +4363,7 @@ case|:
 name|retval
 operator|=
 name|parseCOSString
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 break|break;
 case|case
@@ -5519,7 +5514,7 @@ expr_stmt|;
 block|}
 comment|//log( "skipSpaces() done peek='" + (char)pdfSource.peek() + "'" );
 block|}
-comment|/**      * This will read a long from the Stream and throw an {@link IllegalArgumentException} if the long value      * has more than 10 digits (i.e. : bigger than {@link #OBJECT_NUMBER_THRESHOLD})      * @return the object number being read.      * @throws IOException      */
+comment|/**      * This will read a long from the Stream and throw an {@link IllegalArgumentException} if the long value      * has more than 10 digits (i.e. : bigger than {@link #OBJECT_NUMBER_THRESHOLD})      * @return the object number being read.      * @throws IOException if an I/O error occurs      */
 specifier|protected
 name|long
 name|readObjectNumber
@@ -5560,7 +5555,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will read a integer from the Stream and throw an {@link IllegalArgumentException} if the integer value      * has more than the maximum object revision (i.e. : bigger than {@link #GENERATION_NUMBER_THRESHOLD})      * @return the generation number being read.      * @throws IOException      */
+comment|/**      * This will read a integer from the Stream and throw an {@link IllegalArgumentException} if the integer value      * has more than the maximum object revision (i.e. : bigger than {@link #GENERATION_NUMBER_THRESHOLD})      * @return the generation number being read.      * @throws IOException if an I/O error occurs      */
 specifier|protected
 name|int
 name|readGenerationNumber
@@ -5757,7 +5752,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This method is used to read a token by the {@linkplain #readInt()} method and the {@linkplain #readLong()} method.      *        * @return the token to parse as integer or long by the calling method.      * @throws IOException throws by the {@link #pdfSource} methods.      */
+comment|/**      * This method is used to read a token by the {@linkplain #readInt()} method      * and the {@linkplain #readLong()} method.      *      * @return the token to parse as integer or long by the calling method.      * @throws IOException throws by the {@link #pdfSource} methods.      */
 specifier|protected
 specifier|final
 name|StringBuilder

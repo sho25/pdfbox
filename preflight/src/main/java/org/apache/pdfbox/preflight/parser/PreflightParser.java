@@ -1121,6 +1121,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|parse
@@ -1699,6 +1701,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Same method than the {@linkplain PDFParser#parseXrefTable(long)} with additional controls : - EOL mandatory after      * the 'xref' keyword - Cross reference subsection header uses single white space as separator - and so on      */
+annotation|@
+name|Override
 specifier|protected
 name|boolean
 name|parseXrefTable
@@ -2186,6 +2190,8 @@ literal|true
 return|;
 block|}
 comment|/**      * Wraps the {@link NonSequentialPDFParser#parseCOSStream} to check rules on 'stream' and 'endstream' keywords.      * {@link #checkStreamKeyWord()} and {@link #checkEndstreamKeyWord()}      */
+annotation|@
+name|Override
 specifier|protected
 name|COSStream
 name|parseCOSStream
@@ -2580,7 +2586,11 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Check that the hexa string contains only an even number of Hexadecimal characters. Once it is done, reset the      * offset at the beginning of the string and call {@link BaseParser#parseCOSString()}      */
+comment|/**      * Check that the hexa string contains only an even number of Hexadecimal characters. Once it is done, reset the      * offset at the beginning of the string and call {@link BaseParser#parseCOSString()}      * @deprecated Not needed anymore. Use {@link #COSString()} instead. PDFBOX-1437      */
+annotation|@
+name|Override
+annotation|@
+name|Deprecated
 specifier|protected
 name|COSString
 name|parseCOSString
@@ -2588,6 +2598,21 @@ parameter_list|(
 name|boolean
 name|isDictionary
 parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|parseCOSString
+argument_list|()
+return|;
+block|}
+comment|/**      * Check that the hexa string contains only an even number of Hexadecimal characters. Once it is done, reset the      * offset at the beginning of the string and call {@link BaseParser#parseCOSString()}      */
+annotation|@
+name|Override
+specifier|protected
+name|COSString
+name|parseCOSString
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -2648,9 +2673,6 @@ name|Character
 operator|.
 name|digit
 argument_list|(
-operator|(
-name|char
-operator|)
 name|nextChar
 argument_list|,
 literal|16
@@ -2727,9 +2749,7 @@ init|=
 name|super
 operator|.
 name|parseCOSString
-argument_list|(
-name|isDictionary
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -2761,6 +2781,8 @@ name|result
 return|;
 block|}
 comment|/**      * Call {@link BaseParser#parseDirObject()} check limit range for Float, Integer and number of Dictionary entries.      */
+annotation|@
+name|Override
 specifier|protected
 name|COSBase
 name|parseDirObject
@@ -2915,6 +2937,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|COSBase
 name|parseObjectDynamically
@@ -3924,6 +3948,8 @@ name|getObject
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|int
 name|lastIndexOf

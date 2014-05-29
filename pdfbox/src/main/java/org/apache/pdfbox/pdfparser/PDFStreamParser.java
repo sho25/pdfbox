@@ -254,7 +254,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will parse a PDF byte stream and extract operands and such.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This will parse a PDF byte stream and extract operands and such.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -281,6 +281,7 @@ literal|100
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|final
 name|RandomAccess
 name|file
 decl_stmt|;
@@ -767,9 +768,7 @@ block|{
 name|retval
 operator|=
 name|parseCOSString
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 break|break;
@@ -793,9 +792,7 @@ comment|// string
 name|retval
 operator|=
 name|parseCOSString
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 expr_stmt|;
 break|break;
 case|case

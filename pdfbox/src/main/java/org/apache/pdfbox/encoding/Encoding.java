@@ -932,10 +932,7 @@ block|{
 return|return
 name|getCharacter
 argument_list|(
-name|getName
-argument_list|(
-name|code
-argument_list|)
+name|name
 argument_list|)
 return|;
 block|}
