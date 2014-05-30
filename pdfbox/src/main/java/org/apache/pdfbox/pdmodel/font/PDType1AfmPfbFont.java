@@ -1367,6 +1367,23 @@ name|dictionary
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|super
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|metric
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 end_class
 
