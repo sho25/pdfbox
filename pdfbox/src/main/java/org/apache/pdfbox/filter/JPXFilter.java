@@ -95,16 +95,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|imageio
@@ -347,6 +337,10 @@ operator|.
 name|setInput
 argument_list|(
 name|iis
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|BufferedImage
