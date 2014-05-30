@@ -2295,6 +2295,12 @@ return|return
 name|cmap
 return|;
 block|}
+comment|/**      * Calling this will release all cached information.      */
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{     }
 block|}
 end_class
 

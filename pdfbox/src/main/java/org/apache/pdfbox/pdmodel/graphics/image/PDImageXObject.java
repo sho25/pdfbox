@@ -1785,6 +1785,23 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|super
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|cachedImage
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 end_class
 
