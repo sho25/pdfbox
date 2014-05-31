@@ -343,20 +343,6 @@ name|ByteArrayOutputStream
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**       * Constructor.      *       * @param isDictionaryValue determines if this string represents a dictionary      * @deprecated Not needed anymore. Use {@link #COSString()} instead. PDFBOX-2102      */
-annotation|@
-name|Deprecated
-specifier|public
-name|COSString
-parameter_list|(
-name|boolean
-name|isDictionaryValue
-parameter_list|)
-block|{
-name|this
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**      * Explicit constructor for ease of manual PDF construction.      *       * @param value      *            The string value of the object.      */
 specifier|public
 name|COSString
