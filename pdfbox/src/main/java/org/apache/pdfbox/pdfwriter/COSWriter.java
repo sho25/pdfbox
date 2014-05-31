@@ -4023,9 +4023,7 @@ name|copy
 init|=
 operator|new
 name|COSString
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|copy
 operator|.
