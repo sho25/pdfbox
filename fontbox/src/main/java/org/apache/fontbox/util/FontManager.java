@@ -847,6 +847,15 @@ argument_list|)
 expr_stmt|;
 name|addFontFamilyMapping
 argument_list|(
+literal|"ArialMT"
+argument_list|,
+literal|"Arial"
+argument_list|,
+name|fontMappingTTF
+argument_list|)
+expr_stmt|;
+name|addFontFamilyMapping
+argument_list|(
 literal|"CourierNew"
 argument_list|,
 literal|"Courier"
