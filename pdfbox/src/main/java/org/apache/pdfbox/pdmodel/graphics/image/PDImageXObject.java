@@ -271,6 +271,34 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * An Image XObject.  *  * @author John Hewson  * @author Ben Litchfield  */
 end_comment
@@ -285,6 +313,22 @@ name|PDXObject
 implements|implements
 name|PDImage
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDImageXObject
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|BufferedImage
 name|cachedImage
@@ -1771,6 +1815,15 @@ name|COSName
 operator|.
 name|LZW_DECODE
 argument_list|)
+operator|||
+name|filters
+operator|.
+name|contains
+argument_list|(
+name|COSName
+operator|.
+name|RUN_LENGTH_DECODE
+argument_list|)
 condition|)
 block|{
 return|return
@@ -1779,6 +1832,15 @@ return|;
 block|}
 else|else
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"getSuffix() returns null, filters: "
+operator|+
+name|filters
+argument_list|)
+expr_stmt|;
 comment|// TODO more...
 return|return
 literal|null
