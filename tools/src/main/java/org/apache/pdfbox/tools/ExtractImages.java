@@ -973,6 +973,12 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+name|image
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+comment|// PDFBOX-2101 get rid of cache ASAP
 block|}
 comment|// maybe there are more images embedded in a form object
 elseif|else
