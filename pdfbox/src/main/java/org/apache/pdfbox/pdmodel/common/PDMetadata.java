@@ -205,7 +205,7 @@ name|createInputStream
 argument_list|()
 return|;
 block|}
-comment|/**      * Import an XMP stream into the PDF document.      *      * @param xmp The XMP data.      *      * @throws IOException If there is an error generating the XML document.      * @throws TransformerException If there is an error generating the XML document.      */
+comment|/**      * Import an XMP stream into the PDF document.      *      * @param xmp The XMP data.      *      * @throws IOException If there is an error generating the XML document.      */
 specifier|public
 name|void
 name|importXMPMetadata
