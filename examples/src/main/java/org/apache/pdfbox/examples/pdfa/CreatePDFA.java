@@ -23,6 +23,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -204,11 +214,17 @@ specifier|public
 name|void
 name|doIt
 parameter_list|(
+specifier|final
 name|String
 name|file
 parameter_list|,
+specifier|final
 name|String
 name|message
+parameter_list|,
+specifier|final
+name|String
+name|fontfile
 parameter_list|)
 throws|throws
 name|Exception
@@ -241,19 +257,7 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
-comment|// load the font from pdfbox.jar
-name|InputStream
-name|fontStream
-init|=
-name|CreatePDFA
-operator|.
-name|class
-operator|.
-name|getResourceAsStream
-argument_list|(
-literal|"/org/apache/pdfbox/resources/ttf/ArialMT.ttf"
-argument_list|)
-decl_stmt|;
+comment|// load the font as this needs to be embedded as part of PDF/A
 name|PDFont
 name|font
 init|=
@@ -263,7 +267,7 @@ name|loadTTF
 argument_list|(
 name|doc
 argument_list|,
-name|fontStream
+name|fontfile
 argument_list|)
 decl_stmt|;
 comment|// create a page with the message where needed
@@ -397,6 +401,9 @@ operator|.
 name|importXMPMetadata
 argument_list|(
 name|xmp
+operator|.
+name|asByteArray
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|InputStream
@@ -509,7 +516,7 @@ name|args
 operator|.
 name|length
 operator|!=
-literal|2
+literal|3
 condition|)
 block|{
 name|app
@@ -532,6 +539,11 @@ argument_list|,
 name|args
 index|[
 literal|1
+index|]
+argument_list|,
+name|args
+index|[
+literal|2
 index|]
 argument_list|)
 expr_stmt|;
@@ -572,7 +584,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"<output-file><Message>"
+literal|"<output-file><Message><ttf-file>"
 argument_list|)
 expr_stmt|;
 block|}

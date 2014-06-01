@@ -135,6 +135,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|GregorianCalendar
@@ -375,6 +385,9 @@ operator|.
 name|importXMPMetadata
 argument_list|(
 name|metadata
+operator|.
+name|asByteArray
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|catalog
