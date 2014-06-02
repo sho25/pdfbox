@@ -401,7 +401,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates an Image XObject in the given document using the given filtered stream.      * @param document the current document      * @param filteredStream a filtered stream of image data      * @param cosFilter the filter or a COSArray of filters      * @throws IOException if there is an error creating the XObject.      */
+comment|/**      * Creates an Image XObject in the given document using the given filtered stream.      * @param document the current document      * @param filteredStream a filtered stream of image data      * @param cosFilter the filter or a COSArray of filters      * @param width the image width      * @param height the image height      * @param bitsPerComponent the bits per component      * @param initColorSpace the color space      * @throws IOException if there is an error creating the XObject.      */
 specifier|public
 name|PDImageXObject
 parameter_list|(
@@ -413,6 +413,18 @@ name|filteredStream
 parameter_list|,
 name|COSBase
 name|cosFilter
+parameter_list|,
+name|int
+name|width
+parameter_list|,
+name|int
+name|height
+parameter_list|,
+name|int
+name|bitsPerComponent
+parameter_list|,
+name|PDColorSpace
+name|initColorSpace
 parameter_list|)
 throws|throws
 name|IOException
@@ -453,6 +465,26 @@ expr_stmt|;
 name|colorSpace
 operator|=
 literal|null
+expr_stmt|;
+name|setBitsPerComponent
+argument_list|(
+name|bitsPerComponent
+argument_list|)
+expr_stmt|;
+name|setWidth
+argument_list|(
+name|width
+argument_list|)
+expr_stmt|;
+name|setHeight
+argument_list|(
+name|height
+argument_list|)
+expr_stmt|;
+name|setColorSpace
+argument_list|(
+name|initColorSpace
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Creates an Image XObject with the given stream as its contents and current color spaces.      * @param stream the XObject stream to read      * @param colorSpaces the color spaces in the current resources dictionary, null for masks      * @throws java.io.IOException if there is an error creating the XObject.      */
