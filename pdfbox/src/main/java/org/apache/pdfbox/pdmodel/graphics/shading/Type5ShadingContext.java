@@ -321,7 +321,7 @@ name|long
 name|maxSrcCoord
 init|=
 operator|(
-name|int
+name|long
 operator|)
 name|Math
 operator|.
@@ -338,7 +338,7 @@ name|long
 name|maxSrcColor
 init|=
 operator|(
-name|int
+name|long
 operator|)
 name|Math
 operator|.
