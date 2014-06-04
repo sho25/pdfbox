@@ -666,6 +666,8 @@ operator|new
 name|String
 argument_list|(
 name|b
+argument_list|,
+literal|"ISO-8859-1"
 argument_list|)
 return|;
 block|}
