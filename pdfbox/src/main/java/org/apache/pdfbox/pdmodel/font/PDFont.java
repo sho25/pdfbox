@@ -393,6 +393,12 @@ name|hasToUnicode
 init|=
 literal|false
 decl_stmt|;
+specifier|private
+name|boolean
+name|widthsAreMissing
+init|=
+literal|false
+decl_stmt|;
 specifier|protected
 specifier|static
 name|Map
@@ -1911,6 +1917,9 @@ condition|(
 name|widths
 operator|==
 literal|null
+operator|&&
+operator|!
+name|widthsAreMissing
 condition|)
 block|{
 name|COSArray
@@ -1943,6 +1952,13 @@ name|convertIntegerCOSArrayToList
 argument_list|(
 name|array
 argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|widthsAreMissing
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
@@ -2190,6 +2206,12 @@ name|lastChar
 condition|)
 block|{
 comment|// maybe the font doesn't provide any widths
+if|if
+condition|(
+operator|!
+name|widthsAreMissing
+condition|)
+block|{
 name|getWidths
 argument_list|()
 expr_stmt|;
@@ -2214,6 +2236,7 @@ operator|.
 name|floatValue
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 else|else
