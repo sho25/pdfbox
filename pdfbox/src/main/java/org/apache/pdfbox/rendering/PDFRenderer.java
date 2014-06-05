@@ -116,6 +116,10 @@ name|PDDocument
 name|document
 decl_stmt|;
 comment|// TODO keep rendering state such as caches here
+specifier|private
+name|boolean
+name|clearResourcesAutomatically
+decl_stmt|;
 comment|/**      * Creates a new PDFRenderer.      * @param document the document to render      */
 specifier|public
 name|PDFRenderer
@@ -125,10 +129,35 @@ name|document
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|document
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates a new PDFRenderer.      * @param document the document to render      * @param clearResourcesAutomatically indicates that all resources will be cleared automatically after rendering      */
+specifier|public
+name|PDFRenderer
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|,
+name|boolean
+name|clearResourcesAutomatically
+parameter_list|)
+block|{
+name|this
 operator|.
 name|document
 operator|=
 name|document
+expr_stmt|;
+name|this
+operator|.
+name|clearResourcesAutomatically
+operator|=
+name|clearResourcesAutomatically
 expr_stmt|;
 block|}
 comment|/**      * Returns the given page as an RGB image at 72 DPI      * @param pageIndex the zero-based index of the page to be converted.      * @return the rendered page image      * @throws IOException if the PDF cannot be read      */
@@ -721,6 +750,17 @@ operator|.
 name|dispose
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|clearResourcesAutomatically
+condition|)
+block|{
+name|page
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

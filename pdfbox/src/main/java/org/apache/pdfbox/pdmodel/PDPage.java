@@ -2322,6 +2322,34 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+comment|/**      * Calling this will release all cached information.      *       */
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+if|if
+condition|(
+name|pageResources
+operator|!=
+literal|null
+condition|)
+block|{
+name|pageResources
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+name|mediaBox
+operator|=
+literal|null
+expr_stmt|;
+name|parent
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 end_class
 
