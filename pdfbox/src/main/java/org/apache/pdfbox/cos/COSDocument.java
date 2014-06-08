@@ -439,12 +439,10 @@ operator|=
 name|forceParsingValue
 expr_stmt|;
 block|}
-comment|/**      * Constructor.  Uses memory to store stream.      *      *  @throws IOException If there is an error creating the tmp file.      */
+comment|/**      * Constructor.  Uses memory to store stream.      */
 specifier|public
 name|COSDocument
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|this
 argument_list|(
