@@ -769,12 +769,10 @@ specifier|private
 name|File
 name|incrementalFile
 decl_stmt|;
-comment|/**      * Creates an empty PDF document.      * You need to add at least one page for the document to be valid.      *       * @throws IOException If there is an error creating this document.      */
+comment|/**      * Creates an empty PDF document.      * You need to add at least one page for the document to be valid.      */
 specifier|public
 name|PDDocument
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|document
 operator|=
