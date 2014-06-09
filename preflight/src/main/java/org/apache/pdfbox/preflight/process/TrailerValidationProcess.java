@@ -632,16 +632,10 @@ decl_stmt|;
 name|COSDocument
 name|cosDoc
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|cosDoc
-operator|=
 operator|new
 name|COSDocument
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|checkMainTrailer
 argument_list|(
 name|ctx
@@ -678,31 +672,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|addValidationError
-argument_list|(
-name|ctx
-argument_list|,
-operator|new
-name|ValidationError
-argument_list|(
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_TRAILER
-argument_list|,
-literal|"Unable to parse trailers of the linearized PDF"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
 name|COSUtils
 operator|.
 name|closeDocumentQuietly
@@ -710,7 +679,6 @@ argument_list|(
 name|cosDoc
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Accesses and compares First and Last trailers for a PDF version higher than 1.4.      *       * @param ctx      * @param result      */
