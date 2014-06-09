@@ -312,8 +312,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
 name|doc
 operator|=
 operator|new
@@ -334,21 +332,6 @@ operator|.
 name|createXMPMetadata
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|Exception
-argument_list|(
-literal|"Failed to create temporary test PDF/XMP Document"
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Check detection of a null Document      *       * @throws ValidationException      */
 annotation|@
