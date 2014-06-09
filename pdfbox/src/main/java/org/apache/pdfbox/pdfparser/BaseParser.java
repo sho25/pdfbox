@@ -891,9 +891,12 @@ literal|"expected='R' actual='"
 operator|+
 name|r
 operator|+
-literal|"' "
+literal|"' at offset "
 operator|+
 name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -979,7 +982,12 @@ literal|"expected='<' actual='"
 operator|+
 name|c
 operator|+
-literal|"'"
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1008,9 +1016,12 @@ literal|"expected='<' actual='"
 operator|+
 name|c
 operator|+
-literal|"' "
+literal|"' at offset "
 operator|+
 name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1448,7 +1459,12 @@ literal|"expected='>' actual='"
 operator|+
 name|ch
 operator|+
-literal|"'"
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1477,7 +1493,12 @@ literal|"expected='>' actual='"
 operator|+
 name|ch
 operator|+
-literal|"'"
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1543,7 +1564,12 @@ literal|"expected='stream' actual='"
 operator|+
 name|streamString
 operator|+
-literal|"'"
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2163,9 +2189,12 @@ literal|"expected='endstream' actual='"
 operator|+
 name|endStream
 operator|+
-literal|"' "
+literal|"' at offset "
 operator|+
 name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -3511,7 +3540,12 @@ literal|"expected='[' actual='"
 operator|+
 name|ch
 operator|+
-literal|"'"
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -3876,9 +3910,12 @@ literal|"'-"
 operator|+
 name|c
 operator|+
-literal|" "
+literal|" at offset "
 operator|+
 name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -4162,7 +4199,12 @@ literal|"Error parsing boolean: expected='true' actual='"
 operator|+
 name|trueString
 operator|+
-literal|"'"
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -4219,7 +4261,12 @@ literal|"Error parsing boolean: expected='true' actual='"
 operator|+
 name|falseString
 operator|+
-literal|"'"
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -4243,7 +4290,12 @@ literal|"Error parsing boolean expected='t or f' actual='"
 operator|+
 name|c
 operator|+
-literal|"'"
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -4406,7 +4458,12 @@ literal|"Expected='null' actual='"
 operator|+
 name|nullString
 operator|+
-literal|"'"
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
