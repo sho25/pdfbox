@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is only for the readUntilEndStream methods, to prevent a  * final CR LF or LF (but not a final CR!) from being written to the output.  * Because of that, only the 3-param write() method is implemented. This solves  * PDFBOX-2079 and avoids making readUntilEndStream() even more complex than it  * already is.  *  * @author Tilman Hausherr  */
+comment|/**  * This class is only for the readUntilEndStream methods, to prevent a  * final CR LF or LF (but not a final CR!) from being written to the output,  * unless the beginning of the stream is assumed to be ASCII.  * Only the 3-param write() method is implemented. This solves  * PDFBOX-2079 and PDFBOX-2120 and avoids making readUntilEndStream()   * even more complex than it already is.  *  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -68,6 +68,18 @@ name|hasLF
 init|=
 literal|false
 decl_stmt|;
+specifier|private
+name|int
+name|pos
+init|=
+literal|0
+decl_stmt|;
+specifier|private
+name|boolean
+name|mustFilter
+init|=
+literal|true
+decl_stmt|;
 specifier|public
 name|EndstreamOutputStream
 parameter_list|(
@@ -81,7 +93,7 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write CR and/or LF that were kept, then writes len bytes from the       * specified byte array starting at offset off to this output stream,      * except trailing CR, CR LF, or LF.      * @param b byte array.      * @param off offset.      * @param len length of segment to write.      * @throws IOException       */
+comment|/**      * Write CR and/or LF that were kept, then writes len bytes from the       * specified byte array starting at offset off to this output stream,      * except trailing CR, CR LF, or LF. No filtering will be done for the      * entire stream if the beginning is assumed to be ASCII.      * @param b byte array.      * @param off offset.      * @param len length of segment to write.      * @throws IOException       */
 annotation|@
 name|Override
 specifier|public
@@ -100,6 +112,93 @@ name|len
 parameter_list|)
 throws|throws
 name|IOException
+block|{
+if|if
+condition|(
+name|pos
+operator|==
+literal|0
+operator|&&
+name|len
+operator|>
+literal|10
+condition|)
+block|{
+comment|// PDFBOX-2120 Don't filter if ASCII, i.e. keep a final CR LF or LF
+name|mustFilter
+operator|=
+literal|false
+expr_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|10
+condition|;
+operator|++
+name|i
+control|)
+block|{
+comment|// Heuristic approach, taken from PDFStreamParser, PDFBOX-1164
+if|if
+condition|(
+operator|(
+name|b
+index|[
+name|i
+index|]
+operator|<
+literal|0x09
+operator|)
+operator|||
+operator|(
+operator|(
+name|b
+index|[
+name|i
+index|]
+operator|>
+literal|0x0a
+operator|)
+operator|&&
+operator|(
+name|b
+index|[
+name|i
+index|]
+operator|<
+literal|0x20
+operator|)
+operator|&&
+operator|(
+name|b
+index|[
+name|i
+index|]
+operator|!=
+literal|0x0d
+operator|)
+operator|)
+condition|)
+block|{
+comment|// control character or> 0x7f -> we have binary data
+name|mustFilter
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
+block|}
+block|}
+if|if
+condition|(
+name|mustFilter
+condition|)
 block|{
 comment|// first write what we kept last time
 if|if
@@ -243,6 +342,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 name|super
 operator|.
 name|write
@@ -253,6 +353,10 @@ name|off
 argument_list|,
 name|len
 argument_list|)
+expr_stmt|;
+name|pos
+operator|+=
+name|len
 expr_stmt|;
 block|}
 comment|/**      * write out a single CR if one was kept. Don't write kept CR LF or LF,       * and then call the base method to flush.      *       * @throws IOException       */
@@ -280,6 +384,9 @@ name|write
 argument_list|(
 literal|'\r'
 argument_list|)
+expr_stmt|;
+operator|++
+name|pos
 expr_stmt|;
 block|}
 name|hasCR
