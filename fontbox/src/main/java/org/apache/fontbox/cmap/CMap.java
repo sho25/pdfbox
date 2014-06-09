@@ -85,8 +85,36 @@ name|Iterator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * This class represents a CMap file.  *  * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.3 $  */
+comment|/**  * This class represents a CMap file.  *  * @author Ben Litchfield (ben@benlitchfield.com)  */
 end_comment
 
 begin_class
@@ -94,6 +122,21 @@ specifier|public
 class|class
 name|CMap
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|CMap
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|int
 name|wmode
@@ -726,9 +769,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IOException
+comment|// Just log the invalid entry instead of throwing an exception
+name|LOG
+operator|.
+name|error
 argument_list|(
 literal|"Mapping code should be 1 or two bytes and not "
 operator|+
@@ -736,7 +780,7 @@ name|src
 operator|.
 name|length
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 comment|/**      * This will add a CID mapping.      *      * @param src The CID to the mapping.      * @param dest The dest to the mapping.      *      * @throws IOException if the src is invalid.      */
