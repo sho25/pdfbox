@@ -2490,11 +2490,16 @@ argument_list|(
 name|pattern
 argument_list|)
 operator|+
-literal|" but missed at character '"
+literal|"' but missed at character '"
 operator|+
 name|c
 operator|+
-literal|"'"
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -5395,7 +5400,12 @@ literal|"Error reading stream using length value. Expected='endstream' actual='"
 operator|+
 name|endStream
 operator|+
-literal|"' "
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 throw|;
 block|}
