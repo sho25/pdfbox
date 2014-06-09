@@ -65,6 +65,38 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|encryption
+operator|.
+name|InvalidPasswordException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|encryption
+operator|.
+name|StandardDecryptionMaterial
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|interactive
 operator|.
 name|form
@@ -92,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This example will take a PDF document and set a FDF field in it.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This example will take a PDF document and set a FDF field in it.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *  */
 end_comment
 
 begin_class
@@ -100,7 +132,7 @@ specifier|public
 class|class
 name|SetField
 block|{
-comment|/**      * This will set a single field in the document.      *       * @param pdfDocument The PDF to set the field in.      * @param name The name of the field to set.      * @param value The new value of the field.      *       * @throws IOException If there is an error setting the field.      */
+comment|/**      * This will set a single field in the document.      *      * @param pdfDocument The PDF to set the field in.      * @param name The name of the field to set.      * @param value The new value of the field.      *      * @throws IOException If there is an error setting the field.      */
 specifier|public
 name|void
 name|setField
@@ -173,7 +205,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will read a PDF file and set a field and then write it the pdf out again.<br />      * see usage() for commandline      *       * @param args command line arguments      *       * @throws IOException If there is an error importing the FDF document.      */
+comment|/**      * This will read a PDF file and set a field and then write it the pdf out      * again.<br />      * see usage() for commandline      *      * @param args command line arguments      *      * @throws IOException If there is an error importing the FDF document.      */
 specifier|public
 specifier|static
 name|void
@@ -253,6 +285,53 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|pdf
+operator|.
+name|isEncrypted
+argument_list|()
+condition|)
+block|{
+try|try
+block|{
+name|StandardDecryptionMaterial
+name|sdm
+init|=
+operator|new
+name|StandardDecryptionMaterial
+argument_list|(
+literal|""
+argument_list|)
+decl_stmt|;
+name|pdf
+operator|.
+name|openProtection
+argument_list|(
+name|sdm
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InvalidPasswordException
+name|e
+parameter_list|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Error: The document is encrypted."
+argument_list|)
+expr_stmt|;
+name|usage
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 name|example
 operator|.
 name|setField
