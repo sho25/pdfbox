@@ -430,6 +430,27 @@ name|useNonSeqParser
 init|=
 literal|false
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|VERSION
+init|=
+name|Version
+operator|.
+name|getVersion
+argument_list|()
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|BASETITLE
+init|=
+literal|"PDFBox "
+operator|+
+name|VERSION
+decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|PDFReader
@@ -501,7 +522,7 @@ argument_list|()
 expr_stmt|;
 name|setTitle
 argument_list|(
-literal|"PDFBox - PDF Reader"
+name|BASETITLE
 argument_list|)
 expr_stmt|;
 name|addWindowListener
@@ -1078,7 +1099,9 @@ parameter_list|()
 block|{
 name|setTitle
 argument_list|(
-literal|"PDFBox - "
+name|BASETITLE
+operator|+
+literal|": "
 operator|+
 name|currentFilename
 operator|+
@@ -1825,7 +1848,11 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java -jar pdfbox-app-x.y.z.jar PDFReader [OPTIONS]<input-file>\n"
+literal|"usage: java -jar pdfbox-app-"
+operator|+
+name|VERSION
+operator|+
+literal|".jar PDFReader [OPTIONS]<input-file>\n"
 operator|+
 literal|"  -password<password>      Password to decrypt the document\n"
 operator|+
