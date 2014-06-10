@@ -808,16 +808,59 @@ case|:
 block|{
 if|if
 condition|(
+operator|(
 name|val
-operator|==
+operator|&
 literal|1
+operator|)
+operator|!=
+literal|0
 condition|)
 block|{
 name|k
 operator|=
 literal|50
 expr_stmt|;
-comment|// T4 2D - arbitary K value
+comment|// T4 2D - arbitary positive K value
+block|}
+comment|// http://www.awaresystems.be/imaging/tiff/tifftags/t4options.html
+if|if
+condition|(
+operator|(
+name|val
+operator|&
+literal|4
+operator|)
+operator|!=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"CCITT Group 3 'uncompressed mode' is not supported"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+operator|(
+name|val
+operator|&
+literal|2
+operator|)
+operator|!=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"CCITT Group 3 'fill bits before EOL' is not supported"
+argument_list|)
+throw|;
 block|}
 break|break;
 block|}
