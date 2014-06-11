@@ -437,6 +437,14 @@ decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
+name|String
+name|DIRECTJPEG
+init|=
+literal|"-directJPEG"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -566,6 +574,11 @@ name|useNonSeqParser
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|directJPEG
+init|=
+literal|false
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -692,6 +705,25 @@ argument_list|)
 condition|)
 block|{
 name|useNonSeqParser
+operator|=
+literal|true
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|DIRECTJPEG
+argument_list|)
+condition|)
+block|{
+name|directJPEG
 operator|=
 literal|true
 expr_stmt|;
@@ -905,6 +937,8 @@ argument_list|,
 name|prefix
 argument_list|,
 name|addKey
+argument_list|,
+name|directJPEG
 argument_list|)
 expr_stmt|;
 block|}
@@ -940,6 +974,9 @@ name|prefix
 parameter_list|,
 name|boolean
 name|addKey
+parameter_list|,
+name|boolean
+name|directJPEG
 parameter_list|)
 throws|throws
 name|IOException
@@ -1108,6 +1145,8 @@ argument_list|(
 name|image
 argument_list|,
 name|name
+argument_list|,
+name|directJPEG
 argument_list|)
 expr_stmt|;
 name|image
@@ -1149,6 +1188,8 @@ argument_list|,
 name|prefix
 argument_list|,
 name|addKey
+argument_list|,
+name|directJPEG
 argument_list|)
 expr_stmt|;
 block|}
@@ -1214,6 +1255,9 @@ name|xobj
 parameter_list|,
 name|String
 name|filename
+parameter_list|,
+name|boolean
+name|directJPEG
 parameter_list|)
 throws|throws
 name|IOException
@@ -1351,6 +1395,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|directJPEG
+operator|||
 name|PDDeviceGray
 operator|.
 name|INSTANCE
@@ -1376,7 +1422,7 @@ name|colorSpaceName
 argument_list|)
 condition|)
 block|{
-comment|// RGB and Gray colorspace:
+comment|// directJPEG option, RGB or Gray colorspace:
 comment|// get and write the unmodified JPEG stream
 name|writeJpeg2OutputStream
 argument_list|(
@@ -1473,6 +1519,8 @@ operator|+
 literal|"  -addkey                      add the internal image key to the file name\n"
 operator|+
 literal|"  -nonSeq                      Enables the new non-sequential parser\n"
+operator|+
+literal|"  -directJPEG                  Forces the direct extraction of JPEG images regardless of colorspace\n"
 operator|+
 literal|"<PDF file>                   The PDF document to use\n"
 argument_list|)
