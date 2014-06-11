@@ -736,6 +736,16 @@ name|dereferenceObjectStreams
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Document is encrypted"
+argument_list|)
+expr_stmt|;
+block|}
 name|ConflictObj
 operator|.
 name|resolveConflicts
