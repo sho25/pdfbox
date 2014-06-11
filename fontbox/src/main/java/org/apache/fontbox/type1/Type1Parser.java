@@ -518,6 +518,8 @@ literal|"array"
 argument_list|)
 expr_stmt|;
 comment|// 0 1 255 {1 index exch /.notdef put } for
+comment|// we have to check "readonly" and "def" too
+comment|// as some fonts don't provide any dup-values, see PDFBOX-2134
 while|while
 condition|(
 operator|!
@@ -534,6 +536,7 @@ name|Token
 operator|.
 name|NAME
 operator|&&
+operator|(
 name|lexer
 operator|.
 name|peekToken
@@ -546,6 +549,33 @@ name|equals
 argument_list|(
 literal|"dup"
 argument_list|)
+operator|||
+name|lexer
+operator|.
+name|peekToken
+argument_list|()
+operator|.
+name|getText
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"readonly"
+argument_list|)
+operator|||
+name|lexer
+operator|.
+name|peekToken
+argument_list|()
+operator|.
+name|getText
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"def"
+argument_list|)
+operator|)
 operator|)
 condition|)
 block|{
