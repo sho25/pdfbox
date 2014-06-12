@@ -2241,7 +2241,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// save the current graphics state
+comment|// save the current graphics state and matrices
 name|getGraphicsStack
 argument_list|()
 operator|.
@@ -2257,6 +2257,18 @@ name|clone
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Matrix
+name|textMatrix
+init|=
+name|getTextMatrix
+argument_list|()
+decl_stmt|;
+name|Matrix
+name|textLineMatrix
+init|=
+name|getTextLineMatrix
+argument_list|()
+decl_stmt|;
 name|Matrix
 name|ctm
 init|=
@@ -2289,7 +2301,7 @@ argument_list|,
 name|stream
 argument_list|)
 expr_stmt|;
-comment|// restore the saved graphics state
+comment|// restore the saved graphics state and matrices
 name|setGraphicsState
 argument_list|(
 name|getGraphicsStack
@@ -2297,6 +2309,16 @@ argument_list|()
 operator|.
 name|pop
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|setTextLineMatrix
+argument_list|(
+name|textLineMatrix
+argument_list|)
+expr_stmt|;
+name|setTextMatrix
+argument_list|(
+name|textMatrix
 argument_list|)
 expr_stmt|;
 block|}
