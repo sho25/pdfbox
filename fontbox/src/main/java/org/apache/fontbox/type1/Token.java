@@ -255,10 +255,14 @@ name|int
 name|intValue
 parameter_list|()
 block|{
+comment|// some fonts have reals where integers should be, so we tolerate it
 return|return
-name|Integer
+operator|(
+name|int
+operator|)
+name|Float
 operator|.
-name|parseInt
+name|parseFloat
 argument_list|(
 name|text
 argument_list|)
