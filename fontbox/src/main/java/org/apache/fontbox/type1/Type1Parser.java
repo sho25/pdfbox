@@ -2138,7 +2138,7 @@ literal|"begin"
 argument_list|)
 expr_stmt|;
 name|int
-name|levIV
+name|lenIV
 init|=
 literal|4
 decl_stmt|;
@@ -2202,7 +2202,7 @@ condition|)
 block|{
 name|readSubrs
 argument_list|(
-name|levIV
+name|lenIV
 argument_list|)
 expr_stmt|;
 block|}
@@ -2213,11 +2213,11 @@ name|key
 operator|.
 name|equals
 argument_list|(
-literal|"levIV"
+literal|"lenIV"
 argument_list|)
 condition|)
 block|{
-name|levIV
+name|lenIV
 operator|=
 name|readDictValue
 argument_list|()
@@ -2417,7 +2417,7 @@ argument_list|)
 expr_stmt|;
 name|readCharStrings
 argument_list|(
-name|levIV
+name|lenIV
 argument_list|)
 expr_stmt|;
 block|}
