@@ -260,7 +260,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prints a PDF document using AWT.  * This class may be overridden in order to perform custom printing.  *  * @author Andreas Lehmk�hler  * @author John Hewson  */
+comment|/**  * Prints a PDF document using AWT.  * This class may be overridden in order to perform custom printing.  *  * @author Andreas Lehmkühler  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -309,7 +309,7 @@ specifier|final
 name|float
 name|dpi
 decl_stmt|;
-comment|/**      * Creates a new PDFPrinter.      * @param document the document to print      */
+comment|/**      * Creates a new PDFPrinter using the system's default printer.      * @param document the document to print      */
 specifier|public
 name|PDFPrinter
 parameter_list|(
@@ -330,7 +330,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new PDFPrinter for a given printer job.      * @param document the document to print      * @param printerJob the printer job to use      */
+comment|/**      * Creates a new PDFPrinter using the given printer.      * @param document the document to print      * @param printerJob the printer job to use      */
 specifier|public
 name|PDFPrinter
 parameter_list|(
@@ -365,7 +365,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new PDFPrinter with the given page scaling and orientation.      * @param document the document to print      * @param scaling page scaling policy      * @param orientation page orientation policy      */
+comment|/**      * Creates a new PDFPrinter using the system's default printer,      * with the given page scaling and orientation.      *      * @param document the document to print      * @param scaling page scaling policy      * @param orientation page orientation policy      */
 specifier|public
 name|PDFPrinter
 parameter_list|(
@@ -402,7 +402,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new PDFPrinter with the given page scaling and orientation.      * @param document the document to print      * @param scaling page scaling policy      * @param orientation page orientation policy      */
+comment|/**      * Creates a new PDFPrinter using the system's default printer,      * with the given page scaling and orientation.      *      * @param document the document to print      * @param scaling page scaling policy      * @param orientation page orientation policy      */
 specifier|public
 name|PDFPrinter
 parameter_list|(
@@ -442,7 +442,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new PDFPrinter with the given page scaling and orientation.      * @param document the document to print      * @param scaling page scaling policy      * @param orientation page orientation policy      * @param dpi if non-zero then the image will be rasterized at the given DPI      */
+comment|/**      * Creates a new PDFPrinter using the system's default printer,      * with the given page scaling and orientation.      *      * @param document the document to print      * @param scaling page scaling policy      * @param orientation page orientation policy      * @param dpi if non-zero then the image will be rasterized at the given DPI      */
 specifier|public
 name|PDFPrinter
 parameter_list|(
@@ -485,7 +485,7 @@ name|dpi
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new PDFPrinter for a given printer job, the given page scaling and orientation,      * and with optional page borders shown.      * @param document the document to print      * @param printerJob the printer job to use      * @param scaling page scaling policy      * @param orientation page orientation policy      * @param showPageBorder true if page borders are to be printed      * @param dpi if non-zero then the image will be rasterized at the given DPI      * @throws PrinterException      */
+comment|/**      * Creates a new PDFPrinter using the given printer, the given page scaling and orientation,      * and with optional page borders shown.      *      * @param document the document to print      * @param printerJob the printer job to use      * @param scaling page scaling policy      * @param orientation page orientation policy      * @param showPageBorder true if page borders are to be printed      * @param dpi if non-zero then the image will be rasterized at the given DPI      * @throws PrinterException      */
 specifier|public
 name|PDFPrinter
 parameter_list|(
@@ -651,7 +651,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Prints the given document using the default printer without prompting the user.      * The image is generated using {@link PageDrawer}.      * This is a convenience method to create the java.awt.print.PrinterJob.      * Advanced printing tasks can be performed using {@link #getPageable()} instead.      * @throws PrinterException if the document cannot be printed      */
+comment|/**      * Prints the given document using the default printer without prompting the user.      * The image is generated using {@link PageDrawer}.      * This is a convenience method to create the java.awt.print.PrinterJob.      * Advanced printing tasks can be performed using {@link #getPageable()} instead.      *      * @throws PrinterException if the document cannot be printed      */
 specifier|public
 name|void
 name|print
@@ -684,7 +684,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|// todo: new
+comment|/**      * Returns the Pageable instance used in this class. Can be overridden by subclasses.      */
 specifier|public
 name|PDFPageable
 name|getPageable
@@ -785,6 +785,9 @@ parameter_list|)
 throws|throws
 name|IndexOutOfBoundsException
 block|{
+comment|// note: PDFPrintable#print() is responsible for fitting the current page to
+comment|//       the printer's actual paper size, so this method must return the full
+comment|//       physical, printable size of the actual paper in the printer.
 name|PageFormat
 name|format
 init|=
