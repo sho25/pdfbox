@@ -536,15 +536,13 @@ specifier|public
 name|PDFStreamEngine
 parameter_list|()
 block|{     }
-comment|/**      * Constructor with engine properties. The property keys are all PDF operators, the values are class names used to      * execute those operators. An empty value means that the operator will be silently ignored.      *       * @param properties The engine properties.      *       * @throws IOException If there is an error setting the engine properties.      */
+comment|/**      * Constructor with engine properties. The property keys are all PDF operators, the values are class names used to      * execute those operators. An empty value means that the operator will be silently ignored.      *       * @param properties The engine properties.      */
 specifier|public
 name|PDFStreamEngine
 parameter_list|(
 name|Properties
 name|properties
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -659,20 +657,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|ReflectiveOperationException
 name|e
 parameter_list|)
 block|{
+comment|// should not happen
 throw|throw
 operator|new
-name|IOException
+name|RuntimeException
 argument_list|(
-literal|"OperatorProcessor class "
-operator|+
-name|processorClassName
-operator|+
-literal|" could not be instantiated"
-argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -733,7 +726,7 @@ name|op
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method must be called between processing documents. The PDFStreamEngine caches information for the document      * between pages and this will release the cached information. This only needs to be called if processing a new      * document.      *       */
+comment|/**      * This method must be called between processing documents. The PDFStreamEngine caches information for the document      * between pages and this will release the cached information. This only needs to be called if processing a new      * document.      *      */
 specifier|public
 name|void
 name|resetEngine
@@ -1969,8 +1962,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-try|try
-block|{
 name|String
 name|operation
 init|=
@@ -1982,9 +1973,6 @@ decl_stmt|;
 name|OperatorProcessor
 name|processor
 init|=
-operator|(
-name|OperatorProcessor
-operator|)
 name|operators
 operator|.
 name|get
@@ -2046,23 +2034,6 @@ name|operation
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-name|e
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Transforms the given point using the current transformation matrix      *      * @param x x-coordinate of the point to be transformed      * @param y y-coordinate of the point to be transformed      * @return the transformed point      */
