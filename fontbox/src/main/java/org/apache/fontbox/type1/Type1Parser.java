@@ -2586,7 +2586,7 @@ condition|)
 block|{
 name|font
 operator|.
-name|blueScale
+name|blueFuzz
 operator|=
 name|value
 operator|.
