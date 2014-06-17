@@ -303,7 +303,7 @@ name|preflight
 operator|.
 name|content
 operator|.
-name|ContentStreamWrapper
+name|PreflightContentStream
 import|;
 end_import
 
@@ -548,11 +548,11 @@ operator|.
 name|getValidationPath
 argument_list|()
 decl_stmt|;
-name|ContentStreamWrapper
+name|PreflightContentStream
 name|csWrapper
 init|=
 operator|new
-name|ContentStreamWrapper
+name|PreflightContentStream
 argument_list|(
 name|context
 argument_list|,

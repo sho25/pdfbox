@@ -1011,7 +1011,7 @@ begin_class
 specifier|public
 specifier|abstract
 class|class
-name|ContentStreamEngine
+name|PreflightStreamEngine
 extends|extends
 name|PDFStreamEngine
 block|{
@@ -1062,7 +1062,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|public
-name|ContentStreamEngine
+name|PreflightStreamEngine
 parameter_list|(
 name|PreflightContext
 name|_context

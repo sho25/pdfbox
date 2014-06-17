@@ -471,7 +471,7 @@ name|font
 operator|.
 name|util
 operator|.
-name|PDFAType3StreamParser
+name|PreflightType3Stream
 import|;
 end_import
 
@@ -1786,11 +1786,11 @@ operator|.
 name|getValidationPath
 argument_list|()
 decl_stmt|;
-name|PDFAType3StreamParser
+name|PreflightType3Stream
 name|parser
 init|=
 operator|new
-name|PDFAType3StreamParser
+name|PreflightType3Stream
 argument_list|(
 name|context
 argument_list|,

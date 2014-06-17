@@ -209,7 +209,7 @@ name|preflight
 operator|.
 name|content
 operator|.
-name|ContentStreamWrapper
+name|PreflightContentStream
 import|;
 end_import
 
@@ -441,11 +441,11 @@ parameter_list|)
 throws|throws
 name|ValidationException
 block|{
-name|ContentStreamWrapper
+name|PreflightContentStream
 name|csWrapper
 init|=
 operator|new
-name|ContentStreamWrapper
+name|PreflightContentStream
 argument_list|(
 name|context
 argument_list|,

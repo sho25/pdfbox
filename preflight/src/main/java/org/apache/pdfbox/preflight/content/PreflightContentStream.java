@@ -430,12 +430,12 @@ end_import
 begin_class
 specifier|public
 class|class
-name|ContentStreamWrapper
+name|PreflightContentStream
 extends|extends
-name|ContentStreamEngine
+name|PreflightStreamEngine
 block|{
 specifier|public
-name|ContentStreamWrapper
+name|PreflightContentStream
 parameter_list|(
 name|PreflightContext
 name|_context

@@ -177,7 +177,7 @@ name|preflight
 operator|.
 name|content
 operator|.
-name|ContentStreamEngine
+name|PreflightStreamEngine
 import|;
 end_import
 
@@ -204,9 +204,9 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|PDFAType3StreamParser
+name|PreflightType3Stream
 extends|extends
-name|ContentStreamEngine
+name|PreflightStreamEngine
 block|{
 specifier|private
 name|boolean
@@ -233,7 +233,7 @@ init|=
 literal|null
 decl_stmt|;
 specifier|public
-name|PDFAType3StreamParser
+name|PreflightType3Stream
 parameter_list|(
 name|PreflightContext
 name|context

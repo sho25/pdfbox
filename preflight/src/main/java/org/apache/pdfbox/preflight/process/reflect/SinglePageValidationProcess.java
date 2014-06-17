@@ -461,7 +461,7 @@ name|preflight
 operator|.
 name|content
 operator|.
-name|ContentStreamWrapper
+name|PreflightContentStream
 import|;
 end_import
 
@@ -993,11 +993,11 @@ block|{
 comment|// TODO add this wrapper in the config object ?
 try|try
 block|{
-name|ContentStreamWrapper
+name|PreflightContentStream
 name|csWrapper
 init|=
 operator|new
-name|ContentStreamWrapper
+name|PreflightContentStream
 argument_list|(
 name|context
 argument_list|,
