@@ -1869,10 +1869,7 @@ name|numberOfGraphicStates
 init|=
 name|this
 operator|.
-name|getGraphicsStack
-argument_list|()
-operator|.
-name|size
+name|getGraphicsStackSize
 argument_list|()
 decl_stmt|;
 if|if

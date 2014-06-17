@@ -846,20 +846,8 @@ name|PDFormXObject
 condition|)
 block|{
 comment|// save the graphics state
-name|getGraphicsStack
+name|saveGraphicsState
 argument_list|()
-operator|.
-name|push
-argument_list|(
-operator|(
-name|PDGraphicsState
-operator|)
-name|getGraphicsState
-argument_list|()
-operator|.
-name|clone
-argument_list|()
-argument_list|)
 expr_stmt|;
 name|PDFormXObject
 name|form
@@ -935,17 +923,8 @@ name|invoke
 argument_list|)
 expr_stmt|;
 comment|// restore the graphics state
-name|setGraphicsState
-argument_list|(
-operator|(
-name|PDGraphicsState
-operator|)
-name|getGraphicsStack
+name|restoreGraphicsState
 argument_list|()
-operator|.
-name|pop
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 block|}

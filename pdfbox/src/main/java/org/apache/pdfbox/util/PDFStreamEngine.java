@@ -2177,35 +2177,53 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @return Returns the graphicsStack.      */
+comment|/**      * Pushes the current graphics state to the stack.      */
 specifier|public
-name|Stack
-argument_list|<
+name|void
+name|saveGraphicsState
+parameter_list|()
+block|{
+name|graphicsStack
+operator|.
+name|push
+argument_list|(
+operator|(
 name|PDGraphicsState
-argument_list|>
-name|getGraphicsStack
+operator|)
+name|getGraphicsState
+argument_list|()
+operator|.
+name|clone
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Pops the current graphics state from the stack.      */
+specifier|public
+name|void
+name|restoreGraphicsState
+parameter_list|()
+block|{
+name|graphicsState
+operator|=
+name|graphicsStack
+operator|.
+name|pop
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * @return Returns the size of the graphicsStack.      */
+specifier|public
+name|int
+name|getGraphicsStackSize
 parameter_list|()
 block|{
 return|return
 name|graphicsStack
+operator|.
+name|size
+argument_list|()
 return|;
-block|}
-comment|/**      * @param value The graphicsStack to set.      */
-specifier|public
-name|void
-name|setGraphicsStack
-parameter_list|(
-name|Stack
-argument_list|<
-name|PDGraphicsState
-argument_list|>
-name|value
-parameter_list|)
-block|{
-name|graphicsStack
-operator|=
-name|value
-expr_stmt|;
 block|}
 comment|/**      * @return Returns the graphicsState.      */
 specifier|public

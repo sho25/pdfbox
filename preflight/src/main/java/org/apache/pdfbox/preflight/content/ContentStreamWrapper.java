@@ -750,14 +750,7 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|getGraphicsStack
-argument_list|()
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
+comment|//this.getGraphicsStack().clear();
 comment|// this.streamResourcesStack.clear();
 block|}
 comment|/*      * (non-Javadoc)      *       * @see org.apache.pdfbox.util.PDFStreamEngine#processOperator(org.apache.pdfbox .util.PDFOperator, java.util.List)      */
