@@ -1827,7 +1827,7 @@ name|append
 argument_list|(
 name|normalize
 operator|.
-name|normalizeDiac
+name|normalizeDiacritic
 argument_list|(
 name|diacritic
 operator|.
@@ -1898,7 +1898,7 @@ name|append
 argument_list|(
 name|normalize
 operator|.
-name|normalizeDiac
+name|normalizeDiacritic
 argument_list|(
 name|diacritic
 operator|.

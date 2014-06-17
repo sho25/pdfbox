@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is a comparator for TextPosition operators.  It handles  * pages with text in different directions by grouping the text based  * on direction and sorting in that direction. This allows continuous text  * in a given direction to be more easily grouped together.    *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  */
+comment|/**  * This class is a comparator for TextPosition operators.  It handles  * pages with text in different directions by grouping the text based  * on direction and sorting in that direction. This allows continuous text  * in a given direction to be more easily grouped together.    *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -35,41 +35,24 @@ class|class
 name|TextPositionComparator
 implements|implements
 name|Comparator
+argument_list|<
+name|TextPosition
+argument_list|>
 block|{
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare
 parameter_list|(
-name|Object
-name|o1
-parameter_list|,
-name|Object
-name|o2
-parameter_list|)
-block|{
-name|int
-name|retval
-init|=
-literal|0
-decl_stmt|;
 name|TextPosition
 name|pos1
-init|=
-operator|(
-name|TextPosition
-operator|)
-name|o1
-decl_stmt|;
+parameter_list|,
 name|TextPosition
 name|pos2
-init|=
-operator|(
-name|TextPosition
-operator|)
-name|o2
-decl_stmt|;
-comment|/* Only compare text that is in the same direction. */
+parameter_list|)
+block|{
+comment|// only compare text that is in the same direction
 if|if
 condition|(
 name|pos1
@@ -106,7 +89,7 @@ return|return
 literal|1
 return|;
 block|}
-comment|// Get the text direction adjusted coordinates
+comment|// get the text direction adjusted coordinates
 name|float
 name|x1
 init|=
@@ -172,14 +155,13 @@ operator|-
 name|pos2YBottom
 argument_list|)
 decl_stmt|;
-comment|//we will do a simple tolerance comparison.
+comment|// we will do a simple tolerance comparison
 if|if
 condition|(
 name|yDifference
 operator|<
 literal|.1
 operator|||
-operator|(
 name|pos2YBottom
 operator|>=
 name|pos1YTop
@@ -187,9 +169,7 @@ operator|&&
 name|pos2YBottom
 operator|<=
 name|pos1YBottom
-operator|)
 operator|||
-operator|(
 name|pos1YBottom
 operator|>=
 name|pos2YTop
@@ -197,7 +177,6 @@ operator|&&
 name|pos1YBottom
 operator|<=
 name|pos2YBottom
-operator|)
 condition|)
 block|{
 if|if
@@ -207,11 +186,10 @@ operator|<
 name|x2
 condition|)
 block|{
-name|retval
-operator|=
+return|return
 operator|-
 literal|1
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
@@ -221,17 +199,15 @@ operator|>
 name|x2
 condition|)
 block|{
-name|retval
-operator|=
+return|return
 literal|1
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
-name|retval
-operator|=
+return|return
 literal|0
-expr_stmt|;
+return|;
 block|}
 block|}
 elseif|else
@@ -242,11 +218,10 @@ operator|<
 name|pos2YBottom
 condition|)
 block|{
-name|retval
-operator|=
+return|return
 operator|-
 literal|1
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
@@ -254,9 +229,6 @@ return|return
 literal|1
 return|;
 block|}
-return|return
-name|retval
-return|;
 block|}
 block|}
 end_class

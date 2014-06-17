@@ -574,7 +574,7 @@ comment|/**      * The platform's line separator.      */
 specifier|protected
 specifier|final
 name|String
-name|systemLineSeparator
+name|LINE_SEPARATOR
 init|=
 name|System
 operator|.
@@ -587,13 +587,7 @@ specifier|private
 name|String
 name|lineSeparator
 init|=
-name|systemLineSeparator
-decl_stmt|;
-specifier|private
-name|String
-name|pageSeparator
-init|=
-name|systemLineSeparator
+name|LINE_SEPARATOR
 decl_stmt|;
 specifier|private
 name|String
@@ -623,7 +617,7 @@ specifier|private
 name|String
 name|pageEnd
 init|=
-name|pageSeparator
+name|LINE_SEPARATOR
 decl_stmt|;
 specifier|private
 name|String
@@ -719,7 +713,7 @@ name|dropThreshold
 init|=
 name|DEFAULT_DROP_THRESHOLD
 decl_stmt|;
-comment|// We will need to estimate where to add spaces. These are used to help guess.
+comment|// we will need to estimate where to add spaces, these are used to help guess
 specifier|private
 name|float
 name|spacingTolerance
@@ -1219,24 +1213,13 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|Iterator
-argument_list|<
+for|for
+control|(
 name|COSObjectable
-argument_list|>
-name|pageIter
-init|=
+name|page
+range|:
 name|pages
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|pageIter
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+control|)
 block|{
 name|PDPage
 name|nextPage
@@ -1244,10 +1227,7 @@ init|=
 operator|(
 name|PDPage
 operator|)
-name|pageIter
-operator|.
-name|next
-argument_list|()
+name|page
 decl_stmt|;
 name|PDStream
 name|contentStream
@@ -1341,26 +1321,26 @@ return|return
 name|pageNumber
 return|;
 block|}
-comment|/**      * This method is available for subclasses of this class. It will be called before processing      * of the document start.      *      * @param pdf The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
+comment|/**      * This method is available for subclasses of this class. It will be called before processing      * of the document start.      *      * @param document The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
 specifier|protected
 name|void
 name|startDocument
 parameter_list|(
 name|PDDocument
-name|pdf
+name|document
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 comment|// no default implementation, but available for subclasses
 block|}
-comment|/**      * This method is available for subclasses of this class. It will be called after processing      * of the document finishes.      *      * @param pdf The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
+comment|/**      * This method is available for subclasses of this class. It will be called after processing      * of the document finishes.      *      * @param document The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
 specifier|protected
 name|void
 name|endDocument
 parameter_list|(
 name|PDDocument
-name|pdf
+name|document
 parameter_list|)
 throws|throws
 name|IOException
@@ -1564,13 +1544,13 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Start a new article, which is typically defined as a column      * on a single page (also referred to as a bead).        * Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @param isltr true if primary direction of text is left to right.      * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * Start a new article, which is typically defined as a column      * on a single page (also referred to as a bead).        * Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @param isLTR true if primary direction of text is left to right.      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
 name|startArticle
 parameter_list|(
 name|boolean
-name|isltr
+name|isLTR
 parameter_list|)
 throws|throws
 name|IOException
@@ -2240,9 +2220,6 @@ comment|// averages) but we found that it gave the best results after numerous e
 comment|// Based on experiments we also found that .3 worked well.
 name|float
 name|averageCharWidth
-init|=
-operator|-
-literal|1
 decl_stmt|;
 if|if
 condition|(
@@ -2663,31 +2640,7 @@ operator|-
 name|height2
 return|;
 block|}
-comment|/**      * Write the page separator value to the output stream.      * @throws IOException      *             If there is a problem writing out the pageseparator to the document.      */
-specifier|protected
-name|void
-name|writePageSeperator
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-comment|// RDD - newline at end of flush - required for end of page (so that the top
-comment|// of the next page starts on its own line.
-name|output
-operator|.
-name|write
-argument_list|(
-name|getPageSeparator
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|output
-operator|.
-name|flush
-argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * Write the line separator value to the output stream.      * @throws IOException      *             If there is a problem writing out the lineseparator to the document.      */
+comment|/**      * Write the line separator value to the output stream.      * @throws IOException If there is a problem writing out the lineseparator to the document.      */
 specifier|protected
 name|void
 name|writeLineSeparator
@@ -2704,7 +2657,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write the word separator value to the output stream.      * @throws IOException      *             If there is a problem writing out the wordseparator to the document.      */
+comment|/**      * Write the word separator value to the output stream.      * @throws IOException If there is a problem writing out the wordseparator to the document.      */
 specifier|protected
 name|void
 name|writeWordSeparator
@@ -2814,7 +2767,7 @@ operator|-
 name|variance
 return|;
 block|}
-comment|/**      * This will process a TextPosition object and add the      * text to the list of characters on a page.  It takes care of      * overlapping text.      *      * @param text The text to process.      */
+comment|/**      * This will process a TextPosition object and add the text to the list of characters on a page.      * It takes care of overlapping text.      *      * @param text The text to process.      */
 annotation|@
 name|Override
 specifier|protected
@@ -3290,9 +3243,6 @@ expr_stmt|;
 block|}
 name|int
 name|articleDivisionIndex
-init|=
-operator|-
-literal|1
 decl_stmt|;
 if|if
 condition|(
@@ -3573,20 +3523,6 @@ return|return
 name|lineSeparator
 return|;
 block|}
-comment|/**      * Set the desired page separator for output text.  The line.separator      * system property is used if the page separator preference is not set      * explicitly using this method.      *      * @param separator The desired page separator string.      */
-specifier|public
-name|void
-name|setPageSeparator
-parameter_list|(
-name|String
-name|separator
-parameter_list|)
-block|{
-name|pageSeparator
-operator|=
-name|separator
-expr_stmt|;
-block|}
 comment|/**      * This will get the word separator.      *      * @return The desired word separator string.      */
 specifier|public
 name|String
@@ -3610,16 +3546,6 @@ name|wordSeparator
 operator|=
 name|separator
 expr_stmt|;
-block|}
-comment|/**      * This will get the page separator.      *      * @return The page separator string.      */
-specifier|public
-name|String
-name|getPageSeparator
-parameter_list|()
-block|{
-return|return
-name|pageSeparator
-return|;
 block|}
 comment|/**      * @return Returns the suppressDuplicateOverlappingText.      */
 specifier|public
@@ -4527,7 +4453,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * a list of regular expressions that match commonly used      * list item formats, i.e. bullets, numbers, letters,      * Roman numerals, etc.  Not meant to be      * comprehensive.      */
+comment|/**      * a list of regular expressions that match commonly used      * list item formats, i.e. bullets, numbers, letters,      * Roman numerals, etc. Not meant to be      * comprehensive.      */
 specifier|private
 specifier|static
 specifier|final
@@ -4655,11 +4581,6 @@ argument_list|>
 name|patterns
 parameter_list|)
 block|{
-name|Pattern
-name|matchedPattern
-init|=
-literal|null
-decl_stmt|;
 for|for
 control|(
 name|Pattern
@@ -4687,7 +4608,7 @@ return|;
 block|}
 block|}
 return|return
-name|matchedPattern
+literal|null
 return|;
 block|}
 comment|/**      * Write a list of string containing a whole line of a document.      * @param line a list with the words of the given line      * @param isRtlDominant determines if rtl or ltl is dominant      * @throws IOException if something went wrong      */
@@ -4949,7 +4870,7 @@ name|WordWithTextPositions
 argument_list|(
 name|normalize
 operator|.
-name|normalizePres
+name|normalizePresentationForm
 argument_list|(
 name|word
 argument_list|)
@@ -5072,7 +4993,6 @@ parameter_list|()
 block|{         }
 specifier|public
 specifier|static
-specifier|final
 name|WordSeparator
 name|getSeparator
 parameter_list|()

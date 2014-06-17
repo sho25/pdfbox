@@ -736,14 +736,23 @@ block|}
 comment|/**      * The PDF document contains a hierarchical structure of PDPageNode and PDPages, which      * is mostly just a way to store this information.  This method will return a flat list      * of all PDPage objects in this document.      *      * @return A list of PDPage objects.      */
 specifier|public
 name|List
+argument_list|<
+name|COSObjectable
+argument_list|>
 name|getAllPages
 parameter_list|()
 block|{
 name|List
+argument_list|<
+name|COSObjectable
+argument_list|>
 name|retval
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|COSObjectable
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|PDPageNode

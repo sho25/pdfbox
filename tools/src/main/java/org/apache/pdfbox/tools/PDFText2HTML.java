@@ -183,7 +183,7 @@ argument_list|)
 expr_stmt|;
 name|setLineSeparator
 argument_list|(
-name|systemLineSeparator
+name|LINE_SEPARATOR
 argument_list|)
 expr_stmt|;
 name|setParagraphStart
@@ -195,7 +195,7 @@ name|setParagraphEnd
 argument_list|(
 literal|"</p>"
 operator|+
-name|systemLineSeparator
+name|LINE_SEPARATOR
 argument_list|)
 expr_stmt|;
 name|setPageStart
@@ -207,17 +207,17 @@ name|setPageEnd
 argument_list|(
 literal|"</div>"
 operator|+
-name|systemLineSeparator
+name|LINE_SEPARATOR
 argument_list|)
 expr_stmt|;
 name|setArticleStart
 argument_list|(
-name|systemLineSeparator
+name|LINE_SEPARATOR
 argument_list|)
 expr_stmt|;
 name|setArticleEnd
 argument_list|(
-name|systemLineSeparator
+name|LINE_SEPARATOR
 argument_list|)
 expr_stmt|;
 block|}
@@ -350,7 +350,7 @@ name|void
 name|endDocument
 parameter_list|(
 name|PDDocument
-name|pdf
+name|document
 parameter_list|)
 throws|throws
 name|IOException
@@ -538,20 +538,20 @@ return|return
 literal|""
 return|;
 block|}
-comment|/**      * Write out the article separator (div tag) with proper text direction      * information.      *      * @param isltr true if direction of text is left to right      * @throws IOException      *             If there is an error writing to the stream.      */
+comment|/**      * Write out the article separator (div tag) with proper text direction      * information.      *      * @param isLTR true if direction of text is left to right      * @throws IOException      *             If there is an error writing to the stream.      */
 specifier|protected
 name|void
 name|startArticle
 parameter_list|(
 name|boolean
-name|isltr
+name|isLTR
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 if|if
 condition|(
-name|isltr
+name|isLTR
 condition|)
 block|{
 name|super
