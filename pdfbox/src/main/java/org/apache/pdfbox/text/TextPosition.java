@@ -68,8 +68,8 @@ specifier|public
 class|class
 name|TextPosition
 block|{
-comment|// TextMatrix for the start of the text object.
-comment|// Coordinates are in display units and have not been adjusted.
+comment|// text matrix for the start of the text object, coordinates are in display units
+comment|// and have not been adjusted
 specifier|private
 name|Matrix
 name|textPos
@@ -129,7 +129,7 @@ decl_stmt|;
 comment|// width of a space, in display units
 specifier|private
 name|String
-name|str
+name|string
 decl_stmt|;
 specifier|private
 name|int
@@ -148,7 +148,9 @@ specifier|private
 name|int
 name|fontSizePt
 decl_stmt|;
-comment|/**      *  Constructor.      */
+comment|/**      * Constructor.      *      * @deprecated Can this be removed?      */
+annotation|@
+name|Deprecated
 specifier|protected
 name|TextPosition
 parameter_list|()
@@ -299,7 +301,7 @@ name|spaceWidth
 expr_stmt|;
 name|this
 operator|.
-name|str
+name|string
 operator|=
 name|string
 expr_stmt|;
@@ -459,7 +461,7 @@ name|spaceWidth
 expr_stmt|;
 name|this
 operator|.
-name|str
+name|string
 operator|=
 name|string
 expr_stmt|;
@@ -495,7 +497,7 @@ name|getCharacter
 parameter_list|()
 block|{
 return|return
-name|str
+name|string
 return|;
 block|}
 comment|/**      * Return the codepoints of the characters stored in this object.      *      * @return an array containing all codepoints.      */
@@ -519,7 +521,7 @@ return|return
 name|textPos
 return|;
 block|}
-comment|/**      * Return the direction/orientation of the string in this object      * based on its text matrix.      * @return The direction of the text (0, 90, 180, or 270)      */
+comment|/**      * Return the direction/orientation of the string in this object based on its text matrix.      * @return The direction of the text (0, 90, 180, or 270)      */
 specifier|public
 name|float
 name|getDir
@@ -740,7 +742,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * Return the X starting coordinate of the text, adjusted by      * the given rotation amount.  The rotation adjusts where the 0,0      * location is relative to the text.      *      * @param rotation Rotation to apply (0, 90, 180, or 270).  0 will perform no adjustments.      * @return X coordinate      */
+comment|/**      * Return the X starting coordinate of the text, adjusted by the given rotation amount.      * The rotation adjusts where the 0,0 location is relative to the text.      *      * @param rotation Rotation to apply (0, 90, 180, or 270).  0 will perform no adjustments.      * @return X coordinate      */
 specifier|private
 name|float
 name|getXRot
@@ -832,7 +834,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * This will get the page rotation adjusted x position of the character.      * This is adjusted based on page rotation so that the upper      * left is 0,0.      *      * @return The x coordinate of the character.      */
+comment|/**      * This will get the page rotation adjusted x position of the character.      * This is adjusted based on page rotation so that the upper left is 0,0.      *      * @return The x coordinate of the character.      */
 specifier|public
 name|float
 name|getX
@@ -873,7 +875,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the y position of the character with 0,0 in lower left.      * This will be adjusted by the given rotation.      * @param rotation Rotation to apply to text to adjust the 0,0 location (0,90,180,270)      *      * @return The y coordinate of the text      */
+comment|/**      * This will get the y position of the character with 0,0 in lower left.      * This will be adjusted by the given rotation.      *      * @param rotation Rotation to apply to text to adjust the 0,0 location (0,90,180,270)      * @return The y coordinate of the text      */
 specifier|private
 name|float
 name|getYLowerLeftRot
@@ -965,7 +967,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and      * it is adjusted based on the page rotation.      *      * @return The adjusted y coordinate of the character.      */
+comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and it is      * adjusted based on the page rotation.      *      * @return The adjusted y coordinate of the character.      */
 specifier|public
 name|float
 name|getY
@@ -982,17 +984,13 @@ condition|)
 block|{
 if|if
 condition|(
-operator|(
 name|rot
 operator|==
 literal|0
-operator|)
 operator|||
-operator|(
 name|rot
 operator|==
 literal|180
-operator|)
 condition|)
 block|{
 name|y
@@ -1022,7 +1020,7 @@ return|return
 name|y
 return|;
 block|}
-comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and      * it is adjusted based on the text direction.      *      * @return The adjusted y coordinate of the character.      */
+comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and it is      * adjusted based on the text direction.      *      * @return The adjusted y coordinate of the character.      */
 specifier|public
 name|float
 name|getYDirAdj
@@ -1161,12 +1159,12 @@ name|float
 name|getHeightDir
 parameter_list|()
 block|{
-comment|// this is not really a rotation-dependent calculation, but this is defined for symmetry.
+comment|// this is not really a rotation-dependent calculation, but this is defined for symmetry
 return|return
 name|maxTextHeight
 return|;
 block|}
-comment|/**      * This will get the font size that this object is      * suppose to be drawn at.      *      * @return The font size.      */
+comment|/**      * This will get the font size that this object is suppose to be drawn at.      *      * @return The font size.      */
 specifier|public
 name|float
 name|getFontSize
@@ -1176,7 +1174,7 @@ return|return
 name|fontSize
 return|;
 block|}
-comment|/**      * This will get the font size in pt.      * To get this size we have to multiply the pdf-fontsize and the scaling from the textmatrix      *      * @return The font size in pt.      */
+comment|/**      * This will get the font size in pt. To get this size we have to multiply the pdf-fontsize      * and the scaling from the textmatrix      *      * @return The font size in pt.      */
 specifier|public
 name|float
 name|getFontSizeInPt
@@ -1196,7 +1194,7 @@ return|return
 name|font
 return|;
 block|}
-comment|/**      * This will get the width of a space character.  This is useful for some      * algorithms such as the text stripper, that need to know the width of a      * space character.      *      * @return The width of a space character.      */
+comment|/**      * This will get the width of a space character. This is useful for some algorithms such as the      * text stripper, that need to know the width of a space character.      *      * @return The width of a space character.      */
 specifier|public
 name|float
 name|getWidthOfSpace
@@ -1243,7 +1241,7 @@ return|return
 name|widths
 return|;
 block|}
-comment|/**      * Determine if this TextPosition logically contains      * another (i.e. they overlap and should be rendered on top      * of each other).      * @param tp2 The other TestPosition to compare against      *      * @return True if tp2 is contained in the bounding box of this text.      */
+comment|/**      * Determine if this TextPosition logically contains another (i.e. they overlap and should be      * rendered on top of each other).      *      * @param tp2 The other TestPosition to compare against      * @return True if tp2 is contained in the bounding box of this text.      */
 specifier|public
 name|boolean
 name|contains
@@ -1288,7 +1286,7 @@ operator|.
 name|getWidthDirAdj
 argument_list|()
 decl_stmt|;
-comment|// No X overlap at all so return as soon as possible.
+comment|// no X overlap at all so return as soon as possible
 if|if
 condition|(
 name|tp2Xend
@@ -1304,9 +1302,8 @@ return|return
 literal|false
 return|;
 block|}
-comment|// No Y overlap at all so return as soon as possible.
-comment|// Note: 0.0 is in the upper left and y-coordinate is
-comment|// top of TextPosition
+comment|// no Y overlap at all so return as soon as possible. Note: 0.0 is in the upper left and
+comment|// y-coordinate is top of TextPosition
 if|if
 condition|(
 name|tp2
@@ -1338,9 +1335,9 @@ return|return
 literal|false
 return|;
 block|}
-comment|// We're going to calculate the percentage of overlap. If its less
-comment|// than a 15% x-coordinate overlap then we'll return false because its negligible.
-comment|// .15 was determined by trial and error in the regression test files.
+comment|// we're going to calculate the percentage of overlap, if its less than a 15% x-coordinate
+comment|// overlap then we'll return false because its negligible, .15 was determined by trial and
+comment|// error in the regression test files
 elseif|else
 if|if
 condition|(
@@ -1411,7 +1408,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Merge a single character TextPosition into the current object.      * This is to be used only for cases where we have a diacritic that      * overlaps an existing TextPosition.  In a graphical display, we could      * overlay them, but for text extraction we need to merge them. Use the      * contains() method to test if two objects overlap.      *      * @param diacritic TextPosition to merge into the current TextPosition.      * @param normalize Instance of TextNormalize class to be used to normalize diacritic      */
+comment|/**      * Merge a single character TextPosition into the current object. This is to be used only for      * cases where we have a diacritic that overlaps an existing TextPosition. In a graphical      * display, we could overlay them, but for text extraction we need to merge them. Use the      * contains() method to test if two objects overlap.      *      * @param diacritic TextPosition to merge into the current TextPosition.      * @param normalize Instance of TextNormalize class to be used to normalize diacritic      */
 specifier|public
 name|void
 name|mergeDiacritic
@@ -1467,7 +1464,7 @@ decl_stmt|;
 name|int
 name|strLen
 init|=
-name|str
+name|string
 operator|.
 name|length
 argument_list|()
@@ -1505,9 +1502,9 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|// This is the case where there is an overlap of the diacritic character with
-comment|// the current character and the previous character. If no previous character,
-comment|// just append the diacritic after the current one.
+comment|// this is the case where there is an overlap of the diacritic character with the
+comment|// current character and the previous character. If no previous character, just append
+comment|// the diacritic after the current one
 if|if
 condition|(
 name|diacXStart
@@ -1611,8 +1608,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|// diacritic completely covers this character and therefore we assume that
-comment|// this is the character the diacritic belongs to
+comment|// diacritic completely covers this character and therefore we assume that this is the
+comment|// character the diacritic belongs to
 elseif|else
 if|if
 condition|(
@@ -1639,7 +1636,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|// Otherwise, The diacritic modifies this character because its completely
+comment|// otherwise, The diacritic modifies this character because its completely
 comment|// contained by the character width
 elseif|else
 if|if
@@ -1667,7 +1664,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|// Last character in the TextPosition so we add diacritic to the end
+comment|// last character in the TextPosition so we add diacritic to the end
 elseif|else
 if|if
 condition|(
@@ -1700,7 +1697,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|// Couldn't find anything useful so we go to the next character in the TextPosition
+comment|// couldn't find anything useful so we go to the next character in the TextPosition
 name|currCharXStart
 operator|+=
 name|widths
@@ -1710,7 +1707,7 @@ index|]
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Inserts the diacritic TextPosition to the str of this TextPosition      * and updates the widths array to include the extra character width.      * @param i current character      * @param diacritic The diacritic TextPosition      * @param normalize Instance of TextNormalize class to be used to normalize diacritic      */
+comment|/**      * Inserts the diacritic TextPosition to the str of this TextPosition and updates the widths      * array to include the extra character width.      *      * @param i current character      * @param diacritic The diacritic TextPosition      * @param normalize Instance of TextNormalize class to be used to normalize diacritic      */
 specifier|private
 name|void
 name|insertDiacritic
@@ -1725,10 +1722,9 @@ name|TextNormalize
 name|normalize
 parameter_list|)
 block|{
-comment|// we add the diacritic to the right or left of the character
-comment|// depending on the direction of the character.  Note that this
-comment|// is only required because the text is currently stored in
-comment|// presentation order and not in logical order.
+comment|// we add the diacritic to the right or left of the character depending on the direction
+comment|// of the character. Note that this is only required because the text is currently stored in
+comment|// presentation order and not in logical order
 name|int
 name|dir
 init|=
@@ -1736,7 +1732,7 @@ name|Character
 operator|.
 name|getDirectionality
 argument_list|(
-name|str
+name|string
 operator|.
 name|charAt
 argument_list|(
@@ -1744,18 +1740,18 @@ name|i
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|StringBuffer
-name|buf
+name|StringBuilder
+name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
-name|buf
+name|sb
 operator|.
 name|append
 argument_list|(
-name|str
+name|string
 operator|.
 name|substring
 argument_list|(
@@ -1821,7 +1817,7 @@ operator|.
 name|DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE
 condition|)
 block|{
-name|buf
+name|sb
 operator|.
 name|append
 argument_list|(
@@ -1843,11 +1839,11 @@ index|]
 operator|=
 literal|0
 expr_stmt|;
-name|buf
+name|sb
 operator|.
 name|append
 argument_list|(
-name|str
+name|string
 operator|.
 name|charAt
 argument_list|(
@@ -1870,11 +1866,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|buf
+name|sb
 operator|.
 name|append
 argument_list|(
-name|str
+name|string
 operator|.
 name|charAt
 argument_list|(
@@ -1892,7 +1888,7 @@ index|[
 name|i
 index|]
 expr_stmt|;
-name|buf
+name|sb
 operator|.
 name|append
 argument_list|(
@@ -1917,12 +1913,12 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|// Get the rest of the string
-name|buf
+comment|// get the rest of the string
+name|sb
 operator|.
 name|append
 argument_list|(
-name|str
+name|string
 operator|.
 name|substring
 argument_list|(
@@ -1930,7 +1926,7 @@ name|i
 operator|+
 literal|1
 argument_list|,
-name|str
+name|string
 operator|.
 name|length
 argument_list|()
@@ -1962,9 +1958,9 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|str
+name|string
 operator|=
-name|buf
+name|sb
 operator|.
 name|toString
 argument_list|()
@@ -1980,9 +1976,8 @@ name|boolean
 name|isDiacritic
 parameter_list|()
 block|{
-specifier|final
 name|String
-name|cText
+name|text
 init|=
 name|this
 operator|.
@@ -1991,7 +1986,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|cText
+name|text
 operator|.
 name|length
 argument_list|()
@@ -2003,7 +1998,6 @@ return|return
 literal|false
 return|;
 block|}
-specifier|final
 name|int
 name|type
 init|=
@@ -2011,7 +2005,7 @@ name|Character
 operator|.
 name|getType
 argument_list|(
-name|cText
+name|text
 operator|.
 name|charAt
 argument_list|(
