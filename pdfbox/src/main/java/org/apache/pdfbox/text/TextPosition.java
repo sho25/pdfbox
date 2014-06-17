@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a string and a position on the screen of those characters.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.12 $  */
+comment|/**  * This represents a string and a position on the screen of those characters.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
