@@ -220,7 +220,7 @@ block|}
 comment|/**      * Get the value of the horizontalScaling.  The default is 100.  This value      * is the percentage value 0-100 and not 0-1.  So for mathematical operations      * you will probably need to divide by 100 first.      *      * @return The horizontalScaling.      */
 specifier|public
 name|float
-name|getHorizontalScalingPercent
+name|getHorizontalScaling
 parameter_list|()
 block|{
 return|return
@@ -230,7 +230,7 @@ block|}
 comment|/**      * Set the value of the horizontalScaling.      *      * @param value The horizontalScaling.      */
 specifier|public
 name|void
-name|setHorizontalScalingPercent
+name|setHorizontalScaling
 parameter_list|(
 name|float
 name|value

@@ -345,24 +345,6 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|color
-operator|.
-name|PDColorSpace
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
 name|PDXObject
 import|;
 end_import
@@ -414,7 +396,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processes a PDF content stream and executes certain operations.  * Provides a callback interface for clients that want to do things with the stream.  * {@see org.apache.pdfbox.util.PDFTextStripper}  * @author Ben Litchfield  */
+comment|/**  * Processes a PDF content stream and executes certain operations.  * Provides a callback interface for clients that want to do things with the stream.  *  * {@see org.apache.pdfbox.util.PDFTextStripper}  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -512,14 +494,6 @@ argument_list|()
 decl_stmt|;
 specifier|private
 name|int
-name|validCharCnt
-decl_stmt|;
-specifier|private
-name|int
-name|totalCharCnt
-decl_stmt|;
-specifier|private
-name|int
 name|pageRotation
 decl_stmt|;
 specifier|private
@@ -536,7 +510,7 @@ specifier|public
 name|PDFStreamEngine
 parameter_list|()
 block|{     }
-comment|/**      * Constructor with engine properties. The property keys are all PDF operators, the values are class names used to      * execute those operators. An empty value means that the operator will be silently ignored.      *       * @param properties The engine properties.      */
+comment|/**      * Constructor with engine properties. The property keys are all PDF operators, the values are      * class names used to execute those operators. An empty value means that the operator will be      * silently ignored.      *       * @param properties The engine properties.      */
 specifier|public
 name|PDFStreamEngine
 parameter_list|(
@@ -756,20 +730,13 @@ name|op
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method must be called between processing documents. The PDFStreamEngine caches information for the document      * between pages and this will release the cached information. This only needs to be called if processing a new      * document.      *      */
+comment|/**      * This method must be called between processing documents. The PDFStreamEngine caches      * information for the document between pages and this will release the cached information.      * This only needs to be called if processing a new document.      */
 specifier|public
 name|void
 name|resetEngine
 parameter_list|()
 block|{
-name|validCharCnt
-operator|=
-literal|0
-expr_stmt|;
-name|totalCharCnt
-operator|=
-literal|0
-expr_stmt|;
+comment|// overridden in subclasses
 block|}
 comment|/**      * Initialises a stream for processing.      *      * @param drawingSize the size of the page      * @param rotation the page rotation      */
 specifier|protected
@@ -818,7 +785,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will initialise and process the contents of the stream.      *       * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      * @param drawingSize the size of the page      * @param rotation the page rotation      *       * @throws IOException if there is an error accessing the stream.      */
+comment|/**      * This will initialise and process the contents of the stream.      *       * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      * @param drawingSize the size of the page      * @param rotation the page rotation      * @throws IOException if there is an error accessing the stream.      */
 specifier|public
 name|void
 name|processStream
@@ -853,7 +820,7 @@ name|cosStream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process a sub stream of the current stream.      *       * @param resources The resources used when processing the stream.      * @param cosStream The stream to process.      *       * @throws IOException If there is an exception while processing the stream.      */
+comment|/**      * Process a sub stream of the current stream.      *       * @param resources The resources used when processing the stream.      * @param cosStream The stream to process.      * @throws IOException If there is an exception while processing the stream.      */
 specifier|public
 name|void
 name|processSubStream
@@ -1066,7 +1033,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A method provided as an event interface to allow a subclass to perform some specific functionality when text      * needs to be processed.      *       * @param text The text to be processed.      */
+comment|/**      * A method provided as an event interface to allow a subclass to perform some specific      * functionality when text needs to be processed.      *       * @param text The text to be processed.      */
 specifier|protected
 name|void
 name|processTextPosition
@@ -1077,20 +1044,7 @@ parameter_list|)
 block|{
 comment|// subclasses can override to provide specific functionality.
 block|}
-comment|/**      * A method provided as an event interface to allow a subclass to perform some specific functionality on the string      * encoded by a glyph.      *       * @param str The string to be processed.      *       * @return the altered string      */
-specifier|protected
-name|String
-name|inspectFontEncoding
-parameter_list|(
-name|String
-name|str
-parameter_list|)
-block|{
-return|return
-name|str
-return|;
-block|}
-comment|/**      * Process encoded text from the PDF Stream. You should override this method if you want to perform an action when      * encoded text is being processed.      *       * @param string The encoded text      *       * @throws IOException If there is an error processing the string      */
+comment|/**      * Process encoded text from the PDF Stream. You should override this method if you want to      * perform an action when encoded text is being processed.      *       * @param string The encoded text      * @throws IOException If there is an error processing the string      */
 specifier|public
 name|void
 name|processEncodedText
@@ -1102,7 +1056,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|/*          * Note on variable names. There are three different units being used in this code. Character sizes are given in          * glyph units, text locations are initially given in text units, and we want to save the data in display units.          * The variable names should end with Text or Disp to represent if the values are in text or disp units (no          * glyph units are saved).          */
+comment|// Note on variable names. There are three different units being used in this code.
+comment|// Character sizes are given in glyph units, text locations are initially given in text
+comment|// units, and we want to save the data in display units. The variable names should end with
+comment|// Text or Disp to represent if the values are in text or disp units (no glyph units are
+comment|// saved).
 specifier|final
 name|float
 name|fontSizeText
@@ -1124,12 +1082,11 @@ operator|.
 name|getTextState
 argument_list|()
 operator|.
-name|getHorizontalScalingPercent
+name|getHorizontalScaling
 argument_list|()
 operator|/
 literal|100f
 decl_stmt|;
-comment|// float verticalScalingText = horizontalScaling;//not sure if this is right but what else to do???
 specifier|final
 name|float
 name|riseText
@@ -1182,7 +1139,7 @@ operator|.
 name|getFont
 argument_list|()
 decl_stmt|;
-comment|// all fonts are providing the width/height of a character in thousandths of a unit of text space
+comment|// all fonts have the width/height of a character in thousandths of a unit of text space
 name|float
 name|fontMatrixXScaling
 init|=
@@ -1265,18 +1222,15 @@ literal|0
 decl_stmt|;
 try|try
 block|{
-comment|// to avoid crash as described in PDFBOX-614
-comment|// lets see what the space displacement should be
+comment|// to avoid crash as described in PDFBOX-614, see what the space displacement should be
 name|spaceWidthText
 operator|=
-operator|(
 name|font
 operator|.
 name|getSpaceWidth
 argument_list|()
 operator|*
 name|glyphSpaceToTextSpaceFactor
-operator|)
 expr_stmt|;
 block|}
 catch|catch
@@ -1304,17 +1258,14 @@ condition|)
 block|{
 name|spaceWidthText
 operator|=
-operator|(
 name|font
 operator|.
 name|getAverageFontWidth
 argument_list|()
 operator|*
 name|glyphSpaceToTextSpaceFactor
-operator|)
 expr_stmt|;
-comment|// The average space width appears to be higher than necessary
-comment|// so lets make it a little bit smaller.
+comment|// the average space width appears to be higher than necessary so make it smaller
 name|spaceWidthText
 operator|*=
 literal|.80f
@@ -1435,8 +1386,6 @@ argument_list|()
 decl_stmt|;
 name|int
 name|codeLength
-init|=
-literal|1
 decl_stmt|;
 for|for
 control|(
@@ -1478,8 +1427,6 @@ decl_stmt|;
 name|int
 index|[]
 name|codePoints
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1573,10 +1520,10 @@ operator|.
 name|getXScale
 argument_list|()
 decl_stmt|;
-comment|// todo, handle horizontal displacement
+comment|// TODO: handle horizontal displacement
 comment|// get the width and height of this character in text units
 name|float
-name|characterHorizontalDisplacementText
+name|charHorizontalDisplacementText
 init|=
 name|font
 operator|.
@@ -1590,7 +1537,7 @@ name|codeLength
 argument_list|)
 decl_stmt|;
 name|float
-name|characterVerticalDisplacementText
+name|charVerticalDisplacementText
 init|=
 name|font
 operator|.
@@ -1604,15 +1551,15 @@ name|codeLength
 argument_list|)
 decl_stmt|;
 comment|// multiply the width/height with the scaling factor
-name|characterHorizontalDisplacementText
+name|charHorizontalDisplacementText
 operator|=
-name|characterHorizontalDisplacementText
+name|charHorizontalDisplacementText
 operator|*
 name|fontMatrixXScaling
 expr_stmt|;
-name|characterVerticalDisplacementText
+name|charVerticalDisplacementText
 operator|=
-name|characterVerticalDisplacementText
+name|charVerticalDisplacementText
 operator|*
 name|fontMatrixYScaling
 expr_stmt|;
@@ -1624,7 +1571,7 @@ name|max
 argument_list|(
 name|maxVerticalDisplacementText
 argument_list|,
-name|characterVerticalDisplacementText
+name|charVerticalDisplacementText
 argument_list|)
 expr_stmt|;
 comment|// PDF Spec - 5.5.2 Word Spacing
@@ -1652,14 +1599,12 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|string
 index|[
 name|i
 index|]
 operator|==
 literal|0x20
-operator|)
 operator|&&
 name|codeLength
 operator|==
@@ -1681,7 +1626,8 @@ name|textXctm
 argument_list|)
 expr_stmt|;
 comment|// Convert textMatrix to display units
-comment|// We need to instantiate a new Matrix instance here as it is passed to the TextPosition constructor below.
+comment|// We need to instantiate a new Matrix instance here as it is passed to the TextPosition
+comment|// constructor below
 name|Matrix
 name|textMatrixStart
 init|=
@@ -1692,18 +1638,14 @@ argument_list|(
 name|textXctm
 argument_list|)
 decl_stmt|;
-comment|// TODO : tx should be set for horizontal text and ty for vertical text
+comment|// TODO: tx should be set for horizontal text and ty for vertical text
 comment|// which seems to be specified in the font (not the direction in the matrix).
 name|float
 name|tx
 init|=
-operator|(
-operator|(
-name|characterHorizontalDisplacementText
-operator|)
+name|charHorizontalDisplacementText
 operator|*
 name|fontSizeText
-operator|)
 operator|*
 name|horizontalScalingText
 decl_stmt|;
@@ -1785,9 +1727,7 @@ comment|// add some spacing to the text matrix (see comment above)
 name|tx
 operator|=
 operator|(
-operator|(
-name|characterHorizontalDisplacementText
-operator|)
+name|charHorizontalDisplacementText
 operator|*
 name|fontSizeText
 operator|+
@@ -1835,32 +1775,19 @@ name|endXPosition
 operator|-
 name|startXPosition
 decl_stmt|;
-comment|// there are several cases where one character code will
-comment|// output multiple characters. For example "fi" or a
-comment|// glyphname that has no mapping like "visiblespace"
+comment|// PDFBOX-373: Replace a null entry with "?" so it is not printed as "(null)"
 if|if
 condition|(
 name|c
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
-name|validCharCnt
-operator|++
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// PDFBOX-373: Replace a null entry with "?" so it is
-comment|// not printed as "(null)"
 name|c
 operator|=
 literal|"?"
 expr_stmt|;
 block|}
-name|totalCharCnt
-operator|++
-expr_stmt|;
 name|float
 name|totalVerticalDisplacementDisp
 init|=
@@ -1921,7 +1848,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This is used to handle an operation.      *       * @param operation The operation to perform.      * @param arguments The list of arguments.      *       * @throws IOException If there is an error processing the operation.      */
+comment|/**      * This is used to handle an operation.      *       * @param operation The operation to perform.      * @param arguments The list of arguments.      * @throws IOException If there is an error processing the operation.      */
 specifier|public
 name|void
 name|processOperator
@@ -1941,7 +1868,7 @@ block|{
 try|try
 block|{
 name|PDFOperator
-name|oper
+name|operator
 init|=
 name|PDFOperator
 operator|.
@@ -1952,7 +1879,7 @@ argument_list|)
 decl_stmt|;
 name|processOperator
 argument_list|(
-name|oper
+name|operator
 argument_list|,
 name|arguments
 argument_list|)
@@ -1975,7 +1902,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This is used to handle an operation.      *       * @param operator The operation to perform.      * @param arguments The list of arguments.      *       * @throws IOException If there is an error processing the operation.      */
+comment|/**      * This is used to handle an operation.      *       * @param operator The operation to perform.      * @param arguments The list of arguments.      * @throws IOException If there is an error processing the operation.      */
 specifier|protected
 name|void
 name|processOperator
@@ -2066,11 +1993,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Transforms the given point using the current transformation matrix      *      * @param x x-coordinate of the point to be transformed      * @param y y-coordinate of the point to be transformed      * @return the transformed point      */
-comment|/* public Point2D.Double transformPoint(double x, double y)     {         double[] position = { x, y };         Matrix ctm = graphicsState.getCurrentTransformationMatrix();         ctm.createAffineTransform().transform(position, 0, position, 0, 1);         return new Point2D.Double(position[0], position[1]);     }*/
-comment|/**      * Transforms the given width using the current transformation matrix      *      * @param width the width to be transformed      * @return the transformed width      */
-comment|/*public double transformWidth(double width) {         Matrix ctm = graphicsState.getCurrentTransformationMatrix();         double x = ctm.getValue(0, 0) + ctm.getValue(1, 0);         double y = ctm.getValue(0, 1) + ctm.getValue(1, 1);         return width * Math.sqrt(0.5 * (x * x + y * y));     }*/
-comment|/**      * @return Returns the colorSpaces.      */
+comment|/**      * @return Returns the XObjects.      */
 specifier|public
 name|Map
 argument_list|<
@@ -2090,31 +2013,6 @@ operator|.
 name|getXObjects
 argument_list|()
 return|;
-block|}
-comment|/**      * @param value The colorSpaces to set.      */
-specifier|public
-name|void
-name|setColorSpaces
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|PDColorSpace
-argument_list|>
-name|value
-parameter_list|)
-block|{
-name|streamResourcesStack
-operator|.
-name|peek
-argument_list|()
-operator|.
-name|setColorSpaces
-argument_list|(
-name|value
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * @return Returns the fonts.      */
 specifier|public
@@ -2356,35 +2254,12 @@ name|peek
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the total number of valid characters in the doc that could be decoded in processEncodedText().      *       * @return The number of valid characters.      */
-specifier|public
-name|int
-name|getValidCharCnt
-parameter_list|()
-block|{
-return|return
-name|validCharCnt
-return|;
-block|}
-comment|/**      * Get the total number of characters in the doc (including ones that could not be mapped).      *       * @return The number of characters.      */
-specifier|public
-name|int
-name|getTotalCharCnt
-parameter_list|()
-block|{
-return|return
-name|totalCharCnt
-return|;
-block|}
 comment|/**      * Remove all cached resources.      */
 specifier|public
 name|void
 name|dispose
 parameter_list|()
 block|{
-name|resetEngine
-argument_list|()
-expr_stmt|;
 name|drawingRectangle
 operator|=
 literal|null
@@ -2452,19 +2327,11 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|unsupportedOperators
-operator|!=
-literal|null
-condition|)
-block|{
 name|unsupportedOperators
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

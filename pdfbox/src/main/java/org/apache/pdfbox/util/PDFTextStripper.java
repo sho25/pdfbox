@@ -418,7 +418,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will take a pdf document and strip out all of the text and ignore the  * formatting and such.  Please note; it is up to clients of this class to verify that  * a specific user has the correct permissions to extract text from the  * PDF document.  *   * The basic flow of this process is that we get a document and use a series of   * processXXX() functions that work on smaller and smaller chunks of the page.    * Eventually, we fully process each page and then print it.   *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This class will take a pdf document and strip out all of the text and ignore the  * formatting and such.  Please note; it is up to clients of this class to verify that  * a specific user has the correct permissions to extract text from the PDF document.  *   * The basic flow of this process is that we get a document and use a series of   * processXXX() functions that work on smaller and smaller chunks of the page.    * Eventually, we fully process each page and then print it.   *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -428,22 +428,6 @@ name|PDFTextStripper
 extends|extends
 name|PDFStreamEngine
 block|{
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|thisClassName
-init|=
-name|PDFTextStripper
-operator|.
-name|class
-operator|.
-name|getSimpleName
-argument_list|()
-operator|.
-name|toLowerCase
-argument_list|()
-decl_stmt|;
 specifier|private
 specifier|static
 name|float
@@ -458,31 +442,44 @@ name|DEFAULT_DROP_THRESHOLD
 init|=
 literal|2.5f
 decl_stmt|;
-comment|//enable the ability to set the default indent/drop thresholds
-comment|//with -D system properties:
+comment|// enable the ability to set the default indent/drop thresholds
+comment|// with -D system properties:
 comment|//    pdftextstripper.indent
 comment|//    pdftextstripper.drop
 static|static
 block|{
 name|String
-name|sdrop
+name|strDrop
 init|=
 literal|null
 decl_stmt|,
-name|sindent
+name|strIndent
 init|=
 literal|null
 decl_stmt|;
 try|try
 block|{
 name|String
+name|className
+init|=
+name|PDFTextStripper
+operator|.
+name|class
+operator|.
+name|getSimpleName
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
+decl_stmt|;
+name|String
 name|prop
 init|=
-name|thisClassName
+name|className
 operator|+
 literal|".indent"
 decl_stmt|;
-name|sindent
+name|strIndent
 operator|=
 name|System
 operator|.
@@ -493,11 +490,11 @@ argument_list|)
 expr_stmt|;
 name|prop
 operator|=
-name|thisClassName
+name|className
 operator|+
 literal|".drop"
 expr_stmt|;
-name|sdrop
+name|strDrop
 operator|=
 name|System
 operator|.
@@ -518,11 +515,11 @@ comment|// ignore and use default
 block|}
 if|if
 condition|(
-name|sindent
+name|strIndent
 operator|!=
 literal|null
 operator|&&
-name|sindent
+name|strIndent
 operator|.
 name|length
 argument_list|()
@@ -532,19 +529,14 @@ condition|)
 block|{
 try|try
 block|{
-name|float
-name|f
-init|=
+name|DEFAULT_INDENT_THRESHOLD
+operator|=
 name|Float
 operator|.
 name|parseFloat
 argument_list|(
-name|sindent
+name|strIndent
 argument_list|)
-decl_stmt|;
-name|DEFAULT_INDENT_THRESHOLD
-operator|=
-name|f
 expr_stmt|;
 block|}
 catch|catch
@@ -553,16 +545,16 @@ name|NumberFormatException
 name|nfe
 parameter_list|)
 block|{
-comment|//ignore and use default
+comment|// ignore and use default
 block|}
 block|}
 if|if
 condition|(
-name|sdrop
+name|strDrop
 operator|!=
 literal|null
 operator|&&
-name|sdrop
+name|strDrop
 operator|.
 name|length
 argument_list|()
@@ -572,19 +564,14 @@ condition|)
 block|{
 try|try
 block|{
-name|float
-name|f
-init|=
+name|DEFAULT_DROP_THRESHOLD
+operator|=
 name|Float
 operator|.
 name|parseFloat
 argument_list|(
-name|sdrop
+name|strDrop
 argument_list|)
-decl_stmt|;
-name|DEFAULT_DROP_THRESHOLD
-operator|=
-name|f
 expr_stmt|;
 block|}
 catch|catch
@@ -593,11 +580,11 @@ name|NumberFormatException
 name|nfe
 parameter_list|)
 block|{
-comment|//ignore and use default
+comment|// ignore and use default
 block|}
 block|}
 block|}
-comment|/**      * The platforms line separator.      */
+comment|/**      * The platform's line separator.      */
 specifier|protected
 specifier|final
 name|String
@@ -746,8 +733,7 @@ name|dropThreshold
 init|=
 name|DEFAULT_DROP_THRESHOLD
 decl_stmt|;
-comment|// We will need to estimate where to add spaces.
-comment|// These are used to help guess.
+comment|// We will need to estimate where to add spaces. These are used to help guess.
 specifier|private
 name|float
 name|spacingTolerance
@@ -824,17 +810,14 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * encoding that text will be written in (or null).      */
 specifier|protected
 name|String
 name|outputEncoding
 decl_stmt|;
-comment|/**      * The document to read.      */
 specifier|protected
 name|PDDocument
 name|document
 decl_stmt|;
-comment|/**      * The stream to write the output to.      */
 specifier|protected
 name|Writer
 name|output
@@ -846,12 +829,12 @@ name|normalize
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * True if we started a paragraph but haven't ended it      * yet.      */
+comment|/**      * True if we started a paragraph but haven't ended it yet.      */
 specifier|private
 name|boolean
 name|inParagraph
 decl_stmt|;
-comment|/**      * Instantiate a new PDFTextStripper object. This object will load      * properties from PDFTextStripper.properties and will not do      * anything special to convert the text to a more encoding-specific      * output.      *      * @throws IOException If there is an error loading the properties.      */
+comment|/**      * Instantiate a new PDFTextStripper object. This object will load      * properties from PDFTextStripper.properties and will not do      * anything special to convert the text to a more encoding-specific output.      *      * @throws IOException If there is an error loading the properties.      */
 specifier|public
 name|PDFTextStripper
 parameter_list|()
@@ -990,29 +973,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * @deprecated      * @see PDFTextStripper#getText( PDDocument )      * @param doc The document to extract the text from.      * @return The document text.      * @throws IOException If there is an error extracting the text.      */
-specifier|public
-name|String
-name|getText
-parameter_list|(
-name|COSDocument
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|getText
-argument_list|(
-operator|new
-name|PDDocument
-argument_list|(
-name|doc
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -1020,11 +980,6 @@ name|void
 name|resetEngine
 parameter_list|()
 block|{
-name|super
-operator|.
-name|resetEngine
-argument_list|()
-expr_stmt|;
 name|currentPageNo
 operator|=
 literal|0
@@ -1134,7 +1089,6 @@ comment|// for users to pass in a document that is encrypted with an empty
 comment|// password (such a document appears to not be encrypted by
 comment|// someone viewing the document, thus the confusion).  We will
 comment|// attempt to decrypt with the empty password to handle this case.
-comment|//
 try|try
 block|{
 name|StandardDecryptionMaterial
@@ -1267,9 +1221,9 @@ name|getCOSObject
 argument_list|()
 condition|)
 block|{
-comment|//this is a special case where both the start and end bookmark
-comment|//are the same but point to nothing.  In this case
-comment|//we will not extract any text.
+comment|// this is a special case where both the start and end bookmark
+comment|// are the same but point to nothing.  In this case
+comment|// we will not extract any text.
 name|startBookmarkPageNumber
 operator|=
 literal|0
@@ -1395,13 +1349,13 @@ argument_list|)
 operator|+
 literal|1
 expr_stmt|;
-comment|//use one based indexing
+comment|// use one based indexing
 block|}
 return|return
 name|pageNumber
 return|;
 block|}
-comment|/**      * This method is available for subclasses of this class.  It will be called before processing      * of the document start.      *      * @param pdf The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
+comment|/**      * This method is available for subclasses of this class. It will be called before processing      * of the document start.      *      * @param pdf The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
 specifier|protected
 name|void
 name|startDocument
@@ -1414,7 +1368,7 @@ name|IOException
 block|{
 comment|// no default implementation, but available for subclasses
 block|}
-comment|/**      * This method is available for subclasses of this class.  It will be called after processing      * of the document finishes.      *      * @param pdf The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
+comment|/**      * This method is available for subclasses of this class. It will be called after processing      * of the document finishes.      *      * @param pdf The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
 specifier|protected
 name|void
 name|endDocument
@@ -1546,20 +1500,12 @@ operator|<
 name|originalSize
 condition|)
 block|{
-operator|(
-operator|(
-name|List
-argument_list|<
-name|TextPosition
-argument_list|>
-operator|)
 name|charactersByArticle
 operator|.
 name|get
 argument_list|(
 name|i
 argument_list|)
-operator|)
 operator|.
 name|clear
 argument_list|()
@@ -1680,7 +1626,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//default is to do nothing.
+comment|// default is to do nothing
 block|}
 comment|/**      * End a page.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @param page The page we are about to process.      *      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
@@ -1693,13 +1639,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//default is to do nothing
+comment|// default is to do nothing
 block|}
 specifier|private
 specifier|static
 specifier|final
 name|float
-name|ENDOFLASTTEXTX_RESET_VALUE
+name|END_OF_LAST_TEXT_X_RESET_VALUE
 init|=
 operator|-
 literal|1
@@ -1708,7 +1654,7 @@ specifier|private
 specifier|static
 specifier|final
 name|float
-name|MAXYFORLINE_RESET_VALUE
+name|MAX_Y_FOR_LINE_RESET_VALUE
 init|=
 operator|-
 name|Float
@@ -1719,7 +1665,7 @@ specifier|private
 specifier|static
 specifier|final
 name|float
-name|EXPECTEDSTARTOFNEXTWORDX_RESET_VALUE
+name|EXPECTED_START_OF_NEXT_WORD_X_RESET_VALUE
 init|=
 operator|-
 name|Float
@@ -1730,7 +1676,7 @@ specifier|private
 specifier|static
 specifier|final
 name|float
-name|MAXHEIGHTFORLINE_RESET_VALUE
+name|MAX_HEIGHT_FOR_LINE_RESET_VALUE
 init|=
 operator|-
 literal|1
@@ -1739,7 +1685,7 @@ specifier|private
 specifier|static
 specifier|final
 name|float
-name|MINYTOPFORLINE_RESET_VALUE
+name|MIN_Y_TOP_FOR_LINE_RESET_VALUE
 init|=
 name|Float
 operator|.
@@ -1749,7 +1695,7 @@ specifier|private
 specifier|static
 specifier|final
 name|float
-name|LASTWORDSPACING_RESET_VALUE
+name|LAST_WORD_SPACING_RESET_VALUE
 init|=
 operator|-
 literal|1
@@ -1765,27 +1711,27 @@ block|{
 name|float
 name|maxYForLine
 init|=
-name|MAXYFORLINE_RESET_VALUE
+name|MAX_Y_FOR_LINE_RESET_VALUE
 decl_stmt|;
 name|float
 name|minYTopForLine
 init|=
-name|MINYTOPFORLINE_RESET_VALUE
+name|MIN_Y_TOP_FOR_LINE_RESET_VALUE
 decl_stmt|;
 name|float
 name|endOfLastTextX
 init|=
-name|ENDOFLASTTEXTX_RESET_VALUE
+name|END_OF_LAST_TEXT_X_RESET_VALUE
 decl_stmt|;
 name|float
 name|lastWordSpacing
 init|=
-name|LASTWORDSPACING_RESET_VALUE
+name|LAST_WORD_SPACING_RESET_VALUE
 decl_stmt|;
 name|float
 name|maxHeightForLine
 init|=
-name|MAXHEIGHTFORLINE_RESET_VALUE
+name|MAX_HEIGHT_FOR_LINE_RESET_VALUE
 decl_stmt|;
 name|PositionWrapper
 name|lastPosition
@@ -1802,11 +1748,9 @@ name|startOfPage
 init|=
 literal|true
 decl_stmt|;
-comment|//flag to indicate start of page
+comment|// flag to indicate start of page
 name|boolean
 name|startOfArticle
-init|=
-literal|true
 decl_stmt|;
 if|if
 condition|(
@@ -1887,15 +1831,26 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-comment|/* Before we can display the text, we need to do some normalizing.              * Arabic and Hebrew text is right to left and is typically stored              * in its logical format, which means that the rightmost character is              * stored first, followed by the second character from the right etc.              * However, PDF stores the text in presentation form, which is left to              * right.  We need to do some normalization to convert the PDF data to              * the proper logical output format.              *              * Note that if we did not sort the text, then the output of reversing the              * text is undefined and can sometimes produce worse output then not trying              * to reverse the order.  Sorting should be done for these languages.              * */
-comment|/* First step is to determine if we have any right to left text, and              * if so, is it dominant. */
+comment|// Before we can display the text, we need to do some normalizing.
+comment|// Arabic and Hebrew text is right to left and is typically stored
+comment|// in its logical format, which means that the rightmost character is
+comment|// stored first, followed by the second character from the right etc.
+comment|// However, PDF stores the text in presentation form, which is left to
+comment|// right.  We need to do some normalization to convert the PDF data to
+comment|// the proper logical output format.
+comment|//
+comment|// Note that if we did not sort the text, then the output of reversing the
+comment|// text is undefined and can sometimes produce worse output then not trying
+comment|// to reverse the order. Sorting should be done for these languages.
+comment|// First step is to determine if we have any right to left text, and
+comment|// if so, is it dominant.
 name|int
-name|ltrCnt
+name|ltrCount
 init|=
 literal|0
 decl_stmt|;
 name|int
-name|rtlCnt
+name|rtlCount
 init|=
 literal|0
 decl_stmt|;
@@ -1910,9 +1865,6 @@ block|{
 name|TextPosition
 name|position
 init|=
-operator|(
-name|TextPosition
-operator|)
 name|textIter
 operator|.
 name|next
@@ -1961,72 +1913,58 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|dir
 operator|==
 name|Character
 operator|.
 name|DIRECTIONALITY_LEFT_TO_RIGHT
-operator|)
 operator|||
-operator|(
 name|dir
 operator|==
 name|Character
 operator|.
 name|DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING
-operator|)
 operator|||
-operator|(
 name|dir
 operator|==
 name|Character
 operator|.
 name|DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE
-operator|)
 condition|)
 block|{
-name|ltrCnt
+name|ltrCount
 operator|++
 expr_stmt|;
 block|}
 elseif|else
 if|if
 condition|(
-operator|(
 name|dir
 operator|==
 name|Character
 operator|.
 name|DIRECTIONALITY_RIGHT_TO_LEFT
-operator|)
 operator|||
-operator|(
 name|dir
 operator|==
 name|Character
 operator|.
 name|DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC
-operator|)
 operator|||
-operator|(
 name|dir
 operator|==
 name|Character
 operator|.
 name|DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING
-operator|)
 operator|||
-operator|(
 name|dir
 operator|==
 name|Character
 operator|.
 name|DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE
-operator|)
 condition|)
 block|{
-name|rtlCnt
+name|rtlCount
 operator|++
 expr_stmt|;
 block|}
@@ -2036,9 +1974,9 @@ comment|// choose the dominant direction
 name|boolean
 name|isRtlDominant
 init|=
-name|rtlCnt
+name|rtlCount
 operator|>
-name|ltrCnt
+name|ltrCount
 decl_stmt|;
 name|startArticle
 argument_list|(
@@ -2054,11 +1992,13 @@ comment|// we will later use this to skip reordering
 name|boolean
 name|hasRtl
 init|=
-name|rtlCnt
+name|rtlCount
 operator|>
 literal|0
 decl_stmt|;
-comment|/* Now cycle through to print the text.              * We queue up a line at a time before we print so that we can convert              * the line from presentation form to logical form (if needed).               */
+comment|// Now cycle through to print the text.
+comment|// We queue up a line at a time before we print so that we can convert
+comment|// the line from presentation form to logical form (if needed).
 name|List
 argument_list|<
 name|TextPosition
@@ -2080,8 +2020,14 @@ name|iterator
 argument_list|()
 expr_stmt|;
 comment|// start from the beginning again
-comment|/* PDF files don't always store spaces. We will need to guess where we should add              * spaces based on the distances between TextPositions. Historically, this was done              * based on the size of the space character provided by the font. In general, this worked              * but there were cases where it did not work. Calculating the average character width              * and using that as a metric works better in some cases but fails in some cases where the              * spacing worked. So we use both. NOTE: Adobe reader also fails on some of these examples.              */
-comment|//Keeps track of the previous average character width
+comment|// PDF files don't always store spaces. We will need to guess where we should add
+comment|// spaces based on the distances between TextPositions. Historically, this was done
+comment|// based on the size of the space character provided by the font. In general, this
+comment|// worked but there were cases where it did not work. Calculating the average character
+comment|// width and using that as a metric works better in some cases but fails in some cases
+comment|// where the spacing worked. So we use both. NOTE: Adobe reader also fails on some of
+comment|// these examples.
+comment|// Keeps track of the previous average character width
 name|float
 name|previousAveCharWidth
 init|=
@@ -2099,9 +2045,6 @@ block|{
 name|TextPosition
 name|position
 init|=
-operator|(
-name|TextPosition
-operator|)
 name|textIter
 operator|.
 name|next
@@ -2133,7 +2076,6 @@ operator|!=
 literal|null
 operator|&&
 operator|(
-operator|(
 name|position
 operator|.
 name|getFont
@@ -2146,9 +2088,7 @@ argument_list|()
 operator|.
 name|getFont
 argument_list|()
-operator|)
 operator|||
-operator|(
 name|position
 operator|.
 name|getFontSize
@@ -2161,7 +2101,6 @@ argument_list|()
 operator|.
 name|getFontSize
 argument_list|()
-operator|)
 operator|)
 condition|)
 block|{
@@ -2183,7 +2122,8 @@ decl_stmt|;
 name|float
 name|positionHeight
 decl_stmt|;
-comment|/* If we are sorting, then we need to use the text direction                  * adjusted coordinates, because they were used in the sorting. */
+comment|// If we are sorting, then we need to use the text direction
+comment|// adjusted coordinates, because they were used in the sorting.
 if|if
 condition|(
 name|getSortByPosition
@@ -2261,7 +2201,8 @@ argument_list|()
 operator|.
 name|length
 decl_stmt|;
-comment|/* Estimate the expected width of the space based on the                  * space character with some margin. */
+comment|// Estimate the expected width of the space based on the
+comment|// space character with some margin.
 name|float
 name|wordSpacing
 init|=
@@ -2272,24 +2213,18 @@ argument_list|()
 decl_stmt|;
 name|float
 name|deltaSpace
-init|=
-literal|0
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|wordSpacing
 operator|==
 literal|0
-operator|)
 operator|||
-operator|(
 name|wordSpacing
 operator|==
 name|Float
 operator|.
 name|NaN
-operator|)
 condition|)
 block|{
 name|deltaSpace
@@ -2310,12 +2245,10 @@ condition|)
 block|{
 name|deltaSpace
 operator|=
-operator|(
 name|wordSpacing
 operator|*
 name|getSpacingTolerance
 argument_list|()
-operator|)
 expr_stmt|;
 block|}
 else|else
@@ -2323,23 +2256,22 @@ block|{
 name|deltaSpace
 operator|=
 operator|(
-operator|(
-operator|(
 name|wordSpacing
 operator|+
 name|lastWordSpacing
 operator|)
 operator|/
 literal|2f
-operator|)
 operator|*
 name|getSpacingTolerance
 argument_list|()
-operator|)
 expr_stmt|;
 block|}
 block|}
-comment|/* Estimate the expected width of the space based on the                  * average character width with some margin. This calculation does not                  * make a true average (average of averages) but we found that it gave the                  * best results after numerous experiments. Based on experiments we also found that                  * .3 worked well. */
+comment|// Estimate the expected width of the space based on the average character width
+comment|// with some margin. This calculation does not make a true average (average of
+comment|// averages) but we found that it gave the best results after numerous experiments.
+comment|// Based on experiments we also found that .3 worked well.
 name|float
 name|averageCharWidth
 init|=
@@ -2355,11 +2287,9 @@ condition|)
 block|{
 name|averageCharWidth
 operator|=
-operator|(
 name|positionWidth
 operator|/
 name|wordCharCount
-operator|)
 expr_stmt|;
 block|}
 else|else
@@ -2369,11 +2299,9 @@ operator|=
 operator|(
 name|previousAveCharWidth
 operator|+
-operator|(
 name|positionWidth
 operator|/
 name|wordCharCount
-operator|)
 operator|)
 operator|/
 literal|2f
@@ -2382,25 +2310,23 @@ block|}
 name|float
 name|deltaCharWidth
 init|=
-operator|(
 name|averageCharWidth
 operator|*
 name|getAverageCharTolerance
 argument_list|()
-operator|)
 decl_stmt|;
-comment|//Compares the values obtained by the average method and the wordSpacing method and picks
-comment|//the smaller number.
+comment|// Compares the values obtained by the average method and the wordSpacing method
+comment|// and picks the smaller number.
 name|float
 name|expectedStartOfNextWordX
 init|=
-name|EXPECTEDSTARTOFNEXTWORDX_RESET_VALUE
+name|EXPECTED_START_OF_NEXT_WORD_X_RESET_VALUE
 decl_stmt|;
 if|if
 condition|(
 name|endOfLastTextX
 operator|!=
-name|ENDOFLASTTEXTX_RESET_VALUE
+name|END_OF_LAST_TEXT_X_RESET_VALUE
 condition|)
 block|{
 if|if
@@ -2454,7 +2380,10 @@ comment|// line.  We use the lastBaselineFontSize to handle the superscript
 comment|// case, and the size of the current font to handle the subscript case.
 comment|// Text must overlap with the last rendered baseline text by at least
 comment|// a small amount in order to be considered as being on the same line.
-comment|/* XXX BC: In theory, this check should really check if the next char is in full range                      * seen in this line. This is what I tried to do with minYTopForLine, but this caused a lot                      * of regression test failures.  So, I'm leaving it be for now. */
+comment|// XXX BC: In theory, this check should really check if the next char is in
+comment|// full range seen in this line. This is what I tried to do with minYTopForLine,
+comment|// but this caused a lot of regression test failures.  So, I'm leaving it be for
+comment|// now
 if|if
 condition|(
 operator|!
@@ -2504,37 +2433,37 @@ argument_list|)
 expr_stmt|;
 name|endOfLastTextX
 operator|=
-name|ENDOFLASTTEXTX_RESET_VALUE
+name|END_OF_LAST_TEXT_X_RESET_VALUE
 expr_stmt|;
 name|expectedStartOfNextWordX
 operator|=
-name|EXPECTEDSTARTOFNEXTWORDX_RESET_VALUE
+name|EXPECTED_START_OF_NEXT_WORD_X_RESET_VALUE
 expr_stmt|;
 name|maxYForLine
 operator|=
-name|MAXYFORLINE_RESET_VALUE
+name|MAX_Y_FOR_LINE_RESET_VALUE
 expr_stmt|;
 name|maxHeightForLine
 operator|=
-name|MAXHEIGHTFORLINE_RESET_VALUE
+name|MAX_HEIGHT_FOR_LINE_RESET_VALUE
 expr_stmt|;
 name|minYTopForLine
 operator|=
-name|MINYTOPFORLINE_RESET_VALUE
+name|MIN_Y_TOP_FOR_LINE_RESET_VALUE
 expr_stmt|;
 block|}
-comment|//Test if our TextPosition starts after a new word would be expected to start.
+comment|// test if our TextPosition starts after a new word would be expected to start
 if|if
 condition|(
 name|expectedStartOfNextWordX
 operator|!=
-name|EXPECTEDSTARTOFNEXTWORDX_RESET_VALUE
+name|EXPECTED_START_OF_NEXT_WORD_X_RESET_VALUE
 operator|&&
 name|expectedStartOfNextWordX
 operator|<
 name|positionX
 operator|&&
-comment|//only bother adding a space if the last character was not a space
+comment|// only bother adding a space if the last character was not a space
 name|lastPosition
 operator|.
 name|getTextPosition
@@ -2747,7 +2676,6 @@ argument_list|,
 literal|.1f
 argument_list|)
 operator|||
-operator|(
 name|y2
 operator|<=
 name|y1
@@ -2757,9 +2685,7 @@ operator|>=
 name|y1
 operator|-
 name|height1
-operator|)
 operator|||
-operator|(
 name|y1
 operator|<=
 name|y2
@@ -2769,7 +2695,6 @@ operator|>=
 name|y2
 operator|-
 name|height2
-operator|)
 return|;
 block|}
 comment|/**      * Write the page separator value to the output stream.      * @throws IOException      *             If there is a problem writing out the pageseparator to the document.      */
@@ -2852,7 +2777,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write a Java string to the output stream. The default implementation will ignore the<code>textPositions</code>      * and just calls {@link #writeString(String)}.      *      * @param text The text to write to the stream.      * @param textPositions The TextPositions belonging to the text.      * @throws IOException If there is an error when writing the text.      */
+comment|/**      * Write a Java string to the output stream. The default implementation will ignore the      *<code>textPositions</code> and just calls {@link #writeString(String)}.      *      * @param text The text to write to the stream.      * @param textPositions The TextPositions belonging to the text.      * @throws IOException If there is an error when writing the text.      */
 specifier|protected
 name|void
 name|writeString
@@ -3031,7 +2956,6 @@ comment|// are cases where the padding is on the order of 10x the character widt
 comment|// the TJ just backs up to compensate after each character).  Also, we subtract
 comment|// an amount to allow for kerning (a percentage of the width of the last
 comment|// character).
-comment|//
 name|boolean
 name|suppressCharacter
 init|=
@@ -3040,7 +2964,6 @@ decl_stmt|;
 name|float
 name|tolerance
 init|=
-operator|(
 name|text
 operator|.
 name|getWidth
@@ -3050,7 +2973,6 @@ name|textCharacter
 operator|.
 name|length
 argument_list|()
-operator|)
 operator|/
 literal|3.0f
 decl_stmt|;
@@ -3190,8 +3112,7 @@ condition|(
 name|showCharacter
 condition|)
 block|{
-comment|//if we are showing the character then we need to determine which
-comment|//article it belongs to.
+comment|// if we are showing the character then we need to determine which article it belongs to
 name|int
 name|foundArticleDivisionIndex
 init|=
@@ -3263,9 +3184,6 @@ block|{
 name|PDThreadBead
 name|bead
 init|=
-operator|(
-name|PDThreadBead
-operator|)
 name|pageArticles
 operator|.
 name|get
@@ -3483,12 +3401,6 @@ name|TextPosition
 argument_list|>
 name|textList
 init|=
-operator|(
-name|List
-argument_list|<
-name|TextPosition
-argument_list|>
-operator|)
 name|charactersByArticle
 operator|.
 name|get
@@ -3496,7 +3408,11 @@ argument_list|(
 name|articleDivisionIndex
 argument_list|)
 decl_stmt|;
-comment|/* In the wild, some PDF encoded documents put diacritics (accents on              * top of characters) into a separate Tj element.  When displaying them              * graphically, the two chunks get overlayed.  With text output though,              * we need to do the overlay. This code recombines the diacritic with              * its associated character if the two are consecutive.              */
+comment|// In the wild, some PDF encoded documents put diacritics (accents on
+comment|// top of characters) into a separate Tj element.  When displaying them
+comment|// graphically, the two chunks get overlayed.  With text output though,
+comment|// we need to do the overlay. This code recombines the diacritic with
+comment|// its associated character if the two are consecutive.
 if|if
 condition|(
 name|textList
@@ -3515,13 +3431,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* test if we overlap the previous entry.                    * Note that we are making an assumption that we need to only look back                  * one TextPosition to find what we are overlapping.                    * This may not always be true. */
+comment|// test if we overlap the previous entry.
+comment|// Note that we are making an assumption that we need to only look back
+comment|// one TextPosition to find what we are overlapping.
+comment|// This may not always be true. */
 name|TextPosition
 name|previousTextPosition
 init|=
-operator|(
-name|TextPosition
-operator|)
 name|textList
 operator|.
 name|get
@@ -3559,7 +3475,8 @@ name|normalize
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* If the previous TextPosition was the diacritic, merge it into this                  * one and remove it from the list. */
+comment|// If the previous TextPosition was the diacritic, merge it into this
+comment|// one and remove it from the list.
 elseif|else
 if|if
 condition|(
@@ -3808,7 +3725,7 @@ return|return
 name|shouldSeparateByBeads
 return|;
 block|}
-comment|/**      * Set if the text stripper should group the text output by a list of beads.  The default value is true!      *      * @param aShouldSeparateByBeads The new grouping of beads.      */
+comment|/**      * Set if the text stripper should group the text output by a list of beads.      * The default value is true!      *      * @param aShouldSeparateByBeads The new grouping of beads.      */
 specifier|public
 name|void
 name|setShouldSeparateByBeads
@@ -3822,7 +3739,7 @@ operator|=
 name|aShouldSeparateByBeads
 expr_stmt|;
 block|}
-comment|/**      * Get the bookmark where text extraction should end, inclusive.  Default is null.      *      * @return The ending bookmark.      */
+comment|/**      * Get the bookmark where text extraction should end, inclusive. Default is null.      *      * @return The ending bookmark.      */
 specifier|public
 name|PDOutlineItem
 name|getEndBookmark
@@ -4158,133 +4075,7 @@ operator|=
 name|articleEndValue
 expr_stmt|;
 block|}
-comment|/**      * Reverse characters of a compound Arabic glyph.      * When getSortByPosition() is true, inspect the sequence encoded      * by one glyph. If the glyph encodes two or more Arabic characters,      * reverse these characters from a logical order to a visual order.      * This ensures that the bidirectional algorithm that runs later will      * convert them back to a logical order.      *       * @param str a string obtained from font.encoding()      *       * @return the reversed string      */
-annotation|@
-name|Override
-specifier|public
-name|String
-name|inspectFontEncoding
-parameter_list|(
-name|String
-name|str
-parameter_list|)
-block|{
-if|if
-condition|(
-operator|!
-name|sortByPosition
-operator|||
-name|str
-operator|==
-literal|null
-operator|||
-name|str
-operator|.
-name|length
-argument_list|()
-operator|<
-literal|2
-condition|)
-block|{
-return|return
-name|str
-return|;
-block|}
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|str
-operator|.
-name|length
-argument_list|()
-condition|;
-operator|++
-name|i
-control|)
-block|{
-if|if
-condition|(
-name|Character
-operator|.
-name|getDirectionality
-argument_list|(
-name|str
-operator|.
-name|charAt
-argument_list|(
-name|i
-argument_list|)
-argument_list|)
-operator|!=
-name|Character
-operator|.
-name|DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC
-condition|)
-block|{
-return|return
-name|str
-return|;
-block|}
-block|}
-name|StringBuilder
-name|reversed
-init|=
-operator|new
-name|StringBuilder
-argument_list|(
-name|str
-operator|.
-name|length
-argument_list|()
-argument_list|)
-decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-name|str
-operator|.
-name|length
-argument_list|()
-operator|-
-literal|1
-init|;
-name|i
-operator|>=
-literal|0
-condition|;
-operator|--
-name|i
-control|)
-block|{
-name|reversed
-operator|.
-name|append
-argument_list|(
-name|str
-operator|.
-name|charAt
-argument_list|(
-name|i
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|reversed
-operator|.
-name|toString
-argument_list|()
-return|;
-block|}
-comment|/**      * handles the line separator for a new line given      * the specified current and previous TextPositions.      * @param current the current text position      * @param lastPosition the previous text position      * @param lastLineStartPosition the last text position that followed a line      *        separator.      * @param maxHeightForLine max height for positions since lastLineStartPosition      * @return start position of the last line      * @throws IOException if something went wrong      */
+comment|/**      * handles the line separator for a new line given      * the specified current and previous TextPositions.      * @param current the current text position      * @param lastPosition the previous text position      * @param lastLineStartPosition the last text position that followed a line separator.      * @param maxHeightForLine max height for positions since lastLineStartPosition      * @return start position of the last line      * @throws IOException if something went wrong      */
 specifier|protected
 name|PositionWrapper
 name|handleLineSeparation
@@ -4428,7 +4219,6 @@ decl_stmt|;
 name|float
 name|xGap
 init|=
-operator|(
 name|position
 operator|.
 name|getTextPosition
@@ -4444,19 +4234,16 @@ argument_list|()
 operator|.
 name|getXDirAdj
 argument_list|()
-operator|)
 decl_stmt|;
 comment|//do we need to flip this for rtl?
 if|if
 condition|(
 name|yGap
 operator|>
-operator|(
 name|getDropThreshold
 argument_list|()
 operator|*
 name|maxHeightForLine
-operator|)
 condition|)
 block|{
 name|result
@@ -4469,7 +4256,6 @@ if|if
 condition|(
 name|xGap
 operator|>
-operator|(
 name|getIndentThreshold
 argument_list|()
 operator|*
@@ -4480,10 +4266,9 @@ argument_list|()
 operator|.
 name|getWidthOfSpace
 argument_list|()
-operator|)
 condition|)
 block|{
-comment|//text is indented, but try to screen for hanging indent
+comment|// text is indented, but try to screen for hanging indent
 if|if
 condition|(
 operator|!
@@ -4522,7 +4307,7 @@ name|getWidthOfSpace
 argument_list|()
 condition|)
 block|{
-comment|//text is left of previous line. Was it a hanging indent?
+comment|// text is left of previous line. Was it a hanging indent?
 if|if
 condition|(
 operator|!
@@ -4548,7 +4333,6 @@ argument_list|(
 name|xGap
 argument_list|)
 operator|<
-operator|(
 literal|0.25
 operator|*
 name|position
@@ -4558,11 +4342,10 @@ argument_list|()
 operator|.
 name|getWidth
 argument_list|()
-operator|)
 condition|)
 block|{
-comment|//current horizontal position is within 1/4 a char of the last
-comment|//linestart.  We'll treat them as lined up.
+comment|// current horizontal position is within 1/4 a char of the last
+comment|// linestart. We'll treat them as lined up.
 if|if
 condition|(
 name|lastLineStartPosition
@@ -4586,8 +4369,8 @@ name|isParagraphStart
 argument_list|()
 condition|)
 block|{
-comment|//check to see if the previous line looks like
-comment|//any of a number of standard list item formats
+comment|// check to see if the previous line looks like
+comment|// any of a number of standard list item formats
 name|Pattern
 name|liPattern
 init|=
@@ -4806,7 +4589,7 @@ block|,
 literal|"[IVXL]+\\."
 block|,
 literal|"[ivxl]+\\."
-block|,      }
+block|,     }
 decl_stmt|;
 specifier|private
 name|List
@@ -4893,7 +4676,6 @@ block|}
 comment|/**      * iterates over the specified list of Patterns until      * it finds one that matches the specified string.  Then      * returns the Pattern.      *<p>      * Order of the supplied list of patterns is important as      * most common patterns should come first.  Patterns      * should be strict in general, and all will be      * used with case sensitivity on.      *</p>      * @param string the string to be searched       * @param patterns list of patterns      * @return matching pattern      */
 specifier|protected
 specifier|static
-specifier|final
 name|Pattern
 name|matchPattern
 parameter_list|(
@@ -5180,7 +4962,7 @@ return|return
 name|normalized
 return|;
 block|}
-comment|/**      * Used within {@link #normalize(List, boolean, boolean)} to create a single {@link WordWithTextPositions}      * entry.      */
+comment|/**      * Used within {@link #normalize(List, boolean, boolean)} to create a single      * {@link WordWithTextPositions} entry.      */
 specifier|private
 name|WordWithTextPositions
 name|createWord
@@ -5299,7 +5081,7 @@ return|return
 name|lineBuilder
 return|;
 block|}
-comment|/**      * internal marker class.  Used as a place holder in      * a line of TextPositions.      * @author ME21969      *      */
+comment|/**      * internal marker class. Used as a place holder in a line of TextPositions.      */
 specifier|private
 specifier|static
 specifier|final

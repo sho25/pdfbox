@@ -114,7 +114,7 @@ operator|.
 name|getTextState
 argument_list|()
 operator|.
-name|setHorizontalScalingPercent
+name|setHorizontalScaling
 argument_list|(
 name|scaling
 operator|.

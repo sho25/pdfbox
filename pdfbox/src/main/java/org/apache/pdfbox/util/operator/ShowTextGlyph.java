@@ -181,7 +181,7 @@ operator|.
 name|getTextState
 argument_list|()
 operator|.
-name|getHorizontalScalingPercent
+name|getHorizontalScaling
 argument_list|()
 operator|/
 literal|100
