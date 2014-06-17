@@ -197,20 +197,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSStream
 import|;
 end_import
@@ -1768,35 +1754,15 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|charactersByArticle
-operator|.
-name|size
-argument_list|()
-condition|;
-name|i
-operator|++
-control|)
-block|{
 name|List
 argument_list|<
 name|TextPosition
 argument_list|>
 name|textList
-init|=
+range|:
 name|charactersByArticle
-operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
+control|)
+block|{
 if|if
 condition|(
 name|getSortByPosition
@@ -2067,7 +2033,7 @@ operator|.
 name|getCharacter
 argument_list|()
 decl_stmt|;
-comment|//Resets the average character width when we see a change in font
+comment|// Resets the average character width when we see a change in font
 comment|// or a change in the font size
 if|if
 condition|(
@@ -2190,7 +2156,7 @@ name|getHeight
 argument_list|()
 expr_stmt|;
 block|}
-comment|//The current amount of characters in a word
+comment|// The current amount of characters in a word
 name|int
 name|wordCharCount
 init|=
@@ -2725,7 +2691,7 @@ comment|/**      * Write the line separator value to the output stream.      * @
 specifier|protected
 name|void
 name|writeLineSeparator
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -4155,7 +4121,7 @@ return|return
 name|lastLineStartPosition
 return|;
 block|}
-comment|/**      * tests the relationship between the last text position, the current text      * position and the last text position that followed a line separator to      * decide if the gap represents a paragraph separation. This should      *<i>only</i> be called for consecutive text positions that first pass the      * line separation test.      *<p>      * This base implementation tests to see if the lastLineStartPosition is      * null OR if the current vertical position has dropped below the last text      * vertical position by at least 2.5 times the current text height OR if the      * current horizontal position is indented by at least 2 times the current      * width of a space character.</p>      *<p>      * This also attempts to identify text that is indented under a hanging indent.</p>      *<p>      * This method sets the isParagraphStart and isHangingIndent flags on the current      * position object.</p>      *      * @param position the current text position.  This may have its isParagraphStart      * or isHangingIndent flags set upon return.      * @param lastPosition the previous text position (should not be null).      * @param lastLineStartPosition the last text position that followed a line      *            separator. May be null.      * @param maxHeightForLine max height for text positions since lasLineStartPosition.      */
+comment|/**      * tests the relationship between the last text position, the current text      * position and the last text position that followed a line separator to      * decide if the gap represents a paragraph separation. This should      *<i>only</i> be called for consecutive text positions that first pass the      * line separation test.      *<p>      * This base implementation tests to see if the lastLineStartPosition is      * null OR if the current vertical position has dropped below the last text      * vertical position by at least 2.5 times the current text height OR if the      * current horizontal position is indented by at least 2 times the current      * width of a space character.</p>      *<p>      * This also attempts to identify text that is indented under a hanging indent.</p>      *<p>      * This method sets the isParagraphStart and isHangingIndent flags on the current      * position object.</p>      *      * @param position the current text position.  This may have its isParagraphStart      * or isHangingIndent flags set upon return.      * @param lastPosition the previous text position (should not be null).      * @param lastLineStartPosition the last text position that followed a line separator, or null.      * @param maxHeightForLine max height for text positions since lasLineStartPosition.      */
 specifier|protected
 name|void
 name|isParagraphSeparation
@@ -4216,6 +4182,7 @@ name|getYDirAdj
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// do we need to flip this for rtl?
 name|float
 name|xGap
 init|=
@@ -4235,7 +4202,6 @@ operator|.
 name|getXDirAdj
 argument_list|()
 decl_stmt|;
-comment|//do we need to flip this for rtl?
 if|if
 condition|(
 name|yGap
