@@ -171,13 +171,6 @@ argument_list|)
 expr_stmt|;
 name|super
 operator|.
-name|setPageSeparator
-argument_list|(
-literal|""
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
 name|setWordSeparator
 argument_list|(
 literal|""

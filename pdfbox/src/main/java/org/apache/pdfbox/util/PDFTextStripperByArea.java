@@ -276,11 +276,6 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|setPageSeparator
-argument_list|(
-literal|""
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Instantiate a new PDFTextStripperArea object. Loading all of the operator      * mappings from the properties object that is passed in. Does not convert      * the text to more encoding-specific output.      *       * @param props      *            The properties containing the mapping of operators to      *            PDFOperator classes.      *       * @throws IOException      *             If there is an error reading the properties.      */
 specifier|public
@@ -297,11 +292,6 @@ argument_list|(
 name|props
 argument_list|)
 expr_stmt|;
-name|setPageSeparator
-argument_list|(
-literal|""
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Instantiate a new PDFTextStripperArea object. This object will load      * properties from PDFTextStripper.properties and will apply      * encoding-specific conversions to the output text.      *       * @param encoding      *            The encoding that the output will be written in.      * @throws IOException      *             If there is an error reading the properties.      */
 specifier|public
@@ -316,11 +306,6 @@ block|{
 name|super
 argument_list|(
 name|encoding
-argument_list|)
-expr_stmt|;
-name|setPageSeparator
-argument_list|(
-literal|""
 argument_list|)
 expr_stmt|;
 block|}
