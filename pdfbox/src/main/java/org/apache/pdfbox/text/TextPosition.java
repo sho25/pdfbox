@@ -68,7 +68,8 @@ specifier|public
 class|class
 name|TextPosition
 block|{
-comment|/* TextMatrix for the start of the text object.  Coordinates      * are in display units and have not been adjusted. */
+comment|// TextMatrix for the start of the text object.
+comment|// Coordinates are in display units and have not been adjusted.
 specifier|private
 name|Matrix
 name|textPos
@@ -147,18 +148,14 @@ specifier|private
 name|int
 name|fontSizePt
 decl_stmt|;
-comment|// TODO remove unused value
-specifier|private
-name|float
-name|wordSpacing
-decl_stmt|;
-comment|// word spacing value, in display units
 comment|/**      *  Constructor.      */
 specifier|protected
 name|TextPosition
 parameter_list|()
-block|{      }
-comment|/**      * Constructor.      *      * @param page Page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param textPositionEnd TextMatrix for end of text (in display units)      * @param maxFontH Maximum height of text (in display units)      * @param individualWidths The width of each individual character. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param currentFont The current for for this text position.      * @param fontSizeValue The new font size.      * @param fontSizeInPt The font size in pt units.      * @param ws The word spacing parameter (in display units)      */
+block|{     }
+comment|/**      * Constructor.      *      * @param page Page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param textPositionEnd TextMatrix for end of text (in display units)      * @param maxFontH Maximum height of text (in display units)      * @param individualWidths The width of each individual character. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param currentFont The current for for this text position.      * @param fontSizeValue The new font size.      * @param fontSizeInPt The font size in pt units.      * @param ws The word spacing parameter (in display units)      *      * @deprecated Can this be removed?      */
+annotation|@
+name|Deprecated
 specifier|public
 name|TextPosition
 parameter_list|(
@@ -323,167 +320,6 @@ operator|.
 name|fontSizePt
 operator|=
 name|fontSizeInPt
-expr_stmt|;
-name|this
-operator|.
-name|wordSpacing
-operator|=
-name|ws
-expr_stmt|;
-block|}
-comment|/**      * Constructor.      *      * @param pageRotation rotation of the page that the text is located in      * @param pageWidthValue rotation of the page that the text is located in      * @param pageHeightValue rotation of the page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param textPositionEnd TextMatrix for end of text (in display units)      * @param maxFontH Maximum height of text (in display units)      * @param individualWidth The width of the given character/string. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param currentFont The current for for this text position.      * @param fontSizeValue The new font size.      * @param fontSizeInPt The font size in pt units.      *      * @deprecated Use {@link #TextPosition(int, float, float, Matrix, float, float, float, float, float,       * String, PDFont, float, int)} instead.      */
-specifier|public
-name|TextPosition
-parameter_list|(
-name|int
-name|pageRotation
-parameter_list|,
-name|float
-name|pageWidthValue
-parameter_list|,
-name|float
-name|pageHeightValue
-parameter_list|,
-name|Matrix
-name|textPositionSt
-parameter_list|,
-name|Matrix
-name|textPositionEnd
-parameter_list|,
-name|float
-name|maxFontH
-parameter_list|,
-name|float
-name|individualWidth
-parameter_list|,
-name|float
-name|spaceWidth
-parameter_list|,
-name|String
-name|string
-parameter_list|,
-name|PDFont
-name|currentFont
-parameter_list|,
-name|float
-name|fontSizeValue
-parameter_list|,
-name|int
-name|fontSizeInPt
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|pageRotation
-argument_list|,
-name|pageWidthValue
-argument_list|,
-name|pageHeightValue
-argument_list|,
-name|textPositionSt
-argument_list|,
-name|textPositionEnd
-operator|.
-name|getXPosition
-argument_list|()
-argument_list|,
-name|textPositionEnd
-operator|.
-name|getYPosition
-argument_list|()
-argument_list|,
-name|maxFontH
-argument_list|,
-name|individualWidth
-argument_list|,
-name|spaceWidth
-argument_list|,
-name|string
-argument_list|,
-literal|null
-argument_list|,
-name|currentFont
-argument_list|,
-name|fontSizeValue
-argument_list|,
-name|fontSizeInPt
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Constructor.      *      * @param pageRotation rotation of the page that the text is located in      * @param pageWidthValue rotation of the page that the text is located in      * @param pageHeightValue rotation of the page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param endXValue x coordinate of the end position      * @param endYValue y coordinate of the end position      * @param maxFontH Maximum height of text (in display units)      * @param individualWidth The width of the given character/string. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param currentFont The current for for this text position.      * @param fontSizeValue The new font size.      * @param fontSizeInPt The font size in pt units.      *       * @deprecated use {@link #TextPosition(int, float, float, Matrix, float, float, float, float, float,       * String, int[], PDFont, float, int)} insetad      */
-specifier|public
-name|TextPosition
-parameter_list|(
-name|int
-name|pageRotation
-parameter_list|,
-name|float
-name|pageWidthValue
-parameter_list|,
-name|float
-name|pageHeightValue
-parameter_list|,
-name|Matrix
-name|textPositionSt
-parameter_list|,
-name|float
-name|endXValue
-parameter_list|,
-name|float
-name|endYValue
-parameter_list|,
-name|float
-name|maxFontH
-parameter_list|,
-name|float
-name|individualWidth
-parameter_list|,
-name|float
-name|spaceWidth
-parameter_list|,
-name|String
-name|string
-parameter_list|,
-name|PDFont
-name|currentFont
-parameter_list|,
-name|float
-name|fontSizeValue
-parameter_list|,
-name|int
-name|fontSizeInPt
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|pageRotation
-argument_list|,
-name|pageWidthValue
-argument_list|,
-name|pageHeightValue
-argument_list|,
-name|textPositionSt
-argument_list|,
-name|endXValue
-argument_list|,
-name|endYValue
-argument_list|,
-name|maxFontH
-argument_list|,
-name|individualWidth
-argument_list|,
-name|spaceWidth
-argument_list|,
-name|string
-argument_list|,
-literal|null
-argument_list|,
-name|currentFont
-argument_list|,
-name|fontSizeValue
-argument_list|,
-name|fontSizeInPt
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Constructor.      *      * @param pageRotation rotation of the page that the text is located in      * @param pageWidthValue rotation of the page that the text is located in      * @param pageHeightValue rotation of the page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param endXValue x coordinate of the end position      * @param endYValue y coordinate of the end position      * @param maxFontH Maximum height of text (in display units)      * @param individualWidth The width of the given character/string. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param codePoints An array containing the codepoints of the given string.      * @param currentFont The current font for this text position.      * @param fontSizeValue The new font size.      * @param fontSizeInPt The font size in pt units.      */
@@ -741,13 +577,10 @@ comment|// 12 0   left to right
 comment|// 0 12
 if|if
 condition|(
-operator|(
 name|a
 operator|>
 literal|0
-operator|)
 operator|&&
-operator|(
 name|Math
 operator|.
 name|abs
@@ -756,9 +589,7 @@ name|b
 argument_list|)
 operator|<
 name|d
-operator|)
 operator|&&
-operator|(
 name|Math
 operator|.
 name|abs
@@ -767,13 +598,10 @@ name|c
 argument_list|)
 operator|<
 name|a
-operator|)
 operator|&&
-operator|(
 name|d
 operator|>
 literal|0
-operator|)
 condition|)
 block|{
 return|return
@@ -785,13 +613,10 @@ comment|// 0 -12
 elseif|else
 if|if
 condition|(
-operator|(
 name|a
 operator|<
 literal|0
-operator|)
 operator|&&
-operator|(
 name|Math
 operator|.
 name|abs
@@ -805,9 +630,7 @@ name|abs
 argument_list|(
 name|d
 argument_list|)
-operator|)
 operator|&&
-operator|(
 name|Math
 operator|.
 name|abs
@@ -821,13 +644,10 @@ name|abs
 argument_list|(
 name|a
 argument_list|)
-operator|)
 operator|&&
-operator|(
 name|d
 operator|<
 literal|0
-operator|)
 condition|)
 block|{
 return|return
@@ -839,7 +659,6 @@ comment|// -12 0
 elseif|else
 if|if
 condition|(
-operator|(
 name|Math
 operator|.
 name|abs
@@ -853,21 +672,15 @@ name|abs
 argument_list|(
 name|c
 argument_list|)
-operator|)
 operator|&&
-operator|(
 name|b
 operator|>
 literal|0
-operator|)
 operator|&&
-operator|(
 name|c
 operator|<
 literal|0
-operator|)
 operator|&&
-operator|(
 name|Math
 operator|.
 name|abs
@@ -876,7 +689,6 @@ name|d
 argument_list|)
 operator|<
 name|b
-operator|)
 condition|)
 block|{
 return|return
@@ -888,7 +700,6 @@ comment|// 12 0
 elseif|else
 if|if
 condition|(
-operator|(
 name|Math
 operator|.
 name|abs
@@ -897,21 +708,15 @@ name|a
 argument_list|)
 operator|<
 name|c
-operator|)
 operator|&&
-operator|(
 name|b
-operator|<
+argument_list|<
 literal|0
-operator|)
 operator|&&
-operator|(
 name|c
-operator|>
+argument_list|>
 literal|0
-operator|)
 operator|&&
-operator|(
 name|Math
 operator|.
 name|abs
@@ -925,7 +730,6 @@ name|abs
 argument_list|(
 name|b
 argument_list|)
-operator|)
 condition|)
 block|{
 return|return
@@ -1233,17 +1037,13 @@ decl_stmt|;
 comment|// some PDFBox code assumes that the 0,0 point is in upper left, not lower left
 if|if
 condition|(
-operator|(
 name|dir
 operator|==
 literal|0
-operator|)
 operator|||
-operator|(
 name|dir
 operator|==
 literal|180
-operator|)
 condition|)
 block|{
 return|return
@@ -1278,17 +1078,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|(
 name|rotation
 operator|==
 literal|90
-operator|)
 operator|||
-operator|(
 name|rotation
 operator|==
 literal|270
-operator|)
 condition|)
 block|{
 return|return
@@ -1400,18 +1196,6 @@ return|return
 name|font
 return|;
 block|}
-comment|/**      * This will get the current word spacing.      *      * @return The current word spacing.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|float
-name|getWordSpacing
-parameter_list|()
-block|{
-return|return
-name|wordSpacing
-return|;
-block|}
 comment|/**      * This will get the width of a space character.  This is useful for some      * algorithms such as the text stripper, that need to know the width of a      * space character.      *      * @return The width of a space character.      */
 specifier|public
 name|float
@@ -1459,17 +1243,6 @@ return|return
 name|widths
 return|;
 block|}
-comment|/**      * Show the string data for this text position.      *      * @return A human readable form of this object.      */
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-name|getCharacter
-argument_list|()
-return|;
-block|}
 comment|/**      * Determine if this TextPosition logically contains      * another (i.e. they overlap and should be rendered on top      * of each other).      * @param tp2 The other TestPosition to compare against      *      * @return True if tp2 is contained in the bounding box of this text.      */
 specifier|public
 name|boolean
@@ -1515,7 +1288,7 @@ operator|.
 name|getWidthDirAdj
 argument_list|()
 decl_stmt|;
-comment|/*          * No X overlap at all so return as soon as possible.          */
+comment|// No X overlap at all so return as soon as possible.
 if|if
 condition|(
 name|tp2Xend
@@ -1531,10 +1304,11 @@ return|return
 literal|false
 return|;
 block|}
-comment|/*          * No Y overlap at all so return as soon as possible.          * Note: 0.0 is in the upper left and y-coordinate is          * top of TextPosition          */
+comment|// No Y overlap at all so return as soon as possible.
+comment|// Note: 0.0 is in the upper left and y-coordinate is
+comment|// top of TextPosition
 if|if
 condition|(
-operator|(
 name|tp2
 operator|.
 name|getYDirAdj
@@ -1547,9 +1321,7 @@ argument_list|()
 operator|<
 name|getYDirAdj
 argument_list|()
-operator|)
 operator|||
-operator|(
 name|tp2
 operator|.
 name|getYDirAdj
@@ -1560,28 +1332,25 @@ argument_list|()
 operator|+
 name|getHeightDir
 argument_list|()
-operator|)
 condition|)
 block|{
 return|return
 literal|false
 return|;
 block|}
-comment|/* We're going to calculate the percentage of overlap. If its less          * than a 15% x-coordinate overlap then we'll return false because its negligible.          * .15 was determined by trial and error in the regression test files.          */
+comment|// We're going to calculate the percentage of overlap. If its less
+comment|// than a 15% x-coordinate overlap then we'll return false because its negligible.
+comment|// .15 was determined by trial and error in the regression test files.
 elseif|else
 if|if
 condition|(
-operator|(
 name|tp2Xstart
 operator|>
 name|thisXstart
-operator|)
 operator|&&
-operator|(
 name|tp2Xend
 operator|>
 name|thisXend
-operator|)
 condition|)
 block|{
 name|double
@@ -1600,27 +1369,21 @@ name|getWidthDirAdj
 argument_list|()
 decl_stmt|;
 return|return
-operator|(
 name|overlapPercent
 operator|>
 literal|.15
-operator|)
 return|;
 block|}
 elseif|else
 if|if
 condition|(
-operator|(
 name|tp2Xstart
 operator|<
 name|thisXstart
-operator|)
 operator|&&
-operator|(
 name|tp2Xend
 operator|<
 name|thisXend
-operator|)
 condition|)
 block|{
 name|double
@@ -1639,11 +1402,9 @@ name|getWidthDirAdj
 argument_list|()
 decl_stmt|;
 return|return
-operator|(
 name|overlapPercent
 operator|>
 literal|.15
-operator|)
 return|;
 block|}
 return|return
@@ -1744,7 +1505,9 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|/*              * This is the case where there is an overlap of the diacritic character with              * the current character and the previous character. If no previous character,              * just append the diacritic after the current one.              */
+comment|// This is the case where there is an overlap of the diacritic character with
+comment|// the current character and the previous character. If no previous character,
+comment|// just append the diacritic after the current one.
 if|if
 condition|(
 name|diacXStart
@@ -1848,8 +1611,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|//diacritic completely covers this character and therefore we assume that
-comment|//this is the character the diacritic belongs to
+comment|// diacritic completely covers this character and therefore we assume that
+comment|// this is the character the diacritic belongs to
 elseif|else
 if|if
 condition|(
@@ -1876,8 +1639,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|//Otherwise, The diacritic modifies this character because its completely
-comment|//contained by the character width
+comment|// Otherwise, The diacritic modifies this character because its completely
+comment|// contained by the character width
 elseif|else
 if|if
 condition|(
@@ -1904,7 +1667,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/*              * Last character in the TextPosition so we add diacritic to the end              */
+comment|// Last character in the TextPosition so we add diacritic to the end
 elseif|else
 if|if
 condition|(
@@ -1918,11 +1681,9 @@ name|currCharXEnd
 operator|&&
 name|i
 operator|==
-operator|(
 name|strLen
 operator|-
 literal|1
-operator|)
 condition|)
 block|{
 name|insertDiacritic
@@ -1939,7 +1700,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/*              * Couldn't find anything useful so we go to the next character in the              * TextPosition              */
+comment|// Couldn't find anything useful so we go to the next character in the TextPosition
 name|currCharXStart
 operator|+=
 name|widths
@@ -1964,7 +1725,10 @@ name|TextNormalize
 name|normalize
 parameter_list|)
 block|{
-comment|/* we add the diacritic to the right or left of the character          * depending on the direction of the character.  Note that this          * is only required because the text is currently stored in          * presentation order and not in logical order.          */
+comment|// we add the diacritic to the right or left of the character
+comment|// depending on the direction of the character.  Note that this
+comment|// is only required because the text is currently stored in
+comment|// presentation order and not in logical order.
 name|int
 name|dir
 init|=
@@ -2032,37 +1796,29 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|(
 name|dir
 operator|==
 name|Character
 operator|.
 name|DIRECTIONALITY_RIGHT_TO_LEFT
-operator|)
 operator|||
-operator|(
 name|dir
 operator|==
 name|Character
 operator|.
 name|DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC
-operator|)
 operator|||
-operator|(
 name|dir
 operator|==
 name|Character
 operator|.
 name|DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING
-operator|)
 operator|||
-operator|(
 name|dir
 operator|==
 name|Character
 operator|.
 name|DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE
-operator|)
 condition|)
 block|{
 name|buf
@@ -2218,7 +1974,7 @@ operator|=
 name|widths2
 expr_stmt|;
 block|}
-comment|/**      *      * @return True if the current character is a diacritic char.      */
+comment|/**      * @return True if the current character is a diacritic char.      */
 specifier|public
 name|boolean
 name|isDiacritic
@@ -2264,7 +2020,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 return|return
-operator|(
 name|type
 operator|==
 name|Character
@@ -2282,7 +2037,17 @@ operator|==
 name|Character
 operator|.
 name|MODIFIER_LETTER
-operator|)
+return|;
+block|}
+comment|/**      * Show the string data for this text position.      *      * @return A human readable form of this object.      */
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|getCharacter
+argument_list|()
 return|;
 block|}
 block|}
