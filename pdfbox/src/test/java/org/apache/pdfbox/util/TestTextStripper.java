@@ -936,9 +936,7 @@ name|bFail
 operator|=
 literal|true
 expr_stmt|;
-name|log
-operator|.
-name|error
+name|fail
 argument_list|(
 literal|"FAILURE: Input verification file: "
 operator|+
@@ -1078,9 +1076,7 @@ name|bFail
 operator|=
 literal|true
 expr_stmt|;
-name|log
-operator|.
-name|error
+name|fail
 argument_list|(
 literal|"FAILURE: Line mismatch for file "
 operator|+
@@ -1108,24 +1104,14 @@ name|actualReader
 operator|.
 name|getLineNumber
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"  expected line was: \""
+operator|+
+literal|"\nexpected line was: \""
 operator|+
 name|expectedLine
 operator|+
 literal|"\""
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"  actual line was:   \""
+operator|+
+literal|"\nactual line was:   \""
 operator|+
 name|actualLine
 operator|+

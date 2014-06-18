@@ -1033,17 +1033,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A method provided as an event interface to allow a subclass to perform some specific      * functionality when text needs to be processed.      *       * @param text The text to be processed.      */
-specifier|protected
-name|void
-name|processTextPosition
-parameter_list|(
-name|TextPosition
-name|text
-parameter_list|)
-block|{
-comment|// subclasses can override to provide specific functionality.
-block|}
 comment|/**      * Process encoded text from the PDF Stream. You should override this method if you want to      * perform an action when encoded text is being processed.      *       * @param string The encoded text      * @throws IOException If there is an error processing the string      */
 specifier|public
 name|void
@@ -1847,6 +1836,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * A method provided as an event interface to allow a subclass to perform some specific      * functionality when text needs to be processed.      *      * @param text The text to be processed.      */
+specifier|protected
+name|void
+name|processTextPosition
+parameter_list|(
+name|TextPosition
+name|text
+parameter_list|)
+block|{
+comment|// subclasses can override to provide specific functionality.
 block|}
 comment|/**      * This is used to handle an operation.      *       * @param operation The operation to perform.      * @param arguments The list of arguments.      * @throws IOException If there is an error processing the operation.      */
 specifier|public
