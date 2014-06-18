@@ -18,6 +18,20 @@ package|;
 end_package
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConfiguration
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -29,21 +43,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConfiguration
+name|ERROR_PDF_PROCESSING_MISSING
 import|;
 end_import
 
