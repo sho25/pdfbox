@@ -621,22 +621,6 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDSimpleFont
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|font
-operator|.
 name|PDTrueTypeFont
 import|;
 end_import
@@ -2128,9 +2112,6 @@ comment|// Use AWT to render the font (standard14 fonts, substituted embedded fo
 comment|// TODO to be removed in the long run
 name|drawString
 argument_list|(
-operator|(
-name|PDSimpleFont
-operator|)
 name|font
 argument_list|,
 name|text
@@ -2471,7 +2452,7 @@ specifier|private
 name|void
 name|drawString
 parameter_list|(
-name|PDSimpleFont
+name|PDFont
 name|font
 parameter_list|,
 name|String
@@ -2622,7 +2603,7 @@ specifier|private
 name|Font
 name|createAWTFont
 parameter_list|(
-name|PDSimpleFont
+name|PDFont
 name|font
 parameter_list|)
 throws|throws
@@ -2731,19 +2712,9 @@ block|}
 if|if
 condition|(
 name|awtFont
-operator|!=
+operator|==
 literal|null
 condition|)
-block|{
-name|type1Font
-operator|.
-name|setIsFontSubstituted
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 name|LOG
 operator|.
@@ -2849,13 +2820,6 @@ name|font
 operator|.
 name|getBaseFont
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|font
-operator|.
-name|setIsFontSubstituted
-argument_list|(
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -3076,7 +3040,7 @@ operator|instanceof
 name|PDCIDFontType2Font
 condition|)
 block|{
-comment|// a CIDFontType2Font contains TTF font
+comment|// a Type2 CIDFont contains a TTF font
 name|PDCIDFontType2Font
 name|cidType2Font
 init|=
@@ -3109,11 +3073,7 @@ operator|=
 operator|new
 name|TTFGlyph2D
 argument_list|(
-name|ttf
-argument_list|,
-name|font
-argument_list|,
-name|cidType2Font
+name|type0Font
 argument_list|)
 expr_stmt|;
 block|}
@@ -3129,7 +3089,7 @@ operator|instanceof
 name|PDCIDFontType0Font
 condition|)
 block|{
-comment|// a CIDFontType2Font contains TTF font
+comment|// a Type0 CIDFont contains CFF font
 name|PDCIDFontType0Font
 name|cidType2Font
 init|=

@@ -247,20 +247,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|encoding
-operator|.
-name|EncodingManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDPage
@@ -1116,13 +1102,6 @@ name|COSBase
 name|fontEncoding
 parameter_list|)
 block|{
-name|EncodingManager
-name|emng
-init|=
-operator|new
-name|EncodingManager
-argument_list|()
-decl_stmt|;
 comment|// Encoding is a Name, check if it is an Existing Encoding
 name|String
 name|enc
@@ -1142,9 +1121,9 @@ name|this
 operator|.
 name|encoding
 operator|=
-name|emng
+name|Encoding
 operator|.
-name|getEncoding
+name|getInstance
 argument_list|(
 name|COSName
 operator|.

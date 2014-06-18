@@ -342,7 +342,7 @@ specifier|public
 class|class
 name|PDType1CFont
 extends|extends
-name|PDSimpleFont
+name|PDFont
 block|{
 specifier|private
 specifier|static

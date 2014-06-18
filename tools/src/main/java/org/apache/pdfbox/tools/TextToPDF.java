@@ -121,7 +121,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDSimpleFont
+name|PDFont
 import|;
 end_import
 
@@ -173,7 +173,7 @@ init|=
 literal|10
 decl_stmt|;
 specifier|private
-name|PDSimpleFont
+name|PDFont
 name|font
 init|=
 name|PDType1Font
@@ -949,7 +949,7 @@ expr_stmt|;
 block|}
 comment|/**      * @return Returns the font.      */
 specifier|public
-name|PDSimpleFont
+name|PDFont
 name|getFont
 parameter_list|()
 block|{
@@ -962,7 +962,7 @@ specifier|public
 name|void
 name|setFont
 parameter_list|(
-name|PDSimpleFont
+name|PDFont
 name|aFont
 parameter_list|)
 block|{

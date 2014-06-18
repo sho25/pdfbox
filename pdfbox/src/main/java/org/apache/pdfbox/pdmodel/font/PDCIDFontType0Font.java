@@ -69,20 +69,6 @@ name|COSDictionary
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSName
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Type0 CIDFont (CFF).  *   * @author Ben Litchfield  */
 end_comment
@@ -94,7 +80,6 @@ name|PDCIDFontType0Font
 extends|extends
 name|PDCIDFont
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -116,28 +101,6 @@ name|type1CFont
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor.      */
-specifier|public
-name|PDCIDFontType0Font
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-name|font
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|SUBTYPE
-argument_list|,
-name|COSName
-operator|.
-name|CID_FONT_TYPE0
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      */
 specifier|public
 name|PDCIDFontType0Font
@@ -189,7 +152,7 @@ operator|=
 operator|new
 name|PDType1CFont
 argument_list|(
-name|font
+name|dict
 argument_list|)
 expr_stmt|;
 block|}

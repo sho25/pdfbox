@@ -323,22 +323,6 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|font
-operator|.
-name|PDSimpleFont
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
 name|interactive
 operator|.
 name|action
@@ -2810,14 +2794,14 @@ if|if
 condition|(
 name|pdFont
 operator|instanceof
-name|PDSimpleFont
+name|PDFont
 condition|)
 block|{
 name|height
 operator|=
 operator|(
 operator|(
-name|PDSimpleFont
+name|PDFont
 operator|)
 name|pdFont
 operator|)
@@ -2962,7 +2946,7 @@ if|if
 condition|(
 name|pdFont
 operator|instanceof
-name|PDSimpleFont
+name|PDFont
 condition|)
 block|{
 comment|//BJL 9/25/2004
@@ -2977,7 +2961,7 @@ name|fd
 init|=
 operator|(
 operator|(
-name|PDSimpleFont
+name|PDFont
 operator|)
 name|pdFont
 operator|)

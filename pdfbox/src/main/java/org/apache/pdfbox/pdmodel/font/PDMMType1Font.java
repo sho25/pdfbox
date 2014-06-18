@@ -61,10 +61,7 @@ specifier|public
 name|PDMMType1Font
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
-name|font
+name|dict
 operator|.
 name|setItem
 argument_list|(

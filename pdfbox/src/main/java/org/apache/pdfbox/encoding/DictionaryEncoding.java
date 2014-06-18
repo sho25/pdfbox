@@ -167,11 +167,9 @@ condition|)
 block|{
 name|baseEncoding
 operator|=
-name|EncodingManager
+name|Encoding
 operator|.
-name|INSTANCE
-operator|.
-name|getEncoding
+name|getInstance
 argument_list|(
 name|baseEncodingName
 argument_list|)

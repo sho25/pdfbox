@@ -209,7 +209,7 @@ specifier|abstract
 class|class
 name|PDCIDFont
 extends|extends
-name|PDSimpleFont
+name|PDFont
 block|{
 specifier|private
 specifier|static
@@ -243,17 +243,8 @@ name|defaultWidth
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * Constructor.      */
-specifier|public
-name|PDCIDFont
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
-specifier|public
+specifier|protected
 name|PDCIDFont
 parameter_list|(
 name|COSDictionary
@@ -306,7 +297,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|font
+name|dict
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -341,31 +332,6 @@ block|}
 return|return
 name|defaultWidth
 return|;
-block|}
-comment|/**      * This will set the default width for the glyphs of this font.      *      * @param dw The default width.      */
-specifier|public
-name|void
-name|setDefaultWidth
-parameter_list|(
-name|long
-name|dw
-parameter_list|)
-block|{
-name|defaultWidth
-operator|=
-name|dw
-expr_stmt|;
-name|font
-operator|.
-name|setLong
-argument_list|(
-name|COSName
-operator|.
-name|DW
-argument_list|,
-name|dw
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * This will get the font width for a character.      *      * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      * @return The width is in 1000 unit of text space, ie 333 or 777      * @throws IOException If an error occurs while parsing.      */
 annotation|@
@@ -460,7 +426,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|font
+name|dict
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -822,7 +788,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|font
+name|dict
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -1063,7 +1029,9 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|font
+name|this
+operator|.
+name|dict
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -1132,6 +1100,7 @@ return|return
 name|cidSystemInfo
 return|;
 block|}
+comment|// todo: do we want to do this at all? Isn't the parent Type0 font responsible for this?
 annotation|@
 name|Override
 specifier|protected
@@ -1148,10 +1117,20 @@ decl_stmt|;
 if|if
 condition|(
 name|cidSystemInfo
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+comment|// todo: CIDSystemInfo is required, so this is an error (perform recovery?)
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Missing CIDSystemInfo in CIDFont dictionary"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 if|if
 condition|(
 name|cidSystemInfo
@@ -1197,7 +1176,7 @@ name|cidSystemInfo
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|'-'
+literal|"-"
 argument_list|)
 argument_list|)
 operator|+
@@ -1266,7 +1245,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error: Could not parse predefined CMAP file for '"
+literal|"Could not parse predefined CMAP file for '"
 operator|+
 name|cidSystemInfo
 operator|+
@@ -1281,7 +1260,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Debug: '"
+literal|"'"
 operator|+
 name|cidSystemInfo
 operator|+
@@ -1302,7 +1281,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error: Could not find predefined CMAP file for '"
+literal|"Could not find predefined CMAP file for '"
 operator|+
 name|cidSystemInfo
 operator|+
@@ -1320,15 +1299,6 @@ name|cmapStream
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-else|else
-block|{
-name|super
-operator|.
-name|determineEncoding
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 annotation|@

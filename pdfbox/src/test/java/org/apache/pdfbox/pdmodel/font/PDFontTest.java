@@ -102,10 +102,10 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|PDSimpleFontTest
+name|PDFontTest
 block|{
 specifier|public
-name|PDSimpleFontTest
+name|PDFontTest
 parameter_list|()
 block|{     }
 annotation|@
@@ -165,7 +165,7 @@ name|PDDocument
 operator|.
 name|load
 argument_list|(
-name|PDSimpleFontTest
+name|PDFontTest
 operator|.
 name|class
 operator|.
@@ -233,7 +233,7 @@ name|PDDocument
 operator|.
 name|load
 argument_list|(
-name|PDSimpleFontTest
+name|PDFontTest
 operator|.
 name|class
 operator|.

@@ -336,9 +336,6 @@ argument_list|(
 literal|"Invalid font subtype '"
 operator|+
 name|subType
-operator|.
-name|getName
-argument_list|()
 operator|+
 literal|"'"
 argument_list|)
