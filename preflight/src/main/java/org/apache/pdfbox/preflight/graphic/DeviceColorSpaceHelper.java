@@ -29,22 +29,6 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ERROR_GRAPHIC_INVALID_COLOR_SPACE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_FORBIDDEN
 import|;
 end_import
