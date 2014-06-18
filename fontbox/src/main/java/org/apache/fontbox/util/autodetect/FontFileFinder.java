@@ -458,8 +458,7 @@ operator|.
 name|toLowerCase
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|name
 operator|.
 name|endsWith
@@ -487,14 +486,6 @@ name|endsWith
 argument_list|(
 literal|".ttc"
 argument_list|)
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
 return|;
 block|}
 block|}
