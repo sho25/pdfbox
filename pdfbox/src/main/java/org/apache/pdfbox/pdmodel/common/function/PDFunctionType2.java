@@ -99,16 +99,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|Math
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class represents a Type 2 (exponential interpolation) function in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
 end_comment
