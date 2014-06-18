@@ -114,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation of the Type0 Font. See<a  * href="https://issues.apache.org/jira/browse/PDFBOX-605">PDFBOX-605</a> for the related improvement issue.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  */
+comment|/**  * Type 0 (composite) Font.  *   * @author<Ben Litchfield  */
 end_comment
 
 begin_class
@@ -124,7 +124,6 @@ name|PDType0Font
 extends|extends
 name|PDSimpleFont
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -157,9 +156,6 @@ specifier|public
 name|PDType0Font
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|font
 operator|.
 name|setItem
@@ -235,7 +231,37 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * {@inheritDoc}      */
+specifier|private
+name|COSArray
+name|getDescendantFonts
+parameter_list|()
+block|{
+if|if
+condition|(
+name|descendantFontArray
+operator|==
+literal|null
+condition|)
+block|{
+name|descendantFontArray
+operator|=
+operator|(
+name|COSArray
+operator|)
+name|font
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|DESCENDANT_FONTS
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|descendantFontArray
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -253,7 +279,6 @@ literal|"Not yet implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -381,7 +406,6 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -414,7 +438,6 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -431,38 +454,6 @@ name|getAverageFontWidth
 argument_list|()
 return|;
 block|}
-specifier|private
-name|COSArray
-name|getDescendantFonts
-parameter_list|()
-block|{
-if|if
-condition|(
-name|descendantFontArray
-operator|==
-literal|null
-condition|)
-block|{
-name|descendantFontArray
-operator|=
-operator|(
-name|COSArray
-operator|)
-name|font
-operator|.
-name|getDictionaryObject
-argument_list|(
-name|COSName
-operator|.
-name|DESCENDANT_FONTS
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|descendantFontArray
-return|;
-block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -482,7 +473,6 @@ name|charCode
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -577,7 +567,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      *       * Provides the descendant font.      *       * @return the descendant font.      *       */
+comment|/**      * Returns the descendant font.      *      * @return the descendant font.      */
 specifier|public
 name|PDFont
 name|getDescendantFont

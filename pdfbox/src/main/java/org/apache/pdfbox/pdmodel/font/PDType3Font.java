@@ -130,7 +130,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation of the Type3 Font.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * A PostScript Type 3 Font.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -213,7 +213,7 @@ comment|/**      * Returns the optional resources of the type3 stream.      *   
 specifier|public
 name|PDResources
 name|getType3Resources
-parameter_list|( )
+parameter_list|()
 block|{
 if|if
 condition|(
@@ -258,7 +258,9 @@ return|return
 name|type3Resources
 return|;
 block|}
-comment|/**      * This will get the fonts bounding box.      *      * @return The fonts bounding box.      *      * @throws IOException If there is an error getting the bounding box.      */
+comment|/**      * This will get the fonts bounding box.      *      * @return The fonts bounding box.      * @throws IOException If there is an error getting the bounding box.      */
+annotation|@
+name|Override
 specifier|public
 name|PDRectangle
 name|getFontBoundingBox

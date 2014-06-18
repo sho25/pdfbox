@@ -200,7 +200,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation for the CIDFontType0/CIDFontType2 Fonts.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * A CIDFont.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -211,7 +211,6 @@ name|PDCIDFont
 extends|extends
 name|PDSimpleFont
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -270,7 +269,7 @@ name|extractWidths
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will get the fonts bounding box.      *      * @return The fonts bounding box.      *      * @throws IOException If there is an error getting the font bounding box.      */
+comment|/**      * This will get the fonts bounding box.      *      * @return The fonts bounding box.      * @throws IOException If there is an error getting the font bounding box.      */
 annotation|@
 name|Override
 specifier|public
@@ -368,7 +367,7 @@ name|dw
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the font width for a character.      *      * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      *      * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font width for a character.      *      * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      * @return The width is in 1000 unit of text space, ie 333 or 777      * @throws IOException If an error occurs while parsing.      */
 annotation|@
 name|Override
 specifier|public
@@ -426,9 +425,6 @@ block|{
 name|retval
 operator|=
 name|widthFloat
-operator|.
-name|floatValue
-argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -1010,7 +1006,6 @@ return|return
 name|average
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -1063,7 +1058,7 @@ init|=
 literal|null
 decl_stmt|;
 name|COSDictionary
-name|cidsysteminfo
+name|dict
 init|=
 operator|(
 name|COSDictionary
@@ -1079,7 +1074,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|cidsysteminfo
+name|dict
 operator|!=
 literal|null
 condition|)
@@ -1087,7 +1082,7 @@ block|{
 name|String
 name|ordering
 init|=
-name|cidsysteminfo
+name|dict
 operator|.
 name|getString
 argument_list|(
@@ -1099,7 +1094,7 @@ decl_stmt|;
 name|String
 name|registry
 init|=
-name|cidsysteminfo
+name|dict
 operator|.
 name|getString
 argument_list|(
@@ -1111,7 +1106,7 @@ decl_stmt|;
 name|int
 name|supplement
 init|=
-name|cidsysteminfo
+name|dict
 operator|.
 name|getInt
 argument_list|(
@@ -1290,7 +1285,9 @@ literal|"Debug: '"
 operator|+
 name|cidSystemInfo
 operator|+
-literal|"' isn't a predefined CMap, most likely it's embedded in the pdf itself."
+literal|"' isn't a predefined CMap, most "
+operator|+
+literal|"likely it's embedded in the pdf itself."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1355,8 +1352,6 @@ name|IOException
 block|{
 name|String
 name|result
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

@@ -260,7 +260,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class contains implementation details of the simple pdf fonts.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This class contains implementation details of the simple pdf fonts.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -272,6 +272,35 @@ extends|extends
 name|PDFont
 block|{
 specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDSimpleFont
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|byte
+index|[]
+name|SPACE_BYTES
+init|=
+block|{
+operator|(
+name|byte
+operator|)
+literal|32
+block|}
+decl_stmt|;
+specifier|private
 specifier|final
 name|HashMap
 argument_list|<
@@ -279,7 +308,7 @@ name|Integer
 argument_list|,
 name|Float
 argument_list|>
-name|mFontSizes
+name|fontSizes
 init|=
 operator|new
 name|HashMap
@@ -312,34 +341,10 @@ operator|-
 literal|1f
 decl_stmt|;
 specifier|private
-specifier|static
-specifier|final
-name|byte
-index|[]
-name|SPACE_BYTES
+name|boolean
+name|isFontSubstituted
 init|=
-block|{
-operator|(
-name|byte
-operator|)
-literal|32
-block|}
-decl_stmt|;
-comment|/**      * Log instance.      */
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|PDSimpleFont
-operator|.
-name|class
-argument_list|)
+literal|false
 decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
@@ -364,7 +369,9 @@ name|fontDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the font height for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font height for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      * @return The width is in 1000 unit of text space, ie 333 or 777      * @throws IOException If an error occurs while parsing.      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getFontHeight
@@ -465,9 +472,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// the following values are all more or less accurate
-comment|// at least all are average values. Maybe we'll find
-comment|// another way to get those value for every single glyph
+comment|// the following values are all more or less accurate at least all are average
+comment|// values. Maybe we'll find another way to get those value for every single glyph
 comment|// in the future if needed
 name|PDRectangle
 name|fontBBox
@@ -564,7 +570,9 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get the font width for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font width for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      * @return The width is in 1000 unit of text space, ie 333 or 777      * @throws IOException If an error occurs while parsing.      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getFontWidth
@@ -597,7 +605,7 @@ decl_stmt|;
 name|Float
 name|fontWidth
 init|=
-name|mFontSizes
+name|fontSizes
 operator|.
 name|get
 argument_list|(
@@ -634,7 +642,7 @@ name|code
 argument_list|)
 expr_stmt|;
 block|}
-name|mFontSizes
+name|fontSizes
 operator|.
 name|put
 argument_list|(
@@ -648,7 +656,9 @@ return|return
 name|fontWidth
 return|;
 block|}
-comment|/**      * This will get the average font width for all characters.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the average font width for all characters.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      * @throws IOException If an error occurs while parsing.      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getAverageFontWidth
@@ -658,8 +668,6 @@ name|IOException
 block|{
 name|float
 name|average
-init|=
-literal|0.0f
 decl_stmt|;
 if|if
 condition|(
@@ -831,7 +839,9 @@ name|unicode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the fonts bounding box.      *       * @return The fonts bouding box.      *       * @throws IOException If there is an error getting the bounding box.      */
+comment|/**      * This will get the fonts bounding box.      *       * @return The fonts bouding box.      * @throws IOException If there is an error getting the bounding box.      */
+annotation|@
+name|Override
 specifier|public
 name|PDRectangle
 name|getFontBoundingBox
@@ -847,7 +857,8 @@ name|getFontBoundingBox
 argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|determineEncoding
@@ -1165,7 +1176,9 @@ literal|"Debug: '"
 operator|+
 name|cmapName
 operator|+
-literal|"' isn't a predefined map, most likely it's embedded in the pdf itself."
+literal|"' isn't a predefined map, most likely it's"
+operator|+
+literal|"embedded in the pdf itself."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1207,13 +1220,9 @@ parameter_list|()
 block|{
 name|COSName
 name|encodingName
-init|=
-literal|null
 decl_stmt|;
 name|String
 name|cmapName
-init|=
-literal|null
 decl_stmt|;
 name|COSBase
 name|toUnicode
@@ -1393,13 +1402,7 @@ block|}
 block|}
 block|}
 block|}
-specifier|private
-name|boolean
-name|isFontSubstituted
-init|=
-literal|false
-decl_stmt|;
-comment|/**      * This will get the value for isFontSubstituted, which indicates if the font was substituted due to a problem with      * the embedded one.      *       * @return true if the font was substituted      */
+comment|/**      * This will get the value for isFontSubstituted, which indicates if the font was substituted      * due to a problem with the embedded one.      *       * @return true if the font was substituted      */
 specifier|public
 name|boolean
 name|isFontSubstituted
@@ -1423,7 +1426,8 @@ operator|=
 name|isSubstituted
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getSpaceWidth
@@ -1516,7 +1520,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Can't determine the width of the space character using 250 as default"
+literal|"Can't determine the width of the space character, assuming 250"
 argument_list|,
 name|e
 argument_list|)

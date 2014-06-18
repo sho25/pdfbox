@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation of the Multiple Master Type1 Font.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * Type 1 Multiple Master Font.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

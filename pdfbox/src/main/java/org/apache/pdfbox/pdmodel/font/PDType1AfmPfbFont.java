@@ -288,7 +288,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation of the Type1 Font with a afm and a pfb file.  *   * @author<a href="mailto:m.g.n@gmx.de">Michael Niedermair</a>  *   */
+comment|/**  * Adobe Type 1 Font with an .afm and .pfb file.  *   * @author Michael Niedermair  */
 end_comment
 
 begin_class
@@ -298,16 +298,14 @@ name|PDType1AfmPfbFont
 extends|extends
 name|PDType1Font
 block|{
-comment|/**      * the buffersize.      */
 specifier|private
 specifier|static
 specifier|final
 name|int
-name|BUFFERSIZE
+name|BUFFER_SIZE
 init|=
 literal|0xffff
 decl_stmt|;
-comment|/**      * The font metric.      */
 specifier|private
 name|FontMetric
 name|metric
@@ -327,11 +325,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|InputStream
-name|afmin
+name|afmIn
 init|=
 operator|new
 name|BufferedInputStream
@@ -342,11 +337,11 @@ argument_list|(
 name|afmname
 argument_list|)
 argument_list|,
-name|BUFFERSIZE
+name|BUFFER_SIZE
 argument_list|)
 decl_stmt|;
 name|String
-name|pfbname
+name|pfbName
 init|=
 name|afmname
 operator|.
@@ -367,7 +362,7 @@ operator|+
 literal|".pfb"
 decl_stmt|;
 name|InputStream
-name|pfbin
+name|pfbIn
 init|=
 operator|new
 name|BufferedInputStream
@@ -375,19 +370,19 @@ argument_list|(
 operator|new
 name|FileInputStream
 argument_list|(
-name|pfbname
+name|pfbName
 argument_list|)
 argument_list|,
-name|BUFFERSIZE
+name|BUFFER_SIZE
 argument_list|)
 decl_stmt|;
 name|load
 argument_list|(
 name|doc
 argument_list|,
-name|afmin
+name|afmIn
 argument_list|,
-name|pfbin
+name|pfbIn
 argument_list|)
 expr_stmt|;
 block|}
@@ -410,9 +405,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|load
 argument_list|(
 name|doc
@@ -880,7 +872,7 @@ argument_list|,
 name|width
 argument_list|)
 expr_stmt|;
-comment|// germandbls has 2 character codes !! Don't ask me why .....
+comment|// germandbls has 2 character codes !! Don't ask me why
 comment|// StandardEncoding = 0373 = 251
 comment|// WinANSIEncoding = 0337 = 223
 if|if
@@ -1137,7 +1129,10 @@ name|widths
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * This will generate a Encoding from the AFM-Encoding, because the AFM-Enconding isn't exported to the pdf and      * consequently the StandardEncoding is used so that any special character is missing I've copied the code from the      * pdfbox-forum posted by V0JT4 and made some additions concerning german umlauts see also      * https://sourceforge.net/forum/message.php?msg_id=4705274      */
+comment|// This will generate a Encoding from the AFM-Encoding, because the AFM-Enconding isn't exported
+comment|// to the pdf and consequently the StandardEncoding is used so that any special character is
+comment|// missing I've copied the code from the pdfbox-forum posted by V0JT4 and made some additions
+comment|// concerning german umlauts see also https://sourceforge.net/forum/message.php?msg_id=4705274
 specifier|private
 name|DictionaryEncoding
 name|afmToDictionary

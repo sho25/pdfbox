@@ -320,7 +320,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the base class for all PDF fonts.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This is the base class for all PDF fonts.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -331,7 +331,6 @@ name|PDFont
 implements|implements
 name|COSObjectable
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -347,57 +346,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * The cos dictionary for this font.      */
 specifier|protected
-name|COSDictionary
-name|font
-decl_stmt|;
-comment|/**      * This is only used if this is a font object and it has an encoding.      */
-specifier|private
-name|Encoding
-name|fontEncoding
+specifier|static
+specifier|final
+name|String
+name|resourceRootCMAP
 init|=
-literal|null
-decl_stmt|;
-comment|/**      * The descriptor of the font.      */
-specifier|private
-name|PDFontDescriptor
-name|fontDescriptor
-init|=
-literal|null
-decl_stmt|;
-comment|/**      * The font matrix.      */
-specifier|protected
-name|PDMatrix
-name|fontMatrix
-init|=
-literal|null
-decl_stmt|;
-comment|/**      * This is only used if this is a font object and it has an encoding and it is a type0 font with a cmap.      */
-specifier|protected
-name|CMap
-name|cmap
-init|=
-literal|null
-decl_stmt|;
-comment|/**      * The CMap holding the ToUnicode mapping.      */
-specifier|protected
-name|CMap
-name|toUnicodeCmap
-init|=
-literal|null
-decl_stmt|;
-specifier|private
-name|boolean
-name|hasToUnicode
-init|=
-literal|false
-decl_stmt|;
-specifier|private
-name|boolean
-name|widthsAreMissing
-init|=
-literal|false
+literal|"org/apache/pdfbox/resources/cmap/"
 decl_stmt|;
 specifier|protected
 specifier|static
@@ -423,7 +378,33 @@ argument_list|>
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/**      * A list a floats representing the widths.      */
+comment|// todo: why synchronized?
+comment|/**      * The cos dictionary for this font.      */
+specifier|protected
+name|COSDictionary
+name|font
+decl_stmt|;
+comment|/**      * The font matrix.      */
+specifier|protected
+name|PDMatrix
+name|fontMatrix
+init|=
+literal|null
+decl_stmt|;
+comment|/**      * Used only if this is a font object and it has an encoding and it is a Type0 font with a CMap.      */
+specifier|protected
+name|CMap
+name|cmap
+init|=
+literal|null
+decl_stmt|;
+comment|/**      * The CMap holding the ToUnicode mapping.      */
+specifier|protected
+name|CMap
+name|toUnicodeCmap
+init|=
+literal|null
+decl_stmt|;
 specifier|private
 name|List
 argument_list|<
@@ -433,15 +414,32 @@ name|widths
 init|=
 literal|null
 decl_stmt|;
-specifier|protected
-specifier|static
-specifier|final
-name|String
-name|resourceRootCMAP
+specifier|private
+name|Encoding
+name|fontEncoding
 init|=
-literal|"org/apache/pdfbox/resources/cmap/"
+literal|null
 decl_stmt|;
-comment|/**      * This will clear AFM resources that are stored statically. This is usually not a problem unless you want to      * reclaim resources for a long running process.      *       * SPECIAL NOTE: The font calculations are currently in COSObject, which is where they will reside until PDFont is      * mature enough to take them over. PDFont is the appropriate place for them and not in COSObject but we need font      * calculations for text extraction. THIS METHOD WILL BE MOVED OR REMOVED TO ANOTHER LOCATION IN A FUTURE VERSION OF      * PDFBOX.      */
+comment|// only used when this font has an encoding
+specifier|private
+name|PDFontDescriptor
+name|fontDescriptor
+init|=
+literal|null
+decl_stmt|;
+specifier|private
+name|boolean
+name|hasToUnicode
+init|=
+literal|false
+decl_stmt|;
+specifier|private
+name|boolean
+name|widthsAreMissing
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * This will clear AFM resources that are stored statically. This is usually not a problem      * unless you want to reclaim resources for a long running process.      *       * SPECIAL NOTE: The font calculations are currently in COSObject, which is where they will      * reside until PDFont is mature enough to take them over. PDFont is the appropriate place for      * them and not in COSObject but we need font calculations for text extraction. THIS METHOD WILL      * BE MOVED OR REMOVED TO ANOTHER LOCATION IN A FUTURE VERSION OF PDFBOX.      */
 specifier|public
 specifier|static
 name|void
@@ -495,7 +493,7 @@ name|determineEncoding
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will get the font descriptor for this font.      *       * @return The font descriptor for this font.      *       */
+comment|/**      * This will get the font descriptor for this font.      *       * @return The font descriptor for this font.      */
 specifier|public
 name|PDFontDescriptor
 name|getFontDescriptor
@@ -614,14 +612,15 @@ operator|=
 name|fdDictionary
 expr_stmt|;
 block|}
-comment|/**      * Determines the encoding for the font. This method as to be overwritten, as there are different possibilities to      * define a mapping.      */
+comment|/**      * Determines the encoding for the font. This method as to be overwritten, as there are      * different possibilities to define a mapping.      */
 specifier|protected
 specifier|abstract
 name|void
 name|determineEncoding
 parameter_list|()
 function_decl|;
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -631,7 +630,7 @@ return|return
 name|font
 return|;
 block|}
-comment|/**      * This will get the font width for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font width for a character.      *       * @param c The character code to get the width for.      * @param offset The offset into the array.      * @param length The length of the data.      * @return The width is in 1000 unit of text space, ie 333 or 777      * @throws IOException If an error occurs while parsing.      */
 specifier|public
 specifier|abstract
 name|float
@@ -650,7 +649,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * This will get the font height for a character.      *       * @param c The character code to get the height for.      * @param offset The offset into the array.      * @param length The length of the data.      *       * @return The height is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the font height for a character.      *       * @param c The character code to get the height for.      * @param offset The offset into the array.      * @param length The length of the data.      * @return The height is in 1000 unit of text space, ie 333 or 777      * @throws IOException If an error occurs while parsing.      */
 specifier|public
 specifier|abstract
 name|float
@@ -669,7 +668,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * This will get the width of this string for this font.      *       * @param string The string to get the width of.      *       * @return The width of the string in 1000 units of text space, ie 333 567...      *       * @throws IOException If there is an error getting the width information.      */
+comment|/**      * This will get the width of this string for this font.      *       * @param string The string to get the width of.      * @return The width of the string in 1000 units of text space, ie 333 567...      * @throws IOException If there is an error getting the width information.      */
 specifier|public
 name|float
 name|getStringWidth
@@ -729,7 +728,7 @@ return|return
 name|totalWidth
 return|;
 block|}
-comment|/**      * This will get the average font width for all characters.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      *       * @throws IOException If an error occurs while parsing.      */
+comment|/**      * This will get the average font width for all characters.      *       * @return The width is in 1000 unit of text space, ie 333 or 777      * @throws IOException If an error occurs while parsing.      */
 specifier|public
 specifier|abstract
 name|float
@@ -738,7 +737,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Used for multibyte encodings.      *       * @param data The array of data.      * @param offset The offset into the array.      * @param length The number of bytes to use.      *       * @return The int value of data from the array.      */
+comment|/**      * Used for multibyte encodings.      *       * @param data The array of data.      * @param offset The offset into the array.      * @param length The number of bytes to use.      * @return The int value of data from the array.      */
 specifier|public
 name|int
 name|getCodeFromArray
@@ -798,7 +797,7 @@ return|return
 name|code
 return|;
 block|}
-comment|/**      * This will attempt to get the font width from an AFM file.      *       * @param code The character code we are trying to get.      *       * @return The font width from the AFM file.      *       * @throws IOException if we cannot find the width.      */
+comment|/**      * This will attempt to get the font width from an AFM file.      *       * @param code The character code we are trying to get.      * @return The font width from the AFM file.      * @throws IOException if we cannot find the width.      */
 specifier|protected
 name|float
 name|getFontWidthFromAFMFile
@@ -851,7 +850,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will attempt to get the average font width from an AFM file.      *       * @return The average font width from the AFM file.      *       * @throws IOException if we cannot find the width.      */
+comment|/**      * This will attempt to get the average font width from an AFM file.      *       * @return The average font width from the AFM file.      * @throws IOException if we cannot find the width.      */
 specifier|protected
 name|float
 name|getAverageFontWidthFromAFMFile
@@ -889,7 +888,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get an AFM object if one exists.      *       * @return The afm object from the name.      *       */
+comment|/**      * This will get an AFM object if one exists.      *       * @return The afm object from the name.      */
 specifier|protected
 name|FontMetric
 name|getAFM
@@ -905,7 +904,7 @@ name|encoding
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * cache the {@link COSName#ENCODING} object from the font's dictionary since it is called so often.      *<p>      * Use this method instead of      *       *<pre>      * font.getDictionaryObject(COSName.ENCODING);      *</pre>      *       * @return the encoding      */
+comment|/**      * Cache the {@link COSName#ENCODING} object from the font's dictionary as it is called often.      *<p>      * Use this method instead of      *       *<pre>      * font.getDictionaryObject(COSName.ENCODING);      *</pre>      *       * @return the encoding      */
 specifier|protected
 name|COSBase
 name|getEncoding
@@ -1039,7 +1038,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will perform the encoding of a character if needed.      *       * @param c The character to encode.      * @param offset The offset into the array to get the data      * @param length The number of bytes to read.      *       * @return The value of the encoded character.      *       * @throws IOException If there is an error during the encoding.      */
+comment|/**      * This will perform the encoding of a character if needed.      *       * @param c The character to encode.      * @param offset The offset into the array to get the data      * @param length The number of bytes to read.      * @return The value of the encoded character.      * @throws IOException If there is an error during the encoding.      */
 specifier|public
 name|String
 name|encode
@@ -1407,8 +1406,6 @@ name|IOException
 block|{
 name|String
 name|retval
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1999,7 +1996,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the matrix that is used to transform glyph space to text space. By default there are 1000 glyph      * units to 1 text space unit, but type3 fonts can use any value.      *       * Note:If this is a type3 font then it can be modified via the PDType3Font.setFontMatrix, otherwise this is a      * read-only property.      *       * @return The matrix to transform from glyph space to text space.      */
+comment|/**      * This will get the matrix that is used to transform glyph space to text space. By default      * there are 1000 glyph units to 1 text space unit, but type3 fonts can use any value.      *       * Note: If this is a type3 font then it can be modified via the PDType3Font.setFontMatrix,      * otherwise this is a read-only property.      *       * @return The matrix to transform from glyph space to text space.      */
 specifier|public
 name|PDMatrix
 name|getFontMatrix
@@ -2112,7 +2109,7 @@ return|return
 name|fontMatrix
 return|;
 block|}
-comment|/**      * This will get the fonts bounding box.      *       * @return The fonts bounding box.      *       * @throws IOException If there is an error getting the bounding box.      */
+comment|/**      * This will get the fonts bounding box.      *       * @return The fonts bounding box.      * @throws IOException If there is an error getting the bounding box.      */
 specifier|public
 specifier|abstract
 name|PDRectangle
@@ -2121,52 +2118,6 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|boolean
-name|equals
-parameter_list|(
-name|Object
-name|other
-parameter_list|)
-block|{
-return|return
-name|other
-operator|instanceof
-name|PDFont
-operator|&&
-operator|(
-operator|(
-name|PDFont
-operator|)
-name|other
-operator|)
-operator|.
-name|getCOSObject
-argument_list|()
-operator|==
-name|this
-operator|.
-name|getCOSObject
-argument_list|()
-return|;
-block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|int
-name|hashCode
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|getCOSObject
-argument_list|()
-operator|.
-name|hashCode
-argument_list|()
-return|;
-block|}
 comment|/**      * Determines the width of the given character.      *       * @param charCode the code of the given character      * @return the width of the character      */
 specifier|public
 name|float
@@ -2324,6 +2275,54 @@ name|void
 name|clear
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|equals
+parameter_list|(
+name|Object
+name|other
+parameter_list|)
+block|{
+return|return
+name|other
+operator|instanceof
+name|PDFont
+operator|&&
+operator|(
+operator|(
+name|PDFont
+operator|)
+name|other
+operator|)
+operator|.
+name|getCOSObject
+argument_list|()
+operator|==
+name|this
+operator|.
+name|getCOSObject
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|int
+name|hashCode
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|hashCode
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

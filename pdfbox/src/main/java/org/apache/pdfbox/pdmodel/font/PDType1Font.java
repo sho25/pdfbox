@@ -372,7 +372,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation of the Type1 Font.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * PostScript Type 1 Font.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -382,7 +382,6 @@ name|PDType1Font
 extends|extends
 name|PDSimpleFont
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -398,19 +397,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-specifier|private
-name|PDType1CFont
-name|type1CFont
-init|=
-literal|null
-decl_stmt|;
-specifier|private
-name|Type1Font
-name|type1font
-init|=
-literal|null
-decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -423,7 +409,6 @@ argument_list|(
 literal|"Times-Roman"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -436,7 +421,6 @@ argument_list|(
 literal|"Times-Bold"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -449,7 +433,6 @@ argument_list|(
 literal|"Times-Italic"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -462,7 +445,6 @@ argument_list|(
 literal|"Times-BoldItalic"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -475,7 +457,6 @@ argument_list|(
 literal|"Helvetica"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -488,7 +469,6 @@ argument_list|(
 literal|"Helvetica-Bold"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -501,7 +481,6 @@ argument_list|(
 literal|"Helvetica-Oblique"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -514,7 +493,6 @@ argument_list|(
 literal|"Helvetica-BoldOblique"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -527,7 +505,6 @@ argument_list|(
 literal|"Courier"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -540,7 +517,6 @@ argument_list|(
 literal|"Courier-Bold"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -553,7 +529,6 @@ argument_list|(
 literal|"Courier-Oblique"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -566,7 +541,6 @@ argument_list|(
 literal|"Courier-BoldOblique"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -579,7 +553,6 @@ argument_list|(
 literal|"Symbol"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard Base 14 Font.      */
 specifier|public
 specifier|static
 specifier|final
@@ -793,21 +766,10 @@ name|String
 argument_list|,
 name|FontMetric
 argument_list|>
-name|afmObjects
+name|AFM_MAP
 init|=
-name|Collections
-operator|.
-name|unmodifiableMap
-argument_list|(
 name|getAdobeFontMetrics
 argument_list|()
-argument_list|)
-decl_stmt|;
-specifier|private
-name|FontMetric
-name|afm
-init|=
-literal|null
 decl_stmt|;
 specifier|private
 specifier|static
@@ -837,174 +799,125 @@ name|FontMetric
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Courier-Bold"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Courier-BoldOblique"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Courier"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Courier-Oblique"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Helvetica"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Helvetica-Bold"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Helvetica-BoldOblique"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Helvetica-Oblique"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Symbol"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Times-Bold"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Times-BoldItalic"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Times-Italic"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Times-Roman"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"ZapfDingbats"
 argument_list|)
 expr_stmt|;
 comment|// PDFBOX-239
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Arial"
 argument_list|,
 literal|"Helvetica"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Arial,Bold"
 argument_list|,
 literal|"Helvetica-Bold"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Arial,Italic"
 argument_list|,
 literal|"Helvetica-Oblique"
 argument_list|)
 expr_stmt|;
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 literal|"Arial,BoldItalic"
 argument_list|,
 literal|"Helvetica-BoldOblique"
 argument_list|)
 expr_stmt|;
 return|return
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
 name|metrics
+argument_list|)
 return|;
 block|}
 specifier|private
 specifier|static
-specifier|final
-name|String
-name|resourceRootAFM
-init|=
-literal|"org/apache/pdfbox/resources/afm/"
-decl_stmt|;
-specifier|private
-specifier|static
 name|void
-name|addAdobeFontMetric
+name|addMetric
 parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|FontMetric
-argument_list|>
-name|metrics
-parameter_list|,
 name|String
 name|name
 parameter_list|)
 block|{
-name|addAdobeFontMetric
+name|addMetric
 argument_list|(
-name|metrics
-argument_list|,
 name|name
 argument_list|,
 name|name
@@ -1014,21 +927,13 @@ block|}
 specifier|private
 specifier|static
 name|void
-name|addAdobeFontMetric
+name|addMetric
 parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|FontMetric
-argument_list|>
-name|metrics
-parameter_list|,
 name|String
 name|name
 parameter_list|,
 name|String
-name|filePrefix
+name|prefix
 parameter_list|)
 block|{
 try|try
@@ -1036,9 +941,9 @@ block|{
 name|String
 name|resource
 init|=
-name|resourceRootAFM
+literal|"org/apache/pdfbox/resources/afm/"
 operator|+
-name|filePrefix
+name|prefix
 operator|+
 literal|".afm"
 decl_stmt|;
@@ -1078,7 +983,7 @@ operator|.
 name|parse
 argument_list|()
 decl_stmt|;
-name|metrics
+name|AFM_MAP
 operator|.
 name|put
 argument_list|(
@@ -1115,14 +1020,29 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+specifier|private
+name|PDType1CFont
+name|type1CFont
+init|=
+literal|null
+decl_stmt|;
+specifier|private
+name|Type1Font
+name|type1font
+init|=
+literal|null
+decl_stmt|;
+specifier|private
+name|FontMetric
+name|afm
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|PDType1Font
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|font
 operator|.
 name|setItem
@@ -1447,13 +1367,10 @@ if|if
 condition|(
 name|name
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 literal|"+"
 argument_list|)
-operator|>
-operator|-
-literal|1
 condition|)
 block|{
 name|name
@@ -1507,7 +1424,7 @@ condition|)
 block|{
 name|afm
 operator|=
-name|afmObjects
+name|AFM_MAP
 operator|.
 name|get
 argument_list|(
@@ -1531,9 +1448,6 @@ name|name
 parameter_list|)
 block|{
 return|return
-operator|(
-name|PDType1Font
-operator|)
 name|STANDARD_14
 operator|.
 name|get
@@ -1551,10 +1465,6 @@ name|getStandard14Names
 parameter_list|()
 block|{
 return|return
-operator|(
-name|String
-index|[]
-operator|)
 name|STANDARD_14
 operator|.
 name|keySet
@@ -1570,7 +1480,6 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|protected
@@ -1625,7 +1534,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Tries to get the encoding for the type1 font.      *      */
+comment|/**      * Tries to get the encoding for the type1 font.      */
 specifier|private
 name|void
 name|getEncodingFromFont
@@ -1641,7 +1550,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Fontmatrix
+comment|// FontMatrix
 name|List
 argument_list|<
 name|Number
@@ -1829,7 +1738,6 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -1900,7 +1808,6 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -1961,7 +1868,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public

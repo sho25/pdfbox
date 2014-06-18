@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is implementation of the CIDFontType0 Font.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * A Type0 CIDFont (CFF).  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class

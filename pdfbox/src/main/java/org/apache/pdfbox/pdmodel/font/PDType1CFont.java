@@ -334,7 +334,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a CFF/Type2 Font (aka Type1C Font).  *   * @author Villu Ruusmann  *   */
+comment|/**  * Adobe CFF Font, also known as a "Type1C" font.  *   * @author Villu Ruusmann  */
 end_comment
 
 begin_class
@@ -344,6 +344,35 @@ name|PDType1CFont
 extends|extends
 name|PDSimpleFont
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDType1CFont
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|byte
+index|[]
+name|SPACE_BYTES
+init|=
+block|{
+operator|(
+name|byte
+operator|)
+literal|32
+block|}
+decl_stmt|;
 specifier|private
 name|CFFFont
 name|cffFont
@@ -482,35 +511,6 @@ name|fontBBox
 init|=
 literal|null
 decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|PDType1CFont
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|byte
-index|[]
-name|SPACE_BYTES
-init|=
-block|{
-operator|(
-name|byte
-operator|)
-literal|32
-block|}
-decl_stmt|;
 comment|/**      * Constructor.      *       * @param fontDictionary the corresponding dictionary      * @throws IOException it something went wrong      */
 specifier|public
 name|PDType1CFont
@@ -530,7 +530,8 @@ name|load
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|encode
@@ -595,7 +596,6 @@ return|return
 name|character
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -738,7 +738,8 @@ return|return
 name|character
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getFontWidth
@@ -812,9 +813,6 @@ block|}
 name|Float
 name|width
 init|=
-operator|(
-name|Float
-operator|)
 name|glyphWidths
 operator|.
 name|get
@@ -831,17 +829,12 @@ condition|)
 block|{
 name|width
 operator|=
-name|Float
-operator|.
-name|valueOf
-argument_list|(
 name|getFontMetric
 argument_list|()
 operator|.
 name|getCharacterWidth
 argument_list|(
 name|name
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|glyphWidths
@@ -856,12 +849,10 @@ expr_stmt|;
 block|}
 return|return
 name|width
-operator|.
-name|floatValue
-argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getFontHeight
@@ -1030,7 +1021,8 @@ name|code
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getStringWidth
@@ -1150,7 +1142,8 @@ name|character
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getAverageFontWidth
@@ -1176,12 +1169,10 @@ expr_stmt|;
 block|}
 return|return
 name|avgWidth
-operator|.
-name|floatValue
-argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|PDRectangle
 name|getFontBoundingBox
@@ -1213,7 +1204,8 @@ return|return
 name|fontBBox
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|PDMatrix
 name|getFontMatrix
@@ -1446,9 +1438,6 @@ condition|)
 block|{
 name|cffFont
 operator|=
-operator|(
-name|CFFFont
-operator|)
 name|fonts
 operator|.
 name|get
@@ -1457,7 +1446,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|// chache the font name
+comment|// cache the font name
 name|fontname
 operator|=
 name|cffFont
@@ -1487,15 +1476,10 @@ name|put
 argument_list|(
 literal|null
 argument_list|,
-name|Float
-operator|.
-name|valueOf
-argument_list|(
 name|defaultWidthX
 operator|.
 name|floatValue
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// calculate some mappings to be used for rendering and text extraction
@@ -1907,10 +1891,6 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
 operator|(
 name|int
 operator|)
@@ -1918,12 +1898,7 @@ name|bounds
 operator|.
 name|getLowerLeftX
 argument_list|()
-argument_list|)
 argument_list|,
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
 operator|(
 name|int
 operator|)
@@ -1931,12 +1906,7 @@ name|bounds
 operator|.
 name|getLowerLeftY
 argument_list|()
-argument_list|)
 argument_list|,
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
 operator|(
 name|int
 operator|)
@@ -1944,12 +1914,7 @@ name|bounds
 operator|.
 name|getUpperRightX
 argument_list|()
-argument_list|)
 argument_list|,
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
 operator|(
 name|int
 operator|)
@@ -1957,7 +1922,6 @@ name|bounds
 operator|.
 name|getUpperRightY
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|font

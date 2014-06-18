@@ -460,7 +460,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the TrueType implementation of fonts.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * TrueType font.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -470,7 +470,6 @@ name|PDTrueTypeFont
 extends|extends
 name|PDSimpleFont
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -486,7 +485,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Start of coderanges.      */
 specifier|private
 specifier|static
 specifier|final
@@ -899,32 +897,12 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|records
-operator|.
-name|size
-argument_list|()
-condition|;
-name|i
-operator|++
-control|)
-block|{
 name|NameRecord
 name|nr
-init|=
+range|:
 name|records
-operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
+control|)
+block|{
 if|if
 condition|(
 name|nr
@@ -1410,8 +1388,7 @@ name|i
 operator|++
 control|)
 block|{
-comment|// if we have a capital H then use that, otherwise use the
-comment|// tallest letter
+comment|// if we have a capital H then use that, otherwise use the tallest letter
 if|if
 condition|(
 name|names
@@ -1484,7 +1461,6 @@ name|fd
 operator|.
 name|setStemV
 argument_list|(
-operator|(
 name|fd
 operator|.
 name|getFontBoundingBox
@@ -1494,7 +1470,6 @@ name|getWidth
 argument_list|()
 operator|*
 literal|.13f
-operator|)
 argument_list|)
 expr_stmt|;
 name|CMAPTable
@@ -1725,9 +1700,8 @@ name|WinAnsiEncoding
 operator|.
 name|INSTANCE
 decl_stmt|;
-comment|// A character code is mapped to a glyph name via the provided
-comment|// font encoding. Afterwards, the glyph name is translated to a
-comment|// glyph ID.
+comment|// A character code is mapped to a glyph name via the provided font encoding
+comment|// Afterwards, the glyph name is translated to a glyph ID.
 comment|// For details, see PDFReference16.pdf, Section 5.5.5, p.401
 comment|//
 for|for
@@ -2066,8 +2040,6 @@ else|else
 block|{
 name|TrueTypeFont
 name|ttf
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -2184,7 +2156,7 @@ block|{
 try|try
 block|{
 name|String
-name|charactername
+name|characterName
 init|=
 name|getFontEncoding
 argument_list|()
@@ -2196,7 +2168,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|charactername
+name|characterName
 operator|!=
 literal|null
 condition|)
@@ -2215,7 +2187,7 @@ name|Encoding
 operator|.
 name|getCharacterForName
 argument_list|(
-name|charactername
+name|characterName
 argument_list|)
 decl_stmt|;
 if|if
@@ -2258,7 +2230,7 @@ name|INSTANCE
 operator|.
 name|hasCodeForName
 argument_list|(
-name|charactername
+name|characterName
 argument_list|)
 condition|)
 block|{
@@ -2270,7 +2242,7 @@ name|INSTANCE
 operator|.
 name|getCode
 argument_list|(
-name|charactername
+name|characterName
 argument_list|)
 expr_stmt|;
 name|result
@@ -2511,19 +2483,10 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|CMAPEncodingEntry
+name|cmap1
+range|:
 name|cmaps
-operator|.
-name|length
-condition|;
-name|i
-operator|++
 control|)
 block|{
 if|if
@@ -2532,10 +2495,7 @@ name|CMAPTable
 operator|.
 name|PLATFORM_WINDOWS
 operator|==
-name|cmaps
-index|[
-name|i
-index|]
+name|cmap1
 operator|.
 name|getPlatformId
 argument_list|()
@@ -2547,10 +2507,7 @@ name|CMAPTable
 operator|.
 name|ENCODING_UNICODE
 operator|==
-name|cmaps
-index|[
-name|i
-index|]
+name|cmap1
 operator|.
 name|getPlatformEncodingId
 argument_list|()
@@ -2558,10 +2515,7 @@ condition|)
 block|{
 name|cmapWinUnicode
 operator|=
-name|cmaps
-index|[
-name|i
-index|]
+name|cmap1
 expr_stmt|;
 block|}
 elseif|else
@@ -2571,10 +2525,7 @@ name|CMAPTable
 operator|.
 name|ENCODING_SYMBOL
 operator|==
-name|cmaps
-index|[
-name|i
-index|]
+name|cmap1
 operator|.
 name|getPlatformEncodingId
 argument_list|()
@@ -2582,10 +2533,7 @@ condition|)
 block|{
 name|cmapWinSymbol
 operator|=
-name|cmaps
-index|[
-name|i
-index|]
+name|cmap1
 expr_stmt|;
 block|}
 block|}
@@ -2596,10 +2544,7 @@ name|CMAPTable
 operator|.
 name|PLATFORM_MACINTOSH
 operator|==
-name|cmaps
-index|[
-name|i
-index|]
+name|cmap1
 operator|.
 name|getPlatformId
 argument_list|()
@@ -2611,10 +2556,7 @@ name|CMAPTable
 operator|.
 name|ENCODING_SYMBOL
 operator|==
-name|cmaps
-index|[
-name|i
-index|]
+name|cmap1
 operator|.
 name|getPlatformEncodingId
 argument_list|()
@@ -2622,10 +2564,7 @@ condition|)
 block|{
 name|cmapMacintoshSymbol
 operator|=
-name|cmaps
-index|[
-name|i
-index|]
+name|cmap1
 expr_stmt|;
 block|}
 block|}
