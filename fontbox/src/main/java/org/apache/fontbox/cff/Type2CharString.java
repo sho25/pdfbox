@@ -1512,10 +1512,8 @@ if|if
 condition|(
 name|type1Sequence
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
 block|{
 if|if
