@@ -1214,28 +1214,16 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|int
-name|n
-init|=
-literal|0
-init|;
-name|n
-operator|<
+name|File
+name|testFile
+range|:
 name|testFiles
-operator|.
-name|length
-condition|;
-name|n
-operator|++
 control|)
 block|{
 comment|//Test without sorting
 name|doTestFile
 argument_list|(
-name|testFiles
-index|[
-name|n
-index|]
+name|testFile
 argument_list|,
 name|outDir
 argument_list|,
@@ -1247,10 +1235,7 @@ expr_stmt|;
 comment|//Test with sorting
 name|doTestFile
 argument_list|(
-name|testFiles
-index|[
-name|n
-index|]
+name|testFile
 argument_list|,
 name|outDir
 argument_list|,

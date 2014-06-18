@@ -3238,7 +3238,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Nice method, gives you every object you want 	 * Arrays works properly too. Try "P/Annots/[k]/Rect" 	 * where k means the index of the Annotsarray. 	 * 	 * @param objPath the relative path to the object. 	 * @return the object 	 */
+comment|/**      * Nice method, gives you every object you want      * Arrays works properly too. Try "P/Annots/[k]/Rect"      * where k means the index of the Annotsarray.      *      * @param objPath the relative path to the object.      * @return the object      */
 specifier|public
 name|COSBase
 name|getObjectFromPath
@@ -3269,19 +3269,10 @@ name|this
 expr_stmt|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|String
+name|pathString
+range|:
 name|path
-operator|.
-name|length
-condition|;
-name|i
-operator|++
 control|)
 block|{
 if|if
@@ -3297,10 +3288,7 @@ init|=
 operator|new
 name|Integer
 argument_list|(
-name|path
-index|[
-name|i
-index|]
+name|pathString
 operator|.
 name|replaceAll
 argument_list|(
@@ -3354,10 +3342,7 @@ operator|)
 operator|.
 name|getDictionaryObject
 argument_list|(
-name|path
-index|[
-name|i
-index|]
+name|pathString
 argument_list|)
 expr_stmt|;
 block|}
