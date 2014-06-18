@@ -326,8 +326,7 @@ return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
+return|return
 operator|(
 name|xCminusB
 operator|*
@@ -359,16 +358,8 @@ operator|)
 operator|>
 literal|0
 operator|)
-operator|!=
+operator|==
 name|signAB
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-return|return
-literal|true
 return|;
 block|}
 comment|// returns the area of a triangle

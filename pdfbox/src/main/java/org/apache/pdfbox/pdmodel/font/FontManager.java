@@ -1175,8 +1175,7 @@ operator|.
 name|toLowerCase
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|psname
 operator|.
 name|indexOf
@@ -1186,14 +1185,6 @@ argument_list|)
 operator|>
 operator|-
 literal|1
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
 return|;
 block|}
 comment|/**      * Try to determine if the font has an ITALIC-type.      *      * @param name The font.      *      * @return font has ITALIC-type or not      */
@@ -1260,8 +1251,7 @@ operator|.
 name|toLowerCase
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|psname
 operator|.
 name|indexOf
@@ -1281,14 +1271,6 @@ argument_list|)
 operator|>
 operator|-
 literal|1
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
 return|;
 block|}
 block|}

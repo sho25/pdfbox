@@ -512,9 +512,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-elseif|else
-if|if
-condition|(
+else|else
+name|equals
+operator|=
 operator|(
 name|expected
 operator|==
@@ -550,23 +550,7 @@ operator|.
 name|isEmpty
 argument_list|(  )
 operator|)
-condition|)
-block|{
-comment|//basically there are some cases where pdfbox will put an extra line
-comment|//at the end of the file, who cares, this is not enough to report
-comment|// a failure
-name|equals
-operator|=
-literal|true
 expr_stmt|;
-block|}
-else|else
-block|{
-name|equals
-operator|=
-literal|false
-expr_stmt|;
-block|}
 return|return
 name|equals
 return|;
