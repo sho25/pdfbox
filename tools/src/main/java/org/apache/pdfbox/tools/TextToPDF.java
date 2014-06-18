@@ -910,19 +910,10 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|String
+name|std14String
+range|:
 name|std14
-operator|.
-name|length
-condition|;
-name|i
-operator|++
 control|)
 block|{
 name|System
@@ -933,10 +924,7 @@ name|println
 argument_list|(
 literal|"                                    "
 operator|+
-name|std14
-index|[
-name|i
-index|]
+name|std14String
 argument_list|)
 expr_stmt|;
 block|}
