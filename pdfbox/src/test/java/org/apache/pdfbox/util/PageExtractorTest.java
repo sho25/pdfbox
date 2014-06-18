@@ -31,7 +31,31 @@ name|junit
 operator|.
 name|framework
 operator|.
-name|*
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+operator|.
+name|fail
 import|;
 end_import
 
