@@ -207,10 +207,6 @@ name|COSString
 import|;
 end_import
 
-begin_comment
-comment|//import javax.swing.tree.*;
-end_comment
-
 begin_import
 import|import
 name|javax

@@ -45,10 +45,6 @@ name|TreeModel
 import|;
 end_import
 
-begin_comment
-comment|//import java.awt.event.*;
-end_comment
-
 begin_import
 import|import
 name|javax
