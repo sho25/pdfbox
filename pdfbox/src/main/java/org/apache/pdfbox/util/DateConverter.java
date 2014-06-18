@@ -1593,10 +1593,8 @@ literal|null
 operator|||
 name|text
 operator|.
-name|equals
-argument_list|(
-literal|""
-argument_list|)
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 return|return
@@ -1918,10 +1916,8 @@ operator|.
 name|trim
 argument_list|()
 operator|.
-name|equals
-argument_list|(
-literal|""
-argument_list|)
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 return|return
