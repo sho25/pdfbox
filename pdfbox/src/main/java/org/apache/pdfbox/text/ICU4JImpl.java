@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is an implementation the the ICU4J class. TextNormalize   * will call this only if the ICU4J library exists in the classpath.  * @author<a href="mailto:carrier@digital-evidence.org">Brian Carrier</a>  * @version $Revision: 1.0 $  */
+comment|/**  * This class is an implementation the the ICU4J class. TextNormalize   * will call this only if the ICU4J library exists in the classpath.  *  * @author Brian Carrier  */
 end_comment
 
 begin_class
@@ -52,6 +52,7 @@ specifier|public
 class|class
 name|ICU4JImpl
 block|{
+specifier|private
 name|Bidi
 name|bidi
 decl_stmt|;
@@ -66,7 +67,11 @@ operator|new
 name|Bidi
 argument_list|()
 expr_stmt|;
-comment|/* We do not use bidi.setInverse() because that uses          * Bidi.REORDER_INVERSE_NUMBERS_AS_L, which caused problems          * in some test files. For example, a file had a line of:          * 0 1 / ARABIC          * and the 0 and 1 were reversed in the end result.            * REORDER_INVERSE_LIKE_DIRECT is the inverse Bidi mode           * that more closely reflects the Unicode spec.          */
+comment|// We do not use bidi.setInverse() because that uses Bidi.REORDER_INVERSE_NUMBERS_AS_L,
+comment|// which caused problems in some test files. For example, a file had a line of:
+comment|// 0 1 / ARABIC  and the 0 and 1 were reversed in the end result.
+comment|// REORDER_INVERSE_LIKE_DIRECT is the inverse Bidi mode that more closely reflects the
+comment|// Unicode spec.
 name|bidi
 operator|.
 name|setReorderingMode
@@ -77,7 +82,7 @@ name|REORDER_INVERSE_LIKE_DIRECT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Takes a line of text in presentation order and converts it to logical order.      *      *        * @param str String to convert      * @param isRtlDominant RTL (right-to-left) will be the dominant text direction      * @return The converted string      */
+comment|/**      * Takes a line of text in presentation order and converts it to logical order.      *        * @param str String to convert      * @param isRtlDominant RTL (right-to-left) will be the dominant text direction      * @return The converted string      */
 specifier|public
 name|String
 name|makeLineLogicalOrder
@@ -108,7 +113,9 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|/* Set the mirror flag so that parentheses and other mirror symbols          * are properly reversed, when needed.  With this removed, lines          * such as (CBA) in the PDF file will come out like )ABC( in logical          * order.          */
+comment|// Set the mirror flag so that parentheses and other mirror symbols are properly reversed,
+comment|// when needed.  With this removed, lines such as (CBA) in the PDF file will come out like
+comment|// )ABC( in logical order.
 return|return
 name|bidi
 operator|.
@@ -180,7 +187,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
 literal|0xFB00
 operator|<=
 name|c
@@ -188,9 +194,7 @@ operator|&&
 name|c
 operator|<=
 literal|0xFDFF
-operator|)
 operator|||
-operator|(
 literal|0xFE70
 operator|<=
 name|c
@@ -198,7 +202,6 @@ operator|&&
 name|c
 operator|<=
 literal|0xFEFF
-operator|)
 condition|)
 block|{
 if|if
@@ -281,8 +284,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Trim because some decompositions have an extra space,
-comment|// such as U+FC5E
+comment|// Trim because some decompositions have an extra space, such as U+FC5E
 name|builder
 operator|.
 name|append
@@ -426,7 +428,7 @@ operator|.
 name|MODIFIER_LETTER
 condition|)
 block|{
-comment|/*                  * Trim because some decompositions have an extra space, such as                  * U+00B4                  */
+comment|// trim because some decompositions have an extra space, such as U+00B4
 name|retStr
 operator|.
 name|append
