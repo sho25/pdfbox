@@ -101,16 +101,6 @@ name|Paint
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Resources for a shading type 5 (Lattice-Form Gouraud-Shade Triangle Mesh).  */
 end_comment

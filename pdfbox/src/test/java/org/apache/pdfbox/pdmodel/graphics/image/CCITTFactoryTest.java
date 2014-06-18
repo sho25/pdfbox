@@ -229,26 +229,6 @@ name|image
 operator|.
 name|ValidateXImage
 operator|.
-name|doWritePDF
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|image
-operator|.
-name|ValidateXImage
-operator|.
 name|validate
 import|;
 end_import
