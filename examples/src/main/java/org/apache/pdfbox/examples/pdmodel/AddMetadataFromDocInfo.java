@@ -135,16 +135,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|GregorianCalendar
