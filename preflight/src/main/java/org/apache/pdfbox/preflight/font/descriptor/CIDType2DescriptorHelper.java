@@ -103,7 +103,7 @@ name|fontbox
 operator|.
 name|ttf
 operator|.
-name|CIDFontType2Parser
+name|TTFParser
 import|;
 end_import
 
@@ -544,7 +544,7 @@ comment|/*              * According to PDF Reference, CIDFontType2 is a TrueType
 name|ttf
 operator|=
 operator|new
-name|CIDFontType2Parser
+name|TTFParser
 argument_list|(
 literal|true
 argument_list|)

@@ -23,6 +23,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -257,7 +267,11 @@ name|loadTTF
 argument_list|(
 name|doc
 argument_list|,
+operator|new
+name|File
+argument_list|(
 name|fontfile
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// create a page with the message where needed

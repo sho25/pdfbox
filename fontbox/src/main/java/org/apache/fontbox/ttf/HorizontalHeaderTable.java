@@ -116,7 +116,7 @@ decl_stmt|;
 comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
-name|initData
+name|read
 parameter_list|(
 name|TrueTypeFont
 name|ttf

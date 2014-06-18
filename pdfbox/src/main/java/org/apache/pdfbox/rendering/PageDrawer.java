@@ -2949,9 +2949,7 @@ operator|=
 operator|new
 name|TTFGlyph2D
 argument_list|(
-name|ttf
-argument_list|,
-name|font
+name|ttfFont
 argument_list|)
 expr_stmt|;
 block|}

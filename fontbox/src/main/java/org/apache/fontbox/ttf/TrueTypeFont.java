@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class to hold true type font information.  *   * @author Ben Litchfield (ben@benlitchfield.com)  */
+comment|/**  * A TrueType font file.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -199,8 +199,7 @@ return|return
 name|version
 return|;
 block|}
-comment|/**      * @param versionValue The version to set.      */
-specifier|public
+comment|/**      * Set the version. Package-private, used by TTFParser only.      * @param versionValue The version to set.      */
 name|void
 name|setVersion
 parameter_list|(
@@ -213,8 +212,7 @@ operator|=
 name|versionValue
 expr_stmt|;
 block|}
-comment|/**      * Add a table definition.      *       * @param table The table to add.      */
-specifier|public
+comment|/**      * Add a table definition. Package-private, used by TTFParser only.      *       * @param table The table to add.      */
 name|void
 name|addTable
 parameter_list|(
@@ -285,7 +283,7 @@ name|getInitialized
 argument_list|()
 condition|)
 block|{
-name|initializeTable
+name|readTable
 argument_list|(
 name|naming
 argument_list|)
@@ -329,7 +327,7 @@ name|getInitialized
 argument_list|()
 condition|)
 block|{
-name|initializeTable
+name|readTable
 argument_list|(
 name|postscript
 argument_list|)
@@ -373,7 +371,7 @@ name|getInitialized
 argument_list|()
 condition|)
 block|{
-name|initializeTable
+name|readTable
 argument_list|(
 name|os2WindowsMetrics
 argument_list|)
@@ -417,7 +415,7 @@ name|getInitialized
 argument_list|()
 condition|)
 block|{
-name|initializeTable
+name|readTable
 argument_list|(
 name|maximumProfile
 argument_list|)
@@ -461,7 +459,7 @@ name|getInitialized
 argument_list|()
 condition|)
 block|{
-name|initializeTable
+name|readTable
 argument_list|(
 name|header
 argument_list|)
@@ -505,7 +503,7 @@ name|getInitialized
 argument_list|()
 condition|)
 block|{
-name|initializeTable
+name|readTable
 argument_list|(
 name|horizontalHeader
 argument_list|)
@@ -549,7 +547,7 @@ name|getInitialized
 argument_list|()
 condition|)
 block|{
-name|initializeTable
+name|readTable
 argument_list|(
 name|horizontalMetrics
 argument_list|)
@@ -593,7 +591,7 @@ name|getInitialized
 argument_list|()
 condition|)
 block|{
-name|initializeTable
+name|readTable
 argument_list|(
 name|indexToLocation
 argument_list|)
@@ -637,7 +635,7 @@ name|getInitialized
 argument_list|()
 condition|)
 block|{
-name|initializeTable
+name|readTable
 argument_list|(
 name|glyph
 argument_list|)
@@ -681,7 +679,7 @@ name|getInitialized
 argument_list|()
 condition|)
 block|{
-name|initializeTable
+name|readTable
 argument_list|(
 name|cmap
 argument_list|)
@@ -706,10 +704,9 @@ name|getOriginalData
 argument_list|()
 return|;
 block|}
-comment|/**      * Initialize the given table if necessary.      *       * @param table the table to be initialized      */
-specifier|public
+comment|/**      * Read the given table if necessary. Package-private, used by TTFParser only.      *       * @param table the table to be initialized      */
 name|void
-name|initializeTable
+name|readTable
 parameter_list|(
 name|TTFTable
 name|table
@@ -738,7 +735,7 @@ argument_list|)
 expr_stmt|;
 name|table
 operator|.
-name|initData
+name|read
 argument_list|(
 name|this
 argument_list|,
