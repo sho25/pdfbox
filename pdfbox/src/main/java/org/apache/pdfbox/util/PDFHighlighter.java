@@ -344,7 +344,7 @@ name|page
 operator|.
 name|indexOf
 argument_list|(
-literal|"a"
+literal|'a'
 argument_list|)
 operator|!=
 operator|-

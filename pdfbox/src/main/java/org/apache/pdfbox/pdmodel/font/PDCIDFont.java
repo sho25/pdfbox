@@ -1197,7 +1197,7 @@ name|cidSystemInfo
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|"-"
+literal|'-'
 argument_list|)
 argument_list|)
 operator|+

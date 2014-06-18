@@ -558,7 +558,7 @@ name|normalizedFontname
 operator|.
 name|indexOf
 argument_list|(
-literal|"+"
+literal|'+'
 argument_list|)
 operator|>
 operator|-
@@ -575,7 +575,7 @@ name|normalizedFontname
 operator|.
 name|indexOf
 argument_list|(
-literal|"+"
+literal|'+'
 argument_list|)
 operator|+
 literal|1
