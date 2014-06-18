@@ -3296,6 +3296,7 @@ operator|.
 name|getHexString
 argument_list|()
 decl_stmt|;
+comment|// substract 2 bytes because of the enclosing "<>"
 if|if
 condition|(
 name|signature
@@ -3304,6 +3305,8 @@ name|length
 argument_list|()
 operator|>
 name|signatureLength
+operator|-
+literal|2
 condition|)
 block|{
 throw|throw

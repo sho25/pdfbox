@@ -1479,10 +1479,6 @@ operator|new
 name|byte
 index|[
 name|preferedSignatureSize
-operator|*
-literal|2
-operator|+
-literal|2
 index|]
 argument_list|)
 expr_stmt|;
@@ -1497,10 +1493,6 @@ operator|new
 name|byte
 index|[
 literal|0x2500
-operator|*
-literal|2
-operator|+
-literal|2
 index|]
 argument_list|)
 expr_stmt|;
