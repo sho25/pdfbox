@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The CMAP table of a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  *   */
+comment|/**  * The CMAP table of a true type font.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -45,16 +45,15 @@ name|TAG
 init|=
 literal|"cmap"
 decl_stmt|;
-comment|/**      * A constant for the platform.      */
+comment|// platform
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|PLATFORM_MISC
+name|PLATFORM_UNICODE
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * A constant for the platform.      */
 specifier|public
 specifier|static
 specifier|final
@@ -63,7 +62,6 @@ name|PLATFORM_MACINTOSH
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * A constant for the platform.      */
 specifier|public
 specifier|static
 specifier|final
@@ -72,66 +70,69 @@ name|PLATFORM_WINDOWS
 init|=
 literal|3
 decl_stmt|;
-comment|/**      * An encoding constant.      */
+comment|// Mac encodings
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|ENCODING_SYMBOL
+name|ENCODING_MAC_ROMAN
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * An encoding constant.      */
+comment|// Windows encodings
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|ENCODING_UNICODE
+name|ENCODING_WIN_SYMBOL
+init|=
+literal|0
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ENCODING_WIN_UNICODE
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * An encoding constant.      */
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|ENCODING_SHIFT_JIS
+name|ENCODING_WIN_SHIFT_JIS
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * An encoding constant.      */
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|ENCODING_BIG5
+name|ENCODING_WIN_BIG5
 init|=
 literal|3
 decl_stmt|;
-comment|/**      * An encoding constant.      */
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|ENCODING_PRC
+name|ENCODING_WIN_PRC
 init|=
 literal|4
 decl_stmt|;
-comment|/**      * An encoding constant.      */
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|ENCODING_WANSUNG
+name|ENCODING_WIN_WANSUNG
 init|=
 literal|5
 decl_stmt|;
-comment|/**      * An encoding constant.      */
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|ENCODING_JOHAB
+name|ENCODING_JWIN_OHAB
 init|=
 literal|6
 decl_stmt|;
