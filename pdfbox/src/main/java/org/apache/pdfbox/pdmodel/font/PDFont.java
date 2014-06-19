@@ -821,7 +821,7 @@ init|=
 operator|-
 literal|1f
 decl_stmt|;
-comment|/**      * This will clear AFM resources that are stored statically. This is usually not a problem      * unless you want to reclaim resources for a long running process.      *       * SPECIAL NOTE: The font calculations are currently in COSObject, which is where they will      * reside until PDFont is mature enough to take them over. PDFont is the appropriate place for      * them and not in COSObject but we need font calculations for text extraction. THIS METHOD WILL      * BE MOVED OR REMOVED TO ANOTHER LOCATION IN A FUTURE VERSION OF PDFBOX.      *      * @deprecated This method will be removed in a future version of PDFBox.      */
+comment|/**      * This will clear AFM resources that are stored statically. This is usually not a problem      * unless you want to reclaim resources for a long running process.      *      * SPECIAL NOTE: The font calculations are currently in COSObject, which is where they will      * reside until PDFont is mature enough to take them over. PDFont is the appropriate place for      * them and not in COSObject but we need font calculations for text extraction. THIS METHOD WILL      * BE MOVED OR REMOVED TO ANOTHER LOCATION IN A FUTURE VERSION OF PDFBOX.      *      * @deprecated This method will be removed in a future version of PDFBox.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -945,6 +945,7 @@ name|afm
 argument_list|)
 expr_stmt|;
 block|}
+comment|// it shouldn't be possible to reach this point...
 block|}
 block|}
 return|return
@@ -2402,25 +2403,12 @@ name|boolean
 name|isSymbolicFont
 parameter_list|()
 block|{
-comment|// not all fonts have a font descriptor
-if|if
-condition|(
-name|getFontDescriptor
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
 name|getFontDescriptor
 argument_list|()
 operator|.
 name|isSymbolic
 argument_list|()
-return|;
-block|}
-return|return
-literal|false
 return|;
 block|}
 comment|/**      * The PostScript name of the font.      *       * @return The postscript name of the font.      */
