@@ -47,7 +47,6 @@ name|inUse
 init|=
 literal|true
 decl_stmt|;
-specifier|public
 name|XrefEntry
 parameter_list|(
 name|int

@@ -69,7 +69,6 @@ name|int
 name|c
 decl_stmt|;
 comment|/**      * Constructor.      */
-specifier|public
 name|RC4Cipher
 parameter_list|()
 block|{

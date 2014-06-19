@@ -3077,7 +3077,6 @@ specifier|private
 name|COSObject
 name|object
 decl_stmt|;
-specifier|public
 name|ConflictObj
 parameter_list|(
 name|long

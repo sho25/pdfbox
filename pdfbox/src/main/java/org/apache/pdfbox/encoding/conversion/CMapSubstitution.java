@@ -277,9 +277,6 @@ argument_list|)
 condition|)
 block|{
 return|return
-operator|(
-name|String
-operator|)
 name|cmapSubstitutions
 operator|.
 name|get

@@ -973,7 +973,6 @@ name|getNumberOfOutputParameters
 argument_list|()
 decl_stmt|;
 comment|/**          * Constructor.          *          * @param input the input coordinates          * @param inputPrev coordinate of the "ceil" point          * @param inputNext coordinate of the "floor" point          *          */
-specifier|public
 name|Rinterpol
 parameter_list|(
 name|float

@@ -5021,7 +5021,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-specifier|public
 name|LineItem
 parameter_list|(
 name|TextPosition
@@ -5074,7 +5073,6 @@ name|TextPosition
 argument_list|>
 name|textPositions
 decl_stmt|;
-specifier|public
 name|WordWithTextPositions
 parameter_list|(
 name|String

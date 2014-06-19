@@ -919,7 +919,6 @@ specifier|private
 name|int
 name|currentPage
 decl_stmt|;
-specifier|public
 name|LabelGenerator
 parameter_list|(
 name|PDPageLabelRange

@@ -80,7 +80,6 @@ name|mustFilter
 init|=
 literal|true
 decl_stmt|;
-specifier|public
 name|EndstreamOutputStream
 parameter_list|(
 name|OutputStream

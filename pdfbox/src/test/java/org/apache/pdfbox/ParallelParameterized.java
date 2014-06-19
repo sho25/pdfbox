@@ -104,7 +104,6 @@ specifier|private
 name|ExecutorService
 name|executorService
 decl_stmt|;
-specifier|public
 name|FixedThreadPoolScheduler
 parameter_list|()
 block|{

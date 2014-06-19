@@ -185,7 +185,6 @@ name|int
 name|pageHeight
 decl_stmt|;
 comment|/**      * Constructor.      * @param shading the shading resources      * @param ctm current transformation matrix      * @param pageHeight the height of the page      */
-specifier|public
 name|Type5ShadingPaint
 parameter_list|(
 name|PDShadingType5

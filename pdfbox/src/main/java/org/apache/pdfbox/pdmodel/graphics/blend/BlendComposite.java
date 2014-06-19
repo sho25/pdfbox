@@ -247,7 +247,6 @@ specifier|private
 name|RenderingHints
 name|hints
 decl_stmt|;
-specifier|public
 name|BlendCompositeContext
 parameter_list|(
 name|ColorModel

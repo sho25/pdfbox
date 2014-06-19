@@ -115,7 +115,6 @@ name|double
 name|area
 decl_stmt|;
 comment|/**      * Constructor for using 3 points and their colors.      * @param a point A of the triangle      * @param aColor color of point A      * @param b point B of the triangle      * @param bColor color of point B      * @param c point C of the triangle      * @param cColor color of point C      */
-specifier|public
 name|GouraudTriangle
 parameter_list|(
 name|Point2D

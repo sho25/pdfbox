@@ -111,9 +111,6 @@ block|{
 name|CharMetric
 name|nextMetric
 init|=
-operator|(
-name|CharMetric
-operator|)
 name|characters
 operator|.
 name|next

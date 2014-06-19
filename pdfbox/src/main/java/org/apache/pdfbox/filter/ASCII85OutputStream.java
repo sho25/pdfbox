@@ -112,7 +112,6 @@ init|=
 literal|'z'
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param out The output stream to write to.      */
-specifier|public
 name|ASCII85OutputStream
 parameter_list|(
 name|OutputStream

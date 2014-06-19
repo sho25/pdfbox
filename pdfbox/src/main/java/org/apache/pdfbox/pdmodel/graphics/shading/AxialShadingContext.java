@@ -295,7 +295,6 @@ name|double
 name|denom
 decl_stmt|;
 comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param ctm the transformation matrix      * @param pageHeight height of the current page      */
-specifier|public
 name|AxialShadingContext
 parameter_list|(
 name|PDShadingType2

@@ -40,7 +40,6 @@ index|[]
 name|data
 decl_stmt|;
 comment|/**      * Constructs a new bit array.      * @param bitCount the number of bits to maintain      */
-specifier|public
 name|PackedBitArray
 parameter_list|(
 name|int
@@ -527,9 +526,6 @@ index|[
 name|i
 index|]
 operator|=
-operator|(
-name|byte
-operator|)
 literal|0x00
 expr_stmt|;
 block|}

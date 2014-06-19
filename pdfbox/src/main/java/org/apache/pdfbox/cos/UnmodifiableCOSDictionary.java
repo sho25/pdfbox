@@ -53,7 +53,6 @@ extends|extends
 name|COSDictionary
 block|{
 comment|/**      * @inheritDoc      */
-specifier|public
 name|UnmodifiableCOSDictionary
 parameter_list|(
 name|COSDictionary

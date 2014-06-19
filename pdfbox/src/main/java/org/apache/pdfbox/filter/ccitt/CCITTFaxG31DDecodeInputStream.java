@@ -1414,7 +1414,6 @@ specifier|final
 name|int
 name|length
 decl_stmt|;
-specifier|public
 name|RunLengthTreeNode
 parameter_list|(
 name|int
@@ -1524,7 +1523,6 @@ specifier|final
 name|int
 name|length
 decl_stmt|;
-specifier|public
 name|MakeUpTreeNode
 parameter_list|(
 name|int

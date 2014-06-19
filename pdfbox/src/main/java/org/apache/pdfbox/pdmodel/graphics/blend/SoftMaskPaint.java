@@ -339,7 +339,6 @@ specifier|final
 name|ColorModel
 name|parentColorModel
 decl_stmt|;
-specifier|public
 name|Context
 parameter_list|(
 name|PaintContext

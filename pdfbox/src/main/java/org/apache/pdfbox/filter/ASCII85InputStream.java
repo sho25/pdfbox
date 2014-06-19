@@ -135,7 +135,6 @@ init|=
 literal|'z'
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param is The input stream to actually read from.      */
-specifier|public
 name|ASCII85InputStream
 parameter_list|(
 name|InputStream
