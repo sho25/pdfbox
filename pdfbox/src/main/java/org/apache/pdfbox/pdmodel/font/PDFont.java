@@ -2402,12 +2402,25 @@ name|boolean
 name|isSymbolicFont
 parameter_list|()
 block|{
+comment|// not all fonts have a font descriptor
+if|if
+condition|(
+name|getFontDescriptor
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|getFontDescriptor
 argument_list|()
 operator|.
 name|isSymbolic
 argument_list|()
+return|;
+block|}
+return|return
+literal|false
 return|;
 block|}
 comment|/**      * The PostScript name of the font.      *       * @return The postscript name of the font.      */
