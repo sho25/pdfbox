@@ -33,9 +33,25 @@ name|org
 operator|.
 name|apache
 operator|.
-name|log4j
+name|commons
 operator|.
-name|Logger
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -214,15 +230,15 @@ specifier|public
 class|class
 name|COSUtils
 block|{
-specifier|public
+specifier|private
 specifier|static
 specifier|final
-name|Logger
+name|Log
 name|LOGGER
 init|=
-name|Logger
+name|LogFactory
 operator|.
-name|getLogger
+name|getLog
 argument_list|(
 name|COSUtils
 operator|.
@@ -1581,7 +1597,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Close the given Document. If the close method of the document throws an exception, it is logged using a log4j      * logger (Level : WARN)      *       * @param document      */
+comment|/**      * Close the given Document. If the close method of the document throws an      * exception, it is logged using a commons logger (Level : WARN)      *      * @param document      */
 specifier|public
 specifier|static
 name|void
@@ -1627,7 +1643,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Close the given Document. If the close method of the document throws an exception, it is logged using a log4j      * logger (Level : WARN)      *       * @param document      */
+comment|/**      * Close the given Document. If the close method of the document throws an      * exception, it is logged using a commons logger (Level : WARN)       *       * @param document      */
 specifier|public
 specifier|static
 name|void
