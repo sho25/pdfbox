@@ -4397,6 +4397,14 @@ argument_list|)
 expr_stmt|;
 name|graphics
 operator|.
+name|setClip
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// PDFBOX-2153 don't use obsolete clipping path
+name|graphics
+operator|.
 name|fill
 argument_list|(
 name|getGraphicsState
