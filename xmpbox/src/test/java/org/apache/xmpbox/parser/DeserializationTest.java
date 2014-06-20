@@ -1542,6 +1542,79 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+specifier|public
+name|void
+name|testSpaceTextValues
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// check values with spaces at start or end
+comment|// in this case, the value should not be trimmed
+name|InputStream
+name|is
+init|=
+name|DomXmpParser
+operator|.
+name|class
+operator|.
+name|getResourceAsStream
+argument_list|(
+literal|"/validxmp/only_space_fields.xmp"
+argument_list|)
+decl_stmt|;
+name|DomXmpParser
+name|xdb
+init|=
+operator|new
+name|DomXmpParser
+argument_list|()
+decl_stmt|;
+name|XMPMetadata
+name|meta
+init|=
+name|xdb
+operator|.
+name|parse
+argument_list|(
+name|is
+argument_list|)
+decl_stmt|;
+comment|// check producer
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+literal|" "
+argument_list|,
+name|meta
+operator|.
+name|getAdobePDFSchema
+argument_list|()
+operator|.
+name|getProducer
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// check creator tool
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+literal|"Canon "
+argument_list|,
+name|meta
+operator|.
+name|getXMPBasicSchema
+argument_list|()
+operator|.
+name|getCreatorTool
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

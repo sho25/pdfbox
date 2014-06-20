@@ -724,9 +724,6 @@ comment|// Start reading
 name|removeComments
 argument_list|(
 name|document
-operator|.
-name|getFirstChild
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|Node
@@ -3861,7 +3858,7 @@ throw|;
 block|}
 comment|// else OK
 block|}
-comment|/**      * Remove all the comments node in the parent element of the parameter      *       * @param node      *            the first node of an element or document to clear      */
+comment|/**      * Remove all the comments node in the parent element of the parameter      *       * @param root      *            the first node of an element or document to clear      */
 specifier|private
 name|void
 name|removeComments
@@ -3870,25 +3867,57 @@ name|Node
 name|root
 parameter_list|)
 block|{
-name|Node
-name|node
-init|=
-name|root
-decl_stmt|;
-while|while
+if|if
 condition|(
-name|node
-operator|!=
-literal|null
+name|root
+operator|.
+name|getChildNodes
+argument_list|()
+operator|.
+name|getLength
+argument_list|()
+operator|<=
+literal|1
 condition|)
 block|{
-name|Node
-name|next
+comment|// There is only one node so we do not remove it
+return|return;
+block|}
+name|NodeList
+name|nl
 init|=
-name|node
+name|root
 operator|.
-name|getNextSibling
+name|getChildNodes
 argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|nl
+operator|.
+name|getLength
+argument_list|()
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|Node
+name|node
+init|=
+name|nl
+operator|.
+name|item
+argument_list|(
+name|i
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -3898,10 +3927,7 @@ name|Comment
 condition|)
 block|{
 comment|// remove the comment
-name|node
-operator|.
-name|getParentNode
-argument_list|()
+name|root
 operator|.
 name|removeChild
 argument_list|(
@@ -3917,17 +3943,14 @@ operator|instanceof
 name|Text
 condition|)
 block|{
-name|Text
-name|t
-init|=
+if|if
+condition|(
+operator|(
 operator|(
 name|Text
 operator|)
 name|node
-decl_stmt|;
-if|if
-condition|(
-name|t
+operator|)
 operator|.
 name|getTextContent
 argument_list|()
@@ -3941,11 +3964,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// XXX is there a better way to remove useless Text ?
-name|node
-operator|.
-name|getParentNode
-argument_list|()
+name|root
 operator|.
 name|removeChild
 argument_list|(
@@ -3966,19 +3985,11 @@ comment|// clean child
 name|removeComments
 argument_list|(
 name|node
-operator|.
-name|getFirstChild
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 comment|// else do nothing
-name|node
-operator|=
-name|next
-expr_stmt|;
 block|}
-comment|// end of document
 block|}
 specifier|private
 name|AbstractStructuredType
