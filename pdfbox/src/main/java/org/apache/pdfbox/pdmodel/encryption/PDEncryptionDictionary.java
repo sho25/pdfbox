@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @deprecated Use {@link PDEncryption} instead  */
+comment|/**  * @deprecated Use {@link PDEncryption } instead  */
 end_comment
 
 begin_class
@@ -44,7 +44,7 @@ name|PDEncryptionDictionary
 extends|extends
 name|PDEncryption
 block|{
-comment|/**      * @deprecated Use {@link PDEncryption()} instead      */
+comment|/**      * @deprecated Use {@link PDEncryption } instead      */
 specifier|public
 name|PDEncryptionDictionary
 parameter_list|()
@@ -53,7 +53,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * @deprecated Use {@link PDEncryption(COSDictionary)} instead      * @param dictionary a COS encryption dictionary      */
+comment|/**      * @deprecated Use {@link PDEncryption#PDEncryption(COSDictionary) } instead      * @param dictionary a COS encryption dictionary      */
 specifier|public
 name|PDEncryptionDictionary
 parameter_list|(

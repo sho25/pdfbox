@@ -78,7 +78,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A signature build dictionary as specified in the PDF Signature Build Dictionary Specification.  * {@see http://partners.adobe.com/public/developer/en/acrobat/Acrobat_Signature_BuiladDict.pdf}  *  * The signature build properties dictionary provides signature properties for the software  * application that was used to create the signature.  *  * @author Thomas Chojecki  */
+comment|/**  * A signature build dictionary as specified in the PDF Signature Build Dictionary Specification.  *  * The signature build properties dictionary provides signature properties for the software  * application that was used to create the signature.  *  * @see<a href="http://partners.adobe.com/public/developer/en/acrobat/Acrobat_Signature_BuiladDict.pdf">  * http://partners.adobe.com/public/developer/en/acrobat/Acrobat_Signature_BuiladDict.pdf</a>  *  * @author Thomas Chojecki  */
 end_comment
 
 begin_class

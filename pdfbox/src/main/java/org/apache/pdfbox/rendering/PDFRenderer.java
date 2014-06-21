@@ -506,7 +506,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Renders a given page to an AWT Graphics2D instance.      * @param pageIndex the zero-based index of the page to be converted      * @param graphics the Graphics2D on which to draw the page      * @scale scale the scale to draw the page at      * @throws IOException if the PDF cannot be read      */
+comment|/**      * Renders a given page to an AWT Graphics2D instance.      * @param pageIndex the zero-based index of the page to be converted      * @param graphics the Graphics2D on which to draw the page      * @param scale the scale to draw the page at      * @throws IOException if the PDF cannot be read      */
 specifier|public
 name|void
 name|renderPageToGraphics

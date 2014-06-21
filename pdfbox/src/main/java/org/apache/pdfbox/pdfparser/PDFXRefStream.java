@@ -807,7 +807,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * determines the minimal length required for all the lengths.      *       * @return      */
+comment|/**      * determines the minimal length required for all the lengths.      *       * @return the length information      */
 specifier|private
 name|int
 index|[]

@@ -248,7 +248,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class provides a glyph to GeneralPath conversion for true type fonts.  * Based on code from Apache Batik a subproject of Apache XMLGraphics.  *  * {@see http://xmlgraphics.apache.org/batik/}  */
+comment|/**  * This class provides a glyph to GeneralPath conversion for true type fonts.  * Based on code from Apache Batik a subproject of Apache XMLGraphics.  *  * @see<a href="http://xmlgraphics.apache.org/batik">http://xmlgraphics.apache.org/batik</a>  */
 end_comment
 
 begin_class

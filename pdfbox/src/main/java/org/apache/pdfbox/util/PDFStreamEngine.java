@@ -396,7 +396,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processes a PDF content stream and executes certain operations.  * Provides a callback interface for clients that want to do things with the stream.  *  * {@see org.apache.pdfbox.util.PDFTextStripper}  * @author Ben Litchfield  */
+comment|/**  * Processes a PDF content stream and executes certain operations.  * Provides a callback interface for clients that want to do things with the stream.  *  * @see org.apache.pdfbox.util.PDFTextStripper  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class

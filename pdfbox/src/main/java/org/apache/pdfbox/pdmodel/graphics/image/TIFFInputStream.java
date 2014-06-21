@@ -238,7 +238,7 @@ name|InputStream
 name|datastream
 decl_stmt|;
 comment|// Original InputStream
-comment|/**      *  Writes the TIFF image to an OutputStream.      * {@inheritDoc}      */
+comment|/**      * Writes the TIFF image to an OutputStream.      *       * @param image the image which data should be written      * @param out the OutputStream to write to      */
 comment|// TODO this should be refactored
 specifier|public
 specifier|static

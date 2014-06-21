@@ -1165,7 +1165,7 @@ name|decryptionPassword
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a temporary file with the input stream. If the creation succeed,      * the {@linkplain #isTmpPDFFile} is set to true. This Temporary file will      * be deleted at end of the parse method      *       * @param input      * @return      * @throws IOException If something went wrong.      */
+comment|/**      * Create a temporary file with the input stream. If the creation succeed,      * the {@linkplain #isTmpPDFFile} is set to true. This Temporary file will      * be deleted at end of the parse method      *       * @param input      * @return the temporary file      * @throws IOException If something went wrong.      */
 specifier|private
 name|File
 name|createTmpFile
@@ -5892,7 +5892,7 @@ argument_list|()
 expr_stmt|;
 comment|// this writes a lonely CR or drops trailing CR LF and LF
 block|}
-comment|/**      *       * @param startXRefOffset      * @return      * @throws IOException      */
+comment|/**      *       * @param startXRefOffset      * @return the calculated offset      * @throws IOException      */
 specifier|private
 name|long
 name|calculateFixingOffset

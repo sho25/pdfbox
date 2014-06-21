@@ -296,7 +296,7 @@ name|SUB_TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Generate a unique name for the signature.      * @return      * @throws IOException If there is an error while getting the list of fields.      */
+comment|/**      * Generate a unique name for the signature.      * @return the signature's unique name      * @throws IOException If there is an error while getting the list of fields.      */
 specifier|private
 name|String
 name|generatePartialName

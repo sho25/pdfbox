@@ -467,7 +467,7 @@ name|fin
 argument_list|)
 return|;
 block|}
-comment|/**      * zoom signature image with some percent.      *       * @param percent- x % increase image with x percent.      * @return Visible Signature Configuration Object      */
+comment|/**      * zoom signature image with some percent.      *       * @param percent increase image with x percent.      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|zoom
@@ -865,7 +865,7 @@ return|return
 name|pageHeight
 return|;
 block|}
-comment|/**      * get image size in percents      * @return      */
+comment|/**      * get image size in percents      * @return the image size in percent      */
 specifier|public
 name|float
 name|getImageSizeInPercents
@@ -891,7 +891,7 @@ operator|=
 name|imageSizeInPercents
 expr_stmt|;
 block|}
-comment|/**      * returns visible signature text      * @return      */
+comment|/**      * returns visible signature text      * @return the visible signature's text      */
 specifier|public
 name|String
 name|getSignatureText
@@ -905,7 +905,7 @@ literal|"That method is not yet implemented"
 argument_list|)
 throw|;
 block|}
-comment|/**      *       * @param signatureText - adds the text on visible signature      * @return      */
+comment|/**      *       * @param signatureText - adds the text on visible signature      * @return the signature design      */
 specifier|public
 name|PDVisibleSignDesigner
 name|signatureText

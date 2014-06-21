@@ -742,7 +742,7 @@ operator|=
 name|softMask
 expr_stmt|;
 block|}
-comment|/**      * Returns the current blend mode      *      * @return      */
+comment|/**      * Returns the current blend mode      *      * @return the current blend mode      */
 specifier|public
 name|BlendMode
 name|getBlendMode

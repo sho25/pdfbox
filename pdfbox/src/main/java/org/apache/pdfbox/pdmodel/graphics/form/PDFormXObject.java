@@ -374,7 +374,7 @@ name|formType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns group descriptor...      *      * @return      */
+comment|/**      * Returns the group attributes dictionary (Group XObject).      *      * @return the group attributes dictionary      */
 specifier|public
 name|PDGroup
 name|getGroup

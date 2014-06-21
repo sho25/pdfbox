@@ -3207,7 +3207,7 @@ return|return
 name|linePath
 return|;
 block|}
-comment|/**      * Generates awt raster for a soft mask      *       * @param context      * @return      * @throws IOException      */
+comment|/**      * Generates awt raster for a soft mask      *       * @param context      * @return awt raster for soft mask      * @throws IOException      */
 specifier|private
 name|Raster
 name|createSoftMaskRaster
@@ -4468,7 +4468,7 @@ name|content
 argument_list|)
 return|;
 block|}
-comment|/**      * Draws the transparency group into a {@link BufferedImage} object and returns it together with the transformation matrix      *      * @param context {@link PageDrawer} object      * @return PageDrawer.Group      * @throws IOException      */
+comment|/**      * Draws the transparency group into a {@link BufferedImage} object and returns it together with the transformation matrix      *      * @param form {@link PageDrawer} object      * @return PageDrawer.Group      * @throws IOException      */
 specifier|public
 name|PageDrawer
 operator|.

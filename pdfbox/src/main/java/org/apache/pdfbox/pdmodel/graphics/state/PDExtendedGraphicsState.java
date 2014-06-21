@@ -1416,7 +1416,7 @@ name|alpha
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the blending mode stored in the COS dictionary      *      * @return      */
+comment|/**      * Returns the blending mode stored in the COS dictionary      *      * @return the blending mode      */
 specifier|public
 name|BlendMode
 name|getBlendMode
@@ -1438,6 +1438,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the soft mask stored in the COS dictionary      *      * @return the soft mask      */
 specifier|public
 name|PDSoftMask
 name|getSoftMask
