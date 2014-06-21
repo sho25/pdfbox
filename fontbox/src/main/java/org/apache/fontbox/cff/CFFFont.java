@@ -1375,7 +1375,6 @@ operator|=
 name|localSubrIndexValue
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 specifier|public
 class|class
 name|Mapping

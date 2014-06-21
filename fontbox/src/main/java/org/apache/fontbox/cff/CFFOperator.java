@@ -260,7 +260,7 @@ name|key
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the operator corresponding to the given name.      * @param key the given name      * @return the corresponding operator      */
+comment|/**      * Returns the operator corresponding to the given name.      * @param name the given name      * @return the corresponding operator      */
 specifier|public
 specifier|static
 name|CFFOperator

@@ -763,7 +763,7 @@ name|getContourCount
 argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+comment|/**      * Get number of components.      *       * @return the number of components      */
 specifier|public
 name|int
 name|getComponentCount

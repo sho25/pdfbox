@@ -147,7 +147,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**      * Automagically finds a list of font files on local system.      *       * @return List&lt;URI&gt; of font files      * @throws IOException io exception {@inheritDoc}      */
+comment|/**      * Automagically finds a list of font files on local system.      *       * @return List&lt;URI&gt; of font files      * @throws IOException thrown if an I/O exception of some sort has occurred      */
 specifier|public
 name|List
 argument_list|<

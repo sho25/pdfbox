@@ -4589,7 +4589,7 @@ name|supplement
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Read the FDSelect Data according to the format.      * @param dataInput      * @param nGlyphs      * @param ros      * @return      * @throws IOException      */
+comment|/**      * Read the FDSelect Data according to the format.      * @param dataInput      * @param nGlyphs      * @param ros      * @return the FDSelect data      * @throws IOException      */
 specifier|private
 name|CIDKeyedFDSelect
 name|readFDSelect
@@ -4664,7 +4664,7 @@ argument_list|()
 throw|;
 block|}
 block|}
-comment|/**      * Read the Format 0 of the FDSelect data structure.      * @param dataInput      * @param format      * @param nGlyphs      * @param ros      * @return      * @throws IOException      */
+comment|/**      * Read the Format 0 of the FDSelect data structure.      * @param dataInput      * @param format      * @param nGlyphs      * @param ros      * @return the Format 0 of the FDSelect data      * @throws IOException      */
 specifier|private
 name|Format0FDSelect
 name|readFormat0FDSelect
@@ -4745,7 +4745,7 @@ return|return
 name|fdselect
 return|;
 block|}
-comment|/**      * Read the Format 3 of the FDSelect data structure.      *       * @param dataInput      * @param format      * @param nGlyphs      * @param ros      * @return      * @throws IOException      */
+comment|/**      * Read the Format 3 of the FDSelect data structure.      *       * @param dataInput      * @param format      * @param nGlyphs      * @param ros      * @return the Format 3 of the FDSelect data      * @throws IOException      */
 specifier|private
 name|Format3FDSelect
 name|readFormat3FDSelect

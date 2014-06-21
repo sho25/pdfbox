@@ -793,7 +793,6 @@ return|return
 name|mappings
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 specifier|public
 class|class
 name|Mapping
