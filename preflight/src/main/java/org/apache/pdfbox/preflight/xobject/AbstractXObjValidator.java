@@ -343,13 +343,20 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_TRANSPARENCY_SMASK
 argument_list|,
-literal|"Soft Mask must be null or None"
+literal|"Soft Mask must be null or None ["
+operator|+
+name|xobject
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * According the ISO 190005:1-2005 specification, a XObject can't have an OPI entry in its dictionary. If the      * XObject has a OPI entry, the error list is updated with the error code ERROR_GRAPHIC_UNEXPECTED_KEY (2.3).      *       * @param errors      *            the list of error to update if the validation fails.      * @return true if the OPI is missing, false otherwise.      */
+comment|/**      * According the ISO 190005:1-2005 specification, a XObject can't have an OPI entry in its dictionary. If the      * XObject has a OPI entry, the error list is updated with the error code ERROR_GRAPHIC_UNEXPECTED_KEY (2.3).      *       */
 specifier|protected
 name|void
 name|checkOPI

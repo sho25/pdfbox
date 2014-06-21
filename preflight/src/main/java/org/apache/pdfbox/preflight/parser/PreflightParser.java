@@ -2263,7 +2263,12 @@ literal|"Expected 'stream' keyword but found '"
 operator|+
 name|streamV
 operator|+
-literal|"'"
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2306,7 +2311,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_STREAM_DELIMITER
 argument_list|,
-literal|"Expected 'EOL' after the stream keyword"
+literal|"Expected 'EOL' after the stream keyword at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2359,7 +2369,21 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_STREAM_DELIMITER
 argument_list|,
-literal|"Expected 'EOL' before the endstream keyword"
+literal|"Expected 'EOL' before the endstream keyword at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
+operator|+
+literal|" but found '"
+operator|+
+name|pdfSource
+operator|.
+name|peek
+argument_list|()
+operator|+
+literal|"'"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2388,7 +2412,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_STREAM_DELIMITER
 argument_list|,
-literal|"Expected 'endstream' keyword but found '"
+literal|"Expected 'endstream' keyword at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
+operator|+
+literal|" but found '"
 operator|+
 name|endstreamV
 operator|+
@@ -2698,7 +2729,12 @@ literal|"Hexa String must have only Hexadecimal Characters (found '"
 operator|+
 name|nextChar
 operator|+
-literal|"')"
+literal|"') at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2730,7 +2766,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_HEXA_STRING_EVEN_NUMBER
 argument_list|,
-literal|"Hexa string shall contain even number of non white space char"
+literal|"Hexa string shall contain even number of non white space char at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2771,7 +2812,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_HEXA_STRING_TOO_LONG
 argument_list|,
-literal|"Hexa string is too long"
+literal|"Hexa string is too long at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2849,6 +2895,13 @@ argument_list|,
 literal|"Float is too long or too small: "
 operator|+
 name|real
+operator|+
+literal|"  at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2889,6 +2942,13 @@ argument_list|,
 literal|"Numeric is too long or too small: "
 operator|+
 name|numAsLong
+operator|+
+literal|"  at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2927,7 +2987,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_TOO_MANY_ENTRIES
 argument_list|,
-literal|"Too Many Entries In Dictionary"
+literal|"Too Many Entries In Dictionary at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3221,7 +3286,29 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_OBJ_DELIMITER
 argument_list|,
-literal|"Single space expected"
+literal|"Single space expected [offset="
+operator|+
+name|offset
+operator|+
+literal|"; key="
+operator|+
+name|offsetOrObjstmObNr
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"; line="
+operator|+
+name|line
+operator|+
+literal|"; object="
+operator|+
+name|pdfObject
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3771,7 +3858,12 @@ name|PreflightConstants
 operator|.
 name|ERROR_SYNTAX_OBJ_DELIMITER
 argument_list|,
-literal|"EOL expected before the 'endobj' keyword"
+literal|"EOL expected before the 'endobj' keyword at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3800,7 +3892,12 @@ name|PreflightConstants
 operator|.
 name|ERROR_SYNTAX_OBJ_DELIMITER
 argument_list|,
-literal|"EOL expected after the 'endobj' keyword"
+literal|"EOL expected after the 'endobj' keyword at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4066,7 +4163,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_TRAILER_EOF
 argument_list|,
-literal|"File contains data after the last %%EOF sequence"
+literal|"File contains data after the last %%EOF sequence at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

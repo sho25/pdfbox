@@ -2051,7 +2051,15 @@ operator|.
 name|card
 argument_list|()
 operator|+
-literal|" and found nothing"
+literal|" and found nothing [prefix="
+operator|+
+name|prefix
+operator|+
+literal|"; name="
+operator|+
+name|name
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -2097,6 +2105,16 @@ name|bagOrSeq
 operator|.
 name|getLocalName
 argument_list|()
+operator|+
+literal|" [prefix="
+operator|+
+name|prefix
+operator|+
+literal|"; name="
+operator|+
+name|name
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -3945,12 +3963,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|(
-operator|(
-name|Text
-operator|)
 name|node
-operator|)
 operator|.
 name|getTextContent
 argument_list|()

@@ -1101,7 +1101,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_STREAM_LENGTH_INVALID
 argument_list|,
-literal|"Stream length is invalide"
+literal|"Stream length is invalid [cObj="
+operator|+
+name|cObj
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1235,7 +1242,22 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_STREAM_LENGTH_INVALID
 argument_list|,
-literal|"Stream length is invalide"
+literal|"Stream length is invalid [cObj="
+operator|+
+name|cObj
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"; defined length="
+operator|+
+name|length
+operator|+
+literal|"; buffer2="
+operator|+
+name|endStream
+operator|+
+literal|"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1279,7 +1301,22 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_STREAM_LENGTH_INVALID
 argument_list|,
-literal|"Stream length is invalide"
+literal|"Stream length is invalid [cObj="
+operator|+
+name|cObj
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"; defined length="
+operator|+
+name|length
+operator|+
+literal|"; buffer2="
+operator|+
+name|endStream
+operator|+
+literal|"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1323,10 +1360,69 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_STREAM_LENGTH_INVALID
 argument_list|,
-literal|"Stream length is invalide"
+literal|"Stream length is invalid [cObj="
+operator|+
+name|cObj
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"; defined length="
+operator|+
+name|length
+operator|+
+literal|"; buffer2="
+operator|+
+name|endStream
+operator|+
+literal|"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+operator|!
+name|endStream
+operator|.
+name|startsWith
+argument_list|(
+literal|"endStream"
+argument_list|)
+condition|)
+block|{
+name|addValidationError
+argument_list|(
+name|context
+argument_list|,
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_SYNTAX_STREAM_LENGTH_INVALID
+argument_list|,
+literal|"Stream length is invalid [cObj="
+operator|+
+name|cObj
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"; defined length="
+operator|+
+name|length
+operator|+
+literal|"; buffer2="
+operator|+
+name|endStream
+operator|+
+literal|"]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 else|else
@@ -1340,24 +1436,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_STREAM_LENGTH_INVALID
 argument_list|,
-literal|"Stream length is invalide"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|addValidationError
-argument_list|(
-name|context
-argument_list|,
-operator|new
-name|ValidationError
-argument_list|(
-name|ERROR_SYNTAX_STREAM_LENGTH_INVALID
-argument_list|,
-literal|"Stream length is invalide"
+literal|"Stream length is invalid"
 argument_list|)
 argument_list|)
 expr_stmt|;
