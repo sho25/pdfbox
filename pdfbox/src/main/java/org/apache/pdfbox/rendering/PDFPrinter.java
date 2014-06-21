@@ -644,6 +644,28 @@ name|printerJob
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Prints the given document using the default printer without prompting the user.      * @param attributes application supplied attributes      * @throws PrinterException if the document cannot be printed      */
+specifier|public
+name|boolean
+name|silentPrint
+parameter_list|(
+name|PrintRequestAttributeSet
+name|attributes
+parameter_list|)
+throws|throws
+name|PrinterException
+block|{
+return|return
+name|print
+argument_list|(
+name|printerJob
+argument_list|,
+name|attributes
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
 comment|/**      * Prints the given document using the default printer without prompting the user.      * @param printerJob a printer job definition      * @throws PrinterException if the document cannot be printed      */
 specifier|public
 name|void
