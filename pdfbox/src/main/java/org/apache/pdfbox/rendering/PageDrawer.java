@@ -4427,7 +4427,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// PDFBOX-2153 don't use obsolete clipping path
 name|graphics
 operator|.
 name|fill
