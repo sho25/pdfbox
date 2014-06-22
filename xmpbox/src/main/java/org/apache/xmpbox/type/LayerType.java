@@ -172,7 +172,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Set LayerName      *       * @param prefix      *            the prefix of LayerName property to set      * @param name      *            the name of LayerName property to set      * @param image      *            the value of LayerName property to set      */
+comment|/**      * Set LayerName      *       * @param image      *            the value of LayerName property to set      */
 specifier|public
 name|void
 name|setLayerName
@@ -235,7 +235,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Set LayerText      *       * @param prefix      *            the prefix of LayerText property to set      * @param name      *            the name of LayerText property to set      * @param image      *            the value of LayerText property to set      */
+comment|/**      * Set LayerText      *       * @param image      *            the value of LayerText property to set      */
 specifier|public
 name|void
 name|setLayerText

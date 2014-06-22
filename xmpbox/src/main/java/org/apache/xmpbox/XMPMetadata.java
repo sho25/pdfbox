@@ -1158,7 +1158,7 @@ return|return
 name|xmpMM
 return|;
 block|}
-comment|/***      * create and add Photoshop Schema to this metadata. This method return the created schema to enter information      *       * @return      */
+comment|/***      * create and add Photoshop Schema to this metadata. This method return the created schema to enter information      *       * @return schema added in order to work on it      */
 specifier|public
 name|PhotoshopSchema
 name|createAndAddPhotoshopSchema

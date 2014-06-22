@@ -63,7 +63,7 @@ argument_list|>
 name|properties
 decl_stmt|;
 comment|// private Map<String, Attribute> attributes;
-comment|/**      * Complex Property type constructor (namespaceURI is given)      *       * @param metadata      *            The metadata to attach to this property      * @param namespaceURI      *            The namespace URI to associate to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this property      */
+comment|/**      * Complex Property type constructor (namespaceURI is given)      *       */
 specifier|public
 name|ComplexPropertyContainer
 parameter_list|()

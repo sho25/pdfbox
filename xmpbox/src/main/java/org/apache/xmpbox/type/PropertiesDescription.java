@@ -73,7 +73,7 @@ name|PropertyType
 argument_list|>
 name|types
 decl_stmt|;
-comment|/**      * Build PropMapping for specified namespace      *       * @param namespace      *            namespace URI concerned by this PropMapping      */
+comment|/**      * Build PropMapping for specified namespace      *       */
 specifier|public
 name|PropertiesDescription
 parameter_list|()
@@ -113,7 +113,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Add a new property, an attributes list can be given or can be null      *       * @param name      *            new property name      * @param type      *            Valuetype of the new property      * @param attr      *            A list of attribute (put null while attribute management is not implemented)      */
+comment|/**      * Add a new property, an attributes list can be given or can be null      *       * @param name      *            new property name      * @param type      *            Valuetype of the new property      */
 specifier|public
 name|void
 name|addNewProperty

@@ -1062,7 +1062,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * set default title      *       * @param lang      * @param value      */
+comment|/**      * set default title      *       * @param value      */
 specifier|public
 name|void
 name|setTitle

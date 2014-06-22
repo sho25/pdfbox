@@ -36,7 +36,7 @@ specifier|private
 name|String
 name|value
 decl_stmt|;
-comment|/**      * Constructor of a new Attribute      *       * @param nsURI      *            namespaceURI of this attribute (could be null)      * @param prefix      *            prefix of this attribute      * @param localName      *            localName of this attribute      * @param value      *            value given to this attribute      */
+comment|/**      * Constructor of a new Attribute      *       * @param nsURI      *            namespaceURI of this attribute (could be null)      * @param localName      *            localName of this attribute      * @param value      *            value given to this attribute      */
 specifier|public
 name|Attribute
 parameter_list|(

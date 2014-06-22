@@ -193,7 +193,7 @@ name|WHEN
 init|=
 literal|"when"
 decl_stmt|;
-comment|/**      *       * @param metadata      *            The metadata to attach to this property      * @param namespace      *            the namespace URI to associate to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this thumbnail type      */
+comment|/**      *       * @param metadata      *            The metadata to attach to this property      */
 specifier|public
 name|ResourceEventType
 parameter_list|(

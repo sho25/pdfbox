@@ -94,7 +94,7 @@ name|Attribute
 argument_list|>
 name|attributes
 decl_stmt|;
-comment|/**      * Constructor of a XMP Field      *       * @param metadata      *            The metadata to attach to this field      * @param namespaceURI      *            the namespace URI      * @param prefix      *            the prefix to set for this field      * @param propertyName      *            the local name to set for this field      */
+comment|/**      * Constructor of a XMP Field      *       * @param metadata      *            The metadata to attach to this field      * @param propertyName      *            the local name to set for this field      */
 specifier|public
 name|AbstractField
 parameter_list|(
