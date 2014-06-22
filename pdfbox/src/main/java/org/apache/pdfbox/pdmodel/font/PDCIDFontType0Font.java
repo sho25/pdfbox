@@ -98,8 +98,6 @@ decl_stmt|;
 specifier|private
 name|PDType1CFont
 name|type1CFont
-init|=
-literal|null
 decl_stmt|;
 comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      */
 specifier|public
@@ -107,11 +105,16 @@ name|PDCIDFontType0Font
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
+parameter_list|,
+name|PDType0Font
+name|parent
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|fontDictionary
+argument_list|,
+name|parent
 argument_list|)
 expr_stmt|;
 name|PDFontDescriptor

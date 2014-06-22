@@ -230,11 +230,16 @@ name|PDCIDFontType2Font
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
+parameter_list|,
+name|PDType0Font
+name|parent
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|fontDictionary
+argument_list|,
+name|parent
 argument_list|)
 expr_stmt|;
 block|}
@@ -689,6 +694,9 @@ block|}
 elseif|else
 if|if
 condition|(
+name|getParent
+argument_list|()
+operator|.
 name|getCMap
 argument_list|()
 operator|!=
@@ -698,6 +706,9 @@ block|{
 name|String
 name|mappedString
 init|=
+name|getParent
+argument_list|()
+operator|.
 name|getCMap
 argument_list|()
 operator|.

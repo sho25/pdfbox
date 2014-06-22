@@ -227,6 +227,10 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
+name|PDType0Font
+name|parent
+decl_stmt|;
+specifier|private
 name|Map
 argument_list|<
 name|Integer
@@ -234,14 +238,10 @@ argument_list|,
 name|Float
 argument_list|>
 name|widthCache
-init|=
-literal|null
 decl_stmt|;
 specifier|private
 name|long
 name|defaultWidth
-init|=
-literal|0
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
 specifier|protected
@@ -249,6 +249,9 @@ name|PDCIDFont
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
+parameter_list|,
+name|PDType0Font
+name|parent
 parameter_list|)
 block|{
 name|super
@@ -256,9 +259,26 @@ argument_list|(
 name|fontDictionary
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|parent
+operator|=
+name|parent
+expr_stmt|;
 name|extractWidths
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * Returns the Type 0 font which is the parent of this font.      *      * @return parent Type 0 font      */
+specifier|public
+specifier|final
+name|PDType0Font
+name|getParent
+parameter_list|()
+block|{
+return|return
+name|parent
+return|;
 block|}
 comment|/**      * This will get the fonts bounding box.      *      * @return The fonts bounding box.      * @throws IOException If there is an error getting the font bounding box.      */
 annotation|@

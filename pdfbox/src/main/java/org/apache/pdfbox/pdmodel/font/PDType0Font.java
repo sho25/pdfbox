@@ -292,14 +292,13 @@ try|try
 block|{
 name|descendantFont
 operator|=
-operator|(
-name|PDCIDFont
-operator|)
 name|PDFontFactory
 operator|.
-name|createFont
+name|createDescendantFont
 argument_list|(
 name|descendantFontDictionary
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
