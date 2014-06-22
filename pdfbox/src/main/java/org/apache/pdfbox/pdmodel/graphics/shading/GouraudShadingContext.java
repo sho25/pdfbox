@@ -669,12 +669,12 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"%02x"
+literal|"%02X"
 argument_list|,
 name|color
 argument_list|)
 operator|+
-literal|"-> color["
+literal|" -> color["
 operator|+
 name|n
 operator|+
@@ -765,6 +765,7 @@ operator|.
 name|point
 argument_list|)
 expr_stmt|;
+block|}
 comment|// transform from user to device space
 name|xform
 operator|.
@@ -779,7 +780,6 @@ operator|.
 name|point
 argument_list|)
 expr_stmt|;
-block|}
 name|LOG
 operator|.
 name|debug
