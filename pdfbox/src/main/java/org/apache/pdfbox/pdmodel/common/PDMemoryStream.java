@@ -186,6 +186,8 @@ specifier|public
 name|InputStream
 name|createInputStream
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
