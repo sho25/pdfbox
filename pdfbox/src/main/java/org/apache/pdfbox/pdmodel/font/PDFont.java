@@ -768,7 +768,7 @@ name|widths
 init|=
 literal|null
 decl_stmt|;
-specifier|private
+specifier|protected
 name|PDFontDescriptor
 name|fontDescriptor
 init|=
@@ -945,7 +945,6 @@ name|afm
 argument_list|)
 expr_stmt|;
 block|}
-comment|// it shouldn't be possible to reach this point...
 block|}
 block|}
 return|return
@@ -2403,6 +2402,18 @@ name|boolean
 name|isSymbolicFont
 parameter_list|()
 block|{
+if|if
+condition|(
+name|getFontDescriptor
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 return|return
 name|getFontDescriptor
 argument_list|()
