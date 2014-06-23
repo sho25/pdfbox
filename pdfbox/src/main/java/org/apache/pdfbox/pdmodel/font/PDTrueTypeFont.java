@@ -1704,6 +1704,17 @@ name|getValue
 argument_list|()
 decl_stmt|;
 comment|// pdf code to unicode by glyph list.
+if|if
+condition|(
+operator|!
+name|name
+operator|.
+name|equals
+argument_list|(
+literal|".notdef"
+argument_list|)
+condition|)
+block|{
 name|String
 name|c
 init|=
@@ -1787,6 +1798,7 @@ name|scaling
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
