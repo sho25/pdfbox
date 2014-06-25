@@ -87,6 +87,8 @@ block|{
 comment|//limit creation to one instance.
 block|}
 comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException If an error occurs while visiting this object.      */
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|accept
@@ -124,6 +126,18 @@ argument_list|(
 name|NULL_BYTES
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"COSNull{}"
+return|;
 block|}
 block|}
 end_class
