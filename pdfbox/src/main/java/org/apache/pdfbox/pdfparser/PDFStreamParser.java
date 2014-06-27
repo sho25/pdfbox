@@ -447,8 +447,6 @@ try|try
 block|{
 name|Object
 name|token
-init|=
-literal|null
 decl_stmt|;
 while|while
 condition|(
@@ -566,6 +564,8 @@ throw|;
 block|}
 block|}
 comment|/** {@inheritDoc} */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -581,6 +581,8 @@ literal|null
 return|;
 block|}
 comment|/** {@inheritDoc} */
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|next
@@ -616,6 +618,8 @@ name|tmp
 return|;
 block|}
 comment|/** {@inheritDoc} */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove
@@ -640,8 +644,6 @@ name|IOException
 block|{
 name|Object
 name|retval
-init|=
-literal|null
 decl_stmt|;
 name|skipSpaces
 argument_list|()
@@ -1308,12 +1310,18 @@ name|currentByte
 operator|==
 literal|'I'
 operator|&&
-name|isSpaceOrReturn
+name|hasNextSpaceOrReturn
 argument_list|()
 operator|&&
 name|hasNoFollowingBinData
 argument_list|(
 name|pdfSource
+argument_list|)
+operator|&&
+operator|!
+name|hasPrecedingAscii85Data
+argument_list|(
+name|imageData
 argument_list|)
 operator|)
 operator|&&
@@ -1353,7 +1361,7 @@ argument_list|(
 literal|"ID"
 argument_list|)
 expr_stmt|;
-comment|// save the image data to the operator, so that it can be accessed it later
+comment|// save the image data to the operator, so that it can be accessed later
 operator|(
 operator|(
 name|PDFOperator
@@ -1554,6 +1562,87 @@ return|return
 name|noBinData
 return|;
 block|}
+comment|/**      * Check whether the output stream ends with 70 ASCII85 data bytes      * (33..117). This method is to be called when "EI" and then space/LF/CR      * are detected.      *      * @param imageData output data stream without the "EI"      * @return true if this is an ASCII85 line so the "EI" is to be considered      * part of the data stream, false if not      */
+specifier|private
+name|boolean
+name|hasPrecedingAscii85Data
+parameter_list|(
+name|ByteArrayOutputStream
+name|imageData
+parameter_list|)
+block|{
+if|if
+condition|(
+name|imageData
+operator|.
+name|size
+argument_list|()
+operator|<
+literal|70
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+name|byte
+index|[]
+name|tab
+init|=
+name|imageData
+operator|.
+name|toByteArray
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+name|tab
+operator|.
+name|length
+operator|-
+literal|1
+init|;
+name|i
+operator|>=
+name|tab
+operator|.
+name|length
+operator|-
+literal|70
+condition|;
+operator|--
+name|i
+control|)
+block|{
+if|if
+condition|(
+name|tab
+index|[
+name|i
+index|]
+operator|<
+literal|33
+operator|||
+name|tab
+index|[
+name|i
+index|]
+operator|>
+literal|117
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+return|return
+literal|true
+return|;
+block|}
 comment|/**      * This will read an operator from the stream.      *      * @return The operator that was read from the stream.      *      * @throws IOException If there is an error reading from the stream.      */
 specifier|protected
 name|String
@@ -1728,7 +1817,7 @@ block|}
 comment|/**      * Checks if the next char is a space or a return.      *       * @return true if the next char is a space or a return      * @throws IOException if something went wrong      */
 specifier|private
 name|boolean
-name|isSpaceOrReturn
+name|hasNextSpaceOrReturn
 parameter_list|()
 throws|throws
 name|IOException
