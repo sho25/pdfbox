@@ -346,15 +346,10 @@ return|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Invalid field type: "
-operator|+
-name|fieldType
-argument_list|)
-throw|;
+comment|// todo: inheritance and "non-terminal fields" are not supported yet
+return|return
+literal|null
+return|;
 block|}
 block|}
 specifier|private
