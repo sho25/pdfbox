@@ -653,6 +653,13 @@ literal|"Decryption material is not compatible with the document"
 argument_list|)
 throw|;
 block|}
+name|decryptMetadata
+operator|=
+name|encryption
+operator|.
+name|isEncryptMetaData
+argument_list|()
+expr_stmt|;
 name|StandardDecryptionMaterial
 name|material
 init|=
