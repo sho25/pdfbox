@@ -3742,13 +3742,6 @@ name|strokePath
 argument_list|()
 expr_stmt|;
 block|}
-specifier|public
-name|void
-name|clip
-parameter_list|()
-block|{
-comment|// ...
-block|}
 comment|/**      * Modify the current clipping path by intersecting it with the current path.      * The clipping path will not be updated until the succeeding painting operator is called.      *       * @param windingRule The winding rule which will be used for clipping.      */
 specifier|public
 name|void
