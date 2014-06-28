@@ -3141,7 +3141,7 @@ return|return
 name|linePath
 return|;
 block|}
-comment|/**      * Generates awt raster for a soft mask      *       * @param context      * @return awt raster for soft mask      * @throws IOException      */
+comment|/**      * Generates awt raster for a soft mask      *       * @param softMask      * @return awt raster for soft mask      * @throws IOException      */
 specifier|private
 name|Raster
 name|createSoftMaskRaster
@@ -3152,12 +3152,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PageDrawer
-operator|.
-name|Group
+name|TransparencyGroup
 name|result
 init|=
-name|createPageDrawerGroup
+name|createTransparencyGroup
 argument_list|(
 name|softMask
 operator|.
@@ -3744,166 +3742,12 @@ name|strokePath
 argument_list|()
 expr_stmt|;
 block|}
-comment|// This code generalizes the code Jim Lynch wrote for AppendRectangleToPath
-comment|/**      * use the current transformation matrix to transform a single point.      *      * @param x x-coordinate of the point to be transform      * @param y y-coordinate of the point to be transform      * @return the transformed coordinates as Point2D.Double      */
 specifier|public
-name|Point2D
-operator|.
-name|Double
-name|transformedPoint
-parameter_list|(
-name|double
-name|x
-parameter_list|,
-name|double
-name|y
-parameter_list|)
+name|void
+name|clip
+parameter_list|()
 block|{
-name|double
-index|[]
-name|position
-init|=
-block|{
-name|x
-block|,
-name|y
-block|}
-decl_stmt|;
-name|getGraphicsState
-argument_list|()
-operator|.
-name|getCurrentTransformationMatrix
-argument_list|()
-operator|.
-name|createAffineTransform
-argument_list|()
-operator|.
-name|transform
-argument_list|(
-name|position
-argument_list|,
-literal|0
-argument_list|,
-name|position
-argument_list|,
-literal|0
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-return|return
-operator|new
-name|Point2D
-operator|.
-name|Double
-argument_list|(
-name|position
-index|[
-literal|0
-index|]
-argument_list|,
-name|position
-index|[
-literal|1
-index|]
-argument_list|)
-return|;
-block|}
-comment|// transforms a width using the CTM
-specifier|private
-name|float
-name|transformWidth
-parameter_list|(
-name|float
-name|width
-parameter_list|)
-block|{
-name|Matrix
-name|ctm
-init|=
-name|getGraphicsState
-argument_list|()
-operator|.
-name|getCurrentTransformationMatrix
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|ctm
-operator|==
-literal|null
-condition|)
-block|{
-comment|// TODO does the CTM really need to use null?
-return|return
-name|width
-return|;
-block|}
-name|float
-name|x
-init|=
-name|ctm
-operator|.
-name|getValue
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-operator|+
-name|ctm
-operator|.
-name|getValue
-argument_list|(
-literal|1
-argument_list|,
-literal|0
-argument_list|)
-decl_stmt|;
-name|float
-name|y
-init|=
-name|ctm
-operator|.
-name|getValue
-argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
-operator|+
-name|ctm
-operator|.
-name|getValue
-argument_list|(
-literal|1
-argument_list|,
-literal|1
-argument_list|)
-decl_stmt|;
-return|return
-name|width
-operator|*
-operator|(
-name|float
-operator|)
-name|Math
-operator|.
-name|sqrt
-argument_list|(
-operator|(
-name|x
-operator|*
-name|x
-operator|+
-name|y
-operator|*
-name|y
-operator|)
-operator|*
-literal|0.5
-argument_list|)
-return|;
+comment|// ...
 block|}
 comment|/**      * Set the clipping winding rule.      *       * @param windingRule The winding rule which will be used for clipping.      *       */
 specifier|public
@@ -4028,7 +3872,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Draw the AWT image. Called by Invoke. Moved into PageDrawer so that Invoke doesn't have to reach in here for      * Graphics as that breaks extensibility.      *       * @param awtImage The image to draw.      * @param at The transformation to use when drawing.      *       */
+comment|/**      * Draw the AWT image. Called by Invoke. Moved into PageDrawer so that Invoke doesn't have to      * reach in here for Graphics as that breaks extensibility.      *       * @param awtImage The image to draw.      * @param at The transformation to use when drawing.      *       */
 specifier|public
 name|void
 name|drawImage
@@ -4373,41 +4217,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a buffered image for a transparency group result.      *      * @param clippingPath clipping path (in current graphics2D coordinates)      * @param resources Global resources      * @param content Content of the transparency group to create      * @return {@link Group} object      */
-specifier|private
-name|Group
-name|createGroup
-parameter_list|(
-name|GeneralPath
-name|clippingPath
-parameter_list|,
-name|PDResources
-name|resources
-parameter_list|,
-name|COSStream
-name|content
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-operator|new
-name|Group
-argument_list|(
-name|clippingPath
-argument_list|,
-name|resources
-argument_list|,
-name|content
-argument_list|)
-return|;
-block|}
-comment|/**      * Draws the transparency group into a {@link BufferedImage} object and returns it together with the transformation matrix      *      * @param form {@link PageDrawer} object      * @return PageDrawer.Group      * @throws IOException      */
+comment|/**      * Draws the transparency group into a {@link BufferedImage} object and returns it together      * with the transformation matrix.      *      * @param form {@link PageDrawer} object      * @return PageDrawer.Group      * @throws IOException      */
 specifier|public
-name|PageDrawer
-operator|.
-name|Group
-name|createPageDrawerGroup
+name|TransparencyGroup
+name|createTransparencyGroup
 parameter_list|(
 name|PDFormXObject
 name|form
@@ -4415,7 +4228,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// save the graphics state
 name|saveGraphicsState
 argument_list|()
 expr_stmt|;
@@ -4442,8 +4254,7 @@ name|getResources
 argument_list|()
 expr_stmt|;
 block|}
-comment|// if there is an optional form matrix, we have to
-comment|// map the form space to the user space
+comment|// if there is an optional form matrix, we have to map the form space to the user space
 name|Matrix
 name|matrix
 init|=
@@ -4460,7 +4271,7 @@ literal|null
 condition|)
 block|{
 name|Matrix
-name|xobjectCTM
+name|xCTM
 init|=
 name|matrix
 operator|.
@@ -4478,7 +4289,7 @@ argument_list|()
 operator|.
 name|setCurrentTransformationMatrix
 argument_list|(
-name|xobjectCTM
+name|xCTM
 argument_list|)
 expr_stmt|;
 block|}
@@ -4659,7 +4470,8 @@ name|closePath
 argument_list|()
 expr_stmt|;
 return|return
-name|createGroup
+operator|new
+name|TransparencyGroup
 argument_list|(
 name|path
 argument_list|,
@@ -4674,28 +4486,26 @@ return|;
 block|}
 finally|finally
 block|{
-comment|// restore the graphics state
 name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create for rendering transparency groups...      *      **/
+comment|/**      * Transparency group.      **/
 specifier|public
+specifier|final
 class|class
-name|Group
+name|TransparencyGroup
 block|{
-comment|/**          * {@link BufferedImage} object to draw into...          */
 specifier|private
 specifier|final
 name|BufferedImage
-name|mImage
+name|image
 decl_stmt|;
-comment|/**          * Matrix for drawing the result          */
 specifier|private
 specifier|final
 name|Matrix
-name|mResultMatrix
+name|matrix
 decl_stmt|;
 specifier|private
 specifier|final
@@ -4717,9 +4527,9 @@ specifier|final
 name|int
 name|height
 decl_stmt|;
-comment|/**          * Creates a group object. The group can now be created only if the underlying {@link Graphics2D} implementation          * is SunGraphics2D (i.e. rendering to bitmap). For all other implementations, this throws          * an {@link UnsupportedOperationException}.          *          * @param image          * @param g2d          */
+comment|/**          * Creates a buffered image for a transparency group result.          *          * @param clippingPath clipping path (in current graphics2D coordinates)          * @param resources Global resources          * @param content Content of the transparency group to create          */
 specifier|private
-name|Group
+name|TransparencyGroup
 parameter_list|(
 name|GeneralPath
 name|clippingPath
@@ -4738,7 +4548,7 @@ name|g2dOriginal
 init|=
 name|graphics
 decl_stmt|;
-comment|// Check underlying g2d
+comment|// check underlying g2d
 name|double
 name|unitSize
 init|=
@@ -4894,7 +4704,7 @@ name|maxY
 operator|-
 name|minY
 expr_stmt|;
-name|mImage
+name|image
 operator|=
 operator|new
 name|BufferedImage
@@ -4912,7 +4722,7 @@ comment|// FIXME - color space
 name|Graphics2D
 name|groupG2D
 init|=
-name|mImage
+name|image
 operator|.
 name|createGraphics
 argument_list|()
@@ -4944,11 +4754,9 @@ argument_list|)
 expr_stmt|;
 name|AffineTransform
 name|atInv
-init|=
-literal|null
 decl_stmt|;
 name|Matrix
-name|tmpResultMatrix
+name|matrix1
 init|=
 literal|null
 decl_stmt|;
@@ -4984,13 +4792,13 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|tmpResultMatrix
+name|matrix1
 operator|=
 operator|new
 name|Matrix
 argument_list|()
 expr_stmt|;
-name|tmpResultMatrix
+name|matrix1
 operator|.
 name|setFromAffineTransform
 argument_list|(
@@ -5014,9 +4822,9 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-name|mResultMatrix
+name|matrix
 operator|=
-name|tmpResultMatrix
+name|matrix1
 expr_stmt|;
 name|PDGraphicsState
 name|gs
@@ -5082,29 +4890,28 @@ name|getImage
 parameter_list|()
 block|{
 return|return
-name|mImage
+name|image
 return|;
 block|}
-comment|/**          * @return the resultMatrix          */
 specifier|public
 name|Matrix
-name|getResultMatrix
+name|getMatrix
 parameter_list|()
 block|{
 return|return
-name|mResultMatrix
+name|matrix
 return|;
 block|}
 specifier|public
 name|void
-name|drawResult
+name|draw
 parameter_list|()
 throws|throws
 name|IOException
 block|{
 if|if
 condition|(
-name|mResultMatrix
+name|matrix
 operator|!=
 literal|null
 condition|)
@@ -5114,9 +4921,9 @@ argument_list|()
 expr_stmt|;
 name|drawImage
 argument_list|(
-name|mImage
+name|image
 argument_list|,
-name|mResultMatrix
+name|matrix
 operator|.
 name|createAffineTransform
 argument_list|()
@@ -5133,7 +4940,7 @@ name|getAlphaRaster
 parameter_list|()
 block|{
 return|return
-name|mImage
+name|image
 operator|.
 name|getAlphaRaster
 argument_list|()
@@ -5152,7 +4959,7 @@ name|getLuminosityRaster
 parameter_list|()
 block|{
 name|BufferedImage
-name|tmpImage
+name|gray
 init|=
 operator|new
 name|BufferedImage
@@ -5169,7 +4976,7 @@ decl_stmt|;
 name|Graphics
 name|g
 init|=
-name|tmpImage
+name|gray
 operator|.
 name|getGraphics
 argument_list|()
@@ -5178,7 +4985,7 @@ name|g
 operator|.
 name|drawImage
 argument_list|(
-name|mImage
+name|image
 argument_list|,
 literal|0
 argument_list|,
@@ -5190,7 +4997,7 @@ expr_stmt|;
 name|WritableRaster
 name|result
 init|=
-name|tmpImage
+name|gray
 operator|.
 name|getRaster
 argument_list|()

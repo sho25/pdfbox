@@ -671,16 +671,13 @@ name|xobject
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|form
 operator|.
 name|getGroup
 argument_list|()
 operator|!=
 literal|null
-operator|)
 operator|&&
-operator|(
 name|COSName
 operator|.
 name|TRANSPARENCY
@@ -695,25 +692,24 @@ operator|.
 name|getSubType
 argument_list|()
 argument_list|)
-operator|)
 condition|)
 block|{
 name|PageDrawer
 operator|.
-name|Group
+name|TransparencyGroup
 name|group
 init|=
 name|drawer
 operator|.
-name|createPageDrawerGroup
+name|createTransparencyGroup
 argument_list|(
 name|form
 argument_list|)
 decl_stmt|;
-comment|// Draw the result of the group to the page...
+comment|// draw the result of the transparency group to the page
 name|group
 operator|.
-name|drawResult
+name|draw
 argument_list|()
 expr_stmt|;
 block|}
