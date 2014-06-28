@@ -1279,8 +1279,10 @@ name|retval
 return|;
 block|}
 comment|/**      * Clones this object.      * @return cloned matrix as an object.      */
+annotation|@
+name|Override
 specifier|public
-name|Object
+name|Matrix
 name|clone
 parameter_list|()
 block|{
@@ -1310,20 +1312,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|clone
-return|;
-block|}
-comment|/**      * This will copy the text matrix data.      *      * @return a matrix that matches this one.      */
-specifier|public
-name|Matrix
-name|copy
-parameter_list|()
-block|{
-return|return
-operator|(
-name|Matrix
-operator|)
-name|clone
-argument_list|()
 return|;
 block|}
 comment|/**      * This will return a string representation of the matrix.      *      * @return The matrix as a string.      */

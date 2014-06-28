@@ -385,15 +385,19 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
-name|Object
+name|PDTextState
 name|clone
 parameter_list|()
 block|{
 try|try
 block|{
 return|return
+operator|(
+name|PDTextState
+operator|)
 name|super
 operator|.
 name|clone
@@ -403,14 +407,18 @@ block|}
 catch|catch
 parameter_list|(
 name|CloneNotSupportedException
-name|ignore
+name|e
 parameter_list|)
 block|{
-comment|//ignore
+comment|// should not happen
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
 block|}
-return|return
-literal|null
-return|;
 block|}
 block|}
 end_class

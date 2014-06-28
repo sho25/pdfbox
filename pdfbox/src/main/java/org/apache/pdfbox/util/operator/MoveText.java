@@ -180,7 +180,7 @@ operator|.
 name|getTextLineMatrix
 argument_list|()
 operator|.
-name|copy
+name|clone
 argument_list|()
 argument_list|)
 expr_stmt|;

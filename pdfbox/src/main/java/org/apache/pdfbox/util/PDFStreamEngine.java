@@ -2097,9 +2097,6 @@ name|graphicsStack
 operator|.
 name|push
 argument_list|(
-operator|(
-name|PDGraphicsState
-operator|)
 name|getGraphicsState
 argument_list|()
 operator|.

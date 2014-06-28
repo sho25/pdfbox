@@ -278,7 +278,7 @@ name|setTextLineMatrix
 argument_list|(
 name|textMatrix
 operator|.
-name|copy
+name|clone
 argument_list|()
 argument_list|)
 expr_stmt|;

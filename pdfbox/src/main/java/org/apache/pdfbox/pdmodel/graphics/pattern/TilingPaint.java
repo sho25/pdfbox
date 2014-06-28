@@ -650,9 +650,6 @@ block|{
 comment|// undo translation
 name|matrix
 operator|=
-operator|(
-name|Matrix
-operator|)
 name|pattern
 operator|.
 name|getMatrix

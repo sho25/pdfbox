@@ -106,7 +106,7 @@ name|m2
 init|=
 name|m1
 operator|.
-name|copy
+name|clone
 argument_list|()
 decl_stmt|;
 name|assertNotSame
@@ -192,7 +192,7 @@ name|m1
 init|=
 name|testMatrix
 operator|.
-name|copy
+name|clone
 argument_list|()
 decl_stmt|;
 name|Matrix
@@ -200,7 +200,7 @@ name|m2
 init|=
 name|testMatrix
 operator|.
-name|copy
+name|clone
 argument_list|()
 decl_stmt|;
 comment|// Multiply two matrices together producing a new result matrix.
@@ -519,14 +519,14 @@ name|m1
 operator|=
 name|testMatrix
 operator|.
-name|copy
+name|clone
 argument_list|()
 expr_stmt|;
 name|m2
 operator|=
 name|testMatrix
 operator|.
-name|copy
+name|clone
 argument_list|()
 expr_stmt|;
 name|retVal
@@ -609,7 +609,7 @@ name|m1
 operator|=
 name|testMatrix
 operator|.
-name|copy
+name|clone
 argument_list|()
 expr_stmt|;
 name|retVal

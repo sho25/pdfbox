@@ -135,7 +135,7 @@ operator|)
 name|context
 operator|)
 operator|.
-name|setClippingWindingRule
+name|clip
 argument_list|(
 name|GeneralPath
 operator|.
