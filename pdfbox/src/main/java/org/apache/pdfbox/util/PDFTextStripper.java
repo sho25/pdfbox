@@ -4375,6 +4375,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+operator|!
+name|inParagraph
+condition|)
+block|{
+name|writeParagraphStart
+argument_list|()
+expr_stmt|;
+block|}
 name|output
 operator|.
 name|write
