@@ -55,16 +55,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Shape
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|geom
 operator|.
 name|Area
@@ -391,7 +381,14 @@ comment|/**      * Default constructor.      */
 specifier|public
 name|PDGraphicsState
 parameter_list|()
-block|{     }
+block|{
+name|clippingPath
+operator|=
+operator|new
+name|Area
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Constructor with a given pagesize to initialize the clipping path.      * @param page the size of the page      */
 specifier|public
 name|PDGraphicsState
