@@ -272,6 +272,8 @@ expr_stmt|;
 comment|// the specification claim to use direct objects
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -725,13 +727,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|element
-operator|!=
-literal|null
-condition|)
-block|{
 name|actuals
 operator|.
 name|add
@@ -739,7 +734,6 @@ argument_list|(
 name|element
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|retval
@@ -873,13 +867,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|element
-operator|!=
-literal|null
-condition|)
-block|{
 name|actuals
 operator|.
 name|add
@@ -887,7 +874,6 @@ argument_list|(
 name|element
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|retval
@@ -1135,13 +1121,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|element
-operator|!=
-literal|null
-condition|)
-block|{
 name|actuals
 operator|.
 name|add
@@ -1149,7 +1128,6 @@ argument_list|(
 name|element
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|retval
@@ -1439,13 +1417,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|element
-operator|!=
-literal|null
-condition|)
-block|{
 name|actuals
 operator|.
 name|add
@@ -1453,7 +1424,6 @@ argument_list|(
 name|element
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|retval
