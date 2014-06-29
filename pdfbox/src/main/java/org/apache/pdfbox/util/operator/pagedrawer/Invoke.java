@@ -549,10 +549,14 @@ name|getRenderer
 argument_list|()
 argument_list|,
 name|color
+argument_list|,
+name|drawer
+operator|.
+name|getPageHeight
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//<--- TODO: pass page height?
 block|}
 else|else
 block|{
