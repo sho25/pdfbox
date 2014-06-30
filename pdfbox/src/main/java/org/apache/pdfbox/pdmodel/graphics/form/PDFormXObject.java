@@ -466,7 +466,7 @@ argument_list|(
 name|resources
 argument_list|)
 expr_stmt|;
-comment|// check for a recursion, see PDFBOX-1813
+comment|// check for a possible recursion
 if|if
 condition|(
 name|name
@@ -501,59 +501,6 @@ name|name
 argument_list|)
 condition|)
 block|{
-name|PDXObject
-name|xobject
-init|=
-name|xobjects
-operator|.
-name|get
-argument_list|(
-name|name
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|xobject
-operator|instanceof
-name|PDFormXObject
-condition|)
-block|{
-name|int
-name|length1
-init|=
-name|getCOSStream
-argument_list|()
-operator|.
-name|getInt
-argument_list|(
-name|COSName
-operator|.
-name|LENGTH
-argument_list|)
-decl_stmt|;
-name|int
-name|length2
-init|=
-name|xobject
-operator|.
-name|getCOSStream
-argument_list|()
-operator|.
-name|getInt
-argument_list|(
-name|COSName
-operator|.
-name|LENGTH
-argument_list|)
-decl_stmt|;
-comment|// seems to be the same object
-if|if
-condition|(
-name|length1
-operator|==
-name|length2
-condition|)
-block|{
 name|retval
 operator|.
 name|removeXObject
@@ -572,8 +519,6 @@ operator|+
 literal|" to avoid a recursion"
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 block|}
 block|}
