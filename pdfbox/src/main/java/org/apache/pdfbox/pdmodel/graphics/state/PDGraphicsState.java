@@ -377,18 +377,6 @@ name|smoothness
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * Default constructor.      */
-specifier|public
-name|PDGraphicsState
-parameter_list|()
-block|{
-name|clippingPath
-operator|=
-operator|new
-name|Area
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**      * Constructor with a given pagesize to initialize the clipping path.      * @param page the size of the page      */
 specifier|public
 name|PDGraphicsState
