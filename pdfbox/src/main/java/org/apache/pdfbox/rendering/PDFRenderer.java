@@ -136,7 +136,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new PDFRenderer.      * @param document the document to render      * @param clearResourcesAutomatically indicates that all resources will be cleared automatically after rendering      */
+comment|/**      * Creates a new PDFRenderer.      * @param document the document to render      * @param clearResourcesAutomatically true to clear cached page resources after rendering      */
 specifier|public
 name|PDFRenderer
 parameter_list|(
@@ -724,6 +724,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: need to make it easy to use a custom PageDrawer and TilingPatternDrawer
 name|PageDrawer
 name|drawer
 init|=
@@ -731,24 +732,18 @@ operator|new
 name|PageDrawer
 argument_list|(
 name|this
+argument_list|,
+name|page
 argument_list|)
 decl_stmt|;
-comment|// TODO: need to make it easy to use a custom PageDrawer
 name|drawer
 operator|.
 name|drawPage
 argument_list|(
 name|graphics
 argument_list|,
-name|page
-argument_list|,
 name|cropBox
 argument_list|)
-expr_stmt|;
-name|drawer
-operator|.
-name|dispose
-argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -757,7 +752,7 @@ condition|)
 block|{
 name|page
 operator|.
-name|clear
+name|clearCache
 argument_list|()
 expr_stmt|;
 block|}

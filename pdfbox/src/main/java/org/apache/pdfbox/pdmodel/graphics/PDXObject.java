@@ -512,7 +512,7 @@ block|}
 comment|/**      * Calling this will release all cached information.      */
 specifier|public
 name|void
-name|clear
+name|clearCache
 parameter_list|()
 block|{     }
 block|}

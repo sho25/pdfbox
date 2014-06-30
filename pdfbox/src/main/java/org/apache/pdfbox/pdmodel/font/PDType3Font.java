@@ -363,7 +363,7 @@ condition|)
 block|{
 name|type3Resources
 operator|.
-name|clear
+name|clearCache
 argument_list|()
 expr_stmt|;
 name|type3Resources

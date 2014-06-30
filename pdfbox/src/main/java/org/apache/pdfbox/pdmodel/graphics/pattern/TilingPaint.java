@@ -241,6 +241,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|rendering
+operator|.
+name|TilingPatternDrawer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|util
 operator|.
 name|Matrix
@@ -248,7 +262,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT Paint for a tiling pattern, which consists of a small repeating graphical figure.  * @author Andreas Lehmkühler  * @author John Hewson  */
+comment|/**  * AWT Paint for a tiling pattern, which consists of a small repeating graphical figure.  *  * @author Andreas Lehmkühler  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -713,11 +727,12 @@ argument_list|)
 expr_stmt|;
 comment|// ty
 block|}
+comment|// TODO: need to make it easy to use a custom TilingPatternDrawer
 name|PageDrawer
 name|drawer
 init|=
 operator|new
-name|PageDrawer
+name|TilingPatternDrawer
 argument_list|(
 name|renderer
 argument_list|)
@@ -761,11 +776,6 @@ name|colorSpace
 argument_list|,
 name|color
 argument_list|)
-expr_stmt|;
-name|drawer
-operator|.
-name|dispose
-argument_list|()
 expr_stmt|;
 name|graphics
 operator|.

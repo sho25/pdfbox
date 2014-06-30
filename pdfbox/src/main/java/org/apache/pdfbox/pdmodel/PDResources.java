@@ -477,10 +477,10 @@ return|return
 name|resources
 return|;
 block|}
-comment|/**      * Calling this will release all cached information.      *       */
+comment|/**      * Calling this will release all cached information.      */
 specifier|public
 name|void
-name|clear
+name|clearCache
 parameter_list|()
 block|{
 if|if
@@ -571,7 +571,7 @@ control|)
 block|{
 name|xobject
 operator|.
-name|clear
+name|clearCache
 argument_list|()
 expr_stmt|;
 block|}

@@ -1151,10 +1151,9 @@ argument_list|)
 expr_stmt|;
 name|image
 operator|.
-name|clear
+name|clearCache
 argument_list|()
 expr_stmt|;
-comment|// PDFBOX-2101 get rid of cache ASAP
 block|}
 comment|// maybe there are more images embedded in a form object
 elseif|else
@@ -1197,7 +1196,7 @@ block|}
 block|}
 name|resources
 operator|.
-name|clear
+name|clearCache
 argument_list|()
 expr_stmt|;
 block|}

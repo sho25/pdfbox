@@ -312,7 +312,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a single page in a PDF document.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This represents a single page in a PDF document.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -322,7 +322,6 @@ name|PDPage
 implements|implements
 name|COSObjectable
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -2276,7 +2275,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
@@ -2306,7 +2306,8 @@ name|getCOSObject
 argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode
@@ -2322,10 +2323,10 @@ name|hashCode
 argument_list|()
 return|;
 block|}
-comment|/**      * Calling this will release all cached information.      *       */
+comment|/**      * Calling this will release all cached information.      */
 specifier|public
 name|void
-name|clear
+name|clearCache
 parameter_list|()
 block|{
 if|if
@@ -2337,18 +2338,10 @@ condition|)
 block|{
 name|pageResources
 operator|.
-name|clear
+name|clearCache
 argument_list|()
 expr_stmt|;
 block|}
-name|mediaBox
-operator|=
-literal|null
-expr_stmt|;
-name|parent
-operator|=
-literal|null
-expr_stmt|;
 block|}
 block|}
 end_class

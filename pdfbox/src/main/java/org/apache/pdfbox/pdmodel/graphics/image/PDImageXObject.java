@@ -1876,12 +1876,12 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|clear
+name|clearCache
 parameter_list|()
 block|{
 name|super
 operator|.
-name|clear
+name|clearCache
 argument_list|()
 expr_stmt|;
 name|cachedImage
