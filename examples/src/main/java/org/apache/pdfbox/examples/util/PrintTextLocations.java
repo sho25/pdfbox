@@ -457,7 +457,7 @@ literal|"]"
 operator|+
 name|text
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 argument_list|)
 expr_stmt|;

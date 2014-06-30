@@ -60,7 +60,7 @@ comment|// and have not been adjusted
 specifier|private
 specifier|final
 name|Matrix
-name|textPos
+name|textMatrix
 decl_stmt|;
 comment|// ending X and Y coordinates in display units
 specifier|private
@@ -76,7 +76,7 @@ decl_stmt|;
 specifier|private
 specifier|final
 name|float
-name|maxTextHeight
+name|maxHeight
 decl_stmt|;
 comment|// maximum height of text, in display units
 specifier|private
@@ -115,8 +115,9 @@ specifier|private
 specifier|final
 name|int
 index|[]
-name|unicodeCP
+name|charCodes
 decl_stmt|;
+comment|// internal PDF character codes
 specifier|private
 specifier|final
 name|PDFont
@@ -140,9 +141,9 @@ name|widths
 decl_stmt|;
 specifier|private
 name|String
-name|string
+name|unicode
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param pageRotation rotation of the page that the text is located in      * @param pageWidthValue rotation of the page that the text is located in      * @param pageHeightValue rotation of the page that the text is located in      * @param textPositionSt TextMatrix for start of text (in display units)      * @param endXValue x coordinate of the end position      * @param endYValue y coordinate of the end position      * @param maxFontH Maximum height of text (in display units)      * @param individualWidth The width of the given character/string. (in ? units)      * @param spaceWidth The width of the space character. (in display units)      * @param string The character to be displayed.      * @param codePoints An array containing the codepoints of the given string.      * @param currentFont The current font for this text position.      * @param fontSizeValue The new font size.      * @param fontSizeInPt The font size in pt units.      */
+comment|/**      * Constructor.      *      * @param pageRotation rotation of the page that the text is located in      * @param pageWidth rotation of the page that the text is located in      * @param pageHeight rotation of the page that the text is located in      * @param textMatrix TextMatrix for start of text (in display units)      * @param endX x coordinate of the end position      * @param endY y coordinate of the end position      * @param maxHeight Maximum height of text (in display units)      * @param individualWidth The width of the given character/string. (in text units)      * @param spaceWidth The width of the space character. (in display units)      * @param unicode The string of Unicode characters to be displayed.      * @param charCodes An array of the internal PDF character codes for the glyphs in this text.      * @param font The current font for this text position.      * @param fontSize The new font size.      * @param fontSizeInPt The font size in pt units.      */
 specifier|public
 name|TextPosition
 parameter_list|(
@@ -150,22 +151,22 @@ name|int
 name|pageRotation
 parameter_list|,
 name|float
-name|pageWidthValue
+name|pageWidth
 parameter_list|,
 name|float
-name|pageHeightValue
+name|pageHeight
 parameter_list|,
 name|Matrix
-name|textPositionSt
+name|textMatrix
 parameter_list|,
 name|float
-name|endXValue
+name|endX
 parameter_list|,
 name|float
-name|endYValue
+name|endY
 parameter_list|,
 name|float
-name|maxFontH
+name|maxHeight
 parameter_list|,
 name|float
 name|individualWidth
@@ -174,17 +175,17 @@ name|float
 name|spaceWidth
 parameter_list|,
 name|String
-name|string
+name|unicode
 parameter_list|,
 name|int
 index|[]
-name|codePoints
+name|charCodes
 parameter_list|,
 name|PDFont
-name|currentFont
+name|font
 parameter_list|,
 name|float
-name|fontSizeValue
+name|fontSize
 parameter_list|,
 name|int
 name|fontSizeInPt
@@ -192,21 +193,21 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|textPos
+name|textMatrix
 operator|=
-name|textPositionSt
+name|textMatrix
 expr_stmt|;
 name|this
 operator|.
 name|endX
 operator|=
-name|endXValue
+name|endX
 expr_stmt|;
 name|this
 operator|.
 name|endY
 operator|=
-name|endYValue
+name|endY
 expr_stmt|;
 name|int
 name|rotation
@@ -247,21 +248,21 @@ name|rotation
 expr_stmt|;
 name|this
 operator|.
-name|maxTextHeight
+name|maxHeight
 operator|=
-name|maxFontH
+name|maxHeight
 expr_stmt|;
 name|this
 operator|.
 name|pageHeight
 operator|=
-name|pageHeightValue
+name|pageHeight
 expr_stmt|;
 name|this
 operator|.
 name|pageWidth
 operator|=
-name|pageWidthValue
+name|pageWidth
 expr_stmt|;
 name|this
 operator|.
@@ -282,27 +283,27 @@ name|spaceWidth
 expr_stmt|;
 name|this
 operator|.
-name|string
+name|unicode
 operator|=
-name|string
+name|unicode
 expr_stmt|;
 name|this
 operator|.
-name|unicodeCP
+name|charCodes
 operator|=
-name|codePoints
+name|charCodes
 expr_stmt|;
 name|this
 operator|.
 name|font
 operator|=
-name|currentFont
+name|font
 expr_stmt|;
 name|this
 operator|.
 name|fontSize
 operator|=
-name|fontSizeValue
+name|fontSize
 expr_stmt|;
 name|this
 operator|.
@@ -330,6 +331,8 @@ condition|)
 block|{
 name|y
 operator|=
+name|this
+operator|.
 name|pageHeight
 operator|-
 name|getYLowerLeftRot
@@ -342,6 +345,8 @@ else|else
 block|{
 name|y
 operator|=
+name|this
+operator|.
 name|pageWidth
 operator|-
 name|getYLowerLeftRot
@@ -354,33 +359,32 @@ block|}
 comment|/**      * Return the string of characters stored in this object.      *      * @return The string on the screen.      */
 specifier|public
 name|String
-name|getCharacter
+name|getUnicode
 parameter_list|()
 block|{
 return|return
-name|string
+name|unicode
 return|;
 block|}
-comment|/**      * Return the codepoints of the characters stored in this object.      *      * @return an array containing all codepoints.      */
+comment|/**      * Return the internal PDF character codes of the glyphs in this text.      *      * @return an array of internal PDF character codes      */
 specifier|public
 name|int
 index|[]
-name|getCodePoints
+name|getCharacterCodes
 parameter_list|()
-comment|// todo: NOT Unicode!!
 block|{
 return|return
-name|unicodeCP
+name|charCodes
 return|;
 block|}
-comment|/**      * Return the Matrix textPos stored in this object.      *      * @return The Matrix containing all infos of the starting textposition      */
+comment|/**      * Return the text matrix stored in this object.      *      * @return The Matrix containing the starting text position      */
 specifier|public
 name|Matrix
-name|getTextPos
+name|getTextMatrix
 parameter_list|()
 block|{
 return|return
-name|textPos
+name|textMatrix
 return|;
 block|}
 comment|/**      * Return the direction/orientation of the string in this object based on its text matrix.      * @return The direction of the text (0, 90, 180, or 270)      */
@@ -392,7 +396,7 @@ block|{
 name|float
 name|a
 init|=
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -404,7 +408,7 @@ decl_stmt|;
 name|float
 name|b
 init|=
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -416,7 +420,7 @@ decl_stmt|;
 name|float
 name|c
 init|=
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -428,7 +432,7 @@ decl_stmt|;
 name|float
 name|d
 init|=
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -621,7 +625,7 @@ literal|0
 condition|)
 block|{
 return|return
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -640,7 +644,7 @@ literal|90
 condition|)
 block|{
 return|return
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -661,7 +665,7 @@ block|{
 return|return
 name|pageWidth
 operator|-
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -682,7 +686,7 @@ block|{
 return|return
 name|pageHeight
 operator|-
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -737,7 +741,7 @@ literal|0
 condition|)
 block|{
 return|return
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -758,7 +762,7 @@ block|{
 return|return
 name|pageWidth
 operator|-
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -779,7 +783,7 @@ block|{
 return|return
 name|pageHeight
 operator|-
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -798,7 +802,7 @@ literal|270
 condition|)
 block|{
 return|return
-name|textPos
+name|textMatrix
 operator|.
 name|getValue
 argument_list|(
@@ -894,7 +898,7 @@ name|abs
 argument_list|(
 name|endY
 operator|-
-name|textPos
+name|textMatrix
 operator|.
 name|getYPosition
 argument_list|()
@@ -910,7 +914,7 @@ name|abs
 argument_list|(
 name|endX
 operator|-
-name|textPos
+name|textMatrix
 operator|.
 name|getXPosition
 argument_list|()
@@ -952,7 +956,7 @@ name|getHeight
 parameter_list|()
 block|{
 return|return
-name|maxTextHeight
+name|maxHeight
 return|;
 block|}
 comment|/**      * This will get the maximum height of all characters in this string.      *      * @return The maximum height of all characters in this string.      */
@@ -963,7 +967,7 @@ parameter_list|()
 block|{
 comment|// this is not really a rotation-dependent calculation, but this is defined for symmetry
 return|return
-name|maxTextHeight
+name|maxHeight
 return|;
 block|}
 comment|/**      * This will get the font size that this object is suppose to be drawn at.      *      * @return The font size.      */
@@ -1013,7 +1017,7 @@ name|getXScale
 parameter_list|()
 block|{
 return|return
-name|textPos
+name|textMatrix
 operator|.
 name|getXScale
 argument_list|()
@@ -1026,7 +1030,7 @@ name|getYScale
 parameter_list|()
 block|{
 return|return
-name|textPos
+name|textMatrix
 operator|.
 name|getYScale
 argument_list|()
@@ -1226,7 +1230,7 @@ if|if
 condition|(
 name|diacritic
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 operator|.
 name|length
@@ -1266,7 +1270,7 @@ decl_stmt|;
 name|int
 name|strLen
 init|=
-name|string
+name|unicode
 operator|.
 name|length
 argument_list|()
@@ -1534,7 +1538,7 @@ name|Character
 operator|.
 name|getDirectionality
 argument_list|(
-name|string
+name|unicode
 operator|.
 name|charAt
 argument_list|(
@@ -1553,7 +1557,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|string
+name|unicode
 operator|.
 name|substring
 argument_list|(
@@ -1629,7 +1633,7 @@ name|normalizeDiacritic
 argument_list|(
 name|diacritic
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1645,7 +1649,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|string
+name|unicode
 operator|.
 name|charAt
 argument_list|(
@@ -1672,7 +1676,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|string
+name|unicode
 operator|.
 name|charAt
 argument_list|(
@@ -1700,7 +1704,7 @@ name|normalizeDiacritic
 argument_list|(
 name|diacritic
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1720,7 +1724,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|string
+name|unicode
 operator|.
 name|substring
 argument_list|(
@@ -1728,7 +1732,7 @@ name|i
 operator|+
 literal|1
 argument_list|,
-name|string
+name|unicode
 operator|.
 name|length
 argument_list|()
@@ -1760,7 +1764,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|string
+name|unicode
 operator|=
 name|sb
 operator|.
@@ -1783,7 +1787,7 @@ name|text
 init|=
 name|this
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 decl_stmt|;
 if|if
@@ -1842,7 +1846,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-name|getCharacter
+name|getUnicode
 argument_list|()
 return|;
 block|}

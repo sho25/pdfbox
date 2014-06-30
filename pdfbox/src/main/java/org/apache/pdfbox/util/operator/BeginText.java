@@ -21,6 +21,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -80,6 +90,8 @@ name|COSBase
 argument_list|>
 name|arguments
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|context
 operator|.
@@ -98,6 +110,11 @@ operator|new
 name|Matrix
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|beginText
+argument_list|()
 expr_stmt|;
 block|}
 block|}

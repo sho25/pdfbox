@@ -514,6 +514,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|processTextPosition

@@ -184,7 +184,7 @@ specifier|public
 class|class
 name|PDFMarkedContentExtractor
 extends|extends
-name|PDFStreamEngine
+name|PDFTextStreamEngine
 block|{
 specifier|private
 name|boolean
@@ -538,6 +538,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * This will process a TextPosition object and add the      * text to the list of characters on a page.  It takes care of      * overlapping text.      *      * @param text The text to process.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|processTextPosition
@@ -567,7 +569,7 @@ name|textCharacter
 init|=
 name|text
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 decl_stmt|;
 name|float
@@ -698,7 +700,7 @@ name|charCharacter
 init|=
 name|character
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 decl_stmt|;
 name|float

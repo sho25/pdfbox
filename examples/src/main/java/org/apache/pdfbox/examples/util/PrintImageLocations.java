@@ -489,11 +489,6 @@ name|page
 operator|.
 name|findCropBox
 argument_list|()
-argument_list|,
-name|page
-operator|.
-name|findRotation
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

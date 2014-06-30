@@ -381,20 +381,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|text
-operator|.
-name|TextPosition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|util
 operator|.
 name|operator
@@ -420,7 +406,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processes a PDF content stream and executes certain operations.  * Provides a callback interface for clients that want to do things with the stream.  *  * @see org.apache.pdfbox.util.PDFTextStripper  *   * @author Ben Litchfield  */
+comment|/**  * Processes a PDF content stream and executes certain operations.  * Provides a callback interface for clients that want to do things with the stream.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -514,14 +500,6 @@ argument_list|<
 name|PDResources
 argument_list|>
 argument_list|()
-decl_stmt|;
-specifier|private
-name|int
-name|pageRotation
-decl_stmt|;
-specifier|private
-name|PDRectangle
-name|drawingRectangle
 decl_stmt|;
 comment|// skip malformed or otherwise unparseable input where possible
 specifier|private
@@ -761,26 +739,15 @@ parameter_list|()
 block|{
 comment|// overridden in subclasses
 block|}
-comment|/**      * Initialises a stream for processing.      *      * @param drawingSize the size of the page      * @param rotation the page rotation      */
+comment|/**      * Initialises a stream for processing.      *      * @param drawingSize the size of the page      */
 specifier|protected
 name|void
 name|initStream
 parameter_list|(
 name|PDRectangle
 name|drawingSize
-parameter_list|,
-name|int
-name|rotation
 parameter_list|)
 block|{
-name|drawingRectangle
-operator|=
-name|drawingSize
-expr_stmt|;
-name|pageRotation
-operator|=
-name|rotation
-expr_stmt|;
 name|graphicsStack
 operator|.
 name|clear
@@ -793,7 +760,7 @@ argument_list|(
 operator|new
 name|PDGraphicsState
 argument_list|(
-name|drawingRectangle
+name|drawingSize
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -811,7 +778,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will initialise and process the contents of the stream.      *       * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      * @param drawingSize the size of the page      * @param rotation the page rotation      * @throws IOException if there is an error accessing the stream.      */
+comment|/**      * This will initialise and process the contents of the stream.      *       * @param resources The location to retrieve resources.      * @param cosStream the Stream to execute.      * @param drawingSize the size of the page      * @throws IOException if there is an error accessing the stream.      */
 specifier|public
 name|void
 name|processStream
@@ -824,9 +791,6 @@ name|cosStream
 parameter_list|,
 name|PDRectangle
 name|drawingSize
-parameter_list|,
-name|int
-name|rotation
 parameter_list|)
 throws|throws
 name|IOException
@@ -834,8 +798,6 @@ block|{
 name|initStream
 argument_list|(
 name|drawingSize
-argument_list|,
-name|rotation
 argument_list|)
 expr_stmt|;
 name|processSubStream
@@ -863,9 +825,10 @@ block|{
 comment|// sanity check
 if|if
 condition|(
-name|drawingRectangle
-operator|==
-literal|null
+name|graphicsStack
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -1077,10 +1040,20 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Process encoded text from the PDF Stream. You should override this method if you want to      * perform an action when encoded text is being processed.      *       * @param string The encoded text      * @throws IOException If there is an error processing the string      */
+comment|/**      * Called when the BT operator is encountered. This method is for overriding in subclasses, the      * default implementation does nothing.      *      * @throws IOException if there was an error processing the text      */
 specifier|public
 name|void
-name|processEncodedText
+name|beginText
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// overridden in subclasses
+block|}
+comment|/**      * Process text from the PDF Stream. You should override this method if you want to      * perform an action when encoded text is being processed.      *       * @param string The encoded text      * @throws IOException If there is an error processing the string      */
+specifier|public
+name|void
+name|processText
 parameter_list|(
 name|byte
 index|[]
@@ -1193,13 +1166,6 @@ literal|1
 operator|/
 literal|1000f
 decl_stmt|;
-name|float
-name|glyphSpaceToTextSpaceFactor
-init|=
-literal|1
-operator|/
-literal|1000f
-decl_stmt|;
 comment|// expect Type3 fonts, those are providing the width of a character in glyph space units
 if|if
 condition|(
@@ -1238,90 +1204,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// This will typically be 1000 but in the case of a type3 font
-comment|// this might be a different number
-name|glyphSpaceToTextSpaceFactor
-operator|=
-literal|1f
-operator|/
-name|fontMatrix
-operator|.
-name|getValue
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
-name|float
-name|spaceWidthText
-init|=
-literal|0
-decl_stmt|;
-try|try
-block|{
-comment|// to avoid crash as described in PDFBOX-614, see what the space displacement should be
-name|spaceWidthText
-operator|=
-name|font
-operator|.
-name|getSpaceWidth
-argument_list|()
-operator|*
-name|glyphSpaceToTextSpaceFactor
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|exception
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-name|exception
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|spaceWidthText
-operator|==
-literal|0
-condition|)
-block|{
-name|spaceWidthText
-operator|=
-name|font
-operator|.
-name|getAverageFontWidth
-argument_list|()
-operator|*
-name|glyphSpaceToTextSpaceFactor
-expr_stmt|;
-comment|// the average space width appears to be higher than necessary so make it smaller
-name|spaceWidthText
-operator|*=
-literal|.80f
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|spaceWidthText
-operator|==
-literal|0
-condition|)
-block|{
-name|spaceWidthText
-operator|=
-literal|1.0f
-expr_stmt|;
-comment|// if could not find font, use a generic value
 block|}
 name|float
 name|maxVerticalDisplacementText
@@ -1370,22 +1252,6 @@ argument_list|,
 name|riseText
 argument_list|)
 expr_stmt|;
-name|float
-name|pageHeight
-init|=
-name|drawingRectangle
-operator|.
-name|getHeight
-argument_list|()
-decl_stmt|;
-name|float
-name|pageWidth
-init|=
-name|drawingRectangle
-operator|.
-name|getWidth
-argument_list|()
-decl_stmt|;
 name|Matrix
 name|ctm
 init|=
@@ -1450,7 +1316,7 @@ operator|=
 literal|1
 expr_stmt|;
 name|String
-name|c
+name|unicode
 init|=
 name|font
 operator|.
@@ -1465,11 +1331,11 @@ argument_list|)
 decl_stmt|;
 name|int
 index|[]
-name|codePoints
+name|charCodes
 decl_stmt|;
 if|if
 condition|(
-name|c
+name|unicode
 operator|==
 literal|null
 operator|&&
@@ -1486,7 +1352,7 @@ comment|// maybe a multibyte encoding
 name|codeLength
 operator|++
 expr_stmt|;
-name|c
+name|unicode
 operator|=
 name|font
 operator|.
@@ -1499,7 +1365,7 @@ argument_list|,
 name|codeLength
 argument_list|)
 expr_stmt|;
-name|codePoints
+name|charCodes
 operator|=
 operator|new
 name|int
@@ -1520,7 +1386,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|codePoints
+name|charCodes
 operator|=
 operator|new
 name|int
@@ -1539,26 +1405,6 @@ argument_list|)
 block|}
 expr_stmt|;
 block|}
-comment|// the space width has to be transformed into display units
-name|float
-name|spaceWidthDisp
-init|=
-name|spaceWidthText
-operator|*
-name|fontSizeText
-operator|*
-name|horizontalScalingText
-operator|*
-name|textMatrix
-operator|.
-name|getXScale
-argument_list|()
-operator|*
-name|ctm
-operator|.
-name|getXScale
-argument_list|()
-decl_stmt|;
 comment|// TODO: handle horizontal displacement
 comment|// get the width and height of this character in text units
 name|float
@@ -1814,19 +1660,6 @@ name|endXPosition
 operator|-
 name|startXPosition
 decl_stmt|;
-comment|// PDFBOX-373: Replace a null entry with "?" so it is not printed as "(null)"
-if|if
-condition|(
-name|c
-operator|==
-literal|null
-condition|)
-block|{
-name|c
-operator|=
-literal|"?"
-expr_stmt|;
-block|}
 name|float
 name|totalVerticalDisplacementDisp
 init|=
@@ -1839,64 +1672,72 @@ operator|.
 name|getYScale
 argument_list|()
 decl_stmt|;
-comment|// process the decoded text
-name|processTextPosition
+comment|// process the decoded glyph
+name|processGlyph
 argument_list|(
-operator|new
-name|TextPosition
-argument_list|(
-name|pageRotation
-argument_list|,
-name|pageWidth
-argument_list|,
-name|pageHeight
-argument_list|,
 name|textMatrixStart
 argument_list|,
+operator|new
+name|Point2D
+operator|.
+name|Float
+argument_list|(
 name|endXPosition
 argument_list|,
 name|endYPosition
+argument_list|)
 argument_list|,
 name|totalVerticalDisplacementDisp
 argument_list|,
 name|widthText
 argument_list|,
-name|spaceWidthDisp
+name|unicode
 argument_list|,
-name|c
-argument_list|,
-name|codePoints
+name|charCodes
 argument_list|,
 name|font
 argument_list|,
 name|fontSizeText
-argument_list|,
-call|(
-name|int
-call|)
-argument_list|(
-name|fontSizeText
-operator|*
-name|textMatrix
-operator|.
-name|getXScale
-argument_list|()
-argument_list|)
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A method provided as an event interface to allow a subclass to perform some specific      * functionality when text needs to be processed.      *      * @param text The text to be processed.      */
+comment|/**      * Called when a glyph is to be processed.This method is intended for overriding in subclasses,      * the default implementation does nothing.      *      * @param textMatrix the text matrix at the start of the glyph      * @param end the end position of the glyph in text space      * @param maxHeight the height of the glyph in device space      * @param widthText the width of the glyph in text space      * @param unicode the Unicode text for this glyph, or null. May be meaningless.      * @param charCodes array of internal PDF character codes for the glyph todo: should be 1 code?      * @param font the current font      * @param fontSize font size in text space      * @throws IOException if the glyph cannot be processed      */
 specifier|protected
 name|void
-name|processTextPosition
+name|processGlyph
 parameter_list|(
-name|TextPosition
-name|text
+name|Matrix
+name|textMatrix
+parameter_list|,
+name|Point2D
+operator|.
+name|Float
+name|end
+parameter_list|,
+name|float
+name|maxHeight
+parameter_list|,
+name|float
+name|widthText
+parameter_list|,
+name|String
+name|unicode
+parameter_list|,
+name|int
+index|[]
+name|charCodes
+parameter_list|,
+name|PDFont
+name|font
+parameter_list|,
+name|float
+name|fontSize
 parameter_list|)
+throws|throws
+name|IOException
 block|{
-comment|// subclasses can override to provide specific functionality.
+comment|// overridden in subclasses
 block|}
 comment|/**      * This is used to handle an operation.      *       * @param operation The operation to perform.      * @param arguments The list of arguments.      * @throws IOException If there is an error processing the operation.      */
 specifier|public

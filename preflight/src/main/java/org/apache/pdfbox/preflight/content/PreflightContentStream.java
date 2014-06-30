@@ -495,11 +495,6 @@ name|processeedPage
 operator|.
 name|findCropBox
 argument_list|()
-argument_list|,
-name|processeedPage
-operator|.
-name|findRotation
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -573,8 +568,6 @@ name|processeedPage
 operator|.
 name|findCropBox
 argument_list|()
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|processSubStream

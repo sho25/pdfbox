@@ -108,7 +108,7 @@ argument_list|)
 decl_stmt|;
 name|context
 operator|.
-name|processEncodedText
+name|processText
 argument_list|(
 name|string
 operator|.

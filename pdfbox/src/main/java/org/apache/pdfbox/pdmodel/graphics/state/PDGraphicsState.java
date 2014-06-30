@@ -951,14 +951,9 @@ name|clone
 operator|.
 name|clippingPath
 operator|=
-operator|(
-name|Area
-operator|)
 name|clippingPath
-operator|.
-name|clone
-argument_list|()
 expr_stmt|;
+comment|// not cloned, see intersectClippingPath
 return|return
 name|clone
 return|;
@@ -1084,6 +1079,18 @@ name|GeneralPath
 name|path
 parameter_list|)
 block|{
+comment|// lazy cloning of clipping path for performance
+name|clippingPath
+operator|=
+operator|(
+name|Area
+operator|)
+name|clippingPath
+operator|.
+name|clone
+argument_list|()
+expr_stmt|;
+comment|// intersection as usual
 name|clippingPath
 operator|.
 name|intersect

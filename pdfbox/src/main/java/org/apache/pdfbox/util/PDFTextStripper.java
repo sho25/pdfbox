@@ -412,7 +412,7 @@ specifier|public
 class|class
 name|PDFTextStripper
 extends|extends
-name|PDFStreamEngine
+name|PDFTextStreamEngine
 block|{
 specifier|private
 specifier|static
@@ -1821,7 +1821,7 @@ name|stringValue
 init|=
 name|position
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 decl_stmt|;
 for|for
@@ -2010,7 +2010,7 @@ name|characterValue
 init|=
 name|position
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 decl_stmt|;
 comment|// Resets the average character width when we see a change in font
@@ -2412,7 +2412,7 @@ operator|.
 name|getTextPosition
 argument_list|()
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 operator|!=
 literal|null
@@ -2423,7 +2423,7 @@ operator|.
 name|getTextPosition
 argument_list|()
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 operator|.
 name|endsWith
@@ -2695,7 +2695,7 @@ name|write
 argument_list|(
 name|text
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2801,7 +2801,7 @@ name|textCharacter
 init|=
 name|text
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 decl_stmt|;
 name|float
@@ -4454,7 +4454,7 @@ name|txt
 init|=
 name|tp
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 decl_stmt|;
 return|return
@@ -4975,7 +4975,7 @@ name|append
 argument_list|(
 name|text
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5065,7 +5065,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Internal class that maps strings to lists of {@link TextPosition} arrays.      * Note that the number of entries in that list may differ from the number of characters in the      * string due to normalization.      *      * @author Axel Dörfler      */
+comment|/**      * Internal class that maps strings to lists of {@link TextPosition} arrays.      * Note that the number of entries in that list may differ from the number of characters in the      * string due to normalization.      *      * @author Axel Dï¿½rfler      */
 specifier|private
 specifier|static
 specifier|final

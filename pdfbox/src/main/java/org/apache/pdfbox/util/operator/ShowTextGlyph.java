@@ -291,7 +291,7 @@ condition|)
 block|{
 name|context
 operator|.
-name|processEncodedText
+name|processText
 argument_list|(
 operator|(
 operator|(

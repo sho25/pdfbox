@@ -526,7 +526,7 @@ name|append
 argument_list|(
 name|position
 operator|.
-name|getCharacter
+name|getUnicode
 argument_list|()
 argument_list|)
 expr_stmt|;
