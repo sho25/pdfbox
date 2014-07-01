@@ -206,7 +206,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Convert a PDF document to an image.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
+comment|/**  * Convert a PDF document to an image.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -242,9 +242,25 @@ specifier|private
 specifier|static
 specifier|final
 name|String
-name|IMAGE_FORMAT
+name|PAGE
+init|=
+literal|"-page"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|IMAGE_TYPE
 init|=
 literal|"-imageType"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|FORMAT
+init|=
+literal|"-format"
 decl_stmt|;
 specifier|private
 specifier|static
@@ -253,6 +269,14 @@ name|String
 name|OUTPUT_PREFIX
 init|=
 literal|"-outputPrefix"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|PREFIX
+init|=
+literal|"-prefix"
 decl_stmt|;
 specifier|private
 specifier|static
@@ -274,6 +298,14 @@ specifier|private
 specifier|static
 specifier|final
 name|String
+name|DPI
+init|=
+literal|"-dpi"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
 name|CROPBOX
 init|=
 literal|"-cropbox"
@@ -282,7 +314,7 @@ specifier|private
 specifier|static
 specifier|final
 name|String
-name|NONSEQ
+name|NON_SEQ
 init|=
 literal|"-nonSeq"
 decl_stmt|;
@@ -545,7 +577,72 @@ index|]
 operator|.
 name|equals
 argument_list|(
-name|IMAGE_FORMAT
+name|PAGE
+argument_list|)
+condition|)
+block|{
+name|i
+operator|++
+expr_stmt|;
+if|if
+condition|(
+name|i
+operator|>=
+name|args
+operator|.
+name|length
+condition|)
+block|{
+name|usage
+argument_list|()
+expr_stmt|;
+block|}
+name|startPage
+operator|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|args
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+name|endPage
+operator|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|args
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|IMAGE_TYPE
+argument_list|)
+operator|||
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|FORMAT
 argument_list|)
 condition|)
 block|{
@@ -571,6 +668,16 @@ operator|.
 name|equals
 argument_list|(
 name|OUTPUT_PREFIX
+argument_list|)
+operator|||
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|PREFIX
 argument_list|)
 condition|)
 block|{
@@ -622,6 +729,16 @@ name|equals
 argument_list|(
 name|RESOLUTION
 argument_list|)
+operator|||
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|DPI
+argument_list|)
 condition|)
 block|{
 name|i
@@ -668,9 +785,6 @@ index|[
 name|i
 index|]
 argument_list|)
-operator|.
-name|floatValue
-argument_list|()
 expr_stmt|;
 name|i
 operator|++
@@ -686,9 +800,6 @@ index|[
 name|i
 index|]
 argument_list|)
-operator|.
-name|floatValue
-argument_list|()
 expr_stmt|;
 name|i
 operator|++
@@ -704,9 +815,6 @@ index|[
 name|i
 index|]
 argument_list|)
-operator|.
-name|floatValue
-argument_list|()
 expr_stmt|;
 name|i
 operator|++
@@ -722,9 +830,6 @@ index|[
 name|i
 index|]
 argument_list|)
-operator|.
-name|floatValue
-argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -737,7 +842,7 @@ index|]
 operator|.
 name|equals
 argument_list|(
-name|NONSEQ
+name|NON_SEQ
 argument_list|)
 condition|)
 block|{
@@ -1204,22 +1309,24 @@ literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFToImage [OPTIONS]<PDF file>\n"
 operator|+
 literal|"  -password<password>          Password to decrypt document\n"
 operator|+
-literal|"  -imageType<image type>        ("
+literal|"  -format<string>               Image format: "
 operator|+
 name|getImageFormats
 argument_list|()
 operator|+
-literal|")\n"
+literal|"\n"
 operator|+
-literal|"  -outputPrefix<output prefix>  Filename prefix for image files\n"
+literal|"  -prefix<string>               Filename prefix for image files\n"
 operator|+
-literal|"  -startPage<number>            The first page to start extraction(1 based)\n"
+literal|"  -page<number>                 The only page to extract (1-based)\n"
+operator|+
+literal|"  -startPage<number>            The first page to start extraction (1-based)\n"
 operator|+
 literal|"  -endPage<number>              The last page to extract(inclusive)\n"
 operator|+
 literal|"  -color<string>                The color depth (valid: bilevel, indexed, gray, rgb, rgba)\n"
 operator|+
-literal|"  -resolution<number>           The bitmap resolution in dpi\n"
+literal|"  -dpi<number>                  The DPI of the output image\n"
 operator|+
 literal|"  -cropbox<number><number><number><number> The page area to export\n"
 operator|+
@@ -1242,11 +1349,11 @@ name|String
 name|getImageFormats
 parameter_list|()
 block|{
-name|StringBuffer
+name|StringBuilder
 name|retval
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|String
@@ -1275,6 +1382,25 @@ name|i
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|formats
+index|[
+name|i
+index|]
+operator|.
+name|toLowerCase
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|formats
+index|[
+name|i
+index|]
+argument_list|)
+condition|)
+block|{
 name|retval
 operator|.
 name|append
@@ -1300,9 +1426,10 @@ name|retval
 operator|.
 name|append
 argument_list|(
-literal|","
+literal|", "
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
