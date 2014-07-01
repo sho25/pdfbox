@@ -172,15 +172,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used as manager for local fonts. It's based on the font manager provided by Apache FOP. see  * org.apache.fop.fonts.FontManager.java  */
+comment|/**  * System font manager. Based on the font manager provided by Apache FOP.  *  * See: org.apache.fop.fonts.FontManager  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|FontManager
+name|SystemFontManager
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -191,7 +190,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|FontManager
+name|SystemFontManager
 operator|.
 name|class
 argument_list|)
@@ -222,7 +221,6 @@ name|fontsLoaded
 init|=
 literal|false
 decl_stmt|;
-comment|// HashMap with all known true type fonts
 specifier|private
 specifier|static
 name|HashMap
@@ -242,14 +240,8 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// fallback font
 specifier|private
-specifier|static
-name|TrueTypeFont
-name|standardFont
-decl_stmt|;
-specifier|private
-name|FontManager
+name|SystemFontManager
 parameter_list|()
 block|{     }
 comment|/**      * Load all available fonts from the environment.      */
@@ -1361,83 +1353,6 @@ expr_stmt|;
 block|}
 return|return
 name|ttfFont
-return|;
-block|}
-comment|/**      * Get the standard font from the environment.      *      * @return standard font      */
-specifier|public
-specifier|static
-name|TrueTypeFont
-name|getStandardFont
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|standardFont
-operator|==
-literal|null
-condition|)
-block|{
-comment|// todo: make this configurable
-comment|// Windows
-name|standardFont
-operator|=
-name|findTTFont
-argument_list|(
-literal|"Arial"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|standardFont
-operator|==
-literal|null
-condition|)
-block|{
-comment|// OS X
-name|standardFont
-operator|=
-name|findTTFont
-argument_list|(
-literal|"Helvetica"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|standardFont
-operator|==
-literal|null
-condition|)
-block|{
-comment|// Linux
-name|standardFont
-operator|=
-name|findTTFont
-argument_list|(
-literal|"Liberation Sans"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|standardFont
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Could not find TTF fallback font on the system"
-argument_list|)
-throw|;
-block|}
-block|}
-return|return
-name|standardFont
 return|;
 block|}
 block|}

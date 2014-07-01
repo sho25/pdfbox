@@ -339,7 +339,7 @@ name|fontbox
 operator|.
 name|util
 operator|.
-name|FontManager
+name|SystemFontManager
 import|;
 end_import
 
@@ -1943,7 +1943,7 @@ block|{
 comment|// check if there is a font mapping for an external font file
 name|ttf
 operator|=
-name|FontManager
+name|SystemFontManager
 operator|.
 name|findTTFont
 argument_list|(
@@ -1961,9 +1961,9 @@ condition|)
 block|{
 name|ttf
 operator|=
-name|FontManager
+name|PDFFontManager
 operator|.
-name|getStandardFont
+name|getTrueTypeFallbackFont
 argument_list|()
 expr_stmt|;
 block|}

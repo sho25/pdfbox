@@ -1915,6 +1915,8 @@ name|PDFont
 argument_list|>
 name|getFonts
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(

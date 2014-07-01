@@ -111,6 +111,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|fontbox
+operator|.
+name|ttf
+operator|.
+name|TrueTypeFont
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|util
+operator|.
+name|SystemFontManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|util
@@ -120,15 +148,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  This class is used as font manager.  *  @author<a href="mailto:andreas@lehmi.de">Andreas Lehmkühler</a>  *  @version $Revision: 1.0 $  */
+comment|/**  * PDF font manager.  *  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
-name|FontManager
+name|PDFFontManager
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -139,12 +167,12 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|FontManager
+name|PDFFontManager
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// HashMap with all known fonts
+comment|// AWT
 specifier|private
 specifier|static
 name|HashMap
@@ -172,12 +200,11 @@ name|Font
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// the standard font
 specifier|private
 specifier|final
 specifier|static
 name|String
-name|standardFont
+name|awtFallback
 init|=
 literal|"helvetica"
 decl_stmt|;
@@ -189,6 +216,12 @@ init|=
 operator|new
 name|Properties
 argument_list|()
+decl_stmt|;
+comment|// system TTF
+specifier|private
+specifier|static
+name|TrueTypeFont
+name|ttfFallback
 decl_stmt|;
 static|static
 block|{
@@ -238,7 +271,7 @@ argument_list|()
 expr_stmt|;
 block|}
 specifier|private
-name|FontManager
+name|PDFFontManager
 parameter_list|()
 block|{     }
 comment|/**      * Get the standard font from the environment, usually Arial or Times New Roman.       *      * @return The standard font       *       */
@@ -249,7 +282,7 @@ operator|.
 name|awt
 operator|.
 name|Font
-name|getStandardFont
+name|getAWTFallbackFont
 parameter_list|()
 block|{
 name|Font
@@ -257,7 +290,7 @@ name|awtFont
 init|=
 name|getAwtFont
 argument_list|(
-name|standardFont
+name|awtFallback
 argument_list|)
 decl_stmt|;
 if|if
@@ -274,7 +307,7 @@ name|error
 argument_list|(
 literal|"Standard font '"
 operator|+
-name|standardFont
+name|awtFallback
 operator|+
 literal|"' is not part of the environment"
 argument_list|)
@@ -316,6 +349,89 @@ block|}
 block|}
 return|return
 name|awtFont
+return|;
+block|}
+comment|/**      * Get the standard font from the environment.      *      * @return standard font      */
+specifier|public
+specifier|static
+name|TrueTypeFont
+name|getTrueTypeFallbackFont
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|ttfFallback
+operator|==
+literal|null
+condition|)
+block|{
+comment|// todo: make this configurable
+comment|// Windows
+name|ttfFallback
+operator|=
+name|SystemFontManager
+operator|.
+name|findTTFont
+argument_list|(
+literal|"Arial"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ttfFallback
+operator|==
+literal|null
+condition|)
+block|{
+comment|// OS X
+name|ttfFallback
+operator|=
+name|SystemFontManager
+operator|.
+name|findTTFont
+argument_list|(
+literal|"Helvetica"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ttfFallback
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Linux
+name|ttfFallback
+operator|=
+name|SystemFontManager
+operator|.
+name|findTTFont
+argument_list|(
+literal|"Liberation Sans"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ttfFallback
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not find TTF fallback font on the system"
+argument_list|)
+throw|;
+block|}
+block|}
+return|return
+name|ttfFallback
 return|;
 block|}
 comment|/**      * Get the font for the given fontname.      *      * @param font The name of the font.      *      * @return The font we are looking for or a similar font or null if nothing is found.      *       */

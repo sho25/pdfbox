@@ -111,7 +111,39 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
+name|ERROR_FONTS_DICTIONARY_INVALID
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
 name|ERROR_GRAPHIC_INVALID_PATTERN_DEFINITION
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_PDF_PROCESSING_MISSING
 import|;
 end_import
 
@@ -584,6 +616,8 @@ parameter_list|)
 throws|throws
 name|ValidationException
 block|{
+try|try
+block|{
 name|Map
 argument_list|<
 name|String
@@ -635,6 +669,27 @@ name|FONT_PROCESS
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|context
+operator|.
+name|addValidationError
+argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_FONTS_DICTIONARY_INVALID
+argument_list|,
+literal|"Could not read font"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      *       * @param context      * @param resources      * @throws ValidationException      */

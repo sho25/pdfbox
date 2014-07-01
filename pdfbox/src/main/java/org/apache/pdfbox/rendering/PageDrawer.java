@@ -515,7 +515,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|FontManager
+name|PDFFontManager
 import|;
 end_import
 
@@ -2663,7 +2663,7 @@ condition|)
 block|{
 name|awtFont
 operator|=
-name|FontManager
+name|PDFFontManager
 operator|.
 name|getAwtFont
 argument_list|(
@@ -2709,7 +2709,7 @@ argument_list|()
 decl_stmt|;
 name|awtFont
 operator|=
-name|FontManager
+name|PDFFontManager
 operator|.
 name|getAwtFont
 argument_list|(
@@ -2763,9 +2763,9 @@ block|{
 comment|// Fallback: we can't find anything, so we have to use the standard font
 name|awtFont
 operator|=
-name|FontManager
+name|PDFFontManager
 operator|.
-name|getStandardFont
+name|getAWTFallbackFont
 argument_list|()
 expr_stmt|;
 name|LOG
