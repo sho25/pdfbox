@@ -242,6 +242,54 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// fallback font
+specifier|private
+specifier|static
+name|TrueTypeFont
+name|standardFont
+decl_stmt|;
+static|static
+block|{
+try|try
+block|{
+name|standardFont
+operator|=
+name|findTTFont
+argument_list|(
+literal|"Arial"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|standardFont
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not load TTF fallback font"
+argument_list|)
+throw|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 specifier|private
 name|FontManager
 parameter_list|()
@@ -1277,7 +1325,7 @@ return|return
 name|fontfile
 return|;
 block|}
-comment|/**      * Search for a true type font for the given font name.      *       * @param fontname the given font name      * @return the mapped true type font      * @throws IOException if something went wrong      */
+comment|/**      * Search for a true type font for the given font name.      *       * @param fontname the given font name      * @return the mapped true type font, or null if none could be found      * @throws IOException if something went wrong      */
 specifier|public
 specifier|static
 name|TrueTypeFont
@@ -1290,7 +1338,7 @@ throws|throws
 name|IOException
 block|{
 name|String
-name|ttffontname
+name|ttfFontName
 init|=
 name|findTTFontname
 argument_list|(
@@ -1304,7 +1352,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|ttffontname
+name|ttfFontName
 operator|!=
 literal|null
 condition|)
@@ -1323,7 +1371,7 @@ name|ResourceLoader
 operator|.
 name|loadResource
 argument_list|(
-name|ttffontname
+name|ttfFontName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1339,7 +1387,7 @@ name|IOException
 argument_list|(
 literal|"Can't load external font: "
 operator|+
-name|ttffontname
+name|ttfFontName
 argument_list|)
 throw|;
 block|}
@@ -1355,6 +1403,17 @@ expr_stmt|;
 block|}
 return|return
 name|ttfFont
+return|;
+block|}
+comment|/**      * Get the standard font from the environment.      *      * @return standard font      */
+specifier|public
+specifier|static
+name|TrueTypeFont
+name|getStandardFont
+parameter_list|()
+block|{
+return|return
+name|standardFont
 return|;
 block|}
 block|}

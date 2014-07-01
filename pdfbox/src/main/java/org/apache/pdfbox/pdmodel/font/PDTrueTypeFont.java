@@ -1532,6 +1532,24 @@ break|break;
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|this
+operator|.
+name|getFontEncoding
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// todo: calling this.getFontEncoding() doesn't work if the font is loaded
+comment|//       from the local system, because it relies on the FontDescriptor!
+comment|//       We make do for now by returning an incomplete descriptor pending further
+comment|//       refactoring of PDFont#determineEncoding().
+return|return
+name|fd
+return|;
+block|}
 name|Map
 argument_list|<
 name|Integer
@@ -1932,6 +1950,21 @@ argument_list|(
 name|getBaseFont
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ttf
+operator|==
+literal|null
+condition|)
+block|{
+name|ttf
+operator|=
+name|FontManager
+operator|.
+name|getStandardFont
+argument_list|()
 expr_stmt|;
 block|}
 block|}
