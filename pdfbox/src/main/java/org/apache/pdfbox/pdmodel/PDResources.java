@@ -721,6 +721,8 @@ name|PDFont
 argument_list|>
 name|getFonts
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -817,12 +819,6 @@ block|{
 name|PDFont
 name|newFont
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|newFont
-operator|=
 name|PDFontFactory
 operator|.
 name|createFont
@@ -832,31 +828,7 @@ name|COSDictionary
 operator|)
 name|font
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|exception
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"error while creating a font"
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|newFont
-operator|!=
-literal|null
-condition|)
-block|{
+decl_stmt|;
 name|fonts
 operator|.
 name|put
@@ -869,7 +841,6 @@ argument_list|,
 name|newFont
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2154,6 +2125,8 @@ parameter_list|(
 name|PDFont
 name|font
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// use the getter to initialize a possible empty fonts map
 return|return
@@ -2182,6 +2155,8 @@ parameter_list|,
 name|String
 name|fontKey
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(

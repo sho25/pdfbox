@@ -1431,7 +1431,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Could not load TTF fallback font"
+literal|"Could not find TTF fallback font on the system"
 argument_list|)
 throw|;
 block|}
