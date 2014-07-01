@@ -252,6 +252,8 @@ static|static
 block|{
 try|try
 block|{
+comment|// todo: make this configurable
+comment|// Windows
 name|standardFont
 operator|=
 name|findTTFont
@@ -259,6 +261,38 @@ argument_list|(
 literal|"Arial"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|standardFont
+operator|==
+literal|null
+condition|)
+block|{
+comment|// OS X
+name|standardFont
+operator|=
+name|findTTFont
+argument_list|(
+literal|"Helvetica"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|standardFont
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Linux
+name|standardFont
+operator|=
+name|findTTFont
+argument_list|(
+literal|"Liberation Sans"
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|standardFont
