@@ -1531,6 +1531,10 @@ name|getY
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|lastClip
+operator|=
+literal|null
+expr_stmt|;
 name|processSubStream
 argument_list|(
 name|appearance
@@ -4299,6 +4303,11 @@ name|g2dOriginal
 init|=
 name|graphics
 decl_stmt|;
+name|Area
+name|lastClipOriginal
+init|=
+name|lastClip
+decl_stmt|;
 comment|// check underlying g2d
 name|double
 name|unitSize
@@ -4629,6 +4638,10 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+name|lastClip
+operator|=
+name|lastClipOriginal
+expr_stmt|;
 name|graphics
 operator|=
 name|g2dOriginal
