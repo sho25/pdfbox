@@ -338,6 +338,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// suppress the Dock icon on OS X
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"apple.awt.UIElement"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
 name|boolean
 name|useNonSeqParser
 init|=
