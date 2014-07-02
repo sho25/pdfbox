@@ -449,7 +449,7 @@ block|{
 name|String
 name|name
 init|=
-literal|"org/apache/pdfbox/resources/ttf/NimbusSanL-Regu.ttf"
+literal|"org/apache/pdfbox/resources/ttf/LiberationSans-Regular.ttf"
 decl_stmt|;
 name|TTFParser
 name|ttfParser
