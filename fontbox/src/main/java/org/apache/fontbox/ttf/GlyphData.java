@@ -19,6 +19,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|awt
+operator|.
+name|geom
+operator|.
+name|GeneralPath
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|io
 operator|.
 name|IOException
@@ -237,6 +249,23 @@ parameter_list|()
 block|{
 return|return
 name|glyphDescription
+return|;
+block|}
+comment|/**      * Returns the path of the glyph.      * @return the path      */
+specifier|public
+name|GeneralPath
+name|getPath
+parameter_list|()
+block|{
+return|return
+operator|new
+name|GlyphRenderer
+argument_list|(
+name|glyphDescription
+argument_list|)
+operator|.
+name|getPath
+argument_list|()
 return|;
 block|}
 comment|/**      * Returns the xMax value.      * @return the XMax value      */

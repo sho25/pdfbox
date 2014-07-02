@@ -403,7 +403,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|rendering
 operator|.
 name|font
 operator|.
@@ -419,7 +419,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|rendering
 operator|.
 name|font
 operator|.
@@ -435,7 +435,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|rendering
 operator|.
 name|font
 operator|.

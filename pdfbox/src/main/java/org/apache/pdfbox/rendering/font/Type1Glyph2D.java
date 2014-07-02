@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfviewer
+name|rendering
 operator|.
 name|font
 package|;
@@ -164,7 +164,6 @@ name|Type1Glyph2D
 implements|implements
 name|Glyph2D
 block|{
-comment|/**      * Log instance.      */
 specifier|private
 specifier|static
 specifier|final
@@ -446,7 +445,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -506,33 +504,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
-specifier|public
-name|int
-name|getNumberOfGlyphs
-parameter_list|()
-block|{
-if|if
-condition|(
-name|glyphs
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|glyphs
-operator|.
-name|size
-argument_list|()
-return|;
-block|}
-return|return
-literal|0
-return|;
-block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
