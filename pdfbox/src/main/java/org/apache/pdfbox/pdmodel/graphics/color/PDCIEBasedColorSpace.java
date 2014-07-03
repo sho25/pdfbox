@@ -68,6 +68,8 @@ block|{
 comment|//
 comment|// WARNING: this method is performance sensitive, modify with care!
 comment|//
+annotation|@
+name|Override
 specifier|public
 name|BufferedImage
 name|toRGBImage
