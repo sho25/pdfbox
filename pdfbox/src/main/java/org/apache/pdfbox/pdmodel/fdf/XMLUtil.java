@@ -256,7 +256,7 @@ name|Text
 condition|)
 block|{
 name|retval
-operator|=
+operator|+=
 name|next
 operator|.
 name|getNodeValue
