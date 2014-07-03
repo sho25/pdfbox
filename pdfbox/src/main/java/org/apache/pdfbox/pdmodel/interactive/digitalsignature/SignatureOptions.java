@@ -25,6 +25,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -95,6 +105,8 @@ begin_class
 specifier|public
 class|class
 name|SignatureOptions
+implements|implements
+name|Closeable
 block|{
 specifier|private
 name|COSDocument
@@ -144,7 +156,7 @@ return|return
 name|pageNo
 return|;
 block|}
-comment|/**      * Reads the visual signature from the given input stream.      *        * @param is the input stream containing the visual signature      *       * @throws IOException when something went wrong during parsing       */
+comment|/**      * Reads the visual signature from the given input stream.      *        * @param is the input stream containing the visual signature      * @throws IOException when something went wrong during parsing       */
 specifier|public
 name|void
 name|setVisualSignature
@@ -236,6 +248,28 @@ block|{
 name|preferedSignatureSize
 operator|=
 name|size
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Closes the visual signature COSDocument, if any.      *      * @throws IOException if the document could not be closed      */
+specifier|public
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|visualSignature
+operator|!=
+literal|null
+condition|)
+block|{
+name|visualSignature
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
