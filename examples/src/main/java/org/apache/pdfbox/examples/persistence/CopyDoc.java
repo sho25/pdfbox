@@ -265,6 +265,8 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|CopyDoc
 name|app
@@ -273,8 +275,6 @@ operator|new
 name|CopyDoc
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 if|if
 condition|(
 name|args
@@ -306,19 +306,6 @@ index|[
 literal|1
 index|]
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
 expr_stmt|;
 block|}
 block|}

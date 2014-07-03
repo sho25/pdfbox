@@ -34,6 +34,8 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 comment|// suppress the Dock icon on OS X
 name|System
@@ -98,8 +100,6 @@ name|exitAfterCallingMain
 init|=
 literal|true
 decl_stmt|;
-try|try
-block|{
 if|if
 condition|(
 name|command
@@ -370,37 +370,6 @@ operator|.
 name|exit
 argument_list|(
 literal|0
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-name|command
-operator|+
-literal|" failed with the following exception:"
-argument_list|)
-expr_stmt|;
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-name|System
-operator|.
-name|exit
-argument_list|(
-literal|1
 argument_list|)
 expr_stmt|;
 block|}

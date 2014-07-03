@@ -167,7 +167,7 @@ name|InputStream
 name|colorProfile
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|dictionary
 operator|=

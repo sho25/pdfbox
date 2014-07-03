@@ -98,8 +98,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|version
-operator|=
+return|return
 name|props
 operator|.
 name|getProperty
@@ -108,7 +107,7 @@ literal|"pdfbox.version"
 argument_list|,
 name|version
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -118,11 +117,6 @@ parameter_list|)
 block|{
 comment|//if there is a problem loading the properties then don't throw an
 comment|//exception, 'unknown' will be returned instead.
-name|io
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 block|}
 return|return
 name|version

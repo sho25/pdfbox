@@ -33,6 +33,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -191,6 +201,18 @@ name|PDOutputIntent
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|TransformerException
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an example that creates a simple PDF/A document.  *  */
 end_comment
@@ -227,7 +249,9 @@ name|String
 name|fontfile
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|TransformerException
 block|{
 comment|// the document
 name|PDDocument
@@ -504,6 +528,10 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|TransformerException
 block|{
 name|CreatePDFA
 name|app
@@ -512,8 +540,6 @@ operator|new
 name|CreatePDFA
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 if|if
 condition|(
 name|args
@@ -550,19 +576,6 @@ index|[
 literal|2
 index|]
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
 expr_stmt|;
 block|}
 block|}

@@ -447,6 +447,8 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// suppress the Dock icon on OS X
 name|System
@@ -600,8 +602,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-try|try
-block|{
 if|if
 condition|(
 name|outputFile
@@ -630,19 +630,6 @@ argument_list|,
 name|useNonSeqParser
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 specifier|private
