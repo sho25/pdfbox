@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a converter for a mapping into a Type2-sequence.  * @author Villu Ruusmann  * @version $Revision: 1.0 $  */
+comment|/**  * This class represents a converter for a mapping into a Type2-sequence.  * @author Villu Ruusmann  */
 end_comment
 
 begin_class
@@ -75,6 +75,37 @@ name|sequence
 init|=
 literal|null
 decl_stmt|;
+specifier|private
+specifier|final
+name|String
+name|fontName
+decl_stmt|,
+name|glyphName
+decl_stmt|;
+comment|/**      * Constructs a new Type1CharStringParser object.      *      * @param fontName font name      * @param glyphName glyph name      */
+specifier|public
+name|Type2CharStringParser
+parameter_list|(
+name|String
+name|fontName
+parameter_list|,
+name|String
+name|glyphName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fontName
+operator|=
+name|fontName
+expr_stmt|;
+name|this
+operator|.
+name|glyphName
+operator|=
+name|glyphName
+expr_stmt|;
+block|}
 comment|/**      * The given byte array will be parsed and converted to a Type2 sequence.      * @param bytes the given mapping as byte array      * @param globalSubrIndex index containing all global subroutines      * @param localSubrIndex index containing all local subroutines      *       * @return the Type2 sequence      * @throws IOException if an error occurs during reading      */
 specifier|public
 name|List
