@@ -4277,6 +4277,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|documentCatalog
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Cannot save a document which has been closed"
+argument_list|)
+throw|;
+block|}
 comment|// update the count in case any pages have been added behind the scenes.
 name|getDocumentCatalog
 argument_list|()
