@@ -81,16 +81,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Color
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|Paint
 import|;
 end_import
@@ -161,28 +151,17 @@ name|int
 name|pageHeight
 parameter_list|)
 block|{
-comment|// TODO ...
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Type 6 Shading not implemented"
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
-name|Color
+name|Type6ShadingPaint
 argument_list|(
-literal|0
+name|this
 argument_list|,
-literal|0
+name|matrix
 argument_list|,
-literal|0
-argument_list|,
-literal|0
+name|pageHeight
 argument_list|)
 return|;
-comment|// transparent
 block|}
 block|}
 end_class
