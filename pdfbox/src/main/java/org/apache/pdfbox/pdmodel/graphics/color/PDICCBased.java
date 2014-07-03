@@ -593,6 +593,10 @@ operator|||
 name|e
 operator|instanceof
 name|CMMException
+operator|||
+name|e
+operator|instanceof
+name|IllegalArgumentException
 condition|)
 block|{
 comment|// fall back to alternateColorSpace color space
