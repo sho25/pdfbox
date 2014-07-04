@@ -4615,6 +4615,8 @@ operator|new
 name|int
 index|[
 name|w
+operator|+
+literal|1
 index|]
 expr_stmt|;
 name|this
@@ -4625,6 +4627,8 @@ operator|new
 name|int
 index|[
 name|w
+operator|+
+literal|1
 index|]
 expr_stmt|;
 block|}
