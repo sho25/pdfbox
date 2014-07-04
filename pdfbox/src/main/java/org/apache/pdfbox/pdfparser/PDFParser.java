@@ -1839,14 +1839,9 @@ literal|1
 decl_stmt|;
 name|int
 name|genNum
-init|=
-operator|-
-literal|1
 decl_stmt|;
 name|String
 name|objectKey
-init|=
-literal|null
 decl_stmt|;
 name|boolean
 name|missingObjectNumber
@@ -2609,7 +2604,7 @@ name|currentLine
 operator|.
 name|split
 argument_list|(
-literal|" "
+literal|"\\s"
 argument_list|)
 decl_stmt|;
 if|if
@@ -3066,14 +3061,17 @@ class|class
 name|ConflictObj
 block|{
 specifier|private
+specifier|final
 name|long
 name|offset
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSObjectKey
 name|objectKey
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSObject
 name|object
 decl_stmt|;
@@ -3188,23 +3186,14 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|Long
-name|offset
-init|=
-operator|new
-name|Long
-argument_list|(
-name|o
-operator|.
-name|offset
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|tolerantConflicResolver
 argument_list|(
 name|values
 argument_list|,
+name|o
+operator|.
 name|offset
 argument_list|,
 literal|4
@@ -3275,6 +3264,8 @@ name|objectKey
 operator|+
 literal|"] at offset "
 operator|+
+name|o
+operator|.
 name|offset
 operator|+
 literal|" found in the xref table, but the object numbers differ. Ignoring this object."
