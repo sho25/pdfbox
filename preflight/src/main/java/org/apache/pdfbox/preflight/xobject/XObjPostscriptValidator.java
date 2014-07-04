@@ -25,9 +25,11 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|cos
+name|pdmodel
 operator|.
-name|COSStream
+name|graphics
+operator|.
+name|PDPostScriptXObject
 import|;
 end_import
 
@@ -74,7 +76,7 @@ parameter_list|(
 name|PreflightContext
 name|context
 parameter_list|,
-name|COSStream
+name|PDPostScriptXObject
 name|xobj
 parameter_list|)
 block|{
@@ -83,6 +85,9 @@ argument_list|(
 name|context
 argument_list|,
 name|xobj
+operator|.
+name|getCOSStream
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
