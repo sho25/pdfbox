@@ -658,6 +658,14 @@ operator|.
 name|RESOURCES
 argument_list|)
 decl_stmt|;
+name|initStream
+argument_list|(
+name|processeedPage
+operator|.
+name|findCropBox
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|processSubStream
 argument_list|(
 operator|new
