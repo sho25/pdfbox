@@ -1279,14 +1279,6 @@ name|PDFTextStripper
 argument_list|()
 expr_stmt|;
 block|}
-else|else
-block|{
-name|stripper
-operator|.
-name|resetEngine
-argument_list|()
-expr_stmt|;
-block|}
 name|stripper
 operator|.
 name|writeText

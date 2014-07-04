@@ -731,14 +731,6 @@ name|op
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method must be called between processing documents. The PDFStreamEngine caches      * information for the document between pages and this will release the cached information.      * This only needs to be called if processing a new document.      */
-specifier|public
-name|void
-name|resetEngine
-parameter_list|()
-block|{
-comment|// overridden in subclasses
-block|}
 comment|/**      * Initialises a stream for processing.      *      * @param drawingSize the size of the page      */
 specifier|protected
 name|void
