@@ -118,7 +118,7 @@ operator|.
 name|availableProcessors
 argument_list|()
 decl_stmt|;
-comment|// workaround Open JDK 6 bug which causes CMMException: Invalid profile data
+comment|// for debugging
 name|System
 operator|.
 name|out
@@ -135,6 +135,23 @@ literal|"java.runtime.name"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Version: "
+operator|+
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.specification.version"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// workaround Open JDK 6 bug which causes CMMException: Invalid profile data
 if|if
 condition|(
 name|System
