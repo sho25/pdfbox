@@ -562,11 +562,9 @@ try|try
 block|{
 name|initStream
 argument_list|(
-name|this
+name|xobj
 operator|.
-name|processeedPage
-operator|.
-name|findCropBox
+name|getBBox
 argument_list|()
 argument_list|)
 expr_stmt|;
