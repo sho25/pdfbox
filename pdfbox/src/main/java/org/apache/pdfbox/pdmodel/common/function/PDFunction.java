@@ -354,6 +354,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|function
+operator|==
+name|COSName
+operator|.
+name|IDENTITY
+condition|)
+block|{
+return|return
+operator|new
+name|PDFunctionTypeIdentity
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
 name|PDFunction
 name|retval
 init|=
@@ -793,8 +810,6 @@ decl_stmt|;
 name|float
 index|[]
 name|result
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -965,6 +980,8 @@ operator|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
