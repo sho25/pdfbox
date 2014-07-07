@@ -325,10 +325,6 @@ name|toByteArray
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|byte
-index|[]
-name|decodedData
-init|=
 name|Predictor
 operator|.
 name|decodePredictor
@@ -342,13 +338,8 @@ argument_list|,
 name|columns
 argument_list|,
 name|bais
-argument_list|)
-decl_stmt|;
+argument_list|,
 name|decoded
-operator|.
-name|write
-argument_list|(
-name|decodedData
 argument_list|)
 expr_stmt|;
 name|decoded
