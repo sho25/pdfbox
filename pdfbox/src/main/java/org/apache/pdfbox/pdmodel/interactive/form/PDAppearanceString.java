@@ -412,6 +412,7 @@ class|class
 name|PDAppearanceString
 block|{
 specifier|private
+specifier|final
 name|PDVariableText
 name|parent
 decl_stmt|;
@@ -420,10 +421,12 @@ name|String
 name|value
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSString
 name|defaultAppearance
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDAcroForm
 name|acroForm
 decl_stmt|;
@@ -984,8 +987,6 @@ literal|null
 decl_stmt|;
 name|PDAnnotationWidget
 name|widget
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1682,15 +1683,11 @@ decl_stmt|;
 name|PDRectangle
 name|boundingBox
 init|=
-literal|null
-decl_stmt|;
-name|boundingBox
-operator|=
 name|appearanceStream
 operator|.
 name|getBoundingBox
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|boundingBox
@@ -2204,8 +2201,6 @@ parameter_list|)
 block|{
 name|int
 name|currIdx
-init|=
-literal|0
 decl_stmt|;
 name|int
 name|lastIdx
@@ -2263,7 +2258,7 @@ name|result
 operator|.
 name|append
 argument_list|(
-literal|" ) Tj\n0 -13 Td\n("
+literal|"> Tj\n0 -13 Td\n<"
 argument_list|)
 expr_stmt|;
 name|lastIdx
