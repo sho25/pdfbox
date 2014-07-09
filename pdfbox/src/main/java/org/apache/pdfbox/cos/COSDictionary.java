@@ -3285,8 +3285,9 @@ block|{
 name|int
 name|idx
 init|=
-operator|new
 name|Integer
+operator|.
+name|parseInt
 argument_list|(
 name|pathString
 operator|.
@@ -3304,9 +3305,6 @@ argument_list|,
 literal|""
 argument_list|)
 argument_list|)
-operator|.
-name|intValue
-argument_list|()
 decl_stmt|;
 name|retval
 operator|=

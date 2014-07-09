@@ -1068,9 +1068,6 @@ condition|)
 block|{
 name|lower
 operator|=
-operator|(
-name|Integer
-operator|)
 name|keys
 operator|.
 name|get
@@ -1080,9 +1077,6 @@ argument_list|)
 expr_stmt|;
 name|upper
 operator|=
-operator|(
-name|Integer
-operator|)
 name|keys
 operator|.
 name|get
