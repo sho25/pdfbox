@@ -304,9 +304,6 @@ argument_list|(
 name|parseInt
 argument_list|(
 name|token
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -349,9 +346,6 @@ operator|.
 name|addName
 argument_list|(
 name|token
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
