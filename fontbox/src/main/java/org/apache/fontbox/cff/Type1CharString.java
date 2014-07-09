@@ -1281,18 +1281,40 @@ condition|)
 block|{
 comment|// end
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|name
+operator|!=
+literal|null
+condition|)
 block|{
 comment|// indicates a PDFBox bug
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown command: "
+literal|"Unhandled command: "
 operator|+
 name|name
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+comment|// indicates an invalid charstring
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Unknown charstring command: "
+operator|+
+name|command
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 literal|null
