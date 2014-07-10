@@ -237,6 +237,11 @@ argument_list|,
 name|ctm
 argument_list|)
 expr_stmt|;
+name|pixelTable
+operator|=
+name|calcPixelTable
+argument_list|()
+expr_stmt|;
 block|}
 comment|// get the patch list which forms the type 7 shading image from data stream
 specifier|private
