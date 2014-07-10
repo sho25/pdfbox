@@ -132,9 +132,6 @@ operator|.
 name|pop
 argument_list|()
 operator|)
-operator|.
-name|intValue
-argument_list|()
 return|;
 block|}
 comment|/**      * Pops a number from the stack and returns it as a real value. If the value is not of a      * numeric type, a ClassCastException is thrown.      * @return the real value      */

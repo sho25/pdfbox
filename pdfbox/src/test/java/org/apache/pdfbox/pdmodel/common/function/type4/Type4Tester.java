@@ -192,9 +192,6 @@ argument_list|(
 name|expected
 argument_list|,
 name|value
-operator|.
-name|floatValue
-argument_list|()
 argument_list|,
 name|delta
 argument_list|)

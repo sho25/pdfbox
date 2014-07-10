@@ -880,9 +880,6 @@ block|{
 name|setFieldFlags
 argument_list|(
 name|ff
-operator|.
-name|intValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -908,9 +905,6 @@ name|int
 name|setFfInt
 init|=
 name|setFf
-operator|.
-name|intValue
-argument_list|()
 decl_stmt|;
 name|fieldFlags
 operator|=
@@ -951,9 +945,6 @@ name|int
 name|clrFfValue
 init|=
 name|clrFf
-operator|.
-name|intValue
-argument_list|()
 decl_stmt|;
 name|clrFfValue
 operator|^=
@@ -1017,9 +1008,6 @@ operator|.
 name|setAnnotationFlags
 argument_list|(
 name|f
-operator|.
-name|intValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1046,9 +1034,6 @@ operator|=
 name|annotFlags
 operator||
 name|setF
-operator|.
-name|intValue
-argument_list|()
 expr_stmt|;
 name|widget
 operator|.
@@ -1085,9 +1070,6 @@ name|int
 name|clrFValue
 init|=
 name|clrF
-operator|.
-name|intValue
-argument_list|()
 decl_stmt|;
 name|clrFValue
 operator|^=

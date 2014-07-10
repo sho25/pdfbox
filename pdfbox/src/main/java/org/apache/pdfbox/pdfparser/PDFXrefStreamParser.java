@@ -634,9 +634,6 @@ operator|new
 name|COSObjectKey
 argument_list|(
 name|objID
-operator|.
-name|intValue
-argument_list|()
 argument_list|,
 name|genNum
 argument_list|)
@@ -707,9 +704,6 @@ operator|new
 name|COSObjectKey
 argument_list|(
 name|objID
-operator|.
-name|intValue
-argument_list|()
 argument_list|,
 literal|0
 argument_list|)

@@ -1702,9 +1702,6 @@ block|{
 name|retval
 operator|=
 name|rotation
-operator|.
-name|intValue
-argument_list|()
 expr_stmt|;
 block|}
 else|else

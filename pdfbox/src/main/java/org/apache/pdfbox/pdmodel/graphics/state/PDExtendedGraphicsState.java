@@ -519,9 +519,6 @@ name|setFlatness
 argument_list|(
 name|getFlatnessTolerance
 argument_list|()
-operator|.
-name|floatValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -543,9 +540,6 @@ operator|.
 name|setSmoothness
 argument_list|(
 name|getSmoothnessTolerance
-argument_list|()
-operator|.
-name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -591,9 +585,6 @@ name|setAlphaConstants
 argument_list|(
 name|getStrokingAlpaConstant
 argument_list|()
-operator|.
-name|floatValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -615,9 +606,6 @@ operator|.
 name|setNonStrokeAlphaConstants
 argument_list|(
 name|getNonStrokingAlpaConstant
-argument_list|()
-operator|.
-name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1610,9 +1598,6 @@ operator|new
 name|COSFloat
 argument_list|(
 name|value
-operator|.
-name|floatValue
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
