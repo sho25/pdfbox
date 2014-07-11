@@ -789,9 +789,6 @@ condition|)
 block|{
 name|actualObject
 operator|=
-operator|new
-name|Integer
-argument_list|(
 operator|(
 operator|(
 name|COSInteger
@@ -801,7 +798,6 @@ operator|)
 operator|.
 name|intValue
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -835,9 +831,6 @@ condition|)
 block|{
 name|actualObject
 operator|=
-operator|new
-name|Float
-argument_list|(
 operator|(
 operator|(
 name|COSFloat
@@ -847,7 +840,6 @@ operator|)
 operator|.
 name|floatValue
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 elseif|else

@@ -371,13 +371,9 @@ name|objNums
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Integer
-argument_list|(
 name|objID
 operator|+
 name|i
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

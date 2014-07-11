@@ -1045,9 +1045,6 @@ name|numbers
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Float
-argument_list|(
 operator|(
 operator|(
 name|COSNumber
@@ -1062,7 +1059,6 @@ operator|)
 operator|.
 name|floatValue
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

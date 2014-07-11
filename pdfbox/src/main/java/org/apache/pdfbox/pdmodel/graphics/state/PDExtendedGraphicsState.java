@@ -1545,14 +1545,10 @@ condition|)
 block|{
 name|retval
 operator|=
-operator|new
-name|Float
-argument_list|(
 name|value
 operator|.
 name|floatValue
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 return|return

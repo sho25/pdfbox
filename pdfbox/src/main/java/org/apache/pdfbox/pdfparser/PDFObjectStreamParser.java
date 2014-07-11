@@ -325,11 +325,7 @@ name|objectNumbers
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Long
-argument_list|(
 name|objectNumber
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
