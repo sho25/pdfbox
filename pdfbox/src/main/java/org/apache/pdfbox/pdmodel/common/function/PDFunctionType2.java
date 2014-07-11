@@ -120,6 +120,11 @@ specifier|private
 name|COSArray
 name|C1
 decl_stmt|;
+comment|/**      * The N value of the exponential function.      */
+specifier|private
+name|Float
+name|N
+decl_stmt|;
 comment|/**      * Constructor.      *      * @param function The function .      */
 specifier|public
 name|PDFunctionType2
@@ -135,6 +140,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getFunctionType
@@ -145,6 +152,8 @@ literal|2
 return|;
 block|}
 comment|/**      * Performs exponential interpolation      *     * {@inheritDoc}     */
+annotation|@
+name|Override
 specifier|public
 name|float
 index|[]
@@ -403,7 +412,15 @@ name|float
 name|getN
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|N
+operator|==
+literal|null
+condition|)
+block|{
+name|N
+operator|=
 name|getDictionary
 argument_list|()
 operator|.
@@ -413,9 +430,15 @@ name|COSName
 operator|.
 name|N
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|N
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
