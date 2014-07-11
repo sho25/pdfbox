@@ -154,6 +154,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|int
 name|value
 decl_stmt|;
@@ -188,6 +189,8 @@ name|intValue
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -800,6 +803,9 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
+operator|(
+name|int
+operator|)
 name|this
 operator|.
 name|node5
@@ -814,6 +820,9 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
+operator|(
+name|int
+operator|)
 name|this
 operator|.
 name|node2
@@ -828,6 +837,9 @@ name|assertEquals
 argument_list|(
 literal|12
 argument_list|,
+operator|(
+name|int
+operator|)
 name|this
 operator|.
 name|node24
@@ -842,6 +854,9 @@ name|assertEquals
 argument_list|(
 literal|12
 argument_list|,
+operator|(
+name|int
+operator|)
 name|this
 operator|.
 name|node4
@@ -856,6 +871,9 @@ name|assertEquals
 argument_list|(
 literal|12
 argument_list|,
+operator|(
+name|int
+operator|)
 name|this
 operator|.
 name|node1
@@ -948,6 +966,9 @@ name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
+operator|(
+name|int
+operator|)
 name|this
 operator|.
 name|node5
@@ -962,6 +983,9 @@ name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
+operator|(
+name|int
+operator|)
 name|this
 operator|.
 name|node2
@@ -976,6 +1000,9 @@ name|assertEquals
 argument_list|(
 literal|8
 argument_list|,
+operator|(
+name|int
+operator|)
 name|this
 operator|.
 name|node24
@@ -990,6 +1017,9 @@ name|assertEquals
 argument_list|(
 literal|8
 argument_list|,
+operator|(
+name|int
+operator|)
 name|this
 operator|.
 name|node4
@@ -1004,6 +1034,9 @@ name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
+operator|(
+name|int
+operator|)
 name|this
 operator|.
 name|node1
