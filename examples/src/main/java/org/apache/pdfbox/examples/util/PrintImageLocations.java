@@ -181,7 +181,23 @@ name|util
 operator|.
 name|operator
 operator|.
-name|PDFOperator
+name|Operator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|operator
+operator|.
+name|Operator
 import|;
 end_import
 
@@ -516,7 +532,7 @@ specifier|protected
 name|void
 name|processOperator
 parameter_list|(
-name|PDFOperator
+name|Operator
 name|operator
 parameter_list|,
 name|List

@@ -505,7 +505,23 @@ name|util
 operator|.
 name|operator
 operator|.
-name|PDFOperator
+name|DrawObject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|operator
+operator|.
+name|Operator
 import|;
 end_import
 
@@ -535,6 +551,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|text
+operator|.
 name|BeginText
 import|;
 end_import
@@ -550,6 +568,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|state
 operator|.
 name|Concatenate
 import|;
@@ -567,6 +587,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|text
+operator|.
 name|EndText
 import|;
 end_import
@@ -583,7 +605,9 @@ name|util
 operator|.
 name|operator
 operator|.
-name|GRestore
+name|state
+operator|.
+name|Restore
 import|;
 end_import
 
@@ -599,7 +623,9 @@ name|util
 operator|.
 name|operator
 operator|.
-name|GSave
+name|state
+operator|.
+name|Save
 import|;
 end_import
 
@@ -615,21 +641,7 @@ name|util
 operator|.
 name|operator
 operator|.
-name|Invoke
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|operator
+name|text
 operator|.
 name|MoveText
 import|;
@@ -647,6 +659,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|text
+operator|.
 name|MoveTextSetLeading
 import|;
 end_import
@@ -662,6 +676,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|text
 operator|.
 name|NextLine
 import|;
@@ -695,6 +711,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|text
+operator|.
 name|SetCharSpacing
 import|;
 end_import
@@ -710,6 +728,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|text
 operator|.
 name|SetHorizontalTextScaling
 import|;
@@ -727,6 +747,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|state
+operator|.
 name|SetLineCapStyle
 import|;
 end_import
@@ -742,6 +764,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|state
 operator|.
 name|SetLineDashPattern
 import|;
@@ -759,6 +783,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|state
+operator|.
 name|SetLineJoinStyle
 import|;
 end_import
@@ -774,6 +800,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|state
 operator|.
 name|SetLineWidth
 import|;
@@ -791,6 +819,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|state
+operator|.
 name|SetMatrix
 import|;
 end_import
@@ -806,6 +836,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|color
 operator|.
 name|SetNonStrokingDeviceCMYKColor
 import|;
@@ -823,6 +855,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|color
+operator|.
 name|SetNonStrokingColor
 import|;
 end_import
@@ -838,6 +872,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|color
 operator|.
 name|SetNonStrokingColorSpace
 import|;
@@ -855,6 +891,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|color
+operator|.
 name|SetNonStrokingDeviceRGBColor
 import|;
 end_import
@@ -870,6 +908,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|color
 operator|.
 name|SetStrokingDeviceCMYKColor
 import|;
@@ -887,6 +927,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|color
+operator|.
 name|SetStrokingColor
 import|;
 end_import
@@ -902,6 +944,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|color
 operator|.
 name|SetStrokingColorSpace
 import|;
@@ -919,6 +963,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|color
+operator|.
 name|SetStrokingDeviceRGBColor
 import|;
 end_import
@@ -934,6 +980,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|text
 operator|.
 name|SetTextFont
 import|;
@@ -951,6 +999,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|text
+operator|.
 name|SetTextLeading
 import|;
 end_import
@@ -966,6 +1016,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|text
 operator|.
 name|SetTextRenderingMode
 import|;
@@ -983,6 +1035,8 @@ name|util
 operator|.
 name|operator
 operator|.
+name|text
+operator|.
 name|SetTextRise
 import|;
 end_import
@@ -998,6 +1052,8 @@ operator|.
 name|util
 operator|.
 name|operator
+operator|.
+name|text
 operator|.
 name|SetWordSpacing
 import|;
@@ -1149,7 +1205,7 @@ argument_list|(
 literal|"Do"
 argument_list|,
 operator|new
-name|Invoke
+name|DrawObject
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1249,7 +1305,7 @@ argument_list|(
 literal|"Q"
 argument_list|,
 operator|new
-name|GRestore
+name|Restore
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1258,7 +1314,7 @@ argument_list|(
 literal|"q"
 argument_list|,
 operator|new
-name|GSave
+name|Save
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1726,7 +1782,7 @@ specifier|protected
 name|void
 name|validRenderingIntent
 parameter_list|(
-name|PDFOperator
+name|Operator
 name|operator
 parameter_list|,
 name|List
@@ -1845,7 +1901,7 @@ specifier|protected
 name|void
 name|validNumberOfGraphicStates
 parameter_list|(
-name|PDFOperator
+name|Operator
 name|operator
 parameter_list|)
 throws|throws
@@ -1895,7 +1951,7 @@ specifier|protected
 name|void
 name|validImageFilter
 parameter_list|(
-name|PDFOperator
+name|Operator
 name|operator
 parameter_list|)
 throws|throws
@@ -1956,7 +2012,7 @@ specifier|protected
 name|void
 name|validImageColorSpace
 parameter_list|(
-name|PDFOperator
+name|Operator
 name|operator
 parameter_list|)
 throws|throws
@@ -2720,7 +2776,7 @@ specifier|protected
 name|void
 name|checkSetColorSpaceOperators
 parameter_list|(
-name|PDFOperator
+name|Operator
 name|operator
 parameter_list|,
 name|List

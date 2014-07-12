@@ -295,7 +295,7 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|optional_content
+name|optionalcontent
 operator|.
 name|PDOptionalContentGroup
 import|;
@@ -313,7 +313,7 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
-name|optional_content
+name|optionalcontent
 operator|.
 name|PDOptionalContentProperties
 import|;

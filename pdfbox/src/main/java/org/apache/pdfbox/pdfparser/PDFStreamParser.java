@@ -249,7 +249,23 @@ name|util
 operator|.
 name|operator
 operator|.
-name|PDFOperator
+name|Operator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|operator
+operator|.
+name|Operator
 import|;
 end_import
 
@@ -839,7 +855,7 @@ else|else
 block|{
 name|retval
 operator|=
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -902,7 +918,7 @@ else|else
 block|{
 name|retval
 operator|=
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -945,7 +961,7 @@ else|else
 block|{
 name|retval
 operator|=
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -1109,7 +1125,7 @@ argument_list|()
 decl_stmt|;
 name|retval
 operator|=
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -1126,11 +1142,11 @@ literal|"BI"
 argument_list|)
 condition|)
 block|{
-name|PDFOperator
+name|Operator
 name|beginImageOP
 init|=
 operator|(
-name|PDFOperator
+name|Operator
 operator|)
 name|retval
 decl_stmt|;
@@ -1188,11 +1204,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//final token will be the image data, maybe??
-name|PDFOperator
+name|Operator
 name|imageData
 init|=
 operator|(
-name|PDFOperator
+name|Operator
 operator|)
 name|nextToken
 decl_stmt|;
@@ -1354,7 +1370,7 @@ block|}
 comment|// the EI operator isn't unread, as it won't be processed anyway
 name|retval
 operator|=
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -1364,7 +1380,7 @@ expr_stmt|;
 comment|// save the image data to the operator, so that it can be accessed later
 operator|(
 operator|(
-name|PDFOperator
+name|Operator
 operator|)
 name|retval
 operator|)
@@ -1431,7 +1447,7 @@ else|else
 block|{
 name|retval
 operator|=
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(

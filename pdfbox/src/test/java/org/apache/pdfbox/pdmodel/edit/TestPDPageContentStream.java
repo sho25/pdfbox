@@ -109,7 +109,23 @@ name|util
 operator|.
 name|operator
 operator|.
-name|PDFOperator
+name|Operator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|operator
+operator|.
+name|Operator
 import|;
 end_import
 
@@ -329,7 +345,7 @@ literal|"k"
 argument_list|,
 operator|(
 operator|(
-name|PDFOperator
+name|Operator
 operator|)
 name|pageTokens
 operator|.
@@ -513,7 +529,7 @@ literal|"K"
 argument_list|,
 operator|(
 operator|(
-name|PDFOperator
+name|Operator
 operator|)
 name|pageTokens
 operator|.

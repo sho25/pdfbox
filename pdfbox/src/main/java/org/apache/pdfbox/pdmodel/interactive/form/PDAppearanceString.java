@@ -397,7 +397,23 @@ name|util
 operator|.
 name|operator
 operator|.
-name|PDFOperator
+name|Operator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|operator
+operator|.
+name|Operator
 import|;
 end_import
 
@@ -902,7 +918,7 @@ name|stream
 operator|.
 name|contains
 argument_list|(
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -1279,7 +1295,7 @@ name|tokens
 operator|.
 name|indexOf
 argument_list|(
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -1294,7 +1310,7 @@ name|tokens
 operator|.
 name|indexOf
 argument_list|(
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -1425,7 +1441,7 @@ name|tokens
 operator|.
 name|indexOf
 argument_list|(
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -1470,7 +1486,7 @@ name|tokens
 operator|.
 name|indexOf
 argument_list|(
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -1485,7 +1501,7 @@ name|tokens
 operator|.
 name|indexOf
 argument_list|(
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -1735,7 +1751,7 @@ name|daTokens
 operator|.
 name|indexOf
 argument_list|(
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -2144,7 +2160,7 @@ name|tokens
 operator|.
 name|indexOf
 argument_list|(
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -2318,7 +2334,7 @@ name|tokens
 operator|.
 name|indexOf
 argument_list|(
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -2333,7 +2349,7 @@ name|tokens
 operator|.
 name|indexOf
 argument_list|(
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -2430,7 +2446,7 @@ if|if
 condition|(
 name|next
 operator|==
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(
@@ -2633,7 +2649,7 @@ name|daTokens
 operator|.
 name|indexOf
 argument_list|(
-name|PDFOperator
+name|Operator
 operator|.
 name|getOperator
 argument_list|(

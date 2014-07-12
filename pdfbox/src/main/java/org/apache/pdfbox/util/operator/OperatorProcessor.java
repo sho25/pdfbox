@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processes a PDF operator.  * @author Laurent Huault  */
+comment|/**  * Processes a PDF operator.  *  * @author Laurent Huault  */
 end_comment
 
 begin_class
@@ -79,8 +79,6 @@ comment|/** The processing context. */
 specifier|protected
 name|PDFStreamEngine
 name|context
-init|=
-literal|null
 decl_stmt|;
 comment|/**      * Creates a new OperatorProcessor.      */
 specifier|protected
@@ -119,7 +117,7 @@ specifier|abstract
 name|void
 name|process
 parameter_list|(
-name|PDFOperator
+name|Operator
 name|operator
 parameter_list|,
 name|List
