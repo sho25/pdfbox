@@ -67,6 +67,7 @@ extends|extends
 name|GlyfDescript
 block|{
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|GlyfCompositeComp
@@ -200,6 +201,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|resolve
@@ -337,6 +340,8 @@ literal|false
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getEndPtOfContours
@@ -395,6 +400,8 @@ literal|0
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|byte
 name|getFlags
@@ -448,6 +455,8 @@ literal|0
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|short
 name|getXCoordinate
@@ -543,6 +552,8 @@ literal|0
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|short
 name|getYCoordinate
@@ -638,6 +649,8 @@ literal|0
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isComposite
@@ -648,6 +661,8 @@ literal|true
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getPointCount
@@ -706,6 +721,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getContourCount
@@ -784,39 +801,14 @@ name|int
 name|i
 parameter_list|)
 block|{
-name|GlyfCompositeComp
-name|c
-decl_stmt|;
 for|for
 control|(
-name|int
-name|n
-init|=
-literal|0
-init|;
-name|n
-operator|<
+name|GlyfCompositeComp
+name|c
+range|:
 name|components
-operator|.
-name|size
-argument_list|()
-condition|;
-name|n
-operator|++
 control|)
 block|{
-name|c
-operator|=
-operator|(
-name|GlyfCompositeComp
-operator|)
-name|components
-operator|.
-name|get
-argument_list|(
-name|n
-argument_list|)
-expr_stmt|;
 name|GlyphDescription
 name|gd
 init|=
@@ -869,39 +861,14 @@ name|int
 name|i
 parameter_list|)
 block|{
-name|GlyfCompositeComp
-name|c
-decl_stmt|;
 for|for
 control|(
-name|int
-name|j
-init|=
-literal|0
-init|;
-name|j
-operator|<
+name|GlyfCompositeComp
+name|c
+range|:
 name|components
-operator|.
-name|size
-argument_list|()
-condition|;
-name|j
-operator|++
 control|)
 block|{
-name|c
-operator|=
-operator|(
-name|GlyfCompositeComp
-operator|)
-name|components
-operator|.
-name|get
-argument_list|(
-name|j
-argument_list|)
-expr_stmt|;
 name|GlyphDescription
 name|gd
 init|=
