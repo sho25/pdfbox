@@ -468,6 +468,16 @@ name|getDates
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|list
+argument_list|(
+literal|"Subjects:"
+argument_list|,
+name|dc
+operator|.
+name|getSubjects
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|XMPSchemaPDF
 name|pdf
