@@ -1187,6 +1187,9 @@ name|translate
 argument_list|(
 literal|0
 argument_list|,
+operator|(
+name|int
+operator|)
 name|pageSize
 operator|.
 name|getHeight
