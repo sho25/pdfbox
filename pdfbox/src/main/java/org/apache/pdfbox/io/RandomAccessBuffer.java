@@ -57,6 +57,8 @@ implements|implements
 name|RandomAccess
 implements|,
 name|Closeable
+implements|,
+name|Cloneable
 block|{
 comment|// chunk size is 16kb
 specifier|private
