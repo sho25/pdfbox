@@ -31,6 +31,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -645,6 +655,7 @@ init|=
 literal|16
 decl_stmt|;
 specifier|private
+specifier|final
 name|InputStream
 name|input
 decl_stmt|;
@@ -723,18 +734,10 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-name|java
-operator|.
-name|io
-operator|.
 name|FileInputStream
 name|input
 init|=
 operator|new
-name|java
-operator|.
-name|io
-operator|.
 name|FileInputStream
 argument_list|(
 name|file
@@ -871,8 +874,6 @@ argument_list|)
 expr_stmt|;
 name|String
 name|nextCommand
-init|=
-literal|null
 decl_stmt|;
 while|while
 condition|(
@@ -1726,8 +1727,6 @@ name|IOException
 block|{
 name|String
 name|nextCommand
-init|=
-literal|null
 decl_stmt|;
 while|while
 condition|(
@@ -3825,9 +3824,6 @@ name|valueOf
 argument_list|(
 name|theBoolean
 argument_list|)
-operator|.
-name|booleanValue
-argument_list|()
 return|;
 block|}
 comment|/**      * This will read an integer from the stream.      *      * @return The integer in the stream.      */
