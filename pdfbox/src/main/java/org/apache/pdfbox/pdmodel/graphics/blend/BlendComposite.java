@@ -107,6 +107,34 @@ name|WritableRaster
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * AWT composite for blend modes.  *   * @author Kühn& Weyh Software, GmbH  */
 end_comment
@@ -119,7 +147,23 @@ name|BlendComposite
 implements|implements
 name|Composite
 block|{
-comment|/**      * Creates a blend composite      *      * @param blendMode Desired blend mode      * @param constantAlpha Constant alpha      */
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|BlendComposite
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|/**      * Creates a blend composite      *      * @param blendMode Desired blend mode      * @param constantAlpha Constant alpha, must be in the inclusive range      * [0.0, 1.0] or it will be clipped.      */
 specifier|public
 specifier|static
 name|Composite
@@ -141,6 +185,49 @@ operator|.
 name|NORMAL
 condition|)
 block|{
+if|if
+condition|(
+name|constantAlpha
+operator|<
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"using 0 instead of incorrect Alpha "
+operator|+
+name|constantAlpha
+argument_list|)
+expr_stmt|;
+name|constantAlpha
+operator|=
+literal|0
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|constantAlpha
+operator|>
+literal|1
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"using 1 instead of incorrect Alpha "
+operator|+
+name|constantAlpha
+argument_list|)
+expr_stmt|;
+name|constantAlpha
+operator|=
+literal|1
+expr_stmt|;
+block|}
 return|return
 name|AlphaComposite
 operator|.
@@ -204,6 +291,8 @@ operator|=
 name|constantAlpha
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|CompositeContext
 name|createContext
@@ -236,14 +325,17 @@ implements|implements
 name|CompositeContext
 block|{
 specifier|private
+specifier|final
 name|ColorModel
 name|srcColorModel
 decl_stmt|;
 specifier|private
+specifier|final
 name|ColorModel
 name|dstColorModel
 decl_stmt|;
 specifier|private
+specifier|final
 name|RenderingHints
 name|hints
 decl_stmt|;
@@ -278,6 +370,8 @@ operator|=
 name|hints
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|dispose
@@ -285,6 +379,8 @@ parameter_list|()
 block|{
 comment|// nothing needed
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|compose
