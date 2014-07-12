@@ -1692,7 +1692,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|void
 name|processText
 parameter_list|(
@@ -3061,12 +3061,8 @@ return|return
 name|glyph2D
 return|;
 block|}
-comment|/**      * Get the current line path to be drawn.      *      * @return The current line path to be drawn.      */
-comment|// TODO: NO LONGER PUBLIC :)
-comment|/*public GeneralPath getLinePath()     {         return linePath;     }*/
 annotation|@
 name|Override
-comment|// todo: is this "append or draw?"
 specifier|public
 name|void
 name|appendRectangle

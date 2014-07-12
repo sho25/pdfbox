@@ -427,10 +427,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|// todo: toRGB() which returns a packed int
-comment|// todo: getColorSpace() getter
-comment|// STARTING POINT:
-comment|// todo: JavaDoc [TODO: WHAT TO DO IF THIS IS A PATTERN? THROW ERROR?]
+comment|/**      * Returns the packed RGB value for this color, if any.      * @param colorSpace color space      * @return RGB      * @throws IOException      * @throws java.lang.IllegalStateException if this color value is a pattern.      */
 specifier|public
 name|int
 name|toRGB
@@ -440,7 +437,6 @@ name|colorSpace
 parameter_list|)
 throws|throws
 name|IOException
-comment|// todo: store colorSpace locally (Also, fallback color if exception?)
 block|{
 name|float
 index|[]
