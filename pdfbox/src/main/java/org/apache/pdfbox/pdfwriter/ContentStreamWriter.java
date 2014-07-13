@@ -183,22 +183,6 @@ name|Operator
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|operator
-operator|.
-name|Operator
-import|;
-end_import
-
 begin_comment
 comment|/**  * A class that will take a list of tokens and write out a stream with them.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.8 $  */
 end_comment

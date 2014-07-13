@@ -69,22 +69,6 @@ name|Operator
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|operator
-operator|.
-name|Operator
-import|;
-end_import
-
 begin_comment
 comment|/**  * h Close the path.  *  * @author Ben Litchfield  */
 end_comment

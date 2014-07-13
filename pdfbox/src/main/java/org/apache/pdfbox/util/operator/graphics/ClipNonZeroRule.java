@@ -81,22 +81,6 @@ name|Operator
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|operator
-operator|.
-name|Operator
-import|;
-end_import
-
 begin_comment
 comment|/**  * W Set the clipping path using non zero winding rule.  *  * @author Daniel Wilson  */
 end_comment

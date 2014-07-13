@@ -401,22 +401,6 @@ name|Operator
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|operator
-operator|.
-name|Operator
-import|;
-end_import
-
 begin_comment
 comment|/**  * A default appearance string contains any graphics state or text state operators needed to  * establish the graphics state parameters, such as text size and colour, for displaying the field?s  * variable text. Only operators that are allowed within text objects shall occur in this string.  *  * @author Stephan Gerhard  * @author Ben Litchfield  */
 end_comment

@@ -61,22 +61,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|operator
-operator|.
-name|OperatorProcessor
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
