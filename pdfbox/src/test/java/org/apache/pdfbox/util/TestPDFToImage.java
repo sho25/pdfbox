@@ -1254,6 +1254,14 @@ argument_list|,
 literal|0
 argument_list|)
 operator|)
+operator|&&
+operator|!
+name|name
+operator|.
+name|endsWith
+argument_list|(
+literal|".png-diff.png"
+argument_list|)
 return|;
 block|}
 block|}
