@@ -521,7 +521,7 @@ name|length
 init|=
 name|filteredStream
 operator|.
-name|getLength
+name|getLengthWritten
 argument_list|()
 decl_stmt|;
 name|RandomAccessFileInputStream
@@ -1587,6 +1587,8 @@ name|BUFFER_SIZE
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
