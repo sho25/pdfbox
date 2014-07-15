@@ -1396,26 +1396,10 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// transform the rectangle using the given matrix
-name|AffineTransform
-name|at
-init|=
 name|matrix
 operator|.
 name|createAffineTransform
 argument_list|()
-decl_stmt|;
-name|at
-operator|.
-name|scale
-argument_list|(
-literal|1
-argument_list|,
-operator|-
-literal|1
-argument_list|)
-expr_stmt|;
-name|at
 operator|.
 name|transform
 argument_list|(
@@ -1437,7 +1421,6 @@ operator|.
 name|getX
 argument_list|()
 argument_list|,
-operator|-
 operator|(
 name|int
 operator|)
@@ -1477,6 +1460,7 @@ operator|.
 name|getX
 argument_list|()
 argument_list|,
+operator|-
 operator|(
 name|int
 operator|)
