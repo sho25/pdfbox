@@ -152,6 +152,7 @@ comment|/**  * AWT Paint for radial shading.  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|RadialShadingPaint
 implements|implements

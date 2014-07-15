@@ -199,6 +199,24 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|common
+operator|.
+name|function
+operator|.
+name|PDFunction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|graphics
 operator|.
 name|color
@@ -226,6 +244,7 @@ comment|/**  * AWT PaintContext for axial shading.  */
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|AxialShadingContext
 implements|implements
@@ -1128,6 +1147,21 @@ parameter_list|()
 block|{
 return|return
 name|extend
+return|;
+block|}
+comment|/**      * Returns the function.      *      * @return the function      * @throws IOException if something goes wrong      */
+specifier|public
+name|PDFunction
+name|getFunction
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|shading
+operator|.
+name|getFunction
+argument_list|()
 return|;
 block|}
 block|}
