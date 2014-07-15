@@ -414,6 +414,11 @@ block|}
 block|}
 name|doc
 operator|.
+name|getDocumentCatalog
+argument_list|()
+expr_stmt|;
+name|doc
+operator|.
 name|save
 argument_list|(
 name|out
