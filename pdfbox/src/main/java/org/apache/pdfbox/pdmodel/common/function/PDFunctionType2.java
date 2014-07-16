@@ -433,16 +433,23 @@ block|{
 return|return
 literal|"FunctionType2{"
 operator|+
-literal|"C0:"
+literal|"C0: "
 operator|+
 name|getC0
 argument_list|()
 operator|+
 literal|" "
 operator|+
-literal|"C1:"
+literal|"C1: "
 operator|+
 name|getC1
+argument_list|()
+operator|+
+literal|" "
+operator|+
+literal|"N: "
+operator|+
+name|getN
 argument_list|()
 operator|+
 literal|"}"
