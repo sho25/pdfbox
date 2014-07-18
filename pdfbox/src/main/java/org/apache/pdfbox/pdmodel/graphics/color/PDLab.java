@@ -657,6 +657,45 @@ literal|200f
 operator|)
 argument_list|)
 decl_stmt|;
+comment|// toRGB() malfunctions with negative values
+comment|// XYZ must be non-negative anyway:
+comment|// http://ninedegreesbelow.com/photography/icc-profile-negative-tristimulus.html
+if|if
+condition|(
+name|x
+operator|<
+literal|0
+condition|)
+block|{
+name|x
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|y
+operator|<
+literal|0
+condition|)
+block|{
+name|y
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|z
+operator|<
+literal|0
+condition|)
+block|{
+name|z
+operator|=
+literal|0
+expr_stmt|;
+block|}
 comment|// XYZ to RGB
 return|return
 name|CIEXYZ
