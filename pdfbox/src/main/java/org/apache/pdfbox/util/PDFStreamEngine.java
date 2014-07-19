@@ -317,6 +317,22 @@ name|pdmodel
 operator|.
 name|font
 operator|.
+name|PDFontFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
 name|PDType3Font
 import|;
 end_import
@@ -1378,7 +1394,6 @@ comment|// We won't know the actual number of characters until
 comment|// we process the byte data(could be two bytes each) but
 comment|// it won't ever be more than string.length*2(there are some cases
 comment|// were a single byte will result in two output characters "fi"
-specifier|final
 name|PDFont
 name|font
 init|=
@@ -1390,6 +1405,28 @@ operator|.
 name|getFont
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|font
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"font is undefined, creating default font"
+argument_list|)
+expr_stmt|;
+name|font
+operator|=
+name|PDFontFactory
+operator|.
+name|createDefaultFont
+argument_list|()
+expr_stmt|;
+block|}
 comment|// all fonts have the width/height of a character in thousandths of a unit of text space
 name|float
 name|fontMatrixXScaling
