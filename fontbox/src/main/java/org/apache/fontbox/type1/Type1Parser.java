@@ -496,6 +496,15 @@ name|name
 argument_list|)
 throw|;
 block|}
+name|readMaybe
+argument_list|(
+name|Token
+operator|.
+name|NAME
+argument_list|,
+literal|"readonly"
+argument_list|)
+expr_stmt|;
 name|read
 argument_list|(
 name|Token
