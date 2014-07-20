@@ -55,8 +55,36 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * Glyph description for composite glyphs. Composite glyphs are made up of one or more simple glyphs, usually with some  * sort of transformation applied to each.  *   * This class is based on code from Apache Batik a subproject of Apache XMLGraphics. see  * http://xmlgraphics.apache.org/batik/ for further details.  */
+comment|/**  * Glyph description for composite glyphs. Composite glyphs are made up of one  * or more simple glyphs, usually with some sort of transformation applied to  * each.  *  * This class is based on code from Apache Batik a subproject of Apache  * XMLGraphics. see http://xmlgraphics.apache.org/batik/ for further details.  */
 end_comment
 
 begin_class
@@ -66,6 +94,22 @@ name|GlyfCompositeDescript
 extends|extends
 name|GlyfDescript
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|GlyfCompositeDescript
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 specifier|final
 name|List
@@ -220,11 +264,9 @@ condition|(
 name|beingResolved
 condition|)
 block|{
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"Circular reference in GlyfCompositeDesc"
 argument_list|)
@@ -674,11 +716,9 @@ operator|!
 name|resolved
 condition|)
 block|{
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"getPointCount called on unresolved GlyfCompositeDescript"
 argument_list|)
@@ -702,12 +742,9 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-return|return
-name|c
-operator|.
-name|getFirstIndex
-argument_list|()
-operator|+
+name|GlyphDescription
+name|gd
+init|=
 name|getGlypDescription
 argument_list|(
 name|c
@@ -715,6 +752,39 @@ operator|.
 name|getGlyphIndex
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|gd
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"getGlypDescription("
+operator|+
+name|c
+operator|.
+name|getGlyphIndex
+argument_list|()
+operator|+
+literal|") is null, returning 0"
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
+return|return
+name|c
+operator|.
+name|getFirstIndex
+argument_list|()
+operator|+
+name|gd
 operator|.
 name|getPointCount
 argument_list|()
@@ -734,11 +804,9 @@ operator|!
 name|resolved
 condition|)
 block|{
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"getContourCount called on unresolved GlyfCompositeDescript"
 argument_list|)
