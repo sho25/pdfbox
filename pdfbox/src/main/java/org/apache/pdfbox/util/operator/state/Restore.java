@@ -152,7 +152,7 @@ operator|.
 name|getGraphicsStackSize
 argument_list|()
 operator|>
-literal|0
+literal|1
 condition|)
 block|{
 name|context
@@ -166,7 +166,7 @@ block|{
 comment|// this shouldn't happen but it does, see PDFBOX-161
 name|LOG
 operator|.
-name|debug
+name|error
 argument_list|(
 literal|"GRestore: no graphics state left to be restored."
 argument_list|)
