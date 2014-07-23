@@ -274,7 +274,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An inline image object which uses a special syntax to express the data for  * a small image directly within the content stream.  *  * @author Ben Litchfield  * @author John Hewson  */
+comment|/**  * An inline image object which uses a special syntax to express the data for a  * small image directly within the content stream.  *  * @author Ben Litchfield  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -287,11 +287,13 @@ name|PDImage
 block|{
 comment|// image parameters
 specifier|private
+specifier|final
 name|COSDictionary
 name|parameters
 decl_stmt|;
 comment|// color spaces in current resource dictionary
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -302,10 +304,11 @@ name|colorSpaces
 decl_stmt|;
 comment|// image data
 specifier|private
+specifier|final
 name|PDStream
 name|stream
 decl_stmt|;
-comment|/**      * Creates an inline image from the given parameters and data.      * @param parameters the image parameters      * @param data the image data      * @param colorSpaces the color spaces in the current resources parameters      */
+comment|/**      * Creates an inline image from the given parameters and data.      *      * @param parameters the image parameters      * @param data the image data      * @param colorSpaces the color spaces in the current resources parameters      */
 specifier|public
 name|PDInlineImage
 parameter_list|(
@@ -344,12 +347,25 @@ name|decodeResult
 init|=
 literal|null
 decl_stmt|;
-if|if
-condition|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|filters
+init|=
 name|getFilters
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|filters
 operator|==
 literal|null
+operator|||
+name|filters
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|this
@@ -365,15 +381,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|filters
-init|=
-name|getFilters
-argument_list|()
-decl_stmt|;
 name|ByteArrayInputStream
 name|in
 init|=
@@ -502,6 +509,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -511,6 +520,8 @@ return|return
 name|parameters
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getBitsPerComponent
@@ -547,6 +558,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setBitsPerComponent
@@ -567,6 +580,8 @@ name|bitsPerComponent
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|PDColorSpace
 name|getColorSpace
@@ -652,6 +667,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setColorSpace
@@ -692,6 +709,8 @@ name|base
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getHeight
@@ -715,6 +734,8 @@ literal|1
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setHeight
@@ -735,6 +756,8 @@ name|height
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getWidth
@@ -758,6 +781,8 @@ literal|1
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setWidth
@@ -778,7 +803,7 @@ name|width
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns a list of filters applied to this stream, or null if there are none.      * @return a list of filters applied to this stream      */
+comment|/**      * Returns a list of filters applied to this stream, or null if there are      * none.      *      * @return a list of filters applied to this stream      */
 comment|// TODO return an empty list if there are none?
 specifier|public
 name|List
@@ -875,7 +900,7 @@ return|return
 name|names
 return|;
 block|}
-comment|/**      * Sets which filters are applied to this stream.      * @param filters the filters to apply to this stream.      */
+comment|/**      * Sets which filters are applied to this stream.      *      * @param filters the filters to apply to this stream.      */
 specifier|public
 name|void
 name|setFilters
@@ -909,6 +934,8 @@ name|obj
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setDecode
@@ -929,6 +956,8 @@ name|decode
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|COSArray
 name|getDecode
@@ -952,6 +981,8 @@ name|DECODE
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isStencil
@@ -974,6 +1005,8 @@ literal|false
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setStencil
@@ -994,6 +1027,8 @@ name|isStencil
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|PDStream
 name|getStream
@@ -1005,6 +1040,8 @@ return|return
 name|stream
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|BufferedImage
 name|getImage
@@ -1024,6 +1061,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|BufferedImage
 name|getStencilImage
@@ -1060,7 +1099,7 @@ name|paint
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the color key mask array associated with this image, or null if there is none.      * @return Mask Image XObject      */
+comment|/**      * Returns the color key mask array associated with this image, or null if      * there is none.      *      * @return Mask Image XObject      */
 specifier|public
 name|COSArray
 name|getColorKeyMask
@@ -1100,7 +1139,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Returns the suffix for this image type, e.g. jpg/png.      * @return The image suffix.      */
+comment|/**      * Returns the suffix for this image type, e.g. jpg/png.      *      * @return The image suffix.      */
 specifier|public
 name|String
 name|getSuffix
