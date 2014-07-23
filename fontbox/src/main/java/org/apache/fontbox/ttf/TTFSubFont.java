@@ -474,16 +474,11 @@ block|{
 name|Integer
 name|gid
 init|=
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
 name|baseCmap
 operator|.
 name|getGlyphId
 argument_list|(
 name|charCode
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
