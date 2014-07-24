@@ -1042,7 +1042,7 @@ init|=
 operator|new
 name|float
 index|[
-literal|3
+literal|4
 index|]
 decl_stmt|;
 name|float
