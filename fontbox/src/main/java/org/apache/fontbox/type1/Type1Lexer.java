@@ -781,6 +781,27 @@ operator|=
 name|getChar
 argument_list|()
 expr_stmt|;
+comment|// optional minus
+if|if
+condition|(
+name|c
+operator|==
+literal|'-'
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
+name|c
+operator|=
+name|getChar
+argument_list|()
+expr_stmt|;
+block|}
 comment|// required digit
 if|if
 condition|(
