@@ -2179,6 +2179,32 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|unicode
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"getCharacterForName for code "
+operator|+
+name|code
+operator|+
+literal|", characterName '"
+operator|+
+name|characterName
+operator|+
+literal|"' is empty"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|result
 operator|=
 name|unicode
@@ -2188,6 +2214,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|result
 operator|=
