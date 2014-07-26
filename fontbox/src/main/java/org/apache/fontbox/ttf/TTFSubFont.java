@@ -3219,9 +3219,6 @@ init|=
 name|offsets
 index|[
 name|glyphId
-operator|.
-name|intValue
-argument_list|()
 index|]
 decl_stmt|;
 name|long
@@ -3230,9 +3227,6 @@ init|=
 name|offsets
 index|[
 name|glyphId
-operator|.
-name|intValue
-argument_list|()
 operator|+
 literal|1
 index|]
@@ -3552,9 +3546,6 @@ operator|=
 name|offsets
 index|[
 name|glyphId
-operator|.
-name|intValue
-argument_list|()
 operator|+
 literal|1
 index|]
@@ -3695,9 +3686,6 @@ init|=
 name|offsets
 index|[
 name|glyphId
-operator|.
-name|intValue
-argument_list|()
 index|]
 decl_stmt|;
 name|long
@@ -3706,9 +3694,6 @@ init|=
 name|offsets
 index|[
 name|glyphId
-operator|.
-name|intValue
-argument_list|()
 operator|+
 literal|1
 index|]
@@ -4306,9 +4291,6 @@ operator|=
 name|offsets
 index|[
 name|glyphId
-operator|.
-name|intValue
-argument_list|()
 operator|+
 literal|1
 index|]
@@ -5237,9 +5219,6 @@ init|=
 name|gidToUC
 index|[
 name|glyphId
-operator|.
-name|intValue
-argument_list|()
 index|]
 decl_stmt|;
 name|String
@@ -5366,9 +5345,6 @@ argument_list|(
 name|dos
 argument_list|,
 name|idx
-operator|.
-name|intValue
-argument_list|()
 operator|+
 literal|258
 argument_list|)
@@ -5381,9 +5357,6 @@ argument_list|(
 name|dos
 argument_list|,
 name|macId
-operator|.
-name|intValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5407,9 +5380,6 @@ init|=
 name|glyphNames
 index|[
 name|glyphId
-operator|.
-name|intValue
-argument_list|()
 index|]
 decl_stmt|;
 name|Integer
@@ -5477,9 +5447,6 @@ argument_list|(
 name|dos
 argument_list|,
 name|idx
-operator|.
-name|intValue
-argument_list|()
 operator|+
 literal|258
 argument_list|)
@@ -5492,9 +5459,6 @@ argument_list|(
 name|dos
 argument_list|,
 name|macId
-operator|.
-name|intValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

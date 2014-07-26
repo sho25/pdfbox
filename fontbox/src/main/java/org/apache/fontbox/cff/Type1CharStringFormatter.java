@@ -187,9 +187,6 @@ name|int
 name|value
 init|=
 name|number
-operator|.
-name|intValue
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

@@ -2274,9 +2274,6 @@ condition|?
 literal|0
 else|:
 name|glyphId
-operator|.
-name|intValue
-argument_list|()
 return|;
 block|}
 comment|/**      *       * Class used to manage CMap - Format 2.      *       */
