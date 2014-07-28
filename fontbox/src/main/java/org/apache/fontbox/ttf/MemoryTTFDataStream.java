@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface into a data stream.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.2 $  */
+comment|/**  * An interface into a data stream.  *   * @author Ben Litchfield  *   */
 end_comment
 
 begin_class
@@ -300,29 +300,28 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|int
-name|retval
-init|=
-operator|-
-literal|1
-decl_stmt|;
 if|if
 condition|(
 name|currentPosition
-operator|<
+operator|>=
 name|data
 operator|.
 name|length
 condition|)
 block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
+name|int
 name|retval
-operator|=
+init|=
 name|data
 index|[
 name|currentPosition
 index|]
-expr_stmt|;
-block|}
+decl_stmt|;
 name|currentPosition
 operator|++
 expr_stmt|;
