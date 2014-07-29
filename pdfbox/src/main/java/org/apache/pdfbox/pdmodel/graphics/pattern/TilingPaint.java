@@ -443,7 +443,7 @@ name|height
 operator|=
 name|pattern
 operator|.
-name|getXStep
+name|getYStep
 argument_list|()
 expr_stmt|;
 block|}
