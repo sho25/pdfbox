@@ -1746,6 +1746,8 @@ name|stubOp
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -1892,7 +1894,6 @@ argument_list|,
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 block|}
@@ -1942,7 +1943,6 @@ argument_list|,
 name|ERROR_GRAPHIC_TOO_MANY_GRAPHIC_STATES
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 block|}
@@ -2101,12 +2101,14 @@ parameter_list|)
 block|{
 comment|// The color space is unknown. Try to access the resources dictionary,
 comment|// the color space can be a reference.
+name|Map
+argument_list|<
+name|String
+argument_list|,
 name|PDColorSpace
-name|pdCS
+argument_list|>
+name|colorSpaces
 init|=
-operator|(
-name|PDColorSpace
-operator|)
 name|this
 operator|.
 name|getResources
@@ -2114,6 +2116,18 @@ argument_list|()
 operator|.
 name|getColorSpaces
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|colorSpaces
+operator|!=
+literal|null
+condition|)
+block|{
+name|PDColorSpace
+name|pdCS
+init|=
+name|colorSpaces
 operator|.
 name|get
 argument_list|(
@@ -2170,6 +2184,7 @@ operator|.
 name|ONLY_DEVICE
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
@@ -2473,7 +2488,6 @@ argument_list|,
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_MISSING
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 block|}
@@ -2818,8 +2832,6 @@ return|return;
 block|}
 name|String
 name|colorSpaceName
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
