@@ -2960,12 +2960,14 @@ name|e
 parameter_list|)
 block|{
 comment|/*              * The color space is unknown. Try to access the resources dictionary, the color space can be a reference.              */
+name|Map
+argument_list|<
+name|String
+argument_list|,
 name|PDColorSpace
-name|pdCS
+argument_list|>
+name|colorSpaces
 init|=
-operator|(
-name|PDColorSpace
-operator|)
 name|this
 operator|.
 name|getResources
@@ -2973,6 +2975,18 @@ argument_list|()
 operator|.
 name|getColorSpaces
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|colorSpaces
+operator|!=
+literal|null
+condition|)
+block|{
+name|PDColorSpace
+name|pdCS
+init|=
+name|colorSpaces
 operator|.
 name|get
 argument_list|(
@@ -3029,6 +3043,7 @@ operator|.
 name|NO_RESTRICTION
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
