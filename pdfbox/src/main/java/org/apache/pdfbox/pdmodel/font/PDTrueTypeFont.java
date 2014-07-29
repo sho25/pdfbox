@@ -599,6 +599,7 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
+specifier|final
 name|HashMap
 argument_list|<
 name|Integer
@@ -1618,6 +1619,12 @@ name|fd
 operator|.
 name|isFixedPitch
 argument_list|()
+operator|||
+name|widthValues
+operator|.
+name|length
+operator|==
+literal|1
 decl_stmt|;
 name|int
 name|nWidths
