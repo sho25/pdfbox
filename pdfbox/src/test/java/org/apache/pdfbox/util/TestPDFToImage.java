@@ -562,9 +562,7 @@ operator|)
 argument_list|)
 operator|>
 literal|1
-operator|)
-operator|&&
-operator|(
+operator|||
 name|Math
 operator|.
 name|abs
@@ -591,9 +589,7 @@ operator|)
 argument_list|)
 operator|>
 literal|1
-operator|)
-operator|&&
-operator|(
+operator|||
 name|Math
 operator|.
 name|abs
