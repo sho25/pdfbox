@@ -1360,23 +1360,17 @@ index|[
 literal|0
 index|]
 operator|>=
-name|domain
-index|[
 literal|0
-index|]
 operator|&&
 name|inputValues
 index|[
 literal|0
 index|]
 operator|<=
-name|domain
-index|[
 literal|1
-index|]
 condition|)
 block|{
-comment|// both values are in the domain -> choose the larger one
+comment|// both values are in the range -> choose the larger one
 if|if
 condition|(
 name|inputValues
@@ -1384,20 +1378,14 @@ index|[
 literal|1
 index|]
 operator|>=
-name|domain
-index|[
 literal|0
-index|]
 operator|&&
 name|inputValues
 index|[
 literal|1
 index|]
 operator|<=
-name|domain
-index|[
 literal|1
-index|]
 condition|)
 block|{
 name|inputValue
@@ -1418,7 +1406,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|// first value is in the domain, the second not -> choose first value
+comment|// first value is in the range, the second not -> choose first value
 else|else
 block|{
 name|inputValue
@@ -1432,7 +1420,8 @@ block|}
 block|}
 else|else
 block|{
-comment|// first value is not in the domain, but the second -> choose second value
+comment|// first value is not in the range,
+comment|// but the second -> choose second value
 if|if
 condition|(
 name|inputValues
@@ -1440,20 +1429,14 @@ index|[
 literal|1
 index|]
 operator|>=
-name|domain
-index|[
 literal|0
-index|]
 operator|&&
 name|inputValues
 index|[
 literal|1
 index|]
 operator|<=
-name|domain
-index|[
 literal|1
-index|]
 condition|)
 block|{
 name|inputValue
@@ -1464,7 +1447,7 @@ literal|1
 index|]
 expr_stmt|;
 block|}
-comment|// both are not in the domain
+comment|// both are not in the range
 else|else
 block|{
 if|if
@@ -1556,10 +1539,7 @@ if|if
 condition|(
 name|inputValue
 operator|>
-name|domain
-index|[
 literal|1
-index|]
 condition|)
 block|{
 comment|// the shading has to be extended if extend[1] == true
@@ -1573,10 +1553,7 @@ condition|)
 block|{
 name|inputValue
 operator|=
-name|domain
-index|[
 literal|1
-index|]
 expr_stmt|;
 block|}
 else|else
@@ -1605,10 +1582,7 @@ if|if
 condition|(
 name|inputValue
 operator|<
-name|domain
-index|[
 literal|0
-index|]
 condition|)
 block|{
 comment|// the shading has to be extended if extend[0] == true
@@ -1622,10 +1596,7 @@ condition|)
 block|{
 name|inputValue
 operator|=
-name|domain
-index|[
 literal|0
-index|]
 expr_stmt|;
 block|}
 else|else
