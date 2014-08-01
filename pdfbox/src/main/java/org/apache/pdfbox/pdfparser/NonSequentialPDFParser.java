@@ -608,7 +608,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PDFParser which first reads startxref and xref tables in order to know valid  * objects and parse only these objects. Thus it is closer to a conforming  * parser than the sequential reading of {@link PDFParser}.  *   * This class can be used as a {@link PDFParser} replacement. First  * {@link #parse()} must be called before page objects can be retrieved, e.g.  * {@link #getPDDocument()}.  *   * This class is a much enhanced version of<code>QuickParser</code> presented  * in<a  * href="https://issues.apache.org/jira/browse/PDFBOX-1104">PDFBOX-1104</a> by  * Jeremy Villalobos.  */
+comment|/**  * PDFParser which first reads startxref and xref tables in order to know valid objects and parse only these objects.  * Thus it is closer to a conforming parser than the sequential reading of {@link PDFParser}.  *   * This class can be used as a {@link PDFParser} replacement. First {@link #parse()} must be called before page objects  * can be retrieved, e.g. {@link #getPDDocument()}.  *   * This class is a much enhanced version of<code>QuickParser</code> presented in<a  * href="https://issues.apache.org/jira/browse/PDFBOX-1104">PDFBOX-1104</a> by Jeremy Villalobos.  */
 end_comment
 
 begin_class
@@ -830,7 +830,7 @@ decl_stmt|;
 comment|// how many trailing
 comment|// bytes to read for
 comment|// EOF marker
-comment|/**      * If<code>true</code> object references in catalog are not followed; pro:      * page objects will be only parsed when needed; cons: some information of      * catalog might not be available (e.g. outline). Catalog parsing without      * pages is not an option since a number of entries will also refer to page      * objects (like OpenAction).      */
+comment|/**      * If<code>true</code> object references in catalog are not followed; pro: page objects will be only parsed when      * needed; cons: some information of catalog might not be available (e.g. outline). Catalog parsing without pages is      * not an option since a number of entries will also refer to page objects (like OpenAction).      */
 specifier|private
 name|boolean
 name|parseMinimalCatalog
@@ -874,7 +874,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      *<code>true</code> if the NonSequentialPDFParser is initialized by a      * InputStream, in this case a temporary file is created. At the end of the      * {@linkplain #parse()} method,the temporary file will be deleted.      */
+comment|/**      *<code>true</code> if the NonSequentialPDFParser is initialized by a InputStream, in this case a temporary file is      * created. At the end of the {@linkplain #parse()} method,the temporary file will be deleted.      */
 specifier|private
 name|boolean
 name|isTmpPDFFile
@@ -912,8 +912,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs parser for given file using given buffer for temporary      * storage.      *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *       * @throws IOException If something went wrong.      */
-comment|/**      * Constructs parser for given file using given buffer for temporary      * storage.      *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *       * @throws IOException If something went wrong.      */
+comment|/**      * Constructs parser for given file using given buffer for temporary storage.      *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *       * @throws IOException If something went wrong.      */
+comment|/**      * Constructs parser for given file using given buffer for temporary storage.      *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *       * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -936,8 +936,8 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs parser for given file using given buffer for temporary      * storage.      *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *       * @throws IOException If something went wrong.      */
-comment|/**      * Constructs parser for given file using given buffer for temporary      * storage.      *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      * @param decryptionPassword password to be used for decryption      *       * @throws IOException If something went wrong.      */
+comment|/**      * Constructs parser for given file using given buffer for temporary storage.      *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *       * @throws IOException If something went wrong.      */
+comment|/**      * Constructs parser for given file using given buffer for temporary storage.      *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      * @param decryptionPassword password to be used for decryption      *       * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -1165,7 +1165,7 @@ name|decryptionPassword
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a temporary file with the input stream. If the creation succeed,      * the {@linkplain #isTmpPDFFile} is set to true. This Temporary file will      * be deleted at end of the parse method      *       * @param input      * @return the temporary file      * @throws IOException If something went wrong.      */
+comment|/**      * Create a temporary file with the input stream. If the creation succeed, the {@linkplain #isTmpPDFFile} is set to      * true. This Temporary file will be deleted at end of the parse method      *       * @param input      * @return the temporary file      * @throws IOException If something went wrong.      */
 specifier|private
 name|File
 name|createTmpFile
@@ -1243,7 +1243,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/**      * Sets how many trailing bytes of PDF file are searched for EOF marker and      * 'startxref' marker. If not set we use default value      * {@link #DEFAULT_TRAIL_BYTECOUNT}.      *       *<p<We check that new value is at least 16. However for practical use      * cases this value should not be lower than 1000; even 2000 was found to      * not be enough in some cases where some trailing garbage like HTML      * snippets followed the EOF marker.</p>      *       *<p>In case system property {@link #SYSPROP_EOFLOOKUPRANGE} is defined      * this value will be set on initialization but can be overwritten      * later.</p>      *       * @param byteCount number of trailing bytes      */
+comment|/**      * Sets how many trailing bytes of PDF file are searched for EOF marker and 'startxref' marker. If not set we use      * default value {@link #DEFAULT_TRAIL_BYTECOUNT}.      *       *<p<We check that new value is at least 16. However for practical use cases this value should not be lower than      * 1000; even 2000 was found to not be enough in some cases where some trailing garbage like HTML snippets followed      * the EOF marker.</p>      *       *<p>      * In case system property {@link #SYSPROP_EOFLOOKUPRANGE} is defined this value will be set on initialization but      * can be overwritten later.      *</p>      *       * @param byteCount number of trailing bytes      */
 specifier|public
 name|void
 name|setEOFLookupRange
@@ -1266,7 +1266,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/**      * The initial parse will first parse only the trailer, the xrefstart and      * all xref tables to have a pointer (offset) to all the pdf's objects. It      * can handle linearized pdfs, which will have an xref at the end pointing      * to an xref at the beginning of the file. Last the root object is parsed.      *       * @throws IOException If something went wrong.      */
+comment|/**      * The initial parse will first parse only the trailer, the xrefstart and all xref tables to have a pointer (offset)      * to all the pdf's objects. It can handle linearized pdfs, which will have an xref at the end pointing to an xref      * at the beginning of the file. Last the root object is parsed.      *       * @throws IOException If something went wrong.      */
 specifier|protected
 name|void
 name|initialParse
@@ -1365,7 +1365,7 @@ operator|.
 name|getOffset
 argument_list|()
 decl_stmt|;
-comment|//PDFBOX-1739 skip extra xref entries in RegisSTAR documents
+comment|// PDFBOX-1739 skip extra xref entries in RegisSTAR documents
 while|while
 condition|(
 name|isLenient
@@ -1792,13 +1792,9 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|") while creating security handler for decryption: "
-operator|+
+literal|") while creating security handler for decryption"
+argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
-comment|/*                                                                                                  * , e TODO: remove                                                                                                  * remark with Java 1.6                                                                                                  */
 argument_list|)
 throw|;
 block|}
@@ -1954,7 +1950,7 @@ literal|true
 expr_stmt|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/**      * Parses an xref object stream starting with indirect object id.      *       * @return value of PREV item in dictionary or<code>-1</code> if no such      *         item exists      */
+comment|/**      * Parses an xref object stream starting with indirect object id.      *       * @return value of PREV item in dictionary or<code>-1</code> if no such item exists      */
 specifier|private
 name|long
 name|parseXrefObjStream
@@ -2061,7 +2057,7 @@ comment|// new BufferedInputStream(
 comment|// new FileInputStream( file ), 16384), 4096);
 comment|// pdfSource.skip( _fileOffset );
 block|}
-comment|/**      * Enable handling of alternative pdfSource implementation.      * @throws IOException If something went wrong.      */
+comment|/**      * Enable handling of alternative pdfSource implementation.      *       * @throws IOException If something went wrong.      */
 specifier|protected
 specifier|final
 name|void
@@ -2096,7 +2092,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/**      * Looks for and parses startxref. We first look for last '%%EOF' marker      * (within last {@link #DEFAULT_TRAIL_BYTECOUNT} bytes (or range set via      * {@link #setEOFLookupRange(int)}) and go back to find      *<code>startxref</code>.      *       * @return the offset of StartXref       * @throws IOException If something went wrong.      */
+comment|/**      * Looks for and parses startxref. We first look for last '%%EOF' marker (within last      * {@link #DEFAULT_TRAIL_BYTECOUNT} bytes (or range set via {@link #setEOFLookupRange(int)}) and go back to find      *<code>startxref</code>.      *       * @return the offset of StartXref      * @throws IOException If something went wrong.      */
 specifier|protected
 specifier|final
 name|long
@@ -2329,7 +2325,7 @@ name|bufOff
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/**      * Searches last appearance of pattern within buffer. Lookup before _lastOff      * and goes back until 0.      *       * @param pattern pattern to search for      * @param buf buffer to search pattern in      * @param endOff offset (exclusive) where lookup starts at      *       * @return start offset of pattern within buffer or<code>-1</code> if      *         pattern could not be found      */
+comment|/**      * Searches last appearance of pattern within buffer. Lookup before _lastOff and goes back until 0.      *       * @param pattern pattern to search for      * @param buf buffer to search pattern in      * @param endOff offset (exclusive) where lookup starts at      *       * @return start offset of pattern within buffer or<code>-1</code> if pattern could not be found      */
 specifier|protected
 name|int
 name|lastIndexOf
@@ -2443,7 +2439,7 @@ literal|1
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/**      * Reads given pattern from {@link #pdfSource}. Skipping whitespace at start      * and end.      *       * @param pattern pattern to be skipped      * @throws IOException if pattern could not be read      */
+comment|/**      * Reads given pattern from {@link #pdfSource}. Skipping whitespace at start and end.      *       * @param pattern pattern to be skipped      * @throws IOException if pattern could not be read      */
 specifier|protected
 specifier|final
 name|void
@@ -2515,7 +2511,7 @@ name|pagesDictionary
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Returns PAGES {@link COSDictionary} object or throws {@link IOException}      * if PAGES dictionary does not exist.      */
+comment|/**      * Returns PAGES {@link COSDictionary} object or throws {@link IOException} if PAGES dictionary does not exist.      */
 specifier|private
 name|COSDictionary
 name|getPagesObject
@@ -2807,7 +2803,7 @@ operator|=
 name|lenient
 expr_stmt|;
 block|}
-comment|/**      * Remove the temporary file. A temporary file is created if this class is      * instantiated with an InputStream      */
+comment|/**      * Remove the temporary file. A temporary file is created if this class is instantiated with an InputStream      */
 specifier|protected
 name|void
 name|deleteTempFile
@@ -3042,7 +3038,7 @@ name|pageDict
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the object for a specific page. The page tree is made up of kids.      * The kids have COSArray with COSObjects inside of them. The COSObject can      * be parsed using the dynamic parsing method We want to only parse the      * minimum COSObjects and still return a complete page. ready to be used.      *       * @param num the requested page number; numbering starts with 0      * @param startKids Kids array to start with looking up page number      * @param startPageCount      *       * @return page object or<code>null</code> if no such page exists      *       * @throws IOException      */
+comment|/**      * Returns the object for a specific page. The page tree is made up of kids. The kids have COSArray with COSObjects      * inside of them. The COSObject can be parsed using the dynamic parsing method We want to only parse the minimum      * COSObjects and still return a complete page. ready to be used.      *       * @param num the requested page number; numbering starts with 0      * @param startKids Kids array to start with looking up page number      * @param startPageCount      *       * @return page object or<code>null</code> if no such page exists      *       * @throws IOException      */
 specifier|private
 name|COSObject
 name|getPageObject
@@ -3244,7 +3240,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Creates a unique object id using object number and object generation      * number. (requires object number&lt; 2^31))      */
+comment|/**      * Creates a unique object id using object number and object generation number. (requires object number&lt; 2^31))      */
 specifier|private
 specifier|final
 name|long
@@ -3277,7 +3273,7 @@ name|longValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Adds all from newObjects to toBeParsedList if it is not an COSObject or      * we didn't add this COSObject already (checked via addedObjects).      */
+comment|/**      * Adds all from newObjects to toBeParsedList if it is not an COSObject or we didn't add this COSObject already      * (checked via addedObjects).      */
 specifier|private
 specifier|final
 name|void
@@ -3355,7 +3351,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adds newObject to toBeParsedList if it is not an COSObject or we didn't      * add this COSObject already (checked via addedObjects).      */
+comment|/**      * Adds newObject to toBeParsedList if it is not an COSObject or we didn't add this COSObject already (checked via      * addedObjects).      */
 specifier|private
 specifier|final
 name|void
@@ -3421,7 +3417,7 @@ name|newObject
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Will parse every object necessary to load a single page from the pdf      * document. We try our best to order objects according to offset in file      * before reading to minimize seek operations.      *       * @param dict the COSObject from the parent pages.      * @param excludeObjects dictionary object reference entries with these      *            names will not be parsed      *       * @throws IOException      */
+comment|/**      * Will parse every object necessary to load a single page from the pdf document. We try our best to order objects      * according to offset in file before reading to minimize seek operations.      *       * @param dict the COSObject from the parent pages.      * @param excludeObjects dictionary object reference entries with these names will not be parsed      *       * @throws IOException      */
 specifier|private
 name|void
 name|parseDictObjects
@@ -3993,7 +3989,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will parse the next object from the stream and add it to the local      * state. This is taken from {@link PDFParser} and reduced to parsing an      * indirect object.      *       * @param obj object to be parsed (we only take object number and generation      *            number for lookup start offset)      * @param requireExistingNotCompressedObj if<code>true</code> object to be      *            parsed must not be contained within compressed stream      * @return the parsed object (which is also added to document object)      *       * @throws IOException If an IO error occurs.      */
+comment|/**      * This will parse the next object from the stream and add it to the local state. This is taken from      * {@link PDFParser} and reduced to parsing an indirect object.      *       * @param obj object to be parsed (we only take object number and generation number for lookup start offset)      * @param requireExistingNotCompressedObj if<code>true</code> object to be parsed must not be contained within      * compressed stream      * @return the parsed object (which is also added to document object)      *       * @throws IOException If an IO error occurs.      */
 specifier|protected
 specifier|final
 name|COSBase
@@ -4031,7 +4027,7 @@ name|requireExistingNotCompressedObj
 argument_list|)
 return|;
 block|}
-comment|/**      * This will parse the next object from the stream and add it to the local      * state. This is taken from {@link PDFParser} and reduced to parsing an      * indirect object.      *       * @param objNr object number of object to be parsed      * @param objGenNr object generation number of object to be parsed      * @param requireExistingNotCompressedObj if<code>true</code> the object to      *            be parsed must be defined in xref (comment: null objects may      *            be missing from xref) and it must not be a compressed object      *            within object stream (this is used to circumvent being stuck      *            in a loop in a malicious PDF)      *       * @return the parsed object (which is also added to document object)      *       * @throws IOException If an IO error occurs.      */
+comment|/**      * This will parse the next object from the stream and add it to the local state. This is taken from      * {@link PDFParser} and reduced to parsing an indirect object.      *       * @param objNr object number of object to be parsed      * @param objGenNr object generation number of object to be parsed      * @param requireExistingNotCompressedObj if<code>true</code> the object to be parsed must be defined in xref      * (comment: null objects may be missing from xref) and it must not be a compressed object within object stream      * (this is used to circumvent being stuck in a loop in a malicious PDF)      *       * @return the parsed object (which is also added to document object)      *       * @throws IOException If an IO error occurs.      */
 specifier|protected
 name|COSBase
 name|parseObjectDynamically
@@ -5072,7 +5068,7 @@ index|[
 name|streamCopyBufLen
 index|]
 decl_stmt|;
-comment|/**      * This will read a COSStream from the input stream using length attribute      * within dictionary. If length attribute is a indirect reference it is      * first resolved to get the stream length. This means we copy stream data      * without testing for 'endstream' or 'endobj' and thus it is no problem if      * these keywords occur within stream. We require 'endstream' to be found      * after stream data is read.      *       * @param dic dictionary that goes with this stream.      * @param file file to write the stream to when reading.      *       * @return parsed pdf stream.      *       * @throws IOException if an error occurred reading the stream, like      *             problems with reading length attribute, stream does not end      *             with 'endstream' after data read, stream too short etc.      */
+comment|/**      * This will read a COSStream from the input stream using length attribute within dictionary. If length attribute is      * a indirect reference it is first resolved to get the stream length. This means we copy stream data without      * testing for 'endstream' or 'endobj' and thus it is no problem if these keywords occur within stream. We require      * 'endstream' to be found after stream data is read.      *       * @param dic dictionary that goes with this stream.      * @param file file to write the stream to when reading.      *       * @return parsed pdf stream.      *       * @throws IOException if an error occurred reading the stream, like problems with reading length attribute, stream      * does not end with 'endstream' after data read, stream too short etc.      */
 annotation|@
 name|Override
 specifier|protected
@@ -6016,7 +6012,7 @@ name|XREF
 argument_list|)
 return|;
 block|}
-comment|/**      * Try to dereference the given object at the given offset and calculate a new      * offset if necessary.      *       * @param objectOffset the offset where to look at      * @param objectID the object ID      * @param genID the generation number      * @return the difference to the origin offset      * @throws IOException if something went wrong      */
+comment|/**      * Try to dereference the given object at the given offset and calculate a new offset if necessary.      *       * @param objectOffset the offset where to look at      * @param objectID the object ID      * @param genID the generation number      * @return the difference to the origin offset      * @throws IOException if something went wrong      */
 specifier|private
 name|long
 name|calculateFixingOffset
@@ -6199,7 +6195,7 @@ return|return
 name|bytesMatching
 return|;
 block|}
-comment|/**      * Check if the given bytes can be found at the given offset.      * The method seeks 200 bytes backward/forward if the given string      * can't be found at the given offset and returns the difference       * of the new offset to the origin one.      *       * @param objectOffset the given offset where to look at      * @param string the bytes to look for      * @return the difference to the origin one      * @throws IOException if something went wrong      */
+comment|/**      * Check if the given bytes can be found at the given offset. The method seeks 200 bytes backward/forward if the      * given string can't be found at the given offset and returns the difference of the new offset to the origin one.      *       * @param objectOffset the given offset where to look at      * @param string the bytes to look for      * @return the difference to the origin one      * @throws IOException if something went wrong      */
 specifier|private
 name|long
 name|calculateFixingOffset
@@ -6539,7 +6535,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * Check the XRef table by dereferencing all objects and fixing       * the offset if necessary.      *       * @throws IOException if something went wrong.      */
+comment|/**      * Check the XRef table by dereferencing all objects and fixing the offset if necessary.      *       * @throws IOException if something went wrong.      */
 specifier|private
 name|void
 name|checkXrefOffsets
