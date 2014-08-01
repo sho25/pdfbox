@@ -1542,13 +1542,20 @@ operator|>
 literal|1
 condition|)
 block|{
-comment|// the shading has to be extended if extend[1] == true
+comment|// extend shading if extend[1] is true and nonzero radius
 if|if
 condition|(
 name|extend
 index|[
 literal|1
 index|]
+operator|&&
+name|coords
+index|[
+literal|5
+index|]
+operator|>
+literal|0
 condition|)
 block|{
 name|inputValue
@@ -1585,13 +1592,20 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|// the shading has to be extended if extend[0] == true
+comment|// extend shading if extend[0] is true and nonzero radius
 if|if
 condition|(
 name|extend
 index|[
 literal|0
 index|]
+operator|&&
+name|coords
+index|[
+literal|2
+index|]
+operator|>
+literal|0
 condition|)
 block|{
 name|inputValue
