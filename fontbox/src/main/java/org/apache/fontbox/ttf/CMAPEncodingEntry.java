@@ -77,6 +77,34 @@ name|Entry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * An encoding entry for a cmap.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
@@ -86,6 +114,22 @@ specifier|public
 class|class
 name|CMAPEncodingEntry
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|CMAPEncodingEntry
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
@@ -1706,6 +1750,23 @@ block|}
 block|}
 block|}
 comment|/*          * this is the final result key=glyphId, value is character codes Create an array that contains MAX(GlyphIds)          * element and fill this array with the .notdef character          */
+if|if
+condition|(
+name|tmpGlyphToChar
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"cmap format 4 subtable is empty"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|glyphIdToCharacterCode
 operator|=
 operator|new
@@ -2282,20 +2343,24 @@ class|class
 name|SubHeader
 block|{
 specifier|private
+specifier|final
 name|int
 name|firstCode
 decl_stmt|;
 specifier|private
+specifier|final
 name|int
 name|entryCount
 decl_stmt|;
 comment|/**          * used to compute the GlyphIndex : P = glyphIndexArray.SubArray[pos] GlyphIndex = P + idDelta % 65536.          */
 specifier|private
+specifier|final
 name|short
 name|idDelta
 decl_stmt|;
 comment|/**          * Number of bytes to skip to reach the firstCode in the glyphIndexArray.          */
 specifier|private
+specifier|final
 name|int
 name|idRangeOffset
 decl_stmt|;
