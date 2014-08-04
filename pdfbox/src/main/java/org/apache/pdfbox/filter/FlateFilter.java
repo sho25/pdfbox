@@ -260,6 +260,10 @@ block|{
 name|int
 name|colors
 init|=
+name|Math
+operator|.
+name|min
+argument_list|(
 name|decodeParams
 operator|.
 name|getInt
@@ -269,6 +273,9 @@ operator|.
 name|COLORS
 argument_list|,
 literal|1
+argument_list|)
+argument_list|,
+literal|32
 argument_list|)
 decl_stmt|;
 name|int
