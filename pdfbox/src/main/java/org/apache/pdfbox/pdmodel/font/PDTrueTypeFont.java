@@ -1510,19 +1510,27 @@ argument_list|()
 operator|==
 name|CMAPTable
 operator|.
-name|PLATFORM_WINDOWS
-condition|)
-block|{
-if|if
-condition|(
-name|CMAPTable
-operator|.
-name|ENCODING_WIN_UNICODE
-operator|==
+name|PLATFORM_UNICODE
+operator|&&
+operator|(
 name|cmap
 operator|.
 name|getPlatformEncodingId
 argument_list|()
+operator|==
+name|CMAPTable
+operator|.
+name|ENCODING_UNICODE_2_0_BMP
+operator|||
+name|cmap
+operator|.
+name|getPlatformEncodingId
+argument_list|()
+operator|==
+name|CMAPTable
+operator|.
+name|ENCODING_UNICODE_2_0_FULL
+operator|)
 condition|)
 block|{
 name|uniMap
@@ -1532,6 +1540,23 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+if|if
+condition|(
+name|uniMap
+operator|==
+literal|null
+condition|)
+block|{
+comment|// there should always be a usable cmap, if this happens we haven't tried hard enough
+comment|// to find one. Furthermore, if we loaded the font from disk then we should've checked
+comment|// first to see that it had a suitable cmap before calling makeFontDescriptor
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ttf: no suitable cmap"
+argument_list|)
+throw|;
 block|}
 if|if
 condition|(
