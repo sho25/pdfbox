@@ -2312,6 +2312,34 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|string
+operator|==
+literal|null
+condition|)
+block|{
+comment|// AWT fonts can't handle the case where there is no Unicode mapping for the character,
+comment|// as we don't know what character it is. We use the replacement character which is
+comment|// better than nothing, to show that something is missing.
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Could not render a character in font "
+operator|+
+name|font
+operator|.
+name|getBaseFont
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|string
+operator|=
+literal|"\uFFFD"
+expr_stmt|;
+comment|// REPLACEMENT CHARACTER
+block|}
 name|Font
 name|awtFont
 init|=
