@@ -2337,6 +2337,27 @@ else|:
 name|glyphId
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"{"
+operator|+
+name|getPlatformId
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|getPlatformEncodingId
+argument_list|()
+operator|+
+literal|"}"
+return|;
+block|}
 comment|/**      *       * Class used to manage CMap - Format 2.      *       */
 specifier|private
 class|class

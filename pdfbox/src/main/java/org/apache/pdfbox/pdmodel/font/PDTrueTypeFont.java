@@ -73,6 +73,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -1554,7 +1564,24 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"ttf: no suitable cmap"
+literal|"ttf: no suitable cmap for font '"
+operator|+
+name|ttf
+operator|.
+name|getNaming
+argument_list|()
+operator|.
+name|getFontFamily
+argument_list|()
+operator|+
+literal|"', found: "
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|cmaps
+argument_list|)
 argument_list|)
 throw|;
 block|}
