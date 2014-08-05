@@ -648,7 +648,7 @@ name|contentStream
 operator|.
 name|appendRawCommands
 argument_list|(
-literal|"/sh1 sh"
+literal|"/sh1 sh\n"
 argument_list|)
 expr_stmt|;
 name|contentStream
