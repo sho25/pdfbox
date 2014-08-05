@@ -88,6 +88,7 @@ name|ENCODING_WIN_SYMBOL
 init|=
 literal|0
 decl_stmt|;
+comment|// Unicode, non-standard character set
 specifier|public
 specifier|static
 specifier|final
