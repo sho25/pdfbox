@@ -2518,26 +2518,6 @@ name|readLong
 argument_list|()
 decl_stmt|;
 comment|// the number of objects in the xref table
-if|if
-condition|(
-name|count
-operator|==
-literal|0
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Count in xref table is 0 at offset "
-operator|+
-name|pdfSource
-operator|.
-name|getOffset
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|skipSpaces
 argument_list|()
 expr_stmt|;
