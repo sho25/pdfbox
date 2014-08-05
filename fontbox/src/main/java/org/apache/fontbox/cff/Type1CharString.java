@@ -252,6 +252,10 @@ name|Object
 argument_list|>
 name|type1Sequence
 decl_stmt|;
+specifier|protected
+name|int
+name|commandCount
+decl_stmt|;
 comment|/**      * Constructs a new Type1CharString object.      * @param reader Parent Type 1 CharString reader      * @param sequence Type 1 char string sequence      */
 specifier|public
 name|Type1CharString
@@ -504,6 +508,9 @@ name|CharStringCommand
 name|command
 parameter_list|)
 block|{
+name|commandCount
+operator|++
+expr_stmt|;
 name|String
 name|name
 init|=
@@ -1363,6 +1370,35 @@ name|isFlex
 operator|=
 literal|false
 expr_stmt|;
+if|if
+condition|(
+name|flexPoints
+operator|.
+name|size
+argument_list|()
+operator|<
+literal|7
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"flex without moveTo in font "
+operator|+
+name|fontName
+operator|+
+literal|", glyph "
+operator|+
+name|glyphName
+operator|+
+literal|", command "
+operator|+
+name|commandCount
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// reference point is relative to start point
 name|Point
 operator|.
@@ -2197,6 +2233,34 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|type1Sequence
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|replace
+argument_list|(
+literal|"|"
+argument_list|,
+literal|"\n"
+argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|","
+argument_list|,
+literal|" "
+argument_list|)
+return|;
 block|}
 block|}
 end_class

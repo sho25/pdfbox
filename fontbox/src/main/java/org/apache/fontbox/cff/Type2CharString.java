@@ -301,6 +301,9 @@ name|CharStringCommand
 name|command
 parameter_list|)
 block|{
+name|commandCount
+operator|++
+expr_stmt|;
 name|String
 name|name
 init|=
