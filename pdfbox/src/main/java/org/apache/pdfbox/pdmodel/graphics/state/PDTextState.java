@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will hold the current state of the text parameters when executing a  * content stream.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This class will hold the current state of the text parameters when executing a  * content stream.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -46,79 +46,6 @@ name|PDTextState
 implements|implements
 name|Cloneable
 block|{
-comment|/**      * See PDF Reference 1.5 Table 5.3.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|RENDERING_MODE_FILL_TEXT
-init|=
-literal|0
-decl_stmt|;
-comment|/**      * See PDF Reference 1.5 Table 5.3.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|RENDERING_MODE_STROKE_TEXT
-init|=
-literal|1
-decl_stmt|;
-comment|/**      * See PDF Reference 1.5 Table 5.3.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|RENDERING_MODE_FILL_THEN_STROKE_TEXT
-init|=
-literal|2
-decl_stmt|;
-comment|/**      * See PDF Reference 1.5 Table 5.3.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|RENDERING_MODE_NEITHER_FILL_NOR_STROKE_TEXT
-init|=
-literal|3
-decl_stmt|;
-comment|/**      * See PDF Reference 1.5 Table 5.3.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|RENDERING_MODE_FILL_TEXT_AND_ADD_TO_PATH_FOR_CLIPPING
-init|=
-literal|4
-decl_stmt|;
-comment|/**      * See PDF Reference 1.5 Table 5.3.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|RENDERING_MODE_STROKE_TEXT_AND_ADD_TO_PATH_FOR_CLIPPING
-init|=
-literal|5
-decl_stmt|;
-comment|/**      * See PDF Reference 1.5 Table 5.3.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|RENDERING_MODE_FILL_THEN_STROKE_TEXT_AND_ADD_TO_PATH_FOR_CLIPPING
-init|=
-literal|6
-decl_stmt|;
-comment|/**      * See PDF Reference 1.5 Table 5.3.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|RENDERING_MODE_ADD_TEXT_TO_PATH_FOR_CLIPPING
-init|=
-literal|7
-decl_stmt|;
-comment|//these are set default according to PDF Reference 1.5 section 5.2
 specifier|private
 name|float
 name|characterSpacing
@@ -152,10 +79,12 @@ name|float
 name|fontSize
 decl_stmt|;
 specifier|private
-name|int
+name|RenderingMode
 name|renderingMode
 init|=
-literal|0
+name|RenderingMode
+operator|.
+name|FILL
 decl_stmt|;
 specifier|private
 name|float
@@ -315,7 +244,7 @@ expr_stmt|;
 block|}
 comment|/**      * Get the value of the renderingMode.      *      * @return The renderingMode.      */
 specifier|public
-name|int
+name|RenderingMode
 name|getRenderingMode
 parameter_list|()
 block|{
@@ -323,18 +252,20 @@ return|return
 name|renderingMode
 return|;
 block|}
-comment|/**      * Set the value of the renderingMode.      *      * @param value The renderingMode.      */
+comment|/**      * Set the value of the renderingMode.      *      * @param renderingMode The renderingMode.      */
 specifier|public
 name|void
 name|setRenderingMode
 parameter_list|(
-name|int
-name|value
+name|RenderingMode
+name|renderingMode
 parameter_list|)
 block|{
+name|this
+operator|.
 name|renderingMode
 operator|=
-name|value
+name|renderingMode
 expr_stmt|;
 block|}
 comment|/**      * Get the value of the rise.      *      * @return The rise.      */

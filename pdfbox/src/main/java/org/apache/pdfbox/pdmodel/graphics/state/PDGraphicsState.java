@@ -221,6 +221,10 @@ implements|implements
 name|Cloneable
 block|{
 specifier|private
+name|boolean
+name|isClippingPathDirty
+decl_stmt|;
+specifier|private
 name|Area
 name|clippingPath
 decl_stmt|;
@@ -954,6 +958,12 @@ operator|=
 name|clippingPath
 expr_stmt|;
 comment|// not cloned, see intersectClippingPath
+name|clone
+operator|.
+name|isClippingPathDirty
+operator|=
+literal|false
+expr_stmt|;
 return|return
 name|clone
 return|;
@@ -1079,7 +1089,31 @@ name|GeneralPath
 name|path
 parameter_list|)
 block|{
+name|intersectClippingPath
+argument_list|(
+operator|new
+name|Area
+argument_list|(
+name|path
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Modify the current clipping path by intersecting it with the given path.      * @param area area to intersect with the clipping path      */
+specifier|public
+name|void
+name|intersectClippingPath
+parameter_list|(
+name|Area
+name|area
+parameter_list|)
+block|{
 comment|// lazy cloning of clipping path for performance
+if|if
+condition|(
+name|isClippingPathDirty
+condition|)
+block|{
 name|clippingPath
 operator|=
 operator|(
@@ -1090,16 +1124,17 @@ operator|.
 name|clone
 argument_list|()
 expr_stmt|;
+name|isClippingPathDirty
+operator|=
+literal|true
+expr_stmt|;
+block|}
 comment|// intersection as usual
 name|clippingPath
 operator|.
 name|intersect
 argument_list|(
-operator|new
-name|Area
-argument_list|(
-name|path
-argument_list|)
+name|area
 argument_list|)
 expr_stmt|;
 block|}
@@ -1115,7 +1150,7 @@ return|;
 block|}
 specifier|public
 name|Composite
-name|getStrokeJavaComposite
+name|getStrokingJavaComposite
 parameter_list|()
 block|{
 return|return
@@ -1134,7 +1169,7 @@ return|;
 block|}
 specifier|public
 name|Composite
-name|getNonStrokeJavaComposite
+name|getNonStrokingJavaComposite
 parameter_list|()
 block|{
 return|return
