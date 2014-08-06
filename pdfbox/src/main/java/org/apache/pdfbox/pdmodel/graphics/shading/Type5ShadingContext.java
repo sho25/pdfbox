@@ -25,6 +25,16 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Rectangle
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|geom
 operator|.
 name|AffineTransform
@@ -253,6 +263,9 @@ name|ctm
 parameter_list|,
 name|int
 name|pageHeight
+parameter_list|,
+name|Rectangle
+name|dBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -268,6 +281,8 @@ argument_list|,
 name|ctm
 argument_list|,
 name|pageHeight
+argument_list|,
+name|dBounds
 argument_list|)
 expr_stmt|;
 name|LOG
