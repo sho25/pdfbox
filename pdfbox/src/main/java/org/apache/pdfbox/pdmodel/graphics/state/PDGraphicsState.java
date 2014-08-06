@@ -1111,6 +1111,7 @@ block|{
 comment|// lazy cloning of clipping path for performance
 if|if
 condition|(
+operator|!
 name|isClippingPathDirty
 condition|)
 block|{
