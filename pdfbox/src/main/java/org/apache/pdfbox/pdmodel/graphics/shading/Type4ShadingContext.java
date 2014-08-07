@@ -262,7 +262,7 @@ specifier|private
 name|int
 name|bitsPerFlag
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @param dBounds device bounds      * @throws IOException if something went wrong      */
 name|Type4ShadingContext
 parameter_list|(
 name|PDShadingType4

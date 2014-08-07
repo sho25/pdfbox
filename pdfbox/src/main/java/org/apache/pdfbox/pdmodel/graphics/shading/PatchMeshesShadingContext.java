@@ -476,7 +476,7 @@ name|Integer
 argument_list|>
 name|pixelTable
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @throws IOException if something went wrong      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @param dBounds device bounds       * @throws IOException if something went wrong      */
 specifier|protected
 name|PatchMeshesShadingContext
 parameter_list|(
@@ -1644,7 +1644,7 @@ name|rangeMin
 operator|)
 return|;
 block|}
-comment|/**      * Calculate every point and its color and store them in a Hash table.      * @return a Hash table contains all the points' positions and colors of one image      */
+comment|/**      * Calculate every point and its color and store them in a Hash table.      * @return a Hash table which contains all the points' positions and colors of one image      */
 specifier|protected
 name|HashMap
 argument_list|<
