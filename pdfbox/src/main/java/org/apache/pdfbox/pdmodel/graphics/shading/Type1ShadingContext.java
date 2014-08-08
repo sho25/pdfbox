@@ -214,17 +214,6 @@ name|float
 index|[]
 name|background
 decl_stmt|;
-specifier|private
-name|float
-index|[]
-name|bboxTab
-init|=
-operator|new
-name|float
-index|[
-literal|4
-index|]
-decl_stmt|;
 comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @param dBounds device bounds       */
 specifier|public
 name|Type1ShadingContext
