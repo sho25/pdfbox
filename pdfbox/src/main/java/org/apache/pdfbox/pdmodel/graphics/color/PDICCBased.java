@@ -511,7 +511,7 @@ init|=
 operator|new
 name|float
 index|[
-name|getColorSpaceType
+name|getNumberOfComponents
 argument_list|()
 index|]
 decl_stmt|;
