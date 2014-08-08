@@ -121,20 +121,7 @@ argument_list|()
 expr_stmt|;
 name|linePoints
 operator|=
-name|getLine
-argument_list|()
-expr_stmt|;
-block|}
-specifier|private
-name|HashSet
-argument_list|<
-name|Point
-argument_list|>
-name|getLine
-parameter_list|()
-block|{
-return|return
-name|getLine
+name|calcLine
 argument_list|(
 name|point0
 operator|.
@@ -152,15 +139,15 @@ name|point1
 operator|.
 name|y
 argument_list|)
-return|;
+expr_stmt|;
 block|}
-comment|/**      * Bresenham's line algorithm, http://en.wikipedia.org/wiki/Bresenham's_line_algorithm      * @param x0 coordinate      * @param y0 coordinate      * @param x1 coordinate      * @param y1 coordinate      * @return all the points on the rasterized line from (x0, y0) to (x1, y1)      */
+comment|/**      * Calculate the points of a line with Bresenham's line algorithm      *<a href="http://en.wikipedia.org/wiki/Bresenham's_line_algorithm">Bresenham's line algorithm</a>      * @param x0 coordinate      * @param y0 coordinate      * @param x1 coordinate      * @param y1 coordinate      * @return all the points on the rasterized line from (x0, y0) to (x1, y1)      */
 specifier|private
 name|HashSet
 argument_list|<
 name|Point
 argument_list|>
-name|getLine
+name|calcLine
 parameter_list|(
 name|int
 name|x0
@@ -186,7 +173,9 @@ name|HashSet
 argument_list|<
 name|Point
 argument_list|>
-argument_list|()
+argument_list|(
+literal|3
+argument_list|)
 decl_stmt|;
 name|int
 name|dx
@@ -347,7 +336,7 @@ comment|/**      * Calculate the color of a point on a rasterized line by linear
 specifier|protected
 name|float
 index|[]
-name|getColor
+name|calcColor
 parameter_list|(
 name|Point
 name|p

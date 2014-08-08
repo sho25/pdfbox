@@ -81,7 +81,7 @@ argument_list|)
 expr_stmt|;
 name|level
 operator|=
-name|calLevel
+name|calcLevel
 argument_list|()
 expr_stmt|;
 name|listOfCoonsTriangle
@@ -248,7 +248,7 @@ comment|// calculate the dividing level from control points
 specifier|private
 name|int
 index|[]
-name|calLevel
+name|calcLevel
 parameter_list|()
 block|{
 name|int

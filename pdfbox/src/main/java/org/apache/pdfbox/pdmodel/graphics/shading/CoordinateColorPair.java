@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to store a point's coordinate and its corresponding color.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  * @author Shaola Ren  */
+comment|/**  * This class is used to store a point's coordinate and its corresponding color.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -48,7 +48,7 @@ name|float
 index|[]
 name|color
 decl_stmt|;
-comment|/**      * Constructor.      * @param p point      * @param c color      */
+comment|/**      * Constructor.      *      * @param p point      * @param c color      */
 name|CoordinateColorPair
 parameter_list|(
 name|Point2D

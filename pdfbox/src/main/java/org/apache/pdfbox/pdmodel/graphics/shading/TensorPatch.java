@@ -81,7 +81,7 @@ argument_list|)
 expr_stmt|;
 name|level
 operator|=
-name|calLevel
+name|calcLevel
 argument_list|()
 expr_stmt|;
 name|listOfCoonsTriangle
@@ -255,7 +255,7 @@ comment|// calculate the dividing level from the control points
 specifier|private
 name|int
 index|[]
-name|calLevel
+name|calcLevel
 parameter_list|()
 block|{
 name|int
@@ -344,7 +344,7 @@ name|ctlC2
 argument_list|)
 condition|)
 block|{
-comment|/*             if any of the 4 inner control points is out of the patch formed by the 4 edges, keep the high dividing level,              otherwise, determine the dividing level by the lengths of edges             */
+comment|/*             if any of the 4 inner control points is out of the patch formed by the 4 edges,              keep the high dividing level,              otherwise, determine the dividing level by the lengths of edges             */
 if|if
 condition|(
 name|isOnSameSideCC
@@ -391,7 +391,9 @@ literal|2
 index|]
 argument_list|)
 condition|)
-block|{             }
+block|{
+comment|// keep the high dividing level
+block|}
 else|else
 block|{
 comment|// length's unit is one pixel in device space
@@ -555,7 +557,9 @@ literal|2
 index|]
 argument_list|)
 condition|)
-block|{             }
+block|{
+comment|// keep the high dividing level
+block|}
 else|else
 block|{
 name|double

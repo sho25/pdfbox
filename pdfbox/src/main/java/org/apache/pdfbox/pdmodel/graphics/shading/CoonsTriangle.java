@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an assistant class for accomplishing type 6 and 7 shading.  * It describes a triangle actually, which is used to compose a patch. It contains   * the degenerated cases, a triangle degenerates to a line or to a point.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  * @author Shaola Ren  */
+comment|/**  * This is an assistant class for accomplishing type 4, 5, 6 and 7 shading. It  * describes a triangle actually, which is used to compose a patch. It contains  * the degenerated cases, a triangle degenerates to a line or to a point. This  * was done as part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -65,7 +65,7 @@ name|Point2D
 index|[]
 name|corner
 decl_stmt|;
-comment|// vertexes coordinates of a triangle
+comment|// vertices coordinates of a triangle
 specifier|protected
 specifier|final
 name|float
@@ -79,13 +79,13 @@ name|double
 name|area
 decl_stmt|;
 comment|// area of the triangle
-comment|/*     degree = 3 describes a normal triangle, degree = 2 when a triangle degenerates to a line,     degree = 1 when a triangle degenerates to a point     */
+comment|/*     degree = 3 describes a normal triangle,      degree = 2 when a triangle degenerates to a line,     degree = 1 when a triangle degenerates to a point     */
 specifier|private
 specifier|final
 name|int
 name|degree
 decl_stmt|;
-comment|// describes a rasterized line when a trianlge degerates to a line, otherwise this parameter is null
+comment|// describes a rasterized line when a triangle degerates to a line, otherwise null
 specifier|private
 specifier|final
 name|Line
@@ -107,7 +107,7 @@ specifier|final
 name|double
 name|v2
 decl_stmt|;
-comment|/**      * Constructor of CoonsTriangle.      * @param p an array of the 3 vertexes of a triangle      * @param c an array of color corresponding the vertex array p      */
+comment|/**      * Constructor of CoonsTriangle.      * @param p an array of the 3 vertices of a triangle      * @param c an array of color corresponding the vertex array p      */
 specifier|public
 name|CoonsTriangle
 parameter_list|(
@@ -468,7 +468,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the degree value of a triangle.      * @param p 3 vertexes coordinates      * @return number of unique points in the 3 vertexes of a triangle, 3, 2 or 1      */
+comment|/**      * Calculate the degree value of a triangle.      * @param p 3 vertices coordinates      * @return number of unique points in the 3 vertices of a triangle, 3, 2 or 1      */
 specifier|private
 name|int
 name|calcDeg
@@ -595,7 +595,8 @@ operator|.
 name|getX
 argument_list|()
 argument_list|)
-decl_stmt|,
+decl_stmt|;
+name|int
 name|x1
 init|=
 operator|(
@@ -613,7 +614,8 @@ operator|.
 name|getX
 argument_list|()
 argument_list|)
-decl_stmt|,
+decl_stmt|;
+name|int
 name|x2
 init|=
 operator|(
@@ -650,7 +652,8 @@ operator|.
 name|getY
 argument_list|()
 argument_list|)
-decl_stmt|,
+decl_stmt|;
+name|int
 name|y1
 init|=
 operator|(
@@ -668,7 +671,8 @@ operator|.
 name|getY
 argument_list|()
 argument_list|)
-decl_stmt|,
+decl_stmt|;
+name|int
 name|y2
 init|=
 operator|(
@@ -775,6 +779,7 @@ return|return
 name|boundary
 return|;
 block|}
+comment|/**      * Get the line of a triangle.      *      * @return points of the line, or null if this triangle isn't a line      */
 specifier|public
 name|Line
 name|getLine
@@ -884,7 +889,7 @@ name|tp
 argument_list|)
 return|;
 block|}
-comment|/*         the following code judges whether a point is contained in a normal trianlge,          taking the on edge case as contained         */
+comment|/*         the following code judges whether a point is contained in a normal triangle,          taking the on edge case as contained         */
 name|double
 name|pv0
 init|=
@@ -977,7 +982,7 @@ literal|0
 return|;
 comment|// !(pv2 * v2< 0)
 block|}
-comment|/*     whether two points overlaps each other, as points' coordinates are double type,      the coordinates' accuracy used here is 0.001     */
+comment|/*      check whether two points overlaps each other, as points' coordinates are       of type double, the coordinates' accuracy used here is 0.001      */
 specifier|private
 name|boolean
 name|overlaps
@@ -1025,7 +1030,7 @@ operator|<
 literal|0.001
 return|;
 block|}
-comment|/*     two points can define a line equation, adjust the form of the equation to let the rhs equals 0,      calculate the lhs value by plugging the coordinate of p in the lhs expression     */
+comment|/*      two points can define a line equation, adjust the form of the equation to       let the rhs equals 0, calculate the lhs value by plugging the coordinate       of p in the lhs expression      */
 specifier|private
 name|double
 name|edgeEquationValue
@@ -1166,7 +1171,7 @@ comment|/**      * Calculate color of a point.      * @param p the target point 
 specifier|public
 name|float
 index|[]
-name|getColor
+name|calcColor
 parameter_list|(
 name|Point2D
 name|p
@@ -1214,6 +1219,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|// average
 name|pCol
 index|[
 name|i
@@ -1247,7 +1253,6 @@ operator|)
 operator|/
 literal|3.0f
 expr_stmt|;
-comment|// average
 block|}
 block|}
 elseif|else
@@ -1258,6 +1263,7 @@ operator|==
 literal|2
 condition|)
 block|{
+comment|// linear interpolation
 name|Point
 name|tp
 init|=
@@ -1291,11 +1297,10 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// linear interpolation
 return|return
 name|line
 operator|.
-name|getColor
+name|calcColor
 argument_list|(
 name|tp
 argument_list|)
@@ -1393,6 +1398,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|// barycentric interpolation
 name|pCol
 index|[
 name|i
@@ -1428,7 +1434,6 @@ index|]
 operator|*
 name|cw
 expr_stmt|;
-comment|// barycentric interpolation
 block|}
 block|}
 return|return

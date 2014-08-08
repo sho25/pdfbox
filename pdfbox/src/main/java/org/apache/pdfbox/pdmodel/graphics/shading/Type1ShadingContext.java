@@ -669,7 +669,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// this method is used to arrange the array to denote the left upper corner and right lower corner of the BBox
+comment|// this helper method is used to arrange the array
+comment|// to denote the left upper corner and right lower corner of the BBox
+comment|// i is always< j
 specifier|private
 name|void
 name|reOrder
@@ -687,22 +689,16 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|i
-operator|<
-name|j
-operator|&&
 name|array
 index|[
 name|i
 index|]
-operator|<=
+operator|>
 name|array
 index|[
 name|j
 index|]
 condition|)
-block|{         }
-else|else
 block|{
 name|float
 name|tmp
