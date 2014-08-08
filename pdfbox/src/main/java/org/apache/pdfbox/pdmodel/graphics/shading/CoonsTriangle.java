@@ -1167,7 +1167,7 @@ operator|/
 literal|2.0
 return|;
 block|}
-comment|/**      * Calculate color of a point.      * @param p the target point      * @return an array denotes the point's color      */
+comment|/**      * Calculate the color of a point.      * @param p the target point      * @return an array denotes the point's color      */
 specifier|public
 name|float
 index|[]

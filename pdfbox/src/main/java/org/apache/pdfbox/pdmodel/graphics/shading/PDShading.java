@@ -935,6 +935,7 @@ name|dictionaryFunctionObject
 operator|!=
 literal|null
 condition|)
+block|{
 name|function
 operator|=
 name|PDFunction
@@ -944,6 +945,7 @@ argument_list|(
 name|dictionaryFunctionObject
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|function

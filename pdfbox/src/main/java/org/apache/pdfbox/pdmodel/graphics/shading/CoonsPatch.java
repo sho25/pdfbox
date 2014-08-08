@@ -84,7 +84,7 @@ operator|=
 name|calcLevel
 argument_list|()
 expr_stmt|;
-name|listOfCoonsTriangle
+name|listOfCoonsTriangles
 operator|=
 name|getCoonsTriangle
 argument_list|()

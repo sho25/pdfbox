@@ -263,6 +263,8 @@ argument_list|,
 name|ctm
 argument_list|,
 name|pageHeight
+argument_list|,
+name|deviceBounds
 argument_list|)
 return|;
 block|}
