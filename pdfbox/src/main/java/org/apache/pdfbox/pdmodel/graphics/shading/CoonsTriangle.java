@@ -59,14 +59,14 @@ begin_class
 class|class
 name|CoonsTriangle
 block|{
-specifier|private
+specifier|protected
 specifier|final
 name|Point2D
 index|[]
 name|corner
 decl_stmt|;
 comment|// vertexes coordinates of a triangle
-specifier|private
+specifier|protected
 specifier|final
 name|float
 index|[]

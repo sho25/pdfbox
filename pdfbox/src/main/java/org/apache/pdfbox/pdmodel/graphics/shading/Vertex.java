@@ -40,11 +40,6 @@ class|class
 name|Vertex
 block|{
 specifier|public
-name|byte
-name|flag
-decl_stmt|;
-comment|// used only with type 4 shading
-specifier|public
 name|Point2D
 name|point
 decl_stmt|;
@@ -53,36 +48,24 @@ name|float
 index|[]
 name|color
 decl_stmt|;
+specifier|public
 name|Vertex
 parameter_list|(
-name|byte
-name|flag
-parameter_list|,
 name|Point2D
-name|point
+name|p
 parameter_list|,
 name|float
 index|[]
-name|color
+name|c
 parameter_list|)
 block|{
-name|this
-operator|.
-name|flag
-operator|=
-name|flag
-expr_stmt|;
-name|this
-operator|.
 name|point
 operator|=
-name|point
+name|p
 expr_stmt|;
-name|this
-operator|.
 name|color
 operator|=
-name|color
+name|c
 operator|.
 name|clone
 argument_list|()
@@ -137,9 +120,7 @@ block|}
 return|return
 literal|"Vertex{"
 operator|+
-name|flag
-operator|+
-literal|": "
+literal|" "
 operator|+
 name|point
 operator|+
