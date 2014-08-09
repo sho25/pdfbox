@@ -176,10 +176,15 @@ specifier|final
 name|boolean
 name|hasFunction
 decl_stmt|;
+comment|/** bits per coordinate. */
 specifier|protected
-specifier|final
-name|PDShading
-name|shading
+name|int
+name|bitsPerCoordinate
+decl_stmt|;
+comment|/** bits per color component */
+specifier|protected
+name|int
+name|bitsPerColorComponent
 decl_stmt|;
 specifier|public
 name|TriangleBasedShadingContext
@@ -220,6 +225,14 @@ argument_list|,
 name|dBounds
 argument_list|)
 expr_stmt|;
+name|PDTriangleBasedShadingType
+name|triangleBasedShadingType
+init|=
+operator|(
+name|PDTriangleBasedShadingType
+operator|)
+name|shading
+decl_stmt|;
 name|hasFunction
 operator|=
 name|shading
@@ -229,11 +242,48 @@ argument_list|()
 operator|!=
 literal|null
 expr_stmt|;
-name|this
-operator|.
-name|shading
+name|bitsPerCoordinate
 operator|=
-name|shading
+name|triangleBasedShadingType
+operator|.
+name|getBitsPerCoordinate
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"bitsPerCoordinate: "
+operator|+
+operator|(
+name|Math
+operator|.
+name|pow
+argument_list|(
+literal|2
+argument_list|,
+name|bitsPerCoordinate
+argument_list|)
+operator|-
+literal|1
+operator|)
+argument_list|)
+expr_stmt|;
+name|bitsPerColorComponent
+operator|=
+name|triangleBasedShadingType
+operator|.
+name|getBitsPerComponent
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"bitsPerColorComponent: "
+operator|+
+name|bitsPerColorComponent
+argument_list|)
 expr_stmt|;
 block|}
 comment|// convert color to RGB color value, using function if required,

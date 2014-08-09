@@ -333,16 +333,6 @@ decl_stmt|;
 comment|// patch list
 specifier|protected
 name|int
-name|bitsPerCoordinate
-decl_stmt|;
-comment|// bits per coordinate
-specifier|protected
-name|int
-name|bitsPerColorComponent
-decl_stmt|;
-comment|// bits per color component
-specifier|protected
-name|int
 name|bitsPerFlag
 decl_stmt|;
 comment|// bits per flag
@@ -398,6 +388,18 @@ expr_stmt|;
 name|patchMeshesShadingType
 operator|=
 name|shading
+expr_stmt|;
+name|bitsPerFlag
+operator|=
+operator|(
+operator|(
+name|PDShadingType6
+operator|)
+name|shading
+operator|)
+operator|.
+name|getBitsPerFlag
+argument_list|()
 expr_stmt|;
 name|patchList
 operator|=

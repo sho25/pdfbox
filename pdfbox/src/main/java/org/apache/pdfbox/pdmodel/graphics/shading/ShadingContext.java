@@ -212,6 +212,11 @@ argument_list|)
 decl_stmt|;
 specifier|protected
 specifier|final
+name|PDShading
+name|shading
+decl_stmt|;
+specifier|protected
+specifier|final
 name|Rectangle
 name|deviceBounds
 decl_stmt|;
@@ -261,6 +266,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|this
+operator|.
+name|shading
+operator|=
+name|shading
+expr_stmt|;
 name|deviceBounds
 operator|=
 name|dBounds

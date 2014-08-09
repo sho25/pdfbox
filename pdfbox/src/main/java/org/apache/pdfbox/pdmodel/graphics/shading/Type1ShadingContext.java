@@ -194,13 +194,14 @@ argument_list|)
 decl_stmt|;
 specifier|private
 name|PDShadingType1
-name|shading
+name|type1ShadingType
 decl_stmt|;
 specifier|private
 name|AffineTransform
 name|rat
 decl_stmt|;
 specifier|private
+specifier|final
 name|float
 index|[]
 name|domain
@@ -256,7 +257,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|shading
+name|type1ShadingType
 operator|=
 name|shading
 expr_stmt|;
@@ -266,8 +267,6 @@ comment|// specifying the rectangular domain of coordinates over which the
 comment|// color function(s) are defined. Default value: [ 0.0 1.0 0.0 1.0 ].
 if|if
 condition|(
-name|this
-operator|.
 name|shading
 operator|.
 name|getDomain
@@ -278,8 +277,6 @@ condition|)
 block|{
 name|domain
 operator|=
-name|this
-operator|.
 name|shading
 operator|.
 name|getDomain
@@ -309,8 +306,6 @@ expr_stmt|;
 block|}
 name|matrix
 operator|=
-name|this
-operator|.
 name|shading
 operator|.
 name|getMatrix
@@ -425,7 +420,7 @@ name|shadingColorSpace
 operator|=
 literal|null
 expr_stmt|;
-name|shading
+name|type1ShadingType
 operator|=
 literal|null
 expr_stmt|;
@@ -700,7 +695,7 @@ try|try
 block|{
 name|values
 operator|=
-name|shading
+name|type1ShadingType
 operator|.
 name|evalFunction
 argument_list|(
