@@ -894,19 +894,6 @@ return|return
 name|list
 return|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|void
-name|dispose
-parameter_list|()
-block|{
-name|super
-operator|.
-name|dispose
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 end_class
 
