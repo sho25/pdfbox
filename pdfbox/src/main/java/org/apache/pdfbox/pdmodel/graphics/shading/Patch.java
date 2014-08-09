@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Patch is extended by CoonsPatch and TensorPatch.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  * @author Shaola Ren  */
+comment|/**  * Patch is extended by CoonsPatch and TensorPatch. This was done as part of  * GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -75,7 +75,7 @@ name|ShadedTriangle
 argument_list|>
 name|listOfTriangles
 decl_stmt|;
-comment|/**      * Constructor of Patch.      * @param ctl control points, size is 12 (for type 6 shading) or 16 (for type 7 shading)      * @param color 4 corner's colors      */
+comment|/**      * Constructor of Patch.      *      * @param ctl control points, size is 12 (for type 6 shading) or 16 (for      * type 7 shading)      * @param color 4 corner's colors      */
 specifier|public
 name|Patch
 parameter_list|(
@@ -97,7 +97,7 @@ name|clone
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Get the implicit edge for flag = 1.      * @return implicit control points      */
+comment|/**      * Get the implicit edge for flag = 1.      *      * @return implicit control points      */
 specifier|protected
 specifier|abstract
 name|Point2D
@@ -105,7 +105,7 @@ index|[]
 name|getFlag1Edge
 parameter_list|()
 function_decl|;
-comment|/**      * Get the implicit edge for flag = 2.      * @return implicit control points      */
+comment|/**      * Get the implicit edge for flag = 2.      *      * @return implicit control points      */
 specifier|protected
 specifier|abstract
 name|Point2D
@@ -113,7 +113,7 @@ index|[]
 name|getFlag2Edge
 parameter_list|()
 function_decl|;
-comment|/**      * Get the implicit edge for flag = 3.      * @return implicit control points      */
+comment|/**      * Get the implicit edge for flag = 3.      *      * @return implicit control points      */
 specifier|protected
 specifier|abstract
 name|Point2D
@@ -121,7 +121,7 @@ index|[]
 name|getFlag3Edge
 parameter_list|()
 function_decl|;
-comment|/**      * Get the implicit color for flag = 1.      * @return color      */
+comment|/**      * Get the implicit color for flag = 1.      *      * @return color      */
 specifier|protected
 name|float
 index|[]
@@ -205,7 +205,7 @@ return|return
 name|implicitCornerColor
 return|;
 block|}
-comment|/**      * Get implicit color for flag = 2.      * @return color      */
+comment|/**      * Get implicit color for flag = 2.      *      * @return color      */
 specifier|protected
 name|float
 index|[]
@@ -289,7 +289,7 @@ return|return
 name|implicitCornerColor
 return|;
 block|}
-comment|/**      * Get implicit color for flag = 3.      * @return color      */
+comment|/**      * Get implicit color for flag = 3.      *      * @return color      */
 specifier|protected
 name|float
 index|[]
@@ -373,7 +373,7 @@ return|return
 name|implicitCornerColor
 return|;
 block|}
-comment|/**      * Calculate the distance from point ps to point pe.      * @param ps one end of a line      * @param pe the other end of the line      * @return length of the line      */
+comment|/**      * Calculate the distance from point ps to point pe.      *      * @param ps one end of a line      * @param pe the other end of the line      * @return length of the line      */
 specifier|protected
 name|double
 name|getLen
@@ -426,7 +426,7 @@ name|y
 argument_list|)
 return|;
 block|}
-comment|/**      * Whether the for control points are on a line.      * @param ctl an edge's control points, the size of ctl is 4      * @return true when 4 control points are on a line, otherwise false      */
+comment|/**      * Whether the for control points are on a line.      *      * @param ctl an edge's control points, the size of ctl is 4      * @return true when 4 control points are on a line, otherwise false      */
 specifier|protected
 name|boolean
 name|isEdgeALine
@@ -558,7 +558,7 @@ name|y
 operator|)
 return|;
 block|}
-comment|/**      * A line from point p1 to point p2 defines an equation, adjust the form of the equation       * to let the rhs equals 0, then calculate the lhs value by plugging the coordinate of p       * in the lhs expression.      * @param p target point      * @param p1 one end of a line      * @param p2 the other end of a line      * @return calculated value      */
+comment|/**      * A line from point p1 to point p2 defines an equation, adjust the form of      * the equation to let the rhs equals 0, then calculate the lhs value by      * plugging the coordinate of p in the lhs expression.      *      * @param p target point      * @param p1 one end of a line      * @param p2 the other end of a line      * @return calculated value      */
 specifier|protected
 name|double
 name|edgeEquationValue
@@ -623,7 +623,7 @@ argument_list|()
 operator|)
 return|;
 block|}
-comment|/**      * An assistant method to accomplish type 6 and type 7 shading.      * @param patchCC all the crossing point coordinates and color of a grid      * @return a ShadedTriangle list which can compose the grid patch      */
+comment|/**      * An assistant method to accomplish type 6 and type 7 shading.      *      * @param patchCC all the crossing point coordinates and color of a grid      * @return a ShadedTriangle list which can compose the grid patch      */
 specifier|protected
 name|ArrayList
 argument_list|<

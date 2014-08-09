@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to describe a patch for type 7 shading.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  * @author Shaola Ren  */
+comment|/**  * This class is used to describe a patch for type 7 shading. This was done as  * part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -51,7 +51,7 @@ name|TensorPatch
 extends|extends
 name|Patch
 block|{
-comment|/**      * Constructor of a patch for type 7 shading.      * @param points 16 control points      * @param color  4 corner colors      */
+comment|/**      * Constructor of a patch for type 7 shading.      *      * @param points 16 control points      * @param color 4 corner colors      */
 specifier|protected
 name|TensorPatch
 parameter_list|(
@@ -90,7 +90,7 @@ name|getTriangles
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*     order the 16 1d points to a square matrix which is as the one described      in p.199 of PDF3200_2008.pdf rotated 90 degrees clockwise     */
+comment|/*      order the 16 1d points to a square matrix which is as the one described       in p.199 of PDF3200_2008.pdf rotated 90 degrees clockwise      */
 specifier|private
 name|Point2D
 index|[]
@@ -344,7 +344,7 @@ name|ctlC2
 argument_list|)
 condition|)
 block|{
-comment|/*             if any of the 4 inner control points is out of the patch formed by the 4 edges,              keep the high dividing level,              otherwise, determine the dividing level by the lengths of edges             */
+comment|/*              if any of the 4 inner control points is out of the patch formed by the 4 edges,               keep the high dividing level,               otherwise, determine the dividing level by the lengths of edges              */
 if|if
 condition|(
 name|isOnSameSideCC
@@ -974,7 +974,7 @@ return|return
 name|implicitEdge
 return|;
 block|}
-comment|/*     dividing a patch into a grid according to level, then calculate the coordinate and color of      each crossing point in the grid, the rule to calculate the coordinate is tensor-product which      is defined in page 119 of PDF32000_2008.pdf, the method to calculate the cooresponding color is      bilinear interpolation     */
+comment|/*      dividing a patch into a grid according to level, then calculate the coordinate and color of       each crossing point in the grid, the rule to calculate the coordinate is tensor-product which       is defined in page 119 of PDF32000_2008.pdf, the method to calculate the cooresponding color is       bilinear interpolation      */
 specifier|private
 name|CoordinateColorPair
 index|[]

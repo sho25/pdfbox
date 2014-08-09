@@ -148,7 +148,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT Paint for radial shading.  * @author Andreas Lehmkühler  */
+comment|/**  * AWT Paint for radial shading.  *  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
@@ -185,7 +185,7 @@ specifier|private
 name|int
 name|pageHeight
 decl_stmt|;
-comment|/**      * Constructor.      * @param shading the shading resources      * @param ctm current transformation matrix      * @param pageHeight size of the current page      */
+comment|/**      * Constructor.      *      * @param shading the shading resources      * @param ctm current transformation matrix      * @param pageHeight size of the current page      */
 name|RadialShadingPaint
 parameter_list|(
 name|PDShadingType3

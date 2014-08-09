@@ -206,7 +206,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT PaintContext for Gouraud Triangle Lattice (Type 5) shading.  * @author Tilman Hausherr  * @author Shaola Ren  */
+comment|/**  * AWT PaintContext for Gouraud Triangle Lattice (Type 5) shading.  *  * @author Tilman Hausherr  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -230,7 +230,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @throws IOException if something went wrong      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @throws IOException if something went wrong      */
 specifier|public
 name|Type5ShadingContext
 parameter_list|(

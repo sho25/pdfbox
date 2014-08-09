@@ -166,7 +166,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT PaintContext for function-based (Type 1) shading.  * @author Andreas Lehmkühler  * @author Tilman Hausherr  */
+comment|/**  * AWT PaintContext for function-based (Type 1) shading.  *  * @author Andreas Lehmkühler  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -215,7 +215,7 @@ name|float
 index|[]
 name|background
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @param dBounds device bounds       */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @param dBounds device bounds      */
 specifier|public
 name|Type1ShadingContext
 parameter_list|(

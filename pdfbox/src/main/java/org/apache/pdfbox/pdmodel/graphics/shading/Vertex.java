@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Vertex for Type 4 and Type 5 shadings.  * @author Tilman Hausherr  */
+comment|/**  * Vertex for Type 4 and Type 5 shadings.  *  * @author Tilman Hausherr  */
 end_comment
 
 begin_class

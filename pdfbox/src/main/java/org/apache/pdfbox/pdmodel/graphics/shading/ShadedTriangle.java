@@ -79,7 +79,7 @@ name|double
 name|area
 decl_stmt|;
 comment|// area of the triangle
-comment|/*     degree = 3 describes a normal triangle,      degree = 2 when a triangle degenerates to a line,     degree = 1 when a triangle degenerates to a point     */
+comment|/*      degree = 3 describes a normal triangle,       degree = 2 when a triangle degenerates to a line,      degree = 1 when a triangle degenerates to a point      */
 specifier|private
 specifier|final
 name|int
@@ -468,7 +468,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Calculate the degree value of a triangle.      * @param p 3 vertices coordinates      * @return number of unique points in the 3 vertices of a triangle, 3, 2 or 1      */
+comment|/**      * Calculate the degree value of a triangle.      *      * @param p 3 vertices coordinates      * @return number of unique points in the 3 vertices of a triangle, 3, 2 or      * 1      */
 specifier|private
 name|int
 name|calcDeg
@@ -560,7 +560,7 @@ return|return
 name|degree
 return|;
 block|}
-comment|/**      * get the boundary of a triangle.      * @return {xmin, xmax, ymin, ymax}      */
+comment|/**      * get the boundary of a triangle.      *      * @return {xmin, xmax, ymin, ymax}      */
 specifier|public
 name|int
 index|[]
@@ -789,7 +789,7 @@ return|return
 name|line
 return|;
 block|}
-comment|/**      * Whether a point is contained in this ShadedTriangle.      * @param p the target point      * @return false if p is outside of this triangle, otherwise true      */
+comment|/**      * Whether a point is contained in this ShadedTriangle.      *      * @param p the target point      * @return false if p is outside of this triangle, otherwise true      */
 specifier|public
 name|boolean
 name|contains
@@ -889,7 +889,7 @@ name|tp
 argument_list|)
 return|;
 block|}
-comment|/*         the following code judges whether a point is contained in a normal triangle,          taking the on edge case as contained         */
+comment|/*          the following code judges whether a point is contained in a normal triangle,           taking the on edge case as contained          */
 name|double
 name|pv0
 init|=
@@ -908,7 +908,7 @@ literal|2
 index|]
 argument_list|)
 decl_stmt|;
-comment|/*         if corner[0] and point p are on different sides of line from corner[1] to corner[2],          p is outside of the triangle         */
+comment|/*          if corner[0] and point p are on different sides of line from corner[1] to corner[2],           p is outside of the triangle          */
 if|if
 condition|(
 name|pv0
@@ -940,7 +940,7 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
-comment|/*         if vertex corner[1] and point p are on different sides of line from corner[2] to corner[0],          p is outside of the triangle         */
+comment|/*          if vertex corner[1] and point p are on different sides of line from corner[2] to corner[0],           p is outside of the triangle          */
 if|if
 condition|(
 name|pv1
@@ -972,7 +972,7 @@ literal|1
 index|]
 argument_list|)
 decl_stmt|;
-comment|/*         only left one case:         if corner[1] and point p are on different sides of line from corner[2] to corner[0],          p is outside of the triangle, otherwise p is contained in the triangle         */
+comment|/*          only left one case:          if corner[1] and point p are on different sides of line from corner[2] to corner[0],           p is outside of the triangle, otherwise p is contained in the triangle          */
 return|return
 name|pv2
 operator|*
@@ -1167,7 +1167,7 @@ operator|/
 literal|2.0
 return|;
 block|}
-comment|/**      * Calculate the color of a point.      * @param p the target point      * @return an array denotes the point's color      */
+comment|/**      * Calculate the color of a point.      *      * @param p the target point      * @return an array denotes the point's color      */
 specifier|public
 name|float
 index|[]

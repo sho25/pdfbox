@@ -158,7 +158,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Intermediate class extended by the shading types 4,5,6 and 7 that contains  * the common methods used by these classes.  *   * @author Shaola Ren  * @author Tilman Hausherr  */
+comment|/**  * Intermediate class extended by the shading types 4,5,6 and 7 that contains  * the common methods used by these classes.  *  * @author Shaola Ren  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -183,12 +183,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/** bits per coordinate. */
+comment|/**      * bits per coordinate.      */
 specifier|protected
 name|int
 name|bitsPerCoordinate
 decl_stmt|;
-comment|/** bits per color component */
+comment|/**      * bits per color component      */
 specifier|protected
 name|int
 name|bitsPerColorComponent

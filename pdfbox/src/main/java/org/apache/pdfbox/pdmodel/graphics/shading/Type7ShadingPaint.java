@@ -148,7 +148,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT Paint for tensor-product patch meshes (Type 7) shading.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  * @author Shaola Ren  */
+comment|/**  * AWT Paint for tensor-product patch meshes (Type 7) shading. This was done as  * part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -187,7 +187,7 @@ specifier|final
 name|int
 name|pageHeight
 decl_stmt|;
-comment|/**      * Constructor.      * @param shading the shading resources      * @param ctm current transformation matrix      * @param pageHeight the height of the page      */
+comment|/**      * Constructor.      *      * @param shading the shading resources      * @param ctm current transformation matrix      * @param pageHeight the height of the page      */
 specifier|public
 name|Type7ShadingPaint
 parameter_list|(

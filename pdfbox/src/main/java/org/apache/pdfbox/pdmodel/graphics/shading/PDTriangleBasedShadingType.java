@@ -109,7 +109,7 @@ name|shadingDictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The bits per component of this shading. This will return -1 if one has not been set.      * @return the number of bits per component      */
+comment|/**      * The bits per component of this shading. This will return -1 if one has      * not been set.      *      * @return the number of bits per component      */
 specifier|public
 name|int
 name|getBitsPerComponent
@@ -130,7 +130,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of bits per component.      * @param bitsPerComponent the number of bits per component      */
+comment|/**      * Set the number of bits per component.      *      * @param bitsPerComponent the number of bits per component      */
 specifier|public
 name|void
 name|setBitsPerComponent
@@ -152,7 +152,7 @@ name|bitsPerComponent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The bits per coordinate of this shading. This will return -1 if one has not been set.      * @return the number of bits per coordinate      */
+comment|/**      * The bits per coordinate of this shading. This will return -1 if one has      * not been set.      *      * @return the number of bits per coordinate      */
 specifier|public
 name|int
 name|getBitsPerCoordinate
@@ -173,7 +173,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of bits per coordinate.      * @param bitsPerComponent the number of bits per coordinate      */
+comment|/**      * Set the number of bits per coordinate.      *      * @param bitsPerComponent the number of bits per coordinate      */
 specifier|public
 name|void
 name|setBitsPerCoordinate
@@ -195,7 +195,7 @@ name|bitsPerComponent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns all decode values as COSArray.      * @return the decode array      */
+comment|/**      * Returns all decode values as COSArray.      *      * @return the decode array      */
 specifier|private
 name|COSArray
 name|getDecodeValues
@@ -228,7 +228,7 @@ return|return
 name|decode
 return|;
 block|}
-comment|/**      * This will set the decode values.      * @param decodeValues the new decode values      */
+comment|/**      * This will set the decode values.      *      * @param decodeValues the new decode values      */
 specifier|public
 name|void
 name|setDecodeValues
@@ -254,7 +254,7 @@ name|decodeValues
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the decode for the input parameter.      * @param paramNum the function parameter number      * @return the decode parameter range or null if none is set      */
+comment|/**      * Get the decode for the input parameter.      *      * @param paramNum the function parameter number      * @return the decode parameter range or null if none is set      */
 specifier|public
 name|PDRange
 name|getDecodeForParameter

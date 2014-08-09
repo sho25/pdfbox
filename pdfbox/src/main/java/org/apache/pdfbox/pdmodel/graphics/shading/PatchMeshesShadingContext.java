@@ -274,7 +274,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is extended in Type6ShadingContext and Type7ShadingContext.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  * @author Shaola Ren  */
+comment|/**  * This class is extended in Type6ShadingContext and Type7ShadingContext. This  * was done as part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -345,7 +345,7 @@ name|Integer
 argument_list|>
 name|pixelTable
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @param dBounds device bounds       * @throws IOException if something went wrong      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @param dBounds device bounds      * @throws IOException if something went wrong      */
 specifier|protected
 name|PatchMeshesShadingContext
 parameter_list|(
@@ -452,7 +452,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create a patch list from a data stream, the returned list contains all the patches       * contained in the data stream.      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param cosDictionary dictionary object to give the image information      * @param rangeX range for coordinate x      * @param rangeY range for coordinate y      * @param colRange range for color      * @param numP number of control points, 12 for type 6 shading and 16 for type 7 shading      * @return the obtained patch list      * @throws IOException when something went wrong      */
+comment|/**      * Create a patch list from a data stream, the returned list contains all      * the patches contained in the data stream.      *      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param cosDictionary dictionary object to give the image information      * @param rangeX range for coordinate x      * @param rangeY range for coordinate y      * @param colRange range for color      * @param numP number of control points, 12 for type 6 shading and 16 for      * type 7 shading      * @return the obtained patch list      * @throws IOException when something went wrong      */
 specifier|protected
 name|ArrayList
 argument_list|<
@@ -792,7 +792,7 @@ return|return
 name|list
 return|;
 block|}
-comment|/**      * Read a single patch from a data stream, a patch contains information of       * its coordinates and color parameters.      * @param input the image source data stream      * @param isFree whether this is a free patch      * @param implicitEdge implicit edge when a patch is not free, otherwise it's not used      * @param implicitCornerColor implicit colors when a patch is not free, otherwise it's not used      * @param maxSrcCoord the maximum coordinate value calculated from source data      * @param maxSrcColor the maximum color value calculated from source data      * @param rangeX range for coordinate x      * @param rangeY range for coordinate y      * @param colRange range for color      * @param ctm current transformation matrix      * @param xform transformation for user to device space      * @param numP number of control points, 12 for type 6 shading and 16 for type 7 shading      * @return a single patch      * @throws IOException when something went wrong      */
+comment|/**      * Read a single patch from a data stream, a patch contains information of      * its coordinates and color parameters.      *      * @param input the image source data stream      * @param isFree whether this is a free patch      * @param implicitEdge implicit edge when a patch is not free, otherwise      * it's not used      * @param implicitCornerColor implicit colors when a patch is not free,      * otherwise it's not used      * @param maxSrcCoord the maximum coordinate value calculated from source      * data      * @param maxSrcColor the maximum color value calculated from source data      * @param rangeX range for coordinate x      * @param rangeY range for coordinate y      * @param colRange range for color      * @param ctm current transformation matrix      * @param xform transformation for user to device space      * @param numP number of control points, 12 for type 6 shading and 16 for      * type 7 shading      * @return a single patch      * @throws IOException when something went wrong      */
 specifier|protected
 name|Patch
 name|readPatch
@@ -1188,7 +1188,7 @@ name|color
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a patch using control points and 4 corner color values, in Type6ShadingContext,       * a CoonsPatch is returned; in Type6ShadingContext, a TensorPatch is returned.      * @param points 12 or 16 control points      * @param color 4 corner colors      * @return a patch instance      */
+comment|/**      * Create a patch using control points and 4 corner color values, in      * Type6ShadingContext, a CoonsPatch is returned; in Type6ShadingContext, a      * TensorPatch is returned.      *      * @param points 12 or 16 control points      * @param color 4 corner colors      * @return a patch instance      */
 specifier|abstract
 name|Patch
 name|generatePatch
@@ -1237,7 +1237,7 @@ name|rangeMin
 operator|)
 return|;
 block|}
-comment|/**      * Calculate every point and its color and store them in a Hash table.      * @return a Hash table which contains all the points' positions and colors of one image      */
+comment|/**      * Calculate every point and its color and store them in a Hash table.      *      * @return a Hash table which contains all the points' positions and colors      * of one image      */
 specifier|protected
 name|HashMap
 argument_list|<

@@ -114,7 +114,7 @@ name|extend
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
+comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShadingType2
 parameter_list|(
@@ -141,7 +141,7 @@ operator|.
 name|SHADING_TYPE2
 return|;
 block|}
-comment|/**      * This will get the optional Extend values for this shading.      * @return the extend values      */
+comment|/**      * This will get the optional Extend values for this shading.      *      * @return the extend values      */
 specifier|public
 name|COSArray
 name|getExtend
@@ -174,7 +174,7 @@ return|return
 name|extend
 return|;
 block|}
-comment|/**      * Sets the optional Extend entry for this shading.      * @param newExtend the extend array      */
+comment|/**      * Sets the optional Extend entry for this shading.      *      * @param newExtend the extend array      */
 specifier|public
 name|void
 name|setExtend
@@ -221,7 +221,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the optional Domain values for this shading.      * @return the domain values      */
+comment|/**      * This will get the optional Domain values for this shading.      *      * @return the domain values      */
 specifier|public
 name|COSArray
 name|getDomain
@@ -254,7 +254,7 @@ return|return
 name|domain
 return|;
 block|}
-comment|/**      * Sets the optional Domain entry for this shading.      * @param newDomain the domain array      */
+comment|/**      * Sets the optional Domain entry for this shading.      *      * @param newDomain the domain array      */
 specifier|public
 name|void
 name|setDomain
@@ -301,7 +301,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the Coords values for this shading.      * @return the coordinate values      */
+comment|/**      * This will get the Coords values for this shading.      *      * @return the coordinate values      */
 specifier|public
 name|COSArray
 name|getCoords
@@ -334,7 +334,7 @@ return|return
 name|coords
 return|;
 block|}
-comment|/**      * Sets the Coords entry for this shading.      * @param newCoords the coordinates array      */
+comment|/**      * Sets the Coords entry for this shading.      *      * @param newCoords the coordinates array      */
 specifier|public
 name|void
 name|setCoords

@@ -82,7 +82,7 @@ name|PDShadingType4
 extends|extends
 name|PDTriangleBasedShadingType
 block|{
-comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
+comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShadingType4
 parameter_list|(
@@ -109,7 +109,7 @@ operator|.
 name|SHADING_TYPE4
 return|;
 block|}
-comment|/**      * The bits per flag of this shading. This will return -1 if one has not been set.      * @return The number of bits per flag.      */
+comment|/**      * The bits per flag of this shading. This will return -1 if one has not      * been set.      *      * @return The number of bits per flag.      */
 specifier|public
 name|int
 name|getBitsPerFlag
@@ -130,7 +130,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of bits per flag.      * @param bitsPerFlag the number of bits per flag      */
+comment|/**      * Set the number of bits per flag.      *      * @param bitsPerFlag the number of bits per flag      */
 specifier|public
 name|void
 name|setBitsPerFlag

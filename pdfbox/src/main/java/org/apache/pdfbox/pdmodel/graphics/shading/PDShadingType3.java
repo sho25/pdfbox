@@ -68,7 +68,7 @@ name|PDShadingType3
 extends|extends
 name|PDShadingType2
 block|{
-comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
+comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShadingType3
 parameter_list|(

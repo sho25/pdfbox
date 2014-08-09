@@ -82,7 +82,7 @@ name|PDShadingType5
 extends|extends
 name|PDTriangleBasedShadingType
 block|{
-comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
+comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShadingType5
 parameter_list|(
@@ -109,7 +109,7 @@ operator|.
 name|SHADING_TYPE5
 return|;
 block|}
-comment|/**      * The vertices per row of this shading. This will return -1 if one has not been set.      * @return the number of vertices per row      */
+comment|/**      * The vertices per row of this shading. This will return -1 if one has not      * been set.      *      * @return the number of vertices per row      */
 specifier|public
 name|int
 name|getVerticesPerRow
@@ -130,7 +130,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the number of vertices per row.      * @param verticesPerRow the number of vertices per row      */
+comment|/**      * Set the number of vertices per row.      *      * @param verticesPerRow the number of vertices per row      */
 specifier|public
 name|void
 name|setVerticesPerRow

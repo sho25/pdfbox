@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class describes a rasterized line.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  * @author Shaola Ren  */
+comment|/**  * This class describes a rasterized line. This was done as part of GSoC2014,  * Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -78,7 +78,7 @@ argument_list|>
 name|linePoints
 decl_stmt|;
 comment|// all the points in this rasterized line
-comment|/**      * Constructor of class Line.      * @param p0 one end of a line      * @param p1 the other end of the line      * @param c0 color of point p0      * @param c1 color of point p1      */
+comment|/**      * Constructor of class Line.      *      * @param p0 one end of a line      * @param p1 the other end of the line      * @param c0 color of point p0      * @param c1 color of point p1      */
 specifier|public
 name|Line
 parameter_list|(
@@ -141,7 +141,7 @@ name|y
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Calculate the points of a line with Bresenham's line algorithm      *<a href="http://en.wikipedia.org/wiki/Bresenham's_line_algorithm">Bresenham's line algorithm</a>      * @param x0 coordinate      * @param y0 coordinate      * @param x1 coordinate      * @param y1 coordinate      * @return all the points on the rasterized line from (x0, y0) to (x1, y1)      */
+comment|/**      * Calculate the points of a line with Bresenham's line algorithm      *<a      * href="http://en.wikipedia.org/wiki/Bresenham's_line_algorithm">Bresenham's      * line algorithm</a>      *      * @param x0 coordinate      * @param y0 coordinate      * @param x1 coordinate      * @param y1 coordinate      * @return all the points on the rasterized line from (x0, y0) to (x1, y1)      */
 specifier|private
 name|HashSet
 argument_list|<
@@ -332,7 +332,7 @@ return|return
 name|points
 return|;
 block|}
-comment|/**      * Calculate the color of a point on a rasterized line by linear interpolation.      * @param p target point, p should always be contained in linePoints      * @return color      */
+comment|/**      * Calculate the color of a point on a rasterized line by linear      * interpolation.      *      * @param p target point, p should always be contained in linePoints      * @return color      */
 specifier|protected
 name|float
 index|[]

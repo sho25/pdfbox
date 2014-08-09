@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to describe the edge of each patch for type 6 shading.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  * @author Shaola Ren  */
+comment|/**  * This class is used to describe the edge of each patch for type 6 shading.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -56,7 +56,7 @@ name|Point2D
 index|[]
 name|curve
 decl_stmt|;
-comment|/**      * Constructor of CubicBezierCurve      * @param ctrlPnts, 4 control points [p0, p1, p2, p3]      * @param l, dividing level, if l = 0, one cubic Bezier curve is divided into 2^0 = 1 segments,      * if l = n, one cubic Bezier curve is divided into 2^n segments      */
+comment|/**      * Constructor of CubicBezierCurve      *      * @param ctrlPnts, 4 control points [p0, p1, p2, p3]      * @param l, dividing level, if l = 0, one cubic Bezier curve is divided      * into 2^0 = 1 segments, if l = n, one cubic Bezier curve is divided into      * 2^n segments      */
 specifier|public
 name|CubicBezierCurve
 parameter_list|(
@@ -87,7 +87,7 @@ name|level
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get level parameter      * @return level       */
+comment|/**      * Get level parameter      *      * @return level      */
 specifier|public
 name|int
 name|getLevel
@@ -373,7 +373,7 @@ return|return
 name|res
 return|;
 block|}
-comment|/**      * Get sampled points of this cubic Bezier curve.      * @return sampled points      */
+comment|/**      * Get sampled points of this cubic Bezier curve.      *      * @return sampled points      */
 specifier|public
 name|Point2D
 index|[]

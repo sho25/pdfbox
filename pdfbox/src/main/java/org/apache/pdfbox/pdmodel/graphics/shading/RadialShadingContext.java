@@ -186,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT PaintContext for radial shading.  *  * Performance improvement done as part of GSoC2014, Tilman Hausherr is the  * mentor.  *  * @author Andreas Lehmkühler  * @author Shaola Ren   */
+comment|/**  * AWT PaintContext for radial shading.  *  * Performance improvement done as part of GSoC2014, Tilman Hausherr is the  * mentor.  *  * @author Andreas Lehmkühler  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -295,7 +295,7 @@ name|int
 index|[]
 name|colorTable
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm the transformation matrix      * @param dBounds device bounds       * @param pageHeight height of the current page      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm the transformation matrix      * @param dBounds device bounds      * @param pageHeight height of the current page      */
 specifier|public
 name|RadialShadingContext
 parameter_list|(
@@ -831,7 +831,7 @@ index|]
 return|;
 block|}
 block|}
-comment|/**      * Calculate the color on the line connects two circles' centers and store the result in an array.      * @return an array, index denotes the relative position, the corresponding value the color      */
+comment|/**      * Calculate the color on the line connects two circles' centers and store      * the result in an array.      *      * @return an array, index denotes the relative position, the corresponding      * value the color      */
 specifier|private
 name|int
 index|[]
@@ -1800,7 +1800,7 @@ block|}
 return|;
 block|}
 block|}
-comment|/**      * Returns the coords values.      * @return the coords values as array      */
+comment|/**      * Returns the coords values.      *      * @return the coords values as array      */
 specifier|public
 name|float
 index|[]
@@ -1811,7 +1811,7 @@ return|return
 name|coords
 return|;
 block|}
-comment|/**      * Returns the domain values.      * @return the domain values as array      */
+comment|/**      * Returns the domain values.      *      * @return the domain values as array      */
 specifier|public
 name|float
 index|[]
@@ -1822,7 +1822,7 @@ return|return
 name|domain
 return|;
 block|}
-comment|/**      * Returns the extend values.      * @return the extend values as array      */
+comment|/**      * Returns the extend values.      *      * @return the extend values as array      */
 specifier|public
 name|boolean
 index|[]

@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to describe a patch for type 6 shading.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  * @author Shaola Ren  */
+comment|/**  * This class is used to describe a patch for type 6 shading. This was done as  * part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -51,7 +51,7 @@ name|CoonsPatch
 extends|extends
 name|Patch
 block|{
-comment|/**      * Constructor of a patch for type 6 shading.      * @param points 12 control points      * @param color  4 corner colors      */
+comment|/**      * Constructor of a patch for type 6 shading.      *      * @param points 12 control points      * @param color 4 corner colors      */
 specifier|protected
 name|CoonsPatch
 parameter_list|(
@@ -783,7 +783,7 @@ return|return
 name|implicitEdge
 return|;
 block|}
-comment|/*     dividing a patch into a grid, return a matrix of the coordinate and color at the crossing points of the grid,      the rule to calculate the coordinate is defined in page 195 of PDF32000_2008.pdf, the rule to calculate the      cooresponding color is bilinear interpolation     */
+comment|/*      dividing a patch into a grid, return a matrix of the coordinate and color at the crossing points of the grid,       the rule to calculate the coordinate is defined in page 195 of PDF32000_2008.pdf, the rule to calculate the       cooresponding color is bilinear interpolation      */
 specifier|private
 name|CoordinateColorPair
 index|[]

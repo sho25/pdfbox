@@ -148,7 +148,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT Paint for axial shading.  * @author Andreas Lehmkühler  */
+comment|/**  * AWT Paint for axial shading.  *  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
@@ -185,7 +185,7 @@ specifier|private
 name|int
 name|pageHeight
 decl_stmt|;
-comment|/**      * Constructor.      * @param shadingType2 the shading resources      * @param ctm current transformation matrix      * @param pageHeight size of the current page      */
+comment|/**      * Constructor.      *      * @param shadingType2 the shading resources      * @param ctm current transformation matrix      * @param pageHeight size of the current page      */
 name|AxialShadingPaint
 parameter_list|(
 name|PDShadingType2

@@ -142,7 +142,7 @@ name|domain
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Constructor using the given shading dictionary.      * @param shadingDictionary the dictionary for this shading      */
+comment|/**      * Constructor using the given shading dictionary.      *      * @param shadingDictionary the dictionary for this shading      */
 specifier|public
 name|PDShadingType1
 parameter_list|(
@@ -169,7 +169,7 @@ operator|.
 name|SHADING_TYPE1
 return|;
 block|}
-comment|/**      * This will get the optional Matrix of a function based shading.      * @return the matrix      */
+comment|/**      * This will get the optional Matrix of a function based shading.      *      * @return the matrix      */
 specifier|public
 name|Matrix
 name|getMatrix
@@ -358,7 +358,7 @@ return|return
 name|matrix
 return|;
 block|}
-comment|/**      * Sets the optional Matrix entry for the function based shading.      * @param transform the transformation matrix      */
+comment|/**      * Sets the optional Matrix entry for the function based shading.      *      * @param transform the transformation matrix      */
 specifier|public
 name|void
 name|setMatrix
@@ -427,7 +427,7 @@ name|matrix
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the optional Domain values of a function based shading.      * @return the domain values      */
+comment|/**      * This will get the optional Domain values of a function based shading.      *      * @return the domain values      */
 specifier|public
 name|COSArray
 name|getDomain
@@ -460,7 +460,7 @@ return|return
 name|domain
 return|;
 block|}
-comment|/**      * Sets the optional Domain entry for the function based shading.      * @param newDomain the domain array      */
+comment|/**      * Sets the optional Domain entry for the function based shading.      *      * @param newDomain the domain array      */
 specifier|public
 name|void
 name|setDomain

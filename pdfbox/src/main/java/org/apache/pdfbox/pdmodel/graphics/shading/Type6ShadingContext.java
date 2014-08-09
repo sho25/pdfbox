@@ -130,7 +130,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT PaintContext for coons patch meshes (type 6) shading.  * This was done as part of GSoC2014, Tilman Hausherr is the mentor.  * @author Shaola Ren  */
+comment|/**  * AWT PaintContext for coons patch meshes (type 6) shading. This was done as  * part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -139,7 +139,7 @@ name|Type6ShadingContext
 extends|extends
 name|PatchMeshesShadingContext
 block|{
-comment|/**      * Constructor creates an instance to be used for fill operations.      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @param dBounds device bounds      * @throws IOException if something went wrong      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @param dBounds device bounds      * @throws IOException if something went wrong      */
 specifier|public
 name|Type6ShadingContext
 parameter_list|(
