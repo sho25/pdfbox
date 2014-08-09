@@ -84,9 +84,9 @@ operator|=
 name|calcLevel
 argument_list|()
 expr_stmt|;
-name|listOfCoonsTriangles
+name|listOfTriangles
 operator|=
-name|getCoonsTriangle
+name|getTriangles
 argument_list|()
 expr_stmt|;
 block|}
@@ -516,13 +516,13 @@ return|return
 name|l
 return|;
 block|}
-comment|// get a list of CoonsTriangles which compose this coons patch
+comment|// get a list of triangles which compose this coons patch
 specifier|private
 name|ArrayList
 argument_list|<
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|>
-name|getCoonsTriangle
+name|getTriangles
 parameter_list|()
 block|{
 comment|// 4 edges are 4 cubic Bezier curves
@@ -611,7 +611,7 @@ name|eD2
 argument_list|)
 decl_stmt|;
 return|return
-name|getCoonsTriangle
+name|getShadedTriangles
 argument_list|(
 name|patchCC
 argument_list|)

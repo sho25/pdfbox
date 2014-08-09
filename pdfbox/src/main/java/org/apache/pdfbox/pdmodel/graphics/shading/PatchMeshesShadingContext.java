@@ -1279,7 +1279,7 @@ name|calcPixelTable
 argument_list|(
 name|it
 operator|.
-name|listOfCoonsTriangles
+name|listOfTriangles
 argument_list|,
 name|map
 argument_list|)

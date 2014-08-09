@@ -71,9 +71,9 @@ decl_stmt|;
 specifier|protected
 name|ArrayList
 argument_list|<
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|>
-name|listOfCoonsTriangles
+name|listOfTriangles
 decl_stmt|;
 comment|/**      * Constructor of Patch.      * @param ctl control points, size is 12 (for type 6 shading) or 16 (for type 7 shading)      * @param color 4 corner's colors      */
 specifier|public
@@ -623,13 +623,13 @@ argument_list|()
 operator|)
 return|;
 block|}
-comment|/**      * An assistant method to accomplish type 6 and type 7 shading.      * @param patchCC all the crossing point coordinates and color of a grid      * @return a CoonsTriangle list which can compose the grid patch      */
+comment|/**      * An assistant method to accomplish type 6 and type 7 shading.      * @param patchCC all the crossing point coordinates and color of a grid      * @return a ShadedTriangle list which can compose the grid patch      */
 specifier|protected
 name|ArrayList
 argument_list|<
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|>
-name|getCoonsTriangle
+name|getShadedTriangles
 parameter_list|(
 name|CoordinateColorPair
 index|[]
@@ -639,14 +639,14 @@ parameter_list|)
 block|{
 name|ArrayList
 argument_list|<
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|>
 name|list
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -841,11 +841,11 @@ operator|.
 name|color
 block|}
 decl_stmt|;
-name|CoonsTriangle
+name|ShadedTriangle
 name|tmpll
 init|=
 operator|new
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|(
 name|llCorner
 argument_list|,
@@ -938,11 +938,11 @@ operator|.
 name|color
 block|}
 decl_stmt|;
-name|CoonsTriangle
+name|ShadedTriangle
 name|tmpur
 init|=
 operator|new
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|(
 name|urCorner
 argument_list|,

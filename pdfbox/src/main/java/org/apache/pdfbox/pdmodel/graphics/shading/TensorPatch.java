@@ -84,9 +84,9 @@ operator|=
 name|calcLevel
 argument_list|()
 expr_stmt|;
-name|listOfCoonsTriangles
+name|listOfTriangles
 operator|=
-name|getCoonsTriangle
+name|getTriangles
 argument_list|()
 expr_stmt|;
 block|}
@@ -793,13 +793,13 @@ operator|>
 literal|0
 return|;
 block|}
-comment|// get a list of CoonsTriangles which compose this tensor patch
+comment|// get a list of triangles which compose this tensor patch
 specifier|private
 name|ArrayList
 argument_list|<
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|>
-name|getCoonsTriangle
+name|getTriangles
 parameter_list|()
 block|{
 name|CoordinateColorPair
@@ -811,7 +811,7 @@ name|getPatchCoordinatesColor
 argument_list|()
 decl_stmt|;
 return|return
-name|getCoonsTriangle
+name|getShadedTriangles
 argument_list|(
 name|patchCC
 argument_list|)

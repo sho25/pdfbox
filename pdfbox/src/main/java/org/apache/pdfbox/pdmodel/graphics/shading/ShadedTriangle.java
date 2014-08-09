@@ -57,7 +57,7 @@ end_comment
 
 begin_class
 class|class
-name|CoonsTriangle
+name|ShadedTriangle
 block|{
 specifier|protected
 specifier|final
@@ -109,7 +109,7 @@ name|v2
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param p an array of the 3 vertices of a triangle      * @param c an array of color corresponding the vertex array p      */
 specifier|public
-name|CoonsTriangle
+name|ShadedTriangle
 parameter_list|(
 name|Point2D
 index|[]
@@ -789,7 +789,7 @@ return|return
 name|line
 return|;
 block|}
-comment|/**      * Whether a point is contained in this CoonsTriangle.      * @param p the target point      * @return false if p is outside of this triangle, otherwise true      */
+comment|/**      * Whether a point is contained in this ShadedTriangle.      * @param p the target point      * @return false if p is outside of this triangle, otherwise true      */
 specifier|public
 name|boolean
 name|contains

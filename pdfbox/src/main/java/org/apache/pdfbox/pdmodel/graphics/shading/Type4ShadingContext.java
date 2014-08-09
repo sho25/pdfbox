@@ -317,7 +317,7 @@ block|}
 specifier|private
 name|ArrayList
 argument_list|<
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|>
 name|getTriangleList
 parameter_list|(
@@ -408,14 +408,14 @@ expr_stmt|;
 block|}
 name|ArrayList
 argument_list|<
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|>
 name|list
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -712,7 +712,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|(
 name|ps
 argument_list|,
@@ -771,7 +771,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|CoonsTriangle
+name|ShadedTriangle
 name|preTri
 init|=
 name|list
@@ -858,7 +858,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|(
 name|ps
 argument_list|,
@@ -918,7 +918,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|CoonsTriangle
+name|ShadedTriangle
 name|preTri
 init|=
 name|list
@@ -1005,7 +1005,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|(
 name|ps
 argument_list|,

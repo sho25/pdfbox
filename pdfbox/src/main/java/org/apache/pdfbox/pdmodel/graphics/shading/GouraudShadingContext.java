@@ -260,7 +260,7 @@ comment|/** triangle list. */
 specifier|protected
 name|ArrayList
 argument_list|<
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|>
 name|triangleList
 decl_stmt|;
@@ -328,7 +328,7 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CoonsTriangle
+name|ShadedTriangle
 argument_list|>
 argument_list|()
 expr_stmt|;
