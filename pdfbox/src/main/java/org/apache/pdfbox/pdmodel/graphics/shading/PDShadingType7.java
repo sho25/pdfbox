@@ -92,7 +92,7 @@ block|{
 return|return
 name|PDShading
 operator|.
-name|SHADING_TYPE6
+name|SHADING_TYPE7
 return|;
 block|}
 annotation|@
