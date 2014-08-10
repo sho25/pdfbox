@@ -107,16 +107,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -192,6 +182,11 @@ comment|/**      * bits per color component      */
 specifier|protected
 name|int
 name|bitsPerColorComponent
+decl_stmt|;
+comment|/**      * number of color components.      */
+specifier|protected
+name|int
+name|numberOfColorComponents
 decl_stmt|;
 specifier|final
 specifier|protected
@@ -295,6 +290,26 @@ argument_list|(
 literal|"bitsPerColorComponent: "
 operator|+
 name|bitsPerColorComponent
+argument_list|)
+expr_stmt|;
+name|numberOfColorComponents
+operator|=
+name|hasFunction
+condition|?
+literal|1
+else|:
+name|shadingColorSpace
+operator|.
+name|getNumberOfComponents
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"numberOfColorComponents: "
+operator|+
+name|numberOfColorComponents
 argument_list|)
 expr_stmt|;
 block|}

@@ -251,11 +251,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * number of color components.      */
-specifier|protected
-name|int
-name|numberOfColorComponents
-decl_stmt|;
 comment|/**      * triangle list.      */
 specifier|protected
 name|ArrayList
@@ -330,17 +325,6 @@ name|ArrayList
 argument_list|<
 name|ShadedTriangle
 argument_list|>
-argument_list|()
-expr_stmt|;
-name|numberOfColorComponents
-operator|=
-name|hasFunction
-condition|?
-literal|1
-else|:
-name|shadingColorSpace
-operator|.
-name|getNumberOfComponents
 argument_list|()
 expr_stmt|;
 name|LOG
