@@ -937,25 +937,14 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|List
-argument_list|<
 name|PDColorSpace
-argument_list|>
-name|altCs
+name|altpdcs
 init|=
 name|iccBased
 operator|.
-name|getAlternateColorSpaces
+name|getAlternateColorSpace
 argument_list|()
 decl_stmt|;
-for|for
-control|(
-name|PDColorSpace
-name|altpdcs
-range|:
-name|altCs
-control|)
-block|{
 if|if
 condition|(
 name|altpdcs
@@ -998,10 +987,8 @@ literal|"Pattern is forbidden as AlternateColorSpace of a ICCBased"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
-comment|/*                      * According to the ISO-19005-1:2005                      *                       * A conforming reader shall render ICCBased colour spaces as specified by the ICC specification,                      * and shall not use the Alternate colour space specified in an ICC profile stream dictionary                      *                       * We don't check the alternate ColorSpaces                      */
-block|}
+comment|/*                  * According to the ISO-19005-1:2005                  *                   * A conforming reader shall render ICCBased colour spaces as specified by the ICC specification,                  * and shall not use the Alternate colour space specified in an ICC profile stream dictionary                  *                   * We don't check the alternate ColorSpaces                  */
 block|}
 block|}
 catch|catch
