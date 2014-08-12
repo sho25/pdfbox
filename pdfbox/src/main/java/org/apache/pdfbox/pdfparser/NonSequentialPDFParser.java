@@ -1469,6 +1469,8 @@ expr_stmt|;
 name|parseXrefObjStream
 argument_list|(
 name|prev
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1535,6 +1537,8 @@ operator|=
 name|parseXrefObjStream
 argument_list|(
 name|prev
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -1996,6 +2000,9 @@ name|parseXrefObjStream
 parameter_list|(
 name|long
 name|objByteOffset
+parameter_list|,
+name|boolean
+name|isStandalone
 parameter_list|)
 throws|throws
 name|IOException
@@ -2040,6 +2047,8 @@ operator|(
 name|int
 operator|)
 name|objByteOffset
+argument_list|,
+name|isStandalone
 argument_list|)
 expr_stmt|;
 return|return

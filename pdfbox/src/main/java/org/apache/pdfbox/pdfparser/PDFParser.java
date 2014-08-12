@@ -2995,6 +2995,40 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|parseXrefStream
+argument_list|(
+name|stream
+argument_list|,
+name|objByteOffset
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Fills XRefTrailerResolver with data of given stream.      * Stream must be of type XRef.      * @param stream the stream to be read      * @param objByteOffset the offset to start at      * @param isStandalone should be set to true if the stream is not part of a hybrid xref table      * @throws IOException if there is an error parsing the stream      */
+specifier|public
+name|void
+name|parseXrefStream
+parameter_list|(
+name|COSStream
+name|stream
+parameter_list|,
+name|long
+name|objByteOffset
+parameter_list|,
+name|boolean
+name|isStandalone
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// the cross reference stream of a hybrid xref table will be added to the existing one
+comment|// and we must not override the offset and the trailer
+if|if
+condition|(
+name|isStandalone
+condition|)
+block|{
 name|xrefTrailerResolver
 operator|.
 name|nextXrefObj
@@ -3013,6 +3047,7 @@ argument_list|(
 name|stream
 argument_list|)
 expr_stmt|;
+block|}
 name|PDFXrefStreamParser
 name|parser
 init|=
