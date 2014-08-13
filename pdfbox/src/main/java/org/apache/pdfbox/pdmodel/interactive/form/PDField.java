@@ -262,6 +262,42 @@ literal|1
 operator|<<
 literal|2
 decl_stmt|;
+comment|/**      * Field type Text.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FIELD_TYPE_TEXT
+init|=
+literal|"Tx"
+decl_stmt|;
+comment|/**      * Field type Button.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FIELD_TYPE_BUTTON
+init|=
+literal|"Btn"
+decl_stmt|;
+comment|/**      * Field type Button.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FIELD_TYPE_CHOICE
+init|=
+literal|"Ch"
+decl_stmt|;
+comment|/**      * Field type Button.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FIELD_TYPE_SIGNATURE
+init|=
+literal|"Sig"
+decl_stmt|;
 specifier|private
 name|PDAcroForm
 name|acroForm
@@ -1381,7 +1417,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"Parent"
+name|COSName
+operator|.
+name|PARENT
 argument_list|,
 name|parent
 argument_list|)
@@ -1478,7 +1516,9 @@ name|kidDictionary
 operator|.
 name|getString
 argument_list|(
-literal|"T"
+name|COSName
+operator|.
+name|T
 argument_list|)
 argument_list|)
 condition|)
