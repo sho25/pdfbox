@@ -417,7 +417,7 @@ argument_list|,
 name|srcDoc
 argument_list|)
 expr_stmt|;
-comment|// save and reload PDF, so that once can see that the files are legit
+comment|// save and reload PDF, so that one can see that the files are legit
 name|dstDoc
 operator|.
 name|save
