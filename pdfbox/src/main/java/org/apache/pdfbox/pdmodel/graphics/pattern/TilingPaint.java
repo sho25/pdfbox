@@ -89,6 +89,18 @@ name|java
 operator|.
 name|awt
 operator|.
+name|geom
+operator|.
+name|Rectangle2D
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|image
 operator|.
 name|BufferedImage
@@ -347,14 +359,14 @@ block|}
 comment|//  gets rect in parent content stream coordinates
 specifier|private
 specifier|static
-name|Rectangle
+name|Rectangle2D
 name|getTransformedRect
 parameter_list|(
 name|PDTilingPattern
 name|pattern
 parameter_list|)
 block|{
-name|int
+name|float
 name|x
 init|=
 operator|(
@@ -368,7 +380,7 @@ operator|.
 name|getLowerLeftX
 argument_list|()
 decl_stmt|;
-name|int
+name|float
 name|y
 init|=
 operator|(
@@ -382,7 +394,7 @@ operator|.
 name|getLowerLeftY
 argument_list|()
 decl_stmt|;
-name|int
+name|float
 name|width
 init|=
 operator|(
@@ -396,7 +408,7 @@ operator|.
 name|getWidth
 argument_list|()
 decl_stmt|;
-name|int
+name|float
 name|height
 init|=
 operator|(
@@ -459,7 +471,9 @@ condition|)
 block|{
 return|return
 operator|new
-name|Rectangle
+name|Rectangle2D
+operator|.
+name|Float
 argument_list|(
 name|x
 argument_list|,
@@ -484,11 +498,13 @@ operator|.
 name|createAffineTransform
 argument_list|()
 decl_stmt|;
-name|Rectangle
+name|Rectangle2D
 name|rect
 init|=
 operator|new
 name|Rectangle
+operator|.
+name|Float
 argument_list|(
 name|x
 argument_list|,
@@ -507,7 +523,7 @@ argument_list|(
 name|rect
 argument_list|)
 operator|.
-name|getBounds
+name|getBounds2D
 argument_list|()
 return|;
 block|}
@@ -566,7 +582,7 @@ operator|.
 name|TYPE_BYTE
 argument_list|)
 decl_stmt|;
-name|Rectangle
+name|Rectangle2D
 name|rect
 init|=
 name|getTransformedRect

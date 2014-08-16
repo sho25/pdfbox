@@ -252,6 +252,8 @@ name|TYPE_TILING_PATTERN
 return|;
 block|}
 comment|/**      * This will set the length of the content stream.      * @param length The new stream length.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setLength
@@ -274,6 +276,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will return the length of the content stream.      * @return The length of the content stream      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getLength
@@ -294,6 +298,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This will set the paint type.      * @param paintType The new paint type.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setPaintType
@@ -382,14 +388,14 @@ specifier|public
 name|void
 name|setXStep
 parameter_list|(
-name|int
+name|float
 name|xStep
 parameter_list|)
 block|{
 name|getCOSDictionary
 argument_list|()
 operator|.
-name|setInt
+name|setFloat
 argument_list|(
 name|COSName
 operator|.
@@ -401,7 +407,7 @@ expr_stmt|;
 block|}
 comment|/**      * This will return the XStep value.      * @return The XStep value      */
 specifier|public
-name|int
+name|float
 name|getXStep
 parameter_list|()
 block|{
@@ -409,7 +415,7 @@ return|return
 name|getCOSDictionary
 argument_list|()
 operator|.
-name|getInt
+name|getFloat
 argument_list|(
 name|COSName
 operator|.
@@ -424,14 +430,14 @@ specifier|public
 name|void
 name|setYStep
 parameter_list|(
-name|int
+name|float
 name|yStep
 parameter_list|)
 block|{
 name|getCOSDictionary
 argument_list|()
 operator|.
-name|setInt
+name|setFloat
 argument_list|(
 name|COSName
 operator|.
@@ -443,7 +449,7 @@ expr_stmt|;
 block|}
 comment|/**      * This will return the YStep value.      * @return The YStep value      */
 specifier|public
-name|int
+name|float
 name|getYStep
 parameter_list|()
 block|{
@@ -451,7 +457,7 @@ return|return
 name|getCOSDictionary
 argument_list|()
 operator|.
-name|getInt
+name|getFloat
 argument_list|(
 name|COSName
 operator|.
