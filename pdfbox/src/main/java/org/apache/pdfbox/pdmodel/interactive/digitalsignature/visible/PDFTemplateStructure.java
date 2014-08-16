@@ -307,7 +307,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDField
+name|PDFieldTreeNode
 import|;
 end_import
 
@@ -421,7 +421,7 @@ decl_stmt|;
 specifier|private
 name|List
 argument_list|<
-name|PDField
+name|PDFieldTreeNode
 argument_list|>
 name|acroFormFields
 decl_stmt|;
@@ -1103,7 +1103,7 @@ comment|/**      * Gets acroFormFields      * @return the AcroForm fields      *
 specifier|public
 name|List
 argument_list|<
-name|PDField
+name|PDFieldTreeNode
 argument_list|>
 name|getAcroFormFields
 parameter_list|()
@@ -1119,7 +1119,7 @@ name|setAcroFormFields
 parameter_list|(
 name|List
 argument_list|<
-name|PDField
+name|PDFieldTreeNode
 argument_list|>
 name|acroFormFields
 parameter_list|)

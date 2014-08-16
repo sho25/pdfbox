@@ -115,6 +115,8 @@ name|PDChoice
 extends|extends
 name|PDVariableText
 block|{
+comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
+specifier|protected
 name|PDChoice
 parameter_list|(
 name|PDAcroForm
@@ -122,6 +124,9 @@ name|acroForm
 parameter_list|,
 name|COSDictionary
 name|field
+parameter_list|,
+name|PDFieldTreeNode
+name|parentNode
 parameter_list|)
 block|{
 name|super
@@ -129,6 +134,8 @@ argument_list|(
 name|acroForm
 argument_list|,
 name|field
+argument_list|,
+name|parentNode
 argument_list|)
 expr_stmt|;
 block|}

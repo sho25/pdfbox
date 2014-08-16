@@ -63,7 +63,7 @@ name|FLAG_EDIT
 init|=
 literal|0x40000
 decl_stmt|;
-comment|/**      * Creates a new combo box field      * @param acroForm the parent form      * @param field the COS field      */
+comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
 specifier|public
 name|PDComboBox
 parameter_list|(
@@ -72,6 +72,9 @@ name|acroForm
 parameter_list|,
 name|COSDictionary
 name|field
+parameter_list|,
+name|PDFieldTreeNode
+name|parentNode
 parameter_list|)
 block|{
 name|super
@@ -79,6 +82,8 @@ argument_list|(
 name|acroForm
 argument_list|,
 name|field
+argument_list|,
+name|parentNode
 argument_list|)
 expr_stmt|;
 block|}

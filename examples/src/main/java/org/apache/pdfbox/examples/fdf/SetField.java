@@ -119,7 +119,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDField
+name|PDFieldTreeNode
 import|;
 end_import
 
@@ -165,7 +165,7 @@ operator|.
 name|getAcroForm
 argument_list|()
 decl_stmt|;
-name|PDField
+name|PDFieldTreeNode
 name|field
 init|=
 name|acroForm

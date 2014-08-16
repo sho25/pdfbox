@@ -489,7 +489,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDField
+name|PDFieldFactory
 import|;
 end_import
 
@@ -507,7 +507,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDFieldFactory
+name|PDFieldTreeNode
 import|;
 end_import
 
@@ -2517,6 +2517,9 @@ throws|throws
 name|IOException
 block|{
 name|List
+argument_list|<
+name|PDFieldTreeNode
+argument_list|>
 name|destFields
 init|=
 name|destAcroForm
@@ -2525,6 +2528,9 @@ name|getFields
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|PDFieldTreeNode
+argument_list|>
 name|srcFields
 init|=
 name|srcAcroForm
@@ -2550,6 +2556,9 @@ name|destFields
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|PDFieldTreeNode
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|destAcroForm
@@ -2561,6 +2570,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|Iterator
+argument_list|<
+name|PDFieldTreeNode
+argument_list|>
 name|srcFieldsIterator
 init|=
 name|srcFields
@@ -2576,19 +2588,16 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|PDField
+name|PDFieldTreeNode
 name|srcField
 init|=
-operator|(
-name|PDField
-operator|)
 name|srcFieldsIterator
 operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|PDField
-name|destField
+name|PDFieldTreeNode
+name|destFieldNode
 init|=
 name|PDFieldFactory
 operator|.
@@ -2608,6 +2617,8 @@ operator|.
 name|getDictionary
 argument_list|()
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 comment|// if the form already has a field with this name then we need to rename this field
@@ -2618,7 +2629,7 @@ name|destAcroForm
 operator|.
 name|getField
 argument_list|(
-name|destField
+name|destFieldNode
 operator|.
 name|getFullyQualifiedName
 argument_list|()
@@ -2627,7 +2638,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|destField
+name|destFieldNode
 operator|.
 name|setPartialName
 argument_list|(
@@ -2644,7 +2655,7 @@ name|destFields
 operator|.
 name|add
 argument_list|(
-name|destField
+name|destFieldNode
 argument_list|)
 expr_stmt|;
 block|}

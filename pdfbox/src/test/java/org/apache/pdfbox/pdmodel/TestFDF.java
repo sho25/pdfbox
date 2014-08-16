@@ -105,6 +105,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSStream
 import|;
 end_import
@@ -134,6 +148,22 @@ operator|.
 name|pdfparser
 operator|.
 name|PDFStreamParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|COSObjectable
 import|;
 end_import
 
@@ -221,7 +251,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDField
+name|PDFieldTreeNode
 import|;
 end_import
 
@@ -262,7 +292,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will test the FDF algorithms in PDFBox.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  */
+comment|/**  * This will test the FDF algorithms in PDFBox.  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class
@@ -672,7 +702,6 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( ((PDCheckbox)feld3.getKids().get( 0 )).getValue(), "RB1" );
 block|}
 finally|finally
 block|{
@@ -793,6 +822,9 @@ literal|"eeFirstName"
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|COSObjectable
+argument_list|>
 name|kids
 init|=
 name|feld2
@@ -800,11 +832,11 @@ operator|.
 name|getKids
 argument_list|()
 decl_stmt|;
-name|PDField
+name|PDFieldTreeNode
 name|firstKid
 init|=
 operator|(
-name|PDField
+name|PDFieldTreeNode
 operator|)
 name|kids
 operator|.
@@ -813,11 +845,11 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|PDField
+name|PDFieldTreeNode
 name|secondKid
 init|=
 operator|(
-name|PDField
+name|PDFieldTreeNode
 operator|)
 name|kids
 operator|.
@@ -846,7 +878,7 @@ argument_list|)
 expr_stmt|;
 comment|//the appearance stream is suppose to be null because there
 comment|//is an F action in the AA dictionary that populates that field.
-name|PDField
+name|PDFieldTreeNode
 name|totalAmt
 init|=
 name|form
@@ -865,7 +897,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"AP"
+name|COSName
+operator|.
+name|AP
 argument_list|)
 operator|==
 literal|null
@@ -910,7 +944,7 @@ parameter_list|(
 name|PDDocument
 name|doc
 parameter_list|,
-name|PDField
+name|PDFieldTreeNode
 name|field
 parameter_list|,
 name|String
@@ -928,6 +962,11 @@ name|getWidget
 argument_list|()
 decl_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PDAppearanceStream
+argument_list|>
 name|normalAppearance
 init|=
 name|widget
@@ -941,9 +980,6 @@ decl_stmt|;
 name|PDAppearanceStream
 name|appearanceStream
 init|=
-operator|(
-name|PDAppearanceStream
-operator|)
 name|normalAppearance
 operator|.
 name|get
@@ -960,6 +996,9 @@ name|getStream
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|actualTokens
 init|=
 name|getStreamTokens
@@ -991,7 +1030,7 @@ parameter_list|(
 name|PDDocument
 name|doc
 parameter_list|,
-name|PDField
+name|PDFieldTreeNode
 name|field
 parameter_list|,
 name|String
@@ -1009,6 +1048,11 @@ name|getWidget
 argument_list|()
 decl_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PDAppearanceStream
+argument_list|>
 name|normalAppearance
 init|=
 name|widget
@@ -1022,9 +1066,6 @@ decl_stmt|;
 name|PDAppearanceStream
 name|appearanceStream
 init|=
-operator|(
-name|PDAppearanceStream
-operator|)
 name|normalAppearance
 operator|.
 name|get
@@ -1041,6 +1082,9 @@ name|getStream
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|actualTokens
 init|=
 name|getStreamTokens
@@ -1051,6 +1095,9 @@ name|actual
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|expectedTokens
 init|=
 name|getStreamTokens
@@ -1122,6 +1169,9 @@ block|}
 block|}
 specifier|private
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|getStreamTokens
 parameter_list|(
 name|PDDocument
@@ -1137,6 +1187,9 @@ name|PDFStreamParser
 name|parser
 decl_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|tokens
 init|=
 literal|null
@@ -1195,6 +1248,9 @@ return|;
 block|}
 specifier|private
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|getStreamTokens
 parameter_list|(
 name|PDDocument
@@ -1210,6 +1266,9 @@ name|PDFStreamParser
 name|parser
 decl_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|tokens
 init|=
 literal|null

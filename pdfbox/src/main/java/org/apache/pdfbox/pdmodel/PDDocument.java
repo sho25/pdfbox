@@ -659,7 +659,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDField
+name|PDFieldTreeNode
 import|;
 end_import
 
@@ -1715,7 +1715,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|PDField
+name|PDFieldTreeNode
 argument_list|>
 name|fields
 init|=
@@ -1740,6 +1740,9 @@ name|fields
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|PDFieldTreeNode
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|acroForm
@@ -1752,7 +1755,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|PDField
+name|PDFieldTreeNode
 name|pdField
 range|:
 name|fields
@@ -1846,7 +1849,7 @@ block|}
 comment|// Set the AcroForm Fields
 name|List
 argument_list|<
-name|PDField
+name|PDFieldTreeNode
 argument_list|>
 name|acroFormFields
 init|=
@@ -1888,7 +1891,7 @@ literal|false
 decl_stmt|;
 for|for
 control|(
-name|PDField
+name|PDFieldTreeNode
 name|field
 range|:
 name|acroFormFields
@@ -2614,7 +2617,7 @@ comment|// 1 if at least one signature field is available
 block|}
 name|List
 argument_list|<
-name|PDField
+name|PDFieldTreeNode
 argument_list|>
 name|field
 init|=
@@ -2657,27 +2660,22 @@ literal|false
 decl_stmt|;
 for|for
 control|(
-name|Object
-name|obj
+name|PDFieldTreeNode
+name|fieldNode
 range|:
 name|field
 control|)
 block|{
 if|if
 condition|(
-name|obj
+name|fieldNode
 operator|instanceof
 name|PDSignatureField
 condition|)
 block|{
 if|if
 condition|(
-operator|(
-operator|(
-name|PDSignatureField
-operator|)
-name|obj
-operator|)
+name|fieldNode
 operator|.
 name|getCOSObject
 argument_list|()
@@ -3466,6 +3464,8 @@ argument_list|(
 name|acroForm
 argument_list|,
 name|dict
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

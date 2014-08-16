@@ -96,7 +96,6 @@ class|class
 name|PDVariableText
 extends|extends
 name|PDField
-comment|// TODO mixin, not really a field
 block|{
 comment|/**      * A Ff flag.      */
 specifier|public
@@ -224,7 +223,8 @@ name|theAcroForm
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroForm for this field.      * @param field The field's dictionary.      */
+comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
+specifier|protected
 name|PDVariableText
 parameter_list|(
 name|PDAcroForm
@@ -232,6 +232,9 @@ name|theAcroForm
 parameter_list|,
 name|COSDictionary
 name|field
+parameter_list|,
+name|PDFieldTreeNode
+name|parentNode
 parameter_list|)
 block|{
 name|super
@@ -239,6 +242,8 @@ argument_list|(
 name|theAcroForm
 argument_list|,
 name|field
+argument_list|,
+name|parentNode
 argument_list|)
 expr_stmt|;
 name|da

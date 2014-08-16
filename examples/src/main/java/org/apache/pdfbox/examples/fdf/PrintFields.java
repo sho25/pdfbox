@@ -155,7 +155,25 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDField
+name|PDFieldTreeNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|form
+operator|.
+name|PDNonTerminalField
 import|;
 end_import
 
@@ -178,7 +196,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This example will take a PDF document and print all the fields from the file.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This example will take a PDF document and print all the fields from the file.  *   * @author Ben Litchfield  *   */
 end_comment
 
 begin_class
@@ -214,6 +232,9 @@ name|getAcroForm
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|PDFieldTreeNode
+argument_list|>
 name|fields
 init|=
 name|acroForm
@@ -222,6 +243,9 @@ name|getFields
 argument_list|()
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|PDFieldTreeNode
+argument_list|>
 name|fieldsIter
 init|=
 name|fields
@@ -258,12 +282,9 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|PDField
+name|PDFieldTreeNode
 name|field
 init|=
-operator|(
-name|PDField
-operator|)
 name|fieldsIter
 operator|.
 name|next
@@ -287,7 +308,7 @@ specifier|private
 name|void
 name|processField
 parameter_list|(
-name|PDField
+name|PDFieldTreeNode
 name|field
 parameter_list|,
 name|String
@@ -299,6 +320,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|String
+name|partialName
+init|=
+name|field
+operator|!=
+literal|null
+condition|?
+name|field
+operator|.
+name|getPartialName
+argument_list|()
+else|:
+literal|""
+decl_stmt|;
 name|List
 argument_list|<
 name|COSObjectable
@@ -330,6 +365,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|field
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|sParent
 operator|.
@@ -348,10 +387,7 @@ name|sParent
 operator|+
 literal|"."
 operator|+
-name|field
-operator|.
-name|getPartialName
-argument_list|()
+name|partialName
 expr_stmt|;
 block|}
 name|System
@@ -365,7 +401,6 @@ operator|+
 name|sParent
 argument_list|)
 expr_stmt|;
-comment|// System.out.println(sParent + " is of type " + field.getClass().getName());
 while|while
 condition|(
 name|kidsIter
@@ -386,14 +421,14 @@ if|if
 condition|(
 name|pdfObj
 operator|instanceof
-name|PDField
+name|PDFieldTreeNode
 condition|)
 block|{
-name|PDField
+name|PDFieldTreeNode
 name|kid
 init|=
 operator|(
-name|PDField
+name|PDFieldTreeNode
 operator|)
 name|pdfObj
 decl_stmt|;
@@ -431,6 +466,20 @@ operator|=
 literal|"PDSignatureField"
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|field
+operator|instanceof
+name|PDNonTerminalField
+condition|)
+block|{
+comment|// Non terminal fields don't have a value
+name|fieldValue
+operator|=
+literal|"node"
+expr_stmt|;
+block|}
 else|else
 block|{
 name|fieldValue
@@ -450,10 +499,7 @@ name|sParent
 operator|+
 literal|"."
 operator|+
-name|field
-operator|.
-name|getPartialName
-argument_list|()
+name|partialName
 operator|+
 literal|" = "
 operator|+

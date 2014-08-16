@@ -166,7 +166,7 @@ name|PDSignatureField
 extends|extends
 name|PDField
 block|{
-comment|/**      * @see PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroForm for this field.      * @param field The dictionary for the signature.      * @throws IOException If there is an error while resolving partital name for the signature field      */
+comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
 specifier|public
 name|PDSignatureField
 parameter_list|(
@@ -175,15 +175,18 @@ name|theAcroForm
 parameter_list|,
 name|COSDictionary
 name|field
+parameter_list|,
+name|PDFieldTreeNode
+name|parentNode
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
 name|theAcroForm
 argument_list|,
 name|field
+argument_list|,
+name|parentNode
 argument_list|)
 expr_stmt|;
 comment|// dirty hack to avoid npe caused through getWidget() method
@@ -296,13 +299,11 @@ name|SUB_TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Generate a unique name for the signature.      * @return the signature's unique name      * @throws IOException If there is an error while getting the list of fields.      */
+comment|/**      * Generate a unique name for the signature.      * @return the signature's unique name      */
 specifier|private
 name|String
 name|generatePartialName
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|PDAcroForm
 name|acroForm
@@ -311,6 +312,9 @@ name|getAcroForm
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|PDFieldTreeNode
+argument_list|>
 name|fields
 init|=
 name|acroForm
@@ -322,11 +326,6 @@ name|String
 name|fieldName
 init|=
 literal|"Signature"
-decl_stmt|;
-name|int
-name|i
-init|=
-literal|1
 decl_stmt|;
 name|Set
 argument_list|<
@@ -343,15 +342,15 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Object
-name|object
+name|PDFieldTreeNode
+name|field
 range|:
 name|fields
 control|)
 block|{
 if|if
 condition|(
-name|object
+name|field
 operator|instanceof
 name|PDSignatureField
 condition|)
@@ -360,12 +359,7 @@ name|sigNames
 operator|.
 name|add
 argument_list|(
-operator|(
-operator|(
-name|PDSignatureField
-operator|)
-name|object
-operator|)
+name|field
 operator|.
 name|getPartialName
 argument_list|()
@@ -373,6 +367,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|int
+name|i
+init|=
+literal|1
+decl_stmt|;
 while|while
 condition|(
 name|sigNames

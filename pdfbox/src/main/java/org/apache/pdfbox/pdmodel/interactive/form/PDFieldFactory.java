@@ -47,42 +47,6 @@ name|COSName
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
-name|COSObjectable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * Factory for creating instances of PDField.  * @author sug  * @author John Hewson  */
 end_comment
@@ -93,48 +57,14 @@ specifier|final
 class|class
 name|PDFieldFactory
 block|{
-comment|// button flags
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|FLAG_RADIO
-init|=
-literal|0x8000
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|FLAG_PUSHBUTTON
-init|=
-literal|0x10000
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|FLAG_RADIOS_IN_UNISON
-init|=
-literal|0x2000000
-decl_stmt|;
-comment|// choice flags
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|FLAG_COMBO
-init|=
-literal|0x20000
-decl_stmt|;
 specifier|private
 name|PDFieldFactory
 parameter_list|()
 block|{     }
-comment|/**      * Creates a COSField subclass from the given field.      * @param form the form that the field is part of      * @param field the dictionary representing a field element      * @return the corresponding PDField instance      * @throws IOException if the field cannot be read      */
+comment|/**      * Creates a COSField subclass from the given field.      * @param form the form that the field is part of      * @param field the dictionary representing a field element      * @return the corresponding PDField instance      */
 specifier|public
 specifier|static
-name|PDField
+name|PDFieldTreeNode
 name|createField
 parameter_list|(
 name|PDAcroForm
@@ -142,9 +72,10 @@ name|form
 parameter_list|,
 name|COSDictionary
 name|field
+parameter_list|,
+name|PDFieldTreeNode
+name|parentNode
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|String
 name|fieldType
@@ -158,7 +89,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|PDField
+name|PDFieldTreeNode
 operator|.
 name|FIELD_TYPE_CHOICE
 operator|.
@@ -187,7 +118,9 @@ condition|(
 operator|(
 name|flags
 operator|&
-name|FLAG_COMBO
+name|PDVariableText
+operator|.
+name|FLAG_COMB
 operator|)
 operator|!=
 literal|0
@@ -200,6 +133,8 @@ argument_list|(
 name|form
 argument_list|,
 name|field
+argument_list|,
+name|parentNode
 argument_list|)
 return|;
 block|}
@@ -212,6 +147,8 @@ argument_list|(
 name|form
 argument_list|,
 name|field
+argument_list|,
+name|parentNode
 argument_list|)
 return|;
 block|}
@@ -219,7 +156,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|PDField
+name|PDFieldTreeNode
 operator|.
 name|FIELD_TYPE_TEXT
 operator|.
@@ -236,13 +173,15 @@ argument_list|(
 name|form
 argument_list|,
 name|field
+argument_list|,
+name|parentNode
 argument_list|)
 return|;
 block|}
 elseif|else
 if|if
 condition|(
-name|PDField
+name|PDFieldTreeNode
 operator|.
 name|FIELD_TYPE_SIGNATURE
 operator|.
@@ -259,13 +198,15 @@ argument_list|(
 name|form
 argument_list|,
 name|field
+argument_list|,
+name|parentNode
 argument_list|)
 return|;
 block|}
 elseif|else
 if|if
 condition|(
-name|PDField
+name|PDFieldTreeNode
 operator|.
 name|FIELD_TYPE_BUTTON
 operator|.
@@ -292,12 +233,13 @@ decl_stmt|;
 comment|// BJL: I have found that the radio flag bit is not always set
 comment|// and that sometimes there is just a kids dictionary.
 comment|// so, if there is a kids dictionary then it must be a radio button group.
-comment|// TODO JH: this is due to inheritance, we need proper support for "non-terminal fields"
 if|if
 condition|(
 operator|(
 name|flags
 operator|&
+name|PDButton
+operator|.
 name|FLAG_RADIO
 operator|)
 operator|!=
@@ -322,6 +264,8 @@ argument_list|(
 name|form
 argument_list|,
 name|field
+argument_list|,
+name|parentNode
 argument_list|)
 return|;
 block|}
@@ -331,6 +275,8 @@ condition|(
 operator|(
 name|flags
 operator|&
+name|PDButton
+operator|.
 name|FLAG_PUSHBUTTON
 operator|)
 operator|!=
@@ -344,6 +290,8 @@ argument_list|(
 name|form
 argument_list|,
 name|field
+argument_list|,
+name|parentNode
 argument_list|)
 return|;
 block|}
@@ -356,15 +304,24 @@ argument_list|(
 name|form
 argument_list|,
 name|field
+argument_list|,
+name|parentNode
 argument_list|)
 return|;
 block|}
 block|}
 else|else
 block|{
-comment|// todo: inheritance and "non-terminal fields" are not supported yet
 return|return
-literal|null
+operator|new
+name|PDNonTerminalField
+argument_list|(
+name|form
+argument_list|,
+name|field
+argument_list|,
+name|parentNode
+argument_list|)
 return|;
 block|}
 block|}
