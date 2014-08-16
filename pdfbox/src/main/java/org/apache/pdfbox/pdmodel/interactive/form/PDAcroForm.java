@@ -817,7 +817,7 @@ block|{
 name|PDFieldTreeNode
 name|field
 init|=
-name|PDFieldFactory
+name|PDFieldTreeNode
 operator|.
 name|createField
 argument_list|(
@@ -1131,7 +1131,7 @@ block|{
 name|PDFieldTreeNode
 name|root
 init|=
-name|PDFieldFactory
+name|PDFieldTreeNode
 operator|.
 name|createField
 argument_list|(
