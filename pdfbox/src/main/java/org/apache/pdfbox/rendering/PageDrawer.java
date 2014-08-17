@@ -4740,11 +4740,6 @@ init|=
 name|lastClip
 decl_stmt|;
 comment|// check underlying g2d
-name|double
-name|unitSize
-init|=
-literal|1.0
-decl_stmt|;
 name|Area
 name|groupClip
 init|=
@@ -4790,15 +4785,6 @@ operator|.
 name|getTransform
 argument_list|()
 decl_stmt|;
-name|at
-operator|.
-name|scale
-argument_list|(
-name|unitSize
-argument_list|,
-name|unitSize
-argument_list|)
-expr_stmt|;
 name|Shape
 name|clippingPathInPixels
 init|=
