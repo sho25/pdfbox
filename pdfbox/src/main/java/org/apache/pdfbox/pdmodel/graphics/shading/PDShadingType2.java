@@ -389,9 +389,6 @@ name|toPaint
 parameter_list|(
 name|Matrix
 name|matrix
-parameter_list|,
-name|int
-name|pageHeight
 parameter_list|)
 block|{
 return|return
@@ -401,8 +398,6 @@ argument_list|(
 name|this
 argument_list|,
 name|matrix
-argument_list|,
-name|pageHeight
 argument_list|)
 return|;
 block|}

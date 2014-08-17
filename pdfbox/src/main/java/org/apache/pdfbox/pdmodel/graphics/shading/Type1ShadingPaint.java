@@ -180,11 +180,7 @@ specifier|private
 name|Matrix
 name|ctm
 decl_stmt|;
-specifier|private
-name|int
-name|pageHeight
-decl_stmt|;
-comment|/**      * Constructor.      *      * @param shading the shading resources      * @param ctm current transformation matrix      * @param pageHeight the height of the page      */
+comment|/**      * Constructor.      *      * @param shading the shading resources      * @param ctm current transformation matrix      */
 name|Type1ShadingPaint
 parameter_list|(
 name|PDShadingType1
@@ -192,9 +188,6 @@ name|shading
 parameter_list|,
 name|Matrix
 name|ctm
-parameter_list|,
-name|int
-name|pageHeight
 parameter_list|)
 block|{
 name|this
@@ -208,12 +201,6 @@ operator|.
 name|ctm
 operator|=
 name|ctm
-expr_stmt|;
-name|this
-operator|.
-name|pageHeight
-operator|=
-name|pageHeight
 expr_stmt|;
 block|}
 annotation|@
@@ -262,8 +249,6 @@ argument_list|,
 name|xform
 argument_list|,
 name|ctm
-argument_list|,
-name|pageHeight
 argument_list|,
 name|deviceBounds
 argument_list|)

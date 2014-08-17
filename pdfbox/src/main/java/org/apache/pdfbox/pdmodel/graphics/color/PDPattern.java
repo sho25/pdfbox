@@ -573,8 +573,6 @@ name|shadingPattern
 operator|.
 name|getMatrix
 argument_list|()
-argument_list|,
-name|pageHeight
 argument_list|)
 return|;
 block|}

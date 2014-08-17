@@ -230,7 +230,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param pageHeight height of the current page      * @throws IOException if something went wrong      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @throws IOException if something went wrong      */
 specifier|public
 name|Type5ShadingContext
 parameter_list|(
@@ -245,9 +245,6 @@ name|xform
 parameter_list|,
 name|Matrix
 name|ctm
-parameter_list|,
-name|int
-name|pageHeight
 parameter_list|,
 name|Rectangle
 name|dBounds
@@ -264,8 +261,6 @@ argument_list|,
 name|xform
 argument_list|,
 name|ctm
-argument_list|,
-name|pageHeight
 argument_list|,
 name|dBounds
 argument_list|)

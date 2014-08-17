@@ -257,9 +257,6 @@ parameter_list|,
 name|Matrix
 name|ctm
 parameter_list|,
-name|int
-name|pageHeight
-parameter_list|,
 name|Rectangle
 name|dBounds
 parameter_list|)

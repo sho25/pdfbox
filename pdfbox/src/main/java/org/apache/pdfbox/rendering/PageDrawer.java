@@ -4482,14 +4482,6 @@ operator|.
 name|toPaint
 argument_list|(
 name|ctm
-argument_list|,
-operator|(
-name|int
-operator|)
-name|pageSize
-operator|.
-name|getHeight
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|graphics

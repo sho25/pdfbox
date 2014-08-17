@@ -208,9 +208,6 @@ parameter_list|,
 name|Matrix
 name|ctm
 parameter_list|,
-name|int
-name|pageHeight
-parameter_list|,
 name|Rectangle
 name|dBounds
 parameter_list|)
@@ -226,8 +223,6 @@ argument_list|,
 name|xform
 argument_list|,
 name|ctm
-argument_list|,
-name|pageHeight
 argument_list|,
 name|dBounds
 argument_list|)

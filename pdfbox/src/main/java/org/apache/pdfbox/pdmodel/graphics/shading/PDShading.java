@@ -1263,7 +1263,7 @@ return|return
 name|returnValues
 return|;
 block|}
-comment|/**      * Returns an AWT paint which corresponds to this shading      *      * @param matrix the pattern matrix      * @param pageHeight the height of the current page      * @return an AWT Paint instance      */
+comment|/**      * Returns an AWT paint which corresponds to this shading      *      * @param matrix the pattern matrix      * @return an AWT Paint instance      */
 specifier|public
 specifier|abstract
 name|Paint
@@ -1271,9 +1271,6 @@ name|toPaint
 parameter_list|(
 name|Matrix
 name|matrix
-parameter_list|,
-name|int
-name|pageHeight
 parameter_list|)
 function_decl|;
 block|}
