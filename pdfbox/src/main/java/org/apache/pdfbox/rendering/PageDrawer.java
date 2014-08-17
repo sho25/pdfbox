@@ -5060,6 +5060,11 @@ operator|=
 name|lastClipOriginal
 expr_stmt|;
 name|graphics
+operator|.
+name|dispose
+argument_list|()
+expr_stmt|;
+name|graphics
 operator|=
 name|g2dOriginal
 expr_stmt|;
@@ -5174,6 +5179,11 @@ literal|0
 argument_list|,
 literal|null
 argument_list|)
+expr_stmt|;
+name|g
+operator|.
+name|dispose
+argument_list|()
 expr_stmt|;
 name|WritableRaster
 name|result
