@@ -3892,7 +3892,11 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Invalid object stream xref object reference: "
+literal|"Invalid object stream xref object reference for key '"
+operator|+
+name|objKey
+operator|+
+literal|"': "
 operator|+
 name|fileOffset
 argument_list|)
