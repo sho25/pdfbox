@@ -3825,6 +3825,10 @@ condition|(
 name|fileOffset
 operator|!=
 literal|null
+operator|&&
+name|fileOffset
+operator|!=
+literal|0
 condition|)
 block|{
 if|if
