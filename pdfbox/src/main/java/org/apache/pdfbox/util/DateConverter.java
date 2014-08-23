@@ -114,7 +114,7 @@ comment|/*  * Date format is described in PDF Reference 1.7 section 3.8.2  * (ww
 end_comment
 
 begin_comment
-comment|/**  * Converts dates to strings and back using the PDF date standard  * in section 3.8.2 of PDF Reference 1.7.  *  * @author Ben Litchfield  * @author Fred Hansen  *   * TODO Move members of this class elsewhere for shared use in pdfbox, xmpbox, and jempbox.  */
+comment|/**  * Converts dates to strings and back using the PDF date standard  * in section 3.8.2 of PDF Reference 1.7.  *  * @author Ben Litchfield  * @author Fred Hansen  *   * TODO Move members of this class elsewhere for shared use in pdfbox and xmpbox.  */
 end_comment
 
 begin_class
