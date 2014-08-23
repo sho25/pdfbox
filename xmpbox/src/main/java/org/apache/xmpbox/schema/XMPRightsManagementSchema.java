@@ -522,28 +522,6 @@ name|terms
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPRightsManagementSchema#addUsageTerms(String, String)      */
-annotation|@
-name|Deprecated
-specifier|public
-name|void
-name|setDescription
-parameter_list|(
-name|String
-name|language
-parameter_list|,
-name|String
-name|terms
-parameter_list|)
-block|{
-name|addUsageTerms
-argument_list|(
-name|language
-argument_list|,
-name|terms
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Return the Lang alt UsageTerms      *       * @return usageterms property      */
 specifier|public
 name|ArrayProperty
@@ -750,32 +728,6 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPRightsManagementSchema#getCertificate()      */
-annotation|@
-name|Deprecated
-specifier|public
-name|String
-name|getCopyright
-parameter_list|()
-block|{
-return|return
-name|getCertificate
-argument_list|()
-return|;
-block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPRightsManagementSchema#getCertificate()      */
-annotation|@
-name|Deprecated
-specifier|public
-name|String
-name|getCertificateURL
-parameter_list|()
-block|{
-return|return
-name|getCertificate
-argument_list|()
-return|;
-block|}
 comment|/**      * Set the Certificate URL.      *       * @param url      *            certficate url value to set      */
 specifier|public
 name|void
@@ -801,40 +753,6 @@ decl_stmt|;
 name|setCertificateProperty
 argument_list|(
 name|tt
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPRightsManagementSchema#setCertificate(String)      */
-annotation|@
-name|Deprecated
-specifier|public
-name|void
-name|setCertificateURL
-parameter_list|(
-name|String
-name|certificate
-parameter_list|)
-block|{
-name|setCertificate
-argument_list|(
-name|certificate
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPRightsManagementSchema#setCertificate(String)      */
-annotation|@
-name|Deprecated
-specifier|public
-name|void
-name|setCopyright
-parameter_list|(
-name|String
-name|certificate
-parameter_list|)
-block|{
-name|setCertificate
-argument_list|(
-name|certificate
 argument_list|)
 expr_stmt|;
 block|}

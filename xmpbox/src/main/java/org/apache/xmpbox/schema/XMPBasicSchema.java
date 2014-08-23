@@ -1149,22 +1149,6 @@ name|ADVISORY
 argument_list|)
 return|;
 block|}
-comment|/**      * Convenience method for jempbox signature compatibility      *       * @see XMPBasicSchema#getAdvisory()      */
-annotation|@
-name|Deprecated
-specifier|public
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|getAdvisories
-parameter_list|()
-block|{
-return|return
-name|getAdvisory
-argument_list|()
-return|;
-block|}
 comment|/**      * Get the BaseURL property      *       * @return the base url property      */
 specifier|public
 name|TextType
