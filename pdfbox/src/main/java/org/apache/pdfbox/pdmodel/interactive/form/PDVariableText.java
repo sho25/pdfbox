@@ -75,16 +75,6 @@ name|COSString
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base class for fields which use "Variable Text".  * These fields construct an appearance stream dynamically at viewing time.  *  * @author Ben Litchfield  */
 end_comment
@@ -179,10 +169,6 @@ specifier|private
 name|COSString
 name|da
 decl_stmt|;
-specifier|private
-name|PDAppearanceString
-name|appearance
-decl_stmt|;
 comment|/**      * A Q value.      */
 specifier|public
 specifier|static
@@ -260,91 +246,6 @@ operator|.
 name|DA
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * @see org.apache.pdfbox.pdmodel.interactive.form.PDField#setValue(java.lang.String)      *      * @param value The new value for this text field.      *      * @throws IOException If there is an error calculating the appearance stream.      */
-specifier|public
-name|void
-name|setValue
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|COSString
-name|fieldValue
-init|=
-operator|new
-name|COSString
-argument_list|(
-name|value
-argument_list|)
-decl_stmt|;
-name|getDictionary
-argument_list|()
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|V
-argument_list|,
-name|fieldValue
-argument_list|)
-expr_stmt|;
-comment|//hmm, not sure what the case where the DV gets set to the field
-comment|//value, for now leave blank until we can come up with a case
-comment|//where it needs to be in there
-comment|//getDictionary().setItem( COSName.getPDFName( "DV" ), fieldValue );
-if|if
-condition|(
-name|appearance
-operator|==
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|appearance
-operator|=
-operator|new
-name|PDAppearanceString
-argument_list|(
-name|getAcroForm
-argument_list|()
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-block|}
-name|appearance
-operator|.
-name|setAppearanceValue
-argument_list|(
-name|value
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * getValue gets the fields value to as a string.      *      * @return The string value of this field.      *      * @throws IOException If there is an error getting the value.      */
-specifier|public
-name|String
-name|getValue
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|getDictionary
-argument_list|()
-operator|.
-name|getString
-argument_list|(
-name|COSName
-operator|.
-name|V
-argument_list|)
-return|;
 block|}
 comment|/**      * @return true if the field is multiline      */
 specifier|public
@@ -731,6 +632,37 @@ argument_list|,
 name|q
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Object
+name|getDefaultValue
+parameter_list|()
+block|{
+comment|// Text fields don't support the "DV" entry.
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setDefaultValue
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+comment|// Text fields don't support the "DV" entry.
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Text fields don't support the \"DV\" entry."
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

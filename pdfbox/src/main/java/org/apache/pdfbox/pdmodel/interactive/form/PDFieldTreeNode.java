@@ -334,26 +334,39 @@ name|String
 name|getFieldType
 parameter_list|()
 function_decl|;
-comment|/**      * setValue sets the fields value to a given string.      *       * @param value the string value      *       * @throws IOException If there is an error creating the appearance stream.      */
+comment|/**      * getValue gets the value of the "V" entry.      *       * @return The value of this entry.      *       */
+specifier|public
+specifier|abstract
+name|Object
+name|getValue
+parameter_list|()
+function_decl|;
+comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      *       */
 specifier|public
 specifier|abstract
 name|void
 name|setValue
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|)
-throws|throws
-name|IOException
 function_decl|;
-comment|/**      * getValue gets the fields value to as a string.      *       * @return The string value of this field.      *       * @throws IOException If there is an error getting the value.      */
+comment|/**      * getDefaultValue gets the value of the "DV" entry.      *       * @return The value of this field.      *       */
 specifier|public
 specifier|abstract
-name|String
-name|getValue
+name|Object
+name|getDefaultValue
 parameter_list|()
-throws|throws
-name|IOException
+function_decl|;
+comment|/**      * setDefaultValue sets the entry "DV" to the given value.      *       * @param value the value      *       */
+specifier|public
+specifier|abstract
+name|void
+name|setDefaultValue
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
 function_decl|;
 comment|/**      * sets the field to be read-only.      *       * @param readonly The new flag for readonly.      */
 specifier|public
@@ -1655,10 +1668,18 @@ block|{
 name|String
 name|parentName
 init|=
-name|parent
+name|getParent
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getParent
+argument_list|()
 operator|.
 name|getFullyQualifiedName
 argument_list|()
+else|:
+literal|null
 decl_stmt|;
 name|String
 name|finalName

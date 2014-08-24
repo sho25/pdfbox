@@ -700,6 +700,9 @@ name|feld3
 operator|.
 name|getValue
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

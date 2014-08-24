@@ -115,6 +115,72 @@ name|PDChoice
 extends|extends
 name|PDVariableText
 block|{
+comment|/**      * A Ff flag.      */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|FLAG_COMBO
+init|=
+literal|1
+operator|<<
+literal|17
+decl_stmt|;
+comment|/**      * A Ff flag.      */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|FLAG_EDIT
+init|=
+literal|1
+operator|<<
+literal|18
+decl_stmt|;
+comment|/**      * A Ff flag.      */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|FLAG_SORT
+init|=
+literal|1
+operator|<<
+literal|19
+decl_stmt|;
+comment|/**      * A Ff flag.      */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|FLAG_MULTI_SELECT
+init|=
+literal|1
+operator|<<
+literal|21
+decl_stmt|;
+comment|/**      * A Ff flag.      */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|FLAG_DO_NOT_SPELL_CHECK
+init|=
+literal|1
+operator|<<
+literal|22
+decl_stmt|;
+comment|/**      * A Ff flag.      */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|FLAG_COMMIT_ON_SEL_CHANGE
+init|=
+literal|1
+operator|<<
+literal|26
+decl_stmt|;
 comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
 specifier|protected
 name|PDChoice

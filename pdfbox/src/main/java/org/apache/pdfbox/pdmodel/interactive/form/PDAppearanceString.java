@@ -454,8 +454,6 @@ parameter_list|,
 name|PDVariableText
 name|field
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|acroForm
 operator|=
@@ -947,7 +945,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This is the public method for setting the appearance stream.      *      * @param apValue the String value which the apperance shoud represent      *      * @throws IOException If there is an error creating the stream.      */
+comment|/**      * This is the public method for setting the appearance stream.      *      * @param apValue the String value which the appearance should represent      *      * @throws IOException If there is an error creating the stream.      */
 specifier|public
 name|void
 name|setAppearanceValue
@@ -1112,6 +1110,11 @@ argument_list|)
 expr_stmt|;
 block|}
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PDAppearanceStream
+argument_list|>
 name|normalAppearance
 init|=
 name|appearance
@@ -1122,9 +1125,6 @@ decl_stmt|;
 name|PDAppearanceStream
 name|appearanceStream
 init|=
-operator|(
-name|PDAppearanceStream
-operator|)
 name|normalAppearance
 operator|.
 name|get
@@ -1183,6 +1183,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|tokens
 init|=
 name|getStreamTokens
@@ -1191,6 +1194,9 @@ name|appearanceStream
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|daTokens
 init|=
 name|getStreamTokens
@@ -1643,6 +1649,9 @@ name|PDFont
 name|pdFont
 parameter_list|,
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|tokens
 parameter_list|,
 name|PDAppearanceStream
@@ -2062,6 +2071,9 @@ name|PDFont
 name|getFontAndUpdateResources
 parameter_list|(
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|tokens
 parameter_list|,
 name|PDAppearanceStream
@@ -2332,6 +2344,9 @@ name|float
 name|getLineWidth
 parameter_list|(
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|tokens
 parameter_list|)
 block|{
@@ -2426,6 +2441,9 @@ name|PDRectangle
 name|boundingBox
 parameter_list|,
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|tokens
 parameter_list|)
 block|{
@@ -2641,9 +2659,15 @@ name|PDRectangle
 name|boundingBox
 parameter_list|,
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|tokens
 parameter_list|,
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|daTokens
 parameter_list|)
 throws|throws
@@ -2874,6 +2898,9 @@ name|float
 name|fontSize
 parameter_list|,
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|tokens
 parameter_list|)
 throws|throws

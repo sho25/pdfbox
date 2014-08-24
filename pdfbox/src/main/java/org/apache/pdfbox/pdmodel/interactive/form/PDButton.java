@@ -331,6 +331,37 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|Object
+name|getDefaultValue
+parameter_list|()
+block|{
+comment|// Button fields don't support the "DV" entry.
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setDefaultValue
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+comment|// Button fields don't support the "DV" entry.
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Button fields don't support the \"DV\" entry."
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 

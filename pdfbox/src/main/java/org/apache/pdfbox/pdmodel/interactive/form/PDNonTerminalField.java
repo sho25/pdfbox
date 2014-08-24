@@ -21,16 +21,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -193,30 +183,64 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|void
-name|setValue
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-throws|throws
-name|IOException
+name|Object
+name|getValue
+parameter_list|()
 block|{
-comment|// non terminal fields don't have a value
+comment|// Nonterminal fields don't support the "V" entry.
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override
 specifier|public
-name|String
-name|getValue
-parameter_list|()
-throws|throws
-name|IOException
+name|void
+name|setValue
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
 block|{
-comment|// non terminal fields don't have a value
+comment|// Nonterminal fields don't support the "V" entry.
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Nonterminal fields don't support the \"V\" entry."
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Object
+name|getDefaultValue
+parameter_list|()
+block|{
+comment|// Nonterminal fields don't support the "DV" entry.
 return|return
 literal|null
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setDefaultValue
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+comment|// Nonterminal fields don't support the "DV" entry.
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Nonterminal fields don't support the \"DV\" entry."
+argument_list|)
+throw|;
 block|}
 block|}
 end_class
