@@ -212,6 +212,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
 name|LOG
 operator|.
 name|isDebugEnabled
