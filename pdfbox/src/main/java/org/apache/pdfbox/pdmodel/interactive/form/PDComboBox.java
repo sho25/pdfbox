@@ -268,7 +268,16 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|value
+operator|instanceof
+name|String
+index|[]
+condition|)
+block|{
 comment|// TODO multiple values
+block|}
 block|}
 else|else
 block|{
@@ -283,6 +292,7 @@ name|V
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO create/update appearance
 block|}
 block|}
 end_class

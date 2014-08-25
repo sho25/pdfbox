@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A scrollable list box.  * Contains several text items, one or more of which shall be selected as the field value.  * @author John Hewson  */
+comment|/**  * A scrollable list box. Contains several text items, one or more of which shall be selected as the field value.  *   * @author John Hewson  */
 end_comment
 
 begin_class
@@ -101,7 +101,7 @@ name|PDListBox
 extends|extends
 name|PDChoice
 block|{
-comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
+comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
 specifier|public
 name|PDListBox
 parameter_list|(
@@ -268,7 +268,16 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|value
+operator|instanceof
+name|String
+index|[]
+condition|)
+block|{
 comment|// TODO multiple values
+block|}
 block|}
 else|else
 block|{
@@ -280,6 +289,70 @@ argument_list|(
 name|COSName
 operator|.
 name|V
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO create/update appearance
+block|}
+comment|/**      * This will get the top index "TI" value.      *      * @return the top index, default value 0.      */
+specifier|public
+name|int
+name|getTopIndex
+parameter_list|()
+block|{
+return|return
+name|getDictionary
+argument_list|()
+operator|.
+name|getInt
+argument_list|(
+name|COSName
+operator|.
+name|TI
+argument_list|,
+literal|0
+argument_list|)
+return|;
+block|}
+comment|/**      * This will set top index "TI" value.      *      * @param topIndex the value for the top index, null will remove the value.      */
+specifier|public
+name|void
+name|setTopIndex
+parameter_list|(
+name|Integer
+name|topIndex
+parameter_list|)
+block|{
+if|if
+condition|(
+name|topIndex
+operator|!=
+literal|null
+condition|)
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|setInt
+argument_list|(
+name|COSName
+operator|.
+name|TI
+argument_list|,
+name|topIndex
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|TI
 argument_list|)
 expr_stmt|;
 block|}

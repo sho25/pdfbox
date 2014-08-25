@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A choice field contains several text items,  * one or more of which shall be selected as the field value.  * @author sug  * @author John Hewson  */
+comment|/**  * A choice field contains several text items, one or more of which shall be selected as the field value.  *   * @author sug  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -181,7 +181,7 @@ literal|1
 operator|<<
 literal|26
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
+comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
 specifier|protected
 name|PDChoice
 parameter_list|(
@@ -205,6 +205,134 @@ name|parentNode
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * This will get the option values "Opt".      *      * @return COSArray containing all options.      */
+specifier|public
+name|COSArray
+name|getOptions
+parameter_list|()
+block|{
+return|return
+operator|(
+name|COSArray
+operator|)
+name|getDictionary
+argument_list|()
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|OPT
+argument_list|)
+return|;
+block|}
+comment|/**      * This will set the options.      *      * @param values COSArray containing all possible options.      */
+specifier|public
+name|void
+name|setOptions
+parameter_list|(
+name|COSArray
+name|values
+parameter_list|)
+block|{
+if|if
+condition|(
+name|values
+operator|!=
+literal|null
+condition|)
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|OPT
+argument_list|,
+name|values
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|OPT
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * This will get the indices of the selected options "I".      *      * @return COSArray containing the indices of all selected options.      */
+specifier|public
+name|COSArray
+name|getSelectedOptions
+parameter_list|()
+block|{
+return|return
+operator|(
+name|COSArray
+operator|)
+name|getDictionary
+argument_list|()
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|I
+argument_list|)
+return|;
+block|}
+comment|/**      * This will set the indices of the selected options "I".      *      * @param values COSArray containing the indices of all selected options.      */
+specifier|public
+name|void
+name|setSelectedOptions
+parameter_list|(
+name|COSArray
+name|values
+parameter_list|)
+block|{
+if|if
+condition|(
+name|values
+operator|!=
+literal|null
+condition|)
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|I
+argument_list|,
+name|values
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|I
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// returns the "Opt" index for the given string
 specifier|protected
 name|int
@@ -223,18 +351,8 @@ decl_stmt|;
 name|COSArray
 name|options
 init|=
-operator|(
-name|COSArray
-operator|)
-name|getDictionary
+name|getOptions
 argument_list|()
-operator|.
-name|getDictionaryObject
-argument_list|(
-name|COSName
-operator|.
-name|OPT
-argument_list|)
 decl_stmt|;
 comment|// YXJ: Changed the order of the loops. Acrobat produces PDF's
 comment|// where sometimes there is 1 string and the rest arrays.
@@ -336,20 +454,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// have the parent draw the appearance stream with the value
-comment|// but then use the key as the V entry
-name|getDictionary
-argument_list|()
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|V
-argument_list|,
-name|key
-argument_list|)
-expr_stmt|;
 name|indexSelected
 operator|=
 name|i
@@ -402,18 +506,8 @@ block|{
 name|COSArray
 name|indexArray
 init|=
-operator|(
-name|COSArray
-operator|)
-name|getDictionary
+name|getSelectedOptions
 argument_list|()
-operator|.
-name|getDictionaryObject
-argument_list|(
-name|COSName
-operator|.
-name|I
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
