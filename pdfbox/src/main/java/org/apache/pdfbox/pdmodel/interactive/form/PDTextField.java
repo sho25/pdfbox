@@ -207,7 +207,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO stream instead of string
-comment|// TODO creation of appearance stream
 block|}
 else|else
 block|{
@@ -222,6 +221,7 @@ name|V
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO create/update appearance
 block|}
 comment|/**      * getValue gets the value of the "V" entry.      *       * @return The value of this entry.      *       */
 annotation|@
