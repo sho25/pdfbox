@@ -3561,11 +3561,6 @@ argument_list|(
 name|m
 argument_list|)
 expr_stmt|;
-name|document
-operator|.
-name|dereferenceObjectStreams
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * This will<b>mark</b> a document to be encrypted. The actual encryption will occur when the document is saved.      *      * @deprecated This method is provided for compatibility reasons only. User should use the new security layer instead and the      * openProtection method especially.      *       * @param ownerPassword The owner password to encrypt the document.      * @param userPassword The user password to encrypt the document.       * @throws IOException If there is an error accessing the data.      */
 annotation|@
@@ -4689,6 +4684,9 @@ name|setEncryptionDictionary
 argument_list|(
 literal|null
 argument_list|)
+expr_stmt|;
+name|getDocumentCatalog
+argument_list|()
 expr_stmt|;
 block|}
 else|else
