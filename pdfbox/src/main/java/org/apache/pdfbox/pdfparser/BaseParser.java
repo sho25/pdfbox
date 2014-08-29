@@ -2040,9 +2040,7 @@ operator|=
 name|stream
 operator|.
 name|createFilteredStream
-argument_list|(
-name|streamLength
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// scan until we find endstream:
 name|readUntilEndStream
@@ -3301,7 +3299,6 @@ return|;
 block|}
 comment|/**      * This will parse a PDF HEX string with fail fast semantic      * meaning that we stop if a not allowed character is found.      * This is necessary in order to detect malformed input and      * be able to skip to next object start.      *      * We assume starting '&lt;' was already read.      *       * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      */
 specifier|private
-specifier|final
 name|COSString
 name|parseCOSHexString
 parameter_list|()

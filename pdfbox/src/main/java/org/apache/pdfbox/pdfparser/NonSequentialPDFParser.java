@@ -804,12 +804,14 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
+specifier|final
 name|String
 name|keyStoreFilename
 init|=
 literal|null
 decl_stmt|;
 specifier|private
+specifier|final
 name|String
 name|alias
 init|=
@@ -832,6 +834,7 @@ comment|// bytes to read for
 comment|// EOF marker
 comment|/**      * If<code>true</code> object references in catalog are not followed; pro: page objects will be only parsed when      * needed; cons: some information of catalog might not be available (e.g. outline). Catalog parsing without pages is      * not an option since a number of entries will also refer to page objects (like OpenAction).      */
 specifier|private
+specifier|final
 name|boolean
 name|parseMinimalCatalog
 init|=
@@ -1176,11 +1179,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|File
-name|tmpFile
-init|=
-literal|null
-decl_stmt|;
 name|FileOutputStream
 name|fos
 init|=
@@ -1188,8 +1186,9 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+name|File
 name|tmpFile
-operator|=
+init|=
 name|File
 operator|.
 name|createTempFile
@@ -1198,7 +1197,7 @@ name|TMP_FILE_PREFIX
 argument_list|,
 literal|".pdf"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|fos
 operator|=
 operator|new
@@ -2065,7 +2064,6 @@ block|}
 comment|// ------------------------------------------------------------------------
 comment|/** Get current offset in file at which next byte would be read. */
 specifier|private
-specifier|final
 name|long
 name|getPdfSourceOffset
 parameter_list|()
@@ -2118,7 +2116,6 @@ comment|// if ( pdfSource != null )
 comment|// pdfSource.close();
 block|}
 specifier|private
-specifier|final
 name|void
 name|closeFileStream
 parameter_list|()
@@ -3290,7 +3287,6 @@ return|;
 block|}
 comment|/**      * Creates a unique object id using object number and object generation number. (requires object number&lt; 2^31))      */
 specifier|private
-specifier|final
 name|long
 name|getObjectId
 parameter_list|(
@@ -3323,7 +3319,6 @@ return|;
 block|}
 comment|/**      * Adds all from newObjects to toBeParsedList if it is not an COSObject or we didn't add this COSObject already      * (checked via addedObjects).      */
 specifier|private
-specifier|final
 name|void
 name|addNewToList
 parameter_list|(
@@ -5413,9 +5408,7 @@ operator|=
 name|stream
 operator|.
 name|createFilteredStream
-argument_list|(
-name|streamLengthObj
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|readUntilEndStream
 argument_list|(
@@ -6332,8 +6325,6 @@ block|}
 comment|// the offset seems to be wrong -> seek backward to find the object we are looking for
 name|long
 name|currentOffset
-init|=
-name|objectOffset
 decl_stmt|;
 for|for
 control|(

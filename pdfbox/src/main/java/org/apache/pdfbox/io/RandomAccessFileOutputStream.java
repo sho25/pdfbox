@@ -151,12 +151,14 @@ return|return
 name|lengthWritten
 return|;
 block|}
-comment|/**      * The number of bytes written to the stream.      *      * @return The number of bytes read to the stream.      */
+comment|/**      * The number of bytes written or expected in the stream.      *      * @return The number of bytes written or expected in the stream.      */
 specifier|public
 name|long
 name|getLength
 parameter_list|()
 block|{
+comment|//FIXME this is really dangerous, as it returns a wrong value if
+comment|// the actual length isn't the expected length
 name|long
 name|length
 init|=
