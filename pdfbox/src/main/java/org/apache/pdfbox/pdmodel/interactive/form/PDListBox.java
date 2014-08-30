@@ -125,26 +125,6 @@ block|{
 comment|// TODO move to superclass PDCoice??
 if|if
 condition|(
-operator|(
-name|getFieldFlags
-argument_list|()
-operator|&
-name|FLAG_EDIT
-operator|)
-operator|!=
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"The list box isn't editable."
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
 name|value
 operator|!=
 literal|null

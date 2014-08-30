@@ -199,8 +199,8 @@ name|PDFieldTreeNode
 implements|implements
 name|COSObjectable
 block|{
-comment|/**      * A Ff flag.      */
-specifier|public
+comment|/**      * Ff flags.      */
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -208,8 +208,7 @@ name|FLAG_READ_ONLY
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -219,8 +218,7 @@ literal|1
 operator|<<
 literal|1
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -231,7 +229,7 @@ operator|<<
 literal|2
 decl_stmt|;
 comment|/**      * Field type Text.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -240,7 +238,7 @@ init|=
 literal|"Tx"
 decl_stmt|;
 comment|/**      * Field type Button.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -249,7 +247,7 @@ init|=
 literal|"Btn"
 decl_stmt|;
 comment|/**      * Field type Button.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -258,7 +256,7 @@ init|=
 literal|"Ch"
 decl_stmt|;
 comment|/**      * Field type Button.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1819,9 +1817,9 @@ condition|(
 operator|(
 name|flags
 operator|&
-name|PDVariableText
+name|PDChoice
 operator|.
-name|FLAG_COMB
+name|FLAG_COMBO
 operator|)
 operator|!=
 literal|0

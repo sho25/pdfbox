@@ -101,8 +101,8 @@ name|PDVariableText
 extends|extends
 name|PDField
 block|{
-comment|/**      * A Ff flag.      */
-specifier|public
+comment|/**      * Ff flags.      */
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -112,8 +112,7 @@ literal|1
 operator|<<
 literal|12
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -123,8 +122,7 @@ literal|1
 operator|<<
 literal|13
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -134,8 +132,7 @@ literal|1
 operator|<<
 literal|20
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -145,8 +142,7 @@ literal|1
 operator|<<
 literal|22
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -156,8 +152,7 @@ literal|1
 operator|<<
 literal|23
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -167,8 +162,7 @@ literal|1
 operator|<<
 literal|24
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -470,7 +464,7 @@ block|}
 comment|/**      * @return true if the field is not suppose to comb the text display.      */
 specifier|public
 name|boolean
-name|shouldComb
+name|isComb
 parameter_list|()
 block|{
 return|return
@@ -633,6 +627,24 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|// the default appearance is inheritable
+comment|// the acroform should provide a default appearance
+if|if
+condition|(
+name|defaultAppearance
+operator|==
+literal|null
+condition|)
+block|{
+name|defaultAppearance
+operator|=
+name|getAcroForm
+argument_list|()
+operator|.
+name|getDefaultAppearance
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|defaultAppearance
 return|;
@@ -731,6 +743,19 @@ operator|=
 name|number
 operator|.
 name|intValue
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// the Q value is inheritable
+comment|// the acroform should provide a Q default value
+name|retval
+operator|=
+name|getAcroForm
+argument_list|()
+operator|.
+name|getQ
 argument_list|()
 expr_stmt|;
 block|}

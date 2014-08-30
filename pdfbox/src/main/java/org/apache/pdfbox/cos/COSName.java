@@ -3208,6 +3208,18 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|NEED_APPEARANCES
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"NeedAppearances"
+argument_list|)
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|NEXT
 init|=
 operator|new
@@ -5014,6 +5026,18 @@ literal|"WinAnsiEncoding"
 argument_list|)
 decl_stmt|;
 comment|// X
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|XFA
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"XFA"
+argument_list|)
+decl_stmt|;
 specifier|public
 specifier|static
 specifier|final

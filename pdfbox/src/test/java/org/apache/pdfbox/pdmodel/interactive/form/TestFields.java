@@ -196,7 +196,7 @@ name|assertFalse
 argument_list|(
 name|textBox
 operator|.
-name|shouldComb
+name|isComb
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -212,7 +212,7 @@ name|assertTrue
 argument_list|(
 name|textBox
 operator|.
-name|shouldComb
+name|isComb
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -227,7 +227,7 @@ name|assertFalse
 argument_list|(
 name|textBox
 operator|.
-name|shouldComb
+name|isComb
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -250,7 +250,7 @@ name|assertTrue
 argument_list|(
 name|textBox
 operator|.
-name|shouldComb
+name|isComb
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -280,7 +280,7 @@ name|assertFalse
 argument_list|(
 name|textBox
 operator|.
-name|shouldComb
+name|isComb
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -304,7 +304,7 @@ name|assertFalse
 argument_list|(
 name|textBox
 operator|.
-name|shouldComb
+name|isComb
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -319,7 +319,7 @@ name|assertFalse
 argument_list|(
 name|textBox
 operator|.
-name|shouldComb
+name|isComb
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -335,7 +335,7 @@ name|assertTrue
 argument_list|(
 name|textBox
 operator|.
-name|shouldComb
+name|isComb
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -350,7 +350,7 @@ name|assertTrue
 argument_list|(
 name|textBox
 operator|.
-name|shouldComb
+name|isComb
 argument_list|()
 argument_list|)
 expr_stmt|;

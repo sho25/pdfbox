@@ -115,7 +115,7 @@ name|PDChoice
 extends|extends
 name|PDVariableText
 block|{
-comment|/**      * A Ff flag.      */
+comment|/**      *  Ff-flags      */
 specifier|public
 specifier|static
 specifier|final
@@ -126,19 +126,7 @@ literal|1
 operator|<<
 literal|17
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|FLAG_EDIT
-init|=
-literal|1
-operator|<<
-literal|18
-decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -148,8 +136,7 @@ literal|1
 operator|<<
 literal|19
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -159,8 +146,7 @@ literal|1
 operator|<<
 literal|21
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -170,8 +156,7 @@ literal|1
 operator|<<
 literal|22
 decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -506,6 +491,50 @@ argument_list|,
 name|FLAG_COMMIT_ON_SEL_CHANGE
 argument_list|,
 name|commitOnSelChange
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Determines if Combo is set.      *       * @return true if value the choice is a combo box..      */
+specifier|public
+name|boolean
+name|isCombo
+parameter_list|()
+block|{
+return|return
+name|getDictionary
+argument_list|()
+operator|.
+name|getFlag
+argument_list|(
+name|COSName
+operator|.
+name|FF
+argument_list|,
+name|FLAG_COMBO
+argument_list|)
+return|;
+block|}
+comment|/**      * Set the Combo bit.      *      * @param combo The value for Combo.      */
+specifier|public
+name|void
+name|setCombo
+parameter_list|(
+name|boolean
+name|combo
+parameter_list|)
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|setFlag
+argument_list|(
+name|COSName
+operator|.
+name|FF
+argument_list|,
+name|FLAG_COMBO
+argument_list|,
+name|combo
 argument_list|)
 expr_stmt|;
 block|}
