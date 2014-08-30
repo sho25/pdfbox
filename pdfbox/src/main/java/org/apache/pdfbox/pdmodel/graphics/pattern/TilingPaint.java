@@ -295,6 +295,12 @@ name|renderer
 parameter_list|,
 name|PDTilingPattern
 name|pattern
+parameter_list|,
+name|Matrix
+name|matrix
+parameter_list|,
+name|AffineTransform
+name|xform
 parameter_list|)
 throws|throws
 name|IOException
@@ -334,6 +340,12 @@ name|colorSpace
 parameter_list|,
 name|PDColor
 name|color
+parameter_list|,
+name|Matrix
+name|matrix
+parameter_list|,
+name|AffineTransform
+name|xform
 parameter_list|)
 throws|throws
 name|IOException
