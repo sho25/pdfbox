@@ -95,6 +95,12 @@ name|String
 name|postScriptName
 parameter_list|)
 function_decl|;
+comment|/**      * Returns a string containing debugging information. This will be written to the log if no      * suitable fonts are found and no fallback fonts are available. May be null.      */
+specifier|public
+name|String
+name|toDebugString
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
