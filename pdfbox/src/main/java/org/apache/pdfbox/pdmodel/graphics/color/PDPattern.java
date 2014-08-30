@@ -508,6 +508,10 @@ argument_list|(
 name|renderer
 argument_list|,
 name|tilingPattern
+argument_list|,
+name|subStreamMatrix
+argument_list|,
+name|xform
 argument_list|)
 return|;
 block|}
@@ -525,6 +529,10 @@ argument_list|,
 name|underlyingColorSpace
 argument_list|,
 name|color
+argument_list|,
+name|subStreamMatrix
+argument_list|,
+name|xform
 argument_list|)
 return|;
 block|}
