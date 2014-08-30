@@ -77,6 +77,22 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
+name|ERROR_FONTS_CID_DAMAGED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
 name|ERROR_FONTS_CID_CMAP_DAMAGED
 import|;
 end_import
@@ -375,7 +391,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDCIDFontType0Font
+name|PDCIDFontType0
 import|;
 end_import
 
@@ -391,7 +407,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDCIDFontType2Font
+name|PDCIDFontType2
 import|;
 end_import
 
@@ -536,6 +552,10 @@ name|Type0Container
 argument_list|>
 block|{
 specifier|protected
+name|PDFont
+name|font
+decl_stmt|;
+specifier|protected
 name|COSDocument
 name|cosDocument
 init|=
@@ -556,6 +576,9 @@ argument_list|(
 name|context
 argument_list|,
 name|font
+operator|.
+name|getCOSObject
+argument_list|()
 argument_list|,
 operator|new
 name|Type0Container
@@ -940,7 +963,7 @@ return|return
 name|cidFontValidator
 return|;
 block|}
-comment|/**      * Create the validation object for CIDType0 Font      *       * @return      */
+comment|/**      * Create the validation object for CIDType0 Font      */
 specifier|protected
 name|FontValidator
 argument_list|<
@@ -954,6 +977,8 @@ name|COSDictionary
 name|fDict
 parameter_list|)
 block|{
+try|try
+block|{
 return|return
 operator|new
 name|CIDType0FontValidator
@@ -961,7 +986,7 @@ argument_list|(
 name|context
 argument_list|,
 operator|new
-name|PDCIDFontType0Font
+name|PDCIDFontType0
 argument_list|(
 name|fDict
 argument_list|,
@@ -973,7 +998,33 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Create the validation object for CIDType2 Font      *       * @return      */
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fontContainer
+operator|.
+name|push
+argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_FONTS_CID_DAMAGED
+argument_list|,
+literal|"The CIDType0 font is damaged"
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+block|}
+comment|/**      * Create the validation object for CIDType2 Font      */
 specifier|protected
 name|FontValidator
 argument_list|<
@@ -987,6 +1038,8 @@ name|COSDictionary
 name|fDict
 parameter_list|)
 block|{
+try|try
+block|{
 return|return
 operator|new
 name|CIDType2FontValidator
@@ -994,7 +1047,7 @@ argument_list|(
 name|context
 argument_list|,
 operator|new
-name|PDCIDFontType2Font
+name|PDCIDFontType2
 argument_list|(
 name|fDict
 argument_list|,
@@ -1006,7 +1059,33 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Check the CMap entry.      *       * The CMap entry must be a dictionary in a PDF/A. This entry can be a String only if the String value is Identity-H      * or Identity-V      *       * @param encoding      */
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fontContainer
+operator|.
+name|push
+argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_FONTS_CID_DAMAGED
+argument_list|,
+literal|"The CIDType2 font is damaged"
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+block|}
+comment|/**      * Check the CMap entry.      *       * The CMap entry must be a dictionary in a PDF/A. This entry can be a String only if the String value is Identity-H      * or Identity-V      */
 specifier|protected
 name|void
 name|checkEncoding

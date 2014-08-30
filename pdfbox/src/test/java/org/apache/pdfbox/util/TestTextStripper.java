@@ -718,6 +718,7 @@ operator|)
 throw|;
 block|}
 block|}
+comment|//System.out.println("  " + inFile + (bSort ? " (sorted)" : ""));
 name|PDDocument
 name|document
 init|=
@@ -1085,7 +1086,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" ( sort = "
+literal|" (sort = "
 operator|+
 name|bSort
 operator|+

@@ -33,15 +33,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSName
+name|IOException
 import|;
 end_import
 
@@ -56,32 +52,15 @@ name|PDMMType1Font
 extends|extends
 name|PDType1Font
 block|{
-comment|/**      * Constructor.      */
-specifier|public
-name|PDMMType1Font
-parameter_list|()
-block|{
-name|dict
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|SUBTYPE
-argument_list|,
-name|COSName
-operator|.
-name|MM_TYPE1
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
+comment|/**      * Creates an MMType1Font from a Font dictionary in a PDF.      *      * @param fontDictionary font dictionary      */
 specifier|public
 name|PDMMType1Font
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(

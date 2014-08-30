@@ -185,7 +185,7 @@ argument_list|)
 decl_stmt|;
 specifier|private
 name|Type1CharStringReader
-name|reader
+name|font
 decl_stmt|;
 specifier|private
 name|String
@@ -256,12 +256,12 @@ specifier|protected
 name|int
 name|commandCount
 decl_stmt|;
-comment|/**      * Constructs a new Type1CharString object.      * @param reader Parent Type 1 CharString reader      * @param sequence Type 1 char string sequence      */
+comment|/**      * Constructs a new Type1CharString object.      * @param font Parent Type 1 CharString font      * @param sequence Type 1 char string sequence      */
 specifier|public
 name|Type1CharString
 parameter_list|(
 name|Type1CharStringReader
-name|reader
+name|font
 parameter_list|,
 name|String
 name|fontName
@@ -278,7 +278,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|reader
+name|font
 argument_list|,
 name|fontName
 argument_list|,
@@ -290,12 +290,12 @@ operator|=
 name|sequence
 expr_stmt|;
 block|}
-comment|/**      * Constructor for use in subclasses.      * @param reader Parent Type 1 CharString reader      */
+comment|/**      * Constructor for use in subclasses.      * @param font Parent Type 1 CharString font      */
 specifier|protected
 name|Type1CharString
 parameter_list|(
 name|Type1CharStringReader
-name|reader
+name|font
 parameter_list|,
 name|String
 name|fontName
@@ -306,9 +306,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|reader
+name|font
 operator|=
-name|reader
+name|font
 expr_stmt|;
 name|this
 operator|.
@@ -336,6 +336,16 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
+comment|// todo: NEW name (or CID as hex)
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|glyphName
+return|;
 block|}
 comment|/**      * Returns the bounds of the renderer path.      * @return the bounds as Rectangle2D      */
 specifier|public
@@ -1199,11 +1209,11 @@ argument_list|(
 name|numbers
 argument_list|)
 decl_stmt|;
-name|numbers
+name|list
 operator|.
 name|remove
 argument_list|(
-name|numbers
+name|list
 operator|.
 name|size
 argument_list|()
@@ -1211,11 +1221,11 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|numbers
+name|list
 operator|.
 name|remove
 argument_list|(
-name|numbers
+name|list
 operator|.
 name|size
 argument_list|()
@@ -2085,7 +2095,7 @@ block|{
 name|Type1CharString
 name|base
 init|=
-name|reader
+name|font
 operator|.
 name|getType1CharString
 argument_list|(
@@ -2159,7 +2169,7 @@ block|{
 name|Type1CharString
 name|accent
 init|=
-name|reader
+name|font
 operator|.
 name|getType1CharString
 argument_list|(

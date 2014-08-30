@@ -97,11 +97,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|util
 operator|.
-name|common
-operator|.
-name|PDMatrix
+name|Matrix
 import|;
 end_import
 
@@ -570,7 +568,7 @@ block|}
 comment|/**      * Returns the linear interpretation matrix.      * If the underlying dictionary contains null then the identity matrix will be returned.      * @return the linear interpretation matrix      */
 specifier|public
 specifier|final
-name|PDMatrix
+name|Matrix
 name|getGammaMatrix
 parameter_list|()
 block|{
@@ -598,7 +596,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|PDMatrix
+name|Matrix
 argument_list|()
 return|;
 block|}
@@ -606,7 +604,7 @@ else|else
 block|{
 return|return
 operator|new
-name|PDMatrix
+name|Matrix
 argument_list|(
 name|matrix
 argument_list|)
@@ -741,7 +739,7 @@ specifier|final
 name|void
 name|setGammaMatrix
 parameter_list|(
-name|PDMatrix
+name|Matrix
 name|matrix
 parameter_list|)
 block|{
@@ -761,7 +759,7 @@ name|matrixArray
 operator|=
 name|matrix
 operator|.
-name|getCOSArray
+name|toCOSArray
 argument_list|()
 expr_stmt|;
 block|}

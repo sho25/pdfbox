@@ -99,24 +99,33 @@ init|=
 literal|0
 decl_stmt|;
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Object
 argument_list|>
 name|type2sequence
 decl_stmt|;
-comment|/**      * Constructor.      * @param reader Parent CFF font      * @param fontName font name      * @param glyphName glyph name      * @param sequence Type 2 char string sequence      * @param defaultWidthX default width      * @param nomWidthX nominal width      */
+specifier|private
+specifier|final
+name|int
+name|gid
+decl_stmt|;
+comment|/**      * Constructor.      * @param font Parent CFF font      * @param fontName font name      * @param glyphName glyph name (or CID as hex string)      * @param gid GID      * @param sequence Type 2 char string sequence      * @param defaultWidthX default width      * @param nomWidthX nominal width      */
 specifier|public
 name|Type2CharString
 parameter_list|(
 name|Type1CharStringReader
-name|reader
+name|font
 parameter_list|,
 name|String
 name|fontName
 parameter_list|,
 name|String
 name|glyphName
+parameter_list|,
+name|int
+name|gid
 parameter_list|,
 name|List
 argument_list|<
@@ -133,12 +142,18 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|reader
+name|font
 argument_list|,
 name|fontName
 argument_list|,
 name|glyphName
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|gid
+operator|=
+name|gid
 expr_stmt|;
 name|type2sequence
 operator|=
@@ -158,7 +173,17 @@ name|sequence
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the advance width of the glyph.      * @return the width      */
+comment|/**      * Return the GID (glyph id) of this charstring.      */
+specifier|public
+name|int
+name|getGID
+parameter_list|()
+block|{
+return|return
+name|gid
+return|;
+block|}
+comment|/**      * Returns the advance width of this glyph.      */
 specifier|public
 name|int
 name|getWidth
@@ -190,7 +215,7 @@ name|width
 return|;
 block|}
 block|}
-comment|/**      * Returns the Type 2 char string sequence.      * @return the Type 2 sequence      */
+comment|/**      * Returns the Type 2 charstring sequence.      */
 specifier|public
 name|List
 argument_list|<
@@ -533,6 +558,13 @@ name|size
 argument_list|()
 operator|==
 literal|5
+operator|||
+name|numbers
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
 argument_list|)
 expr_stmt|;
 name|closePath

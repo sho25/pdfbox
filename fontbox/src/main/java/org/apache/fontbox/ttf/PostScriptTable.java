@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  *   */
+comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  */
 end_comment
 
 begin_class
@@ -192,7 +192,7 @@ operator|=
 operator|new
 name|String
 index|[
-name|Encoding
+name|WGL4Names
 operator|.
 name|NUMBER_OF_MAC_GLYPHS
 index|]
@@ -201,7 +201,7 @@ name|System
 operator|.
 name|arraycopy
 argument_list|(
-name|Encoding
+name|WGL4Names
 operator|.
 name|MAC_GLYPH_NAMES
 argument_list|,
@@ -211,7 +211,7 @@ name|glyphNames
 argument_list|,
 literal|0
 argument_list|,
-name|Encoding
+name|WGL4Names
 operator|.
 name|NUMBER_OF_MAC_GLYPHS
 argument_list|)
@@ -320,7 +320,7 @@ if|if
 condition|(
 name|maxIndex
 operator|>=
-name|Encoding
+name|WGL4Names
 operator|.
 name|NUMBER_OF_MAC_GLYPHS
 condition|)
@@ -332,7 +332,7 @@ name|String
 index|[
 name|maxIndex
 operator|-
-name|Encoding
+name|WGL4Names
 operator|.
 name|NUMBER_OF_MAC_GLYPHS
 operator|+
@@ -350,7 +350,7 @@ name|i
 operator|<
 name|maxIndex
 operator|-
-name|Encoding
+name|WGL4Names
 operator|.
 name|NUMBER_OF_MAC_GLYPHS
 operator|+
@@ -409,7 +409,7 @@ if|if
 condition|(
 name|index
 operator|<
-name|Encoding
+name|WGL4Names
 operator|.
 name|NUMBER_OF_MAC_GLYPHS
 condition|)
@@ -419,7 +419,7 @@ index|[
 name|i
 index|]
 operator|=
-name|Encoding
+name|WGL4Names
 operator|.
 name|MAC_GLYPH_NAMES
 index|[
@@ -432,7 +432,7 @@ if|if
 condition|(
 name|index
 operator|>=
-name|Encoding
+name|WGL4Names
 operator|.
 name|NUMBER_OF_MAC_GLYPHS
 operator|&&
@@ -450,7 +450,7 @@ name|nameArray
 index|[
 name|index
 operator|-
-name|Encoding
+name|WGL4Names
 operator|.
 name|NUMBER_OF_MAC_GLYPHS
 index|]
@@ -558,7 +558,7 @@ block|{
 name|String
 name|name
 init|=
-name|Encoding
+name|WGL4Names
 operator|.
 name|MAC_GLYPH_NAMES
 index|[

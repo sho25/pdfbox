@@ -824,7 +824,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"closePath"
 argument_list|)
@@ -865,7 +865,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"moveTo: "
 operator|+
@@ -921,7 +921,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"lineTo: "
 operator|+
@@ -988,7 +988,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"quadTo: "
 operator|+

@@ -173,7 +173,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFont
+name|PDCIDFont
 import|;
 end_import
 
@@ -287,7 +287,7 @@ parameter_list|(
 name|PreflightContext
 name|context
 parameter_list|,
-name|PDFont
+name|PDCIDFont
 name|font
 parameter_list|,
 name|T
@@ -299,6 +299,9 @@ argument_list|(
 name|context
 argument_list|,
 name|font
+operator|.
+name|getCOSObject
+argument_list|()
 argument_list|,
 name|fContainer
 argument_list|)
@@ -321,17 +324,6 @@ name|void
 name|checkMandatoryField
 parameter_list|()
 block|{
-name|COSDictionary
-name|fontDictionary
-init|=
-operator|(
-name|COSDictionary
-operator|)
-name|font
-operator|.
-name|getCOSObject
-argument_list|()
-decl_stmt|;
 name|boolean
 name|arePresent
 init|=

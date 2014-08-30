@@ -82,7 +82,7 @@ name|fontName
 decl_stmt|,
 name|glyphName
 decl_stmt|;
-comment|/**      * Constructs a new Type1CharStringParser object.      *      * @param fontName font name      * @param glyphName glyph name      */
+comment|/**      * Constructs a new Type1CharStringParser object for a Type 1-equivalent font.      *      * @param fontName font name      * @param glyphName glyph name      */
 specifier|public
 name|Type2CharStringParser
 parameter_list|(
@@ -105,6 +105,38 @@ name|glyphName
 operator|=
 name|glyphName
 expr_stmt|;
+block|}
+comment|/**      * Constructs a new Type1CharStringParser object for a CID-Keyed font.      *      * @param fontName font name      * @param cid CID      */
+specifier|public
+name|Type2CharStringParser
+parameter_list|(
+name|String
+name|fontName
+parameter_list|,
+name|int
+name|cid
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fontName
+operator|=
+name|fontName
+expr_stmt|;
+name|this
+operator|.
+name|glyphName
+operator|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"%04x"
+argument_list|,
+name|cid
+argument_list|)
+expr_stmt|;
+comment|// for debugging only
 block|}
 comment|/**      * The given byte array will be parsed and converted to a Type2 sequence.      * @param bytes the given mapping as byte array      * @param globalSubrIndex index containing all global subroutines      * @param localSubrIndex index containing all local subroutines      *       * @return the Type2 sequence      * @throws IOException if an error occurs during reading      */
 specifier|public

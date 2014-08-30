@@ -86,8 +86,6 @@ parameter_list|()
 throws|throws
 name|UnsupportedEncodingException
 block|{
-comment|//TODO Use when switching to JavaSE-1.6
-comment|//Charset charset = PDFDocEncodingCharset.INSTANCE;
 comment|//Check basic round-trip
 name|String
 name|text
@@ -104,7 +102,7 @@ name|getBytes
 argument_list|(
 name|PDFDocEncodingCharset
 operator|.
-name|NAME
+name|INSTANCE
 argument_list|)
 decl_stmt|;
 name|int
@@ -178,7 +176,7 @@ name|encoded
 argument_list|,
 name|PDFDocEncodingCharset
 operator|.
-name|NAME
+name|INSTANCE
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -226,7 +224,7 @@ name|getBytes
 argument_list|(
 name|PDFDocEncodingCharset
 operator|.
-name|NAME
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 name|compareEncoded
@@ -245,7 +243,7 @@ name|encoded
 argument_list|,
 name|PDFDocEncodingCharset
 operator|.
-name|NAME
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 name|assertEquals

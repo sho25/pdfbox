@@ -91,7 +91,7 @@ specifier|final
 name|long
 name|TIMEOUT_SECS
 init|=
-literal|30
+literal|120
 decl_stmt|;
 specifier|private
 specifier|static

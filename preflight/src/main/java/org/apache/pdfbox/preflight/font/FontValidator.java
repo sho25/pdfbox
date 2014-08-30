@@ -25,11 +25,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|cos
 operator|.
-name|font
-operator|.
-name|PDFont
+name|COSDictionary
 import|;
 end_import
 
@@ -119,10 +117,6 @@ name|PreflightContext
 name|context
 decl_stmt|;
 specifier|protected
-name|PDFont
-name|font
-decl_stmt|;
-specifier|protected
 name|FontDescriptorHelper
 argument_list|<
 name|T
@@ -143,8 +137,8 @@ parameter_list|(
 name|PreflightContext
 name|context
 parameter_list|,
-name|PDFont
-name|font
+name|COSDictionary
+name|dict
 parameter_list|,
 name|T
 name|fContainer
@@ -161,12 +155,6 @@ name|context
 expr_stmt|;
 name|this
 operator|.
-name|font
-operator|=
-name|font
-expr_stmt|;
-name|this
-operator|.
 name|fontContainer
 operator|=
 name|fContainer
@@ -177,10 +165,7 @@ name|context
 operator|.
 name|addFontContainer
 argument_list|(
-name|font
-operator|.
-name|getCOSObject
-argument_list|()
+name|dict
 argument_list|,
 name|fContainer
 argument_list|)

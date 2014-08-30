@@ -323,6 +323,22 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|PDSimpleFont
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|preflight
 operator|.
 name|PreflightContext
@@ -862,9 +878,14 @@ name|length1
 argument_list|,
 name|length2
 argument_list|,
+operator|(
+operator|(
+name|PDSimpleFont
+operator|)
 name|font
+operator|)
 operator|.
-name|getFontEncoding
+name|getEncoding
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -941,7 +962,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Type1C is a CFF font format, extract all CFFFont object from the stream      *       * @param fontStream      * @return      * @throws ValidationException      */
+comment|/**      * Type1C is a CFF font format, extract all CFFFont object from the stream      *      * @return      * @throws ValidationException      */
 specifier|protected
 name|void
 name|processFontFile3

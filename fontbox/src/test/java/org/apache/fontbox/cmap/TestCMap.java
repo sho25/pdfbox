@@ -83,7 +83,7 @@ argument_list|()
 decl_stmt|;
 name|cMap
 operator|.
-name|addMapping
+name|addCharMapping
 argument_list|(
 name|bs
 argument_list|,
@@ -98,13 +98,9 @@ name|equals
 argument_list|(
 name|cMap
 operator|.
-name|lookup
+name|toUnicode
 argument_list|(
-name|bs
-argument_list|,
-literal|0
-argument_list|,
-literal|1
+literal|200
 argument_list|)
 argument_list|)
 argument_list|)

@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the TTFDataStream that goes against a RAF.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.2 $  */
+comment|/**  * An implementation of the TTFDataStream that goes against a RAF.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class

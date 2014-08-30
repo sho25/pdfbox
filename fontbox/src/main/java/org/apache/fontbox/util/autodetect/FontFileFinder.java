@@ -147,7 +147,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**      * Automagically finds a list of font files on local system.      *       * @return List&lt;URI&gt; of font files      * @throws IOException thrown if an I/O exception of some sort has occurred      */
+comment|/**      * Automagically finds a list of font files on local system.      *       * @return List&lt;URI&gt; of font files      */
 specifier|public
 name|List
 argument_list|<
@@ -155,8 +155,6 @@ name|URI
 argument_list|>
 name|find
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -219,7 +217,7 @@ return|return
 name|results
 return|;
 block|}
-comment|/**      * Searches a given directory for font files.      *       * @param dir directory to search      * @return list&lt;URI&gt; of font files      * @throws IOException thrown if an I/O exception of some sort has occurred      */
+comment|/**      * Searches a given directory for font files.      *       * @param dir directory to search      * @return list&lt;URI&gt; of font files      */
 specifier|public
 name|List
 argument_list|<
@@ -230,8 +228,6 @@ parameter_list|(
 name|String
 name|dir
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|List
 argument_list|<
@@ -438,7 +434,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Check if the given name belongs to a font file.      *       * @param filename the given filename      * @return true if the given filename has a typical font file ending      */
+comment|/**      * Check if the given name belongs to a font file.      *       * @param file the given file      * @return true if the given filename has a typical font file ending      */
 specifier|private
 name|boolean
 name|checkFontfile

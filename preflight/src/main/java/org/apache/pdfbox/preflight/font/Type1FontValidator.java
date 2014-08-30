@@ -181,7 +181,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFont
+name|PDSimpleFont
 import|;
 end_import
 
@@ -283,7 +283,7 @@ parameter_list|(
 name|PreflightContext
 name|context
 parameter_list|,
-name|PDFont
+name|PDSimpleFont
 name|font
 parameter_list|)
 block|{

@@ -1718,6 +1718,18 @@ argument_list|(
 literal|"DW"
 argument_list|)
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|DW2
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"DW2"
+argument_list|)
+decl_stmt|;
 comment|// E
 specifier|public
 specifier|static
@@ -4939,6 +4951,18 @@ operator|new
 name|COSName
 argument_list|(
 literal|"W"
+argument_list|)
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|W2
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"W2"
 argument_list|)
 decl_stmt|;
 specifier|public

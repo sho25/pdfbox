@@ -805,7 +805,7 @@ expr_stmt|;
 block|}
 comment|/**      * This will parse the AFM document.  This will close the Input stream      * when the parsing is finished.      *      * @return the parsed FontMetric      *       * @throws IOException If there is an IO error reading the document.      */
 specifier|public
-name|FontMetric
+name|FontMetrics
 name|parse
 parameter_list|()
 throws|throws
@@ -818,17 +818,17 @@ return|;
 block|}
 comment|/**      * This will parse a font metrics item.      *      * @return The parse font metrics item.      *      * @throws IOException If there is an error reading the AFM file.      */
 specifier|private
-name|FontMetric
+name|FontMetrics
 name|parseFontMetric
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|FontMetric
+name|FontMetrics
 name|fontMetrics
 init|=
 operator|new
-name|FontMetric
+name|FontMetrics
 argument_list|()
 decl_stmt|;
 name|String
@@ -1719,7 +1719,7 @@ specifier|private
 name|void
 name|parseKernData
 parameter_list|(
-name|FontMetric
+name|FontMetrics
 name|fontMetrics
 parameter_list|)
 throws|throws

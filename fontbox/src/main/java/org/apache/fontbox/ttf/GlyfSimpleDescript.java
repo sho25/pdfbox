@@ -559,8 +559,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-try|try
-block|{
 for|for
 control|(
 name|int
@@ -644,23 +642,6 @@ operator|+=
 name|repeats
 expr_stmt|;
 block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|ArrayIndexOutOfBoundsException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"error: array index out of bounds"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}

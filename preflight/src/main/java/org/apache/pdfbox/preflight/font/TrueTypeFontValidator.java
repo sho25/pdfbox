@@ -115,7 +115,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFont
+name|PDFontDescriptor
 import|;
 end_import
 
@@ -131,7 +131,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFontDescriptor
+name|PDTrueTypeFont
 import|;
 end_import
 
@@ -217,7 +217,7 @@ parameter_list|(
 name|PreflightContext
 name|context
 parameter_list|,
-name|PDFont
+name|PDTrueTypeFont
 name|font
 parameter_list|)
 block|{
@@ -293,7 +293,7 @@ name|this
 operator|.
 name|font
 operator|.
-name|getFontEncoding
+name|getEncoding
 argument_list|()
 decl_stmt|;
 if|if

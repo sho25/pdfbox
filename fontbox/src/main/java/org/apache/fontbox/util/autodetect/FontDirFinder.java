@@ -31,16 +31,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -58,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementers provide find method for searching native operating system for available fonts. This class is based on a  * class provided by Apache FOP. see org.apache.fop.fonts.autodetect.FontDirFinder  */
+comment|/**  * Implementers provide find method for searching native operating system for available fonts.  * This class is based on a class provided by Apache FOP.  *  * See org.apache.fop.fonts.autodetect.FontDirFinder  */
 end_comment
 
 begin_interface
@@ -66,15 +56,13 @@ specifier|public
 interface|interface
 name|FontDirFinder
 block|{
-comment|/**      * Finds a list of font files.      *       * @return list of font files.      * @throws IOException In case of an I/O problem      */
+comment|/**      * Finds a list of font files.      *       * @return list of font files.      */
 name|List
 argument_list|<
 name|File
 argument_list|>
 name|find
 parameter_list|()
-throws|throws
-name|IOException
 function_decl|;
 comment|/**      * Provides a list of platform specific ttf name mappings.      *       * @return a fontname mapping      */
 name|Map

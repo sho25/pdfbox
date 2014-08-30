@@ -208,7 +208,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 name|boolean
-name|lastWasAdjustment
+name|lastWasString
 init|=
 literal|false
 decl_stmt|;
@@ -266,9 +266,9 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|lastWasAdjustment
+name|lastWasString
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 block|}
 elseif|else
@@ -281,8 +281,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|lastWasAdjustment
+name|lastWasString
 condition|)
 block|{
 name|adjustments
@@ -292,6 +291,7 @@ argument_list|(
 literal|0f
 argument_list|)
 expr_stmt|;
+comment|// adjustment for previous string
 block|}
 name|strings
 operator|.
@@ -308,9 +308,9 @@ name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|lastWasAdjustment
+name|lastWasString
 operator|=
-literal|false
+literal|true
 expr_stmt|;
 block|}
 else|else
@@ -325,6 +325,20 @@ name|next
 argument_list|)
 throw|;
 block|}
+block|}
+comment|// adjustment for final string
+if|if
+condition|(
+name|lastWasString
+condition|)
+block|{
+name|adjustments
+operator|.
+name|add
+argument_list|(
+literal|0f
+argument_list|)
+expr_stmt|;
 block|}
 name|context
 operator|.

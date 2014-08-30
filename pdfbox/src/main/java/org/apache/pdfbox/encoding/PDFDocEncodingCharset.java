@@ -38,15 +38,6 @@ name|PDFDocEncodingCharset
 extends|extends
 name|SingleByteCharset
 block|{
-comment|/** Canonical name for the PDFDocEncoding. */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"PDFDocEncoding"
-decl_stmt|;
 comment|/** Singleton instance. */
 specifier|public
 specifier|static
@@ -65,7 +56,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|NAME
+literal|"PDFDocEncoding"
 argument_list|,
 literal|null
 argument_list|,

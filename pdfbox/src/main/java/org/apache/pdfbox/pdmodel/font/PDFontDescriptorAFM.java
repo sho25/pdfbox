@@ -37,7 +37,7 @@ name|fontbox
 operator|.
 name|afm
 operator|.
-name|FontMetric
+name|FontMetrics
 import|;
 end_import
 
@@ -72,7 +72,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents the font descriptor when the font information  * is coming from an AFM file.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * This class represents the font descriptor when the font information  * is coming from an AFM file.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -83,14 +83,14 @@ extends|extends
 name|PDFontDescriptor
 block|{
 specifier|private
-name|FontMetric
+name|FontMetrics
 name|afm
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param afmFile The AFM file.      */
 specifier|public
 name|PDFontDescriptorAFM
 parameter_list|(
-name|FontMetric
+name|FontMetrics
 name|afmFile
 parameter_list|)
 block|{
@@ -299,6 +299,25 @@ argument_list|(
 literal|"The AFM Font descriptor is immutable"
 argument_list|)
 throw|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isSymbolic
+parameter_list|()
+block|{
+return|return
+name|afm
+operator|.
+name|getEncodingScheme
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"FontSpecific"
+argument_list|)
+return|;
 block|}
 comment|/**      * This will get the fonts bouding box.      *      * @return The fonts bouding box.      */
 specifier|public

@@ -29,6 +29,16 @@ name|GeneralPath
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * This interface is implemented by several font specific classes which is called to get the  * general path of a single glyph of the represented font most likely to render it.  */
 end_comment
@@ -46,6 +56,8 @@ parameter_list|(
 name|int
 name|code
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Remove all cached resources.      */
 specifier|public

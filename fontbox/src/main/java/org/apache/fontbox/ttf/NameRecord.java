@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A name record in the name table.  *   * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * A name record in the name table.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -34,16 +34,15 @@ specifier|public
 class|class
 name|NameRecord
 block|{
-comment|/**      * A constant for the platform.      */
+comment|// platform ids
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|PLATFORM_APPLE_UNICODE
+name|PLATFORM_UNICODE
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * A constant for the platform.      */
 specifier|public
 specifier|static
 specifier|final
@@ -52,7 +51,6 @@ name|PLATFORM_MACINTOSH
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * A constant for the platform.      */
 specifier|public
 specifier|static
 specifier|final
@@ -61,7 +59,6 @@ name|PLATFORM_ISO
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * A constant for the platform.      */
 specifier|public
 specifier|static
 specifier|final
@@ -70,25 +67,101 @@ name|PLATFORM_WINDOWS
 init|=
 literal|3
 decl_stmt|;
-comment|/**      * Platform specific encoding.      */
+comment|// Unicode encoding ids
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|PLATFORM_ENCODING_WINDOWS_UNDEFINED
+name|ENCODING_UNICODE_1_0
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * Platform specific encoding.      */
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|PLATFORM_ENCODING_WINDOWS_UNICODE
+name|ENCODING_UNICODE_1_1
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * A name id.      */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ENCODING_UNICODE_2_0_BMP
+init|=
+literal|3
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ENCODING_UNICODE_2_0_FULL
+init|=
+literal|4
+decl_stmt|;
+comment|// Unicode encoding ids
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|LANGUGAE_UNICODE
+init|=
+literal|0
+decl_stmt|;
+comment|// Windows encoding ids
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ENCODING_WINDOWS_SYMBOL
+init|=
+literal|0
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ENCODING_WINDOWS_UNICODE_BMP
+init|=
+literal|1
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ENCODING_WINDOWS_UNICODE_UCS4
+init|=
+literal|10
+decl_stmt|;
+comment|// Windows language ids
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|LANGUGAE_WINDOWS_EN_US
+init|=
+literal|0x0409
+decl_stmt|;
+comment|// Macintosh encoding ids
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ENCODING_MACINTOSH_ROMAN
+init|=
+literal|0
+decl_stmt|;
+comment|// Macintosh language ids
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|LANGUGAE_MACINTOSH_ENGLISH
+init|=
+literal|0
+decl_stmt|;
+comment|// name ids
 specifier|public
 specifier|static
 specifier|final
@@ -97,7 +170,6 @@ name|NAME_COPYRIGHT
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * A name id.      */
 specifier|public
 specifier|static
 specifier|final
@@ -106,7 +178,6 @@ name|NAME_FONT_FAMILY_NAME
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * A name id.      */
 specifier|public
 specifier|static
 specifier|final
@@ -115,7 +186,6 @@ name|NAME_FONT_SUB_FAMILY_NAME
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * A name id.      */
 specifier|public
 specifier|static
 specifier|final
@@ -124,7 +194,6 @@ name|NAME_UNIQUE_FONT_ID
 init|=
 literal|3
 decl_stmt|;
-comment|/**      * A name id.      */
 specifier|public
 specifier|static
 specifier|final
@@ -133,7 +202,6 @@ name|NAME_FULL_FONT_NAME
 init|=
 literal|4
 decl_stmt|;
-comment|/**      * A name id.      */
 specifier|public
 specifier|static
 specifier|final
@@ -142,7 +210,6 @@ name|NAME_VERSION
 init|=
 literal|5
 decl_stmt|;
-comment|/**      * A name id.      */
 specifier|public
 specifier|static
 specifier|final
@@ -151,7 +218,6 @@ name|NAME_POSTSCRIPT_NAME
 init|=
 literal|6
 decl_stmt|;
-comment|/**      * A name id.      */
 specifier|public
 specifier|static
 specifier|final

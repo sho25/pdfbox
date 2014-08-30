@@ -189,8 +189,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * Constructor.      */
-specifier|public
+comment|/**      * Package-private constructor, for internal PDFBox use only.      */
 name|PDFontDescriptorDictionary
 parameter_list|()
 block|{
@@ -214,7 +213,7 @@ name|FONT_DESC
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param desc The wrapped COS Dictionary.      */
+comment|/**      * Creates a PDFontDescriptor from a COS dictionary.      *      * @param desc The wrapped COS Dictionary.      */
 specifier|public
 name|PDFontDescriptorDictionary
 parameter_list|(
@@ -1155,6 +1154,32 @@ argument_list|,
 name|maxWidth
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Returns true if widths are present in the font descriptor.      */
+specifier|public
+name|boolean
+name|hasWidths
+parameter_list|()
+block|{
+return|return
+name|dic
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|WIDTHS
+argument_list|)
+operator|||
+name|dic
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|MISSING_WIDTH
+argument_list|)
+return|;
 block|}
 comment|/**      * This will get the missing width for the font.      *      * @return The missing width value.      */
 specifier|public

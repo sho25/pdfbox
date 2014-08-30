@@ -47,7 +47,7 @@ name|fontbox
 operator|.
 name|ttf
 operator|.
-name|CMAPEncodingEntry
+name|CmapSubtable
 import|;
 end_import
 
@@ -61,7 +61,7 @@ name|fontbox
 operator|.
 name|ttf
 operator|.
-name|CMAPTable
+name|CmapTable
 import|;
 end_import
 
@@ -132,6 +132,20 @@ operator|.
 name|encoding
 operator|.
 name|Encoding
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|encoding
+operator|.
+name|GlyphList
 import|;
 end_import
 
@@ -227,12 +241,12 @@ argument_list|(
 name|arialIs
 argument_list|)
 decl_stmt|;
-name|CMAPTable
+name|CmapTable
 name|cmap
 init|=
 name|arial
 operator|.
-name|getCMAP
+name|getCmap
 argument_list|()
 decl_stmt|;
 name|Assert
@@ -242,7 +256,7 @@ argument_list|(
 name|cmap
 argument_list|)
 expr_stmt|;
-name|CMAPEncodingEntry
+name|CmapSubtable
 index|[]
 name|cmaps
 init|=
@@ -258,14 +272,14 @@ argument_list|(
 name|cmaps
 argument_list|)
 expr_stmt|;
-name|CMAPEncodingEntry
+name|CmapSubtable
 name|uc
 init|=
 literal|null
 decl_stmt|;
 for|for
 control|(
-name|CMAPEncodingEntry
+name|CmapSubtable
 name|e
 range|:
 name|cmaps
@@ -289,7 +303,7 @@ argument_list|()
 operator|==
 name|NameRecord
 operator|.
-name|PLATFORM_ENCODING_WINDOWS_UNICODE
+name|ENCODING_WINDOWS_UNICODE_BMP
 condition|)
 block|{
 name|uc
@@ -491,9 +505,9 @@ name|Assert
 operator|.
 name|assertTrue
 argument_list|(
-name|enc
+name|GlyphList
 operator|.
-name|getNameForCharacter
+name|unicodeToName
 argument_list|(
 operator|(
 name|char
@@ -523,9 +537,9 @@ name|Assert
 operator|.
 name|assertTrue
 argument_list|(
-name|enc
+name|GlyphList
 operator|.
-name|getNameForCharacter
+name|unicodeToName
 argument_list|(
 operator|(
 name|char
@@ -557,9 +571,9 @@ name|assertEquals
 argument_list|(
 literal|"softhyphen"
 argument_list|,
-name|enc
+name|GlyphList
 operator|.
-name|getNameForCharacter
+name|unicodeToName
 argument_list|(
 operator|(
 name|char
@@ -580,9 +594,9 @@ name|name
 argument_list|)
 operator|&&
 operator|!
-name|enc
+name|GlyphList
 operator|.
-name|getNameForCharacter
+name|unicodeToName
 argument_list|(
 operator|(
 name|char
@@ -602,9 +616,9 @@ name|assertEquals
 argument_list|(
 literal|"bulletoperator"
 argument_list|,
-name|enc
+name|GlyphList
 operator|.
-name|getNameForCharacter
+name|unicodeToName
 argument_list|(
 operator|(
 name|char
@@ -631,9 +645,9 @@ name|assertEquals
 argument_list|(
 literal|"divisionslash"
 argument_list|,
-name|enc
+name|GlyphList
 operator|.
-name|getNameForCharacter
+name|unicodeToName
 argument_list|(
 operator|(
 name|char
@@ -660,9 +674,9 @@ name|assertEquals
 argument_list|(
 literal|"mu1"
 argument_list|,
-name|enc
+name|GlyphList
 operator|.
-name|getNameForCharacter
+name|unicodeToName
 argument_list|(
 operator|(
 name|char
@@ -699,9 +713,9 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|enc
+name|GlyphList
 operator|.
-name|getNameForCharacter
+name|unicodeToName
 argument_list|(
 operator|(
 name|char

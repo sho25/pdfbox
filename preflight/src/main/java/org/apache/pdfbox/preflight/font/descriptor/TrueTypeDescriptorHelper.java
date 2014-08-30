@@ -451,7 +451,7 @@ argument_list|()
 operator|&&
 name|ttf
 operator|.
-name|getCMAP
+name|getCmap
 argument_list|()
 operator|.
 name|getCmaps
