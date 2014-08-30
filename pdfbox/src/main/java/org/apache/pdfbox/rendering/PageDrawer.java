@@ -1283,6 +1283,7 @@ name|Matrix
 argument_list|()
 expr_stmt|;
 block|}
+comment|// PDF Spec 12.5.5:
 comment|// a) The appearance's bounding box (specified by its BBox entry)
 comment|// shall be transformed, using Matrix, to produce a quadrilateral
 comment|// with arbitrary orientation.
@@ -1429,10 +1430,10 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// Spec 12.5.5:
+comment|// PDF Spec 12.5.5:
 comment|// b) A matrix A shall be computed that scales and translates
 comment|// the transformed appearance box to align with the edges
-comment|// of the annotation?s rectangle
+comment|// of the annotation's rectangle
 comment|//
 comment|// code inspired from
 comment|// http://stackoverflow.com/a/14015713/535646
@@ -1514,9 +1515,10 @@ argument_list|(
 name|at
 argument_list|)
 expr_stmt|;
+comment|// PDF Spec 12.5.5:
 comment|// c) Matrix shall be concatenated with A to form a matrix AA
-comment|// that maps from the appearance?s coordinate system to
-comment|// the annotation?s rectangle in default user space
+comment|// that maps from the appearance's coordinate system to
+comment|// the annotation's rectangle in default user space
 name|Matrix
 name|matrixAA
 init|=
@@ -1577,8 +1579,9 @@ name|matrixAA
 argument_list|)
 expr_stmt|;
 comment|// Calculate clipping
-comment|// As per spec: "a self-contained content stream that
-comment|// shall be rendered inside the annotation rectangle"
+comment|// PDF Spec 12.5.5:
+comment|// a self-contained content stream that shall be rendered
+comment|// inside the annotation rectangle
 name|Rectangle2D
 name|clipRect2D
 init|=
