@@ -128,7 +128,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|Type1Glyph2D
+name|CIDType0Glyph2D
 operator|.
 name|class
 argument_list|)
@@ -225,47 +225,6 @@ name|get
 argument_list|(
 name|code
 argument_list|)
-return|;
-block|}
-comment|// don't draw CID 0
-if|if
-condition|(
-name|cid
-operator|==
-literal|0
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"No glyph for "
-operator|+
-name|code
-operator|+
-literal|" (CID 0000) in font "
-operator|+
-name|fontName
-argument_list|)
-expr_stmt|;
-name|GeneralPath
-name|path
-init|=
-operator|new
-name|GeneralPath
-argument_list|()
-decl_stmt|;
-name|cache
-operator|.
-name|put
-argument_list|(
-name|code
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|path
 return|;
 block|}
 try|try
