@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An image in a PDF document.  * @author John Hewson  */
+comment|/**  * An image in a PDF document.  *  * @author John Hewson  */
 end_comment
 
 begin_interface
@@ -145,7 +145,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns a stream containing this image's data.      * @return stream containing the image data      * @throws IOException if the      */
+comment|/**      * Returns a stream containing this image's data.      * @throws IOException if the      */
 specifier|public
 name|PDStream
 name|getStream
@@ -153,7 +153,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns true if the image is a stencil mask.      * @return true if the image is a stencil mask.      */
+comment|/**      * Returns true if the image is a stencil mask.      */
 specifier|public
 name|boolean
 name|isStencil
@@ -168,7 +168,7 @@ name|boolean
 name|isStencil
 parameter_list|)
 function_decl|;
-comment|/**      * Returns bits per component of this image, or -1 if one has not been set.      * @return The number of bits per component.      */
+comment|/**      * Returns bits per component of this image, or -1 if one has not been set.      */
 specifier|public
 name|int
 name|getBitsPerComponent
@@ -183,7 +183,7 @@ name|int
 name|bitsPerComponent
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the image's color space      * @return The color space for this image.      * @throws IOException If there is an error getting the color space.      */
+comment|/**      * Returns the image's color space.      * @throws IOException If there is an error getting the color space.      */
 specifier|public
 name|PDColorSpace
 name|getColorSpace
@@ -200,7 +200,7 @@ name|PDColorSpace
 name|colorSpace
 parameter_list|)
 function_decl|;
-comment|/**      * Returns height of this image, or -1 if one has not been set.      * @return The height.      */
+comment|/**      * Returns height of this image, or -1 if one has not been set.      */
 specifier|public
 name|int
 name|getHeight
@@ -215,7 +215,7 @@ name|int
 name|height
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the width of this image, or -1 if one has not been set.      * @return The width.      */
+comment|/**      * Returns the width of this image, or -1 if one has not been set.      */
 specifier|public
 name|int
 name|getWidth
@@ -239,11 +239,26 @@ name|COSArray
 name|decode
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the decode array.      * @return the decode array.      */
+comment|/**      * Returns the decode array.      */
 specifier|public
 name|COSArray
 name|getDecode
 parameter_list|()
+function_decl|;
+comment|/**      * Returns true if the image should be interpolated when rendered.      */
+specifier|public
+name|boolean
+name|getInterpolate
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the Interpolate flag, true for high-quality image scaling.      */
+specifier|public
+name|void
+name|setInterpolate
+parameter_list|(
+name|boolean
+name|value
+parameter_list|)
 function_decl|;
 block|}
 end_interface
