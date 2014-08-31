@@ -1167,7 +1167,7 @@ name|type1Equivalent
 operator|=
 name|ExternalFonts
 operator|.
-name|getFallbackFont
+name|getType1FallbackFont
 argument_list|(
 name|getFontDescriptor
 argument_list|()

@@ -640,7 +640,7 @@ name|ttfFont
 operator|=
 name|ExternalFonts
 operator|.
-name|getFallbackFont
+name|getTrueTypeFallbackFont
 argument_list|(
 name|getFontDescriptor
 argument_list|()
