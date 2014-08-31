@@ -125,17 +125,6 @@ name|PDDeviceRGB
 extends|extends
 name|PDDeviceColorSpace
 block|{
-comment|/**  This is the single instance of this class. */
-specifier|public
-specifier|static
-specifier|final
-name|PDDeviceRGB
-name|INSTANCE
-init|=
-operator|new
-name|PDDeviceRGB
-argument_list|()
-decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
@@ -171,6 +160,17 @@ block|,
 literal|0
 block|}
 argument_list|)
+decl_stmt|;
+comment|/**  This is the single instance of this class. */
+specifier|public
+specifier|static
+specifier|final
+name|PDDeviceRGB
+name|INSTANCE
+init|=
+operator|new
+name|PDDeviceRGB
+argument_list|()
 decl_stmt|;
 specifier|private
 name|PDDeviceRGB
