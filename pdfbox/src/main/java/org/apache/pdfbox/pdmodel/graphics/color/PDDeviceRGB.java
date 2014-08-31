@@ -175,7 +175,27 @@ decl_stmt|;
 specifier|private
 name|PDDeviceRGB
 parameter_list|()
-block|{     }
+block|{
+comment|// there is a JVM bug which results in a CMMException which appears to be a race
+comment|// condition caused by lazy initialization of the color transform, so we perform
+comment|// an initial color conversion while we're still in a static context, see PDFBOX-2184
+name|COLOR_SPACE_RGB
+operator|.
+name|toRGB
+argument_list|(
+operator|new
+name|float
+index|[]
+block|{
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|public
