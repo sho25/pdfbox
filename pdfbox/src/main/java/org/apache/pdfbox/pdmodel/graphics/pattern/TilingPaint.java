@@ -1155,12 +1155,12 @@ operator|.
 name|getShearY
 argument_list|()
 argument_list|,
+operator|-
 name|xform
 operator|.
 name|getShearX
 argument_list|()
 argument_list|,
-operator|-
 name|xform
 operator|.
 name|getScaleY

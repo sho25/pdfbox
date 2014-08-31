@@ -871,6 +871,11 @@ specifier|private
 name|Graphics2D
 name|graphics
 decl_stmt|;
+comment|// initial transform
+specifier|private
+name|AffineTransform
+name|xform
+decl_stmt|;
 comment|// clipping winding rule used for the clipping path
 specifier|private
 name|int
@@ -996,6 +1001,13 @@ operator|(
 name|Graphics2D
 operator|)
 name|g
+expr_stmt|;
+name|xform
+operator|=
+name|graphics
+operator|.
+name|getTransform
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -2891,10 +2903,7 @@ argument_list|,
 name|getSubStreamMatrix
 argument_list|()
 argument_list|,
-name|graphics
-operator|.
-name|getTransform
-argument_list|()
+name|xform
 argument_list|,
 operator|(
 name|int
@@ -2940,10 +2949,7 @@ argument_list|,
 name|getSubStreamMatrix
 argument_list|()
 argument_list|,
-name|graphics
-operator|.
-name|getTransform
-argument_list|()
+name|xform
 argument_list|,
 operator|(
 name|int
@@ -3602,10 +3608,7 @@ argument_list|,
 name|getSubStreamMatrix
 argument_list|()
 argument_list|,
-name|graphics
-operator|.
-name|getTransform
-argument_list|()
+name|xform
 argument_list|,
 operator|(
 name|int
