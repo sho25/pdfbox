@@ -205,13 +205,11 @@ name|this
 operator|.
 name|ttf
 operator|.
-name|getGlyph
+name|getMaximumProfile
 argument_list|()
 operator|.
-name|getGlyphs
+name|getNumGlyphs
 argument_list|()
-operator|.
-name|length
 operator|>
 name|glyphIndex
 condition|)

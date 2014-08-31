@@ -844,11 +844,10 @@ operator|.
 name|getGlyph
 argument_list|()
 operator|.
-name|getGlyphs
-argument_list|()
-index|[
+name|getGlyph
+argument_list|(
 name|gid
-index|]
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
