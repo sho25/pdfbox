@@ -41,6 +41,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -597,7 +607,7 @@ operator|=
 name|destStream
 expr_stmt|;
 block|}
-comment|/**      * Add a source file to the list of files to merge.      *      * @param source Full path and file name of source document.      */
+comment|/**      * Add a source file to the list of files to merge.      *      * @param source Full path and file name of source document.      *       * @throws FileNotFoundException If the file doesn't exist      */
 specifier|public
 name|void
 name|addSource
@@ -605,8 +615,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|)
-block|{
-try|try
+throws|throws
+name|FileNotFoundException
 block|{
 name|sources
 operator|.
@@ -624,22 +634,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-comment|/**      * Add a source file to the list of files to merge.      *      * @param source File representing source document      */
+comment|/**      * Add a source file to the list of files to merge.      *      * @param source File representing source document      *       * @throws FileNotFoundException If the file doesn't exist      */
 specifier|public
 name|void
 name|addSource
@@ -647,8 +642,8 @@ parameter_list|(
 name|File
 name|source
 parameter_list|)
-block|{
-try|try
+throws|throws
+name|FileNotFoundException
 block|{
 name|sources
 operator|.
@@ -661,21 +656,6 @@ name|source
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Add a source to the list of documents to merge.      *      * @param source InputStream representing source document      */
 specifier|public
@@ -1180,20 +1160,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
 block|}
 name|COSArray
 name|destThreads
