@@ -804,7 +804,7 @@ block|}
 block|}
 block|}
 comment|/**      * Returns the width of a glyph in the embedded font file.      *      * @param code character code      * @return width in glyph space      * @throws IOException if the font could not be read      */
-specifier|protected
+specifier|public
 specifier|abstract
 name|float
 name|getWidthFromFont

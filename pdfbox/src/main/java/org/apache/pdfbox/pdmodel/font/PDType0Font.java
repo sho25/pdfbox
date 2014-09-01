@@ -813,7 +813,7 @@ return|;
 block|}
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 name|float
 name|getWidthFromFont
 parameter_list|(
