@@ -921,10 +921,6 @@ name|Glyph2D
 argument_list|>
 argument_list|()
 decl_stmt|;
-specifier|private
-name|PDRectangle
-name|pageSize
-decl_stmt|;
 comment|/**      * Default constructor, loads properties from file.      *       * @throws IOException If there is an error loading properties from the file.      */
 specifier|public
 name|PageDrawer
@@ -1102,12 +1098,6 @@ operator|.
 name|JOIN_MITER
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|pageSize
-operator|=
-name|pageSize
 expr_stmt|;
 comment|// Only if there is some content, we have to process it.
 comment|// Otherwise we are done here and we will produce an empty page
@@ -1783,10 +1773,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|pageSize
-operator|=
-name|pageDimension
-expr_stmt|;
 name|graphics
 operator|=
 name|g
@@ -2891,14 +2877,6 @@ name|getSubStreamMatrix
 argument_list|()
 argument_list|,
 name|xform
-argument_list|,
-operator|(
-name|int
-operator|)
-name|pageSize
-operator|.
-name|getHeight
-argument_list|()
 argument_list|)
 argument_list|,
 name|graphicsState
@@ -2937,14 +2915,6 @@ name|getSubStreamMatrix
 argument_list|()
 argument_list|,
 name|xform
-argument_list|,
-operator|(
-name|int
-operator|)
-name|pageSize
-operator|.
-name|getHeight
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -3570,14 +3540,6 @@ name|getSubStreamMatrix
 argument_list|()
 argument_list|,
 name|xform
-argument_list|,
-operator|(
-name|int
-operator|)
-name|pageSize
-operator|.
-name|getHeight
-argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

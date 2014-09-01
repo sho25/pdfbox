@@ -458,9 +458,6 @@ name|substreamMatrix
 parameter_list|,
 name|AffineTransform
 name|xform
-parameter_list|,
-name|int
-name|pageHeight
 parameter_list|)
 throws|throws
 name|IOException
