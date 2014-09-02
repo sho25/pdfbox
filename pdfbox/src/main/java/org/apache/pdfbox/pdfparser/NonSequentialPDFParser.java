@@ -5428,6 +5428,45 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|endStream
+operator|.
+name|equals
+argument_list|(
+literal|"endobj"
+argument_list|)
+operator|&&
+name|isLenient
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"stream ends with 'endobj' instead of 'endstream' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// avoid follow-up warning about missing endobj
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
+literal|"endobj"
+operator|.
+name|getBytes
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 operator|!
 name|endStream
 operator|.
@@ -5441,7 +5480,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Error reading stream using length value. Expected='endstream' actual='"
+literal|"Error reading stream, expected='endstream' actual='"
 operator|+
 name|endStream
 operator|+
