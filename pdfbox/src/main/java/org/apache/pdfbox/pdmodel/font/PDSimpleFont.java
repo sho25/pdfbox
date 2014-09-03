@@ -903,7 +903,7 @@ name|code
 operator|+
 literal|") in font "
 operator|+
-name|getBaseFont
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -920,7 +920,7 @@ name|code
 operator|+
 literal|" in font "
 operator|+
-name|getBaseFont
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
