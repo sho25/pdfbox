@@ -306,7 +306,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a color space given a name or array.      * @param colorSpace the color space COS object      * @param colorSpaces the ColorSpace dictionary from the current resources, if any      * @param patterns The Pattern dictionary from the current resources, if any      * @return a new color space      * @throws IOException if the color space is unknown or cannot be created      */
+comment|/**      * Creates a color space given a name or array.      * @param colorSpace the color space COS object      * @param colorSpaces the ColorSpace dictionary from the current resources, if any      * @param patterns The Pattern dictionary from the current resources, if any      * @return a new color space      * @throws MissingException if the color space is missing from the resources dictionary      * @throws IOException if the color space is unknown or cannot be created      */
 specifier|public
 specifier|static
 name|PDColorSpace
@@ -496,15 +496,14 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IOException
+name|MissingException
 argument_list|(
-literal|"The color space '"
+literal|"Missing color space: "
 operator|+
 name|name
-operator|+
-literal|"' does not exist in the "
-operator|+
-literal|"current page's resources"
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1024,6 +1023,27 @@ block|{
 return|return
 name|array
 return|;
+block|}
+specifier|public
+specifier|static
+class|class
+name|MissingException
+extends|extends
+name|IOException
+block|{
+specifier|private
+name|MissingException
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
