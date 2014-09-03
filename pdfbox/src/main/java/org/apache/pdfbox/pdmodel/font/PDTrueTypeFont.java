@@ -665,7 +665,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// TTF fonts don't have PostScript Encoding vectors
+comment|// for symbolic fonts the (3, 0) (Windows, Symbol) cmap is the font's built-in encoding
+comment|// but this is handled by codeToGID
 return|return
 literal|null
 return|;
@@ -902,11 +903,6 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|getEncoding
-argument_list|()
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|isSymbolic
 argument_list|()
@@ -916,8 +912,7 @@ block|{
 name|String
 name|name
 init|=
-name|getEncoding
-argument_list|()
+name|encoding
 operator|.
 name|getName
 argument_list|(

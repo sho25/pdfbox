@@ -301,17 +301,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// and for a symbolic font, it is the font's built-in encoding."
+comment|// and for a symbolic font, it is the font's built-in encoding.
+if|if
+condition|(
+name|builtIn
+operator|!=
+literal|null
+condition|)
+block|{
 name|baseEncoding
 operator|=
 name|builtIn
 expr_stmt|;
-if|if
-condition|(
-name|builtIn
-operator|==
-literal|null
-condition|)
+block|}
+else|else
 block|{
 throw|throw
 operator|new
