@@ -509,12 +509,6 @@ return|return
 name|stream
 return|;
 block|}
-comment|/**      * Calling this will release all cached information.      */
-specifier|public
-name|void
-name|clearCache
-parameter_list|()
-block|{     }
 block|}
 end_class
 

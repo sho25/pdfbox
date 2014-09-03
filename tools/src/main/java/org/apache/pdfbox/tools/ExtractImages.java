@@ -1159,11 +1159,6 @@ argument_list|,
 name|directJPEG
 argument_list|)
 expr_stmt|;
-name|image
-operator|.
-name|clearCache
-argument_list|()
-expr_stmt|;
 block|}
 comment|// maybe there are more images embedded in a form object
 elseif|else

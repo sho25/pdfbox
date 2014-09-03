@@ -1467,12 +1467,6 @@ name|boolean
 name|isVertical
 parameter_list|()
 function_decl|;
-comment|/**      * Calling this will release all cached information.      */
-specifier|public
-name|void
-name|clear
-parameter_list|()
-block|{     }
 annotation|@
 name|Override
 specifier|public
