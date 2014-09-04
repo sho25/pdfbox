@@ -297,7 +297,7 @@ specifier|private
 name|PDColorSpace
 name|underlyingColorSpace
 decl_stmt|;
-comment|/**      * Creates a new pattern color space.      */
+comment|/**      * Creates a new pattern color space.      *       * @param patterns The pattern map.      */
 specifier|public
 name|PDPattern
 parameter_list|(
@@ -317,7 +317,7 @@ operator|=
 name|patterns
 expr_stmt|;
 block|}
-comment|/**      * Creates a new uncolored tiling pattern color space.      */
+comment|/**      * Creates a new uncolored tiling pattern color space.      *       * @param patterns The pattern map.      * @param colorSpace The underlying colorspace.      */
 specifier|public
 name|PDPattern
 parameter_list|(
@@ -598,7 +598,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"shadingPattern ist null, will be filled with transparency"
+literal|"shadingPattern is null, will be filled with transparency"
 argument_list|)
 expr_stmt|;
 return|return
@@ -654,7 +654,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Returns the pattern for the given color.      * @param color color containing a pattern name      * @return pattern for the given color      */
+comment|/**      * Returns the pattern for the given color.      *       * @param color color containing a pattern name      *       * @return pattern for the given color      *       * @throws java.io.IOException if the pattern name was not found.      */
 specifier|public
 specifier|final
 name|PDAbstractPattern
