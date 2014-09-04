@@ -1924,9 +1924,6 @@ parameter_list|(
 name|byte
 index|[]
 name|string
-parameter_list|,
-name|float
-name|adjustment
 parameter_list|)
 throws|throws
 name|IOException
@@ -1969,8 +1966,6 @@ operator|.
 name|showText
 argument_list|(
 name|string
-argument_list|,
-name|adjustment
 argument_list|)
 expr_stmt|;
 comment|// apply the buffered clip as one area

@@ -143,7 +143,7 @@ argument_list|)
 decl_stmt|;
 name|context
 operator|.
-name|showText
+name|showTextString
 argument_list|(
 name|string
 operator|.
