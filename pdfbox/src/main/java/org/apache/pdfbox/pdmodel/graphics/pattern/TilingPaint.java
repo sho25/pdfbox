@@ -306,7 +306,7 @@ name|TilingPaint
 extends|extends
 name|TexturePaint
 block|{
-comment|/**      * Creates a new colored tiling Paint.      *      * @param pattern tiling pattern dictionary      */
+comment|/**      * Creates a new colored tiling Paint.      *      * @param renderer renderer to render the page      * @param pattern tiling pattern dictionary      * @param matrix initial substream transformation matrix      * @param xform initial graphics transform of the page      *       * @throws java.io.IOException if something goes wrong while drawing the      * pattern      */
 specifier|public
 name|TilingPaint
 parameter_list|(
@@ -351,7 +351,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new uncolored tiling Paint.      *      * @param pattern tiling pattern dictionary      * @param colorSpace color space for this tiling      * @param color color for this tiling      */
+comment|/**      * Creates a new uncolored tiling Paint.      *      * @param renderer renderer to render the page      * @param pattern tiling pattern dictionary      * @param colorSpace color space for this tiling      * @param color color for this tiling      * @param matrix initial substream transformation matrix      * @param xform initial graphics transform of the page      *       * @throws java.io.IOException if something goes wrong while drawing the pattern      */
 specifier|public
 name|TilingPaint
 parameter_list|(
