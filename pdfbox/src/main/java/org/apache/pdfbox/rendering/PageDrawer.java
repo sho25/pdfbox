@@ -993,7 +993,7 @@ name|KEY_INTERPOLATION
 argument_list|,
 name|RenderingHints
 operator|.
-name|VALUE_INTERPOLATION_BILINEAR
+name|VALUE_INTERPOLATION_BICUBIC
 argument_list|)
 expr_stmt|;
 name|graphics
@@ -3670,18 +3670,10 @@ name|getInterpolate
 argument_list|()
 condition|)
 block|{
-name|graphics
-operator|.
-name|setRenderingHint
-argument_list|(
-name|RenderingHints
-operator|.
-name|KEY_INTERPOLATION
-argument_list|,
-name|RenderingHints
-operator|.
-name|VALUE_INTERPOLATION_BICUBIC
-argument_list|)
+comment|// JDK 1.7 has a bug where rendering hints are reset by the above call to
+comment|// the setRenderingHint method, so we re-set all hints, see PDFBOX-2302
+name|setRenderingHints
+argument_list|()
 expr_stmt|;
 block|}
 block|}
