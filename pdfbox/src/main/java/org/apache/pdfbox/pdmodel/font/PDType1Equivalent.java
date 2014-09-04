@@ -54,17 +54,6 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
-comment|/**      * Returns true if the font contains a glyph with the given name.      */
-specifier|public
-name|boolean
-name|hasGlyph
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 comment|/**      * Returns the glyph name for the given character code.      *      * @param code character code      * @return PostScript glyph name      */
 specifier|public
 name|String
@@ -73,6 +62,8 @@ parameter_list|(
 name|int
 name|code
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Returns the glyph path for the given character code.      * @param name PostScript glyph name      * @throws java.io.IOException if the font could not be read      */
 specifier|public

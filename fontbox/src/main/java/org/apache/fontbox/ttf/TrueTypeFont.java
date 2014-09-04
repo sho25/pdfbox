@@ -1312,6 +1312,13 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|gid
+operator|!=
+literal|null
+condition|)
+block|{
 name|int
 name|width
 init|=
@@ -1343,6 +1350,16 @@ block|}
 return|return
 name|width
 return|;
+block|}
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+name|name
+operator|+
+literal|" is not in the 'post' table"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
