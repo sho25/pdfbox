@@ -3228,6 +3228,16 @@ argument_list|,
 literal|"readonly"
 argument_list|)
 expr_stmt|;
+name|readMaybe
+argument_list|(
+name|Token
+operator|.
+name|NAME
+argument_list|,
+literal|"noaccess"
+argument_list|)
+expr_stmt|;
+comment|// allows "noaccess ND" (not in the Type 1 spec)
 name|Token
 name|token
 init|=
