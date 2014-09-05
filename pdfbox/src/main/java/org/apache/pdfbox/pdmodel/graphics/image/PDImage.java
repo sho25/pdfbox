@@ -260,6 +260,12 @@ name|boolean
 name|value
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the suffix for this image type, e.g. "jpg"      */
+specifier|public
+name|String
+name|getSuffix
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
