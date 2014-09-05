@@ -921,7 +921,7 @@ name|Glyph2D
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Default constructor, loads properties from file.      *       * @throws IOException If there is an error loading properties from the file.      */
+comment|/**      * Default constructor, loads properties from file.      *       * @param renderer renderer to render the page.      * @param page the page that is to be rendered.      *       * @throws IOException If there is an error loading properties from the file.      */
 specifier|public
 name|PageDrawer
 parameter_list|(
@@ -946,7 +946,7 @@ operator|=
 name|renderer
 expr_stmt|;
 block|}
-comment|/**      * Tiling pattern constructor, loads properties from file.      *      * @throws IOException If there is an error loading properties from the file.      */
+comment|/**      * Tiling pattern constructor, loads properties from file.      *       * @param renderer renderer to render the page.      *       * @throws IOException If there is an error loading properties from the file.      */
 name|PageDrawer
 parameter_list|(
 name|PDFRenderer
