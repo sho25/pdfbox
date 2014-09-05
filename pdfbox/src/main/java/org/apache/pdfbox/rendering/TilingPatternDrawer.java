@@ -36,7 +36,7 @@ name|TilingPatternDrawer
 extends|extends
 name|PageDrawer
 block|{
-comment|/**      * Tiling pattern constructor, loads properties from file.      *      * @throws java.io.IOException If there is an error loading properties from the file.      */
+comment|/**      * Tiling pattern constructor, loads properties from file.      *      * @param renderer renderer to render the page.      *       * @throws java.io.IOException If there is an error loading properties from the file.      */
 specifier|public
 name|TilingPatternDrawer
 parameter_list|(
