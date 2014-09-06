@@ -145,7 +145,6 @@ end_comment
 
 begin_class
 specifier|public
-specifier|final
 class|class
 name|PDDeviceCMYK
 extends|extends
@@ -154,7 +153,6 @@ block|{
 comment|/**  The single instance of this class. */
 specifier|public
 specifier|static
-specifier|final
 name|PDDeviceCMYK
 name|INSTANCE
 decl_stmt|;
