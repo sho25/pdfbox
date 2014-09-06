@@ -581,7 +581,7 @@ name|ttf
 operator|=
 name|ttfParser
 operator|.
-name|parseTTF
+name|parse
 argument_list|(
 name|otfFile
 argument_list|)
@@ -948,7 +948,7 @@ name|ttf
 operator|=
 name|ttfParser
 operator|.
-name|parseTTF
+name|parse
 argument_list|(
 name|file
 argument_list|)

@@ -236,7 +236,7 @@ name|arial
 init|=
 name|parser
 operator|.
-name|parseTTF
+name|parse
 argument_list|(
 name|arialIs
 argument_list|)

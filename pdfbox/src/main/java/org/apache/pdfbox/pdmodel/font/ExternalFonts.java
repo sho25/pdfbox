@@ -369,7 +369,7 @@ name|ttfFallbackFont
 operator|=
 name|ttfParser
 operator|.
-name|parseTTF
+name|parse
 argument_list|(
 name|ttfStream
 argument_list|)

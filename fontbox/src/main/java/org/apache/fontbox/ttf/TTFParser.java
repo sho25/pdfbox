@@ -118,7 +118,7 @@ block|}
 comment|/**      * Parse a file and get a true type font.      *      * @param ttfFile The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
 specifier|public
 name|TrueTypeFont
-name|parseTTF
+name|parse
 parameter_list|(
 name|String
 name|ttfFile
@@ -127,7 +127,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|parseTTF
+name|parse
 argument_list|(
 operator|new
 name|File
@@ -140,7 +140,7 @@ block|}
 comment|/**      * Parse a file and get a true type font.      *      * @param ttfFile The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
 specifier|public
 name|TrueTypeFont
-name|parseTTF
+name|parse
 parameter_list|(
 name|File
 name|ttfFile
@@ -149,7 +149,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|parseTTF
+name|parse
 argument_list|(
 operator|new
 name|RAFDataStream
@@ -164,7 +164,7 @@ block|}
 comment|/**      * Parse a file and get a true type font.      *      * @param ttfData The TTF data to parse.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
 specifier|public
 name|TrueTypeFont
-name|parseTTF
+name|parse
 parameter_list|(
 name|InputStream
 name|ttfData
@@ -173,7 +173,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|parseTTF
+name|parse
 argument_list|(
 operator|new
 name|MemoryTTFDataStream
@@ -186,7 +186,7 @@ block|}
 comment|/**      * Parse a file and get a true type font.      *      * @param raf The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
 specifier|public
 name|TrueTypeFont
-name|parseTTF
+name|parse
 parameter_list|(
 name|TTFDataStream
 name|raf
@@ -197,8 +197,7 @@ block|{
 name|TrueTypeFont
 name|font
 init|=
-operator|new
-name|TrueTypeFont
+name|newFont
 argument_list|(
 name|raf
 argument_list|)
@@ -293,6 +292,22 @@ expr_stmt|;
 block|}
 return|return
 name|font
+return|;
+block|}
+specifier|protected
+name|TrueTypeFont
+name|newFont
+parameter_list|(
+name|TTFDataStream
+name|raf
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TrueTypeFont
+argument_list|(
+name|raf
+argument_list|)
 return|;
 block|}
 comment|/**      * Parse all tables and check if all needed tables are present.      *      * @param font the TrueTypeFont instance holding the parsed data.      * @param raf the data stream of the to be parsed ttf font      * @throws IOException If there is an error parsing the true type font.      */
@@ -549,7 +564,7 @@ throws|throws
 name|IOException
 block|{
 name|TTFTable
-name|retval
+name|table
 init|=
 literal|null
 decl_stmt|;
@@ -575,7 +590,7 @@ name|TAG
 argument_list|)
 condition|)
 block|{
-name|retval
+name|table
 operator|=
 operator|new
 name|CmapTable
@@ -595,7 +610,7 @@ name|TAG
 argument_list|)
 condition|)
 block|{
-name|retval
+name|table
 operator|=
 operator|new
 name|GlyphTable
@@ -615,7 +630,7 @@ name|TAG
 argument_list|)
 condition|)
 block|{
-name|retval
+name|table
 operator|=
 operator|new
 name|HeaderTable
@@ -635,7 +650,7 @@ name|TAG
 argument_list|)
 condition|)
 block|{
-name|retval
+name|table
 operator|=
 operator|new
 name|HorizontalHeaderTable
@@ -655,7 +670,7 @@ name|TAG
 argument_list|)
 condition|)
 block|{
-name|retval
+name|table
 operator|=
 operator|new
 name|HorizontalMetricsTable
@@ -675,7 +690,7 @@ name|TAG
 argument_list|)
 condition|)
 block|{
-name|retval
+name|table
 operator|=
 operator|new
 name|IndexToLocationTable
@@ -695,7 +710,7 @@ name|TAG
 argument_list|)
 condition|)
 block|{
-name|retval
+name|table
 operator|=
 operator|new
 name|MaximumProfileTable
@@ -715,7 +730,7 @@ name|TAG
 argument_list|)
 condition|)
 block|{
-name|retval
+name|table
 operator|=
 operator|new
 name|NamingTable
@@ -735,7 +750,7 @@ name|TAG
 argument_list|)
 condition|)
 block|{
-name|retval
+name|table
 operator|=
 operator|new
 name|OS2WindowsMetricsTable
@@ -755,7 +770,7 @@ name|TAG
 argument_list|)
 condition|)
 block|{
-name|retval
+name|table
 operator|=
 operator|new
 name|PostScriptTable
@@ -775,7 +790,7 @@ name|TAG
 argument_list|)
 condition|)
 block|{
-name|retval
+name|table
 operator|=
 operator|new
 name|DigitalSignatureTable
@@ -784,22 +799,22 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// unknown table type but read it anyway.
-name|retval
+name|table
 operator|=
-operator|new
-name|TTFTable
-argument_list|()
+name|readTable
+argument_list|(
+name|tag
+argument_list|)
 expr_stmt|;
 block|}
-name|retval
+name|table
 operator|.
 name|setTag
 argument_list|(
 name|tag
 argument_list|)
 expr_stmt|;
-name|retval
+name|table
 operator|.
 name|setCheckSum
 argument_list|(
@@ -809,7 +824,7 @@ name|readUnsignedInt
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|table
 operator|.
 name|setOffset
 argument_list|(
@@ -819,7 +834,7 @@ name|readUnsignedInt
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|retval
+name|table
 operator|.
 name|setLength
 argument_list|(
@@ -830,7 +845,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|retval
+name|table
+return|;
+block|}
+specifier|protected
+name|TTFTable
+name|readTable
+parameter_list|(
+name|String
+name|tag
+parameter_list|)
+block|{
+comment|// unknown table type but read it anyway.
+return|return
+operator|new
+name|TTFTable
+argument_list|()
 return|;
 block|}
 block|}

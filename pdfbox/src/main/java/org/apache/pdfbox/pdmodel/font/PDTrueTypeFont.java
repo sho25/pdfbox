@@ -544,7 +544,7 @@ name|ttfFont
 operator|=
 name|ttfParser
 operator|.
-name|parseTTF
+name|parse
 argument_list|(
 name|ff2Stream
 operator|.

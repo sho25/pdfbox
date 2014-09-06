@@ -153,7 +153,7 @@ name|advanceWidths
 init|=
 literal|null
 decl_stmt|;
-specifier|private
+specifier|protected
 name|Map
 argument_list|<
 name|String

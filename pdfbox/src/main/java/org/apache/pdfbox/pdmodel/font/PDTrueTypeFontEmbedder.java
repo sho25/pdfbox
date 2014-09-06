@@ -553,7 +553,7 @@ operator|new
 name|TTFParser
 argument_list|()
 operator|.
-name|parseTTF
+name|parse
 argument_list|(
 name|stream2
 argument_list|)

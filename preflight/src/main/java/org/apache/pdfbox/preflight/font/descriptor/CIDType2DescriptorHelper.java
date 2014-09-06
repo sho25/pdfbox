@@ -549,7 +549,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|parseTTF
+name|parse
 argument_list|(
 operator|new
 name|ByteArrayInputStream

@@ -132,7 +132,7 @@ name|ttf
 init|=
 name|parser
 operator|.
-name|parseTTF
+name|parse
 argument_list|(
 name|testFile
 argument_list|)
