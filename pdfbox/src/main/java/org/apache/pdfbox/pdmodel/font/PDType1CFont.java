@@ -462,6 +462,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// note: this could be an OpenType file, fortunately CFFParser can handle that
 name|CFFParser
 name|cffParser
 init|=
