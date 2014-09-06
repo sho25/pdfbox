@@ -1010,7 +1010,8 @@ decl_stmt|;
 name|String
 name|name
 init|=
-name|GlyphList
+name|getGlyphList
+argument_list|()
 operator|.
 name|unicodeToName
 argument_list|(

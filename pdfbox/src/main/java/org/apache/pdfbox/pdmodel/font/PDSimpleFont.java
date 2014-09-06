@@ -336,6 +336,10 @@ specifier|protected
 name|Encoding
 name|encoding
 decl_stmt|;
+specifier|protected
+name|GlyphList
+name|glyphList
+decl_stmt|;
 specifier|private
 specifier|final
 name|Set
@@ -351,6 +355,7 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// for logging
 comment|/**      * Constructor      */
 specifier|protected
 name|PDSimpleFont
@@ -578,6 +583,34 @@ name|readEncodingFromFont
 argument_list|()
 expr_stmt|;
 block|}
+comment|// assign the glyph list based on the font
+if|if
+condition|(
+name|getBaseFont
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"ZapfDingbats"
+argument_list|)
+condition|)
+block|{
+name|glyphList
+operator|=
+name|GlyphList
+operator|.
+name|ZAPF_DINGBATS
+expr_stmt|;
+block|}
+else|else
+block|{
+name|glyphList
+operator|=
+name|GlyphList
+operator|.
+name|DEFAULT
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Called by readEncoding() if the encoding needs to be extracted from the font file.      *      * @throws IOException if the font file could not be read      */
 specifier|protected
@@ -596,6 +629,16 @@ parameter_list|()
 block|{
 return|return
 name|encoding
+return|;
+block|}
+comment|/**      * Returns the Encoding vector.      */
+specifier|public
+name|GlyphList
+name|getGlyphList
+parameter_list|()
+block|{
+return|return
+name|glyphList
 return|;
 block|}
 annotation|@
@@ -821,8 +864,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|getEncoding
-argument_list|()
+name|encoding
 operator|!=
 literal|null
 condition|)
@@ -838,13 +880,14 @@ argument_list|)
 expr_stmt|;
 name|unicode
 operator|=
-name|GlyphList
+name|glyphList
 operator|.
 name|toUnicode
 argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+comment|// todo: tie a final GlyphList instance to each PDFont in the constructor.
 if|if
 condition|(
 name|unicode

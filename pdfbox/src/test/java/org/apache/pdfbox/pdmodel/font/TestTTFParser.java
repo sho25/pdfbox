@@ -507,6 +507,8 @@ name|assertTrue
 argument_list|(
 name|GlyphList
 operator|.
+name|DEFAULT
+operator|.
 name|unicodeToName
 argument_list|(
 operator|(
@@ -538,6 +540,8 @@ operator|.
 name|assertTrue
 argument_list|(
 name|GlyphList
+operator|.
+name|DEFAULT
 operator|.
 name|unicodeToName
 argument_list|(
@@ -573,6 +577,8 @@ literal|"softhyphen"
 argument_list|,
 name|GlyphList
 operator|.
+name|DEFAULT
+operator|.
 name|unicodeToName
 argument_list|(
 operator|(
@@ -596,6 +602,8 @@ operator|&&
 operator|!
 name|GlyphList
 operator|.
+name|DEFAULT
+operator|.
 name|unicodeToName
 argument_list|(
 operator|(
@@ -617,6 +625,8 @@ argument_list|(
 literal|"bulletoperator"
 argument_list|,
 name|GlyphList
+operator|.
+name|DEFAULT
 operator|.
 name|unicodeToName
 argument_list|(
@@ -647,6 +657,8 @@ literal|"divisionslash"
 argument_list|,
 name|GlyphList
 operator|.
+name|DEFAULT
+operator|.
 name|unicodeToName
 argument_list|(
 operator|(
@@ -675,6 +687,8 @@ argument_list|(
 literal|"mu1"
 argument_list|,
 name|GlyphList
+operator|.
+name|DEFAULT
 operator|.
 name|unicodeToName
 argument_list|(
@@ -714,6 +728,8 @@ operator|.
 name|assertEquals
 argument_list|(
 name|GlyphList
+operator|.
+name|DEFAULT
 operator|.
 name|unicodeToName
 argument_list|(

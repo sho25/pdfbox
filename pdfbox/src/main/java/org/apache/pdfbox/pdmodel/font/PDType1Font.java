@@ -1853,7 +1853,8 @@ comment|// try unicode name
 name|String
 name|unicodes
 init|=
-name|GlyphList
+name|getGlyphList
+argument_list|()
 operator|.
 name|toUnicode
 argument_list|(

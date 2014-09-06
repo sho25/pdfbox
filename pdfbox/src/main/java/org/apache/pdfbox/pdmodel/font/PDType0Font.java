@@ -900,6 +900,8 @@ decl_stmt|;
 return|return
 name|GlyphList
 operator|.
+name|DEFAULT
+operator|.
 name|toUnicode
 argument_list|(
 name|name

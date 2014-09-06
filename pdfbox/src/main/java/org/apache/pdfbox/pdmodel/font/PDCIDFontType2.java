@@ -1098,6 +1098,8 @@ name|unicode
 operator|=
 name|GlyphList
 operator|.
+name|DEFAULT
+operator|.
 name|toUnicode
 argument_list|(
 name|name
