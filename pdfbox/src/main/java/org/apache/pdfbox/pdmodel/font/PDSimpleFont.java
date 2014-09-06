@@ -887,7 +887,6 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-comment|// todo: tie a final GlyphList instance to each PDFont in the constructor.
 if|if
 condition|(
 name|unicode
