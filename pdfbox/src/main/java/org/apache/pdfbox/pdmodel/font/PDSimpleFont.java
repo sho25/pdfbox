@@ -586,12 +586,12 @@ block|}
 comment|// assign the glyph list based on the font
 if|if
 condition|(
-name|getBaseFont
-argument_list|()
+literal|"ZapfDingbats"
 operator|.
 name|equals
 argument_list|(
-literal|"ZapfDingbats"
+name|getBaseFont
+argument_list|()
 argument_list|)
 condition|)
 block|{
