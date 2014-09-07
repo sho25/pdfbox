@@ -2220,7 +2220,7 @@ name|stream
 return|;
 block|}
 comment|/**      * This method will read through the current stream object until      * we find the keyword "endstream" meaning we're at the end of this      * object. Some pdf files, however, forget to write some endstream tags      * and just close off objects with an "endobj" tag so we have to handle      * this case as well.      *       * This method is optimized using buffered IO and reduced number of      * byte compare operations.      *       * @param out  stream we write out to.      *       * @throws IOException      */
-specifier|private
+specifier|protected
 name|void
 name|readUntilEndStream
 parameter_list|(
