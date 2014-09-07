@@ -293,6 +293,28 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"PDRange{"
+operator|+
+name|getMin
+argument_list|()
+operator|+
+literal|", "
+operator|+
+name|getMax
+argument_list|()
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 
