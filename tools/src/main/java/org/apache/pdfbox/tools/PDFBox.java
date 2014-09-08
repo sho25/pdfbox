@@ -393,7 +393,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"PDFDBox version: \""
+literal|"PDFBox version: \""
 operator|+
 name|Version
 operator|.
