@@ -449,7 +449,6 @@ argument_list|,
 name|i
 argument_list|)
 condition|)
-empty_stmt|;
 block|{
 if|if
 condition|(
