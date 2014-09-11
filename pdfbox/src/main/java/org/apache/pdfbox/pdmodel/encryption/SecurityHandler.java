@@ -1955,7 +1955,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will decrypt an array.      *      * @param array The array to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error accessing the data.      */
-specifier|private
+specifier|public
 name|void
 name|decryptArray
 parameter_list|(
