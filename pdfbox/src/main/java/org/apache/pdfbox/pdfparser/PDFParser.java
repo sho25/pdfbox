@@ -2501,6 +2501,18 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
+comment|// signal start of new XRef
+name|xrefTrailerResolver
+operator|.
+name|nextXrefObj
+argument_list|(
+name|startByteOffset
+argument_list|,
+name|XRefType
+operator|.
+name|TABLE
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|str
@@ -2522,18 +2534,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|// signal start of new XRef
-name|xrefTrailerResolver
-operator|.
-name|nextXrefObj
-argument_list|(
-name|startByteOffset
-argument_list|,
-name|XRefType
-operator|.
-name|TABLE
-argument_list|)
-expr_stmt|;
 comment|/*          * Xref tables can have multiple sections.          * Each starts with a starting object id and a count.          */
 while|while
 condition|(
