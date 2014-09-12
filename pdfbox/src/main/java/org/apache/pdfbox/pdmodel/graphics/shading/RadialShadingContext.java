@@ -465,6 +465,37 @@ operator|.
 name|getScaleX
 argument_list|()
 expr_stmt|;
+comment|// a radius is always positive
+name|coords
+index|[
+literal|2
+index|]
+operator|=
+name|Math
+operator|.
+name|abs
+argument_list|(
+name|coords
+index|[
+literal|2
+index|]
+argument_list|)
+expr_stmt|;
+name|coords
+index|[
+literal|5
+index|]
+operator|=
+name|Math
+operator|.
+name|abs
+argument_list|(
+name|coords
+index|[
+literal|5
+index|]
+argument_list|)
+expr_stmt|;
 comment|// domain values
 if|if
 condition|(
