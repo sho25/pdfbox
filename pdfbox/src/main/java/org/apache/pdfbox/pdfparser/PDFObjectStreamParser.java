@@ -373,6 +373,27 @@ operator|.
 name|ZERO
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|objectCounter
+operator|>=
+name|objectNumbers
+operator|.
+name|size
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"/ObjStm (object stream) has more objects than /N "
+operator|+
+name|numberOfObjects
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
 name|COSInteger
 name|objNum
 init|=
