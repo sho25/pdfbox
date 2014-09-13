@@ -1213,8 +1213,6 @@ name|loadNonSeq
 argument_list|(
 name|is
 argument_list|,
-literal|null
-argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;

@@ -1945,8 +1945,6 @@ name|loadNonSeq
 argument_list|(
 name|file
 argument_list|,
-literal|null
-argument_list|,
 name|password
 argument_list|)
 expr_stmt|;

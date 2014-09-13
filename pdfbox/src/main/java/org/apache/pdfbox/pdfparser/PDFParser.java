@@ -231,20 +231,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
-operator|.
-name|RandomAccess
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdfparser
 operator|.
 name|XrefTrailerResolver
@@ -300,7 +286,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will handle the parsing of the PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.53 $  */
+comment|/**  * This class will handle the parsing of the PDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -397,12 +383,6 @@ name|tempDirectory
 init|=
 literal|null
 decl_stmt|;
-specifier|private
-name|RandomAccess
-name|raf
-init|=
-literal|null
-decl_stmt|;
 comment|/**      * Constructor.      *      * @param input The input stream that contains the PDF document.      *      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFParser
@@ -417,44 +397,16 @@ name|this
 argument_list|(
 name|input
 argument_list|,
-literal|null
-argument_list|,
 name|FORCE_PARSING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor to allow control over RandomAccessFile.      * @param input The input stream that contains the PDF document.      * @param rafi The RandomAccessFile to be used in internal COSDocument      *      * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor to allow control over RandomAccessFile.      * Also enables parser to skip corrupt objects to try and force parsing      * @param input The input stream that contains the PDF document.      * @param force When true, the parser will skip corrupt pdf objects and      * will continue parsing at the next object in the file      *      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFParser
 parameter_list|(
 name|InputStream
 name|input
-parameter_list|,
-name|RandomAccess
-name|rafi
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|this
-argument_list|(
-name|input
-argument_list|,
-name|rafi
-argument_list|,
-name|FORCE_PARSING
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Constructor to allow control over RandomAccessFile.      * Also enables parser to skip corrupt objects to try and force parsing      * @param input The input stream that contains the PDF document.      * @param rafi The RandomAccessFile to be used in internal COSDocument      * @param force When true, the parser will skip corrupt pdf objects and      * will continue parsing at the next object in the file      *      * @throws IOException If there is an error initializing the stream.      */
-specifier|public
-name|PDFParser
-parameter_list|(
-name|InputStream
-name|input
-parameter_list|,
-name|RandomAccess
-name|rafi
 parameter_list|,
 name|boolean
 name|force
@@ -468,12 +420,6 @@ name|input
 argument_list|,
 name|force
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|raf
-operator|=
-name|rafi
 expr_stmt|;
 block|}
 comment|/**      * This is the directory where pdfbox will create a temporary file      * for storing pdf document stream in.  By default this directory will      * be the value of the system property java.io.tmpdir.      *      * @param tmpDir The directory to create scratch files needed to store      *        pdf document streams.      */
@@ -515,13 +461,6 @@ try|try
 block|{
 if|if
 condition|(
-name|raf
-operator|==
-literal|null
-condition|)
-block|{
-if|if
-condition|(
 name|tempDirectory
 operator|!=
 literal|null
@@ -543,18 +482,6 @@ operator|=
 operator|new
 name|COSDocument
 argument_list|()
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|document
-operator|=
-operator|new
-name|COSDocument
-argument_list|(
-name|raf
-argument_list|)
 expr_stmt|;
 block|}
 name|setDocument
@@ -2023,12 +1950,6 @@ operator|(
 name|COSDictionary
 operator|)
 name|pb
-argument_list|,
-name|getDocument
-argument_list|()
-operator|.
-name|getScratchFile
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// test for XRef type

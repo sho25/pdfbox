@@ -433,34 +433,6 @@ name|pdfbox
 operator|.
 name|io
 operator|.
-name|RandomAccess
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|io
-operator|.
-name|RandomAccessBuffer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|io
-operator|.
 name|RandomAccessBufferedFileInputStream
 import|;
 end_import
@@ -915,16 +887,13 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs parser for given file using given buffer for temporary storage.      *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *       * @throws IOException If something went wrong.      */
-comment|/**      * Constructs parser for given file using given buffer for temporary storage.      *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *       * @throws IOException If something went wrong.      */
+comment|/**      * Constructs parser for given file using given buffer for temporary      * storage.      *       * @param file the pdf to be parsed      *       * @throws IOException If something went wrong.      */
+comment|/**      * Constructs parser for given file using given buffer for temporary      * storage.      *       * @param file the pdf to be parsed      * @param raBuf the buffer to be used for parsing      *       * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
 name|File
 name|file
-parameter_list|,
-name|RandomAccess
-name|raBuf
 parameter_list|)
 throws|throws
 name|IOException
@@ -932,8 +901,6 @@ block|{
 name|this
 argument_list|(
 name|file
-argument_list|,
-name|raBuf
 argument_list|,
 literal|""
 argument_list|)
@@ -947,9 +914,6 @@ parameter_list|(
 name|File
 name|file
 parameter_list|,
-name|RandomAccess
-name|raBuf
-parameter_list|,
 name|String
 name|decryptionPassword
 parameter_list|)
@@ -959,8 +923,6 @@ block|{
 name|super
 argument_list|(
 name|EMPTY_INPUT_STREAM
-argument_list|,
-literal|null
 argument_list|,
 literal|false
 argument_list|)
@@ -981,8 +943,6 @@ name|init
 argument_list|(
 name|file
 argument_list|,
-name|raBuf
-argument_list|,
 name|decryptionPassword
 argument_list|)
 expr_stmt|;
@@ -993,9 +953,6 @@ name|init
 parameter_list|(
 name|File
 name|file
-parameter_list|,
-name|RandomAccess
-name|raBuf
 parameter_list|,
 name|String
 name|decryptionPassword
@@ -1058,27 +1015,9 @@ block|}
 block|}
 name|setDocument
 argument_list|(
-operator|(
-name|raBuf
-operator|==
-literal|null
-operator|)
-condition|?
 operator|new
 name|COSDocument
 argument_list|(
-operator|new
-name|RandomAccessBuffer
-argument_list|()
-argument_list|,
-literal|false
-argument_list|)
-else|:
-operator|new
-name|COSDocument
-argument_list|(
-name|raBuf
-argument_list|,
 literal|false
 argument_list|)
 argument_list|)
@@ -1112,21 +1051,16 @@ name|this
 argument_list|(
 name|input
 argument_list|,
-literal|null
-argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param input input stream representing the pdf.      * @param raBuf the buffer to be used for parsing      * @param decryptionPassword password to be used for decryption.      * @throws IOException If something went wrong.      */
+comment|/**      * Constructor.      *       * @param input input stream representing the pdf.      * @param decryptionPassword password to be used for decryption.      * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
 name|InputStream
 name|input
-parameter_list|,
-name|RandomAccess
-name|raBuf
 parameter_list|,
 name|String
 name|decryptionPassword
@@ -1137,8 +1071,6 @@ block|{
 name|super
 argument_list|(
 name|EMPTY_INPUT_STREAM
-argument_list|,
-literal|null
 argument_list|,
 literal|false
 argument_list|)
@@ -1161,8 +1093,6 @@ expr_stmt|;
 name|init
 argument_list|(
 name|pdfFile
-argument_list|,
-name|raBuf
 argument_list|,
 name|decryptionPassword
 argument_list|)
@@ -2030,12 +1960,6 @@ init|=
 name|parseCOSStream
 argument_list|(
 name|dict
-argument_list|,
-name|getDocument
-argument_list|()
-operator|.
-name|getScratchFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|parseXrefStream
@@ -4346,12 +4270,6 @@ operator|(
 name|COSDictionary
 operator|)
 name|pb
-argument_list|,
-name|getDocument
-argument_list|()
-operator|.
-name|getScratchFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -5147,7 +5065,7 @@ index|[
 name|streamCopyBufLen
 index|]
 decl_stmt|;
-comment|/**      * This will read a COSStream from the input stream using length attribute within dictionary. If length attribute is      * a indirect reference it is first resolved to get the stream length. This means we copy stream data without      * testing for 'endstream' or 'endobj' and thus it is no problem if these keywords occur within stream. We require      * 'endstream' to be found after stream data is read.      *       * @param dic dictionary that goes with this stream.      * @param file file to write the stream to when reading.      *       * @return parsed pdf stream.      *       * @throws IOException if an error occurred reading the stream, like problems with reading length attribute, stream      * does not end with 'endstream' after data read, stream too short etc.      */
+comment|/**      * This will read a COSStream from the input stream using length attribute within dictionary. If length attribute is      * a indirect reference it is first resolved to get the stream length. This means we copy stream data without      * testing for 'endstream' or 'endobj' and thus it is no problem if these keywords occur within stream. We require      * 'endstream' to be found after stream data is read.      *       * @param dic dictionary that goes with this stream.      *       * @return parsed pdf stream.      *       * @throws IOException if an error occurred reading the stream, like problems with reading length attribute, stream      * does not end with 'endstream' after data read, stream too short etc.      */
 annotation|@
 name|Override
 specifier|protected
@@ -5156,9 +5074,6 @@ name|parseCOSStream
 parameter_list|(
 name|COSDictionary
 name|dic
-parameter_list|,
-name|RandomAccess
-name|file
 parameter_list|)
 throws|throws
 name|IOException
@@ -5171,8 +5086,6 @@ operator|new
 name|COSStream
 argument_list|(
 name|dic
-argument_list|,
-name|file
 argument_list|)
 decl_stmt|;
 name|OutputStream

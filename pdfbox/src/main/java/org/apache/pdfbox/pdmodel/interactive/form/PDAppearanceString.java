@@ -828,17 +828,6 @@ operator|new
 name|PDFStreamParser
 argument_list|(
 name|stream
-argument_list|,
-name|acroForm
-operator|.
-name|getDocument
-argument_list|()
-operator|.
-name|getDocument
-argument_list|()
-operator|.
-name|getScratchFile
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|parser
@@ -1740,8 +1729,6 @@ argument_list|(
 literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|daParser
@@ -2168,8 +2155,6 @@ argument_list|(
 literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|streamParser

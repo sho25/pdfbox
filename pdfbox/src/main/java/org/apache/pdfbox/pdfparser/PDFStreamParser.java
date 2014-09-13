@@ -215,20 +215,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
-operator|.
-name|RandomAccess
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|common
@@ -280,11 +266,7 @@ argument_list|(
 literal|100
 argument_list|)
 decl_stmt|;
-specifier|private
-specifier|final
-name|RandomAccess
-name|file
-decl_stmt|;
+comment|//    private final RandomAccess file;
 specifier|private
 specifier|final
 name|int
@@ -311,9 +293,6 @@ parameter_list|(
 name|InputStream
 name|stream
 parameter_list|,
-name|RandomAccess
-name|raf
-parameter_list|,
 name|boolean
 name|forceParsing
 parameter_list|)
@@ -327,20 +306,14 @@ argument_list|,
 name|forceParsing
 argument_list|)
 expr_stmt|;
-name|file
-operator|=
-name|raf
-expr_stmt|;
+comment|//        file = raf;
 block|}
-comment|/**      * Constructor that takes a stream to parse.      *      * @param stream The stream to read data from.      * @param raf The random access file.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * Constructor that takes a stream to parse.      *      * @param stream The stream to read data from.      *      * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 name|PDFStreamParser
 parameter_list|(
 name|InputStream
 name|stream
-parameter_list|,
-name|RandomAccess
-name|raf
 parameter_list|)
 throws|throws
 name|IOException
@@ -348,8 +321,6 @@ block|{
 name|this
 argument_list|(
 name|stream
-argument_list|,
-name|raf
 argument_list|,
 name|FORCE_PARSING
 argument_list|)
@@ -370,14 +341,6 @@ argument_list|(
 name|stream
 operator|.
 name|createInputStream
-argument_list|()
-argument_list|,
-name|stream
-operator|.
-name|getStream
-argument_list|()
-operator|.
-name|getScratchFile
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -402,11 +365,6 @@ operator|.
 name|getUnfilteredStream
 argument_list|()
 argument_list|,
-name|stream
-operator|.
-name|getScratchFile
-argument_list|()
-argument_list|,
 name|forceParsing
 argument_list|)
 expr_stmt|;
@@ -426,11 +384,6 @@ argument_list|(
 name|stream
 operator|.
 name|getUnfilteredStream
-argument_list|()
-argument_list|,
-name|stream
-operator|.
-name|getScratchFile
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -752,8 +705,6 @@ operator|=
 name|parseCOSStream
 argument_list|(
 name|pod
-argument_list|,
-name|file
 argument_list|)
 expr_stmt|;
 block|}

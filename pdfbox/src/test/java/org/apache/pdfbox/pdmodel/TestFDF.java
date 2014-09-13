@@ -1222,14 +1222,6 @@ operator|new
 name|PDFStreamParser
 argument_list|(
 name|stream
-argument_list|,
-name|doc
-operator|.
-name|getDocument
-argument_list|()
-operator|.
-name|getScratchFile
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|parser

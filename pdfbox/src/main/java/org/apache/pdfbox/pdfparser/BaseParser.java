@@ -307,20 +307,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
-operator|.
-name|RandomAccess
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|persistence
 operator|.
 name|util
@@ -1506,16 +1492,13 @@ return|return
 name|obj
 return|;
 block|}
-comment|/**      * This will read a COSStream from the input stream.      *      * @param file The file to write the stream to when reading.      * @param dic The dictionary that goes with this stream.      *      * @return The parsed pdf stream.      *      * @throws IOException If there is an error reading the stream.      */
+comment|/**      * This will read a COSStream from the input stream.      *      * @param dic The dictionary that goes with this stream.      *      * @return The parsed pdf stream.      *      * @throws IOException If there is an error reading the stream.      */
 specifier|protected
 name|COSStream
 name|parseCOSStream
 parameter_list|(
 name|COSDictionary
 name|dic
-parameter_list|,
-name|RandomAccess
-name|file
 parameter_list|)
 throws|throws
 name|IOException
@@ -1527,8 +1510,6 @@ operator|new
 name|COSStream
 argument_list|(
 name|dic
-argument_list|,
-name|file
 argument_list|)
 decl_stmt|;
 name|OutputStream

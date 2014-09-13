@@ -921,8 +921,6 @@ operator|.
 name|load
 argument_list|(
 name|file
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 if|if

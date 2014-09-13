@@ -265,20 +265,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
-operator|.
-name|RandomAccess
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdfparser
 operator|.
 name|BaseParser
@@ -3681,33 +3667,6 @@ name|force
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from a url.      *       * @param url The url to load the PDF from.      * @param scratchFile A location to store temp PDFBox data for this document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
-specifier|public
-specifier|static
-name|PDDocument
-name|load
-parameter_list|(
-name|URL
-name|url
-parameter_list|,
-name|RandomAccess
-name|scratchFile
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|load
-argument_list|(
-name|url
-operator|.
-name|openStream
-argument_list|()
-argument_list|,
-name|scratchFile
-argument_list|)
-return|;
-block|}
 comment|/**      * This will load a document from a file.      *       * @param filename The name of the file to load.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
@@ -3759,36 +3718,6 @@ name|force
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from a file.      *       * @param filename The name of the file to load.      * @param scratchFile A location to store temp PDFBox data for this document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
-specifier|public
-specifier|static
-name|PDDocument
-name|load
-parameter_list|(
-name|String
-name|filename
-parameter_list|,
-name|RandomAccess
-name|scratchFile
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|load
-argument_list|(
-operator|new
-name|File
-argument_list|(
-name|filename
-argument_list|)
-argument_list|,
-name|scratchFile
-argument_list|,
-literal|false
-argument_list|)
-return|;
-block|}
 comment|/**      * This will load a document from a file.      *       * @param file The name of the file to load.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
@@ -3825,108 +3754,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
-name|load
-argument_list|(
-name|file
-argument_list|,
-literal|null
-argument_list|,
-name|force
-argument_list|)
-return|;
-block|}
-comment|/**      * This will load a document from an input stream.      *       * @param input The stream that contains the document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
-specifier|public
-specifier|static
-name|PDDocument
-name|load
-parameter_list|(
-name|InputStream
-name|input
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|load
-argument_list|(
-name|input
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
-comment|/**      * This will load a document from an input stream. Allows for skipping corrupt pdf objects      *       * @param input The stream that contains the document.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
-specifier|public
-specifier|static
-name|PDDocument
-name|load
-parameter_list|(
-name|InputStream
-name|input
-parameter_list|,
-name|boolean
-name|force
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|load
-argument_list|(
-name|input
-argument_list|,
-literal|null
-argument_list|,
-name|force
-argument_list|)
-return|;
-block|}
-comment|/**      * This will load a document from an input stream.      *      * @param file The name of the file to load.      * @param scratchFile A location to store temp PDFBox data for this document.      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
-specifier|public
-specifier|static
-name|PDDocument
-name|load
-parameter_list|(
-name|File
-name|file
-parameter_list|,
-name|RandomAccess
-name|scratchFile
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|load
-argument_list|(
-name|file
-argument_list|,
-name|scratchFile
-argument_list|,
-literal|false
-argument_list|)
-return|;
-block|}
-comment|/**      * This will load a document from an input stream.      *      * @param file The name of the file to load.      * @param scratchFile A location to store temp PDFBox data for this document.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
-specifier|public
-specifier|static
-name|PDDocument
-name|load
-parameter_list|(
-name|File
-name|file
-parameter_list|,
-name|RandomAccess
-name|scratchFile
-parameter_list|,
-name|boolean
-name|force
-parameter_list|)
-throws|throws
-name|IOException
-block|{
 name|PDFParser
 name|parser
 init|=
@@ -3938,8 +3765,6 @@ name|FileInputStream
 argument_list|(
 name|file
 argument_list|)
-argument_list|,
-name|scratchFile
 argument_list|,
 name|force
 argument_list|)
@@ -3967,7 +3792,7 @@ return|return
 name|doc
 return|;
 block|}
-comment|/**      * This will load a document from an input stream.      *       * @param input The stream that contains the document.      * @param scratchFile A location to store temp PDFBox data for this document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from an input stream.      *       * @param input The stream that contains the document.      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3975,9 +3800,6 @@ name|load
 parameter_list|(
 name|InputStream
 name|input
-parameter_list|,
-name|RandomAccess
-name|scratchFile
 parameter_list|)
 throws|throws
 name|IOException
@@ -3989,8 +3811,6 @@ operator|new
 name|PDFParser
 argument_list|(
 name|input
-argument_list|,
-name|scratchFile
 argument_list|)
 decl_stmt|;
 name|parser
@@ -4005,7 +3825,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * This will load a document from an input stream. Allows for skipping corrupt pdf objects      *       * @param input The stream that contains the document.      * @param scratchFile A location to store temp PDFBox data for this document.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from an input stream. Allows for skipping corrupt pdf objects      *       * @param input The stream that contains the document.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4013,9 +3833,6 @@ name|load
 parameter_list|(
 name|InputStream
 name|input
-parameter_list|,
-name|RandomAccess
-name|scratchFile
 parameter_list|,
 name|boolean
 name|force
@@ -4031,8 +3848,6 @@ name|PDFParser
 argument_list|(
 name|input
 argument_list|,
-name|scratchFile
-argument_list|,
 name|force
 argument_list|)
 decl_stmt|;
@@ -4048,7 +3863,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param scratchFile location to store temp PDFBox data for this document      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4056,9 +3871,6 @@ name|loadNonSeq
 parameter_list|(
 name|File
 name|file
-parameter_list|,
-name|RandomAccess
-name|scratchFile
 parameter_list|)
 throws|throws
 name|IOException
@@ -4068,13 +3880,11 @@ name|loadNonSeq
 argument_list|(
 name|file
 argument_list|,
-name|scratchFile
-argument_list|,
 literal|""
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param scratchFile location to store temp PDFBox data for this document      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4082,9 +3892,6 @@ name|loadNonSeq
 parameter_list|(
 name|File
 name|file
-parameter_list|,
-name|RandomAccess
-name|scratchFile
 parameter_list|,
 name|String
 name|password
@@ -4099,8 +3906,6 @@ operator|new
 name|NonSequentialPDFParser
 argument_list|(
 name|file
-argument_list|,
-name|scratchFile
 argument_list|,
 name|password
 argument_list|)
@@ -4117,7 +3922,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param scratchFile location to store temp PDFBox data for this document      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4125,9 +3930,6 @@ name|loadNonSeq
 parameter_list|(
 name|InputStream
 name|input
-parameter_list|,
-name|RandomAccess
-name|scratchFile
 parameter_list|)
 throws|throws
 name|IOException
@@ -4137,13 +3939,11 @@ name|loadNonSeq
 argument_list|(
 name|input
 argument_list|,
-name|scratchFile
-argument_list|,
 literal|""
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param scratchFile location to store temp PDFBox data for this document      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4151,9 +3951,6 @@ name|loadNonSeq
 parameter_list|(
 name|InputStream
 name|input
-parameter_list|,
-name|RandomAccess
-name|scratchFile
 parameter_list|,
 name|String
 name|password
@@ -4168,8 +3965,6 @@ operator|new
 name|NonSequentialPDFParser
 argument_list|(
 name|input
-argument_list|,
-name|scratchFile
 argument_list|,
 name|password
 argument_list|)

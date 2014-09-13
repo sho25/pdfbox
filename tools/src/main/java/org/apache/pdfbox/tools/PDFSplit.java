@@ -519,8 +519,6 @@ argument_list|(
 name|pdfFile
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 name|password
 argument_list|)
 expr_stmt|;

@@ -83,20 +83,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|io
-operator|.
-name|RandomAccessBuffer
-import|;
-end_import
-
-begin_import
-import|import
 name|junit
 operator|.
 name|framework
@@ -203,10 +189,6 @@ operator|new
 name|COSStream
 argument_list|(
 name|dict
-argument_list|,
-operator|new
-name|RandomAccessBuffer
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|OutputStream

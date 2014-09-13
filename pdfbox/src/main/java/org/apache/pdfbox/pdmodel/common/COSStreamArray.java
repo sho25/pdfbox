@@ -189,20 +189,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
-operator|.
-name|RandomAccess
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdfparser
 operator|.
 name|PDFStreamParser
@@ -242,8 +228,6 @@ argument_list|(
 operator|new
 name|COSDictionary
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|streams
@@ -305,19 +289,6 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the scratch file associated with this stream.      *      * @return The scratch file where this stream is being stored.      *       */
-specifier|public
-name|RandomAccess
-name|getScratchFile
-parameter_list|()
-block|{
-return|return
-name|firstStream
-operator|.
-name|getScratchFile
-argument_list|()
-return|;
-block|}
 comment|/**      * This will get an object from this streams dictionary.      *      * @param key The key to the object.      *      * @return The dictionary object with the key or null if one does not exist.      */
 specifier|public
 name|COSBase
@@ -367,12 +338,18 @@ block|}
 comment|/**      * This will get all the tokens in the stream.      *      * @return All of the tokens in the stream.      *      * @throws IOException If there is an error parsing the stream.      */
 specifier|public
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|getStreamTokens
 parameter_list|()
 throws|throws
 name|IOException
 block|{
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -415,6 +392,9 @@ name|retval
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}

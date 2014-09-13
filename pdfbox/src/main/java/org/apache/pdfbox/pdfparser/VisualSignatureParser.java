@@ -790,12 +790,6 @@ operator|(
 name|COSDictionary
 operator|)
 name|pb
-argument_list|,
-name|getDocument
-argument_list|()
-operator|.
-name|getScratchFile
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

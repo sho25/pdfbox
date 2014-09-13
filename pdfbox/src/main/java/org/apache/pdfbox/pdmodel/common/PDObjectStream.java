@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A PDStream represents a stream in a PDF document.  Streams are tied to a single  * PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * A PDStream represents a stream in a PDF document.  Streams are tied to a single  * PDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -119,13 +119,15 @@ operator|.
 name|getStream
 argument_list|()
 operator|.
-name|setName
+name|setItem
 argument_list|(
 name|COSName
 operator|.
 name|TYPE
 argument_list|,
-literal|"ObjStm"
+name|COSName
+operator|.
+name|OBJ_STM
 argument_list|)
 expr_stmt|;
 return|return

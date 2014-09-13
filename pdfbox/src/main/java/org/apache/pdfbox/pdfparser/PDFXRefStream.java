@@ -213,20 +213,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
-operator|.
-name|RandomAccessBuffer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdfwriter
 operator|.
 name|COSWriterXRefEntry
@@ -234,7 +220,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Alexander Funk  * @version $Revision: $  */
+comment|/**  * @author Alexander Funk  */
 end_comment
 
 begin_class
@@ -309,10 +295,6 @@ name|COSStream
 argument_list|(
 operator|new
 name|COSDictionary
-argument_list|()
-argument_list|,
-operator|new
-name|RandomAccessBuffer
 argument_list|()
 argument_list|)
 expr_stmt|;
