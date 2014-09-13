@@ -343,7 +343,7 @@ comment|/**      * Constructor.  Creates a new stream with an empty dictionary. 
 specifier|protected
 name|COSStream
 parameter_list|(
-name|RandomAccessBuffer
+name|RandomAccess
 name|randomBuffer
 parameter_list|)
 block|{
@@ -362,7 +362,7 @@ parameter_list|(
 name|COSDictionary
 name|dictionary
 parameter_list|,
-name|RandomAccessBuffer
+name|RandomAccess
 name|randomBuffer
 parameter_list|)
 block|{
