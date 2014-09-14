@@ -593,7 +593,7 @@ init|=
 literal|"null"
 decl_stmt|;
 comment|/**      * Default value of the {@link #forceParsing} flag.      */
-specifier|protected
+specifier|public
 specifier|static
 specifier|final
 name|boolean
