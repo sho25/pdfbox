@@ -1717,7 +1717,7 @@ operator|.
 name|getTrailer
 argument_list|()
 operator|.
-name|getDictionaryObject
+name|getItem
 argument_list|(
 name|COSName
 operator|.
