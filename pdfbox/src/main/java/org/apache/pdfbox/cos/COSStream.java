@@ -310,6 +310,7 @@ name|BUFFER_SIZE
 init|=
 literal|16384
 decl_stmt|;
+comment|/**      * internal buffer, either held in memory or within a scratch file.      */
 specifier|private
 name|RandomAccess
 name|buffer
@@ -359,7 +360,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.  Creates a new stream with an empty dictionary.      *      */
+comment|/**      * Constructor.  Creates a new stream with an empty dictionary.      *       * @param useScratchFiles enables the usage of a scratch file if set to true      * @param scratchDirectory directory to be used to create the scratch file. If null java.io.temp is used instead.      *           */
 specifier|public
 name|COSStream
 parameter_list|(
@@ -378,8 +379,6 @@ condition|(
 name|useScratchFiles
 condition|)
 block|{
-name|buffer
-operator|=
 name|createScratchFile
 argument_list|(
 name|scratchDirectory
@@ -401,7 +400,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Constructor.      *      * @param dictionary The dictionary that is associated with this stream.      *       */
+comment|/**      * Constructor.      *      * @param dictionary The dictionary that is associated with this stream.      * @param useScratchFiles enables the usage of a scratch file if set to true      * @param scratchDirectory directory to be used to create the scratch file. If null java.io.temp is used instead.      *       */
 specifier|public
 name|COSStream
 parameter_list|(
@@ -425,8 +424,6 @@ condition|(
 name|useScratchFiles
 condition|)
 block|{
-name|buffer
-operator|=
 name|createScratchFile
 argument_list|(
 name|scratchDirectory
@@ -448,19 +445,15 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Create a scratch file to be used as buffer to decrease memory foot print.      *       * @param scratchDirectory directory to be used to create the scratch file. If null java.io.temp is used instead.      *       */
 specifier|private
-name|RandomAccessFile
+name|void
 name|createScratchFile
 parameter_list|(
 name|File
 name|scratchDirectory
 parameter_list|)
 block|{
-name|RandomAccessFile
-name|buffer
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
 name|File
@@ -477,6 +470,7 @@ argument_list|,
 name|scratchDirectory
 argument_list|)
 decl_stmt|;
+comment|// mark scratch file to deleted automatically after usage
 name|scratchFile
 operator|.
 name|deleteOnExit
@@ -509,49 +503,6 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|buffer
-return|;
-block|}
-comment|/**      * This will replace this object with the data from the new object.  This      * is used to easily maintain referential integrity when changing references      * to new objects.      *      * @param stream The stream that have the new values in it.      */
-specifier|public
-name|void
-name|replaceWithStream
-parameter_list|(
-name|COSStream
-name|stream
-parameter_list|)
-block|{
-name|this
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|addAll
-argument_list|(
-name|stream
-argument_list|)
-expr_stmt|;
-name|buffer
-operator|=
-name|stream
-operator|.
-name|buffer
-expr_stmt|;
-name|filteredStream
-operator|=
-name|stream
-operator|.
-name|filteredStream
-expr_stmt|;
-name|unFilteredStream
-operator|=
-name|stream
-operator|.
-name|unFilteredStream
-expr_stmt|;
 block|}
 comment|/**      * This will get all the tokens in the stream.      *      * @return All of the tokens in the stream.      *      * @throws IOException If there is an error parsing the stream.      */
 specifier|public
@@ -585,7 +536,7 @@ name|getTokens
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the stream with all of the filters applied.      *      * @return the bytes of the physical (endoced) stream      *      * @throws IOException when encoding/decoding causes an exception      */
+comment|/**      * This will get the stream with all of the filters applied.      *      * @return the bytes of the physical (encoded) stream      *      * @throws IOException when encoding/decoding causes an exception      */
 specifier|public
 name|InputStream
 name|getFilteredStream
@@ -820,7 +771,6 @@ name|decodeResult
 return|;
 block|}
 block|}
-comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      */
 annotation|@
 name|Override
 specifier|public

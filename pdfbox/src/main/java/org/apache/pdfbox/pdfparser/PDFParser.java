@@ -472,6 +472,10 @@ operator|new
 name|COSDocument
 argument_list|(
 name|tempDirectory
+argument_list|,
+literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

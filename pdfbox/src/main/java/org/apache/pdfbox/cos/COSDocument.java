@@ -143,20 +143,6 @@ name|pdfbox
 operator|.
 name|pdfparser
 operator|.
-name|NonSequentialPDFParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdfparser
-operator|.
 name|PDFObjectStreamParser
 import|;
 end_import
@@ -323,7 +309,7 @@ decl_stmt|;
 specifier|private
 specifier|final
 name|boolean
-name|useScratchFiles
+name|useScratchFile
 decl_stmt|;
 comment|/**      * Flag to skip malformed or otherwise unparseable input where possible.      */
 specifier|private
@@ -331,7 +317,7 @@ specifier|final
 name|boolean
 name|forceParsing
 decl_stmt|;
-comment|/**      * Constructor that will use the given random access file for storage      * of the PDF streams. The client of this method is responsible for      * deleting the storage if necessary that this file will write to. The      * close method will close the file though.      *      * @param scratchFileValue the random access file to use for storage      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      */
+comment|/**      * Constructor.      *      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      */
 specifier|public
 name|COSDocument
 parameter_list|(
@@ -349,7 +335,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor that will use the given random access file for storage      * of the PDF streams. The client of this method is responsible for      * deleting the storage if necessary that this file will write to. The      * close method will close the file though.      *      * @param scratchFileValue the random access file to use for storage      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      */
+comment|/**      * Constructor.      *      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      * @param useScratchFiles enables the usage of a scratch file if set to true      *                           */
 specifier|public
 name|COSDocument
 parameter_list|(
@@ -370,28 +356,7 @@ name|useScratchFiles
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor that will use a temporary file in the given directory      * for storage of the PDF streams. The temporary file is automatically      * removed when this document gets closed.      *      * @param scratchDir directory for the temporary file,      *                   or<code>null</code> to use the system default      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      */
-specifier|public
-name|COSDocument
-parameter_list|(
-name|File
-name|scratchDir
-parameter_list|,
-name|boolean
-name|forceParsingValue
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|scratchDir
-argument_list|,
-name|forceParsingValue
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Constructor that will use a temporary file in the given directory      * for storage of the PDF streams. The temporary file is automatically      * removed when this document gets closed.      *      * @param scratchDir directory for the temporary file,      *                   or<code>null</code> to use the system default      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      */
+comment|/**      * Constructor that will use a temporary file in the given directory      * for storage of the PDF streams. The temporary file is automatically      * removed when this document gets closed.      *      * @param scratchDir directory for the temporary file,      *                   or<code>null</code> to use the system default      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      * @param useScratchFiles enables the usage of a scratch file if set to true      *       */
 specifier|public
 name|COSDocument
 parameter_list|(
@@ -413,14 +378,12 @@ name|scratchDirectory
 operator|=
 name|scratchDir
 expr_stmt|;
-name|this
-operator|.
-name|useScratchFiles
+name|useScratchFile
 operator|=
 name|useScratchFiles
 expr_stmt|;
 block|}
-comment|/**      * Constructor.  Uses memory to store stream.      */
+comment|/**      * Constructor. Uses memory to store stream.      */
 specifier|public
 name|COSDocument
 parameter_list|()
@@ -433,27 +396,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor that will create a create a scratch file in the      * following directory.      *      * @param scratchDir The directory to store a scratch file.      *      * @throws IOException If there is an error creating the tmp file.      */
-specifier|public
-name|COSDocument
-parameter_list|(
-name|File
-name|scratchDir
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|this
-argument_list|(
-name|scratchDir
-argument_list|,
-literal|false
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Create a new COSStream using the underlying scratch file.      *       * @return the new COSStream      */
+comment|/**      * Creates a new COSStream using the current configuration for scratch files.      *       * @return the new COSStream      */
 specifier|public
 name|COSStream
 name|createCOSStream
@@ -463,13 +406,13 @@ return|return
 operator|new
 name|COSStream
 argument_list|(
-name|useScratchFiles
+name|useScratchFile
 argument_list|,
 name|scratchDirectory
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new COSStream using the underlying scratch file.      *      * @param dictionary the corresponding dictionary      *       * @return the new COSStream      */
+comment|/**      * Creates a new COSStream using the current configuration for scratch files.      *      * @param dictionary the corresponding dictionary      *       * @return the new COSStream      */
 specifier|public
 name|COSStream
 name|createCOSStream
@@ -484,32 +427,9 @@ name|COSStream
 argument_list|(
 name|dictionary
 argument_list|,
-name|useScratchFiles
+name|useScratchFile
 argument_list|,
 name|scratchDirectory
-argument_list|)
-return|;
-block|}
-comment|/**      * This will get the first dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      * @throws IOException If there is an error getting the object      */
-specifier|public
-name|COSObject
-name|getObjectByType
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|getObjectByType
-argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
-name|type
-argument_list|)
 argument_list|)
 return|;
 block|}
