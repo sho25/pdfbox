@@ -1729,6 +1729,13 @@ condition|(
 name|trailerEncryptItem
 operator|!=
 literal|null
+operator|&&
+operator|!
+operator|(
+name|trailerEncryptItem
+operator|instanceof
+name|COSNull
+operator|)
 condition|)
 block|{
 if|if
