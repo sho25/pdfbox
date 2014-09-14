@@ -2474,7 +2474,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a signaturefield to the document.      *       * @param sigFields are the PDSignatureFields that should be added to the document      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
+comment|/**      * This will add a signature field to the document.      *       * @param sigFields are the PDSignatureFields that should be added to the document      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignatureField
@@ -3886,7 +3886,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3938,7 +3938,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param password password to be used for decryption      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4004,7 +4004,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4056,7 +4056,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -4486,7 +4486,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Protects the document with the protection policy pp. The document content will be really encrypted when it will      * be saved. This method only marks the document for encryption.      *      * @see org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyProtectionPolicy      *       * @param policy The protection policy.      */
+comment|/**      * Protects the document with the protection policy pp. The document content will be really encrypted when it will      * be saved. This method only marks the document for encryption.      *      * @see org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyProtectionPolicy      *       * @param policy The protection policy.      *       * @throws IOException if there isn't any suitable security handler.      */
 specifier|public
 name|void
 name|protect
