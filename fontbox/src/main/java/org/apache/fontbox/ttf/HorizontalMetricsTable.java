@@ -174,6 +174,19 @@ name|numGlyphs
 operator|-
 name|numHMetrics
 decl_stmt|;
+comment|// handle bad fonts with too many hmetrics
+if|if
+condition|(
+name|numberNonHorizontal
+operator|<
+literal|0
+condition|)
+block|{
+name|numberNonHorizontal
+operator|=
+name|numGlyphs
+expr_stmt|;
+block|}
 name|nonHorizontalLeftSideBearing
 operator|=
 operator|new
