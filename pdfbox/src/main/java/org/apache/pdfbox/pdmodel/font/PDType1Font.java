@@ -936,7 +936,13 @@ literal|null
 expr_stmt|;
 name|type1Equivalent
 operator|=
-literal|null
+name|ExternalFonts
+operator|.
+name|getType1EquivalentFont
+argument_list|(
+name|getBaseFont
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|isEmbedded
 operator|=
