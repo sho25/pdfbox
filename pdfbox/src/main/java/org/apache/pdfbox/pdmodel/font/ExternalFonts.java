@@ -251,6 +251,20 @@ name|IOUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|ResourceLoader
+import|;
+end_import
+
 begin_comment
 comment|/**  * External font service, locates non-embedded fonts via a pluggable FontProvider.  *  * @author John Hewson  */
 end_comment
@@ -305,11 +319,13 @@ decl_stmt|;
 comment|/** fallback fonts, used as as a last resort */
 specifier|private
 specifier|static
+specifier|final
 name|TrueTypeFont
 name|ttfFallbackFont
 decl_stmt|;
 specifier|private
 specifier|static
+specifier|final
 name|CFFCIDFont
 name|cidFallbackFont
 decl_stmt|;
@@ -326,14 +342,6 @@ decl_stmt|;
 name|InputStream
 name|ttfStream
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|util
-operator|.
 name|ResourceLoader
 operator|.
 name|loadResource
@@ -383,14 +391,6 @@ decl_stmt|;
 name|InputStream
 name|cffStream
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|util
-operator|.
 name|ResourceLoader
 operator|.
 name|loadResource

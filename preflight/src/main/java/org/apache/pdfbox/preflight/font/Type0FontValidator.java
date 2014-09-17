@@ -1273,8 +1273,6 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
-literal|null
-argument_list|,
 name|aCMap
 operator|.
 name|getUnfilteredStream

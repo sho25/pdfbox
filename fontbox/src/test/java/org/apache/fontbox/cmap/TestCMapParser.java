@@ -103,8 +103,6 @@ name|parser
 operator|.
 name|parse
 argument_list|(
-name|resourceDir
-argument_list|,
 operator|new
 name|FileInputStream
 argument_list|(
