@@ -182,7 +182,7 @@ specifier|final
 name|ICC_ColorSpace
 name|awtColorSpace
 decl_stmt|;
-specifier|private
+specifier|protected
 name|PDDeviceCMYK
 parameter_list|()
 throws|throws
