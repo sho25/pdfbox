@@ -221,10 +221,10 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * This will get the operation that this operator represents.      *      * @return The string representation of the operation.      */
+comment|/**      * This will get the name of the operator.      *      * @return The string representation of the operation.      */
 specifier|public
 name|String
-name|getOperation
+name|getName
 parameter_list|()
 block|{
 return|return

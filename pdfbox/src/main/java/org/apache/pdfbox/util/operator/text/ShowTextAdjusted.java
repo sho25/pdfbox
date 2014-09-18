@@ -39,7 +39,7 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSBase
+name|COSArray
 import|;
 end_import
 
@@ -53,7 +53,17 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSNumber
+name|COSBase
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -89,24 +99,14 @@ name|OperatorProcessor
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
-comment|/**  * Tz: Set horizontal text scaling.  *  * @author Ben Litchfield  */
+comment|/**  * TJ: Show text, with position adjustments.  *  * @author Laurent Huault  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|SetHorizontalTextScaling
+name|ShowTextAdjusted
 extends|extends
 name|OperatorProcessor
 block|{
@@ -128,11 +128,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|COSNumber
-name|scaling
+name|COSArray
+name|array
 init|=
 operator|(
-name|COSNumber
+name|COSArray
 operator|)
 name|arguments
 operator|.
@@ -143,20 +143,22 @@ argument_list|)
 decl_stmt|;
 name|context
 operator|.
-name|getGraphicsState
-argument_list|()
-operator|.
-name|getTextState
-argument_list|()
-operator|.
-name|setHorizontalScaling
+name|showTextStrings
 argument_list|(
-name|scaling
-operator|.
-name|floatValue
-argument_list|()
+name|array
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"TJ"
+return|;
 block|}
 block|}
 end_class

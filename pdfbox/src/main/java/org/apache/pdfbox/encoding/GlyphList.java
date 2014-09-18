@@ -194,7 +194,7 @@ name|DEFAULT
 operator|.
 name|loadGlyphs
 argument_list|(
-literal|"org/apache/pdfbox/resources/glyphlist.properties"
+literal|"org/apache/pdfbox/resources/glyphlist/glyphlist.properties"
 argument_list|)
 expr_stmt|;
 comment|// Loads some additional glyph mappings
@@ -202,7 +202,7 @@ name|DEFAULT
 operator|.
 name|loadGlyphs
 argument_list|(
-literal|"org/apache/pdfbox/resources/additional_glyphlist.properties"
+literal|"org/apache/pdfbox/resources/glyphlist/additional_glyphlist.properties"
 argument_list|)
 expr_stmt|;
 comment|// Load an external glyph list file that user can give as JVM property
@@ -272,7 +272,7 @@ name|ZAPF_DINGBATS
 operator|.
 name|loadGlyphs
 argument_list|(
-literal|"org/apache/pdfbox/resources/zapf_dingbats.properties"
+literal|"org/apache/pdfbox/resources/glyphlist/zapf_dingbats.properties"
 argument_list|)
 expr_stmt|;
 block|}

@@ -179,6 +179,17 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"Tc"
+return|;
+block|}
 block|}
 end_class
 

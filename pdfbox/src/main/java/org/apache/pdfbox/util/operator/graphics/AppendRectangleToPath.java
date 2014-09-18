@@ -276,6 +276,17 @@ name|p3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"re"
+return|;
+block|}
 block|}
 end_class
 

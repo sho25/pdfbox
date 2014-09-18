@@ -608,7 +608,7 @@ if|if
 condition|(
 name|op
 operator|.
-name|getOperation
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -723,7 +723,7 @@ name|write
 argument_list|(
 name|op
 operator|.
-name|getOperation
+name|getName
 argument_list|()
 operator|.
 name|getBytes

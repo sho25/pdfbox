@@ -339,7 +339,7 @@ literal|4
 argument_list|)
 operator|)
 operator|.
-name|getOperation
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -523,7 +523,7 @@ literal|4
 argument_list|)
 operator|)
 operator|.
-name|getOperation
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

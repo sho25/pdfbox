@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * sc,scn: Sets the colour to use for stroking non-stroking operations.  *  * @author John Hewson  */
+comment|/**  * sc: Sets the colour to use for stroking non-stroking operations.  *  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -116,6 +116,17 @@ argument_list|()
 operator|.
 name|getNonStrokingColorSpace
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"sc"
 return|;
 block|}
 block|}

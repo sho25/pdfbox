@@ -82,12 +82,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * f,F Fill path using non zero winding rule.  *  * @author Ben Litchfield  */
+comment|/**  * f Fill path using non zero winding rule.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
-specifier|final
 class|class
 name|FillNonZeroRule
 extends|extends
@@ -96,6 +95,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|void
 name|process
 parameter_list|(
@@ -120,6 +120,17 @@ operator|.
 name|WIND_NON_ZERO
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"f"
+return|;
 block|}
 block|}
 end_class

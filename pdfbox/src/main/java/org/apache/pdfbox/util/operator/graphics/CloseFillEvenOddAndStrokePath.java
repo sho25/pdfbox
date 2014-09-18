@@ -120,6 +120,17 @@ argument_list|)
 expr_stmt|;
 comment|// FillEvenOddAndStroke
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"F"
+return|;
+block|}
 block|}
 end_class
 

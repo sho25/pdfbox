@@ -107,22 +107,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|operator
-operator|.
-name|Operator
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -350,7 +334,7 @@ if|if
 condition|(
 name|op
 operator|.
-name|getOperation
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -360,7 +344,7 @@ argument_list|)
 operator|||
 name|op
 operator|.
-name|getOperation
+name|getName
 argument_list|()
 operator|.
 name|equals

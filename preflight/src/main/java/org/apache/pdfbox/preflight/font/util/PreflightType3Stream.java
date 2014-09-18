@@ -213,22 +213,6 @@ name|Operator
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|operator
-operator|.
-name|Operator
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class is used to parse a glyph of a Type3 font program. If the glyph is parsed without error, the width of the  * glyph is accessible through the getWidth method.  */
 end_comment
@@ -348,7 +332,7 @@ name|operation
 init|=
 name|operator
 operator|.
-name|getOperation
+name|getName
 argument_list|()
 decl_stmt|;
 if|if

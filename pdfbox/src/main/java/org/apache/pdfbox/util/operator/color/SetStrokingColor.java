@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SC,SCN: Sets the colour to use for stroking stroking operations.  *  * @author John Hewson  */
+comment|/**  * SC: Sets the colour to use for stroking stroking operations.  *  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -116,6 +116,17 @@ argument_list|()
 operator|.
 name|getStrokingColorSpace
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"SC"
 return|;
 block|}
 block|}

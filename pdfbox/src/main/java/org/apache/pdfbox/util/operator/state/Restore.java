@@ -173,6 +173,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"Q"
+return|;
+block|}
 block|}
 end_class
 

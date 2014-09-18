@@ -103,16 +103,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Vector
 import|;
 end_import
@@ -277,23 +267,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Instantiate a new PDFTextStripperArea object. Loading all of the operator      * mappings from the properties object that is passed in. Does not convert      * the text to more encoding-specific output.      *       * @param props      *            The properties containing the mapping of operators to      *            PDFOperator classes.      *       * @throws IOException      *             If there is an error reading the properties.      */
-specifier|public
-name|PDFTextStripperByArea
-parameter_list|(
-name|Properties
-name|props
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|super
-argument_list|(
-name|props
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Instantiate a new PDFTextStripperArea object. This object will load      * properties from PDFTextStripper.properties and will apply      * encoding-specific conversions to the output text.      *       * @param encoding      *            The encoding that the output will be written in.      * @throws IOException      *             If there is an error reading the properties.      */
+comment|/**      * Instantiate a new PDFTextStripperArea object. Will apply      * encoding-specific conversions to the output text.      *       * @param encoding      *            The encoding that the output will be written in.      * @throws IOException      *             If there is an error reading the properties.      */
 specifier|public
 name|PDFTextStripperByArea
 parameter_list|(
