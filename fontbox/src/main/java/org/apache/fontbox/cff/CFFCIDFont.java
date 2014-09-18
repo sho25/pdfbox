@@ -523,7 +523,7 @@ name|IndexData
 name|getLocalSubrIndex
 parameter_list|(
 name|int
-name|cid
+name|gid
 parameter_list|)
 block|{
 name|int
@@ -535,7 +535,7 @@ name|fdSelect
 operator|.
 name|getFDIndex
 argument_list|(
-name|cid
+name|gid
 argument_list|)
 decl_stmt|;
 if|if
@@ -677,7 +677,7 @@ name|globalSubrIndex
 argument_list|,
 name|getLocalSubrIndex
 argument_list|(
-name|cid
+name|gid
 argument_list|)
 argument_list|)
 decl_stmt|;

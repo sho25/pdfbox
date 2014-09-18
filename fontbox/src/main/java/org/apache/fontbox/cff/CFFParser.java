@@ -4702,7 +4702,7 @@ name|i
 index|]
 operator|.
 name|first
-operator|>=
+operator|<=
 name|gid
 condition|)
 block|{
