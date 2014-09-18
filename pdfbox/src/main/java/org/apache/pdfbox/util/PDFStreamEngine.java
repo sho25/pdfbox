@@ -1719,6 +1719,8 @@ name|COSBase
 argument_list|>
 name|arguments
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// overridden in subclasses
 block|}
