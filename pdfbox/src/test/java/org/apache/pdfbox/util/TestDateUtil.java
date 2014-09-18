@@ -444,7 +444,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check toCalendarSTATIC.      * @param yr expected year value      *  If an IOException is the expected result, yr should be null      * @param mon expected month value      * @param day expected dayofmonth value      * @param hr expected hour value      * @param min expected minute value      * @param sec expected second value      * @param offset represents expected timezone offset      * @param orig  A date to be parsed.      * @throws Exception If an unexpected error occurs.      */
+comment|/**      * Check toCalendarSTATIC.      * @param yr expected year value      *  If an IOException is the expected result, yr should be null      * @param mon expected month value      * @param day expected dayofmonth value      * @param hr expected hour value      * @param min expected minute value      * @param sec expected second value      * @param offsetHours expected timezone offset in hours (-11..11)      * @param offsetMinutes expected timezone offset in minutes (0..59)      * @param orig A date to be parsed.      * @throws Exception If an unexpected error occurs.      */
 specifier|private
 specifier|static
 name|void
@@ -469,7 +469,10 @@ name|int
 name|sec
 parameter_list|,
 name|int
-name|offset
+name|offsetHours
+parameter_list|,
+name|int
+name|offsetMinutes
 parameter_list|,
 name|String
 name|orig
@@ -484,7 +487,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"D:%04d%02d%02d%02d%02d%02d%+03d'00'"
+literal|"D:%04d%02d%02d%02d%02d%02d%+03d'%02d'"
 argument_list|,
 name|yr
 argument_list|,
@@ -498,7 +501,9 @@ name|min
 argument_list|,
 name|sec
 argument_list|,
-name|offset
+name|offsetHours
+argument_list|,
+name|offsetMinutes
 argument_list|)
 decl_stmt|;
 name|String
@@ -510,7 +515,7 @@ name|format
 argument_list|(
 literal|"%04d-%02d-%02d"
 operator|+
-literal|"T%02d:%02d:%02d%+03d:00"
+literal|"T%02d:%02d:%02d%+03d:%02d"
 argument_list|,
 name|yr
 argument_list|,
@@ -524,7 +529,9 @@ name|min
 argument_list|,
 name|sec
 argument_list|,
-name|offset
+name|offsetHours
+argument_list|,
+name|offsetMinutes
 argument_list|)
 decl_stmt|;
 name|Calendar
@@ -649,6 +656,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"D:20100423"
 argument_list|)
 expr_stmt|;
@@ -659,6 +668,8 @@ argument_list|,
 literal|4
 argument_list|,
 literal|23
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -687,6 +698,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"D:2012"
 argument_list|)
 expr_stmt|;
@@ -697,6 +710,8 @@ argument_list|,
 literal|1
 argument_list|,
 literal|1
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -727,6 +742,8 @@ argument_list|,
 operator|+
 literal|1
 argument_list|,
+literal|0
+argument_list|,
 literal|"2001-01-31T10:33+01:00  "
 argument_list|)
 expr_stmt|;
@@ -742,6 +759,8 @@ argument_list|,
 literal|9
 argument_list|,
 literal|47
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -767,6 +786,8 @@ literal|3
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"200312172:2:3"
 argument_list|)
 expr_stmt|;
@@ -784,6 +805,8 @@ argument_list|,
 literal|1
 argument_list|,
 literal|22
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -807,6 +830,8 @@ argument_list|,
 operator|+
 literal|2
 argument_list|,
+literal|0
+argument_list|,
 literal|"20140401+0200"
 argument_list|)
 expr_stmt|;
@@ -818,6 +843,8 @@ argument_list|,
 literal|1
 argument_list|,
 literal|11
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -847,6 +874,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"Monday, Jan 11, 1915"
 argument_list|)
 expr_stmt|;
@@ -858,6 +887,8 @@ argument_list|,
 literal|1
 argument_list|,
 literal|11
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -887,6 +918,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|" Sun, January 11, 2015 "
 argument_list|)
 expr_stmt|;
@@ -906,6 +939,8 @@ literal|0
 argument_list|,
 operator|+
 literal|4
+argument_list|,
+literal|0
 argument_list|,
 literal|"20160401+04'00'"
 argument_list|)
@@ -927,7 +962,31 @@ argument_list|,
 operator|+
 literal|9
 argument_list|,
+literal|0
+argument_list|,
 literal|"20170401+09'00'"
+argument_list|)
+expr_stmt|;
+name|checkParse
+argument_list|(
+literal|2017
+argument_list|,
+literal|4
+argument_list|,
+literal|1
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+operator|+
+literal|9
+argument_list|,
+literal|30
+argument_list|,
+literal|"20170401+09'30'"
 argument_list|)
 expr_stmt|;
 name|checkParse
@@ -946,6 +1005,8 @@ literal|0
 argument_list|,
 operator|-
 literal|2
+argument_list|,
+literal|0
 argument_list|,
 literal|"20180401-02'00'"
 argument_list|)
@@ -967,6 +1028,8 @@ argument_list|,
 operator|-
 literal|11
 argument_list|,
+literal|0
+argument_list|,
 literal|"20190401 6:1:1 -1100"
 argument_list|)
 expr_stmt|;
@@ -983,6 +1046,8 @@ argument_list|,
 literal|25
 argument_list|,
 literal|10
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1005,13 +1070,128 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"26 May 2021 11:23"
+argument_list|)
+expr_stmt|;
+comment|// half hour timezones
+name|checkParse
+argument_list|(
+literal|2016
+argument_list|,
+literal|4
+argument_list|,
+literal|1
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+operator|+
+literal|4
+argument_list|,
+literal|30
+argument_list|,
+literal|"20160401+04'30'"
+argument_list|)
+expr_stmt|;
+name|checkParse
+argument_list|(
+literal|2017
+argument_list|,
+literal|4
+argument_list|,
+literal|1
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+operator|+
+literal|9
+argument_list|,
+literal|30
+argument_list|,
+literal|"20170401+09'30'"
+argument_list|)
+expr_stmt|;
+name|checkParse
+argument_list|(
+literal|2018
+argument_list|,
+literal|4
+argument_list|,
+literal|1
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+operator|-
+literal|2
+argument_list|,
+literal|30
+argument_list|,
+literal|"20180401-02'30'"
+argument_list|)
+expr_stmt|;
+name|checkParse
+argument_list|(
+literal|2019
+argument_list|,
+literal|4
+argument_list|,
+literal|1
+argument_list|,
+literal|6
+argument_list|,
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+operator|-
+literal|11
+argument_list|,
+literal|30
+argument_list|,
+literal|"20190401 6:1:1 -1130"
+argument_list|)
+expr_stmt|;
+name|checkParse
+argument_list|(
+literal|2000
+argument_list|,
+literal|2
+argument_list|,
+literal|29
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+operator|+
+literal|11
+argument_list|,
+literal|30
+argument_list|,
+literal|" 2000 Feb 29 GMT + 11:30"
 argument_list|)
 expr_stmt|;
 comment|// try dates invalid due to out of limit values
 name|checkParse
 argument_list|(
 name|BAD
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1044,12 +1224,16 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"32 May 2000 11:25"
 argument_list|)
 expr_stmt|;
 name|checkParse
 argument_list|(
 name|BAD
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1082,12 +1266,16 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"19921301 11:25"
 argument_list|)
 expr_stmt|;
 name|checkParse
 argument_list|(
 name|BAD
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1120,6 +1308,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"19921001 11:60"
 argument_list|)
 expr_stmt|;
@@ -1139,12 +1329,16 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"19920401 24:25"
 argument_list|)
 expr_stmt|;
 name|checkParse
 argument_list|(
 name|BAD
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1178,12 +1372,16 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"nodigits"
 argument_list|)
 expr_stmt|;
 name|checkParse
 argument_list|(
 name|BAD
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1217,6 +1415,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"333three digit year"
 argument_list|)
 expr_stmt|;
@@ -1227,6 +1427,8 @@ argument_list|,
 literal|2
 argument_list|,
 literal|29
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1257,6 +1459,8 @@ argument_list|,
 operator|+
 literal|11
 argument_list|,
+literal|0
+argument_list|,
 literal|" 2000 Feb 29 GMT + 11:00"
 argument_list|)
 expr_stmt|;
@@ -1264,6 +1468,8 @@ comment|// valid date
 name|checkParse
 argument_list|(
 name|BAD
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1298,6 +1504,8 @@ argument_list|,
 operator|+
 literal|11
 argument_list|,
+literal|0
+argument_list|,
 literal|"2012 Feb 29 GMT+11"
 argument_list|)
 expr_stmt|;
@@ -1305,6 +1513,8 @@ comment|// valid date
 name|checkParse
 argument_list|(
 name|BAD
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1338,6 +1548,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"1970 12 23:08"
 argument_list|)
 expr_stmt|;
@@ -1363,6 +1575,8 @@ literal|1
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"Tuesday, 6 Jul 1971 5:22:1 PM"
 argument_list|)
 expr_stmt|;
@@ -1380,6 +1594,8 @@ argument_list|,
 literal|22
 argument_list|,
 literal|1
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1403,6 +1619,8 @@ literal|1
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"7/6/1973 17:22:1"
 argument_list|)
 expr_stmt|;
@@ -1414,6 +1632,8 @@ argument_list|,
 literal|7
 argument_list|,
 literal|6
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1444,6 +1664,8 @@ argument_list|,
 operator|-
 literal|10
 argument_list|,
+literal|0
+argument_list|,
 literal|"1975-7-6T17:22:1-1000"
 argument_list|)
 expr_stmt|;
@@ -1465,6 +1687,8 @@ argument_list|,
 operator|-
 literal|4
 argument_list|,
+literal|0
+argument_list|,
 literal|"1976-7-6T17:22:1GMT-4"
 argument_list|)
 expr_stmt|;
@@ -1485,6 +1709,8 @@ literal|1
 argument_list|,
 operator|-
 literal|4
+argument_list|,
+literal|0
 argument_list|,
 literal|"2076-7-6T17:22:1EDT"
 argument_list|)
@@ -1508,6 +1734,8 @@ argument_list|,
 operator|-
 literal|5
 argument_list|,
+literal|0
+argument_list|,
 literal|"1960-7-6T17:22:1EST"
 argument_list|)
 expr_stmt|;
@@ -1520,6 +1748,8 @@ argument_list|,
 literal|7
 argument_list|,
 literal|6
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1549,6 +1779,8 @@ literal|1
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"Thu Jul 6, 1978 17:22:1"
 argument_list|)
 expr_stmt|;
@@ -1570,6 +1802,8 @@ argument_list|,
 operator|+
 literal|8
 argument_list|,
+literal|0
+argument_list|,
 literal|"Friday July 6 17:22:1 GMT+08:00 1979"
 argument_list|)
 expr_stmt|;
@@ -1590,6 +1824,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"Sun, Jul 6, 1980 at 4:23pm"
 argument_list|)
 expr_stmt|;
@@ -1601,6 +1837,8 @@ argument_list|,
 literal|7
 argument_list|,
 literal|6
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1630,6 +1868,8 @@ literal|1
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"6 Jul 1982 17:22:1"
 argument_list|)
 expr_stmt|;
@@ -1647,6 +1887,8 @@ argument_list|,
 literal|22
 argument_list|,
 literal|1
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1670,6 +1912,8 @@ literal|1
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"7/6/1984 17:22:01"
 argument_list|)
 expr_stmt|;
@@ -1681,6 +1925,8 @@ argument_list|,
 literal|7
 argument_list|,
 literal|6
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1710,6 +1956,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"07/06/1986"
 argument_list|)
 expr_stmt|;
@@ -1727,6 +1975,8 @@ argument_list|,
 literal|22
 argument_list|,
 literal|1
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1750,6 +2000,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"7/6/1988"
 argument_list|)
 expr_stmt|;
@@ -1763,6 +2015,8 @@ argument_list|,
 literal|1
 argument_list|,
 literal|1
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1807,6 +2061,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"1/1/"
 operator|+
 operator|(
@@ -1838,6 +2094,8 @@ argument_list|,
 operator|+
 literal|6
 argument_list|,
+literal|0
+argument_list|,
 literal|"19910706 17:7:1 Z+0600"
 argument_list|)
 expr_stmt|;
@@ -1858,6 +2116,8 @@ literal|1
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 literal|"19920706 17:07:01"
 argument_list|)
 expr_stmt|;
@@ -1869,6 +2129,8 @@ argument_list|,
 literal|7
 argument_list|,
 literal|6
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1898,6 +2160,8 @@ literal|0
 argument_list|,
 literal|1
 argument_list|,
+literal|0
+argument_list|,
 literal|"19940706+01'00'"
 argument_list|)
 expr_stmt|;
@@ -1918,6 +2182,8 @@ literal|0
 argument_list|,
 literal|2
 argument_list|,
+literal|0
+argument_list|,
 literal|"19950706+02'00'"
 argument_list|)
 expr_stmt|;
@@ -1937,6 +2203,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|3
+argument_list|,
+literal|0
 argument_list|,
 literal|"19960706+03'00'"
 argument_list|)
@@ -1960,6 +2228,8 @@ argument_list|,
 operator|-
 literal|10
 argument_list|,
+literal|0
+argument_list|,
 literal|"19970706-10'00'"
 argument_list|)
 expr_stmt|;
@@ -1981,6 +2251,8 @@ argument_list|,
 operator|-
 literal|11
 argument_list|,
+literal|0
+argument_list|,
 literal|"19980706-11'00'"
 argument_list|)
 expr_stmt|;
@@ -1992,6 +2264,8 @@ argument_list|,
 literal|7
 argument_list|,
 literal|6
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -2016,6 +2290,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|8
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -2052,7 +2328,10 @@ name|TimeZone
 name|tz
 parameter_list|,
 name|int
-name|off
+name|offsetHours
+parameter_list|,
+name|int
+name|offsetMinutes
 parameter_list|)
 throws|throws
 name|Exception
@@ -2098,7 +2377,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"D:%04d%02d%02d%02d%02d%02d%+03d'00'"
+literal|"D:%04d%02d%02d%02d%02d%02d%+03d'%02d'"
 argument_list|,
 name|yr
 argument_list|,
@@ -2112,7 +2391,9 @@ name|min
 argument_list|,
 name|sec
 argument_list|,
-name|off
+name|offsetHours
+argument_list|,
+name|offsetMinutes
 argument_list|)
 decl_stmt|;
 name|String
@@ -2124,7 +2405,7 @@ name|format
 argument_list|(
 literal|"%04d-%02d-%02d"
 operator|+
-literal|"T%02d:%02d:%02d%+03d:00"
+literal|"T%02d:%02d:%02d%+03d:%02d"
 argument_list|,
 name|yr
 argument_list|,
@@ -2138,7 +2419,9 @@ name|min
 argument_list|,
 name|sec
 argument_list|,
-name|off
+name|offsetHours
+argument_list|,
+name|offsetMinutes
 argument_list|)
 decl_stmt|;
 comment|// compare outputs from toString and toISO8601 with expected values
@@ -2242,6 +2525,17 @@ literal|"Antartica/McMurdo"
 argument_list|)
 decl_stmt|;
 comment|// +12 +13
+name|TimeZone
+name|tzAdelaide
+init|=
+name|TimeZone
+operator|.
+name|getTimeZone
+argument_list|(
+literal|"Australia/Adelaide"
+argument_list|)
+decl_stmt|;
+comment|// +9:30 +10:30
 name|assertNull
 argument_list|(
 name|DateConverter
@@ -2286,6 +2580,8 @@ name|tzPgh
 argument_list|,
 operator|-
 literal|4
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2306,6 +2602,8 @@ name|tzPgh
 argument_list|,
 operator|-
 literal|5
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2326,6 +2624,8 @@ name|tzBerlin
 argument_list|,
 operator|+
 literal|2
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2346,6 +2646,8 @@ name|tzBerlin
 argument_list|,
 operator|+
 literal|1
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2366,6 +2668,8 @@ name|tzAruba
 argument_list|,
 operator|-
 literal|4
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2386,6 +2690,8 @@ name|tzJamaica
 argument_list|,
 operator|-
 literal|5
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2406,6 +2712,8 @@ name|tzJamaica
 argument_list|,
 operator|-
 literal|5
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2426,6 +2734,52 @@ name|tzMaputo
 argument_list|,
 operator|+
 literal|2
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|checkToString
+argument_list|(
+literal|2015
+argument_list|,
+literal|8
+argument_list|,
+literal|28
+argument_list|,
+literal|3
+argument_list|,
+literal|14
+argument_list|,
+literal|15
+argument_list|,
+name|tzAdelaide
+argument_list|,
+operator|+
+literal|9
+argument_list|,
+literal|30
+argument_list|)
+expr_stmt|;
+name|checkToString
+argument_list|(
+literal|2016
+argument_list|,
+literal|2
+argument_list|,
+literal|28
+argument_list|,
+literal|3
+argument_list|,
+literal|14
+argument_list|,
+literal|15
+argument_list|,
+name|tzAdelaide
+argument_list|,
+operator|+
+literal|10
+argument_list|,
+literal|30
 argument_list|)
 expr_stmt|;
 comment|// McMurdo has a daylightsavings rule, but it seems never to apply
@@ -2447,6 +2801,8 @@ name|tzMcMurdo
 argument_list|,
 operator|+
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2466,6 +2822,8 @@ argument_list|,
 name|tzMcMurdo
 argument_list|,
 operator|+
+literal|0
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -2487,6 +2845,8 @@ name|tzMcMurdo
 argument_list|,
 operator|+
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2506,6 +2866,8 @@ argument_list|,
 name|tzMcMurdo
 argument_list|,
 operator|+
+literal|0
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -2527,6 +2889,8 @@ name|tzMcMurdo
 argument_list|,
 operator|+
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2546,6 +2910,8 @@ argument_list|,
 name|tzMcMurdo
 argument_list|,
 operator|+
+literal|0
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -2567,6 +2933,8 @@ name|tzMcMurdo
 argument_list|,
 operator|+
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2586,6 +2954,8 @@ argument_list|,
 name|tzMcMurdo
 argument_list|,
 operator|+
+literal|0
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -2607,6 +2977,8 @@ name|tzMcMurdo
 argument_list|,
 operator|+
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2626,6 +2998,8 @@ argument_list|,
 name|tzMcMurdo
 argument_list|,
 operator|+
+literal|0
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -2647,6 +3021,8 @@ name|tzMcMurdo
 argument_list|,
 operator|+
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|checkToString
@@ -2666,6 +3042,8 @@ argument_list|,
 name|tzMcMurdo
 argument_list|,
 operator|+
+literal|0
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -2948,6 +3326,22 @@ argument_list|)
 expr_stmt|;
 name|checkParseTZ
 argument_list|(
+operator|+
+operator|(
+literal|9
+operator|*
+name|HRS
+operator|+
+literal|30
+operator|*
+name|MINS
+operator|)
+argument_list|,
+literal|"Australia/Adelaide"
+argument_list|)
+expr_stmt|;
+name|checkParseTZ
+argument_list|(
 operator|(
 literal|5
 operator|*
@@ -3056,7 +3450,7 @@ name|got
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Timezone offset testcase.      *       * @throws Exception      */
+comment|/**      * Timezone offset testcase.      */
 specifier|public
 name|void
 name|testFormatTZoffset
