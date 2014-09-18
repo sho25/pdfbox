@@ -894,7 +894,7 @@ name|DST_OFFSET
 argument_list|)
 operator|)
 operator|/
-name|MILLIS_PER_HOUR
+name|MILLIS_PER_MINUTE
 decl_stmt|;
 name|cal
 operator|.
@@ -902,7 +902,7 @@ name|add
 argument_list|(
 name|Calendar
 operator|.
-name|HOUR
+name|MINUTE
 argument_list|,
 operator|-
 name|offset
