@@ -853,6 +853,8 @@ parameter_list|(
 name|int
 name|code
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// try to use a ToUnicode CMap
 name|String

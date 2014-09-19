@@ -1055,6 +1055,8 @@ parameter_list|(
 name|int
 name|code
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// if the font dictionary contains a ToUnicode CMap, use that CMap
 if|if

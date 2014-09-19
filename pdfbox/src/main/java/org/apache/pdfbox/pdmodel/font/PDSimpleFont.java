@@ -583,6 +583,29 @@ name|readEncodingFromFont
 argument_list|()
 expr_stmt|;
 block|}
+comment|// TTFs may have null encoding, but if they're non-symbolic then we know it's Adobe encoding
+if|if
+condition|(
+name|this
+operator|.
+name|encoding
+operator|==
+literal|null
+operator|&&
+operator|!
+name|isSymbolic
+argument_list|()
+condition|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|StandardEncoding
+operator|.
+name|INSTANCE
+expr_stmt|;
+block|}
 comment|// assign the glyph list based on the font
 if|if
 condition|(
@@ -845,6 +868,8 @@ parameter_list|(
 name|int
 name|code
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// first try to use a ToUnicode CMap
 name|String
