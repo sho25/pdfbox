@@ -128,7 +128,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"F"
+literal|"b*"
 return|;
 block|}
 block|}
