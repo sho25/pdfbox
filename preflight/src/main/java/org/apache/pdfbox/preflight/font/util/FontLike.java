@@ -124,7 +124,7 @@ block|{
 return|return
 name|font
 operator|.
-name|getBaseFont
+name|getName
 argument_list|()
 return|;
 block|}

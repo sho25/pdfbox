@@ -1375,7 +1375,7 @@ name|registerError
 argument_list|(
 name|font
 operator|.
-name|getBaseFont
+name|getName
 argument_list|()
 operator|+
 literal|" is unknown wasn't found by the FontHelperValdiator"
