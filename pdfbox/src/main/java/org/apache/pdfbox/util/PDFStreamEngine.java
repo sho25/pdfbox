@@ -1149,19 +1149,11 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|// update the text matrix
-name|textMatrix
-operator|.
-name|concatenate
-argument_list|(
-name|Matrix
-operator|.
-name|getTranslatingInstance
+name|applyTextAdjustment
 argument_list|(
 name|tx
 argument_list|,
 name|ty
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1206,6 +1198,34 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+comment|/**      * Applies a text position adjustment from the TJ operator. May be overridden in subclasses.      *      * @param tx x-translation      * @param ty y-translation      */
+specifier|protected
+name|void
+name|applyTextAdjustment
+parameter_list|(
+name|float
+name|tx
+parameter_list|,
+name|float
+name|ty
+parameter_list|)
+block|{
+comment|// update the text matrix
+name|textMatrix
+operator|.
+name|concatenate
+argument_list|(
+name|Matrix
+operator|.
+name|getTranslatingInstance
+argument_list|(
+name|tx
+argument_list|,
+name|ty
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Process text from the PDF Stream. You should override this method if you want to      * perform an action when encoded text is being processed.      *      * @param string the encoded text      * @throws IOException if there is an error processing the string      */
 specifier|protected
