@@ -107,7 +107,7 @@ name|Encoding
 implements|implements
 name|COSObjectable
 block|{
-comment|/**      * This will get an encoding by name.      *      * @param name The name of the encoding to get.      * @return The encoding that matches the name.      */
+comment|/**      * This will get an encoding by name. May return null.      *      * @param name The name of the encoding to get.      * @return The encoding that matches the name.      */
 specifier|public
 specifier|static
 name|Encoding

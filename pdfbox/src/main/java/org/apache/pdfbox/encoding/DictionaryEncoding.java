@@ -232,6 +232,25 @@ name|baseEncoding
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|this
+operator|.
+name|baseEncoding
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Invalid encoding: "
+operator|+
+name|baseEncoding
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * Creates a new DictionaryEncoding from a PDF.      *      * @param fontEncoding The encoding dictionary.      */
 specifier|public
@@ -251,6 +270,11 @@ name|encoding
 operator|=
 name|fontEncoding
 expr_stmt|;
+name|Encoding
+name|base
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|encoding
@@ -275,7 +299,7 @@ operator|.
 name|BASE_ENCODING
 argument_list|)
 decl_stmt|;
-name|baseEncoding
+name|base
 operator|=
 name|Encoding
 operator|.
@@ -284,15 +308,22 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+comment|// may be null
 block|}
-elseif|else
+if|if
+condition|(
+name|base
+operator|==
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|isNonSymbolic
 condition|)
 block|{
 comment|// Otherwise, for a nonsymbolic font, it is StandardEncoding
-name|baseEncoding
+name|base
 operator|=
 name|StandardEncoding
 operator|.
@@ -309,7 +340,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|baseEncoding
+name|base
 operator|=
 name|builtIn
 expr_stmt|;
@@ -325,6 +356,11 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+name|baseEncoding
+operator|=
+name|base
+expr_stmt|;
 name|codeToName
 operator|.
 name|putAll
