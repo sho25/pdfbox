@@ -1372,6 +1372,23 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Returns the PostScript name of the font.      */
+specifier|public
+name|String
+name|getBaseFont
+parameter_list|()
+block|{
+return|return
+name|dict
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|BASE_FONT
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public

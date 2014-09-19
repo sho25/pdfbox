@@ -176,7 +176,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A CIDFont. A CIDFont is a PDF object that contains information about a CIDFont program. Although  * its Type value is Font, a CIDFont is not actually a font.  *  * @author Ben Litchfield  */
+comment|/**  * A CIDFont. A CIDFont is a PDF object that contains information about a CIDFont program. Although  * its Type value is Font, a CIDFont is not actually a font.  *  *<p>It is not usually necessary to use this class directly, prefer  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -186,6 +186,8 @@ class|class
 name|PDCIDFont
 implements|implements
 name|COSObjectable
+implements|,
+name|PDFontLike
 block|{
 specifier|protected
 specifier|final
@@ -950,7 +952,20 @@ name|BASE_FONT
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the font descriptor for this font. A font descriptor is required for a CIDFont.      *      * @return The font descriptor for this font.      */
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|getBaseFont
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 specifier|public
 name|PDFontDescriptor
 name|getFontDescriptor
@@ -999,7 +1014,8 @@ return|return
 name|fontDescriptor
 return|;
 block|}
-comment|/**      * Returns the font matrix, which represents the transformation from glyph space to text space.      */
+annotation|@
+name|Override
 specifier|public
 specifier|abstract
 name|Matrix
@@ -1017,7 +1033,8 @@ return|return
 name|parent
 return|;
 block|}
-comment|/**      * Returns the font's bounding box.      */
+annotation|@
+name|Override
 specifier|public
 specifier|abstract
 name|BoundingBox
@@ -1157,7 +1174,8 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the position vector (v) in 1/1000 text space, for the given character code.      *      * @param code character code      * @return position vector (v)      */
+annotation|@
+name|Override
 specifier|public
 name|Vector
 name|getPositionVector
@@ -1253,7 +1271,8 @@ index|]
 return|;
 block|}
 block|}
-comment|/**      * This will get the font height for a character.      *      * @param code character code      * @return The height is in 1000 unit of text space, ie 333 or 777      */
+annotation|@
+name|Override
 specifier|public
 specifier|abstract
 name|float
@@ -1265,7 +1284,8 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the width of the given character.      *      * @param code character code      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getWidth
@@ -1336,8 +1356,9 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Returns the width of a glyph in the embedded font file.      *      * @param code character code      * @return width in glyph space      * @throws IOException if the font could not be read      */
-specifier|protected
+annotation|@
+name|Override
+specifier|public
 specifier|abstract
 name|float
 name|getWidthFromFont
@@ -1348,14 +1369,17 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns true if the font file is embedded in the PDF.      */
+annotation|@
+name|Override
 specifier|public
 specifier|abstract
 name|boolean
 name|isEmbedded
 parameter_list|()
 function_decl|;
-comment|/**      * This will get the average font width for all characters.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      */
+annotation|@
+name|Override
+comment|// todo: this method is highly suspicious, the average glyph width is not usually a good metric
 specifier|public
 name|float
 name|getAverageFontWidth
@@ -1583,29 +1607,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-specifier|public
-name|void
-name|clear
-parameter_list|()
-block|{
-if|if
-condition|(
-name|widths
-operator|!=
-literal|null
-condition|)
-block|{
-name|widths
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|widths
-operator|=
-literal|null
-expr_stmt|;
-block|}
-block|}
 block|}
 end_class
 

@@ -209,9 +209,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|encoding
+name|cos
 operator|.
-name|Encoding
+name|COSName
 import|;
 end_import
 
@@ -225,7 +225,7 @@ name|pdfbox
 operator|.
 name|encoding
 operator|.
-name|GlyphList
+name|Encoding
 import|;
 end_import
 
@@ -585,6 +585,23 @@ parameter_list|()
 block|{
 return|return
 name|type1Equivalent
+return|;
+block|}
+comment|/**      * Returns the PostScript name of the font.      */
+specifier|public
+name|String
+name|getBaseFont
+parameter_list|()
+block|{
+return|return
+name|dict
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|BASE_FONT
+argument_list|)
 return|;
 block|}
 annotation|@

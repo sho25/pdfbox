@@ -617,7 +617,7 @@ literal|"ZapfDingbats"
 operator|.
 name|equals
 argument_list|(
-name|getBaseFont
+name|getName
 argument_list|()
 argument_list|)
 condition|)
@@ -700,7 +700,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|getBaseFont
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -708,7 +708,7 @@ argument_list|(
 literal|"Symbol"
 argument_list|)
 operator|||
-name|getBaseFont
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -1042,7 +1042,7 @@ name|STANDARD_14
 operator|.
 name|contains
 argument_list|(
-name|getBaseFont
+name|getName
 argument_list|()
 argument_list|)
 return|;

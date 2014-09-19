@@ -2685,7 +2685,7 @@ literal|"No font for "
 operator|+
 name|font
 operator|.
-name|getBaseFont
+name|getName
 argument_list|()
 argument_list|)
 throw|;
