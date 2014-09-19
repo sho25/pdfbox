@@ -39,6 +39,20 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|ttf
+operator|.
+name|Type1Equivalent
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Type 1-equivalent font in a PDF, i.e. a font which can access glyphs by their PostScript name.  * May be a PFB, CFF, or TTF.  *  * @author John Hewson  */
 end_comment
@@ -75,6 +89,12 @@ name|name
 parameter_list|)
 throws|throws
 name|IOException
+function_decl|;
+comment|/**      * Returns the embedded or system font for rendering. This font is a Type 1-equivalent, but      * may not be a Type 1 font, it could be a CFF font or TTF font. If there is no suitable font      * then the fallback font will be returned: this method never returns null.      */
+specifier|public
+name|Type1Equivalent
+name|getType1Equivalent
+parameter_list|()
 function_decl|;
 block|}
 end_interface

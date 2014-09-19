@@ -1676,10 +1676,11 @@ return|return
 name|type1font
 return|;
 block|}
-comment|/**      * Returns the embedded or system font for rendering. This font is a Type 1-equivalent, but      * may not be a Type 1 font, it could be a CFF font or TTF font. If there is no suitable font      * then the fallback font will be returned: this method never returns null.      */
+annotation|@
+name|Override
 specifier|public
 name|Type1Equivalent
-name|getFontForRendering
+name|getType1Equivalent
 parameter_list|()
 block|{
 return|return

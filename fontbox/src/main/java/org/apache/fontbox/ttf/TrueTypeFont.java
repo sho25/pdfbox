@@ -1006,7 +1006,7 @@ annotation|@
 name|Override
 specifier|public
 name|String
-name|getFullName
+name|getName
 parameter_list|()
 throws|throws
 name|IOException

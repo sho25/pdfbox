@@ -602,6 +602,17 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|fontName
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|GeneralPath
 name|getPath
 parameter_list|(
@@ -899,9 +910,7 @@ return|return
 name|notice
 return|;
 block|}
-comment|/**      * Returns the full name.      *       * @return the full name      */
-annotation|@
-name|Override
+comment|/**      * Returns the full name.      *      * @return the full name      */
 specifier|public
 name|String
 name|getFullName

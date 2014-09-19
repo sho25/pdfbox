@@ -77,7 +77,7 @@ block|{
 comment|/**      * The PostScript name of the font.      */
 specifier|public
 name|String
-name|getFullName
+name|getName
 parameter_list|()
 throws|throws
 name|IOException
