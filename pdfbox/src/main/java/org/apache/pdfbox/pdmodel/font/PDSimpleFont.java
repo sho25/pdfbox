@@ -597,6 +597,7 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
+operator|!
 name|getSymbolicFlag
 argument_list|()
 condition|)
@@ -610,6 +611,47 @@ operator|.
 name|INSTANCE
 expr_stmt|;
 block|}
+comment|// TTFs may have null encoding, but if it's standard 14 then we know it's Standard Encoding
+if|if
+condition|(
+name|this
+operator|.
+name|encoding
+operator|==
+literal|null
+operator|&&
+name|isStandard14
+argument_list|()
+operator|&&
+operator|!
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"Symbol"
+argument_list|)
+operator|||
+operator|!
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"ZapfDingbats"
+argument_list|)
+condition|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|StandardEncoding
+operator|.
+name|INSTANCE
+expr_stmt|;
+block|}
+comment|// todo: what about Symbol and ZapfDingbats?
 comment|// assign the glyph list based on the font
 if|if
 condition|(
