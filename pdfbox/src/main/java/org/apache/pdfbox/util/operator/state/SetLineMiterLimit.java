@@ -100,7 +100,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * w: Set miter limit.  *  * @author Andreas LehmkÃ¼hler  */
+comment|/**  * M: Set miter limit.  *  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
@@ -163,7 +163,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"w"
+literal|"M"
 return|;
 block|}
 block|}
