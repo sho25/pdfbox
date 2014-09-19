@@ -583,7 +583,7 @@ name|readEncodingFromFont
 argument_list|()
 expr_stmt|;
 block|}
-comment|// TTFs may have null encoding, but if they're non-symbolic then we know it's Adobe encoding
+comment|// TTFs may have null encoding, but if it's non-symbolic then we have Standard Encoding
 if|if
 condition|(
 name|this
@@ -592,8 +592,12 @@ name|encoding
 operator|==
 literal|null
 operator|&&
-operator|!
-name|isSymbolic
+name|getSymbolicFlag
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getSymbolicFlag
 argument_list|()
 condition|)
 block|{
@@ -713,22 +717,6 @@ literal|"ZapfDingbats"
 argument_list|)
 return|;
 block|}
-elseif|else
-if|if
-condition|(
-name|getBaseFont
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"Symbol"
-argument_list|)
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
 else|else
 block|{
 if|if
@@ -739,13 +727,28 @@ literal|null
 condition|)
 block|{
 comment|// sanity check, should never happen
+if|if
+condition|(
+operator|!
+operator|(
+name|this
+operator|instanceof
+name|PDTrueTypeFont
+operator|)
+condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"recursive definition"
+literal|"PDFBox bug: encoding should not be null!"
 argument_list|)
 throw|;
+block|}
+comment|// TTF without its non-symbolic flag set must be symbolic
+return|return
+literal|true
+return|;
 block|}
 elseif|else
 if|if
