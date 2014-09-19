@@ -631,7 +631,7 @@ name|equals
 argument_list|(
 literal|"Symbol"
 argument_list|)
-operator|||
+operator|&&
 operator|!
 name|getName
 argument_list|()
