@@ -617,6 +617,29 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// Adobe's Standard 14 fonts have an empty .notdef glyph, but Microsoft's don't
+comment|// so we need to fake this glyph otherwise we get unwanted rectangles, see PDFBOX-2372
+if|if
+condition|(
+literal|".notdef"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+operator|&&
+name|isStandard14
+argument_list|()
+condition|)
+block|{
+return|return
+operator|new
+name|GeneralPath
+argument_list|()
+return|;
+block|}
+else|else
+block|{
 return|return
 name|type1Equivalent
 operator|.
@@ -625,6 +648,7 @@ argument_list|(
 name|name
 argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override
