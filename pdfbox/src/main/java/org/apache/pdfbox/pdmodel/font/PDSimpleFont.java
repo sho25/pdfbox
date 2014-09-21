@@ -332,6 +332,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns true if this font is one of the "standard 14" fonts.      */
+specifier|public
+specifier|static
+name|boolean
+name|isStandard14
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|STANDARD_14
+operator|.
+name|contains
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
 specifier|protected
 name|Encoding
 name|encoding
