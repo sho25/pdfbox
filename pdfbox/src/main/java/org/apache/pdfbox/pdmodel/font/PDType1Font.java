@@ -1902,6 +1902,10 @@ comment|// Adobe's Standard 14 fonts have an empty .notdef glyph, but Microsoft'
 comment|// so we need to fake this glyph otherwise we get unwanted rectangles, see PDFBOX-2372
 if|if
 condition|(
+operator|!
+name|isEmbedded
+argument_list|()
+operator|&&
 literal|".notdef"
 operator|.
 name|equals
