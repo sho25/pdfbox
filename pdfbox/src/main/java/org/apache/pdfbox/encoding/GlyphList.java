@@ -225,31 +225,16 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|File
-name|external
-init|=
+comment|// not supported in 2.0, see PDFBOX-2379
+throw|throw
 operator|new
-name|File
+name|UnsupportedOperationException
 argument_list|(
-name|location
+literal|"glyphlist_ext is no longer supported, "
+operator|+
+literal|"use GlyphList.DEFAULT.addGlyphs(Properties) instead"
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|external
-operator|.
-name|exists
-argument_list|()
-condition|)
-block|{
-name|DEFAULT
-operator|.
-name|loadGlyphs
-argument_list|(
-name|location
-argument_list|)
-expr_stmt|;
-block|}
+throw|;
 block|}
 block|}
 catch|catch
@@ -401,6 +386,24 @@ name|openStream
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addGlyphs
+argument_list|(
+name|properties
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Adds a glyph list stored in a .properties file to this GlyphList.      *      * @param properties Glyphlist in the form Name=XXXX where X is Unicode hex.      * @throws IOException if the properties could not be read      */
+specifier|public
+specifier|synchronized
+name|void
+name|addGlyphs
+parameter_list|(
+name|Properties
+name|properties
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|Enumeration
 argument_list|<
 name|?
