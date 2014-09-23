@@ -655,7 +655,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// ------
 name|GlyphData
 name|glyph
 init|=
@@ -673,8 +672,6 @@ comment|// workaround for Type0 "Standard 14" font handling, as Adobe has GID 0 
 comment|// while Microsoft uses a rectangle, which we don't want to appear
 if|if
 condition|(
-name|isCIDFont
-operator|&&
 name|gid
 operator|==
 literal|0
