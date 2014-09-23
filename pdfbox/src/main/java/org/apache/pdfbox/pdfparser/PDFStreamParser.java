@@ -1596,6 +1596,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|readBytes
+operator|==
+name|maxBinCharTestLength
+condition|)
+comment|// only if not close to eof
+block|{
 comment|// a PDF operator is 1-3 bytes long
 if|if
 condition|(
@@ -1620,6 +1628,7 @@ name|noBinData
 operator|=
 literal|false
 expr_stmt|;
+block|}
 block|}
 name|pdfSource
 operator|.
