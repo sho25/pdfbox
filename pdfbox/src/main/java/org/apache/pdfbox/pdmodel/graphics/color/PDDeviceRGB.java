@@ -125,11 +125,21 @@ name|PDDeviceRGB
 extends|extends
 name|PDDeviceColorSpace
 block|{
-specifier|private
+comment|/**  This is the single instance of this class. */
+specifier|public
 specifier|static
 specifier|final
+name|PDDeviceRGB
+name|INSTANCE
+init|=
+operator|new
+name|PDDeviceRGB
+argument_list|()
+decl_stmt|;
+specifier|private
+specifier|final
 name|ColorSpace
-name|COLOR_SPACE_RGB
+name|colorSpaceRGB
 init|=
 name|ColorSpace
 operator|.
@@ -141,10 +151,9 @@ name|CS_sRGB
 argument_list|)
 decl_stmt|;
 specifier|private
-specifier|static
 specifier|final
 name|PDColor
-name|INITIAL_COLOR
+name|initialColor
 init|=
 operator|new
 name|PDColor
@@ -159,18 +168,9 @@ literal|0
 block|,
 literal|0
 block|}
+argument_list|,
+name|this
 argument_list|)
-decl_stmt|;
-comment|/**  This is the single instance of this class. */
-specifier|public
-specifier|static
-specifier|final
-name|PDDeviceRGB
-name|INSTANCE
-init|=
-operator|new
-name|PDDeviceRGB
-argument_list|()
 decl_stmt|;
 specifier|private
 name|PDDeviceRGB
@@ -179,7 +179,7 @@ block|{
 comment|// there is a JVM bug which results in a CMMException which appears to be a race
 comment|// condition caused by lazy initialization of the color transform, so we perform
 comment|// an initial color conversion while we're still in a static context, see PDFBOX-2184
-name|COLOR_SPACE_RGB
+name|colorSpaceRGB
 operator|.
 name|toRGB
 argument_list|(
@@ -260,7 +260,7 @@ name|getInitialColor
 parameter_list|()
 block|{
 return|return
-name|INITIAL_COLOR
+name|initialColor
 return|;
 block|}
 annotation|@
@@ -276,7 +276,7 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|COLOR_SPACE_RGB
+name|colorSpaceRGB
 operator|.
 name|toRGB
 argument_list|(
@@ -302,7 +302,7 @@ init|=
 operator|new
 name|ComponentColorModel
 argument_list|(
-name|COLOR_SPACE_RGB
+name|colorSpaceRGB
 argument_list|,
 literal|false
 argument_list|,

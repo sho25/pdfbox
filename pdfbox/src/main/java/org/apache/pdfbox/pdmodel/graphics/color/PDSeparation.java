@@ -179,10 +179,9 @@ extends|extends
 name|PDSpecialColorSpace
 block|{
 specifier|private
-specifier|static
 specifier|final
 name|PDColor
-name|INITIAL_COLOR
+name|initialColor
 init|=
 operator|new
 name|PDColor
@@ -193,6 +192,8 @@ index|[]
 block|{
 literal|1
 block|}
+argument_list|,
+name|this
 argument_list|)
 decl_stmt|;
 comment|// array indexes
@@ -366,7 +367,7 @@ name|getInitialColor
 parameter_list|()
 block|{
 return|return
-name|INITIAL_COLOR
+name|initialColor
 return|;
 block|}
 annotation|@

@@ -105,6 +105,8 @@ index|[]
 block|{
 literal|0
 block|}
+argument_list|,
+name|INSTANCE
 argument_list|)
 decl_stmt|;
 specifier|private

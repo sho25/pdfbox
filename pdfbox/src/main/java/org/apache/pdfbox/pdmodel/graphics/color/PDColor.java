@@ -120,6 +120,10 @@ index|[]
 block|{
 literal|0
 block|}
+argument_list|,
+name|PDDeviceGray
+operator|.
+name|INSTANCE
 argument_list|)
 decl_stmt|;
 comment|/** A pattern which leaves no marks on the page. */
@@ -150,12 +154,20 @@ specifier|final
 name|String
 name|patternName
 decl_stmt|;
-comment|/**      * Creates a PDColor containing the given color value.      * @param array a COS array containing the color value      */
+specifier|private
+specifier|final
+name|PDColorSpace
+name|colorSpace
+decl_stmt|;
+comment|/**      * Creates a PDColor containing the given color value.      * @param array a COS array containing the color value      * @param colorSpace color space in which the color value is defined      */
 specifier|public
 name|PDColor
 parameter_list|(
 name|COSArray
 name|array
+parameter_list|,
+name|PDColorSpace
+name|colorSpace
 parameter_list|)
 block|{
 if|if
@@ -312,14 +324,23 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|this
+operator|.
+name|colorSpace
+operator|=
+name|colorSpace
+expr_stmt|;
 block|}
-comment|/**      * Creates a PDColor containing the given color component values.      * @param components array of color component values      */
+comment|/**      * Creates a PDColor containing the given color component values.      * @param components array of color component values      * @param colorSpace color space in which the components are defined      */
 specifier|public
 name|PDColor
 parameter_list|(
 name|float
 index|[]
 name|components
+parameter_list|,
+name|PDColorSpace
+name|colorSpace
 parameter_list|)
 block|{
 name|this
@@ -337,13 +358,22 @@ name|patternName
 operator|=
 literal|null
 expr_stmt|;
+name|this
+operator|.
+name|colorSpace
+operator|=
+name|colorSpace
+expr_stmt|;
 block|}
-comment|/**      * Creates a PDColor containing the given pattern name.      * @param patternName the name of a pattern in a pattern dictionary      */
+comment|/**      * Creates a PDColor containing the given pattern name.      * @param patternName the name of a pattern in a pattern dictionary      * @param colorSpace color space in which the pattern is defined      */
 specifier|public
 name|PDColor
 parameter_list|(
 name|String
 name|patternName
+parameter_list|,
+name|PDColorSpace
+name|colorSpace
 parameter_list|)
 block|{
 name|this
@@ -362,8 +392,14 @@ name|patternName
 operator|=
 name|patternName
 expr_stmt|;
+name|this
+operator|.
+name|colorSpace
+operator|=
+name|colorSpace
+expr_stmt|;
 block|}
-comment|/**      * Creates a PDColor containing the given color component values and pattern name.      * @param components array of color component values      * @param patternName the name of a pattern in a pattern dictionary      */
+comment|/**      * Creates a PDColor containing the given color component values and pattern name.      * @param components array of color component values      * @param patternName the name of a pattern in a pattern dictionary      * @param colorSpace color space in which the pattern/components are defined      */
 specifier|public
 name|PDColor
 parameter_list|(
@@ -373,6 +409,9 @@ name|components
 parameter_list|,
 name|String
 name|patternName
+parameter_list|,
+name|PDColorSpace
+name|colorSpace
 parameter_list|)
 block|{
 name|this
@@ -389,6 +428,12 @@ operator|.
 name|patternName
 operator|=
 name|patternName
+expr_stmt|;
+name|this
+operator|.
+name|colorSpace
+operator|=
+name|colorSpace
 expr_stmt|;
 block|}
 comment|/**      * Returns the components of this color value.      * @return the components of this color value      */
@@ -427,14 +472,11 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Returns the packed RGB value for this color, if any.      * @param colorSpace color space      * @return RGB      * @throws IOException      * @throws java.lang.IllegalStateException if this color value is a pattern.      */
+comment|/**      * Returns the packed RGB value for this color, if any.      * @return RGB      * @throws IOException if the color conversion fails      * @throws IllegalStateException if this color value is a pattern.      */
 specifier|public
 name|int
 name|toRGB
-parameter_list|(
-name|PDColorSpace
-name|colorSpace
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -556,6 +598,16 @@ argument_list|)
 expr_stmt|;
 return|return
 name|array
+return|;
+block|}
+comment|/**      * Returns the color space in which this color value is defined.      */
+specifier|public
+name|PDColorSpace
+name|getColorSpace
+parameter_list|()
+block|{
+return|return
+name|colorSpace
 return|;
 block|}
 annotation|@

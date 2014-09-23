@@ -114,11 +114,14 @@ name|PDCalRGB
 extends|extends
 name|PDCIEBasedColorSpace
 block|{
+specifier|protected
+name|COSDictionary
+name|dictionary
+decl_stmt|;
 specifier|private
-specifier|static
 specifier|final
 name|PDColor
-name|INITIAL_COLOR
+name|initialColor
 init|=
 operator|new
 name|PDColor
@@ -133,11 +136,9 @@ literal|0
 block|,
 literal|0
 block|}
+argument_list|,
+name|this
 argument_list|)
-decl_stmt|;
-specifier|protected
-name|COSDictionary
-name|dictionary
 decl_stmt|;
 comment|/**      * Creates a new CalRGB color space.      */
 specifier|public
@@ -263,7 +264,7 @@ name|getInitialColor
 parameter_list|()
 block|{
 return|return
-name|INITIAL_COLOR
+name|initialColor
 return|;
 block|}
 annotation|@

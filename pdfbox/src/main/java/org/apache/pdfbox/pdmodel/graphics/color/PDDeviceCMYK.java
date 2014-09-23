@@ -155,10 +155,9 @@ throw|;
 block|}
 block|}
 specifier|private
-specifier|static
 specifier|final
 name|PDColor
-name|INITIAL_COLOR
+name|initialColor
 init|=
 operator|new
 name|PDColor
@@ -175,6 +174,8 @@ literal|0
 block|,
 literal|1
 block|}
+argument_list|,
+name|this
 argument_list|)
 decl_stmt|;
 specifier|private
@@ -384,7 +385,7 @@ name|getInitialColor
 parameter_list|()
 block|{
 return|return
-name|INITIAL_COLOR
+name|initialColor
 return|;
 block|}
 annotation|@

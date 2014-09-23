@@ -74,10 +74,9 @@ extends|extends
 name|PDCalRGB
 block|{
 specifier|private
-specifier|static
 specifier|final
 name|PDColor
-name|INITIAL_COLOR
+name|initialColor
 init|=
 operator|new
 name|PDColor
@@ -88,6 +87,8 @@ index|[]
 block|{
 literal|0
 block|}
+argument_list|,
+name|this
 argument_list|)
 decl_stmt|;
 comment|/**      * Create a new CalGray color space.      */
@@ -208,7 +209,7 @@ name|getInitialColor
 parameter_list|()
 block|{
 return|return
-name|INITIAL_COLOR
+name|initialColor
 return|;
 block|}
 annotation|@

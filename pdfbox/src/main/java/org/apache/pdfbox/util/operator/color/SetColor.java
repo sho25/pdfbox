@@ -185,6 +185,9 @@ operator|new
 name|PDColor
 argument_list|(
 name|array
+argument_list|,
+name|getColorSpace
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

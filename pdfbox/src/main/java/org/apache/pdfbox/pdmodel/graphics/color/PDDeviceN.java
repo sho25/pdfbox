@@ -468,6 +468,8 @@ operator|new
 name|PDColor
 argument_list|(
 name|initial
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}

@@ -878,6 +878,8 @@ name|getMin
 argument_list|()
 argument_list|)
 block|}
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}

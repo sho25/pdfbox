@@ -125,6 +125,24 @@ name|PDColor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|color
+operator|.
+name|PDDeviceRGB
+import|;
+end_import
+
 begin_comment
 comment|/**  * The Box Style specifies visual characteristics for displaying box areas.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
 end_comment
@@ -282,6 +300,10 @@ name|colorValues
 operator|.
 name|toFloatArray
 argument_list|()
+argument_list|,
+name|PDDeviceRGB
+operator|.
+name|INSTANCE
 argument_list|)
 decl_stmt|;
 return|return
