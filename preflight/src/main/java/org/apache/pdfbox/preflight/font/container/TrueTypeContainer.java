@@ -614,7 +614,8 @@ name|character
 init|=
 name|GlyphList
 operator|.
-name|DEFAULT
+name|getAdobeGlyphList
+argument_list|()
 operator|.
 name|toUnicode
 argument_list|(

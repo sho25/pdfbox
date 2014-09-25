@@ -41,6 +41,20 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|encoding
+operator|.
+name|GlyphList
+import|;
+end_import
+
 begin_comment
 comment|/**  * Type 1 Multiple Master Font.  *  * @author Ben Litchfield  */
 end_comment
@@ -52,12 +66,15 @@ name|PDMMType1Font
 extends|extends
 name|PDType1Font
 block|{
-comment|/**      * Creates an MMType1Font from a Font dictionary in a PDF.      *      * @param fontDictionary font dictionary      */
+comment|/**      * Creates an MMType1Font from a Font dictionary in a PDF.      *      * @param fontDictionary font dictionary      * @param glyphList a custom glyph list for Unicode mapping      */
 specifier|public
 name|PDMMType1Font
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
+parameter_list|,
+name|GlyphList
+name|glyphList
 parameter_list|)
 throws|throws
 name|IOException
@@ -65,6 +82,8 @@ block|{
 name|super
 argument_list|(
 name|fontDictionary
+argument_list|,
+name|glyphList
 argument_list|)
 expr_stmt|;
 block|}

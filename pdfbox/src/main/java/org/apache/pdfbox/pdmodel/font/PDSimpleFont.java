@@ -238,6 +238,11 @@ name|glyphList
 decl_stmt|;
 specifier|private
 specifier|final
+name|GlyphList
+name|defaultGlyphList
+decl_stmt|;
+specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|Integer
@@ -260,13 +265,23 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
+name|defaultGlyphList
+operator|=
+name|GlyphList
+operator|.
+name|getAdobeGlyphList
+argument_list|()
+expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param fontDictionary Font dictionary.      */
+comment|/**      * Constructor.      *      * @param fontDictionary Font dictionary.      * @param glyphList a custom glyph list for Unicode mapping      */
 specifier|protected
 name|PDSimpleFont
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
+parameter_list|,
+name|GlyphList
+name|glyphList
 parameter_list|)
 throws|throws
 name|IOException
@@ -276,6 +291,28 @@ argument_list|(
 name|fontDictionary
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|glyphList
+operator|==
+literal|null
+condition|)
+block|{
+name|defaultGlyphList
+operator|=
+name|GlyphList
+operator|.
+name|getAdobeGlyphList
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|defaultGlyphList
+operator|=
+name|glyphList
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Reads the Encoding from the Font dictionary or the embedded or substituted font file.      * Must be called at the end of any subclass constructors.      *      * @throws IOException if the font file could not be read      */
 specifier|protected
@@ -567,17 +604,17 @@ name|glyphList
 operator|=
 name|GlyphList
 operator|.
-name|ZAPF_DINGBATS
+name|getZapfDingbats
+argument_list|()
 expr_stmt|;
 block|}
 else|else
 block|{
 name|glyphList
 operator|=
-name|GlyphList
-operator|.
-name|DEFAULT
+name|defaultGlyphList
 expr_stmt|;
+comment|// by default this is the AGL, but it can be overridden
 block|}
 block|}
 comment|/**      * Called by readEncoding() if the encoding needs to be extracted from the font file.      *      * @throws IOException if the font file could not be read      */

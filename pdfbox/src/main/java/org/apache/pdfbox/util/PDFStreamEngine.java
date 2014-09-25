@@ -259,6 +259,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|encoding
+operator|.
+name|GlyphList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdfparser
 operator|.
 name|PDFStreamParser
@@ -1210,6 +1224,8 @@ parameter_list|,
 name|float
 name|ty
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// update the text matrix
 name|textMatrix
@@ -1800,6 +1816,24 @@ name|peek
 argument_list|()
 operator|.
 name|getFonts
+argument_list|(
+name|getGlyphList
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns the glyph list for Unicode mapping, the default is the Adobe Glyph List.      * @throws IOException if the glyph list could not be loaded      */
+specifier|protected
+name|GlyphList
+name|getGlyphList
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|GlyphList
+operator|.
+name|getAdobeGlyphList
 argument_list|()
 return|;
 block|}

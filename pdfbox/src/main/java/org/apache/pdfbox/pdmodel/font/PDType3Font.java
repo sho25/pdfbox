@@ -157,6 +157,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|encoding
+operator|.
+name|GlyphList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDResources
@@ -249,12 +263,15 @@ specifier|private
 name|Matrix
 name|fontMatrix
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
+comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      * @param glyphList a custom glyph list for Unicode mapping      */
 specifier|public
 name|PDType3Font
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
+parameter_list|,
+name|GlyphList
+name|glyphList
 parameter_list|)
 throws|throws
 name|IOException
@@ -262,6 +279,8 @@ block|{
 name|super
 argument_list|(
 name|fontDictionary
+argument_list|,
+name|glyphList
 argument_list|)
 expr_stmt|;
 name|readEncoding

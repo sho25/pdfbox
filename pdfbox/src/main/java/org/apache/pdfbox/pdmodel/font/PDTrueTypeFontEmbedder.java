@@ -1554,13 +1554,15 @@ name|c
 init|=
 name|GlyphList
 operator|.
-name|DEFAULT
+name|getAdobeGlyphList
+argument_list|()
 operator|.
 name|toUnicode
 argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+comment|// todo: we're supposed to use the 'provided font encoding'
 name|int
 name|charCode
 init|=

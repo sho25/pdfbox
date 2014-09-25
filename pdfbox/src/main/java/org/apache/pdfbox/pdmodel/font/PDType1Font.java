@@ -239,6 +239,20 @@ name|pdfbox
 operator|.
 name|encoding
 operator|.
+name|GlyphList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|encoding
+operator|.
 name|StandardEncoding
 import|;
 end_import
@@ -767,12 +781,15 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * Creates a Type 1 font from a Font dictionary in a PDF.      *       * @param fontDictionary font dictionary      */
+comment|/**      * Creates a Type 1 font from a Font dictionary in a PDF.      *       * @param fontDictionary font dictionary      * @param glyphList A custom glyph list for Unicode mapping      */
 specifier|public
 name|PDType1Font
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
+parameter_list|,
+name|GlyphList
+name|glyphList
 parameter_list|)
 throws|throws
 name|IOException
@@ -780,6 +797,8 @@ block|{
 name|super
 argument_list|(
 name|fontDictionary
+argument_list|,
+name|glyphList
 argument_list|)
 expr_stmt|;
 name|PDFontDescriptor

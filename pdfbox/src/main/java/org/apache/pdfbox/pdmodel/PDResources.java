@@ -147,6 +147,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|encoding
+operator|.
+name|GlyphList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -560,7 +574,7 @@ name|getFonts
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the map of fonts. This will never return null.      *       * @return The map of fonts.      */
+comment|/**      * This will get the map of fonts. This will never return null.      *      * @return The map of fonts.      */
 specifier|public
 name|Map
 argument_list|<
@@ -570,6 +584,32 @@ name|PDFont
 argument_list|>
 name|getFonts
 parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|getFonts
+argument_list|(
+operator|(
+name|GlyphList
+operator|)
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * This will get the map of fonts. This will never return null.      *      * @param glyphList A custom glyph list for Unicode mapping.      * @return The map of fonts.      */
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PDFont
+argument_list|>
+name|getFonts
+parameter_list|(
+name|GlyphList
+name|glyphList
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -724,6 +764,8 @@ operator|(
 name|COSDictionary
 operator|)
 name|font
+argument_list|,
+name|glyphList
 argument_list|)
 decl_stmt|;
 name|fonts
