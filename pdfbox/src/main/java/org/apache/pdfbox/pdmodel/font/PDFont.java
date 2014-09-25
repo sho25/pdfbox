@@ -493,26 +493,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// may be null (it usually is)
-if|if
-condition|(
-name|afmStandard14
-operator|!=
-literal|null
-condition|)
-block|{
-name|isSymbolic
-operator|=
-name|afmStandard14
-operator|.
-name|getEncodingScheme
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"FontSpecific"
-argument_list|)
-expr_stmt|;
-block|}
 comment|// font descriptor
 name|COSDictionary
 name|fd
