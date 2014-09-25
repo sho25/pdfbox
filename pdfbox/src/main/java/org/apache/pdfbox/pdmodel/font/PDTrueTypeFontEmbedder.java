@@ -535,7 +535,7 @@ name|stream2
 init|=
 literal|null
 decl_stmt|;
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 name|fd
 decl_stmt|;
 try|try
@@ -599,7 +599,7 @@ expr_stmt|;
 block|}
 comment|// creates a new font descriptor dictionary for the given TTF
 specifier|private
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 name|createFontDescriptor
 parameter_list|(
 name|COSDictionary
@@ -611,11 +611,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 name|fd
 init|=
 operator|new
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 argument_list|()
 decl_stmt|;
 name|NamingTable

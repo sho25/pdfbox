@@ -376,12 +376,9 @@ argument_list|,
 name|parent
 argument_list|)
 expr_stmt|;
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 name|fd
 init|=
-operator|(
-name|PDFontDescriptorDictionary
-operator|)
 name|getFontDescriptor
 argument_list|()
 decl_stmt|;

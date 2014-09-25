@@ -421,22 +421,12 @@ condition|(
 name|fd
 operator|!=
 literal|null
-operator|&&
-name|fd
-operator|instanceof
-name|PDFontDescriptorDictionary
 condition|)
-comment|//<-- todo: must be true
 block|{
 name|PDStream
 name|ff3Stream
 init|=
-operator|(
-operator|(
-name|PDFontDescriptorDictionary
-operator|)
 name|fd
-operator|)
 operator|.
 name|getFontFile3
 argument_list|()
@@ -617,21 +607,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Adobe's Standard 14 fonts have an empty .notdef glyph, but Microsoft's don't
-comment|// so we need to fake this glyph otherwise we get unwanted rectangles, see PDFBOX-2372
+comment|// Acrobat only draws .notdef for embedded or "Standard 14" fonts, see PDFBOX-2372
 if|if
 condition|(
+name|name
+operator|.
+name|equals
+argument_list|(
+literal|".notdef"
+argument_list|)
+operator|&&
 operator|!
 name|isEmbedded
 argument_list|()
 operator|&&
-literal|".notdef"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-operator|&&
+operator|!
 name|isStandard14
 argument_list|()
 condition|)
@@ -874,6 +864,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|getStandard14AFM
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|getStandard14Width
+argument_list|(
+name|code
+argument_list|)
+return|;
+block|}
 name|String
 name|name
 init|=

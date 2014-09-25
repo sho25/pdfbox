@@ -93,6 +93,20 @@ name|apache
 operator|.
 name|fontbox
 operator|.
+name|afm
+operator|.
+name|FontMetrics
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
 name|cmap
 operator|.
 name|CMap
@@ -333,6 +347,13 @@ name|CMap
 name|toUnicodeCMap
 decl_stmt|;
 specifier|private
+specifier|final
+name|FontMetrics
+name|afmStandard14
+decl_stmt|;
+comment|// AFM for standard 14 fonts
+specifier|private
+specifier|final
 name|PDFontDescriptor
 name|fontDescriptor
 decl_stmt|;
@@ -386,6 +407,65 @@ name|toUnicodeCMap
 operator|=
 literal|null
 expr_stmt|;
+name|fontDescriptor
+operator|=
+literal|null
+expr_stmt|;
+name|afmStandard14
+operator|=
+literal|null
+expr_stmt|;
+block|}
+comment|/**      * Constructor for Standard 14.      */
+specifier|protected
+name|PDFont
+parameter_list|(
+name|String
+name|baseFont
+parameter_list|)
+block|{
+name|dict
+operator|=
+operator|new
+name|COSDictionary
+argument_list|()
+expr_stmt|;
+name|toUnicodeCMap
+operator|=
+literal|null
+expr_stmt|;
+name|fontDescriptor
+operator|=
+literal|null
+expr_stmt|;
+name|afmStandard14
+operator|=
+name|Standard14Fonts
+operator|.
+name|getAFM
+argument_list|(
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// may be null (it usually is)
+if|if
+condition|(
+name|afmStandard14
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No AFM for font "
+operator|+
+name|baseFont
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * Constructor.      *      * @param fontDictionary Font dictionary.      */
 specifier|protected
@@ -401,6 +481,38 @@ name|dict
 operator|=
 name|fontDictionary
 expr_stmt|;
+comment|// standard 14 fonts use an AFM
+name|afmStandard14
+operator|=
+name|Standard14Fonts
+operator|.
+name|getAFM
+argument_list|(
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// may be null (it usually is)
+if|if
+condition|(
+name|afmStandard14
+operator|!=
+literal|null
+condition|)
+block|{
+name|isSymbolic
+operator|=
+name|afmStandard14
+operator|.
+name|getEncodingScheme
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"FontSpecific"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// font descriptor
 name|COSDictionary
 name|fd
@@ -427,9 +539,28 @@ block|{
 name|fontDescriptor
 operator|=
 operator|new
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 argument_list|(
 name|fd
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|afmStandard14
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// build font descriptor from the AFM
+name|fontDescriptor
+operator|=
+name|PDType1FontEmbedder
+operator|.
+name|buildFontDescriptor
+argument_list|(
+name|afmStandard14
 argument_list|)
 expr_stmt|;
 block|}
@@ -500,6 +631,17 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Returns the AFM if this is a Standard 14 font.      */
+specifier|protected
+specifier|final
+name|FontMetrics
+name|getStandard14AFM
+parameter_list|()
+block|{
+return|return
+name|afmStandard14
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -510,21 +652,6 @@ block|{
 return|return
 name|fontDescriptor
 return|;
-block|}
-comment|/**      * Sets the font descriptor. For internal PDFBox use only.      */
-name|void
-name|setFontDescriptor
-parameter_list|(
-name|PDFontDescriptor
-name|fontDescriptor
-parameter_list|)
-block|{
-name|this
-operator|.
-name|fontDescriptor
-operator|=
-name|fontDescriptor
-expr_stmt|;
 block|}
 comment|/**      * Reads a CMap given a COS Stream or Name. May return null if a predefined CMap does not exist.      *      * @param base COSName or COSStream      */
 specifier|protected
@@ -700,6 +827,27 @@ comment|//
 comment|// Note: The Adobe Supplement says that the override happens "If the font program is not
 comment|// embedded", however PDFBOX-427 shows that it also applies to embedded fonts.
 comment|// Type1, Type1C, Type3
+if|if
+condition|(
+name|dict
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|WIDTHS
+argument_list|)
+operator|||
+name|dict
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|MISSING_WIDTH
+argument_list|)
+condition|)
+block|{
 name|int
 name|firstChar
 init|=
@@ -764,8 +912,6 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-else|else
-block|{
 name|PDFontDescriptor
 name|fd
 init|=
@@ -775,18 +921,8 @@ decl_stmt|;
 if|if
 condition|(
 name|fd
-operator|instanceof
-name|PDFontDescriptorDictionary
-operator|&&
-operator|(
-operator|(
-name|PDFontDescriptorDictionary
-operator|)
-name|fd
-operator|)
-operator|.
-name|hasWidths
-argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
@@ -795,9 +931,9 @@ operator|.
 name|getMissingWidth
 argument_list|()
 return|;
+comment|// default is 0
 block|}
-else|else
-block|{
+block|}
 comment|// if there's nothing to override with, then obviously we fall back to the font
 return|return
 name|getWidthFromFont
@@ -805,8 +941,6 @@ argument_list|(
 name|code
 argument_list|)
 return|;
-block|}
-block|}
 block|}
 annotation|@
 name|Override
@@ -1066,7 +1200,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// if the font dictionary contains a ToUnicode CMap, use that CMap
+comment|// if the font dictionary containsName a ToUnicode CMap, use that CMap
 if|if
 condition|(
 name|toUnicodeCMap
@@ -1459,6 +1593,46 @@ name|boolean
 name|isVertical
 parameter_list|()
 function_decl|;
+comment|/**      * Returns true if this font is one of the "Standard 14" fonts and receives special handling.      */
+specifier|public
+name|boolean
+name|isStandard14
+parameter_list|()
+block|{
+comment|// this logic is based on Acrobat's behaviour, see see PDFBOX-2372
+comment|// symbolic fonts are never standard: they don't use the Adobe Standard Roman character set
+if|if
+condition|(
+name|isSymbolic
+argument_list|()
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// embedded fonts never get special treatment
+if|if
+condition|(
+name|isEmbedded
+argument_list|()
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// if the name matches, this is a Standard 14 font
+return|return
+name|Standard14Fonts
+operator|.
+name|containsName
+argument_list|(
+name|getName
+argument_list|()
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public

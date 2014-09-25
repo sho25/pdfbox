@@ -311,7 +311,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 import|;
 end_import
 
@@ -553,7 +553,7 @@ specifier|public
 name|PDStream
 name|extractFontFile
 parameter_list|(
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 name|fontDescriptor
 parameter_list|)
 block|{
@@ -742,7 +742,7 @@ specifier|protected
 name|void
 name|processFontFile
 parameter_list|(
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 name|fontDescriptor
 parameter_list|,
 name|PDStream
@@ -778,7 +778,7 @@ specifier|protected
 name|void
 name|processFontFile1
 parameter_list|(
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 name|fontDescriptor
 parameter_list|,
 name|PDStream
@@ -967,7 +967,7 @@ specifier|protected
 name|void
 name|processFontFile3
 parameter_list|(
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 name|fontDescriptor
 parameter_list|,
 name|PDStream

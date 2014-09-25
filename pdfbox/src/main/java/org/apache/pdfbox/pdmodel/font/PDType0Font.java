@@ -1056,6 +1056,17 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|boolean
+name|isStandard14
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|String
 name|toString
 parameter_list|()

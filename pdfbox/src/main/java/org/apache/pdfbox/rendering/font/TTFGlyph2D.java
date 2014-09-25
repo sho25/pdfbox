@@ -57,16 +57,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -77,27 +67,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -200,22 +170,6 @@ operator|.
 name|font
 operator|.
 name|PDFont
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|font
-operator|.
-name|PDSimpleFont
 import|;
 end_import
 
@@ -668,8 +622,7 @@ argument_list|(
 name|gid
 argument_list|)
 decl_stmt|;
-comment|// workaround for Type0 "Standard 14" font handling, as Adobe has GID 0 as empty
-comment|// while Microsoft uses a rectangle, which we don't want to appear
+comment|// Acrobat only draws GID 0 for embedded or "Standard 14" fonts, see PDFBOX-2372
 if|if
 condition|(
 name|gid
@@ -682,15 +635,11 @@ operator|.
 name|isEmbedded
 argument_list|()
 operator|&&
-name|PDSimpleFont
-operator|.
-name|isStandard14
-argument_list|(
+operator|!
 name|font
 operator|.
-name|getName
+name|isStandard14
 argument_list|()
-argument_list|)
 condition|)
 block|{
 name|glyph

@@ -378,22 +378,12 @@ condition|(
 name|fd
 operator|!=
 literal|null
-operator|&&
-name|fd
-operator|instanceof
-name|PDFontDescriptorDictionary
 condition|)
-comment|//<-- todo: must be true
 block|{
 name|PDStream
 name|ff3Stream
 init|=
-operator|(
-operator|(
-name|PDFontDescriptorDictionary
-operator|)
 name|fd
-operator|)
 operator|.
 name|getFontFile3
 argument_list|()

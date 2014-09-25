@@ -1003,7 +1003,7 @@ block|{
 name|fontDescriptor
 operator|=
 operator|new
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 argument_list|(
 name|fd
 argument_list|)

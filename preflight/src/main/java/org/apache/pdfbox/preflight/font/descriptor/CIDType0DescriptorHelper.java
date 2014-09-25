@@ -263,7 +263,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 import|;
 end_import
 
@@ -400,7 +400,7 @@ specifier|public
 name|PDStream
 name|extractFontFile
 parameter_list|(
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 name|fontDescriptor
 parameter_list|)
 block|{
@@ -535,7 +535,7 @@ specifier|protected
 name|void
 name|checkCIDSet
 parameter_list|(
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 name|pfDescriptor
 parameter_list|)
 block|{
@@ -568,7 +568,7 @@ name|cidset
 init|=
 name|pfDescriptor
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -624,7 +624,7 @@ specifier|protected
 name|void
 name|processFontFile
 parameter_list|(
-name|PDFontDescriptorDictionary
+name|PDFontDescriptor
 name|fontDescriptor
 parameter_list|,
 name|PDStream

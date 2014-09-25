@@ -476,10 +476,7 @@ name|height
 init|=
 name|font
 operator|.
-name|getFontDescriptor
-argument_list|()
-operator|.
-name|getFontBoundingBox
+name|getBoundingBox
 argument_list|()
 operator|.
 name|getHeight

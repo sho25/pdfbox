@@ -432,8 +432,8 @@ decl_stmt|;
 if|if
 condition|(
 name|fd
-operator|instanceof
-name|PDFontDescriptorDictionary
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
