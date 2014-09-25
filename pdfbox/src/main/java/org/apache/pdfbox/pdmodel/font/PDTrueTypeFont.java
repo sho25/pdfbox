@@ -845,6 +845,11 @@ name|getStandard14AFM
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|getEncoding
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
