@@ -46,30 +46,12 @@ argument_list|(
 literal|"Saturation"
 argument_list|)
 block|,
-comment|/**      * Neither fill nor stroke text (invisible)      */
+comment|/**      * Perceptual.      */
 name|PERCEPTUAL
 argument_list|(
 literal|"Perceptual"
 argument_list|)
 block|;
-specifier|public
-specifier|static
-name|RenderingIntent
-name|fromString
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-block|{
-return|return
-name|RenderingIntent
-operator|.
-name|valueOf
-argument_list|(
-name|value
-argument_list|)
-return|;
-block|}
 specifier|private
 specifier|final
 name|String
