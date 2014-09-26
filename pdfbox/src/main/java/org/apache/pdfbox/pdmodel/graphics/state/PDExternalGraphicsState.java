@@ -180,13 +180,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents the graphics state dictionary that is stored in the PDF document.  * The PDGraphicsStateValue holds the current runtime values as a stream is being executed.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
+comment|/**  * An external graphics state dictionary.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 implements|implements
 name|COSObjectable
 block|{
@@ -232,7 +232,7 @@ name|graphicsState
 decl_stmt|;
 comment|/**      * Default constructor, creates blank graphics state.      */
 specifier|public
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 parameter_list|()
 block|{
 name|graphicsState
@@ -257,7 +257,7 @@ expr_stmt|;
 block|}
 comment|/**      * Create a graphics state from an existing dictionary.      *      * @param dictionary The existing graphics state.      */
 specifier|public
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 parameter_list|(
 name|COSDictionary
 name|dictionary

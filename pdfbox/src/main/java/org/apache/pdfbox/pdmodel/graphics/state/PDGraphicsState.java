@@ -868,7 +868,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * This will get the rendering intent.      *      * @see org.apache.pdfbox.pdmodel.graphics.state.PDExtendedGraphicsState      *      * @return The rendering intent      */
+comment|/**      * This will get the rendering intent.      *      * @see PDExternalGraphicsState      *      * @return The rendering intent      */
 specifier|public
 name|String
 name|getRenderingIntent

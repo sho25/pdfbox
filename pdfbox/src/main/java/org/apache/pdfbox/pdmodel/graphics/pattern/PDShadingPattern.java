@@ -125,7 +125,7 @@ name|graphics
 operator|.
 name|state
 operator|.
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 import|;
 end_import
 
@@ -173,7 +173,7 @@ extends|extends
 name|PDAbstractPattern
 block|{
 specifier|private
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 name|extendedGraphicsState
 decl_stmt|;
 specifier|private
@@ -502,7 +502,7 @@ expr_stmt|;
 block|}
 comment|/**      * This will get the extended graphics state for this pattern.      * @return The extended graphics state for this pattern.      */
 specifier|public
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 name|getExtendedGraphicsState
 parameter_list|()
 block|{
@@ -539,7 +539,7 @@ block|{
 name|extendedGraphicsState
 operator|=
 operator|new
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 argument_list|(
 name|dictionary
 argument_list|)
@@ -555,7 +555,7 @@ specifier|public
 name|void
 name|setExtendedGraphicsState
 parameter_list|(
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 name|extendedGraphicsState
 parameter_list|)
 block|{

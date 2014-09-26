@@ -359,7 +359,7 @@ name|graphics
 operator|.
 name|state
 operator|.
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 import|;
 end_import
 
@@ -1922,7 +1922,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 argument_list|>
 name|getGraphicsStates
 parameter_list|()

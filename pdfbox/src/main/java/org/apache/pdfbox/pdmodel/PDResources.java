@@ -217,7 +217,7 @@ name|graphics
 operator|.
 name|state
 operator|.
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 import|;
 end_import
 
@@ -402,7 +402,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 argument_list|>
 name|graphicsStates
 init|=
@@ -1344,7 +1344,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 argument_list|>
 name|getGraphicsStates
 parameter_list|()
@@ -1385,7 +1385,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -1423,7 +1423,7 @@ name|getName
 argument_list|()
 argument_list|,
 operator|new
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 argument_list|(
 name|dictionary
 argument_list|)
@@ -1445,7 +1445,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 argument_list|>
 name|states
 parameter_list|)
@@ -1501,7 +1501,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|PDExtendedGraphicsState
+name|PDExternalGraphicsState
 name|state
 init|=
 name|states
