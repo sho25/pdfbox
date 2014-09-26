@@ -347,7 +347,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|contentstream
 operator|.
 name|PDFGraphicsStreamEngine
 import|;

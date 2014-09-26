@@ -121,16 +121,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|SortedMap
 import|;
 end_import
@@ -184,6 +174,20 @@ operator|.
 name|regex
 operator|.
 name|Pattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|PDFTextStreamEngine
 import|;
 end_import
 

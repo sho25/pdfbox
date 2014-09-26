@@ -31,16 +31,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Color
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|Graphics
 import|;
 end_import
@@ -827,7 +817,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|contentstream
 operator|.
 name|PDFGraphicsStreamEngine
 import|;
