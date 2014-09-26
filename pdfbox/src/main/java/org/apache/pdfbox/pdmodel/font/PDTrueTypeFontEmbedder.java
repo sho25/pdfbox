@@ -235,6 +235,10 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
 name|encoding
 operator|.
 name|Encoding
@@ -249,6 +253,10 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
 name|encoding
 operator|.
 name|GlyphList
@@ -262,6 +270,10 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
 operator|.
 name|encoding
 operator|.

@@ -11,6 +11,10 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
 name|encoding
 package|;
 end_package

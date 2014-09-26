@@ -23,16 +23,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashMap
@@ -68,6 +58,10 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
 operator|.
 name|encoding
 operator|.

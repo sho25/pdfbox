@@ -63,22 +63,6 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|FONT_DICTIONARY_VALUE_ENCODING_PDFDOC
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
 name|FONT_DICTIONARY_VALUE_ENCODING_WIN
 import|;
 end_import
@@ -221,6 +205,10 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
 name|encoding
 operator|.
 name|Encoding
@@ -234,6 +222,10 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
 operator|.
 name|encoding
 operator|.
@@ -249,6 +241,10 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
 name|encoding
 operator|.
 name|StandardEncoding
@@ -262,6 +258,10 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
 operator|.
 name|encoding
 operator|.

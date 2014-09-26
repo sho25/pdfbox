@@ -41,20 +41,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|encoding
-operator|.
-name|GlyphList
-import|;
-end_import
-
 begin_comment
 comment|/**  * Type 1 Multiple Master Font.  *  * @author Ben Litchfield  */
 end_comment

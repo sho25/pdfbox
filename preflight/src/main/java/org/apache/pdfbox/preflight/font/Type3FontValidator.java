@@ -61,22 +61,6 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ERROR_FONTS_ENCODING
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
 name|ERROR_FONTS_METRICS
 import|;
 end_import
@@ -229,6 +213,10 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
 name|encoding
 operator|.
 name|DictionaryEncoding
@@ -242,6 +230,10 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
 operator|.
 name|encoding
 operator|.

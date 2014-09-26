@@ -97,20 +97,6 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|encoding
-operator|.
-name|GlyphList
-import|;
-end_import
-
 begin_comment
 comment|/**  * Creates the appropriate font subtype based on information in the dictionary.  * @author Ben Litchfield  */
 end_comment

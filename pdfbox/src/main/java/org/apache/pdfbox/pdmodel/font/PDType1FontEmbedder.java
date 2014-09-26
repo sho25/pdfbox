@@ -151,6 +151,10 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
 name|encoding
 operator|.
 name|DictionaryEncoding
@@ -165,6 +169,10 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
 name|encoding
 operator|.
 name|Encoding
@@ -178,6 +186,10 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
 operator|.
 name|encoding
 operator|.
