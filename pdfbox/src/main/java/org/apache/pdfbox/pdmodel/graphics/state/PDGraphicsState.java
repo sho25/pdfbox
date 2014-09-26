@@ -313,7 +313,7 @@ name|PDLineDashPattern
 argument_list|()
 decl_stmt|;
 specifier|private
-name|String
+name|RenderingIntent
 name|renderingIntent
 decl_stmt|;
 specifier|private
@@ -870,7 +870,7 @@ expr_stmt|;
 block|}
 comment|/**      * This will get the rendering intent.      *      * @see PDExternalGraphicsState      *      * @return The rendering intent      */
 specifier|public
-name|String
+name|RenderingIntent
 name|getRenderingIntent
 parameter_list|()
 block|{
@@ -883,7 +883,7 @@ specifier|public
 name|void
 name|setRenderingIntent
 parameter_list|(
-name|String
+name|RenderingIntent
 name|value
 parameter_list|)
 block|{

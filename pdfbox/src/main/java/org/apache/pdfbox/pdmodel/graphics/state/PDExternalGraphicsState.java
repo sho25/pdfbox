@@ -190,58 +190,23 @@ name|PDExternalGraphicsState
 implements|implements
 name|COSObjectable
 block|{
-comment|/**      * Rendering intent constants, see PDF Reference 1.5 Section 4.5.4 Rendering Intents.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|RENDERING_INTENT_ABSOLUTE_COLORIMETRIC
-init|=
-literal|"AbsoluteColorimetric"
-decl_stmt|;
-comment|/**      * Rendering intent constants, see PDF Reference 1.5 Section 4.5.4 Rendering Intents.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|RENDERING_INTENT_RELATIVE_COLORIMETRIC
-init|=
-literal|"RelativeColorimetric"
-decl_stmt|;
-comment|/**      * Rendering intent constants, see PDF Reference 1.5 Section 4.5.4 Rendering Intents.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|RENDERING_INTENT_SATURATION
-init|=
-literal|"Saturation"
-decl_stmt|;
-comment|/**      * Rendering intent constants, see PDF Reference 1.5 Section 4.5.4 Rendering Intents.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|RENDERING_INTENT_PERCEPTUAL
-init|=
-literal|"Perceptual"
-decl_stmt|;
 specifier|private
+specifier|final
 name|COSDictionary
-name|graphicsState
+name|dict
 decl_stmt|;
 comment|/**      * Default constructor, creates blank graphics state.      */
 specifier|public
 name|PDExternalGraphicsState
 parameter_list|()
 block|{
-name|graphicsState
+name|dict
 operator|=
 operator|new
 name|COSDictionary
 argument_list|()
 expr_stmt|;
-name|graphicsState
+name|dict
 operator|.
 name|setItem
 argument_list|(
@@ -263,7 +228,7 @@ name|COSDictionary
 name|dictionary
 parameter_list|)
 block|{
-name|graphicsState
+name|dict
 operator|=
 name|dictionary
 expr_stmt|;
@@ -284,7 +249,7 @@ control|(
 name|COSName
 name|key
 range|:
-name|graphicsState
+name|dict
 operator|.
 name|keySet
 argument_list|()
@@ -710,7 +675,7 @@ name|getCOSDictionary
 parameter_list|()
 block|{
 return|return
-name|graphicsState
+name|dict
 return|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
@@ -720,7 +685,7 @@ name|getCOSObject
 parameter_list|()
 block|{
 return|return
-name|graphicsState
+name|dict
 return|;
 block|}
 comment|/**      * This will get the line width.  This will return null if there is no line width      *      * @return null or the LW value of the dictionary.      */
@@ -764,7 +729,7 @@ name|getLineCapStyle
 parameter_list|()
 block|{
 return|return
-name|graphicsState
+name|dict
 operator|.
 name|getInt
 argument_list|(
@@ -783,7 +748,7 @@ name|int
 name|style
 parameter_list|)
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|setInt
 argument_list|(
@@ -802,7 +767,7 @@ name|getLineJoinStyle
 parameter_list|()
 block|{
 return|return
-name|graphicsState
+name|dict
 operator|.
 name|getInt
 argument_list|(
@@ -821,7 +786,7 @@ name|int
 name|style
 parameter_list|)
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|setInt
 argument_list|(
@@ -884,7 +849,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|graphicsState
+name|dict
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -965,7 +930,7 @@ name|PDLineDashPattern
 name|dashPattern
 parameter_list|)
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|setItem
 argument_list|(
@@ -982,18 +947,42 @@ expr_stmt|;
 block|}
 comment|/**      * This will get the rendering intent.      *      * @return null or the RI value in the dictionary.      */
 specifier|public
-name|String
+name|RenderingIntent
 name|getRenderingIntent
 parameter_list|()
 block|{
-return|return
-name|graphicsState
+name|String
+name|ri
+init|=
+name|dict
 operator|.
 name|getNameAsString
 argument_list|(
 literal|"RI"
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|ri
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|RenderingIntent
+operator|.
+name|valueOf
+argument_list|(
+name|ri
+argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 comment|/**      * This will set the rendering intent for the graphics state.      *      * @param ri The new rendering intent      */
 specifier|public
@@ -1004,7 +993,7 @@ name|String
 name|ri
 parameter_list|)
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|setName
 argument_list|(
@@ -1021,7 +1010,7 @@ name|getStrokingOverprintControl
 parameter_list|()
 block|{
 return|return
-name|graphicsState
+name|dict
 operator|.
 name|getBoolean
 argument_list|(
@@ -1042,7 +1031,7 @@ name|boolean
 name|op
 parameter_list|)
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|setBoolean
 argument_list|(
@@ -1061,7 +1050,7 @@ name|getNonStrokingOverprintControl
 parameter_list|()
 block|{
 return|return
-name|graphicsState
+name|dict
 operator|.
 name|getBoolean
 argument_list|(
@@ -1083,7 +1072,7 @@ name|boolean
 name|op
 parameter_list|)
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|setBoolean
 argument_list|(
@@ -1143,7 +1132,7 @@ decl_stmt|;
 name|COSBase
 name|base
 init|=
-name|graphicsState
+name|dict
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -1197,7 +1186,7 @@ name|PDFontSetting
 name|fs
 parameter_list|)
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|setItem
 argument_list|(
@@ -1284,7 +1273,7 @@ name|getAutomaticStrokeAdjustment
 parameter_list|()
 block|{
 return|return
-name|graphicsState
+name|dict
 operator|.
 name|getBoolean
 argument_list|(
@@ -1305,7 +1294,7 @@ name|boolean
 name|sa
 parameter_list|)
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|setBoolean
 argument_list|(
@@ -1392,7 +1381,7 @@ name|getAlphaSourceFlag
 parameter_list|()
 block|{
 return|return
-name|graphicsState
+name|dict
 operator|.
 name|getBoolean
 argument_list|(
@@ -1413,7 +1402,7 @@ name|boolean
 name|alpha
 parameter_list|)
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|setBoolean
 argument_list|(
@@ -1436,7 +1425,7 @@ name|BlendMode
 operator|.
 name|getInstance
 argument_list|(
-name|graphicsState
+name|dict
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -1458,7 +1447,7 @@ name|PDSoftMask
 operator|.
 name|create
 argument_list|(
-name|graphicsState
+name|dict
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -1476,7 +1465,7 @@ name|getTextKnockoutFlag
 parameter_list|()
 block|{
 return|return
-name|graphicsState
+name|dict
 operator|.
 name|getBoolean
 argument_list|(
@@ -1497,7 +1486,7 @@ name|boolean
 name|tk
 parameter_list|)
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|setBoolean
 argument_list|(
@@ -1529,7 +1518,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|graphicsState
+name|dict
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -1574,7 +1563,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|removeItem
 argument_list|(
@@ -1584,7 +1573,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|graphicsState
+name|dict
 operator|.
 name|setItem
 argument_list|(

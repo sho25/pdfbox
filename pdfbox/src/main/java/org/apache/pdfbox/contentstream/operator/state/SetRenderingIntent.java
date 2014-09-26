@@ -99,6 +99,24 @@ name|OperatorProcessor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|state
+operator|.
+name|RenderingIntent
+import|;
+end_import
+
 begin_comment
 comment|/**  * ri: Set the rendering intent.  *  * @author John Hewson  */
 end_comment
@@ -148,10 +166,15 @@ argument_list|()
 operator|.
 name|setRenderingIntent
 argument_list|(
+name|RenderingIntent
+operator|.
+name|valueOf
+argument_list|(
 name|value
 operator|.
 name|getName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
