@@ -440,7 +440,7 @@ decl_stmt|;
 name|String
 name|encoding
 init|=
-literal|null
+literal|"UTF-8"
 decl_stmt|;
 name|String
 name|pdfFile
@@ -983,24 +983,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|(
-name|encoding
-operator|==
-literal|null
-operator|)
-operator|&&
-operator|(
-name|toHTML
-operator|)
-condition|)
-block|{
-name|encoding
-operator|=
-literal|"UTF-8"
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|toConsole
 condition|)
 block|{
@@ -1012,17 +994,12 @@ argument_list|(
 name|System
 operator|.
 name|out
+argument_list|,
+name|encoding
 argument_list|)
 expr_stmt|;
 block|}
 else|else
-block|{
-if|if
-condition|(
-name|encoding
-operator|!=
-literal|null
-condition|)
 block|{
 name|output
 operator|=
@@ -1038,23 +1015,6 @@ argument_list|,
 name|encoding
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|//use default encoding
-name|output
-operator|=
-operator|new
-name|OutputStreamWriter
-argument_list|(
-operator|new
-name|FileOutputStream
-argument_list|(
-name|outputFile
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 name|PDFTextStripper
 name|stripper
@@ -1505,7 +1465,7 @@ literal|"Usage: java -jar pdfbox-app-x.y.z.jar ExtractText [OPTIONS]<PDF file> [
 operator|+
 literal|"  -password<password>        Password to decrypt document\n"
 operator|+
-literal|"  -encoding<output encoding> (ISO-8859-1,UTF-16BE,UTF-16LE,...)\n"
+literal|"  -encoding<output encoding> UTF-8 (default) or ISO-8859-1, UTF-16BE, UTF-16LE, etc.\n"
 operator|+
 literal|"  -console                     Send text to console instead of file\n"
 operator|+
