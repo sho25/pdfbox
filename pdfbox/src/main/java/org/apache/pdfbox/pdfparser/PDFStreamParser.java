@@ -268,7 +268,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will parse a PDF byte stream and extract operands and such.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision$  */
+comment|/**  * This will parse a PDF byte stream and extract operands and such.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -313,7 +313,7 @@ decl_stmt|;
 specifier|private
 specifier|final
 name|int
-name|MAXBINCHARTESTLENGTH
+name|MAX_BIN_CHAR_TEST_LENGTH
 init|=
 literal|10
 decl_stmt|;
@@ -326,7 +326,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|MAXBINCHARTESTLENGTH
+name|MAX_BIN_CHAR_TEST_LENGTH
 index|]
 decl_stmt|;
 comment|/**      * Constructor that takes a stream to parse.      *      * @since Apache PDFBox 1.3.0      * @param stream The stream to read data from.      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error reading from the stream.      */
@@ -1010,11 +1010,9 @@ expr_stmt|;
 name|boolean
 name|dotNotRead
 init|=
-operator|(
 name|c
 operator|!=
 literal|'.'
-operator|)
 decl_stmt|;
 while|while
 condition|(
@@ -1022,7 +1020,6 @@ name|Character
 operator|.
 name|isDigit
 argument_list|(
-operator|(
 name|c
 operator|=
 operator|(
@@ -1032,18 +1029,13 @@ name|pdfSource
 operator|.
 name|peek
 argument_list|()
-operator|)
 argument_list|)
 operator|||
-operator|(
 name|dotNotRead
 operator|&&
-operator|(
 name|c
 operator|==
 literal|'.'
-operator|)
-operator|)
 condition|)
 block|{
 name|buf
@@ -1062,11 +1054,9 @@ if|if
 condition|(
 name|dotNotRead
 operator|&&
-operator|(
 name|c
 operator|==
 literal|'.'
-operator|)
 condition|)
 block|{
 name|dotNotRead
@@ -1456,7 +1446,7 @@ name|binCharTestArr
 argument_list|,
 literal|0
 argument_list|,
-name|MAXBINCHARTESTLENGTH
+name|MAX_BIN_CHAR_TEST_LENGTH
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1509,31 +1499,21 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|b
-operator|<
+argument_list|<
 literal|0x09
-operator|)
 operator|||
-operator|(
-operator|(
 name|b
-operator|>
+argument_list|>
 literal|0x0a
-operator|)
 operator|&&
-operator|(
 name|b
 operator|<
 literal|0x20
-operator|)
 operator|&&
-operator|(
 name|b
 operator|!=
 literal|0x0d
-operator|)
-operator|)
 condition|)
 block|{
 comment|// control character or> 0x7f -> we have binary data
@@ -1635,7 +1615,7 @@ if|if
 condition|(
 name|readBytes
 operator|==
-name|MAXBINCHARTESTLENGTH
+name|MAX_BIN_CHAR_TEST_LENGTH
 condition|)
 comment|// only if not close to eof
 block|{
