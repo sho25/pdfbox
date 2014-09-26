@@ -161,20 +161,6 @@ name|pdfbox
 operator|.
 name|text
 operator|.
-name|TextNormalize
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|text
-operator|.
 name|TextPosition
 import|;
 end_import
@@ -302,14 +288,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * The normalizer is used to remove text ligatures/presentation forms      * and to correct the direction of right to left text, such as Arabic and Hebrew.      */
-specifier|private
-name|TextNormalize
-name|normalize
-init|=
-literal|null
-decl_stmt|;
-comment|/**      * Instantiate a new PDFTextStripper object. Will not do anything special to convert      * the text to a more encoding-specific output.      */
+comment|/**      * Instantiate a new PDFTextStripper object.      */
 specifier|public
 name|PDFMarkedContentExtractor
 parameter_list|()
@@ -355,14 +334,6 @@ argument_list|)
 expr_stmt|;
 comment|// todo: DP - Marked Content Point
 comment|// todo: MP - Marked Content Point with Properties
-name|this
-operator|.
-name|normalize
-operator|=
-operator|new
-name|TextNormalize
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * This will determine of two floating point numbers are within a specified variance.      *      * @param first The first number to compare to.      * @param second The second number to compare to.      * @param variance The allowed variance.      */
 specifier|private
@@ -828,10 +799,6 @@ operator|.
 name|mergeDiacritic
 argument_list|(
 name|text
-argument_list|,
-name|this
-operator|.
-name|normalize
 argument_list|)
 expr_stmt|;
 block|}
@@ -857,10 +824,6 @@ operator|.
 name|mergeDiacritic
 argument_list|(
 name|previousTextPosition
-argument_list|,
-name|this
-operator|.
-name|normalize
 argument_list|)
 expr_stmt|;
 name|textList
