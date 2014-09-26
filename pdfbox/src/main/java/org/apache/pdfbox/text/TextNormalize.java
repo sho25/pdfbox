@@ -374,23 +374,11 @@ return|return
 name|map
 return|;
 block|}
-specifier|private
-name|String
-name|outputEncoding
-decl_stmt|;
-comment|/**      *       * @param encoding The Encoding that the text will eventually be written as (or null)      */
+comment|/**      * Constructor.      */
 specifier|public
 name|TextNormalize
-parameter_list|(
-name|String
-name|encoding
-parameter_list|)
-block|{
-name|outputEncoding
-operator|=
-name|encoding
-expr_stmt|;
-block|}
+parameter_list|()
+block|{     }
 comment|/**      * Normalize the presentation forms of characters in the string. For example, convert the      * single "fi" ligature to "f" and "i".      *       * @param str String to normalize      * @return Normalized string      */
 specifier|public
 name|String
@@ -633,32 +621,12 @@ name|str
 parameter_list|)
 block|{
 comment|// Unicode contains special combining forms of the diacritic characters which we want to use
-if|if
-condition|(
-name|outputEncoding
-operator|!=
-literal|null
-operator|&&
-name|outputEncoding
-operator|.
-name|toUpperCase
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"UTF"
-argument_list|)
-condition|)
-block|{
-name|Integer
-name|c
-init|=
-operator|(
 name|int
-operator|)
+name|codePoint
+init|=
 name|str
 operator|.
-name|charAt
+name|codePointAt
 argument_list|(
 literal|0
 argument_list|)
@@ -670,7 +638,7 @@ name|DIACRITICS
 operator|.
 name|containsKey
 argument_list|(
-name|c
+name|codePoint
 argument_list|)
 condition|)
 block|{
@@ -679,7 +647,7 @@ name|DIACRITICS
 operator|.
 name|get
 argument_list|(
-name|c
+name|codePoint
 argument_list|)
 return|;
 block|}
@@ -701,13 +669,6 @@ argument_list|)
 operator|.
 name|trim
 argument_list|()
-return|;
-block|}
-block|}
-else|else
-block|{
-return|return
-name|str
 return|;
 block|}
 block|}

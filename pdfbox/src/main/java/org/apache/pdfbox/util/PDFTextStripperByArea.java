@@ -267,22 +267,6 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Instantiate a new PDFTextStripperArea object. Will apply      * encoding-specific conversions to the output text.      *       * @param encoding      *            The encoding that the output will be written in.      * @throws IOException      *             If there is an error reading the properties.      */
-specifier|public
-name|PDFTextStripperByArea
-parameter_list|(
-name|String
-name|encoding
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|super
-argument_list|(
-name|encoding
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Add a new region to group text by.      *      * @param regionName The name of the region.      * @param rect The rectangle area to retrieve the text from.      */
 specifier|public
 name|void

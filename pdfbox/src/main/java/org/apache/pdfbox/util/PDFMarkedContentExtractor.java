@@ -302,11 +302,6 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * encoding that text will be written in (or null).      */
-specifier|protected
-name|String
-name|outputEncoding
-decl_stmt|;
 comment|/**      * The normalizer is used to remove text ligatures/presentation forms      * and to correct the direction of right to left text, such as Arabic and Hebrew.      */
 specifier|private
 name|TextNormalize
@@ -362,21 +357,11 @@ comment|// todo: DP - Marked Content Point
 comment|// todo: MP - Marked Content Point with Properties
 name|this
 operator|.
-name|outputEncoding
-operator|=
-name|encoding
-expr_stmt|;
-name|this
-operator|.
 name|normalize
 operator|=
 operator|new
 name|TextNormalize
-argument_list|(
-name|this
-operator|.
-name|outputEncoding
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * This will determine of two floating point numbers are within a specified variance.      *      * @param first The first number to compare to.      * @param second The second number to compare to.      * @param variance The allowed variance.      */

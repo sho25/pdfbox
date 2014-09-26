@@ -1058,8 +1058,6 @@ block|}
 block|}
 name|PDFTextStripper
 name|stripper
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1070,9 +1068,7 @@ name|stripper
 operator|=
 operator|new
 name|PDFText2HTML
-argument_list|(
-name|encoding
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -1081,9 +1077,7 @@ name|stripper
 operator|=
 operator|new
 name|PDFTextStripper
-argument_list|(
-name|encoding
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 name|stripper

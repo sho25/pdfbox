@@ -270,9 +270,7 @@ name|stripper
 init|=
 operator|new
 name|PDFText2HTML
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|PDDocument
 name|doc
@@ -358,9 +356,7 @@ name|stripper
 init|=
 operator|new
 name|PDFText2HTML
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|PDDocument
 name|doc

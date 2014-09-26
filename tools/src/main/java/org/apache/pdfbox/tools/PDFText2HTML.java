@@ -166,20 +166,15 @@ operator|new
 name|FontState
 argument_list|()
 decl_stmt|;
-comment|/**      * Constructor.      * @param encoding The encoding to be used      * @throws IOException If there is an error during initialization.      */
+comment|/**      * Constructor.      * @throws IOException If there is an error during initialization.      */
 specifier|public
 name|PDFText2HTML
-parameter_list|(
-name|String
-name|encoding
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{
 name|super
-argument_list|(
-name|encoding
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|setLineSeparator
 argument_list|(
@@ -271,27 +266,13 @@ operator|+
 literal|"</title>\n"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|outputEncoding
-operator|!=
-literal|null
-condition|)
-block|{
 name|buf
 operator|.
 name|append
 argument_list|(
-literal|"<meta http-equiv=\"Content-Type\" content=\"text/html; charset="
-operator|+
-name|this
-operator|.
-name|outputEncoding
-operator|+
-literal|"\">\n"
+literal|"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=\"UTF-16\">\n"
 argument_list|)
 expr_stmt|;
-block|}
 name|buf
 operator|.
 name|append
