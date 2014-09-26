@@ -11,8 +11,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|rendering
-operator|.
 name|printing
 package|;
 end_package

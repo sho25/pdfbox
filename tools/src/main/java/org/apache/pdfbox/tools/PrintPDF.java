@@ -85,7 +85,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|rendering
+name|printing
 operator|.
 name|PDFPrinter
 import|;

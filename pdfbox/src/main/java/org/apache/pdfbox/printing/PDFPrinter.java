@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|rendering
+name|printing
 package|;
 end_package
 
@@ -67,8 +67,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|rendering
-operator|.
 name|printing
 operator|.
 name|Orientation
@@ -82,8 +80,6 @@ operator|.
 name|apache
 operator|.
 name|pdfbox
-operator|.
-name|rendering
 operator|.
 name|printing
 operator|.
@@ -268,6 +264,20 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|rendering
+operator|.
+name|PDFRenderer
 import|;
 end_import
 
@@ -687,7 +697,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Prints the given document using the default printer without prompting the user.      * The image is generated using {@link PageDrawer}.      * This is a convenience method to create the java.awt.print.PrinterJob.      * Advanced printing tasks can be performed using {@link #getPageable()} instead.      *      * @return true if the user does not cancel the dialog      * @throws PrinterException if the document cannot be printed      */
+comment|/**      * Prints the given document using the default printer without prompting the user.      * The image is generated using {@link org.apache.pdfbox.rendering.PageDrawer}.      * This is a convenience method to create the java.awt.print.PrinterJob.      * Advanced printing tasks can be performed using {@link #getPageable()} instead.      *      * @return true if the user does not cancel the dialog      * @throws PrinterException if the document cannot be printed      */
 specifier|public
 name|boolean
 name|print
@@ -702,7 +712,7 @@ name|printerJob
 argument_list|)
 return|;
 block|}
-comment|/**      * Prints the given document using the default printer without prompting the user.      * The image is generated using {@link PageDrawer}.      * This is a convenience method to create the java.awt.print.PrinterJob.      * Advanced printing tasks can be performed using {@link #getPageable()} instead.      *      * @param attributes application supplied attributes      * @return true if the user does not cancel the dialog      * @throws PrinterException if the document cannot be printed      */
+comment|/**      * Prints the given document using the default printer without prompting the user.      * The image is generated using {@link org.apache.pdfbox.rendering.PageDrawer}.      * This is a convenience method to create the java.awt.print.PrinterJob.      * Advanced printing tasks can be performed using {@link #getPageable()} instead.      *      * @param attributes application supplied attributes      * @return true if the user does not cancel the dialog      * @throws PrinterException if the document cannot be printed      */
 specifier|public
 name|boolean
 name|print
