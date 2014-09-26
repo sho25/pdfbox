@@ -514,15 +514,12 @@ specifier|final
 name|boolean
 name|isEmbedded
 decl_stmt|;
-comment|/**      * Creates a new TrueType font from a Font dictionary.      *      * @param fontDictionary The font dictionary according to the PDF specification.      * @param glyphList A custom glyph list for Unicode mapping      */
+comment|/**      * Creates a new TrueType font from a Font dictionary.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
 specifier|public
 name|PDTrueTypeFont
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
-parameter_list|,
-name|GlyphList
-name|glyphList
 parameter_list|)
 throws|throws
 name|IOException
@@ -530,8 +527,6 @@ block|{
 name|super
 argument_list|(
 name|fontDictionary
-argument_list|,
-name|glyphList
 argument_list|)
 expr_stmt|;
 name|TrueTypeFont

@@ -403,15 +403,12 @@ specifier|final
 name|boolean
 name|isEmbedded
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param fontDictionary the corresponding dictionary      * @param glyphList a custom glyph list for Unicode mapping      * @throws IOException it something went wrong      */
+comment|/**      * Constructor.      *       * @param fontDictionary the corresponding dictionary      * @throws IOException it something went wrong      */
 specifier|public
 name|PDType1CFont
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
-parameter_list|,
-name|GlyphList
-name|glyphList
 parameter_list|)
 throws|throws
 name|IOException
@@ -419,8 +416,6 @@ block|{
 name|super
 argument_list|(
 name|fontDictionary
-argument_list|,
-name|glyphList
 argument_list|)
 expr_stmt|;
 name|PDFontDescriptor

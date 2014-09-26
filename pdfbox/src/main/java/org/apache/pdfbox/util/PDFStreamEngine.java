@@ -1816,24 +1816,6 @@ name|peek
 argument_list|()
 operator|.
 name|getFonts
-argument_list|(
-name|getGlyphList
-argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns the glyph list for Unicode mapping, the default is the Adobe Glyph List.      * @throws IOException if the glyph list could not be loaded      */
-specifier|protected
-name|GlyphList
-name|getGlyphList
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|GlyphList
-operator|.
-name|getAdobeGlyphList
 argument_list|()
 return|;
 block|}

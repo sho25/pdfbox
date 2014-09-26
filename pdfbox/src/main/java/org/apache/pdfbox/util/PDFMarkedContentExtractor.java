@@ -19,6 +19,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -294,6 +304,8 @@ comment|/**      * Instantiate a new PDFTextStripper object. Will not do anythin
 specifier|public
 name|PDFMarkedContentExtractor
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|this
 argument_list|(
@@ -308,6 +320,8 @@ parameter_list|(
 name|String
 name|encoding
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|addOperator
 argument_list|(

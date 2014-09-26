@@ -151,30 +151,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
-name|createFont
-argument_list|(
-name|dictionary
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a new PDFont instance with the appropriate subclass.      *      * @param dictionary a font dictionary      * @param glyphList the default glyph list to use for Unicode mapping      * @return a PDFont instance, based on the SubType entry of the dictionary      * @throws IOException      */
-specifier|public
-specifier|static
-name|PDFont
-name|createFont
-parameter_list|(
-name|COSDictionary
-name|dictionary
-parameter_list|,
-name|GlyphList
-name|glyphList
-parameter_list|)
-throws|throws
-name|IOException
-block|{
 name|COSName
 name|type
 init|=
@@ -288,8 +264,6 @@ operator|new
 name|PDType1CFont
 argument_list|(
 name|dictionary
-argument_list|,
-name|glyphList
 argument_list|)
 return|;
 block|}
@@ -299,8 +273,6 @@ operator|new
 name|PDType1Font
 argument_list|(
 name|dictionary
-argument_list|,
-name|glyphList
 argument_list|)
 return|;
 block|}
@@ -362,8 +334,6 @@ operator|new
 name|PDType1CFont
 argument_list|(
 name|dictionary
-argument_list|,
-name|glyphList
 argument_list|)
 return|;
 block|}
@@ -373,8 +343,6 @@ operator|new
 name|PDMMType1Font
 argument_list|(
 name|dictionary
-argument_list|,
-name|glyphList
 argument_list|)
 return|;
 block|}
@@ -396,8 +364,6 @@ operator|new
 name|PDTrueTypeFont
 argument_list|(
 name|dictionary
-argument_list|,
-name|glyphList
 argument_list|)
 return|;
 block|}
@@ -419,8 +385,6 @@ operator|new
 name|PDType3Font
 argument_list|(
 name|dictionary
-argument_list|,
-name|glyphList
 argument_list|)
 return|;
 block|}
@@ -507,8 +471,6 @@ operator|new
 name|PDType1Font
 argument_list|(
 name|dictionary
-argument_list|,
-name|glyphList
 argument_list|)
 return|;
 block|}
