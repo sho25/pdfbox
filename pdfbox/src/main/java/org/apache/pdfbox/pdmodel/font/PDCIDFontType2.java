@@ -1224,9 +1224,27 @@ block|}
 else|else
 block|{
 comment|// "Identity" is the default CIDToGIDMap
+if|if
+condition|(
+name|cid
+operator|<
+name|ttf
+operator|.
+name|getNumberOfGlyphs
+argument_list|()
+condition|)
+block|{
 return|return
 name|cid
 return|;
+block|}
+else|else
+block|{
+comment|// out of range CIDs map to GID 0
+return|return
+literal|0
+return|;
+block|}
 block|}
 block|}
 block|}
