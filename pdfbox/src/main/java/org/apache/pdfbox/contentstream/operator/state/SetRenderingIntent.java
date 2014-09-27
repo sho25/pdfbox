@@ -168,7 +168,7 @@ name|setRenderingIntent
 argument_list|(
 name|RenderingIntent
 operator|.
-name|valueOf
+name|fromString
 argument_list|(
 name|value
 operator|.
