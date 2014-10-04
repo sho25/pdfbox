@@ -599,6 +599,12 @@ operator|.
 name|getDocument
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|font
+operator|=
+name|font
+expr_stmt|;
 block|}
 annotation|@
 name|Override
