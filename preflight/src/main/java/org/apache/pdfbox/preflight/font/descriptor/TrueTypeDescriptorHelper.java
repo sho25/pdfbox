@@ -286,6 +286,8 @@ name|fontContainer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|PDStream
 name|extractFontFile
@@ -398,6 +400,8 @@ return|return
 name|fontFile
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|processFontFile

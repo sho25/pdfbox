@@ -247,7 +247,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFont
+name|PDFontDescriptor
 import|;
 end_import
 
@@ -263,7 +263,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFontDescriptor
+name|PDFontLike
 import|;
 end_import
 
@@ -377,7 +377,7 @@ parameter_list|(
 name|PreflightContext
 name|context
 parameter_list|,
-name|PDFont
+name|PDFontLike
 name|font
 parameter_list|,
 name|CIDType0Container

@@ -411,7 +411,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFont
+name|PDFontDescriptor
 import|;
 end_import
 
@@ -427,7 +427,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFontDescriptor
+name|PDFontLike
 import|;
 end_import
 
@@ -573,7 +573,7 @@ name|PreflightContext
 name|context
 decl_stmt|;
 specifier|protected
-name|PDFont
+name|PDFontLike
 name|font
 decl_stmt|;
 specifier|protected
@@ -586,7 +586,7 @@ parameter_list|(
 name|PreflightContext
 name|context
 parameter_list|,
-name|PDFont
+name|PDFontLike
 name|font
 parameter_list|,
 name|T
