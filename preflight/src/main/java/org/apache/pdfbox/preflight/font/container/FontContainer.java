@@ -570,7 +570,7 @@ operator|.
 name|getBaseFont
 argument_list|()
 operator|+
-literal|"\"is missing from the Charater Encoding."
+literal|"\" is missing from the Charater Encoding."
 argument_list|)
 decl_stmt|;
 name|markCIDAsInvalid
@@ -624,7 +624,7 @@ operator|.
 name|getBaseFont
 argument_list|()
 operator|+
-literal|"\"is inconsistent with the width in the PDF dictionary."
+literal|"\" is inconsistent with the width in the PDF dictionary."
 argument_list|)
 decl_stmt|;
 name|markCIDAsInvalid
