@@ -548,7 +548,7 @@ name|gs
 operator|.
 name|setAlphaConstants
 argument_list|(
-name|getStrokingAlpaConstant
+name|getStrokingAlphaConstant
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -570,7 +570,7 @@ name|gs
 operator|.
 name|setNonStrokeAlphaConstants
 argument_list|(
-name|getNonStrokingAlpaConstant
+name|getNonStrokingAlphaConstant
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -679,6 +679,8 @@ name|dict
 return|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -971,7 +973,7 @@ block|{
 return|return
 name|RenderingIntent
 operator|.
-name|valueOf
+name|fromString
 argument_list|(
 name|ri
 argument_list|)
@@ -1156,13 +1158,6 @@ name|COSArray
 operator|)
 name|base
 decl_stmt|;
-if|if
-condition|(
-name|font
-operator|!=
-literal|null
-condition|)
-block|{
 name|setting
 operator|=
 operator|new
@@ -1171,7 +1166,6 @@ argument_list|(
 name|font
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|setting
@@ -1309,7 +1303,7 @@ block|}
 comment|/**      * This will get the stroking alpha constant.      *      * @return The stroking alpha constant or null if one has not been set.      */
 specifier|public
 name|Float
-name|getStrokingAlpaConstant
+name|getStrokingAlphaConstant
 parameter_list|()
 block|{
 return|return
@@ -1343,7 +1337,7 @@ block|}
 comment|/**      * This will get the non stroking alpha constant.      *      * @return The non stroking alpha constant or null if one has not been set.      */
 specifier|public
 name|Float
-name|getNonStrokingAlpaConstant
+name|getNonStrokingAlphaConstant
 parameter_list|()
 block|{
 return|return
