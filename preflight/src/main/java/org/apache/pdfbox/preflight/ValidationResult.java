@@ -332,7 +332,7 @@ specifier|private
 name|String
 name|details
 decl_stmt|;
-comment|/**          * false : this error can't be ignore true : this error can be ignore          */
+comment|/**          * false: this error can't be ignored; true: this error can be ignored          */
 specifier|private
 name|boolean
 name|isWarning
@@ -340,6 +340,36 @@ init|=
 literal|false
 decl_stmt|;
 comment|// TODO Add here COSObject or the PDObject that is linked to the error may a automatic fix can be done.
+specifier|private
+name|Throwable
+name|t
+init|=
+literal|null
+decl_stmt|;
+specifier|public
+name|Throwable
+name|getThrowable
+parameter_list|()
+block|{
+return|return
+name|t
+return|;
+block|}
+specifier|private
+name|Throwable
+name|cause
+init|=
+literal|null
+decl_stmt|;
+specifier|public
+name|Throwable
+name|getCause
+parameter_list|()
+block|{
+return|return
+name|cause
+return|;
+block|}
 comment|/**          * Create a validation error with the given error code          *           * @param errorCode          */
 specifier|public
 name|ValidationError
@@ -743,8 +773,14 @@ operator|=
 literal|"Unknown error"
 expr_stmt|;
 block|}
+name|t
+operator|=
+operator|new
+name|Exception
+argument_list|()
+expr_stmt|;
 block|}
-comment|/**          * Create a validation error with the given error code and the error explanation.          *           * @param errorCode          *            the error code          * @param details          *            the error explanation          */
+comment|/**          * Create a validation error with the given error code and the error          * explanation.          *          * @param errorCode the error code          * @param details the error explanation          * @param cause the error cause          */
 specifier|public
 name|ValidationError
 parameter_list|(
@@ -753,6 +789,9 @@ name|errorCode
 parameter_list|,
 name|String
 name|details
+parameter_list|,
+name|Throwable
+name|cause
 parameter_list|)
 block|{
 name|this
@@ -817,6 +856,39 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
+name|this
+operator|.
+name|cause
+operator|=
+name|cause
+expr_stmt|;
+name|t
+operator|=
+operator|new
+name|Exception
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**          * Create a validation error with the given error code and the error explanation.          *           * @param errorCode          *            the error code          * @param details          *            the error explanation          */
+specifier|public
+name|ValidationError
+parameter_list|(
+name|String
+name|errorCode
+parameter_list|,
+name|String
+name|details
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|errorCode
+argument_list|,
+name|details
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**          * @return the error code          */
 specifier|public

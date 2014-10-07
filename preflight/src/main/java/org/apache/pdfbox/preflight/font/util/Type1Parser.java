@@ -1367,12 +1367,6 @@ block|{
 name|byte
 index|[]
 name|token
-init|=
-operator|new
-name|byte
-index|[
-literal|0
-index|]
 decl_stmt|;
 do|do
 block|{
@@ -1578,7 +1572,9 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Number of CharStrings elements is expected."
+literal|"Number of CharStrings elements was expected but we received "
+operator|+
+name|word
 argument_list|)
 throw|;
 block|}
@@ -1809,8 +1805,6 @@ argument_list|()
 decl_stmt|;
 name|int
 name|lr
-init|=
-literal|0
 decl_stmt|;
 name|int
 name|total
@@ -2143,12 +2137,6 @@ block|{
 name|byte
 index|[]
 name|token
-init|=
-operator|new
-name|byte
-index|[
-literal|0
-index|]
 decl_stmt|;
 name|skipBlankSeparators
 argument_list|(
@@ -2270,8 +2258,6 @@ argument_list|()
 decl_stmt|;
 name|int
 name|currentByte
-init|=
-literal|0
 decl_stmt|;
 do|do
 block|{
@@ -2373,8 +2359,6 @@ argument_list|()
 decl_stmt|;
 name|int
 name|currentByte
-init|=
-literal|0
 decl_stmt|;
 do|do
 block|{
@@ -2476,8 +2460,6 @@ argument_list|()
 decl_stmt|;
 name|int
 name|currentByte
-init|=
-literal|0
 decl_stmt|;
 do|do
 block|{

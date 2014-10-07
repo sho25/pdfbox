@@ -926,7 +926,19 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_TYPE1_DAMAGED
 argument_list|,
-literal|"The FontFile can't be read"
+literal|"The FontFile can't be read for "
+operator|+
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -948,7 +960,19 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_TYPE1_DAMAGED
 argument_list|,
-literal|"The FontFile is damaged"
+literal|"The FontFile is damaged for "
+operator|+
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

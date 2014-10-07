@@ -1102,7 +1102,6 @@ argument_list|,
 name|ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 else|else
@@ -1161,7 +1160,6 @@ argument_list|,
 name|ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 block|}
@@ -1487,6 +1485,8 @@ argument_list|(
 literal|"Encoding can't interpret the character code"
 argument_list|,
 name|ERROR_FONTS_ENCODING_ERROR
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1517,6 +1517,8 @@ name|e
 operator|.
 name|getErrorCode
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 return|return;
