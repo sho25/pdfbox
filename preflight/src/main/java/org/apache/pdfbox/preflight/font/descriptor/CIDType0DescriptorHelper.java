@@ -711,6 +711,8 @@ argument_list|(
 name|ERROR_FONTS_CID_DAMAGED
 argument_list|,
 literal|"The FontFile can't be read"
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
