@@ -623,6 +623,8 @@ operator|=
 name|font
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
@@ -758,7 +760,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Check that the FontBBox element has the right format as declared in the PDF reference document.      */
+comment|/**      * Check that the FontBBox element has the right format as declared in the      * PDF reference document.      */
 specifier|private
 name|void
 name|checkFontBBox
@@ -846,8 +848,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-else|else
-block|{
 for|for
 control|(
 name|int
@@ -913,7 +913,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
-block|}
 block|}
 block|}
 block|}
@@ -1005,8 +1004,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-else|else
-block|{
 for|for
 control|(
 name|int
@@ -1075,10 +1072,9 @@ return|return;
 block|}
 block|}
 block|}
-block|}
+comment|/**      * For a Type3 font, the mapping between the Character Code and the      * Character name is entirely defined in the Encoding Entry. The Encoding      * Entry can be a Name (For the 5 predefined Encoding) or a Dictionary. If      * it is a dictionary, the "Differences" array contains the correspondence      * between a character code and a set of character name which are different      * from the encoding entry of the dictionary.      *      * This method checks that the encoding is :      *<UL>      *<li>An existing encoding name.      *<li>A dictionary with an existing encoding name (the name is optional)      * and a well formed "Differences" array (the array is optional)      *</UL>      *      * At the end of this method, if the validation succeed the Font encoding is      * kept in the {@link #encoding} attribute      */
 annotation|@
 name|Override
-comment|/**      * For a Type3 font, the mapping between the Character Code and the Character      * name is entirely defined in the Encoding Entry. The Encoding Entry can be a      * Name (For the 5 predefined Encoding) or a Dictionary. If it is a      * dictionary, the "Differences" array contains the correspondence between a      * character code and a set of character name which are different from the      * encoding entry of the dictionary.      *       * This method checks that the encoding is :      *<UL>      *<li>An existing encoding name.      *<li>A dictionary with an existing encoding name (the name is optional) and      * a well formed "Differences" array (the array is optional)      *</UL>      *       * At the end of this method, if the validation succeed the Font encoding is kept in the {@link #encoding} attribute      * @return      */
 specifier|protected
 name|void
 name|checkEncoding

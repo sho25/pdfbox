@@ -470,6 +470,8 @@ name|fontContainer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|boolean
 name|checkMandatoryFields
@@ -773,7 +775,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Try to load the font using the java.awt.font object. if the font is invalid, an exception will be pushed in the      * font container      *       * @param fontDescriptor      * @param fontFile      */
+comment|/**      * Try to load the font using the java.awt.font object. if the font is      * invalid, an exception will be pushed in the font container      *      * @param fontDescriptor      * @param fontFile      */
 specifier|protected
 name|void
 name|processFontFile1
