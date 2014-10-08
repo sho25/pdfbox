@@ -371,22 +371,6 @@ name|pdfbox
 operator|.
 name|preflight
 operator|.
-name|exception
-operator|.
-name|ValidationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
 name|font
 operator|.
 name|container
@@ -775,7 +759,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Try to load the font using the java.awt.font object. if the font is      * invalid, an exception will be pushed in the font container      *      * @param fontDescriptor      * @param fontFile      */
+comment|/**      * Try to load the font using the java.awt.font object. If the font is      * invalid, an exception will be pushed in the font container      *      * @param fontDescriptor      * @param fontFile      */
 specifier|protected
 name|void
 name|processFontFile1
@@ -992,7 +976,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Type1C is a CFF font format, extract all CFFFont object from the stream      *      * @return      * @throws ValidationException      */
+comment|/**      * Type1C is a CFF font format, extract all CFFFont objects from the stream      *      * @param fontDescriptor The font descriptor      * @param fontFile The font file      */
 specifier|protected
 name|void
 name|processFontFile3
@@ -1085,6 +1069,8 @@ argument_list|(
 name|ERROR_FONTS_CID_DAMAGED
 argument_list|,
 literal|"The FontFile can't be read"
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;

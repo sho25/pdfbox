@@ -521,7 +521,7 @@ parameter_list|)
 throws|throws
 name|GlyphException
 function_decl|;
-comment|/**      * Test if both width are consistent. At the end of this method, the CID is marked as valid or invalid.      *       * @param cid      * @param expectedWidth      * @param foundWidth      *            the glyph width found in the font program, a negative value if the CID is missing from the font.      * @throws GlyphException      */
+comment|/**      * Test if both widths are consistent. At the end of this method, the CID is      * marked as valid or invalid.      *      * @param cid      * @param expectedWidth      * @param foundWidth the glyph width found in the font program, a negative      * value if the CID is missing from the font.      * @throws GlyphException the appropriate exception if the CID is invalid.      */
 specifier|protected
 name|void
 name|checkWidthsConsistency
@@ -611,7 +611,11 @@ name|ERROR_FONTS_METRICS
 argument_list|,
 name|cid
 argument_list|,
-literal|"Width of the character \""
+literal|"Width ("
+operator|+
+name|foundWidth
+operator|+
+literal|") of the character \""
 operator|+
 name|cid
 operator|+
@@ -624,7 +628,11 @@ operator|.
 name|getBaseFont
 argument_list|()
 operator|+
-literal|"\" is inconsistent with the width in the PDF dictionary."
+literal|"\" is inconsistent with the width ("
+operator|+
+name|expectedWidth
+operator|+
+literal|") in the PDF dictionary."
 argument_list|)
 decl_stmt|;
 name|markCIDAsInvalid
