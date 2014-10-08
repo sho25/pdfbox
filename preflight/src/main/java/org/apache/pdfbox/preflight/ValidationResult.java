@@ -420,7 +420,7 @@ name|this
 operator|.
 name|details
 operator|=
-literal|"Body Syntax error"
+literal|"Header Syntax error"
 expr_stmt|;
 block|}
 elseif|else
