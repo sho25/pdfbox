@@ -59,6 +59,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1414,17 +1424,21 @@ name|COSString
 operator|)
 name|obj
 decl_stmt|;
+comment|// Workaround because different String objects with
+comment|// 0x00 and 0xFF content are equal in java?!
 return|return
-name|this
-operator|.
-name|getString
-argument_list|()
+name|Arrays
 operator|.
 name|equals
 argument_list|(
+name|this
+operator|.
+name|getBytes
+argument_list|()
+argument_list|,
 name|strObj
 operator|.
-name|getString
+name|getBytes
 argument_list|()
 argument_list|)
 operator|&&
