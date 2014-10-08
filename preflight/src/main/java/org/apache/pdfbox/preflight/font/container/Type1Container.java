@@ -323,7 +323,7 @@ name|ERROR_FONTS_GLYPH
 argument_list|,
 name|cid
 argument_list|,
-literal|"Unexpected error during the width validtion for the character CID("
+literal|"Unexpected error during the width validation for the character CID("
 operator|+
 name|cid
 operator|+
