@@ -632,7 +632,7 @@ argument_list|(
 name|context
 argument_list|,
 operator|(
-name|PDType1Font
+name|PDSimpleFont
 operator|)
 name|font
 argument_list|)

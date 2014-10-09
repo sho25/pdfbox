@@ -61,6 +61,8 @@ begin_interface
 specifier|public
 interface|interface
 name|PDType1Equivalent
+extends|extends
+name|PDFontLike
 block|{
 comment|/**      * Returns the name of this font.      */
 specifier|public
