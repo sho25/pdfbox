@@ -366,13 +366,13 @@ operator|=
 name|fdSelect
 expr_stmt|;
 block|}
-comment|/**      * Returns the defaultWidthX for the given CID.      *      * @param cid CID      * @return defaultWidthX      */
+comment|/**      * Returns the defaultWidthX for the given GID.      *      * @param gid GID      */
 specifier|private
 name|int
 name|getDefaultWidthX
 parameter_list|(
 name|int
-name|cid
+name|gid
 parameter_list|)
 block|{
 name|int
@@ -384,7 +384,7 @@ name|fdSelect
 operator|.
 name|getFDIndex
 argument_list|(
-name|cid
+name|gid
 argument_list|)
 decl_stmt|;
 if|if
@@ -442,13 +442,13 @@ else|:
 literal|1000
 return|;
 block|}
-comment|/**      * Returns the nominalWidthX for the given CID.      *      * @param cid CID      * @return defaultWidthX      */
+comment|/**      * Returns the nominalWidthX for the given GID.      *      * @param gid GID      */
 specifier|private
 name|int
 name|getNominalWidthX
 parameter_list|(
 name|int
-name|cid
+name|gid
 parameter_list|)
 block|{
 name|int
@@ -460,7 +460,7 @@ name|fdSelect
 operator|.
 name|getFDIndex
 argument_list|(
-name|cid
+name|gid
 argument_list|)
 decl_stmt|;
 if|if
@@ -518,6 +518,7 @@ else|:
 literal|0
 return|;
 block|}
+comment|/**      * Returns the LocalSubrIndex for the given GID.      *      * @param gid GID      */
 specifier|private
 name|IndexData
 name|getLocalSubrIndex
@@ -698,12 +699,12 @@ name|type2seq
 argument_list|,
 name|getDefaultWidthX
 argument_list|(
-name|cid
+name|gid
 argument_list|)
 argument_list|,
 name|getNominalWidthX
 argument_list|(
-name|cid
+name|gid
 argument_list|)
 argument_list|)
 expr_stmt|;
