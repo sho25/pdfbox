@@ -12,6 +12,8 @@ operator|.
 name|pdfbox
 operator|.
 name|tools
+operator|.
+name|imageio
 package|;
 end_package
 
@@ -358,22 +360,6 @@ operator|.
 name|rendering
 operator|.
 name|PDFRenderer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|tools
-operator|.
-name|imageio
-operator|.
-name|ImageIOUtil
 import|;
 end_import
 
@@ -1442,6 +1428,22 @@ operator|+
 name|imageFormat
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"  "
+operator|+
+name|fileName
+operator|+
+literal|"."
+operator|+
+name|imageFormat
+argument_list|)
+expr_stmt|;
+comment|// for Maven (keep me!)
 name|boolean
 name|res
 init|=
