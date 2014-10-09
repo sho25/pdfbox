@@ -11,7 +11,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
+operator|.
+name|imageio
 package|;
 end_package
 

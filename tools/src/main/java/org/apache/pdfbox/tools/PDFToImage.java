@@ -199,7 +199,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
+operator|.
+name|imageio
 operator|.
 name|ImageIOUtil
 import|;

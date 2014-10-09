@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
 package|;
 end_package
 
@@ -34,6 +34,16 @@ operator|.
 name|image
 operator|.
 name|BufferedImage
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayOutputStream
 import|;
 end_import
 
@@ -202,42 +212,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertTrue
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -355,24 +329,6 @@ name|graphics
 operator|.
 name|image
 operator|.
-name|NullOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|image
-operator|.
 name|PDImageXObject
 import|;
 end_import
@@ -413,7 +369,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
+operator|.
+name|imageio
 operator|.
 name|ImageIOUtil
 import|;
@@ -601,7 +559,7 @@ argument_list|,
 name|suffix
 argument_list|,
 operator|new
-name|NullOutputStream
+name|ByteArrayOutputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -678,8 +636,9 @@ block|{
 name|float
 name|dpi
 init|=
-literal|120
+literal|36
 decl_stmt|;
+comment|// low DPI so that rendering is FAST
 name|document
 operator|=
 name|PDDocument

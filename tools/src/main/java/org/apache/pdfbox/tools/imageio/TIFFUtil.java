@@ -11,7 +11,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
+operator|.
+name|imageio
 package|;
 end_package
 
@@ -109,7 +111,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
+operator|.
+name|imageio
 operator|.
 name|MetaUtil
 operator|.
@@ -125,7 +129,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
+operator|.
+name|imageio
 operator|.
 name|MetaUtil
 operator|.

@@ -215,20 +215,6 @@ name|PDFRenderer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|ImageIOUtil
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit tests for PDInlineImage  *  * @author Tilman Hausherr  */
 end_comment
@@ -689,9 +675,9 @@ comment|// write and read
 name|boolean
 name|writeOk
 init|=
-name|ImageIOUtil
+name|ImageIO
 operator|.
-name|writeImage
+name|write
 argument_list|(
 name|image1
 argument_list|,
@@ -758,9 +744,9 @@ argument_list|)
 expr_stmt|;
 name|writeOk
 operator|=
-name|ImageIOUtil
+name|ImageIO
 operator|.
-name|writeImage
+name|write
 argument_list|(
 name|image2
 argument_list|,

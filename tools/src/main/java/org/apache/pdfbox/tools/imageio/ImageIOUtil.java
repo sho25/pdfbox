@@ -11,7 +11,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
+operator|.
+name|imageio
 package|;
 end_package
 
@@ -211,7 +213,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
+operator|.
+name|imageio
 operator|.
 name|MetaUtil
 operator|.
@@ -1008,6 +1012,8 @@ name|metadata
 operator|.
 name|getAsTree
 argument_list|(
+name|MetaUtil
+operator|.
 name|STANDARD_METADATA_FORMAT
 argument_list|)
 decl_stmt|;
@@ -1100,6 +1106,8 @@ name|metadata
 operator|.
 name|mergeTree
 argument_list|(
+name|MetaUtil
+operator|.
 name|STANDARD_METADATA_FORMAT
 argument_list|,
 name|root

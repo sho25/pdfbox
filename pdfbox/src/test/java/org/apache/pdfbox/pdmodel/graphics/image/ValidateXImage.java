@@ -37,6 +37,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|File
 import|;
 end_import
@@ -104,6 +114,16 @@ operator|.
 name|TestCase
 operator|.
 name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|imageio
+operator|.
+name|ImageIO
 import|;
 end_import
 
@@ -190,20 +210,6 @@ operator|.
 name|rendering
 operator|.
 name|PDFRenderer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|ImageIOUtil
 import|;
 end_import
 
@@ -403,9 +409,9 @@ expr_stmt|;
 name|boolean
 name|writeOk
 init|=
-name|ImageIOUtil
+name|ImageIO
 operator|.
-name|writeImage
+name|write
 argument_list|(
 name|ximage
 operator|.
@@ -415,7 +421,7 @@ argument_list|,
 name|format
 argument_list|,
 operator|new
-name|NullOutputStream
+name|ByteArrayOutputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -426,9 +432,9 @@ argument_list|)
 expr_stmt|;
 name|writeOk
 operator|=
-name|ImageIOUtil
+name|ImageIO
 operator|.
-name|writeImage
+name|write
 argument_list|(
 name|ximage
 operator|.
@@ -438,7 +444,7 @@ argument_list|,
 name|format
 argument_list|,
 operator|new
-name|NullOutputStream
+name|ByteArrayOutputStream
 argument_list|()
 argument_list|)
 expr_stmt|;

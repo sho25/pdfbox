@@ -11,7 +11,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
+operator|.
+name|imageio
 package|;
 end_package
 
@@ -59,7 +61,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
+operator|.
+name|imageio
 operator|.
 name|MetaUtil
 operator|.
@@ -75,7 +79,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|tools
+operator|.
+name|imageio
 operator|.
 name|MetaUtil
 operator|.
@@ -129,10 +135,14 @@ parameter_list|)
 throws|throws
 name|IIOInvalidTreeException
 block|{
+name|MetaUtil
+operator|.
 name|debugLogMetadata
 argument_list|(
 name|metadata
 argument_list|,
+name|MetaUtil
+operator|.
 name|JPEG_NATIVE_FORMAT
 argument_list|)
 expr_stmt|;
@@ -148,6 +158,8 @@ name|metadata
 operator|.
 name|getAsTree
 argument_list|(
+name|MetaUtil
+operator|.
 name|JPEG_NATIVE_FORMAT
 argument_list|)
 decl_stmt|;
@@ -393,6 +405,8 @@ name|metadata
 operator|.
 name|setFromTree
 argument_list|(
+name|MetaUtil
+operator|.
 name|JPEG_NATIVE_FORMAT
 argument_list|,
 name|root
