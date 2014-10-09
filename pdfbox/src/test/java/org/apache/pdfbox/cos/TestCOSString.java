@@ -1826,7 +1826,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test testCompareFromHexString() - tests that Strings created from hex      * compare correctly (JDK bug PDFBOX-2401)      */
+comment|/**      * Test testCompareFromHexString() - tests that Strings created from hex      * compare correctly (PDFBOX-2401)      */
 specifier|public
 name|void
 name|testCompareFromHexString
@@ -1922,18 +1922,20 @@ name|test1
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// if this test fails, then the JDK bug has been fixed!
-name|assertEquals
+name|assertFalse
 argument_list|(
 name|test1
 operator|.
 name|getString
 argument_list|()
-argument_list|,
+operator|.
+name|equals
+argument_list|(
 name|test2
 operator|.
 name|getString
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
