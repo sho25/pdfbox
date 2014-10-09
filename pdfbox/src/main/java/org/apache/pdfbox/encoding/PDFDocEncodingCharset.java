@@ -92,7 +92,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|255
+literal|256
 condition|;
 name|i
 operator|++
