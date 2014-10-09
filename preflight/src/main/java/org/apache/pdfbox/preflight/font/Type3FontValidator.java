@@ -1481,7 +1481,7 @@ name|this
 operator|.
 name|fontContainer
 operator|.
-name|markCIDAsValid
+name|markAsValid
 argument_list|(
 name|cid
 argument_list|)
@@ -1512,7 +1512,7 @@ name|this
 operator|.
 name|fontContainer
 operator|.
-name|markCIDAsInvalid
+name|markAsInvalid
 argument_list|(
 name|cid
 argument_list|,
@@ -1782,7 +1782,7 @@ name|this
 operator|.
 name|fontContainer
 operator|.
-name|markCIDAsInvalid
+name|markAsInvalid
 argument_list|(
 name|cid
 argument_list|,

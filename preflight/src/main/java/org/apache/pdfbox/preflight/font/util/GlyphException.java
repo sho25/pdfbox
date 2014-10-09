@@ -38,7 +38,7 @@ specifier|public
 name|GlyphException
 parameter_list|(
 name|String
-name|code
+name|errorCode
 parameter_list|,
 name|int
 name|cid
@@ -51,7 +51,7 @@ name|this
 operator|.
 name|errorCode
 operator|=
-name|code
+name|errorCode
 expr_stmt|;
 name|this
 operator|.
@@ -64,7 +64,7 @@ specifier|public
 name|GlyphException
 parameter_list|(
 name|String
-name|code
+name|errorCode
 parameter_list|,
 name|int
 name|cid
@@ -82,7 +82,7 @@ name|this
 operator|.
 name|errorCode
 operator|=
-name|code
+name|errorCode
 expr_stmt|;
 name|this
 operator|.

@@ -1655,6 +1655,14 @@ block|}
 annotation|@
 name|Override
 specifier|public
+specifier|abstract
+name|boolean
+name|isDamaged
+parameter_list|()
+function_decl|;
+annotation|@
+name|Override
+specifier|public
 name|boolean
 name|equals
 parameter_list|(

@@ -526,6 +526,11 @@ specifier|final
 name|boolean
 name|isEmbedded
 decl_stmt|;
+specifier|private
+specifier|final
+name|boolean
+name|isDamaged
+decl_stmt|;
 comment|/**      * Creates a new TrueType font from a Font dictionary.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
 specifier|public
 name|PDTrueTypeFont
@@ -545,6 +550,11 @@ name|TrueTypeFont
 name|ttfFont
 init|=
 literal|null
+decl_stmt|;
+name|boolean
+name|fontIsDamaged
+init|=
+literal|false
 decl_stmt|;
 if|if
 condition|(
@@ -609,9 +619,9 @@ name|e
 parameter_list|)
 comment|// TTF parser is buggy
 block|{
-throw|throw
-operator|new
-name|IOException
+name|LOG
+operator|.
+name|warn
 argument_list|(
 literal|"Could not read embedded TTF for font "
 operator|+
@@ -620,7 +630,11 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
+name|fontIsDamaged
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -628,9 +642,9 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|IOException
+name|LOG
+operator|.
+name|warn
 argument_list|(
 literal|"Could not read embedded TTF for font "
 operator|+
@@ -639,7 +653,11 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
+name|fontIsDamaged
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -648,6 +666,10 @@ operator|=
 name|ttfFont
 operator|!=
 literal|null
+expr_stmt|;
+name|isDamaged
+operator|=
+name|fontIsDamaged
 expr_stmt|;
 comment|// substitute
 if|if
@@ -781,6 +803,10 @@ name|isEmbedded
 operator|=
 literal|true
 expr_stmt|;
+name|isDamaged
+operator|=
+literal|false
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -827,6 +853,17 @@ name|ttf
 operator|.
 name|getFontBBox
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isDamaged
+parameter_list|()
+block|{
+return|return
+name|isDamaged
 return|;
 block|}
 comment|/**      * Returns the embedded or substituted TrueType font.      */

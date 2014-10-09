@@ -704,6 +704,18 @@ return|return
 name|fontMatrix
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isDamaged
+parameter_list|()
+block|{
+comment|// there's no font file to load
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Returns the optional resources of the type3 stream.      *      * @return the resources bound to be used when parsing the type3 stream      */
 specifier|public
 name|PDResources

@@ -361,6 +361,11 @@ name|boolean
 name|isEmbedded
 decl_stmt|;
 specifier|private
+specifier|final
+name|boolean
+name|isDamaged
+decl_stmt|;
+specifier|private
 name|Matrix
 name|fontMatrix
 decl_stmt|;
@@ -406,6 +411,16 @@ operator|.
 name|getFontFile3
 argument_list|()
 decl_stmt|;
+name|TrueTypeFont
+name|ttfFont
+init|=
+literal|null
+decl_stmt|;
+name|boolean
+name|fontIsDamaged
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|ff2Stream
@@ -425,7 +440,7 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
-name|ttf
+name|ttfFont
 operator|=
 name|ttfParser
 operator|.
@@ -437,10 +452,6 @@ name|createInputStream
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|isEmbedded
-operator|=
-literal|true
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -449,9 +460,9 @@ name|e
 parameter_list|)
 comment|// TTF parser is buggy
 block|{
-throw|throw
-operator|new
-name|IOException
+name|LOG
+operator|.
+name|warn
 argument_list|(
 literal|"Could not read embedded TTF for font "
 operator|+
@@ -460,7 +471,11 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
+name|fontIsDamaged
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -468,9 +483,9 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|IOException
+name|LOG
+operator|.
+name|warn
 argument_list|(
 literal|"Could not read embedded TTF for font "
 operator|+
@@ -479,7 +494,11 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
+name|fontIsDamaged
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 elseif|else
@@ -515,13 +534,9 @@ name|createInputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ttf
+name|ttfFont
 operator|=
 name|otf
-expr_stmt|;
-name|isEmbedded
-operator|=
-literal|true
 expr_stmt|;
 if|if
 condition|(
@@ -572,9 +587,13 @@ name|e
 parameter_list|)
 comment|// TTF parser is buggy
 block|{
-throw|throw
-operator|new
-name|IOException
+name|fontIsDamaged
+operator|=
+literal|true
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
 argument_list|(
 literal|"Could not read embedded OTF for font "
 operator|+
@@ -583,7 +602,7 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -591,9 +610,13 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|IOException
+name|fontIsDamaged
+operator|=
+literal|true
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
 argument_list|(
 literal|"Could not read embedded OTF for font "
 operator|+
@@ -602,10 +625,25 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
-else|else
+name|isEmbedded
+operator|=
+name|ttfFont
+operator|!=
+literal|null
+expr_stmt|;
+name|isDamaged
+operator|=
+name|fontIsDamaged
+expr_stmt|;
+if|if
+condition|(
+name|ttfFont
+operator|==
+literal|null
+condition|)
 block|{
 comment|// substitute
 name|TrueTypeFont
@@ -626,7 +664,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ttf
+name|ttfFont
 operator|=
 name|ttfSubstitute
 expr_stmt|;
@@ -644,7 +682,7 @@ name|getBaseFont
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ttf
+name|ttfFont
 operator|=
 name|ExternalFonts
 operator|.
@@ -655,11 +693,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|isEmbedded
-operator|=
-literal|false
-expr_stmt|;
 block|}
+name|ttf
+operator|=
+name|ttfFont
+expr_stmt|;
 name|cid2gid
 operator|=
 name|readCIDToGIDMap
@@ -677,8 +715,8 @@ operator|.
 name|CID_TO_GID_MAP
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+name|hasIdentityCid2Gid
+operator|=
 name|map
 operator|instanceof
 name|COSName
@@ -697,20 +735,7 @@ name|equals
 argument_list|(
 literal|"Identity"
 argument_list|)
-condition|)
-block|{
-name|hasIdentityCid2Gid
-operator|=
-literal|true
 expr_stmt|;
-block|}
-else|else
-block|{
-name|hasIdentityCid2Gid
-operator|=
-literal|false
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -1482,6 +1507,17 @@ parameter_list|()
 block|{
 return|return
 name|isEmbedded
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isDamaged
+parameter_list|()
+block|{
+return|return
+name|isDamaged
 return|;
 block|}
 comment|/**      * Returns the embedded or substituted TrueType font.      */

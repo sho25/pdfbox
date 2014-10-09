@@ -641,7 +641,13 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" : Isartor file should be invalid"
+literal|" : Isartor file should be invalid (expected "
+operator|+
+name|this
+operator|.
+name|expectedError
+operator|+
+literal|")"
 argument_list|,
 name|result
 operator|.

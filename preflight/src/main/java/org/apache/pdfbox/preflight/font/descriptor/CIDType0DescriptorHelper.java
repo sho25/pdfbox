@@ -419,7 +419,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|/*              * Stream validation should be done by the StreamValidateHelper. Process font specific check              */
+comment|// Stream validation should be done by the StreamValidateHelper. Process font specific check
 name|COSStream
 name|stream
 init|=
@@ -465,7 +465,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/*                  * Lengthx aren't mandatory for this type of font But the Subtype is a mandatory field with specific                  * values                  */
+comment|// Length1/2/3 aren't mandatory for this type of font
+comment|// But the Subtype is a mandatory field with specific values
 name|String
 name|st
 init|=
@@ -631,41 +632,11 @@ name|PDStream
 name|fontFile
 parameter_list|)
 block|{
-comment|/*          * try to load the font using the java.awt.font object. if the font is invalid, an exception will be thrown          */
-try|try
-block|{
-name|CFFParser
-name|cffParser
-init|=
-operator|new
-name|CFFParser
-argument_list|()
-decl_stmt|;
-name|List
-argument_list|<
-name|CFFFont
-argument_list|>
-name|lCFonts
-init|=
-name|cffParser
-operator|.
-name|parse
-argument_list|(
-name|fontFile
-operator|.
-name|getByteArray
-argument_list|()
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-name|lCFonts
-operator|==
-literal|null
-operator|||
-name|lCFonts
+name|font
 operator|.
-name|isEmpty
+name|isDamaged
 argument_list|()
 condition|)
 block|{
@@ -681,38 +652,6 @@ argument_list|(
 name|ERROR_FONTS_CID_DAMAGED
 argument_list|,
 literal|"The FontFile can't be read"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-name|fContainer
-operator|.
-name|setlCFonts
-argument_list|(
-name|lCFonts
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|this
-operator|.
-name|fContainer
-operator|.
-name|push
-argument_list|(
-operator|new
-name|ValidationError
-argument_list|(
-name|ERROR_FONTS_CID_DAMAGED
-argument_list|,
-literal|"The FontFile can't be read"
-argument_list|,
-name|e
 argument_list|)
 argument_list|)
 expr_stmt|;

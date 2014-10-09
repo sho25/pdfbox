@@ -1411,7 +1411,7 @@ argument_list|)
 expr_stmt|;
 name|fontContainer
 operator|.
-name|setErrorsAleadyMerged
+name|setErrorsAlreadyMerged
 argument_list|(
 literal|true
 argument_list|)

@@ -652,6 +652,11 @@ name|boolean
 name|isEmbedded
 decl_stmt|;
 specifier|private
+specifier|final
+name|boolean
+name|isDamaged
+decl_stmt|;
+specifier|private
 name|Matrix
 name|fontMatrix
 decl_stmt|;
@@ -725,6 +730,10 @@ name|isEmbedded
 operator|=
 literal|false
 expr_stmt|;
+name|isDamaged
+operator|=
+literal|false
+expr_stmt|;
 block|}
 comment|/**      * Creates a new Type 1 font for embedding.      *      * @param doc PDF document to write to      * @param afmIn AFM file stream      * @param pfbIn PFB file stream      * @throws IOException      */
 specifier|public
@@ -782,6 +791,10 @@ name|isEmbedded
 operator|=
 literal|true
 expr_stmt|;
+name|isDamaged
+operator|=
+literal|false
+expr_stmt|;
 block|}
 comment|/**      * Creates a Type 1 font from a Font dictionary in a PDF.      *       * @param fontDictionary font dictionary      */
 specifier|public
@@ -808,6 +821,11 @@ name|Type1Font
 name|t1
 init|=
 literal|null
+decl_stmt|;
+name|boolean
+name|fontIsDamaged
+init|=
+literal|false
 decl_stmt|;
 if|if
 condition|(
@@ -972,6 +990,10 @@ name|getFontName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fontIsDamaged
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -993,6 +1015,10 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+name|fontIsDamaged
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -1001,6 +1027,10 @@ operator|=
 name|t1
 operator|!=
 literal|null
+expr_stmt|;
+name|isDamaged
+operator|=
+name|fontIsDamaged
 expr_stmt|;
 comment|// try to find a suitable .pfb font to substitute
 if|if
@@ -1877,6 +1907,17 @@ block|}
 block|}
 return|return
 name|fontMatrix
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isDamaged
+parameter_list|()
+block|{
+return|return
+name|isDamaged
 return|;
 block|}
 block|}

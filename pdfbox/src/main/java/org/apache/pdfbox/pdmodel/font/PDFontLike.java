@@ -156,6 +156,13 @@ name|boolean
 name|isEmbedded
 parameter_list|()
 function_decl|;
+comment|/**      * Returns true if the embedded font file is damaged.      */
+specifier|public
+specifier|abstract
+name|boolean
+name|isDamaged
+parameter_list|()
+function_decl|;
 comment|/**      * This will get the average font width for all characters.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      */
 comment|// todo: this method is highly suspicious, the average glyph width is not usually a good metric
 specifier|public
