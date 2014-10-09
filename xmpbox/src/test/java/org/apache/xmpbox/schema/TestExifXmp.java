@@ -17,6 +17,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -333,9 +343,9 @@ name|serialize
 argument_list|(
 name|metadata
 argument_list|,
-name|System
-operator|.
-name|out
+operator|new
+name|ByteArrayOutputStream
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
