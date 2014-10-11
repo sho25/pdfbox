@@ -1728,7 +1728,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the rotation for this page.      *       * @param rotation The new rotation for this page.      */
+comment|/**      * This will set the rotation for this page.      *       * @param rotation The new rotation for this page in degrees.      */
 specifier|public
 name|void
 name|setRotation
