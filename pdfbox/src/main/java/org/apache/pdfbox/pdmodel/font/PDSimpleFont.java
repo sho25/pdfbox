@@ -277,7 +277,6 @@ argument_list|()
 decl_stmt|;
 comment|// for logging
 comment|/**      * Constructor      */
-specifier|protected
 name|PDSimpleFont
 parameter_list|()
 block|{
@@ -285,8 +284,20 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Constructor for Standard 14.      */
+name|PDSimpleFont
+parameter_list|(
+name|String
+name|baseFont
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|baseFont
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Constructor.      *      * @param fontDictionary Font dictionary.      */
-specifier|protected
 name|PDSimpleFont
 parameter_list|(
 name|COSDictionary

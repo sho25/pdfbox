@@ -260,7 +260,6 @@ name|PDFontDescriptor
 name|fontDescriptor
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param fontDictionary The font dictionary according to the PDF specification.      */
-specifier|protected
 name|PDCIDFont
 parameter_list|(
 name|COSDictionary

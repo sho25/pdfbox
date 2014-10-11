@@ -398,7 +398,6 @@ name|Boolean
 name|isSymbolic
 decl_stmt|;
 comment|/**      * Constructor for embedding.      */
-specifier|protected
 name|PDFont
 parameter_list|()
 block|{
@@ -435,7 +434,6 @@ literal|null
 expr_stmt|;
 block|}
 comment|/**      * Constructor for Standard 14.      */
-specifier|protected
 name|PDFont
 parameter_list|(
 name|String
@@ -452,21 +450,15 @@ name|toUnicodeCMap
 operator|=
 literal|null
 expr_stmt|;
-name|fontDescriptor
-operator|=
-literal|null
-expr_stmt|;
 name|afmStandard14
 operator|=
 name|Standard14Fonts
 operator|.
 name|getAFM
 argument_list|(
-name|getName
-argument_list|()
+name|baseFont
 argument_list|)
 expr_stmt|;
-comment|// may be null (it usually is)
 if|if
 condition|(
 name|afmStandard14
@@ -484,6 +476,15 @@ name|baseFont
 argument_list|)
 throw|;
 block|}
+name|fontDescriptor
+operator|=
+name|PDType1FontEmbedder
+operator|.
+name|buildFontDescriptor
+argument_list|(
+name|afmStandard14
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Constructor.      *      * @param fontDictionary Font dictionary.      */
 specifier|protected
