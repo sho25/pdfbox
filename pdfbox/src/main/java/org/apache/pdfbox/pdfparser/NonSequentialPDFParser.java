@@ -5702,6 +5702,24 @@ argument_list|(
 literal|"The end of the stream is out of range, using workaround to read the stream"
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Stream start offset: "
+operator|+
+name|originOffset
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Expected endofstream offset: "
+operator|+
+name|expectedEndOfStream
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
