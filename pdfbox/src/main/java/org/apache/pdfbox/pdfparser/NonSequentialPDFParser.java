@@ -4731,13 +4731,6 @@ condition|)
 block|{
 if|if
 condition|(
-name|endObjectKey
-operator|.
-name|endsWith
-argument_list|(
-literal|" obj"
-argument_list|)
-operator|&&
 name|isLenient
 condition|)
 block|{
