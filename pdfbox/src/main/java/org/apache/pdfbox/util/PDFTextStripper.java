@@ -414,6 +414,12 @@ name|DEFAULT_DROP_THRESHOLD
 init|=
 literal|2.5f
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|boolean
+name|useCustomQuicksort
+decl_stmt|;
 comment|// enable the ability to set the default indent/drop thresholds
 comment|// with -D system properties:
 comment|//    pdftextstripper.indent
@@ -555,6 +561,67 @@ block|{
 comment|// ignore and use default
 block|}
 block|}
+comment|// check if we need to use the custom quicksort algorithm as a
+comment|// workaround to the transitivity issue of TextPositionComparator:
+comment|// https://issues.apache.org/jira/browse/PDFBOX-1512
+name|String
+index|[]
+name|versionComponents
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.version"
+argument_list|)
+operator|.
+name|split
+argument_list|(
+literal|"\\."
+argument_list|)
+decl_stmt|;
+name|int
+name|javaMajorVersion
+init|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|versionComponents
+index|[
+literal|0
+index|]
+argument_list|)
+decl_stmt|;
+name|int
+name|javaMinorVersion
+init|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|versionComponents
+index|[
+literal|1
+index|]
+argument_list|)
+decl_stmt|;
+name|boolean
+name|is16orLess
+init|=
+name|javaMajorVersion
+operator|==
+literal|1
+operator|&&
+name|javaMinorVersion
+operator|<=
+literal|6
+decl_stmt|;
+name|useCustomQuicksort
+operator|=
+operator|!
+name|is16orLess
+expr_stmt|;
 block|}
 comment|/**      * The platform's line separator.      */
 specifier|protected
@@ -1629,6 +1696,26 @@ operator|new
 name|TextPositionComparator
 argument_list|()
 decl_stmt|;
+comment|// because the TextPositionComparator is not transitive, but
+comment|// JDK7+ enforces transitivity on comparators, we need to use
+comment|// a custom quicksort implementation (which is slower, unfortunately).
+if|if
+condition|(
+name|useCustomQuicksort
+condition|)
+block|{
+name|QuickSort
+operator|.
+name|sort
+argument_list|(
+name|textList
+argument_list|,
+name|comparator
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|Collections
 operator|.
 name|sort
@@ -1638,6 +1725,7 @@ argument_list|,
 name|comparator
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|Iterator
 argument_list|<
