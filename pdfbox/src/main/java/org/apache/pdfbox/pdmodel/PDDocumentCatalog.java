@@ -427,10 +427,12 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|root
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDDocument
 name|document
 decl_stmt|;
@@ -618,6 +620,8 @@ name|rootDictionary
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -1037,12 +1041,9 @@ name|retval
 init|=
 literal|null
 decl_stmt|;
-name|COSStream
-name|stream
+name|COSBase
+name|metaObj
 init|=
-operator|(
-name|COSStream
-operator|)
 name|root
 operator|.
 name|getDictionaryObject
@@ -1054,9 +1055,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|stream
-operator|!=
-literal|null
+name|metaObj
+operator|instanceof
+name|COSStream
 condition|)
 block|{
 name|retval
@@ -1064,7 +1065,10 @@ operator|=
 operator|new
 name|PDMetadata
 argument_list|(
-name|stream
+operator|(
+name|COSStream
+operator|)
+name|metaObj
 argument_list|)
 expr_stmt|;
 block|}
