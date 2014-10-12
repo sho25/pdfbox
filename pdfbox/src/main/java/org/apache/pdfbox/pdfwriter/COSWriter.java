@@ -2287,6 +2287,25 @@ name|PREV
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|doc
+operator|.
+name|isXRefStream
+argument_list|()
+condition|)
+block|{
+name|trailer
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|XREF_STM
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Remove a checksum if present
 name|trailer
 operator|.
