@@ -5591,12 +5591,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|idArray
-operator|=
-operator|new
-name|COSArray
-argument_list|()
-expr_stmt|;
 comment|// reuse origin documentID if available as first value
 name|COSString
 name|firstID
@@ -5634,6 +5628,12 @@ name|digest
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|idArray
+operator|=
+operator|new
+name|COSArray
+argument_list|()
+expr_stmt|;
 name|idArray
 operator|.
 name|add
