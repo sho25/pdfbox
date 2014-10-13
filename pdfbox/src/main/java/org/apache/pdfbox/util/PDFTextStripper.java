@@ -564,6 +564,13 @@ block|}
 comment|// check if we need to use the custom quicksort algorithm as a
 comment|// workaround to the transitivity issue of TextPositionComparator:
 comment|// https://issues.apache.org/jira/browse/PDFBOX-1512
+name|boolean
+name|is16orLess
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
 name|String
 index|[]
 name|versionComponents
@@ -606,9 +613,8 @@ literal|1
 index|]
 argument_list|)
 decl_stmt|;
-name|boolean
 name|is16orLess
-init|=
+operator|=
 name|javaMajorVersion
 operator|==
 literal|1
@@ -616,7 +622,17 @@ operator|&&
 name|javaMinorVersion
 operator|<=
 literal|6
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|x
+parameter_list|)
+block|{
+comment|// when run in an applet ignore and use default
+comment|// assume 1.7 or higher so that quicksort is used
+block|}
 name|useCustomQuicksort
 operator|=
 operator|!
