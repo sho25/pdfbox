@@ -276,7 +276,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// for logging
-comment|/**      * Constructor      */
+comment|/**      * Constructor for embedding.      */
 name|PDSimpleFont
 parameter_list|()
 block|{

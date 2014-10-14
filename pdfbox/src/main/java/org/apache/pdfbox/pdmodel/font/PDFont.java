@@ -371,7 +371,6 @@ name|afmStandard14
 decl_stmt|;
 comment|// AFM for standard 14 fonts
 specifier|private
-specifier|final
 name|PDFontDescriptor
 name|fontDescriptor
 decl_stmt|;
@@ -652,7 +651,24 @@ return|return
 name|fontDescriptor
 return|;
 block|}
-comment|/**      * Reads a CMap given a COS Stream or Name. May return null if a predefined CMap does not exist.      *      * @param base COSName or COSStream      */
+comment|/**      * Sets the font descriptor when embedding a font.      */
+specifier|protected
+specifier|final
+name|void
+name|setFontDescriptor
+parameter_list|(
+name|PDFontDescriptor
+name|fontDescriptor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fontDescriptor
+operator|=
+name|fontDescriptor
+expr_stmt|;
+block|}
+comment|/**      /**      * Reads a CMap given a COS Stream or Name. May return null if a predefined CMap does not exist.      *      * @param base COSName or COSStream      */
 specifier|protected
 specifier|final
 name|CMap
@@ -975,64 +991,71 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the width of the given Unicode string.      *      * @param string The string to get the width of.      * @return The width of the string in 1000 units of text space, ie 333 567...      * @throws IOException If there is an error getting the width information.      */
+comment|/**      * Returns the width of the given Unicode string.      *      * @param text The text to get the width of.      * @return The width of the string in 1000 units of text space, ie 333 567...      * @throws IOException If there is an error getting the width information.      */
 specifier|public
 name|float
 name|getStringWidth
 parameter_list|(
 name|String
-name|string
+name|text
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|byte
-index|[]
-name|data
-init|=
-name|string
-operator|.
-name|getBytes
-argument_list|(
-literal|"ISO-8859-1"
-argument_list|)
-decl_stmt|;
-comment|// todo: *no*, these are *not* character codes
 name|float
-name|totalWidth
+name|width
 init|=
 literal|0
 decl_stmt|;
-for|for
-control|(
 name|int
-name|i
+name|offset
 init|=
 literal|0
-init|;
-name|i
-operator|<
-name|data
+decl_stmt|,
+name|length
+init|=
+name|text
 operator|.
 name|length
-condition|;
-name|i
-operator|++
-control|)
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|offset
+operator|<
+name|length
+condition|)
 block|{
-name|totalWidth
+name|int
+name|codePoint
+init|=
+name|text
+operator|.
+name|codePointAt
+argument_list|(
+name|offset
+argument_list|)
+decl_stmt|;
+name|offset
+operator|+=
+name|Character
+operator|.
+name|charCount
+argument_list|(
+name|codePoint
+argument_list|)
+expr_stmt|;
+name|width
 operator|+=
 name|getWidth
 argument_list|(
-name|data
-index|[
-name|i
-index|]
+name|codePoint
 argument_list|)
 expr_stmt|;
+comment|// todo: *no* getWidth expects a PDF char code, not a Unicode code point
 block|}
 return|return
-name|totalWidth
+name|width
 return|;
 block|}
 comment|/**      * This will get the average font width for all characters.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      */
@@ -1378,6 +1401,7 @@ return|;
 block|}
 comment|/**      * Returns the value of the symbolic flag,  allowing for the fact that the result may be      * indeterminate.      */
 specifier|protected
+specifier|final
 name|Boolean
 name|getSymbolicFlag
 parameter_list|()

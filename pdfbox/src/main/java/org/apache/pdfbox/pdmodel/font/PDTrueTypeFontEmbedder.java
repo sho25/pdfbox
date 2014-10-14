@@ -445,6 +445,11 @@ specifier|final
 name|TrueTypeFont
 name|ttf
 decl_stmt|;
+specifier|private
+specifier|final
+name|PDFontDescriptor
+name|fontDescriptor
+decl_stmt|;
 comment|/**      * Creates a new TrueType font for embedding.      */
 name|PDTrueTypeFontEmbedder
 parameter_list|(
@@ -607,6 +612,10 @@ name|FONT_DESC
 argument_list|,
 name|fd
 argument_list|)
+expr_stmt|;
+name|fontDescriptor
+operator|=
+name|fd
 expr_stmt|;
 block|}
 comment|// creates a new font descriptor dictionary for the given TTF
@@ -1712,6 +1721,16 @@ parameter_list|()
 block|{
 return|return
 name|ttf
+return|;
+block|}
+comment|/**      * Returns the font descriptor.      */
+specifier|public
+name|PDFontDescriptor
+name|getFontDescriptor
+parameter_list|()
+block|{
+return|return
+name|fontDescriptor
 return|;
 block|}
 block|}
