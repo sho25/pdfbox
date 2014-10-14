@@ -294,7 +294,7 @@ name|pageIndex
 argument_list|)
 decl_stmt|;
 name|PDRectangle
-name|cropBox
+name|adjustedCropBox
 init|=
 name|page
 operator|.
@@ -304,7 +304,7 @@ decl_stmt|;
 name|float
 name|widthPt
 init|=
-name|cropBox
+name|adjustedCropBox
 operator|.
 name|getWidth
 argument_list|()
@@ -312,7 +312,7 @@ decl_stmt|;
 name|float
 name|heightPt
 init|=
-name|cropBox
+name|adjustedCropBox
 operator|.
 name|getHeight
 argument_list|()
@@ -535,7 +535,7 @@ argument_list|)
 decl_stmt|;
 comment|// TODO need width/wight calculations? should these be in PageDrawer?
 name|PDRectangle
-name|cropBox
+name|adjustedCropBox
 init|=
 name|page
 operator|.
@@ -551,7 +551,7 @@ argument_list|,
 operator|(
 name|int
 operator|)
-name|cropBox
+name|adjustedCropBox
 operator|.
 name|getWidth
 argument_list|()
@@ -559,7 +559,7 @@ argument_list|,
 operator|(
 name|int
 operator|)
-name|cropBox
+name|adjustedCropBox
 operator|.
 name|getHeight
 argument_list|()
@@ -621,7 +621,7 @@ argument_list|)
 expr_stmt|;
 comment|// TODO should we be passing the scale to PageDrawer rather than messing with Graphics?
 name|PDRectangle
-name|cropBox
+name|adjustedCropBox
 init|=
 name|page
 operator|.
@@ -663,7 +663,7 @@ literal|90
 case|:
 name|translateX
 operator|=
-name|cropBox
+name|adjustedCropBox
 operator|.
 name|getHeight
 argument_list|()
@@ -674,7 +674,7 @@ literal|270
 case|:
 name|translateY
 operator|=
-name|cropBox
+name|adjustedCropBox
 operator|.
 name|getWidth
 argument_list|()
@@ -685,14 +685,14 @@ literal|180
 case|:
 name|translateX
 operator|=
-name|cropBox
+name|adjustedCropBox
 operator|.
 name|getWidth
 argument_list|()
 expr_stmt|;
 name|translateY
 operator|=
-name|cropBox
+name|adjustedCropBox
 operator|.
 name|getHeight
 argument_list|()
@@ -742,7 +742,7 @@ name|drawPage
 argument_list|(
 name|graphics
 argument_list|,
-name|cropBox
+name|adjustedCropBox
 argument_list|)
 expr_stmt|;
 if|if
