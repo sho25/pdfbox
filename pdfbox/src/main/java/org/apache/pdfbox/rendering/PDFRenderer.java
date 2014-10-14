@@ -298,7 +298,7 @@ name|cropBox
 init|=
 name|page
 operator|.
-name|findCropBox
+name|calcAdjustedCropBox
 argument_list|()
 decl_stmt|;
 name|float
@@ -539,7 +539,7 @@ name|cropBox
 init|=
 name|page
 operator|.
-name|findCropBox
+name|calcAdjustedCropBox
 argument_list|()
 decl_stmt|;
 name|renderPage
@@ -625,7 +625,7 @@ name|cropBox
 init|=
 name|page
 operator|.
-name|findCropBox
+name|calcAdjustedCropBox
 argument_list|()
 decl_stmt|;
 name|int
