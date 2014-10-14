@@ -1069,6 +1069,13 @@ operator|.
 name|get
 argument_list|(
 name|postScriptName
+operator|.
+name|replaceAll
+argument_list|(
+literal|" "
+argument_list|,
+literal|""
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -1105,7 +1112,7 @@ block|{
 return|return
 name|windowsName
 operator|.
-name|replace
+name|replaceAll
 argument_list|(
 literal|","
 argument_list|,
