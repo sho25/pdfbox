@@ -504,8 +504,8 @@ operator|=
 name|fontProvider
 expr_stmt|;
 block|}
-comment|/**      * Gets the font service provider. Defaults to using FileSystemFontProvider.      */
-specifier|private
+comment|/**      * Returns the font service provider. Defaults to using FileSystemFontProvider.      */
+specifier|public
 specifier|static
 name|FontProvider
 name|getProvider
