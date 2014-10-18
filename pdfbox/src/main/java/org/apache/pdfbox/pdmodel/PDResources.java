@@ -552,32 +552,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * This will get the map of fonts. This will never return null. The keys are string and the values are PDFont      * objects.      *       * @param fontCache A map of existing PDFont objects to reuse.      * @return The map of fonts.      *       * @throws IOException If there is an error getting the fonts.      *       * @deprecated due to some side effects font caching is no longer supported, use {@link #getFonts()} instead      */
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|PDFont
-argument_list|>
-name|getFonts
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|PDFont
-argument_list|>
-name|fontCache
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|getFonts
-argument_list|()
-return|;
-block|}
 comment|/**      * This will get the map of fonts. This will never return null.      *      * @return The map of fonts.      */
 specifier|public
 name|Map
