@@ -221,7 +221,9 @@ name|V
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO create/update appearance
+name|updateFieldAppearances
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * getValue gets the value of the "V" entry.      *       * @return The value of this entry.      *       */
 annotation|@
