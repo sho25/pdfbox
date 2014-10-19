@@ -340,12 +340,14 @@ init|=
 literal|false
 decl_stmt|;
 comment|// TODO Add here COSObject or the PDObject that is linked to the error may a automatic fix can be done.
+comment|/**          * Always record the place in the source code where the ValidationError          * was created, in case the ValidationError was not caused by a          * Throwable.          */
 specifier|private
 name|Throwable
 name|t
 init|=
 literal|null
 decl_stmt|;
+comment|/**          * Get the place where the ValidationError was created, useful if the          * ValidationError was not caused by a Throwable.          *          * @return The place where the ValidationError was created.          */
 specifier|public
 name|Throwable
 name|getThrowable
@@ -355,12 +357,14 @@ return|return
 name|t
 return|;
 block|}
+comment|/**          * The underlying cause if the ValidationError was caused by a Throwable.          */
 specifier|private
 name|Throwable
 name|cause
 init|=
 literal|null
 decl_stmt|;
+comment|/**          * Get the underlying cause if the ValidationError was caused by a          * Throwable.          *          * @return The underlying cause if the ValidationError was caused by a          * Throwable, or null if not.          */
 specifier|public
 name|Throwable
 name|getCause
@@ -869,7 +873,7 @@ name|Exception
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**          * Create a validation error with the given error code and the error explanation.          *           * @param errorCode          *            the error code          * @param details          *            the error explanation          */
+comment|/**          * Create a validation error with the given error code and the error          * explanation.          *          * @param errorCode the error code          * @param details the error explanation          */
 specifier|public
 name|ValidationError
 parameter_list|(
