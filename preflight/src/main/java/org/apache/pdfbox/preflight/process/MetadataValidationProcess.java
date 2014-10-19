@@ -402,6 +402,8 @@ name|MetadataValidationProcess
 extends|extends
 name|AbstractProcess
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
@@ -581,6 +583,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -627,6 +631,8 @@ operator|.
 name|ERROR_METADATA_MAIN
 argument_list|,
 literal|"Unexpected error"
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -665,6 +671,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -697,6 +705,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -729,6 +739,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -761,6 +773,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -821,6 +835,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -853,6 +869,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -874,6 +892,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
