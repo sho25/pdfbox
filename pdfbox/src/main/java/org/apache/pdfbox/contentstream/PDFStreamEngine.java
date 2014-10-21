@@ -778,6 +778,11 @@ argument_list|(
 name|cosStream
 argument_list|)
 expr_stmt|;
+name|streamResourcesStack
+operator|.
+name|pop
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
