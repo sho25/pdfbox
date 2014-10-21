@@ -1590,8 +1590,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-try|try
-block|{
 name|Operator
 name|operator
 init|=
@@ -1609,23 +1607,6 @@ argument_list|,
 name|arguments
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-name|e
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * This is used to handle an operation.      *       * @param operator The operation to perform.      * @param arguments The list of arguments.      * @throws IOException If there is an error processing the operation.      */
 specifier|protected
