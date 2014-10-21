@@ -1467,7 +1467,7 @@ name|drDict
 operator|=
 name|dr
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 expr_stmt|;
 block|}

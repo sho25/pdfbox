@@ -317,14 +317,6 @@ name|BACKGROUND
 block|}
 empty_stmt|;
 specifier|private
-specifier|static
-specifier|final
-name|String
-name|XOBJECT_PREFIX
-init|=
-literal|"OL"
-decl_stmt|;
-specifier|private
 name|LayoutPage
 name|defaultOverlayPage
 decl_stmt|;
@@ -1073,7 +1065,7 @@ argument_list|)
 argument_list|,
 name|resources
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 return|;
@@ -1219,7 +1211,7 @@ argument_list|)
 argument_list|,
 name|resources
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1937,7 +1929,7 @@ name|resources
 argument_list|)
 expr_stmt|;
 block|}
-name|String
+name|COSName
 name|xObjectId
 init|=
 name|createOverlayXObject
@@ -1968,7 +1960,7 @@ expr_stmt|;
 block|}
 block|}
 specifier|private
-name|String
+name|COSName
 name|createOverlayXObject
 parameter_list|(
 name|PDPage
@@ -2046,11 +2038,11 @@ decl_stmt|;
 return|return
 name|resources
 operator|.
-name|addXObject
+name|add
 argument_list|(
 name|xobjForm
 argument_list|,
-name|XOBJECT_PREFIX
+literal|"OL"
 argument_list|)
 return|;
 block|}
@@ -2064,7 +2056,7 @@ parameter_list|,
 name|LayoutPage
 name|layoutPage
 parameter_list|,
-name|String
+name|COSName
 name|xObjectId
 parameter_list|)
 throws|throws
@@ -2144,6 +2136,9 @@ operator|+
 literal|" cm /"
 operator|+
 name|xObjectId
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|" Do Q\nQ\n"
 argument_list|)

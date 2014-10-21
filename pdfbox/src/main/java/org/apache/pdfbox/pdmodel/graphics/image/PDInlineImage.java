@@ -83,16 +83,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -199,6 +189,20 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|PDResources
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|common
 operator|.
 name|COSArrayList
@@ -291,16 +295,11 @@ specifier|final
 name|COSDictionary
 name|parameters
 decl_stmt|;
-comment|// color spaces in current resource dictionary
+comment|// the current resources, contains named color spaces
 specifier|private
 specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|PDColorSpace
-argument_list|>
-name|colorSpaces
+name|PDResources
+name|resources
 decl_stmt|;
 comment|// image data
 specifier|private
@@ -308,7 +307,7 @@ specifier|final
 name|PDStream
 name|stream
 decl_stmt|;
-comment|/**      * Creates an inline image from the given parameters and data.      *      * @param parameters the image parameters      * @param data the image data      * @param colorSpaces the color spaces in the current resources parameters      */
+comment|/**      * Creates an inline image from the given parameters and data.      *      * @param parameters the image parameters      * @param data the image data      * @param resources the current resources      */
 specifier|public
 name|PDInlineImage
 parameter_list|(
@@ -319,13 +318,8 @@ name|byte
 index|[]
 name|data
 parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|PDColorSpace
-argument_list|>
-name|colorSpaces
+name|PDResources
+name|resources
 parameter_list|)
 throws|throws
 name|IOException
@@ -338,9 +332,9 @@ name|parameters
 expr_stmt|;
 name|this
 operator|.
-name|colorSpaces
+name|resources
 operator|=
-name|colorSpaces
+name|resources
 expr_stmt|;
 name|DecodeResult
 name|decodeResult
@@ -635,9 +629,7 @@ name|create
 argument_list|(
 name|cs
 argument_list|,
-name|colorSpaces
-argument_list|,
-literal|null
+name|resources
 argument_list|)
 return|;
 block|}

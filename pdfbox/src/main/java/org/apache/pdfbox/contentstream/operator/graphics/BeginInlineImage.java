@@ -155,9 +155,6 @@ name|context
 operator|.
 name|getResources
 argument_list|()
-operator|.
-name|getColorSpaces
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|context

@@ -165,15 +165,12 @@ name|gs
 init|=
 name|context
 operator|.
-name|getGraphicsStates
+name|getResources
 argument_list|()
 operator|.
-name|get
+name|getExtGState
 argument_list|(
 name|graphicsName
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|gs

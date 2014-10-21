@@ -936,7 +936,7 @@ name|RESOURCES
 argument_list|,
 name|resources
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;

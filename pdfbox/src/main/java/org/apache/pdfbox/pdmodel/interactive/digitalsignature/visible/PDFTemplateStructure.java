@@ -123,6 +123,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdfwriter
 operator|.
 name|COSWriter
@@ -426,15 +440,15 @@ argument_list|>
 name|acroFormFields
 decl_stmt|;
 specifier|private
-name|String
+name|COSName
 name|innerFormName
 decl_stmt|;
 specifier|private
-name|String
+name|COSName
 name|imageFormName
 decl_stmt|;
 specifier|private
-name|String
+name|COSName
 name|imageName
 decl_stmt|;
 specifier|private
@@ -919,7 +933,7 @@ expr_stmt|;
 block|}
 comment|/**      * Gets name of inner form      * @return the inner forms's name      */
 specifier|public
-name|String
+name|COSName
 name|getInnerFormName
 parameter_list|()
 block|{
@@ -932,7 +946,7 @@ specifier|public
 name|void
 name|setInnerFormName
 parameter_list|(
-name|String
+name|COSName
 name|innerFormName
 parameter_list|)
 block|{
@@ -1023,7 +1037,7 @@ expr_stmt|;
 block|}
 comment|/**      * Gets image form name      * @return the image form's name      */
 specifier|public
-name|String
+name|COSName
 name|getImageFormName
 parameter_list|()
 block|{
@@ -1036,7 +1050,7 @@ specifier|public
 name|void
 name|setImageFormName
 parameter_list|(
-name|String
+name|COSName
 name|imageFormName
 parameter_list|)
 block|{
@@ -1049,7 +1063,7 @@ expr_stmt|;
 block|}
 comment|/**      * Gets visible signature image name      * @return the visible signature's image name      */
 specifier|public
-name|String
+name|COSName
 name|getImageName
 parameter_list|()
 block|{
@@ -1062,7 +1076,7 @@ specifier|public
 name|void
 name|setImageName
 parameter_list|(
-name|String
+name|COSName
 name|imageName
 parameter_list|)
 block|{

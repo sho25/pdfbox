@@ -85,9 +85,7 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|common
-operator|.
-name|COSObjectable
+name|PDResources
 import|;
 end_import
 
@@ -101,11 +99,9 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|graphics
+name|common
 operator|.
-name|pattern
-operator|.
-name|PDAbstractPattern
+name|COSObjectable
 import|;
 end_import
 
@@ -249,16 +245,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -301,12 +287,10 @@ argument_list|(
 name|colorSpace
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a color space given a name or array.      * @param colorSpace the color space COS object      * @param colorSpaces the ColorSpace dictionary from the current resources, if any      * @param patterns The Pattern dictionary from the current resources, if any      * @return a new color space      * @throws MissingException if the color space is missing from the resources dictionary      * @throws IOException if the color space is unknown or cannot be created      */
+comment|/**      * Creates a color space given a name or array.      * @param colorSpace the color space COS object      * @param resources the current resources.      * @return a new color space      * @throws MissingException if the color space is missing from the resources dictionary      * @throws IOException if the color space is unknown or cannot be created      */
 specifier|public
 specifier|static
 name|PDColorSpace
@@ -315,21 +299,8 @@ parameter_list|(
 name|COSBase
 name|colorSpace
 parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|PDColorSpace
-argument_list|>
-name|colorSpaces
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|PDAbstractPattern
-argument_list|>
-name|patterns
+name|PDResources
+name|resources
 parameter_list|)
 throws|throws
 name|IOException
@@ -354,9 +325,7 @@ operator|.
 name|getObject
 argument_list|()
 argument_list|,
-name|colorSpaces
-argument_list|,
-name|patterns
+name|resources
 argument_list|)
 return|;
 block|}
@@ -455,41 +424,50 @@ return|return
 operator|new
 name|PDPattern
 argument_list|(
-name|patterns
+name|resources
 argument_list|)
 return|;
 block|}
 elseif|else
 if|if
 condition|(
-name|colorSpaces
-operator|!=
-literal|null
-operator|&&
-name|colorSpaces
-operator|.
-name|get
-argument_list|(
-name|name
-operator|.
-name|getName
-argument_list|()
-argument_list|)
+name|resources
 operator|!=
 literal|null
 condition|)
 block|{
-comment|// a color space resource
-return|return
-name|colorSpaces
+name|PDColorSpace
+name|cs
+init|=
+name|resources
 operator|.
-name|get
+name|getColorSpace
 argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|cs
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|MissingException
+argument_list|(
+literal|"Missing color space: "
+operator|+
 name|name
 operator|.
 name|getName
 argument_list|()
 argument_list|)
+throw|;
+block|}
+return|return
+name|cs
 return|;
 block|}
 else|else
@@ -498,7 +476,7 @@ throw|throw
 operator|new
 name|MissingException
 argument_list|(
-literal|"Missing color space: "
+literal|"Unknown color space: "
 operator|+
 name|name
 operator|.
@@ -693,7 +671,7 @@ return|return
 operator|new
 name|PDPattern
 argument_list|(
-name|patterns
+name|resources
 argument_list|)
 return|;
 block|}
@@ -703,7 +681,7 @@ return|return
 operator|new
 name|PDPattern
 argument_list|(
-name|patterns
+name|resources
 argument_list|,
 name|PDColorSpace
 operator|.
@@ -766,9 +744,7 @@ name|create
 argument_list|(
 name|name
 argument_list|,
-name|colorSpaces
-argument_list|,
-name|patterns
+name|resources
 argument_list|)
 return|;
 block|}

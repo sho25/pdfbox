@@ -113,6 +113,20 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|PDResources
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|common
 operator|.
 name|PDMetadata
@@ -263,16 +277,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -338,15 +342,10 @@ name|PDColorSpace
 name|colorSpace
 decl_stmt|;
 specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|PDColorSpace
-argument_list|>
-name|colorSpaces
+name|PDResources
+name|resources
 decl_stmt|;
-comment|// from current resource dictionary
+comment|// current resource dictionary (has color spaces)
 comment|/**      * Creates a thumbnail Image XObject from the given COSBase and name.      * @param cosStream the COS stream      * @return an XObject      * @throws IOException if there is an error creating the XObject.      */
 specifier|public
 specifier|static
@@ -458,7 +457,7 @@ argument_list|,
 name|cosFilter
 argument_list|)
 expr_stmt|;
-name|colorSpaces
+name|resources
 operator|=
 literal|null
 expr_stmt|;
@@ -487,20 +486,15 @@ name|initColorSpace
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates an Image XObject with the given stream as its contents and current color spaces.      * @param stream the XObject stream to read      * @param colorSpaces the color spaces in the current resources dictionary, null for masks      * @throws java.io.IOException if there is an error creating the XObject.      */
+comment|/**      * Creates an Image XObject with the given stream as its contents and current color spaces.      * @param stream the XObject stream to read      * @param resources the current resources      * @throws java.io.IOException if there is an error creating the XObject.      */
 specifier|public
 name|PDImageXObject
 parameter_list|(
 name|PDStream
 name|stream
 parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|PDColorSpace
-argument_list|>
-name|colorSpaces
+name|PDResources
+name|resources
 parameter_list|)
 throws|throws
 name|IOException
@@ -509,7 +503,7 @@ name|this
 argument_list|(
 name|stream
 argument_list|,
-name|colorSpaces
+name|resources
 argument_list|,
 name|stream
 operator|.
@@ -528,13 +522,8 @@ parameter_list|(
 name|PDStream
 name|stream
 parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|PDColorSpace
-argument_list|>
-name|colorSpaces
+name|PDResources
+name|resources
 parameter_list|,
 name|DecodeResult
 name|decodeResult
@@ -556,9 +545,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|colorSpaces
+name|resources
 operator|=
-name|colorSpaces
+name|resources
 expr_stmt|;
 name|this
 operator|.
@@ -1465,9 +1454,7 @@ name|create
 argument_list|(
 name|cosBase
 argument_list|,
-name|colorSpaces
-argument_list|,
-literal|null
+name|resources
 argument_list|)
 expr_stmt|;
 block|}

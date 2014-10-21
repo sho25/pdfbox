@@ -4207,15 +4207,9 @@ init|=
 name|getResources
 argument_list|()
 operator|.
-name|getShadings
-argument_list|()
-operator|.
-name|get
+name|getShading
 argument_list|(
 name|shadingName
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|Matrix

@@ -99,6 +99,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -628,7 +642,7 @@ name|getProcSet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|String
+name|COSName
 name|imgFormName
 init|=
 name|pdfStructure
@@ -636,7 +650,7 @@ operator|.
 name|getImageFormName
 argument_list|()
 decl_stmt|;
-name|String
+name|COSName
 name|imgName
 init|=
 name|pdfStructure
@@ -644,7 +658,7 @@ operator|.
 name|getImageName
 argument_list|()
 decl_stmt|;
-name|String
+name|COSName
 name|innerFormName
 init|=
 name|pdfStructure

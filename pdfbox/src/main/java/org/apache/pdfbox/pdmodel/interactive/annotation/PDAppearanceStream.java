@@ -397,7 +397,7 @@ name|dict
 operator|=
 name|resources
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 expr_stmt|;
 block|}

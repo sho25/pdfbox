@@ -63,20 +63,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSString
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -151,7 +137,7 @@ name|components
 decl_stmt|;
 specifier|private
 specifier|final
-name|String
+name|COSName
 name|patternName
 decl_stmt|;
 specifier|private
@@ -246,7 +232,6 @@ comment|// pattern name (required)
 name|patternName
 operator|=
 operator|(
-operator|(
 name|COSName
 operator|)
 name|array
@@ -260,10 +245,6 @@ argument_list|()
 operator|-
 literal|1
 argument_list|)
-operator|)
-operator|.
-name|getName
-argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -369,7 +350,7 @@ comment|/**      * Creates a PDColor containing the given pattern name.      * @
 specifier|public
 name|PDColor
 parameter_list|(
-name|String
+name|COSName
 name|patternName
 parameter_list|,
 name|PDColorSpace
@@ -407,7 +388,7 @@ name|float
 index|[]
 name|components
 parameter_list|,
-name|String
+name|COSName
 name|patternName
 parameter_list|,
 name|PDColorSpace
@@ -452,7 +433,7 @@ return|;
 block|}
 comment|/**      * Returns the pattern name from this color value.      * @return the pattern name from this color value      */
 specifier|public
-name|String
+name|COSName
 name|getPatternName
 parameter_list|()
 block|{
@@ -589,11 +570,7 @@ name|array
 operator|.
 name|add
 argument_list|(
-operator|new
-name|COSString
-argument_list|(
 name|patternName
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

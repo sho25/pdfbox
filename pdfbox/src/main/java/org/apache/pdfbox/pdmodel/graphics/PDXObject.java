@@ -282,9 +282,6 @@ name|stream
 argument_list|)
 argument_list|,
 name|resources
-operator|.
-name|getColorSpaces
-argument_list|()
 argument_list|)
 return|;
 block|}

@@ -362,9 +362,6 @@ argument_list|()
 argument_list|,
 name|getResources
 argument_list|()
-operator|.
-name|getColorSpaces
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|validImageFilter

@@ -29,20 +29,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSDictionary
 import|;
 end_import
@@ -71,27 +57,25 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|common
+name|documentinterchange
 operator|.
-name|COSObjectable
+name|markedcontent
+operator|.
+name|PDPropertyList
 import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents an optional content group (OCG).  *  * @since PDF 1.5  * @version $Revision$  */
+comment|/**  * An optional content group (OCG).  */
 end_comment
 
 begin_class
 specifier|public
 class|class
 name|PDOptionalContentGroup
-implements|implements
-name|COSObjectable
+extends|extends
+name|PDPropertyList
 block|{
-specifier|private
-name|COSDictionary
-name|ocg
-decl_stmt|;
 comment|/**      * Creates a new optional content group (OCG).      * @param name the name of the content group      */
 specifier|public
 name|PDOptionalContentGroup
@@ -102,15 +86,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|ocg
-operator|=
-operator|new
-name|COSDictionary
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|ocg
+name|dict
 operator|.
 name|setItem
 argument_list|(
@@ -137,6 +113,11 @@ name|COSDictionary
 name|dict
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|dict
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -171,24 +152,6 @@ literal|"'"
 argument_list|)
 throw|;
 block|}
-name|this
-operator|.
-name|ocg
-operator|=
-name|dict
-expr_stmt|;
-block|}
-comment|/** {@inheritDoc} */
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|ocg
-return|;
 block|}
 comment|/**      * Returns the name of the optional content group.      * @return the name      */
 specifier|public
@@ -197,9 +160,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
-name|ocg
+name|dict
 operator|.
 name|getString
 argument_list|(
@@ -218,9 +179,7 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|this
-operator|.
-name|ocg
+name|dict
 operator|.
 name|setString
 argument_list|(
@@ -233,7 +192,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//TODO Add support for "Intent" and "Usage"
-comment|/** {@inheritDoc} */
 annotation|@
 name|Override
 specifier|public

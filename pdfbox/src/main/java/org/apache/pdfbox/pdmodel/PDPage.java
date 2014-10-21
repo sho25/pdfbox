@@ -312,7 +312,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a single page in a PDF document.  *   * @author Ben Litchfield  */
+comment|/**  * A page in a PDF document.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -361,15 +361,7 @@ operator|)
 operator|*
 name|DEFAULT_USER_SPACE_UNIT_DPI
 decl_stmt|;
-specifier|private
-specifier|final
-name|COSDictionary
-name|page
-decl_stmt|;
-specifier|private
-name|PDResources
-name|pageResources
-decl_stmt|;
+comment|// todo: make the constants below an enum
 comment|/**      * A page size of LETTER or 8.5x11.      */
 specifier|public
 specifier|static
@@ -521,6 +513,21 @@ literal|148
 operator|*
 name|MM_TO_UNITS
 argument_list|)
+decl_stmt|;
+specifier|private
+specifier|final
+name|COSDictionary
+name|page
+decl_stmt|;
+specifier|private
+name|PDResources
+name|pageResources
+decl_stmt|;
+specifier|private
+name|PDRectangle
+name|mediaBox
+init|=
+literal|null
 decl_stmt|;
 comment|/**      * Creates a new instance of PDPage with a size of 8.5x11.      */
 specifier|public
@@ -970,12 +977,6 @@ return|return
 name|mediaBox
 return|;
 block|}
-specifier|private
-name|PDRectangle
-name|mediaBox
-init|=
-literal|null
-decl_stmt|;
 comment|/**      * This will find the MediaBox for this page by looking up the hierarchy until it finds them.      *       * @return The MediaBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
@@ -2500,26 +2501,6 @@ operator|.
 name|hashCode
 argument_list|()
 return|;
-block|}
-comment|/**      * Calling this will release all cached information.      */
-specifier|public
-name|void
-name|clearCache
-parameter_list|()
-block|{
-if|if
-condition|(
-name|pageResources
-operator|!=
-literal|null
-condition|)
-block|{
-name|pageResources
-operator|.
-name|clearCache
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 end_class

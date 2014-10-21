@@ -1517,12 +1517,12 @@ name|PDResources
 name|holderFormResources
 parameter_list|)
 block|{
-name|String
+name|COSName
 name|name
 init|=
 name|holderFormResources
 operator|.
-name|addXObject
+name|add
 argument_list|(
 name|innerForm
 argument_list|,
@@ -1690,24 +1690,24 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|String
+name|COSName
 name|imageFormName
 init|=
 name|innerFormResource
 operator|.
-name|addXObject
+name|add
 argument_list|(
 name|imageForm
 argument_list|,
 literal|"n"
 argument_list|)
 decl_stmt|;
-name|String
+name|COSName
 name|imageName
 init|=
 name|imageFormResources
 operator|.
-name|addXObject
+name|add
 argument_list|(
 name|img
 argument_list|,
@@ -1773,7 +1773,7 @@ operator|.
 name|getResources
 argument_list|()
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1801,7 +1801,7 @@ argument_list|)
 expr_stmt|;
 name|innerFormResources
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1815,7 +1815,7 @@ argument_list|)
 expr_stmt|;
 name|imageFormResources
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1829,7 +1829,7 @@ argument_list|)
 expr_stmt|;
 name|holderFormResources
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1864,13 +1864,13 @@ parameter_list|,
 name|PDStream
 name|imageFormStream
 parameter_list|,
-name|String
+name|COSName
 name|imageObjectName
 parameter_list|,
-name|String
+name|COSName
 name|imageName
 parameter_list|,
-name|String
+name|COSName
 name|innerFormName
 parameter_list|,
 name|PDVisibleSignDesigner
@@ -1893,6 +1893,9 @@ operator|+
 literal|" 0 0 50 0 0 cm /"
 operator|+
 name|imageName
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|" Do Q\n"
 decl_stmt|;
@@ -1902,6 +1905,9 @@ init|=
 literal|"q 1 0 0 1 0 0 cm /"
 operator|+
 name|innerFormName
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|" Do Q \n"
 decl_stmt|;
@@ -1911,6 +1917,9 @@ init|=
 literal|"q 1 0 0 1 0 0 cm /"
 operator|+
 name|imageObjectName
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|" Do Q\n"
 decl_stmt|;
