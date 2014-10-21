@@ -1032,7 +1032,7 @@ name|COSName
 operator|.
 name|SHADING
 argument_list|,
-literal|"cs1"
+literal|"sh"
 argument_list|,
 name|shading
 argument_list|)
