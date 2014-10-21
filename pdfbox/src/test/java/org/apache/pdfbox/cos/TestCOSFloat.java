@@ -142,7 +142,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * base class to run looped tests with float numbers to use it, derive a      * class and just implement runTest(). Then either call runTests for a      * series of random and pseudorandom tests, or runTest to test with corner      * values.      */
+comment|/**      * Base class to run looped tests with float numbers.      *      * To use it, derive a class and just implement runTest(). Then either call      * runTests for a series of random and pseudorandom tests, or runTest to      * test with corner values.      */
 specifier|abstract
 class|class
 name|BaseTester
