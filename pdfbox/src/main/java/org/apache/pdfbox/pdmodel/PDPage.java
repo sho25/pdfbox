@@ -337,183 +337,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_USER_SPACE_UNIT_DPI
-init|=
-literal|72
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|float
-name|MM_TO_UNITS
-init|=
-literal|1
-operator|/
-operator|(
-literal|10
-operator|*
-literal|2.54f
-operator|)
-operator|*
-name|DEFAULT_USER_SPACE_UNIT_DPI
-decl_stmt|;
 comment|// todo: make the constants below an enum
-comment|/**      * A page size of LETTER or 8.5x11.      */
-specifier|public
-specifier|static
-specifier|final
-name|PDRectangle
-name|PAGE_SIZE_LETTER
-init|=
-operator|new
-name|PDRectangle
-argument_list|(
-literal|8.5f
-operator|*
-name|DEFAULT_USER_SPACE_UNIT_DPI
-argument_list|,
-literal|11f
-operator|*
-name|DEFAULT_USER_SPACE_UNIT_DPI
-argument_list|)
-decl_stmt|;
-comment|/**      * A page size of A0 Paper.      */
-specifier|public
-specifier|static
-specifier|final
-name|PDRectangle
-name|PAGE_SIZE_A0
-init|=
-operator|new
-name|PDRectangle
-argument_list|(
-literal|841
-operator|*
-name|MM_TO_UNITS
-argument_list|,
-literal|1189
-operator|*
-name|MM_TO_UNITS
-argument_list|)
-decl_stmt|;
-comment|/**      * A page size of A1 Paper.      */
-specifier|public
-specifier|static
-specifier|final
-name|PDRectangle
-name|PAGE_SIZE_A1
-init|=
-operator|new
-name|PDRectangle
-argument_list|(
-literal|594
-operator|*
-name|MM_TO_UNITS
-argument_list|,
-literal|841
-operator|*
-name|MM_TO_UNITS
-argument_list|)
-decl_stmt|;
-comment|/**      * A page size of A2 Paper.      */
-specifier|public
-specifier|static
-specifier|final
-name|PDRectangle
-name|PAGE_SIZE_A2
-init|=
-operator|new
-name|PDRectangle
-argument_list|(
-literal|420
-operator|*
-name|MM_TO_UNITS
-argument_list|,
-literal|594
-operator|*
-name|MM_TO_UNITS
-argument_list|)
-decl_stmt|;
-comment|/**      * A page size of A3 Paper.      */
-specifier|public
-specifier|static
-specifier|final
-name|PDRectangle
-name|PAGE_SIZE_A3
-init|=
-operator|new
-name|PDRectangle
-argument_list|(
-literal|297
-operator|*
-name|MM_TO_UNITS
-argument_list|,
-literal|420
-operator|*
-name|MM_TO_UNITS
-argument_list|)
-decl_stmt|;
-comment|/**      * A page size of A4 Paper.      */
-specifier|public
-specifier|static
-specifier|final
-name|PDRectangle
-name|PAGE_SIZE_A4
-init|=
-operator|new
-name|PDRectangle
-argument_list|(
-literal|210
-operator|*
-name|MM_TO_UNITS
-argument_list|,
-literal|297
-operator|*
-name|MM_TO_UNITS
-argument_list|)
-decl_stmt|;
-comment|/**      * A page size of A5 Paper.      */
-specifier|public
-specifier|static
-specifier|final
-name|PDRectangle
-name|PAGE_SIZE_A5
-init|=
-operator|new
-name|PDRectangle
-argument_list|(
-literal|148
-operator|*
-name|MM_TO_UNITS
-argument_list|,
-literal|210
-operator|*
-name|MM_TO_UNITS
-argument_list|)
-decl_stmt|;
-comment|/**      * A page size of A6 Paper.      */
-specifier|public
-specifier|static
-specifier|final
-name|PDRectangle
-name|PAGE_SIZE_A6
-init|=
-operator|new
-name|PDRectangle
-argument_list|(
-literal|105
-operator|*
-name|MM_TO_UNITS
-argument_list|,
-literal|148
-operator|*
-name|MM_TO_UNITS
-argument_list|)
-decl_stmt|;
 specifier|private
 specifier|final
 name|COSDictionary
@@ -526,45 +350,30 @@ decl_stmt|;
 specifier|private
 name|PDRectangle
 name|mediaBox
-init|=
-literal|null
 decl_stmt|;
-comment|/**      * Creates a new instance of PDPage with a size of 8.5x11.      */
+specifier|private
+name|PDPageNode
+name|parent
+decl_stmt|;
+comment|/**      * Creates a new PDPage instance for embedding, with a size of U.S. Letter (8.5 x 11 inches).      */
 specifier|public
 name|PDPage
 parameter_list|()
 block|{
-name|page
-operator|=
-operator|new
-name|COSDictionary
-argument_list|()
-expr_stmt|;
-name|page
-operator|.
-name|setItem
+name|this
 argument_list|(
-name|COSName
+name|PDRectangle
 operator|.
-name|TYPE
-argument_list|,
-name|COSName
-operator|.
-name|PAGE
-argument_list|)
-expr_stmt|;
-name|setMediaBox
-argument_list|(
-name|PAGE_SIZE_LETTER
+name|LETTER
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new instance of PDPage.      *       * @param size The MediaBox or the page.      */
+comment|/**      * Creates a new instance of PDPage for embedding.      *       * @param mediaBox The MediaBox of the page.      */
 specifier|public
 name|PDPage
 parameter_list|(
 name|PDRectangle
-name|size
+name|mediaBox
 parameter_list|)
 block|{
 name|page
@@ -586,30 +395,36 @@ operator|.
 name|PAGE
 argument_list|)
 expr_stmt|;
-name|setMediaBox
+name|page
+operator|.
+name|setItem
 argument_list|(
-name|size
+name|COSName
+operator|.
+name|MEDIA_BOX
+argument_list|,
+name|mediaBox
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new instance of PDPage.      *       * @param pageDic The existing page dictionary.      */
+comment|/**      * Creates a new instance of PDPage for reading.      *       * @param pageDictionary A page dictionary in a PDF document.      */
 specifier|public
 name|PDPage
 parameter_list|(
 name|COSDictionary
-name|pageDic
+name|pageDictionary
 parameter_list|)
 block|{
 name|page
 operator|=
-name|pageDic
+name|pageDictionary
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *       * @return The cos object that matches this Java object.      */
 annotation|@
 name|Override
 specifier|public
-name|COSBase
+name|COSDictionary
 name|getCOSObject
 parameter_list|()
 block|{
@@ -617,17 +432,7 @@ return|return
 name|page
 return|;
 block|}
-comment|/**      * This will get the underlying dictionary that this class acts on.      *       * @return The underlying dictionary for this class.      */
-specifier|public
-name|COSDictionary
-name|getCOSDictionary
-parameter_list|()
-block|{
-return|return
-name|page
-return|;
-block|}
-comment|/**      * This is the parent page node. The parent is a required element of the page. This will be null until this page is      * added to the document.      *       * @return The parent to this page.      */
+comment|/**      * This is the parent page node. The parent is a required element of the page. This will be null      * until this page is added to the document.      *       * @return The parent to this page.      */
 specifier|public
 name|PDPageNode
 name|getParent
@@ -680,12 +485,6 @@ return|return
 name|parent
 return|;
 block|}
-specifier|private
-name|PDPageNode
-name|parent
-init|=
-literal|null
-decl_stmt|;
 comment|/**      * This will set the parent of this page.      *       * @param parentNode The parent to this page node.      */
 specifier|public
 name|void
@@ -734,7 +533,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the date that the content stream was last modified. This may return null.      *       * @return The date the content stream was last modified.      *       * @throws IOException If there is an error accessing the date information.      */
+comment|/**      * This will get the date that the content stream was last modified. This may return null.      *       * @return The date the content stream was last modified.      * @throws IOException If there is an error accessing the date information.      */
 specifier|public
 name|Calendar
 name|getLastModified
@@ -753,7 +552,7 @@ name|LAST_MODIFIED
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the resources at this page and not look up the hierarchy. This attribute is inheritable, and      * findResources() should probably used. This will return null if no resources are available at this level.      *       * @return The resources at this level in the hierarchy.      */
+comment|/**      * This will get the resources at this page and not look up the hierarchy. This attribute is      * inheritable, and findResources() should probably used. This will return null if no resources      * are available at this level.      *       * @return The resources at this level in the hierarchy.      */
 specifier|public
 name|PDResources
 name|getResources
@@ -928,7 +727,7 @@ name|structParents
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A rectangle, expressed in default user space units, defining the boundaries of the physical medium on which the      * page is intended to be displayed or printed      *       * This will get the MediaBox at this page and not look up the hierarchy. This attribute is inheritable, and      * findMediaBox() should probably used. This will return null if no MediaBox are available at this level.      *       * @return The MediaBox at this level in the hierarchy.      */
+comment|/**      * A rectangle, expressed in default user space units, defining the boundaries of the physical      * medium on which the page is intended to be displayed or printed      *       *<p>This will get the MediaBox at this page and not look up the hierarchy. This attribute is      * inheritable, and findMediaBox() should probably used. This will return null if no MediaBox      * are available at this level.      *       * @return The MediaBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
 name|getMediaBox
@@ -1019,40 +818,40 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|warn
 argument_list|(
-literal|"Can't find MediaBox, using LETTER as default pagesize!"
+literal|"Can't find MediaBox, will use U.S. Letter"
 argument_list|)
 expr_stmt|;
 name|retval
 operator|=
-name|PDPage
+name|PDRectangle
 operator|.
-name|PAGE_SIZE_LETTER
+name|LETTER
 expr_stmt|;
 block|}
 return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the mediaBox for this page.      *       * @param mediaBoxValue The new mediaBox for this page.      */
+comment|/**      * This will set the mediaBox for this page.      *       * @param mediaBox The new mediaBox for this page.      */
 specifier|public
 name|void
 name|setMediaBox
 parameter_list|(
 name|PDRectangle
-name|mediaBoxValue
+name|mediaBox
 parameter_list|)
 block|{
 name|this
 operator|.
 name|mediaBox
 operator|=
-name|mediaBoxValue
+name|mediaBox
 expr_stmt|;
 if|if
 condition|(
-name|mediaBoxValue
+name|mediaBox
 operator|==
 literal|null
 condition|)
@@ -1077,15 +876,12 @@ name|COSName
 operator|.
 name|MEDIA_BOX
 argument_list|,
-name|mediaBoxValue
-operator|.
-name|getCOSArray
-argument_list|()
+name|mediaBox
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A rectangle, expressed in default user space units, defining the visible region of default user space. When the      * page is displayed or printed, its contents are to be clipped (cropped) to this rectangle and then imposed on the      * output medium in some implementationdefined manner      *       * This will get the CropBox at this page and not look up the hierarchy. This attribute is inheritable, and      * findCropBox() should probably used. This will return null if no CropBox is available at this level.      *       * @return The CropBox at this level in the hierarchy.      */
+comment|/**      * A rectangle, expressed in default user space units, defining the visible region of default      * user space. When the page is displayed or printed, its contents are to be clipped (cropped)      * to this rectangle and then imposed on the output medium in some implementation defined manner      *       *<p>This will get the CropBox at this page and not look up the hierarchy. This attribute is      * inheritable, and findCropBox() should probably used. This will return null if no CropBox is      * available at this level.      *       * @return The CropBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
 name|getCropBox
@@ -1248,7 +1044,7 @@ name|cropBox
 return|;
 block|}
 block|}
-comment|/**      * This will search for a crop box in the parent and return null if it is not found. It will NOT default to the      * media box if it cannot be found.      *       * @param node The node      */
+comment|/**      * This will search for a crop box in the parent and return null if it is not found. It will NOT      * default to the media box if it cannot be found.      *       * @param node The node      */
 specifier|private
 name|PDRectangle
 name|findParentCropBox
@@ -1340,7 +1136,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A rectangle, expressed in default user space units, defining the region to which the contents of the page should      * be clipped when output in a production environment. The default is the CropBox.      *       * @return The BleedBox attribute.      */
+comment|/**      * A rectangle, expressed in default user space units, defining the region to which the contents      * of the page should be clipped when output in a production environment. The default is the      * CropBox.      *       * @return The BleedBox attribute.      */
 specifier|public
 name|PDRectangle
 name|getBleedBox
@@ -1429,14 +1225,11 @@ operator|.
 name|BLEED_BOX
 argument_list|,
 name|bleedBox
-operator|.
-name|getCOSArray
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A rectangle, expressed in default user space units, defining the intended dimensions of the finished page after      * trimming. The default is the CropBox.      *       * @return The TrimBox attribute.      */
+comment|/**      * A rectangle, expressed in default user space units, defining the intended dimensions of the      * finished page after trimming. The default is the CropBox.      *       * @return The TrimBox attribute.      */
 specifier|public
 name|PDRectangle
 name|getTrimBox
@@ -1525,14 +1318,11 @@ operator|.
 name|TRIM_BOX
 argument_list|,
 name|trimBox
-operator|.
-name|getCOSArray
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A rectangle, expressed in default user space units, defining the extent of the page's meaningful content      * (including potential white space) as intended by the page's creator The default isthe CropBox.      *       * @return The ArtBox attribute.      */
+comment|/**      * A rectangle, expressed in default user space units, defining the extent of the page's      * meaningful content (including potential white space) as intended by the page's creator The      * default is the CropBox.      *       * @return The ArtBox attribute.      */
 specifier|public
 name|PDRectangle
 name|getArtBox
@@ -1621,14 +1411,11 @@ operator|.
 name|ART_BOX
 argument_list|,
 name|artBox
-operator|.
-name|getCOSArray
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Calculate the adjusted crop box from the cropbox and the mediabox as      * required by the PDF spec. Use this instead of {@link #findCropBox()}       * when drawing a page.      *      * @return the adjusted crop box.      */
+comment|/**      * Calculate the adjusted crop box from the cropbox and the mediabox as required by the PDF      * spec. Use this instead of {@link #findCropBox()} when drawing a page.      *      * @return the adjusted crop box.      */
 specifier|public
 name|PDRectangle
 name|calcAdjustedCropBox
@@ -1810,9 +1597,7 @@ return|return
 name|adjustedCropBox
 return|;
 block|}
-comment|// todo BoxColorInfo
-comment|// todo Contents
-comment|/**      * A value representing the rotation. This will be null if not set at this level The number of degrees by which the      * page should be rotated clockwise when displayed or printed. The value must be a multiple of 90.      *       * This will get the rotation at this page and not look up the hierarchy. This attribute is inheritable, and      * findRotation() should probably used. This will return null if no rotation is available at this level.      *       * @return The rotation at this level in the hierarchy.      */
+comment|/**      * A value representing the rotation. This will be null if not set at this level The number of      * degrees by which the page should be rotated clockwise when displayed or printed. The value      * must be a multiple of 90.      *       *<p>This will get the rotation at this page and not look up the hierarchy. This attribute is      * inheritable, and findRotation() should probably used. This will return null if no rotation      * is available at this level.      *       * @return The rotation at this level in the hierarchy.      */
 specifier|public
 name|Integer
 name|getRotation
@@ -1935,7 +1720,7 @@ name|rotation
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the contents of the PDF Page, in the case that the contents of the page is an array then then the      * entire array of streams will be be wrapped and appear as a single stream.      *       * @return The page content stream.      *       * @throws IOException If there is an error obtaining the stream.      */
+comment|/**      * This will get the contents of the PDF Page, in the case that the contents of the page is an      * array then then the entire array of streams will be be wrapped and appear as a single stream.      *       * @return The page content stream.      * @throws IOException If there is an error obtaining the stream.      */
 specifier|public
 name|PDStream
 name|getContents
@@ -1980,7 +1765,7 @@ name|contents
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get a list of PDThreadBead objects, which are article threads in the document. This will return an      * empty list of there are no thread beads.      *       * @return A list of article threads on this page.      */
+comment|/**      * This will get a list of PDThreadBead objects, which are article threads in the document.      * This will return an empty list of there are no thread beads.      *       * @return A list of article threads on this page.      */
 specifier|public
 name|List
 argument_list|<
@@ -2134,7 +1919,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the metadata that is part of the document catalog. This will return null if there is no meta data for this      * object.      *       * @return The metadata for this object.      */
+comment|/**      * Get the metadata that is part of the document catalog. This will return null if there is      * no meta data for this object.      *       * @return The metadata for this object.      */
 specifier|public
 name|PDMetadata
 name|getMetadata
@@ -2276,7 +2061,7 @@ name|actions
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return a list of the Annotations for this page.      *       * @return List of the PDAnnotation objects.      *       * @throws IOException If there is an error while creating the annotations.      */
+comment|/**      * This will return a list of the Annotations for this page.      *       * @return List of the PDAnnotation objects.      * @throws IOException If there is an error while creating the annotations.      */
 specifier|public
 name|List
 argument_list|<
@@ -2425,7 +2210,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of annotations.      *       * @param annots The new list of annotations.      */
+comment|/**      * This will set the list of annotations.      *       * @param annotations The new list of annotations.      */
 specifier|public
 name|void
 name|setAnnotations
@@ -2434,7 +2219,7 @@ name|List
 argument_list|<
 name|PDAnnotation
 argument_list|>
-name|annots
+name|annotations
 parameter_list|)
 block|{
 name|page
@@ -2449,7 +2234,7 @@ name|COSArrayList
 operator|.
 name|converterToCOSArray
 argument_list|(
-name|annots
+name|annotations
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2493,10 +2278,7 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
-name|getCOSDictionary
-argument_list|()
+name|page
 operator|.
 name|hashCode
 argument_list|()

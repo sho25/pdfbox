@@ -426,11 +426,6 @@ name|page
 init|=
 operator|new
 name|PDPage
-argument_list|()
-decl_stmt|;
-name|page
-operator|.
-name|setMediaBox
 argument_list|(
 operator|new
 name|PDRectangle
@@ -446,7 +441,7 @@ name|getPageHeight
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|pdfStructure
 operator|.
 name|setPage
@@ -1787,7 +1782,7 @@ argument_list|)
 expr_stmt|;
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

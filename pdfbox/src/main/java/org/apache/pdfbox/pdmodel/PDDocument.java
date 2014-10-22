@@ -2893,7 +2893,7 @@ name|COSDictionary
 argument_list|(
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 argument_list|)

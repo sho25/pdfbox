@@ -1155,7 +1155,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|changeCropBoxes
+name|changeCropBox
 argument_list|(
 name|document
 argument_list|,
@@ -1452,7 +1452,7 @@ block|}
 specifier|private
 specifier|static
 name|void
-name|changeCropBoxes
+name|changeCropBox
 parameter_list|(
 name|PDDocument
 name|document
@@ -1554,13 +1554,6 @@ operator|.
 name|setUpperRightY
 argument_list|(
 name|d
-argument_list|)
-expr_stmt|;
-name|page
-operator|.
-name|setMediaBox
-argument_list|(
-name|rectangle
 argument_list|)
 expr_stmt|;
 name|page

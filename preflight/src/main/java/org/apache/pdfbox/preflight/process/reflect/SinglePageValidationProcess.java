@@ -722,7 +722,7 @@ name|context
 argument_list|,
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|,
 name|ACTIONS_PROCESS
@@ -850,7 +850,7 @@ name|thumbBase
 init|=
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -1145,7 +1145,7 @@ name|baseGroup
 init|=
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem

@@ -484,7 +484,7 @@ name|pageDictionary
 init|=
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|COSBase
@@ -774,7 +774,7 @@ name|transferDict
 argument_list|(
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|,
 name|form

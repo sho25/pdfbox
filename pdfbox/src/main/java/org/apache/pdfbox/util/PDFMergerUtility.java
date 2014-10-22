@@ -2048,7 +2048,7 @@ name|cloneForNewDocument
 argument_list|(
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2124,12 +2124,12 @@ name|put
 argument_list|(
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|,
 name|newPage
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;

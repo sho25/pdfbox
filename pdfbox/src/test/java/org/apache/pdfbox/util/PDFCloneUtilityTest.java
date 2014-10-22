@@ -186,7 +186,7 @@ name|cloneForNewDocument
 argument_list|(
 name|pdPage
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -1017,7 +1017,7 @@ name|contents
 init|=
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1158,7 +1158,7 @@ name|contents
 init|=
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1494,7 +1494,7 @@ name|pageDictionary
 init|=
 name|page
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|COSBase
