@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License. You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -416,7 +416,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents the acroform of a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.21 $  */
+comment|/**  * The Document Catalog of a PDF.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -426,23 +426,7 @@ name|PDDocumentCatalog
 implements|implements
 name|COSObjectable
 block|{
-specifier|private
-specifier|final
-name|COSDictionary
-name|root
-decl_stmt|;
-specifier|private
-specifier|final
-name|PDDocument
-name|document
-decl_stmt|;
-specifier|private
-name|PDAcroForm
-name|acroForm
-init|=
-literal|null
-decl_stmt|;
-comment|/**      * Page mode where neither the outline nor the thumbnails      * are displayed.      */
+comment|/**      * Page mode where neither the outline nor the thumbnails are displayed.      */
 specifier|public
 specifier|static
 specifier|final
@@ -532,7 +516,7 @@ name|PAGE_LAYOUT_TWO_COLUMN_RIGHT
 init|=
 literal|"TwoColumnRight"
 decl_stmt|;
-comment|/**      * Display the pages two at a time, with odd-numbered pages on the left.      * @since PDF Version 1.5      */
+comment|/**      * Display the pages two at a time, with odd-numbered pages on the left.      */
 specifier|public
 specifier|static
 specifier|final
@@ -541,7 +525,7 @@ name|PAGE_LAYOUT_TWO_PAGE_LEFT
 init|=
 literal|"TwoPageLeft"
 decl_stmt|;
-comment|/**      * Display the pages two at a time, with odd-numbered pages on the right.      * @since PDF Version 1.5      */
+comment|/**      * Display the pages two at a time, with odd-numbered pages on the right.      */
 specifier|public
 specifier|static
 specifier|final
@@ -549,6 +533,20 @@ name|String
 name|PAGE_LAYOUT_TWO_PAGE_RIGHT
 init|=
 literal|"TwoPageRight"
+decl_stmt|;
+specifier|private
+specifier|final
+name|COSDictionary
+name|root
+decl_stmt|;
+specifier|private
+specifier|final
+name|PDDocument
+name|document
+decl_stmt|;
+specifier|private
+name|PDAcroForm
+name|cachedAcroForm
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param doc The document that this catalog is part of.      */
 specifier|public
@@ -641,7 +639,7 @@ return|return
 name|root
 return|;
 block|}
-comment|/**      * This will get the documents acroform.  This will return null if      * no acroform is part of the document.      *      * @return The documents acroform.      */
+comment|/**      * Get the documents AcroForm. This will return null if no AcroForm is part of the document.      *      * @return The document's AcroForm.      */
 specifier|public
 name|PDAcroForm
 name|getAcroForm
@@ -649,7 +647,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|acroForm
+name|cachedAcroForm
 operator|==
 literal|null
 condition|)
@@ -676,7 +674,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|acroForm
+name|cachedAcroForm
 operator|=
 operator|new
 name|PDAcroForm
@@ -689,10 +687,10 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|acroForm
+name|cachedAcroForm
 return|;
 block|}
-comment|/**      * Set the acro form for this catalog.      *      * @param acro The new acro form.      */
+comment|/**      * Sets the acro form for this catalog.      *      * @param acro The new acro form.      */
 specifier|public
 name|void
 name|setAcroForm
@@ -737,7 +735,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * The PDF document contains a hierarchical structure of PDPageNode and PDPages, which      * is mostly just a way to store this information.  This method will return a flat list      * of all PDPage objects in this document.      *      * @return A list of PDPage objects.      */
+comment|/**      * The PDF document contains a hierarchical structure of PDPageNode and PDPages, which is mostly      * just a way to store this information. This method will return a flat list of all PDPage      * objects in this document.      *      * @return A list of PDPage objects.      */
 specifier|public
 name|List
 name|getAllPages
@@ -757,7 +755,7 @@ name|getPages
 argument_list|()
 decl_stmt|;
 comment|//old (slower):
-comment|//getPageObjects( rootNode, retval );
+comment|//getPageObjects(rootNode, retval);
 name|rootNode
 operator|.
 name|getAllKids
@@ -769,7 +767,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Get the viewer preferences associated with this document or null if they      * do not exist.      *      * @return The document's viewer preferences.      */
+comment|/**      * Get the viewer preferences associated with this document or null if they do not exist.      *      * @return The document's viewer preferences.      */
 specifier|public
 name|PDViewerPreferences
 name|getViewerPreferences
@@ -815,7 +813,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the viewer preferences.      *      * @param prefs The new viewer preferences.      */
+comment|/**      * Sets the viewer preferences.      *      * @param prefs The new viewer preferences.      */
 specifier|public
 name|void
 name|setViewerPreferences
@@ -836,7 +834,7 @@ name|prefs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the outline associated with this document or null if it      * does not exist.      *      * @return The document's outline.      */
+comment|/**      * Get the outline associated with this document or null if it does not exist.      *      * @return The document's outline.      */
 specifier|public
 name|PDDocumentOutline
 name|getDocumentOutline
@@ -882,7 +880,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the document outlines.      *      * @param outlines The new document outlines.      */
+comment|/**      * Sets the document outlines.      *      * @param outlines The new document outlines.      */
 specifier|public
 name|void
 name|setDocumentOutline
@@ -1004,7 +1002,7 @@ name|array
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the list of threads for this pdf document.      *      * @param threads The list of threads, or null to clear it.      */
+comment|/**      * Sets the list of threads for this pdf document.      *      * @param threads The list of threads, or null to clear it.      */
 specifier|public
 name|void
 name|setThreads
@@ -1030,7 +1028,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the metadata that is part of the document catalog.  This will      * return null if there is no meta data for this object.      *      * @return The metadata for this object.      */
+comment|/**      * Get the metadata that is part of the document catalog. This will return null if there is no      * meta data for this object.      *      * @return The metadata for this object.      */
 specifier|public
 name|PDMetadata
 name|getMetadata
@@ -1076,7 +1074,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the metadata for this object.  This can be null.      *      * @param meta The meta data for this object.      */
+comment|/**      * Sets the metadata for this object. This can be null.      *      * @param meta The meta data for this object.      */
 specifier|public
 name|void
 name|setMetadata
@@ -1097,7 +1095,7 @@ name|meta
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the Document Open Action for this object.      *      * @param action The action you want to perform.      */
+comment|/**      * Sets the Document Open Action for this object.      *      * @param action The action you want to perform.      */
 specifier|public
 name|void
 name|setOpenAction
@@ -1118,7 +1116,7 @@ name|action
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the Document Open Action for this object.      *      * @return The action to perform when the document is opened.      *      * @throws IOException If there is an error creating the destination      * or action.      */
+comment|/**      * Get the Document Open Action for this object.      *      * @return The action to perform when the document is opened.      * @throws IOException If there is an error creating the destination or action.      */
 specifier|public
 name|PDDestinationOrAction
 name|getOpenAction
@@ -1261,7 +1259,7 @@ name|addAct
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the additional actions for the document.      *      * @param actions The actions that are associated with this document.      */
+comment|/**      * Sets the additional actions for the document.      *      * @param actions The actions that are associated with this document.      */
 specifier|public
 name|void
 name|setActions
@@ -1330,7 +1328,7 @@ return|return
 name|nameDic
 return|;
 block|}
-comment|/**      * Set the names dictionary for the document.      *      * @param names The names dictionary that is associated with this document.      */
+comment|/**      * Sets the names dictionary for the document.      *      * @param names The names dictionary that is associated with this document.      */
 specifier|public
 name|void
 name|setNames
@@ -1351,7 +1349,7 @@ name|names
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get info about doc's usage of tagged features.  This will return      * null if there is no information.      *      * @return The new mark info.      */
+comment|/**      * Get info about doc's usage of tagged features. This will return null if there is no      * information.      *      * @return The new mark info.      */
 specifier|public
 name|PDMarkInfo
 name|getMarkInfo
@@ -1418,7 +1416,7 @@ name|markInfo
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the list of OutputIntents defined in the document.      *       * @return The list of PDOoutputIntent      */
+comment|/**      * Get the list of OutputIntents defined in the document.      *      * @return The list of PDOutputIntent      */
 specifier|public
 name|List
 argument_list|<
@@ -1495,7 +1493,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Add an OutputIntent to the list.      *       * If there is not OutputIntent, the list is created and the first      * element added.      *       * @param outputIntent the OutputIntent to add.      */
+comment|/**      * Add an OutputIntent to the list.      *      * If there is not OutputIntent, the list is created and the first  element added.      *      * @param outputIntent the OutputIntent to add.      */
 specifier|public
 name|void
 name|addOutputIntent
@@ -1555,7 +1553,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Replace the list of OutputIntents of the document.      *       * @param outputIntents the list of OutputIntents, if the list is empty all      * OutputIntents are removed.      */
+comment|/**      * Replace the list of OutputIntents of the document.      *      * @param outputIntents the list of OutputIntents, if the list is empty all OutputIntents are      * removed.      */
 specifier|public
 name|void
 name|setOutputIntents
@@ -1605,7 +1603,7 @@ name|array
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the page display mode, see the PAGE_MODE_XXX constants.      * @return A string representing the page mode.      */
+comment|/**      * Sets the page display mode, see the PAGE_MODE_XXX constants.      *      * @return A string representing the page mode.      */
 specifier|public
 name|String
 name|getPageMode
@@ -1624,7 +1622,7 @@ name|PAGE_MODE_USE_NONE
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the page mode.  See the PAGE_MODE_XXX constants for valid values.      * @param mode The new page mode.      */
+comment|/**      * Sets the page mode. See the PAGE_MODE_XXX constants for valid values.      *      * @param mode The new page mode.      */
 specifier|public
 name|void
 name|setPageMode
@@ -1645,7 +1643,7 @@ name|mode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the page layout, see the PAGE_LAYOUT_XXX constants.      * @return A string representing the page layout.      */
+comment|/**      * Sets the page layout, see the PAGE_LAYOUT_XXX constants.      *      * @return A string representing the page layout.      */
 specifier|public
 name|String
 name|getPageLayout
@@ -1664,7 +1662,7 @@ name|PAGE_LAYOUT_SINGLE_PAGE
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the page layout.  See the PAGE_LAYOUT_XXX constants for valid values.      * @param layout The new page layout.      */
+comment|/**      * Sets the page layout. See the PAGE_LAYOUT_XXX constants for valid values.      *      * @param layout The new page layout.      */
 specifier|public
 name|void
 name|setPageLayout
@@ -1685,7 +1683,7 @@ name|layout
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Document level information in the URI.      * @return Document level URI.      */
+comment|/**      * Document level information in the URI.      *      * @return Document level URI.      */
 specifier|public
 name|PDURIDictionary
 name|getURI
@@ -1731,7 +1729,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the document level uri.      * @param uri The new document level uri.      */
+comment|/**      * Sets the document level URI.      *      * @param uri The new document level URI.      */
 specifier|public
 name|void
 name|setURI
@@ -1798,7 +1796,7 @@ return|return
 name|treeRoot
 return|;
 block|}
-comment|/**      * Set the document's structure tree root.      *      * @param treeRoot The new structure tree.      */
+comment|/**      * Sets the document's structure tree root.      *      * @param treeRoot The new structure tree.      */
 specifier|public
 name|void
 name|setStructureTreeRoot
@@ -1836,7 +1834,7 @@ name|LANG
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the Language for the document.      *      * @param language The new document language.      */
+comment|/**      * Sets the Language for the document.      *      * @param language The new document language.      */
 specifier|public
 name|void
 name|setLanguage
@@ -1874,7 +1872,7 @@ name|VERSION
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the PDF specification version this document conforms to.      *      * @param version the PDF version (ex. "1.4")      */
+comment|/**      * Sets the PDF specification version this document conforms to.      *      * @param version the PDF version (e.g. "1.4")      */
 specifier|public
 name|void
 name|setVersion
@@ -1895,7 +1893,7 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the page labels descriptor of the document.      *      * @return the page labels descriptor of the document.      *      * @throws IOException If there is a problem retrieving the page labels.      */
+comment|/**      * Returns the page labels descriptor of the document.      *      * @return the page labels descriptor of the document.      * @throws IOException If there is a problem retrieving the page labels.      */
 specifier|public
 name|PDPageLabels
 name|getPageLabels
@@ -1945,7 +1943,7 @@ return|return
 name|labels
 return|;
 block|}
-comment|/**      * Set the page label descriptor for the document.      *      * @param labels the new page label descriptor to set.      */
+comment|/**      * Sets the page label descriptor for the document.      *      * @param labels the new page label descriptor to set.      */
 specifier|public
 name|void
 name|setPageLabels
@@ -1966,17 +1964,12 @@ name|labels
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the optional content properties dictionary associated with this document.      *      * @return the optional properties dictionary or null if it is not present      * @since PDF 1.5      */
+comment|/**      * Get the optional content properties dictionary associated with this document.      *      * @return the optional properties dictionary or null if it is not present      */
 specifier|public
 name|PDOptionalContentProperties
 name|getOCProperties
 parameter_list|()
 block|{
-name|PDOptionalContentProperties
-name|retval
-init|=
-literal|null
-decl_stmt|;
 name|COSDictionary
 name|dict
 init|=
@@ -1999,20 +1992,19 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|retval
-operator|=
+return|return
 operator|new
 name|PDOptionalContentProperties
 argument_list|(
 name|dict
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|retval
 return|;
 block|}
-comment|/**      * Set the optional content properties dictionary.      *      * @param ocProperties the optional properties dictionary      * @since PDF 1.5      */
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * Sets the optional content properties dictionary.      *      * @param ocProperties the optional properties dictionary      */
 specifier|public
 name|void
 name|setOCProperties
@@ -2021,7 +2013,6 @@ name|PDOptionalContentProperties
 name|ocProperties
 parameter_list|)
 block|{
-comment|//TODO Check for PDF 1.5 or higher
 name|root
 operator|.
 name|setItem
