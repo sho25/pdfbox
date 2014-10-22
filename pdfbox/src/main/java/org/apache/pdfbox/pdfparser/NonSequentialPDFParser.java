@@ -1415,11 +1415,6 @@ name|getStartXref
 argument_list|()
 decl_stmt|;
 comment|// check the startxref offset
-if|if
-condition|(
-name|isLenient
-condition|)
-block|{
 name|long
 name|fixedOffset
 init|=
@@ -1440,7 +1435,6 @@ name|startXrefOffset
 operator|=
 name|fixedOffset
 expr_stmt|;
-block|}
 name|document
 operator|.
 name|setStartXref
@@ -1594,6 +1588,45 @@ operator|.
 name|XREF_STM
 argument_list|)
 decl_stmt|;
+comment|// check the xref stream reference
+name|fixedOffset
+operator|=
+name|checkXRefOffset
+argument_list|(
+name|streamOffset
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|fixedOffset
+operator|>
+operator|-
+literal|1
+operator|&&
+name|fixedOffset
+operator|!=
+name|streamOffset
+condition|)
+block|{
+name|streamOffset
+operator|=
+operator|(
+name|int
+operator|)
+name|fixedOffset
+expr_stmt|;
+name|trailer
+operator|.
+name|setInt
+argument_list|(
+name|COSName
+operator|.
+name|XREF_STM
+argument_list|,
+name|streamOffset
+argument_list|)
+expr_stmt|;
+block|}
 name|setPdfSource
 argument_list|(
 name|streamOffset
@@ -1623,8 +1656,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|isLenient
-operator|&&
 name|prev
 operator|>
 operator|-
@@ -1632,14 +1663,13 @@ literal|1
 condition|)
 block|{
 comment|// check the xref table reference
-name|long
 name|fixedOffset
-init|=
+operator|=
 name|checkXRefOffset
 argument_list|(
 name|prev
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|fixedOffset
@@ -1684,8 +1714,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|isLenient
-operator|&&
 name|prev
 operator|>
 operator|-
@@ -1693,14 +1721,13 @@ literal|1
 condition|)
 block|{
 comment|// check the xref table reference
-name|long
 name|fixedOffset
-init|=
+operator|=
 name|checkXRefOffset
 argument_list|(
 name|prev
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|fixedOffset
@@ -1778,15 +1805,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// check the offsets of all referenced objects
-if|if
-condition|(
-name|isLenient
-condition|)
-block|{
 name|checkXrefOffsets
 argument_list|()
 expr_stmt|;
-block|}
 comment|// ---- prepare encryption if necessary
 name|COSBase
 name|trailerEncryptItem
@@ -5876,6 +5897,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// repair mode isn't available in non-lenient mode
+if|if
+condition|(
+operator|!
+name|isLenient
+condition|)
+block|{
+return|return
+name|startXRefOffset
+return|;
+block|}
 name|setPdfSource
 argument_list|(
 name|startXRefOffset
@@ -6188,6 +6220,15 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// repair mode isn't available in non-lenient mode
+if|if
+condition|(
+operator|!
+name|isLenient
+condition|)
+block|{
+return|return;
+block|}
 name|Map
 argument_list|<
 name|COSObjectKey
