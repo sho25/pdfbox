@@ -337,7 +337,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// todo: make the constants below an enum
 specifier|private
 specifier|final
 name|COSDictionary
