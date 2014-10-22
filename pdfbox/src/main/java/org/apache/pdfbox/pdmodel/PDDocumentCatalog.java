@@ -572,13 +572,13 @@ return|return
 name|cachedAcroForm
 return|;
 block|}
-comment|/**      * Sets the acro form for this catalog.      *      * @param acro The new acro form.      */
+comment|/**      * Sets the AcroForm for this catalog.      *      * @param acroForm The new AcroForm.      */
 specifier|public
 name|void
 name|setAcroForm
 parameter_list|(
 name|PDAcroForm
-name|acro
+name|acroForm
 parameter_list|)
 block|{
 name|root
@@ -589,8 +589,12 @@ name|COSName
 operator|.
 name|ACRO_FORM
 argument_list|,
-name|acro
+name|acroForm
 argument_list|)
+expr_stmt|;
+name|cachedAcroForm
+operator|=
+literal|null
 expr_stmt|;
 block|}
 comment|/**      * This will get the root node for the pages.      *      * @return The parent page node.      */
