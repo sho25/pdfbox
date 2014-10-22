@@ -414,7 +414,7 @@ name|cBase
 init|=
 name|catalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem

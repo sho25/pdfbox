@@ -105,7 +105,7 @@ name|names
 init|=
 name|cat
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -140,7 +140,7 @@ argument_list|()
 expr_stmt|;
 name|cat
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -240,7 +240,7 @@ name|COSDictionary
 operator|)
 name|catalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -298,7 +298,7 @@ comment|//something else.
 comment|//clear the potentially out of date Dests reference.
 name|catalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

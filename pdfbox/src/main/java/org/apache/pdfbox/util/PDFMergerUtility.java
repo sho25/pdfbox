@@ -1183,7 +1183,7 @@ name|COSArray
 operator|)
 name|destCatalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1205,7 +1205,7 @@ name|cloneForNewDocument
 argument_list|(
 name|destCatalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1225,7 +1225,7 @@ condition|)
 block|{
 name|destCatalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1280,7 +1280,7 @@ condition|)
 block|{
 name|destCatalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1449,7 +1449,7 @@ name|COSDictionary
 operator|)
 name|destCatalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1467,7 +1467,7 @@ name|COSDictionary
 operator|)
 name|srcCatalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1527,7 +1527,7 @@ argument_list|)
 expr_stmt|;
 name|destCatalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1663,7 +1663,7 @@ name|COSStream
 operator|)
 name|destCatalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1681,7 +1681,7 @@ name|COSStream
 operator|)
 name|srcCatalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1735,7 +1735,7 @@ argument_list|()
 expr_stmt|;
 name|destCatalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

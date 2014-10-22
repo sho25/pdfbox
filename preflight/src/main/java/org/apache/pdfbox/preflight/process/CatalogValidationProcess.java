@@ -1987,7 +1987,7 @@ name|ctx
 argument_list|,
 name|catalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|,
 name|ACTIONS_PROCESS
@@ -1999,7 +1999,7 @@ name|aa
 init|=
 name|catalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -2204,7 +2204,7 @@ name|cBase
 init|=
 name|catalog
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
