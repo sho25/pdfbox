@@ -21,34 +21,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -201,16 +173,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -227,25 +189,11 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
-specifier|static
 specifier|final
-name|Log
-name|log
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|PDPageNode
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-specifier|private
 name|COSDictionary
 name|node
 decl_stmt|;
-comment|/**      * Creates a new instance of PDPage.      * Creates a new instance of PDPage.      */
+comment|/**      * Constructor for embedding.      */
 specifier|public
 name|PDPageNode
 parameter_list|()
@@ -296,7 +244,7 @@ name|ZERO
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new instance of PDPage.      *      * @param pages The dictionary pages.      */
+comment|/**      * Constructor for reading.      *      * @param pages The dictionary pages.      */
 specifier|public
 name|PDPageNode
 parameter_list|(
@@ -309,7 +257,7 @@ operator|=
 name|pages
 expr_stmt|;
 block|}
-comment|/**      * This will update the count attribute of the page node.  This only needs to      * be called if you add or remove pages.  The PDDocument will call this for you      * when you use the PDDocumnet persistence methods.  So, basically most clients      * will never need to call this.      *      * @return The update count for this node.      */
+comment|/**      * This will update the count attribute of the page node.  This only needs to be called if you      * add or remove pages.  The PDDocument will call this for you  when you use the PDDocumnet      * persistence methods.  So, basically most clients will never need to call this.      *      * @return The update count for this node.      */
 specifier|public
 name|long
 name|updateCount
@@ -326,30 +274,14 @@ init|=
 name|getKids
 argument_list|()
 decl_stmt|;
-name|Iterator
-name|kidIter
-init|=
-name|kids
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|kidIter
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
+for|for
+control|(
 name|Object
 name|next
-init|=
-name|kidIter
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
+range|:
+name|kids
+control|)
+block|{
 if|if
 condition|(
 name|next
@@ -463,13 +395,8 @@ name|PDPageNode
 name|getParent
 parameter_list|()
 block|{
-name|PDPageNode
-name|parent
-init|=
-literal|null
-decl_stmt|;
 name|COSDictionary
-name|parentDic
+name|parent
 init|=
 operator|(
 name|COSDictionary
@@ -489,22 +416,21 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|parentDic
+name|parent
 operator|!=
 literal|null
 condition|)
 block|{
-name|parent
-operator|=
+return|return
 operator|new
 name|PDPageNode
 argument_list|(
-name|parentDic
+name|parent
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 return|return
-name|parent
+literal|null
 return|;
 block|}
 comment|/**      * This will set the parent of this page.      *      * @param parent The parent to this page node.      */
@@ -577,15 +503,28 @@ name|kids
 argument_list|)
 return|;
 block|}
-comment|/**      * This will return all kids of this node as PDPage.      *      * @param result All direct and indirect descendants of this node are added to this list.      */
+comment|/**      * This will return all kids of this node as PDPage.      */
 specifier|public
-name|void
-name|getAllKids
-parameter_list|(
 name|List
-name|result
-parameter_list|)
+argument_list|<
+name|PDPage
+argument_list|>
+name|getAllKids
+parameter_list|()
 block|{
+name|List
+argument_list|<
+name|PDPage
+argument_list|>
+name|result
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|PDPage
+argument_list|>
+argument_list|()
+decl_stmt|;
 name|getAllKids
 argument_list|(
 name|result
@@ -595,8 +534,12 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// includes only PDPage
+return|return
+name|result
+return|;
 block|}
-comment|/**      * This will return all kids of the given page node as PDPage.      *      * @param result All direct and optionally indirect descendants of this node are added to this list.      * @param page Page dictionary of a page node.      * @param recurse if true indirect descendants are processed recursively      */
+comment|/**      * This will return all kids of the given page node as PDPage.      *      * @param result Direct and optionally indirect descendants of this node are added to this list.      * @param page Page dictionary of a page node.      * @param recurse if true indirect descendants are processed recursively      */
 specifier|private
 specifier|static
 name|COSArray
@@ -645,13 +588,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"No Kids found in getAllKids(). Probably a malformed pdf."
-argument_list|)
-expr_stmt|;
+comment|// probably a malformed PDF
 return|return
 literal|null
 return|;
@@ -811,7 +748,7 @@ return|return
 name|kids
 return|;
 block|}
-comment|/**      * This will get the resources at this page node and not look up the hierarchy.      * This attribute is inheritable, and findResources() should probably used.      * This will return null if no resources are available at this level.      *      * @return The resources at this level in the hierarchy.      */
+comment|/**      * This will get the resources at this page node and not look up the hierarchy. This attribute      * is inheritable, and findResources() should probably used. This will return null if      * no resources are available at this level.      *      * @return The resources at this level in the hierarchy.      */
 specifier|public
 name|PDResources
 name|getResources
@@ -942,7 +879,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the MediaBox at this page and not look up the hierarchy.      * This attribute is inheritable, and findMediaBox() should probably used.      * This will return null if no MediaBox are available at this level.      *      * @return The MediaBox at this level in the hierarchy.      */
+comment|/**      * This will get the MediaBox at this page and not look up the hierarchy. This attribute is      * inheritable, and findMediaBox() should probably used. This will return null if no MediaBox      * are available at this level.      *      * @return The MediaBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
 name|getMediaBox
@@ -988,7 +925,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will find the MediaBox for this page by looking up the hierarchy until      * it finds them.      *      * @return The MediaBox at this level in the hierarchy.      */
+comment|/**      * This will find the MediaBox for this page by looking up the hierarchy until it finds them.      *      * @return The MediaBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
 name|findMediaBox
@@ -1073,7 +1010,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the CropBox at this page and not look up the hierarchy.      * This attribute is inheritable, and findCropBox() should probably used.      * This will return null if no CropBox is available at this level.      *      * @return The CropBox at this level in the hierarchy.      */
+comment|/**      * This will get the CropBox at this page and not look up the hierarchy. This attribute is      * inheritable, and findCropBox() should probably used. This will return null if no CropBox is      * available at this level.      *      * @return The CropBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
 name|getCropBox
@@ -1119,7 +1056,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will find the CropBox for this page by looking up the hierarchy until      * it finds them.      *      * @return The CropBox at this level in the hierarchy.      */
+comment|/**      * This will find the CropBox for this page by looking up the hierarchy until  it finds them.      *      * @return The CropBox at this level in the hierarchy.      */
 specifier|public
 name|PDRectangle
 name|findCropBox
@@ -1174,7 +1111,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will search for a crop box in the parent and return null if it is not      * found.  It will NOT default to the media box if it cannot be found.      *      * @param node The node      */
+comment|/**      * This will search for a crop box in the parent and return null if it is not found. It will NOT      * default to the media box if it cannot be found.      *      * @param node The node      */
 specifier|private
 name|PDRectangle
 name|findParentCropBox
@@ -1266,7 +1203,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A value representing the rotation.  This will be null if not set at this level      * The number of degrees by which the page should      * be rotated clockwise when displayed or printed. The value must be a multiple      * of 90.      *      * This will get the rotation at this page and not look up the hierarchy.      * This attribute is inheritable, and findRotation() should probably used.      * This will return null if no rotation is available at this level.      *      * @return The rotation at this level in the hierarchy.      */
+comment|/**      * A value representing the rotation.  This will be null if not set at this level. The number of      * degrees by which the page should  be rotated clockwise when displayed or printed. The value      * must be a multiple of 90.      *      *<p>This will get the rotation at this page and not look up the hierarchy. This attribute is      * inheritable, and findRotation() should probably used. This will return null if no rotation is      * available at this level.      *      * @return The rotation at this level in the hierarchy.      */
 specifier|public
 name|Integer
 name|getRotation
@@ -1311,7 +1248,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will find the rotation for this page by looking up the hierarchy until      * it finds them.      *      * @return The rotation at this level in the hierarchy.      */
+comment|/**      * This will find the rotation for this page by looking up the hierarchy until it finds them.      *      * @return The rotation at this level in the hierarchy.      */
 specifier|public
 name|int
 name|findRotation

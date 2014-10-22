@@ -440,7 +440,7 @@ specifier|private
 name|PDAcroForm
 name|cachedAcroForm
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param doc The document that this catalog is part of.      */
+comment|/**      * Constructor. AcroForm.      *      * @param doc The document that this catalog is part of.      */
 specifier|public
 name|PDDocumentCatalog
 parameter_list|(
@@ -622,33 +622,18 @@ block|}
 comment|/**      * The PDF document contains a hierarchical structure of PDPageNode and PDPages, which is mostly      * just a way to store this information. This method will return a flat list of all PDPage      * objects in this document.      *      * @return A list of PDPage objects.      */
 specifier|public
 name|List
+argument_list|<
+name|PDPage
+argument_list|>
 name|getAllPages
 parameter_list|()
 block|{
-name|List
-name|retval
-init|=
-operator|new
-name|ArrayList
-argument_list|()
-decl_stmt|;
-name|PDPageNode
-name|rootNode
-init|=
+return|return
 name|getPages
 argument_list|()
-decl_stmt|;
-comment|//old (slower):
-comment|//getPageObjects(rootNode, retval);
-name|rootNode
 operator|.
 name|getAllKids
-argument_list|(
-name|retval
-argument_list|)
-expr_stmt|;
-return|return
-name|retval
+argument_list|()
 return|;
 block|}
 comment|/**      * Get the viewer preferences associated with this document or null if they do not exist.      *      * @return The document's viewer preferences.      */

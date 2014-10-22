@@ -1085,7 +1085,7 @@ name|processPages
 parameter_list|(
 name|List
 argument_list|<
-name|COSObjectable
+name|PDPage
 argument_list|>
 name|pages
 parameter_list|)
@@ -1230,7 +1230,7 @@ name|bookmark
 parameter_list|,
 name|List
 argument_list|<
-name|COSObjectable
+name|PDPage
 argument_list|>
 name|allPages
 parameter_list|)
