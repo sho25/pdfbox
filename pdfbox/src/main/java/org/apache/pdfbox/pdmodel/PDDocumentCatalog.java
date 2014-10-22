@@ -535,7 +535,7 @@ literal|null
 condition|)
 block|{
 name|COSDictionary
-name|acroFormDic
+name|dict
 init|=
 operator|(
 name|COSDictionary
@@ -549,24 +549,22 @@ operator|.
 name|ACRO_FORM
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|acroFormDic
-operator|!=
-literal|null
-condition|)
-block|{
 name|cachedAcroForm
 operator|=
+name|dict
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
 operator|new
 name|PDAcroForm
 argument_list|(
 name|document
 argument_list|,
-name|acroFormDic
+name|dict
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|cachedAcroForm
@@ -659,11 +657,6 @@ name|PDViewerPreferences
 name|getViewerPreferences
 parameter_list|()
 block|{
-name|PDViewerPreferences
-name|retval
-init|=
-literal|null
-decl_stmt|;
 name|COSDictionary
 name|dict
 init|=
@@ -679,24 +672,18 @@ operator|.
 name|VIEWER_PREFERENCES
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|dict
-operator|!=
+operator|==
 literal|null
-condition|)
-block|{
-name|retval
-operator|=
+condition|?
+literal|null
+else|:
 operator|new
 name|PDViewerPreferences
 argument_list|(
 name|dict
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|retval
 return|;
 block|}
 comment|/**      * Sets the viewer preferences.      *      * @param prefs The new viewer preferences.      */
@@ -726,11 +713,6 @@ name|PDDocumentOutline
 name|getDocumentOutline
 parameter_list|()
 block|{
-name|PDDocumentOutline
-name|retval
-init|=
-literal|null
-decl_stmt|;
 name|COSDictionary
 name|dict
 init|=
@@ -746,24 +728,18 @@ operator|.
 name|OUTLINES
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|dict
-operator|!=
+operator|==
 literal|null
-condition|)
-block|{
-name|retval
-operator|=
+condition|?
+literal|null
+else|:
 operator|new
 name|PDDocumentOutline
 argument_list|(
 name|dict
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|retval
 return|;
 block|}
 comment|/**      * Sets the document outlines.      *      * @param outlines The new document outlines.      */
@@ -787,9 +763,12 @@ name|outlines
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the list threads for this pdf document.      *      * @return A list of PDThread objects.      */
+comment|/**      * Returns the document?s article threads.      */
 specifier|public
 name|List
+argument_list|<
+name|PDThread
+argument_list|>
 name|getThreads
 parameter_list|()
 block|{
@@ -834,10 +813,16 @@ argument_list|)
 expr_stmt|;
 block|}
 name|List
+argument_list|<
+name|PDThread
+argument_list|>
 name|pdObjects
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|PDThread
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -881,6 +866,9 @@ block|}
 return|return
 operator|new
 name|COSArrayList
+argument_list|<
+name|PDThread
+argument_list|>
 argument_list|(
 name|pdObjects
 argument_list|,
@@ -920,11 +908,6 @@ name|PDMetadata
 name|getMetadata
 parameter_list|()
 block|{
-name|PDMetadata
-name|retval
-init|=
-literal|null
-decl_stmt|;
 name|COSBase
 name|metaObj
 init|=
@@ -944,8 +927,7 @@ operator|instanceof
 name|COSStream
 condition|)
 block|{
-name|retval
-operator|=
+return|return
 operator|new
 name|PDMetadata
 argument_list|(
@@ -954,10 +936,10 @@ name|COSStream
 operator|)
 name|metaObj
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 return|return
-name|retval
+literal|null
 return|;
 block|}
 comment|/**      * Sets the metadata for this object. This can be null.      *      * @param meta The meta data for this object.      */
@@ -1010,13 +992,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDDestinationOrAction
-name|action
-init|=
-literal|null
-decl_stmt|;
 name|COSBase
-name|actionObj
+name|openAction
 init|=
 name|root
 operator|.
@@ -1029,23 +1006,24 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|actionObj
+name|openAction
 operator|==
 literal|null
 condition|)
 block|{
-comment|//no op
+return|return
+literal|null
+return|;
 block|}
 elseif|else
 if|if
 condition|(
-name|actionObj
+name|openAction
 operator|instanceof
 name|COSDictionary
 condition|)
 block|{
-name|action
-operator|=
+return|return
 name|PDActionFactory
 operator|.
 name|createAction
@@ -1053,27 +1031,26 @@ argument_list|(
 operator|(
 name|COSDictionary
 operator|)
-name|actionObj
+name|openAction
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
 condition|(
-name|actionObj
+name|openAction
 operator|instanceof
 name|COSArray
 condition|)
 block|{
-name|action
-operator|=
+return|return
 name|PDDestination
 operator|.
 name|create
 argument_list|(
-name|actionObj
+name|openAction
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
@@ -1083,13 +1060,10 @@ name|IOException
 argument_list|(
 literal|"Unknown OpenAction "
 operator|+
-name|actionObj
+name|openAction
 argument_list|)
 throw|;
 block|}
-return|return
-name|action
-return|;
 block|}
 comment|/**      * @return The Additional Actions for this Document      */
 specifier|public
@@ -1098,7 +1072,7 @@ name|getActions
 parameter_list|()
 block|{
 name|COSDictionary
-name|addAct
+name|addAction
 init|=
 operator|(
 name|COSDictionary
@@ -1114,12 +1088,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|addAct
+name|addAction
 operator|==
 literal|null
 condition|)
 block|{
-name|addAct
+name|addAction
 operator|=
 operator|new
 name|COSDictionary
@@ -1133,7 +1107,7 @@ name|COSName
 operator|.
 name|AA
 argument_list|,
-name|addAct
+name|addAction
 argument_list|)
 expr_stmt|;
 block|}
@@ -1141,7 +1115,7 @@ return|return
 operator|new
 name|PDDocumentCatalogAdditionalActions
 argument_list|(
-name|addAct
+name|addAction
 argument_list|)
 return|;
 block|}
@@ -1172,11 +1146,6 @@ name|PDDocumentNameDictionary
 name|getNames
 parameter_list|()
 block|{
-name|PDDocumentNameDictionary
-name|nameDic
-init|=
-literal|null
-decl_stmt|;
 name|COSDictionary
 name|names
 init|=
@@ -1192,15 +1161,13 @@ operator|.
 name|NAMES
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|names
-operator|!=
+operator|==
 literal|null
-condition|)
-block|{
-name|nameDic
-operator|=
+condition|?
+literal|null
+else|:
 operator|new
 name|PDDocumentNameDictionary
 argument_list|(
@@ -1208,10 +1175,6 @@ name|this
 argument_list|,
 name|names
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|nameDic
 return|;
 block|}
 comment|/**      * Sets the names dictionary for the document.      *      * @param names The names dictionary that is associated with this document.      */
@@ -1241,11 +1204,6 @@ name|PDMarkInfo
 name|getMarkInfo
 parameter_list|()
 block|{
-name|PDMarkInfo
-name|retval
-init|=
-literal|null
-decl_stmt|;
 name|COSDictionary
 name|dic
 init|=
@@ -1261,24 +1219,18 @@ operator|.
 name|MARK_INFO
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|dic
-operator|!=
+operator|==
 literal|null
-condition|)
-block|{
-name|retval
-operator|=
+condition|?
+literal|null
+else|:
 operator|new
 name|PDMarkInfo
 argument_list|(
 name|dic
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|retval
 return|;
 block|}
 comment|/**      * Set information about the doc's usage of tagged features.      *      * @param markInfo The new MarkInfo data.      */
@@ -1379,7 +1331,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Add an OutputIntent to the list.      *      * If there is not OutputIntent, the list is created and the first  element added.      *      * @param outputIntent the OutputIntent to add.      */
+comment|/**      * Add an OutputIntent to the list.  If there is not OutputIntent, the list is created and the      * first  element added.      *      * @param outputIntent the OutputIntent to add.      */
 specifier|public
 name|void
 name|addOutputIntent
@@ -1489,7 +1441,7 @@ name|array
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the page display mode.      *      * @return the new page mode.      */
+comment|/**      * Returns the page display mode.      */
 specifier|public
 name|PageMode
 name|getPageMode
@@ -1556,7 +1508,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets the page layout.      *      * @return the page layout.      */
+comment|/**      * Returns the page layout.      */
 specifier|public
 name|PageLayout
 name|getPageLayout
@@ -1623,17 +1575,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Document level information in the URI.      *      * @return Document level URI.      */
+comment|/**      * Returns the document-level URI.      */
 specifier|public
 name|PDURIDictionary
 name|getURI
 parameter_list|()
 block|{
-name|PDURIDictionary
-name|retval
-init|=
-literal|null
-decl_stmt|;
 name|COSDictionary
 name|uri
 init|=
@@ -1649,24 +1596,18 @@ operator|.
 name|URI
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|uri
-operator|!=
+operator|==
 literal|null
-condition|)
-block|{
-name|retval
-operator|=
+condition|?
+literal|null
+else|:
 operator|new
 name|PDURIDictionary
 argument_list|(
 name|uri
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|retval
 return|;
 block|}
 comment|/**      * Sets the document level URI.      *      * @param uri The new document level URI.      */
@@ -1690,19 +1631,14 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the document's structure tree root.      *      * @return The document's structure tree root or null if none exists.      */
+comment|/**      * Get the document's structure tree root, or null if none exists.      */
 specifier|public
 name|PDStructureTreeRoot
 name|getStructureTreeRoot
 parameter_list|()
 block|{
-name|PDStructureTreeRoot
-name|treeRoot
-init|=
-literal|null
-decl_stmt|;
 name|COSDictionary
-name|dic
+name|dict
 init|=
 operator|(
 name|COSDictionary
@@ -1716,24 +1652,18 @@ operator|.
 name|STRUCT_TREE_ROOT
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|dic
-operator|!=
+return|return
+name|dict
+operator|==
 literal|null
-condition|)
-block|{
-name|treeRoot
-operator|=
+condition|?
+literal|null
+else|:
 operator|new
 name|PDStructureTreeRoot
 argument_list|(
-name|dic
+name|dict
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|treeRoot
 return|;
 block|}
 comment|/**      * Sets the document's structure tree root.      *      * @param treeRoot The new structure tree.      */
@@ -1757,7 +1687,7 @@ name|treeRoot
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The language for the document.      *      * @return The language for the document.      */
+comment|/**      * Returns the language for the document, or null.      */
 specifier|public
 name|String
 name|getLanguage
@@ -1795,7 +1725,7 @@ name|language
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the PDF specification version this document conforms to.      *      * @return The PDF version.      */
+comment|/**      * Returns the PDF specification version this document conforms to.      *      * @return the PDF version (e.g. "1.4")      */
 specifier|public
 name|String
 name|getVersion
@@ -1841,11 +1771,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDPageLabels
-name|labels
-init|=
-literal|null
-decl_stmt|;
 name|COSDictionary
 name|dict
 init|=
@@ -1861,15 +1786,13 @@ operator|.
 name|PAGE_LABELS
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|dict
-operator|!=
+operator|==
 literal|null
-condition|)
-block|{
-name|labels
-operator|=
+condition|?
+literal|null
+else|:
 operator|new
 name|PDPageLabels
 argument_list|(
@@ -1877,10 +1800,6 @@ name|document
 argument_list|,
 name|dict
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|labels
 return|;
 block|}
 comment|/**      * Sets the page label descriptor for the document.      *      * @param labels the new page label descriptor to set.      */
@@ -1925,23 +1844,18 @@ operator|.
 name|OCPROPERTIES
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|dict
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
+name|dict
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
 operator|new
 name|PDOptionalContentProperties
 argument_list|(
 name|dict
 argument_list|)
-return|;
-block|}
-return|return
-literal|null
 return|;
 block|}
 comment|/**      * Sets the optional content properties dictionary.      *      * @param ocProperties the optional properties dictionary      */
