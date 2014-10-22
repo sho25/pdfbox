@@ -426,114 +426,6 @@ name|PDDocumentCatalog
 implements|implements
 name|COSObjectable
 block|{
-comment|/**      * Page mode where neither the outline nor the thumbnails are displayed.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_MODE_USE_NONE
-init|=
-literal|"UseNone"
-decl_stmt|;
-comment|/**      * Show bookmarks when pdf is opened.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_MODE_USE_OUTLINES
-init|=
-literal|"UseOutlines"
-decl_stmt|;
-comment|/**      * Show thumbnails when pdf is opened.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_MODE_USE_THUMBS
-init|=
-literal|"UseThumbs"
-decl_stmt|;
-comment|/**      * Full screen mode with no menu bar, window controls.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_MODE_FULL_SCREEN
-init|=
-literal|"FullScreen"
-decl_stmt|;
-comment|/**      * Optional content group panel is visible when opened.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_MODE_USE_OPTIONAL_CONTENT
-init|=
-literal|"UseOC"
-decl_stmt|;
-comment|/**      * Attachments panel is visible.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_MODE_USE_ATTACHMENTS
-init|=
-literal|"UseAttachments"
-decl_stmt|;
-comment|/**      * Display one page at a time.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_LAYOUT_SINGLE_PAGE
-init|=
-literal|"SinglePage"
-decl_stmt|;
-comment|/**      * Display the pages in one column.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_LAYOUT_ONE_COLUMN
-init|=
-literal|"OneColumn"
-decl_stmt|;
-comment|/**      * Display the pages in two columns, with odd numbered pagse on the left.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_LAYOUT_TWO_COLUMN_LEFT
-init|=
-literal|"TwoColumnLeft"
-decl_stmt|;
-comment|/**      * Display the pages in two columns, with odd numbered pagse on the right.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_LAYOUT_TWO_COLUMN_RIGHT
-init|=
-literal|"TwoColumnRight"
-decl_stmt|;
-comment|/**      * Display the pages two at a time, with odd-numbered pages on the left.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_LAYOUT_TWO_PAGE_LEFT
-init|=
-literal|"TwoPageLeft"
-decl_stmt|;
-comment|/**      * Display the pages two at a time, with odd-numbered pages on the right.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PAGE_LAYOUT_TWO_PAGE_RIGHT
-init|=
-literal|"TwoPageRight"
-decl_stmt|;
 specifier|private
 specifier|final
 name|COSDictionary
@@ -1603,13 +1495,15 @@ name|array
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the page display mode, see the PAGE_MODE_XXX constants.      *      * @return A string representing the page mode.      */
+comment|/**      * Returns the page display mode.      *      * @return the new page mode.      */
 specifier|public
-name|String
+name|PageMode
 name|getPageMode
 parameter_list|()
 block|{
-return|return
+name|String
+name|mode
+init|=
 name|root
 operator|.
 name|getNameAsString
@@ -1617,17 +1511,39 @@ argument_list|(
 name|COSName
 operator|.
 name|PAGE_MODE
-argument_list|,
-name|PAGE_MODE_USE_NONE
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|mode
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|PageMode
+operator|.
+name|fromString
+argument_list|(
+name|mode
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the page mode. See the PAGE_MODE_XXX constants for valid values.      *      * @param mode The new page mode.      */
+else|else
+block|{
+return|return
+name|PageMode
+operator|.
+name|USE_NONE
+return|;
+block|}
+block|}
+comment|/**      * Sets the page mode.      *      * @param mode The new page mode.      */
 specifier|public
 name|void
 name|setPageMode
 parameter_list|(
-name|String
+name|PageMode
 name|mode
 parameter_list|)
 block|{
@@ -1640,16 +1556,21 @@ operator|.
 name|PAGE_MODE
 argument_list|,
 name|mode
+operator|.
+name|stringValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the page layout, see the PAGE_LAYOUT_XXX constants.      *      * @return A string representing the page layout.      */
+comment|/**      * Gets the page layout.      *      * @return the page layout.      */
 specifier|public
-name|String
+name|PageLayout
 name|getPageLayout
 parameter_list|()
 block|{
-return|return
+name|String
+name|mode
+init|=
 name|root
 operator|.
 name|getNameAsString
@@ -1657,17 +1578,39 @@ argument_list|(
 name|COSName
 operator|.
 name|PAGE_LAYOUT
-argument_list|,
-name|PAGE_LAYOUT_SINGLE_PAGE
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|mode
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|PageLayout
+operator|.
+name|fromString
+argument_list|(
+name|mode
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the page layout. See the PAGE_LAYOUT_XXX constants for valid values.      *      * @param layout The new page layout.      */
+else|else
+block|{
+return|return
+name|PageLayout
+operator|.
+name|SINGLE_PAGE
+return|;
+block|}
+block|}
+comment|/**      * Sets the page layout.      *      * @param layout The new page layout.      */
 specifier|public
 name|void
 name|setPageLayout
 parameter_list|(
-name|String
+name|PageLayout
 name|layout
 parameter_list|)
 block|{
@@ -1680,6 +1623,9 @@ operator|.
 name|PAGE_LAYOUT
 argument_list|,
 name|layout
+operator|.
+name|stringValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
