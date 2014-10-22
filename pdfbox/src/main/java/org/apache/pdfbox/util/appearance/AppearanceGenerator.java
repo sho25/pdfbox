@@ -124,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * (Re-) Generate the appearance for a field.  *   * The fields appearance defines the 'look' the field has when it's rendered  * for display or printing.  *   */
+comment|/**  * (Re-) Generate the appearance for a field.  *   * The fields appearance defines the 'look' the field has when it's rendered for display or printing.  *   */
 end_comment
 
 begin_class
@@ -150,8 +150,8 @@ decl_stmt|;
 specifier|private
 name|AppearanceGenerator
 parameter_list|()
-block|{ 	}
-comment|/** 	 * Generate the appearances for a single field. 	 *  	 * @param field The field which appearances need to be generated. 	 */
+block|{     }
+comment|/**      * Generate the appearances for a single field.      *       * @param field The field which appearances need to be generated.      */
 specifier|public
 specifier|static
 name|void
@@ -242,7 +242,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|debug
 argument_list|(
 literal|"Unable to generate the field appearance."
 argument_list|,
@@ -255,7 +255,7 @@ else|else
 block|{
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Can't generate the appearance for values typed "
 operator|+

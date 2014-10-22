@@ -348,6 +348,7 @@ return|return
 name|fieldType
 return|;
 block|}
+comment|/**      * Update the fields appearance stream.      *       * The fields appearance stream needs to be updated to reflect the new field      * value. This will be done only if the NeedAppearances flag has not been set.      */
 specifier|protected
 name|void
 name|updateFieldAppearances
