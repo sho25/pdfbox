@@ -2178,6 +2178,22 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|item
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Skipped annotation due to a null reference."
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|actuals
 operator|.
 name|add
