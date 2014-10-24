@@ -4288,7 +4288,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|documentCatalog
+name|document
 operator|==
 literal|null
 condition|)
