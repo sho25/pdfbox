@@ -583,7 +583,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// workaround Open JDK 6 bug
+comment|// workaround Open JDK bug
+comment|// http://bugs.java.com/bugdatabase/view_bug.do?bug_id=7044758
 if|if
 condition|(
 name|System
@@ -598,6 +599,7 @@ argument_list|(
 literal|"OpenJDK Runtime Environment"
 argument_list|)
 operator|&&
+operator|(
 name|System
 operator|.
 name|getProperty
@@ -609,6 +611,19 @@ name|equals
 argument_list|(
 literal|"1.6"
 argument_list|)
+operator|||
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.specification.version"
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|"1.7"
+argument_list|)
+operator|)
 condition|)
 block|{
 return|return;
@@ -871,7 +886,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// workaround Open JDK 6 bug
+comment|// workaround Open JDK bug
+comment|// http://bugs.java.com/bugdatabase/view_bug.do?bug_id=7044758
 if|if
 condition|(
 name|System
@@ -886,6 +902,7 @@ argument_list|(
 literal|"OpenJDK Runtime Environment"
 argument_list|)
 operator|&&
+operator|(
 name|System
 operator|.
 name|getProperty
@@ -897,6 +914,19 @@ name|equals
 argument_list|(
 literal|"1.6"
 argument_list|)
+operator|||
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.specification.version"
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|"1.7"
+argument_list|)
+operator|)
 condition|)
 block|{
 return|return;
