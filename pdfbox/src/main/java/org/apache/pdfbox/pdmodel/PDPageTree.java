@@ -162,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * todo: this class wraps an entire page tree! Make it into a generic tree wrapper.  * todo: Try to explain why things are the way they are.  *  * @author John Hewson  */
+comment|/**  * The page tree, which defines the ordering of pages in the document in an efficient manner.  *  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -176,7 +176,6 @@ name|Iterable
 argument_list|<
 name|PDPage
 argument_list|>
-comment|// todo 'PDTree<T>'
 block|{
 specifier|private
 specifier|final
