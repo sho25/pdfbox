@@ -206,24 +206,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|tools
-operator|.
-name|imageio
-operator|.
-name|MetaUtil
-operator|.
-name|STANDARD_METADATA_FORMAT
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.

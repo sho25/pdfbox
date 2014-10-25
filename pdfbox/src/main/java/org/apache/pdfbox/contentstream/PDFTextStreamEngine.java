@@ -648,7 +648,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|PDFStreamEngine
+name|PDFTextStreamEngine
 operator|.
 name|class
 argument_list|)

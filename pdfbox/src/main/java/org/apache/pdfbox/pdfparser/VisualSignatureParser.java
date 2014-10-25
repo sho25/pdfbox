@@ -179,7 +179,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|PDFParser
+name|VisualSignatureParser
 operator|.
 name|class
 argument_list|)

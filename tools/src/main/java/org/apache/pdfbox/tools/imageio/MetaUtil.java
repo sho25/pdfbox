@@ -174,7 +174,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|TIFFUtil
+name|MetaUtil
 operator|.
 name|class
 argument_list|)

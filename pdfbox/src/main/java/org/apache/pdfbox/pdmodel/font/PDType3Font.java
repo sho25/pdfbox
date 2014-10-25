@@ -232,7 +232,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|PDFont
+name|PDType3Font
 operator|.
 name|class
 argument_list|)
