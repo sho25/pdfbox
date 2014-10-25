@@ -11,17 +11,21 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|rendering
+name|contentstream
 package|;
 end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSStream
 import|;
 end_import
 
@@ -35,44 +39,56 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|PDPage
+name|PDResources
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|PDRectangle
 import|;
 end_import
 
 begin_comment
-comment|/**  * Tiling pattern drawer.  *  * @author John Hewson  */
+comment|/**  * A content stream.  *  * @author John Hewson  */
 end_comment
 
-begin_class
+begin_interface
 specifier|public
-class|class
-name|TilingPatternDrawer
-extends|extends
-name|PageDrawer
+interface|interface
+name|PDContentStream
 block|{
-comment|/**      * Tiling pattern constructor, loads properties from file.      *      * @param renderer renderer to render the page.      *       * @throws java.io.IOException If there is an error loading properties from the file.      */
+comment|/**      * Returns the underlying COS stream.      */
 specifier|public
-name|TilingPatternDrawer
-parameter_list|(
-name|PDFRenderer
-name|renderer
-parameter_list|,
-name|PDPage
-name|page
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|super
-argument_list|(
-name|renderer
-argument_list|,
-name|page
-argument_list|)
-expr_stmt|;
+name|COSStream
+name|getContentStream
+parameter_list|()
+function_decl|;
+comment|/**      * Returns this stream's resources, if any.      */
+specifier|public
+name|PDResources
+name|getResources
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the bounding box of the contents, if any.      */
+specifier|public
+name|PDRectangle
+name|getBBox
+parameter_list|()
+function_decl|;
+comment|// todo: Matrix
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

@@ -171,27 +171,19 @@ argument_list|()
 expr_stmt|;
 comment|// In order for the PDF document to be openable by Adobe Reader, it needs
 comment|// to have some pages in it. So we'll check that.
-name|PDDocumentCatalog
-name|docCatalog
+name|int
+name|pageCount
 init|=
 name|pdfDoc
 operator|.
-name|getDocumentCatalog
-argument_list|()
-decl_stmt|;
-name|List
-name|allPages
-init|=
-name|docCatalog
-operator|.
-name|getAllPages
+name|getNumberOfPages
 argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"All Pages was unexpectedly null."
+literal|"All Pages was unexpectedly zero."
 argument_list|,
-name|allPages
+name|pageCount
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -200,10 +192,7 @@ literal|"Wrong number of pages."
 argument_list|,
 literal|1
 argument_list|,
-name|allPages
-operator|.
-name|size
-argument_list|()
+name|pageCount
 argument_list|)
 expr_stmt|;
 name|pdfDoc

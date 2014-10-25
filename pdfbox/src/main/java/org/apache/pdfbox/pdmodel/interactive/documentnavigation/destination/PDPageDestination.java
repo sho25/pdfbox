@@ -23,16 +23,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -125,7 +115,7 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|PDPageNode
+name|PDPageTree
 import|;
 end_import
 
@@ -412,11 +402,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now parent is the pages node
-name|PDPageNode
+name|PDPageTree
 name|pages
 init|=
 operator|new
-name|PDPageNode
+name|PDPageTree
 argument_list|(
 operator|(
 name|COSDictionary
@@ -424,20 +414,8 @@ operator|)
 name|parent
 argument_list|)
 decl_stmt|;
-name|List
-argument_list|<
-name|PDPage
-argument_list|>
-name|allPages
-init|=
+return|return
 name|pages
-operator|.
-name|getAllKids
-argument_list|()
-decl_stmt|;
-name|retval
-operator|=
-name|allPages
 operator|.
 name|indexOf
 argument_list|(
@@ -452,7 +430,7 @@ argument_list|)
 argument_list|)
 operator|+
 literal|1
-expr_stmt|;
+return|;
 block|}
 block|}
 return|return

@@ -195,7 +195,7 @@ name|cropBox
 init|=
 name|page
 operator|.
-name|findCropBox
+name|getCropBox
 argument_list|()
 decl_stmt|;
 name|drawDimension
@@ -210,7 +210,7 @@ name|rotation
 init|=
 name|page
 operator|.
-name|findRotation
+name|getRotation
 argument_list|()
 decl_stmt|;
 if|if

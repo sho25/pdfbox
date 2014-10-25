@@ -202,7 +202,7 @@ name|pageSize
 init|=
 name|page
 operator|.
-name|findMediaBox
+name|getMediaBox
 argument_list|()
 decl_stmt|;
 name|float

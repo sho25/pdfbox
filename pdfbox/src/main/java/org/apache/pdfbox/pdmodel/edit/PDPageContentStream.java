@@ -1307,7 +1307,7 @@ name|contents
 init|=
 name|sourcePage
 operator|.
-name|getContents
+name|getStream
 argument_list|()
 decl_stmt|;
 name|boolean

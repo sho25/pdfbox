@@ -37,25 +37,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|pdfbox
 operator|.
-name|logging
+name|contentstream
 operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|PDContentStream
 import|;
 end_import
 
@@ -126,6 +112,20 @@ operator|.
 name|cos
 operator|.
 name|COSNumber
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSStream
 import|;
 end_import
 
@@ -234,22 +234,9 @@ class|class
 name|PDFormXObject
 extends|extends
 name|PDXObject
+implements|implements
+name|PDContentStream
 block|{
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|PDFormXObject
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// name of XObject in resources, to prevent recursion
 specifier|private
 name|String
@@ -414,7 +401,21 @@ return|return
 name|group
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|COSStream
+name|getContentStream
+parameter_list|()
+block|{
+return|return
+name|getCOSStream
+argument_list|()
+return|;
+block|}
 comment|/**      * This will get the resources at this page and not look up the hierarchy.      * This attribute is inheritable, and findResources() should probably used.      * This will return null if no resources are available at this level.      * @return The resources at this level in the hierarchy.      */
+annotation|@
+name|Override
 specifier|public
 name|PDResources
 name|getResources
@@ -478,6 +479,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * An array of four numbers in the form coordinate system (see below),      * giving the coordinates of the left, bottom, right, and top edges, respectively,      * of the form XObject's bounding box.      * These boundaries are used to clip the form XObject and to determine its size for caching.      * @return The BBox of the form.      */
+annotation|@
+name|Override
 specifier|public
 name|PDRectangle
 name|getBBox

@@ -197,6 +197,20 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|PDPage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|common
 operator|.
 name|PDRectangle
@@ -313,6 +327,9 @@ parameter_list|(
 name|PDFRenderer
 name|renderer
 parameter_list|,
+name|PDPage
+name|page
+parameter_list|,
 name|PDTilingPattern
 name|pattern
 parameter_list|,
@@ -330,6 +347,8 @@ argument_list|(
 name|getImage
 argument_list|(
 name|renderer
+argument_list|,
+name|page
 argument_list|,
 name|pattern
 argument_list|,
@@ -358,6 +377,9 @@ parameter_list|(
 name|PDFRenderer
 name|renderer
 parameter_list|,
+name|PDPage
+name|page
+parameter_list|,
 name|PDTilingPattern
 name|pattern
 parameter_list|,
@@ -381,6 +403,8 @@ argument_list|(
 name|getImage
 argument_list|(
 name|renderer
+argument_list|,
+name|page
 argument_list|,
 name|pattern
 argument_list|,
@@ -825,6 +849,9 @@ parameter_list|(
 name|PDFRenderer
 name|renderer
 parameter_list|,
+name|PDPage
+name|page
+parameter_list|,
 name|PDTilingPattern
 name|pattern
 parameter_list|,
@@ -1065,6 +1092,8 @@ operator|new
 name|TilingPatternDrawer
 argument_list|(
 name|renderer
+argument_list|,
+name|page
 argument_list|)
 decl_stmt|;
 name|PDRectangle

@@ -119,16 +119,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * This is an example on how to an action to go to the second page when the PDF is opened.  *  * Usage: java org.apache.pdfbox.examples.pdmodel.GoToSecondPageOnOpen&lt;input-pdf&gt;&lt;output-pdf&gt;  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
 end_comment
@@ -216,22 +206,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|List
-name|pages
-init|=
-name|document
-operator|.
-name|getDocumentCatalog
-argument_list|()
-operator|.
-name|getAllPages
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|pages
+name|document
 operator|.
-name|size
+name|getNumberOfPages
 argument_list|()
 operator|<
 literal|2

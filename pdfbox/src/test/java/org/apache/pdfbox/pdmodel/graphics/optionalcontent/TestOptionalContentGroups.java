@@ -321,7 +321,7 @@ name|resources
 init|=
 name|page
 operator|.
-name|findResources
+name|getResources
 argument_list|()
 decl_stmt|;
 if|if
@@ -897,15 +897,9 @@ expr_stmt|;
 name|PDPage
 name|page
 init|=
-operator|(
-name|PDPage
-operator|)
-name|catalog
+name|doc
 operator|.
-name|getAllPages
-argument_list|()
-operator|.
-name|get
+name|getPage
 argument_list|(
 literal|0
 argument_list|)

@@ -169,7 +169,7 @@ literal|0
 argument_list|,
 name|page
 operator|.
-name|findMediaBox
+name|getMediaBox
 argument_list|()
 operator|.
 name|getWidth
@@ -177,7 +177,7 @@ argument_list|()
 argument_list|,
 name|page
 operator|.
-name|findMediaBox
+name|getMediaBox
 argument_list|()
 operator|.
 name|getHeight

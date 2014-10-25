@@ -39,6 +39,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|contentstream
+operator|.
+name|PDContentStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|cos
 operator|.
 name|COSArray
@@ -190,7 +204,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents an appearance for an annotation.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This class represents an appearance for an annotation.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -199,6 +213,8 @@ class|class
 name|PDAppearanceStream
 implements|implements
 name|COSObjectable
+implements|,
+name|PDContentStream
 block|{
 specifier|private
 name|COSStream
@@ -206,6 +222,10 @@ name|stream
 init|=
 literal|null
 decl_stmt|;
+specifier|private
+name|PDAppearanceStream
+parameter_list|()
+block|{     }
 comment|/**      * Constructor.      *      * @param s The cos stream for this appearance.      */
 specifier|public
 name|PDAppearanceStream
@@ -240,9 +260,11 @@ name|stream
 return|;
 block|}
 comment|/**      * Get the bounding box for this appearance.  This may return null in which      * case the Rectangle from the annotation should be used.      *      * @return The bounding box for this appearance.      */
+annotation|@
+name|Override
 specifier|public
 name|PDRectangle
-name|getBoundingBox
+name|getBBox
 parameter_list|()
 block|{
 name|PDRectangle
@@ -288,7 +310,7 @@ block|}
 comment|/**      * This will set the bounding box for this appearance stream.      *      * @param rectangle The new bounding box.      */
 specifier|public
 name|void
-name|setBoundingBox
+name|setBBox
 parameter_list|(
 name|PDRectangle
 name|rectangle
@@ -326,7 +348,21 @@ name|array
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|COSStream
+name|getContentStream
+parameter_list|()
+block|{
+return|return
+name|getStream
+argument_list|()
+return|;
+block|}
 comment|/**      * This will get the resources for this appearance stream.      *      * @return The appearance stream resources.      */
+annotation|@
+name|Override
 specifier|public
 name|PDResources
 name|getResources

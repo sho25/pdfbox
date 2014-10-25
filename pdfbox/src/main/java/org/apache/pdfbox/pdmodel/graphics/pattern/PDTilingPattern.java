@@ -39,6 +39,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|contentstream
+operator|.
+name|PDContentStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|cos
 operator|.
 name|COSArray
@@ -109,6 +123,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDResources
@@ -155,6 +183,8 @@ class|class
 name|PDTilingPattern
 extends|extends
 name|PDAbstractPattern
+implements|implements
+name|PDContentStream
 block|{
 comment|/** paint type 1 = colored tiling pattern. */
 specifier|public
@@ -467,6 +497,21 @@ literal|0
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|COSStream
+name|getContentStream
+parameter_list|()
+block|{
+return|return
+operator|(
+name|COSStream
+operator|)
+name|getCOSObject
+argument_list|()
+return|;
+block|}
 comment|/**      * This will get the resources for this pattern.      * This will return null if no resources are available at this level.      * @return The resources for this pattern.      */
 specifier|public
 name|PDResources
@@ -557,7 +602,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * An array of four numbers in the form coordinate system (see      * below), giving the coordinates of the left, bottom, right, and top edges,      * respectively, of the pattern's bounding box.      *      * @return The BBox of the form.      */
+comment|/**      * An array of four numbers in the form coordinate system (see      * below), giving the coordinates of the left, bottom, right, and top edges,      * respectively, of the pattern's bounding box.      *      * @return The BBox of the pattern.      */
+annotation|@
+name|Override
 specifier|public
 name|PDRectangle
 name|getBBox

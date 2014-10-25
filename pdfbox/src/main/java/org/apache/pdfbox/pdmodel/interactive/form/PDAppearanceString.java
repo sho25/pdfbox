@@ -1195,7 +1195,7 @@ argument_list|)
 expr_stmt|;
 name|appearanceStream
 operator|.
-name|setBoundingBox
+name|setBBox
 argument_list|(
 name|widget
 operator|.
@@ -1433,7 +1433,7 @@ name|pdFont
 argument_list|,
 name|appearanceStream
 operator|.
-name|getBoundingBox
+name|getBBox
 argument_list|()
 argument_list|,
 name|tokens
@@ -1713,7 +1713,7 @@ name|boundingBox
 init|=
 name|appearanceStream
 operator|.
-name|getBoundingBox
+name|getBBox
 argument_list|()
 decl_stmt|;
 if|if

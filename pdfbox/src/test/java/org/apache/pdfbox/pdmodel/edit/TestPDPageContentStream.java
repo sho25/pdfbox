@@ -202,7 +202,7 @@ name|stream
 init|=
 name|page
 operator|.
-name|getContents
+name|getStream
 argument_list|()
 operator|.
 name|getStream
@@ -395,7 +395,7 @@ name|stream
 operator|=
 name|page
 operator|.
-name|getContents
+name|getStream
 argument_list|()
 operator|.
 name|getStream

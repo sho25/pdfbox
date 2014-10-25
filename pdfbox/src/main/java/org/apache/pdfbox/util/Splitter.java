@@ -455,7 +455,7 @@ name|setCropBox
 argument_list|(
 name|page
 operator|.
-name|findCropBox
+name|getCropBox
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -465,7 +465,7 @@ name|setMediaBox
 argument_list|(
 name|page
 operator|.
-name|findMediaBox
+name|getMediaBox
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -486,7 +486,7 @@ name|setRotation
 argument_list|(
 name|page
 operator|.
-name|findRotation
+name|getRotation
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -595,15 +595,16 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * This will get the root node for the pages.      *      * @return The parent page node.      */
+comment|/**      * Returns all pages in the document, as a page tree.      */
 specifier|public
-name|PDPageNode
+name|PDPageTree
 name|getPages
 parameter_list|()
 block|{
+comment|// todo: cache me?
 return|return
 operator|new
-name|PDPageNode
+name|PDPageTree
 argument_list|(
 operator|(
 name|COSDictionary
@@ -617,23 +618,6 @@ operator|.
 name|PAGES
 argument_list|)
 argument_list|)
-return|;
-block|}
-comment|/**      * The PDF document contains a hierarchical structure of PDPageNode and PDPages, which is mostly      * just a way to store this information. This method will return a flat list of all PDPage      * objects in this document.      *      * @return A list of PDPage objects.      */
-specifier|public
-name|List
-argument_list|<
-name|PDPage
-argument_list|>
-name|getAllPages
-parameter_list|()
-block|{
-return|return
-name|getPages
-argument_list|()
-operator|.
-name|getAllKids
-argument_list|()
 return|;
 block|}
 comment|/**      * Get the viewer preferences associated with this document or null if they do not exist.      *      * @return The document's viewer preferences.      */

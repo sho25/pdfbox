@@ -269,7 +269,7 @@ name|adjustedCropBox
 init|=
 name|page
 operator|.
-name|calcAdjustedCropBox
+name|getCropBox
 argument_list|()
 decl_stmt|;
 name|float
@@ -317,7 +317,7 @@ name|rotationAngle
 init|=
 name|page
 operator|.
-name|findRotation
+name|getRotation
 argument_list|()
 decl_stmt|;
 comment|// normalize the rotation angle
@@ -510,7 +510,7 @@ name|adjustedCropBox
 init|=
 name|page
 operator|.
-name|calcAdjustedCropBox
+name|getCropBox
 argument_list|()
 decl_stmt|;
 name|renderPage
@@ -596,7 +596,7 @@ name|adjustedCropBox
 init|=
 name|page
 operator|.
-name|calcAdjustedCropBox
+name|getCropBox
 argument_list|()
 decl_stmt|;
 name|int
@@ -604,7 +604,7 @@ name|rotationAngle
 init|=
 name|page
 operator|.
-name|findRotation
+name|getRotation
 argument_list|()
 decl_stmt|;
 if|if

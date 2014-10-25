@@ -87,7 +87,7 @@ block|{
 return|return
 name|font
 operator|.
-name|getCharStream
+name|getCharProc
 argument_list|(
 name|code
 argument_list|)

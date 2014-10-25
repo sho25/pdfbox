@@ -623,18 +623,9 @@ block|{
 name|PDPage
 name|page
 init|=
-operator|(
-name|PDPage
-operator|)
 name|sourceDoc
 operator|.
-name|getDocumentCatalog
-argument_list|()
-operator|.
-name|getAllPages
-argument_list|()
-operator|.
-name|get
+name|getPage
 argument_list|(
 name|pageNumber
 argument_list|)
@@ -706,7 +697,7 @@ name|COSStream
 operator|)
 name|page
 operator|.
-name|getContents
+name|getStream
 argument_list|()
 operator|.
 name|getCOSObject
@@ -743,7 +734,7 @@ name|pageRes
 init|=
 name|page
 operator|.
-name|findResources
+name|getResources
 argument_list|()
 decl_stmt|;
 name|PDResources
@@ -816,7 +807,7 @@ name|mediaBox
 init|=
 name|page
 operator|.
-name|findMediaBox
+name|getMediaBox
 argument_list|()
 decl_stmt|;
 name|PDRectangle
@@ -824,7 +815,7 @@ name|cropBox
 init|=
 name|page
 operator|.
-name|findCropBox
+name|getCropBox
 argument_list|()
 decl_stmt|;
 name|PDRectangle
@@ -1213,7 +1204,7 @@ name|resources
 init|=
 name|targetPage
 operator|.
-name|findResources
+name|getResources
 argument_list|()
 decl_stmt|;
 comment|/*PDPropertyList props = resources.getProperties();         if (props == null)         {             props = new PDPropertyList();             resources.setProperties(props);         }*/
@@ -1437,7 +1428,7 @@ name|rotation
 init|=
 name|page
 operator|.
-name|findRotation
+name|getRotation
 argument_list|()
 decl_stmt|;
 while|while
