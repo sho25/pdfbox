@@ -73,7 +73,7 @@ name|PDTextField
 extends|extends
 name|PDVariableText
 block|{
-comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroform.      */
+comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
 specifier|public
 name|PDTextField
 parameter_list|(

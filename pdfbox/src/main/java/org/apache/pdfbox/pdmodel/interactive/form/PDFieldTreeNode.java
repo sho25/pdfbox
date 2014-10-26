@@ -1067,7 +1067,7 @@ return|return
 name|parent
 return|;
 block|}
-comment|/**      * Set the parent of this field.      *       * @param parent The parent to this field.      */
+comment|/**      * Set the parent of this field.      *       * @param parentNode The parent to this field.      */
 specifier|public
 name|void
 name|setParent
@@ -1764,7 +1764,7 @@ name|alternateFieldName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a COSField subclass from the given field.      * @param form the form that the field is part of      * @param field the dictionary representing a field element      * @return the corresponding PDField instance      */
+comment|/**      * Creates a COSField subclass from the given field.      * @param form the form that the field is part of      * @param field the dictionary representing a field element      * @param parentNode the parent node of the node to be created       * @return the corresponding PDField instance      */
 specifier|public
 specifier|static
 name|PDFieldTreeNode

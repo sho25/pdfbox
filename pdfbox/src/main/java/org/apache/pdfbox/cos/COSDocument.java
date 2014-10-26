@@ -280,7 +280,7 @@ name|warnMissingClose
 init|=
 literal|true
 decl_stmt|;
-comment|/** signal that document is already decrypted, e.g. with {@link NonSequentialPDFParser} */
+comment|/**       * signal that document is already decrypted,       * e.g. with {@link org.apache.pdfbox.pdfparser.NonSequentialPDFParser}       */
 specifier|private
 name|boolean
 name|isDecrypted
@@ -833,7 +833,7 @@ return|return
 name|version
 return|;
 block|}
-comment|/** Signals that the document is decrypted completely.      *  Needed e.g. by {@link NonSequentialPDFParser} to circumvent      *  additional decryption later on. */
+comment|/**       * Signals that the document is decrypted completely.      * Needed e.g. by {@link org.apache.pdfbox.pdfparser.NonSequentialPDFParser} to circumvent      * additional decryption later on. */
 specifier|public
 name|void
 name|setDecrypted
