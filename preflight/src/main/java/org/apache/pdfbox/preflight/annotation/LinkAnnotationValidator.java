@@ -211,7 +211,7 @@ operator|.
 name|pdLink
 expr_stmt|;
 block|}
-comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the the checkDest method.      *       * @see org.apache.padaf.preflight.annotation.AnnotationValidator#validate()      */
+comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the the checkDest method.      *       * @see AnnotationValidator#validate()      */
 annotation|@
 name|Override
 specifier|public
@@ -240,7 +240,7 @@ return|return
 name|isValide
 return|;
 block|}
-comment|/**      * Check if the Dest element is authorized according to the A entry      *       * @return      */
+comment|/**      * Check if the Dest element is authorized according to the A entry      *       * @return if the Dest element is authorized according to the A entry.      */
 specifier|protected
 name|boolean
 name|checkDest

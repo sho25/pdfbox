@@ -409,7 +409,7 @@ literal|null
 operator|)
 return|;
 block|}
-comment|/**      * Add a FontContainer to allow TextObject validation.      *       * @param fKey      * @param fc      */
+comment|/**      * Add a FontContainer to allow TextObject validation.      *       * @param cBase the COSBase for the font container.      * @param fc the font container.      */
 specifier|public
 name|void
 name|addFontContainer
@@ -433,7 +433,7 @@ name|fc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Return the FontContainer identified by the COSBase. If the given object is missing from the      * {@link #fontContainers} map, the null value is returned.      *       * @param fKey      * @return      */
+comment|/**      * Return the FontContainer identified by the COSBase. If the given object is missing from the      * {@link #fontContainers} map, the null value is returned.      *       * @param cBase the COSBase for the font container      * @return the font container.      */
 specifier|public
 name|FontContainer
 name|getFontContainer
@@ -544,7 +544,7 @@ name|error
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add the given errors the PreflightDocument      *       * @param error      */
+comment|/**      * Add the given errors the PreflightDocument      *       * @param errors the list of validation errors.      */
 specifier|public
 name|void
 name|addValidationErrors

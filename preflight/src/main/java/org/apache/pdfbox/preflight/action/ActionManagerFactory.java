@@ -542,7 +542,7 @@ specifier|public
 class|class
 name|ActionManagerFactory
 block|{
-comment|/**      * This method extract actions from the given dictionary. An action is identified by the following entries :      *<UL>      *<li>A (Action) : Available in Annotations, Outline items      *<li>OpenAction (OpenAction) : Available in the Catalog dictionary      *<li>AA (Additional Action) : Available in the Catalog dictionary, Annotations, Pages      *</UL>      *       * If there are no action, an empty list is returned.      *       * @param dictionary      * @param cDoc      * @return      * @throws ValidationException      */
+comment|/**      * This method extract actions from the given dictionary. An action is identified by the following entries :      *<UL>      *<li>A (Action) : Available in Annotations, Outline items      *<li>OpenAction (OpenAction) : Available in the Catalog dictionary      *<li>AA (Additional Action) : Available in the Catalog dictionary, Annotations, Pages      *</UL>      *       * If there are no action, an empty list is returned.      *       * @param ctx the preflight context.      * @param dictionary the dictionary to retrieve the actions from.      * @return the list of actions from the given dictionary.      * @throws ValidationException      */
 specifier|public
 specifier|final
 name|List
@@ -964,7 +964,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns all actions contained by the Next entry. If the action dictionary doesn't have Next action, the result is      * an empty list.      *       * @param actionDictionary      *            the action dictionary which contains Next entry      * @param cDoc      *            the COSDocument which contains actions.      * @return      * @throws ValidationException      */
+comment|/**      * Returns all actions contained by the Next entry. If the action dictionary doesn't have Next action, the result is      * an empty list.      *       * @param ctx the preflight context.      * @param actionDictionary the dictionary to retrieve the actions from.      * @return the list of actions from the given dictionary.      * @throws ValidationException      */
 specifier|public
 specifier|final
 name|List
@@ -1123,7 +1123,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Create an instance of ActionManager according to the value of the S entry. If the type entry isn't Action, a      * ValidationException will be thrown.      *       * If the action type isn't authorized in a PDF/A file, an instance of InvalidAction is returned.      *       * @param ctx      * @param action      *            the action dictionary used to instantiate the ActionManager      * @param isAA      *            the Action identifier if it is an additional action      * @return      * @throws ValidationException      */
+comment|/**      * Create an instance of ActionManager according to the value of the S entry. If the type entry isn't Action, a      * ValidationException will be thrown.      *       * If the action type isn't authorized in a PDF/A file, an instance of InvalidAction is returned.      *       * @param ctx the preflight context.      * @param action      *            the action dictionary used to instantiate the ActionManager      * @param aaKey      *            the Action identifier if it is an additional action      * @return the ActionManager instance.      * @throws ValidationException      */
 specifier|protected
 name|AbstractActionManager
 name|createActionManager

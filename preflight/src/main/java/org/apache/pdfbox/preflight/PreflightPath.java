@@ -121,7 +121,7 @@ return|return
 name|pushed
 return|;
 block|}
-comment|/**      * Return the object at the given position. The object must be an instance of the given class.      *       * @param position      * @param expectedType      * @return      */
+comment|/**      * Return the object at the given position. The object must be an instance of the given class.      *       * @param position      * @param expectedType      * @return the object at the given position.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -265,7 +265,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Looks at the object at the top of this stack without removing it from the stack.      *       * @return      */
+comment|/**      * Looks at the object at the top of this stack without removing it from the stack.      *       * @return the object at the top of the stack.      */
 specifier|public
 name|Object
 name|peek

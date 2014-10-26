@@ -570,7 +570,7 @@ name|COSBase
 name|ctog
 parameter_list|)
 function_decl|;
-comment|/**      * This method checks the CIDtoGIDMap entry of the Font dictionary. This      * element must be a Stream or a Name. If it is a name, it must be      * "Identity" otherwise, the PDF file isn't a PDF/A-1b.      *      * If the validation fails the list of errors in the FontContainer is      * updated.      *      * If the CIDtoGIDMap is a Stream, it is parsed as a CMap and the result is      * returned.      *      * @param ctog      * @param mandatory true for CIDType2 , false for CIDType0      * @return      */
+comment|/**      * This method checks the CIDtoGIDMap entry of the Font dictionary. This      * element must be a Stream or a Name. If it is a name, it must be      * "Identity" otherwise, the PDF file isn't a PDF/A-1b.      *      * If the validation fails the list of errors in the FontContainer is      * updated.      *      * If the CIDtoGIDMap is a Stream, it is parsed as a CMap and the result is      * returned.      *      * @param ctog      * @param mandatory true for CIDType2 , false for CIDType0      */
 specifier|protected
 name|void
 name|checkCIDToGIDMap

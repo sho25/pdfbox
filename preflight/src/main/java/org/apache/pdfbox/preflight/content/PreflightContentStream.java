@@ -432,7 +432,7 @@ name|_page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process the validation of a PageContent (The page is initialized by the constructor)      *      * @return A list of validation error. This list is empty if the validation succeed.      * @throws ValidationException      */
+comment|/**      * Process the validation of a PageContent (The page is initialized by the constructor)      *      * @throws ValidationException      */
 specifier|public
 name|void
 name|validPageContentStream
@@ -516,7 +516,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Process the validation of a XObject Form      *       * @param form      * @return A list of validation error. This list is empty if the validation succeed.      * @throws ValidationException      */
+comment|/**      * Process the validation of a XObject Form      *       * @param form the PDFormXObject to be validated.      * @throws ValidationException      */
 specifier|public
 name|void
 name|validXObjContentStream
@@ -607,7 +607,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Process the validation of a Tiling Pattern      *       * @param pattern      * @return A list of validation error. This list is empty if the validation succeed.      * @throws ValidationException      */
+comment|/**      * Process the validation of a Tiling Pattern      *       * @param pattern the PDTilingPattern to be validated.      * @throws ValidationException      */
 specifier|public
 name|void
 name|validPatternContentStream

@@ -1909,7 +1909,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Create a ContentStreamException with ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT.      *       * @return      */
+comment|/**      * Create a ContentStreamException with ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT.      *       * @return the ContentStreamException created.      */
 specifier|private
 name|ContentStreamException
 name|createInvalidArgumentsError
@@ -1935,7 +1935,7 @@ return|return
 name|ex
 return|;
 block|}
-comment|/**      * Create a ContentStreamException with ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT.      *       * @return      */
+comment|/**      * Create a ContentStreamException with ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT.      *       * @return the ContentStreamException created.      */
 specifier|private
 name|ContentStreamException
 name|createLimitError

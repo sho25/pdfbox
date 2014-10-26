@@ -537,7 +537,7 @@ name|pdcs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Method called by the validate method. According to the ColorSpace, a specific ColorSpace method is called.      *       * @param pdcs      *            the color space object to check.      * @param result      *            the list of error to update if the validation fails.      * @return true if the validation succeed, false otherwise.      */
+comment|/**      * Method called by the validate method. According to the ColorSpace, a specific ColorSpace method is called.      *       * @param pdcs the color space object to check.      */
 specifier|protected
 specifier|final
 name|void

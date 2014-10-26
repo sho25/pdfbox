@@ -558,7 +558,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Check if the CA value is 1.0. Return true if the CA element is missing or if the value is 1.0. Return false      * otherwise and update the list of errors present in the DocumentHandler.      *       * @return      */
+comment|/**      * Check if the CA value is 1.0. Return true if the CA element is missing or if the value is 1.0. Return false      * otherwise and update the list of errors present in the DocumentHandler.      *       * @return true if the CA element is missing or if the value is 1.0.      */
 specifier|protected
 name|boolean
 name|checkCA
@@ -633,7 +633,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Return true if the C field is present in the Annotation dictionary and if the RGB profile is used in the      * DestOutputProfile of the OutputIntent dictionary.      *       * @return      */
+comment|/**      * Return true if the C field is present in the Annotation dictionary and if the RGB profile is used in the      * DestOutputProfile of the OutputIntent dictionary.      *       * @return true if the C field is present and the RGB profile is used.      */
 specifier|protected
 name|boolean
 name|checkColors
@@ -718,7 +718,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * This method checks the AP entry of the Annotation Dictionary. If the AP key is missing, this method returns true.      * If the AP key exists, only the N entry is authorized and must be a Stream which define the appearance of the      * annotation. (Currently, only the type of the N entry is checked because of the Appearance stream is a Form      * XObject, so it will be checked by the Graphics Helper)      *       * If the AP content isn't valid, this method return false and updates the errors list.      *       * @return      */
+comment|/**      * This method checks the AP entry of the Annotation Dictionary. If the AP key is missing, this method returns true.      * If the AP key exists, only the N entry is authorized and must be a Stream which define the appearance of the      * annotation. (Currently, only the type of the N entry is checked because of the Appearance stream is a Form      * XObject, so it will be checked by the Graphics Helper)      *       * If the AP content isn't valid, this method return false and updates the errors list.      *       * @return the validation state of the AP content.      */
 specifier|protected
 name|boolean
 name|checkAP
@@ -908,7 +908,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Extract a list of ActionManager from the Annotation dictionary and valid them. If an action is invalid, the      * errors list is updated and the method returns false. Otherwise, the method returns true and the errors list      * doesn't change.      *       * @return      * @throws ValidationException      */
+comment|/**      * Extract a list of ActionManager from the Annotation dictionary and valid them. If an action is invalid, the      * errors list is updated and the method returns false. Otherwise, the method returns true and the errors list      * doesn't change.      *       * @return the validation state of the annotations actions.      * @throws ValidationException      */
 specifier|protected
 name|boolean
 name|checkActions
@@ -1158,7 +1158,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Override this method to check the presence of specific fields      * @return      */
+comment|/**      * Override this method to check the presence of specific fields      * @return the presence of specific fields.      */
 specifier|protected
 name|boolean
 name|checkSpecificMandatoryFields

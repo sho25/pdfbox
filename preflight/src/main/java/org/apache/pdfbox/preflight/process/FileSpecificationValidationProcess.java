@@ -345,7 +345,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Validate a FileSpec dictionary, a FileSpec dictionary mustn't have the EF (EmbeddedFile) entry.      *       * @param ctx      *            The document handler      * @param cObj      *            the FileSpec Dictionary      * @return      */
+comment|/**      * Validate a FileSpec dictionary, a FileSpec dictionary mustn't have the EF (EmbeddedFile) entry.      *       * @param ctx the preflight context.      * @param fileSpec the FileSpec Dictionary.      * @return the list of validation errors.      */
 specifier|public
 name|List
 argument_list|<

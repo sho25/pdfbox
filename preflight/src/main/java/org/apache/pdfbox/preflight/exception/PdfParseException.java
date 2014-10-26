@@ -228,7 +228,7 @@ operator|=
 name|code
 expr_stmt|;
 block|}
-comment|/**      * Get the validation error code      *       * @return      */
+comment|/**      * Get the validation error code      *       * @return the validation error code.      */
 specifier|public
 name|String
 name|getErrorCode

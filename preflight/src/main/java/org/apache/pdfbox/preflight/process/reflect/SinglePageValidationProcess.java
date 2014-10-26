@@ -700,7 +700,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This method checks additional actions contained in the given Page object.      *       * @param context      * @param page      * @return      * @throws ValidationException      */
+comment|/**      * This method checks additional actions contained in the given Page object.      *       * @param context the preflight context.      * @param page the page to check.      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateActions
@@ -729,7 +729,7 @@ name|ACTIONS_PROCESS
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check that all ColorSpace present in the Resource dictionary are conforming to the ISO 19005:2005-1      * specification.      *       * @param context      * @param page      */
+comment|/**      * Check that all ColorSpace present in the Resource dictionary are conforming to the ISO 19005:2005-1      * specification.      *       * @param context the preflight context.      * @param page the page to check.      */
 specifier|protected
 name|void
 name|validateColorSpaces
@@ -831,7 +831,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Check that all XObject references in the PDResource of the page and in the Thumb entry are confirming to the      * PDF/A specification.      *       * @param context      * @param page      * @throws ValidationException      */
+comment|/**      * Check that all XObject references in the PDResource of the page and in the Thumb entry are confirming to the      * PDF/A specification.      *       * @param context the preflight context.      * @param page the page to check.      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateGraphicObjects
@@ -967,7 +967,7 @@ name|RESOURCES_PROCESS
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *       * @param page      * @param context      * @return      * @throws ValidationException      */
+comment|/**      *       * @param context the preflight context.      * @param page the page to check.      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateContent
@@ -1025,7 +1025,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      *       * @param page      * @return      * @throws ValidationException      */
+comment|/**      *       * @param context the preflight context.      * @param page the page to check.      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateAnnotation
@@ -1126,7 +1126,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Check that the group dictionary doesn't have a Transparency attribute      *       * @param context      * @param page      * @throws ValidationException      */
+comment|/**      * Check that the group dictionary doesn't have a Transparency attribute      *       * @param context the preflight context.      * @param page the page to check.      * @throws ValidationException      */
 specifier|protected
 name|void
 name|validateGroupTransparency

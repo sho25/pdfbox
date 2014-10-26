@@ -307,7 +307,7 @@ name|_profile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Call the ICC_ColorSpace.getType method and return the value.      *       * @return      */
+comment|/**      * Call the ICC_ColorSpace.getType method and return the value.      *       * @return the color space type.      */
 specifier|public
 name|int
 name|getColorSpaceType
@@ -330,7 +330,7 @@ return|return
 name|profile
 return|;
 block|}
-comment|/**      * Return true if the ColourSpace is RGB      *       * @return      */
+comment|/**      * Return true if the ColourSpace is RGB      *       * @return true if the ColourSpace is RGB.       */
 specifier|public
 name|boolean
 name|isRGBColorSpace
@@ -347,7 +347,7 @@ name|getType
 argument_list|()
 return|;
 block|}
-comment|/**      * Return true if the ColourSpace is CMYK      *       * @return      */
+comment|/**      * Return true if the ColourSpace is CMYK      *       * @return true if the ColourSpace is CMYK.      */
 specifier|public
 name|boolean
 name|isCMYKColorSpace
@@ -364,7 +364,7 @@ name|getType
 argument_list|()
 return|;
 block|}
-comment|/**      * Return true if the ColourSpace is Gray scale      *       * @return      */
+comment|/**      * Return true if the ColourSpace is Gray scale      *       * @return true if the ColourSpace is gray scale.      */
 specifier|public
 name|boolean
 name|isGrayColorSpace

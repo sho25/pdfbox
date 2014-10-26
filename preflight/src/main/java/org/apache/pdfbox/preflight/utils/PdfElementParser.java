@@ -119,7 +119,7 @@ name|parseCOSDictionary
 argument_list|()
 return|;
 block|}
-comment|/**      * Return the COSDocument used to create this object.      *       * @return      */
+comment|/**      * Return the COSDocument used to create this object.      *       * @return the document.      */
 specifier|public
 name|COSDocument
 name|getDocument

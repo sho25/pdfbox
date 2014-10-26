@@ -575,7 +575,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Extracts and compares first and last trailers for PDF version between 1.1 and 1.4      *       * @param ctx      * @param result      */
+comment|/**      * Extracts and compares first and last trailers for PDF version between 1.1 and 1.4      *       * @param ctx the preflight context.      */
 specifier|protected
 name|void
 name|checkTrailersForLinearizedPDF14
@@ -681,7 +681,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Accesses and compares First and Last trailers for a PDF version higher than 1.4.      *       * @param ctx      * @param result      */
+comment|/**      * Accesses and compares First and Last trailers for a PDF version higher than 1.4.      *       * @param ctx the preflight context.      */
 specifier|protected
 name|void
 name|checkTrailersForLinearizedPDF15
@@ -901,7 +901,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Return true if the ID of the first dictionary is the same as the id of the last dictionary Return false      * otherwise.      *       * @param first      * @param last      * @return      */
+comment|/**      * Return true if the ID of the first dictionary is the same as the id of the last dictionary Return false      * otherwise.      *       * @param first the first dictionary for comparison.      * @param last the last dictionary for comparison.      * @return true if the IDs of the first and last dictionary are the same.      */
 specifier|protected
 name|boolean
 name|compareIds
@@ -1093,7 +1093,7 @@ return|return
 name|isEqual
 return|;
 block|}
-comment|/**      * check if all keys are authorized in a trailer dictionary and if the type is valid.      *       * @param ctx      * @param trailer      */
+comment|/**      * check if all keys are authorized in a trailer dictionary and if the type is valid.      *       * @param ctx the preflight context.      * @param trailer the trailer dictionary.      */
 specifier|protected
 name|void
 name|checkMainTrailer
@@ -1598,7 +1598,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * According to the PDF Reference, A linearized PDF contain a dictionary as first object (linearized dictionary) and      * only this one in the first section.      *       * @param document      * @return      */
+comment|/**      * According to the PDF Reference, A linearized PDF contain a dictionary as first object (linearized dictionary) and      * only this one in the first section.      *       * @param document the document to validate.      * @return the linearization dictionary or null.      */
 specifier|protected
 name|COSDictionary
 name|getLinearizedDictionary
@@ -1687,7 +1687,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Check if mandatory keys of linearized dictionary are present.      *       * @param ctx      * @param linearizedDict      */
+comment|/**      * Check if mandatory keys of linearized dictionary are present.      *       * @param ctx the preflight context.      * @param linearizedDict the linearization dictionary.      */
 specifier|protected
 name|void
 name|checkLinearizedDictionnary

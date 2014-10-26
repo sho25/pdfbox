@@ -559,7 +559,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Create the right "Validator" object for the given font type      *       * @param font      * @return      */
+comment|/**      * Create the right "Validator" object for the given font type      *       * @param context the preflight context.      * @param font the font object.      * @return the font validator instance for the font type.      */
 specifier|protected
 name|FontValidator
 argument_list|<

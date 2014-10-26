@@ -470,7 +470,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method checks if one of declared Filter is LZWdecode. If LZW is found, the result list is updated with an      * error code.      *       * @param stream      * @param handler      * @param result      */
+comment|/**      * This method checks if one of declared Filter is LZWdecode. If LZW is found, the result list is updated with an      * error code.      *       * @param stream the stream to check.      * @param context the preflight context.      */
 specifier|protected
 name|void
 name|checkFilters
@@ -1483,7 +1483,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Check dictionary entries. Only the Length entry is mandatory. In a PDF/A file, F, FFilter and FDecodeParms are      * forbidden      *       * @param streamObj      * @param result      */
+comment|/**      * Check dictionary entries. Only the Length entry is mandatory. In a PDF/A file, F, FFilter and FDecodeParms are      * forbidden      *       * @param context the preflight context.      * @param streamObj the stream to check.      */
 specifier|protected
 name|void
 name|checkDictionaryEntries

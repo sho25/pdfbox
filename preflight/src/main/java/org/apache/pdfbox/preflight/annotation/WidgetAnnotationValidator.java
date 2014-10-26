@@ -165,7 +165,7 @@ operator|.
 name|pdWidget
 expr_stmt|;
 block|}
-comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the the checkAAField method.      *       * @see org.apache.padaf.preflight.annotation.AnnotationValidator#validate(java.util.List)      */
+comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the the checkAAField method.      *       * @see AnnotationValidator#validate()      */
 annotation|@
 name|Override
 specifier|public
@@ -194,7 +194,7 @@ return|return
 name|isValide
 return|;
 block|}
-comment|/**      * The AA field is forbidden for the Widget annotation when the PDF is a PDF/A. This method return false and update      * the errors list if this key is present. returns true otherwise      *       * @return      */
+comment|/**      * The AA field is forbidden for the Widget annotation when the PDF is a PDF/A. This method return false and update      * the errors list if this key is present. returns true otherwise      *       * @return false if the forbidden AA field is existing.      */
 specifier|protected
 name|boolean
 name|checkAAField

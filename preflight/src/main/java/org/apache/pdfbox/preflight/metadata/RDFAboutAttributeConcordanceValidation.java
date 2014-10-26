@@ -78,7 +78,7 @@ specifier|public
 class|class
 name|RDFAboutAttributeConcordanceValidation
 block|{
-comment|/**      *       * @param metadata      * @return      * @throws DifferentRDFAboutException      * @throws ValidationException      */
+comment|/**      *       * @param metadata the XMP metadata.      * @throws DifferentRDFAboutException      * @throws ValidationException      */
 specifier|public
 name|void
 name|validateRDFAboutAttributes

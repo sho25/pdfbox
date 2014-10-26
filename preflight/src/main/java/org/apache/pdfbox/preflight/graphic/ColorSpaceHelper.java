@@ -38,7 +38,7 @@ specifier|public
 interface|interface
 name|ColorSpaceHelper
 block|{
-comment|/**      * Process the ColorSpace validation.      *       * @param result      */
+comment|/**      * Process the ColorSpace validation.      *       */
 specifier|public
 name|void
 name|validate

@@ -165,7 +165,7 @@ operator|.
 name|pdSquareCircle
 expr_stmt|;
 block|}
-comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the the checkIColors method.      *       * @see org.apache.padaf.preflight.annotation.AnnotationValidator#validate(java.util.List)      */
+comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the the checkIColors method.      *       * @see AnnotationValidator#validate()      */
 annotation|@
 name|Override
 specifier|public
@@ -194,7 +194,7 @@ return|return
 name|isValide
 return|;
 block|}
-comment|/**      * Return true if the IC field is present in the Annotation dictionary and if the RGB profile is used in the      * DestOutputProfile of the OutputIntent dictionary.      *       * @param errors      *            list of errors with is updated if no RGB profile is found when the IC element is present      * @return      */
+comment|/**      * Return true if the IC field is present in the Annotation dictionary and if the RGB profile is used in the      * DestOutputProfile of the OutputIntent dictionary.      *       * @return the validation state of the IC field.      */
 specifier|protected
 name|boolean
 name|checkIColors

@@ -1241,7 +1241,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Standard information of a stream element will be checked by the StreamValidationProcess.      *       * This method checks mandatory fields of the CMap stream. This method checks too if the CMap stream is damaged      * using the CMapParser of the fontbox api.      *       * @param aCMap      * @return      */
+comment|/**      * Standard information of a stream element will be checked by the StreamValidationProcess.      *       * This method checks mandatory fields of the CMap stream. This method checks too if the CMap stream is damaged      * using the CMapParser of the fontbox api.      *       * @param aCMap      */
 specifier|private
 name|void
 name|processCMapAsStream
@@ -1502,7 +1502,7 @@ name|aCMap
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check the content of the CIDSystemInfo dictionary. A CIDSystemInfo dictionary must contain :      *<UL>      *<li>a Name - Registry      *<li>a Name - Ordering      *<li>a Integer - Supplement      *</UL>      *       * @param sysinfo      * @return      */
+comment|/**      * Check the content of the CIDSystemInfo dictionary. A CIDSystemInfo dictionary must contain :      *<UL>      *<li>a Name - Registry      *<li>a Name - Ordering      *<li>a Integer - Supplement      *</UL>      *       * @param sysinfo      * @return the validation result.      */
 specifier|protected
 name|boolean
 name|checkCIDSystemInfo
@@ -1647,7 +1647,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * The CIDSystemInfo must have the same Registry and Ordering for CMap and CIDFont. This control is useless if CMap      * is Identity-H or Identity-V so this method is called by the checkCMap method.      *       * @param cmap      * @return      */
+comment|/**      * The CIDSystemInfo must have the same Registry and Ordering for CMap and CIDFont. This control is useless if CMap      * is Identity-H or Identity-V so this method is called by the checkCMap method.      *       * @param cmap      */
 specifier|private
 name|void
 name|compareCIDSystemInfo

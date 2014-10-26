@@ -984,7 +984,7 @@ operator|=
 name|input
 expr_stmt|;
 block|}
-comment|/**      * Create an instance of ValidationResult with a ValidationError(UNKNOWN_ERROR)      *       * @return      */
+comment|/**      * Create an instance of ValidationResult with a ValidationError(UNKNOWN_ERROR)      *       * @return the ValidationError instance.      */
 specifier|protected
 specifier|static
 name|ValidationResult
@@ -2574,7 +2574,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Check that the hexa string contains only an even number of Hexadecimal characters. Once it is done, reset the      * offset at the beginning of the string and call {@link BaseParser#parseCOSString()}      * @deprecated Not needed anymore. Use {@link #COSString()} instead. PDFBOX-1437      */
+comment|/**      * Check that the hexa string contains only an even number of Hexadecimal characters. Once it is done, reset the      * offset at the beginning of the string and call {@link BaseParser#parseCOSString()}      * @deprecated Not needed anymore. Use {@link #parseCOSString()} instead. PDFBOX-1437      */
 annotation|@
 name|Override
 annotation|@

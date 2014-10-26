@@ -243,7 +243,7 @@ name|void
 name|initializeClasses
 parameter_list|()
 function_decl|;
-comment|/**      * Return an instance of AnnotationValidator.      *       * @param ctx      * @param annotDic      * @return      */
+comment|/**      * Return an instance of AnnotationValidator.      *       * @param ctx the preflight context.      * @param annotDic the annotation dictionary.      * @return the AnnotationValidator instance.      */
 specifier|public
 specifier|final
 name|AnnotationValidator

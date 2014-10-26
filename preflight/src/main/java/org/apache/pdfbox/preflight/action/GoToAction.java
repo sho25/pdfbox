@@ -162,7 +162,7 @@ name|GoToAction
 extends|extends
 name|AbstractActionManager
 block|{
-comment|/**      *       * @param amFact      *            Instance of ActionManagerFactory used to create ActionManager to check Next actions.      * @param adict      *            the COSDictionary of the action wrapped by this class.      * @param cDoc      *            the COSDocument from which the action comes from.      * @param aa      *            The name of the key which identify the action in a additional action dictionary.      */
+comment|/**      *       * @param amFact Instance of ActionManagerFactory used to create ActionManager to check Next actions.      * @param adict the COSDictionary of the action wrapped by this class.      * @param ctx the preflight context.      * @param aaKey the name of the key which identifies the action in an additional action dictionary.      */
 specifier|public
 name|GoToAction
 parameter_list|(
@@ -176,7 +176,7 @@ name|PreflightContext
 name|ctx
 parameter_list|,
 name|String
-name|aa
+name|aaKey
 parameter_list|)
 block|{
 name|super
@@ -187,7 +187,7 @@ name|adict
 argument_list|,
 name|ctx
 argument_list|,
-name|aa
+name|aaKey
 argument_list|)
 expr_stmt|;
 block|}

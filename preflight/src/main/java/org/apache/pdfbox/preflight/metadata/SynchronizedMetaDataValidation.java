@@ -244,7 +244,7 @@ specifier|public
 class|class
 name|SynchronizedMetaDataValidation
 block|{
-comment|/**      * Analyze if Title embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param dc      *            Dublin Core Schema      * @param ve      *            The list of validation errors      */
+comment|/**      * Analyze if Title embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico the Document Information Dictionary.      * @param dc the Dublin Core Schema.      * @param ve the list of validation errors.      */
 specifier|protected
 name|void
 name|analyzeTitleProperty
@@ -1620,7 +1620,7 @@ return|return
 name|ve
 return|;
 block|}
-comment|/**      * Return a validationError formatted when a schema has not the expected prefix      *       * @param prefFound      * @param prefExpected      * @param schema      * @return      */
+comment|/**      * Return a validationError formatted when a schema has not the expected prefix      *       * @param prefFound      * @param prefExpected      * @param schema      * @return the generated validation error.      */
 specifier|protected
 name|ValidationError
 name|unexpectedPrefixFoundError

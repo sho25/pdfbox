@@ -245,7 +245,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * return true if the elt is a COSDictionary or a reference to a COSDictionary      *       * @param elt      * @param doc      * @return      */
+comment|/**      * return true if the elt is a COSDictionary or a reference to a COSDictionary      *       * @param elt the object to check.      * @param doc the document.      * @return true if the object is a COSDictionary or a reference to it.      */
 specifier|public
 specifier|static
 name|boolean
@@ -323,7 +323,7 @@ name|COSDictionary
 operator|)
 return|;
 block|}
-comment|/**      * return true if the elt is a COSString or a reference to a COSString      *       * @param elt      * @param doc      * @return      */
+comment|/**      * return true if the elt is a COSString or a reference to a COSString      *       * @param elt the object to check.      * @param doc the document.      * @return true if the object is a COSString or a reference to it.      */
 specifier|public
 specifier|static
 name|boolean
@@ -414,7 +414,7 @@ name|COSName
 operator|)
 return|;
 block|}
-comment|/**      * return true if the elt is a COSStream or a reference to a COSStream      *       * @param elt      * @param doc      * @return      */
+comment|/**      * return true if the elt is a COSStream or a reference to a COSStream      *       * @param elt the object to check.      * @param doc the document.      * @return true if the object is a COSStream or a reference to it.      */
 specifier|public
 specifier|static
 name|boolean
@@ -492,7 +492,7 @@ name|COSStream
 operator|)
 return|;
 block|}
-comment|/**      * return true if the elt is a COSInteger or a reference to a COSInteger      *       * @param elt      * @param doc      * @return      */
+comment|/**      * return true if the elt is a COSInteger or a reference to a COSInteger      *       * @param elt the object to check.      * @param doc the document.      * @return true if the object is a COSInteger or a reference to it.      */
 specifier|public
 specifier|static
 name|boolean
@@ -570,7 +570,7 @@ name|COSInteger
 operator|)
 return|;
 block|}
-comment|/**      * return true if elt is COSInteger or COSFloat      *       * @param elt      * @param doc      * @return boolean      */
+comment|/**      * return true if elt is COSInteger or COSFloat      *       * @param elt the object to check.      * @param doc the document.      * @return true if the object is a COSInteger, COSFloat or a reference to it.      */
 specifier|public
 specifier|static
 name|boolean
@@ -599,7 +599,7 @@ name|doc
 argument_list|)
 return|;
 block|}
-comment|/**      * return true if the elt is a COSInteger or a reference to a COSInteger      *       * @param elt      * @param doc      * @return      */
+comment|/**      * return true if the elt is a COSFloat or a reference to a COSFloat      *       * @param elt the object to check.      * @param doc the document.      * @return true if the object is a COSFloat or a reference to it.      */
 specifier|public
 specifier|static
 name|boolean
@@ -677,7 +677,7 @@ name|COSFloat
 operator|)
 return|;
 block|}
-comment|/**      * return true if the elt is a COSArray or a reference to a COSArray      *       * @param elt      * @param doc      * @return      */
+comment|/**      * return true if the elt is a COSArray or a reference to a COSArray      *       * @param elt the object to check.      * @param doc the document.      * @return true if the object is a COSArray or a reference to it.      */
 specifier|public
 specifier|static
 name|boolean
@@ -755,7 +755,7 @@ name|COSArray
 operator|)
 return|;
 block|}
-comment|/**      * Return the COSBase object as COSArray if the COSBase object is an instance of COSArray or a reference to a      * COSArray object. In other cases, this method returns null;      *       * @param cbase      * @param cDoc      * @return      */
+comment|/**      * Return the COSBase object as COSArray if the COSBase object is an instance of COSArray or a reference to a      * COSArray object. In other cases, this method returns null;      *       * @param cbase the object to get.      * @param cDoc the document.      * @return the object as COSArray if the object is a COSArray or a reference to it. Returns null otherwise.      */
 specifier|public
 specifier|static
 name|COSArray
@@ -863,7 +863,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Return the COSBase object as COSString if the COSBase object is an instance of COSString or a reference to a      * COSString object. In other cases, this method returns null;      *       * @param cbase      * @param cDoc      * @return      */
+comment|/**      * Return the COSBase object as COSString if the COSBase object is an instance of COSString or a reference to a      * COSString object. In other cases, this method returns null;      *       * @param cbase the object to get.      * @param cDoc the document.      * @return the object as COSString if the object is a COSString or a reference to it. Returns null otherwise.      */
 specifier|public
 specifier|static
 name|String
@@ -1031,7 +1031,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Return the COSBase object as COSDictionary if the COSBase object is an instance of COSDictionary or a reference      * to a COSDictionary object. In other cases, this method returns null;      *       * @param cbase      * @param cDoc      * @return      */
+comment|/**      * Return the COSBase object as COSDictionary if the COSBase object is an instance of COSDictionary or a reference      * to a COSDictionary object. In other cases, this method returns null;      *       * @param cbase the object to get.      * @param cDoc the document.      * @return the object as COSDictionary if the object is a COSDictionary or a reference to it. Returns null otherwise.      */
 specifier|public
 specifier|static
 name|COSDictionary
@@ -1139,7 +1139,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Return the COSBase object as COSStream if the COSBase object is an instance of COSStream or a reference to a      * COSStream object. In other cases, this method returns null;      *       * @param cbase      * @param cDoc      * @return      */
+comment|/**      * Return the COSBase object as COSStream if the COSBase object is an instance of COSStream or a reference to a      * COSStream object. In other cases, this method returns null;      *       * @param cbase the object to get.      * @param cDoc the document.      * @return the object as COSStream if the object is a COSStream or a reference to it. Returns null otherwise.      */
 specifier|public
 specifier|static
 name|COSStream
@@ -1247,7 +1247,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Return the COSBase object as Float if the COSBase object is an instance of COSFloat or a reference to a COSFloat      * object. In other cases, this method returns null;      *       * @param cbase      * @param cDoc      * @return      */
+comment|/**      * Return the COSBase object as Float if the COSBase object is an instance of COSFloat or a reference to a COSFloat      * object. In other cases, this method returns null;      *       * @param cbase the object to get.      * @param cDoc the document.      * @return the object as Float if the object is a COSFloat or a reference to it. Returns null otherwise.      */
 specifier|public
 specifier|static
 name|Float
@@ -1425,7 +1425,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Return the COSBase object as Integer if the COSBase object is an instance of COSInteger or a reference to a      * COSInteger object. In other cases, this method returns null;      *       * @param cbase      * @param cDoc      * @return      */
+comment|/**      * Return the COSBase object as Integer if the COSBase object is an instance of COSInteger or a reference to a      * COSInteger object. In other cases, this method returns null;      *       * @param cbase the object to get.      * @param cDoc the document.      * @return the object as Integer if the object is a COSInteger or a reference to it. Returns null otherwise.      */
 specifier|public
 specifier|static
 name|Integer
@@ -1597,7 +1597,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Close the given Document. If the close method of the document throws an      * exception, it is logged using a commons logger (Level : WARN)      *      * @param document      */
+comment|/**      * Close the given Document. If the close method of the document throws an      * exception, it is logged using a commons logger (Level : WARN)      *      * @param document the document.      */
 specifier|public
 specifier|static
 name|void
@@ -1643,7 +1643,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Close the given Document. If the close method of the document throws an      * exception, it is logged using a commons logger (Level : WARN)       *       * @param document      */
+comment|/**      * Close the given Document. If the close method of the document throws an      * exception, it is logged using a commons logger (Level : WARN)       *       * @param document the document.      */
 specifier|public
 specifier|static
 name|void

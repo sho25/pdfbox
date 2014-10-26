@@ -1111,7 +1111,7 @@ name|PDFontDescriptor
 name|fontDescriptor
 parameter_list|)
 function_decl|;
-comment|/**      * Return true if the FontDescriptor has only one FontFile entry.      *       * @param fontDescriptor      * @return      */
+comment|/**      * Return true if the FontDescriptor has only one FontFile entry.      *       * @param fontDescriptor      * @return true if the FontDescriptor has only one FontFile entry.      */
 specifier|protected
 name|boolean
 name|hasOnlyOneFontFile

@@ -1084,7 +1084,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * Check if metadata dictionary has no stream filter      *       * @param doc      * @return      */
+comment|/**      * Check if metadata dictionary has no stream filter      *       * @param doc the document to check.      * @return the list of validation errors.      */
 specifier|protected
 name|List
 argument_list|<

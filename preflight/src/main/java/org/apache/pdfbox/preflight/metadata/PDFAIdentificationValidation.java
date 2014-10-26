@@ -196,7 +196,7 @@ specifier|public
 class|class
 name|PDFAIdentificationValidation
 block|{
-comment|/**      * Check if PDFAIdentification is valid      *       * @param document      *            the PDF Document      * @param metadata      *            the XMP MetaData      * @return List of validation errors      * @throws ValidationException      */
+comment|/**      * Check if PDFAIdentification is valid      *       * @param metadata the XMP MetaData.      * @return the list of validation errors.      * @throws ValidationException      */
 specifier|public
 name|List
 argument_list|<
@@ -393,7 +393,7 @@ return|return
 name|ve
 return|;
 block|}
-comment|/**      * Return a validationError formatted when a schema has not the expected prefix      *       * @param prefFound      * @param prefExpected      * @param schema      * @return      */
+comment|/**      * Return a validationError formatted when a schema has not the expected prefix      *       * @param prefFound      * @param prefExpected      * @param schema      * @return the validation error.      */
 specifier|protected
 name|ValidationError
 name|unexpectedPrefixFoundError
