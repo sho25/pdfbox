@@ -803,23 +803,6 @@ name|form
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Shows a Type 3 character.      *      * @param charProc Type 3 character procedure      * @throws IOException if the character cannot be processed      */
-specifier|public
-name|void
-name|showType3Character
-parameter_list|(
-name|PDType3CharProc
-name|charProc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|processChildStream
-argument_list|(
-name|charProc
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Process a child stream of the current page. For use with #processPage(PDPage).      *      * @param contentStream the child content stream      * @throws IOException if there is an exception while processing the stream      */
 specifier|public
 name|void
@@ -978,7 +961,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process a content stream.      *      * @param contentStream the content stream      *  @param patternBBox fixme: temporary workaround for tiling patterns      * @throws IOException if there is an exception while processing the stream      */
+comment|/**      * Process a content stream.      *      * @param contentStream the content stream      * @param patternBBox fixme: temporary workaround for tiling patterns      * @throws IOException if there is an exception while processing the stream      */
 specifier|private
 name|void
 name|processStream
@@ -994,6 +977,11 @@ name|IOException
 block|{
 comment|// resource lookup: first look for stream resources, then fallback to the current page
 name|PDResources
+name|parentResources
+init|=
+name|resources
+decl_stmt|;
+name|PDResources
 name|streamResources
 init|=
 name|contentStream
@@ -1003,10 +991,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|contentStream
-operator|.
-name|getResources
-argument_list|()
+name|streamResources
 operator|!=
 literal|null
 condition|)
@@ -1078,6 +1063,20 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|clip
+operator|.
+name|transform
+argument_list|(
+name|getGraphicsState
+argument_list|()
+operator|.
+name|getCurrentTransformationMatrix
+argument_list|()
+operator|.
+name|createAffineTransform
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|saveGraphicsState
 argument_list|()
 expr_stmt|;
@@ -1249,6 +1248,11 @@ name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
 block|}
+comment|// restore page resources
+name|resources
+operator|=
+name|parentResources
+expr_stmt|;
 comment|// fixme: stream matrix
 name|subStreamMatrix
 operator|=
