@@ -26,7 +26,7 @@ specifier|final
 name|CFFCIDFont
 name|owner
 decl_stmt|;
-comment|/** 	 * Constructor.      * 	 * @param owner the owner of the FDSelect data. 	 */
+comment|/**      * Constructor.      *      * @param owner the owner of the FDSelect data.      */
 specifier|public
 name|FDSelect
 parameter_list|(
@@ -41,7 +41,7 @@ operator|=
 name|owner
 expr_stmt|;
 block|}
-comment|/** 	 * Returns the Font DICT index for the given GID. 	 *   	 * @param gid GID 	 */
+comment|/**      * Returns the Font DICT index for the given GID.      *       * @param gid GID      */
 specifier|public
 specifier|abstract
 name|int
