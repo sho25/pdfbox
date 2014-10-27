@@ -938,10 +938,9 @@ return|;
 block|}
 comment|/**      * Returns the number of leaf nodes (page objects) that are descendants of this root within the      * page tree.      */
 specifier|public
-name|long
+name|int
 name|getCount
 parameter_list|()
-comment|// todo: make this an 'int'? What is the page limit?
 block|{
 return|return
 name|root

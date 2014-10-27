@@ -1002,9 +1002,6 @@ decl_stmt|;
 name|int
 name|pageCount
 init|=
-operator|(
-name|int
-operator|)
 name|catalog
 operator|.
 name|getPages
@@ -3882,9 +3879,6 @@ name|getNumberOfPages
 parameter_list|()
 block|{
 return|return
-operator|(
-name|int
-operator|)
 name|getDocumentCatalog
 argument_list|()
 operator|.
