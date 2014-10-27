@@ -192,7 +192,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a PDF annotation.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * A PDF annotation.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -960,17 +960,12 @@ name|getDictionary
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the name of the current appearance stream if any.      *       * @return The name of the appearance stream.      */
+comment|/**      * Returns the annotations appearance state, which selects the applicable appearance stream      * from an appearance subdictionary.      */
 specifier|public
-name|String
-name|getAppearanceStream
+name|COSName
+name|getAppearanceState
 parameter_list|()
 block|{
-name|String
-name|retval
-init|=
-literal|null
-decl_stmt|;
 name|COSName
 name|name
 init|=
@@ -994,22 +989,18 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|retval
-operator|=
-name|name
-operator|.
-name|getName
-argument_list|()
-expr_stmt|;
-block|}
 return|return
-name|retval
+name|name
 return|;
 block|}
-comment|/**      * This will set the annotations appearance stream name.      *       * @param as The name of the appearance stream.      */
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * This will set the annotations appearance state name.      *       * @param as The name of the appearance stream.      */
 specifier|public
 name|void
-name|setAppearanceStream
+name|setAppearanceState
 parameter_list|(
 name|String
 name|as
@@ -1125,7 +1116,7 @@ name|ap
 operator|=
 name|appearance
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 expr_stmt|;
 block|}
@@ -1140,6 +1131,84 @@ argument_list|,
 name|ap
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Returns the appearance stream for this annotation, if any. The annotation state is taken      * into account, if present.      */
+specifier|public
+name|PDAppearanceStream
+name|getNormalAppearanceStream
+parameter_list|()
+block|{
+name|PDAppearanceDictionary
+name|appearanceDict
+init|=
+name|getAppearance
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|appearanceDict
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+name|PDAppearanceEntry
+name|normalAppearance
+init|=
+name|appearanceDict
+operator|.
+name|getNormalAppearance
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|normalAppearance
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
+name|normalAppearance
+operator|.
+name|isSubDictionary
+argument_list|()
+condition|)
+block|{
+name|COSName
+name|state
+init|=
+name|getAppearanceState
+argument_list|()
+decl_stmt|;
+return|return
+name|normalAppearance
+operator|.
+name|getSubDictionary
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|state
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|normalAppearance
+operator|.
+name|getAppearanceStream
+argument_list|()
+return|;
+block|}
 block|}
 comment|/**      * Get the invisible flag.      *       * @return The invisible flag.      */
 specifier|public

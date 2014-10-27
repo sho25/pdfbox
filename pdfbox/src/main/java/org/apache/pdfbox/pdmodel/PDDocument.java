@@ -1492,7 +1492,7 @@ argument_list|)
 expr_stmt|;
 name|ap
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setDirect
@@ -1745,7 +1745,7 @@ argument_list|)
 decl_stmt|;
 name|ap
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setDirect

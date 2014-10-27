@@ -541,7 +541,7 @@ block|}
 comment|// TODO where to get acroForm from?
 comment|//    public PDField getParent() throws IOException
 comment|//    {
-comment|//        COSBase parent = this.getDictionary().getDictionaryObject(COSName.PARENT);
+comment|//        COSBase parent = this.getCOSObject().getDictionaryObject(COSName.PARENT);
 comment|//        if (parent instanceof COSDictionary)
 comment|//        {
 comment|//            PDAcroForm acroForm = null;

@@ -748,7 +748,7 @@ name|apDict
 init|=
 name|ap
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 comment|// Only N entry is authorized
