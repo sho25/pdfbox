@@ -491,7 +491,7 @@ name|COSDictionary
 operator|)
 name|PDPageTree
 operator|.
-name|getInheritedAttribute
+name|getInheritableAttribute
 argument_list|(
 name|page
 argument_list|,
@@ -640,7 +640,7 @@ name|COSArray
 operator|)
 name|PDPageTree
 operator|.
-name|getInheritedAttribute
+name|getInheritableAttribute
 argument_list|(
 name|page
 argument_list|,
@@ -731,7 +731,7 @@ name|COSArray
 operator|)
 name|PDPageTree
 operator|.
-name|getInheritedAttribute
+name|getInheritableAttribute
 argument_list|(
 name|page
 argument_list|,
@@ -1218,7 +1218,7 @@ name|COSNumber
 operator|)
 name|PDPageTree
 operator|.
-name|getInheritedAttribute
+name|getInheritableAttribute
 argument_list|(
 name|page
 argument_list|,

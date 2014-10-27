@@ -147,16 +147,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -291,7 +281,7 @@ comment|/**      * Returns the given attribute, inheriting from parent tree node
 specifier|public
 specifier|static
 name|COSBase
-name|getInheritedAttribute
+name|getInheritableAttribute
 parameter_list|(
 name|COSDictionary
 name|node
@@ -348,7 +338,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|getInheritedAttribute
+name|getInheritableAttribute
 argument_list|(
 name|parent
 argument_list|,
