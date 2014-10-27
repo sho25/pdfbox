@@ -391,7 +391,7 @@ name|ConflictObj
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * COSStream objects to check for length correctness      */
+comment|/**      * COSStream objects to check for length correctness.      */
 specifier|private
 specifier|final
 name|HashSet

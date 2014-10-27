@@ -562,6 +562,7 @@ name|raInput
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -579,6 +580,7 @@ operator|+
 literal|" is not seekable."
 argument_list|)
 throw|;
+block|}
 comment|// clear unread buffer by skipping over all bytes of buffer
 name|int
 name|unreadLength

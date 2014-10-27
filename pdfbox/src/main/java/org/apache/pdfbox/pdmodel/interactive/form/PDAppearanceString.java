@@ -438,7 +438,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default appearance string contains any graphics state or text state operators needed to establish the graphics  * state parameters, such as text size and colour, for displaying the field?s variable text. Only operators that are  * allowed within text objects shall occur in this string.  *  * @author Stephan Gerhard  * @author Ben Litchfield  */
+comment|/**  * A default appearance string contains any graphics state or text state operators needed to establish the graphics  * state parameters, such as text size and colour, for displaying the field's variable text. Only operators that are  * allowed within text objects shall occur in this string.  *  * @author Stephan Gerhard  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -2139,6 +2139,17 @@ name|isMultiLineValue
 argument_list|(
 name|value
 argument_list|)
+operator|||
+name|stringWidth
+operator|>
+name|borderEdge
+operator|.
+name|getWidth
+argument_list|()
+operator|-
+name|paddingLeft
+operator|-
+name|paddingRight
 condition|)
 block|{
 name|printWriter
@@ -2164,7 +2175,7 @@ else|else
 block|{
 name|String
 index|[]
-name|lines
+name|paragraphs
 init|=
 name|value
 operator|.
@@ -2182,7 +2193,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|lines
+name|paragraphs
 operator|.
 name|length
 condition|;
@@ -2196,7 +2207,7 @@ init|=
 name|i
 operator|==
 operator|(
-name|lines
+name|paragraphs
 operator|.
 name|length
 operator|-
@@ -2221,7 +2232,7 @@ operator|+
 operator|new
 name|COSString
 argument_list|(
-name|lines
+name|paragraphs
 index|[
 name|i
 index|]

@@ -238,7 +238,7 @@ specifier|public
 interface|interface
 name|PDFTemplateBuilder
 block|{
-comment|/**      * In order to create Affine Transform, using parameters      * @param params      */
+comment|/**      * In order to create Affine Transform, using parameters.      * @param params      */
 specifier|public
 name|void
 name|createAffineTransform
@@ -248,7 +248,7 @@ index|[]
 name|params
 parameter_list|)
 function_decl|;
-comment|/** 	 * Creates specified size page 	 * @param properties 	 */
+comment|/**      * Creates specified size page.      *       * @param properties      */
 specifier|public
 name|void
 name|createPage
@@ -257,7 +257,7 @@ name|PDVisibleSignDesigner
 name|properties
 parameter_list|)
 function_decl|;
-comment|/** 	 * Creates template using page 	 * @param page 	 * @throws IOException 	 */
+comment|/**      * Creates template using page.      *       * @param page      * @throws IOException      */
 specifier|public
 name|void
 name|createTemplate
@@ -268,7 +268,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** 	 * Creates Acro forms in the template 	 * @param template 	 */
+comment|/**      * Creates Acro forms in the template.      *       * @param template      */
 specifier|public
 name|void
 name|createAcroForm
@@ -277,7 +277,7 @@ name|PDDocument
 name|template
 parameter_list|)
 function_decl|;
-comment|/** 	 * Creates signature fields 	 * @param acroForm 	 * @throws IOException 	 */
+comment|/**      * Creates signature fields.      *       * @param acroForm      * @throws IOException      */
 specifier|public
 name|void
 name|createSignatureField
@@ -288,7 +288,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** 	 * Creates PDSignatureField 	 * @param pdSignatureField 	 * @param page 	 * @param signatureName 	 * @throws IOException 	 */
+comment|/**      * Creates PDSignatureField.      *       * @param pdSignatureField      * @param page      * @param signatureName      * @throws IOException      */
 specifier|public
 name|void
 name|createSignature
@@ -305,7 +305,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** 	 * Create AcroForm Dictionary 	 * @param acroForm 	 * @param signatureField 	 * @throws IOException 	 */
+comment|/**      * Create AcroForm Dictionary.      *       * @param acroForm      * @param signatureField      * @throws IOException      */
 specifier|public
 name|void
 name|createAcroFormDictionary
@@ -319,7 +319,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** 	 * Creates SingatureRectangle 	 * @param signatureField 	 * @param properties 	 * @throws IOException 	 */
+comment|/**      * Creates SingatureRectangle.      *       * @param signatureField      * @param properties      * @throws IOException      */
 specifier|public
 name|void
 name|createSignatureRectangle
@@ -333,13 +333,13 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** 	 * Creates procSetArray of PDF,Text,ImageB,ImageC,ImageI     	 */
+comment|/**      * Creates procSetArray of PDF,Text,ImageB,ImageC,ImageI.      */
 specifier|public
 name|void
 name|createProcSetArray
 parameter_list|()
 function_decl|;
-comment|/**      * Creates signature image      * @param template      * @param image      * @throws IOException      */
+comment|/**      * Creates signature image.      * @param template      * @param image      * @throws IOException      */
 specifier|public
 name|void
 name|createSignatureImage
@@ -353,7 +353,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** 	 *  	 * @param params 	 */
+comment|/**      *       * @param params      */
 specifier|public
 name|void
 name|createFormaterRectangle
@@ -363,7 +363,7 @@ index|[]
 name|params
 parameter_list|)
 function_decl|;
-comment|/** 	 *  	 * @param template 	 */
+comment|/**      *       * @param template      */
 specifier|public
 name|void
 name|createHolderFormStream
@@ -372,13 +372,13 @@ name|PDDocument
 name|template
 parameter_list|)
 function_decl|;
-comment|/** 	 * Creates resources of form 	 */
+comment|/**      * Creates resources of form      */
 specifier|public
 name|void
 name|createHolderFormResources
 parameter_list|()
 function_decl|;
-comment|/** 	 * Creates Form 	 * @param holderFormResources 	 * @param holderFormStream 	 * @param formrect 	 */
+comment|/**      * Creates Form      *       * @param holderFormResources      * @param holderFormStream      * @param formrect      */
 specifier|public
 name|void
 name|createHolderForm
@@ -393,7 +393,7 @@ name|PDRectangle
 name|formrect
 parameter_list|)
 function_decl|;
-comment|/** 	 * Creates appearance dictionary 	 * @param holderForml 	 * @param signatureField 	 * @throws IOException 	 */
+comment|/**      * Creates appearance dictionary      *       * @param holderForml      * @param signatureField      * @throws IOException      */
 specifier|public
 name|void
 name|createAppearanceDictionary
@@ -407,7 +407,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** 	 *  	 * @param template 	 */
+comment|/**      *       * @param template      */
 specifier|public
 name|void
 name|createInnerFormStream
@@ -416,13 +416,13 @@ name|PDDocument
 name|template
 parameter_list|)
 function_decl|;
-comment|/** 	 * Creates InnerForm 	 */
+comment|/**      * Creates InnerForm      */
 specifier|public
 name|void
 name|createInnerFormResource
 parameter_list|()
 function_decl|;
-comment|/** 	 *  	 * @param innerFormResources 	 * @param innerFormStream 	 * @param formrect 	 */
+comment|/**      *       * @param innerFormResources      * @param innerFormStream      * @param formrect      */
 specifier|public
 name|void
 name|createInnerForm
@@ -437,7 +437,7 @@ name|PDRectangle
 name|formrect
 parameter_list|)
 function_decl|;
-comment|/** 	 *  	 * @param innerForm 	 * @param holderFormResources 	 */
+comment|/**      *       * @param innerForm      * @param holderFormResources      */
 specifier|public
 name|void
 name|insertInnerFormToHolerResources
@@ -449,7 +449,7 @@ name|PDResources
 name|holderFormResources
 parameter_list|)
 function_decl|;
-comment|/** 	 *  	 * @param template 	 */
+comment|/**      *       * @param template      */
 specifier|public
 name|void
 name|createImageFormStream
@@ -458,13 +458,13 @@ name|PDDocument
 name|template
 parameter_list|)
 function_decl|;
-comment|/** 	 * Create resource of image form 	 */
+comment|/**      * Create resource of image form      */
 specifier|public
 name|void
 name|createImageFormResources
 parameter_list|()
 function_decl|;
-comment|/** 	 * Creates Image form 	 * @param imageFormResources 	 * @param innerFormResource 	 * @param imageFormStream 	 * @param formrect 	 * @param affineTransform 	 * @param img 	 * @throws IOException 	 */
+comment|/**      * Creates Image form      *       * @param imageFormResources      * @param innerFormResource      * @param imageFormStream      * @param formrect      * @param affineTransform      * @param img      * @throws IOException      */
 specifier|public
 name|void
 name|createImageForm
@@ -490,7 +490,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** 	 * Inject procSetArray  	 * @param innerForm 	 * @param page 	 * @param innerFormResources 	 * @param imageFormResources 	 * @param holderFormResources 	 * @param procSet 	 */
+comment|/**      * Inject procSetArray      *       * @param innerForm      * @param page      * @param innerFormResources      * @param imageFormResources      * @param holderFormResources      * @param procSet      */
 specifier|public
 name|void
 name|injectProcSetArray
@@ -514,7 +514,7 @@ name|COSArray
 name|procSet
 parameter_list|)
 function_decl|;
-comment|/** 	 * injects appearance streams 	 * @param holderFormStream 	 * @param innterFormStream 	 * @param imageFormStream 	 * @param imageObjectName 	 * @param imageName 	 * @param innerFormName 	 * @param properties 	 * @throws IOException 	 */
+comment|/**      * injects appearance streams      *       * @param holderFormStream      * @param innterFormStream      * @param imageFormStream      * @param imageObjectName      * @param imageName      * @param innerFormName      * @param properties      * @throws IOException      */
 specifier|public
 name|void
 name|injectAppearanceStreams
@@ -543,7 +543,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** 	 * just to create visible signature 	 * @param template 	 */
+comment|/**      * just to create visible signature      *       * @param template      */
 specifier|public
 name|void
 name|createVisualSignature
@@ -552,7 +552,7 @@ name|PDDocument
 name|template
 parameter_list|)
 function_decl|;
-comment|/** 	 * adds Widget Dictionary 	 * @param signatureField 	 * @param holderFormResources 	 * @throws IOException 	 */
+comment|/**      * adds Widget Dictionary      *       * @param signatureField      * @param holderFormResources      * @throws IOException      */
 specifier|public
 name|void
 name|createWidgetDictionary
@@ -566,13 +566,13 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** 	 *  	 * @return - PDF template Structure 	 */
+comment|/**      *       * @return - PDF template Structure      */
 specifier|public
 name|PDFTemplateStructure
 name|getStructure
 parameter_list|()
 function_decl|;
-comment|/** 	 * Closes template 	 * @param template 	 * @throws IOException 	 */
+comment|/**      * Closes template      *       * @param template      * @throws IOException      */
 specifier|public
 name|void
 name|closeTemplate

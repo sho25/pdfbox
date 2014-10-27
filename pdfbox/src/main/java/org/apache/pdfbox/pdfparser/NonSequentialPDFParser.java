@@ -668,6 +668,7 @@ name|X
 init|=
 literal|'x'
 decl_stmt|;
+comment|/**      * Only parse the PDF file minimally allowing access to basic information.      */
 specifier|public
 specifier|static
 specifier|final
@@ -676,6 +677,7 @@ name|SYSPROP_PARSEMINIMAL
 init|=
 literal|"org.apache.pdfbox.pdfparser.nonSequentialPDFParser.parseMinimal"
 decl_stmt|;
+comment|/**      * The range within the %%EOF marker will be searched.      * Useful if there are additional characters after %%EOF within the PDF.       */
 specifier|public
 specifier|static
 specifier|final
@@ -700,6 +702,7 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
+comment|/**      * How many trailing bytes to read for EOF marker.      */
 specifier|protected
 specifier|static
 specifier|final
@@ -802,7 +805,7 @@ name|isLenient
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Contains all found objects of a brute force search      */
+comment|/**      * Contains all found objects of a brute force search.      */
 specifier|private
 name|HashMap
 argument_list|<
@@ -911,6 +914,7 @@ name|isTmpPDFFile
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * The prefix for the temp file being used.       */
 specifier|public
 specifier|static
 specifier|final
@@ -944,7 +948,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs parser for given file using memory buffer.      *       * @param filename the filename of the pdf to be parsed      *       * @throws IOException If something went wrong.      */
+comment|/**      * Constructs parser for given file using memory buffer.      *       * @param filename the filename of the pdf to be parsed.      * @param useScratchFiles use a buffer for temporary storage.      *       * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -991,7 +995,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs parser for given file using given buffer for temporary      * storage.      *       * @param file the pdf to be parsed      *       * @throws IOException If something went wrong.      */
+comment|/**      * Constructs parser for given file using given buffer for temporary      * storage.      *       * @param file the pdf to be parsed      * @param useScratchFiles use a buffer for temporary storage.      *       * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -1037,7 +1041,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs parser for given file using given buffer for temporary storage.      *       * @param file the pdf to be parsed      * @param decryptionPassword password to be used for decryption      *       * @throws IOException If something went wrong.      */
+comment|/**      * Constructs parser for given file using given buffer for temporary storage.      *       * @param file the pdf to be parsed.      * @param decryptionPassword password to be used for decryption.      * @param useScratchFiles use a buffer for temporary storage.      *       * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -1197,7 +1201,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param input input stream representing the pdf.      * @throws IOException If something went wrong.      */
+comment|/**      * Constructor.      *       * @param input input stream representing the pdf.      * @param useScratchFiles use a buffer for temporary storage.      *       * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -1243,7 +1247,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param input input stream representing the pdf.      * @param decryptionPassword password to be used for decryption.      * @throws IOException If something went wrong.      */
+comment|/**      * Constructor.      *       * @param input input stream representing the pdf.      * @param decryptionPassword password to be used for decryption.      * @param useScratchFiles use a buffer for temporary storage.      *      * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
 parameter_list|(
@@ -2986,7 +2990,7 @@ return|return
 name|isLenient
 return|;
 block|}
-comment|/**      * Change the parser leniency flag.      *      * This method can only be called before the parsing of the file.      *      * @param lenient      *      * @throws IllegalArgumentException if the method is called after parsing.      */
+comment|/**      * Change the parser leniency flag.      *      * This method can only be called before the parsing of the file.      *      * @param lenient try to handle malformed PDFs.      *      * @throws IllegalArgumentException if the method is called after parsing.      */
 specifier|public
 name|void
 name|setLenient

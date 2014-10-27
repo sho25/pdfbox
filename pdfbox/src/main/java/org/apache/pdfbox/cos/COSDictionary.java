@@ -124,7 +124,7 @@ name|PATH_SEPARATOR
 init|=
 literal|"/"
 decl_stmt|;
-comment|/** 	 * The name-value pairs of this dictionary. The pairs are kept in the 	 * order they were added to the dictionary. 	 */
+comment|/**      * The name-value pairs of this dictionary. The pairs are kept in the order they were added to the dictionary.      */
 specifier|protected
 name|Map
 argument_list|<
@@ -143,14 +143,14 @@ name|COSBase
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Constructor. 	 */
+comment|/**      * Constructor.      */
 specifier|public
 name|COSDictionary
 parameter_list|()
 block|{
-comment|//default constructor
+comment|// default constructor
 block|}
-comment|/** 	 * Copy Constructor.  This will make a shallow copy of this dictionary. 	 * 	 * @param dict The dictionary to copy. 	 */
+comment|/**      * Copy Constructor. This will make a shallow copy of this dictionary.      *      * @param dict The dictionary to copy.      */
 specifier|public
 name|COSDictionary
 parameter_list|(
@@ -168,7 +168,7 @@ name|items
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * @see java.util.Map#containsValue(java.lang.Object) 	 * 	 * @param value The value to find in the map. 	 * 	 * @return true if the map contains this value. 	 */
+comment|/**      * @see java.util.Map#containsValue(java.lang.Object)      *      * @param value The value to find in the map.      *      * @return true if the map contains this value.      */
 specifier|public
 name|boolean
 name|containsValue
@@ -219,7 +219,7 @@ return|return
 name|contains
 return|;
 block|}
-comment|/** 	 * Search in the map for the value that matches the parameter 	 * and return the first key that maps to that value. 	 * 	 * @param value The value to search for in the map. 	 * @return The key for the value in the map or null if it does not exist. 	 */
+comment|/**      * Search in the map for the value that matches the parameter and return the first key that maps to that value.      *      * @param value The value to search for in the map.      * @return The key for the value in the map or null if it does not exist.      */
 specifier|public
 name|COSName
 name|getKeyForValue
@@ -297,7 +297,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** 	 * This will return the number of elements in this dictionary. 	 * 	 * @return The number of elements in the dictionary. 	 */
+comment|/**      * This will return the number of elements in this dictionary.      *      * @return The number of elements in the dictionary.      */
 specifier|public
 name|int
 name|size
@@ -310,7 +310,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/** 	 * This will clear all items in the map. 	 */
+comment|/**      * This will clear all items in the map.      */
 specifier|public
 name|void
 name|clear
@@ -322,7 +322,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * This will get an object from this dictionary.  If the object is a reference then it will 	 * dereference it and get it from the document.  If the object is COSNull then 	 * null will be returned. 	 * 	 * @param key The key to the object that we are getting. 	 * 	 * @return The object that matches the key. 	 */
+comment|/**      * This will get an object from this dictionary. If the object is a reference then it will dereference it and get it      * from the document. If the object is COSNull then null will be returned.      *      * @param key The key to the object that we are getting.      *      * @return The object that matches the key.      */
 specifier|public
 name|COSBase
 name|getDictionaryObject
@@ -343,7 +343,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a special case of getDictionaryObject that takes multiple keys, it will handle 	 * the situation where multiple keys could get the same value, ie if either CS or ColorSpace 	 * is used to get the colorspace. 	 * This will get an object from this dictionary.  If the object is a reference then it will 	 * dereference it and get it from the document.  If the object is COSNull then 	 * null will be returned. 	 * 	 * @param firstKey The first key to try. 	 * @param secondKey The second key to try. 	 * 	 * @return The object that matches the key. 	 */
+comment|/**      * This is a special case of getDictionaryObject that takes multiple keys, it will handle the situation where      * multiple keys could get the same value, ie if either CS or ColorSpace is used to get the colorspace. This will      * get an object from this dictionary. If the object is a reference then it will dereference it and get it from the      * document. If the object is COSNull then null will be returned.      *      * @param firstKey The first key to try.      * @param secondKey The second key to try.      *      * @return The object that matches the key.      */
 specifier|public
 name|COSBase
 name|getDictionaryObject
@@ -386,7 +386,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a special case of getDictionaryObject that takes multiple keys, it will handle 	 * the situation where multiple keys could get the same value, ie if either CS or ColorSpace 	 * is used to get the colorspace. 	 * This will get an object from this dictionary.  If the object is a reference then it will 	 * dereference it and get it from the document.  If the object is COSNull then 	 * null will be returned. 	 * 	 * @param keyList The list of keys to find a value. 	 * 	 * @return The object that matches the key. 	 */
+comment|/**      * This is a special case of getDictionaryObject that takes multiple keys, it will handle the situation where      * multiple keys could get the same value, ie if either CS or ColorSpace is used to get the colorspace. This will      * get an object from this dictionary. If the object is a reference then it will dereference it and get it from the      * document. If the object is COSNull then null will be returned.      *      * @param keyList The list of keys to find a value.      *      * @return The object that matches the key.      */
 specifier|public
 name|COSBase
 name|getDictionaryObject
@@ -442,7 +442,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This will get an object from this dictionary.  If the object is a reference then it will 	 * dereference it and get it from the document.  If the object is COSNull then 	 * null will be returned. 	 * 	 * @param key The key to the object that we are getting. 	 * 	 * @return The object that matches the key. 	 */
+comment|/**      * This will get an object from this dictionary. If the object is a reference then it will dereference it and get it      * from the document. If the object is COSNull then null will be returned.      *      * @param key The key to the object that we are getting.      *      * @return The object that matches the key.      */
 specifier|public
 name|COSBase
 name|getDictionaryObject
@@ -497,7 +497,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This will set an item in the dictionary.  If value is null then the result 	 * will be the same as removeItem( key ). 	 * 	 * @param key The key to the dictionary object. 	 * @param value The value to the dictionary object. 	 */
+comment|/**      * This will set an item in the dictionary. If value is null then the result will be the same as removeItem( key ).      *      * @param key The key to the dictionary object.      * @param value The value to the dictionary object.      */
 specifier|public
 name|void
 name|setItem
@@ -535,7 +535,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * This will set an item in the dictionary.  If value is null then the result 	 * will be the same as removeItem( key ). 	 * 	 * @param key The key to the dictionary object. 	 * @param value The value to the dictionary object. 	 */
+comment|/**      * This will set an item in the dictionary. If value is null then the result will be the same as removeItem( key ).      *      * @param key The key to the dictionary object.      * @param value The value to the dictionary object.      */
 specifier|public
 name|void
 name|setItem
@@ -575,7 +575,7 @@ name|base
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This will set an item in the dictionary.  If value is null then the result 	 * will be the same as removeItem( key ). 	 * 	 * @param key The key to the dictionary object. 	 * @param value The value to the dictionary object. 	 */
+comment|/**      * This will set an item in the dictionary. If value is null then the result will be the same as removeItem( key ).      *      * @param key The key to the dictionary object.      * @param value The value to the dictionary object.      */
 specifier|public
 name|void
 name|setItem
@@ -600,7 +600,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This will set an item in the dictionary. 	 * 	 * @param key The key to the dictionary object. 	 * @param value The value to the dictionary object. 	 */
+comment|/**      * This will set an item in the dictionary.      *      * @param key The key to the dictionary object.      * @param value The value to the dictionary object.      */
 specifier|public
 name|void
 name|setBoolean
@@ -630,7 +630,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This will set an item in the dictionary. 	 * 	 * @param key The key to the dictionary object. 	 * @param value The value to the dictionary object. 	 */
+comment|/**      * This will set an item in the dictionary.      *      * @param key The key to the dictionary object.      * @param value The value to the dictionary object.      */
 specifier|public
 name|void
 name|setBoolean
@@ -655,7 +655,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This will set an item in the dictionary.  If value is null then the result 	 * will be the same as removeItem( key ). 	 * 	 * @param key The key to the dictionary object. 	 * @param value The value to the dictionary object. 	 */
+comment|/**      * This will set an item in the dictionary. If value is null then the result will be the same as removeItem( key ).      *      * @param key The key to the dictionary object.      * @param value The value to the dictionary object.      */
 specifier|public
 name|void
 name|setItem
@@ -680,7 +680,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSName 	 * object.  If it is null then the object will be removed. 	 * 	 * @param key The key to the object, 	 * @param value The string value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSName object. If it is null then the object will      * be removed.      *      * @param key The key to the object,      * @param value The string value for the name.      */
 specifier|public
 name|void
 name|setName
@@ -705,7 +705,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSName 	 * object.  If it is null then the object will be removed. 	 * 	 * @param key The key to the object, 	 * @param value The string value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSName object. If it is null then the object will      * be removed.      *      * @param key The key to the object,      * @param value The string value for the name.      */
 specifier|public
 name|void
 name|setName
@@ -747,7 +747,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the value of a date entry in the dictionary. 	 * 	 * @param key The key to the date value. 	 * @param date The date value. 	 */
+comment|/**      * Set the value of a date entry in the dictionary.      *      * @param key The key to the date value.      * @param date The date value.      */
 specifier|public
 name|void
 name|setDate
@@ -772,7 +772,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the date object. 	 * 	 * @param key The key to the date. 	 * @param date The date to set. 	 */
+comment|/**      * Set the date object.      *      * @param key The key to the date.      * @param date The date to set.      */
 specifier|public
 name|void
 name|setDate
@@ -797,7 +797,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the value of a date entry in the dictionary. 	 * 	 * @param embedded The embedded dictionary. 	 * @param key The key to the date value. 	 * @param date The date value. 	 */
+comment|/**      * Set the value of a date entry in the dictionary.      *      * @param embedded The embedded dictionary.      * @param key The key to the date value.      * @param date The date value.      */
 specifier|public
 name|void
 name|setEmbeddedDate
@@ -827,7 +827,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set the date object. 	 * 	 * @param embedded The embedded dictionary. 	 * @param key The key to the date. 	 * @param date The date to set. 	 */
+comment|/**      * Set the date object.      *      * @param embedded The embedded dictionary.      * @param key The key to the date.      * @param date The date to set.      */
 specifier|public
 name|void
 name|setEmbeddedDate
@@ -896,7 +896,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSString 	 * object.  If it is null then the object will be removed. 	 * 	 * @param key The key to the object, 	 * @param value The string value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSString object. If it is null then the object      * will be removed.      *      * @param key The key to the object,      * @param value The string value for the name.      */
 specifier|public
 name|void
 name|setString
@@ -921,7 +921,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSString 	 * object.  If it is null then the object will be removed. 	 * 	 * @param key The key to the object, 	 * @param value The string value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSString object. If it is null then the object      * will be removed.      *      * @param key The key to the object,      * @param value The string value for the name.      */
 specifier|public
 name|void
 name|setString
@@ -962,7 +962,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSString 	 * object.  If it is null then the object will be removed. 	 * 	 * @param embedded The embedded dictionary to set the item in. 	 * @param key The key to the object, 	 * @param value The string value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSString object. If it is null then the object      * will be removed.      *      * @param embedded The embedded dictionary to set the item in.      * @param key The key to the object,      * @param value The string value for the name.      */
 specifier|public
 name|void
 name|setEmbeddedString
@@ -992,7 +992,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSString 	 * object.  If it is null then the object will be removed. 	 * 	 * @param embedded The embedded dictionary to set the item in. 	 * @param key The key to the object, 	 * @param value The string value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSString object. If it is null then the object      * will be removed.      *      * @param embedded The embedded dictionary to set the item in.      * @param key The key to the object,      * @param value The string value for the name.      */
 specifier|public
 name|void
 name|setEmbeddedString
@@ -1061,7 +1061,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSInteger 	 * object. 	 * 	 * @param key The key to the object, 	 * @param value The int value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSInteger object.      *      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setInt
@@ -1086,7 +1086,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSInteger 	 * object. 	 * 	 * @param key The key to the object, 	 * @param value The int value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSInteger object.      *      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setInt
@@ -1111,7 +1111,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSInteger 	 * object. 	 * 	 * @param key The key to the object, 	 * @param value The int value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSInteger object.      *      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setLong
@@ -1136,7 +1136,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSInteger 	 * object. 	 * 	 * @param key The key to the object, 	 * @param value The int value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSInteger object.      *      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setLong
@@ -1170,7 +1170,7 @@ name|intVal
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSInteger 	 * object. 	 * 	 * @param embeddedDictionary The embedded dictionary. 	 * @param key The key to the object, 	 * @param value The int value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSInteger object.      *      * @param embeddedDictionary The embedded dictionary.      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setEmbeddedInt
@@ -1200,7 +1200,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSInteger 	 * object. 	 * 	 * @param embeddedDictionary The embedded dictionary. 	 * @param key The key to the object, 	 * @param value The int value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSInteger object.      *      * @param embeddedDictionary The embedded dictionary.      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setEmbeddedInt
@@ -1257,7 +1257,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSFloat 	 * object. 	 * 	 * @param key The key to the object, 	 * @param value The int value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSFloat object.      *      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setFloat
@@ -1282,7 +1282,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This is a convenience method that will convert the value to a COSFloat 	 * object. 	 * 	 * @param key The key to the object, 	 * @param value The int value for the name. 	 */
+comment|/**      * This is a convenience method that will convert the value to a COSFloat object.      *      * @param key The key to the object,      * @param value The int value for the name.      */
 specifier|public
 name|void
 name|setFloat
@@ -1364,7 +1364,7 @@ name|currentFlags
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that      * is expected to be a name. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The COS name.      */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name. Null is returned      * if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The COS name.      */
 specifier|public
 name|COSName
 name|getCOSName
@@ -1407,7 +1407,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that      * is expected to be a name. Default is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The COS name.      */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name. Default is      * returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The COS name.      */
 specifier|public
 name|COSName
 name|getCOSName
@@ -1453,7 +1453,7 @@ return|return
 name|defaultValue
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getNameAsString
@@ -1474,7 +1474,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getNameAsString
@@ -1549,7 +1549,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The value to return if the dictionary item is null. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getNameAsString
@@ -1575,7 +1575,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The value to return if the dictionary item is null. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getNameAsString
@@ -1611,7 +1611,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getString
@@ -1632,7 +1632,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getString
@@ -1682,7 +1682,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getString
@@ -1708,7 +1708,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getString
@@ -1744,7 +1744,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param embedded The embedded dictionary. 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary.      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getEmbeddedString
@@ -1772,7 +1772,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param embedded The embedded dictionary. 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary.      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getEmbeddedString
@@ -1795,7 +1795,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param embedded The embedded dictionary. 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary.      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getEmbeddedString
@@ -1826,7 +1826,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param embedded The embedded dictionary. 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a string. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary.      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getEmbeddedString
@@ -1880,7 +1880,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary or if the date was invalid. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a date. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary or if the date was invalid.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a date.      */
 specifier|public
 name|Calendar
 name|getDate
@@ -1901,7 +1901,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary or if the date was invalid. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a date. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary or if the date was invalid.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a date.      */
 specifier|public
 name|Calendar
 name|getDate
@@ -1930,7 +1930,7 @@ name|date
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a date.  Null is returned 	 * if the entry does not exist in the dictionary or if the date was invalid. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a date. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a date. Null is returned      * if the entry does not exist in the dictionary or if the date was invalid.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a date.      */
 specifier|public
 name|Calendar
 name|getDate
@@ -1956,7 +1956,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a date.  Null is returned 	 * if the entry does not exist in the dictionary or if the date was invalid. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a date. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a date. Null is returned      * if the entry does not exist in the dictionary or if the date was invalid.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a date.      */
 specifier|public
 name|Calendar
 name|getDate
@@ -1992,7 +1992,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param embedded The embedded dictionary to get. 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a string. 	 * @throws IOException If there is an error converting to a date. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      * @throws IOException If there is an error converting to a date.      */
 specifier|public
 name|Calendar
 name|getEmbeddedDate
@@ -2022,7 +2022,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a name and convert it to a string.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param embedded The embedded dictionary to get. 	 * @param key The key to the item in the dictionary. 	 * @return The name converted to a string. 	 * 	 * @throws IOException If there is an error converting to a date. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      *      * @throws IOException If there is an error converting to a date.      */
 specifier|public
 name|Calendar
 name|getEmbeddedDate
@@ -2047,7 +2047,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a date.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param embedded The embedded dictionary to get. 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a string. 	 * @throws IOException If there is an error converting to a date. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a date. Null is returned      * if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      * @throws IOException If there is an error converting to a date.      */
 specifier|public
 name|Calendar
 name|getEmbeddedDate
@@ -2080,7 +2080,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a date.  Null is returned 	 * if the entry does not exist in the dictionary. 	 * 	 * @param embedded The embedded dictionary to get. 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The default value to return. 	 * @return The name converted to a string. 	 * @throws IOException If there is an error converting to a date. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a date. Null is returned      * if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      * @throws IOException If there is an error converting to a date.      */
 specifier|public
 name|Calendar
 name|getEmbeddedDate
@@ -2136,7 +2136,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a cos boolean and convert it to a primitive boolean. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The value returned if the entry is null. 	 * 	 * @return The value converted to a boolean. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a cos boolean and convert      * it to a primitive boolean.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value returned if the entry is null.      *      * @return The value converted to a boolean.      */
 specifier|public
 name|boolean
 name|getBoolean
@@ -2162,7 +2162,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a COSBoolean and convert it to a primitive boolean. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The value returned if the entry is null. 	 * 	 * @return The entry converted to a boolean. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a COSBoolean and convert      * it to a primitive boolean.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value returned if the entry is null.      *      * @return The entry converted to a boolean.      */
 specifier|public
 name|boolean
 name|getBoolean
@@ -2185,7 +2185,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a COSBoolean and convert it to a primitive boolean. 	 * 	 * @param firstKey The first key to the item in the dictionary. 	 * @param secondKey The second key to the item in the dictionary. 	 * @param defaultValue The value returned if the entry is null. 	 * 	 * @return The entry converted to a boolean. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a COSBoolean and convert      * it to a primitive boolean.      *      * @param firstKey The first key to the item in the dictionary.      * @param secondKey The second key to the item in the dictionary.      * @param defaultValue The value returned if the entry is null.      *      * @return The entry converted to a boolean.      */
 specifier|public
 name|boolean
 name|getBoolean
@@ -2243,7 +2243,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * Get an integer from an embedded dictionary.  Useful for 1-1 mappings.  default:-1 	 * 	 * @param embeddedDictionary The name of the embedded dictionary. 	 * @param key The key in the embedded dictionary. 	 * 	 * @return The value of the embedded integer. 	 */
+comment|/**      * Get an integer from an embedded dictionary. Useful for 1-1 mappings. default:-1      *      * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      *      * @return The value of the embedded integer.      */
 specifier|public
 name|int
 name|getEmbeddedInt
@@ -2269,7 +2269,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get an integer from an embedded dictionary.  Useful for 1-1 mappings.  default:-1 	 * 	 * @param embeddedDictionary The name of the embedded dictionary. 	 * @param key The key in the embedded dictionary. 	 * 	 * @return The value of the embedded integer. 	 */
+comment|/**      * Get an integer from an embedded dictionary. Useful for 1-1 mappings. default:-1      *      * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      *      * @return The value of the embedded integer.      */
 specifier|public
 name|int
 name|getEmbeddedInt
@@ -2293,7 +2293,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get an integer from an embedded dictionary.  Useful for 1-1 mappings. 	 * 	 * @param embeddedDictionary The name of the embedded dictionary. 	 * @param key The key in the embedded dictionary. 	 * @param defaultValue The value if there is no embedded dictionary or it does not contain the key. 	 * 	 * @return The value of the embedded integer. 	 */
+comment|/**      * Get an integer from an embedded dictionary. Useful for 1-1 mappings.      *      * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      * @param defaultValue The value if there is no embedded dictionary or it does not contain the key.      *      * @return The value of the embedded integer.      */
 specifier|public
 name|int
 name|getEmbeddedInt
@@ -2324,7 +2324,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Get an integer from an embedded dictionary.  Useful for 1-1 mappings. 	 * 	 * @param embeddedDictionary The name of the embedded dictionary. 	 * @param key The key in the embedded dictionary. 	 * @param defaultValue The value if there is no embedded dictionary or it does not contain the key. 	 * 	 * @return The value of the embedded integer. 	 */
+comment|/**      * Get an integer from an embedded dictionary. Useful for 1-1 mappings.      *      * @param embeddedDictionary The name of the embedded dictionary.      * @param key The key in the embedded dictionary.      * @param defaultValue The value if there is no embedded dictionary or it does not contain the key.      *      * @return The value of the embedded integer.      */
 specifier|public
 name|int
 name|getEmbeddedInt
@@ -2378,7 +2378,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an int.  -1 is returned if there is no value. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The integer value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an int. -1 is returned if      * there is no value.      *      * @param key The key to the item in the dictionary.      * @return The integer value.      */
 specifier|public
 name|int
 name|getInt
@@ -2402,7 +2402,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an int.  -1 is returned if there is no value. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The integer value.. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an int. -1 is returned if      * there is no value.      *      * @param key The key to the item in the dictionary.      * @return The integer value..      */
 specifier|public
 name|int
 name|getInt
@@ -2421,7 +2421,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an integer.  If the dictionary value is null then the 	 * default Value will be returned. 	 * 	 * @param keyList The key to the item in the dictionary. 	 * @param defaultValue The value to return if the dictionary item is null. 	 * @return The integer value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an integer. If the      * dictionary value is null then the default Value will be returned.      *      * @param keyList The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The integer value.      */
 specifier|public
 name|int
 name|getInt
@@ -2475,7 +2475,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an integer.  If the dictionary value is null then the 	 * default Value will be returned. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The value to return if the dictionary item is null. 	 * @return The integer value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an integer. If the      * dictionary value is null then the default Value will be returned.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The integer value.      */
 specifier|public
 name|int
 name|getInt
@@ -2501,7 +2501,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an integer.  If the dictionary value is null then the 	 * default Value will be returned. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The value to return if the dictionary item is null. 	 * @return The integer value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an integer. If the      * dictionary value is null then the default Value will be returned.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The integer value.      */
 specifier|public
 name|int
 name|getInt
@@ -2524,7 +2524,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an integer.  If the dictionary value is null then the 	 * default Value -1 will be returned. 	 * 	 * @param firstKey The first key to the item in the dictionary. 	 * @param secondKey The second key to the item in the dictionary. 	 * @return The integer value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an integer. If the      * dictionary value is null then the default Value -1 will be returned.      *      * @param firstKey The first key to the item in the dictionary.      * @param secondKey The second key to the item in the dictionary.      * @return The integer value.      */
 specifier|public
 name|int
 name|getInt
@@ -2548,7 +2548,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an integer.  If the dictionary value is null then the 	 * default Value will be returned. 	 * 	 * @param firstKey The first key to the item in the dictionary. 	 * @param secondKey The second key to the item in the dictionary. 	 * @param defaultValue The value to return if the dictionary item is null. 	 * @return The integer value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an integer. If the      * dictionary value is null then the default Value will be returned.      *      * @param firstKey The first key to the item in the dictionary.      * @param secondKey The second key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The integer value.      */
 specifier|public
 name|int
 name|getInt
@@ -2606,7 +2606,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an long.  -1 is returned if there is no value. 	 * 	 * @param key The key to the item in the dictionary. 	 * 	 * @return The long value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an long. -1 is returned      * if there is no value.      *      * @param key The key to the item in the dictionary.      *      * @return The long value.      */
 specifier|public
 name|long
 name|getLong
@@ -2630,7 +2630,7 @@ literal|1L
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an long.  -1 is returned if there is no value. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The long value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an long. -1 is returned      * if there is no value.      *      * @param key The key to the item in the dictionary.      * @return The long value.      */
 specifier|public
 name|long
 name|getLong
@@ -2649,7 +2649,7 @@ literal|1L
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an long.  If the dictionary value is null then the 	 * default Value will be returned. 	 * 	 * @param keyList The key to the item in the dictionary. 	 * @param defaultValue The value to return if the dictionary item is null. 	 * @return The long value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an long. If the      * dictionary value is null then the default Value will be returned.      *      * @param keyList The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The long value.      */
 specifier|public
 name|long
 name|getLong
@@ -2703,7 +2703,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an integer.  If the dictionary value is null then the 	 * default Value will be returned. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The value to return if the dictionary item is null. 	 * @return The integer value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an integer. If the      * dictionary value is null then the default Value will be returned.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The integer value.      */
 specifier|public
 name|long
 name|getLong
@@ -2729,7 +2729,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an integer.  If the dictionary value is null then the 	 * default Value will be returned. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The value to return if the dictionary item is null. 	 * @return The integer value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an integer. If the      * dictionary value is null then the default Value will be returned.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The integer value.      */
 specifier|public
 name|long
 name|getLong
@@ -2782,7 +2782,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an float.  -1 is returned if there is no value. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The float value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an float. -1 is returned      * if there is no value.      *      * @param key The key to the item in the dictionary.      * @return The float value.      */
 specifier|public
 name|float
 name|getFloat
@@ -2806,7 +2806,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an float.  -1 is returned if there is no value. 	 * 	 * @param key The key to the item in the dictionary. 	 * @return The float value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an float. -1 is returned      * if there is no value.      *      * @param key The key to the item in the dictionary.      * @return The float value.      */
 specifier|public
 name|float
 name|getFloat
@@ -2825,7 +2825,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be a float.  If the dictionary value is null then the 	 * default Value will be returned. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The value to return if the dictionary item is null. 	 * @return The float value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a float. If the      * dictionary value is null then the default Value will be returned.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The float value.      */
 specifier|public
 name|float
 name|getFloat
@@ -2851,7 +2851,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This is a convenience method that will get the dictionary object that 	 * is expected to be an float.  If the dictionary value is null then the 	 * default Value will be returned. 	 * 	 * @param key The key to the item in the dictionary. 	 * @param defaultValue The value to return if the dictionary item is null. 	 * @return The float value. 	 */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be an float. If the      * dictionary value is null then the default Value will be returned.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The value to return if the dictionary item is null.      * @return The float value.      */
 specifier|public
 name|float
 name|getFloat
@@ -2936,7 +2936,7 @@ operator|==
 name|bitFlag
 return|;
 block|}
-comment|/** 	 * This will remove an item for the dictionary.  This 	 * will do nothing of the object does not exist. 	 * 	 * @param key The key to the item to remove from the dictionary. 	 */
+comment|/**      * This will remove an item for the dictionary. This will do nothing of the object does not exist.      *      * @param key The key to the item to remove from the dictionary.      */
 specifier|public
 name|void
 name|removeItem
@@ -2953,7 +2953,7 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * This will do a lookup into the dictionary. 	 * 	 * @param key The key to the object. 	 * 	 * @return The item that matches the key. 	 */
+comment|/**      * This will do a lookup into the dictionary.      *      * @param key The key to the object.      *      * @return The item that matches the key.      */
 specifier|public
 name|COSBase
 name|getItem
@@ -2971,7 +2971,7 @@ name|key
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This will do a lookup into the dictionary. 	 *  	 * @param key The key to the object. 	 * 	 * @return The item that matches the key. 	 */
+comment|/**      * This will do a lookup into the dictionary.      *       * @param key The key to the object.      *      * @return The item that matches the key.      */
 specifier|public
 name|COSBase
 name|getItem
@@ -2992,7 +2992,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Returns the names of the entries in this dictionary. The returned 	 * set is in the order the entries were added to the dictionary. 	 * 	 * @since Apache PDFBox 1.1.0 	 * @return names of the entries in this dictionary 	 */
+comment|/**      * Returns the names of the entries in this dictionary. The returned set is in the order the entries were added to      * the dictionary.      *      * @since Apache PDFBox 1.1.0      * @return names of the entries in this dictionary      */
 specifier|public
 name|Set
 argument_list|<
@@ -3008,7 +3008,7 @@ name|keySet
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Returns the name-value entries in this dictionary. The returned 	 * set is in the order the entries were added to the dictionary. 	 * 	 * @since Apache PDFBox 1.1.0 	 * @return name-value entries in this dictionary 	 */
+comment|/**      * Returns the name-value entries in this dictionary. The returned set is in the order the entries were added to the      * dictionary.      *      * @since Apache PDFBox 1.1.0      * @return name-value entries in this dictionary      */
 specifier|public
 name|Set
 argument_list|<
@@ -3031,7 +3031,7 @@ name|entrySet
 argument_list|()
 return|;
 block|}
-comment|/** 	 * This will get all of the values for the dictionary. 	 * 	 * @return All the values for the dictionary. 	 */
+comment|/**      * This will get all of the values for the dictionary.      *      * @return All the values for the dictionary.      */
 specifier|public
 name|Collection
 argument_list|<
@@ -3047,7 +3047,7 @@ name|values
 argument_list|()
 return|;
 block|}
-comment|/** 	 * visitor pattern double dispatch method. 	 * 	 * @param visitor The object to notify when visiting this object. 	 * @return The object that the visitor returns. 	 * 	 * @throws IOException If there is an error visiting this object. 	 */
+comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return The object that the visitor returns.      *      * @throws IOException If there is an error visiting this object.      */
 specifier|public
 name|Object
 name|accept
@@ -3067,7 +3067,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This will add all of the dictionarys keys/values to this dictionary. 	 * Only called when adding keys to a trailer that already exists. 	 * 	 * @param dic The dic to get the keys from. 	 */
+comment|/**      * This will add all of the dictionarys keys/values to this dictionary. Only called when adding keys to a trailer      * that already exists.      *      * @param dic The dic to get the keys from.      */
 specifier|public
 name|void
 name|addAll
@@ -3094,7 +3094,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-comment|/* 			 * If we're at a second trailer, we have a linearized 			 * pdf file, meaning that the first Size entry represents 			 * all of the objects so we don't need to grab the second. 			 */
+comment|/*              * If we're at a second trailer, we have a linearized pdf file, meaning that the first Size entry represents              * all of the objects so we don't need to grab the second.              */
 if|if
 condition|(
 operator|!
@@ -3141,7 +3141,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * @see java.util.Map#containsKey(Object) 	 * 	 * @param name The key to find in the map. 	 * @return true if the map contains this key. 	 */
+comment|/**      * @see java.util.Map#containsKey(Object)      *      * @param name The key to find in the map.      * @return true if the map contains this key.      */
 specifier|public
 name|boolean
 name|containsKey
@@ -3161,7 +3161,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/** 	 * @see java.util.Map#containsKey(Object) 	 * 	 * @param name The key to find in the map. 	 * @return true if the map contains this key. 	 */
+comment|/**      * @see java.util.Map#containsKey(Object)      *      * @param name The key to find in the map.      * @return true if the map contains this key.      */
 specifier|public
 name|boolean
 name|containsKey
@@ -3182,7 +3182,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** 	 * This will add all of the dictionarys keys/values to this dictionary, but only 	 * if they don't already exist.  If a key already exists in this dictionary then 	 * nothing is changed. 	 * 	 * @param dic The dic to get the keys from. 	 */
+comment|/**      * This will add all of the dictionarys keys/values to this dictionary, but only if they don't already exist. If a      * key already exists in this dictionary then nothing is changed.      *      * @param dic The dic to get the keys from.      */
 specifier|public
 name|void
 name|mergeInto
@@ -3238,7 +3238,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Nice method, gives you every object you want      * Arrays works properly too. Try "P/Annots/[k]/Rect"      * where k means the index of the Annotsarray.      *      * @param objPath the relative path to the object.      * @return the object      */
+comment|/**      * Nice method, gives you every object you want Arrays works properly too. Try "P/Annots/[k]/Rect" where k means the      * index of the Annotsarray.      *      * @param objPath the relative path to the object.      * @return the object      */
 specifier|public
 name|COSBase
 name|getObjectFromPath
@@ -3349,7 +3349,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Returns an unmodifiable view of this dictionary.      * @return an unmodifiable view of this dictionary      */
+comment|/**      * Returns an unmodifiable view of this dictionary.      *       * @return an unmodifiable view of this dictionary      */
 specifier|public
 name|COSDictionary
 name|asUnmodifiableDictionary
@@ -3363,7 +3363,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/** 	 * {@inheritDoc} 	 */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public

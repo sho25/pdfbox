@@ -134,7 +134,7 @@ name|numberOfTmpFiles
 init|=
 literal|0
 decl_stmt|;
-comment|/** 	 * Initialize the number of tmp file before the test 	 * @throws Exception 	 */
+comment|/**      * Initialize the number of tmp file before the test      *       * @throws Exception      */
 annotation|@
 name|Before
 specifier|public
@@ -150,7 +150,7 @@ name|getNumberOfTempFile
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Count the number of temporary files  	 * @return 	 */
+comment|/**      * Count the number of temporary files      *       * @return      */
 specifier|private
 name|int
 name|getNumberOfTempFile
