@@ -702,6 +702,16 @@ block|}
 block|}
 comment|/**      * Returns the colorant name.      * @return the name of the colorant      */
 specifier|public
+name|PDColorSpace
+name|getAlternateColorSpace
+parameter_list|()
+block|{
+return|return
+name|alternateColorSpace
+return|;
+block|}
+comment|/**      * Returns the colorant name.      * @return the name of the colorant      */
+specifier|public
 name|String
 name|getColorantName
 parameter_list|()
