@@ -238,6 +238,8 @@ name|PDDocument
 name|document
 decl_stmt|;
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setUp
@@ -440,6 +442,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|tearDown
@@ -514,6 +518,14 @@ argument_list|(
 literal|"No exception when using an incorrect decryption key"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|// do nothing
 block|}
 finally|finally
 block|{
