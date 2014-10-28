@@ -91,6 +91,20 @@ name|PDRectangle
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Type 3 character procedure. This is a standalone PDF content stream.  *  * @author John Hewson  */
 end_comment
@@ -194,6 +208,20 @@ return|return
 name|font
 operator|.
 name|getFontBBox
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Matrix
+name|getMatrix
+parameter_list|()
+block|{
+return|return
+name|font
+operator|.
+name|getFontMatrix
 argument_list|()
 return|;
 block|}

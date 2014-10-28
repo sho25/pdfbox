@@ -996,7 +996,7 @@ name|actual
 init|=
 name|appearanceStream
 operator|.
-name|getStream
+name|getCOSStream
 argument_list|()
 decl_stmt|;
 name|List
@@ -1075,7 +1075,7 @@ name|actual
 init|=
 name|appearanceStream
 operator|.
-name|getStream
+name|getCOSStream
 argument_list|()
 decl_stmt|;
 name|List

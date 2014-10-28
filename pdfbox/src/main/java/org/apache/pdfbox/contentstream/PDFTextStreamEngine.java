@@ -977,9 +977,6 @@ comment|// transformPoint from glyph space -> text space
 name|float
 name|height
 init|=
-operator|(
-name|float
-operator|)
 name|font
 operator|.
 name|getFontMatrix
@@ -992,8 +989,7 @@ argument_list|,
 name|glyphHeight
 argument_list|)
 operator|.
-name|getY
-argument_list|()
+name|y
 decl_stmt|;
 comment|// (modified) combined displacement, this is calculated *without* taking the character
 comment|// spacing and word spacing into account, due to legacy code in TextStripper

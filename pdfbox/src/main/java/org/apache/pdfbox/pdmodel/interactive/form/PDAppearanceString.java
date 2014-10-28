@@ -438,7 +438,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default appearance string contains any graphics state or text state operators needed to establish the graphics  * state parameters, such as text size and colour, for displaying the field's variable text. Only operators that are  * allowed within text objects shall occur in this string.  *  * @author Stephan Gerhard  * @author Ben Litchfield  */
+comment|/**  * A default appearance string contains any graphics state or text state operators needed to  * establish the graphics state parameters, such as text size and colour, for displaying the field's  * variable text. Only operators that are allowed within text objects shall occur in this string.  *  * @author Stephan Gerhard  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -815,9 +815,6 @@ operator|=
 name|getStreamTokens
 argument_list|(
 name|appearanceStream
-operator|.
-name|getStream
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1192,6 +1189,8 @@ operator|new
 name|PDAppearanceStream
 argument_list|(
 name|cosStream
+argument_list|,
+name|widget
 argument_list|)
 expr_stmt|;
 name|appearanceStream
@@ -2490,7 +2489,7 @@ name|out
 init|=
 name|appearanceStream
 operator|.
-name|getStream
+name|getCOSStream
 argument_list|()
 operator|.
 name|createUnfilteredStream
@@ -2818,7 +2817,7 @@ return|return
 name|smallest
 return|;
 block|}
-comment|/**      * My "not so great" method for calculating the fontsize. It does not work superb, but it handles ok.      *       * @return the calculated font-size      *      * @throws IOException If there is an error getting the font height.      */
+comment|/**      * My "not so great" method for calculating the fontsize. It does not work superb, but it      * handles ok.      *       * @return the calculated font-size      *      * @throws IOException If there is an error getting the font height.      */
 specifier|private
 name|float
 name|calculateFontSize
@@ -3044,7 +3043,7 @@ return|return
 name|fontSize
 return|;
 block|}
-comment|/**      * Calculates where to start putting the text in the box. The positioning is not quite as accurate as when Acrobat      * places the elements, but it works though.      *      * @return the sting for representing the start position of the text      *      * @throws IOException If there is an error calculating the text position.      */
+comment|/**      * Calculates where to start putting the text in the box. The positioning is not quite as      * accurate as when Acrobat places the elements, but it works though.      *      * @return the sting for representing the start position of the text      *      * @throws IOException If there is an error calculating the text position.      */
 specifier|private
 name|float
 name|getVerticalOffset
@@ -3205,7 +3204,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Unable to calculate the vertical offset for non-simple fonts - using 0 instead"
+literal|"Unable to calculate the vertical offset for non-simple fonts - "
+operator|+
+literal|"using 0 instead"
 argument_list|)
 expr_stmt|;
 block|}

@@ -229,7 +229,6 @@ end_comment
 
 begin_class
 specifier|public
-specifier|final
 class|class
 name|PDFormXObject
 extends|extends
@@ -573,7 +572,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the optional Matrix of an XObjectForm. It maps the form space into the user space      * @return the form matrix      */
+comment|/**      * This will get the optional Matrix of an XObjectForm. It maps the form space to user space.      * @return the form matrix      */
+annotation|@
+name|Override
 specifier|public
 name|Matrix
 name|getMatrix
@@ -756,6 +757,16 @@ operator|.
 name|floatValue
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// default value is the identity matrix
+name|retval
+operator|=
+operator|new
+name|Matrix
+argument_list|()
 expr_stmt|;
 block|}
 return|return

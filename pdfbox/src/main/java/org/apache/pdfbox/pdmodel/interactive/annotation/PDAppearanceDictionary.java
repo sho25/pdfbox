@@ -93,6 +93,10 @@ specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
+specifier|private
+name|PDAnnotation
+name|parent
+decl_stmt|;
 comment|/**      * Constructor for embedding.      */
 specifier|public
 name|PDAppearanceDictionary
@@ -119,17 +123,28 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor for reading.      *      * @param dict The annotations dictionary.      */
+comment|/**      * Constructor for reading.      *      * @param dictionary The annotations dictionary.      */
 specifier|public
 name|PDAppearanceDictionary
 parameter_list|(
 name|COSDictionary
-name|dict
+name|dictionary
+parameter_list|,
+name|PDAnnotation
+name|parent
 parameter_list|)
 block|{
+name|this
+operator|.
 name|dictionary
 operator|=
-name|dict
+name|dictionary
+expr_stmt|;
+name|this
+operator|.
+name|parent
+operator|=
+name|parent
 expr_stmt|;
 block|}
 annotation|@
@@ -179,6 +194,8 @@ operator|new
 name|PDAppearanceEntry
 argument_list|(
 name|entry
+argument_list|,
+name|parent
 argument_list|)
 return|;
 block|}
@@ -222,9 +239,6 @@ operator|.
 name|N
 argument_list|,
 name|ap
-operator|.
-name|getStream
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -265,6 +279,8 @@ operator|new
 name|PDAppearanceEntry
 argument_list|(
 name|entry
+argument_list|,
+name|parent
 argument_list|)
 return|;
 block|}
@@ -308,9 +324,6 @@ operator|.
 name|R
 argument_list|,
 name|ap
-operator|.
-name|getStream
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -351,6 +364,8 @@ operator|new
 name|PDAppearanceEntry
 argument_list|(
 name|entry
+argument_list|,
+name|parent
 argument_list|)
 return|;
 block|}
@@ -394,9 +409,6 @@ operator|.
 name|D
 argument_list|,
 name|ap
-operator|.
-name|getStream
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

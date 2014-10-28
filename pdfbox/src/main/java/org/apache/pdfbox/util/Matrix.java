@@ -1540,12 +1540,14 @@ block|}
 comment|/**      * Transforms the given point by this matrix.      *      * @param x x-coordinate      * @param y y-coordinate      */
 specifier|public
 name|Point2D
+operator|.
+name|Float
 name|transformPoint
 parameter_list|(
-name|double
+name|float
 name|x
 parameter_list|,
-name|double
+name|float
 name|y
 parameter_list|)
 block|{
@@ -1601,7 +1603,7 @@ return|return
 operator|new
 name|Point2D
 operator|.
-name|Double
+name|Float
 argument_list|(
 name|x
 operator|*

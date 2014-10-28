@@ -59,6 +59,20 @@ name|PDRectangle
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
 begin_comment
 comment|/**  * A content stream.  *  * @author John Hewson  */
 end_comment
@@ -80,13 +94,18 @@ name|PDResources
 name|getResources
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the bounding box of the contents, if any.      */
+comment|/**      * Returns the bounding box of the contents.      */
 specifier|public
 name|PDRectangle
 name|getBBox
 parameter_list|()
 function_decl|;
-comment|// todo: Matrix
+comment|/**      * Returns the matrix which transforms from the stream's space to user space.      */
+specifier|public
+name|Matrix
+name|getMatrix
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

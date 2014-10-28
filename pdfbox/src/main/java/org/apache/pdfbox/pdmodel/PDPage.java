@@ -293,6 +293,20 @@ name|PDThreadBead
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
 begin_comment
 comment|/**  * A page in a PDF document.  *   * @author Ben Litchfield  */
 end_comment
@@ -616,6 +630,20 @@ parameter_list|()
 block|{
 return|return
 name|getCropBox
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Matrix
+name|getMatrix
+parameter_list|()
+block|{
+comment|// todo: take into account user-space unit redefinition?
+return|return
+operator|new
+name|Matrix
 argument_list|()
 return|;
 block|}
