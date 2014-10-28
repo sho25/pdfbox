@@ -21,16 +21,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Rectangle
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|geom
 operator|.
 name|Area
@@ -1158,14 +1148,7 @@ name|createAffineTransform
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|getGraphicsState
-argument_list|()
-operator|.
-name|intersectClippingPath
-argument_list|(
-name|clip
-argument_list|)
-expr_stmt|;
+comment|//getGraphicsState().intersectClippingPath(clip);
 block|}
 comment|// fixme: stream matrix
 name|Matrix
@@ -1826,6 +1809,17 @@ name|code
 argument_list|)
 decl_stmt|;
 comment|// process the decoded glyph
+name|saveGraphicsState
+argument_list|()
+expr_stmt|;
+name|getGraphicsState
+argument_list|()
+operator|.
+name|setCurrentTransformationMatrix
+argument_list|(
+name|textRenderingMatrix
+argument_list|)
+expr_stmt|;
 name|showGlyph
 argument_list|(
 name|textRenderingMatrix
@@ -1838,6 +1832,9 @@ name|unicode
 argument_list|,
 name|w
 argument_list|)
+expr_stmt|;
+name|restoreGraphicsState
+argument_list|()
 expr_stmt|;
 comment|// calculate the combined displacements
 name|float

@@ -283,6 +283,13 @@ operator|.
 name|floatValue
 argument_list|()
 expr_stmt|;
+name|single
+index|[
+literal|8
+index|]
+operator|=
+literal|1
+expr_stmt|;
 block|}
 comment|/**      * Constructor.      */
 specifier|public
