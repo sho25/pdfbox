@@ -1148,7 +1148,14 @@ name|createAffineTransform
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//getGraphicsState().intersectClippingPath(clip);
+name|getGraphicsState
+argument_list|()
+operator|.
+name|intersectClippingPath
+argument_list|(
+name|clip
+argument_list|)
+expr_stmt|;
 block|}
 comment|// fixme: stream matrix
 name|Matrix

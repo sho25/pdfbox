@@ -1523,6 +1523,9 @@ name|getNonStrokingPaint
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setClip
+argument_list|()
+expr_stmt|;
 name|graphics
 operator|.
 name|fill
@@ -1564,6 +1567,9 @@ argument_list|(
 name|getStroke
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|setClip
+argument_list|()
 expr_stmt|;
 name|graphics
 operator|.
@@ -1634,6 +1640,10 @@ name|processChildStream
 argument_list|(
 name|charProc
 argument_list|)
+expr_stmt|;
+name|lastClip
+operator|=
+literal|null
 expr_stmt|;
 block|}
 else|else
