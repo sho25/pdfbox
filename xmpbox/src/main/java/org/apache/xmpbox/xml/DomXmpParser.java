@@ -2162,6 +2162,35 @@ literal|null
 condition|)
 block|{
 comment|// not an array
+name|String
+name|whatFound
+init|=
+literal|"nothing"
+decl_stmt|;
+if|if
+condition|(
+name|property
+operator|.
+name|getFirstChild
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|whatFound
+operator|=
+name|property
+operator|.
+name|getFirstChild
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+expr_stmt|;
+block|}
 throw|throw
 operator|new
 name|XmpParsingException
@@ -2177,7 +2206,11 @@ operator|.
 name|card
 argument_list|()
 operator|+
-literal|" and found nothing [prefix="
+literal|" and found "
+operator|+
+name|whatFound
+operator|+
+literal|" [prefix="
 operator|+
 name|prefix
 operator|+
