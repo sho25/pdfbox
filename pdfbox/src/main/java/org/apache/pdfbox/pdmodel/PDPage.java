@@ -640,7 +640,7 @@ name|Matrix
 name|getMatrix
 parameter_list|()
 block|{
-comment|// todo: take into account user-space unit redefinition?
+comment|// todo: take into account user-space unit redefinition as scale?
 return|return
 operator|new
 name|Matrix

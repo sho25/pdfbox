@@ -381,7 +381,7 @@ name|smoothness
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * Constructor with a given pagesize to initialize the clipping path.      * @param page the size of the page      */
+comment|/**      * Constructor with a given page size to initialize the clipping path.      * @param page the size of the page      */
 specifier|public
 name|PDGraphicsState
 parameter_list|(
@@ -404,53 +404,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|page
-operator|.
-name|getLowerLeftX
-argument_list|()
-operator|!=
-literal|0
-operator|||
-name|page
-operator|.
-name|getLowerLeftY
-argument_list|()
-operator|!=
-literal|0
-condition|)
-block|{
-comment|//Compensate for offset
-name|this
-operator|.
-name|currentTransformationMatrix
-operator|=
-name|this
-operator|.
-name|currentTransformationMatrix
-operator|.
-name|multiply
-argument_list|(
-name|Matrix
-operator|.
-name|getTranslatingInstance
-argument_list|(
-operator|-
-name|page
-operator|.
-name|getLowerLeftX
-argument_list|()
-argument_list|,
-operator|-
-name|page
-operator|.
-name|getLowerLeftY
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Get the value of the CTM.      *      * @return The current transformation matrix.      */
 specifier|public

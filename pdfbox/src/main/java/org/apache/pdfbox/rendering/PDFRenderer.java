@@ -542,7 +542,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// renders a page to the given graphics
-comment|// TODO need to be able to override this
 specifier|private
 name|void
 name|renderPage
@@ -592,7 +591,7 @@ argument_list|)
 expr_stmt|;
 comment|// TODO should we be passing the scale to PageDrawer rather than messing with Graphics?
 name|PDRectangle
-name|adjustedCropBox
+name|cropBox
 init|=
 name|page
 operator|.
@@ -634,7 +633,7 @@ literal|90
 case|:
 name|translateX
 operator|=
-name|adjustedCropBox
+name|cropBox
 operator|.
 name|getHeight
 argument_list|()
@@ -645,7 +644,7 @@ literal|270
 case|:
 name|translateY
 operator|=
-name|adjustedCropBox
+name|cropBox
 operator|.
 name|getWidth
 argument_list|()
@@ -656,14 +655,14 @@ literal|180
 case|:
 name|translateX
 operator|=
-name|adjustedCropBox
+name|cropBox
 operator|.
 name|getWidth
 argument_list|()
 expr_stmt|;
 name|translateY
 operator|=
-name|adjustedCropBox
+name|cropBox
 operator|.
 name|getHeight
 argument_list|()
@@ -695,7 +694,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: need to make it easy to use a custom PageDrawer and TilingPatternDrawer
 name|PageDrawer
 name|drawer
 init|=
@@ -713,7 +711,7 @@ name|drawPage
 argument_list|(
 name|graphics
 argument_list|,
-name|adjustedCropBox
+name|cropBox
 argument_list|)
 expr_stmt|;
 block|}
