@@ -1294,7 +1294,7 @@ annotation|@
 name|Override
 specifier|protected
 name|void
-name|showGlyph
+name|showFontGlyph
 parameter_list|(
 name|Matrix
 name|textRenderingMatrix
@@ -1314,36 +1314,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|font
-operator|instanceof
-name|PDType3Font
-condition|)
-block|{
-comment|// Type3 fonts use PDF streams for each character
-name|drawType3Glyph
-argument_list|(
-operator|(
-name|PDType3Font
-operator|)
-name|font
-argument_list|,
-name|code
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// all other fonts use vectors
-name|Glyph2D
-name|glyph2D
-init|=
-name|createGlyph2D
-argument_list|(
-name|font
-argument_list|)
-decl_stmt|;
 name|AffineTransform
 name|at
 init|=
@@ -1365,6 +1335,14 @@ name|createAffineTransform
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Glyph2D
+name|glyph2D
+init|=
+name|createGlyph2D
+argument_list|(
+name|font
+argument_list|)
+decl_stmt|;
 name|drawGlyph2D
 argument_list|(
 name|glyph2D
@@ -1378,7 +1356,6 @@ argument_list|,
 name|at
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Render the font using the Glyph2D interface.      *       * @param glyph2D the Glyph2D implementation provided a GeneralPath for each glyph      * @param font the font      * @param code character code      * @param displacement the glyph's displacement (advance)      * @param at the transformation      * @throws IOException if something went wrong      */
 specifier|private
@@ -1629,6 +1606,9 @@ name|font
 parameter_list|,
 name|int
 name|code
+parameter_list|,
+name|Matrix
+name|textRenderingMatrix
 parameter_list|)
 throws|throws
 name|IOException
@@ -1654,9 +1634,11 @@ name|lastClip
 operator|=
 literal|null
 expr_stmt|;
-name|processChildStream
+name|processType3Stream
 argument_list|(
 name|charProc
+argument_list|,
+name|textRenderingMatrix
 argument_list|)
 expr_stmt|;
 name|lastClip
