@@ -101,6 +101,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|crypto
+operator|.
+name|Cipher
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -247,6 +257,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|Cipher
+operator|.
+name|getMaxAllowedKeyLength
+argument_list|(
+literal|"AES"
+argument_list|)
+operator|!=
+name|Integer
+operator|.
+name|MAX_VALUE
+condition|)
+block|{
+comment|// we need strong encryption for these tests
+name|fail
+argument_list|(
+literal|"JCE unlimited strength jurisdiction policy files are not installed"
+argument_list|)
+expr_stmt|;
+block|}
 name|permission1
 operator|=
 operator|new
