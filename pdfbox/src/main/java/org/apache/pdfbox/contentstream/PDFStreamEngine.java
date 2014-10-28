@@ -1100,7 +1100,7 @@ name|getMatrix
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// bounding box (for clipping)
+comment|// clip to bounding box
 name|PDRectangle
 name|bbox
 init|=
@@ -1137,32 +1137,13 @@ argument_list|(
 operator|new
 name|GeneralPath
 argument_list|(
-operator|new
-name|Rectangle
-argument_list|(
 name|bbox
 operator|.
-name|createDimension
+name|toRectangle2D
 argument_list|()
-argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// content stream space to user space
-name|clip
-operator|.
-name|transform
-argument_list|(
-name|contentStream
-operator|.
-name|getMatrix
-argument_list|()
-operator|.
-name|createAffineTransform
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// CTM transform (user space => device space)
 name|clip
 operator|.
 name|transform
@@ -1175,6 +1156,14 @@ argument_list|()
 operator|.
 name|createAffineTransform
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|getGraphicsState
+argument_list|()
+operator|.
+name|intersectClippingPath
+argument_list|(
+name|clip
 argument_list|)
 expr_stmt|;
 block|}

@@ -397,14 +397,10 @@ argument_list|(
 operator|new
 name|GeneralPath
 argument_list|(
-operator|new
-name|Rectangle
-argument_list|(
 name|page
 operator|.
-name|createDimension
+name|toRectangle2D
 argument_list|()
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

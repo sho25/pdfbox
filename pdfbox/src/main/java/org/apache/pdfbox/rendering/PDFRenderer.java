@@ -265,7 +265,7 @@ name|pageIndex
 argument_list|)
 decl_stmt|;
 name|PDRectangle
-name|adjustedCropBox
+name|cropbBox
 init|=
 name|page
 operator|.
@@ -275,7 +275,7 @@ decl_stmt|;
 name|float
 name|widthPt
 init|=
-name|adjustedCropBox
+name|cropbBox
 operator|.
 name|getWidth
 argument_list|()
@@ -283,7 +283,7 @@ decl_stmt|;
 name|float
 name|heightPt
 init|=
-name|adjustedCropBox
+name|cropbBox
 operator|.
 name|getHeight
 argument_list|()

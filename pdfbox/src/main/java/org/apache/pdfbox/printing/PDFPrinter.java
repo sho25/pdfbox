@@ -956,16 +956,13 @@ operator|.
 name|AUTO
 condition|)
 block|{
-name|Dimension
+name|PDRectangle
 name|cropBox
 init|=
 name|getRotatedCropBox
 argument_list|(
 name|page
 argument_list|)
-operator|.
-name|createDimension
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
