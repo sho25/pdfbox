@@ -1065,15 +1065,7 @@ name|getMatrix
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// clip to bounding box
-name|clipToRect
-argument_list|(
-name|charProc
-operator|.
-name|getBBox
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// note: we don't clip to the BBox as it is often wrong, see PDFBOX-1917
 name|processStreamOperators
 argument_list|(
 name|charProc
