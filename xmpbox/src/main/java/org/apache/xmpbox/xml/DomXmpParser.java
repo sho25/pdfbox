@@ -1840,6 +1840,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|nsFinder
+operator|.
+name|push
+argument_list|(
+name|inner
+argument_list|)
+expr_stmt|;
 name|AbstractStructuredType
 name|ast
 init|=
@@ -2575,6 +2582,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|nsFinder
+operator|.
+name|push
+argument_list|(
+name|liChild
+argument_list|)
+expr_stmt|;
 return|return
 name|parseLiDescription
 argument_list|(
@@ -2840,10 +2854,8 @@ if|if
 condition|(
 name|elements
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
 block|{
 comment|// The list is empty
