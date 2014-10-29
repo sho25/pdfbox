@@ -45,16 +45,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Rectangle
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|geom
 operator|.
 name|Area
@@ -336,13 +326,13 @@ name|softMask
 decl_stmt|;
 specifier|private
 name|double
-name|alphaConstants
+name|alphaConstant
 init|=
 literal|1.0
 decl_stmt|;
 specifier|private
 name|double
-name|nonStrokingAlphaConstants
+name|nonStrokingAlphaConstant
 init|=
 literal|1.0
 decl_stmt|;
@@ -552,23 +542,23 @@ block|}
 comment|/**      * Get the value of the stroke alpha constants property.      *      * @return The value of the stroke alpha constants parameter.      */
 specifier|public
 name|double
-name|getAlphaConstants
+name|getAlphaConstant
 parameter_list|()
 block|{
 return|return
-name|alphaConstants
+name|alphaConstant
 return|;
 block|}
 comment|/**      * set the value of the stroke alpha constants property.      *      * @param value The value of the stroke alpha constants parameter.      */
 specifier|public
 name|void
-name|setAlphaConstants
+name|setAlphaConstant
 parameter_list|(
 name|double
 name|value
 parameter_list|)
 block|{
-name|alphaConstants
+name|alphaConstant
 operator|=
 name|value
 expr_stmt|;
@@ -580,7 +570,7 @@ name|getNonStrokeAlphaConstants
 parameter_list|()
 block|{
 return|return
-name|nonStrokingAlphaConstants
+name|nonStrokingAlphaConstant
 return|;
 block|}
 comment|/**      * set the value of the non-stroke alpha constants property.      *      * @param value The value of the non-stroke alpha constants parameter.      */
@@ -592,7 +582,7 @@ name|double
 name|value
 parameter_list|)
 block|{
-name|nonStrokingAlphaConstants
+name|nonStrokingAlphaConstant
 operator|=
 name|value
 expr_stmt|;
@@ -1113,7 +1103,7 @@ argument_list|,
 operator|(
 name|float
 operator|)
-name|alphaConstants
+name|alphaConstant
 argument_list|)
 return|;
 block|}
@@ -1132,7 +1122,7 @@ argument_list|,
 operator|(
 name|float
 operator|)
-name|nonStrokingAlphaConstants
+name|nonStrokingAlphaConstant
 argument_list|)
 return|;
 block|}

@@ -546,7 +546,7 @@ condition|)
 block|{
 name|gs
 operator|.
-name|setAlphaConstants
+name|setAlphaConstant
 argument_list|(
 name|getStrokingAlphaConstant
 argument_list|()
