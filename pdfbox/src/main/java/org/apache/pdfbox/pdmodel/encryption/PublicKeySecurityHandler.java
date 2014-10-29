@@ -686,11 +686,33 @@ name|policy
 init|=
 literal|null
 decl_stmt|;
+specifier|private
+name|boolean
+name|verbose
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|PublicKeySecurityHandler
 parameter_list|()
 block|{     }
+comment|/**      * Enable or disable verbose mode. Default is disabled.      *       * @param verbose true if enabled, false if disabled.      */
+specifier|public
+name|void
+name|setVerbose
+parameter_list|(
+name|boolean
+name|verbose
+parameter_list|)
+block|{
+name|this
+operator|.
+name|verbose
+operator|=
+name|verbose
+expr_stmt|;
+block|}
 comment|/**      * Constructor used for encryption.      *      * @param p The protection policy.      */
 specifier|public
 name|PublicKeySecurityHandler
@@ -762,7 +784,7 @@ name|proceedDecryption
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Prepares everything to decrypt the document.      *      * If {@link #decryptDocument(PDDocument, DecryptionMaterial)} is used, this method is      * called from there. Only if decryption of single objects is needed this should be called instead.      *      * @param encryption  encryption dictionary, can be retrieved via {@link PDDocument#getEncryption()}      * @param documentIDArray  document id which is returned via {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()} (not used by this handler)      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Prepares everything to decrypt the document.      *      * If {@link #decryptDocument(PDDocument, DecryptionMaterial)} is used, this      * method is called from there. Only if decryption of single objects is      * needed this should be called instead.      *      * @param encryption encryption dictionary, can be retrieved via      * {@link PDDocument#getEncryption()}      * @param documentIDArray document id which is returned via      * {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()} (not used by      * this handler)      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data. If verbose mode      * is enabled, the exception message will provide more details why the the      * match wasn't successful.      */
 annotation|@
 name|Override
 specifier|public
@@ -1058,10 +1080,14 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|verbose
+operator|||
 name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
+operator|)
 operator|&&
 name|certificate
 operator|!=
