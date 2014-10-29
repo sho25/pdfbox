@@ -1084,8 +1084,6 @@ operator|new
 name|PDAppearanceDictionary
 argument_list|(
 name|apDic
-argument_list|,
-name|this
 argument_list|)
 expr_stmt|;
 block|}

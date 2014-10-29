@@ -93,10 +93,6 @@ specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
-specifier|private
-name|PDAnnotation
-name|parent
-decl_stmt|;
 comment|/**      * Constructor for embedding.      */
 specifier|public
 name|PDAppearanceDictionary
@@ -129,9 +125,6 @@ name|PDAppearanceDictionary
 parameter_list|(
 name|COSDictionary
 name|dictionary
-parameter_list|,
-name|PDAnnotation
-name|parent
 parameter_list|)
 block|{
 name|this
@@ -139,12 +132,6 @@ operator|.
 name|dictionary
 operator|=
 name|dictionary
-expr_stmt|;
-name|this
-operator|.
-name|parent
-operator|=
-name|parent
 expr_stmt|;
 block|}
 annotation|@
@@ -194,8 +181,6 @@ operator|new
 name|PDAppearanceEntry
 argument_list|(
 name|entry
-argument_list|,
-name|parent
 argument_list|)
 return|;
 block|}
@@ -279,8 +264,6 @@ operator|new
 name|PDAppearanceEntry
 argument_list|(
 name|entry
-argument_list|,
-name|parent
 argument_list|)
 return|;
 block|}
@@ -364,8 +347,6 @@ operator|new
 name|PDAppearanceEntry
 argument_list|(
 name|entry
-argument_list|,
-name|parent
 argument_list|)
 return|;
 block|}

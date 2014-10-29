@@ -1449,8 +1449,6 @@ operator|new
 name|PDAppearanceStream
 argument_list|(
 name|apsStream
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|COSDictionary
@@ -1748,8 +1746,6 @@ name|COSName
 operator|.
 name|AP
 argument_list|)
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|ap

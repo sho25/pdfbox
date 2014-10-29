@@ -143,10 +143,6 @@ name|COSBase
 name|entry
 decl_stmt|;
 specifier|private
-name|PDAnnotation
-name|parent
-decl_stmt|;
-specifier|private
 name|PDAppearanceEntry
 parameter_list|()
 block|{     }
@@ -156,9 +152,6 @@ name|PDAppearanceEntry
 parameter_list|(
 name|COSBase
 name|entry
-parameter_list|,
-name|PDAnnotation
-name|parent
 parameter_list|)
 block|{
 name|this
@@ -166,12 +159,6 @@ operator|.
 name|entry
 operator|=
 name|entry
-expr_stmt|;
-name|this
-operator|.
-name|parent
-operator|=
-name|parent
 expr_stmt|;
 block|}
 annotation|@
@@ -243,8 +230,6 @@ operator|(
 name|COSStream
 operator|)
 name|entry
-argument_list|,
-name|parent
 argument_list|)
 return|;
 block|}
@@ -339,8 +324,6 @@ operator|(
 name|COSStream
 operator|)
 name|value
-argument_list|,
-name|parent
 argument_list|)
 argument_list|)
 expr_stmt|;

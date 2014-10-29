@@ -882,8 +882,6 @@ name|form
 operator|.
 name|getCOSStream
 argument_list|()
-argument_list|,
-name|rubberStamp
 argument_list|)
 decl_stmt|;
 name|PDAppearanceDictionary
@@ -895,8 +893,6 @@ argument_list|(
 operator|new
 name|COSDictionary
 argument_list|()
-argument_list|,
-name|rubberStamp
 argument_list|)
 decl_stmt|;
 name|appearance

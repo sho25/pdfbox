@@ -1189,8 +1189,6 @@ operator|new
 name|PDAppearanceStream
 argument_list|(
 name|cosStream
-argument_list|,
-name|widget
 argument_list|)
 expr_stmt|;
 name|appearanceStream

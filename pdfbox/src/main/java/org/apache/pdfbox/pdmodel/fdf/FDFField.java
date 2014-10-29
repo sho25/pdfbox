@@ -1783,8 +1783,6 @@ operator|new
 name|PDAppearanceDictionary
 argument_list|(
 name|dict
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
