@@ -776,6 +776,7 @@ return|;
 block|}
 comment|/**      * Check whether the images are identical.      *      * @param expectedImage      * @param actualImage      */
 specifier|static
+specifier|public
 name|void
 name|checkIdent
 parameter_list|(
