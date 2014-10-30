@@ -287,23 +287,11 @@ name|Assert
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
 begin_comment
 comment|/**  * Tests for public key encryption.  *  * @author Ralf Hauser  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 specifier|public
 class|class
 name|TestSymmetricKeyEncryption
