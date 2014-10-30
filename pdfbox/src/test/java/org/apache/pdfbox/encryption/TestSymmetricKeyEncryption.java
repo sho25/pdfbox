@@ -81,26 +81,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|OutputStreamWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Writer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -150,6 +130,20 @@ operator|.
 name|cos
 operator|.
 name|COSStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
+name|IOUtils
 import|;
 end_import
 
@@ -267,20 +261,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|PDFTextStripper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Assert
@@ -353,13 +333,7 @@ init|=
 literal|null
 decl_stmt|;
 specifier|static
-name|String
-name|textContent
-init|=
-literal|null
-decl_stmt|;
-specifier|static
-name|int
+name|long
 name|page0size
 init|=
 operator|-
@@ -569,109 +543,6 @@ name|inputFileAsByteArray
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|boolean
-name|extractText
-init|=
-literal|false
-decl_stmt|;
-if|if
-condition|(
-name|extractText
-condition|)
-block|{
-name|PDFTextStripper
-name|stripper
-init|=
-operator|new
-name|PDFTextStripper
-argument_list|()
-decl_stmt|;
-name|stripper
-operator|.
-name|setForceParsing
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-comment|// stripper.setSortByPosition( sort );
-comment|// stripper.setShouldSeparateByBeads( separateBeads );
-name|stripper
-operator|.
-name|setStartPage
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|stripper
-operator|.
-name|setEndPage
-argument_list|(
-literal|10
-argument_list|)
-expr_stmt|;
-name|ByteArrayOutputStream
-name|baos
-init|=
-operator|new
-name|ByteArrayOutputStream
-argument_list|()
-decl_stmt|;
-name|Writer
-name|output
-init|=
-operator|new
-name|OutputStreamWriter
-argument_list|(
-name|baos
-argument_list|)
-decl_stmt|;
-name|stripper
-operator|.
-name|writeText
-argument_list|(
-name|document
-argument_list|,
-name|output
-argument_list|)
-expr_stmt|;
-name|textContent
-operator|=
-operator|new
-name|String
-argument_list|(
-name|baos
-operator|.
-name|toByteArray
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// content "" ;(
-block|}
-name|COSStream
-name|contentStream
-init|=
-name|document
-operator|.
-name|getPage
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getContentStream
-argument_list|()
-decl_stmt|;
-name|page0size
-operator|=
-operator|(
-name|int
-operator|)
-name|contentStream
-operator|.
-name|getFilteredLength
-argument_list|()
-expr_stmt|;
-comment|// was 2
-comment|// contentStream.size();
 block|}
 catch|catch
 parameter_list|(
@@ -954,6 +825,19 @@ name|BufferedImage
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|ArrayList
+argument_list|<
+name|ByteArrayOutputStream
+argument_list|>
+name|srcContentStreamTab
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ByteArrayOutputStream
+argument_list|>
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -979,6 +863,55 @@ name|renderImage
 argument_list|(
 name|i
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|COSStream
+name|contentStream
+init|=
+name|document
+operator|.
+name|getPage
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|getContentStream
+argument_list|()
+decl_stmt|;
+name|InputStream
+name|unfilteredStream
+init|=
+name|contentStream
+operator|.
+name|getUnfilteredStream
+argument_list|()
+decl_stmt|;
+name|ByteArrayOutputStream
+name|baos
+init|=
+operator|new
+name|ByteArrayOutputStream
+argument_list|()
+decl_stmt|;
+name|IOUtils
+operator|.
+name|copy
+argument_list|(
+name|unfilteredStream
+argument_list|,
+name|baos
+argument_list|)
+expr_stmt|;
+name|unfilteredStream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|srcContentStreamTab
+operator|.
+name|add
+argument_list|(
+name|baos
 argument_list|)
 expr_stmt|;
 block|}
@@ -1072,6 +1005,7 @@ operator|++
 name|i
 control|)
 block|{
+comment|// compare content stream
 name|BufferedImage
 name|bim
 init|=
@@ -1096,6 +1030,75 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// compare content streams
+name|COSStream
+name|contentStreamDecr
+init|=
+name|encryptedDoc
+operator|.
+name|getPage
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|getContentStream
+argument_list|()
+decl_stmt|;
+name|InputStream
+name|unfilteredStream
+init|=
+name|contentStreamDecr
+operator|.
+name|getUnfilteredStream
+argument_list|()
+decl_stmt|;
+name|ByteArrayOutputStream
+name|baos
+init|=
+operator|new
+name|ByteArrayOutputStream
+argument_list|()
+decl_stmt|;
+name|IOUtils
+operator|.
+name|copy
+argument_list|(
+name|unfilteredStream
+argument_list|,
+name|baos
+argument_list|)
+expr_stmt|;
+name|unfilteredStream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|Assert
+operator|.
+name|assertArrayEquals
+argument_list|(
+literal|"content stream of page "
+operator|+
+name|i
+operator|+
+literal|" not identical"
+argument_list|,
+name|srcContentStreamTab
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|toByteArray
+argument_list|()
+argument_list|,
+name|baos
+operator|.
+name|toByteArray
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|File
 name|pdfFile
@@ -1115,71 +1118,6 @@ operator|.
 name|save
 argument_list|(
 name|pdfFile
-argument_list|)
-expr_stmt|;
-name|long
-name|sizeAfterDecr
-init|=
-name|pdfFile
-operator|.
-name|length
-argument_list|()
-decl_stmt|;
-block|{
-comment|// for some reason, they are not identical :( 12263 vs 12418
-comment|// Assert.assertTrue(
-comment|// keyLength
-comment|// + "bit decrypted pdf should have same size as plain one",
-comment|// sizeAfterDecr == sizePriorToEncr);
-block|}
-comment|// difference already at position 8
-comment|// for (int i = 0; i< 500 // byteArray.length
-comment|// ; i++) {
-comment|// byte b = byteArrayDecr[i];
-comment|// byte c = input[i];
-comment|// Assert.assertTrue(keyLength
-comment|// + "bit decrypted: character different in pos " +
-comment|// i+" of "+sizeAfterDecr,
-comment|// b == c);
-comment|// }
-name|COSStream
-name|contentStreamDecr
-init|=
-name|encryptedDoc
-operator|.
-name|getPage
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getContentStream
-argument_list|()
-decl_stmt|;
-name|int
-name|decrSizePage0
-init|=
-operator|(
-name|int
-operator|)
-name|contentStreamDecr
-operator|.
-name|getFilteredLength
-argument_list|()
-decl_stmt|;
-comment|// was
-comment|// 2
-comment|// contentStream.size();
-name|Assert
-operator|.
-name|assertTrue
-argument_list|(
-name|keyLength
-operator|+
-literal|"bit decrypted pdf page 0 should have same size as plain one"
-argument_list|,
-name|page0size
-operator|==
-name|decrSizePage0
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -1388,9 +1326,6 @@ operator|!=
 name|sizePriorToEncr
 argument_list|)
 expr_stmt|;
-comment|//        COSStream contentStream = encrypted.getPage(0).getContentStream();
-comment|//        int encrPage0size = (int) contentStream.getFilteredLength();// was 2
-comment|//                                                                    // contentStream.size();
 return|return
 name|encryptedDoc
 return|;
