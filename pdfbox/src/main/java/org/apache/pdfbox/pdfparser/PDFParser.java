@@ -360,6 +360,12 @@ name|FDF_HEADER
 init|=
 literal|"%FDF-"
 decl_stmt|;
+specifier|protected
+name|boolean
+name|isFDFDocment
+init|=
+literal|false
+decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
@@ -1387,6 +1393,10 @@ block|}
 block|}
 else|else
 block|{
+name|isFDFDocment
+operator|=
+literal|true
+expr_stmt|;
 if|if
 condition|(
 operator|!
