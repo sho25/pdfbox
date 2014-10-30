@@ -2491,6 +2491,38 @@ operator|<
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|isLenient
+condition|)
+block|{
+comment|// in lenient mode the '%%EOF' isn't needed
+name|bufOff
+operator|=
+name|buf
+operator|.
+name|length
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Missing end of file marker '"
+operator|+
+operator|(
+operator|new
+name|String
+argument_list|(
+name|EOF_MARKER
+argument_list|)
+operator|)
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -2508,6 +2540,7 @@ operator|+
 literal|"'"
 argument_list|)
 throw|;
+block|}
 block|}
 comment|// ---- find last startxref preceding EOF marker
 name|bufOff
