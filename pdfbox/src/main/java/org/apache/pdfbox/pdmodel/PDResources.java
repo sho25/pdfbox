@@ -527,9 +527,18 @@ literal|null
 condition|)
 block|{
 return|return
-literal|null
+name|PDColorSpace
+operator|.
+name|create
+argument_list|(
+name|name
+argument_list|,
+name|this
+argument_list|)
 return|;
 block|}
+else|else
+block|{
 return|return
 name|PDColorSpace
 operator|.
@@ -540,6 +549,7 @@ argument_list|,
 name|this
 argument_list|)
 return|;
+block|}
 block|}
 comment|/**      * Returns the external graphics state resource with the given name, or null if none exists.      */
 specifier|public
