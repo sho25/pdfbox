@@ -1066,10 +1066,42 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// note: we don't clip to the BBox as it is often wrong, see PDFBOX-1917
+comment|// save text matrices (Type 3 stream may contain BT/ET, see PDFBOX-2137)
+name|Matrix
+name|textMatrixOld
+init|=
+name|textMatrix
+decl_stmt|;
+name|textMatrix
+operator|=
+operator|new
+name|Matrix
+argument_list|()
+expr_stmt|;
+name|Matrix
+name|textLineMatrixOld
+init|=
+name|textLineMatrix
+decl_stmt|;
+name|textLineMatrix
+operator|=
+operator|new
+name|Matrix
+argument_list|()
+expr_stmt|;
 name|processStreamOperators
 argument_list|(
 name|charProc
 argument_list|)
+expr_stmt|;
+comment|// restore text matrices
+name|textMatrix
+operator|=
+name|textMatrixOld
+expr_stmt|;
+name|textLineMatrix
+operator|=
+name|textLineMatrixOld
 expr_stmt|;
 name|restoreGraphicsState
 argument_list|()
