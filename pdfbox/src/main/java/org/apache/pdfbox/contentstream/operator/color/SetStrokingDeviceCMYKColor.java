@@ -168,7 +168,7 @@ operator|.
 name|getGraphicsState
 argument_list|()
 operator|.
-name|setNonStrokingColorSpace
+name|setStrokingColorSpace
 argument_list|(
 name|cs
 argument_list|)
