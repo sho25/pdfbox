@@ -1707,6 +1707,21 @@ name|getResources
 argument_list|()
 expr_stmt|;
 block|}
+comment|// resources are required in PDF
+if|if
+condition|(
+name|resources
+operator|==
+literal|null
+condition|)
+block|{
+name|resources
+operator|=
+operator|new
+name|PDResources
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|parentResources
 return|;
