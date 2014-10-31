@@ -1158,6 +1158,25 @@ block|}
 block|}
 block|}
 comment|// populate properties
+if|if
+condition|(
+name|properties
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|XmpParsingException
+argument_list|(
+name|ErrorType
+operator|.
+name|RequiredProperty
+argument_list|,
+literal|"Missing pdfaSchema:property in type definition"
+argument_list|)
+throw|;
+block|}
 for|for
 control|(
 name|AbstractField
