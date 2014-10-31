@@ -1812,7 +1812,7 @@ name|Area
 argument_list|(
 name|clip
 operator|.
-name|toRectangle2D
+name|toGeneralPath
 argument_list|()
 argument_list|)
 argument_list|)

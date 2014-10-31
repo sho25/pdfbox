@@ -384,14 +384,10 @@ operator|=
 operator|new
 name|Area
 argument_list|(
-operator|new
-name|GeneralPath
-argument_list|(
 name|page
 operator|.
-name|toRectangle2D
+name|toGeneralPath
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
