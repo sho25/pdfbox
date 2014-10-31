@@ -408,7 +408,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// check for default color spaces
+comment|// check for default color spaces - todo: move this into PDColorSpace.create?
 if|if
 condition|(
 name|name
@@ -550,6 +550,7 @@ name|this
 argument_list|)
 return|;
 block|}
+comment|// get the instance
 name|COSBase
 name|object
 init|=
@@ -565,52 +566,10 @@ decl_stmt|;
 if|if
 condition|(
 name|object
-operator|==
+operator|!=
 literal|null
-operator|&&
-name|name
-operator|.
-name|equals
-argument_list|(
-name|COSName
-operator|.
-name|DEVICECMYK
-argument_list|)
-operator|||
-name|name
-operator|.
-name|equals
-argument_list|(
-name|COSName
-operator|.
-name|DEVICERGB
-argument_list|)
-operator|||
-name|name
-operator|.
-name|equals
-argument_list|(
-name|COSName
-operator|.
-name|DEVICEGRAY
-argument_list|)
 condition|)
 block|{
-comment|// the named color space does not exist, but it's built-in
-return|return
-name|PDColorSpace
-operator|.
-name|create
-argument_list|(
-name|name
-argument_list|,
-name|this
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-comment|// finally handle named color spaces
 return|return
 name|PDColorSpace
 operator|.
@@ -622,6 +581,41 @@ name|this
 argument_list|)
 return|;
 block|}
+else|else
+block|{
+return|return
+name|PDColorSpace
+operator|.
+name|create
+argument_list|(
+name|name
+argument_list|,
+name|this
+argument_list|)
+return|;
+block|}
+block|}
+comment|/**      * Returns true if the given color space name exists in these resources.      * @param name color space name      */
+specifier|public
+name|boolean
+name|hasColorSpace
+parameter_list|(
+name|COSName
+name|name
+parameter_list|)
+block|{
+return|return
+name|get
+argument_list|(
+name|COSName
+operator|.
+name|COLORSPACE
+argument_list|,
+name|name
+argument_list|)
+operator|!=
+literal|null
+return|;
 block|}
 comment|/**      * Returns the external graphics state resource with the given name, or null if none exists.      */
 specifier|public
