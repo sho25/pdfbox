@@ -67,6 +67,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -92,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents an Icon fit dictionary for an FDF field.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * This represents an Icon fit dictionary for an FDF field.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -218,7 +232,9 @@ name|fit
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"SW"
+name|COSName
+operator|.
+name|SW
 argument_list|)
 decl_stmt|;
 if|if
@@ -250,7 +266,9 @@ name|fit
 operator|.
 name|setName
 argument_list|(
-literal|"SW"
+name|COSName
+operator|.
+name|SW
 argument_list|,
 name|option
 argument_list|)
@@ -269,7 +287,9 @@ name|fit
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"S"
+name|COSName
+operator|.
+name|S
 argument_list|)
 decl_stmt|;
 if|if
@@ -301,7 +321,9 @@ name|fit
 operator|.
 name|setName
 argument_list|(
-literal|"S"
+name|COSName
+operator|.
+name|S
 argument_list|,
 name|scale
 argument_list|)
@@ -328,7 +350,9 @@ name|fit
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"A"
+name|COSName
+operator|.
+name|A
 argument_list|)
 decl_stmt|;
 if|if
@@ -392,7 +416,9 @@ name|fit
 operator|.
 name|setItem
 argument_list|(
-literal|"A"
+name|COSName
+operator|.
+name|A
 argument_list|,
 name|space
 argument_list|)
@@ -409,7 +435,9 @@ name|fit
 operator|.
 name|getBoolean
 argument_list|(
-literal|"FB"
+name|COSName
+operator|.
+name|FB
 argument_list|,
 literal|false
 argument_list|)
@@ -428,7 +456,9 @@ name|fit
 operator|.
 name|setBoolean
 argument_list|(
-literal|"FB"
+name|COSName
+operator|.
+name|FB
 argument_list|,
 name|value
 argument_list|)

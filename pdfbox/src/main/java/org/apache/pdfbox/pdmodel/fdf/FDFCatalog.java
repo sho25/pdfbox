@@ -73,6 +73,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -112,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents an FDF catalog that is part of the FDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * This represents an FDF catalog that is part of the FDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -235,7 +249,9 @@ name|catalog
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"Version"
+name|COSName
+operator|.
+name|VERSION
 argument_list|)
 return|;
 block|}
@@ -252,7 +268,9 @@ name|catalog
 operator|.
 name|setName
 argument_list|(
-literal|"Version"
+name|COSName
+operator|.
+name|VERSION
 argument_list|,
 name|version
 argument_list|)
@@ -274,7 +292,9 @@ name|catalog
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"FDF"
+name|COSName
+operator|.
+name|FDF
 argument_list|)
 decl_stmt|;
 name|FDFDictionary
@@ -329,7 +349,9 @@ name|catalog
 operator|.
 name|setItem
 argument_list|(
-literal|"FDF"
+name|COSName
+operator|.
+name|FDF
 argument_list|,
 name|fdf
 argument_list|)
@@ -356,7 +378,9 @@ name|catalog
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Sig"
+name|COSName
+operator|.
+name|SIG
 argument_list|)
 decl_stmt|;
 if|if
@@ -392,7 +416,9 @@ name|catalog
 operator|.
 name|setItem
 argument_list|(
-literal|"Sig"
+name|COSName
+operator|.
+name|SIG
 argument_list|,
 name|sig
 argument_list|)

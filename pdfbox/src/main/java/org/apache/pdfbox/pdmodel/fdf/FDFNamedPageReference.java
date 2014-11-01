@@ -63,6 +63,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -90,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents an FDF named page reference that is part of the FDF field.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * This represents an FDF named page reference that is part of the FDF field.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -160,7 +174,9 @@ name|ref
 operator|.
 name|getString
 argument_list|(
-literal|"Name"
+name|COSName
+operator|.
+name|NAME
 argument_list|)
 return|;
 block|}
@@ -177,7 +193,9 @@ name|ref
 operator|.
 name|setString
 argument_list|(
-literal|"Name"
+name|COSName
+operator|.
+name|NAME
 argument_list|,
 name|name
 argument_list|)
@@ -200,7 +218,9 @@ name|ref
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"F"
+name|COSName
+operator|.
+name|F
 argument_list|)
 argument_list|)
 return|;
@@ -218,7 +238,9 @@ name|ref
 operator|.
 name|setItem
 argument_list|(
-literal|"F"
+name|COSName
+operator|.
+name|F
 argument_list|,
 name|fs
 argument_list|)

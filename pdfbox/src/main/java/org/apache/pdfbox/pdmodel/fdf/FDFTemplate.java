@@ -87,6 +87,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -112,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents an FDF template that is part of the FDF page.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * This represents an FDF template that is part of the FDF page.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -192,7 +206,9 @@ name|template
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"TRef"
+name|COSName
+operator|.
+name|TREF
 argument_list|)
 decl_stmt|;
 if|if
@@ -228,7 +244,9 @@ name|template
 operator|.
 name|setItem
 argument_list|(
-literal|"TRef"
+name|COSName
+operator|.
+name|TREF
 argument_list|,
 name|tRef
 argument_list|)
@@ -237,10 +255,16 @@ block|}
 comment|/**      * This will get a list of fields that are part of this template.      *      * @return A list of fields.      */
 specifier|public
 name|List
+argument_list|<
+name|FDFField
+argument_list|>
 name|getFields
 parameter_list|()
 block|{
 name|List
+argument_list|<
+name|FDFField
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -255,7 +279,9 @@ name|template
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Fields"
+name|COSName
+operator|.
+name|FIELDS
 argument_list|)
 decl_stmt|;
 if|if
@@ -266,10 +292,16 @@ literal|null
 condition|)
 block|{
 name|List
+argument_list|<
+name|FDFField
+argument_list|>
 name|fields
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|FDFField
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -314,6 +346,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|FDFField
+argument_list|>
 argument_list|(
 name|fields
 argument_list|,
@@ -331,6 +366,9 @@ name|void
 name|setFields
 parameter_list|(
 name|List
+argument_list|<
+name|FDFField
+argument_list|>
 name|fields
 parameter_list|)
 block|{
@@ -338,7 +376,9 @@ name|template
 operator|.
 name|setItem
 argument_list|(
-literal|"Fields"
+name|COSName
+operator|.
+name|FIELDS
 argument_list|,
 name|COSArrayList
 operator|.
@@ -360,7 +400,9 @@ name|template
 operator|.
 name|getBoolean
 argument_list|(
-literal|"Rename"
+name|COSName
+operator|.
+name|RENAME
 argument_list|,
 literal|false
 argument_list|)
@@ -379,7 +421,9 @@ name|template
 operator|.
 name|setBoolean
 argument_list|(
-literal|"Rename"
+name|COSName
+operator|.
+name|RENAME
 argument_list|,
 name|value
 argument_list|)

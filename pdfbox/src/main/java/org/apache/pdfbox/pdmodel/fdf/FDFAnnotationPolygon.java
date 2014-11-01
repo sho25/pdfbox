@@ -68,7 +68,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a Polygon FDF annotation.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.1 $  */
+comment|/**  * This represents a Polygon FDF annotation.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents an object that can be used in a Field's Opt entry to represent  * an available option and a default appearance string.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This represents an object that can be used in a Field's Opt entry to represent  * an available option and a default appearance string.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

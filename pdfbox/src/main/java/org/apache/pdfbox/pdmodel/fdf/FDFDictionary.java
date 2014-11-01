@@ -246,7 +246,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents an FDF dictionary that is part of the FDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.9 $  */
+comment|/**  * This represents an FDF dictionary that is part of the FDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -481,10 +481,16 @@ name|getChildNodes
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|FDFField
+argument_list|>
 name|fieldList
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|FDFField
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -610,10 +616,16 @@ name|getChildNodes
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|FDFAnnotation
+argument_list|>
 name|annotList
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|FDFAnnotation
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -822,6 +834,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|List
+argument_list|<
+name|FDFField
+argument_list|>
 name|fields
 init|=
 name|getFields
@@ -850,18 +865,13 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|Object
+name|FDFField
 name|field
 range|:
 name|fields
 control|)
 block|{
-operator|(
-operator|(
-name|FDFField
-operator|)
 name|field
-operator|)
 operator|.
 name|writeXML
 argument_list|(
@@ -987,10 +997,16 @@ block|}
 comment|/**      * This will get the list of FDF Fields.  This will return a list of FDFField      * objects.      *      * @return A list of FDF fields.      */
 specifier|public
 name|List
+argument_list|<
+name|FDFField
+argument_list|>
 name|getFields
 parameter_list|()
 block|{
 name|List
+argument_list|<
+name|FDFField
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -1072,6 +1088,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|FDFField
+argument_list|>
 argument_list|(
 name|fields
 argument_list|,
@@ -1089,6 +1108,9 @@ name|void
 name|setFields
 parameter_list|(
 name|List
+argument_list|<
+name|FDFField
+argument_list|>
 name|fields
 parameter_list|)
 block|{
@@ -1150,10 +1172,16 @@ block|}
 comment|/**      * This will get the list of FDF Pages.  This will return a list of FDFPage objects.      *      * @return A list of FDF pages.      */
 specifier|public
 name|List
+argument_list|<
+name|FDFPage
+argument_list|>
 name|getPages
 parameter_list|()
 block|{
 name|List
+argument_list|<
+name|FDFPage
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -1235,6 +1263,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|FDFPage
+argument_list|>
 argument_list|(
 name|pages
 argument_list|,
@@ -1252,6 +1283,9 @@ name|void
 name|setPages
 parameter_list|(
 name|List
+argument_list|<
+name|FDFPage
+argument_list|>
 name|pages
 parameter_list|)
 block|{
@@ -1330,12 +1364,18 @@ block|}
 comment|/**      * This will get the list of FDF Annotations.  This will return a list of FDFAnnotation objects      * or null if the entry is not set.      *      * @return A list of FDF annotations.      *      * @throws IOException If there is an error creating the annotation list.      */
 specifier|public
 name|List
+argument_list|<
+name|FDFAnnotation
+argument_list|>
 name|getAnnotations
 parameter_list|()
 throws|throws
 name|IOException
 block|{
 name|List
+argument_list|<
+name|FDFAnnotation
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -1418,6 +1458,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|FDFAnnotation
+argument_list|>
 argument_list|(
 name|annots
 argument_list|,
@@ -1435,6 +1478,9 @@ name|void
 name|setAnnotations
 parameter_list|(
 name|List
+argument_list|<
+name|FDFAnnotation
+argument_list|>
 name|annots
 parameter_list|)
 block|{
@@ -1537,12 +1583,18 @@ block|}
 comment|/**      * This will get the list of embedded FDF entries, or null if the entry is null.      * This will return a list of PDFileSpecification objects.      *      * @return A list of embedded FDF files.      *      * @throws IOException If there is an error creating the file spec.      */
 specifier|public
 name|List
+argument_list|<
+name|PDFileSpecification
+argument_list|>
 name|getEmbeddedFDFs
 parameter_list|()
 throws|throws
 name|IOException
 block|{
 name|List
+argument_list|<
+name|PDFileSpecification
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -1622,6 +1674,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|PDFileSpecification
+argument_list|>
 argument_list|(
 name|embedded
 argument_list|,
@@ -1639,6 +1694,9 @@ name|void
 name|setEmbeddedFDFs
 parameter_list|(
 name|List
+argument_list|<
+name|PDFileSpecification
+argument_list|>
 name|embedded
 parameter_list|)
 block|{

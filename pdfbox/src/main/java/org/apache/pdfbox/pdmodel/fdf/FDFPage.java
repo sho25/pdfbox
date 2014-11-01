@@ -87,6 +87,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -112,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents an FDF page that is part of the FDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * This represents an FDF page that is part of the FDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -174,10 +188,16 @@ block|}
 comment|/**      * This will get a list of FDFTemplage objects that describe the named pages      * that serve as templates.      *      * @return A list of templates.      */
 specifier|public
 name|List
+argument_list|<
+name|FDFTemplate
+argument_list|>
 name|getTemplates
 parameter_list|()
 block|{
 name|List
+argument_list|<
+name|FDFTemplate
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -192,7 +212,9 @@ name|page
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Templates"
+name|COSName
+operator|.
+name|TEMPLATES
 argument_list|)
 decl_stmt|;
 if|if
@@ -203,10 +225,16 @@ literal|null
 condition|)
 block|{
 name|List
+argument_list|<
+name|FDFTemplate
+argument_list|>
 name|objects
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|FDFTemplate
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -251,6 +279,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|FDFTemplate
+argument_list|>
 argument_list|(
 name|objects
 argument_list|,
@@ -268,6 +299,9 @@ name|void
 name|setTemplates
 parameter_list|(
 name|List
+argument_list|<
+name|FDFTemplate
+argument_list|>
 name|templates
 parameter_list|)
 block|{
@@ -275,7 +309,9 @@ name|page
 operator|.
 name|setItem
 argument_list|(
-literal|"Templates"
+name|COSName
+operator|.
+name|TEMPLATES
 argument_list|,
 name|COSArrayList
 operator|.
@@ -307,7 +343,9 @@ name|page
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Info"
+name|COSName
+operator|.
+name|INFO
 argument_list|)
 decl_stmt|;
 if|if
@@ -343,7 +381,9 @@ name|page
 operator|.
 name|setItem
 argument_list|(
-literal|"Info"
+name|COSName
+operator|.
+name|INFO
 argument_list|,
 name|info
 argument_list|)

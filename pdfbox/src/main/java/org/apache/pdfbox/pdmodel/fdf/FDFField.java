@@ -326,7 +326,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents an FDF field that is part of the FDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
+comment|/**  * This represents an FDF field that is part of the FDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -788,6 +788,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|FDFField
+argument_list|>
 argument_list|(
 name|actuals
 argument_list|,
@@ -1899,7 +1902,9 @@ name|field
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"IF"
+name|COSName
+operator|.
+name|IF
 argument_list|)
 decl_stmt|;
 if|if
@@ -1935,7 +1940,9 @@ name|field
 operator|.
 name|setItem
 argument_list|(
-literal|"IF"
+name|COSName
+operator|.
+name|IF
 argument_list|,
 name|fit
 argument_list|)
@@ -1944,10 +1951,16 @@ block|}
 comment|/**      * This will return a list of options for a choice field.  The value in the      * list will be 1 of 2 types.  java.lang.String or FDFOptionElement.      *      * @return A list of all options.      */
 specifier|public
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|getOptions
 parameter_list|()
 block|{
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -1975,10 +1988,16 @@ literal|null
 condition|)
 block|{
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|objects
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2059,6 +2078,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|objects
 argument_list|,
@@ -2076,6 +2098,9 @@ name|void
 name|setOptions
 parameter_list|(
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|options
 parameter_list|)
 block|{

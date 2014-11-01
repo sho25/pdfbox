@@ -158,7 +158,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents an FDF JavaScript dictionary that is part of the FDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This represents an FDF JavaScript dictionary that is part of the FDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -232,7 +232,9 @@ name|js
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Before"
+name|COSName
+operator|.
+name|BEFORE
 argument_list|)
 argument_list|)
 return|;
@@ -250,7 +252,9 @@ name|js
 operator|.
 name|setItem
 argument_list|(
-literal|"Before"
+name|COSName
+operator|.
+name|BEFORE
 argument_list|,
 name|before
 argument_list|)
@@ -271,7 +275,9 @@ name|js
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"After"
+name|COSName
+operator|.
+name|AFTER
 argument_list|)
 argument_list|)
 return|;
@@ -289,7 +295,9 @@ name|js
 operator|.
 name|setItem
 argument_list|(
-literal|"After"
+name|COSName
+operator|.
+name|AFTER
 argument_list|,
 name|after
 argument_list|)
@@ -298,6 +306,9 @@ block|}
 comment|/**      * This will return a list of PDNamedTextStream objects.  This is the "Doc"      * entry of the pdf document.  These will be added to the PDF documents      * javascript name tree.  This will not return null.      *      * @return A list of all named javascript entries.      */
 specifier|public
 name|List
+argument_list|<
+name|PDNamedTextStream
+argument_list|>
 name|getNamedJavaScripts
 parameter_list|()
 block|{
@@ -311,14 +322,22 @@ name|js
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Doc"
+name|COSName
+operator|.
+name|DOC
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|PDNamedTextStream
+argument_list|>
 name|namedStreams
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|PDNamedTextStream
+argument_list|>
 argument_list|()
 decl_stmt|;
 if|if
@@ -338,7 +357,9 @@ name|js
 operator|.
 name|setItem
 argument_list|(
-literal|"Doc"
+name|COSName
+operator|.
+name|DOC
 argument_list|,
 name|array
 argument_list|)
@@ -410,6 +431,9 @@ block|}
 return|return
 operator|new
 name|COSArrayList
+argument_list|<
+name|PDNamedTextStream
+argument_list|>
 argument_list|(
 name|namedStreams
 argument_list|,
@@ -423,6 +447,9 @@ name|void
 name|setNamedJavaScripts
 parameter_list|(
 name|List
+argument_list|<
+name|PDNamedTextStream
+argument_list|>
 name|namedStreams
 parameter_list|)
 block|{
@@ -440,7 +467,9 @@ name|js
 operator|.
 name|setItem
 argument_list|(
-literal|"Doc"
+name|COSName
+operator|.
+name|DOC
 argument_list|,
 name|array
 argument_list|)
