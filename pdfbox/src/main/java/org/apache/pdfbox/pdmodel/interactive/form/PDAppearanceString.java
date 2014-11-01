@@ -815,6 +815,9 @@ operator|=
 name|getStreamTokens
 argument_list|(
 name|appearanceStream
+operator|.
+name|getCOSStream
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
