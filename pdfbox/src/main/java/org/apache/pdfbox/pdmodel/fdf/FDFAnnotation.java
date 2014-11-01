@@ -53,6 +53,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -194,7 +222,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents an FDF annotation that is part of the FDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This represents an FDF annotation that is part of the FDF document.  *  * @author Ben Litchfield  *   * */
 end_comment
 
 begin_class
@@ -205,6 +233,21 @@ name|FDFAnnotation
 implements|implements
 name|COSObjectable
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|FDFAnnotation
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Annotation dictionary.      */
 specifier|protected
 name|COSDictionary
@@ -223,11 +266,15 @@ argument_list|()
 expr_stmt|;
 name|annot
 operator|.
-name|setName
+name|setItem
 argument_list|(
-literal|"Type"
+name|COSName
+operator|.
+name|TYPE
 argument_list|,
-literal|"Annot"
+name|COSName
+operator|.
+name|ANNOT
 argument_list|)
 expr_stmt|;
 block|}
@@ -742,13 +789,10 @@ decl_stmt|;
 if|if
 condition|(
 name|fdfDic
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-comment|//do nothing and return null
-block|}
-elseif|else
 if|if
 condition|(
 name|FDFAnnotationText
@@ -779,9 +823,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IOException
+name|LOG
+operator|.
+name|warn
 argument_list|(
 literal|"Unknown annotation type '"
 operator|+
@@ -796,7 +840,8 @@ argument_list|)
 operator|+
 literal|"'"
 argument_list|)
-throw|;
+expr_stmt|;
+block|}
 block|}
 return|return
 name|retval
@@ -843,7 +888,9 @@ name|annot
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Page"
+name|COSName
+operator|.
+name|PAGE
 argument_list|)
 decl_stmt|;
 if|if
@@ -1027,7 +1074,9 @@ name|annot
 operator|.
 name|getString
 argument_list|(
-literal|"date"
+name|COSName
+operator|.
+name|DATE
 argument_list|)
 return|;
 block|}
@@ -1044,7 +1093,9 @@ name|annot
 operator|.
 name|setString
 argument_list|(
-literal|"date"
+name|COSName
+operator|.
+name|DATE
 argument_list|,
 name|date
 argument_list|)
