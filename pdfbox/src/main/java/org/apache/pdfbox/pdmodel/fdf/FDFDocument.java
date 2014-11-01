@@ -179,7 +179,7 @@ name|pdfbox
 operator|.
 name|pdfparser
 operator|.
-name|PDFParser
+name|NonSequentialPDFParser
 import|;
 end_import
 
@@ -222,7 +222,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the in-memory representation of the FDF document.  You need to call  * close() on this object when you are done using it!!  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
+comment|/**  * This is the in-memory representation of the FDF document.  You need to call  * close() on this object when you are done using it!!  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -574,13 +574,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDFParser
+name|NonSequentialPDFParser
 name|parser
 init|=
 operator|new
-name|PDFParser
+name|NonSequentialPDFParser
 argument_list|(
 name|input
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|parser
