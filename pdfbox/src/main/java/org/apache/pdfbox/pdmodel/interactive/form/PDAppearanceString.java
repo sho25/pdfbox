@@ -1157,13 +1157,21 @@ operator|.
 name|getNormalAppearance
 argument_list|()
 decl_stmt|;
+comment|// TODO support more than one appearance stream
 name|PDAppearanceStream
 name|appearanceStream
 init|=
 name|normalAppearance
 operator|.
+name|isStream
+argument_list|()
+condition|?
+name|normalAppearance
+operator|.
 name|getAppearanceStream
 argument_list|()
+else|:
+literal|null
 decl_stmt|;
 if|if
 condition|(
