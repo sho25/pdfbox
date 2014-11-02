@@ -924,7 +924,7 @@ decl_stmt|;
 name|saveGraphicsState
 argument_list|()
 expr_stmt|;
-comment|// transform the CTM using the stream's matrix (this is the FontMatrix)
+comment|// transform the CTM using the stream's matrix
 name|getGraphicsState
 argument_list|()
 operator|.
@@ -946,43 +946,6 @@ name|group
 operator|.
 name|getBBox
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// render into a normal opaque buffer
-name|PDGraphicsState
-name|state
-init|=
-name|getGraphicsState
-argument_list|()
-decl_stmt|;
-name|state
-operator|.
-name|setBlendMode
-argument_list|(
-name|BlendMode
-operator|.
-name|NORMAL
-argument_list|)
-expr_stmt|;
-name|state
-operator|.
-name|setAlphaConstant
-argument_list|(
-literal|1.0
-argument_list|)
-expr_stmt|;
-name|state
-operator|.
-name|setNonStrokeAlphaConstants
-argument_list|(
-literal|1.0
-argument_list|)
-expr_stmt|;
-name|state
-operator|.
-name|setSoftMask
-argument_list|(
-literal|null
 argument_list|)
 expr_stmt|;
 name|processStreamOperators
