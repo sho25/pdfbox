@@ -1806,6 +1806,13 @@ argument_list|,
 name|property
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|ast
+operator|!=
+literal|null
+condition|)
+block|{
 name|ast
 operator|.
 name|setPrefix
@@ -1820,6 +1827,7 @@ argument_list|(
 name|ast
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -4142,10 +4150,8 @@ operator|.
 name|trim
 argument_list|()
 operator|.
-name|length
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
 block|{
 name|root
@@ -4400,6 +4406,7 @@ class|class
 name|NamespaceFinder
 block|{
 specifier|private
+specifier|final
 name|Stack
 argument_list|<
 name|Map
