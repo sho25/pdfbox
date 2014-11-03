@@ -664,6 +664,10 @@ if|if
 condition|(
 name|bitsPerCompValue
 operator|!=
+literal|null
+operator|&&
+name|bitsPerCompValue
+operator|!=
 literal|1
 condition|)
 block|{
@@ -676,7 +680,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|,
-literal|"ImageMask entry is true, BitsPerComponent must be 1."
+literal|"ImageMask entry is true, BitsPerComponent must be absent or 1."
 argument_list|)
 argument_list|)
 expr_stmt|;
