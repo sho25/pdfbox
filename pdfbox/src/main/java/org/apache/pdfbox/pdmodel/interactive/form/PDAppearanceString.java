@@ -838,9 +838,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDFStreamParser
-name|parser
-decl_stmt|;
 name|List
 argument_list|<
 name|Object
@@ -873,14 +870,15 @@ name|getBytes
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|PDFStreamParser
 name|parser
-operator|=
+init|=
 operator|new
 name|PDFStreamParser
 argument_list|(
 name|stream
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|parser
 operator|.
 name|parse
@@ -911,9 +909,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDFStreamParser
-name|parser
-decl_stmt|;
 name|List
 argument_list|<
 name|Object
@@ -934,14 +929,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|PDFStreamParser
 name|parser
-operator|=
+init|=
 operator|new
 name|PDFStreamParser
 argument_list|(
 name|stream
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|parser
 operator|.
 name|parse
@@ -1449,12 +1445,6 @@ name|tokens
 argument_list|,
 name|daTokens
 argument_list|)
-decl_stmt|;
-name|int
-name|indexOfString
-init|=
-operator|-
-literal|1
 decl_stmt|;
 name|int
 name|setFontIndex
@@ -2398,7 +2388,7 @@ name|boolean
 name|isMultiLineValue
 parameter_list|(
 name|String
-name|value
+name|multiLineValue
 parameter_list|)
 block|{
 return|return
@@ -2408,7 +2398,7 @@ operator|.
 name|isMultiline
 argument_list|()
 operator|&&
-name|value
+name|multiLineValue
 operator|.
 name|contains
 argument_list|(
@@ -2916,23 +2906,7 @@ decl_stmt|;
 name|float
 name|height
 init|=
-literal|0
-decl_stmt|;
-if|if
-condition|(
 name|pdFont
-operator|instanceof
-name|PDFont
-condition|)
-block|{
-name|height
-operator|=
-operator|(
-operator|(
-name|PDFont
-operator|)
-name|pdFont
-operator|)
 operator|.
 name|getFontDescriptor
 argument_list|()
@@ -2942,26 +2916,9 @@ argument_list|()
 operator|.
 name|getHeight
 argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// now much we can do, so lets assume font is square and use width
-comment|// as the height
-name|height
-operator|=
-name|pdFont
-operator|.
-name|getAverageFontWidth
-argument_list|()
-expr_stmt|;
-block|}
-name|height
-operator|=
-name|height
 operator|/
 literal|1000f
-expr_stmt|;
+decl_stmt|;
 name|float
 name|availHeight
 init|=
@@ -3073,13 +3030,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|pdFont
-operator|instanceof
-name|PDFont
-condition|)
-block|{
 comment|// BJL 9/25/2004
 comment|// This algorithm is a little bit of black magic. It does
 comment|// not appear to be documented anywhere. Through examining a few
@@ -3090,12 +3040,7 @@ comment|// work f1040ez.pdf and Form_1.pdf
 name|PDFontDescriptor
 name|fd
 init|=
-operator|(
-operator|(
-name|PDFont
-operator|)
 name|pdFont
-operator|)
 operator|.
 name|getFontDescriptor
 argument_list|()
@@ -3146,19 +3091,6 @@ operator|)
 operator|/
 literal|2
 expr_stmt|;
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Unable to calculate the vertical offset for non-simple fonts - "
-operator|+
-literal|"using 0 instead"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 name|verticalOffset
