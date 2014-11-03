@@ -5216,7 +5216,7 @@ operator|.
 name|getSecurityHandler
 argument_list|()
 operator|.
-name|decryptString
+name|encryptString
 argument_list|(
 name|obj
 argument_list|,

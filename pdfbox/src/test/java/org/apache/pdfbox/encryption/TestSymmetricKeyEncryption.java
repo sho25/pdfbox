@@ -653,7 +653,7 @@ name|inputFileAsByteArray
 init|=
 name|getFileResourceAsByteArray
 argument_list|(
-literal|"test.pdf"
+literal|"Acroform-PDFBOX-2333.pdf"
 argument_list|)
 decl_stmt|;
 name|int
@@ -716,11 +716,33 @@ argument_list|,
 name|permission1
 argument_list|)
 expr_stmt|;
-comment|//TODO
-comment|// 1) check permissions
-comment|// 2) 256 key length
-comment|//document = PDDocument.load(new ByteArrayInputStream(inputFileAsByteArray));
-comment|//testSymmEncrForKeySize(256, sizePriorToEncryption, document, PASSWORD, permission1);
+comment|//TODO check permissions
+name|document
+operator|=
+name|PDDocument
+operator|.
+name|load
+argument_list|(
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|inputFileAsByteArray
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|testSymmEncrForKeySize
+argument_list|(
+literal|256
+argument_list|,
+name|sizePriorToEncryption
+argument_list|,
+name|document
+argument_list|,
+name|PASSWORD
+argument_list|,
+name|permission1
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Protect a document with an embedded PDF with a key and try to reopen it      * with that key and compare.      *      * @throws Exception If there is an unexpected error during the test.      */
 specifier|public
@@ -816,9 +838,30 @@ argument_list|,
 name|extractedEmbeddedFile
 argument_list|)
 expr_stmt|;
-comment|//TODO enable when 256 key works
-comment|//docWithEmbeddedFile = PDDocument.load(new ByteArrayInputStream(inputFileWithEmbeddedFileAsByteArray));
-comment|//testSymmEncrForKeySizeInner(256, sizeOfFileWithEmbeddedFile, docWithEmbeddedFile, sizeOfEmbeddedFile);
+name|docWithEmbeddedFile
+operator|=
+name|PDDocument
+operator|.
+name|load
+argument_list|(
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|inputFileWithEmbeddedFileAsByteArray
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|testSymmEncrForKeySizeInner
+argument_list|(
+literal|256
+argument_list|,
+name|sizeOfFileWithEmbeddedFile
+argument_list|,
+name|docWithEmbeddedFile
+argument_list|,
+name|extractedEmbeddedFile
+argument_list|)
+expr_stmt|;
 block|}
 specifier|private
 name|void
