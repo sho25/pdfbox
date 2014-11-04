@@ -403,7 +403,10 @@ operator|.
 name|getWidth
 argument_list|()
 argument_list|,
-literal|287
+name|image
+operator|.
+name|getHeight
+argument_list|()
 argument_list|,
 literal|"png"
 argument_list|,
