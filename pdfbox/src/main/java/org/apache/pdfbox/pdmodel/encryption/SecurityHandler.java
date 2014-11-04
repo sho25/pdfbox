@@ -1981,6 +1981,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * This will encrypt a string.      *      * @param string the string to encrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If an error occurs writing the new string.      */
 specifier|public
 name|void
 name|encryptString
