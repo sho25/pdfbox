@@ -1124,6 +1124,24 @@ operator|.
 name|getMatrix
 argument_list|()
 decl_stmt|;
+comment|// zero-sized rectangles are not valid
+if|if
+condition|(
+name|rect
+operator|.
+name|getWidth
+argument_list|()
+operator|>
+literal|0
+operator|&&
+name|rect
+operator|.
+name|getHeight
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 comment|// transformed appearance box
 name|PDRectangle
 name|transformedBox
@@ -1207,7 +1225,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Matrix shall be concatenated with A to form a matrix AA that maps from the appearanceâ€™s
+comment|// Matrix shall be concatenated with A to form a matrix AA that maps from the appearance€™s
 comment|// coordinate system to the annotationâ€™s rectangle in default user space
 name|Matrix
 name|aa
@@ -1241,6 +1259,7 @@ argument_list|(
 name|appearance
 argument_list|)
 expr_stmt|;
+block|}
 name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
