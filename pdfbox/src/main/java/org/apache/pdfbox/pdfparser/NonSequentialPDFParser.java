@@ -4980,6 +4980,35 @@ operator|instanceof
 name|COSDictionary
 condition|)
 block|{
+name|COSDictionary
+name|dict
+init|=
+operator|(
+name|COSDictionary
+operator|)
+name|pb
+decl_stmt|;
+comment|// skip signature dictionary
+if|if
+condition|(
+operator|!
+name|dict
+operator|.
+name|getCOSName
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+name|COSName
+operator|.
+name|SIG
+argument_list|)
+condition|)
+block|{
 for|for
 control|(
 name|Entry
@@ -4990,20 +5019,12 @@ name|COSBase
 argument_list|>
 name|entry
 range|:
-operator|(
-operator|(
-name|COSDictionary
-operator|)
-name|pb
-operator|)
+name|dict
 operator|.
 name|entrySet
 argument_list|()
 control|)
 block|{
-comment|// TODO: specially handle 'Contents' entry of
-comment|// signature dictionary like in
-comment|// SecurityHandler#decryptDictionary
 if|if
 condition|(
 name|entry
@@ -5058,6 +5079,7 @@ argument_list|,
 name|objGenNr
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
