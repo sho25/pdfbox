@@ -2418,6 +2418,30 @@ name|BaseParser
 name|usedParser
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|doc
+argument_list|,
+name|usedParser
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Constructor that uses an existing document. The COSDocument that is passed in must be valid.      *       * @param doc The COSDocument that this document wraps.      * @param usedParser the parser which is used to read the pdf      * @param permission he access permissions of the pdf      *       */
+specifier|public
+name|PDDocument
+parameter_list|(
+name|COSDocument
+name|doc
+parameter_list|,
+name|BaseParser
+name|usedParser
+parameter_list|,
+name|AccessPermission
+name|permission
+parameter_list|)
+block|{
 name|document
 operator|=
 name|doc
@@ -2425,6 +2449,10 @@ expr_stmt|;
 name|parser
 operator|=
 name|usedParser
+expr_stmt|;
+name|accessPermission
+operator|=
+name|permission
 expr_stmt|;
 block|}
 comment|/**      * This will get the low level document.      *       * @return The document that this layer sits on top of.      */
