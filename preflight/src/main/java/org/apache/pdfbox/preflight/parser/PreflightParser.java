@@ -1491,6 +1491,13 @@ operator|.
 name|readLine
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|secondLine
+operator|!=
+literal|null
+condition|)
+block|{
 name|byte
 index|[]
 name|secondLineAsBytes
@@ -1507,10 +1514,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|secondLine
-operator|!=
-literal|null
-operator|&&
 name|secondLineAsBytes
 operator|.
 name|length
@@ -1624,6 +1627,7 @@ literal|"Second line must contains at least 4 bytes greater than 127"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
