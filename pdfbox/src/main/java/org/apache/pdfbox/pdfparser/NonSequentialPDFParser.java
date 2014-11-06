@@ -5003,9 +5003,16 @@ name|COSDictionary
 operator|)
 name|pb
 decl_stmt|;
+comment|// skip dictionary containing the signature
+if|if
+condition|(
+operator|!
 name|COSName
-name|type
-init|=
+operator|.
+name|SIG
+operator|.
+name|equals
+argument_list|(
 name|dict
 operator|.
 name|getCOSName
@@ -5014,22 +5021,6 @@ name|COSName
 operator|.
 name|TYPE
 argument_list|)
-decl_stmt|;
-comment|// skip dictionary containing the signature
-if|if
-condition|(
-name|type
-operator|==
-literal|null
-operator|||
-operator|!
-name|type
-operator|.
-name|equals
-argument_list|(
-name|COSName
-operator|.
-name|SIG
 argument_list|)
 condition|)
 block|{
