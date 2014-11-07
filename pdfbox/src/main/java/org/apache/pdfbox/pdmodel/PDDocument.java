@@ -1728,7 +1728,7 @@ name|COSDictionary
 operator|)
 name|base
 decl_stmt|;
-comment|// Appearance Dictionary auslesen und setzen
+comment|// read and set Appearance Dictionary
 name|PDAppearanceDictionary
 name|ap
 init|=
@@ -1740,7 +1740,7 @@ name|COSDictionary
 operator|)
 name|cosBaseDict
 operator|.
-name|getItem
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
@@ -1768,7 +1768,7 @@ argument_list|(
 name|ap
 argument_list|)
 expr_stmt|;
-comment|// AcroForm DefaultRessource auslesen und setzen
+comment|// read and set AcroForm DefaultResource
 name|COSBase
 name|dr
 init|=
@@ -1781,6 +1781,13 @@ operator|.
 name|DR
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|dr
+operator|!=
+literal|null
+condition|)
+block|{
 name|dr
 operator|.
 name|setDirect
@@ -1806,6 +1813,7 @@ argument_list|,
 name|dr
 argument_list|)
 expr_stmt|;
+block|}
 name|sigFieldNotFound
 operator|=
 literal|false
