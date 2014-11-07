@@ -77,6 +77,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Set the property value      *       * @param value      *            The value to set      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValue

@@ -77,6 +77,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * return the property value      *       * @return the property value      */
+annotation|@
+name|Override
 specifier|public
 name|Integer
 name|getValue
@@ -87,6 +89,8 @@ name|integerValue
 return|;
 block|}
 comment|/**      * Set the property value      *       * @param value      *            The value to set      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValue
@@ -105,14 +109,9 @@ block|{
 name|integerValue
 operator|=
 operator|(
-operator|(
 name|Integer
 operator|)
 name|value
-operator|)
-operator|.
-name|intValue
-argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -144,7 +143,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Value given is not allowed for the Integer type."
+literal|"Value given is not allowed for the Integer type: "
+operator|+
+name|value
 argument_list|)
 throw|;
 block|}

@@ -123,6 +123,8 @@ name|value
 expr_stmt|;
 block|}
 comment|/**      * return the property value      *       * @return boolean      */
+annotation|@
+name|Override
 specifier|public
 name|Calendar
 name|getValue
@@ -192,6 +194,8 @@ literal|false
 return|;
 block|}
 comment|/**      * Set value of this property      *       * @param value      *            The value to set      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValue
@@ -213,12 +217,16 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Value given is not allowed for the Date type : "
+literal|"Value given is not allowed for the Date type: "
 operator|+
 name|value
 operator|.
 name|getClass
 argument_list|()
+operator|+
+literal|", value: "
+operator|+
+name|value
 argument_list|)
 throw|;
 block|}
@@ -255,6 +263,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getStringValue

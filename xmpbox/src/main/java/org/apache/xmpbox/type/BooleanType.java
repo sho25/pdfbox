@@ -93,6 +93,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * return the property value      *       * @return boolean the property value      */
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|getValue
@@ -103,6 +105,8 @@ name|booleanValue
 return|;
 block|}
 comment|/**      * Set value of this property BooleanTypeObject accept String value or a boolean      *       * @param value      *            The value to set      *       */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValue
@@ -121,14 +125,9 @@ block|{
 name|booleanValue
 operator|=
 operator|(
-operator|(
 name|Boolean
 operator|)
 name|value
-operator|)
-operator|.
-name|booleanValue
-argument_list|()
 expr_stmt|;
 block|}
 elseif|else

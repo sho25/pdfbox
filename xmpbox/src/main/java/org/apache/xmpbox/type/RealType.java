@@ -77,6 +77,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * return the property value      *       * @return float the property value      */
+annotation|@
+name|Override
 specifier|public
 name|Float
 name|getValue
@@ -87,6 +89,8 @@ name|realValue
 return|;
 block|}
 comment|/**      * Set the property value      *       * @param value      *            The value to set      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValue
@@ -105,14 +109,9 @@ block|{
 name|realValue
 operator|=
 operator|(
-operator|(
 name|Float
 operator|)
 name|value
-operator|)
-operator|.
-name|floatValue
-argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -144,7 +143,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Value given is not allowed for the Real type."
+literal|"Value given is not allowed for the Real type: "
+operator|+
+name|value
 argument_list|)
 throw|;
 block|}
