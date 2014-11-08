@@ -478,6 +478,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|value
+operator|==
+literal|null
+operator|||
 operator|!
 operator|(
 name|value
