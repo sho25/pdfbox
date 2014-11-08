@@ -833,7 +833,7 @@ return|return
 name|version
 return|;
 block|}
-comment|/**       * Signals that the document is decrypted completely.      * Needed e.g. by {@link org.apache.pdfbox.pdfparser.NonSequentialPDFParser} to circumvent      * additional decryption later on. */
+comment|/**       * Signals that the document is decrypted completely.      * Needed e.g. by {@link org.apache.pdfbox.pdfparser.NonSequentialPDFParser} to circumvent      * additional decryption later on.       */
 specifier|public
 name|void
 name|setDecrypted
@@ -844,21 +844,22 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+comment|/**       * Indicates if a encrypted pdf is already decrypted after parsing.      * Does make sense only if the {@link org.apache.pdfbox.pdfparser.NonSequentialPDFParser} is used.      *       *  @return true indicates that the pdf is decrypted.      */
+specifier|public
+name|boolean
+name|isDecrypted
+parameter_list|()
+block|{
+return|return
+name|isDecrypted
+return|;
+block|}
 comment|/**      * This will tell if this is an encrypted document.      *      * @return true If this document is encrypted.      */
 specifier|public
 name|boolean
 name|isEncrypted
 parameter_list|()
 block|{
-if|if
-condition|(
-name|isDecrypted
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
 name|boolean
 name|encrypted
 init|=
