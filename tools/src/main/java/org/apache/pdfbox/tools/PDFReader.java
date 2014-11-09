@@ -1813,15 +1813,6 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-block|}
-name|renderer
-operator|=
-operator|new
-name|PDFRenderer
-argument_list|(
-name|document
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|document
@@ -1866,6 +1857,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+name|renderer
+operator|=
+operator|new
+name|PDFRenderer
+argument_list|(
+name|document
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Get the bottom status panel.      * @return The bottom status panel.      */
 specifier|public
