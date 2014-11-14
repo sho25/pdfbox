@@ -843,7 +843,18 @@ parameter_list|(
 name|IOException
 name|ex
 parameter_list|)
-block|{         }
+block|{
+name|assertEquals
+argument_list|(
+literal|"Cannot decrypt PDF, the password is incorrect"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|checkPerms
@@ -868,7 +879,18 @@ parameter_list|(
 name|IOException
 name|ex
 parameter_list|)
-block|{         }
+block|{
+name|assertEquals
+argument_list|(
+literal|"Cannot decrypt PDF, the password is incorrect"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|inputFileAsByteArray
 operator|=
 name|getFileResourceAsByteArray
@@ -944,7 +966,18 @@ parameter_list|(
 name|IOException
 name|ex
 parameter_list|)
-block|{         }
+block|{
+name|assertEquals
+argument_list|(
+literal|"Cannot decrypt PDF, the password is incorrect"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|checkPerms
@@ -969,7 +1002,18 @@ parameter_list|(
 name|IOException
 name|ex
 parameter_list|)
-block|{         }
+block|{
+name|assertEquals
+argument_list|(
+literal|"Cannot decrypt PDF, the password is incorrect"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 specifier|private
 name|void
