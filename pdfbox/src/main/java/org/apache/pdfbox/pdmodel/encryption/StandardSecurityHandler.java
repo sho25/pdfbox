@@ -2706,6 +2706,13 @@ operator|.
 name|update
 argument_list|(
 name|digest
+argument_list|,
+literal|0
+argument_list|,
+operator|(
+name|int
+operator|)
+name|length
 argument_list|)
 expr_stmt|;
 name|digest
