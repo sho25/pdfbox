@@ -340,6 +340,8 @@ name|StreamValidationProcess
 extends|extends
 name|AbstractProcess
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
@@ -487,7 +489,7 @@ name|bFilter
 init|=
 name|stream
 operator|.
-name|getItem
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
@@ -1044,8 +1046,6 @@ do|do
 block|{
 name|int
 name|cr
-init|=
-literal|0
 decl_stmt|;
 if|if
 condition|(
