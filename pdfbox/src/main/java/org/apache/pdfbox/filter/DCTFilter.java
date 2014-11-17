@@ -275,6 +275,25 @@ argument_list|(
 name|encoded
 argument_list|)
 expr_stmt|;
+comment|// skip one LF if there
+if|if
+condition|(
+name|iis
+operator|.
+name|read
+argument_list|()
+operator|!=
+literal|0x0A
+condition|)
+block|{
+name|iis
+operator|.
+name|seek
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
 name|reader
 operator|.
 name|setInput
