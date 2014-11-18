@@ -277,6 +277,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// automatically trim the provided string value
+name|title
+operator|=
+name|title
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|dc
@@ -515,6 +523,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// automatically trim the provided string value
+name|author
+operator|=
+name|author
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|dc
@@ -689,6 +705,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// automatically trim the provided string value
+name|subject
+operator|=
+name|subject
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|dc
@@ -830,6 +854,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// automatically trim the provided string value
+name|keyword
+operator|=
+name|keyword
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|pdf
@@ -939,6 +971,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// automatically trim the provided string value
+name|producer
+operator|=
+name|producer
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|pdf
@@ -1048,6 +1088,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// automatically trim the provided string value
+name|creatorTool
+operator|=
+name|creatorTool
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|xmp
