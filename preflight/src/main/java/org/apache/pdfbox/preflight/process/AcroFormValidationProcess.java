@@ -114,6 +114,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_BODY
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -255,6 +271,24 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|form
+operator|.
+name|PDFieldTreeNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|preflight
 operator|.
 name|PreflightContext
@@ -316,6 +350,8 @@ name|AcroFormValidationProcess
 extends|extends
 name|AbstractProcess
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
@@ -413,7 +449,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_NOCATALOG
 argument_list|,
-literal|"There are no Catalog entry in the Document."
+literal|"There is no Catalog entry in the Document."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -461,7 +497,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This function explores all fields and their children to check if the A or AA entry is present.      *       * @see #valideField(PreflightContext, PDField)       *       * @param ctx the preflight context.      * @param lFields the list of fields.      * @return the result of the check for A or AA entries.      * @throws IOException      */
+comment|/**      * This function explores all fields and their children to validate them.      *       * @see #validateField(PreflightContext, PDField)       *       * @param ctx the preflight context.      * @param lFields the list of fields, can be null.      * @return the result of the validation.      * @throws IOException      */
 specifier|protected
 name|boolean
 name|exploreFields
@@ -485,7 +521,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// the list can be null is the Field doesn't have child
+comment|// the list can be null if the Field doesn't have children
 for|for
 control|(
 name|Object
@@ -496,13 +532,20 @@ control|)
 block|{
 if|if
 condition|(
+name|obj
+operator|instanceof
+name|PDFieldTreeNode
+condition|)
+block|{
+if|if
+condition|(
 operator|!
-name|valideField
+name|validateField
 argument_list|(
 name|ctx
 argument_list|,
 operator|(
-name|PDField
+name|PDFieldTreeNode
 operator|)
 name|obj
 argument_list|)
@@ -513,20 +556,66 @@ literal|false
 return|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|obj
+operator|instanceof
+name|PDAnnotationWidget
+condition|)
+block|{
+comment|// "A field?s children in the hierarchy may also include widget annotations"
+name|ContextHelper
+operator|.
+name|validateElement
+argument_list|(
+name|ctx
+argument_list|,
+operator|(
+operator|(
+name|PDAnnotationWidget
+operator|)
+name|obj
+operator|)
+operator|.
+name|getDictionary
+argument_list|()
+argument_list|,
+name|ANNOTATIONS_PROCESS
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|addValidationError
+argument_list|(
+name|ctx
+argument_list|,
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_SYNTAX_BODY
+argument_list|,
+literal|"Field can only have fields or widget annotations as KIDS"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 return|return
 literal|true
 return|;
 block|}
-comment|/**      * A and AA field are forbidden, this method checks if they are present and checks all child of this field. If the      * an Additional Action is present the error code ERROR_ACTION_FORBIDDEN_ADDITIONAL_ACTIONS_FIELD (6.2.3) is added      * to the error list If the an Action is present (in the Widget Annotation) the error      * ERROR_ACTION_FORBIDDEN_WIDGET_ACTION_FIELD (6.2.4) is added to the error list. (Remark : The widget validation      * will be done by the AnnotationValidationHelper, but some actions are authorized in a standard Widget)      *       * @param ctx the preflight context.      * @param aField an acro forms field.      * @return the result of the check for A or AA entries.      * @throws IOException      */
+comment|/**      * A and AA field are forbidden, this method checks if they are present and checks all children of this field. If the      * an Additional Action is present the error code ERROR_ACTION_FORBIDDEN_ADDITIONAL_ACTIONS_FIELD (6.2.3) is added      * to the error list If the an Action is present (in the Widget Annotation) the error      * ERROR_ACTION_FORBIDDEN_WIDGET_ACTION_FIELD (6.2.4) is added to the error list. (Remark : The widget validation      * will be done by the AnnotationValidationHelper, but some actions are authorized in a standard Widget)      *       * @param ctx the preflight context.      * @param aField an acro forms field.      * @return the result of the check for A or AA entries.      * @throws IOException      */
 specifier|protected
 name|boolean
-name|valideField
+name|validateField
 parameter_list|(
 name|PreflightContext
 name|ctx
 parameter_list|,
-name|PDField
+name|PDFieldTreeNode
 name|aField
 parameter_list|)
 throws|throws
