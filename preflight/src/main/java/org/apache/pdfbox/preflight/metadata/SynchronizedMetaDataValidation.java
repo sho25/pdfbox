@@ -277,13 +277,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// automatically trim the provided string value
+comment|// automatically strip trailing Nul values
 name|title
 operator|=
+name|removeTrailingNul
+argument_list|(
 name|title
-operator|.
-name|trim
-argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -523,13 +523,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// automatically trim the provided string value
+comment|// automatically strip trailing Nul values
 name|author
 operator|=
+name|removeTrailingNul
+argument_list|(
 name|author
-operator|.
-name|trim
-argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -705,13 +705,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// automatically trim the provided string value
+comment|// automatically strip trailing Nul values
 name|subject
 operator|=
+name|removeTrailingNul
+argument_list|(
 name|subject
-operator|.
-name|trim
-argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -854,13 +854,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// automatically trim the provided string value
+comment|// automatically strip trailing Nul values
 name|keyword
 operator|=
+name|removeTrailingNul
+argument_list|(
 name|keyword
-operator|.
-name|trim
-argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -971,13 +971,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// automatically trim the provided string value
+comment|// automatically strip trailing Nul values
 name|producer
 operator|=
+name|removeTrailingNul
+argument_list|(
 name|producer
-operator|.
-name|trim
-argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1088,13 +1088,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// automatically trim the provided string value
+comment|// automatically strip trailing Nul values
 name|creatorTool
 operator|=
+name|removeTrailingNul
+argument_list|(
 name|creatorTool
-operator|.
-name|trim
-argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1948,6 +1948,60 @@ name|sb
 operator|.
 name|toString
 argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * A given string from the DocumentInformation dictionary may have some trailing Nul values       * which have to be stripped.      *        * @param string to be stripped      * @return the stripped string      */
+specifier|private
+name|String
+name|removeTrailingNul
+parameter_list|(
+name|String
+name|string
+parameter_list|)
+block|{
+comment|// remove trailing NUL values
+name|int
+name|length
+init|=
+name|string
+operator|.
+name|length
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|length
+operator|>
+literal|0
+operator|&&
+operator|(
+name|int
+operator|)
+name|string
+operator|.
+name|charAt
+argument_list|(
+name|length
+operator|-
+literal|1
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|length
+operator|--
+expr_stmt|;
+block|}
+return|return
+name|string
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|length
 argument_list|)
 return|;
 block|}
