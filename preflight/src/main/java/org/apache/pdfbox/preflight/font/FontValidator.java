@@ -182,6 +182,10 @@ parameter_list|)
 block|{
 return|return
 name|fontName
+operator|!=
+literal|null
+operator|&&
+name|fontName
 operator|.
 name|matches
 argument_list|(
