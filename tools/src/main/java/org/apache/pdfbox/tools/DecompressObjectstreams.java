@@ -17,6 +17,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -102,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This program will just take all of the stream objects in a PDF and dereference  * them.  The streams will be gone in the resulting file and the objects will be  * present.  This is very helpful when trying to debug problems as it'll make  * it possible to easily look through a PDF using a text editor.  It also exposes  * problems which stem from objects inside object streams overwriting other  * objects.  * @author<a href="adam@apache.org">Adam Nichols</a>  */
+comment|/**  * This program will just take all of the stream objects in a PDF and dereference  * them.  The streams will be gone in the resulting file and the objects will be  * present.  This is very helpful when trying to debug problems as it'll make  * it possible to easily look through a PDF using a text editor.  It also exposes  * problems which stem from objects inside object streams overwriting other  * objects.  * @author Adam Nichols  */
 end_comment
 
 begin_class
@@ -211,9 +221,13 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
 argument_list|(
 name|inputFilename
+argument_list|)
 argument_list|)
 expr_stmt|;
 for|for

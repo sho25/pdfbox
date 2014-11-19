@@ -21,6 +21,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -88,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This example will take a PDF document and fill the fields with data from the  * FDF fields.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This example will take a PDF document and fill the fields with data from the  * FDF fields.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -233,12 +243,16 @@ name|pdf
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
 argument_list|(
 name|args
 index|[
 literal|0
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fdf
