@@ -816,7 +816,7 @@ name|document
 operator|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 name|file
 argument_list|,
@@ -1152,7 +1152,7 @@ argument_list|)
 expr_stmt|;
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 name|tmpFile
 argument_list|,

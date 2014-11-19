@@ -1047,7 +1047,7 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 operator|new
 name|ByteArrayInputStream
@@ -2023,7 +2023,7 @@ name|encryptedDoc
 operator|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 name|pdfFile
 argument_list|,
@@ -2097,7 +2097,7 @@ name|encryptedDoc
 operator|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 name|pdfFile
 argument_list|,

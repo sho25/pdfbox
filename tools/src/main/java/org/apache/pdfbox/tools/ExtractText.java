@@ -845,7 +845,7 @@ name|document
 operator|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 operator|new
 name|File
@@ -1192,7 +1192,7 @@ name|subDoc
 operator|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 name|fis
 argument_list|)

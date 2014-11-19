@@ -200,7 +200,7 @@ name|srcDoc1
 init|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 operator|new
 name|File
@@ -280,7 +280,7 @@ name|srcDoc2
 init|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 operator|new
 name|File
@@ -409,7 +409,7 @@ name|mergedDoc
 init|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 operator|new
 name|File

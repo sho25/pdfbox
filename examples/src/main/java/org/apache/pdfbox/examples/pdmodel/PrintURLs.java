@@ -234,7 +234,7 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 operator|new
 name|File

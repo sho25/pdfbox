@@ -251,7 +251,7 @@ name|doc
 init|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 name|ds
 operator|.

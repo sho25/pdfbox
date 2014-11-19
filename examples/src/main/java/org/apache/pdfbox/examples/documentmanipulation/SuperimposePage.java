@@ -264,7 +264,7 @@ name|toBeImported
 init|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 operator|new
 name|File

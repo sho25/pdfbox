@@ -696,7 +696,7 @@ name|document
 operator|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 name|pdfFile
 argument_list|,

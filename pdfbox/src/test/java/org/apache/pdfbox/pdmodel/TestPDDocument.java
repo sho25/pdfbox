@@ -586,7 +586,7 @@ name|loadDoc
 init|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 operator|new
 name|ByteArrayInputStream
@@ -761,7 +761,7 @@ name|loadDoc
 init|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 name|targetFile
 argument_list|)

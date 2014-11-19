@@ -3228,7 +3228,7 @@ comment|/**      * Parses PDF with non sequential parser.      *       * @param 
 specifier|public
 specifier|static
 name|PDDocument
-name|loadNonSeq
+name|load
 parameter_list|(
 name|File
 name|file
@@ -3237,7 +3237,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|loadNonSeq
+name|load
 argument_list|(
 name|file
 argument_list|,
@@ -3251,7 +3251,7 @@ comment|/**      * Parses PDF with non sequential parser.      *       * @param 
 specifier|public
 specifier|static
 name|PDDocument
-name|loadNonSeq
+name|load
 parameter_list|(
 name|File
 name|file
@@ -3263,7 +3263,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|loadNonSeq
+name|load
 argument_list|(
 name|file
 argument_list|,
@@ -3277,7 +3277,7 @@ comment|/**      * Parses PDF with non sequential parser.      *       * @param 
 specifier|public
 specifier|static
 name|PDDocument
-name|loadNonSeq
+name|load
 parameter_list|(
 name|File
 name|file
@@ -3289,7 +3289,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|loadNonSeq
+name|load
 argument_list|(
 name|file
 argument_list|,
@@ -3303,7 +3303,7 @@ comment|/**      * Parses PDF with non sequential parser.      *       * @param 
 specifier|public
 specifier|static
 name|PDDocument
-name|loadNonSeq
+name|load
 parameter_list|(
 name|File
 name|file
@@ -3346,7 +3346,7 @@ comment|/**      * Parses PDF with non sequential parser.      *       * @param 
 specifier|public
 specifier|static
 name|PDDocument
-name|loadNonSeq
+name|load
 parameter_list|(
 name|InputStream
 name|input
@@ -3355,7 +3355,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|loadNonSeq
+name|load
 argument_list|(
 name|input
 argument_list|,
@@ -3369,7 +3369,7 @@ comment|/**      * Parses PDF with non sequential parser.      *       * @param 
 specifier|public
 specifier|static
 name|PDDocument
-name|loadNonSeq
+name|load
 parameter_list|(
 name|InputStream
 name|input
@@ -3381,7 +3381,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|loadNonSeq
+name|load
 argument_list|(
 name|input
 argument_list|,
@@ -3395,7 +3395,7 @@ comment|/**      * Parses PDF with non sequential parser.      *       * @param 
 specifier|public
 specifier|static
 name|PDDocument
-name|loadNonSeq
+name|load
 parameter_list|(
 name|InputStream
 name|input
@@ -3407,7 +3407,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|loadNonSeq
+name|load
 argument_list|(
 name|input
 argument_list|,
@@ -3421,7 +3421,7 @@ comment|/**      * Parses PDF with non sequential parser.      *       * @param 
 specifier|public
 specifier|static
 name|PDDocument
-name|loadNonSeq
+name|load
 parameter_list|(
 name|InputStream
 name|input

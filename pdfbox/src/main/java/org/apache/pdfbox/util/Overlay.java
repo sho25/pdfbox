@@ -858,7 +858,7 @@ block|{
 return|return
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 operator|new
 name|File

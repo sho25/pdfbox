@@ -837,7 +837,7 @@ name|source
 operator|=
 name|PDDocument
 operator|.
-name|loadNonSeq
+name|load
 argument_list|(
 name|sourceFile
 argument_list|,
