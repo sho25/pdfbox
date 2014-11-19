@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the main program that will take a list of pdf documents and merge them,  * saving the result in a new document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This is the main program that will take a list of pdf documents and merge them,  * saving the result in a new document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -99,44 +99,11 @@ decl_stmt|;
 name|String
 name|sourceFileName
 decl_stmt|;
-name|boolean
-name|nonSeq
-init|=
-literal|false
-decl_stmt|;
 name|int
 name|firstFileArgPos
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
-name|args
-operator|.
-name|length
-operator|>
-literal|0
-operator|&&
-name|args
-index|[
-literal|0
-index|]
-operator|.
-name|equals
-argument_list|(
-literal|"-nonSeq"
-argument_list|)
-condition|)
-block|{
-name|nonSeq
-operator|=
-literal|true
-expr_stmt|;
-name|firstFileArgPos
-operator|=
-literal|1
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|args
@@ -211,27 +178,11 @@ argument_list|(
 name|destinationFileName
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|nonSeq
-condition|)
-block|{
-name|merger
-operator|.
-name|mergeDocumentsNonSeq
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|merger
 operator|.
 name|mergeDocuments
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 comment|/**      * This will print the usage requirements and exit.      */
 specifier|private
@@ -247,8 +198,6 @@ operator|.
 name|println
 argument_list|(
 literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFMerger [-nonSeq]<Source PDF File 2..n><Destination PDF File>\n"
-operator|+
-literal|"  -nonSeq                      use the non-sequential parser\n"
 operator|+
 literal|"<Source PDF File 2..n>       2 or more source PDF documents to merge\n"
 operator|+

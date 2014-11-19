@@ -399,10 +399,8 @@ argument_list|)
 expr_stmt|;
 name|pdfMergerUtility
 operator|.
-name|mergeDocumentsNonSeq
-argument_list|(
-literal|null
-argument_list|)
+name|mergeDocuments
+argument_list|()
 expr_stmt|;
 name|PDDocument
 name|mergedDoc
