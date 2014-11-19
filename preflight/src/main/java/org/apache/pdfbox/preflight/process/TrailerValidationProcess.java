@@ -575,7 +575,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Extracts and compares first and last trailers for PDF version between 1.1 and 1.4      *       * @param ctx the preflight context.      */
+comment|/**      * Extracts and compares first and last trailers for PDF version between 1.1 and 1.4.      *       * @param ctx the preflight context.      */
 specifier|protected
 name|void
 name|checkTrailersForLinearizedPDF14
@@ -946,21 +946,19 @@ name|TRAILER_DICTIONARY_KEY_ID
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// According to the revised PDF/A specification the IDs have to be identical
+comment|// if both are present, otherwise everything is fine
 if|if
 condition|(
 name|idFirst
-operator|==
+operator|!=
 literal|null
-operator|||
+operator|&&
 name|idLast
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-return|return
-literal|false
-return|;
-block|}
 comment|// ---- cast two COSBase to COSArray.
 name|COSArray
 name|af
@@ -1046,6 +1044,7 @@ condition|(
 operator|!
 name|oneIsEquals
 condition|)
+block|{
 name|oneIsEquals
 operator|=
 operator|(
@@ -1071,8 +1070,11 @@ name|getString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 break|break;
+block|}
 block|}
 name|isEqual
 operator|=
@@ -1092,6 +1094,13 @@ block|}
 return|return
 name|isEqual
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 comment|/**      * check if all keys are authorized in a trailer dictionary and if the type is valid.      *       * @param ctx the preflight context.      * @param trailer the trailer dictionary.      */
 specifier|protected
