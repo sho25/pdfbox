@@ -217,22 +217,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|encryption
-operator|.
-name|StandardDecryptionMaterial
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|util
 operator|.
 name|PDFTextStripper
@@ -240,7 +224,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the main program that simply parses the pdf document and transforms it  * into text.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.14 $  */
+comment|/**  * This is the main program that simply parses the pdf document and transforms it  * into text.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -330,14 +314,6 @@ name|FORCE
 init|=
 literal|"-force"
 decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|NONSEQ
-init|=
-literal|"-nonSeq"
-decl_stmt|;
 comment|/*      * debug flag      */
 specifier|private
 name|boolean
@@ -426,11 +402,6 @@ name|boolean
 name|separateBeads
 init|=
 literal|true
-decl_stmt|;
-name|boolean
-name|useNonSeqParser
-init|=
-literal|false
 decl_stmt|;
 name|String
 name|password
@@ -766,25 +737,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|args
-index|[
-name|i
-index|]
-operator|.
-name|equals
-argument_list|(
-name|NONSEQ
-argument_list|)
-condition|)
-block|{
-name|useNonSeqParser
-operator|=
-literal|true
-expr_stmt|;
-block|}
 else|else
 block|{
 if|if
@@ -889,11 +841,6 @@ name|getAbsolutePath
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|useNonSeqParser
-condition|)
-block|{
 name|document
 operator|=
 name|PDDocument
@@ -909,46 +856,6 @@ argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|document
-operator|=
-name|PDDocument
-operator|.
-name|load
-argument_list|(
-name|pdfFile
-argument_list|,
-name|force
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|document
-operator|.
-name|isEncrypted
-argument_list|()
-condition|)
-block|{
-name|StandardDecryptionMaterial
-name|sdm
-init|=
-operator|new
-name|StandardDecryptionMaterial
-argument_list|(
-name|password
-argument_list|)
-decl_stmt|;
-name|document
-operator|.
-name|openProtection
-argument_list|(
-name|sdm
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 name|AccessPermission
 name|ap
 init|=
@@ -1285,7 +1192,7 @@ name|subDoc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
 argument_list|(
 name|fis
 argument_list|)
@@ -1482,8 +1389,6 @@ operator|+
 literal|"  -startPage<number>          The first page to start extraction(1 based)\n"
 operator|+
 literal|"  -endPage<number>            The last page to extract(inclusive)\n"
-operator|+
-literal|"  -nonSeq                      Enables the new non-sequential parser\n"
 operator|+
 literal|"<PDF file>                   The PDF document to use\n"
 operator|+

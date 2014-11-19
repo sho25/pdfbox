@@ -23,22 +23,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|encryption
-operator|.
-name|InvalidPasswordException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|tools
 operator|.
 name|gui
@@ -311,24 +295,8 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|encryption
-operator|.
-name|StandardDecryptionMaterial
-import|;
-end_import
-
 begin_comment
-comment|/**  *  * @author  wurtz  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  *  * @author wurtz  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -362,24 +330,9 @@ specifier|private
 specifier|static
 specifier|final
 name|String
-name|NONSEQ
-init|=
-literal|"-nonSeq"
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|String
 name|PASSWORD
 init|=
 literal|"-password"
-decl_stmt|;
-specifier|private
-specifier|static
-name|boolean
-name|useNonSeqParser
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
@@ -1795,24 +1748,6 @@ name|i
 index|]
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|args
-index|[
-name|i
-index|]
-operator|.
-name|equals
-argument_list|(
-name|NONSEQ
-argument_list|)
-condition|)
-block|{
-name|useNonSeqParser
-operator|=
-literal|true
-expr_stmt|;
-block|}
 else|else
 block|{
 name|filename
@@ -1932,11 +1867,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|useNonSeqParser
-condition|)
-block|{
 name|document
 operator|=
 name|PDDocument
@@ -1948,63 +1878,6 @@ argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|document
-operator|=
-name|PDDocument
-operator|.
-name|load
-argument_list|(
-name|file
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|document
-operator|.
-name|isEncrypted
-argument_list|()
-condition|)
-block|{
-try|try
-block|{
-name|StandardDecryptionMaterial
-name|sdm
-init|=
-operator|new
-name|StandardDecryptionMaterial
-argument_list|(
-name|password
-argument_list|)
-decl_stmt|;
-name|document
-operator|.
-name|openProtection
-argument_list|(
-name|sdm
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InvalidPasswordException
-name|e
-parameter_list|)
-block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Error: The document is encrypted."
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
 block|}
 comment|/**      * This will print out a message telling how to use this utility.      */
 specifier|private
@@ -2022,8 +1895,6 @@ argument_list|(
 literal|"usage: java -jar pdfbox-app-x.y.z.jar PDFDebugger [OPTIONS]<input-file>\n"
 operator|+
 literal|"  -password<password>      Password to decrypt the document\n"
-operator|+
-literal|"  -nonSeq                   Enables the new non-sequential parser\n"
 operator|+
 literal|"<input-file>              The PDF document to be loaded\n"
 argument_list|)
