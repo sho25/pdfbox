@@ -111,6 +111,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -132,7 +142,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to get some x/y coordinates of text.  *  * Usage: java org.apache.pdfbox.examples.util.PrintTextLocations&lt;input-pdf&gt;  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  */
+comment|/**  * This is an example on how to get some x/y coordinates of text.  *  * Usage: java org.apache.pdfbox.examples.util.PrintTextLocations&lt;input-pdf&gt;  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -196,12 +206,16 @@ name|document
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
 argument_list|(
 name|args
 index|[
 literal|0
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

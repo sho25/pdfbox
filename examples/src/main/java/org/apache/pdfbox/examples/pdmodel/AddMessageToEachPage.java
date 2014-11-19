@@ -23,6 +23,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -120,7 +130,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example of how to add a message to every page  * in a pdf document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * This is an example of how to add a message to every page  * in a pdf document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -166,9 +176,13 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
 argument_list|(
 name|file
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|PDFont

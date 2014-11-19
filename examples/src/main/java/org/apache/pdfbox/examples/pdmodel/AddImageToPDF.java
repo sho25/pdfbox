@@ -200,7 +200,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example that creates a reads a document and adds an image to it..  *  * The example is taken from the pdf file format specification.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.1 $  */
+comment|/**  * This is an example that creates a reads a document and adds an image to it..  *  * The example is taken from the pdf file format specification.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -237,9 +237,13 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
 argument_list|(
 name|inputFile
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//we will add the image to the first page.

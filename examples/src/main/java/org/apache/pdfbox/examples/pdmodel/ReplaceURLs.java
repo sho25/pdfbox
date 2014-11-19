@@ -21,6 +21,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -128,7 +138,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example of how to replace a URL in a PDF document.  This  * will only replace the URL that the text refers to and not the text  * itself.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This is an example of how to replace a URL in a PDF document.  This  * will only replace the URL that the text refers to and not the text  * itself.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -182,12 +192,16 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
 argument_list|(
 name|args
 index|[
 literal|0
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|int
@@ -210,6 +224,9 @@ name|pageNum
 operator|++
 expr_stmt|;
 name|List
+argument_list|<
+name|PDAnnotation
+argument_list|>
 name|annotations
 init|=
 name|page

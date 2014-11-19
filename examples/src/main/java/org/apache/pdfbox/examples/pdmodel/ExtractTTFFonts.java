@@ -587,9 +587,13 @@ name|document
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
 argument_list|(
 name|pdfFile
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

@@ -75,7 +75,35 @@ name|interactive
 operator|.
 name|annotation
 operator|.
+name|PDAnnotation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|annotation
+operator|.
 name|PDAnnotationRubberStamp
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
 import|;
 end_import
 
@@ -100,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to add annotations to pages of a PDF document.  *  * @author Paul King  * @version $Revision: 1.1 $  */
+comment|/**  * This is an example on how to add annotations to pages of a PDF document.  *  * @author Paul King  */
 end_comment
 
 begin_class
@@ -153,12 +181,16 @@ name|document
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
 argument_list|(
 name|args
 index|[
 literal|0
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -189,6 +221,9 @@ argument_list|()
 control|)
 block|{
 name|List
+argument_list|<
+name|PDAnnotation
+argument_list|>
 name|annotations
 init|=
 name|page
