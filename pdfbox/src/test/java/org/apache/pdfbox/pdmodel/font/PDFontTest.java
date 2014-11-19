@@ -163,7 +163,7 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|PDFontTest
 operator|.
@@ -231,7 +231,7 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|PDFontTest
 operator|.

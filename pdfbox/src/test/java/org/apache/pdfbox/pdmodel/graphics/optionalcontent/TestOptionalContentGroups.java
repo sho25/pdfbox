@@ -856,7 +856,7 @@ name|doc
 init|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|pdfFile
 argument_list|)

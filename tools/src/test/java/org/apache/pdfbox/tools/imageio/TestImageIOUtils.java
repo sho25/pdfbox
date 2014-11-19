@@ -588,7 +588,7 @@ name|document
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|file
 argument_list|)

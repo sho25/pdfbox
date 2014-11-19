@@ -518,7 +518,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will take a list of pdf documents and merge them, saving the  * result in a new document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *  */
+comment|/**  * This class will take a list of pdf documents and merge them, saving the  * result in a new document.  *  * @author Ben Litchfield  *  */
 end_comment
 
 begin_class
@@ -851,7 +851,7 @@ name|source
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|sourceFile
 argument_list|)

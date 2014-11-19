@@ -31,6 +31,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -108,7 +118,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Highlighting of words in a PDF document with an XML file.  *  * @author slagraulet (slagraulet@cardiweb.com)  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.7 $  *  * @see<a href="http://partners.adobe.com/public/developer/en/pdf/HighlightFileFormat.pdf">  *      Adobe Highlight File Format</a>  */
+comment|/**  * Highlighting of words in a PDF document with an XML file.  *  * @author slagraulet (slagraulet@cardiweb.com)  * @author Ben Litchfield  *  * @see<a href="http://partners.adobe.com/public/developer/en/pdf/HighlightFileFormat.pdf">  *      Adobe Highlight File Format</a>  */
 end_comment
 
 begin_class
@@ -525,12 +535,16 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
+argument_list|(
+operator|new
+name|File
 argument_list|(
 name|args
 index|[
 literal|0
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|xmlExtractor

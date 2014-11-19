@@ -21,6 +21,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|FileInputStream
 import|;
 end_import
@@ -124,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will read a document from the filesystem, decrypt it and and then write  * the results to the filesystem.<br/><br/>  *  * usage: java org.apache.pdfbox.tools.Decrypt&lt;password&gt;&lt;inputfile&gt;&lt;outputfile&gt;  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
+comment|/**  * This will read a document from the filesystem, decrypt it and and then write  * the results to the filesystem.<br/><br/>  *  * usage: java org.apache.pdfbox.tools.Decrypt&lt;password&gt;&lt;inputfile&gt;&lt;outputfile&gt;  *  * @author  Ben Litchfield  */
 end_comment
 
 begin_class
@@ -470,9 +480,13 @@ name|document
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
+argument_list|(
+operator|new
+name|File
 argument_list|(
 name|infile
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

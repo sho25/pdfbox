@@ -51,7 +51,7 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|TestPDDocumentCatalog
 operator|.
@@ -247,7 +247,7 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|TestPDDocumentCatalog
 operator|.
@@ -323,13 +323,13 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|TestPDDocumentCatalog
 operator|.
 name|class
 operator|.
-name|getResource
+name|getResourceAsStream
 argument_list|(
 literal|"test.unc.pdf"
 argument_list|)

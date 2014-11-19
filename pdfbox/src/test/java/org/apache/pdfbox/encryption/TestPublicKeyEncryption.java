@@ -473,7 +473,7 @@ name|document
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|input
 argument_list|)
@@ -1078,7 +1078,7 @@ expr_stmt|;
 return|return
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 operator|new
 name|ByteArrayInputStream

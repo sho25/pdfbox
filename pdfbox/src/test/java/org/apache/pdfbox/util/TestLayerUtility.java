@@ -333,7 +333,7 @@ name|targetDoc
 init|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
 argument_list|(
 name|mainPDF
 argument_list|)
@@ -343,7 +343,7 @@ name|overlay1Doc
 init|=
 name|PDDocument
 operator|.
-name|load
+name|loadNonSeq
 argument_list|(
 name|overlay1
 argument_list|)
@@ -442,7 +442,7 @@ name|doc
 init|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|targetFile
 argument_list|)

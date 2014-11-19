@@ -918,7 +918,7 @@ name|doc2
 init|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|file
 argument_list|)

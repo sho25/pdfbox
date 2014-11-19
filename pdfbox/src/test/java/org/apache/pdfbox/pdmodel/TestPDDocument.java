@@ -270,7 +270,7 @@ name|loadDoc
 init|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 operator|new
 name|ByteArrayInputStream
@@ -445,7 +445,7 @@ name|loadDoc
 init|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|targetFile
 argument_list|)

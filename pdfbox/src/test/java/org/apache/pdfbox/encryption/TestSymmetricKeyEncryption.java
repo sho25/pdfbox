@@ -1065,7 +1065,7 @@ name|doc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 operator|new
 name|ByteArrayInputStream
@@ -1564,7 +1564,7 @@ name|document
 init|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 operator|new
 name|ByteArrayInputStream
@@ -2037,7 +2037,7 @@ name|encryptedDoc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|pdfFile
 argument_list|)
@@ -2111,7 +2111,7 @@ name|encryptedDoc
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|pdfFile
 argument_list|)
@@ -2197,7 +2197,7 @@ name|docWithEmbeddedFile
 operator|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 name|pdfInputStream
 argument_list|)
@@ -2415,7 +2415,7 @@ name|document
 init|=
 name|PDDocument
 operator|.
-name|load
+name|loadLegacy
 argument_list|(
 operator|new
 name|ByteArrayInputStream
