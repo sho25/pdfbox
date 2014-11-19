@@ -174,14 +174,6 @@ name|USEALLPAGES
 init|=
 literal|"-useAllPages"
 decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|NONSEQ
-init|=
-literal|"-nonSeq"
-decl_stmt|;
 comment|/**      * This will overlay a document and write out the results.      *      * @param args command line arguments      * @throws Exception if something went wrong      */
 specifier|public
 specifier|static
@@ -229,11 +221,6 @@ argument_list|,
 name|String
 argument_list|>
 argument_list|()
-decl_stmt|;
-name|boolean
-name|useNonSeqParser
-init|=
-literal|false
 decl_stmt|;
 comment|// input arguments
 for|for
@@ -693,25 +680,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|args
-index|[
-name|i
-index|]
-operator|.
-name|equals
-argument_list|(
-name|NONSEQ
-argument_list|)
-condition|)
-block|{
-name|useNonSeqParser
-operator|=
-literal|true
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
 name|overlayer
 operator|.
 name|getDefaultOverlayFile
@@ -763,8 +731,6 @@ operator|.
 name|overlay
 argument_list|(
 name|specificPageOverlayFile
-argument_list|,
-name|useNonSeqParser
 argument_list|)
 expr_stmt|;
 block|}
@@ -880,13 +846,6 @@ argument_list|(
 literal|"  -position foreground|background                    where to put the overlay "
 operator|+
 literal|"file: foreground or background\n"
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"  -nonSeq                                            enables the new non-sequential parser\n"
 argument_list|)
 expr_stmt|;
 name|message

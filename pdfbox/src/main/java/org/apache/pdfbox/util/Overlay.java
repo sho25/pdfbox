@@ -440,7 +440,7 @@ name|useAllOverlayPages
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * This will add overlays to a documents.      *       * @param specificPageOverlayFile map of overlay files for specific pages      * @param useNonSeqParser indicates whether the nonsequential parser is used      * @throws IOException if something went wrong      */
+comment|/**      * This will add overlays to a documents.      *       * @param specificPageOverlayFile map of overlay files for specific pages      * @throws IOException if something went wrong      */
 specifier|public
 name|void
 name|overlay
@@ -452,9 +452,6 @@ argument_list|,
 name|String
 argument_list|>
 name|specificPageOverlayFile
-parameter_list|,
-name|boolean
-name|useNonSeqParser
 parameter_list|)
 throws|throws
 name|IOException
@@ -501,8 +498,6 @@ operator|=
 name|loadPDF
 argument_list|(
 name|inputFileName
-argument_list|,
-name|useNonSeqParser
 argument_list|)
 expr_stmt|;
 if|if
@@ -517,8 +512,6 @@ operator|=
 name|loadPDF
 argument_list|(
 name|defaultOverlayFilename
-argument_list|,
-name|useNonSeqParser
 argument_list|)
 expr_stmt|;
 name|defaultOverlayPage
@@ -541,8 +534,6 @@ operator|=
 name|loadPDF
 argument_list|(
 name|firstPageOverlayFilename
-argument_list|,
-name|useNonSeqParser
 argument_list|)
 expr_stmt|;
 name|firstPageOverlayPage
@@ -565,8 +556,6 @@ operator|=
 name|loadPDF
 argument_list|(
 name|lastPageOverlayFilename
-argument_list|,
-name|useNonSeqParser
 argument_list|)
 expr_stmt|;
 name|lastPageOverlayPage
@@ -589,8 +578,6 @@ operator|=
 name|loadPDF
 argument_list|(
 name|oddPageOverlayFilename
-argument_list|,
-name|useNonSeqParser
 argument_list|)
 expr_stmt|;
 name|oddPageOverlayPage
@@ -613,8 +600,6 @@ operator|=
 name|loadPDF
 argument_list|(
 name|evenPageOverlayFilename
-argument_list|,
-name|useNonSeqParser
 argument_list|)
 expr_stmt|;
 name|evenPageOverlayPage
@@ -637,8 +622,6 @@ operator|=
 name|loadPDF
 argument_list|(
 name|allPagesOverlayFilename
-argument_list|,
-name|useNonSeqParser
 argument_list|)
 expr_stmt|;
 name|specificPageOverlayPage
@@ -687,8 +670,6 @@ name|e
 operator|.
 name|getValue
 argument_list|()
-argument_list|,
-name|useNonSeqParser
 argument_list|)
 decl_stmt|;
 name|specificPageOverlay
@@ -870,25 +851,11 @@ name|loadPDF
 parameter_list|(
 name|String
 name|pdfName
-parameter_list|,
-name|boolean
-name|useNonSeqParser
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDDocument
-name|pdf
-init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|useNonSeqParser
-condition|)
-block|{
-name|pdf
-operator|=
+return|return
 name|PDDocument
 operator|.
 name|loadNonSeq
@@ -898,25 +865,7 @@ name|File
 argument_list|(
 name|pdfName
 argument_list|)
-argument_list|,
-literal|null
 argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|pdf
-operator|=
-name|PDDocument
-operator|.
-name|load
-argument_list|(
-name|pdfName
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|pdf
 return|;
 block|}
 comment|/**      * Stores the overlay page information.      */
