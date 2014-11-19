@@ -442,7 +442,7 @@ name|doc
 init|=
 name|PDDocument
 operator|.
-name|loadLegacy
+name|load
 argument_list|(
 name|targetFile
 argument_list|)

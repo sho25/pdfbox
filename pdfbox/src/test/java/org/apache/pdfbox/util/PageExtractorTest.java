@@ -175,14 +175,12 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-try|try
-block|{
 comment|// this should work for most users
 name|sourcePdf
 operator|=
 name|PDDocument
 operator|.
-name|loadLegacy
+name|load
 argument_list|(
 operator|new
 name|File
@@ -191,28 +189,6 @@ literal|"src/test/resources/input/cweb.pdf"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// in case your directory structure is different, just change this to be the correct path
-name|sourcePdf
-operator|=
-name|PDDocument
-operator|.
-name|loadLegacy
-argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"pdfbox/pdfbox/src/test/resources/input/cweb.pdf"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 name|PageExtractor
 name|instance
 init|=

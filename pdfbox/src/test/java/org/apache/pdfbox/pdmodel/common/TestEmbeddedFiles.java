@@ -202,7 +202,7 @@ name|doc
 init|=
 name|PDDocument
 operator|.
-name|loadLegacy
+name|load
 argument_list|(
 name|TestEmbeddedFiles
 operator|.
@@ -408,7 +408,7 @@ name|doc
 init|=
 name|PDDocument
 operator|.
-name|loadLegacy
+name|load
 argument_list|(
 name|TestEmbeddedFiles
 operator|.

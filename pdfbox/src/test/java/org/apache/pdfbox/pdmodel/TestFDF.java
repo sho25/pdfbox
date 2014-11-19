@@ -445,7 +445,7 @@ name|fdeb
 operator|=
 name|PDDocument
 operator|.
-name|loadLegacy
+name|load
 argument_list|(
 name|filePDF
 argument_list|)
@@ -566,7 +566,7 @@ name|fdeb
 operator|=
 name|PDDocument
 operator|.
-name|loadLegacy
+name|load
 argument_list|(
 name|filePDF
 argument_list|)
@@ -787,7 +787,7 @@ name|freedom
 operator|=
 name|PDDocument
 operator|.
-name|loadLegacy
+name|load
 argument_list|(
 name|filePDF
 argument_list|)

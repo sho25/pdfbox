@@ -339,7 +339,7 @@ name|document
 init|=
 name|PDDocument
 operator|.
-name|loadLegacy
+name|load
 argument_list|(
 name|file
 argument_list|)
@@ -353,16 +353,13 @@ argument_list|(
 name|document
 argument_list|)
 decl_stmt|;
-name|BufferedImage
-name|image
-init|=
 name|renderer
 operator|.
 name|renderImage
 argument_list|(
 literal|0
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// We don't actually do anything with the image for the same reason that
 comment|// TestPDFToImage is disabled - different JVMs produce different results
 comment|// but at least we can make sure that PDFBox did not throw any exceptions
