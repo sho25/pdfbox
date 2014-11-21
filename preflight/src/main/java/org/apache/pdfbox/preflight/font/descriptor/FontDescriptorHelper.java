@@ -758,12 +758,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"FontFile entry is missing from FontDescriptor for "
-operator|+
 name|fontDescriptor
 operator|.
 name|getFontName
 argument_list|()
+operator|+
+literal|": FontFile entry is missing from FontDescriptor"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -788,12 +788,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"They are more than one FontFile for "
-operator|+
 name|fontDescriptor
 operator|.
 name|getFontName
 argument_list|()
+operator|+
+literal|": They is more than one FontFile"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -814,7 +814,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DESCRIPTOR_INVALID
 argument_list|,
-literal|"FontDescriptor is null or is a AFM Descriptor"
+literal|"FontDescriptor is null or is an AFM Descriptor"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1277,20 +1277,16 @@ name|PDStream
 name|fontFile
 parameter_list|)
 block|{
+try|try
+block|{
 name|PDMetadata
 name|metadata
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|metadata
-operator|=
 name|fontFile
 operator|.
 name|getMetadata
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|metadata
