@@ -60,10 +60,7 @@ literal|"/usr/share/fonts"
 block|,
 comment|// system
 literal|"/usr/X11R6/lib/X11/fonts"
-block|,
 comment|// X
-literal|"/opt/adobe"
-comment|// Adobe Font Packs
 block|}
 return|;
 block|}
