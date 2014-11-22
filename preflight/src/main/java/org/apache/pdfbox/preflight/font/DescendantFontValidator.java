@@ -629,7 +629,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDKEYED_CIDTOGID
 argument_list|,
-literal|"The CIDToGID entry is invalid"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The CIDToGID entry is invalid"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -705,6 +710,15 @@ operator|new
 name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDKEYED_CIDTOGID
+argument_list|,
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": error getting CIDToGIDMap"
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -726,6 +740,13 @@ operator|new
 name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDKEYED_CIDTOGID
+argument_list|,
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": mandatory CIDToGIDMap missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
