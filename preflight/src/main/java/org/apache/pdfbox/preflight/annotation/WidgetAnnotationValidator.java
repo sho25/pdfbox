@@ -176,22 +176,18 @@ throws|throws
 name|ValidationException
 block|{
 name|boolean
-name|isValide
+name|isValid
 init|=
 name|super
 operator|.
 name|validate
 argument_list|()
 decl_stmt|;
-name|isValide
-operator|=
-name|isValide
-operator|&&
+return|return
 name|checkAAField
 argument_list|()
-expr_stmt|;
-return|return
-name|isValide
+operator|&&
+name|isValid
 return|;
 block|}
 comment|/**      * The AA field is forbidden for the Widget annotation when the PDF is a PDF/A. This method return false and update      * the errors list if this key is present. returns true otherwise      *       * @return false if the forbidden AA field is existing.      */

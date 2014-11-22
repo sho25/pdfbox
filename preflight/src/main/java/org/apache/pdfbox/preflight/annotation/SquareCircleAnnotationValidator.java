@@ -176,22 +176,22 @@ throws|throws
 name|ValidationException
 block|{
 name|boolean
-name|isValide
+name|isValid
 init|=
 name|super
 operator|.
 name|validate
 argument_list|()
 decl_stmt|;
-name|isValide
+name|isValid
 operator|=
-name|isValide
-operator|&&
 name|checkIColors
 argument_list|()
+operator|&&
+name|isValid
 expr_stmt|;
 return|return
-name|isValide
+name|isValid
 return|;
 block|}
 comment|/**      * Return true if the IC field is present in the Annotation dictionary and if the RGB profile is used in the      * DestOutputProfile of the OutputIntent dictionary.      *       * @return the validation state of the IC field.      */
