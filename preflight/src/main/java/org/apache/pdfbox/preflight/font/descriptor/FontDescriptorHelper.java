@@ -687,8 +687,10 @@ name|fd
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|isStandard14
-operator|||
+condition|)
+block|{
 name|checkMandatoryFields
 argument_list|(
 name|fontDescriptor
@@ -696,8 +698,8 @@ operator|.
 name|getCOSObject
 argument_list|()
 argument_list|)
-condition|)
-block|{
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|hasOnlyOneFontFile
@@ -797,7 +799,6 @@ literal|": They is more than one FontFile"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
