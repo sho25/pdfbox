@@ -395,7 +395,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDSET_MISSING_FOR_SUBSET
 argument_list|,
-literal|"The CIDSet entry is missing for the Composite Subset"
+name|pfDescriptor
+operator|.
+name|getFontName
+argument_list|()
+operator|+
+literal|": The CIDSet entry is missing for the Composite Subset"
 argument_list|)
 argument_list|)
 expr_stmt|;
