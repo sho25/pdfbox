@@ -960,12 +960,7 @@ name|String
 name|postScriptName
 parameter_list|)
 block|{
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|copy
-init|=
+return|return
 operator|new
 name|ArrayList
 argument_list|<
@@ -979,18 +974,6 @@ argument_list|(
 name|postScriptName
 argument_list|)
 argument_list|)
-decl_stmt|;
-name|copy
-operator|.
-name|add
-argument_list|(
-literal|0
-argument_list|,
-name|postScriptName
-argument_list|)
-expr_stmt|;
-return|return
-name|copy
 return|;
 block|}
 comment|/**      * Adds a top-priority substitute for the given font.      *      * @param match PostScript name of the font to match      * @param replace PostScript name of the font to use as a replacement      */
