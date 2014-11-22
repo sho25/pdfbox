@@ -1748,7 +1748,7 @@ name|getWidth
 argument_list|()
 return|;
 block|}
-comment|/**      * If the Resources entry is present, this method check its content. Only fonts and Images are checked because this      * resource describes glyphs.      */
+comment|/**      * If the Resources entry is present, this method checks its content. Only fonts and Images are checked because this      * resource describes glyphs.      */
 specifier|private
 name|void
 name|checkResources
