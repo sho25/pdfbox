@@ -308,7 +308,7 @@ argument_list|(
 name|fDescriptor
 argument_list|)
 decl_stmt|;
-comment|/*          * if the this font is a Subset, the CharSet entry must be present in the FontDescriptor          */
+comment|/*          * if this font is a subset, the CharSet entry must be present in the FontDescriptor          */
 if|if
 condition|(
 name|isSubSet
