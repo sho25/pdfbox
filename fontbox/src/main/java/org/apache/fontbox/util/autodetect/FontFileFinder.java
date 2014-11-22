@@ -275,37 +275,6 @@ return|return
 name|results
 return|;
 block|}
-comment|/**      * Provides a list of platform specific ttf name mappings.      *       * @return a font name mapping      */
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|getCommonTTFMapping
-parameter_list|()
-block|{
-if|if
-condition|(
-name|fontDirFinder
-operator|==
-literal|null
-condition|)
-block|{
-name|fontDirFinder
-operator|=
-name|determineDirFinder
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|fontDirFinder
-operator|.
-name|getCommonTTFMapping
-argument_list|()
-return|;
-block|}
 comment|/**      * walk down the driectory tree and search for font files.      *       * @param directory the directory to start at      * @param results names of all found font files      */
 specifier|private
 name|void

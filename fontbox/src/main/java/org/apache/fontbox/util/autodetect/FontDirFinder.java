@@ -64,16 +64,6 @@ argument_list|>
 name|find
 parameter_list|()
 function_decl|;
-comment|/**      * Provides a list of platform specific ttf name mappings.      *       * @return a fontname mapping      */
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|getCommonTTFMapping
-parameter_list|()
-function_decl|;
 block|}
 end_interface
 
