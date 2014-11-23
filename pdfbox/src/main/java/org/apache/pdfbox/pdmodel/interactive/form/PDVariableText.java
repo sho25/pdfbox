@@ -792,9 +792,16 @@ name|Object
 name|getDefaultValue
 parameter_list|()
 block|{
-comment|// Text fields don't support the "DV" entry.
 return|return
-literal|null
+name|getDictionary
+argument_list|()
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|DV
+argument_list|)
 return|;
 block|}
 annotation|@
