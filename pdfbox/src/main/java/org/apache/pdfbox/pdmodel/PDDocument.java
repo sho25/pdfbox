@@ -3028,15 +3028,11 @@ name|loadLegacy
 argument_list|(
 name|file
 argument_list|,
-name|BaseParser
-operator|.
-name|FORCE_PARSING
-argument_list|,
 literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from a file. Allows for skipping corrupt pdf objects      *      * @param file The name of the file to load.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from a file. Allows for skipping corrupt pdf objects      *      * @param file The name of the file to load.      * @param useScratchFiles enables the usage of a scratch file if set to true      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3044,35 +3040,6 @@ name|loadLegacy
 parameter_list|(
 name|File
 name|file
-parameter_list|,
-name|boolean
-name|force
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|loadLegacy
-argument_list|(
-name|file
-argument_list|,
-name|force
-argument_list|,
-literal|false
-argument_list|)
-return|;
-block|}
-comment|/**      * This will load a document from a file. Allows for skipping corrupt pdf objects      *      * @param file The name of the file to load.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      * @param useScratchFiles enables the usage of a scratch file if set to true      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
-specifier|public
-specifier|static
-name|PDDocument
-name|loadLegacy
-parameter_list|(
-name|File
-name|file
-parameter_list|,
-name|boolean
-name|force
 parameter_list|,
 name|boolean
 name|useScratchFiles
@@ -3091,8 +3058,6 @@ name|FileInputStream
 argument_list|(
 name|file
 argument_list|)
-argument_list|,
-name|force
 argument_list|,
 name|useScratchFiles
 argument_list|)
@@ -3137,15 +3102,11 @@ name|loadLegacy
 argument_list|(
 name|input
 argument_list|,
-name|BaseParser
-operator|.
-name|FORCE_PARSING
-argument_list|,
 literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * This will load a document from an input stream. Allows for skipping corrupt pdf objects      *       * @param input The stream that contains the document.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will load a document from an input stream. Allows for skipping corrupt pdf objects      *       * @param input The stream that contains the document.      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3153,35 +3114,6 @@ name|loadLegacy
 parameter_list|(
 name|InputStream
 name|input
-parameter_list|,
-name|boolean
-name|force
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|loadLegacy
-argument_list|(
-name|input
-argument_list|,
-name|force
-argument_list|,
-literal|false
-argument_list|)
-return|;
-block|}
-comment|/**      * This will load a document from an input stream. Allows for skipping corrupt pdf objects      *       * @param input The stream that contains the document.      * @param force When true, the parser will skip corrupt pdf objects and will continue parsing at the next object in      *            the file      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return The document that was loaded.      *       * @throws IOException If there is an error reading from the stream.      */
-specifier|public
-specifier|static
-name|PDDocument
-name|loadLegacy
-parameter_list|(
-name|InputStream
-name|input
-parameter_list|,
-name|boolean
-name|force
 parameter_list|,
 name|boolean
 name|useScratchFiles
@@ -3196,8 +3128,6 @@ operator|new
 name|PDFParser
 argument_list|(
 name|input
-argument_list|,
-name|force
 argument_list|,
 name|useScratchFiles
 argument_list|)
