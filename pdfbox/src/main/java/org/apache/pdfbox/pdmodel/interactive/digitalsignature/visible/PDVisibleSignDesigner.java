@@ -259,7 +259,7 @@ name|document
 init|=
 name|PDDocument
 operator|.
-name|loadLegacy
+name|load
 argument_list|(
 name|documentStream
 argument_list|)
