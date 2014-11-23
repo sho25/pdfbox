@@ -157,6 +157,25 @@ annotation|@
 name|Override
 specifier|public
 name|COSName
+name|getDefaultValue
+parameter_list|()
+block|{
+return|return
+name|getDictionary
+argument_list|()
+operator|.
+name|getCOSName
+argument_list|(
+name|COSName
+operator|.
+name|DV
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|COSName
 name|getValue
 parameter_list|()
 block|{
@@ -291,7 +310,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"The value of a redio button has to be a name object."
+literal|"The value of a radio button has to be a name object."
 argument_list|)
 throw|;
 block|}
