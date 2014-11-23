@@ -247,34 +247,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -647,22 +619,6 @@ name|PublicKeySecurityHandler
 extends|extends
 name|SecurityHandler
 block|{
-comment|/**      * Log instance.      */
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|PublicKeySecurityHandler
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/** The filter name. */
 specifier|public
 specifier|static
@@ -686,33 +642,11 @@ name|policy
 init|=
 literal|null
 decl_stmt|;
-specifier|private
-name|boolean
-name|verbose
-init|=
-literal|false
-decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|PublicKeySecurityHandler
 parameter_list|()
 block|{     }
-comment|/**      * Enable or disable verbose mode. Default is disabled.      *       * @param verbose true if enabled, false if disabled.      */
-specifier|public
-name|void
-name|setVerbose
-parameter_list|(
-name|boolean
-name|verbose
-parameter_list|)
-block|{
-name|this
-operator|.
-name|verbose
-operator|=
-name|verbose
-expr_stmt|;
-block|}
 comment|/**      * Constructor used for encryption.      *      * @param p The protection policy.      */
 specifier|public
 name|PublicKeySecurityHandler
@@ -1080,15 +1014,6 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
-operator|(
-name|verbose
-operator|||
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-operator|)
-operator|&&
 name|certificate
 operator|!=
 literal|null
