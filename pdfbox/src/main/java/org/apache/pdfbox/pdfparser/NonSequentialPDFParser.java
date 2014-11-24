@@ -6043,6 +6043,21 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|isLenient
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"The stream doesn't provide any stream length, using fallback readUntilEnd"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -6050,6 +6065,7 @@ argument_list|(
 literal|"Missing length for stream."
 argument_list|)
 throw|;
+block|}
 block|}
 name|boolean
 name|useReadUntilEnd
@@ -6059,6 +6075,10 @@ decl_stmt|;
 comment|// ---- get output stream to copy data to
 if|if
 condition|(
+name|streamLengthObj
+operator|!=
+literal|null
+operator|&&
 name|validateStreamLength
 argument_list|(
 name|streamLengthObj
