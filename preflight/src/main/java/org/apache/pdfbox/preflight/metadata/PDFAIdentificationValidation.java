@@ -246,6 +246,24 @@ operator|new
 name|ValidationError
 argument_list|(
 name|ERROR_METADATA_PDFA_ID_MISSING
+argument_list|,
+literal|"PDF/A identification schema "
+operator|+
+name|PDFAIdentificationSchema
+operator|.
+name|class
+operator|.
+name|getAnnotation
+argument_list|(
+name|StructuredType
+operator|.
+name|class
+argument_list|)
+operator|.
+name|namespace
+argument_list|()
+operator|+
+literal|" is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
