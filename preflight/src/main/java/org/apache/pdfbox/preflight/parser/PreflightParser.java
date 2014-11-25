@@ -1454,11 +1454,6 @@ name|firstLine
 operator|==
 literal|null
 operator|||
-operator|(
-name|firstLine
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|firstLine
 operator|.
@@ -1466,7 +1461,6 @@ name|matches
 argument_list|(
 literal|"%PDF-1\\.[1-9]"
 argument_list|)
-operator|)
 condition|)
 block|{
 name|addValidationError
@@ -1769,14 +1763,10 @@ block|{
 comment|// just after the xref<EOL> there are an integer
 name|long
 name|currObjID
-init|=
-literal|0
 decl_stmt|;
 comment|// first obj id
 name|long
 name|count
-init|=
-literal|0
 decl_stmt|;
 comment|// the number of objects in the xref table
 name|long
@@ -3159,13 +3149,9 @@ expr_stmt|;
 comment|// ---- we must have an indirect object
 name|long
 name|readObjNr
-init|=
-literal|0
 decl_stmt|;
 name|int
 name|readObjGen
-init|=
-literal|0
 decl_stmt|;
 name|long
 name|offset
