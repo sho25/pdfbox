@@ -105,6 +105,24 @@ name|PDFieldTreeNode
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|form
+operator|.
+name|PDTextField
+import|;
+end_import
+
 begin_comment
 comment|/**  * Example to show filling form fields.  *   */
 end_comment
@@ -174,9 +192,12 @@ literal|null
 condition|)
 block|{
 comment|// Retrieve an individual field and set it's value.
-name|PDFieldTreeNode
+name|PDTextField
 name|field
 init|=
+operator|(
+name|PDTextField
+operator|)
 name|acroForm
 operator|.
 name|getField
@@ -195,6 +216,9 @@ comment|// If a field is nested within the form tree a fully qualified name
 comment|// might be provided to access the field.
 name|field
 operator|=
+operator|(
+name|PDTextField
+operator|)
 name|acroForm
 operator|.
 name|getField
