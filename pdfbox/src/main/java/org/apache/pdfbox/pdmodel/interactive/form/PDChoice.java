@@ -115,7 +115,7 @@ name|PDChoice
 extends|extends
 name|PDVariableText
 block|{
-comment|/**      *  Ff-flags      */
+comment|/**      *  Ff-flags.      */
 specifier|public
 specifier|static
 specifier|final
@@ -539,13 +539,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      *       */
-annotation|@
-name|Override
 specifier|public
 name|void
 name|setValue
 parameter_list|(
-name|Object
+name|String
 name|value
 parameter_list|)
 block|{
@@ -554,13 +552,6 @@ condition|(
 name|value
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|value
-operator|instanceof
-name|String
 condition|)
 block|{
 name|getDictionary
@@ -611,12 +602,36 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO create/update appearance
+block|}
+comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      *       */
+specifier|public
+name|void
+name|setValue
+parameter_list|(
+name|String
+index|[]
+name|value
+parameter_list|)
+block|{
 if|if
 condition|(
 name|value
-operator|instanceof
-name|String
-index|[]
+operator|!=
+literal|null
 condition|)
 block|{
 if|if
@@ -630,7 +645,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The list box does allow multiple selection."
+literal|"The list box does not allow multiple selection."
 argument_list|)
 throw|;
 block|}
@@ -695,7 +710,6 @@ argument_list|,
 name|stringArray
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{

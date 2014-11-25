@@ -80,25 +80,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|void
-name|setValue
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-block|{
-comment|// PushButton fields don't support the "V" entry.
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"PushButton fields don't support the \"V\" entry."
-argument_list|)
-throw|;
-block|}
 block|}
 end_class
 

@@ -191,13 +191,11 @@ name|V
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|setValue
 parameter_list|(
-name|Object
+name|COSName
 name|value
 parameter_list|)
 block|{
@@ -219,13 +217,7 @@ name|V
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|value
-operator|instanceof
-name|COSName
-condition|)
+else|else
 block|{
 name|getDictionary
 argument_list|()
@@ -303,16 +295,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"The value of a radio button has to be a name object."
-argument_list|)
-throw|;
 block|}
 block|}
 block|}

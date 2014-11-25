@@ -152,8 +152,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      *       */
-annotation|@
-name|Override
 specifier|public
 name|void
 name|setValue

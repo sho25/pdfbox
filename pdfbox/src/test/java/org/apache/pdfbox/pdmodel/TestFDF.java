@@ -697,7 +697,12 @@ name|feld3
 operator|.
 name|setValue
 argument_list|(
+name|COSName
+operator|.
+name|getPDFName
+argument_list|(
 literal|"RB1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals

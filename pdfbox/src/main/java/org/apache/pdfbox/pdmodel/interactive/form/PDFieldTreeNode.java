@@ -357,16 +357,6 @@ name|Object
 name|getValue
 parameter_list|()
 function_decl|;
-comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      *       */
-specifier|public
-specifier|abstract
-name|void
-name|setValue
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-function_decl|;
 comment|/**      * getDefaultValue gets the value of the "DV" entry.      *       * @return The value of this field.      *       */
 specifier|public
 specifier|abstract
@@ -631,6 +621,8 @@ operator|instanceof
 name|String
 condition|)
 block|{
+name|fdfField
+operator|.
 name|setValue
 argument_list|(
 operator|(
@@ -648,6 +640,8 @@ operator|instanceof
 name|PDTextStream
 condition|)
 block|{
+name|fdfField
+operator|.
 name|setValue
 argument_list|(
 operator|(
