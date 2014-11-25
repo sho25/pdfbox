@@ -504,7 +504,7 @@ name|this
 operator|.
 name|details
 operator|=
-literal|"Invalid Graphis object"
+literal|"Invalid graphics object"
 expr_stmt|;
 block|}
 elseif|else
@@ -524,7 +524,7 @@ name|this
 operator|.
 name|details
 operator|=
-literal|"Invalid Graphis transparency"
+literal|"Invalid graphics transparency"
 expr_stmt|;
 block|}
 elseif|else
