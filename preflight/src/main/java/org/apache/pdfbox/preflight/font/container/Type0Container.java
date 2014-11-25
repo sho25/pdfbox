@@ -110,6 +110,8 @@ operator|=
 name|delegateFontContainer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -148,6 +150,8 @@ operator|.
 name|errorBuffer
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isValid
@@ -191,6 +195,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isEmbeddedFont

@@ -815,7 +815,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DESCRIPTOR_INVALID
 argument_list|,
-literal|"FontDescriptor is null or is an AFM Descriptor"
+name|this
+operator|.
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": FontDescriptor is null or is an AFM Descriptor"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1326,7 +1333,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_STREAM_INVALID_FILTER
 argument_list|,
-literal|"Filter specified in font file metadata dictionnary"
+name|this
+operator|.
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": Filter specified in font file metadata dictionnary"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1445,6 +1459,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1473,12 +1489,21 @@ name|ValidationError
 argument_list|(
 name|ERROR_METADATA_FORMAT_XPACKET
 argument_list|,
-literal|"Unable to parse font metadata due to : "
+name|this
+operator|.
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": Unable to parse font metadata due to : "
 operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1500,6 +1525,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1524,7 +1551,16 @@ name|ValidationError
 argument_list|(
 name|ERROR_METADATA_FORMAT_UNKOWN
 argument_list|,
-literal|"The Metadata entry doesn't reference a stream object"
+name|this
+operator|.
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The Metadata entry doesn't reference a stream object"
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1605,12 +1641,21 @@ name|ValidationError
 argument_list|(
 name|ERROR_METADATA_FORMAT_STREAM
 argument_list|,
-literal|"Unable to read font metadata due to : "
+name|this
+operator|.
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": Unable to read font metadata due to : "
 operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;

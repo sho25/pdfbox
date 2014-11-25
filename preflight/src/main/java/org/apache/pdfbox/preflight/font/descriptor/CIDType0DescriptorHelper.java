@@ -117,54 +117,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|cff
-operator|.
-name|CFFFont
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|cff
-operator|.
-name|CFFParser
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -446,12 +398,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"The FontFile is missing for "
-operator|+
 name|fontDescriptor
 operator|.
 name|getFontName
 argument_list|()
+operator|+
+literal|": The FontFile is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -510,12 +462,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"The FontFile3 stream doesn't have the right Subtype for "
-operator|+
 name|fontDescriptor
 operator|.
 name|getFontName
 argument_list|()
+operator|+
+literal|": The FontFile3 stream doesn't have the right Subtype"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -656,7 +608,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CID_DAMAGED
 argument_list|,
-literal|"The FontFile can't be read"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The FontFile can't be read"
 argument_list|)
 argument_list|)
 expr_stmt|;

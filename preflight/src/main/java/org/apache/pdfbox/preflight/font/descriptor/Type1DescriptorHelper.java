@@ -353,7 +353,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CHARSET_MISSING_FOR_SUBSET
 argument_list|,
-literal|"The Charset entry is missing for the Type1 Subset"
+name|fontDescriptor
+operator|.
+name|getFontName
+argument_list|()
+operator|+
+literal|": The Charset entry is missing for the Type1 Subset"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -426,12 +431,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"The FontFile is missing for "
-operator|+
 name|fontDescriptor
 operator|.
 name|getFontName
 argument_list|()
+operator|+
+literal|": The FontFile is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -517,12 +522,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"The FontFile is invalid for "
-operator|+
 name|fontDescriptor
 operator|.
 name|getFontName
 argument_list|()
+operator|+
+literal|": The FontFile is invalid"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -573,14 +578,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_TYPE1_DAMAGED
 argument_list|,
-literal|"The FontFile can't be read for "
-operator|+
 name|this
 operator|.
 name|font
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|": The FontFile can't be read"
 argument_list|)
 argument_list|)
 expr_stmt|;

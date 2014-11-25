@@ -73,45 +73,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|ttf
-operator|.
-name|TTFParser
 import|;
 end_import
 
@@ -170,22 +132,6 @@ operator|.
 name|common
 operator|.
 name|PDStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|font
-operator|.
-name|PDFont
 import|;
 end_import
 
@@ -363,12 +309,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"The FontFile2 is missing for "
-operator|+
 name|fontDescriptor
 operator|.
 name|getFontName
 argument_list|()
+operator|+
+literal|": The FontFile2 is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -408,12 +354,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_FONT_FILEX_INVALID
 argument_list|,
-literal|"The FontFile entry /Length1 is invalid for "
-operator|+
 name|fontDescriptor
 operator|.
 name|getFontName
 argument_list|()
+operator|+
+literal|": The FontFile entry /Length1 is invalid"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -457,14 +403,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_TRUETYPE_DAMAGED
 argument_list|,
-literal|"The FontFile can't be read for "
-operator|+
 name|this
 operator|.
 name|font
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|": The FontFile can't be read"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -513,14 +459,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_ENCODING
 argument_list|,
-literal|"Symbolic TrueType font has more than one 'cmap' entry for "
-operator|+
 name|this
 operator|.
 name|font
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|": Symbolic TrueType font has more than one 'cmap' entry"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -543,14 +489,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_TRUETYPE_DAMAGED
 argument_list|,
-literal|"The TTF 'cmap' could not be read for "
-operator|+
 name|this
 operator|.
 name|font
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|": The TTF 'cmap' could not be read"
 argument_list|)
 argument_list|)
 expr_stmt|;
