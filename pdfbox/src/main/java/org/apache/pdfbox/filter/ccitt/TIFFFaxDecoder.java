@@ -21,6 +21,16 @@ name|ccitt
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * CCITT Fax decoder  */
 end_comment
@@ -4651,6 +4661,8 @@ parameter_list|,
 name|int
 name|height
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|this
 operator|.
@@ -4726,6 +4738,8 @@ parameter_list|,
 name|int
 name|bitOffset
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|int
 name|bits
@@ -4886,7 +4900,7 @@ block|{
 comment|// ERROR
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Invalid code encountered."
 argument_list|)
@@ -4903,7 +4917,7 @@ block|{
 comment|// EOL
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"EOL encountered in white run."
 argument_list|)
@@ -5156,7 +5170,7 @@ block|{
 comment|// EOL code
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"EOL encountered in black run."
 argument_list|)
@@ -5378,6 +5392,8 @@ parameter_list|,
 name|long
 name|tiffT4Options
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|this
 operator|.
@@ -5501,7 +5517,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"First scanline must be 1D encoded."
 argument_list|)
@@ -5898,7 +5914,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Invalid code encountered while decoding 2D group 3 compressed data."
 argument_list|)
@@ -5964,6 +5980,8 @@ parameter_list|,
 name|boolean
 name|encodedByteAlign
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|this
 operator|.
@@ -6487,7 +6505,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Invalid code encountered while decoding 2D group 4 compressed data."
 argument_list|)
@@ -6707,7 +6725,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Invalid code encountered while decoding 2D group 4 compressed data."
 argument_list|)
@@ -6927,6 +6945,8 @@ specifier|private
 name|int
 name|decodeWhiteCodeWord
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|int
 name|current
@@ -7073,7 +7093,7 @@ block|{
 comment|// ERROR
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Invalid code encountered."
 argument_list|)
@@ -7090,7 +7110,7 @@ block|{
 comment|// EOL
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"EOL encountered in white run."
 argument_list|)
@@ -7143,6 +7163,8 @@ specifier|private
 name|int
 name|decodeBlackCodeWord
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|int
 name|current
@@ -7335,7 +7357,7 @@ block|{
 comment|// EOL code
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"EOL encountered in black run."
 argument_list|)
@@ -7455,6 +7477,8 @@ specifier|private
 name|int
 name|readEOL
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -7475,7 +7499,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Scanline must begin with EOL."
 argument_list|)
@@ -7512,7 +7536,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"All fill bits preceding EOL code must be 0."
 argument_list|)
@@ -7541,7 +7565,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"All fill bits preceding EOL code must be 0."
 argument_list|)
@@ -7578,7 +7602,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"All fill bits preceding EOL code must be 0."
 argument_list|)
@@ -7753,6 +7777,8 @@ parameter_list|(
 name|int
 name|bitsToGet
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|byte
 name|b
@@ -7958,7 +7984,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"TIFF_FILL_ORDER tag must be either 1 or 2."
 argument_list|)
@@ -8128,6 +8154,8 @@ parameter_list|(
 name|int
 name|bitsToGet
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|byte
 name|b
@@ -8243,7 +8271,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"TIFF_FILL_ORDER tag must be either 1 or 2."
 argument_list|)
