@@ -241,24 +241,14 @@ name|ParserConfigurationException
 name|e
 parameter_list|)
 block|{
-name|IOException
-name|ioe
-init|=
+throw|throw
 operator|new
 name|IOException
 argument_list|(
 literal|"Failed to init document builder"
-argument_list|)
-decl_stmt|;
-name|ioe
-operator|.
-name|initCause
-argument_list|(
+argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-throw|throw
-name|ioe
 throw|;
 block|}
 block|}
@@ -282,8 +272,6 @@ literal|null
 decl_stmt|;
 name|ValidationResult
 name|result
-init|=
-literal|null
 decl_stmt|;
 name|long
 name|before
@@ -626,9 +614,6 @@ init|=
 name|entry
 operator|.
 name|getValue
-argument_list|()
-operator|.
-name|intValue
 argument_list|()
 decl_stmt|;
 name|error

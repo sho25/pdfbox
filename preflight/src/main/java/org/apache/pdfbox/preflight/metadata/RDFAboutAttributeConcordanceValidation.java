@@ -106,10 +106,8 @@ if|if
 condition|(
 name|schemas
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
 block|{
 throw|throw
