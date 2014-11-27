@@ -128,6 +128,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|checkArgumentSize
+argument_list|(
+name|arguments
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
 name|COSNumber
 name|width
 init|=
