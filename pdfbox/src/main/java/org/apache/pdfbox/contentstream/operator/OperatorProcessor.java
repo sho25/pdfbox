@@ -173,7 +173,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the name of this operator, e.g. "BI".      * @return operator name.      */
+comment|/**      * Returns the name of this operator, e.g. "BI".      */
 specifier|public
 specifier|abstract
 name|String
