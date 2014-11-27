@@ -53,6 +53,7 @@ class|class
 name|Operator
 block|{
 specifier|private
+specifier|final
 name|String
 name|theOperator
 decl_stmt|;
@@ -133,8 +134,6 @@ parameter_list|)
 block|{
 name|Operator
 name|operation
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -232,6 +231,8 @@ name|theOperator
 return|;
 block|}
 comment|/**      * This will print a string rep of this class.      *      * @return A string rep of this class.      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
