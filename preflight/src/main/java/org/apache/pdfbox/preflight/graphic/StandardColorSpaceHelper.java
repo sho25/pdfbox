@@ -1021,12 +1021,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_ICCBASED
 argument_list|,
-literal|"ICCBase color space is invalid. Caused By: "
+literal|"ICCBase color space is invalid: "
 operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1046,7 +1048,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE
 argument_list|,
-literal|"Unable to read ICCBase color space. Caused by : "
+literal|"Unable to read ICCBase color space: "
 operator|+
 name|e
 operator|.
