@@ -1100,16 +1100,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Using fallback font for "
-operator|+
-name|getBaseFont
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|type1Equivalent
 operator|=
 name|ExternalFonts
@@ -1117,6 +1107,23 @@ operator|.
 name|getType1FallbackFont
 argument_list|(
 name|getFontDescriptor
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Using fallback font "
+operator|+
+name|type1Equivalent
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" for "
+operator|+
+name|getBaseFont
 argument_list|()
 argument_list|)
 expr_stmt|;
