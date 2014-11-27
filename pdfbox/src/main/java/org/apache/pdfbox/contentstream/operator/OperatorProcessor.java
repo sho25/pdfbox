@@ -201,7 +201,7 @@ name|arguments
 operator|.
 name|size
 argument_list|()
-operator|!=
+operator|<
 name|expectedSize
 condition|)
 block|{

@@ -67,6 +67,8 @@ extends|extends
 name|SetColor
 block|{
 comment|/**      * Returns the non-stroking color.      * @return The non-stroking color.      */
+annotation|@
+name|Override
 specifier|protected
 name|PDColor
 name|getColor
@@ -83,6 +85,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Sets the non-stroking color.      * @param color The new non-stroking color.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setColor
@@ -103,6 +107,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the non-stroking color space.      * @return The non-stroking color space.      */
+annotation|@
+name|Override
 specifier|protected
 name|PDColorSpace
 name|getColorSpace
