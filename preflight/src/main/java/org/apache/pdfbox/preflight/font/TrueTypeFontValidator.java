@@ -353,7 +353,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_ENCODING
 argument_list|,
-literal|"The Encoding is invalid for the NonSymbolic TTF"
+name|fd
+operator|.
+name|getFontName
+argument_list|()
+operator|+
+literal|": The Encoding is invalid for the NonSymbolic TTF"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -395,7 +400,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_ENCODING
 argument_list|,
-literal|"The Encoding should be missing for the Symbolic TTF"
+name|fd
+operator|.
+name|getFontName
+argument_list|()
+operator|+
+literal|": The Encoding should be missing for the Symbolic TTF"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -740,7 +740,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"Some required fields are missing from the Font dictionary."
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": Some required fields are missing from the Font dictionary."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -788,7 +793,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"The FontBBox element isn't an array"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The FontBBox element isn't an array"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -828,7 +838,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"The FontBBox element is invalid"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The FontBBox element is invalid"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -894,7 +909,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"An element of FontBBox isn't a number"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": An element of FontBBox isn't a number"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -944,7 +964,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"The FontMatrix element isn't an array"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The FontMatrix element isn't an array"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -984,7 +1009,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"The FontMatrix element is invalid"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The FontMatrix element is invalid"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1050,7 +1080,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"An element of FontMatrix isn't a number"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": An element of FontMatrix isn't a number"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1129,7 +1164,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_TYPE3_DAMAGED
 argument_list|,
-literal|"The Encoding entry doesn't have the right type"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The Encoding entry doesn't have the right type"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1252,7 +1292,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"The Witdhs array is unreachable"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The Witdhs array is unreachable"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1295,7 +1340,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"The CharProcs element isn't a dictionary"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The CharProcs element isn't a dictionary"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1370,7 +1420,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"The length of Witdhs array is invalid. Expected : \""
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The length of Witdhs array is invalid. Expected : \""
 operator|+
 name|expectedLength
 operator|+
@@ -1475,7 +1530,12 @@ name|ERROR_FONTS_METRICS
 argument_list|,
 name|code
 argument_list|,
-literal|"The character with CID\""
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The character with CID\""
 operator|+
 name|code
 operator|+
@@ -1550,7 +1610,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_TYPE3_DAMAGED
 argument_list|,
-literal|"The CharProcs references an element which can't be read"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The CharProcs references an element which can't be read"
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1664,7 +1731,12 @@ name|ERROR_FONTS_METRICS
 argument_list|,
 name|code
 argument_list|,
-literal|"The CharProcs \""
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The CharProcs \""
 operator|+
 name|font
 operator|.
@@ -1807,7 +1879,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"The Resources element isn't a dictionary"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The Resources element isn't a dictionary"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1953,7 +2030,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_TYPE3_DAMAGED
 argument_list|,
-literal|"The Resources dictionary of type 3 font contains invalid font"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The Resources dictionary of type 3 font contains invalid font"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1976,12 +2058,19 @@ name|PreflightConstants
 operator|.
 name|ERROR_FONTS_DAMAGED
 argument_list|,
-literal|"Unable to valid the Type3 : "
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": Unable to valid the Type3 : "
 operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;

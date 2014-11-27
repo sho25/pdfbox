@@ -718,7 +718,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"Some keys are missing from composite font dictionary"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": Some keys are missing from composite font dictionary"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -789,7 +794,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDKEYED_INVALID
 argument_list|,
-literal|"CIDFont is missing from the DescendantFonts array or the size of array is greater than 1"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": CIDFont is missing from the DescendantFonts array or the size of array is greater than 1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -830,7 +840,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDKEYED_INVALID
 argument_list|,
-literal|"The DescendantFonts array should have one element with is a dictionary."
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The DescendantFonts array should have one element with is a dictionary."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -960,7 +975,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"Type and/or Subtype keys are missing"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": Type and/or Subtype keys are missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1021,7 +1041,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CID_DAMAGED
 argument_list|,
-literal|"The CIDType0 font is damaged"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The CIDType0 font is damaged"
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1082,7 +1109,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CID_DAMAGED
 argument_list|,
-literal|"The CIDType2 font is damaged"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The CIDType2 font is damaged"
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1187,7 +1221,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDKEYED_INVALID
 argument_list|,
-literal|"The CMap is a string but it isn't an Identity-H/V"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The CMap is a string but it isn't an Identity-H/V"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1235,7 +1274,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDKEYED_CMAP_INVALID_OR_MISSING
 argument_list|,
-literal|"The CMap type is invalid"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The CMap type is invalid"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1375,7 +1419,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDKEYED_CMAP_INVALID_OR_MISSING
 argument_list|,
-literal|"Some elements in the CMap dictionary are missing or invalid"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": Some elements in the CMap dictionary are missing or invalid"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1409,7 +1458,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDKEYED_CMAP_INVALID_OR_MISSING
 argument_list|,
-literal|"CMapName or WMode is inconsistent"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": CMapName or WMode is inconsistent"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1437,7 +1491,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDKEYED_CMAP_INVALID_OR_MISSING
 argument_list|,
-literal|"The CMap type is invalid"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The CMap type is invalid"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1460,7 +1519,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CID_CMAP_DAMAGED
 argument_list|,
-literal|"The CMap type is damaged"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The CMap type is damaged"
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1861,7 +1927,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_CIDKEYED_SYSINFO
 argument_list|,
-literal|"The CIDSystemInfo is inconsistent"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": The CIDSystemInfo is inconsistent"
 argument_list|)
 argument_list|)
 expr_stmt|;

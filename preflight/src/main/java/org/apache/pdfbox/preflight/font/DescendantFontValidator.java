@@ -401,7 +401,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_FONTS_DICTIONARY_INVALID
 argument_list|,
-literal|"Required keys are missing"
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": Required keys are missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
