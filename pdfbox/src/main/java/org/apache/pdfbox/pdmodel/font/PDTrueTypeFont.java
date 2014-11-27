@@ -697,16 +697,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Using fallback font for "
-operator|+
-name|getBaseFont
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|ttfFont
 operator|=
 name|ExternalFonts
@@ -715,6 +705,22 @@ name|getTrueTypeFallbackFont
 argument_list|(
 name|getFontDescriptor
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Using fallback font '"
+operator|+
+name|ttfFont
+operator|+
+literal|"' for '"
+operator|+
+name|getBaseFont
+argument_list|()
+operator|+
+literal|"'"
 argument_list|)
 expr_stmt|;
 block|}
