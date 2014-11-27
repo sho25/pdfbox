@@ -19,6 +19,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -63,13 +93,15 @@ begin_comment
 comment|/**  * External font service provider interface. Implementations are expected to be thread safe.  *  * @author John Hewson  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|FontProvider
 block|{
 comment|/**      * Returns a TrueType which corresponds to the given PostScript name. If there is no      * suitable font, then this method will return null.      *      * @param postScriptName PostScript font name      */
 specifier|public
+specifier|abstract
 name|TrueTypeFont
 name|getTrueTypeFont
 parameter_list|(
@@ -79,6 +111,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Returns a CFF font which corresponds to the given PostScript name. If there is no      * suitable font, then this method will return null.      *      * @param postScriptName PostScript font name      */
 specifier|public
+specifier|abstract
 name|CFFFont
 name|getCFFFont
 parameter_list|(
@@ -88,6 +121,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Returns a Type 1 which corresponds to the given PostScript name. If there is no      * suitable font, then this method will return null.      *      * @param postScriptName PostScript font name      */
 specifier|public
+specifier|abstract
 name|Type1Font
 name|getType1Font
 parameter_list|(
@@ -97,12 +131,145 @@ parameter_list|)
 function_decl|;
 comment|/**      * Returns a string containing debugging information. This will be written to the log if no      * suitable fonts are found and no fallback fonts are available. May be null.      */
 specifier|public
+specifier|abstract
 name|String
 name|toDebugString
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the font names for a given font. This allows substitution based on the PostScript      * name of the external font, instead of just the BaseName in the PDF.      */
+specifier|protected
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getNames
+parameter_list|(
+name|TrueTypeFont
+name|font
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|getPostScriptNames
+argument_list|(
+name|font
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+return|;
+comment|// could add format-specific names here if needed
 block|}
-end_interface
+comment|/**      * Returns the font names for a given font. This allows substitution based on the PostScript      * name of the external font, instead of just the BaseName in the PDF.      */
+specifier|protected
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getNames
+parameter_list|(
+name|Type1Font
+name|font
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|getPostScriptNames
+argument_list|(
+name|font
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+return|;
+comment|// could add format-specific names here if needed
+block|}
+comment|/**      * Returns the font names for a given font. This allows substitution based on the PostScript      * name of the external font, instead of just the BaseName in the PDF.      */
+specifier|protected
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getNames
+parameter_list|(
+name|CFFFont
+name|font
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|getPostScriptNames
+argument_list|(
+name|font
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+return|;
+comment|// could add format-specific names here if needed
+block|}
+comment|/**      * Returns a list of alternative names for the given PostScript name.      */
+specifier|private
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getPostScriptNames
+parameter_list|(
+name|String
+name|postScriptName
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|names
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+comment|// built-in PostScript name
+name|names
+operator|.
+name|add
+argument_list|(
+name|postScriptName
+argument_list|)
+expr_stmt|;
+comment|// remove hyphens (e.g. Arial-Black -> ArialBlack)
+name|names
+operator|.
+name|add
+argument_list|(
+name|postScriptName
+operator|.
+name|replaceAll
+argument_list|(
+literal|"-"
+argument_list|,
+literal|""
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|names
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 
