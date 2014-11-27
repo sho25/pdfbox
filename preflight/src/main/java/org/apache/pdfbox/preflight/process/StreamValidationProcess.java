@@ -1453,7 +1453,7 @@ throw|throw
 operator|new
 name|ValidationException
 argument_list|(
-literal|"Unable to read a stream to validate it due to : "
+literal|"Unable to read a stream to validate: "
 operator|+
 name|e
 operator|.

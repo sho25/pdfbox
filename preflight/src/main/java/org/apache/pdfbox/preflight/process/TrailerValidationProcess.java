@@ -890,12 +890,14 @@ name|PreflightConstants
 operator|.
 name|ERROR_SYNTAX_TRAILER
 argument_list|,
-literal|"Unable to check PDF Trailers due to : "
+literal|"Unable to check PDF Trailers: "
 operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1916,7 +1918,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
 block|}
 block|}
 end_class

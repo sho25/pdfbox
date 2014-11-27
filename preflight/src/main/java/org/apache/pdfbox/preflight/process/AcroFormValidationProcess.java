@@ -521,7 +521,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// the list can be null if the Field doesn't have children
+comment|// the list can be null if the field doesn't have children
 for|for
 control|(
 name|Object
@@ -564,7 +564,7 @@ operator|instanceof
 name|PDAnnotationWidget
 condition|)
 block|{
-comment|// "A field?s children in the hierarchy may also include widget annotations"
+comment|// "A field's children in the hierarchy may also include widget annotations"
 name|ContextHelper
 operator|.
 name|validateElement

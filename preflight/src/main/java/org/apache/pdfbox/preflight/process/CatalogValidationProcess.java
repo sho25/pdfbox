@@ -2798,12 +2798,14 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID
 argument_list|,
-literal|"DestOutputProfile isn't a valid ICCProfile. Caused by : "
+literal|"DestOutputProfile isn't a valid ICCProfile: "
 operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
