@@ -6534,8 +6534,19 @@ block|}
 name|setPdfSource
 argument_list|(
 name|startXRefOffset
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
+comment|// save th previous character
+name|int
+name|previous
+init|=
+name|pdfSource
+operator|.
+name|read
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|pdfSource
@@ -6555,6 +6566,15 @@ return|return
 name|startXRefOffset
 return|;
 block|}
+comment|// the previous character has to be a whitespace
+if|if
+condition|(
+name|isWhitespace
+argument_list|(
+name|previous
+argument_list|)
+condition|)
+block|{
 name|int
 name|nextValue
 init|=
@@ -6614,6 +6634,7 @@ argument_list|(
 name|startXRefOffset
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// try to find a fixed offset
