@@ -364,6 +364,13 @@ name|cause
 init|=
 literal|null
 decl_stmt|;
+comment|/**          * The page number on which the error happened, if known.          */
+specifier|private
+name|Integer
+name|pageNumber
+init|=
+literal|null
+decl_stmt|;
 comment|/**          * Get the underlying cause if the ValidationError was caused by a          * Throwable.          *          * @return The underlying cause if the ValidationError was caused by a          * Throwable, or null if not.          */
 specifier|public
 name|Throwable
@@ -373,6 +380,32 @@ block|{
 return|return
 name|cause
 return|;
+block|}
+comment|/**          * Returns the page number, or null if not known.          */
+specifier|public
+name|Integer
+name|getPageNumber
+parameter_list|()
+block|{
+return|return
+name|pageNumber
+return|;
+block|}
+comment|/**          * Sets or resets the page number.          *          * @param pageNumber zero based page number or null if none is known.          */
+specifier|public
+name|void
+name|setPageNumber
+parameter_list|(
+name|Integer
+name|pageNumber
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pageNumber
+operator|=
+name|pageNumber
+expr_stmt|;
 block|}
 comment|/**          * Create a validation error with the given error code          *           * @param errorCode          */
 specifier|public
