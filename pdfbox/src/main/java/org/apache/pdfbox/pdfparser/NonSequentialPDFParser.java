@@ -6902,7 +6902,7 @@ operator|!=
 literal|null
 operator|&&
 name|objectOffset
-operator|>
+operator|>=
 literal|0
 condition|)
 block|{
