@@ -488,6 +488,8 @@ name|ResourcesValidationProcess
 extends|extends
 name|AbstractProcess
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
@@ -513,9 +515,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
-return|return;
-block|}
+block|{         }
 elseif|else
 if|if
 condition|(
@@ -1316,6 +1316,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1398,6 +1400,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1580,6 +1584,11 @@ name|getMessage
 argument_list|()
 argument_list|,
 name|e
+argument_list|,
+name|context
+operator|.
+name|getCurrentPageNumber
+argument_list|()
 argument_list|)
 throw|;
 block|}
