@@ -202,6 +202,13 @@ name|i
 operator|++
 control|)
 block|{
+name|context
+operator|.
+name|setCurrentPageNumber
+argument_list|(
+name|i
+argument_list|)
+expr_stmt|;
 name|validatePage
 argument_list|(
 name|context
@@ -215,6 +222,13 @@ name|getPage
 argument_list|(
 name|i
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|setCurrentPageNumber
+argument_list|(
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
