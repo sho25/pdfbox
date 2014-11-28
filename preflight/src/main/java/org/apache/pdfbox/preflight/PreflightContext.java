@@ -662,6 +662,16 @@ operator|=
 name|currentPageNumber
 expr_stmt|;
 block|}
+comment|/**      * Returns the current page number or null if none is known.      */
+specifier|public
+name|Integer
+name|getCurrentPageNumber
+parameter_list|()
+block|{
+return|return
+name|currentPageNumber
+return|;
+block|}
 block|}
 end_class
 
