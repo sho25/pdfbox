@@ -257,6 +257,12 @@ operator|new
 name|PreflightPath
 argument_list|()
 decl_stmt|;
+specifier|protected
+name|Integer
+name|currentPageNumber
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * Create the DocumentHandler using the DataSource which represent the PDF file to check.      *       * @param source      */
 specifier|public
 name|PreflightContext
@@ -504,6 +510,8 @@ name|config
 expr_stmt|;
 block|}
 comment|/**      * Close all opened resources      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -536,6 +544,13 @@ name|this
 operator|.
 name|document
 decl_stmt|;
+name|error
+operator|.
+name|setPageNumber
+argument_list|(
+name|currentPageNumber
+argument_list|)
+expr_stmt|;
 name|document
 operator|.
 name|addValidationError
@@ -629,6 +644,22 @@ operator|.
 name|iccProfileAlreadySearched
 operator|=
 name|iccProfileAlreadySearched
+expr_stmt|;
+block|}
+comment|/**      * Sets or resets the current page number.      *      * @param currentPageNumber zero based page number or null if none is known.      */
+specifier|public
+name|void
+name|setCurrentPageNumber
+parameter_list|(
+name|Integer
+name|currentPageNumber
+parameter_list|)
+block|{
+name|this
+operator|.
+name|currentPageNumber
+operator|=
+name|currentPageNumber
 expr_stmt|;
 block|}
 block|}
