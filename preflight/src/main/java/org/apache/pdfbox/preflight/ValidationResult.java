@@ -609,6 +609,26 @@ name|startsWith
 argument_list|(
 name|PreflightConstants
 operator|.
+name|ERROR_GRAPHIC_MAIN
+argument_list|)
+condition|)
+block|{
+name|this
+operator|.
+name|details
+operator|=
+literal|"Unknown graphics error"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|errorCode
+operator|.
+name|startsWith
+argument_list|(
+name|PreflightConstants
+operator|.
 name|ERROR_FONTS_INVALID_DATA
 argument_list|)
 condition|)
