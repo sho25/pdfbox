@@ -59,6 +59,22 @@ name|pdfbox
 operator|.
 name|preflight
 operator|.
+name|PreflightConfiguration
+operator|.
+name|RESOURCES_PROCESS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
 name|PreflightConstants
 operator|.
 name|ANNOT_DICTIONARY_VALUE_SUBTYPE_POPUP
@@ -230,6 +246,20 @@ operator|.
 name|cos
 operator|.
 name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|PDResources
 import|;
 end_import
 
@@ -901,6 +931,17 @@ argument_list|,
 name|GRAPHIC_PROCESS
 argument_list|)
 expr_stmt|;
+comment|//                // resources
+comment|//                if (COSUtils.isDictionary(apn, cosDocument))
+comment|//                {
+comment|//                    COSDictionary apnDict = COSUtils.getAsDictionary(apn, cosDocument);
+comment|//                    COSDictionary resources = (COSDictionary) apnDict.getDictionaryObject(COSName.RESOURCES);
+comment|//                    //TODO type
+comment|//                    if (resources != null)
+comment|//                    {
+comment|//                        ContextHelper.validateElement(ctx, new PDResources(resources), RESOURCES_PROCESS);
+comment|//                    }
+comment|//                }
 block|}
 block|}
 comment|// else ok, nothing to check,this field is optional

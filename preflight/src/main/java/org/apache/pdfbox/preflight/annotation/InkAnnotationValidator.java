@@ -100,7 +100,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|InkAnnotationValdiator
+name|InkAnnotationValidator
 extends|extends
 name|AnnotationValidator
 block|{
@@ -112,7 +112,7 @@ init|=
 literal|null
 decl_stmt|;
 specifier|public
-name|InkAnnotationValdiator
+name|InkAnnotationValidator
 parameter_list|(
 name|PreflightContext
 name|ctx

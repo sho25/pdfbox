@@ -319,7 +319,7 @@ name|preflight
 operator|.
 name|annotation
 operator|.
-name|InkAnnotationValdiator
+name|InkAnnotationValidator
 import|;
 end_import
 
@@ -494,6 +494,8 @@ name|PDFAbAnnotationFactory
 extends|extends
 name|AnnotationValidatorFactory
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|initializeClasses
@@ -650,7 +652,7 @@ name|put
 argument_list|(
 name|ANNOT_DICTIONARY_VALUE_SUBTYPE_INK
 argument_list|,
-name|InkAnnotationValdiator
+name|InkAnnotationValidator
 operator|.
 name|class
 argument_list|)

@@ -1308,7 +1308,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" is unknown wasn't found by the FontHelperValdiator"
+literal|" is unknown wasn't found by the FontHelperValidator"
 argument_list|,
 name|ERROR_FONTS_UNKNOWN_FONT_REF
 argument_list|)

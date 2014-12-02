@@ -1163,7 +1163,7 @@ name|ICC_Characterization_Data_Registry_opRGB
 init|=
 literal|"opRGB"
 decl_stmt|;
-comment|/**      * Error code uses by the Valdiator when there are an error without error code.      */
+comment|/**      * Error code uses by the Validator when there is an error without error code.      */
 name|String
 name|ERROR_UNKOWN_ERROR
 init|=
