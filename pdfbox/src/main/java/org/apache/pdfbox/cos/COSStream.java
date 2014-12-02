@@ -915,11 +915,23 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|String
+name|subtype
+init|=
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|SUBTYPE
+argument_list|)
+decl_stmt|;
 throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Stream was not read"
+name|subtype
+operator|+
+literal|" stream was not read"
 operator|+
 name|filterInfo
 argument_list|)
