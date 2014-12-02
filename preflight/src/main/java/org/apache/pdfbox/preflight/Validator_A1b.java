@@ -838,7 +838,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Usage : java org.apache.pdfbox.preflight.Validator_A1b [xml] [mode]<file path>"
+literal|"Usage : java org.apache.pdfbox.preflight.Validator_A1b [xml] [<mode>]<file path>"
 argument_list|)
 expr_stmt|;
 name|System
@@ -854,7 +854,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|" * xml : if set, generate xml output"
+literal|" * xml : if set, generate xml output instead of text"
 argument_list|)
 expr_stmt|;
 name|System
@@ -863,7 +863,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|" * mode : if set,<file path> must be a file containing PDF to parse, can have 2 values"
+literal|" *<mode> : if set,<file path> must be a file containing the PDF files to parse.<mode> can have 2 values:"
 argument_list|)
 expr_stmt|;
 name|System
@@ -872,7 +872,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"       batch : for each file of the list and xml file is generated"
+literal|"       batch : generate xml result files for each PDF file in the list"
 argument_list|)
 expr_stmt|;
 name|System
@@ -881,7 +881,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"       group : generate an xml result for all the file of the list."
+literal|"       group : generate one xml result file for all the PDF files in the list."
 argument_list|)
 expr_stmt|;
 name|System
