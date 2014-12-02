@@ -1620,11 +1620,7 @@ operator|.
 name|getMessage
 argument_list|()
 operator|+
-literal|" for "
-operator|+
-name|subtype
-operator|+
-literal|" entry '"
+literal|" for entry '"
 operator|+
 name|entry
 operator|.
