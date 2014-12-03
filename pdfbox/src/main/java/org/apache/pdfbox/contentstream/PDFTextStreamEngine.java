@@ -1046,7 +1046,7 @@ name|nextX
 init|=
 name|nextTextRenderingMatrix
 operator|.
-name|getXPosition
+name|getTranslateX
 argument_list|()
 decl_stmt|;
 name|float
@@ -1054,7 +1054,7 @@ name|nextY
 init|=
 name|nextTextRenderingMatrix
 operator|.
-name|getYPosition
+name|getTranslateY
 argument_list|()
 decl_stmt|;
 comment|// (modified) width and height calculations
@@ -1065,7 +1065,7 @@ name|nextX
 operator|-
 name|textRenderingMatrix
 operator|.
-name|getXPosition
+name|getTranslateX
 argument_list|()
 decl_stmt|;
 name|float
@@ -1075,7 +1075,7 @@ name|height
 operator|*
 name|textRenderingMatrix
 operator|.
-name|getYScale
+name|getScaleY
 argument_list|()
 decl_stmt|;
 comment|//

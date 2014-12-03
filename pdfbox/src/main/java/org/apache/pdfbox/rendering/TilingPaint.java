@@ -11,11 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|pattern
+name|rendering
 package|;
 end_package
 
@@ -275,9 +271,27 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|rendering
+name|pdmodel
 operator|.
-name|PageDrawer
+name|graphics
+operator|.
+name|pattern
+operator|.
+name|PDTilingPattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
 import|;
 end_import
 
@@ -286,7 +300,6 @@ comment|/**  * AWT Paint for a tiling pattern, which consists of a small repeati
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|TilingPaint
 implements|implements
@@ -406,7 +419,7 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
-comment|// note: this is not called in TexturePaint subclasses, which is why we wrap TexturePaint
+comment|/**      * Not called in TexturePaint subclasses, which is why we wrap TexturePaint.      */
 annotation|@
 name|Override
 specifier|public
@@ -429,7 +442,6 @@ name|RenderingHints
 name|hints
 parameter_list|)
 block|{
-comment|// todo: use userBounds or deviceBounds to avoid scaling issue with Tracemonkey?
 name|AffineTransform
 name|xformPattern
 init|=
@@ -441,10 +453,10 @@ operator|.
 name|clone
 argument_list|()
 decl_stmt|;
-name|xformPattern
-operator|.
-name|concatenate
-argument_list|(
+comment|// applies the pattern matrix with scaling removed
+name|AffineTransform
+name|patternNoScale
+init|=
 name|pattern
 operator|.
 name|getMatrix
@@ -452,6 +464,31 @@ argument_list|()
 operator|.
 name|createAffineTransform
 argument_list|()
+decl_stmt|;
+name|patternNoScale
+operator|.
+name|scale
+argument_list|(
+literal|1
+operator|/
+name|patternNoScale
+operator|.
+name|getScaleX
+argument_list|()
+argument_list|,
+literal|1
+operator|/
+name|patternNoScale
+operator|.
+name|getScaleY
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|xformPattern
+operator|.
+name|concatenate
+argument_list|(
+name|patternNoScale
 argument_list|)
 expr_stmt|;
 return|return
@@ -471,7 +508,7 @@ name|hints
 argument_list|)
 return|;
 block|}
-comment|// gets image in parent stream coordinates
+comment|/**      * Returns the pattern image in parent stream coordinates.      */
 specifier|private
 specifier|static
 name|BufferedImage
@@ -655,6 +692,69 @@ operator|.
 name|createGraphics
 argument_list|()
 decl_stmt|;
+comment|// flip a -ve YStep around its own axis (see gs-bugzilla694385.pdf)
+if|if
+condition|(
+name|pattern
+operator|.
+name|getYStep
+argument_list|()
+operator|<
+literal|0
+condition|)
+block|{
+name|graphics
+operator|.
+name|translate
+argument_list|(
+literal|0
+argument_list|,
+name|rasterHeight
+argument_list|)
+expr_stmt|;
+name|graphics
+operator|.
+name|scale
+argument_list|(
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+comment|// flip a -ve XStep around its own axis
+if|if
+condition|(
+name|pattern
+operator|.
+name|getXStep
+argument_list|()
+operator|<
+literal|0
+condition|)
+block|{
+name|graphics
+operator|.
+name|translate
+argument_list|(
+name|rasterWidth
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|graphics
+operator|.
+name|scale
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+comment|// device transform (i.e. DPI)
 name|graphics
 operator|.
 name|transform
@@ -662,7 +762,72 @@ argument_list|(
 name|xform
 argument_list|)
 expr_stmt|;
-comment|// device transform (i.e. DPI)
+comment|// apply only the scaling from the pattern transform, doing scaling here improves the
+comment|// image quality and prevents large scale-down factors from creating huge tiling cells.
+name|Matrix
+name|patternMatrix
+init|=
+name|Matrix
+operator|.
+name|getScaleInstance
+argument_list|(
+name|Math
+operator|.
+name|abs
+argument_list|(
+name|pattern
+operator|.
+name|getMatrix
+argument_list|()
+operator|.
+name|getScaleX
+argument_list|()
+argument_list|)
+argument_list|,
+name|Math
+operator|.
+name|abs
+argument_list|(
+name|pattern
+operator|.
+name|getMatrix
+argument_list|()
+operator|.
+name|getScaleY
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// move origin to (0,0)
+name|patternMatrix
+operator|.
+name|concatenate
+argument_list|(
+name|Matrix
+operator|.
+name|getTranslatingInstance
+argument_list|(
+operator|-
+name|pattern
+operator|.
+name|getBBox
+argument_list|()
+operator|.
+name|getLowerLeftX
+argument_list|()
+argument_list|,
+operator|-
+name|pattern
+operator|.
+name|getBBox
+argument_list|()
+operator|.
+name|getLowerLeftY
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// render using PageDrawer
 name|drawer
 operator|.
 name|drawTilingPattern
@@ -674,6 +839,8 @@ argument_list|,
 name|colorSpace
 argument_list|,
 name|color
+argument_list|,
+name|patternMatrix
 argument_list|)
 expr_stmt|;
 name|graphics
@@ -685,7 +852,7 @@ return|return
 name|image
 return|;
 block|}
-comment|/**      * Returns the closest integer which is larger than the given number.      * Uses BigDecimal to avoid floating point error which would cause gaps in the tiling.      */
+comment|/**      * Returns the closest integer which is //larger than the given number.      * Uses BigDecimal to avoid floating point error which would cause gaps in the tiling.      */
 specifier|private
 specifier|static
 name|int
@@ -736,8 +903,8 @@ operator|.
 name|TRANSLUCENT
 return|;
 block|}
-comment|// includes XStep/YStep
-specifier|public
+comment|/**      * Returns the anchor rectangle, which includes the XStep/YStep and scaling.      */
+specifier|private
 specifier|static
 name|Rectangle2D
 name|getAnchorRect
@@ -798,6 +965,29 @@ name|getHeight
 argument_list|()
 expr_stmt|;
 block|}
+name|float
+name|xScale
+init|=
+name|pattern
+operator|.
+name|getMatrix
+argument_list|()
+operator|.
+name|getScaleX
+argument_list|()
+decl_stmt|;
+name|float
+name|yScale
+init|=
+name|pattern
+operator|.
+name|getMatrix
+argument_list|()
+operator|.
+name|getScaleY
+argument_list|()
+decl_stmt|;
+comment|// returns the anchor rect with scaling applied
 name|PDRectangle
 name|anchor
 init|=
@@ -816,15 +1006,23 @@ name|anchor
 operator|.
 name|getLowerLeftX
 argument_list|()
+operator|*
+name|xScale
 argument_list|,
 name|anchor
 operator|.
 name|getLowerLeftY
 argument_list|()
+operator|*
+name|yScale
 argument_list|,
 name|xStep
+operator|*
+name|xScale
 argument_list|,
 name|yStep
+operator|*
+name|yScale
 argument_list|)
 return|;
 block|}

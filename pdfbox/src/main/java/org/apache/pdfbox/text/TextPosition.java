@@ -1250,7 +1250,7 @@ name|endY
 operator|-
 name|textMatrix
 operator|.
-name|getYPosition
+name|getTranslateY
 argument_list|()
 argument_list|)
 return|;
@@ -1266,7 +1266,7 @@ name|endX
 operator|-
 name|textMatrix
 operator|.
-name|getXPosition
+name|getTranslateX
 argument_list|()
 argument_list|)
 return|;

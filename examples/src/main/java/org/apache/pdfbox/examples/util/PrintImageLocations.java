@@ -675,14 +675,14 @@ literal|"position = "
 operator|+
 name|ctmNew
 operator|.
-name|getXPosition
+name|getTranslateX
 argument_list|()
 operator|+
 literal|", "
 operator|+
 name|ctmNew
 operator|.
-name|getYPosition
+name|getTranslateY
 argument_list|()
 argument_list|)
 expr_stmt|;

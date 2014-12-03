@@ -82,11 +82,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will be used for matrix manipulation.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.14 $  */
+comment|/**  * This class will be used for matrix manipulation.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|Matrix
 implements|implements
@@ -445,7 +446,9 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the values of the matrix from the AffineTransform.      *      * @param af The transform to get the values from.      */
+comment|/**      * Set the values of the matrix from the AffineTransform.      *      * @param af The transform to get the values from.      * @deprecated This method is due to be removed, please contact us if you make use of it.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setFromAffineTransform
@@ -726,7 +729,9 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Return a single dimension array of all values in the matrix.      *      * @return The values ot this matrix.      */
+comment|/**      * Return a single dimension array of all values in the matrix.      *      * @return The values ot this matrix.      * @deprecated Use {@link float[][] #getValues} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|double
 index|[]
@@ -921,7 +926,37 @@ name|m
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will take the current matrix and multipy it with a matrix that is passed in.      *      * @param b The matrix to multiply by.      *      * @return The result of the two multiplied matrices.      */
+comment|/**      * Scales this matrix by the given factors.      *      * @param sx x-scale      * @param sy y-scale      */
+specifier|public
+name|void
+name|scale
+parameter_list|(
+name|float
+name|sx
+parameter_list|,
+name|float
+name|sy
+parameter_list|)
+block|{
+name|Matrix
+name|m
+init|=
+name|Matrix
+operator|.
+name|getScaleInstance
+argument_list|(
+name|sx
+argument_list|,
+name|sy
+argument_list|)
+decl_stmt|;
+name|concatenate
+argument_list|(
+name|m
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This will take the current matrix and multiply it with a matrix that is passed in.      *      * @param b The matrix to multiply by.      *      * @return The result of the two multiplied matrices.      */
 specifier|public
 name|Matrix
 name|multiply
@@ -1733,7 +1768,9 @@ name|f
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new matrix with just the scaling operators.      *      * @return A new matrix with just the scaling operators.      */
+comment|/**      * Create a new matrix with just the scaling operators.      *      * @return A new matrix with just the scaling operators.      * @deprecated This method is due to be removed, please contact us if you make use of it.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|Matrix
 name|extractScaling
@@ -1820,7 +1857,9 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Create a new matrix with just the translating operators.      *      * @return A new matrix with just the translating operators.      */
+comment|/**      * Create a new matrix with just the translating operators.      *      * @return A new matrix with just the translating operators.      * @deprecated This method is due to be removed, please contact us if you make use of it.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|Matrix
 name|extractTranslating
@@ -1975,7 +2014,9 @@ return|return
 name|clone
 return|;
 block|}
-comment|/**      * Get the xscaling factor of this matrix.      * @return The x-scale.      */
+comment|/**      * Get the x-scaling factor of this matrix. This is a deprecated method which actually      * returns the x-scaling factor multiplied by the x-shear.      *      * @return The x-scale.      * @deprecated Use {@link #getScaleX} instead      */
+annotation|@
+name|Deprecated
 specifier|public
 name|float
 name|getXScale
@@ -2049,7 +2090,9 @@ return|return
 name|xScale
 return|;
 block|}
-comment|/**      * Get the y scaling factor of this matrix.      * @return The y-scale factor.      */
+comment|/**      * Get the y-scaling factor of this matrix. This is a deprecated method which actually      * returns the y-scaling factor multiplied by the y-shear.      *      * @return The y-scale factor.      * @deprecated Use {@link #getScaleY} instead      */
+annotation|@
+name|Deprecated
 specifier|public
 name|float
 name|getYScale
@@ -2122,7 +2165,87 @@ return|return
 name|yScale
 return|;
 block|}
-comment|/**      * Get the x position in the matrix.      * @return The x-position.      */
+comment|/**      * Returns the x-scaling factor of this matrix.      */
+specifier|public
+name|float
+name|getScaleX
+parameter_list|()
+block|{
+return|return
+name|single
+index|[
+literal|0
+index|]
+return|;
+block|}
+comment|/**      * Returns the y-shear factor of this matrix.      */
+specifier|public
+name|float
+name|getShearY
+parameter_list|()
+block|{
+return|return
+name|single
+index|[
+literal|1
+index|]
+return|;
+block|}
+comment|/**      * Returns the x-shear factor of this matrix.      */
+specifier|public
+name|float
+name|getShearX
+parameter_list|()
+block|{
+return|return
+name|single
+index|[
+literal|3
+index|]
+return|;
+block|}
+comment|/**      * Returns the y-scaling factor of this matrix.      */
+specifier|public
+name|float
+name|getScaleY
+parameter_list|()
+block|{
+return|return
+name|single
+index|[
+literal|4
+index|]
+return|;
+block|}
+comment|/**      * Returns the x-translation of this matrix.      */
+specifier|public
+name|float
+name|getTranslateX
+parameter_list|()
+block|{
+return|return
+name|single
+index|[
+literal|6
+index|]
+return|;
+block|}
+comment|/**      * Returns the y-translation of this matrix.      */
+specifier|public
+name|float
+name|getTranslateY
+parameter_list|()
+block|{
+return|return
+name|single
+index|[
+literal|7
+index|]
+return|;
+block|}
+comment|/**      * Get the x position in the matrix. This method is deprecated as it is incorrectly named.      *      * @return The x-position.      * @deprecated Use {@link #getTranslateX} instead      */
+annotation|@
+name|Deprecated
 specifier|public
 name|float
 name|getXPosition
@@ -2135,7 +2258,9 @@ literal|6
 index|]
 return|;
 block|}
-comment|/**      * Get the y position.      * @return The y position.      */
+comment|/**      * Get the y position. This method is deprecated as it is incorrectly named.      *      * @return The y position.      * @deprecated Use {@link #getTranslateY} instead      */
+annotation|@
+name|Deprecated
 specifier|public
 name|float
 name|getYPosition
@@ -2148,7 +2273,7 @@ literal|7
 index|]
 return|;
 block|}
-comment|/**      * Returns a COS array which represnets this matrix.      */
+comment|/**      * Returns a COS array which represents this matrix.      */
 specifier|public
 name|COSArray
 name|toCOSArray
