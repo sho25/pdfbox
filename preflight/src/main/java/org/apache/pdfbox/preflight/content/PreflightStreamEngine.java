@@ -1776,7 +1776,7 @@ block|}
 comment|/**      * Check operands of the "ri" operator. Operands must exist in the RenderingIntent list.      * (net.awl.edoc.pdfa.validation.utils.RenderingIntents)      *       * @param operator      *            the "ri" operator      * @param arguments      *            the "ri" operands      * @throws ContentStreamException      *             ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY if the operand is invalid      */
 specifier|protected
 name|void
-name|validRenderingIntent
+name|validateRenderingIntent
 parameter_list|(
 name|Operator
 name|operator
@@ -1894,7 +1894,7 @@ block|}
 comment|/**      * Valid the number of graphic states if the operator is the Save Graphic state operator ("q")      *       * @param operator      * @throws ContentStreamException      */
 specifier|protected
 name|void
-name|validNumberOfGraphicStates
+name|validateNumberOfGraphicStates
 parameter_list|(
 name|Operator
 name|operator
@@ -1943,7 +1943,7 @@ block|}
 comment|/**      * Throw a ContentStreamException if the LZW filter is used in a InlinedImage.      *       * @param operator the InlinedImage object (BI to EI)      * @throws ContentStreamException      */
 specifier|protected
 name|void
-name|validImageFilter
+name|validateImageFilter
 parameter_list|(
 name|Operator
 name|operator
@@ -2004,7 +2004,7 @@ block|}
 comment|/**      * This method validates if the ColorSpace used by the InlinedImage is consistent with      * the color space defined in OutputIntent dictionaries.      *       * @param operator the InlinedImage object (BI to EI)      * @throws ContentStreamException      */
 specifier|protected
 name|void
-name|validImageColorSpace
+name|validateImageColorSpace
 parameter_list|(
 name|Operator
 name|operator

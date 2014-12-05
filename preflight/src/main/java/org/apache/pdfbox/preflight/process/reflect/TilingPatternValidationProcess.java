@@ -454,7 +454,7 @@ argument_list|)
 decl_stmt|;
 name|csWrapper
 operator|.
-name|validPatternContentStream
+name|validatePatternContentStream
 argument_list|(
 name|pattern
 argument_list|)

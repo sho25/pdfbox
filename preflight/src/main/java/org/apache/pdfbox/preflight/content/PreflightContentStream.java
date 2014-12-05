@@ -435,7 +435,7 @@ block|}
 comment|/**      * Process the validation of a PageContent (The page is initialized by the constructor)      *      * @throws ValidationException      */
 specifier|public
 name|void
-name|validPageContentStream
+name|validatePageContentStream
 parameter_list|()
 throws|throws
 name|ValidationException
@@ -504,7 +504,7 @@ throw|throw
 operator|new
 name|ValidationException
 argument_list|(
-literal|"Unable to check the ContentStream : "
+literal|"Unable to check the Page ContentStream : "
 operator|+
 name|e
 operator|.
@@ -519,7 +519,7 @@ block|}
 comment|/**      * Process the validation of a XObject Form      *       * @param form the PDFormXObject to be validated.      * @throws ValidationException      */
 specifier|public
 name|void
-name|validXObjContentStream
+name|validateXObjContentStream
 parameter_list|(
 name|PDFormXObject
 name|form
@@ -595,7 +595,7 @@ throw|throw
 operator|new
 name|ValidationException
 argument_list|(
-literal|"Unable to check the ContentStream : "
+literal|"Unable to check the XObject ContentStream : "
 operator|+
 name|e
 operator|.
@@ -610,7 +610,7 @@ block|}
 comment|/**      * Process the validation of a Tiling Pattern      *       * @param pattern the PDTilingPattern to be validated.      * @throws ValidationException      */
 specifier|public
 name|void
-name|validPatternContentStream
+name|validatePatternContentStream
 parameter_list|(
 name|PDTilingPattern
 name|pattern
@@ -664,7 +664,7 @@ throw|throw
 operator|new
 name|ValidationException
 argument_list|(
-literal|"Unable to check the ContentStream : "
+literal|"Unable to check the Pattern ContentStream : "
 operator|+
 name|e
 operator|.
@@ -718,12 +718,12 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|validImageFilter
+name|validateImageFilter
 argument_list|(
 name|operator
 argument_list|)
 expr_stmt|;
-name|validImageColorSpace
+name|validateImageColorSpace
 argument_list|(
 name|operator
 argument_list|)
@@ -744,7 +744,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|validRenderingIntent
+name|validateRenderingIntent
 argument_list|(
 name|operator
 argument_list|,
@@ -758,7 +758,7 @@ argument_list|,
 name|arguments
 argument_list|)
 expr_stmt|;
-name|validNumberOfGraphicStates
+name|validateNumberOfGraphicStates
 argument_list|(
 name|operator
 argument_list|)
@@ -846,7 +846,7 @@ name|op
 argument_list|)
 condition|)
 block|{
-name|validStringDefinition
+name|validateStringDefinition
 argument_list|(
 name|operator
 argument_list|,
@@ -864,7 +864,7 @@ name|op
 argument_list|)
 condition|)
 block|{
-name|validStringArray
+name|validateStringArray
 argument_list|(
 name|operator
 argument_list|,
@@ -876,7 +876,7 @@ block|}
 comment|/**      * Process Text Validation for the Operands of a Tj, "'" and "\"" operator.      *       * If the validation fails for an unexpected reason, a IOException is thrown. If the validation fails due to      * validation error, a ContentStreamException is thrown. (Use the ValidationError attribute to know the cause)      *       * @param operator      * @param arguments      * @throws ContentStreamException      * @throws IOException      */
 specifier|private
 name|void
-name|validStringDefinition
+name|validateStringDefinition
 parameter_list|(
 name|Operator
 name|operator
@@ -1006,7 +1006,7 @@ operator|instanceof
 name|COSString
 condition|)
 block|{
-name|validText
+name|validateText
 argument_list|(
 operator|(
 operator|(
@@ -1055,7 +1055,7 @@ operator|instanceof
 name|COSString
 condition|)
 block|{
-name|validText
+name|validateText
 argument_list|(
 operator|(
 operator|(
@@ -1098,7 +1098,7 @@ block|}
 comment|/**      * Process Text Validation for the Operands of a TJ operator.      *       * If the validation fails for an unexpected reason, a IOException is thrown. If the validation fails due to      * validation error, a ContentStreamException is thrown. (Use the ValidationError attribute to know the cause)      *       * @param operator      * @param arguments      * @throws ContentStreamException      * @throws IOException      */
 specifier|private
 name|void
-name|validStringArray
+name|validateStringArray
 parameter_list|(
 name|Operator
 name|operator
@@ -1129,7 +1129,7 @@ operator|instanceof
 name|COSArray
 condition|)
 block|{
-name|validStringArray
+name|validateStringArray
 argument_list|(
 name|operator
 argument_list|,
@@ -1153,7 +1153,7 @@ operator|instanceof
 name|COSString
 condition|)
 block|{
-name|validText
+name|validateText
 argument_list|(
 operator|(
 operator|(
@@ -1201,7 +1201,7 @@ block|}
 comment|/**      * Process the validation of a Text operand contains in a ContentStream This validation checks that :      *<UL>      *<li>The font isn't missing if the Rendering Mode isn't 3      *<li>The font metrics are consistent      *<li>All character used in the text are defined in the font program.      *</UL>      *       * @param string      * @throws IOException      */
 specifier|public
 name|void
-name|validText
+name|validateText
 parameter_list|(
 name|byte
 index|[]
