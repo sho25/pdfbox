@@ -568,7 +568,7 @@ argument_list|)
 decl_stmt|;
 name|csWrapper
 operator|.
-name|validXObjContentStream
+name|validateXObjContentStream
 argument_list|(
 name|pdXObj
 argument_list|)

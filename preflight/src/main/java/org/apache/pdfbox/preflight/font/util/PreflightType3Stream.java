@@ -367,12 +367,12 @@ name|getResources
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|validImageFilter
+name|validateImageFilter
 argument_list|(
 name|operator
 argument_list|)
 expr_stmt|;
-name|validImageColorSpace
+name|validateImageColorSpace
 argument_list|(
 name|operator
 argument_list|)
@@ -524,7 +524,7 @@ argument_list|(
 name|operation
 argument_list|)
 expr_stmt|;
-name|validRenderingIntent
+name|validateRenderingIntent
 argument_list|(
 name|operator
 argument_list|,
@@ -538,7 +538,7 @@ argument_list|,
 name|arguments
 argument_list|)
 expr_stmt|;
-name|validNumberOfGraphicStates
+name|validateNumberOfGraphicStates
 argument_list|(
 name|operator
 argument_list|)
