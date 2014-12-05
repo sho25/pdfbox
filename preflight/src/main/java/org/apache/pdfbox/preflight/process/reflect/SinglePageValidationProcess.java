@@ -576,6 +576,8 @@ name|SinglePageValidationProcess
 extends|extends
 name|AbstractProcess
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
@@ -604,7 +606,6 @@ condition|)
 block|{
 return|return;
 block|}
-elseif|else
 if|if
 condition|(
 operator|!
@@ -997,7 +998,7 @@ argument_list|)
 decl_stmt|;
 name|csWrapper
 operator|.
-name|validPageContentStream
+name|validatePageContentStream
 argument_list|()
 expr_stmt|;
 block|}
@@ -1020,6 +1021,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1213,7 +1216,6 @@ literal|"Group has a transparency S entry or the S entry is null."
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 block|}
