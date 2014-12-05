@@ -174,7 +174,7 @@ return|return
 name|font
 return|;
 block|}
-comment|/**      * Parses the ASCII porition of a Type 1 font.      */
+comment|/**      * Parses the ASCII portion of a Type 1 font.      */
 specifier|private
 name|void
 name|parseASCII
@@ -191,6 +191,13 @@ comment|// %!PS-AdobeFont-1.0
 if|if
 condition|(
 name|bytes
+operator|.
+name|length
+operator|<
+literal|2
+operator|||
+operator|(
+name|bytes
 index|[
 literal|0
 index|]
@@ -203,6 +210,7 @@ literal|1
 index|]
 operator|!=
 literal|'!'
+operator|)
 condition|)
 block|{
 throw|throw
