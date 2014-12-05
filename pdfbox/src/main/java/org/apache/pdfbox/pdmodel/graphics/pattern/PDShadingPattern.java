@@ -162,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A shading pattern dictionary.  * @author Andreas Lehmkühler  */
+comment|/**  * A shading pattern dictionary.  *  * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
@@ -174,17 +174,11 @@ name|PDAbstractPattern
 block|{
 specifier|private
 name|PDExternalGraphicsState
-name|extendedGraphicsState
+name|externalGraphicsState
 decl_stmt|;
 specifier|private
 name|PDShading
 name|shading
-decl_stmt|;
-specifier|private
-name|COSArray
-name|matrix
-init|=
-literal|null
 decl_stmt|;
 comment|/**      * Creates a new shading pattern.      */
 specifier|public
@@ -236,26 +230,20 @@ operator|.
 name|TYPE_SHADING_PATTERN
 return|;
 block|}
-comment|/**      * This will get the optional Matrix of a Pattern.      * It maps the form space into the user space.      * @return the form matrix      */
+comment|/**      * Returns the pattern matrix.      */
 specifier|public
 name|Matrix
 name|getMatrix
 parameter_list|()
 block|{
 name|Matrix
-name|returnMatrix
+name|matrix
 init|=
 literal|null
 decl_stmt|;
-if|if
-condition|(
-name|matrix
-operator|==
-literal|null
-condition|)
-block|{
-name|matrix
-operator|=
+name|COSArray
+name|array
+init|=
 operator|(
 name|COSArray
 operator|)
@@ -268,22 +256,21 @@ name|COSName
 operator|.
 name|MATRIX
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 if|if
 condition|(
-name|matrix
+name|array
 operator|!=
 literal|null
 condition|)
 block|{
-name|returnMatrix
+name|matrix
 operator|=
 operator|new
 name|Matrix
 argument_list|()
 expr_stmt|;
-name|returnMatrix
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -295,7 +282,7 @@ operator|(
 operator|(
 name|COSNumber
 operator|)
-name|matrix
+name|array
 operator|.
 name|get
 argument_list|(
@@ -307,7 +294,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|returnMatrix
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -319,7 +306,7 @@ operator|(
 operator|(
 name|COSNumber
 operator|)
-name|matrix
+name|array
 operator|.
 name|get
 argument_list|(
@@ -331,7 +318,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|returnMatrix
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -343,7 +330,7 @@ operator|(
 operator|(
 name|COSNumber
 operator|)
-name|matrix
+name|array
 operator|.
 name|get
 argument_list|(
@@ -355,7 +342,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|returnMatrix
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -367,7 +354,7 @@ operator|(
 operator|(
 name|COSNumber
 operator|)
-name|matrix
+name|array
 operator|.
 name|get
 argument_list|(
@@ -379,7 +366,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|returnMatrix
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -391,7 +378,7 @@ operator|(
 operator|(
 name|COSNumber
 operator|)
-name|matrix
+name|array
 operator|.
 name|get
 argument_list|(
@@ -403,7 +390,7 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|returnMatrix
+name|matrix
 operator|.
 name|setValue
 argument_list|(
@@ -415,7 +402,7 @@ operator|(
 operator|(
 name|COSNumber
 operator|)
-name|matrix
+name|array
 operator|.
 name|get
 argument_list|(
@@ -428,8 +415,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// default value is the identity matrix
+name|matrix
+operator|=
+operator|new
+name|Matrix
+argument_list|()
+expr_stmt|;
+block|}
 return|return
-name|returnMatrix
+name|matrix
 return|;
 block|}
 comment|/**      * Sets the optional Matrix entry for the Pattern.      * @param transform the transformation matrix      */
@@ -441,12 +438,13 @@ name|AffineTransform
 name|transform
 parameter_list|)
 block|{
+name|COSArray
 name|matrix
-operator|=
+init|=
 operator|new
 name|COSArray
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|double
 index|[]
 name|values
@@ -500,15 +498,15 @@ name|matrix
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the extended graphics state for this pattern.      * @return The extended graphics state for this pattern.      */
+comment|/**      * This will get the external graphics state for this pattern.      * @return The extended graphics state for this pattern.      */
 specifier|public
 name|PDExternalGraphicsState
-name|getExtendedGraphicsState
+name|getExternalGraphicsState
 parameter_list|()
 block|{
 if|if
 condition|(
-name|extendedGraphicsState
+name|externalGraphicsState
 operator|==
 literal|null
 condition|)
@@ -536,7 +534,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|extendedGraphicsState
+name|externalGraphicsState
 operator|=
 operator|new
 name|PDExternalGraphicsState
@@ -547,27 +545,27 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|extendedGraphicsState
+name|externalGraphicsState
 return|;
 block|}
-comment|/**      * This will set the extended graphics state for this pattern.      * @param extendedGraphicsState The new extended graphics state for this pattern.      */
+comment|/**      * This will set the external graphics state for this pattern.      * @param externalGraphicsState The new extended graphics state for this pattern.      */
 specifier|public
 name|void
-name|setExtendedGraphicsState
+name|setExternalGraphicsState
 parameter_list|(
 name|PDExternalGraphicsState
-name|extendedGraphicsState
+name|externalGraphicsState
 parameter_list|)
 block|{
 name|this
 operator|.
-name|extendedGraphicsState
+name|externalGraphicsState
 operator|=
-name|extendedGraphicsState
+name|externalGraphicsState
 expr_stmt|;
 if|if
 condition|(
-name|extendedGraphicsState
+name|externalGraphicsState
 operator|!=
 literal|null
 condition|)
@@ -581,7 +579,7 @@ name|COSName
 operator|.
 name|EXT_G_STATE
 argument_list|,
-name|extendedGraphicsState
+name|externalGraphicsState
 argument_list|)
 expr_stmt|;
 block|}
