@@ -1919,6 +1919,17 @@ operator|=
 name|streamResources
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|resources
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// inherit directly from parent stream, this is not in the PDF spec, but the file from
+comment|// PDFBOX-1359 does this and works in Acrobat
+block|}
 else|else
 block|{
 name|resources
