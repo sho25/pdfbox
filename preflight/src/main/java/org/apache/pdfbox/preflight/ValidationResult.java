@@ -1153,9 +1153,11 @@ name|pageNumber
 operator|.
 name|compareTo
 argument_list|(
+name|ve
+operator|.
 name|pageNumber
 argument_list|)
-operator|==
+operator|!=
 literal|0
 condition|)
 block|{
