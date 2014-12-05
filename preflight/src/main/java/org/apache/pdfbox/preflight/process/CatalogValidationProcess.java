@@ -93,6 +93,22 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
+name|ERROR_ACTION_FORBIDDEN_ACTIONS_NAMED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
 name|ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID
 import|;
 end_import
@@ -1889,6 +1905,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
@@ -2135,6 +2153,30 @@ argument_list|(
 name|ERROR_SYNTAX_TRAILER_CATALOG_EMBEDDEDFILES
 argument_list|,
 literal|"EmbeddedFile entry is present in the Names dictionary"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|names
+operator|.
+name|getJavaScript
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|addValidationError
+argument_list|(
+name|ctx
+argument_list|,
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_ACTION_FORBIDDEN_ACTIONS_NAMED
+argument_list|,
+literal|"Javascript entry is present in the Names dictionary"
 argument_list|)
 argument_list|)
 expr_stmt|;
