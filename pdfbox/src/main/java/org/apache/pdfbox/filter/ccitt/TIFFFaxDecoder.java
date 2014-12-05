@@ -4902,7 +4902,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Invalid code encountered."
+literal|"TIFFFaxDecoder: Invalid code encountered."
 argument_list|)
 throw|;
 block|}
@@ -4919,7 +4919,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"EOL encountered in white run."
+literal|"TIFFFaxDecoder: EOL encountered in white run."
 argument_list|)
 throw|;
 block|}
@@ -5172,7 +5172,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"EOL encountered in black run."
+literal|"TIFFFaxDecoder: EOL encountered in black run."
 argument_list|)
 throw|;
 block|}
@@ -5519,7 +5519,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"First scanline must be 1D encoded."
+literal|"TIFFFaxDecoder: First scanline must be 1D encoded."
 argument_list|)
 throw|;
 block|}
@@ -5916,7 +5916,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Invalid code encountered while decoding 2D group 3 compressed data."
+literal|"TIFFFaxDecoder: Invalid code encountered while decoding 2D group 3 compressed data."
 argument_list|)
 throw|;
 block|}
@@ -6507,7 +6507,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Invalid code encountered while decoding 2D group 4 compressed data."
+literal|"TIFFFaxDecoder: Invalid code encountered while decoding 2D group 4 compressed data."
 argument_list|)
 throw|;
 block|}
@@ -6727,7 +6727,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Invalid code encountered while decoding 2D group 4 compressed data."
+literal|"TIFFFaxDecoder: Invalid code encountered while decoding 2D group 4 compressed data."
 argument_list|)
 throw|;
 block|}
@@ -7095,7 +7095,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Invalid code encountered."
+literal|"TIFFFaxDecoder: Invalid code encountered."
 argument_list|)
 throw|;
 block|}
@@ -7112,7 +7112,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"EOL encountered in white run."
+literal|"TIFFFaxDecoder: EOL encountered in white run."
 argument_list|)
 throw|;
 block|}
@@ -7359,7 +7359,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"EOL encountered in black run."
+literal|"TIFFFaxDecoder: EOL encountered in black run."
 argument_list|)
 throw|;
 block|}
@@ -7501,7 +7501,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Scanline must begin with EOL."
+literal|"TIFFFaxDecoder: Scanline must begin with EOL."
 argument_list|)
 throw|;
 block|}
@@ -7538,7 +7538,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"All fill bits preceding EOL code must be 0."
+literal|"TIFFFaxDecoder: All fill bits preceding EOL code must be 0."
 argument_list|)
 throw|;
 block|}
@@ -7567,7 +7567,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"All fill bits preceding EOL code must be 0."
+literal|"TIFFFaxDecoder: All fill bits preceding EOL code must be 0."
 argument_list|)
 throw|;
 block|}
@@ -7604,7 +7604,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"All fill bits preceding EOL code must be 0."
+literal|"TIFFFaxDecoder: All fill bits preceding EOL code must be 0."
 argument_list|)
 throw|;
 block|}
@@ -7986,7 +7986,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"TIFF_FILL_ORDER tag must be either 1 or 2."
+literal|"TIFFFaxDecoder: TIFF_FILL_ORDER tag must be either 1 or 2."
 argument_list|)
 throw|;
 block|}
@@ -8273,7 +8273,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"TIFF_FILL_ORDER tag must be either 1 or 2."
+literal|"TIFFFaxDecoder: TIFF_FILL_ORDER tag must be either 1 or 2."
 argument_list|)
 throw|;
 block|}
