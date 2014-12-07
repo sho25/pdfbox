@@ -43,6 +43,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSBase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSDictionary
 import|;
 end_import
@@ -88,6 +102,16 @@ operator|.
 name|common
 operator|.
 name|COSArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -301,7 +325,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will will set the list of options for this button.      *      * @param options The list of options for the button.      */
+comment|/**      * Set the field options values.      *       * The fields options represent the export value of each annotation in the field.       * It may be used to:      *<ul>      *<li>represent the export values in non-Latin writing systems.</li>      *<li>allow radio buttons to be checked independently, even       *  if they have the same export value.</li>      *</ul>      *       * Providing an empty list or null will remove the entry.      *       * @param options The list of options for the button.      */
 specifier|public
 name|void
 name|setOptions
@@ -312,6 +336,33 @@ name|String
 argument_list|>
 name|options
 parameter_list|)
+block|{
+if|if
+condition|(
+name|options
+operator|==
+literal|null
+operator|||
+name|options
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|OPT
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|getDictionary
 argument_list|()
@@ -331,26 +382,28 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Override
 specifier|public
-name|Object
+name|COSBase
 name|getDefaultValue
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 comment|// Button fields don't support the "DV" entry.
 return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Set the fields default value.      *       * The field value holds a name object which is corresponding to the       * appearance state representing the corresponding appearance       * from the appearance directory.      *      * The default value is used to represent the initial state of the      * checkbox or to revert when resetting the form.      *       * @param defaultValue the COSName object to set the field value.      */
 specifier|public
 name|void
 name|setDefaultValue
 parameter_list|(
-name|Object
-name|value
+name|COSName
+name|defaultValue
 parameter_list|)
 block|{
 comment|// Button fields don't support the "DV" entry.
