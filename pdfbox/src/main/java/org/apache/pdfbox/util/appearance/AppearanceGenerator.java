@@ -161,7 +161,6 @@ name|PDField
 name|field
 parameter_list|)
 block|{
-comment|// TODO: handle appearance generation for other field types
 if|if
 condition|(
 name|field
@@ -189,24 +188,27 @@ decl_stmt|;
 name|Object
 name|fieldValue
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|fieldValue
+operator|=
 name|field
 operator|.
 name|getValue
 argument_list|()
-decl_stmt|;
-comment|// in case there is no value being set generate the visual
-comment|// appearance with an empty String
-if|if
-condition|(
-name|fieldValue
-operator|==
-literal|null
-condition|)
-block|{
-name|fieldValue
-operator|=
-literal|""
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// TODO: Implement the removal of the appearance as this
+comment|//       exception occurred either because the value couldn't be read or
+comment|//       the type is not valid for the field.
 block|}
 comment|// TODO: implement the handling for additional values.
 if|if
@@ -271,6 +273,17 @@ literal|"."
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|// TODO: implement the handling for additional field types
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Unable to generate the field appearance."
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
