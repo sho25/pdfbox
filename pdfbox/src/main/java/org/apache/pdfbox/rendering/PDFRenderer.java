@@ -321,7 +321,7 @@ name|getRotation
 argument_list|()
 decl_stmt|;
 comment|// normalize the rotation angle
-if|if
+while|while
 condition|(
 name|rotationAngle
 operator|<
@@ -333,8 +333,7 @@ operator|+=
 literal|360
 expr_stmt|;
 block|}
-elseif|else
-if|if
+while|while
 condition|(
 name|rotationAngle
 operator|>=
@@ -606,6 +605,31 @@ operator|.
 name|getRotation
 argument_list|()
 decl_stmt|;
+comment|// normalize the rotation angle
+while|while
+condition|(
+name|rotationAngle
+operator|<
+literal|0
+condition|)
+block|{
+name|rotationAngle
+operator|+=
+literal|360
+expr_stmt|;
+block|}
+while|while
+condition|(
+name|rotationAngle
+operator|>=
+literal|360
+condition|)
+block|{
+name|rotationAngle
+operator|-=
+literal|360
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|rotationAngle
