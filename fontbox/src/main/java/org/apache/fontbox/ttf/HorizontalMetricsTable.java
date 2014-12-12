@@ -60,6 +60,10 @@ name|short
 index|[]
 name|nonHorizontalLeftSideBearing
 decl_stmt|;
+specifier|private
+name|int
+name|numHMetrics
+decl_stmt|;
 comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
@@ -82,14 +86,13 @@ operator|.
 name|getHorizontalHeader
 argument_list|()
 decl_stmt|;
-name|int
 name|numHMetrics
-init|=
+operator|=
 name|hHeader
 operator|.
 name|getNumberOfHMetrics
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|int
 name|numGlyphs
 init|=
@@ -240,31 +243,44 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * @return Returns the advanceWidth.      */
+comment|/**      * Returns the advance width for the given GID.      *      * @param gid GID      */
 specifier|public
 name|int
-index|[]
 name|getAdvanceWidth
-parameter_list|()
+parameter_list|(
+name|int
+name|gid
+parameter_list|)
+block|{
+if|if
+condition|(
+name|gid
+operator|<
+name|numHMetrics
+condition|)
 block|{
 return|return
 name|advanceWidth
+index|[
+name|gid
+index|]
 return|;
 block|}
-comment|/**      * @param advanceWidthValue The advanceWidth to set.      */
-specifier|public
-name|void
-name|setAdvanceWidth
-parameter_list|(
-name|int
-index|[]
-name|advanceWidthValue
-parameter_list|)
+else|else
 block|{
+comment|// monospaced fonts may not have a width for every glyph
+comment|// the last one is for subsequent glyphs
+return|return
 name|advanceWidth
-operator|=
-name|advanceWidthValue
-expr_stmt|;
+index|[
+name|advanceWidth
+operator|.
+name|length
+operator|-
+literal|1
+index|]
+return|;
+block|}
 block|}
 block|}
 end_class
