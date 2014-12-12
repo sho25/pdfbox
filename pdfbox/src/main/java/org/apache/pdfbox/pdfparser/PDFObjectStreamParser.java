@@ -192,7 +192,7 @@ specifier|private
 name|COSStream
 name|stream
 decl_stmt|;
-comment|/**      * Constructor.      *      * @since Apache PDFBox 1.3.0      * @param strm The stream to parse.      * @param doc The document for the current parsing.      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor.      *      * @param strm The stream to parse.      * @param doc The document for the current parsing.      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFObjectStreamParser
 parameter_list|(
@@ -201,9 +201,6 @@ name|strm
 parameter_list|,
 name|COSDocument
 name|doc
-parameter_list|,
-name|boolean
-name|forceParsing
 parameter_list|)
 throws|throws
 name|IOException
@@ -214,8 +211,6 @@ name|strm
 operator|.
 name|getUnfilteredStream
 argument_list|()
-argument_list|,
-name|forceParsing
 argument_list|)
 expr_stmt|;
 name|setDocument
@@ -226,29 +221,6 @@ expr_stmt|;
 name|stream
 operator|=
 name|strm
-expr_stmt|;
-block|}
-comment|/**      * Constructor.      *      * @param strm The stream to parse.      * @param doc The document for the current parsing.      *      * @throws IOException If there is an error initializing the stream.      */
-specifier|public
-name|PDFObjectStreamParser
-parameter_list|(
-name|COSStream
-name|strm
-parameter_list|,
-name|COSDocument
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|this
-argument_list|(
-name|strm
-argument_list|,
-name|doc
-argument_list|,
-name|FORCE_PARSING
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will parse the tokens in the stream.  This will close the      * stream when it is finished parsing.      *      * @throws IOException If there is an error while parsing the stream.      */

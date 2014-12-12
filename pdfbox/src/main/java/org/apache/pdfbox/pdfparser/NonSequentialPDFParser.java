@@ -1294,8 +1294,6 @@ argument_list|(
 operator|new
 name|COSDocument
 argument_list|(
-literal|false
-argument_list|,
 name|useScratchFiles
 argument_list|)
 argument_list|)
@@ -5349,8 +5347,6 @@ operator|)
 name|objstmBaseObj
 argument_list|,
 name|document
-argument_list|,
-name|forceParsing
 argument_list|)
 decl_stmt|;
 name|parser
@@ -5442,7 +5438,7 @@ argument_list|()
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
-comment|/**      *       * @param dict the dictionary to be decrypted      * @param the object number      * @param objGenNr the object generation number      * @throws IOException ff something went wrong      */
+comment|/**      *       * @param dict the dictionary to be decrypted      * @param objNr the object number      * @param objGenNr the object generation number      * @throws IOException ff something went wrong      */
 specifier|protected
 specifier|final
 name|void

@@ -382,6 +382,21 @@ name|FDF_DEFAULT_VERSION
 init|=
 literal|"1.0"
 decl_stmt|;
+comment|// deprecated functionality from BaseParser:
+comment|/**      * Default value of the {@link #forceParsing} flag.      */
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|FORCE_PARSING
+init|=
+name|Boolean
+operator|.
+name|getBoolean
+argument_list|(
+literal|"org.apache.pdfbox.forceParsing"
+argument_list|)
+decl_stmt|;
 comment|/**      * A list of duplicate objects found when Parsing the PDF      * File.      */
 specifier|private
 name|List
@@ -433,6 +448,12 @@ specifier|private
 specifier|final
 name|boolean
 name|useScratchFile
+decl_stmt|;
+comment|/**      * Flag to skip malformed or otherwise unparseable input where possible.      */
+specifier|protected
+specifier|final
+name|boolean
+name|forceParsing
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param input The input stream that contains the PDF document.      *      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
@@ -494,9 +515,11 @@ block|{
 name|super
 argument_list|(
 name|input
-argument_list|,
-name|force
 argument_list|)
+expr_stmt|;
+name|forceParsing
+operator|=
+name|force
 expr_stmt|;
 name|useScratchFile
 operator|=
@@ -554,8 +577,6 @@ name|COSDocument
 argument_list|(
 name|tempDirectory
 argument_list|,
-name|forceParsing
-argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
@@ -572,8 +593,6 @@ operator|new
 name|COSDocument
 argument_list|(
 literal|null
-argument_list|,
-name|forceParsing
 argument_list|,
 literal|true
 argument_list|)
@@ -1223,7 +1242,7 @@ literal|"Error: Header doesn't contain versioninfo"
 argument_list|)
 throw|;
 block|}
-comment|//sometimes there are some garbage bytes in the header before the header
+comment|//sometimes there are some garbage getBytes in the header before the header
 comment|//actually starts, so lets try to find the header first.
 name|int
 name|headerStart
@@ -3329,8 +3348,6 @@ argument_list|(
 name|stream
 argument_list|,
 name|document
-argument_list|,
-name|forceParsing
 argument_list|,
 name|xrefTrailerResolver
 argument_list|)

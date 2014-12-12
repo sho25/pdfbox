@@ -3758,8 +3758,6 @@ operator|)
 name|objstmBaseObj
 argument_list|,
 name|document
-argument_list|,
-name|forceParsing
 argument_list|)
 decl_stmt|;
 name|parser

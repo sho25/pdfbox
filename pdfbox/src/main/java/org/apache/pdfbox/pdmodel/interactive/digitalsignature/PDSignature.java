@@ -1024,7 +1024,7 @@ expr_stmt|;
 return|return
 name|COSString
 operator|.
-name|createFromHexString
+name|parseHex
 argument_list|(
 name|byteOS
 operator|.

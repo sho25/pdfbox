@@ -329,15 +329,12 @@ index|[
 name|MAX_BIN_CHAR_TEST_LENGTH
 index|]
 decl_stmt|;
-comment|/**      * Constructor that takes a stream to parse.      *      * @since Apache PDFBox 1.3.0      * @param stream The stream to read data from.      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * Constructor that takes a stream to parse.      *      * @param stream The stream to read data from.      * @throws IOException If there is an error reading from the stream.      */
 specifier|public
 name|PDFStreamParser
 parameter_list|(
 name|InputStream
 name|stream
-parameter_list|,
-name|boolean
-name|forceParsing
 parameter_list|)
 throws|throws
 name|IOException
@@ -345,26 +342,6 @@ block|{
 name|super
 argument_list|(
 name|stream
-argument_list|,
-name|forceParsing
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Constructor that takes a stream to parse.      *      * @param stream The stream to read data from.      *      * @throws IOException If there is an error reading from the stream.      */
-specifier|public
-name|PDFStreamParser
-parameter_list|(
-name|InputStream
-name|stream
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|this
-argument_list|(
-name|stream
-argument_list|,
-name|FORCE_PARSING
 argument_list|)
 expr_stmt|;
 block|}
@@ -384,30 +361,6 @@ name|stream
 operator|.
 name|createInputStream
 argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Constructor.      *      * @since Apache PDFBox 1.3.0      * @param stream The stream to parse.      * @param forceParsing flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error initializing the stream.      */
-specifier|public
-name|PDFStreamParser
-parameter_list|(
-name|COSStream
-name|stream
-parameter_list|,
-name|boolean
-name|forceParsing
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|this
-argument_list|(
-name|stream
-operator|.
-name|getUnfilteredStream
-argument_list|()
-argument_list|,
-name|forceParsing
 argument_list|)
 expr_stmt|;
 block|}

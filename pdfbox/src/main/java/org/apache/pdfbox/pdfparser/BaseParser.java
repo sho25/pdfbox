@@ -592,20 +592,6 @@ name|NULL
 init|=
 literal|"null"
 decl_stmt|;
-comment|/**      * Default value of the {@link #forceParsing} flag.      */
-specifier|public
-specifier|static
-specifier|final
-name|boolean
-name|FORCE_PARSING
-init|=
-name|Boolean
-operator|.
-name|getBoolean
-argument_list|(
-literal|"org.apache.pdfbox.forceParsing"
-argument_list|)
-decl_stmt|;
 comment|/**      * This is the stream that will be read from.      */
 specifier|protected
 name|PushBackInputStream
@@ -616,33 +602,17 @@ specifier|protected
 name|COSDocument
 name|document
 decl_stmt|;
-comment|/**      * Flag to skip malformed or otherwise unparseable input where possible.      */
-specifier|protected
-specifier|final
-name|boolean
-name|forceParsing
-decl_stmt|;
 comment|/**      * Default constructor.      */
 specifier|public
 name|BaseParser
 parameter_list|()
-block|{
-name|this
-operator|.
-name|forceParsing
-operator|=
-name|FORCE_PARSING
-expr_stmt|;
-block|}
-comment|/**      * Constructor.      *      * @since Apache PDFBox 1.3.0      * @param input The input stream to read the data from.      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     input where possible      * @throws IOException If there is an error reading the input stream.      */
+block|{     }
+comment|/**      * Constructor.      *      * @param input The input stream to read the data from.      * @throws IOException If there is an error reading the input stream.      */
 specifier|public
 name|BaseParser
 parameter_list|(
 name|InputStream
 name|input
-parameter_list|,
-name|boolean
-name|forceParsingValue
 parameter_list|)
 throws|throws
 name|IOException
@@ -692,30 +662,6 @@ literal|16384
 argument_list|)
 argument_list|,
 name|pushbacksize
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|forceParsing
-operator|=
-name|forceParsingValue
-expr_stmt|;
-block|}
-comment|/**      * Constructor.      *      * @param input The input stream to read the data from.      * @throws IOException If there is an error reading the input stream.      */
-specifier|public
-name|BaseParser
-parameter_list|(
-name|InputStream
-name|input
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|this
-argument_list|(
-name|input
-argument_list|,
-name|FORCE_PARSING
 argument_list|)
 expr_stmt|;
 block|}
@@ -1739,11 +1685,11 @@ comment|// Thus the only reliable information is a direct length.
 comment|// This exclusion shouldn't harm much since in case of indirect objects they will
 comment|// typically be defined after the stream object, thus keeping the directly
 comment|// provided length will fix most cases
-comment|//            else if ( ( streamLength instanceof COSObject )&&
-comment|//                      ( ( (COSObject) streamLength ).getObject() instanceof COSNumber ) )
-comment|//            {
-comment|//                length = ( (COSNumber) ( (COSObject) streamLength ).getObject() ).intValue();
-comment|//            }
+comment|// else if ( ( streamLength instanceof COSObject )&&
+comment|//           ( ( (COSObject) streamLength ).getObject() instanceof COSNumber ) )
+comment|// {
+comment|//     length = ( (COSNumber) ( (COSObject) streamLength ).getObject() ).intValue();
+comment|// }
 if|if
 condition|(
 name|length
@@ -2762,11 +2708,11 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-name|COSString
-name|retval
+name|ByteArrayOutputStream
+name|out
 init|=
 operator|new
-name|COSString
+name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
 name|char
@@ -2886,9 +2832,9 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 name|ch
 argument_list|)
@@ -2906,9 +2852,9 @@ block|{
 name|braces
 operator|++
 expr_stmt|;
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 name|ch
 argument_list|)
@@ -2942,9 +2888,9 @@ block|{
 case|case
 literal|'n'
 case|:
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 literal|'\n'
 argument_list|)
@@ -2953,9 +2899,9 @@ break|break;
 case|case
 literal|'r'
 case|:
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 literal|'\r'
 argument_list|)
@@ -2964,9 +2910,9 @@ break|break;
 case|case
 literal|'t'
 case|:
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 literal|'\t'
 argument_list|)
@@ -2975,9 +2921,9 @@ break|break;
 case|case
 literal|'b'
 case|:
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 literal|'\b'
 argument_list|)
@@ -2986,9 +2932,9 @@ break|break;
 case|case
 literal|'f'
 case|:
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 literal|'\f'
 argument_list|)
@@ -3012,9 +2958,9 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 name|next
 argument_list|)
@@ -3022,9 +2968,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 literal|'\\'
 argument_list|)
@@ -3037,9 +2983,9 @@ case|:
 case|case
 literal|'\\'
 case|:
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 name|next
 argument_list|)
@@ -3245,9 +3191,9 @@ literal|"'"
 argument_list|)
 throw|;
 block|}
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 name|character
 argument_list|)
@@ -3258,9 +3204,9 @@ default|default:
 block|{
 comment|// dropping the backslash
 comment|// see 7.3.4.2 Literal Strings for further information
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 name|next
 argument_list|)
@@ -3270,9 +3216,9 @@ block|}
 block|}
 else|else
 block|{
-name|retval
+name|out
 operator|.
-name|append
+name|write
 argument_list|(
 name|ch
 argument_list|)
@@ -3319,7 +3265,14 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|retval
+operator|new
+name|COSString
+argument_list|(
+name|out
+operator|.
+name|toByteArray
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * This will parse a PDF HEX string with fail fast semantic      * meaning that we stop if a not allowed character is found.      * This is necessary in order to detect malformed input and      * be able to skip to next object start.      *      * We assume starting '&lt;' was already read.      *       * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      */
@@ -3517,14 +3470,12 @@ block|}
 return|return
 name|COSString
 operator|.
-name|createFromHexString
+name|parseHex
 argument_list|(
 name|sBuf
 operator|.
 name|toString
 argument_list|()
-argument_list|,
-name|forceParsing
 argument_list|)
 return|;
 block|}

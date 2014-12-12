@@ -2074,12 +2074,7 @@ argument_list|)
 expr_stmt|;
 name|string
 operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|string
-operator|.
-name|append
+name|setValue
 argument_list|(
 name|buffer
 operator|.
@@ -2140,12 +2135,7 @@ argument_list|)
 expr_stmt|;
 name|string
 operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|string
-operator|.
-name|append
+name|setValue
 argument_list|(
 name|buffer
 operator|.

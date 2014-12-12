@@ -95,16 +95,14 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|persistence
-operator|.
 name|util
 operator|.
-name|COSHEXTable
+name|Hex
 import|;
 end_import
 
 begin_comment
-comment|/**  * Decodes data encoded in an ASCII hexadecimal form, reproducing the original binary data.  * @author Ben Litchfield  */
+comment|/**  * Decodes data encoded in an ASCII hexadecimal form, reproducing the original binary data.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -693,13 +691,10 @@ name|c
 parameter_list|)
 block|{
 return|return
-operator|(
 name|c
 operator|==
-literal|62
-operator|)
+literal|'>'
 return|;
-comment|// '>' - EOD
 block|}
 annotation|@
 name|Override
@@ -737,27 +732,19 @@ operator|-
 literal|1
 condition|)
 block|{
-name|int
-name|value
-init|=
-operator|(
-name|byteRead
-operator|+
-literal|256
-operator|)
-operator|%
-literal|256
-decl_stmt|;
 name|encoded
 operator|.
 name|write
 argument_list|(
-name|COSHEXTable
+name|Hex
 operator|.
-name|TABLE
-index|[
-name|value
-index|]
+name|getBytes
+argument_list|(
+operator|(
+name|byte
+operator|)
+name|byteRead
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

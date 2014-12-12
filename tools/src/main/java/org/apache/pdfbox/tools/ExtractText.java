@@ -305,15 +305,6 @@ name|HTML
 init|=
 literal|"-html"
 decl_stmt|;
-comment|// enables pdfbox to skip corrupt objects
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|FORCE
-init|=
-literal|"-force"
-decl_stmt|;
 comment|/*      * debug flag      */
 specifier|private
 name|boolean
@@ -718,25 +709,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|args
-index|[
-name|i
-index|]
-operator|.
-name|equals
-argument_list|(
-name|FORCE
-argument_list|)
-condition|)
-block|{
-name|force
-operator|=
-literal|true
-expr_stmt|;
-block|}
 else|else
 block|{
 if|if
@@ -947,13 +919,6 @@ name|PDFTextStripper
 argument_list|()
 expr_stmt|;
 block|}
-name|stripper
-operator|.
-name|setForceParsing
-argument_list|(
-name|force
-argument_list|)
-expr_stmt|;
 name|stripper
 operator|.
 name|setSortByPosition
@@ -1381,8 +1346,6 @@ operator|+
 literal|"  -sort                        Sort the text before writing\n"
 operator|+
 literal|"  -ignoreBeads                 Disables the separation by beads\n"
-operator|+
-literal|"  -force                       Enables pdfbox to ignore corrupt objects\n"
 operator|+
 literal|"  -debug                       Enables debug output about the time consumption of every stage\n"
 operator|+

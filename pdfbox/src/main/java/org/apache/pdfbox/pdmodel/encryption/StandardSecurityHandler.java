@@ -2238,15 +2238,10 @@ name|idString
 init|=
 operator|new
 name|COSString
-argument_list|()
-decl_stmt|;
-name|idString
-operator|.
-name|append
 argument_list|(
 name|id
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|idArray
 operator|=
 operator|new

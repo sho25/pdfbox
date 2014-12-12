@@ -647,40 +647,11 @@ specifier|private
 name|Matrix
 name|initialMatrix
 decl_stmt|;
-comment|// skip malformed or otherwise unparseable input where possible
-specifier|private
-name|boolean
-name|forceParsing
-decl_stmt|;
 comment|/**      * Creates a new PDFStreamEngine.      */
 specifier|public
 name|PDFStreamEngine
 parameter_list|()
 block|{     }
-comment|/**      * Indicates if force parsing is activated.      *       * @return true if force parsing is active      */
-specifier|public
-name|boolean
-name|isForceParsing
-parameter_list|()
-block|{
-return|return
-name|forceParsing
-return|;
-block|}
-comment|/**      * Enable/Disable force parsing.      *       * @param forceParsingValue true activates force parsing      */
-specifier|public
-name|void
-name|setForceParsing
-parameter_list|(
-name|boolean
-name|forceParsingValue
-parameter_list|)
-block|{
-name|forceParsing
-operator|=
-name|forceParsingValue
-expr_stmt|;
-block|}
 comment|/**      * Register a custom operator processor with the engine.      *       * @param operator The operator as a string.      * @param op Processor instance.      * @deprecated Use {@link #addOperator(OperatorProcessor)} instead      */
 annotation|@
 name|Deprecated
@@ -1808,8 +1779,6 @@ name|contentStream
 operator|.
 name|getContentStream
 argument_list|()
-argument_list|,
-name|forceParsing
 argument_list|)
 decl_stmt|;
 try|try

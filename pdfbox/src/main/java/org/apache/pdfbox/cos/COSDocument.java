@@ -311,37 +311,10 @@ specifier|final
 name|boolean
 name|useScratchFile
 decl_stmt|;
-comment|/**      * Flag to skip malformed or otherwise unparseable input where possible.      */
-specifier|private
-specifier|final
-name|boolean
-name|forceParsing
-decl_stmt|;
-comment|/**      * Constructor.      *      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      */
+comment|/**      * Constructor.      *      * @param useScratchFiles enables the usage of a scratch file if set to true      *                           */
 specifier|public
 name|COSDocument
 parameter_list|(
-name|boolean
-name|forceParsingValue
-parameter_list|)
-block|{
-name|this
-argument_list|(
-literal|null
-argument_list|,
-name|forceParsingValue
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Constructor.      *      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      * @param useScratchFiles enables the usage of a scratch file if set to true      *                           */
-specifier|public
-name|COSDocument
-parameter_list|(
-name|boolean
-name|forceParsingValue
-parameter_list|,
 name|boolean
 name|useScratchFiles
 parameter_list|)
@@ -350,13 +323,11 @@ name|this
 argument_list|(
 literal|null
 argument_list|,
-name|forceParsingValue
-argument_list|,
 name|useScratchFiles
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor that will use a temporary file in the given directory      * for storage of the PDF streams. The temporary file is automatically      * removed when this document gets closed.      *      * @param scratchDir directory for the temporary file,      *                   or<code>null</code> to use the system default      * @param forceParsingValue flag to skip malformed or otherwise unparseable      *                     document content where possible      * @param useScratchFiles enables the usage of a scratch file if set to true      *       */
+comment|/**      * Constructor that will use a temporary file in the given directory      * for storage of the PDF streams. The temporary file is automatically      * removed when this document gets closed.      *      * @param scratchDir directory for the temporary file,      *                   or<code>null</code> to use the system default      * @param useScratchFiles enables the usage of a scratch file if set to true      *       */
 specifier|public
 name|COSDocument
 parameter_list|(
@@ -364,16 +335,9 @@ name|File
 name|scratchDir
 parameter_list|,
 name|boolean
-name|forceParsingValue
-parameter_list|,
-name|boolean
 name|useScratchFiles
 parameter_list|)
 block|{
-name|forceParsing
-operator|=
-name|forceParsingValue
-expr_stmt|;
 name|scratchDirectory
 operator|=
 name|scratchDir
@@ -390,8 +354,6 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
-literal|false
-argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -1636,8 +1598,6 @@ argument_list|(
 name|stream
 argument_list|,
 name|this
-argument_list|,
-name|forceParsing
 argument_list|)
 decl_stmt|;
 name|parser

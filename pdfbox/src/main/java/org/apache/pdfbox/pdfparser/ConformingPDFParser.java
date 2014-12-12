@@ -201,20 +201,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSString
 import|;
 end_import
@@ -1281,7 +1267,7 @@ comment|// string of hex codes
 return|return
 name|COSString
 operator|.
-name|createFromHexString
+name|parseHex
 argument_list|(
 name|string
 operator|.
@@ -1457,7 +1443,7 @@ name|add
 argument_list|(
 name|COSString
 operator|.
-name|createFromHexString
+name|parseHex
 argument_list|(
 name|lastSection
 operator|.
@@ -1510,7 +1496,7 @@ name|add
 argument_list|(
 name|COSString
 operator|.
-name|createFromHexString
+name|parseHex
 argument_list|(
 name|lastSection
 operator|.
@@ -2474,6 +2460,7 @@ name|toString
 argument_list|()
 argument_list|)
 return|;
+comment|// fixme: should be calling COSString(byte[])
 block|}
 else|else
 block|{

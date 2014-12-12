@@ -434,7 +434,7 @@ name|add
 argument_list|(
 name|COSString
 operator|.
-name|createFromHexString
+name|parseHex
 argument_list|(
 name|original
 argument_list|)
@@ -446,7 +446,7 @@ name|add
 argument_list|(
 name|COSString
 operator|.
-name|createFromHexString
+name|parseHex
 argument_list|(
 name|modified
 argument_list|)
@@ -793,7 +793,7 @@ literal|"<ids original=\""
 operator|+
 name|original
 operator|.
-name|getHexString
+name|toHexString
 argument_list|()
 operator|+
 literal|"\" "
@@ -807,7 +807,7 @@ literal|"modified=\""
 operator|+
 name|modified
 operator|.
-name|getHexString
+name|toHexString
 argument_list|()
 operator|+
 literal|"\" />\n"
