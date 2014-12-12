@@ -241,7 +241,7 @@ name|stream
 operator|.
 name|drawString
 argument_list|(
-literal|"Supports full Unicode text ?"
+literal|"Supports full Unicode text ☺"
 argument_list|)
 expr_stmt|;
 name|stream
@@ -253,7 +253,7 @@ name|stream
 operator|.
 name|drawString
 argument_list|(
-literal|"English ??????? ???? Ti?ng Vi?t"
+literal|"English русский язык Tiếng Việt"
 argument_list|)
 expr_stmt|;
 name|stream
