@@ -1042,16 +1042,34 @@ name|IOException
 block|{
 if|if
 condition|(
+operator|!
+name|getEncoding
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|getGlyphList
+argument_list|()
+operator|.
+name|codePointToName
+argument_list|(
 name|unicode
-operator|>
-literal|0xff
+argument_list|)
+argument_list|)
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"This font type only supports 8-bit code points"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"U+%04X is not available in this font's Encoding"
+argument_list|,
+name|unicode
+argument_list|)
 argument_list|)
 throw|;
 block|}

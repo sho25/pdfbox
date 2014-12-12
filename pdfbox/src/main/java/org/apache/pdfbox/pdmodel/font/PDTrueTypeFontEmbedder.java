@@ -264,7 +264,14 @@ operator|new
 name|WinAnsiEncoding
 argument_list|()
 decl_stmt|;
-comment|// fixme: read encoding from TTF
+name|GlyphList
+name|glyphList
+init|=
+name|GlyphList
+operator|.
+name|getAdobeGlyphList
+argument_list|()
+decl_stmt|;
 name|this
 operator|.
 name|fontEncoding
@@ -301,6 +308,8 @@ comment|// set the glyph widths
 name|setWidths
 argument_list|(
 name|dict
+argument_list|,
+name|glyphList
 argument_list|)
 expr_stmt|;
 block|}
@@ -311,6 +320,9 @@ name|setWidths
 parameter_list|(
 name|COSDictionary
 name|font
+parameter_list|,
+name|GlyphList
+name|glyphList
 parameter_list|)
 throws|throws
 name|IOException
@@ -507,14 +519,10 @@ literal|".notdef"
 argument_list|)
 condition|)
 block|{
-comment|// todo: we're supposed to use the 'provided font encoding'
 name|String
 name|c
 init|=
-name|GlyphList
-operator|.
-name|getAdobeGlyphList
-argument_list|()
+name|glyphList
 operator|.
 name|toUnicode
 argument_list|(
