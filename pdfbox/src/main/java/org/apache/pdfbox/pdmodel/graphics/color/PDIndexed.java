@@ -670,8 +670,6 @@ name|Math
 operator|.
 name|round
 argument_list|(
-literal|255f
-operator|*
 name|value
 index|[
 literal|0
@@ -893,7 +891,7 @@ block|}
 comment|// returns "hival" array element
 specifier|private
 name|int
-name|gettHival
+name|getHival
 parameter_list|()
 block|{
 return|return
@@ -1040,7 +1038,7 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|gettHival
+name|getHival
 argument_list|()
 argument_list|,
 literal|255
@@ -1209,6 +1207,8 @@ name|high
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -1223,7 +1223,7 @@ literal|" "
 operator|+
 literal|"hival:"
 operator|+
-name|gettHival
+name|getHival
 argument_list|()
 operator|+
 literal|" "
