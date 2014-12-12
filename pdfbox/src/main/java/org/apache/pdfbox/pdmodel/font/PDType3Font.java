@@ -624,6 +624,27 @@ return|;
 block|}
 annotation|@
 name|Override
+specifier|protected
+name|byte
+index|[]
+name|encode
+parameter_list|(
+name|int
+name|unicode
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not implemented: Type3"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|readCode

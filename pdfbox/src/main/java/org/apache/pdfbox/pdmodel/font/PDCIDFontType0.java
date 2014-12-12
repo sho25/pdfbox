@@ -1031,6 +1031,25 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|byte
+index|[]
+name|encode
+parameter_list|(
+name|int
+name|unicode
+parameter_list|)
+block|{
+comment|// todo: we can use a known character collection CMap for a CIDFont
+comment|//       and an Encoding for Type 1-equivalent
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|float
 name|getWidthFromFont
 parameter_list|(
