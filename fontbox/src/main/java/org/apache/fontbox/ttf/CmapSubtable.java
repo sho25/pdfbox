@@ -2310,9 +2310,9 @@ else|:
 name|glyphId
 return|;
 block|}
-comment|/**      * Returns the character code for the given GID.      *      * @param gid glyph id      * @return character code      */
+comment|/**      * Returns the character code for the given GID, or null if there is none.      *      * @param gid glyph id      * @return character code      */
 specifier|public
-name|int
+name|Integer
 name|getCharacterCode
 parameter_list|(
 name|int
@@ -2333,7 +2333,7 @@ name|length
 condition|)
 block|{
 return|return
-literal|0
+literal|null
 return|;
 block|}
 return|return
