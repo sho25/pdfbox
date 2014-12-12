@@ -2988,7 +2988,7 @@ name|dos
 argument_list|,
 name|os2
 operator|.
-name|getTypeLineGap
+name|getTypoLineGap
 argument_list|()
 argument_list|)
 expr_stmt|;
