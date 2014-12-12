@@ -102,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Renders a PDF document to an AWT BufferedImage.  * This class may be overridden in order to perform custom rendering.  *  * @author John Hewson  * @author Andreas Lehmkühler  */
+comment|/**  * Renders a PDF document to an AWT BufferedImage.  * This class may be overridden in order to perform custom rendering.  *  * @author John Hewson  * @author Andreas LehmkÃ¼hler  */
 end_comment
 
 begin_class
@@ -320,31 +320,6 @@ operator|.
 name|getRotation
 argument_list|()
 decl_stmt|;
-comment|// normalize the rotation angle
-while|while
-condition|(
-name|rotationAngle
-operator|<
-literal|0
-condition|)
-block|{
-name|rotationAngle
-operator|+=
-literal|360
-expr_stmt|;
-block|}
-while|while
-condition|(
-name|rotationAngle
-operator|>=
-literal|360
-condition|)
-block|{
-name|rotationAngle
-operator|-=
-literal|360
-expr_stmt|;
-block|}
 comment|// swap width and height
 name|BufferedImage
 name|image
@@ -605,31 +580,6 @@ operator|.
 name|getRotation
 argument_list|()
 decl_stmt|;
-comment|// normalize the rotation angle
-while|while
-condition|(
-name|rotationAngle
-operator|<
-literal|0
-condition|)
-block|{
-name|rotationAngle
-operator|+=
-literal|360
-expr_stmt|;
-block|}
-while|while
-condition|(
-name|rotationAngle
-operator|>=
-literal|360
-condition|)
-block|{
-name|rotationAngle
-operator|-=
-literal|360
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|rotationAngle

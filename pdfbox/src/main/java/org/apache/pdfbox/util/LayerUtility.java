@@ -835,10 +835,10 @@ comment|//Handle the /Rotation entry on the page dict
 name|int
 name|rotation
 init|=
-name|getNormalizedRotation
-argument_list|(
 name|page
-argument_list|)
+operator|.
+name|getRotation
+argument_list|()
 decl_stmt|;
 comment|//Transform to FOP's user space
 comment|//at.scale(1 / viewBox.getWidth(), 1 / viewBox.getHeight());
@@ -1412,53 +1412,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-specifier|private
-specifier|static
-name|int
-name|getNormalizedRotation
-parameter_list|(
-name|PDPage
-name|page
-parameter_list|)
-block|{
-comment|//Handle the /Rotation entry on the page dict
-name|int
-name|rotationAngle
-init|=
-name|page
-operator|.
-name|getRotation
-argument_list|()
-decl_stmt|;
-comment|// normalize the rotation angle
-while|while
-condition|(
-name|rotationAngle
-operator|<
-literal|0
-condition|)
-block|{
-name|rotationAngle
-operator|+=
-literal|360
-expr_stmt|;
-block|}
-while|while
-condition|(
-name|rotationAngle
-operator|>=
-literal|360
-condition|)
-block|{
-name|rotationAngle
-operator|-=
-literal|360
-expr_stmt|;
-block|}
-return|return
-name|rotationAngle
-return|;
 block|}
 block|}
 end_class
