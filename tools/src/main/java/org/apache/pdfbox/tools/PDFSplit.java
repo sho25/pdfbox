@@ -721,7 +721,6 @@ block|}
 block|}
 specifier|private
 specifier|static
-specifier|final
 name|void
 name|writeDocument
 parameter_list|(
@@ -822,8 +821,6 @@ operator|+
 literal|"  -startPage<integer>   start page\n"
 operator|+
 literal|"  -endPage<integer>   end page\n"
-operator|+
-literal|"  -nonSeq                Enables the new non-sequential parser\n"
 operator|+
 literal|"<PDF file>             The PDF document to use\n"
 argument_list|)
