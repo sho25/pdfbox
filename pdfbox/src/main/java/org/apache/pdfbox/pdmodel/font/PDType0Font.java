@@ -472,6 +472,12 @@ operator|.
 name|getCIDFont
 argument_list|()
 expr_stmt|;
+name|readEncoding
+argument_list|()
+expr_stmt|;
+name|fetchCMapUCS2
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Reads the font's Encoding entry, which should be a CMap name/stream.      */
 specifier|private
@@ -781,6 +787,16 @@ parameter_list|()
 block|{
 return|return
 name|cMap
+return|;
+block|}
+comment|/**      * Returns the font's UCS2 CMap, only present this font uses a predefined CMap.      */
+specifier|public
+name|CMap
+name|getCMapUCS2
+parameter_list|()
+block|{
+return|return
+name|cMapUCS2
 return|;
 block|}
 annotation|@
