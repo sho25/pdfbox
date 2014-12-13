@@ -91,14 +91,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|String
-name|destinationFileName
-init|=
-literal|""
-decl_stmt|;
-name|String
-name|sourceFileName
-decl_stmt|;
 name|int
 name|firstFileArgPos
 init|=
@@ -145,13 +137,14 @@ name|i
 operator|++
 control|)
 block|{
+name|String
 name|sourceFileName
-operator|=
+init|=
 name|args
 index|[
 name|i
 index|]
-expr_stmt|;
+decl_stmt|;
 name|merger
 operator|.
 name|addSource
@@ -160,8 +153,9 @@ name|sourceFileName
 argument_list|)
 expr_stmt|;
 block|}
+name|String
 name|destinationFileName
-operator|=
+init|=
 name|args
 index|[
 name|args
@@ -170,7 +164,7 @@ name|length
 operator|-
 literal|1
 index|]
-expr_stmt|;
+decl_stmt|;
 name|merger
 operator|.
 name|setDestinationFileName
@@ -197,7 +191,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFMerger [-nonSeq]<Source PDF File 2..n><Destination PDF File>\n"
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFMerger<Source PDF File 2..n><Destination PDF File>\n"
 operator|+
 literal|"<Source PDF File 2..n>       2 or more source PDF documents to merge\n"
 operator|+
