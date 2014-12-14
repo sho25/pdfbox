@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CIE-based colour spaces specify colours in a way that is independent of the characteristics  * of any particular output device. They are based on an international standard for colour  * specification created by the Commission Internationale de l?�clairage (CIE).  *  * @author John Hewson  */
+comment|/**  * CIE-based colour spaces specify colours in a way that is independent of the characteristics  * of any particular output device. They are based on an international standard for colour  * specification created by the Commission Internationale de l'Éclairage (CIE).  *  * @author John Hewson  */
 end_comment
 
 begin_class
