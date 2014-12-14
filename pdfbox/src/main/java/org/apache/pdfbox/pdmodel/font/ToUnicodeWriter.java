@@ -122,18 +122,6 @@ name|ToUnicodeWriter
 block|{
 specifier|private
 specifier|final
-name|String
-name|registry
-decl_stmt|,
-name|ordering
-decl_stmt|;
-specifier|private
-specifier|final
-name|int
-name|supplement
-decl_stmt|;
-specifier|private
-specifier|final
 name|Map
 argument_list|<
 name|Integer
@@ -155,38 +143,11 @@ specifier|private
 name|int
 name|wMode
 decl_stmt|;
-comment|/**      * Creates a new ToUnicode CMap writer.      *      * @param registry character collection registry      * @param ordering character ordering      * @param supplement character supplement      */
+comment|/**      * Creates a new ToUnicode CMap writer.      */
 specifier|public
 name|ToUnicodeWriter
-parameter_list|(
-name|String
-name|registry
-parameter_list|,
-name|String
-name|ordering
-parameter_list|,
-name|int
-name|supplement
-parameter_list|)
+parameter_list|()
 block|{
-name|this
-operator|.
-name|registry
-operator|=
-name|registry
-expr_stmt|;
-name|this
-operator|.
-name|ordering
-operator|=
-name|ordering
-expr_stmt|;
-name|this
-operator|.
-name|supplement
-operator|=
-name|supplement
-expr_stmt|;
 name|this
 operator|.
 name|wMode
@@ -271,22 +232,6 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the name of the CMap.      */
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-name|registry
-operator|+
-literal|"-"
-operator|+
-name|ordering
-operator|+
-literal|"-UCS"
-return|;
-block|}
 comment|/**      * Writes the CMap as ASCII to the given output stream.      *      * @param out ASCII output stream      * @throws IOException if the stream could not be written      */
 specifier|public
 name|void
@@ -347,31 +292,21 @@ name|writeLine
 argument_list|(
 name|writer
 argument_list|,
-literal|"<< /Registry ("
-operator|+
-name|registry
-operator|+
-literal|")"
+literal|"<< /Registry (Adobe)"
 argument_list|)
 expr_stmt|;
 name|writeLine
 argument_list|(
 name|writer
 argument_list|,
-literal|"   /Ordering ("
-operator|+
-name|ordering
-operator|+
-literal|")"
+literal|"/Ordering (UCS)"
 argument_list|)
 expr_stmt|;
 name|writeLine
 argument_list|(
 name|writer
 argument_list|,
-literal|"   /Supplement "
-operator|+
-name|supplement
+literal|"/Supplement 0"
 argument_list|)
 expr_stmt|;
 name|writeLine
@@ -385,10 +320,7 @@ name|writeLine
 argument_list|(
 name|writer
 argument_list|,
-literal|"/CMapName /"
-operator|+
-name|getName
-argument_list|()
+literal|"/CMapName /Adobe-Identity-UCS"
 operator|+
 literal|" def"
 argument_list|)
@@ -809,7 +741,7 @@ name|writeLine
 argument_list|(
 name|writer
 argument_list|,
-literal|"CMapName currentdict /CMap"
+literal|"CMapName currentdict /CMap defineresource pop"
 argument_list|)
 expr_stmt|;
 name|writeLine
