@@ -297,6 +297,51 @@ name|FAMILY_CLASS_SYMBOLIC
 init|=
 literal|12
 decl_stmt|;
+comment|/**      * Restricted License embedding: must not be modified, embedded or exchanged in any manner.      *      *<p>For Restricted License embedding to take effect, it must be the only level of embedding      * selected.      */
+specifier|public
+specifier|static
+specifier|final
+name|short
+name|FSTYPE_RESTRICTED
+init|=
+literal|0x0001
+decl_stmt|;
+comment|/**      * Preview& Print embedding: the font may be embedded, and temporarily loaded on the      * remote system. No edits can be applied to the document.      */
+specifier|public
+specifier|static
+specifier|final
+name|short
+name|FSTYPE_PREVIEW_AND_PRINT
+init|=
+literal|0x0004
+decl_stmt|;
+comment|/**      * Editable embedding: the font may be embedded but must only be installed temporarily on other      * systems. Documents may be editied and changes saved.      */
+specifier|public
+specifier|static
+specifier|final
+name|short
+name|FSTYPE_EDITIBLE
+init|=
+literal|0x0004
+decl_stmt|;
+comment|/**      * No subsetting: the font must not be subsetted prior to embedding.      */
+specifier|public
+specifier|static
+specifier|final
+name|short
+name|FSTYPE_NO_SUBSETTING
+init|=
+literal|0x0100
+decl_stmt|;
+comment|/**      * Bitmap embedding only: only bitmaps contained in the font may be embedded. No outline data      * may be embedded. Other embedding restrictions specified in bits 0-3 and 8 also apply.      */
+specifier|public
+specifier|static
+specifier|final
+name|short
+name|FSTYPE_BITMAP_ONLY
+init|=
+literal|0x0200
+decl_stmt|;
 comment|/**      * @return Returns the achVendId.      */
 specifier|public
 name|String
