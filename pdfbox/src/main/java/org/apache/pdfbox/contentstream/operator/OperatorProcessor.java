@@ -65,34 +65,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Processes a PDF operator.  *  * @author Laurent Huault  */
 end_comment
@@ -103,22 +75,6 @@ specifier|abstract
 class|class
 name|OperatorProcessor
 block|{
-comment|/**      * Log instance.      */
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|OperatorProcessor
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/** The processing context. */
 specifier|protected
 name|PDFStreamEngine
@@ -131,6 +87,7 @@ parameter_list|()
 block|{     }
 comment|/**      * Returns the processing context.      * @return the processing context      */
 specifier|protected
+specifier|final
 name|PDFStreamEngine
 name|getContext
 parameter_list|()
@@ -180,60 +137,6 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
-comment|/**      * Check the size of the arguments and puts out a warning if the size doesn't match.      *      * @param arguments Arguments for this operator.      * @param expectedSize Expected arguments size.      * @return true if size is correct, false if not.      */
-specifier|protected
-name|boolean
-name|checkArgumentSize
-parameter_list|(
-name|List
-argument_list|<
-name|COSBase
-argument_list|>
-name|arguments
-parameter_list|,
-name|int
-name|expectedSize
-parameter_list|)
-block|{
-if|if
-condition|(
-name|arguments
-operator|.
-name|size
-argument_list|()
-operator|<
-name|expectedSize
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"'"
-operator|+
-name|getName
-argument_list|()
-operator|+
-literal|"' operator must have "
-operator|+
-name|expectedSize
-operator|+
-literal|" parameters, but has "
-operator|+
-name|arguments
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
-block|}
-return|return
-literal|true
-return|;
-block|}
 block|}
 end_class
 

@@ -23,6 +23,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -144,6 +154,8 @@ name|COSBase
 argument_list|>
 name|arguments
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -164,13 +176,11 @@ block|}
 else|else
 block|{
 comment|// this shouldn't happen but it does, see PDFBOX-161
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"GRestore: no graphics state left to be restored."
-argument_list|)
-expr_stmt|;
+throw|throw
+operator|new
+name|EmptyGraphicsStackException
+argument_list|()
+throw|;
 block|}
 block|}
 annotation|@

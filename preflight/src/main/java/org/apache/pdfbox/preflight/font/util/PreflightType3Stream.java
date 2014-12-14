@@ -307,7 +307,7 @@ name|getImage
 argument_list|()
 return|;
 block|}
-comment|/**      * This is used to handle an operation.      *       * @param operator      *            The operation to perform.      * @param arguments      *            The list of arguments.      *       * @throws IOException      *             If there is an error processing the operation.      */
+comment|/**      * This is used to handle an operation.      *       * @param operator      *            The operation to perform.      * @param operands      *            The list of arguments.      *       * @throws IOException      *             If there is an error processing the operation.      */
 specifier|protected
 name|void
 name|processOperator
@@ -316,7 +316,7 @@ name|Operator
 name|operator
 parameter_list|,
 name|List
-name|arguments
+name|operands
 parameter_list|)
 throws|throws
 name|IOException
@@ -327,7 +327,7 @@ name|processOperator
 argument_list|(
 name|operator
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
 name|String
@@ -395,7 +395,7 @@ comment|// width = horizontalWidth.intValue();
 comment|// height = verticalWidth.intValue();
 name|checkType3FirstOperator
 argument_list|(
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
 block|}
@@ -419,7 +419,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -432,7 +432,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -445,7 +445,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -458,7 +458,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -515,7 +515,7 @@ argument_list|)
 expr_stmt|;
 name|checkType3FirstOperator
 argument_list|(
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
 block|}
@@ -528,14 +528,14 @@ name|validateRenderingIntent
 argument_list|(
 name|operator
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
 name|checkSetColorSpaceOperators
 argument_list|(
 name|operator
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
 name|validateNumberOfGraphicStates

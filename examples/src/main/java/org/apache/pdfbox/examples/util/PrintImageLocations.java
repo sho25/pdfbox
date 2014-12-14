@@ -493,7 +493,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * This is used to handle an operation.      *      * @param operator The operation to perform.      * @param arguments The list of arguments.      *      * @throws IOException If there is an error processing the operation.      */
+comment|/**      * This is used to handle an operation.      *      * @param operator The operation to perform.      * @param operands The list of arguments.      *      * @throws IOException If there is an error processing the operation.      */
 specifier|protected
 name|void
 name|processOperator
@@ -505,7 +505,7 @@ name|List
 argument_list|<
 name|COSBase
 argument_list|>
-name|arguments
+name|operands
 parameter_list|)
 throws|throws
 name|IOException
@@ -534,7 +534,7 @@ init|=
 operator|(
 name|COSName
 operator|)
-name|arguments
+name|operands
 operator|.
 name|get
 argument_list|(
@@ -858,7 +858,7 @@ name|processOperator
 argument_list|(
 name|operator
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
 block|}

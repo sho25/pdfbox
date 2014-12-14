@@ -689,7 +689,7 @@ name|List
 argument_list|<
 name|COSBase
 argument_list|>
-name|arguments
+name|operands
 parameter_list|)
 throws|throws
 name|IOException
@@ -700,7 +700,7 @@ name|processOperator
 argument_list|(
 name|operator
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
 comment|// todo: why are the checks below done here and not in OperatorProcessor classes?
@@ -733,7 +733,7 @@ name|checkShowTextOperators
 argument_list|(
 name|operator
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
 name|checkColorOperators
@@ -748,14 +748,14 @@ name|validateRenderingIntent
 argument_list|(
 name|operator
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
 name|checkSetColorSpaceOperators
 argument_list|(
 name|operator
 argument_list|,
-name|arguments
+name|operands
 argument_list|)
 expr_stmt|;
 name|validateNumberOfGraphicStates

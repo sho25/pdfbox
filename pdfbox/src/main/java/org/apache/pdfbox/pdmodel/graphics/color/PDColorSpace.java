@@ -85,6 +85,20 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|MissingResourceException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|PDResources
 import|;
 end_import
@@ -230,7 +244,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a color space given a name or array.      * @param colorSpace the color space COS object      * @param resources the current resources.      * @return a new color space      * @throws MissingException if the color space is missing from the resources dictionary      * @throws IOException if the color space is unknown or cannot be created      */
+comment|/**      * Creates a color space given a name or array.      * @param colorSpace the color space COS object      * @param resources the current resources.      * @return a new color space      * @throws MissingResourceException if the color space is missing in the resources dictionary      * @throws IOException if the color space is unknown or cannot be created      */
 specifier|public
 specifier|static
 name|PDColorSpace
@@ -510,7 +524,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|MissingException
+name|MissingResourceException
 argument_list|(
 literal|"Missing color space: "
 operator|+
@@ -534,7 +548,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|MissingException
+name|MissingResourceException
 argument_list|(
 literal|"Unknown color space: "
 operator|+
@@ -1006,27 +1020,6 @@ block|{
 return|return
 name|array
 return|;
-block|}
-specifier|public
-specifier|static
-class|class
-name|MissingException
-extends|extends
-name|IOException
-block|{
-specifier|private
-name|MissingException
-parameter_list|(
-name|String
-name|message
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 end_class
