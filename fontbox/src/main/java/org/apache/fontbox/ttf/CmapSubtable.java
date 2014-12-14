@@ -1310,13 +1310,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-throw|throw
-operator|new
-name|IOException
+comment|// Unicode Variation Sequences (UVS)
+comment|// see http://blogs.adobe.com/CCJKType/2013/05/opentype-cmap-table-ramblings.html
+name|LOG
+operator|.
+name|warn
 argument_list|(
-literal|"CMap subtype 14 not yet implemented"
+literal|"Format 14 cmap table is not supported and will be ignored"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 comment|/**      * Reads a format 6 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
 specifier|protected
