@@ -425,6 +425,12 @@ name|dstPrev
 init|=
 literal|null
 decl_stmt|;
+name|int
+name|srcCode1
+init|=
+operator|-
+literal|1
+decl_stmt|;
 for|for
 control|(
 name|Map
@@ -467,6 +473,7 @@ name|srcPrev
 operator|+
 literal|1
 operator|&&
+comment|// CID must be last CID + 1
 name|dstPrev
 operator|.
 name|codePointCount
@@ -481,6 +488,7 @@ argument_list|)
 operator|==
 literal|1
 operator|&&
+comment|// no UTF-16 surrogates
 name|text
 operator|.
 name|codePointAt
@@ -496,7 +504,26 @@ literal|0
 argument_list|)
 operator|+
 literal|1
+operator|&&
+comment|// dstString must be prev + 1
+name|dstPrev
+operator|.
+name|codePointAt
+argument_list|(
+literal|0
+argument_list|)
+operator|+
+literal|1
+operator|<=
+literal|255
+operator|-
+operator|(
+name|cid
+operator|-
+name|srcCode1
+operator|)
 condition|)
+comment|// increment last byte only
 block|{
 comment|// extend range
 name|srcTo
@@ -517,6 +544,10 @@ block|}
 else|else
 block|{
 comment|// begin range
+name|srcCode1
+operator|=
+name|cid
+expr_stmt|;
 name|srcFrom
 operator|.
 name|add
