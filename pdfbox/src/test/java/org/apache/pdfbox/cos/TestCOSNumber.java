@@ -183,6 +183,23 @@ literal|"-1000"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+name|COSInteger
+operator|.
+name|get
+argument_list|(
+literal|2000
+argument_list|)
+argument_list|,
+name|COSNumber
+operator|.
+name|get
+argument_list|(
+literal|"+2000"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Some arbitrary floats
 name|assertEquals
 argument_list|(
