@@ -59,6 +59,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -288,6 +298,10 @@ specifier|private
 name|boolean
 name|isCMapPredefined
 decl_stmt|;
+specifier|private
+name|PDCIDFontType2Embedder
+name|embedder
+decl_stmt|;
 comment|/**     * Loads a TTF to be embedded into a document.     *     * @param doc The PDF document that will hold the embedded font.     * @param file A TrueType font.     * @return A Type0 font with a CIDFontType2 descendant.     * @throws IOException If there is an error reading the font file.     */
 specifier|public
 specifier|static
@@ -450,9 +464,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDCIDFontType2Embedder
 name|embedder
-init|=
+operator|=
 operator|new
 name|PDCIDFontType2Embedder
 argument_list|(
@@ -464,7 +477,7 @@ name|ttfStream
 argument_list|,
 name|this
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|descendantFont
 operator|=
 name|embedder
@@ -477,6 +490,29 @@ argument_list|()
 expr_stmt|;
 name|fetchCMapUCS2
 argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|subset
+parameter_list|(
+name|Set
+argument_list|<
+name|Integer
+argument_list|>
+name|codePoints
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|embedder
+operator|.
+name|subset
+argument_list|(
+name|codePoints
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Reads the font's Encoding entry, which should be a CMap name/stream.      */

@@ -157,7 +157,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDTrueTypeFont
+name|PDType0Font
 import|;
 end_import
 
@@ -1019,12 +1019,12 @@ block|{
 name|i
 operator|++
 expr_stmt|;
-name|PDTrueTypeFont
+name|PDFont
 name|font
 init|=
-name|PDTrueTypeFont
+name|PDType0Font
 operator|.
-name|loadTTF
+name|load
 argument_list|(
 name|doc
 argument_list|,

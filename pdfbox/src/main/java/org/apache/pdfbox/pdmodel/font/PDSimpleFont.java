@@ -1217,6 +1217,28 @@ name|isStandard14
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|subset
+parameter_list|(
+name|Set
+argument_list|<
+name|Integer
+argument_list|>
+name|codePoints
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// only TTF subsetting via PDType0Font is currently supported
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
 block|}
 end_class
 

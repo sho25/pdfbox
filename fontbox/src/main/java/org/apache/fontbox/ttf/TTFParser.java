@@ -183,6 +183,34 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Parse a file and get a true type font.      *      * @param ttfData The TTF data to parse.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
+specifier|public
+name|TrueTypeFont
+name|parseEmbedded
+parameter_list|(
+name|InputStream
+name|ttfData
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|this
+operator|.
+name|isEmbedded
+operator|=
+literal|true
+expr_stmt|;
+return|return
+name|parse
+argument_list|(
+operator|new
+name|MemoryTTFDataStream
+argument_list|(
+name|ttfData
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Parse a file and get a true type font.      *      * @param raf The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
 specifier|public
 name|TrueTypeFont

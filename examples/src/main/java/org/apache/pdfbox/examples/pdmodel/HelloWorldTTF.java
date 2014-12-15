@@ -113,6 +113,22 @@ name|PDTrueTypeFont
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|PDType0Font
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an example that creates a simple document  * with a ttf-font.  *  * @author<a href="mailto:m.g.n@gmx.de">Michael Niedermair</a>  * @version $Revision: 1.2 $  */
 end_comment
@@ -173,9 +189,9 @@ expr_stmt|;
 name|PDFont
 name|font
 init|=
-name|PDTrueTypeFont
+name|PDType0Font
 operator|.
-name|loadTTF
+name|load
 argument_list|(
 name|doc
 argument_list|,

@@ -588,6 +588,36 @@ return|return
 name|fontEncoding
 return|;
 block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|buildSubset
+parameter_list|(
+name|InputStream
+name|ttfSubset
+parameter_list|,
+name|String
+name|tag
+parameter_list|,
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Integer
+argument_list|>
+name|gidToCid
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// use PDType0Font instead
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
 block|}
 end_class
 

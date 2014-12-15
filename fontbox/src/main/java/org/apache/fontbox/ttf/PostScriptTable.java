@@ -733,7 +733,7 @@ block|}
 comment|/**      * @return Returns the mimMemType1.      */
 specifier|public
 name|long
-name|getMimMemType1
+name|getMinMemType1
 parameter_list|()
 block|{
 return|return
@@ -876,6 +876,10 @@ condition|(
 name|gid
 argument_list|<
 literal|0
+operator|||
+name|glyphNames
+operator|==
+literal|null
 operator|||
 name|gid
 argument_list|>

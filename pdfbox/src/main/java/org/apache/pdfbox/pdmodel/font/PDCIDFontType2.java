@@ -1459,7 +1459,7 @@ name|PLATFORM_WINDOWS
 argument_list|,
 name|CmapTable
 operator|.
-name|ENCODING_WIN_UNICODE
+name|ENCODING_WIN_UNICODE_BMP
 argument_list|)
 expr_stmt|;
 block|}

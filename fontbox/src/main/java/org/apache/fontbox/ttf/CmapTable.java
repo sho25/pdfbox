@@ -93,10 +93,11 @@ specifier|public
 specifier|static
 specifier|final
 name|int
-name|ENCODING_WIN_UNICODE
+name|ENCODING_WIN_UNICODE_BMP
 init|=
 literal|1
 decl_stmt|;
+comment|// Unicode BMP (UCS-2)
 specifier|public
 specifier|static
 specifier|final
@@ -137,6 +138,15 @@ name|ENCODING_WIN_JOHAB
 init|=
 literal|6
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ENCODING_WIN_UNICODE_FULL
+init|=
+literal|10
+decl_stmt|;
+comment|// Unicode Full (UCS-4)
 comment|// Unicode encodings
 specifier|public
 specifier|static

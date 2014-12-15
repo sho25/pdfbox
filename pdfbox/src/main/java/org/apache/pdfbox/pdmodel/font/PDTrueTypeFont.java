@@ -438,7 +438,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Loads a TTF to be embedded into a document.      *      * @param doc The PDF document that will hold the embedded font.      * @param file a ttf file.      * @return a PDTrueTypeFont instance.      * @throws IOException If there is an error loading the data.      */
+comment|/**      * Loads a TTF to be embedded into a document.      *      * @param doc The PDF document that will hold the embedded font.      * @param file a ttf file.      * @return a PDTrueTypeFont instance.      * @throws IOException If there is an error loading the data.      *      * @deprecated Use {@link PDType0Font#load(PDDocument, File)} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 name|PDTrueTypeFont
@@ -467,7 +469,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Loads a TTF to be embedded into a document.      *      * @param doc The PDF document that will hold the embedded font.      * @param input a ttf file stream      * @return a PDTrueTypeFont instance.      * @throws IOException If there is an error loading the data.      */
+comment|/**      * Loads a TTF to be embedded into a document.      *      * @param doc The PDF document that will hold the embedded font.      * @param input a ttf file stream      * @return a PDTrueTypeFont instance.      * @throws IOException If there is an error loading the data.      *      * @deprecated Use {@link PDType0Font#load(PDDocument, InputStream)} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 name|PDTrueTypeFont
@@ -1500,7 +1504,7 @@ if|if
 condition|(
 name|CmapTable
 operator|.
-name|ENCODING_WIN_UNICODE
+name|ENCODING_WIN_UNICODE_BMP
 operator|==
 name|cmap
 operator|.

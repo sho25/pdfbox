@@ -69,6 +69,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1780,6 +1790,21 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Replaces this font with a subset containing only the given Unicode characters.      *      * @param codePoints Unicode code points to keep      * @throws IOException if the subset could not be written      */
+specifier|public
+specifier|abstract
+name|void
+name|subset
+parameter_list|(
+name|Set
+argument_list|<
+name|Integer
+argument_list|>
+name|codePoints
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 annotation|@
 name|Override
 specifier|public
