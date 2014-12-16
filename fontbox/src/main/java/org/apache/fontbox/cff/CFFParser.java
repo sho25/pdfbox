@@ -4352,6 +4352,26 @@ index|]
 operator|=
 name|supplement
 expr_stmt|;
+name|encoding
+operator|.
+name|add
+argument_list|(
+name|supplement
+operator|.
+name|code
+argument_list|,
+name|supplement
+operator|.
+name|sid
+argument_list|,
+name|readString
+argument_list|(
+name|supplement
+operator|.
+name|sid
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Read the FDSelect Data according to the format.      * @param dataInput      * @param nGlyphs      * @param ros      * @return the FDSelect data      * @throws IOException      */
