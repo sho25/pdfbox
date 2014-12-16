@@ -1757,17 +1757,6 @@ name|isStandard14
 parameter_list|()
 block|{
 comment|// this logic is based on Acrobat's behaviour, see see PDFBOX-2372
-comment|// symbolic fonts are never standard: they don't use the Adobe Standard Roman character set
-if|if
-condition|(
-name|isSymbolic
-argument_list|()
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
 comment|// embedded fonts never get special treatment
 if|if
 condition|(
