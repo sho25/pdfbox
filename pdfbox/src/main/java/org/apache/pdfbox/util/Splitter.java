@@ -360,7 +360,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Check if it is necessary to create a new document.      * By default a split occurs at every page.  If you wanted to split      * based on some complex logic then you could override this method.  For example.      *<code>      * protected void createNewDocumentIfNecessary()      * {      *     if(isPrime(pageNumber))      *     {      *         super.createNewDocumentIfNecessary();      *     }      * }      *</code>      *      * @return true If a new document should be created.      */
+comment|/**      * Check if it is necessary to create a new document.      * By default a split occurs at every page.  If you wanted to split      * based on some complex logic then you could override this method.  For example.      *<code>      * protected void splitAtPage()      * {      *     // will split at pages with prime numbers only      *     return isPrime(pageNumber);      * }      *</code>      *      * @return true If a new document should be created.      */
 specifier|protected
 name|boolean
 name|splitAtPage
