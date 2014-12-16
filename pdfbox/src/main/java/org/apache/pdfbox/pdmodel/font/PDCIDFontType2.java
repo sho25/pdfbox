@@ -261,42 +261,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|font
-operator|.
-name|encoding
-operator|.
-name|GlyphList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|font
-operator|.
-name|encoding
-operator|.
-name|StandardEncoding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|io
 operator|.
 name|IOUtils
@@ -1188,82 +1152,18 @@ index|]
 return|;
 block|}
 block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|parent
-operator|.
-name|isSymbolic
-argument_list|()
-condition|)
-block|{
-comment|// this nonsymbolic behaviour isn't well documented, test with PDFBOX-1422
-comment|// if the font descriptor's Nonsymbolic flag is set, the conforming reader shall
-comment|// create a table that maps from character codes to glyph names
-name|String
-name|name
-init|=
-literal|null
-decl_stmt|;
-comment|// If the Encoding entry is one of the names MacRomanEncoding, WinAnsiEncoding,
-comment|// or a dictionary, then the table is initialized as normal
-comment|// todo: Encoding is not allowed though, right? So this never happens?
-comment|/*if (getFontEncoding() != null)                 {                     name = getFontEncoding().getName(cid);                 }*/
-comment|// Any undefined entries in the table shall be filled using StandardEncoding
-if|if
-condition|(
-name|name
-operator|==
-literal|null
-condition|)
-block|{
-name|name
-operator|=
-name|StandardEncoding
-operator|.
-name|INSTANCE
-operator|.
-name|getName
-argument_list|(
-name|code
-argument_list|)
-expr_stmt|;
-block|}
-comment|// map to a Unicode value using the Adobe Glyph List
-name|unicode
-operator|=
-name|GlyphList
-operator|.
-name|getAdobeGlyphList
-argument_list|()
-operator|.
-name|toUnicode
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-block|}
 else|else
 block|{
-name|int
-name|cid
-init|=
-name|codeToCID
-argument_list|(
-name|code
-argument_list|)
-decl_stmt|;
+comment|// test with PDFBOX-1422 and PDFBOX-2560
 name|unicode
 operator|=
 name|parent
 operator|.
 name|toUnicode
 argument_list|(
-name|cid
+name|code
 argument_list|)
 expr_stmt|;
-comment|// code = CID for TTF
 block|}
 if|if
 condition|(
