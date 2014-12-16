@@ -1989,7 +1989,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Acrobat only draws .notdef for embedded or "Standard 14" fonts, see PDFBOX-2372
+comment|// Acrobat does not draw .notdef for Type 1 fonts, see PDFBOX-2421
+comment|// I suspect that it does do this for embedded fonts though, but this is untested
 if|if
 condition|(
 name|name
@@ -2001,11 +2002,6 @@ argument_list|)
 operator|&&
 operator|!
 name|isEmbedded
-argument_list|()
-operator|&&
-operator|!
-name|isStandard14
-argument_list|()
 condition|)
 block|{
 return|return
