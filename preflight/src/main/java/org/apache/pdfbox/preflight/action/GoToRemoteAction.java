@@ -116,7 +116,7 @@ name|GoToRemoteAction
 extends|extends
 name|GoToAction
 block|{
-comment|/**      *       * @param amFact Instance of ActionManagerFactory used to create ActionManager to check Next actions.      * @param adict the COSDictionary of the action wrapped by this class.      * @param ctx the preflight context´.      * @param aaKey the name of the key which identify the action in a additional action dictionary.      */
+comment|/**      *       * @param amFact Instance of ActionManagerFactory used to create ActionManager to check Next actions.      * @param adict the COSDictionary of the action wrapped by this class.      * @param ctx the preflight context.      * @param aaKey the name of the key which identify the action in a additional action dictionary.      */
 specifier|public
 name|GoToRemoteAction
 parameter_list|(
