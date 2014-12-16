@@ -305,10 +305,11 @@ decl_stmt|;
 name|assertEquals
 argument_list|(
 name|text
-operator|+
-literal|'\n'
 argument_list|,
 name|extracted
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
