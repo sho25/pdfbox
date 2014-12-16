@@ -37,6 +37,22 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|MissingOperandException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|cos
 operator|.
 name|COSBase
@@ -158,20 +174,26 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// there are some documents that are incorrectly structured and
-comment|// arguments are in the wrong spot, so we will silently ignore them
-comment|// if there are no arguments
 if|if
 condition|(
 name|arguments
 operator|.
 name|size
 argument_list|()
-operator|>=
+operator|<
 literal|2
 condition|)
 block|{
-comment|// set font and size
+throw|throw
+operator|new
+name|MissingOperandException
+argument_list|(
+name|operator
+argument_list|,
+name|arguments
+argument_list|)
+throw|;
+block|}
 name|COSName
 name|fontName
 init|=
@@ -242,7 +264,6 @@ argument_list|(
 name|font
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

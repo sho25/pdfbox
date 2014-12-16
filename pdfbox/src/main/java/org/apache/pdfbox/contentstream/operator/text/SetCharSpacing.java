@@ -23,9 +23,35 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|MissingOperandException
 import|;
 end_import
 
@@ -115,21 +141,32 @@ name|COSBase
 argument_list|>
 name|arguments
 parameter_list|)
+throws|throws
+name|IOException
 block|{
-comment|//set character spacing
 if|if
 condition|(
 name|arguments
 operator|.
 name|size
 argument_list|()
-operator|>
+operator|==
 literal|0
 condition|)
 block|{
-comment|//There are some documents which are incorrectly structured, and have
-comment|//a wrong number of arguments to this, so we will assume the last argument
-comment|//in the list
+throw|throw
+operator|new
+name|MissingOperandException
+argument_list|(
+name|operator
+argument_list|,
+name|arguments
+argument_list|)
+throw|;
+block|}
+comment|// there are some documents which are incorrectly structured, and have
+comment|// a wrong number of arguments to this, so we will assume the last argument
+comment|// in the list
 name|Object
 name|charSpacing
 init|=
@@ -176,7 +213,6 @@ name|floatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@
