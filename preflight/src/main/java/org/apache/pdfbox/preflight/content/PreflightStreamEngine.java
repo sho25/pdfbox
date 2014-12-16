@@ -1723,15 +1723,6 @@ argument_list|(
 operator|new
 name|StubOperator
 argument_list|(
-literal|"h"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|addOperator
-argument_list|(
-operator|new
-name|StubOperator
-argument_list|(
 literal|"i"
 argument_list|)
 argument_list|)
