@@ -186,6 +186,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|bytes
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"byte[] is empty"
+argument_list|)
+throw|;
+block|}
 comment|// %!FontType1-1.0
 comment|// %!PS-AdobeFont-1.0
 if|if

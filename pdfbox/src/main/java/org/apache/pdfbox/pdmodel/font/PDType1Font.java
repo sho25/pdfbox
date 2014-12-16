@@ -993,6 +993,18 @@ operator|+
 name|length2
 argument_list|)
 decl_stmt|;
+comment|// empty streams are simply ignored
+if|if
+condition|(
+name|length1
+operator|>
+literal|0
+operator|&&
+name|length2
+operator|>
+literal|0
+condition|)
+block|{
 name|t1
 operator|=
 name|Type1Font
@@ -1004,6 +1016,7 @@ argument_list|,
 name|segment2
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
