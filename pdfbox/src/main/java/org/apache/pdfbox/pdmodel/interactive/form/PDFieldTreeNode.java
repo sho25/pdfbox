@@ -343,6 +343,25 @@ operator|=
 name|parentNode
 expr_stmt|;
 block|}
+comment|/**      * Returns the given attribute, inheriting from parent nodes if necessary.      *      * @param key the key to look up      * @return COS value for the given key      */
+specifier|public
+name|COSBase
+name|getInheritableAttribute
+parameter_list|(
+name|COSName
+name|key
+parameter_list|)
+block|{
+return|return
+name|getInheritableAttribute
+argument_list|(
+name|getDictionary
+argument_list|()
+argument_list|,
+name|key
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns the given attribute, inheriting from parent nodes if necessary.      *      * @param fieldDictionary field object      * @param key the key to look up      * @return COS value for the given key      */
 specifier|public
 name|COSBase
@@ -360,7 +379,7 @@ name|value
 init|=
 name|fieldDictionary
 operator|.
-name|getCOSName
+name|getDictionaryObject
 argument_list|(
 name|key
 argument_list|)
@@ -410,6 +429,29 @@ block|}
 return|return
 literal|null
 return|;
+block|}
+comment|/**      * Sets the given attribute, inheriting from parent nodes if necessary.      *      * @param key the key to look up      * @param value the new attributes value      */
+specifier|public
+name|void
+name|setInheritableAttribute
+parameter_list|(
+name|COSName
+name|key
+parameter_list|,
+name|COSBase
+name|value
+parameter_list|)
+block|{
+name|setInheritableAttribute
+argument_list|(
+name|getDictionary
+argument_list|()
+argument_list|,
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Sets the given attribute, inheriting from parent nodes if necessary.      *      * @param fieldDictionary field object      * @param key the key to look up      * @param value the new attributes value      */
 specifier|public
@@ -483,6 +525,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|/**      * Removes the given attribute, inheriting from parent nodes if necessary.      *      * @param key the key to look up      */
+specifier|public
+name|void
+name|removeInheritableAttribute
+parameter_list|(
+name|COSName
+name|key
+parameter_list|)
+block|{
+name|removeInheritableAttribute
+argument_list|(
+name|getDictionary
+argument_list|()
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Removes the given attribute, inheriting from parent nodes if necessary.      *      * @param fieldDictionary field object      * @param key the key to look up      */
 specifier|public
