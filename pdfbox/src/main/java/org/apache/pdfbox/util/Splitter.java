@@ -326,7 +326,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Interface method, you can control where a document gets split by implementing      * this method.  By default a split occurs at every page.  If you wanted to split      * based on some complex logic then you could override this method.  For example.      *<code>      * protected void createNewDocumentIfNecessary()      * {      *     if(isPrime(pageNumber))      *     {      *         super.createNewDocumentIfNecessary();      *     }      * }      *</code>      *      * @throws IOException If there is an error creating the new document.      */
+comment|/**      * Helper method for creating new documents at the appropriate pages.      *      * @throws IOException If there is an error creating the new document.      */
 specifier|private
 name|void
 name|createNewDocumentIfNecessary
@@ -360,7 +360,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Check if it is necessary to create a new document.      *      * @return true If a new document should be created.      */
+comment|/**      * Check if it is necessary to create a new document.      * By default a split occurs at every page.  If you wanted to split      * based on some complex logic then you could override this method.  For example.      *<code>      * protected void createNewDocumentIfNecessary()      * {      *     if(isPrime(pageNumber))      *     {      *         super.createNewDocumentIfNecessary();      *     }      * }      *</code>      *      * @return true If a new document should be created.      */
 specifier|protected
 name|boolean
 name|splitAtPage
