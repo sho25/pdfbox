@@ -257,7 +257,7 @@ decl_stmt|;
 name|Matrix
 name|matrix
 init|=
-name|getGammaMatrix
+name|getMatrix
 argument_list|()
 decl_stmt|;
 name|PDGamma
@@ -565,7 +565,7 @@ comment|/**      * Returns the linear interpretation matrix.      * If the under
 specifier|public
 specifier|final
 name|Matrix
-name|getGammaMatrix
+name|getMatrix
 parameter_list|()
 block|{
 name|COSArray
@@ -653,7 +653,7 @@ comment|/**      * Sets the linear interpretation matrix.      * Passing in null
 specifier|public
 specifier|final
 name|void
-name|setGammaMatrix
+name|setMatrix
 parameter_list|(
 name|Matrix
 name|matrix
