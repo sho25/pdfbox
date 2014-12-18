@@ -553,15 +553,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|eof
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 literal|"%%EOF"
 argument_list|)
-operator|==
-operator|-
-literal|1
 operator|&&
 operator|!
 name|pdfSource
@@ -607,14 +605,6 @@ literal|1
 decl_stmt|;
 name|int
 name|genNum
-init|=
-operator|-
-literal|1
-decl_stmt|;
-name|String
-name|objectKey
-init|=
-literal|null
 decl_stmt|;
 name|boolean
 name|missingObjectNumber
@@ -685,15 +675,14 @@ operator|=
 name|readGenerationNumber
 argument_list|()
 expr_stmt|;
+name|String
 name|objectKey
-operator|=
+init|=
 name|readString
 argument_list|(
 literal|3
 argument_list|)
-expr_stmt|;
-comment|//System.out.println( "parseObject() num=" + number +
-comment|//" genNumber=" + genNum + " key='" + objectKey + "'" );
+decl_stmt|;
 if|if
 condition|(
 operator|!
