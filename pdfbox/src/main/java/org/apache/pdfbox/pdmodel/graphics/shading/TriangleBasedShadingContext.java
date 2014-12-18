@@ -91,7 +91,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -101,7 +101,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Map
 import|;
 end_import
 
@@ -314,13 +314,13 @@ specifier|protected
 name|void
 name|calcPixelTable
 parameter_list|(
-name|ArrayList
+name|List
 argument_list|<
 name|ShadedTriangle
 argument_list|>
 name|triangleList
 parameter_list|,
-name|HashMap
+name|Map
 argument_list|<
 name|Point
 argument_list|,

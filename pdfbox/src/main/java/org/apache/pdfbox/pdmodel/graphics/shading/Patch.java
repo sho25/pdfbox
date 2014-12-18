@@ -41,6 +41,16 @@ name|ArrayList
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Patch is extended by CoonsPatch and TensorPatch. This was done as part of  * GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
@@ -69,7 +79,7 @@ index|[]
 name|level
 decl_stmt|;
 specifier|protected
-name|ArrayList
+name|List
 argument_list|<
 name|ShadedTriangle
 argument_list|>
@@ -625,7 +635,7 @@ return|;
 block|}
 comment|/**      * An assistant method to accomplish type 6 and type 7 shading.      *      * @param patchCC all the crossing point coordinates and color of a grid      * @return a ShadedTriangle list which can compose the grid patch      */
 specifier|protected
-name|ArrayList
+name|List
 argument_list|<
 name|ShadedTriangle
 argument_list|>
@@ -637,7 +647,7 @@ index|[]
 name|patchCC
 parameter_list|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|ShadedTriangle
 argument_list|>

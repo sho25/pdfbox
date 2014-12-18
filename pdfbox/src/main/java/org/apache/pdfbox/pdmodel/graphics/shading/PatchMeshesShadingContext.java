@@ -151,6 +151,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|imageio
@@ -318,7 +338,7 @@ name|patchMeshesShadingType
 decl_stmt|;
 comment|// the following fields are not intialized in this abstract class
 specifier|protected
-name|ArrayList
+name|List
 argument_list|<
 name|Patch
 argument_list|>
@@ -331,7 +351,7 @@ name|bitsPerFlag
 decl_stmt|;
 comment|// bits per flag
 specifier|protected
-name|HashMap
+name|Map
 argument_list|<
 name|Point
 argument_list|,
@@ -1217,7 +1237,7 @@ return|;
 block|}
 comment|/**      * Calculate every point and its color and store them in a Hash table.      *      * @return a Hash table which contains all the points' positions and colors      * of one image      */
 specifier|protected
-name|HashMap
+name|Map
 argument_list|<
 name|Point
 argument_list|,
@@ -1226,7 +1246,7 @@ argument_list|>
 name|calcPixelTable
 parameter_list|()
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|Point
 argument_list|,

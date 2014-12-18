@@ -81,7 +81,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -191,7 +191,7 @@ expr_stmt|;
 block|}
 comment|// get the patch list which forms the type 7 shading image from data stream
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|Patch
 argument_list|>

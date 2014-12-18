@@ -97,6 +97,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|imageio
@@ -288,7 +298,7 @@ argument_list|()
 expr_stmt|;
 block|}
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|ShadedTriangle
 argument_list|>
@@ -303,7 +313,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|ShadedTriangle
 argument_list|>
@@ -400,7 +410,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|ArrayList
+name|List
 argument_list|<
 name|Vertex
 argument_list|>

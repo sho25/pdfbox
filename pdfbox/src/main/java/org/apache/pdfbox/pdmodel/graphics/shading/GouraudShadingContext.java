@@ -141,6 +141,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|imageio
@@ -224,7 +244,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shades Gouraud triangles for Type4ShadingContext and Type5ShadingContext.  *  * @author Andreas Lehmkühler  * @author Tilman Hausherr  * @author Shaola Ren  */
+comment|/**  * Shades Gouraud triangles for Type4ShadingContext and Type5ShadingContext.  *  * @author Andreas LehmkÃ¼hler  * @author Tilman Hausherr  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -253,7 +273,7 @@ argument_list|)
 decl_stmt|;
 comment|/**      * triangle list.      */
 specifier|protected
-name|ArrayList
+name|List
 argument_list|<
 name|ShadedTriangle
 argument_list|>
@@ -270,7 +290,7 @@ name|int
 name|rgbBackground
 decl_stmt|;
 specifier|protected
-name|HashMap
+name|Map
 argument_list|<
 name|Point
 argument_list|,
@@ -618,7 +638,7 @@ argument_list|)
 return|;
 block|}
 specifier|protected
-name|HashMap
+name|Map
 argument_list|<
 name|Point
 argument_list|,
@@ -627,7 +647,7 @@ argument_list|>
 name|calcPixelTable
 parameter_list|()
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|Point
 argument_list|,

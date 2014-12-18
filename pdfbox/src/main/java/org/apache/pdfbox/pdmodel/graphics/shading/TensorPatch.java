@@ -37,7 +37,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -795,7 +795,7 @@ return|;
 block|}
 comment|// get a list of triangles which compose this tensor patch
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|ShadedTriangle
 argument_list|>
