@@ -1898,10 +1898,7 @@ condition|(
 name|catalogObj
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|catalogObj
 operator|.
 name|getObject
@@ -1936,7 +1933,6 @@ operator|.
 name|setDecrypted
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// PDFBOX-1922: read the version again now that all objects have been resolved
@@ -3928,16 +3924,13 @@ operator|.
 name|COUNT
 argument_list|)
 decl_stmt|;
+comment|// skip this branch if requested page comes later
 if|if
 condition|(
 name|count
 operator|>=
 literal|0
-condition|)
-block|{
-comment|// skip this branch if requested page comes later
-if|if
-condition|(
+operator|&&
 operator|(
 name|curPageCount
 operator|+
@@ -3952,7 +3945,6 @@ operator|+=
 name|count
 expr_stmt|;
 continue|continue;
-block|}
 block|}
 name|COSArray
 name|kids
@@ -5148,10 +5140,7 @@ name|startsWith
 argument_list|(
 literal|"endobj"
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|endObjectKey
 operator|.
 name|startsWith
@@ -5189,7 +5178,6 @@ name|readLine
 argument_list|()
 expr_stmt|;
 comment|// read next line
-block|}
 block|}
 block|}
 block|}
