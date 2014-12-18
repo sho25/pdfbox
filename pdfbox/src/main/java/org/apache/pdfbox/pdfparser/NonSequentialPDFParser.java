@@ -7109,11 +7109,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|boolean
-name|objectFound
-init|=
-literal|false
-decl_stmt|;
 name|long
 name|originOffset
 init|=
@@ -7129,8 +7124,9 @@ argument_list|(
 name|offset
 argument_list|)
 expr_stmt|;
+name|boolean
 name|objectFound
-operator|=
+init|=
 name|checkBytesAtOffset
 argument_list|(
 name|objectString
@@ -7140,7 +7136,7 @@ argument_list|(
 literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|pdfSource
 operator|.
 name|seek
@@ -7859,11 +7855,6 @@ operator|.
 name|getOffset
 argument_list|()
 decl_stmt|;
-name|long
-name|currentOffset
-init|=
-name|xrefOffset
-decl_stmt|;
 name|boolean
 name|objFound
 init|=
@@ -7887,8 +7878,9 @@ name|i
 operator|++
 control|)
 block|{
+name|long
 name|currentOffset
-operator|=
+init|=
 name|xrefOffset
 operator|-
 operator|(
@@ -7896,7 +7888,7 @@ name|i
 operator|*
 literal|10
 operator|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|currentOffset
