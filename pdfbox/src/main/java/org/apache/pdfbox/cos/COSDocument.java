@@ -1054,7 +1054,7 @@ condition|)
 block|{
 comment|// Some fields may contain twice references to a single field.
 comment|// This will prevent such double entries.
-name|HashMap
+name|Map
 argument_list|<
 name|COSObjectKey
 argument_list|,
@@ -1124,14 +1124,8 @@ name|dictionaryObject
 operator|==
 literal|null
 operator|||
-operator|(
-name|dictionaryObject
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|onlyEmptyFields
-operator|)
 condition|)
 block|{
 name|signatures
@@ -1343,6 +1337,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This will close all storage and delete the tmp files.      *      *  @throws IOException If there is an error close resources.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
