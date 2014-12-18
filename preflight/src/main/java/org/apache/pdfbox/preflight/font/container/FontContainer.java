@@ -389,18 +389,18 @@ name|ERROR_FONTS_GLYPH_MISSING
 argument_list|,
 name|code
 argument_list|,
-literal|"The character \""
+literal|"The character code "
 operator|+
 name|code
 operator|+
-literal|"\" in the font program \""
+literal|" in the font program \""
 operator|+
 name|font
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"\" is missing from the Character Encoding."
+literal|"\" is missing from the Character Encoding"
 argument_list|)
 decl_stmt|;
 name|markAsInvalid
