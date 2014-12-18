@@ -2136,6 +2136,11 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|isCIDFont
+condition|)
+block|{
 comment|// a CID font with no charset does not default to any predefined charset
 name|charset
 operator|=
@@ -2143,6 +2148,18 @@ operator|new
 name|EmptyCharset
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|//FIXME PDFBOX-2571
+name|charset
+operator|=
+name|CFFISOAdobeCharset
+operator|.
+name|getInstance
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 name|font
 operator|.
