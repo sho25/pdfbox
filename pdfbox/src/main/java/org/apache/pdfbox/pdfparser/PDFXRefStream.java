@@ -255,6 +255,7 @@ init|=
 literal|0
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|Integer
@@ -264,6 +265,7 @@ argument_list|>
 name|streamData
 decl_stmt|;
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|Integer
@@ -271,6 +273,7 @@ argument_list|>
 name|objectNumbers
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSStream
 name|stream
 decl_stmt|;
