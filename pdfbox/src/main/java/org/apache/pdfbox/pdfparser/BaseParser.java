@@ -455,9 +455,10 @@ init|=
 literal|'j'
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|int
-name|strmBufLen
+name|STRMBUFLEN
 init|=
 literal|2048
 decl_stmt|;
@@ -470,7 +471,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|strmBufLen
+name|STRMBUFLEN
 index|]
 decl_stmt|;
 comment|/**      * This is a byte array that will be used for comparisons.      */
@@ -1588,7 +1589,7 @@ name|min
 argument_list|(
 name|left
 argument_list|,
-name|strmBufLen
+name|STRMBUFLEN
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2090,7 +2091,7 @@ name|strmBuf
 argument_list|,
 name|charMatchCount
 argument_list|,
-name|strmBufLen
+name|STRMBUFLEN
 operator|-
 name|charMatchCount
 argument_list|)
