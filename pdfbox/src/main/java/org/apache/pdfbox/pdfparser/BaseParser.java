@@ -1363,41 +1363,11 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|String
-name|streamString
-init|=
-name|readString
-argument_list|()
-decl_stmt|;
-comment|//long streamLength;
-if|if
-condition|(
-operator|!
-name|streamString
-operator|.
-name|equals
+name|readExpectedString
 argument_list|(
 name|STREAM_STRING
 argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"expected='stream' actual='"
-operator|+
-name|streamString
-operator|+
-literal|"' at offset "
-operator|+
-name|pdfSource
-operator|.
-name|getOffset
-argument_list|()
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 comment|//PDF Ref 3.2.7 A stream must be followed by either
 comment|//a CRLF or LF but nothing else.
 name|int
@@ -1988,39 +1958,11 @@ name|out
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|endStream
-operator|=
-name|readString
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|endStream
-operator|.
-name|equals
+name|readExpectedString
 argument_list|(
 name|ENDSTREAM_STRING
 argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"expected='endstream' actual='"
-operator|+
-name|endStream
-operator|+
-literal|"' at offset "
-operator|+
-name|pdfSource
-operator|.
-name|getOffset
-argument_list|()
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -4194,40 +4136,11 @@ literal|'n'
 case|:
 comment|// null
 block|{
-name|String
-name|nullString
-init|=
-name|readString
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|nullString
-operator|.
-name|equals
+name|readExpectedString
 argument_list|(
 name|NULL
 argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Expected='null' actual='"
-operator|+
-name|nullString
-operator|+
-literal|"' at offset "
-operator|+
-name|pdfSource
-operator|.
-name|getOffset
-argument_list|()
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 name|retval
 operator|=
 name|COSNull
@@ -4698,6 +4611,56 @@ operator|.
 name|toString
 argument_list|()
 return|;
+block|}
+comment|/**      * Read one String and throw an exception if it is not the expected value.      *      * @param es the String value that is expected.      * @throws IOException if the String char is not the expected value or if an      * I/O error occurs.      */
+specifier|protected
+name|void
+name|readExpectedString
+parameter_list|(
+name|String
+name|es
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|String
+name|s
+init|=
+name|readString
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|s
+operator|.
+name|equals
+argument_list|(
+name|es
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"expected='"
+operator|+
+name|es
+operator|+
+literal|"' actual='"
+operator|+
+name|s
+operator|+
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * Read one char and throw an exception if it is not the expected value.      *      * @param ec the char value that is expected.      * @throws IOException if the read char is not the expected value or if an      * I/O error occurs.      */
 specifier|protected
