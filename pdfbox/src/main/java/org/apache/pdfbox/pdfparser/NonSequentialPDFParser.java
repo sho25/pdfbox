@@ -852,7 +852,7 @@ literal|true
 decl_stmt|;
 comment|/**      * Contains all found objects of a brute force search.      */
 specifier|private
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -863,7 +863,7 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
-name|HashMap
+name|Map
 argument_list|<
 name|COSObjectKey
 argument_list|,
@@ -874,7 +874,7 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
-name|Vector
+name|List
 argument_list|<
 name|Long
 argument_list|>
