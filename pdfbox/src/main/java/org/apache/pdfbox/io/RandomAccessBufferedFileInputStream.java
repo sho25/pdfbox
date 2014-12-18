@@ -137,7 +137,7 @@ decl_stmt|;
 comment|/** Create a LRU page cache. */
 specifier|private
 specifier|final
-name|LinkedHashMap
+name|Map
 argument_list|<
 name|Long
 argument_list|,
@@ -306,6 +306,8 @@ return|;
 block|}
 comment|// ------------------------------------------------------------------------
 comment|/** Returns offset in file at which next byte would be read. */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|getPosition
@@ -317,6 +319,8 @@ return|;
 block|}
 comment|// ------------------------------------------------------------------------
 comment|/**      * Seeks to new position. If new position is outside of current page the new      * page is either taken from cache or read from file and added to cache.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|seek
@@ -411,7 +415,6 @@ block|}
 comment|// ------------------------------------------------------------------------
 comment|/**      * Reads a page with data from current file position. If we have a      * previously removed page from cache the buffer of this page is reused.      * Otherwise a new byte buffer is created.      */
 specifier|private
-specifier|final
 name|byte
 index|[]
 name|readPage
@@ -767,6 +770,8 @@ name|toSkip
 return|;
 block|}
 comment|// ------------------------------------------------------------------------
+annotation|@
+name|Override
 specifier|public
 name|long
 name|length
