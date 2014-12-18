@@ -189,6 +189,7 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSStream
 name|stream
 decl_stmt|;
@@ -303,13 +304,9 @@ expr_stmt|;
 block|}
 name|COSObject
 name|object
-init|=
-literal|null
 decl_stmt|;
 name|COSBase
 name|cosObject
-init|=
-literal|null
 decl_stmt|;
 name|int
 name|objectCounter
