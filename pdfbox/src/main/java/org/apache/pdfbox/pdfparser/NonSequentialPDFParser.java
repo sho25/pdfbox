@@ -1217,8 +1217,6 @@ name|alias
 expr_stmt|;
 name|init
 argument_list|(
-name|file
-argument_list|,
 name|useScratchFiles
 argument_list|)
 expr_stmt|;
@@ -1227,9 +1225,6 @@ specifier|private
 name|void
 name|init
 parameter_list|(
-name|File
-name|file
-parameter_list|,
 name|boolean
 name|useScratchFiles
 parameter_list|)
@@ -1496,8 +1491,6 @@ name|alias
 expr_stmt|;
 name|init
 argument_list|(
-name|pdfFile
-argument_list|,
 name|useScratchFiles
 argument_list|)
 expr_stmt|;
@@ -7468,8 +7461,6 @@ argument_list|)
 decl_stmt|;
 name|Long
 name|objectID
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
