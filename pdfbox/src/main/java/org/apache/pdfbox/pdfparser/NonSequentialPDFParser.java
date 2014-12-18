@@ -3183,13 +3183,15 @@ name|lastPatternChOff
 condition|)
 block|{
 comment|// no char match but already matched some chars; reset
+name|patOff
+operator|=
+name|lastPatternChOff
+expr_stmt|;
 name|lookupCh
 operator|=
 name|pattern
 index|[
 name|patOff
-operator|=
-name|lastPatternChOff
 index|]
 expr_stmt|;
 block|}
@@ -4653,12 +4655,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|objToBeParsed
-operator|.
-name|put
-argument_list|(
-name|fileOffset
-argument_list|,
 name|stmObjects
 operator|=
 operator|new
@@ -4667,6 +4663,14 @@ argument_list|<
 name|COSObject
 argument_list|>
 argument_list|()
+expr_stmt|;
+name|objToBeParsed
+operator|.
+name|put
+argument_list|(
+name|fileOffset
+argument_list|,
+name|stmObjects
 argument_list|)
 expr_stmt|;
 block|}
