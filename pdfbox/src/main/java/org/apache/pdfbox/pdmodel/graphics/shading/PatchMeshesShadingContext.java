@@ -452,7 +452,7 @@ block|}
 block|}
 comment|/**      * Create a patch list from a data stream, the returned list contains all      * the patches contained in the data stream.      *      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param cosDictionary dictionary object to give the image information      * @param rangeX range for coordinate x      * @param rangeY range for coordinate y      * @param colRange range for color      * @param numP number of control points, 12 for type 6 shading and 16 for      * type 7 shading      * @return the obtained patch list      * @throws IOException when something went wrong      */
 specifier|protected
-name|ArrayList
+name|List
 argument_list|<
 name|Patch
 argument_list|>
@@ -483,7 +483,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|Patch
 argument_list|>
