@@ -1365,13 +1365,6 @@ else|else
 block|{
 if|if
 condition|(
-name|tokens
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
 name|daTokens
 operator|!=
 literal|null
@@ -1622,11 +1615,6 @@ argument_list|,
 name|appearanceStream
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// hmm?
-block|}
 block|}
 block|}
 block|}
@@ -3040,8 +3028,6 @@ argument_list|)
 decl_stmt|;
 name|float
 name|verticalOffset
-init|=
-literal|0.0f
 decl_stmt|;
 if|if
 condition|(
