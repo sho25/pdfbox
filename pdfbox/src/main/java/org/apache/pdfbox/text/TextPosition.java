@@ -37,6 +37,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -78,7 +88,7 @@ block|{
 specifier|private
 specifier|static
 specifier|final
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -96,7 +106,7 @@ comment|// section of the Unicode spec and identifying which characters are not 
 comment|// normalization.
 specifier|private
 specifier|static
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -2112,6 +2122,8 @@ name|MODIFIER_LETTER
 return|;
 block|}
 comment|/**      * Show the string data for this text position.      *      * @return A human readable form of this object.      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
