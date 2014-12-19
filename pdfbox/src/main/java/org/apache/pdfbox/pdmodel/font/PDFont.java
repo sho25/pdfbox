@@ -1169,6 +1169,8 @@ return|;
 block|}
 comment|/**      * This will get the average font width for all characters.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      */
 comment|// todo: this method is highly suspicious, the average glyph width is not usually a good metric
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getAverageFontWidth

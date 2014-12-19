@@ -208,6 +208,7 @@ name|float
 name|defaultWidth
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|Integer
@@ -227,6 +228,7 @@ argument_list|()
 decl_stmt|;
 comment|// w1y
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|Integer

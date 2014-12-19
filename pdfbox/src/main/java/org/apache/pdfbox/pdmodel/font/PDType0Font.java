@@ -483,13 +483,6 @@ decl_stmt|;
 if|if
 condition|(
 name|encoding
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|encoding
 operator|instanceof
 name|COSName
 condition|)
@@ -526,7 +519,6 @@ name|isCMapPredefined
 operator|=
 literal|true
 expr_stmt|;
-return|return;
 block|}
 else|else
 block|{
@@ -539,7 +531,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|encoding
+operator|!=
+literal|null
+condition|)
 block|{
 name|cMap
 operator|=
@@ -586,7 +584,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 comment|/**      * Fetches the corresponding UCS2 CMap if the font's CMap is predefined.      */
 specifier|private
 name|void
@@ -627,10 +624,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|encoding
-operator|!=
-literal|null
-operator|&&
 name|encoding
 operator|instanceof
 name|COSName
