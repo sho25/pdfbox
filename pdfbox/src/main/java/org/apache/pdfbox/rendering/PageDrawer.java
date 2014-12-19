@@ -1907,16 +1907,6 @@ name|PDType1CFont
 operator|)
 name|font
 decl_stmt|;
-if|if
-condition|(
-name|type1CFont
-operator|.
-name|getCFFType1Font
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 name|glyph2D
 operator|=
 operator|new
@@ -1925,19 +1915,6 @@ argument_list|(
 name|type1CFont
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|glyph2D
-operator|=
-operator|new
-name|Type1Glyph2D
-argument_list|(
-name|type1CFont
-argument_list|)
-expr_stmt|;
-comment|// fallback to T1-equivalent
-block|}
 block|}
 elseif|else
 if|if
