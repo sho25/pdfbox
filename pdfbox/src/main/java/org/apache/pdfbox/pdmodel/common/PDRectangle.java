@@ -1131,6 +1131,8 @@ name|path
 return|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -1223,6 +1225,8 @@ name|path
 return|;
 block|}
 comment|/**      * This will return a string representation of this rectangle.      *      * @return This object as a string.      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString

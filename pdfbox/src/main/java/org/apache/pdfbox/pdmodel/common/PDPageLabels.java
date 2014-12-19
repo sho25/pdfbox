@@ -490,6 +490,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}       */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -606,6 +608,8 @@ operator|new
 name|LabelHandler
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|newLabel
@@ -661,6 +665,8 @@ operator|new
 name|LabelHandler
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|newLabel
@@ -947,6 +953,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -958,6 +966,8 @@ operator|<
 name|numPages
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|next
@@ -1479,6 +1489,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove

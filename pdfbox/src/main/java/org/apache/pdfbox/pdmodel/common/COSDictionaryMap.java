@@ -245,6 +245,8 @@ name|dicMap
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|size
@@ -258,6 +260,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isEmpty
@@ -271,6 +275,8 @@ literal|0
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|containsKey
@@ -292,6 +298,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|containsValue
@@ -310,6 +318,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|V
 name|get
@@ -328,6 +338,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|V
 name|put
@@ -379,6 +391,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|V
 name|remove
@@ -412,6 +426,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|putAll
@@ -438,6 +454,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|clear
@@ -455,6 +473,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -471,6 +491,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -487,6 +509,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -515,6 +539,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
@@ -567,6 +593,8 @@ name|retval
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -580,6 +608,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode

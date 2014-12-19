@@ -125,11 +125,12 @@ extends|extends
 name|PDStream
 block|{
 specifier|private
+specifier|final
 name|byte
 index|[]
 name|data
 decl_stmt|;
-comment|/**      * This will create a new PDStream object.      *      * @param buffer The data for this in memory stream.      */
+comment|/**      * This will create a new PDMemoryStream object.      *      * @param buffer The data for this in memory stream.      */
 specifier|public
 name|PDMemoryStream
 parameter_list|(
@@ -144,6 +145,8 @@ name|buffer
 expr_stmt|;
 block|}
 comment|/**      * If there are not compression filters on the current stream then this      * will add a compression filter, flate compression for example.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addCompression
@@ -152,6 +155,8 @@ block|{
 comment|//no compression to add
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -166,6 +171,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * This will get a stream that can be written to.      *      * @return An output stream to write data to.      *      * @throws IOException If an IO error occurs during writing.      */
+annotation|@
+name|Override
 specifier|public
 name|OutputStream
 name|createOutputStream
@@ -182,6 +189,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * This will get a stream that can be read from.      *      * @return An input stream that can be read from.      *      * @throws IOException If an IO error occurs during reading.      */
+annotation|@
+name|Override
 specifier|public
 name|InputStream
 name|createInputStream
@@ -198,6 +207,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This will get a stream with some filters applied but not others.  This is useful      * when doing images, ie filters = [flate,dct], we want to remove flate but leave dct      *      * @param stopFilters A list of filters to stop decoding at.      * @return A stream with decoded data.      * @throws IOException If there is an error processing the stream.      */
+annotation|@
+name|Override
 specifier|public
 name|InputStream
 name|getPartiallyFilteredStream
@@ -214,6 +225,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Get the cos stream associated with this object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSStream
 name|getStream
@@ -228,6 +241,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * This will get the length of the filtered/compressed stream.  This is readonly in the      * PD Model and will be managed by this class.      *      * @return The length of the filtered stream.      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getLength
@@ -240,6 +255,8 @@ name|length
 return|;
 block|}
 comment|/**      * This will get the list of filters that are associated with this stream.  Or      * null if there are none.      * @return A list of all encoding filters to apply to this stream.      */
+annotation|@
+name|Override
 specifier|public
 name|List
 name|getFilters
@@ -250,6 +267,8 @@ literal|null
 return|;
 block|}
 comment|/**      * This will set the filters that are part of this stream.      *      * @param filters The filters that are part of this stream.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setFilters
@@ -290,6 +309,8 @@ block|{
 comment|//do nothing
 block|}
 comment|/**      * This will get the file specification for this stream.  This is only      * required for external files.      *      * @return The file specification.      */
+annotation|@
+name|Override
 specifier|public
 name|PDFileSpecification
 name|getFile
@@ -300,6 +321,8 @@ literal|null
 return|;
 block|}
 comment|/**      * Set the file specification.      * @param f The file specification.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setFile
@@ -311,6 +334,8 @@ block|{
 comment|//do nothing.
 block|}
 comment|/**      * This will get the list of filters that are associated with this stream.  Or      * null if there are none.      * @return A list of all encoding filters to apply to this stream.      */
+annotation|@
+name|Override
 specifier|public
 name|List
 name|getFileFilters
@@ -321,6 +346,8 @@ literal|null
 return|;
 block|}
 comment|/**      * This will set the filters that are part of this stream.      *      * @param filters The filters that are part of this stream.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setFileFilters
@@ -332,6 +359,8 @@ block|{
 comment|//do nothing.
 block|}
 comment|/**      * Get the list of decode parameters.  Each entry in the list will refer to      * an entry in the filters list.      *      * @return The list of decode parameters.      *      * @throws IOException if there is an error retrieving the parameters.      */
+annotation|@
+name|Override
 specifier|public
 name|List
 name|getFileDecodeParams
@@ -344,6 +373,8 @@ literal|null
 return|;
 block|}
 comment|/**      * This will set the list of decode params.      *      * @param decodeParams The list of decode params.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setFileDecodeParams
@@ -355,6 +386,8 @@ block|{
 comment|//do nothing
 block|}
 comment|/**      * This will copy the stream into a byte array.      *      * @return The byte array of the filteredStream      * @throws IOException When getFilteredStream did not work      */
+annotation|@
+name|Override
 specifier|public
 name|byte
 index|[]
@@ -368,6 +401,8 @@ name|data
 return|;
 block|}
 comment|/**      * Get the metadata that is part of the document catalog.  This will      * return null if there is no meta data for this object.      *      * @return The metadata for this object.      */
+annotation|@
+name|Override
 specifier|public
 name|PDMetadata
 name|getMetadata
@@ -378,6 +413,8 @@ literal|null
 return|;
 block|}
 comment|/**      * Set the metadata for this object.  This can be null.      *      * @param meta The meta data for this object.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setMetadata

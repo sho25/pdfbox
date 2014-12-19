@@ -193,6 +193,8 @@ return|return
 name|root
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject

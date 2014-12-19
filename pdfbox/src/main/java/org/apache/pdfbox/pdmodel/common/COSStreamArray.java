@@ -290,6 +290,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * This will get an object from this streams dictionary.      *      * @param key The key to the object.      *      * @return The dictionary object with the key or null if one does not exist.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getItem
@@ -308,6 +310,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This will get an object from this streams dictionary and dereference it      * if necessary.      *      * @param key The key to the object.      *      * @return The dictionary object with the key or null if one does not exist.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getDictionaryObject
@@ -326,6 +330,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -336,6 +342,8 @@ literal|"COSStream{}"
 return|;
 block|}
 comment|/**      * This will get all the tokens in the stream.      *      * @return All of the tokens in the stream.      *      * @throws IOException If there is an error parsing the stream.      */
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -413,6 +421,8 @@ name|firstStream
 return|;
 block|}
 comment|/**      * This will get the stream with all of the filters applied.      *      * @return the bytes of the physical (endoced) stream      *      * @throws IOException when encoding/decoding causes an exception      */
+annotation|@
+name|Override
 specifier|public
 name|InputStream
 name|getFilteredStream
@@ -429,6 +439,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * This will get the logical content stream with none of the filters.      *      * @return the bytes of the logical (decoded) stream      *      * @throws IOException when encoding/decoding causes an exception      */
+annotation|@
+name|Override
 specifier|public
 name|InputStream
 name|getUnfilteredStream
@@ -529,6 +541,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException if the output could not be written      */
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|accept
@@ -549,6 +563,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This will return the filters to apply to the byte stream      * the method will return.      * - null if no filters are to be applied      * - a COSName if one filter is to be applied      * - a COSArray containing COSNames if multiple filters are to be applied      *      * @return the COSBase object representing the filters      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getFilters
@@ -562,6 +578,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * This will create a new stream for which filtered byte should be      * written to.  You probably don't want this but want to use the      * createUnfilteredStream, which is used to write raw bytes to.      *      * @return A stream that can be written to.      *      * @throws IOException If there is an error creating the stream.      */
+annotation|@
+name|Override
 specifier|public
 name|OutputStream
 name|createFilteredStream
@@ -577,6 +595,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * This will create a new stream for which filtered byte should be      * written to.  You probably don't want this but want to use the      * createUnfilteredStream, which is used to write raw bytes to.      *      * @param expectedLength An entry where a length is expected.      *      * @return A stream that can be written to.      *      * @throws IOException If there is an error creating the stream.      */
+annotation|@
+name|Override
 specifier|public
 name|OutputStream
 name|createFilteredStream
@@ -597,6 +617,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * set the filters to be applied to the stream.      *      * @param filters The filters to set on this stream.      *      * @throws IOException If there is an error clearing the old filters.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setFilters
@@ -618,6 +640,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will create an output stream that can be written to.      *      * @return An output stream which raw data bytes should be written to.      *      * @throws IOException If there is an error creating the stream.      */
+annotation|@
+name|Override
 specifier|public
 name|OutputStream
 name|createUnfilteredStream
