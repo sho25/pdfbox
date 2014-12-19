@@ -97,6 +97,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|imageio
@@ -467,7 +477,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|byte
 index|[]
@@ -756,7 +766,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|byte
 index|[]
@@ -1063,7 +1073,7 @@ specifier|private
 name|int
 name|findPatternCode
 parameter_list|(
-name|ArrayList
+name|List
 argument_list|<
 name|byte
 index|[]
@@ -1200,7 +1210,7 @@ return|;
 block|}
 comment|/**      * Init the code table with 1 byte entries and the EOD and CLEAR_TABLE      * markers.      */
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|byte
 index|[]
@@ -1208,7 +1218,7 @@ argument_list|>
 name|createCodeTable
 parameter_list|()
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|byte
 index|[]
