@@ -2064,6 +2064,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|isCIDFont
+operator|&&
 name|charsetId
 operator|==
 literal|0
@@ -2080,6 +2082,8 @@ block|}
 elseif|else
 if|if
 condition|(
+name|isCIDFont
+operator|&&
 name|charsetId
 operator|==
 literal|1
@@ -2096,6 +2100,8 @@ block|}
 elseif|else
 if|if
 condition|(
+name|isCIDFont
+operator|&&
 name|charsetId
 operator|==
 literal|2
@@ -2146,12 +2152,16 @@ name|charset
 operator|=
 operator|new
 name|EmptyCharset
+argument_list|(
+name|charStringsIndex
+operator|.
+name|getCount
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-comment|//FIXME PDFBOX-2571
 name|charset
 operator|=
 name|CFFISOAdobeCharset
@@ -6395,7 +6405,10 @@ name|EmbeddedCharset
 block|{
 specifier|protected
 name|EmptyCharset
-parameter_list|()
+parameter_list|(
+name|int
+name|numCharStrings
+parameter_list|)
 block|{
 name|super
 argument_list|(
@@ -6410,6 +6423,30 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// .notdef
+comment|// Adobe Reader treats CID as GID, PDFBOX-2571 p11.
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|1
+init|;
+name|i
+operator|<=
+name|numCharStrings
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|addCID
+argument_list|(
+name|i
+argument_list|,
+name|i
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
