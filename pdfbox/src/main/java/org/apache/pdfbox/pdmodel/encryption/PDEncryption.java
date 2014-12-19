@@ -232,7 +232,7 @@ name|SecurityHandlerFactory
 operator|.
 name|INSTANCE
 operator|.
-name|newSecurityHandler
+name|newSecurityHandlerForFilter
 argument_list|(
 name|getFilter
 argument_list|()
