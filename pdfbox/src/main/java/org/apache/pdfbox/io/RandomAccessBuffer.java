@@ -45,6 +45,16 @@ name|ArrayList
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * An implementation of the RandomAccess interface to store a pdf in memory.  * The data will be stored in 16kb chunks organized in an ArrayList.    *  */
 end_comment
@@ -71,7 +81,7 @@ literal|16384
 decl_stmt|;
 comment|// list containing all chunks
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|byte
 index|[]
