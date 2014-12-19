@@ -536,6 +536,8 @@ throws|,
 name|UnrecoverableKeyException
 throws|,
 name|NoSuchAlgorithmException
+throws|,
+name|IOException
 block|{
 comment|// grabs the first alias from the keystore and get the private key. An
 comment|// alternative method or constructor could be used for setting a specific
@@ -576,7 +578,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Could not find alias"
 argument_list|)
@@ -647,7 +649,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Document for signing does not exist"
 argument_list|)
