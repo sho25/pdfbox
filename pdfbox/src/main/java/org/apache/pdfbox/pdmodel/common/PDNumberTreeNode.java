@@ -214,6 +214,7 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSDictionary
 name|node
 decl_stmt|;
@@ -278,6 +279,8 @@ name|valueClass
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -888,6 +891,8 @@ name|t
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|t
 argument_list|)
 throw|;
 block|}
