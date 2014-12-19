@@ -344,7 +344,7 @@ name|parentNode
 expr_stmt|;
 block|}
 comment|/**      * Returns the given attribute, inheriting from parent nodes if necessary.      *      * @param key the key to look up      * @return COS value for the given key      */
-specifier|public
+specifier|protected
 name|COSBase
 name|getInheritableAttribute
 parameter_list|(
@@ -363,7 +363,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns the given attribute, inheriting from parent nodes if necessary.      *      * @param fieldDictionary field object      * @param key the key to look up      * @return COS value for the given key      */
-specifier|public
+specifier|protected
 name|COSBase
 name|getInheritableAttribute
 parameter_list|(
@@ -431,7 +431,7 @@ literal|null
 return|;
 block|}
 comment|/**      * Sets the given attribute, inheriting from parent nodes if necessary.      *      * @param key the key to look up      * @param value the new attributes value      */
-specifier|public
+specifier|protected
 name|void
 name|setInheritableAttribute
 parameter_list|(
@@ -454,7 +454,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sets the given attribute, inheriting from parent nodes if necessary.      *      * @param fieldDictionary field object      * @param key the key to look up      * @param value the new attributes value      */
-specifier|public
+specifier|protected
 name|void
 name|setInheritableAttribute
 parameter_list|(
@@ -527,7 +527,7 @@ block|}
 block|}
 block|}
 comment|/**      * Removes the given attribute, inheriting from parent nodes if necessary.      *      * @param key the key to look up      */
-specifier|public
+specifier|protected
 name|void
 name|removeInheritableAttribute
 parameter_list|(
@@ -545,7 +545,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Removes the given attribute, inheriting from parent nodes if necessary.      *      * @param fieldDictionary field object      * @param key the key to look up      */
-specifier|public
+specifier|protected
 name|void
 name|removeInheritableAttribute
 parameter_list|(
@@ -607,6 +607,72 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+block|}
+comment|/**      * Get a text as text stream.      *       * Some dictionary entries allow either a text or a text stream.      *       * @param cosBaseEntry the potential text or text stream      * @return the text stream      * @throws IOException if the field dictionary entry is not a text type      */
+specifier|protected
+name|PDTextStream
+name|getAsTextStream
+parameter_list|(
+name|COSBase
+name|cosBaseEntry
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|cosBaseEntry
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+else|else
+block|{
+name|PDTextStream
+name|textStream
+init|=
+name|PDTextStream
+operator|.
+name|createTextStream
+argument_list|(
+name|cosBaseEntry
+argument_list|)
+decl_stmt|;
+comment|// This will happen if the entry was not a COSString or COSStream
+if|if
+condition|(
+name|textStream
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Invalid field value. Unexpected type "
+operator|+
+name|cosBaseEntry
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+return|return
+name|textStream
+return|;
 block|}
 block|}
 block|}
