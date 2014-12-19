@@ -800,7 +800,7 @@ block|{
 comment|// Text fields don't support the "DV" entry.
 throw|throw
 operator|new
-name|RuntimeException
+name|IllegalArgumentException
 argument_list|(
 literal|"Text fields don't support the \"DV\" entry."
 argument_list|)

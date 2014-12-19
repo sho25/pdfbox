@@ -203,7 +203,7 @@ block|{
 comment|// Nonterminal fields don't support the "V" entry.
 throw|throw
 operator|new
-name|RuntimeException
+name|IllegalArgumentException
 argument_list|(
 literal|"Nonterminal fields don't support the \"V\" entry."
 argument_list|)
@@ -232,7 +232,7 @@ block|{
 comment|// Nonterminal fields don't support the "DV" entry.
 throw|throw
 operator|new
-name|RuntimeException
+name|IllegalArgumentException
 argument_list|(
 literal|"Nonterminal fields don't support the \"DV\" entry."
 argument_list|)
