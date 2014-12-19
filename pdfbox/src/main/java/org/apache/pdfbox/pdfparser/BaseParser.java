@@ -2984,6 +2984,8 @@ operator|+
 name|octal
 operator|+
 literal|"'"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -3746,6 +3748,8 @@ operator|+
 name|hex
 operator|+
 literal|"'"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -5380,6 +5384,8 @@ operator|+
 name|longBuffer
 operator|+
 literal|"'"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
