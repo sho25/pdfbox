@@ -265,6 +265,8 @@ argument_list|(
 literal|"Value is not an integer: "
 operator|+
 name|number
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
