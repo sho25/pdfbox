@@ -1742,7 +1742,7 @@ block|}
 comment|/**      * Return an exception formatted on IOException when accessing on metadata schema      *       * @param target      *            the name of the schema      * @param cause      *            the raised IOException      * @return the generated exception      */
 specifier|protected
 name|ValidationException
-name|SchemaAccessException
+name|schemaAccessException
 parameter_list|(
 name|String
 name|target

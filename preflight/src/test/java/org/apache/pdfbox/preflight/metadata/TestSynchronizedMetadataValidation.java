@@ -1617,7 +1617,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Check if SchemaAccessException Generator is ok      *       * @throws Exception      */
+comment|/**      * Check if schemaAccessException Generator is ok      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -1642,7 +1642,7 @@ name|cause
 argument_list|,
 name|sync
 operator|.
-name|SchemaAccessException
+name|schemaAccessException
 argument_list|(
 literal|"test"
 argument_list|,
