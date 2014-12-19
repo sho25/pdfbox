@@ -496,6 +496,7 @@ name|SignatureInterface
 block|{
 specifier|private
 specifier|static
+specifier|final
 name|BouncyCastleProvider
 name|provider
 init|=
@@ -504,10 +505,12 @@ name|BouncyCastleProvider
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|PrivateKey
 name|privKey
 decl_stmt|;
 specifier|private
+specifier|final
 name|Certificate
 index|[]
 name|cert
@@ -642,12 +645,13 @@ name|exists
 argument_list|()
 condition|)
 block|{
+throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
 literal|"Document for signing does not exist"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 comment|// creating output document and prepare the IO streams.
 name|String
