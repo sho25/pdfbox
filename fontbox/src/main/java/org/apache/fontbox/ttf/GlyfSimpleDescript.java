@@ -101,6 +101,7 @@ index|[]
 name|yCoordinates
 decl_stmt|;
 specifier|private
+specifier|final
 name|int
 name|pointCount
 decl_stmt|;
@@ -139,14 +140,6 @@ expr_stmt|;
 return|return;
 block|}
 comment|// Simple glyph description
-name|endPtsOfContours
-operator|=
-operator|new
-name|int
-index|[
-name|numberOfContours
-index|]
-expr_stmt|;
 name|endPtsOfContours
 operator|=
 name|bais
@@ -223,6 +216,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getEndPtOfContours
@@ -239,6 +234,8 @@ index|]
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|byte
 name|getFlags
@@ -255,6 +252,8 @@ index|]
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|short
 name|getXCoordinate
@@ -271,6 +270,8 @@ index|]
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|short
 name|getYCoordinate
@@ -287,6 +288,8 @@ index|]
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isComposite
@@ -297,6 +300,8 @@ literal|false
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getPointCount
