@@ -128,6 +128,8 @@ implements|implements
 name|SyntaxHandler
 block|{
 comment|/** {@inheritDoc} */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|comment
@@ -139,6 +141,8 @@ block|{
 comment|//nop
 block|}
 comment|/** {@inheritDoc} */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|newLine
@@ -150,6 +154,8 @@ block|{
 comment|//nop
 block|}
 comment|/** {@inheritDoc} */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|whitespace
@@ -231,6 +237,7 @@ literal|'\u0020'
 decl_stmt|;
 comment|//SPACE
 specifier|private
+specifier|final
 name|CharSequence
 name|input
 decl_stmt|;
@@ -239,6 +246,7 @@ name|int
 name|index
 decl_stmt|;
 specifier|private
+specifier|final
 name|SyntaxHandler
 name|handler
 decl_stmt|;
@@ -251,6 +259,7 @@ operator|.
 name|WHITESPACE
 decl_stmt|;
 specifier|private
+specifier|final
 name|StringBuilder
 name|buffer
 init|=
@@ -526,10 +535,7 @@ condition|(
 name|ch
 operator|==
 name|CR
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|peek
 argument_list|()
 operator|==
@@ -545,7 +551,6 @@ name|nextChar
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|handler
 operator|.
