@@ -795,7 +795,7 @@ name|ERROR_SYNTAX_CONTENT_STREAM_UNSUPPORTED_OP
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process Text Validation. According to the operator one of the both method will be called.      * (validStringDefinition(PDFOperator operator, List<?> arguments) / validStringArray(PDFOperator operator, List<?>      * arguments))      *       * @param operator      * @param arguments      * @throws ContentStreamException      * @throws IOException      */
+comment|/**      * Process Text Validation. According to the operator one of the both method will be called.      * (validStringDefinition(PDFOperator operator, List<?> arguments) / validStringArray(PDFOperator operator, List<?>      * arguments))      *       * @param operator      * @param arguments      * @throws IOException      */
 specifier|protected
 name|void
 name|checkShowTextOperators
@@ -810,8 +810,6 @@ argument_list|>
 name|arguments
 parameter_list|)
 throws|throws
-name|ContentStreamException
-throws|,
 name|IOException
 block|{
 name|String
@@ -873,7 +871,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Process Text Validation for the Operands of a Tj, "'" and "\"" operator.      *       * If the validation fails for an unexpected reason, a IOException is thrown. If the validation fails due to      * validation error, a ContentStreamException is thrown. (Use the ValidationError attribute to know the cause)      *       * @param operator      * @param arguments      * @throws ContentStreamException      * @throws IOException      */
+comment|/**      * Process Text Validation for the Operands of a Tj, "'" and "\"" operator.      *       * If the validation fails for an unexpected reason, a IOException is thrown. If the validation fails due to      * validation error, a ContentStreamException is thrown. (Use the ValidationError attribute to know the cause)      *       * @param operator      * @param arguments      * @throws IOException      */
 specifier|private
 name|void
 name|validateStringDefinition
@@ -888,8 +886,6 @@ argument_list|>
 name|arguments
 parameter_list|)
 throws|throws
-name|ContentStreamException
-throws|,
 name|IOException
 block|{
 comment|/*          * For a Text operator, the arguments list should contain only one COSString object          */
@@ -1095,7 +1091,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Process Text Validation for the Operands of a TJ operator.      *       * If the validation fails for an unexpected reason, a IOException is thrown. If the validation fails due to      * validation error, a ContentStreamException is thrown. (Use the ValidationError attribute to know the cause)      *       * @param operator      * @param arguments      * @throws ContentStreamException      * @throws IOException      */
+comment|/**      * Process Text Validation for the Operands of a TJ operator.      *       * If the validation fails for an unexpected reason, a IOException is thrown. If the validation fails due to      * validation error, a ContentStreamException is thrown. (Use the ValidationError attribute to know the cause)      *       * @param operator      * @param arguments      * @throws IOException      */
 specifier|private
 name|void
 name|validateStringArray
@@ -1110,8 +1106,6 @@ argument_list|>
 name|arguments
 parameter_list|)
 throws|throws
-name|ContentStreamException
-throws|,
 name|IOException
 block|{
 for|for
