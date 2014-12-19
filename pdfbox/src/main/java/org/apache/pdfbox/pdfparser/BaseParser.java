@@ -2504,13 +2504,6 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-name|ByteArrayOutputStream
-name|out
-init|=
-operator|new
-name|ByteArrayOutputStream
-argument_list|()
-decl_stmt|;
 name|char
 name|openBrace
 decl_stmt|;
@@ -2562,6 +2555,13 @@ name|pdfSource
 argument_list|)
 throw|;
 block|}
+name|ByteArrayOutputStream
+name|out
+init|=
+operator|new
+name|ByteArrayOutputStream
+argument_list|()
+decl_stmt|;
 comment|//This is the number of braces read
 comment|//
 name|int
