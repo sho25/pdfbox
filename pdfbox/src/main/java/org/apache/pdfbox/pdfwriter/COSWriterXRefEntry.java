@@ -83,6 +83,8 @@ name|COSWriterXRefEntry
 name|nullEntry
 decl_stmt|;
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compareTo
@@ -94,8 +96,8 @@ block|{
 if|if
 condition|(
 name|obj
-operator|instanceof
-name|COSWriterXRefEntry
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
@@ -119,13 +121,10 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-else|else
-block|{
 return|return
 operator|-
 literal|1
 return|;
-block|}
 block|}
 comment|/**      * This will return a null entry: 0000000000 65535 f      *       * @return null COSWriterXRefEntry      */
 specifier|public
