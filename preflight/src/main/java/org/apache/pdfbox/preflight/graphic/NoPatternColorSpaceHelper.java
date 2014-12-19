@@ -111,6 +111,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This method updates the given list with a ValidationError (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN)      * and returns false.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|processPatternColorSpace

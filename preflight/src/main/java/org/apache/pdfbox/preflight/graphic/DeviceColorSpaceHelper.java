@@ -129,6 +129,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This method updates the given list with a ValidationError (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN)      * and returns false.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|processPatternColorSpace
@@ -152,6 +154,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This method updates the given list with a ValidationError (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN)      * and returns false.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|processDeviceNColorSpace
@@ -175,6 +179,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Indexed color space is authorized only if the BaseColorSpace is a DeviceXXX color space. In all other cases the      * given list is updated with a ValidationError (ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN) and returns      * false.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|processIndexedColorSpace

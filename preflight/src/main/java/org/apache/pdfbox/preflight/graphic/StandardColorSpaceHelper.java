@@ -221,16 +221,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -497,6 +487,8 @@ name|_cs
 expr_stmt|;
 block|}
 comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.graphics.color.ColorSpaceHelper#validate(java .util.List)      */
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -914,9 +906,6 @@ decl_stmt|;
 try|try
 block|{
 name|ICC_Profile
-name|iccp
-init|=
-name|ICC_Profile
 operator|.
 name|getInstance
 argument_list|(
@@ -928,29 +917,7 @@ operator|.
 name|getByteArray
 argument_list|()
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|iccp
-operator|==
-literal|null
-condition|)
-block|{
-name|context
-operator|.
-name|addValidationError
-argument_list|(
-operator|new
-name|ValidationError
-argument_list|(
-name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_ICCBASED
-argument_list|,
-literal|"Unable to read ICCBase color space "
-argument_list|)
-argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|PDColorSpace
 name|altpdcs
 init|=
