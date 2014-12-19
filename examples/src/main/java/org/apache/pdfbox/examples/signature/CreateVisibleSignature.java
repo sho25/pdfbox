@@ -498,7 +498,7 @@ specifier|private
 specifier|static
 specifier|final
 name|BouncyCastleProvider
-name|provider
+name|BCPROVIDER
 init|=
 operator|new
 name|BouncyCastleProvider
@@ -1200,7 +1200,7 @@ name|getInstance
 argument_list|(
 literal|"PKCS12"
 argument_list|,
-name|provider
+name|BCPROVIDER
 argument_list|)
 decl_stmt|;
 name|char
