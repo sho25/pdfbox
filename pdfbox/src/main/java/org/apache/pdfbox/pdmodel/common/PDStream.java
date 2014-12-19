@@ -400,9 +400,6 @@ index|]
 decl_stmt|;
 name|int
 name|amountRead
-init|=
-operator|-
-literal|1
 decl_stmt|;
 while|while
 condition|(
@@ -1583,9 +1580,6 @@ argument_list|()
 expr_stmt|;
 name|int
 name|amountRead
-init|=
-operator|-
-literal|1
 decl_stmt|;
 while|while
 condition|(
