@@ -172,6 +172,8 @@ expr_stmt|;
 comment|/*if( baseObject == null )         {             baseObject = object;         }         else         {             //This is for when an object appears twice in the             //pdf file we really want to replace it such that             //object references still work correctly.             //see owcp-as-received.pdf for an example             if( baseObject instanceof COSDictionary )             {                 COSDictionary dic = (COSDictionary)baseObject;                 COSDictionary dicObject = (COSDictionary)object;                 dic.clear();                 dic.addAll( dicObject );             }             else if( baseObject instanceof COSArray )             {                 COSArray array = (COSArray)baseObject;                 COSArray arrObject = (COSArray)object;                 array.clear();                 for( int i=0; i<arrObject.size(); i++ )                 {                     array.add( arrObject.get( i ) );                 }             }             else if( baseObject instanceof COSStream )             {                 COSStream oldStream = (COSStream)baseObject;                 System.out.println( "object:" +  object.getClass().getName() );                 COSStream newStream = (COSStream)object;                 oldStream.replaceWithStream( newStream );             }             else if( baseObject instanceof COSInteger )             {                 COSInteger oldInt = (COSInteger)baseObject;                 COSInteger newInt = (COSInteger)object;                 oldInt.setValue( newInt.longValue() );             }             else if( baseObject == null )             {                 baseObject = object;             }             else             {                 throw new IOException( "Unknown object substitution type:" + baseObject );             }         }*/
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -264,6 +266,8 @@ name|generationNumberValue
 expr_stmt|;
 block|}
 comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException If an error occurs while visiting this object.      */
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|accept

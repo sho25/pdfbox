@@ -118,6 +118,8 @@ operator|+
 name|aFloat
 operator|+
 literal|"'"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -228,6 +230,8 @@ name|value
 return|;
 block|}
 comment|/**      * The value of the float object that this one wraps.      *      * @return The value of this object.      */
+annotation|@
+name|Override
 specifier|public
 name|float
 name|floatValue
@@ -241,6 +245,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * The value of the double object that this one wraps.      *      * @return The double of this object.      */
+annotation|@
+name|Override
 specifier|public
 name|double
 name|doubleValue
@@ -254,6 +260,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * This will get the long value of this object.      *      * @return The long value of this object,      */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|longValue
@@ -267,6 +275,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * This will get the integer value of this object.      *      * @return The int value of this object,      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|intValue
@@ -280,6 +290,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
@@ -322,6 +334,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode
@@ -335,6 +349,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -349,6 +365,8 @@ literal|"}"
 return|;
 block|}
 comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException If an error occurs while visiting this object.      */
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|accept

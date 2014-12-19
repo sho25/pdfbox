@@ -206,6 +206,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException If an error occurs while visiting this object.      */
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|accept
@@ -226,6 +228,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Return a string representation of this object.      *      * @return The string value of this object.      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString

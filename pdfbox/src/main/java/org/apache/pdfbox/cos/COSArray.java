@@ -959,6 +959,8 @@ literal|"}"
 return|;
 block|}
 comment|/**      * Get access to the list.      *      * @return an iterator over the array elements      */
+annotation|@
+name|Override
 specifier|public
 name|Iterator
 argument_list|<
