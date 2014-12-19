@@ -548,10 +548,7 @@ operator|.
 name|getNamespace
 argument_list|()
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|XmpConstants
 operator|.
 name|ABOUT_NAME
@@ -572,8 +569,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-block|}
-comment|// else
 throw|throw
 operator|new
 name|BadFieldValueException
@@ -1286,7 +1281,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Get a simple boolean property value on the schema, using the current prefix.      *       * @param simpleName      *            the local name of property wanted      * @return The value of the property as a boolean.      */
+comment|/**      * Get a simple boolean property value on the schema, using the current prefix.      *       * @param simpleName      *            the local name of property wanted      * @return The value of the property as a boolean or null if the property does not exist.      */
 specifier|public
 name|Boolean
 name|getBooleanPropertyValueAsSimple
@@ -1304,7 +1299,7 @@ name|simpleName
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the value of the property as a boolean.      *       * @param qualifiedName      *            The fully qualified property name for the boolean.      *       * @return The value of the property as a boolean. Return null if property not exist      */
+comment|/**      * Get the value of the property as a boolean.      *       * @param qualifiedName      *            The fully qualified property name for the boolean.      *       * @return The value of the property as a boolean or null if the property does not exist.      */
 specifier|public
 name|Boolean
 name|getBooleanPropertyValue
@@ -2496,10 +2491,7 @@ condition|(
 name|tmp
 operator|instanceof
 name|DateType
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|(
 operator|(
 name|DateType
@@ -2523,7 +2515,6 @@ argument_list|(
 name|tmp
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|Iterator
@@ -2776,10 +2767,7 @@ name|it
 operator|.
 name|hasNext
 argument_list|()
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|it
 operator|.
 name|next
@@ -2804,7 +2792,6 @@ argument_list|)
 condition|)
 block|{
 return|return;
-block|}
 block|}
 comment|// Find the xdefault definition
 while|while
@@ -3425,10 +3412,7 @@ condition|(
 name|text
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|text
 operator|.
 name|getValue
@@ -3451,7 +3435,6 @@ operator|.
 name|getStringValue
 argument_list|()
 return|;
-block|}
 block|}
 block|}
 return|return
@@ -3849,10 +3832,7 @@ condition|(
 name|tmpEmbeddedProperty
 operator|instanceof
 name|ArrayProperty
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|tmpEmbeddedProperty
 operator|.
 name|getPropertyName
@@ -3980,7 +3960,6 @@ argument_list|(
 name|tmpNewValue
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
