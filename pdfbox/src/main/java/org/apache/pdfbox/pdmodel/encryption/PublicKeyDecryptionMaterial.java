@@ -336,6 +336,8 @@ operator|new
 name|KeyStoreException
 argument_list|(
 literal|"the private key is not recoverable"
+argument_list|,
+name|ex
 argument_list|)
 throw|;
 block|}
@@ -350,6 +352,8 @@ operator|new
 name|KeyStoreException
 argument_list|(
 literal|"the algorithm necessary to recover the key is not available"
+argument_list|,
+name|ex
 argument_list|)
 throw|;
 block|}
