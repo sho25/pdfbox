@@ -1209,29 +1209,21 @@ block|}
 comment|// nothing found
 if|if
 condition|(
-operator|(
+operator|!
 name|header
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 name|PDF_HEADER
 argument_list|)
-operator|==
-operator|-
-literal|1
-operator|)
 operator|&&
-operator|(
+operator|!
 name|header
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 name|FDF_HEADER
 argument_list|)
-operator|==
-operator|-
-literal|1
-operator|)
 condition|)
 block|{
 throw|throw
@@ -1636,8 +1628,13 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Error getting pdf version:"
+literal|"Error getting pdf version: "
 operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -2953,9 +2950,6 @@ operator|new
 name|IOException
 argument_list|(
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 throw|;
 block|}
