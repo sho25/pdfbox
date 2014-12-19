@@ -167,28 +167,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|value
-operator|instanceof
-name|String
-condition|)
-block|{
-name|String
-name|stringValue
-init|=
-operator|(
-name|String
-operator|)
-name|value
-decl_stmt|;
 name|COSString
 name|fieldValue
 init|=
 operator|new
 name|COSString
 argument_list|(
-name|stringValue
+name|value
 argument_list|)
 decl_stmt|;
 name|setInheritableAttribute
@@ -203,7 +188,6 @@ argument_list|,
 name|fieldValue
 argument_list|)
 expr_stmt|;
-block|}
 comment|// TODO stream instead of string
 block|}
 else|else
