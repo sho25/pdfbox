@@ -1189,6 +1189,8 @@ operator|+
 literal|"' "
 operator|+
 name|pdfSource
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
