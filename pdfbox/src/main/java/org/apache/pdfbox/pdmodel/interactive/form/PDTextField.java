@@ -81,20 +81,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSString
 import|;
 end_import
@@ -205,7 +191,7 @@ name|maxLen
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * setValue sets the default value for the field.      *       * @param value the default value      *       */
+comment|/**      * Sets the default value for the field.      *       * The value is stored in the field dictionaries "DV" entry.      *      * @param value the default value      */
 specifier|public
 name|void
 name|setDefaultValue
@@ -252,7 +238,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * getValue gets the value of the "V" entry.      *       * @return The value of this entry.      *       */
+comment|/**      * Get the fields default value.      *       * The value is stored in the field dictionaries "DV" entry.      *       * @return The value of this entry.      */
 annotation|@
 name|Override
 specifier|public
@@ -297,7 +283,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      *       */
+comment|/**      * Set the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @param value the value      */
 specifier|public
 name|void
 name|setValue
@@ -339,7 +325,7 @@ name|removeInheritableAttribute
 argument_list|(
 name|COSName
 operator|.
-name|DV
+name|V
 argument_list|)
 expr_stmt|;
 block|}
@@ -348,7 +334,7 @@ name|updateFieldAppearances
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * getValue gets the value of the "V" entry.      *       * @return The value of this entry.      * @throws IOException       *       */
+comment|/**      * Get the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @return The value of this entry.      * @throws IOException if the field dictionary entry is not a text type      */
 annotation|@
 name|Override
 specifier|public
