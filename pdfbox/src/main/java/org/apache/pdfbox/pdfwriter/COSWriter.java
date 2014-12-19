@@ -1041,7 +1041,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
-name|HashSet
+name|Set
 argument_list|<
 name|COSBase
 argument_list|>

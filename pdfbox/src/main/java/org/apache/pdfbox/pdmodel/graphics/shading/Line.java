@@ -39,6 +39,16 @@ name|HashSet
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class describes a rasterized line. This was done as part of GSoC2014,  * Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
@@ -71,7 +81,7 @@ name|color1
 decl_stmt|;
 specifier|protected
 specifier|final
-name|HashSet
+name|Set
 argument_list|<
 name|Point
 argument_list|>
@@ -143,7 +153,7 @@ expr_stmt|;
 block|}
 comment|/**      * Calculate the points of a line with Bresenham's line algorithm      *<a      * href="http://en.wikipedia.org/wiki/Bresenham's_line_algorithm">Bresenham's      * line algorithm</a>      *      * @param x0 coordinate      * @param y0 coordinate      * @param x1 coordinate      * @param y1 coordinate      * @return all the points on the rasterized line from (x0, y0) to (x1, y1)      */
 specifier|private
-name|HashSet
+name|Set
 argument_list|<
 name|Point
 argument_list|>
@@ -162,7 +172,7 @@ name|int
 name|y1
 parameter_list|)
 block|{
-name|HashSet
+name|Set
 argument_list|<
 name|Point
 argument_list|>

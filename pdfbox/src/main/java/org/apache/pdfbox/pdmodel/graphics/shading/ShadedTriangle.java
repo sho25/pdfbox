@@ -51,6 +51,16 @@ name|HashSet
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an assistant class for accomplishing type 4, 5, 6 and 7 shading. It  * describes a triangle actually, which is used to compose a patch. It contains  * the degenerated cases, a triangle degenerates to a line or to a point. This  * was done as part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
@@ -478,7 +488,7 @@ index|[]
 name|p
 parameter_list|)
 block|{
-name|HashSet
+name|Set
 argument_list|<
 name|Point
 argument_list|>

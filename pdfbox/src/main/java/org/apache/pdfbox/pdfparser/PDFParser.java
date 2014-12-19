@@ -101,6 +101,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|regex
 operator|.
 name|Pattern
@@ -415,7 +425,7 @@ decl_stmt|;
 comment|/**      * COSStream objects to check for length correctness.      */
 specifier|private
 specifier|final
-name|HashSet
+name|Set
 argument_list|<
 name|COSStream
 argument_list|>
