@@ -337,7 +337,7 @@ name|isEdgeALine
 argument_list|(
 name|ctlC1
 argument_list|)
-operator|&
+operator|&&
 name|isEdgeALine
 argument_list|(
 name|ctlC2
@@ -357,7 +357,7 @@ index|[
 literal|1
 index|]
 argument_list|)
-operator||
+operator|||
 name|isOnSameSideCC
 argument_list|(
 name|controlPoints
@@ -368,7 +368,7 @@ index|[
 literal|2
 index|]
 argument_list|)
-operator||
+operator|||
 name|isOnSameSideCC
 argument_list|(
 name|controlPoints
@@ -379,7 +379,7 @@ index|[
 literal|1
 index|]
 argument_list|)
-operator||
+operator|||
 name|isOnSameSideCC
 argument_list|(
 name|controlPoints
@@ -438,7 +438,9 @@ name|lc2
 operator|>
 literal|800
 condition|)
-block|{                 }
+block|{
+comment|// keeps init value 4
+block|}
 elseif|else
 if|if
 condition|(
@@ -501,7 +503,7 @@ index|[
 literal|0
 index|]
 argument_list|)
-operator|&
+operator|&&
 name|isEdgeALine
 argument_list|(
 name|controlPoints
@@ -523,7 +525,7 @@ index|[
 literal|1
 index|]
 argument_list|)
-operator||
+operator|||
 name|isOnSameSideDD
 argument_list|(
 name|controlPoints
@@ -534,7 +536,7 @@ index|[
 literal|2
 index|]
 argument_list|)
-operator||
+operator|||
 name|isOnSameSideDD
 argument_list|(
 name|controlPoints
@@ -545,7 +547,7 @@ index|[
 literal|1
 index|]
 argument_list|)
-operator||
+operator|||
 name|isOnSameSideDD
 argument_list|(
 name|controlPoints
@@ -616,7 +618,9 @@ name|ld2
 operator|>
 literal|800
 condition|)
-block|{                 }
+block|{
+comment|// keeps init value 4
+block|}
 elseif|else
 if|if
 condition|(
