@@ -457,10 +457,6 @@ decl_stmt|;
 if|if
 condition|(
 name|typeItem
-operator|!=
-literal|null
-operator|&&
-name|typeItem
 operator|instanceof
 name|COSName
 condition|)
@@ -634,10 +630,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|typeItem
-operator|!=
-literal|null
-operator|&&
 name|typeItem
 operator|instanceof
 name|COSName
