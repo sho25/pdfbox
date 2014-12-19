@@ -323,6 +323,7 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
+specifier|final
 name|boolean
 name|throwNonConformingException
 init|=
@@ -599,12 +600,6 @@ name|IOException
 throws|,
 name|NumberFormatException
 block|{
-name|long
-name|xrefLocation
-init|=
-operator|-
-literal|1
-decl_stmt|;
 name|consumeWhitespaceBackwards
 argument_list|()
 expr_stmt|;
@@ -639,11 +634,12 @@ name|currentLine
 argument_list|)
 throw|;
 block|}
+name|long
 name|xrefLocation
-operator|=
+init|=
 name|readLongBackwards
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|currentLine
 operator|=
 name|readLineBackwards
@@ -1578,6 +1574,8 @@ operator|new
 name|RuntimeException
 argument_list|(
 literal|"Not yet implemented"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
