@@ -269,16 +269,9 @@ name|out
 operator|.
 name|println
 argument_list|(
-operator|new
-name|Integer
-argument_list|(
 name|fields
 operator|.
 name|size
-argument_list|()
-argument_list|)
-operator|.
-name|toString
 argument_list|()
 operator|+
 literal|" top-level fields were found on the form"
@@ -375,10 +368,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|field
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|sParent
 operator|.
@@ -468,8 +457,6 @@ else|else
 block|{
 name|String
 name|fieldValue
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -552,7 +539,10 @@ operator|.
 name|append
 argument_list|(
 literal|"."
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|partialName
 argument_list|)
 expr_stmt|;
@@ -562,7 +552,10 @@ operator|.
 name|append
 argument_list|(
 literal|" = "
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|fieldValue
 argument_list|)
 expr_stmt|;
@@ -571,7 +564,10 @@ operator|.
 name|append
 argument_list|(
 literal|",  type="
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|field
 operator|.
 name|getClass
