@@ -39,7 +39,7 @@ begin_class
 class|class
 name|CubicBezierCurve
 block|{
-specifier|protected
+specifier|private
 specifier|final
 name|Point2D
 index|[]
