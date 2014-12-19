@@ -631,15 +631,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the default style string.      *       * The default style string defines the default style for      * rich text fields.      *       * @return the DD element of the dictionary object      */
+comment|/**      * Get the default style string.      *       * The default style string defines the default style for      * rich text fields.      *       * @return the DS element of the dictionary object      */
 specifier|public
-name|COSString
+name|String
 name|getDefaultStyleString
 parameter_list|()
 block|{
-name|COSBase
+name|COSString
 name|defaultStyleString
 init|=
+operator|(
+name|COSString
+operator|)
 name|getDictionary
 argument_list|()
 operator|.
@@ -651,10 +654,10 @@ name|DS
 argument_list|)
 decl_stmt|;
 return|return
-operator|(
-name|COSString
-operator|)
 name|defaultStyleString
+operator|.
+name|getString
+argument_list|()
 return|;
 block|}
 comment|/**      * Set the default style string.      *       * Providing null as the value will remove the default style string.      *       * @param defaultStyleString a string describing the default style.      */
