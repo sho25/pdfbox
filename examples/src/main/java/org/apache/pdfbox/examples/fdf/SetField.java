@@ -387,12 +387,7 @@ operator|)
 operator|.
 name|setValue
 argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 name|value
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
