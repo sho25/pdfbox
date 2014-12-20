@@ -1862,9 +1862,6 @@ decl_stmt|;
 name|int
 name|genNum
 decl_stmt|;
-name|String
-name|objectKey
-decl_stmt|;
 name|boolean
 name|missingObjectNumber
 init|=
@@ -1934,15 +1931,14 @@ operator|=
 name|readGenerationNumber
 argument_list|()
 expr_stmt|;
+name|String
 name|objectKey
-operator|=
+init|=
 name|readString
 argument_list|(
 literal|3
 argument_list|)
-expr_stmt|;
-comment|//System.out.println( "parseObject() num=" + number +
-comment|//" genNumber=" + genNum + " key='" + objectKey + "'" );
+decl_stmt|;
 if|if
 condition|(
 operator|!
