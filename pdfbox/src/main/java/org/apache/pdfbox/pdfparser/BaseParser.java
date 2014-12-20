@@ -5165,7 +5165,7 @@ expr_stmt|;
 block|}
 comment|//log( "skipSpaces() done peek='" + (char)pdfSource.peek() + "'" );
 block|}
-comment|/**      * This will read a long from the Stream and throw an {@link IllegalArgumentException} if the long value      * has more than 10 digits (i.e. : bigger than {@link #OBJECT_NUMBER_THRESHOLD})      * @return the object number being read.      * @throws IOException if an I/O error occurs      */
+comment|/**      * This will read a long from the Stream and throw an {@link IOException} if      * the long value is negative or has more than 10 digits (i.e. : bigger than      * {@link #OBJECT_NUMBER_THRESHOLD})      *      * @return the object number being read.      * @throws IOException if an I/O error occurs      */
 specifier|protected
 name|long
 name|readObjectNumber
