@@ -224,22 +224,13 @@ specifier|protected
 name|int
 name|numberOfColorComponents
 decl_stmt|;
-comment|/**      * background values.      */
-specifier|protected
-name|float
-index|[]
-name|background
-decl_stmt|;
-specifier|protected
-name|int
-name|rgbBackground
-decl_stmt|;
 specifier|final
 specifier|protected
 name|boolean
 name|hasFunction
 decl_stmt|;
-specifier|protected
+comment|/**      * Map of pixels within triangles to their RGB color.      */
+specifier|private
 name|Map
 argument_list|<
 name|Point
@@ -363,6 +354,28 @@ name|numberOfColorComponents
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Calculate every point and its color and store them in a Hash table.      *      * @return a Hash table which contains all the points' positions and colors      * of one image      */
+specifier|abstract
+name|Map
+argument_list|<
+name|Point
+argument_list|,
+name|Integer
+argument_list|>
+name|calcPixelTable
+parameter_list|()
+function_decl|;
+specifier|protected
+name|void
+name|createPixelTable
+parameter_list|()
+block|{
+name|pixelTable
+operator|=
+name|calcPixelTable
+argument_list|()
+expr_stmt|;
+block|}
 comment|// get the points from the triangles, calculate their color and add
 comment|// point-color mappings to the map
 specifier|protected
@@ -431,7 +444,7 @@ name|put
 argument_list|(
 name|p
 argument_list|,
-name|convertToRGB
+name|evalFunctionAndConvertToRGB
 argument_list|(
 name|line
 operator|.
@@ -608,7 +621,7 @@ name|put
 argument_list|(
 name|p
 argument_list|,
-name|convertToRGB
+name|evalFunctionAndConvertToRGB
 argument_list|(
 name|tri
 operator|.
@@ -673,11 +686,9 @@ block|}
 comment|// convert color to RGB color value, using function if required,
 comment|// then convert from the shading colorspace to an RGB value,
 comment|// which is encoded into an integer.
-annotation|@
-name|Override
-specifier|protected
+specifier|private
 name|int
-name|convertToRGB
+name|evalFunctionAndConvertToRGB
 parameter_list|(
 name|float
 index|[]
@@ -719,8 +730,6 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|super
-operator|.
 name|convertToRGB
 argument_list|(
 name|values
@@ -733,6 +742,7 @@ name|boolean
 name|emptyList
 parameter_list|()
 function_decl|;
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -745,6 +755,7 @@ return|return
 name|outputColorModel
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -761,6 +772,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -846,10 +858,8 @@ condition|(
 name|bboxRect
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
+operator|(
 name|currentY
 argument_list|<
 name|minBBoxY
@@ -857,10 +867,10 @@ operator|||
 name|currentY
 argument_list|>
 name|maxBBoxY
+operator|)
 condition|)
 block|{
 continue|continue;
-block|}
 block|}
 for|for
 control|(
@@ -889,10 +899,8 @@ condition|(
 name|bboxRect
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
+operator|(
 name|currentX
 argument_list|<
 name|minBBoxX
@@ -900,10 +908,10 @@ operator|||
 name|currentX
 argument_list|>
 name|maxBBoxX
+operator|)
 condition|)
 block|{
 continue|continue;
-block|}
 block|}
 name|Point
 name|p
@@ -944,19 +952,16 @@ block|{
 if|if
 condition|(
 name|background
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+continue|continue;
+block|}
 name|value
 operator|=
 name|rgbBackground
 expr_stmt|;
-block|}
-else|else
-block|{
-continue|continue;
-block|}
 block|}
 name|int
 name|index

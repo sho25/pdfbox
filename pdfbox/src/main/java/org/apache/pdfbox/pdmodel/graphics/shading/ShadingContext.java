@@ -145,6 +145,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -186,7 +200,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class to handle stuff that is common to all shading types.  *  * @author Shaola Ren  * @author Tilman Hausherr  */
+comment|/**  * A base class to handle what is common to all shading types.  *  * @author Shaola Ren  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -241,6 +255,15 @@ decl_stmt|;
 specifier|protected
 name|ColorModel
 name|outputColorModel
+decl_stmt|;
+specifier|protected
+name|float
+index|[]
+name|background
+decl_stmt|;
+specifier|protected
+name|int
+name|rgbBackground
 decl_stmt|;
 specifier|public
 name|ShadingContext
@@ -332,6 +355,37 @@ argument_list|(
 name|ctm
 argument_list|,
 name|xform
+argument_list|)
+expr_stmt|;
+block|}
+comment|// get background values if available
+name|COSArray
+name|bg
+init|=
+name|shading
+operator|.
+name|getBackground
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|bg
+operator|!=
+literal|null
+condition|)
+block|{
+name|background
+operator|=
+name|bg
+operator|.
+name|toFloatArray
+argument_list|()
+expr_stmt|;
+name|rgbBackground
+operator|=
+name|convertToRGB
+argument_list|(
+name|background
 argument_list|)
 expr_stmt|;
 block|}
@@ -531,8 +585,9 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|// convert color to RGB color values encoded into an integer.
+comment|/**      * Convert color values from shading colorspace to RGB color values encoded      * into an integer.      *      * @param values color values in shading colorspace.      * @return RGB values encoded in an integer.      */
 specifier|protected
+specifier|final
 name|int
 name|convertToRGB
 parameter_list|(

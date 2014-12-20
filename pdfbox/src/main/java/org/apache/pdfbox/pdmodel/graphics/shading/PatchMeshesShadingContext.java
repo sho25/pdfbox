@@ -197,20 +197,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSDictionary
 import|;
 end_import
@@ -364,36 +350,6 @@ name|Patch
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|COSArray
-name|bg
-init|=
-name|shading
-operator|.
-name|getBackground
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|bg
-operator|!=
-literal|null
-condition|)
-block|{
-name|background
-operator|=
-name|bg
-operator|.
-name|toFloatArray
-argument_list|()
-expr_stmt|;
-name|rgbBackground
-operator|=
-name|convertToRGB
-argument_list|(
-name|background
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Create a patch list from a data stream, the returned list contains all      * the patches contained in the data stream.      *      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param cosDictionary dictionary object to give the image information      * @param rangeX range for coordinate x      * @param rangeY range for coordinate y      * @param colRange range for color      * @param numP number of control points, 12 for type 6 shading and 16 for      * type 7 shading      * @return the obtained patch list      * @throws IOException when something went wrong      */
 specifier|protected
@@ -1180,7 +1136,7 @@ name|rangeMin
 operator|)
 return|;
 block|}
-comment|/**      * Calculate every point and its color and store them in a Hash table.      *      * @return a Hash table which contains all the points' positions and colors      * of one image      */
+comment|/**      * {@inheritDoc}      */
 specifier|protected
 name|Map
 argument_list|<
@@ -1232,6 +1188,7 @@ return|return
 name|map
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public

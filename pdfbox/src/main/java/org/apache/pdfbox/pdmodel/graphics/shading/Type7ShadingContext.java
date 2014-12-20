@@ -183,9 +183,7 @@ argument_list|,
 name|ctm
 argument_list|)
 expr_stmt|;
-name|pixelTable
-operator|=
-name|calcPixelTable
+name|createPixelTable
 argument_list|()
 expr_stmt|;
 block|}

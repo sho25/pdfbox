@@ -173,20 +173,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|cos
-operator|.
-name|COSArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|common
@@ -287,48 +273,6 @@ name|ShadedTriangle
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Background: "
-operator|+
-name|shading
-operator|.
-name|getBackground
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|COSArray
-name|bg
-init|=
-name|shading
-operator|.
-name|getBackground
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|bg
-operator|!=
-literal|null
-condition|)
-block|{
-name|background
-operator|=
-name|bg
-operator|.
-name|toFloatArray
-argument_list|()
-expr_stmt|;
-name|rgbBackground
-operator|=
-name|convertToRGB
-argument_list|(
-name|background
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Read a vertex from the bit input stream performs interpolations.      *      * @param input bit input stream      * @param flag the flag or any value if not relevant      * @param maxSrcCoord max value for source coordinate (2^bits-1)      * @param maxSrcColor max value for source color (2^bits-1)      * @param rangeX dest range for X      * @param rangeY dest range for Y      * @param colRangeTab dest range array for colors      * @return a new vertex with the flag and the interpolated values      * @throws IOException if something went wrong      */
 specifier|protected
@@ -582,6 +526,7 @@ name|colorComponentTab
 argument_list|)
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
 specifier|protected
 name|Map
 argument_list|<
@@ -622,6 +567,7 @@ return|return
 name|map
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public

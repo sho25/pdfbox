@@ -145,20 +145,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|cos
-operator|.
-name|COSArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|util
 operator|.
 name|Matrix
@@ -166,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT PaintContext for function-based (Type 1) shading.  *  * @author Andreas Lehmkühler  * @author Tilman Hausherr  */
+comment|/**  * AWT PaintContext for function-based (Type 1) shading.  *  * @author Andreas LehmkÃ¼hler  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -209,11 +195,6 @@ decl_stmt|;
 specifier|private
 name|Matrix
 name|matrix
-decl_stmt|;
-specifier|private
-name|float
-index|[]
-name|background
 decl_stmt|;
 comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param dBounds device bounds      */
 specifier|public
@@ -375,30 +356,6 @@ name|ex
 argument_list|)
 expr_stmt|;
 block|}
-comment|// get background values if available
-name|COSArray
-name|bg
-init|=
-name|shading
-operator|.
-name|getBackground
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|bg
-operator|!=
-literal|null
-condition|)
-block|{
-name|background
-operator|=
-name|bg
-operator|.
-name|toFloatArray
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -504,10 +461,8 @@ condition|(
 name|bboxRect
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
+operator|(
 name|currentY
 argument_list|<
 name|minBBoxY
@@ -515,10 +470,10 @@ operator|||
 name|currentY
 argument_list|>
 name|maxBBoxY
+operator|)
 condition|)
 block|{
 continue|continue;
-block|}
 block|}
 for|for
 control|(
@@ -547,10 +502,8 @@ condition|(
 name|bboxRect
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
+operator|(
 name|currentX
 argument_list|<
 name|minBBoxX
@@ -558,10 +511,10 @@ operator|||
 name|currentX
 argument_list|>
 name|maxBBoxX
+operator|)
 condition|)
 block|{
 continue|continue;
-block|}
 block|}
 name|int
 name|index
@@ -659,19 +612,16 @@ block|{
 if|if
 condition|(
 name|background
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+continue|continue;
+block|}
 name|useBackground
 operator|=
 literal|true
 expr_stmt|;
-block|}
-else|else
-block|{
-continue|continue;
-block|}
 block|}
 comment|// evaluate function
 if|if
