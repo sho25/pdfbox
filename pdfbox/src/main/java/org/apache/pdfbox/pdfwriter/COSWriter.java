@@ -928,6 +928,7 @@ name|US_ASCII
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|final
 name|NumberFormat
 name|formatXrefOffset
 init|=
@@ -939,6 +940,7 @@ argument_list|)
 decl_stmt|;
 comment|// the decimal format for the xref object generation number data
 specifier|private
+specifier|final
 name|NumberFormat
 name|formatXrefGeneration
 init|=
@@ -949,6 +951,7 @@ literal|"00000"
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|final
 name|NumberFormat
 name|formatDecimal
 init|=
@@ -990,6 +993,7 @@ comment|// these are used for indirect references in other objects
 comment|//A hashtable is used on purpose over a hashmap
 comment|//so that null entries will not get added.
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|COSBase
@@ -1008,6 +1012,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|COSObjectKey
@@ -1027,6 +1032,7 @@ argument_list|()
 decl_stmt|;
 comment|// the list of x ref entries to be made so far
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|COSWriterXRefEntry
@@ -1041,6 +1047,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|COSBase
@@ -1056,6 +1063,7 @@ argument_list|()
 decl_stmt|;
 comment|//A list of objects to write.
 specifier|private
+specifier|final
 name|LinkedList
 argument_list|<
 name|COSBase
@@ -1071,6 +1079,7 @@ argument_list|()
 decl_stmt|;
 comment|//a list of objects already written
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|COSBase
@@ -1091,6 +1100,7 @@ comment|//when adding a COSObject and then later adding
 comment|//the actual for that object, so we will track
 comment|//actuals separately.
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|COSBase
@@ -1439,6 +1449,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will close the stream.      *      * @throws IOException If the underlying stream throws an exception.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -3597,11 +3609,6 @@ name|xRefEntriesList
 parameter_list|)
 block|{
 name|int
-name|nr
-init|=
-literal|0
-decl_stmt|;
-name|int
 name|last
 init|=
 operator|-
@@ -3633,8 +3640,9 @@ range|:
 name|xRefEntriesList
 control|)
 block|{
+name|int
 name|nr
-operator|=
+init|=
 call|(
 name|int
 call|)
@@ -3650,7 +3658,7 @@ argument_list|()
 operator|.
 name|getNumber
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|nr
@@ -5084,8 +5092,6 @@ index|]
 decl_stmt|;
 name|int
 name|amountRead
-init|=
-literal|0
 decl_stmt|;
 name|int
 name|totalAmountWritten
@@ -5799,6 +5805,21 @@ case|:
 case|case
 literal|'\\'
 case|:
+case|case
+literal|'\r'
+case|:
+case|case
+literal|'\n'
+case|:
+case|case
+literal|'\t'
+case|:
+case|case
+literal|'\b'
+case|:
+case|case
+literal|'\f'
+case|:
 name|output
 operator|.
 name|write
@@ -5811,96 +5832,6 @@ operator|.
 name|write
 argument_list|(
 name|b
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|'\r'
-case|:
-name|output
-operator|.
-name|write
-argument_list|(
-literal|'\\'
-argument_list|)
-expr_stmt|;
-name|output
-operator|.
-name|write
-argument_list|(
-literal|'\r'
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|'\n'
-case|:
-name|output
-operator|.
-name|write
-argument_list|(
-literal|'\\'
-argument_list|)
-expr_stmt|;
-name|output
-operator|.
-name|write
-argument_list|(
-literal|'\n'
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|'\t'
-case|:
-name|output
-operator|.
-name|write
-argument_list|(
-literal|'\\'
-argument_list|)
-expr_stmt|;
-name|output
-operator|.
-name|write
-argument_list|(
-literal|'\t'
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|'\b'
-case|:
-name|output
-operator|.
-name|write
-argument_list|(
-literal|'\\'
-argument_list|)
-expr_stmt|;
-name|output
-operator|.
-name|write
-argument_list|(
-literal|'\b'
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|'\f'
-case|:
-name|output
-operator|.
-name|write
-argument_list|(
-literal|'\\'
-argument_list|)
-expr_stmt|;
-name|output
-operator|.
-name|write
-argument_list|(
-literal|'\f'
 argument_list|)
 expr_stmt|;
 break|break;
