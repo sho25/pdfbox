@@ -1374,10 +1374,6 @@ elseif|else
 if|if
 condition|(
 name|lastSection
-operator|!=
-literal|null
-operator|&&
-name|lastSection
 operator|.
 name|endsWith
 argument_list|(
@@ -1512,10 +1508,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|lastSection
-operator|!=
-literal|null
-operator|&&
 name|lastSection
 operator|.
 name|endsWith
