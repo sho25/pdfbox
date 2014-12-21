@@ -5776,14 +5776,9 @@ name|equals
 argument_list|(
 literal|"obj"
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-operator|!
+operator|&&
 name|continueOnError
-operator|||
-operator|!
+operator|&&
 name|objectKey
 operator|.
 name|equals
@@ -5808,7 +5803,6 @@ throw|;
 block|}
 comment|//assume that "o" was meant to be "obj" (this is a workaround for
 comment|// PDFBOX-773 attached PDF Andersens_Fairy_Tales.pdf).
-block|}
 block|}
 else|else
 block|{
