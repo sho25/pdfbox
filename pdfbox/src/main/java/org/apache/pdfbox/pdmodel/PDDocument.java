@@ -1569,10 +1569,6 @@ decl_stmt|;
 if|if
 condition|(
 name|base
-operator|!=
-literal|null
-operator|&&
-name|base
 operator|instanceof
 name|COSDictionary
 condition|)
