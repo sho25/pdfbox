@@ -78,6 +78,7 @@ class|class
 name|AbstractField
 block|{
 specifier|private
+specifier|final
 name|XMPMetadata
 name|metadata
 decl_stmt|;
@@ -86,6 +87,7 @@ name|String
 name|propertyName
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -191,16 +193,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|value
-operator|.
-name|getNamespace
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
 name|attributes
 operator|.
 name|put
@@ -213,22 +205,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|attributes
-operator|.
-name|put
-argument_list|(
-name|value
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Check if an attribute is declared for this entity      *       * @param qualifiedName      *            the full qualified name of the attribute concerned      * @return true if attribute is present      */
 specifier|public
