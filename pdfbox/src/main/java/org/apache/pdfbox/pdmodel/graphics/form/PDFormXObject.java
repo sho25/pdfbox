@@ -572,7 +572,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the optional Matrix of an XObjectForm. It maps the form space to user space.      * @return the form matrix      */
+comment|/**      * This will get the optional Matrix of an XObjectForm. It maps the form space to user space.      * @return the form matrix if available, or the identity matrix.      */
 annotation|@
 name|Override
 specifier|public

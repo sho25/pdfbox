@@ -790,16 +790,8 @@ name|AffineTransform
 name|at
 init|=
 name|matrix
-operator|!=
-literal|null
-condition|?
-name|matrix
 operator|.
 name|createAffineTransform
-argument_list|()
-else|:
-operator|new
-name|AffineTransform
 argument_list|()
 decl_stmt|;
 name|PDRectangle
