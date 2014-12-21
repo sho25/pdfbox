@@ -2282,6 +2282,11 @@ name|createCOSStream
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|dest
+operator|.
+name|addCompression
+argument_list|()
+expr_stmt|;
 name|importedPage
 operator|.
 name|setContents
