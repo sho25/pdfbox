@@ -1972,16 +1972,31 @@ index|[
 literal|4
 index|]
 operator|=
+operator|(
+name|byte
+operator|)
+literal|0xFF
+expr_stmt|;
 name|perms
 index|[
 literal|5
 index|]
 operator|=
+operator|(
+name|byte
+operator|)
+literal|0xFF
+expr_stmt|;
 name|perms
 index|[
 literal|6
 index|]
 operator|=
+operator|(
+name|byte
+operator|)
+literal|0xFF
+expr_stmt|;
 name|perms
 index|[
 literal|7
@@ -1999,7 +2014,7 @@ index|]
 operator|=
 literal|'T'
 expr_stmt|;
-comment|// we always use EncryptMetadata == true
+comment|// we always encrypt Metadata
 name|perms
 index|[
 literal|9
