@@ -150,9 +150,6 @@ comment|// TODO add handling specific to combo box
 return|return
 name|getInheritableAttribute
 argument_list|(
-name|getDictionary
-argument_list|()
-argument_list|,
 name|COSName
 operator|.
 name|DV

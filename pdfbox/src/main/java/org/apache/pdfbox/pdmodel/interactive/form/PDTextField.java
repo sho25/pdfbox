@@ -630,9 +630,6 @@ name|fieldValue
 init|=
 name|getInheritableAttribute
 argument_list|(
-name|getDictionary
-argument_list|()
-argument_list|,
 name|COSName
 operator|.
 name|DV
@@ -730,9 +727,6 @@ name|getAsTextStream
 argument_list|(
 name|getInheritableAttribute
 argument_list|(
-name|getDictionary
-argument_list|()
-argument_list|,
 name|COSName
 operator|.
 name|V
