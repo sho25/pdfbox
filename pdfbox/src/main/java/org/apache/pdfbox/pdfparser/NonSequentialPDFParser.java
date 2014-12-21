@@ -2760,27 +2760,6 @@ block|{
 comment|// if ( pdfSource != null )
 comment|// pdfSource.close();
 block|}
-specifier|private
-name|void
-name|closeFileStream
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|pdfSource
-operator|!=
-literal|null
-condition|)
-block|{
-name|pdfSource
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 comment|// ------------------------------------------------------------------------
 comment|/**      * Looks for and parses startxref. We first look for last '%%EOF' marker (within last      * {@link #DEFAULT_TRAIL_BYTECOUNT} bytes (or range set via {@link #setEOFLookupRange(int)}) and go back to find      *<code>startxref</code>.      *       * @return the offset of StartXref      * @throws IOException If something went wrong.      */
 specifier|protected
@@ -2918,28 +2897,13 @@ block|}
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|fIn
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|fIn
+name|IOUtils
 operator|.
-name|close
-argument_list|()
+name|closeQuietly
+argument_list|(
+name|fIn
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ioe
-parameter_list|)
-block|{                 }
-block|}
 block|}
 comment|// ---- find last '%%EOF'
 name|int
@@ -3474,31 +3438,20 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-try|try
-block|{
-name|closeFileStream
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|keyStoreInputStream
-operator|!=
-literal|null
-condition|)
-block|{
-name|keyStoreInputStream
+name|IOUtils
 operator|.
-name|close
-argument_list|()
+name|closeQuietly
+argument_list|(
+name|pdfSource
+argument_list|)
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ioe
-parameter_list|)
-block|{             }
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|keyStoreInputStream
+argument_list|)
+expr_stmt|;
 name|deleteTempFile
 argument_list|()
 expr_stmt|;
@@ -3506,11 +3459,9 @@ if|if
 condition|(
 name|exceptionOccurred
 operator|&&
-operator|(
 name|document
 operator|!=
 literal|null
-operator|)
 condition|)
 block|{
 try|try
