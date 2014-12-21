@@ -2739,16 +2739,6 @@ name|length
 argument_list|)
 expr_stmt|;
 comment|//sm
-name|rc4
-operator|.
-name|write
-argument_list|(
-name|owner
-argument_list|,
-name|result
-argument_list|)
-expr_stmt|;
-comment|//sm
 for|for
 control|(
 name|int
