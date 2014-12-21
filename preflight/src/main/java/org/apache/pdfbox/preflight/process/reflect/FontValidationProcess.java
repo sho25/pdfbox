@@ -536,11 +536,13 @@ name|validator
 operator|!=
 literal|null
 condition|)
+block|{
 name|validator
 operator|.
 name|validate
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -592,7 +594,6 @@ name|font
 argument_list|)
 return|;
 block|}
-elseif|else
 if|if
 condition|(
 name|FONT_DICTIONARY_VALUE_MMTYPE
@@ -623,7 +624,6 @@ name|font
 argument_list|)
 return|;
 block|}
-elseif|else
 if|if
 condition|(
 name|FONT_DICTIONARY_VALUE_TYPE3
@@ -647,7 +647,6 @@ name|font
 argument_list|)
 return|;
 block|}
-elseif|else
 if|if
 condition|(
 name|FONT_DICTIONARY_VALUE_COMPOSITE
@@ -668,7 +667,6 @@ name|font
 argument_list|)
 return|;
 block|}
-elseif|else
 if|if
 condition|(
 name|FONT_DICTIONARY_VALUE_TYPE2
@@ -706,8 +704,6 @@ return|return
 literal|null
 return|;
 block|}
-else|else
-block|{
 name|context
 operator|.
 name|addValidationError
@@ -719,7 +715,7 @@ name|PreflightConstants
 operator|.
 name|ERROR_FONTS_UNKNOWN_FONT_TYPE
 argument_list|,
-literal|"Unknown font type : "
+literal|"Unknown font type: "
 operator|+
 name|subtype
 argument_list|)
@@ -728,7 +724,6 @@ expr_stmt|;
 return|return
 literal|null
 return|;
-block|}
 block|}
 block|}
 end_class
