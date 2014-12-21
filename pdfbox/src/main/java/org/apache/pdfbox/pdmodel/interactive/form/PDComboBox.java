@@ -138,6 +138,27 @@ name|edit
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Get the fields default value.      *       * The value is stored in the field dictionaries "DV" entry.      *       * @return The value of this entry.      */
+annotation|@
+name|Override
+specifier|public
+name|Object
+name|getDefaultValue
+parameter_list|()
+block|{
+comment|// TODO add handling specific to combo box
+return|return
+name|getInheritableAttribute
+argument_list|(
+name|getDictionary
+argument_list|()
+argument_list|,
+name|COSName
+operator|.
+name|DV
+argument_list|)
+return|;
+block|}
 comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      *       */
 specifier|public
 name|void

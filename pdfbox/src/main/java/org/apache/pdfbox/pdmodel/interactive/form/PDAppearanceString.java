@@ -2115,6 +2115,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+comment|// TODO use font's encoding
 name|COSWriter
 operator|.
 name|writeString
@@ -2134,7 +2135,6 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
-comment|// todo: use font's encoding
 name|printWriter
 operator|.
 name|println
@@ -2196,6 +2196,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+comment|// TODO use font's encoding
 name|COSWriter
 operator|.
 name|writeString
@@ -2215,7 +2216,6 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
-comment|// todo: use font's encoding
 name|printWriter
 operator|.
 name|println
@@ -2440,6 +2440,15 @@ block|{
 return|return
 operator|(
 name|parent
+operator|instanceof
+name|PDTextField
+operator|&&
+operator|(
+operator|(
+name|PDTextField
+operator|)
+name|parent
+operator|)
 operator|.
 name|isMultiline
 argument_list|()
@@ -2895,6 +2904,15 @@ decl_stmt|;
 if|if
 condition|(
 name|parent
+operator|instanceof
+name|PDTextField
+operator|&&
+operator|(
+operator|(
+name|PDTextField
+operator|)
+name|parent
+operator|)
 operator|.
 name|doNotScroll
 argument_list|()
@@ -3032,6 +3050,15 @@ decl_stmt|;
 if|if
 condition|(
 name|parent
+operator|instanceof
+name|PDTextField
+operator|&&
+operator|(
+operator|(
+name|PDTextField
+operator|)
+name|parent
+operator|)
 operator|.
 name|isMultiline
 argument_list|()
