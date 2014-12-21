@@ -1315,10 +1315,7 @@ condition|(
 name|field
 operator|instanceof
 name|PDSignatureField
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|(
 operator|(
 name|PDSignatureField
@@ -1353,7 +1350,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 break|break;
-block|}
 block|}
 block|}
 if|if
@@ -2083,10 +2079,7 @@ condition|(
 name|fieldNode
 operator|instanceof
 name|PDSignatureField
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|fieldNode
 operator|.
 name|getCOSObject
@@ -2116,7 +2109,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 break|break;
-block|}
 block|}
 block|}
 if|if
