@@ -1820,27 +1820,6 @@ throw|;
 block|}
 block|}
 comment|// Get the annotations of the page and append the signature-annotation to it
-if|if
-condition|(
-name|annotations
-operator|==
-literal|null
-condition|)
-block|{
-name|annotations
-operator|=
-operator|new
-name|COSArrayList
-argument_list|()
-expr_stmt|;
-name|page
-operator|.
-name|setAnnotations
-argument_list|(
-name|annotations
-argument_list|)
-expr_stmt|;
-block|}
 comment|// take care that page and acroforms do not share the same array (if so, we don't need to add it twice)
 if|if
 condition|(

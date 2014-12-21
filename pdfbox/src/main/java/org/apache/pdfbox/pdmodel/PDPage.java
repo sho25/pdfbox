@@ -1725,7 +1725,7 @@ name|actions
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return a list of the Annotations for this page.      *       * @return List of the PDAnnotation objects.      * @throws IOException If there is an error while creating the annotations.      */
+comment|/**      * This will return a list of the Annotations for this page.      *       * @return List of the PDAnnotation objects, never null.      * @throws IOException If there is an error while creating the annotation list.      */
 specifier|public
 name|List
 argument_list|<
