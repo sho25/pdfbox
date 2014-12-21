@@ -491,14 +491,6 @@ specifier|private
 name|StandardProtectionPolicy
 name|policy
 decl_stmt|;
-specifier|private
-name|RC4Cipher
-name|rc4
-init|=
-operator|new
-name|RC4Cipher
-argument_list|()
-decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|StandardSecurityHandler
