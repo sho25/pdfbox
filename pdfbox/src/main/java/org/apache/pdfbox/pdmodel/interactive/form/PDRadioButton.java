@@ -89,6 +89,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSString
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -229,12 +243,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the fields default value.      *       * The field value holds a name object which is corresponding to the       * appearance state representing the corresponding appearance       * from the appearance directory.      *      * The default value is used to represent the initial state of the      * checkbox or to revert when resetting the form.      *       * @param defaultValue the COSName object to set the field value.      */
+comment|/**      * Set the fields default value.      *       * The field value holds a name object which is corresponding to the       * appearance state representing the corresponding appearance       * from the appearance directory.      *      * The default value is used to represent the initial state of the      * checkbox or to revert when resetting the form.      *       * @param defaultValue the string to set the field value.      */
 specifier|public
 name|void
 name|setDefaultValue
 parameter_list|(
-name|COSName
+name|String
 name|defaultValue
 parameter_list|)
 block|{
@@ -261,7 +275,11 @@ name|COSName
 operator|.
 name|DV
 argument_list|,
+operator|new
+name|COSString
+argument_list|(
 name|defaultValue
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -323,18 +341,20 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the field value.      *       * The field value holds a name object which is corresponding to the       * appearance state of the child field being in the on state.      *       * The default value is Off.      *       * @param value the COSName object to set the field value.      */
+comment|/**      * Set the field value.      *       * The field value holds a name object which is corresponding to the       * appearance state of the child field being in the on state.      *       * The default value is Off.      *       * @param fieldValue the COSName object to set the field value.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValue
 parameter_list|(
 name|String
-name|value
+name|fieldValue
 parameter_list|)
 block|{
 if|if
 condition|(
-name|value
+name|fieldValue
 operator|==
 literal|null
 condition|)
@@ -359,7 +379,7 @@ name|COSName
 operator|.
 name|getPDFName
 argument_list|(
-name|value
+name|fieldValue
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -404,7 +424,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|value
+name|fieldValue
 argument_list|)
 condition|)
 block|{

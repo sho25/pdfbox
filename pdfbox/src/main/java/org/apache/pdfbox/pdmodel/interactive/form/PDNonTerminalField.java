@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A non terminal field in an interactive form.  *  * @author Andreas Lehmkühler  */
+comment|/**  * A non terminal field in an interactive form.  *   * A non terminal field is a node in the fields tree node whose descendants  * are fields.   *   * The attributes such as FT (field type) or V (field value) do not logically  * belong to the non terminal field but are inheritable attributes  * for descendant terminal fields.   *   * @author Andreas Lehmkühler  */
 end_comment
 
 begin_class
@@ -180,6 +180,7 @@ name|FT
 argument_list|)
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -187,28 +188,45 @@ name|Object
 name|getValue
 parameter_list|()
 block|{
-comment|// Nonterminal fields don't support the "V" entry.
+comment|// There is no need to look up the parent hierarchy within a non terminal field
 return|return
-literal|null
+name|getDictionary
+argument_list|()
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|)
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValue
 parameter_list|(
-name|Object
-name|value
+name|String
+name|fieldValue
 parameter_list|)
 block|{
-comment|// Nonterminal fields don't support the "V" entry.
-throw|throw
-operator|new
-name|IllegalArgumentException
+comment|// There is no need to look up the parent hierarchy within a non terminal field
+name|getDictionary
+argument_list|()
+operator|.
+name|setString
 argument_list|(
-literal|"Nonterminal fields don't support the \"V\" entry."
+name|COSName
+operator|.
+name|V
+argument_list|,
+name|fieldValue
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -216,27 +234,43 @@ name|Object
 name|getDefaultValue
 parameter_list|()
 block|{
-comment|// Nonterminal fields don't support the "DV" entry.
+comment|// There is no need to look up the parent hierarchy within a non terminal field
 return|return
-literal|null
+name|getDictionary
+argument_list|()
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|)
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setDefaultValue
 parameter_list|(
-name|Object
-name|value
+name|String
+name|defaultValue
 parameter_list|)
 block|{
-comment|// Nonterminal fields don't support the "DV" entry.
-throw|throw
-operator|new
-name|IllegalArgumentException
+comment|// There is no need to look up the parent hierarchy within a non terminal field
+name|getDictionary
+argument_list|()
+operator|.
+name|setString
 argument_list|(
-literal|"Nonterminal fields don't support the \"DV\" entry."
+name|COSName
+operator|.
+name|V
+argument_list|,
+name|defaultValue
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 end_class

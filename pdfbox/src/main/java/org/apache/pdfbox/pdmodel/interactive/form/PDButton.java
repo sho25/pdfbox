@@ -383,38 +383,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-specifier|public
-name|COSBase
-name|getDefaultValue
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-comment|// Button fields don't support the "DV" entry.
-return|return
-literal|null
-return|;
-block|}
-comment|/**      * Set the fields default value.      *       * The field value holds a name object which is corresponding to the       * appearance state representing the corresponding appearance       * from the appearance directory.      *      * The default value is used to represent the initial state of the      * checkbox or to revert when resetting the form.      *       * @param defaultValue the COSName object to set the field value.      */
-specifier|public
-name|void
-name|setDefaultValue
-parameter_list|(
-name|COSName
-name|defaultValue
-parameter_list|)
-block|{
-comment|// Button fields don't support the "DV" entry.
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Button fields don't support the \"DV\" entry."
-argument_list|)
-throw|;
-block|}
 block|}
 end_class
 

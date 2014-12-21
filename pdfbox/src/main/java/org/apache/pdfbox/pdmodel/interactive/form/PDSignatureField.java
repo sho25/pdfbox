@@ -437,7 +437,7 @@ specifier|public
 name|void
 name|setValue
 parameter_list|(
-name|Object
+name|PDSignature
 name|value
 parameter_list|)
 block|{
@@ -459,13 +459,7 @@ name|V
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|value
-operator|instanceof
-name|PDSignature
-condition|)
+else|else
 block|{
 name|getDictionary
 argument_list|()
@@ -483,6 +477,25 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setValue
+parameter_list|(
+name|String
+name|fieldValue
+parameter_list|)
+block|{
+comment|// Signature fields don't support the strings for value
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Signature fields don't support a string for the value entry."
+argument_list|)
+throw|;
 block|}
 comment|/**      * Get the signature dictionary.      *       * @return the signature dictionary      *       */
 specifier|public
@@ -617,12 +630,14 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setDefaultValue
 parameter_list|(
-name|Object
-name|value
+name|String
+name|defaultValue
 parameter_list|)
 block|{
 comment|// Signature fields don't support the "DV" entry.

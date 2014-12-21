@@ -365,7 +365,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|COSName
+name|String
 name|getDefaultValue
 parameter_list|()
 throws|throws
@@ -390,9 +390,14 @@ condition|)
 block|{
 return|return
 operator|(
+operator|(
 name|COSName
 operator|)
 name|attribute
+operator|)
+operator|.
+name|getName
+argument_list|()
 return|;
 block|}
 else|else
@@ -415,11 +420,13 @@ throw|;
 block|}
 block|}
 comment|/**      * Set the fields default value.      *       * The field value holds a name object which is corresponding to the       * appearance state representing the corresponding appearance       * from the appearance directory.      *      * The default value is used to represent the initial state of the      * checkbox or to revert when resetting the form.      *       * @param defaultValue the COSName object to set the field value.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setDefaultValue
 parameter_list|(
-name|COSName
+name|String
 name|defaultValue
 parameter_list|)
 block|{
@@ -452,7 +459,12 @@ name|COSName
 operator|.
 name|DV
 argument_list|,
+name|COSName
+operator|.
+name|getPDFName
+argument_list|(
 name|defaultValue
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

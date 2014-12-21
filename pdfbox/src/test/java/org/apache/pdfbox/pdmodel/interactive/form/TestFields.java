@@ -536,12 +536,7 @@ operator|.
 name|getDefaultValue
 argument_list|()
 argument_list|,
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 literal|"Yes"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -551,6 +546,10 @@ operator|.
 name|getDefaultValue
 argument_list|()
 argument_list|,
+operator|(
+operator|(
+name|COSName
+operator|)
 name|field
 operator|.
 name|getDictionary
@@ -562,6 +561,10 @@ name|COSName
 operator|.
 name|DV
 argument_list|)
+operator|)
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// get the TextField with a DV entry
