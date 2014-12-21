@@ -92,18 +92,18 @@ name|long
 name|gen
 parameter_list|)
 block|{
-name|setNumber
-argument_list|(
+name|number
+operator|=
 name|num
-argument_list|)
 expr_stmt|;
-name|setGeneration
-argument_list|(
+name|generation
+operator|=
 name|gen
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
@@ -167,6 +167,8 @@ name|number
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode
@@ -212,6 +214,8 @@ name|newNumber
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -232,6 +236,8 @@ literal|" R"
 return|;
 block|}
 comment|/** {@inheritDoc} */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compareTo
