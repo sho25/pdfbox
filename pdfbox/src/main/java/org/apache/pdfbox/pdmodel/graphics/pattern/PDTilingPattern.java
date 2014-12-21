@@ -21,18 +21,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|geom
-operator|.
-name|AffineTransform
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -70,20 +58,6 @@ operator|.
 name|cos
 operator|.
 name|COSDictionary
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSFloat
 import|;
 end_import
 
@@ -174,7 +148,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A tiling pattern dictionary.  *  * @author Andreas Lehmkühler  */
+comment|/**  * A tiling pattern dictionary.  *  * @author Andreas LehmkÃ¼hler  */
 end_comment
 
 begin_class
@@ -513,6 +487,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * This will get the resources for this pattern.      * This will return null if no resources are available at this level.      * @return The resources for this pattern.      */
+annotation|@
+name|Override
 specifier|public
 name|PDResources
 name|getResources
@@ -705,10 +681,9 @@ name|Matrix
 name|getMatrix
 parameter_list|()
 block|{
+comment|//TODO this method can be deleted if the "repair mechanism for invalid matrices" is deleted
 name|Matrix
 name|matrix
-init|=
-literal|null
 decl_stmt|;
 name|COSArray
 name|array
@@ -1040,75 +1015,6 @@ block|}
 return|return
 name|matrix
 return|;
-block|}
-comment|/**      * Sets the optional Matrix entry for the Pattern.      * @param transform the transformation matrix      */
-specifier|public
-name|void
-name|setMatrix
-parameter_list|(
-name|AffineTransform
-name|transform
-parameter_list|)
-block|{
-name|COSArray
-name|matrix
-init|=
-operator|new
-name|COSArray
-argument_list|()
-decl_stmt|;
-name|double
-index|[]
-name|values
-init|=
-operator|new
-name|double
-index|[
-literal|6
-index|]
-decl_stmt|;
-name|transform
-operator|.
-name|getMatrix
-argument_list|(
-name|values
-argument_list|)
-expr_stmt|;
-for|for
-control|(
-name|double
-name|v
-range|:
-name|values
-control|)
-block|{
-name|matrix
-operator|.
-name|add
-argument_list|(
-operator|new
-name|COSFloat
-argument_list|(
-operator|(
-name|float
-operator|)
-name|v
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-name|getCOSDictionary
-argument_list|()
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|MATRIX
-argument_list|,
-name|matrix
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
