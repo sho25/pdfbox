@@ -3738,7 +3738,7 @@ name|articleEndValue
 expr_stmt|;
 block|}
 comment|/**      * handles the line separator for a new line given      * the specified current and previous TextPositions.      * @param current the current text position      * @param lastPosition the previous text position      * @param lastLineStartPosition the last text position that followed a line separator.      * @param maxHeightForLine max height for positions since lastLineStartPosition      * @return start position of the last line      * @throws IOException if something went wrong      */
-specifier|protected
+specifier|private
 name|PositionWrapper
 name|handleLineSeparation
 parameter_list|(
@@ -3818,7 +3818,7 @@ name|lastLineStartPosition
 return|;
 block|}
 comment|/**      * tests the relationship between the last text position, the current text      * position and the last text position that followed a line separator to      * decide if the gap represents a paragraph separation. This should      *<i>only</i> be called for consecutive text positions that first pass the      * line separation test.      *<p>      * This base implementation tests to see if the lastLineStartPosition is      * null OR if the current vertical position has dropped below the last text      * vertical position by at least 2.5 times the current text height OR if the      * current horizontal position is indented by at least 2 times the current      * width of a space character.</p>      *<p>      * This also attempts to identify text that is indented under a hanging indent.</p>      *<p>      * This method sets the isParagraphStart and isHangingIndent flags on the current      * position object.</p>      *      * @param position the current text position.  This may have its isParagraphStart      * or isHangingIndent flags set upon return.      * @param lastPosition the previous text position (should not be null).      * @param lastLineStartPosition the last text position that followed a line separator, or null.      * @param maxHeightForLine max height for text positions since lasLineStartPosition.      */
-specifier|protected
+specifier|private
 name|void
 name|isParagraphSeparation
 parameter_list|(
@@ -4199,7 +4199,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * returns the list item Pattern object that matches      * the text at the specified PositionWrapper or null      * if the text does not match such a pattern.  The list      * of Patterns tested against is given by the      * {@link #getListItemPatterns()} method.  To add to      * the list, simply override that method (if sub-classing)      * or explicitly supply your own list using      * {@link #setListItemPatterns(List)}.      * @param pw position      * @return the matching pattern      */
-specifier|protected
+specifier|private
 name|Pattern
 name|matchListItemPattern
 parameter_list|(
