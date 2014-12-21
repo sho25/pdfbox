@@ -2148,10 +2148,6 @@ argument_list|,
 name|maxHeightForLine
 argument_list|)
 expr_stmt|;
-name|endOfLastTextX
-operator|=
-name|END_OF_LAST_TEXT_X_RESET_VALUE
-expr_stmt|;
 name|expectedStartOfNextWordX
 operator|=
 name|EXPECTED_START_OF_NEXT_WORD_X_RESET_VALUE
