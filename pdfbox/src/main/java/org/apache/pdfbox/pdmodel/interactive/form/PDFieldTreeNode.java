@@ -1664,7 +1664,7 @@ block|{
 continue|continue;
 block|}
 name|COSDictionary
-name|parent
+name|parentDictionary
 init|=
 operator|(
 name|COSDictionary
@@ -1696,11 +1696,11 @@ operator|!=
 literal|null
 operator|||
 operator|(
-name|parent
+name|parentDictionary
 operator|!=
 literal|null
 operator|&&
-name|parent
+name|parentDictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
