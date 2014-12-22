@@ -156,7 +156,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A structure element.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>,  *<a href="mailto:Johannes%20Koch%20%3Ckoch@apache.org%3E">Johannes Koch</a>  * @version $Revision: 1.3 $  */
+comment|/**  * A structure element.  *  * @author Ben Litchfield  * @author Johannes Koch  */
 end_comment
 
 begin_class
@@ -766,7 +766,13 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|// TODO throw Exception because revision number must be> -1?
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The revision number shall be> -1"
+argument_list|)
+throw|;
 block|}
 name|array
 operator|.
@@ -1560,7 +1566,13 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|// TODO throw Exception because revision number must be> -1?
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The revision number shall be> -1"
+argument_list|)
+throw|;
 block|}
 name|array
 operator|.
@@ -1936,7 +1948,13 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|// TODO throw Exception because revision number must be> -1?
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The revision number shall be> -1"
+argument_list|)
+throw|;
 block|}
 name|this
 operator|.
