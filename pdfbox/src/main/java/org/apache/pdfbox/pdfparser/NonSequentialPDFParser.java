@@ -3923,7 +3923,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Creates a unique object id using object number and object generation number. (requires object number&lt; 2^31))      */
+comment|/**      * Creates a unique object id using object number and object generation      * number. (requires object number&lt; 2^31))      */
 specifier|private
 name|long
 name|getObjectId
@@ -3955,7 +3955,7 @@ name|longValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Adds all from newObjects to toBeParsedList if it is not an COSObject or we didn't add this COSObject already      * (checked via addedObjects).      */
+comment|/**      * Adds all from newObjects to toBeParsedList if it is not an COSObject or      * we didn't add this COSObject already (checked via addedObjects).      */
 specifier|private
 name|void
 name|addNewToList
@@ -3990,49 +3990,18 @@ range|:
 name|newObjects
 control|)
 block|{
-if|if
-condition|(
-name|newObject
-operator|instanceof
-name|COSObject
-condition|)
-block|{
-specifier|final
-name|long
-name|objId
-init|=
-name|getObjectId
+name|addNewToList
 argument_list|(
-operator|(
-name|COSObject
-operator|)
-name|newObject
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|addedObjects
-operator|.
-name|add
-argument_list|(
-name|objId
-argument_list|)
-condition|)
-block|{
-continue|continue;
-block|}
-block|}
 name|toBeParsedList
-operator|.
-name|add
-argument_list|(
+argument_list|,
 name|newObject
+argument_list|,
+name|addedObjects
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adds newObject to toBeParsedList if it is not an COSObject or we didn't add this COSObject already (checked via      * addedObjects).      */
+comment|/**      * Adds newObject to toBeParsedList if it is not an COSObject or we didn't      * add this COSObject already (checked via addedObjects).      */
 specifier|private
 name|void
 name|addNewToList
