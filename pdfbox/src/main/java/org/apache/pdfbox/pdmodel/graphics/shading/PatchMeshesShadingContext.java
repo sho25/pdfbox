@@ -276,7 +276,6 @@ specifier|final
 name|PDShading
 name|patchMeshesShadingType
 decl_stmt|;
-comment|// the following fields are not intialized in this abstract class
 specifier|protected
 name|List
 argument_list|<
@@ -1137,6 +1136,8 @@ operator|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 name|Map
 argument_list|<
@@ -1206,6 +1207,8 @@ name|dispose
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|boolean
 name|emptyList
