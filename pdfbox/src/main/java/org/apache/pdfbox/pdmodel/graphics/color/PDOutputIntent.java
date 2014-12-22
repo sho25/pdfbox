@@ -154,6 +154,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
@@ -237,6 +238,8 @@ operator|=
 name|dictionary
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
