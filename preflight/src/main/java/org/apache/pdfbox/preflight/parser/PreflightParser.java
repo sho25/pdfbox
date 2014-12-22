@@ -3145,7 +3145,9 @@ condition|)
 block|{
 comment|// offset of indirect object in file
 comment|// ---- go to object start
-name|setPdfSource
+name|pdfSource
+operator|.
+name|seek
 argument_list|(
 name|offsetOrObjstmObNr
 argument_list|)
@@ -3705,9 +3707,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|releasePdfSourceInputStream
-argument_list|()
-expr_stmt|;
 block|}
 else|else
 block|{
