@@ -95,18 +95,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|awt
-operator|.
-name|image
-operator|.
-name|BufferedImage
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|io
 operator|.
 name|File
@@ -220,6 +208,8 @@ operator|new
 name|FilenameFilter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept
