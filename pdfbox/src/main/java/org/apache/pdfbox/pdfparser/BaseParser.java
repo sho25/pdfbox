@@ -5459,6 +5459,11 @@ operator|&&
 comment|// PDFBOX-1845
 name|lastByte
 operator|!=
+literal|'('
+operator|&&
+comment|// PDFBOX-2579
+name|lastByte
+operator|!=
 literal|0
 operator|&&
 comment|//See sourceforge bug 853328
