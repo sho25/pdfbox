@@ -1009,13 +1009,9 @@ elseif|else
 if|if
 condition|(
 name|value
-operator|==
+operator|!=
 literal|null
 condition|)
-block|{
-comment|//Ok, value is null so do nothing
-block|}
-else|else
 block|{
 throw|throw
 operator|new
@@ -1113,13 +1109,9 @@ elseif|else
 if|if
 condition|(
 name|value
-operator|==
+operator|!=
 literal|null
 condition|)
-block|{
-comment|//do nothing and let cos remain null as well.
-block|}
-else|else
 block|{
 throw|throw
 operator|new
