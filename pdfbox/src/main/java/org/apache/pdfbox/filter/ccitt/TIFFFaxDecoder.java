@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CCITT Fax decoder  */
+comment|/**  * CCITT Fax decoder.  */
 end_comment
 
 begin_class
@@ -110,10 +110,12 @@ specifier|private
 name|int
 name|oneD
 decl_stmt|;
+specifier|private
 specifier|static
+specifier|final
 name|int
 index|[]
-name|table1
+name|TABLE1
 init|=
 block|{
 literal|0x00
@@ -144,10 +146,12 @@ literal|0xff
 comment|// 8 bits are left in first byte
 block|}
 decl_stmt|;
+specifier|private
 specifier|static
+specifier|final
 name|int
 index|[]
-name|table2
+name|TABLE2
 init|=
 block|{
 literal|0x00
@@ -179,10 +183,12 @@ comment|// 8
 block|}
 decl_stmt|;
 comment|// Table to be used when fillOrder = 2, for flipping bytes.
+specifier|private
 specifier|static
+specifier|final
 name|byte
 index|[]
-name|flipTable
+name|FLIP_TABLE
 init|=
 block|{
 literal|0
@@ -824,13 +830,15 @@ literal|127
 block|,
 operator|-
 literal|1
-block|,     }
+block|, }
 decl_stmt|;
 comment|// The main 10 bit white runs lookup table
+specifier|private
 specifier|static
+specifier|final
 name|short
 index|[]
-name|white
+name|WHITE
 init|=
 block|{
 comment|// 0 - 7
@@ -3046,13 +3054,15 @@ block|,
 literal|232
 block|,
 literal|232
-block|,     }
+block|, }
 decl_stmt|;
 comment|// Additional make up codes for both White and Black runs
+specifier|private
 specifier|static
+specifier|final
 name|short
 index|[]
-name|additionalMakeup
+name|ADDITIONAL_MAKEUP
 init|=
 block|{
 literal|28679
@@ -3128,10 +3138,12 @@ literal|40969
 block|}
 decl_stmt|;
 comment|// Initial black run look up table, uses the first 4 bits of a code
+specifier|private
 specifier|static
+specifier|final
 name|short
 index|[]
-name|initBlack
+name|INIT_BLACK
 init|=
 block|{
 comment|// 0 - 7
@@ -3170,10 +3182,12 @@ literal|68
 block|}
 decl_stmt|;
 comment|//
+specifier|private
 specifier|static
+specifier|final
 name|short
 index|[]
-name|twoBitBlack
+name|TWO_BIT_BLACK
 init|=
 block|{
 literal|292
@@ -3187,10 +3201,12 @@ block|}
 decl_stmt|;
 comment|// 0 - 3
 comment|// Main black run table, using the last 9 bits of possible 13 bit code
+specifier|private
 specifier|static
+specifier|final
 name|short
 index|[]
-name|black
+name|BLACK
 init|=
 block|{
 comment|// 0 - 7
@@ -4292,12 +4308,14 @@ block|,
 literal|390
 block|,
 literal|390
-block|,     }
+block|, }
 decl_stmt|;
+specifier|private
 specifier|static
+specifier|final
 name|byte
 index|[]
-name|twoDCodes
+name|TWO_DCODES
 init|=
 block|{
 comment|// 0 - 7
@@ -4571,72 +4589,58 @@ block|,
 literal|41
 block|,
 literal|41
-block|,     }
+block|, }
 decl_stmt|;
-comment|/**      * @param fillOrder   The fill order of the compressed data bytes.      * @param w The width of the image in pixels      * @param h The height of the image in pixels      */
+comment|/**      * @param fillOrderValue The fill order of the compressed data bytes.      * @param width The width of the image in pixels      * @param height The height of the image in pixels      */
 specifier|public
 name|TIFFFaxDecoder
 parameter_list|(
 name|int
-name|fillOrder
+name|fillOrderValue
 parameter_list|,
 name|int
-name|w
+name|width
 parameter_list|,
 name|int
-name|h
+name|height
 parameter_list|)
 block|{
-name|this
-operator|.
 name|fillOrder
 operator|=
-name|fillOrder
+name|fillOrderValue
 expr_stmt|;
-name|this
-operator|.
 name|w
 operator|=
-name|w
+name|width
 expr_stmt|;
-name|this
-operator|.
 name|h
 operator|=
-name|h
+name|height
 expr_stmt|;
-name|this
-operator|.
 name|bitPointer
 operator|=
 literal|0
 expr_stmt|;
-name|this
-operator|.
 name|bytePointer
 operator|=
 literal|0
 expr_stmt|;
-name|this
-operator|.
 name|prevChangingElems
 operator|=
 operator|new
 name|int
 index|[
-name|w
+name|width
 operator|+
 literal|1
 index|]
 expr_stmt|;
-name|this
-operator|.
 name|currChangingElems
 operator|=
 operator|new
 name|int
 index|[
-name|w
+name|width
 operator|+
 literal|1
 index|]
@@ -4794,7 +4798,7 @@ argument_list|)
 expr_stmt|;
 name|entry
 operator|=
-name|white
+name|WHITE
 index|[
 name|current
 index|]
@@ -4849,7 +4853,7 @@ name|twoBits
 expr_stmt|;
 name|entry
 operator|=
-name|additionalMakeup
+name|ADDITIONAL_MAKEUP
 index|[
 name|current
 index|]
@@ -5007,7 +5011,7 @@ argument_list|)
 expr_stmt|;
 name|entry
 operator|=
-name|initBlack
+name|INIT_BLACK
 index|[
 name|current
 index|]
@@ -5055,7 +5059,7 @@ argument_list|)
 expr_stmt|;
 name|entry
 operator|=
-name|black
+name|BLACK
 index|[
 name|current
 index|]
@@ -5109,7 +5113,7 @@ argument_list|)
 expr_stmt|;
 name|entry
 operator|=
-name|additionalMakeup
+name|ADDITIONAL_MAKEUP
 index|[
 name|current
 index|]
@@ -5240,7 +5244,7 @@ argument_list|)
 expr_stmt|;
 name|entry
 operator|=
-name|twoBitBlack
+name|TWO_BIT_BLACK
 index|[
 name|current
 index|]
@@ -5651,7 +5655,7 @@ comment|// Run these through the 2DCodes table
 name|entry
 operator|=
 operator|(
-name|twoDCodes
+name|TWO_DCODES
 index|[
 name|entry
 index|]
@@ -6221,7 +6225,7 @@ comment|// Run these through the 2DCodes table
 name|entry
 operator|=
 operator|(
-name|twoDCodes
+name|TWO_DCODES
 index|[
 name|entry
 index|]
@@ -6988,7 +6992,7 @@ argument_list|)
 expr_stmt|;
 name|entry
 operator|=
-name|white
+name|WHITE
 index|[
 name|current
 index|]
@@ -7043,7 +7047,7 @@ name|twoBits
 expr_stmt|;
 name|entry
 operator|=
-name|additionalMakeup
+name|ADDITIONAL_MAKEUP
 index|[
 name|current
 index|]
@@ -7205,7 +7209,7 @@ argument_list|)
 expr_stmt|;
 name|entry
 operator|=
-name|initBlack
+name|INIT_BLACK
 index|[
 name|current
 index|]
@@ -7253,7 +7257,7 @@ argument_list|)
 expr_stmt|;
 name|entry
 operator|=
-name|black
+name|BLACK
 index|[
 name|current
 index|]
@@ -7307,7 +7311,7 @@ argument_list|)
 expr_stmt|;
 name|entry
 operator|=
-name|additionalMakeup
+name|ADDITIONAL_MAKEUP
 index|[
 name|current
 index|]
@@ -7408,7 +7412,7 @@ argument_list|)
 expr_stmt|;
 name|entry
 operator|=
-name|twoBitBlack
+name|TWO_BIT_BLACK
 index|[
 name|current
 index|]
@@ -7891,7 +7895,7 @@ condition|)
 block|{
 name|b
 operator|=
-name|flipTable
+name|FLIP_TABLE
 index|[
 name|data
 index|[
@@ -7931,7 +7935,7 @@ condition|)
 block|{
 name|next
 operator|=
-name|flipTable
+name|FLIP_TABLE
 index|[
 name|data
 index|[
@@ -7952,7 +7956,7 @@ else|else
 block|{
 name|next
 operator|=
-name|flipTable
+name|FLIP_TABLE
 index|[
 name|data
 index|[
@@ -7966,7 +7970,7 @@ index|]
 expr_stmt|;
 name|next2next
 operator|=
-name|flipTable
+name|FLIP_TABLE
 index|[
 name|data
 index|[
@@ -8036,7 +8040,7 @@ init|=
 operator|(
 name|b
 operator|&
-name|table1
+name|TABLE1
 index|[
 name|bitsLeft
 index|]
@@ -8054,7 +8058,7 @@ init|=
 operator|(
 name|next
 operator|&
-name|table2
+name|TABLE2
 index|[
 name|bitsFromNextByte
 index|]
@@ -8087,7 +8091,7 @@ operator|=
 operator|(
 name|next2next
 operator|&
-name|table2
+name|TABLE2
 index|[
 name|bitsFromNext2NextByte
 index|]
@@ -8227,7 +8231,7 @@ condition|)
 block|{
 name|b
 operator|=
-name|flipTable
+name|FLIP_TABLE
 index|[
 name|data
 index|[
@@ -8253,7 +8257,7 @@ else|else
 block|{
 name|next
 operator|=
-name|flipTable
+name|FLIP_TABLE
 index|[
 name|data
 index|[
@@ -8315,7 +8319,7 @@ operator|=
 operator|(
 name|b
 operator|&
-name|table1
+name|TABLE1
 index|[
 name|bitsLeft
 index|]
@@ -8350,7 +8354,7 @@ operator|=
 operator|(
 name|b
 operator|&
-name|table1
+name|TABLE1
 index|[
 name|bitsLeft
 index|]
@@ -8366,7 +8370,7 @@ operator|=
 operator|(
 name|next
 operator|&
-name|table2
+name|TABLE2
 index|[
 name|bitsFromNextByte
 index|]
