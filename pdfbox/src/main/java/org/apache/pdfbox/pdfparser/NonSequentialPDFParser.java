@@ -2230,7 +2230,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|setPdfSource
+name|pdfSource
+operator|.
+name|seek
 argument_list|(
 name|startXRefOffset
 argument_list|)
@@ -2291,7 +2293,9 @@ literal|1
 condition|)
 block|{
 comment|// seek to xref table
-name|setPdfSource
+name|pdfSource
+operator|.
+name|seek
 argument_list|(
 name|prev
 argument_list|)
@@ -2458,7 +2462,9 @@ name|streamOffset
 argument_list|)
 expr_stmt|;
 block|}
-name|setPdfSource
+name|pdfSource
+operator|.
+name|seek
 argument_list|(
 name|streamOffset
 argument_list|)
@@ -2705,60 +2711,6 @@ operator|.
 name|PREV
 argument_list|)
 return|;
-block|}
-comment|// ------------------------------------------------------------------------
-comment|/** Get current offset in file at which next byte would be read. */
-specifier|private
-name|long
-name|getPdfSourceOffset
-parameter_list|()
-block|{
-return|return
-name|pdfSource
-operator|.
-name|getOffset
-argument_list|()
-return|;
-block|}
-comment|/**      * Sets {@link #pdfSource} to start next parsing at given file offset.      *       * @param fileOffset file offset      * @throws IOException If something went wrong.      */
-specifier|protected
-specifier|final
-name|void
-name|setPdfSource
-parameter_list|(
-name|long
-name|fileOffset
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|pdfSource
-operator|.
-name|seek
-argument_list|(
-name|fileOffset
-argument_list|)
-expr_stmt|;
-comment|// alternative using 'old fashioned' input stream
-comment|// if ( pdfSource != null )
-comment|// pdfSource.close();
-comment|//
-comment|// pdfSource = new PushBackInputStream(
-comment|// new BufferedInputStream(
-comment|// new FileInputStream( file ), 16384), 4096);
-comment|// pdfSource.skip( _fileOffset );
-block|}
-comment|/**      * Enable handling of alternative pdfSource implementation.      *       * @throws IOException If something went wrong.      */
-specifier|protected
-specifier|final
-name|void
-name|releasePdfSourceInputStream
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-comment|// if ( pdfSource != null )
-comment|// pdfSource.close();
 block|}
 comment|// ------------------------------------------------------------------------
 comment|/**      * Looks for and parses startxref. We first look for last '%%EOF' marker (within last      * {@link #DEFAULT_TRAIL_BYTECOUNT} bytes (or range set via {@link #setEOFLookupRange(int)}) and go back to find      *<code>startxref</code>.      *       * @return the offset of StartXref      * @throws IOException If something went wrong.      */
@@ -4928,7 +4880,9 @@ condition|)
 block|{
 comment|// offset of indirect object in file
 comment|// ---- go to object start
-name|setPdfSource
+name|pdfSource
+operator|.
+name|seek
 argument_list|(
 name|offsetOrObjstmObNr
 argument_list|)
@@ -5257,9 +5211,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|releasePdfSourceInputStream
-argument_list|()
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -5793,12 +5744,11 @@ specifier|final
 name|long
 name|curFileOffset
 init|=
-name|getPdfSourceOffset
+name|pdfSource
+operator|.
+name|getOffset
 argument_list|()
 decl_stmt|;
-name|releasePdfSourceInputStream
-argument_list|()
-expr_stmt|;
 name|parseObjectDynamically
 argument_list|(
 name|lengthObj
@@ -5807,7 +5757,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// reset current stream position
-name|setPdfSource
+name|pdfSource
+operator|.
+name|seek
 argument_list|(
 name|curFileOffset
 argument_list|)
@@ -6553,7 +6505,9 @@ return|return
 name|startXRefOffset
 return|;
 block|}
-name|setPdfSource
+name|pdfSource
+operator|.
+name|seek
 argument_list|(
 name|startXRefOffset
 operator|-
@@ -6632,7 +6586,9 @@ argument_list|(
 name|OBJ_MARKER
 argument_list|)
 expr_stmt|;
-name|setPdfSource
+name|pdfSource
+operator|.
+name|seek
 argument_list|(
 name|startXRefOffset
 argument_list|)
