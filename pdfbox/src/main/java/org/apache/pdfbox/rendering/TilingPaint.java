@@ -296,7 +296,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT Paint for a tiling pattern, which consists of a small repeating graphical figure.  *  * @author Andreas Lehmkühler  * @author John Hewson  */
+comment|/**  * AWT Paint for a tiling pattern, which consists of a small repeating graphical figure.  *  * @author Andreas LehmkÃ¼hler  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -871,6 +871,8 @@ argument_list|(
 name|num
 argument_list|)
 decl_stmt|;
+name|decimal
+operator|=
 name|decimal
 operator|.
 name|setScale
