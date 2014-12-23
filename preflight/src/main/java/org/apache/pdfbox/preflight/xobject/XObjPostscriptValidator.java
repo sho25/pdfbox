@@ -47,22 +47,6 @@ name|PreflightContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|exception
-operator|.
-name|ValidationException
-import|;
-end_import
-
 begin_class
 specifier|public
 class|class
@@ -91,23 +75,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.graphics.AbstractXObjValidator#validate()      */
-annotation|@
-name|Override
-specifier|public
-name|void
-name|validate
-parameter_list|()
-throws|throws
-name|ValidationException
-block|{
-name|super
-operator|.
-name|validate
-argument_list|()
-expr_stmt|;
-block|}
-comment|/*      * (non-Javadoc)      *       * @seenet.awl.edoc.pdfa.validation.graphics.AbstractXObjValidator# checkMandatoryFields(java.util.List)      */
+comment|/*      * (non-Javadoc)      *       * @see AbstractXObjValidator#validate()      */
 annotation|@
 name|Override
 specifier|protected
