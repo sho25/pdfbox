@@ -1361,6 +1361,8 @@ operator|+
 name|documentLocation
 operator|+
 literal|") is encrypted and will not be indexed."
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
