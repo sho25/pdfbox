@@ -403,7 +403,7 @@ name|void
 name|checkReferenceXObject
 parameter_list|()
 block|{
-comment|// 6.2.6 No reference xobject
+comment|// 6.2.6 No reference XObject
 if|if
 condition|(
 name|this
@@ -427,13 +427,13 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_UNEXPECTED_KEY
 argument_list|,
-literal|"No reference Xobject allowed in PDF/A"
+literal|"No reference XObject allowed in PDF/A"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * According the ISO 190005:1-2005 specification, PostSCript XObject are forbidden. If the XObject is a PostScript      * XObject, the error list is updated with the error code ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY (2.3.2).      *       * To know the if the object a Postscript XObject, "Subtype" and "Subtype2" entries are checked.      */
+comment|/**      * According the ISO 190005:1-2005 specification, PostScript XObjects are forbidden. If the XObject is a PostScript      * XObject, the error list is updated with the error code ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY (2.3.2).      *       * To know whether the object is a Postscript XObject, "Subtype" and "Subtype2" entries are checked.      */
 specifier|protected
 name|void
 name|checkPostscriptXObject
@@ -456,10 +456,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|subtype
-operator|!=
-literal|null
-operator|&&
 name|XOBJECT_DICTIONARY_VALUE_SUBTYPE_POSTSCRIPT
 operator|.
 name|equals
@@ -477,7 +473,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|,
-literal|"No Postscript Xobject allowed in PDF/A"
+literal|"No Postscript XObject allowed in PDF/A"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -511,7 +507,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|,
-literal|"No Postscript Xobject allowed in PDF/A (Subtype2)"
+literal|"No Postscript XObject allowed in PDF/A (Subtype2)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -526,6 +522,8 @@ name|checkMandatoryFields
 parameter_list|()
 function_decl|;
 comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.graphics.XObjectValidator#validate()      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
