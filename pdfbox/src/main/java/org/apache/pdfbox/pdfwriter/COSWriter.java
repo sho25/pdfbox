@@ -1205,15 +1205,15 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * COSWriter constructor for incremental updates.       *      * @param output output stream where the new PDF data will be written      * @param input input stream containing source PDF data      */
+comment|/**      * COSWriter constructor for incremental updates.       *      * @param outputStream output stream where the new PDF data will be written      * @param inputStream input stream containing source PDF data      *       * @throws IOException if something went wrong      */
 specifier|public
 name|COSWriter
 parameter_list|(
 name|OutputStream
-name|output
+name|outputStream
 parameter_list|,
 name|InputStream
-name|input
+name|inputStream
 parameter_list|)
 throws|throws
 name|IOException
@@ -1234,11 +1234,9 @@ argument_list|(
 operator|new
 name|COSStandardOutputStream
 argument_list|(
-name|this
-operator|.
 name|output
 argument_list|,
-name|input
+name|inputStream
 operator|.
 name|available
 argument_list|()
@@ -1247,11 +1245,11 @@ argument_list|)
 expr_stmt|;
 name|incrementalInput
 operator|=
-name|input
+name|inputStream
 expr_stmt|;
 name|incrementalOutput
 operator|=
-name|output
+name|outputStream
 expr_stmt|;
 name|incrementalUpdate
 operator|=
@@ -1410,7 +1408,6 @@ argument_list|(
 name|highestNumber
 argument_list|)
 expr_stmt|;
-comment|// xrefTable.clear();
 block|}
 block|}
 catch|catch
@@ -2375,187 +2372,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write the x ref section for the pdf file.      * Currently, the pdf is reconstructed from the scratch, so we write a single section.      *      * @param doc The document to write the xref from.      *      * @throws IOException If there is an error writing the data to the stream.      */
-specifier|protected
-name|void
-name|doWriteXRef
-parameter_list|(
-name|COSDocument
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|doc
-operator|.
-name|isXRefStream
-argument_list|()
-condition|)
-block|{
-comment|// sort xref, needed only if object keys not regenerated
-name|Collections
-operator|.
-name|sort
-argument_list|(
-name|getXRefEntries
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|COSWriterXRefEntry
-name|lastEntry
-init|=
-name|getXRefEntries
-argument_list|()
-operator|.
-name|get
-argument_list|(
-name|getXRefEntries
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|-
-literal|1
-argument_list|)
-decl_stmt|;
-comment|// remember the position where x ref is written
-name|setStartxref
-argument_list|(
-name|getStandardOutput
-argument_list|()
-operator|.
-name|getPos
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|//
-name|getStandardOutput
-argument_list|()
-operator|.
-name|write
-argument_list|(
-name|XREF
-argument_list|)
-expr_stmt|;
-name|getStandardOutput
-argument_list|()
-operator|.
-name|writeEOL
-argument_list|()
-expr_stmt|;
-comment|// write start object number and object count for this x ref section
-comment|// we assume starting from scratch
-name|writeXrefRange
-argument_list|(
-literal|0
-argument_list|,
-name|lastEntry
-operator|.
-name|getKey
-argument_list|()
-operator|.
-name|getNumber
-argument_list|()
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
-comment|// write initial start object with ref to first deleted object and magic generation number
-name|writeXrefEntry
-argument_list|(
-name|COSWriterXRefEntry
-operator|.
-name|getNullEntry
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// write entry for every object
-name|long
-name|lastObjectNumber
-init|=
-literal|0
-decl_stmt|;
-for|for
-control|(
-name|COSWriterXRefEntry
-name|entry
-range|:
-name|getXRefEntries
-argument_list|()
-control|)
-block|{
-while|while
-condition|(
-name|lastObjectNumber
-operator|<
-name|entry
-operator|.
-name|getKey
-argument_list|()
-operator|.
-name|getNumber
-argument_list|()
-operator|-
-literal|1
-condition|)
-block|{
-name|writeXrefEntry
-argument_list|(
-name|COSWriterXRefEntry
-operator|.
-name|getNullEntry
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|lastObjectNumber
-operator|=
-name|entry
-operator|.
-name|getKey
-argument_list|()
-operator|.
-name|getNumber
-argument_list|()
-expr_stmt|;
-name|writeXrefEntry
-argument_list|(
-name|entry
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|COSDictionary
-name|trailer
-init|=
-name|doc
-operator|.
-name|getTrailer
-argument_list|()
-decl_stmt|;
-name|trailer
-operator|.
-name|setLong
-argument_list|(
-name|COSName
-operator|.
-name|PREV
-argument_list|,
-name|doc
-operator|.
-name|getStartXref
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|doWritexrefTable
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 specifier|private
 name|void
 name|doWriteXRefInc
@@ -2585,9 +2401,6 @@ block|{
 comment|// the file uses XrefStreams, so we need to update
 comment|// it with an xref stream. We create a new one and fill it
 comment|// with data available here
-comment|// first set an entry for the null entry in the xref table
-comment|// this is probably not necessary
-comment|// addXRefEntry(COSWriterXRefEntry.getNullEntry());
 comment|// create a new XRefStrema object
 name|PDFXRefStream
 name|pdfxRefStream
@@ -2630,7 +2443,6 @@ operator|.
 name|getTrailer
 argument_list|()
 decl_stmt|;
-comment|//            trailer.setLong(COSName.PREV, hybridPrev == -1 ? prev : hybridPrev);
 name|trailer
 operator|.
 name|setLong
@@ -2756,7 +2568,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|doWritexrefTable
+name|doWriteXRefTable
 argument_list|()
 expr_stmt|;
 block|}
@@ -2764,7 +2576,7 @@ block|}
 comment|// writes the "xref" table
 specifier|private
 name|void
-name|doWritexrefTable
+name|doWriteXRefTable
 parameter_list|()
 throws|throws
 name|IOException
@@ -4481,6 +4293,11 @@ block|}
 if|if
 condition|(
 name|incrementalUpdate
+operator|||
+name|doc
+operator|.
+name|isXRefStream
+argument_list|()
 condition|)
 block|{
 name|doWriteXRefInc
@@ -4493,30 +4310,23 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|doWriteXRef
+name|trailer
+operator|.
+name|setLong
 argument_list|(
-name|doc
-argument_list|)
-expr_stmt|;
-block|}
-comment|// the trailer section should only be used for xref tables not for xref streams
-if|if
-condition|(
-operator|!
-name|incrementalUpdate
-operator|||
-operator|!
+name|COSName
+operator|.
+name|PREV
+argument_list|,
 name|doc
 operator|.
-name|isXRefStream
+name|getStartXref
 argument_list|()
-operator|||
-name|hybridPrev
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
+argument_list|)
+expr_stmt|;
+name|doWriteXRefTable
+argument_list|()
+expr_stmt|;
 name|doWriteTrailer
 argument_list|(
 name|doc
@@ -5540,7 +5350,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will output the given byte getString as a PDF object.      *      * @param output The stream to write to.      * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * This will output the given byte getString as a PDF object.      *      * @param string COSString to be written      * @param output The stream to write to.      * @throws IOException If there is an error writing to the stream.      */
 specifier|public
 specifier|static
 name|void
@@ -5571,7 +5381,7 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will output the given text/byte getString as a PDF object.      *      * @param output The stream to write to.      * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * This will output the given text/byte getString as a PDF object.      *      * @param bytes byte array representation of a string to be written      * @param output The stream to write to.      * @throws IOException If there is an error writing to the stream.      */
 specifier|public
 specifier|static
 name|void
