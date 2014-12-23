@@ -621,6 +621,8 @@ name|i
 index|]
 operator|+
 literal|"'"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
