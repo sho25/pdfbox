@@ -353,10 +353,7 @@ condition|(
 name|dc
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|dc
 operator|.
 name|getTitleProperty
@@ -638,7 +635,6 @@ block|}
 return|return
 literal|false
 return|;
-block|}
 block|}
 block|}
 return|return
