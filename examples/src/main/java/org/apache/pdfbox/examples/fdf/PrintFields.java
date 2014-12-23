@@ -523,10 +523,15 @@ operator|new
 name|StringBuilder
 argument_list|(
 name|sLevel
-operator|+
-name|sParent
 argument_list|)
 decl_stmt|;
+name|outputString
+operator|.
+name|append
+argument_list|(
+name|sParent
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|partialName
