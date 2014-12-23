@@ -236,7 +236,14 @@ comment|/**          *  Default constructor.          */
 specifier|private
 name|XrefTrailerObj
 parameter_list|()
-block|{         }
+block|{
+name|xrefType
+operator|=
+name|XRefType
+operator|.
+name|TABLE
+expr_stmt|;
+block|}
 comment|/**          * Release all used resources.          */
 specifier|public
 name|void
@@ -697,6 +704,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// copy xref type
+name|resolvedXrefTrailer
+operator|.
+name|xrefType
+operator|=
+name|curObj
+operator|.
+name|xrefType
+expr_stmt|;
 comment|// found starting Xref object
 comment|// add this and follow chain defined by 'Prev' keys
 name|xrefSeqBytePos
