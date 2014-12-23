@@ -113,6 +113,7 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|AppearanceGenerator
 block|{
@@ -237,7 +238,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|fieldValue
+operator|!=
+literal|null
+condition|)
 block|{
 name|LOG
 operator|.
