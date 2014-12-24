@@ -125,7 +125,7 @@ specifier|private
 name|PDFontFactory
 parameter_list|()
 block|{     }
-comment|/**      * Creates a new PDFont instance with the appropriate subclass.      *      * @param dictionary a font dictionary      * @return a PDFont instance, based on the SubType entry of the dictionary      * @throws IOException      */
+comment|/**      * Creates a new PDFont instance with the appropriate subclass.      *      * @param dictionary a font dictionary      * @return a PDFont instance, based on the SubType entry of the dictionary      * @throws IOException if something goes wrong      */
 specifier|public
 specifier|static
 name|PDFont
@@ -166,9 +166,9 @@ name|type
 argument_list|)
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
+name|LOG
+operator|.
+name|error
 argument_list|(
 literal|"Expected 'Font' dictionary but found '"
 operator|+
@@ -179,7 +179,7 @@ argument_list|()
 operator|+
 literal|"'"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 name|COSName
 name|subType
@@ -461,7 +461,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Creates a new PDCIDFont instance with the appropriate subclass.      *      * @param dictionary descendant font dictionary      * @return a PDCIDFont instance, based on the SubType entry of the dictionary      * @throws IOException      */
+comment|/**      * Creates a new PDCIDFont instance with the appropriate subclass.      *      * @param dictionary descendant font dictionary      * @return a PDCIDFont instance, based on the SubType entry of the dictionary      * @throws IOException if something goes wrong      */
 specifier|static
 name|PDCIDFont
 name|createDescendantFont
@@ -589,7 +589,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Create a default font      *       * @return a default font      * @throws IOException if something goes wrong      */
+comment|/**      * Create a default font.      *       * @return a default font      * @throws IOException if something goes wrong      */
 specifier|public
 specifier|static
 name|PDFont
