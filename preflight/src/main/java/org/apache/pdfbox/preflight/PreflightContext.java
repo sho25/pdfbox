@@ -211,12 +211,6 @@ name|source
 init|=
 literal|null
 decl_stmt|;
-comment|//
-comment|// /**
-comment|// * JavaCC Token Manager used to get some content of the PDF file as string (ex
-comment|// * : Trailers)
-comment|// */
-comment|// protected ExtractorTokenManager pdfExtractor = null;
 comment|/**      * Contains all Xref/trailer objects and resolves them into single object using startxref reference.      */
 specifier|private
 name|XrefTrailerResolver
@@ -321,21 +315,6 @@ operator|=
 name|metadata
 expr_stmt|;
 block|}
-comment|// /**
-comment|// * @return the value of the pdfExtractor attribute.
-comment|// */
-comment|// public ExtractorTokenManager getPdfExtractor() {
-comment|// return pdfExtractor;
-comment|// }
-comment|//
-comment|// /**
-comment|// * Initialize the pdfExtractor attribute.
-comment|// *
-comment|// * @param pdfExtractor
-comment|// */
-comment|// public void setPdfExtractor(ExtractorTokenManager pdfExtractor) {
-comment|// this.pdfExtractor = pdfExtractor;
-comment|// }
 comment|/**      * @return the PDFBox object representation of the document      */
 specifier|public
 name|PreflightDocument

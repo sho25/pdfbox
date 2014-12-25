@@ -268,9 +268,6 @@ condition|(
 name|format
 condition|)
 block|{
-comment|// case PDF_A1A:
-comment|//
-comment|// break;
 default|default:
 comment|// default is PDF/A1-b
 name|this

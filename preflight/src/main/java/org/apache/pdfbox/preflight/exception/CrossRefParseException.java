@@ -113,11 +113,6 @@ name|String
 name|getErrorCode
 parameter_list|()
 block|{
-comment|// if (!isTokenMgrError) {
-comment|// // use token information to know the cause
-comment|// }
-comment|// else Token Management Error or Unknown Error during the CrossRefTable
-comment|// Validation
 return|return
 name|PreflightConstants
 operator|.

@@ -1152,29 +1152,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|//
-comment|// /**
-comment|// * Check the RI entry of the Graphic State. If the rendering intent entry is
-comment|// * present, the value must be one of the four values defined in the PDF
-comment|// * reference. (@see net.awl.edoc.pdfa.validation.utils.RenderingIntents)
-comment|// *
-comment|// * @param egs
-comment|// * the graphic state to check
-comment|// * @param error
-comment|// * the list of error to update if the validation fails.
-comment|// * @return true if RI entry is valid, false otherwise.
-comment|// */
-comment|// protected boolean checkRIKey(COSDictionary egs, List<ValidationError> error) {
-comment|// String rendenringIntent = egs.getNameAsString(COSName.getPDFName("RI"));
-comment|// if (rendenringIntent != null&& !"".equals(rendenringIntent)
-comment|//&& !RenderingIntents.contains(rendenringIntent)) {
-comment|// error.add(new ValidationError(
-comment|// PreflightConstants.ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY,
-comment|// "Invalid rendering intent value in Extended graphics state"));
-comment|// return false;
-comment|// }
-comment|// return true;
-comment|// }
 block|}
 end_class
 

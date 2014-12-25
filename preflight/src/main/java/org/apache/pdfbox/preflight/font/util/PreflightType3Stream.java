@@ -388,11 +388,6 @@ literal|"d0"
 argument_list|)
 condition|)
 block|{
-comment|// set glyph with for a type3 font
-comment|// COSNumber horizontalWidth = (COSNumber)arguments.get( 0 );
-comment|// COSNumber verticalWidth = (COSNumber)arguments.get( 1 );
-comment|// width = horizontalWidth.intValue();
-comment|// height = verticalWidth.intValue();
 name|checkType3FirstOperator
 argument_list|(
 name|operands
@@ -410,9 +405,6 @@ literal|"d1"
 argument_list|)
 condition|)
 block|{
-comment|// set glyph with and bounding box for type 3 font
-comment|// COSNumber horizontalWidth = (COSNumber)arguments.get( 0 );
-comment|// COSNumber verticalWidth = (COSNumber)arguments.get( 1 );
 name|COSNumber
 name|llx
 init|=
@@ -465,8 +457,6 @@ argument_list|(
 literal|5
 argument_list|)
 decl_stmt|;
-comment|// width = horizontalWidth.intValue();
-comment|// height = verticalWidth.intValue();
 name|box
 operator|=
 operator|new

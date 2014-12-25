@@ -634,7 +634,6 @@ name|search
 init|=
 literal|true
 decl_stmt|;
-comment|// String stream = "";
 name|boolean
 name|maybe
 init|=
@@ -664,7 +663,6 @@ block|{
 case|case
 literal|'s'
 case|:
-comment|// stream = "s";
 name|maybe
 operator|=
 literal|true
@@ -677,7 +675,6 @@ break|break;
 case|case
 literal|'t'
 case|:
-comment|// if (maybe&& stream.endsWith("s")) {
 if|if
 condition|(
 name|maybe
@@ -687,7 +684,6 @@ operator|==
 literal|'s'
 condition|)
 block|{
-comment|// stream = stream + "t";
 name|lastChar
 operator|=
 name|c
@@ -709,7 +705,6 @@ break|break;
 case|case
 literal|'r'
 case|:
-comment|// if (maybe&& stream.endsWith("t")) {
 if|if
 condition|(
 name|maybe
@@ -719,7 +714,6 @@ operator|==
 literal|'t'
 condition|)
 block|{
-comment|// stream = stream + "r";
 name|lastChar
 operator|=
 name|c
@@ -741,7 +735,6 @@ break|break;
 case|case
 literal|'e'
 case|:
-comment|// if (maybe&& stream.endsWith("r")) {
 if|if
 condition|(
 name|maybe
@@ -755,7 +748,6 @@ name|lastChar
 operator|=
 name|c
 expr_stmt|;
-comment|// stream = stream + "e";
 block|}
 else|else
 block|{
@@ -768,7 +760,6 @@ break|break;
 case|case
 literal|'a'
 case|:
-comment|// if (maybe&& stream.endsWith("e")) {
 if|if
 condition|(
 name|maybe
@@ -782,7 +773,6 @@ name|lastChar
 operator|=
 name|c
 expr_stmt|;
-comment|// stream = stream + "a";
 block|}
 else|else
 block|{
@@ -795,7 +785,6 @@ break|break;
 case|case
 literal|'m'
 case|:
-comment|// if (maybe&& stream.endsWith("a")) {
 if|if
 condition|(
 name|maybe
