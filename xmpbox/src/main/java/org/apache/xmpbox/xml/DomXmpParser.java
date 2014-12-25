@@ -664,6 +664,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+comment|// prevents validation messages polluting the console
 name|dBuilder
 operator|.
 name|setErrorHandler
@@ -671,7 +672,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// prevents validation messages polluting the console
 name|document
 operator|=
 name|dBuilder
