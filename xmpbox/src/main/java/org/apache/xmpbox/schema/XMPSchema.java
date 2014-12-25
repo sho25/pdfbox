@@ -3076,7 +3076,6 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
-comment|// System.err.println(tmp.getAttribute("xml:lang").getStringValue());
 if|if
 condition|(
 name|tmp

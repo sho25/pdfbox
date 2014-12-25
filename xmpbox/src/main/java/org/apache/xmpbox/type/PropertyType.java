@@ -88,7 +88,6 @@ annotation_defn|@interface
 name|PropertyType
 block|{
 comment|/**      * get valuetype defined in this description that must be used to build properties descriptions in schema      * descriptions      *       *       */
-comment|// String propertyType();
 name|Types
 name|type
 parameter_list|()

@@ -1231,17 +1231,6 @@ name|MANAGED_FROM
 init|=
 literal|"ManagedFrom"
 decl_stmt|;
-comment|// /**
-comment|// * set ManageFrom Value
-comment|// *
-comment|// * @param url
-comment|// * ManageFrom Value to set
-comment|// */
-comment|// public void setManagedFrom(ResourceRefType resourceRef) {
-comment|//
-comment|// setManagedFromProperty(new TextType(metadata, localPrefix, MANAGED_FROM,
-comment|// url));
-comment|// }
 comment|/**      * set ManageFrom Property      *       * @param resourceRef      *            ManageFrom Property to set      */
 specifier|public
 name|void
@@ -1273,15 +1262,6 @@ name|MANAGED_FROM
 argument_list|)
 return|;
 block|}
-comment|// /**
-comment|// * Get ManageFrom value
-comment|// *
-comment|// * @return ManageFrom value
-comment|// */
-comment|// public String getManagedFrom() {
-comment|// TextType tt = getManagedFromProperty();
-comment|// return tt != null ? tt.getStringValue() : null;
-comment|// }
 comment|// --------------------------------------- OriginalDocumentID
 comment|// ----------------------------
 annotation|@

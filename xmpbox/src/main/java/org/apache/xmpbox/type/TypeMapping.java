@@ -1269,42 +1269,6 @@ return|;
 block|}
 end_function
 
-begin_comment
-comment|// public String getTypeInArray (String type) {
-end_comment
-
-begin_comment
-comment|// int pos = type.indexOf(' ');
-end_comment
-
-begin_comment
-comment|// if (pos<0) {
-end_comment
-
-begin_comment
-comment|// // not array
-end_comment
-
-begin_comment
-comment|// return null;
-end_comment
-
-begin_comment
-comment|// } else {
-end_comment
-
-begin_comment
-comment|// return type.substring(pos+1);
-end_comment
-
-begin_comment
-comment|// }
-end_comment
-
-begin_comment
-comment|// }
-end_comment
-
 begin_function
 specifier|public
 name|boolean

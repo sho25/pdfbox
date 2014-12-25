@@ -53,7 +53,6 @@ begin_class
 specifier|public
 class|class
 name|ComplexPropertyContainer
-comment|/* extends AbstractField */
 block|{
 specifier|private
 name|List
@@ -62,7 +61,6 @@ name|AbstractField
 argument_list|>
 name|properties
 decl_stmt|;
-comment|// private Map<String, Attribute> attributes;
 comment|/**      * Complex Property type constructor (namespaceURI is given)      *       */
 specifier|public
 name|ComplexPropertyContainer
@@ -77,65 +75,7 @@ name|AbstractField
 argument_list|>
 argument_list|()
 expr_stmt|;
-comment|// attributes = new HashMap<String, Attribute>();
 block|}
-comment|// /**
-comment|// * Get an attribute with its name in this entity
-comment|// *
-comment|// * @param qualifiedName
-comment|// * the full qualified name of the attribute wanted
-comment|// * @return The attribute property
-comment|// */
-comment|// public Attribute getAttribute(String qualifiedName) {
-comment|// return attributes.get(qualifiedName);
-comment|// }
-comment|// /**
-comment|// * Get attributes list defined for this entity
-comment|// *
-comment|// * @return Attributes list
-comment|// */
-comment|// public List<Attribute> getAllAttributes() {
-comment|// return new ArrayList<Attribute>(attributes.values());
-comment|// }
-comment|// /**
-comment|// * Set a new attribute for this entity
-comment|// *
-comment|// * @param value
-comment|// * The Attribute property to add
-comment|// */
-comment|// public void setAttribute(Attribute value) {
-comment|// if (attributes.containsKey(value.getQualifiedName())) {
-comment|// // if same name in element, attribute will be replaced
-comment|// attributes.remove(value.getQualifiedName());
-comment|// }
-comment|// if (value.getNamespace() == null) {
-comment|// attributes.put(value.getQualifiedName(), value);
-comment|// } else {
-comment|// attributes.put(value.getQualifiedName(), value);
-comment|// }
-comment|// }
-comment|// /**
-comment|// * Remove an attribute of this entity
-comment|// *
-comment|// * @param qualifiedName
-comment|// * the full qualified name of the attribute wanted
-comment|// */
-comment|// public void removeAttribute(String qualifiedName) {
-comment|// if (containsAttribute(qualifiedName)) {
-comment|// attributes.remove(qualifiedName);
-comment|// }
-comment|//
-comment|// }
-comment|// /**
-comment|// * Check if an attribute is declared for this entity
-comment|// *
-comment|// * @param qualifiedName
-comment|// * the full qualified name of the attribute concerned
-comment|// * @return true if attribute is present
-comment|// */
-comment|// public boolean containsAttribute(String qualifiedName) {
-comment|// return attributes.containsKey(qualifiedName);
-comment|// }
 comment|/**      * Give the first property found in this container with type and localname expected      *       * @param localName      *            the localname of property wanted      * @param type      *            the property type of property wanted      * @return the property wanted      */
 specifier|protected
 name|AbstractField

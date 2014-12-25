@@ -722,7 +722,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// document.normalizeDocument();
 name|XMPMetadata
 name|xmp
 init|=
