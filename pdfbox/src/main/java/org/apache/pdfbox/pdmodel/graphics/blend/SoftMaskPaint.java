@@ -198,7 +198,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT Paint that adds a soft mask to the alpha channel of the existing parent paint. If the parent  * paint does not have an alpha channel, a new raster is created.  *   * @author Kühn& Weyh Software, GmbH  */
+comment|/**  * AWT Paint that adds a soft mask to the alpha channel of the existing parent paint. If the parent  * paint does not have an alpha channel, a new raster is created.  *   * @author KÃ¼hn& Weyh Software, GmbH  */
 end_comment
 
 begin_class
@@ -243,6 +243,8 @@ operator|=
 name|softMaskRaster
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getTransparency
@@ -254,6 +256,8 @@ operator|.
 name|TRANSLUCENT
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|PaintContext
 name|createContext
@@ -321,6 +325,7 @@ implements|implements
 name|PaintContext
 block|{
 specifier|private
+specifier|final
 name|PaintContext
 name|parentContext
 decl_stmt|;
@@ -413,6 +418,8 @@ name|getNumColorComponents
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ColorModel
 name|getColorModel
@@ -422,6 +429,8 @@ return|return
 name|colorModel
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Raster
 name|getRaster
@@ -769,19 +778,9 @@ name|softMaskRaster
 operator|.
 name|getSample
 argument_list|(
-name|Math
-operator|.
-name|round
-argument_list|(
 name|rx
-argument_list|)
 argument_list|,
-name|Math
-operator|.
-name|round
-argument_list|(
 name|ry
-argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -830,6 +829,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|dispose
