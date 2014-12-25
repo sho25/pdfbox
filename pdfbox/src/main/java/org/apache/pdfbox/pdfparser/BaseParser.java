@@ -3613,12 +3613,6 @@ operator|||
 name|ch
 operator|==
 literal|'('
-operator|||
-name|ch
-operator|==
-operator|-
-literal|1
-comment|//EOF
 operator|)
 return|;
 block|}
