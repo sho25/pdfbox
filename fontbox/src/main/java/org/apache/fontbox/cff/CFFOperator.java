@@ -134,6 +134,8 @@ name|name
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -145,6 +147,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode
@@ -159,6 +163,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
@@ -377,6 +383,8 @@ name|value
 expr_stmt|;
 block|}
 comment|/**          * {@inheritDoc}          */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -393,6 +401,8 @@ argument_list|)
 return|;
 block|}
 comment|/**          * {@inheritDoc}          */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode
@@ -409,6 +419,8 @@ argument_list|)
 return|;
 block|}
 comment|/**          * {@inheritDoc}          */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals

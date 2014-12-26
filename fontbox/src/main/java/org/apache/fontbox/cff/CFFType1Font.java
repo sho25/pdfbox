@@ -213,6 +213,8 @@ return|return
 name|fontName
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|GeneralPath
 name|getPath
@@ -557,6 +559,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Returns the CFFEncoding of the font.      *      * @return the encoding      */
+annotation|@
+name|Override
 specifier|public
 name|CFFEncoding
 name|getEncoding
