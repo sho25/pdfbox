@@ -2502,12 +2502,6 @@ operator|)
 name|c
 argument_list|)
 operator|&&
-operator|!
-name|isClosing
-argument_list|(
-name|c
-argument_list|)
-operator|&&
 name|c
 operator|!=
 operator|-
