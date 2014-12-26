@@ -85,6 +85,8 @@ name|CFFEncoding
 parameter_list|()
 block|{     }
 comment|/**      * Returns the name of the glyph for the given character code.      *      * @param code character code      * @return PostScript glyph name      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
