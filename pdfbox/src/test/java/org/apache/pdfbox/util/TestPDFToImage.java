@@ -1165,6 +1165,13 @@ argument_list|)
 decl_stmt|;
 name|document
 operator|.
+name|setAllSecurityToBeRemoved
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|document
+operator|.
 name|save
 argument_list|(
 name|tmpFile
