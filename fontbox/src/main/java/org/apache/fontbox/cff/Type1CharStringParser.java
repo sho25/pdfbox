@@ -145,6 +145,7 @@ init|=
 literal|17
 decl_stmt|;
 specifier|private
+specifier|final
 name|String
 name|fontName
 decl_stmt|,
