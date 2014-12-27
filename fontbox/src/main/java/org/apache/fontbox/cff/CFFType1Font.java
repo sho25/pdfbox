@@ -205,17 +205,6 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-name|fontName
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
 name|GeneralPath
 name|getPath
 parameter_list|(

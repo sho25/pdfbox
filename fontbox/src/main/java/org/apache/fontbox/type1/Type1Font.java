@@ -798,6 +798,8 @@ name|fontName
 return|;
 block|}
 comment|/**      * Returns the Encoding, if present.      * @return the encoding or null      */
+annotation|@
+name|Override
 specifier|public
 name|Encoding
 name|getEncoding
@@ -846,6 +848,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns the font bounding box.      *       * @return the font bounding box      */
+annotation|@
+name|Override
 specifier|public
 name|BoundingBox
 name|getFontBBox
@@ -1176,6 +1180,8 @@ name|languageGroup
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
