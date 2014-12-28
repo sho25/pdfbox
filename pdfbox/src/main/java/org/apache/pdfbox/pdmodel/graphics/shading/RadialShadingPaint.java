@@ -148,7 +148,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT Paint for radial shading.  *  * @author Andreas Lehmkühler  */
+comment|/**  * AWT Paint for radial shading.  *  * @author Andreas LehmkÃ¼hler  */
 end_comment
 
 begin_class
@@ -174,10 +174,12 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDShadingType3
 name|shading
 decl_stmt|;
 specifier|private
+specifier|final
 name|Matrix
 name|ctm
 decl_stmt|;
