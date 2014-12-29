@@ -288,6 +288,7 @@ name|double
 name|denom
 decl_stmt|;
 specifier|private
+specifier|final
 name|int
 name|factor
 decl_stmt|;
@@ -676,22 +677,6 @@ argument_list|,
 name|maxY
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|factor
-operator|>
-literal|0
-operator|&&
-name|factor
-operator|<
-literal|10
-condition|)
-block|{
-name|factor
-operator|=
-literal|10
-expr_stmt|;
-block|}
 name|colorTable
 operator|=
 name|calcColorTable
@@ -795,7 +780,7 @@ index|]
 return|;
 block|}
 block|}
-comment|/**      * Calculate the color on the line connects two circles' centers and store      * the result in an array.      *      * @return an array, index denotes the relative position, the corresponding      * value the color      */
+comment|/**      * Calculate the color on the line that connects two circles' centers and      * store the result in an array.      *      * @return an array, index denotes the relative position, the corresponding      * value the color      */
 specifier|private
 name|int
 index|[]
