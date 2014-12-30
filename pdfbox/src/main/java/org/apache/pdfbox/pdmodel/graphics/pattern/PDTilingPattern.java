@@ -387,7 +387,10 @@ name|float
 name|getXStep
 parameter_list|()
 block|{
-return|return
+comment|// ignores invalid values, see PDFBOX-1094-065514-XStep32767.pdf
+name|float
+name|xStep
+init|=
 name|getCOSDictionary
 argument_list|()
 operator|.
@@ -399,6 +402,17 @@ name|X_STEP
 argument_list|,
 literal|0
 argument_list|)
+decl_stmt|;
+return|return
+name|xStep
+operator|==
+name|Short
+operator|.
+name|MAX_VALUE
+condition|?
+literal|0
+else|:
+name|xStep
 return|;
 block|}
 comment|/**      * This will set the YStep value.      * @param yStep The new YStep value.      */
@@ -429,7 +443,10 @@ name|float
 name|getYStep
 parameter_list|()
 block|{
-return|return
+comment|// ignores invalid values, see PDFBOX-1094-065514-XStep32767.pdf
+name|float
+name|yStep
+init|=
 name|getCOSDictionary
 argument_list|()
 operator|.
@@ -441,6 +458,17 @@ name|Y_STEP
 argument_list|,
 literal|0
 argument_list|)
+decl_stmt|;
+return|return
+name|yStep
+operator|==
+name|Short
+operator|.
+name|MAX_VALUE
+condition|?
+literal|0
+else|:
+name|yStep
 return|;
 block|}
 annotation|@

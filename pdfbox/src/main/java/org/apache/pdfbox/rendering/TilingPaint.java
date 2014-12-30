@@ -857,7 +857,7 @@ return|return
 name|image
 return|;
 block|}
-comment|/**      * Returns the closest integer which is //larger than the given number.      * Uses BigDecimal to avoid floating point error which would cause gaps in the tiling.      */
+comment|/**      * Returns the closest integer which is larger than the given number.      * Uses BigDecimal to avoid floating point error which would cause gaps in the tiling.      */
 specifier|private
 specifier|static
 name|int
