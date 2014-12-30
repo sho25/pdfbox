@@ -289,7 +289,7 @@ name|int
 name|bitsPerFlag
 decl_stmt|;
 comment|// bits per flag
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param dBounds device bounds      * @throws IOException if something went wrong      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param dBounds device bounds      * @throws IOException if something went wrong      */
 specifier|protected
 name|PatchMeshesShadingContext
 parameter_list|(

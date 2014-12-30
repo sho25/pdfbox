@@ -198,7 +198,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT PaintContext for radial shading.  *  * Performance improvement done as part of GSoC2014, Tilman Hausherr is the  * mentor.  *  * @author Andreas Lehmkühler  * @author Shaola Ren  */
+comment|/**  * AWT PaintContext for radial shading.  *  * Performance improvement done as part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Andreas Lehmkühler  * @author Shaola Ren  */
 end_comment
 
 begin_class
@@ -302,7 +302,7 @@ specifier|private
 name|AffineTransform
 name|rat
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm the transformation matrix      * @param dBounds device bounds      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm the transformation matrix      * @param deviceBounds device bounds      */
 specifier|public
 name|RadialShadingContext
 parameter_list|(
@@ -319,7 +319,7 @@ name|Matrix
 name|ctm
 parameter_list|,
 name|Rectangle
-name|dBounds
+name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -334,7 +334,7 @@ name|xform
 argument_list|,
 name|ctm
 argument_list|,
-name|dBounds
+name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|this
