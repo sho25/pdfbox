@@ -454,13 +454,18 @@ name|clone
 argument_list|()
 decl_stmt|;
 comment|// applies the pattern matrix with scaling removed
-name|AffineTransform
-name|patternNoScale
+name|Matrix
+name|patternMatrix
 init|=
 name|pattern
 operator|.
 name|getMatrix
 argument_list|()
+decl_stmt|;
+name|AffineTransform
+name|patternNoScale
+init|=
+name|patternMatrix
 operator|.
 name|createAffineTransform
 argument_list|()
@@ -471,16 +476,16 @@ name|scale
 argument_list|(
 literal|1
 operator|/
-name|patternNoScale
+name|patternMatrix
 operator|.
-name|getScaleX
+name|getScalingFactorX
 argument_list|()
 argument_list|,
 literal|1
 operator|/
-name|patternNoScale
+name|patternMatrix
 operator|.
-name|getScaleY
+name|getScalingFactorY
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -780,7 +785,7 @@ operator|.
 name|getMatrix
 argument_list|()
 operator|.
-name|getScaleX
+name|getScalingFactorX
 argument_list|()
 argument_list|)
 argument_list|,
@@ -793,7 +798,7 @@ operator|.
 name|getMatrix
 argument_list|()
 operator|.
-name|getScaleY
+name|getScalingFactorY
 argument_list|()
 argument_list|)
 argument_list|)
@@ -975,7 +980,7 @@ operator|.
 name|getMatrix
 argument_list|()
 operator|.
-name|getScaleX
+name|getScalingFactorX
 argument_list|()
 decl_stmt|;
 name|float
@@ -986,7 +991,7 @@ operator|.
 name|getMatrix
 argument_list|()
 operator|.
-name|getScaleY
+name|getScalingFactorY
 argument_list|()
 decl_stmt|;
 comment|// returns the anchor rect with scaling applied
