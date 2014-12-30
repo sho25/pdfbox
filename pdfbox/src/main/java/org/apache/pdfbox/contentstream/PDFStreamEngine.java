@@ -1358,7 +1358,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Matrix shall be concatenated with A to form a matrix AA that maps from the appearance€™s
+comment|// Matrix shall be concatenated with A to form a matrix AA that maps from the appearanceï¿½ï¿½s
 comment|// coordinate system to the annotation's rectangle in default user space
 name|Matrix
 name|aa
@@ -3246,6 +3246,7 @@ return|return
 name|currentPage
 return|;
 block|}
+comment|/**      * Gets the stream's initial matrix.      */
 specifier|public
 name|Matrix
 name|getInitialMatrix
@@ -3255,21 +3256,21 @@ return|return
 name|initialMatrix
 return|;
 block|}
-comment|/**      * use the current transformation matrix to transformPoint a single point.      *      * @param x x-coordinate of the point to be transformPoint      * @param y y-coordinate of the point to be transformPoint      * @return the transformed coordinates as Point2D.Double      */
+comment|/**      * Transforms a point using the CTM.      */
 specifier|public
 name|Point2D
 operator|.
-name|Double
+name|Float
 name|transformedPoint
 parameter_list|(
-name|double
+name|float
 name|x
 parameter_list|,
-name|double
+name|float
 name|y
 parameter_list|)
 block|{
-name|double
+name|float
 index|[]
 name|position
 init|=
@@ -3305,7 +3306,7 @@ return|return
 operator|new
 name|Point2D
 operator|.
-name|Double
+name|Float
 argument_list|(
 name|position
 index|[
@@ -3319,7 +3320,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|// transforms a width using the CTM
+comment|/**      * Transforms a width using the CTM.      */
 specifier|protected
 name|float
 name|transformWidth
@@ -3342,42 +3343,26 @@ name|x
 init|=
 name|ctm
 operator|.
-name|getValue
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
+name|getScaleX
+argument_list|()
 operator|+
 name|ctm
 operator|.
-name|getValue
-argument_list|(
-literal|1
-argument_list|,
-literal|0
-argument_list|)
+name|getShearX
+argument_list|()
 decl_stmt|;
 name|float
 name|y
 init|=
 name|ctm
 operator|.
-name|getValue
-argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
+name|getScaleY
+argument_list|()
 operator|+
 name|ctm
 operator|.
-name|getValue
-argument_list|(
-literal|1
-argument_list|,
-literal|1
-argument_list|)
+name|getShearY
+argument_list|()
 decl_stmt|;
 return|return
 name|width

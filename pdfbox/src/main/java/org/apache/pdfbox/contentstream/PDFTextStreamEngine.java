@@ -1075,7 +1075,7 @@ name|height
 operator|*
 name|textRenderingMatrix
 operator|.
-name|getScaleY
+name|getScalingFactorY
 argument_list|()
 decl_stmt|;
 comment|//
@@ -1138,12 +1138,8 @@ operator|.
 name|getFontMatrix
 argument_list|()
 operator|.
-name|getValue
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
+name|getScaleX
+argument_list|()
 expr_stmt|;
 block|}
 name|float
@@ -1227,12 +1223,12 @@ name|horizontalScalingText
 operator|*
 name|textRenderingMatrix
 operator|.
-name|getXScale
+name|getScalingFactorX
 argument_list|()
 operator|*
 name|ctm
 operator|.
-name|getXScale
+name|getScalingFactorX
 argument_list|()
 decl_stmt|;
 comment|// use our additional glyph list for Unicode mapping
@@ -1343,7 +1339,7 @@ name|fontSize
 operator|*
 name|textRenderingMatrix
 operator|.
-name|getXScale
+name|getScalingFactorX
 argument_list|()
 argument_list|)
 argument_list|)

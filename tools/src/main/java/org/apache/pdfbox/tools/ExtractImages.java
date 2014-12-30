@@ -1053,6 +1053,8 @@ annotation|@
 name|Override
 specifier|public
 name|Point2D
+operator|.
+name|Float
 name|getCurrentPoint
 parameter_list|()
 throws|throws

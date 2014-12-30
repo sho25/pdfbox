@@ -570,7 +570,7 @@ name|abs
 argument_list|(
 name|ctm
 operator|.
-name|getXScale
+name|getScalingFactorX
 argument_list|()
 operator|*
 name|xform
@@ -590,7 +590,7 @@ name|abs
 argument_list|(
 name|ctm
 operator|.
-name|getYScale
+name|getScalingFactorY
 argument_list|()
 operator|*
 name|xform

@@ -106,20 +106,20 @@ literal|0
 block|,
 literal|0
 block|,
-comment|//  a  b  0
+comment|//  a  b  0     sx hy 0    note: hx and hy are reversed vs. the PDF spec as we use
 literal|0
 block|,
 literal|1
 block|,
 literal|0
 block|,
-comment|//  c  d  0
+comment|//  c  d  0  =  hx sy 0          AffineTransform's definition x and y shear
 literal|0
 block|,
 literal|0
 block|,
 literal|1
-comment|//  tx ty 1
+comment|//  tx ty 1     tx ty 1
 block|}
 decl_stmt|;
 specifier|private
@@ -405,9 +405,7 @@ name|AffineTransform
 name|createAffineTransform
 parameter_list|()
 block|{
-name|AffineTransform
-name|retval
-init|=
+return|return
 operator|new
 name|AffineTransform
 argument_list|(
@@ -421,6 +419,7 @@ index|[
 literal|1
 index|]
 argument_list|,
+comment|// m00 m10 = scaleX shearY
 name|single
 index|[
 literal|3
@@ -431,6 +430,7 @@ index|[
 literal|4
 index|]
 argument_list|,
+comment|// m01 m11 = shearX scaleY
 name|single
 index|[
 literal|6
@@ -441,10 +441,8 @@ index|[
 literal|7
 index|]
 argument_list|)
-decl_stmt|;
-return|return
-name|retval
 return|;
+comment|// m02 m12 = tx ty
 block|}
 comment|/**      * Set the values of the matrix from the AffineTransform.      *      * @param af The transform to get the values from.      * @deprecated This method is due to be removed, please contact us if you make use of it.      */
 annotation|@
@@ -2014,12 +2012,10 @@ return|return
 name|clone
 return|;
 block|}
-comment|/**      * Get the x-scaling factor of this matrix. This is a deprecated method which actually      * returns the x-scaling factor multiplied by the x-shear.      *      * @return The x-scale.      * @deprecated Use {@link #getScaleX} instead      */
-annotation|@
-name|Deprecated
+comment|/**      * Returns the x-scaling factor of this matrix. This is calculated from the scale and shear.      *      * @return The x-scaling factor.      */
 specifier|public
 name|float
-name|getXScale
+name|getScalingFactorX
 parameter_list|()
 block|{
 name|float
@@ -2090,12 +2086,10 @@ return|return
 name|xScale
 return|;
 block|}
-comment|/**      * Get the y-scaling factor of this matrix. This is a deprecated method which actually      * returns the y-scaling factor multiplied by the y-shear.      *      * @return The y-scale factor.      * @deprecated Use {@link #getScaleY} instead      */
-annotation|@
-name|Deprecated
+comment|/**      * Returns the y-scaling factor of this matrix. This is calculated from the scale and shear.      *      * @return The y-scaling factor.      */
 specifier|public
 name|float
-name|getYScale
+name|getScalingFactorY
 parameter_list|()
 block|{
 name|float
@@ -2165,7 +2159,7 @@ return|return
 name|yScale
 return|;
 block|}
-comment|/**      * Returns the x-scaling factor of this matrix.      */
+comment|/**      * Returns the x-scaling element of this matrix.      */
 specifier|public
 name|float
 name|getScaleX
@@ -2178,7 +2172,7 @@ literal|0
 index|]
 return|;
 block|}
-comment|/**      * Returns the y-shear factor of this matrix.      */
+comment|/**      * Returns the y-shear element of this matrix.      */
 specifier|public
 name|float
 name|getShearY
@@ -2191,7 +2185,7 @@ literal|1
 index|]
 return|;
 block|}
-comment|/**      * Returns the x-shear factor of this matrix.      */
+comment|/**      * Returns the x-shear element of this matrix.      */
 specifier|public
 name|float
 name|getShearX
@@ -2204,7 +2198,7 @@ literal|3
 index|]
 return|;
 block|}
-comment|/**      * Returns the y-scaling factor of this matrix.      */
+comment|/**      * Returns the y-scaling element of this matrix.      */
 specifier|public
 name|float
 name|getScaleY
@@ -2217,7 +2211,7 @@ literal|4
 index|]
 return|;
 block|}
-comment|/**      * Returns the x-translation of this matrix.      */
+comment|/**      * Returns the x-translation element of this matrix.      */
 specifier|public
 name|float
 name|getTranslateX
@@ -2230,7 +2224,7 @@ literal|6
 index|]
 return|;
 block|}
-comment|/**      * Returns the y-translation of this matrix.      */
+comment|/**      * Returns the y-translation element of this matrix.      */
 specifier|public
 name|float
 name|getTranslateY
