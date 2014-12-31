@@ -533,6 +533,8 @@ name|Integer
 argument_list|>
 name|calcPixelTable
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Map
 argument_list|<

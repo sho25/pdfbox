@@ -340,6 +340,21 @@ name|numberOfColorComponents
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates the pixel table.      */
+specifier|protected
+specifier|final
+name|void
+name|createPixelTable
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|pixelTable
+operator|=
+name|calcPixelTable
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Calculate every point and its color and store them in a Hash table.      *      * @return a Hash table which contains all the points' positions and colors of one image      */
 specifier|abstract
 name|Map
@@ -350,19 +365,9 @@ name|Integer
 argument_list|>
 name|calcPixelTable
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
-comment|/**      * Creates the pixel table.      */
-specifier|protected
-name|void
-name|createPixelTable
-parameter_list|()
-block|{
-name|pixelTable
-operator|=
-name|calcPixelTable
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**      * Get the points from the triangles, calculate their color and add  point-color mappings.      */
 specifier|protected
 name|void
@@ -382,6 +387,8 @@ name|Integer
 argument_list|>
 name|map
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 for|for
 control|(
@@ -633,13 +640,13 @@ name|float
 index|[]
 name|values
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
 name|hasFunction
 condition|)
-block|{
-try|try
 block|{
 name|values
 operator|=
@@ -650,23 +657,6 @@ argument_list|(
 name|values
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|exception
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"error while processing a function"
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 name|convertToRGB

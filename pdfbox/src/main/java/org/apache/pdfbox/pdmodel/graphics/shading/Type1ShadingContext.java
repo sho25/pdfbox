@@ -636,7 +636,7 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|exception
+name|e
 parameter_list|)
 block|{
 name|LOG
@@ -645,7 +645,7 @@ name|error
 argument_list|(
 literal|"error while processing a function"
 argument_list|,
-name|exception
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -673,7 +673,7 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|exception
+name|e
 parameter_list|)
 block|{
 name|LOG
@@ -682,7 +682,7 @@ name|error
 argument_list|(
 literal|"error processing color space"
 argument_list|,
-name|exception
+name|e
 argument_list|)
 expr_stmt|;
 block|}

@@ -590,6 +590,8 @@ name|float
 index|[]
 name|values
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|float
 index|[]
@@ -600,8 +602,6 @@ name|normRGBValues
 init|=
 literal|0
 decl_stmt|;
-try|try
-block|{
 name|rgbValues
 operator|=
 name|shadingColorSpace
@@ -657,23 +657,6 @@ argument_list|)
 operator|<<
 literal|16
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|exception
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"error processing color space"
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|normRGBValues
 return|;

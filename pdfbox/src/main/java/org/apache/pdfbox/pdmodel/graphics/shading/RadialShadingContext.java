@@ -786,6 +786,8 @@ name|int
 index|[]
 name|calcColorTable
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|int
 index|[]
@@ -809,8 +811,6 @@ name|d1d0
 operator|==
 literal|0
 condition|)
-block|{
-try|try
 block|{
 name|float
 index|[]
@@ -836,23 +836,6 @@ argument_list|(
 name|values
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|exception
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"error while processing a function"
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -888,8 +871,6 @@ name|float
 operator|)
 name|factor
 decl_stmt|;
-try|try
-block|{
 name|float
 index|[]
 name|values
@@ -911,23 +892,6 @@ argument_list|(
 name|values
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|exception
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"error while processing a function"
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 return|return
