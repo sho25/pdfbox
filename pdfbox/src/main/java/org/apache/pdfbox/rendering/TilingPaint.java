@@ -315,6 +315,11 @@ specifier|final
 name|TexturePaint
 name|paint
 decl_stmt|;
+specifier|private
+specifier|final
+name|PageDrawer
+name|drawer
+decl_stmt|;
 comment|/**      * Creates a new colored tiling Paint.      *      * @param drawer renderer to render the page      * @param pattern tiling pattern dictionary      *      * @throws java.io.IOException if something goes wrong while drawing the      * pattern      */
 specifier|public
 name|TilingPaint
@@ -331,6 +336,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|this
+operator|.
+name|drawer
+operator|=
+name|drawer
+expr_stmt|;
 name|this
 operator|.
 name|paint
@@ -354,6 +365,8 @@ argument_list|,
 name|getAnchorRect
 argument_list|(
 name|pattern
+argument_list|,
+name|drawer
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -388,6 +401,12 @@ name|IOException
 block|{
 name|this
 operator|.
+name|drawer
+operator|=
+name|drawer
+expr_stmt|;
+name|this
+operator|.
 name|paint
 operator|=
 operator|new
@@ -409,6 +428,8 @@ argument_list|,
 name|getAnchorRect
 argument_list|(
 name|pattern
+argument_list|,
+name|drawer
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -453,15 +474,26 @@ operator|.
 name|clone
 argument_list|()
 decl_stmt|;
-comment|// applies the pattern matrix with scaling removed
+comment|// pattern space -> user space
 name|Matrix
 name|patternMatrix
 init|=
+name|Matrix
+operator|.
+name|concatenate
+argument_list|(
+name|drawer
+operator|.
+name|getInitialMatrix
+argument_list|()
+argument_list|,
 name|pattern
 operator|.
 name|getMatrix
 argument_list|()
+argument_list|)
 decl_stmt|;
+comment|// applies the pattern matrix with scaling removed
 name|AffineTransform
 name|patternNoScale
 init|=
@@ -576,6 +608,8 @@ init|=
 name|getAnchorRect
 argument_list|(
 name|pattern
+argument_list|,
+name|drawer
 argument_list|)
 decl_stmt|;
 name|float
@@ -778,11 +812,29 @@ name|getScalingFactorY
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// apply only the scaling from the pattern transform, doing scaling here improves the
-comment|// image quality and prevents large scale-down factors from creating huge tiling cells.
+comment|// pattern space -> user space
 name|Matrix
 name|patternMatrix
 init|=
+name|Matrix
+operator|.
+name|concatenate
+argument_list|(
+name|drawer
+operator|.
+name|getInitialMatrix
+argument_list|()
+argument_list|,
+name|pattern
+operator|.
+name|getMatrix
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// apply only the scaling from the pattern transform, doing scaling here improves the
+comment|// image quality and prevents large scale-down factors from creating huge tiling cells.
+name|patternMatrix
+operator|=
 name|Matrix
 operator|.
 name|getScaleInstance
@@ -791,10 +843,7 @@ name|Math
 operator|.
 name|abs
 argument_list|(
-name|pattern
-operator|.
-name|getMatrix
-argument_list|()
+name|patternMatrix
 operator|.
 name|getScalingFactorX
 argument_list|()
@@ -804,16 +853,13 @@ name|Math
 operator|.
 name|abs
 argument_list|(
-name|pattern
-operator|.
-name|getMatrix
-argument_list|()
+name|patternMatrix
 operator|.
 name|getScalingFactorY
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// move origin to (0,0)
 name|patternMatrix
 operator|.
@@ -929,6 +975,9 @@ name|getAnchorRect
 parameter_list|(
 name|PDTilingPattern
 name|pattern
+parameter_list|,
+name|PageDrawer
+name|drawer
 parameter_list|)
 block|{
 name|float
@@ -983,13 +1032,29 @@ name|getHeight
 argument_list|()
 expr_stmt|;
 block|}
-name|float
-name|xScale
+comment|// pattern space -> user space
+name|Matrix
+name|patternMatrix
 init|=
+name|Matrix
+operator|.
+name|concatenate
+argument_list|(
+name|drawer
+operator|.
+name|getInitialMatrix
+argument_list|()
+argument_list|,
 name|pattern
 operator|.
 name|getMatrix
 argument_list|()
+argument_list|)
+decl_stmt|;
+name|float
+name|xScale
+init|=
+name|patternMatrix
 operator|.
 name|getScalingFactorX
 argument_list|()
@@ -997,10 +1062,7 @@ decl_stmt|;
 name|float
 name|yScale
 init|=
-name|pattern
-operator|.
-name|getMatrix
-argument_list|()
+name|patternMatrix
 operator|.
 name|getScalingFactorY
 argument_list|()
