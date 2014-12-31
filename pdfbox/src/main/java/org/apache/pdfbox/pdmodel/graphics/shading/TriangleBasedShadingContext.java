@@ -636,43 +636,6 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Transform a point from pattern space to device space.      * @param p point      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param xform transformation for user to device space      */
-specifier|protected
-name|void
-name|transformPoint
-parameter_list|(
-name|Point2D
-name|p
-parameter_list|,
-name|Matrix
-name|matrix
-parameter_list|,
-name|AffineTransform
-name|xform
-parameter_list|)
-block|{
-name|matrix
-operator|.
-name|createAffineTransform
-argument_list|()
-operator|.
-name|transform
-argument_list|(
-name|p
-argument_list|,
-name|p
-argument_list|)
-expr_stmt|;
-name|xform
-operator|.
-name|transform
-argument_list|(
-name|p
-argument_list|,
-name|p
-argument_list|)
-expr_stmt|;
-block|}
 comment|// convert color to RGB color value, using function if required,
 comment|// then convert from the shading colorspace to an RGB value,
 comment|// which is encoded into an integer.
