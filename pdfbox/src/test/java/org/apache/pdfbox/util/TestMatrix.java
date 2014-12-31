@@ -314,16 +314,6 @@ argument_list|,
 name|product
 argument_list|)
 expr_stmt|;
-name|product
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|assertMatrixIsPristine
-argument_list|(
-name|product
-argument_list|)
-expr_stmt|;
 comment|// Multiply two matrices together with the result being written to a third matrix
 comment|// (Any existing values there will be overwritten).
 name|Matrix

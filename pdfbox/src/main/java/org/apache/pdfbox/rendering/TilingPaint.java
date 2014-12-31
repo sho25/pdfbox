@@ -610,25 +610,28 @@ name|getHeight
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// device transform (i.e. DPI)
+comment|// device scale transform (i.e. DPI) (see PDFBOX-1466.pdf)
+name|Matrix
+name|xformMatrix
+init|=
+operator|new
+name|Matrix
+argument_list|(
+name|xform
+argument_list|)
+decl_stmt|;
 name|width
 operator|*=
-operator|(
-name|float
-operator|)
-name|xform
+name|xformMatrix
 operator|.
-name|getScaleX
+name|getScalingFactorX
 argument_list|()
 expr_stmt|;
 name|height
 operator|*=
-operator|(
-name|float
-operator|)
-name|xform
+name|xformMatrix
 operator|.
-name|getScaleY
+name|getScalingFactorY
 argument_list|()
 expr_stmt|;
 name|int
@@ -759,12 +762,20 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|// device transform (i.e. DPI)
+comment|// device scale transform (i.e. DPI)
 name|graphics
 operator|.
-name|transform
+name|scale
 argument_list|(
-name|xform
+name|xformMatrix
+operator|.
+name|getScalingFactorX
+argument_list|()
+argument_list|,
+name|xformMatrix
+operator|.
+name|getScalingFactorY
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// apply only the scaling from the pattern transform, doing scaling here improves the
