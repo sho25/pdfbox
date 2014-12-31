@@ -927,23 +927,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|processChildStream
-argument_list|(
-name|form
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Process a child stream of the current page. For use with #processPage(PDPage).      *      * @param contentStream the child content stream      * @throws IOException if there is an exception while processing the stream      */
-specifier|public
-name|void
-name|processChildStream
-parameter_list|(
-name|PDContentStream
-name|contentStream
-parameter_list|)
-throws|throws
-name|IOException
-block|{
 if|if
 condition|(
 name|currentPage
@@ -963,7 +946,7 @@ throw|;
 block|}
 name|processStream
 argument_list|(
-name|contentStream
+name|form
 argument_list|)
 expr_stmt|;
 block|}
@@ -1762,20 +1745,6 @@ name|parentMatrix
 init|=
 name|initialMatrix
 decl_stmt|;
-name|initialMatrix
-operator|=
-name|Matrix
-operator|.
-name|concatenate
-argument_list|(
-name|initialMatrix
-argument_list|,
-name|contentStream
-operator|.
-name|getMatrix
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// transform the CTM using the stream's matrix
 name|getGraphicsState
 argument_list|()
@@ -1790,6 +1759,18 @@ operator|.
 name|getMatrix
 argument_list|()
 argument_list|)
+expr_stmt|;
+comment|// the stream's initial matrix includes the parent CTM, e.g. this allows a scaled form
+name|initialMatrix
+operator|=
+name|getGraphicsState
+argument_list|()
+operator|.
+name|getCurrentTransformationMatrix
+argument_list|()
+operator|.
+name|clone
+argument_list|()
 expr_stmt|;
 comment|// clip to bounding box
 name|PDRectangle
