@@ -615,9 +615,11 @@ name|srcMax
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|boolean
-name|emptyList
+name|isDataEmpty
 parameter_list|()
 block|{
 return|return

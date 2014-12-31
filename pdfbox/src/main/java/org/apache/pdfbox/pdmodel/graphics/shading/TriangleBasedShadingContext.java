@@ -67,18 +67,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|geom
-operator|.
-name|Point2D
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|image
 operator|.
 name|ColorModel
@@ -352,7 +340,7 @@ name|numberOfColorComponents
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Calculate every point and its color and store them in a Hash table.      *      * @return a Hash table which contains all the points' positions and colors      * of one image      */
+comment|/**      * Calculate every point and its color and store them in a Hash table.      *      * @return a Hash table which contains all the points' positions and colors of one image      */
 specifier|abstract
 name|Map
 argument_list|<
@@ -363,6 +351,7 @@ argument_list|>
 name|calcPixelTable
 parameter_list|()
 function_decl|;
+comment|/**      * Creates the pixel table.      */
 specifier|protected
 name|void
 name|createPixelTable
@@ -374,8 +363,7 @@ name|calcPixelTable
 argument_list|()
 expr_stmt|;
 block|}
-comment|// get the points from the triangles, calculate their color and add
-comment|// point-color mappings to the map
+comment|/**      * Get the points from the triangles, calculate their color and add  point-color mappings.      */
 specifier|protected
 name|void
 name|calcPixelTable
@@ -636,9 +624,7 @@ block|}
 block|}
 block|}
 block|}
-comment|// convert color to RGB color value, using function if required,
-comment|// then convert from the shading colorspace to an RGB value,
-comment|// which is encoded into an integer.
+comment|/**      * Convert color to RGB color value, using function if required, then convert from the shading      * color space to an RGB value, which is encoded into an integer.      */
 specifier|private
 name|int
 name|evalFunctionAndConvertToRGB
@@ -689,10 +675,10 @@ name|values
 argument_list|)
 return|;
 block|}
-comment|/**      * True if the relevant list is empty.      */
+comment|/**      * Returns true if the shading has an empty data stream.      */
 specifier|abstract
 name|boolean
-name|emptyList
+name|isDataEmpty
 parameter_list|()
 function_decl|;
 annotation|@
@@ -773,7 +759,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|emptyList
+name|isDataEmpty
 argument_list|()
 operator|||
 name|background

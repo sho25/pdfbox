@@ -1205,7 +1205,7 @@ annotation|@
 name|Override
 specifier|protected
 name|boolean
-name|emptyList
+name|isDataEmpty
 parameter_list|()
 block|{
 return|return
