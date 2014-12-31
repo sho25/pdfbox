@@ -182,7 +182,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Intermediate class extended by the shading types 4,5,6 and 7 that contains  * the common methods used by these classes.  *  * @author Shaola Ren  * @author Tilman Hausherr  */
+comment|/**  * Intermediate class extended by the shading types 4,5,6 and 7 that contains the common methods  * used by these classes.  *  * @author Shaola Ren  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -209,27 +209,24 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * bits per coordinate.      */
 specifier|protected
 name|int
 name|bitsPerCoordinate
 decl_stmt|;
-comment|/**      * bits per color component      */
 specifier|protected
 name|int
 name|bitsPerColorComponent
 decl_stmt|;
-comment|/**      * number of color components.      */
 specifier|protected
 name|int
 name|numberOfColorComponents
 decl_stmt|;
-specifier|final
 specifier|protected
+specifier|final
 name|boolean
 name|hasFunction
 decl_stmt|;
-comment|/**      * Map of pixels within triangles to their RGB color.      */
+comment|// map of pixels within triangles to their RGB color
 specifier|private
 name|Map
 argument_list|<
@@ -239,6 +236,7 @@ name|Integer
 argument_list|>
 name|pixelTable
 decl_stmt|;
+comment|/**      * Constructor.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @throws IOException if something went wrong      */
 specifier|public
 name|TriangleBasedShadingContext
 parameter_list|(
@@ -252,10 +250,10 @@ name|AffineTransform
 name|xform
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|Rectangle
-name|dBounds
+name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -268,9 +266,9 @@ name|cm
 argument_list|,
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
-name|dBounds
+name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|PDTriangleBasedShadingType
@@ -638,7 +636,7 @@ block|}
 block|}
 block|}
 block|}
-comment|// transform a point from source space to device space
+comment|/**      * Transform a point from pattern space to device space.      * @param p point      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param xform transformation for user to device space      */
 specifier|protected
 name|void
 name|transformPoint
@@ -647,20 +645,13 @@ name|Point2D
 name|p
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|AffineTransform
 name|xform
 parameter_list|)
 block|{
-if|if
-condition|(
-name|ctm
-operator|!=
-literal|null
-condition|)
-block|{
-name|ctm
+name|matrix
 operator|.
 name|createAffineTransform
 argument_list|()
@@ -672,7 +663,6 @@ argument_list|,
 name|p
 argument_list|)
 expr_stmt|;
-block|}
 name|xform
 operator|.
 name|transform
@@ -736,13 +726,12 @@ name|values
 argument_list|)
 return|;
 block|}
-comment|// true if the relevant list is empty
+comment|/**      * True if the relevant list is empty.      */
 specifier|abstract
 name|boolean
 name|emptyList
 parameter_list|()
 function_decl|;
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -755,7 +744,6 @@ return|return
 name|outputColorModel
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -772,7 +760,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public

@@ -194,9 +194,9 @@ name|domain
 decl_stmt|;
 specifier|private
 name|Matrix
-name|matrix
+name|patternMatrix
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param dBounds device bounds      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      */
 specifier|public
 name|Type1ShadingContext
 parameter_list|(
@@ -210,10 +210,10 @@ name|AffineTransform
 name|xform
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|Rectangle
-name|dBounds
+name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -226,9 +226,9 @@ name|colorModel
 argument_list|,
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
-name|dBounds
+name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|this
@@ -237,7 +237,6 @@ name|type1ShadingType
 operator|=
 name|shading
 expr_stmt|;
-comment|// spec p.308
 comment|// (Optional) An array of four numbers [ xmin xmax ymin ymax ]
 comment|// specifying the rectangular domain of coordinates over which the
 comment|// color function(s) are defined. Default value: [ 0.0 1.0 0.0 1.0 ].
@@ -280,27 +279,13 @@ literal|1
 block|}
 expr_stmt|;
 block|}
-name|matrix
+name|patternMatrix
 operator|=
 name|shading
 operator|.
 name|getMatrix
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|matrix
-operator|==
-literal|null
-condition|)
-block|{
-name|matrix
-operator|=
-operator|new
-name|Matrix
-argument_list|()
-expr_stmt|;
-block|}
 try|try
 block|{
 comment|// get inverse transform to be independent of
@@ -308,7 +293,7 @@ comment|// shading matrix and current user / device space
 comment|// when handling actual pixels in getRaster()
 name|rat
 operator|=
-name|matrix
+name|patternMatrix
 operator|.
 name|createAffineTransform
 argument_list|()
@@ -320,7 +305,7 @@ name|rat
 operator|.
 name|concatenate
 argument_list|(
-name|ctm
+name|matrix
 operator|.
 name|createAffineTransform
 argument_list|()

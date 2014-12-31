@@ -181,16 +181,16 @@ decl_stmt|;
 specifier|private
 specifier|final
 name|Matrix
-name|ctm
+name|matrix
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param shadingType2 the shading resources      * @param ctm current transformation matrix      */
+comment|/**      * Constructor.      *      * @param shadingType2 the shading resources      * @param matrix the pattern matrix concatenated with that of the parent content stream      */
 name|AxialShadingPaint
 parameter_list|(
 name|PDShadingType2
 name|shadingType2
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|)
 block|{
 name|shading
@@ -199,9 +199,9 @@ name|shadingType2
 expr_stmt|;
 name|this
 operator|.
-name|ctm
+name|matrix
 operator|=
-name|ctm
+name|matrix
 expr_stmt|;
 block|}
 annotation|@
@@ -249,7 +249,7 @@ name|cm
 argument_list|,
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
 name|deviceBounds
 argument_list|)

@@ -289,7 +289,7 @@ name|int
 name|bitsPerFlag
 decl_stmt|;
 comment|// bits per flag
-comment|/**      * Constructor creates an instance to be used for fill operations.      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param dBounds device bounds      * @throws IOException if something went wrong      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      * @throws IOException if something went wrong      */
 specifier|protected
 name|PatchMeshesShadingContext
 parameter_list|(
@@ -303,10 +303,10 @@ name|AffineTransform
 name|xform
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|Rectangle
-name|dBounds
+name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -319,9 +319,9 @@ name|colorModel
 argument_list|,
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
-name|dBounds
+name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|patchMeshesShadingType
@@ -350,7 +350,7 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Create a patch list from a data stream, the returned list contains all      * the patches contained in the data stream.      *      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param cosDictionary dictionary object to give the image information      * @param rangeX range for coordinate x      * @param rangeY range for coordinate y      * @param colRange range for color      * @param numP number of control points, 12 for type 6 shading and 16 for      * type 7 shading      * @return the obtained patch list      * @throws IOException when something went wrong      */
+comment|/**      * Create a patch list from a data stream, the returned list contains all the patches contained      * in the data stream.      *      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param dict dictionary object to give the image information      * @param rangeX range for coordinate x      * @param rangeY range for coordinate y      * @param colRange range for color      * @param numP number of control points, 12 for type 6 shading and 16 for type 7 shading      * @return the obtained patch list      * @throws IOException when something went wrong      */
 specifier|protected
 name|List
 argument_list|<
@@ -362,10 +362,10 @@ name|AffineTransform
 name|xform
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|COSDictionary
-name|cosDictionary
+name|dict
 parameter_list|,
 name|PDRange
 name|rangeX
@@ -436,7 +436,7 @@ init|=
 operator|(
 name|COSStream
 operator|)
-name|cosDictionary
+name|dict
 decl_stmt|;
 name|ImageInputStream
 name|mciis
@@ -554,7 +554,7 @@ name|rangeY
 argument_list|,
 name|colRange
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
 name|xform
 argument_list|,
@@ -574,9 +574,6 @@ name|list
 operator|.
 name|add
 argument_list|(
-operator|(
-name|Patch
-operator|)
 name|current
 argument_list|)
 expr_stmt|;
@@ -690,7 +687,7 @@ return|return
 name|list
 return|;
 block|}
-comment|/**      * Read a single patch from a data stream, a patch contains information of      * its coordinates and color parameters.      *      * @param input the image source data stream      * @param isFree whether this is a free patch      * @param implicitEdge implicit edge when a patch is not free, otherwise      * it's not used      * @param implicitCornerColor implicit colors when a patch is not free,      * otherwise it's not used      * @param maxSrcCoord the maximum coordinate value calculated from source      * data      * @param maxSrcColor the maximum color value calculated from source data      * @param rangeX range for coordinate x      * @param rangeY range for coordinate y      * @param colRange range for color      * @param ctm current transformation matrix      * @param xform transformation for user to device space      * @param numP number of control points, 12 for type 6 shading and 16 for      * type 7 shading      * @return a single patch      * @throws IOException when something went wrong      */
+comment|/**      * Read a single patch from a data stream, a patch contains information of its coordinates and      * color parameters.      *      * @param input the image source data stream      * @param isFree whether this is a free patch      * @param implicitEdge implicit edge when a patch is not free, otherwise it's not used      * @param implicitCornerColor implicit colors when a patch is not free, otherwise it's not used      * @param maxSrcCoord the maximum coordinate value calculated from source data      * @param maxSrcColor the maximum color value calculated from source data      * @param rangeX range for coordinate x      * @param rangeY range for coordinate y      * @param colRange range for color      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param xform transformation for user to device space      * @param numP number of control points, 12 for type 6 shading and 16 for type 7 shading      * @return a single patch      * @throws IOException when something went wrong      */
 specifier|protected
 name|Patch
 name|readPatch
@@ -727,7 +724,7 @@ index|[]
 name|colRange
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|AffineTransform
 name|xform
@@ -970,7 +967,7 @@ name|transformPoint
 argument_list|(
 name|tmp
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
 name|xform
 argument_list|)
@@ -1101,7 +1098,7 @@ index|[]
 name|color
 parameter_list|)
 function_decl|;
-comment|// get a point coordinate on a line by linear interpolation
+comment|/**      * Get a point coordinate on a line by linear interpolation.      */
 specifier|private
 name|double
 name|interpolate
@@ -1135,7 +1132,6 @@ name|rangeMin
 operator|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|protected
@@ -1189,7 +1185,6 @@ return|return
 name|map
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public

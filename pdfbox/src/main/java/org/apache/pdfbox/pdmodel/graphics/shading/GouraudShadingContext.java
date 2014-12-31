@@ -229,7 +229,7 @@ name|ShadedTriangle
 argument_list|>
 name|triangleList
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @throws IOException if something went wrong      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @throws IOException if something went wrong      */
 specifier|protected
 name|GouraudShadingContext
 parameter_list|(
@@ -243,10 +243,10 @@ name|AffineTransform
 name|xform
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|Rectangle
-name|dBounds
+name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -259,9 +259,9 @@ name|colorModel
 argument_list|,
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
-name|dBounds
+name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|triangleList
@@ -274,7 +274,7 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Read a vertex from the bit input stream performs interpolations.      *      * @param input bit input stream      * @param flag the flag or any value if not relevant      * @param maxSrcCoord max value for source coordinate (2^bits-1)      * @param maxSrcColor max value for source color (2^bits-1)      * @param rangeX dest range for X      * @param rangeY dest range for Y      * @param colRangeTab dest range array for colors      * @return a new vertex with the flag and the interpolated values      * @throws IOException if something went wrong      */
+comment|/**      * Read a vertex from the bit input stream performs interpolations.      *      * @param input bit input stream      * @param maxSrcCoord max value for source coordinate (2^bits-1)      * @param maxSrcColor max value for source color (2^bits-1)      * @param rangeX dest range for X      * @param rangeY dest range for Y      * @param colRangeTab dest range array for colors      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @return a new vertex with the flag and the interpolated values      * @throws IOException if something went wrong      */
 specifier|protected
 name|Vertex
 name|readVertex
@@ -299,7 +299,7 @@ index|[]
 name|colRangeTab
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|AffineTransform
 name|xform
@@ -416,7 +416,7 @@ name|transformPoint
 argument_list|(
 name|tmp
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
 name|xform
 argument_list|)
@@ -454,9 +454,6 @@ index|[
 name|n
 index|]
 operator|=
-operator|(
-name|float
-operator|)
 name|interpolate
 argument_list|(
 name|color
@@ -526,7 +523,8 @@ name|colorComponentTab
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 name|Map
 argument_list|<
@@ -567,7 +565,6 @@ return|return
 name|map
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public

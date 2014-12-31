@@ -302,7 +302,7 @@ specifier|private
 name|AffineTransform
 name|rat
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm the transformation matrix      * @param deviceBounds device bounds      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      */
 specifier|public
 name|RadialShadingContext
 parameter_list|(
@@ -316,7 +316,7 @@ name|AffineTransform
 name|xform
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|Rectangle
 name|deviceBounds
@@ -332,7 +332,7 @@ name|colorModel
 argument_list|,
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
 name|deviceBounds
 argument_list|)
@@ -587,7 +587,7 @@ comment|// get inverse transform to be independent of current user / device spac
 comment|// when handling actual pixels in getRaster()
 name|rat
 operator|=
-name|ctm
+name|matrix
 operator|.
 name|createAffineTransform
 argument_list|()
@@ -630,7 +630,7 @@ name|Math
 operator|.
 name|abs
 argument_list|(
-name|ctm
+name|matrix
 operator|.
 name|getScalingFactorX
 argument_list|()
@@ -650,7 +650,7 @@ name|Math
 operator|.
 name|abs
 argument_list|(
-name|ctm
+name|matrix
 operator|.
 name|getScalingFactorY
 argument_list|()
@@ -780,7 +780,7 @@ index|]
 return|;
 block|}
 block|}
-comment|/**      * Calculate the color on the line that connects two circles' centers and      * store the result in an array.      *      * @return an array, index denotes the relative position, the corresponding      * value the color      */
+comment|/**      * Calculate the color on the line that connects two circles' centers and store the result in an      * array.      *      * @return an array, index denotes the relative position, the corresponding value the color      */
 specifier|private
 name|int
 index|[]
@@ -1775,7 +1775,7 @@ block|}
 return|;
 block|}
 block|}
-comment|/**      * Returns the coords values.      *      * @return the coords values as array      */
+comment|/**      * Returns the coords values.      */
 specifier|public
 name|float
 index|[]
@@ -1786,7 +1786,7 @@ return|return
 name|coords
 return|;
 block|}
-comment|/**      * Returns the domain values.      *      * @return the domain values as array      */
+comment|/**      * Returns the domain values.      */
 specifier|public
 name|float
 index|[]
@@ -1797,7 +1797,7 @@ return|return
 name|domain
 return|;
 block|}
-comment|/**      * Returns the extend values.      *      * @return the extend values as array      */
+comment|/**      * Returns the extend values.      */
 specifier|public
 name|boolean
 index|[]
@@ -1808,7 +1808,7 @@ return|return
 name|extend
 return|;
 block|}
-comment|/**      * Returns the function.      *      * @return the function      * @throws IOException if something goes wrong      */
+comment|/**      * Returns the function.      */
 specifier|public
 name|PDFunction
 name|getFunction

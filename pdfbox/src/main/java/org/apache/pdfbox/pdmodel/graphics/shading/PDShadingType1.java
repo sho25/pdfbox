@@ -161,11 +161,6 @@ name|Matrix
 name|getMatrix
 parameter_list|()
 block|{
-name|Matrix
-name|matrix
-init|=
-literal|null
-decl_stmt|;
 name|COSArray
 name|array
 init|=
@@ -189,19 +184,23 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|matrix
-operator|=
+return|return
 operator|new
 name|Matrix
 argument_list|(
 name|array
 argument_list|)
-expr_stmt|;
-block|}
-comment|// todo: else return identity matrix?
-return|return
-name|matrix
 return|;
+block|}
+else|else
+block|{
+comment|// identity matrix is the default
+return|return
+operator|new
+name|Matrix
+argument_list|()
+return|;
+block|}
 block|}
 comment|/**      * Sets the optional Matrix entry for the function based shading.      *      * @param transform the transformation matrix      */
 specifier|public

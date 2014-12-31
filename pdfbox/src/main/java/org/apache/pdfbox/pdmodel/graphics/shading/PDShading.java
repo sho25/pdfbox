@@ -178,7 +178,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Shading Resource.  *  * @author Andreas Lehmkühler  */
+comment|/**  * A Shading Resource.  *  * @author Andreas Lehmkï¿½hler  */
 end_comment
 
 begin_class
@@ -1263,7 +1263,7 @@ return|return
 name|returnValues
 return|;
 block|}
-comment|/**      * Returns an AWT paint which corresponds to this shading      *      * @param matrix the pattern matrix      * @return an AWT Paint instance      */
+comment|/**      * Returns an AWT paint which corresponds to this shading      *      * @param matrix the pattern matrix concatenated with that of the parent content stream,      *               this matrix which maps the pattern's internal coordinate system to user space      * @return an AWT Paint instance      */
 specifier|public
 specifier|abstract
 name|Paint

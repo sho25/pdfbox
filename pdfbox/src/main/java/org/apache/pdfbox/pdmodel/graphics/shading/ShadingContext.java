@@ -265,6 +265,7 @@ specifier|protected
 name|int
 name|rgbBackground
 decl_stmt|;
+comment|/**      * Constructor.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      */
 specifier|public
 name|ShadingContext
 parameter_list|(
@@ -278,10 +279,10 @@ name|AffineTransform
 name|xform
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|Rectangle
-name|dBounds
+name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -292,9 +293,11 @@ name|shading
 operator|=
 name|shading
 expr_stmt|;
+name|this
+operator|.
 name|deviceBounds
 operator|=
-name|dBounds
+name|deviceBounds
 expr_stmt|;
 name|shadingColorSpace
 operator|=
@@ -352,7 +355,7 @@ condition|)
 block|{
 name|transformBBox
 argument_list|(
-name|ctm
+name|matrix
 argument_list|,
 name|xform
 argument_list|)
@@ -395,7 +398,7 @@ name|void
 name|transformBBox
 parameter_list|(
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|AffineTransform
 name|xform
@@ -451,15 +454,8 @@ operator|.
 name|getUpperRightY
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|ctm
-operator|!=
-literal|null
-condition|)
-block|{
 comment|// transform the coords using the given matrix
-name|ctm
+name|matrix
 operator|.
 name|createAffineTransform
 argument_list|()
@@ -477,7 +473,6 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-block|}
 name|xform
 operator|.
 name|transform
@@ -632,8 +627,6 @@ argument_list|)
 expr_stmt|;
 name|normRGBValues
 operator||=
-operator|(
-operator|(
 call|(
 name|int
 call|)
@@ -645,15 +638,11 @@ index|]
 operator|*
 literal|255
 argument_list|)
-operator|)
 operator|<<
 literal|8
-operator|)
 expr_stmt|;
 name|normRGBValues
 operator||=
-operator|(
-operator|(
 call|(
 name|int
 call|)
@@ -665,10 +654,8 @@ index|]
 operator|*
 literal|255
 argument_list|)
-operator|)
 operator|<<
 literal|16
-operator|)
 expr_stmt|;
 block|}
 catch|catch

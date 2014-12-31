@@ -180,9 +180,9 @@ decl_stmt|;
 specifier|private
 specifier|final
 name|Matrix
-name|ctm
+name|matrix
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param shading the shading resources      * @param ctm current transformation matrix      */
+comment|/**      * Constructor.      *      * @param shading the shading resources      * @param matrix the pattern matrix concatenated with that of the parent content stream      */
 specifier|public
 name|Type7ShadingPaint
 parameter_list|(
@@ -190,7 +190,7 @@ name|PDShadingType7
 name|shading
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|)
 block|{
 name|this
@@ -201,9 +201,9 @@ name|shading
 expr_stmt|;
 name|this
 operator|.
-name|ctm
+name|matrix
 operator|=
-name|ctm
+name|matrix
 expr_stmt|;
 block|}
 annotation|@
@@ -251,7 +251,7 @@ name|cm
 argument_list|,
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
 name|deviceBounds
 argument_list|)

@@ -245,7 +245,7 @@ specifier|final
 name|int
 name|bitsPerFlag
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      */
 specifier|public
 name|Type4ShadingContext
 parameter_list|(
@@ -259,10 +259,10 @@ name|AffineTransform
 name|xform
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|Rectangle
-name|dBounds
+name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -275,9 +275,9 @@ name|cm
 argument_list|,
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
-name|dBounds
+name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -310,7 +310,7 @@ name|getTriangleList
 argument_list|(
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|)
 expr_stmt|;
 name|createPixelTable
@@ -328,7 +328,7 @@ name|AffineTransform
 name|xform
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|)
 throws|throws
 name|IOException
@@ -342,7 +342,7 @@ operator|)
 name|shading
 decl_stmt|;
 name|COSDictionary
-name|cosDictionary
+name|dict
 init|=
 name|freeTriangleShadingType
 operator|.
@@ -457,12 +457,12 @@ operator|-
 literal|1
 decl_stmt|;
 name|COSStream
-name|cosStream
+name|stream
 init|=
 operator|(
 name|COSStream
 operator|)
-name|cosDictionary
+name|dict
 decl_stmt|;
 name|ImageInputStream
 name|mciis
@@ -470,7 +470,7 @@ init|=
 operator|new
 name|MemoryCacheImageInputStream
 argument_list|(
-name|cosStream
+name|stream
 operator|.
 name|getUnfilteredStream
 argument_list|()
@@ -567,7 +567,7 @@ name|rangeY
 argument_list|,
 name|colRange
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
 name|xform
 argument_list|)
@@ -621,7 +621,7 @@ name|rangeY
 argument_list|,
 name|colRange
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
 name|xform
 argument_list|)
@@ -666,7 +666,7 @@ name|rangeY
 argument_list|,
 name|colRange
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
 name|xform
 argument_list|)
@@ -803,7 +803,7 @@ name|rangeY
 argument_list|,
 name|colRange
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
 name|xform
 argument_list|)

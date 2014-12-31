@@ -139,7 +139,7 @@ name|Type7ShadingContext
 extends|extends
 name|PatchMeshesShadingContext
 block|{
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param ctm current transformation matrix      * @param dBounds device bounds      * @throws IOException if something went wrong      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      * @throws IOException if something went wrong      */
 specifier|public
 name|Type7ShadingContext
 parameter_list|(
@@ -153,10 +153,10 @@ name|AffineTransform
 name|xform
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|,
 name|Rectangle
-name|dBounds
+name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -169,9 +169,9 @@ name|colorModel
 argument_list|,
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
-name|dBounds
+name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|patchList
@@ -180,7 +180,7 @@ name|getTensorPatchList
 argument_list|(
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|)
 expr_stmt|;
 name|createPixelTable
@@ -199,7 +199,7 @@ name|AffineTransform
 name|xform
 parameter_list|,
 name|Matrix
-name|ctm
+name|matrix
 parameter_list|)
 throws|throws
 name|IOException
@@ -213,7 +213,7 @@ operator|)
 name|patchMeshesShadingType
 decl_stmt|;
 name|COSDictionary
-name|cosDictionary
+name|dict
 init|=
 name|tensorShadingType
 operator|.
@@ -285,9 +285,9 @@ name|getPatchList
 argument_list|(
 name|xform
 argument_list|,
-name|ctm
+name|matrix
 argument_list|,
-name|cosDictionary
+name|dict
 argument_list|,
 name|rangeX
 argument_list|,
