@@ -3165,48 +3165,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|pdImage
-operator|.
-name|isStencil
-argument_list|()
-condition|)
-block|{
-comment|// fill the image with paint
-name|PDColor
-name|color
-init|=
-name|getGraphicsState
-argument_list|()
-operator|.
-name|getNonStrokingColor
-argument_list|()
-decl_stmt|;
-name|BufferedImage
-name|image
-init|=
-name|pdImage
-operator|.
-name|getStencilImage
-argument_list|(
-name|getPaint
-argument_list|(
-name|color
-argument_list|)
-argument_list|)
-decl_stmt|;
-comment|// draw the image
-name|drawBufferedImage
-argument_list|(
-name|image
-argument_list|,
-name|at
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-if|if
-condition|(
 operator|!
 name|pdImage
 operator|.
@@ -3249,9 +3207,15 @@ argument_list|)
 decl_stmt|;
 comment|// if the image is scaled down, we use smooth interpolation, eg PDFBOX-2364
 comment|// only when scaled up do we use nearest neighbour, eg PDFBOX-2302 / mori-cvpr01.pdf
+comment|// stencils are excluded from this rule (see survey.pdf)
 if|if
 condition|(
 name|isScaledUp
+operator|||
+name|pdImage
+operator|.
+name|isStencil
+argument_list|()
 condition|)
 block|{
 name|graphics
@@ -3269,6 +3233,48 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|pdImage
+operator|.
+name|isStencil
+argument_list|()
+condition|)
+block|{
+comment|// fill the image with paint
+name|PDColor
+name|color
+init|=
+name|getGraphicsState
+argument_list|()
+operator|.
+name|getNonStrokingColor
+argument_list|()
+decl_stmt|;
+name|BufferedImage
+name|image
+init|=
+name|pdImage
+operator|.
+name|getStencilImage
+argument_list|(
+name|getPaint
+argument_list|(
+name|color
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// draw the image
+name|drawBufferedImage
+argument_list|(
+name|image
+argument_list|,
+name|at
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// draw the image
 name|drawBufferedImage
 argument_list|(
@@ -3280,6 +3286,7 @@ argument_list|,
 name|at
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -3294,7 +3301,6 @@ comment|// the setRenderingHint method, so we re-set all hints, see PDFBOX-2302
 name|setRenderingHints
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 specifier|public
