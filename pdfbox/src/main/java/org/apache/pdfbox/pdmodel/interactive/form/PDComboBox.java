@@ -21,6 +21,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -237,14 +247,16 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      *       */
+comment|/**      * setValue sets the entry "V" to the given value.      *       * @param values the value      *       */
 specifier|public
 name|void
 name|setValue
 parameter_list|(
+name|List
+argument_list|<
 name|String
-index|[]
-name|value
+argument_list|>
+name|values
 parameter_list|)
 block|{
 if|if
@@ -271,7 +283,7 @@ name|super
 operator|.
 name|setValue
 argument_list|(
-name|value
+name|values
 argument_list|)
 expr_stmt|;
 block|}
