@@ -714,7 +714,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Return a single dimension array of all values in the matrix.      *      * @return The values ot this matrix.      */
+comment|/**      * Return a single dimension array of all values in the matrix.      *      * @return The values of this matrix.      */
 specifier|public
 name|float
 index|[]
@@ -857,7 +857,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Return a single dimension array of all values in the matrix.      *      * @return The values ot this matrix.      * @deprecated Use {@link float[][] #getValues} instead.      */
+comment|/**      * Return a single dimension array of all values in the matrix.      *      * @return The values ot this matrix.      * @deprecated Use {@link #getValues()} instead.      */
 annotation|@
 name|Deprecated
 specifier|public

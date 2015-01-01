@@ -146,7 +146,7 @@ specifier|private
 name|PDAppearanceEntry
 parameter_list|()
 block|{     }
-comment|/**      * Constructor for reading.      * @param entry      * @param parent      */
+comment|/**      * Constructor for reading.      * @param entry      */
 specifier|public
 name|PDAppearanceEntry
 parameter_list|(
