@@ -497,7 +497,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This function explores all fields and their children to validate them.      *       * @see #validateField(PreflightContext, PDField)       *       * @param ctx the preflight context.      * @param lFields the list of fields, can be null.      * @return the result of the validation.      * @throws IOException      */
+comment|/**      * This function explores all fields and their children to validate them.      *       * @see #validateField(PreflightContext, PDFieldTreeNode)       *       * @param ctx the preflight context.      * @param lFields the list of fields, can be null.      * @return the result of the validation.      * @throws IOException      */
 specifier|protected
 name|boolean
 name|exploreFields
