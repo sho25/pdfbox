@@ -136,7 +136,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT composite for blend modes.  *   * @author Kühn& Weyh Software, GmbH  */
+comment|/**  * AWT composite for blend modes.  *   * @author KÃ¼hn& Weyh Software, GmbH  */
 end_comment
 
 begin_class
@@ -163,7 +163,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Creates a blend composite      *      * @param blendMode Desired blend mode      * @param constantAlpha Constant alpha, must be in the inclusive range      * [0.0, 1.0] or it will be clipped.      */
+comment|/**      * Creates a blend composite      *      * @param blendMode Desired blend mode      * @param constantAlpha Constant alpha, must be in the inclusive range      * [0.0,ï¿½1.0] or it will be clipped.      */
 specifier|public
 specifier|static
 name|Composite

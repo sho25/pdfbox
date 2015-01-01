@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * B* Fill and then stroke the path, using the even-odd rule to determine the region to fill.  *  * @author Andreas Lehmkühler  */
+comment|/**  * B* Fill and then stroke the path, using the even-odd rule to determine the region to fill.  *  * @author Andreas LehmkÃ¼hler  */
 end_comment
 
 begin_class

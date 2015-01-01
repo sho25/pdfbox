@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Transparency group.  *   * @author Kühn& Weyh Software, GmbH  */
+comment|/**  * Transparency group.  *   * @author KÃ¼hn& Weyh Software, GmbH  */
 end_comment
 
 begin_class

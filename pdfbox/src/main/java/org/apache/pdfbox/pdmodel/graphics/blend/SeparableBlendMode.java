@@ -20,7 +20,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Separable blend mode (support blendChannel)  *  * @author Kühn& Weyh Software, GmbH  */
+comment|/**  * Separable blend mode (support blendChannel)  *  * @author KÃ¼hn& Weyh Software, GmbH  */
 end_comment
 
 begin_class
