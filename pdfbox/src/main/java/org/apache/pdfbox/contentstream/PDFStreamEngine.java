@@ -1463,11 +1463,7 @@ argument_list|,
 name|patternMatrix
 argument_list|)
 expr_stmt|;
-comment|// new!
-name|saveGraphicsState
-argument_list|()
-expr_stmt|;
-comment|// SAVE a clean state (new clipping path, line path, etc.)
+comment|// set up a clean state (new clipping path, line path, etc.)
 name|Rectangle2D
 name|bbox
 init|=
@@ -1621,11 +1617,6 @@ expr_stmt|;
 name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
-comment|//<---- this restores the NEW state, not the original one
-name|restoreGraphicsState
-argument_list|()
-expr_stmt|;
-comment|// new!
 name|popResources
 argument_list|(
 name|parent
