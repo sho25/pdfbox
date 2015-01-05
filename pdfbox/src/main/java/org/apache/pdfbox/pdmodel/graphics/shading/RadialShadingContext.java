@@ -635,6 +635,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// transform the distance to actual pixel space
+comment|// use transform, because xform.getScaleX() does not return correct scaling on 90° rotated matrix
 name|Point2D
 name|point
 init|=
