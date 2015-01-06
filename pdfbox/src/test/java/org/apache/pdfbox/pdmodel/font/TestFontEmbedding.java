@@ -278,7 +278,7 @@ literal|"Unicode русский язык Tiếng Việt"
 decl_stmt|;
 name|stream
 operator|.
-name|moveTextPositionByAmount
+name|newLineAtOffset
 argument_list|(
 literal|50
 argument_list|,

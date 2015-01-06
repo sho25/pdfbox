@@ -119,6 +119,20 @@ name|PDType1Font
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an example of how to use a text matrix.  * @version $Revision: 1.0 $  */
 end_comment
@@ -435,7 +449,7 @@ operator|.
 name|beginText
 argument_list|()
 expr_stmt|;
-comment|// text scaling
+comment|// text scaling and translation
 for|for
 control|(
 name|int
@@ -453,7 +467,10 @@ control|)
 block|{
 name|contentStream
 operator|.
-name|setTextScaling
+name|setTextMatrix
+argument_list|(
+operator|new
+name|Matrix
 argument_list|(
 literal|12
 operator|+
@@ -462,6 +479,10 @@ name|i
 operator|*
 literal|6
 operator|)
+argument_list|,
+literal|0
+argument_list|,
+literal|0
 argument_list|,
 literal|12
 operator|+
@@ -478,6 +499,7 @@ operator|+
 name|i
 operator|*
 literal|50
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|contentStream
@@ -562,6 +584,9 @@ name|contentStream
 operator|.
 name|setTextMatrix
 argument_list|(
+operator|new
+name|Matrix
+argument_list|(
 literal|12
 argument_list|,
 literal|0
@@ -574,7 +599,8 @@ name|centeredXPosition
 argument_list|,
 name|centeredYPosition
 operator|*
-literal|1.5
+literal|1.5f
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|contentStream
@@ -592,6 +618,9 @@ expr_stmt|;
 name|contentStream
 operator|.
 name|setTextMatrix
+argument_list|(
+operator|new
+name|Matrix
 argument_list|(
 literal|0
 argument_list|,
@@ -606,7 +635,8 @@ name|centeredXPosition
 argument_list|,
 name|centeredYPosition
 operator|*
-literal|1.5
+literal|1.5f
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|contentStream
@@ -624,6 +654,9 @@ expr_stmt|;
 name|contentStream
 operator|.
 name|setTextMatrix
+argument_list|(
+operator|new
+name|Matrix
 argument_list|(
 operator|-
 literal|24
@@ -639,7 +672,8 @@ name|centeredXPosition
 argument_list|,
 name|centeredYPosition
 operator|*
-literal|1.5
+literal|1.5f
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|contentStream
@@ -658,6 +692,9 @@ name|contentStream
 operator|.
 name|setTextMatrix
 argument_list|(
+operator|new
+name|Matrix
+argument_list|(
 literal|0
 argument_list|,
 operator|-
@@ -671,7 +708,8 @@ name|centeredXPosition
 argument_list|,
 name|centeredYPosition
 operator|*
-literal|1.5
+literal|1.5f
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|contentStream

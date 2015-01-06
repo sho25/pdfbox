@@ -129,6 +129,20 @@ name|PDType1Font
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an example of how to add a message to every page  * in a pdf document.  *  * @author Ben Litchfield  */
 end_comment
@@ -280,8 +294,8 @@ operator|.
 name|getHeight
 argument_list|()
 decl_stmt|;
-name|double
-name|centeredXPosition
+name|float
+name|centerX
 init|=
 name|rotate
 condition|?
@@ -297,8 +311,8 @@ operator|)
 operator|/
 literal|2f
 decl_stmt|;
-name|double
-name|centeredYPosition
+name|float
+name|centerY
 init|=
 name|rotate
 condition|?
@@ -367,7 +381,11 @@ block|{
 comment|// rotate the text according to the page rotation
 name|contentStream
 operator|.
-name|setTextRotation
+name|setTextMatrix
+argument_list|(
+name|Matrix
+operator|.
+name|getRotateInstance
 argument_list|(
 name|Math
 operator|.
@@ -375,9 +393,10 @@ name|PI
 operator|/
 literal|2
 argument_list|,
-name|centeredXPosition
+name|centerX
 argument_list|,
-name|centeredYPosition
+name|centerY
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -385,11 +404,16 @@ else|else
 block|{
 name|contentStream
 operator|.
-name|setTextTranslation
+name|setTextMatrix
 argument_list|(
-name|centeredXPosition
+name|Matrix
+operator|.
+name|getTranslatingInstance
+argument_list|(
+name|centerX
 argument_list|,
-name|centeredYPosition
+name|centerY
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -596,7 +596,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|moveTextPositionByAmount
+name|newLineAtOffset
 argument_list|(
 literal|80
 argument_list|,
@@ -637,7 +637,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|moveTextPositionByAmount
+name|newLineAtOffset
 argument_list|(
 literal|80
 argument_list|,
@@ -698,7 +698,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|moveTextPositionByAmount
+name|newLineAtOffset
 argument_list|(
 literal|80
 argument_list|,
@@ -759,7 +759,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|moveTextPositionByAmount
+name|newLineAtOffset
 argument_list|(
 literal|80
 argument_list|,

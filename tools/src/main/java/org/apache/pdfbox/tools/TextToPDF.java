@@ -788,7 +788,7 @@ name|height
 expr_stmt|;
 name|contentStream
 operator|.
-name|moveTextPositionByAmount
+name|newLineAtOffset
 argument_list|(
 name|margin
 argument_list|,
@@ -814,7 +814,7 @@ throw|;
 block|}
 name|contentStream
 operator|.
-name|moveTextPositionByAmount
+name|newLineAtOffset
 argument_list|(
 literal|0
 argument_list|,

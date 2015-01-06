@@ -250,7 +250,7 @@ argument_list|)
 expr_stmt|;
 name|aContent
 operator|.
-name|moveTextPositionByAmount
+name|newLineAtOffset
 argument_list|(
 literal|2
 argument_list|,
