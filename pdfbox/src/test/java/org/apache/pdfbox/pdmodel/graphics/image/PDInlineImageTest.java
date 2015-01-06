@@ -1028,7 +1028,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawInlineImage
+name|drawImage
 argument_list|(
 name|inlineImage1
 argument_list|,
@@ -1053,7 +1053,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawInlineImage
+name|drawImage
 argument_list|(
 name|inlineImage1
 argument_list|,
@@ -1089,7 +1089,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawInlineImage
+name|drawImage
 argument_list|(
 name|inlineImage2
 argument_list|,
@@ -1114,7 +1114,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawInlineImage
+name|drawImage
 argument_list|(
 name|inlineImage2
 argument_list|,
