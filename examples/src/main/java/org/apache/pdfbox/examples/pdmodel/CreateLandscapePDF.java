@@ -119,6 +119,20 @@ name|PDType1Font
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an example of how to create a page with a landscape orientation.  * @version $Revision: 1.0 $  */
 end_comment
@@ -261,7 +275,10 @@ comment|// add the rotation using the current transformation matrix
 comment|// including a translation of pageWidth to use the lower left corner as 0,0 reference
 name|contentStream
 operator|.
-name|concatenate2CTM
+name|transform
+argument_list|(
+operator|new
+name|Matrix
 argument_list|(
 literal|0
 argument_list|,
@@ -275,6 +292,7 @@ argument_list|,
 name|pageWidth
 argument_list|,
 literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|contentStream
