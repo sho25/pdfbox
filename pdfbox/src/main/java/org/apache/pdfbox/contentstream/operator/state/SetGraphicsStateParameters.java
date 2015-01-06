@@ -71,7 +71,7 @@ name|graphics
 operator|.
 name|state
 operator|.
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 import|;
 end_import
 
@@ -160,7 +160,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 name|gs
 init|=
 name|context

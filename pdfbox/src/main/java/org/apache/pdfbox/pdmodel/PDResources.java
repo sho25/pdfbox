@@ -189,7 +189,7 @@ name|graphics
 operator|.
 name|state
 operator|.
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 import|;
 end_import
 
@@ -477,7 +477,7 @@ return|;
 block|}
 comment|/**      * Returns the external graphics state resource with the given name, or null if none exists.      */
 specifier|public
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 name|getExtGState
 parameter_list|(
 name|COSName
@@ -514,7 +514,7 @@ return|;
 block|}
 return|return
 operator|new
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 argument_list|(
 name|dict
 argument_list|)
@@ -1032,7 +1032,7 @@ specifier|public
 name|COSName
 name|add
 parameter_list|(
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 name|extGState
 parameter_list|)
 block|{
@@ -1472,7 +1472,7 @@ parameter_list|(
 name|COSName
 name|name
 parameter_list|,
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 name|extGState
 parameter_list|)
 throws|throws

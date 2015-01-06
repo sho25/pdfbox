@@ -180,13 +180,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An external graphics state dictionary.  *  * @author Ben Litchfield  */
+comment|/**  * An extended graphics state dictionary.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 implements|implements
 name|COSObjectable
 block|{
@@ -197,7 +197,7 @@ name|dict
 decl_stmt|;
 comment|/**      * Default constructor, creates blank graphics state.      */
 specifier|public
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 parameter_list|()
 block|{
 name|dict
@@ -222,7 +222,7 @@ expr_stmt|;
 block|}
 comment|/**      * Create a graphics state from an existing dictionary.      *      * @param dictionary The existing graphics state.      */
 specifier|public
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 parameter_list|(
 name|COSDictionary
 name|dictionary

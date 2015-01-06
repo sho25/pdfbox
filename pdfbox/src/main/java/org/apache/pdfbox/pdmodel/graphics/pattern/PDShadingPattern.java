@@ -71,7 +71,7 @@ name|graphics
 operator|.
 name|state
 operator|.
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 import|;
 end_import
 
@@ -105,8 +105,8 @@ extends|extends
 name|PDAbstractPattern
 block|{
 specifier|private
-name|PDExternalGraphicsState
-name|externalGraphicsState
+name|PDExtendedGraphicsState
+name|extendedGraphicsState
 decl_stmt|;
 specifier|private
 name|PDShading
@@ -164,13 +164,13 @@ return|;
 block|}
 comment|/**      * This will get the external graphics state for this pattern.      * @return The extended graphics state for this pattern.      */
 specifier|public
-name|PDExternalGraphicsState
-name|getExternalGraphicsState
+name|PDExtendedGraphicsState
+name|getExtendedGraphicsState
 parameter_list|()
 block|{
 if|if
 condition|(
-name|externalGraphicsState
+name|extendedGraphicsState
 operator|==
 literal|null
 condition|)
@@ -198,10 +198,10 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|externalGraphicsState
+name|extendedGraphicsState
 operator|=
 operator|new
-name|PDExternalGraphicsState
+name|PDExtendedGraphicsState
 argument_list|(
 name|dictionary
 argument_list|)
@@ -209,27 +209,27 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|externalGraphicsState
+name|extendedGraphicsState
 return|;
 block|}
-comment|/**      * This will set the external graphics state for this pattern.      * @param externalGraphicsState The new extended graphics state for this pattern.      */
+comment|/**      * This will set the external graphics state for this pattern.      * @param extendedGraphicsState The new extended graphics state for this pattern.      */
 specifier|public
 name|void
-name|setExternalGraphicsState
+name|setExtendedGraphicsState
 parameter_list|(
-name|PDExternalGraphicsState
-name|externalGraphicsState
+name|PDExtendedGraphicsState
+name|extendedGraphicsState
 parameter_list|)
 block|{
 name|this
 operator|.
-name|externalGraphicsState
+name|extendedGraphicsState
 operator|=
-name|externalGraphicsState
+name|extendedGraphicsState
 expr_stmt|;
 if|if
 condition|(
-name|externalGraphicsState
+name|extendedGraphicsState
 operator|!=
 literal|null
 condition|)
@@ -243,7 +243,7 @@ name|COSName
 operator|.
 name|EXT_G_STATE
 argument_list|,
-name|externalGraphicsState
+name|extendedGraphicsState
 argument_list|)
 expr_stmt|;
 block|}

@@ -803,7 +803,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * This will get the rendering intent.      *      * @see PDExternalGraphicsState      *      * @return The rendering intent      */
+comment|/**      * This will get the rendering intent.      *      * @see PDExtendedGraphicsState      *      * @return The rendering intent      */
 specifier|public
 name|RenderingIntent
 name|getRenderingIntent
