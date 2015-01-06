@@ -408,7 +408,7 @@ name|setTextMatrix
 argument_list|(
 name|Matrix
 operator|.
-name|getTranslatingInstance
+name|getTranslateInstance
 argument_list|(
 name|centerX
 argument_list|,

@@ -1260,7 +1260,7 @@ name|a
 init|=
 name|Matrix
 operator|.
-name|getTranslatingInstance
+name|getTranslateInstance
 argument_list|(
 name|rect
 operator|.
@@ -1319,7 +1319,7 @@ name|concatenate
 argument_list|(
 name|Matrix
 operator|.
-name|getTranslatingInstance
+name|getTranslateInstance
 argument_list|(
 operator|(
 name|float
@@ -2311,7 +2311,7 @@ name|concatenate
 argument_list|(
 name|Matrix
 operator|.
-name|getTranslatingInstance
+name|getTranslateInstance
 argument_list|(
 name|tx
 argument_list|,
@@ -2665,7 +2665,7 @@ name|concatenate
 argument_list|(
 name|Matrix
 operator|.
-name|getTranslatingInstance
+name|getTranslateInstance
 argument_list|(
 name|tx
 argument_list|,

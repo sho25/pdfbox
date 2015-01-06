@@ -1017,7 +1017,7 @@ name|td
 init|=
 name|Matrix
 operator|.
-name|getTranslatingInstance
+name|getTranslateInstance
 argument_list|(
 name|tx
 argument_list|,

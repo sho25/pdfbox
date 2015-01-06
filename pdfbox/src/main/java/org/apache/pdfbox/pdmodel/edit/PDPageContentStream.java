@@ -2952,7 +2952,7 @@ name|setTextMatrix
 argument_list|(
 name|Matrix
 operator|.
-name|getTranslatingInstance
+name|getTranslateInstance
 argument_list|(
 operator|(
 name|float

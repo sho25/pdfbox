@@ -1035,7 +1035,7 @@ name|m
 init|=
 name|Matrix
 operator|.
-name|getTranslatingInstance
+name|getTranslateInstance
 argument_list|(
 name|vector
 operator|.
@@ -2032,11 +2032,35 @@ return|return
 name|matrix
 return|;
 block|}
-comment|/**      * Convenience method to create a translating instance.      *      * @param tx The x translating operator.      * @param ty The y translating operator.      * @return A new matrix with just the x/y translating.      */
+comment|/**      * Convenience method to create a translating instance.      *      * @param tx The x translating operator.      * @param ty The y translating operator.      * @return A new matrix with just the x/y translating.      * @deprecated Use {@link #getTranslateInstance} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 name|Matrix
 name|getTranslatingInstance
+parameter_list|(
+name|float
+name|tx
+parameter_list|,
+name|float
+name|ty
+parameter_list|)
+block|{
+return|return
+name|getTranslateInstance
+argument_list|(
+name|tx
+argument_list|,
+name|ty
+argument_list|)
+return|;
+block|}
+comment|/**      * Convenience method to create a translating instance.      *      * @param tx The x translating operator.      * @param ty The y translating operator.      * @return A new matrix with just the x/y translating.      */
+specifier|public
+specifier|static
+name|Matrix
+name|getTranslateInstance
 parameter_list|(
 name|float
 name|tx
