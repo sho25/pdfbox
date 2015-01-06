@@ -951,11 +951,11 @@ argument_list|()
 operator|/
 literal|2f
 decl_stmt|;
-name|AffineTransform
+name|Matrix
 name|transform
 init|=
 operator|new
-name|AffineTransform
+name|Matrix
 argument_list|()
 decl_stmt|;
 name|transform
