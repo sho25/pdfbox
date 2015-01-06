@@ -432,7 +432,7 @@ decl_stmt|;
 comment|// reduce this value if the image is too large
 name|contentStream
 operator|.
-name|drawXObject
+name|drawImage
 argument_list|(
 name|ximage
 argument_list|,

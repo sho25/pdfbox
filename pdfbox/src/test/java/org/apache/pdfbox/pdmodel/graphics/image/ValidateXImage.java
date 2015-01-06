@@ -578,22 +578,6 @@ decl_stmt|;
 comment|// This part isn't really needed because this test doesn't break
 comment|// if the mask has the wrong colorspace (PDFBOX-2057), but it is still useful
 comment|// if something goes wrong in the future and we want to have a PDF to open.
-name|int
-name|width
-init|=
-name|ximage
-operator|.
-name|getWidth
-argument_list|()
-decl_stmt|;
-name|int
-name|height
-init|=
-name|ximage
-operator|.
-name|getHeight
-argument_list|()
-decl_stmt|;
 name|PDPage
 name|page
 init|=
@@ -625,32 +609,24 @@ argument_list|)
 decl_stmt|;
 name|contentStream
 operator|.
-name|drawXObject
+name|drawImage
 argument_list|(
 name|ximage
 argument_list|,
 literal|150
 argument_list|,
 literal|300
-argument_list|,
-name|width
-argument_list|,
-name|height
 argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawXObject
+name|drawImage
 argument_list|(
 name|ximage
 argument_list|,
 literal|200
 argument_list|,
 literal|350
-argument_list|,
-name|width
-argument_list|,
-name|height
 argument_list|)
 expr_stmt|;
 name|contentStream

@@ -666,7 +666,7 @@ argument_list|)
 decl_stmt|;
 name|contentStream
 operator|.
-name|drawXObject
+name|drawImage
 argument_list|(
 name|ximage1
 argument_list|,
@@ -691,7 +691,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawXObject
+name|drawImage
 argument_list|(
 name|ximage2
 argument_list|,
@@ -716,7 +716,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawXObject
+name|drawImage
 argument_list|(
 name|ximage3
 argument_list|,
@@ -2270,7 +2270,7 @@ argument_list|)
 decl_stmt|;
 name|contentStream
 operator|.
-name|drawXObject
+name|drawImage
 argument_list|(
 name|ximage2
 argument_list|,
@@ -2291,7 +2291,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawXObject
+name|drawImage
 argument_list|(
 name|ximage
 argument_list|,
