@@ -311,7 +311,11 @@ control|)
 block|{
 name|contentStream
 operator|.
-name|setTextRotation
+name|setTextMatrix
+argument_list|(
+name|Matrix
+operator|.
+name|getRotateInstance
 argument_list|(
 name|i
 operator|*
@@ -329,6 +333,7 @@ name|getHeight
 argument_list|()
 operator|-
 name|centeredYPosition
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|contentStream
@@ -361,7 +366,11 @@ control|)
 block|{
 name|contentStream
 operator|.
-name|setTextRotation
+name|setTextMatrix
+argument_list|(
+name|Matrix
+operator|.
+name|getRotateInstance
 argument_list|(
 operator|-
 name|i
@@ -375,6 +384,7 @@ argument_list|,
 name|centeredXPosition
 argument_list|,
 name|centeredYPosition
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|contentStream
