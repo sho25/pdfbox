@@ -354,20 +354,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// Store the graphics state
-name|contentStream
-operator|.
-name|appendRawCommands
-argument_list|(
-literal|"q\n"
-operator|.
-name|getBytes
-argument_list|(
-literal|"ISO-8859-1"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// use some sample transformations
+comment|// draw a transformed form
 name|contentStream
 operator|.
 name|saveGraphicsState
@@ -410,6 +397,7 @@ operator|.
 name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
+comment|// draw another transformed form
 name|Matrix
 name|matrix
 init|=
@@ -463,19 +451,6 @@ name|contentStream
 operator|.
 name|restoreGraphicsState
 argument_list|()
-expr_stmt|;
-comment|// restore former graphics state
-name|contentStream
-operator|.
-name|appendRawCommands
-argument_list|(
-literal|"Q\n"
-operator|.
-name|getBytes
-argument_list|(
-literal|"ISO-8859-1"
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
