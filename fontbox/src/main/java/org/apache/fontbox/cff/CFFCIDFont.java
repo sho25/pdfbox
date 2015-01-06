@@ -732,9 +732,17 @@ argument_list|>
 name|getFontMatrix
 parameter_list|()
 block|{
-comment|// some malformed CIDFonts have their FontMatrix in a Font DICT
+comment|// some malformed CIDFonts have their FontMatrix in a Font DICT, see PDFBOX-2495
 if|if
 condition|(
+operator|!
+name|topDict
+operator|.
+name|containsKey
+argument_list|(
+literal|"FontMatrix"
+argument_list|)
+operator|&&
 name|fontDictionaries
 operator|.
 name|size
