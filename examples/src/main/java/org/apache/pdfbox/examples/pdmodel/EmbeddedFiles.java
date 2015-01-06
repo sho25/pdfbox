@@ -317,7 +317,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 literal|"Go to Document->File Attachments to View Embedded Files"
 argument_list|)

@@ -227,7 +227,7 @@ argument_list|)
 expr_stmt|;
 name|stream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 literal|"PDFBox Unicode with Embedded TrueType Font"
 argument_list|)
@@ -239,7 +239,7 @@ argument_list|()
 expr_stmt|;
 name|stream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 literal|"Supports full Unicode text ☺"
 argument_list|)
@@ -251,7 +251,7 @@ argument_list|()
 expr_stmt|;
 name|stream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 literal|"English русский язык Tiếng Việt"
 argument_list|)

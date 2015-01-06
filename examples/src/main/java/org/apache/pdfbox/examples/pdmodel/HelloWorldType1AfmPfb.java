@@ -223,7 +223,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 name|message
 argument_list|)

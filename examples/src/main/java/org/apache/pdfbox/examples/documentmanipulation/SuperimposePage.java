@@ -259,7 +259,7 @@ argument_list|)
 expr_stmt|;
 name|aContent
 operator|.
-name|drawString
+name|showText
 argument_list|(
 literal|"Import a pdf file:"
 argument_list|)

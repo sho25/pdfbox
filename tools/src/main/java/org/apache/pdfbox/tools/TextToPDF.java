@@ -828,7 +828,7 @@ name|height
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 name|nextLineToDraw
 operator|.

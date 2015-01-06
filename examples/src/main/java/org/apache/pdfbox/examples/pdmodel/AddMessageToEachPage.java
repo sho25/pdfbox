@@ -419,7 +419,7 @@ expr_stmt|;
 block|}
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 name|message
 argument_list|)

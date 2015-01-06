@@ -605,7 +605,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 literal|"PDF 1.5: Optional Content Groups"
 argument_list|)
@@ -646,7 +646,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 literal|"You should see a green textline, but no red text line."
 argument_list|)
@@ -707,7 +707,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 literal|"This is from an enabled layer. If you see this, that's good."
 argument_list|)
@@ -768,7 +768,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 literal|"This is from a disabled layer. If you see this, that's NOT good!"
 argument_list|)

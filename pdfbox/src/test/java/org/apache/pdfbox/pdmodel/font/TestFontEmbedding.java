@@ -287,7 +287,7 @@ argument_list|)
 expr_stmt|;
 name|stream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 name|text
 argument_list|)

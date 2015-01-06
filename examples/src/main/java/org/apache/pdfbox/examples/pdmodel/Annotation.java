@@ -491,7 +491,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 literal|"PDFBox"
 argument_list|)
@@ -512,7 +512,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 literal|"Click Here"
 argument_list|)
