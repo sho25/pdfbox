@@ -752,51 +752,7 @@ argument_list|(
 name|func
 argument_list|)
 expr_stmt|;
-comment|// create resources
-name|PDResources
-name|resources
-init|=
-operator|new
-name|PDResources
-argument_list|()
-decl_stmt|;
-name|page
-operator|.
-name|setResources
-argument_list|(
-name|resources
-argument_list|)
-expr_stmt|;
-comment|// add shading to resources
-comment|// use put() if you want a specific name
-name|resources
-operator|.
-name|put
-argument_list|(
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
-literal|"shax"
-argument_list|)
-argument_list|,
-name|axialShading
-argument_list|)
-expr_stmt|;
-comment|// use add() if you want PDFBox to decide the name for you
-name|COSName
-name|radialShadingName
-init|=
-name|resources
-operator|.
-name|add
-argument_list|(
-name|radialShading
-argument_list|)
-decl_stmt|;
 comment|// invoke shading from content stream
-comment|// the raw command is "/name sh"
-comment|// replace "name" with the name of the shading
 comment|// compress parameter is set to false so that you can see the stream in a text editor
 name|PDPageContentStream
 name|contentStream
@@ -815,23 +771,16 @@ argument_list|)
 decl_stmt|;
 name|contentStream
 operator|.
-name|appendRawCommands
+name|shadingFill
 argument_list|(
-literal|"/shax sh\n"
+name|axialShading
 argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|appendRawCommands
+name|shadingFill
 argument_list|(
-literal|"/"
-operator|+
-name|radialShadingName
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" sh\n"
+name|radialShading
 argument_list|)
 expr_stmt|;
 name|contentStream
