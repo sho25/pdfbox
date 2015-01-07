@@ -486,6 +486,19 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|setItem
+argument_list|(
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Removes the given attribute, inheriting from parent nodes if necessary.      *      * @param key the key to look up      */
 specifier|protected
