@@ -353,6 +353,24 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|documentinterchange
+operator|.
+name|markedcontent
+operator|.
+name|PDPropertyList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|font
 operator|.
 name|PDCIDFontType2
@@ -4133,7 +4151,7 @@ literal|"g"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a rectangle to the current path.      *      * @param x The lower left x coordinate.      * @param y The lower left y coordinate.      * @param width The width of the rectangle.      * @param height The height of the rectangle.      * @throws IOException If there is an error while drawing on the screen.      */
+comment|/**      * Add a rectangle to the current path.      *      * @param x The lower left x coordinate.      * @param y The lower left y coordinate.      * @param width The width of the rectangle.      * @param height The height of the rectangle.      * @throws IOException If the content stream could not be written.      */
 specifier|public
 name|void
 name|addRect
@@ -4192,7 +4210,9 @@ literal|"re"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw a rectangle on the page using the current non stroking color.      *      * @param x The lower left x coordinate.      * @param y The lower left y coordinate.      * @param width The width of the rectangle.      * @param height The height of the rectangle.      * @throws IOException If there is an error while drawing on the screen.      */
+comment|/**      * Draw a rectangle on the page using the current non stroking color.      *      * @param x The lower left x coordinate.      * @param y The lower left y coordinate.      * @param width The width of the rectangle.      * @param height The height of the rectangle.      * @throws IOException If there is an error while drawing on the screen.      * @deprecated Use {@link #addRect} followed by {@link #fill()} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|fillRect
@@ -4237,17 +4257,57 @@ name|height
 argument_list|)
 expr_stmt|;
 name|fill
-argument_list|(
-name|PathIterator
-operator|.
-name|WIND_NON_ZERO
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current      * point to the point (x3 , y3 ), using (x1 , y1 ) and (x2 , y2 ) as the Bézier control points      * @param x1 x coordinate of the point 1      * @param y1 y coordinate of the point 1      * @param x2 x coordinate of the point 2      * @param y2 y coordinate of the point 2      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If there is an error while adding the .      */
+comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current      * point to the point (x3 , y3 ), using (x1 , y1 ) and (x2 , y2 ) as the Bézier control points      * @param x1 x coordinate of the point 1      * @param y1 y coordinate of the point 1      * @param x2 x coordinate of the point 2      * @param y2 y coordinate of the point 2      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If there is an error while adding the .      * @deprecated Use {@link #curveTo} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|addBezier312
+parameter_list|(
+name|float
+name|x1
+parameter_list|,
+name|float
+name|y1
+parameter_list|,
+name|float
+name|x2
+parameter_list|,
+name|float
+name|y2
+parameter_list|,
+name|float
+name|x3
+parameter_list|,
+name|float
+name|y3
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|curveTo
+argument_list|(
+name|x1
+argument_list|,
+name|y1
+argument_list|,
+name|x2
+argument_list|,
+name|y2
+argument_list|,
+name|x3
+argument_list|,
+name|y3
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current point to      * the point (x3, y3), using (x1, y1) and (x2, y2) as the Bézier control points.      *      * @param x1 x coordinate of the point 1      * @param y1 y coordinate of the point 1      * @param x2 x coordinate of the point 2      * @param y2 y coordinate of the point 2      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If the content stream could not be written.      */
+specifier|public
+name|void
+name|curveTo
 parameter_list|(
 name|float
 name|x1
@@ -4279,7 +4339,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Error: addBezier312 is not allowed within a text block."
+literal|"Error: curveTo is not allowed within a text block."
 argument_list|)
 throw|;
 block|}
@@ -4319,10 +4379,44 @@ literal|"c"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current      * point to the point (x3 , y3 ), using the current point and (x2 , y2 ) as the Bézier control points      * @param x2 x coordinate of the point 2      * @param y2 y coordinate of the point 2      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If there is an error while adding the .      */
+comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current      * point to the point (x3 , y3 ), using the current point and (x2 , y2 ) as the Bézier control points/      *      * @param x2 x coordinate of the point 2      * @param y2 y coordinate of the point 2      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If there is an error while adding the .      * @deprecated Use {@link #curveTo2} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|addBezier32
+parameter_list|(
+name|float
+name|x2
+parameter_list|,
+name|float
+name|y2
+parameter_list|,
+name|float
+name|x3
+parameter_list|,
+name|float
+name|y3
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|curveTo2
+argument_list|(
+name|x2
+argument_list|,
+name|y2
+argument_list|,
+name|x3
+argument_list|,
+name|y3
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current point to      * the point (x3, y3), using the current point and (x2, y2) as the Bézier control points.      *      * @param x2 x coordinate of the point 2      * @param y2 y coordinate of the point 2      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If the content stream could not be written.      */
+specifier|public
+name|void
+name|curveTo2
 parameter_list|(
 name|float
 name|x2
@@ -4348,7 +4442,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Error: addBezier32 is not allowed within a text block."
+literal|"Error: curveTo2 is not allowed within a text block."
 argument_list|)
 throw|;
 block|}
@@ -4378,10 +4472,44 @@ literal|"v"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current      * point to the point (x3 , y3 ), using (x1 , y1 ) and (x3 , y3 ) as the Bézier control points      * @param x1 x coordinate of the point 1      * @param y1 y coordinate of the point 1      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If there is an error while adding the .      */
+comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current      * point to the point (x3 , y3 ), using (x1 , y1 ) and (x3 , y3 ) as the Bézier control points/      *      * @param x1 x coordinate of the point 1      * @param y1 y coordinate of the point 1      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If there is an error while adding the .      * @deprecated Use {@link #curveTo1} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|addBezier31
+parameter_list|(
+name|float
+name|x1
+parameter_list|,
+name|float
+name|y1
+parameter_list|,
+name|float
+name|x3
+parameter_list|,
+name|float
+name|y3
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|curveTo1
+argument_list|(
+name|x1
+argument_list|,
+name|y1
+argument_list|,
+name|x3
+argument_list|,
+name|y3
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current point to      * the point (x3, y3), using (x1, y1) and (x3, y3) as the Bézier control points.      *      * @param x1 x coordinate of the point 1      * @param y1 y coordinate of the point 1      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If the content stream could not be written.      */
+specifier|public
+name|void
+name|curveTo1
 parameter_list|(
 name|float
 name|x1
@@ -4407,7 +4535,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Error: addBezier31 is not allowed within a text block."
+literal|"Error: curveTo1 is not allowed within a text block."
 argument_list|)
 throw|;
 block|}
@@ -4437,7 +4565,7 @@ literal|"y"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a line to the given coordinate.      *      * @param x The x coordinate.      * @param y The y coordinate.      * @throws IOException If there is an error while adding the line.      */
+comment|/**      * Move the current position to the given coordinates.      *      * @param x The x coordinate.      * @param y The y coordinate.      * @throws IOException If the content stream could not be written.      */
 specifier|public
 name|void
 name|moveTo
@@ -4480,7 +4608,7 @@ literal|"m"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a move to the given coordinate.      *      * @param x The x coordinate.      * @param y The y coordinate.      * @throws IOException If there is an error while adding the line.      */
+comment|/**      * Draw a line from the current position to the the given coordinates.      *      * @param x The x coordinate.      * @param y The y coordinate.      * @throws IOException If the content stream could not be written.      */
 specifier|public
 name|void
 name|lineTo
@@ -4523,7 +4651,9 @@ literal|"l"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * add a line to the current path.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while adding the line.      */
+comment|/**      * add a line to the current path.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while adding the line.      * @deprecated Use {@link #moveTo} followed by {@link #lineTo}.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|addLine
@@ -4556,7 +4686,6 @@ literal|"Error: addLine is not allowed within a text block."
 argument_list|)
 throw|;
 block|}
-comment|// moveTo
 name|moveTo
 argument_list|(
 name|xStart
@@ -4564,7 +4693,6 @@ argument_list|,
 name|yStart
 argument_list|)
 expr_stmt|;
-comment|// lineTo
 name|lineTo
 argument_list|(
 name|xEnd
@@ -4573,7 +4701,9 @@ name|yEnd
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw a line on the page using the current non stroking color and the current line width.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while drawing on the screen.      */
+comment|/**      * Draw a line on the page using the current non stroking color and the current line width.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while drawing on the screen.      * @deprecated Use {@link #moveTo} followed by {@link #lineTo} followed by {@link #stroke}.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|drawLine
@@ -4606,23 +4736,27 @@ literal|"Error: drawLine is not allowed within a text block."
 argument_list|)
 throw|;
 block|}
-name|addLine
+name|moveTo
 argument_list|(
 name|xStart
 argument_list|,
 name|yStart
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|lineTo
+argument_list|(
 name|xEnd
 argument_list|,
 name|yEnd
 argument_list|)
 expr_stmt|;
-comment|// stroke
 name|stroke
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Add a polygon to the current path.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      */
+comment|/**      * Add a polygon to the current path.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      * @deprecated Use {@link #moveTo} and {@link #lineTo} methods instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|addPolygon
@@ -4729,7 +4863,9 @@ name|closeSubPath
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Draw a polygon on the page using the current non stroking color.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      */
+comment|/**      * Draw a polygon on the page using the current non stroking color.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      * @deprecated Use {@link #moveTo} and {@link #lineTo} methods instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|drawPolygon
@@ -4769,7 +4905,9 @@ name|stroke
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Draw and fill a polygon on the page using the current non stroking color.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      */
+comment|/**      * Draw and fill a polygon on the page using the current non stroking color.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      * @deprecated Use {@link #moveTo} and {@link #lineTo} methods instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|fillPolygon
@@ -4806,14 +4944,10 @@ name|y
 argument_list|)
 expr_stmt|;
 name|fill
-argument_list|(
-name|PathIterator
-operator|.
-name|WIND_NON_ZERO
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Stroke the path.      *       * @throws IOException If there is an error while stroking the path.      */
+comment|/**      * Stroke the path.      *       * @throws IOException If the content stream could not be written      */
 specifier|public
 name|void
 name|stroke
@@ -4840,7 +4974,7 @@ literal|"S"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Close and stroke the path.      *       * @throws IOException If there is an error while closing and stroking the path.      */
+comment|/**      * Close and stroke the path.      *       * @throws IOException If the content stream could not be written      */
 specifier|public
 name|void
 name|closeAndStroke
@@ -4867,7 +5001,9 @@ literal|"s"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Fill the path.      *       * @param windingRule the winding rule to be used for filling       *       * @throws IOException If there is an error while filling the path.      */
+comment|/**      * Fill the path.      *       * @param windingRule the winding rule to be used for filling      * @throws IOException If the content stream could not be written      * @deprecated Use {@link #fill()} or {@link #fillEvenOdd} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|fill
@@ -4875,6 +5011,52 @@ parameter_list|(
 name|int
 name|windingRule
 parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|windingRule
+operator|==
+name|PathIterator
+operator|.
+name|WIND_NON_ZERO
+condition|)
+block|{
+name|fill
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|windingRule
+operator|==
+name|PathIterator
+operator|.
+name|WIND_EVEN_ODD
+condition|)
+block|{
+name|fillEvenOdd
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: unknown value for winding rule"
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * Fills the path using the nonzero winding rule.      *      * @throws IOException If the content stream could not be written      */
+specifier|public
+name|void
+name|fill
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -4891,47 +5073,38 @@ literal|"Error: fill is not allowed within a text block."
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|windingRule
-operator|==
-name|PathIterator
-operator|.
-name|WIND_NON_ZERO
-condition|)
-block|{
 name|writeOperator
 argument_list|(
 literal|"f"
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
+comment|/**      * Fills the path using the even-odd winding rule.      *      * @throws IOException If the content stream could not be written      */
+specifier|public
+name|void
+name|fillEvenOdd
+parameter_list|()
+throws|throws
+name|IOException
+block|{
 if|if
 condition|(
-name|windingRule
-operator|==
-name|PathIterator
-operator|.
-name|WIND_EVEN_ODD
+name|inTextMode
 condition|)
-block|{
-name|writeOperator
-argument_list|(
-literal|"f*"
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Error: unknown value for winding rule"
+literal|"Error: fill is not allowed within a text block."
 argument_list|)
 throw|;
 block|}
+name|writeOperator
+argument_list|(
+literal|"f*"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Fills the clipping area with the given shading.      *      * @param shading Shading resource      * @throws IOException If the content stream could not be written      */
 specifier|public
@@ -4973,10 +5146,24 @@ literal|"sh"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Close subpath.      *       * @throws IOException If there is an error while closing the subpath.      */
+comment|/**      * Closes the current subpath.      *       * @throws IOException If the content stream could not be written      * @deprecated Use {@link #closePath()} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|closeSubPath
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|closePath
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Closes the current subpath.      *      * @throws IOException If the content stream could not be written      */
+specifier|public
+name|void
+name|closePath
 parameter_list|()
 throws|throws
 name|IOException
@@ -4990,7 +5177,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Error: closeSubPath is not allowed within a text block."
+literal|"Error: closePath is not allowed within a text block."
 argument_list|)
 throw|;
 block|}
@@ -5000,7 +5187,9 @@ literal|"h"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Clip path.      *       * @param windingRule the winding rule to be used for clipping      *        * @throws IOException If there is an error while clipping the path.      */
+comment|/**      * Clip path.      *       * @param windingRule the winding rule to be used for clipping      * @throws IOException If there is an error while clipping the path.      * @deprecated Use {@link #clip()} or {@link #clipEvenOdd} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|clipPath
@@ -5071,7 +5260,73 @@ literal|"n"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set linewidth to the given value.      *      * @param lineWidth The width which is used for drwaing.      * @throws IOException If there is an error while drawing on the screen.      */
+comment|/**      * Intersects the current clipping path with the current path, using the nonzero rule.      *      * @throws IOException If the content stream could not be written      */
+specifier|public
+name|void
+name|clip
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: clip is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
+name|writeOperator
+argument_list|(
+literal|"W"
+argument_list|)
+expr_stmt|;
+name|writeOperator
+argument_list|(
+literal|"n"
+argument_list|)
+expr_stmt|;
+comment|// end path without filling or stroking
+block|}
+comment|/**      * Intersects the current clipping path with the current path, using the even-odd rule.      *      * @throws IOException If the content stream could not be written      */
+specifier|public
+name|void
+name|clipEvenOdd
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: clipEvenOdd is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
+name|writeOperator
+argument_list|(
+literal|"W*"
+argument_list|)
+expr_stmt|;
+name|writeOperator
+argument_list|(
+literal|"n"
+argument_list|)
+expr_stmt|;
+comment|// end path without filling or stroking
+block|}
+comment|/**      * Set line width to the given value.      *      * @param lineWidth The width which is used for drwaing.      * @throws IOException If the content stream could not be written      */
 specifier|public
 name|void
 name|setLineWidth
@@ -5106,7 +5361,7 @@ literal|"w"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the line join style.      * @param lineJoinStyle 0 for miter join, 1 for round join, and 2 for bevel join.      * @throws IOException If there is an error while writing to the stream.      */
+comment|/**      * Set the line join style.      *      * @param lineJoinStyle 0 for miter join, 1 for round join, and 2 for bevel join.      * @throws IOException If the content stream could not be written.      */
 specifier|public
 name|void
 name|setLineJoinStyle
@@ -5163,7 +5418,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the line cap style.      * @param lineCapStyle 0 for butt cap, 1 for round cap, and 2 for projecting square cap.      * @throws IOException If there is an error while writing to the stream.      */
+comment|/**      * Set the line cap style.      *      * @param lineCapStyle 0 for butt cap, 1 for round cap, and 2 for projecting square cap.      * @throws IOException If the content stream could not be written.      */
 specifier|public
 name|void
 name|setLineCapStyle
@@ -5220,7 +5475,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the line dash pattern.      * @param pattern The pattern array      * @param phase The phase of the pattern      * @throws IOException If there is an error while writing to the stream.      */
+comment|/**      * Set the line dash pattern.      *      * @param pattern The pattern array      * @param phase The phase of the pattern      * @throws IOException If the content stream could not be written.      */
 specifier|public
 name|void
 name|setLineDashPattern
@@ -5283,10 +5538,29 @@ literal|"d"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Begin a marked content sequence.      * @param tag the tag      * @throws IOException if an I/O error occurs      */
+comment|/**      * Begin a marked content sequence.      *      * @param tag the tag      * @throws IOException if an I/O error occurs      * @deprecated Use {@link #beginMarkedContent} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|beginMarkedContentSequence
+parameter_list|(
+name|COSName
+name|tag
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|beginMarkedContent
+argument_list|(
+name|tag
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Begin a marked content sequence.      *      * @param tag the tag      * @throws IOException If the content stream could not be written      */
+specifier|public
+name|void
+name|beginMarkedContent
 parameter_list|(
 name|COSName
 name|tag
@@ -5305,7 +5579,9 @@ literal|"BMC"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Begin a marked content sequence with a reference to an entry in the page resources'      * Properties dictionary.      * @param tag the tag      * @param propsName the properties reference      * @throws IOException if an I/O error occurs      */
+comment|/**      * Begin a marked content sequence with a reference to an entry in the page resources'      * Properties dictionary.      *      * @param tag the tag      * @param propsName the properties reference      * @throws IOException if an I/O error occurs      * @deprecated Use {@link #beginMarkedContent(COSName, PDPropertyList)} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|beginMarkedContentSequence
@@ -5335,10 +5611,59 @@ literal|"BDC"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * End a marked content sequence.      * @throws IOException if an I/O error occurs      */
+comment|/**      * Begin a marked content sequence with a reference to an entry in the page resources'      * Properties dictionary.      *      * @param tag the tag      * @param propertyList property list      * @throws IOException If the content stream could not be written      */
+specifier|public
+name|void
+name|beginMarkedContent
+parameter_list|(
+name|COSName
+name|tag
+parameter_list|,
+name|PDPropertyList
+name|propertyList
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|writeOperand
+argument_list|(
+name|tag
+argument_list|)
+expr_stmt|;
+name|writeOperand
+argument_list|(
+name|resources
+operator|.
+name|add
+argument_list|(
+name|propertyList
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|writeOperator
+argument_list|(
+literal|"BDC"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * End a marked content sequence.      *      * @throws IOException If the content stream could not be written      * @deprecated Use {@link #endMarkedContent} instead.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|endMarkedContentSequence
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|endMarkedContent
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * End a marked content sequence.      *      * @throws IOException If the content stream could not be written      */
+specifier|public
+name|void
+name|endMarkedContent
 parameter_list|()
 throws|throws
 name|IOException

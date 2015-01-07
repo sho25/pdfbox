@@ -395,9 +395,6 @@ operator|new
 name|AffineTransform
 argument_list|()
 decl_stmt|;
-name|PDOptionalContentGroup
-name|ocg
-init|=
 name|layerUtil
 operator|.
 name|appendFormAsLayer
@@ -410,9 +407,7 @@ name|at
 argument_list|,
 literal|"overlay"
 argument_list|)
-decl_stmt|;
-comment|//This is how the layer could be disabled after adding it
-comment|//catalog.getOCProperties().setGroupEnabled(ocg.getName(), false);
+expr_stmt|;
 name|targetDoc
 operator|.
 name|save
@@ -458,9 +453,19 @@ name|getDocumentCatalog
 argument_list|()
 decl_stmt|;
 comment|//OCGs require PDF 1.5 or later
-comment|//TODO need some comfortable way to enable/check the PDF version
-comment|//assertEquals("%PDF-1.5", doc.getDocument().getHeaderString());
-comment|//assertEquals("1.5", catalog.getVersion());
+name|assertEquals
+argument_list|(
+literal|"%PDF-1.5"
+argument_list|,
+name|doc
+operator|.
+name|getDocument
+argument_list|()
+operator|.
+name|getHeaderString
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|PDPage
 name|page
 init|=
@@ -488,7 +493,7 @@ name|COSName
 operator|.
 name|getPDFName
 argument_list|(
-literal|"MC0"
+literal|"oc1"
 argument_list|)
 argument_list|)
 decl_stmt|;

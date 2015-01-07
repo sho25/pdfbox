@@ -149,7 +149,7 @@ argument_list|,
 name|page
 argument_list|)
 decl_stmt|;
-comment|//first fill the entire background with cyan
+comment|// first fill the entire background with cyan
 name|contentStream
 operator|.
 name|setNonStrokingColor
@@ -161,7 +161,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|fillRect
+name|addRect
 argument_list|(
 literal|0
 argument_list|,
@@ -184,7 +184,12 @@ name|getHeight
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//then draw a red box in the lower left hand corner
+name|contentStream
+operator|.
+name|fill
+argument_list|()
+expr_stmt|;
+comment|// then draw a red box in the lower left hand corner
 name|contentStream
 operator|.
 name|setNonStrokingColor
@@ -196,7 +201,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|fillRect
+name|addRect
 argument_list|(
 literal|10
 argument_list|,
@@ -206,6 +211,11 @@ literal|100
 argument_list|,
 literal|100
 argument_list|)
+expr_stmt|;
+name|contentStream
+operator|.
+name|fill
+argument_list|()
 expr_stmt|;
 name|contentStream
 operator|.

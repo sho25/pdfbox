@@ -283,7 +283,7 @@ argument_list|)
 expr_stmt|;
 name|pdPageContentStream1
 operator|.
-name|fillRect
+name|addRect
 argument_list|(
 literal|100
 argument_list|,
@@ -293,6 +293,11 @@ literal|300
 argument_list|,
 literal|100
 argument_list|)
+expr_stmt|;
+name|pdPageContentStream1
+operator|.
+name|fill
+argument_list|()
 expr_stmt|;
 name|pdPageContentStream1
 operator|.
@@ -325,7 +330,7 @@ argument_list|)
 expr_stmt|;
 name|pdPageContentStream2
 operator|.
-name|fillRect
+name|addRect
 argument_list|(
 literal|100
 argument_list|,
@@ -335,6 +340,11 @@ literal|300
 argument_list|,
 literal|100
 argument_list|)
+expr_stmt|;
+name|pdPageContentStream2
+operator|.
+name|fill
+argument_list|()
 expr_stmt|;
 name|pdPageContentStream2
 operator|.
@@ -367,7 +377,7 @@ argument_list|)
 expr_stmt|;
 name|pdPageContentStream3
 operator|.
-name|fillRect
+name|addRect
 argument_list|(
 literal|100
 argument_list|,
@@ -377,6 +387,11 @@ literal|300
 argument_list|,
 literal|100
 argument_list|)
+expr_stmt|;
+name|pdPageContentStream3
+operator|.
+name|fill
+argument_list|()
 expr_stmt|;
 name|pdPageContentStream3
 operator|.

@@ -738,7 +738,7 @@ specifier|public
 name|void
 name|setVersion
 parameter_list|(
-name|float
+name|double
 name|versionValue
 parameter_list|)
 block|{
@@ -774,6 +774,9 @@ expr_stmt|;
 block|}
 name|version
 operator|=
+operator|(
+name|float
+operator|)
 name|versionValue
 expr_stmt|;
 block|}
