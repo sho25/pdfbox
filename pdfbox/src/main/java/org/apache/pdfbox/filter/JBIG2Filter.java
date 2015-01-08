@@ -424,6 +424,11 @@ operator|.
 name|read
 argument_list|(
 literal|0
+argument_list|,
+name|reader
+operator|.
+name|getDefaultReadParam
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
