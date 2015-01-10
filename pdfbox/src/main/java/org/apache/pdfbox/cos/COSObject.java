@@ -156,6 +156,7 @@ return|;
 block|}
 comment|/**      * This will set the object that this object encapsulates.      *      * @param object The new object to encapsulate.      *      * @throws IOException If there is an error setting the updated object.      */
 specifier|public
+specifier|final
 name|void
 name|setObject
 parameter_list|(
