@@ -37,16 +37,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  * Implementers provide find method for searching native operating system for available fonts.  * This class is based on a class provided by Apache FOP.  *  * See org.apache.fop.fonts.autodetect.FontDirFinder  */
 end_comment

@@ -29,6 +29,8 @@ extends|extends
 name|NativeFontDirFinder
 block|{
 comment|/**      * Some guesses at possible unix font directory locations.      *       * @return a list of possible font locations      */
+annotation|@
+name|Override
 specifier|protected
 name|String
 index|[]

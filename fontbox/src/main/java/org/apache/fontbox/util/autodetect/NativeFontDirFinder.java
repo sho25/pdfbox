@@ -50,6 +50,8 @@ implements|implements
 name|FontDirFinder
 block|{
 comment|/**      * Generic method used by Mac and Unix font finders.      *       * @return list of natively existing font directories {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
