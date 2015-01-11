@@ -230,6 +230,7 @@ expr_stmt|;
 block|}
 comment|/**      * The offset attribute.      *      * @param newOffset The new value for the offset.      */
 specifier|public
+specifier|final
 name|void
 name|setOffset
 parameter_list|(
