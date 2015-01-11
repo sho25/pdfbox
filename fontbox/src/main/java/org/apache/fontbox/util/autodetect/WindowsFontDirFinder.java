@@ -148,11 +148,21 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-return|return
+name|String
+name|winDir
+init|=
 name|bufferedReader
 operator|.
 name|readLine
 argument_list|()
+decl_stmt|;
+name|bufferedReader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+return|return
+name|winDir
 return|;
 block|}
 comment|/**      * {@inheritDoc}      *       * @return a list of detected font files      */
