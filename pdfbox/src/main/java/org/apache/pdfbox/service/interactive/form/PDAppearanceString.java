@@ -1386,7 +1386,7 @@ name|output
 operator|.
 name|write
 argument_list|(
-literal|" /Tx BMC\n"
+literal|"/Tx BMC\n"
 operator|.
 name|getBytes
 argument_list|(
@@ -1411,7 +1411,7 @@ name|output
 operator|.
 name|write
 argument_list|(
-literal|" EMC"
+literal|"EMC"
 operator|.
 name|getBytes
 argument_list|(
@@ -2144,13 +2144,6 @@ condition|)
 block|{
 name|printWriter
 operator|.
-name|print
-argument_list|(
-literal|"<"
-argument_list|)
-expr_stmt|;
-name|printWriter
-operator|.
 name|flush
 argument_list|()
 expr_stmt|;
@@ -2178,7 +2171,7 @@ name|printWriter
 operator|.
 name|println
 argument_list|(
-literal|"> Tj"
+literal|" Tj"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2225,13 +2218,6 @@ literal|1
 decl_stmt|;
 name|printWriter
 operator|.
-name|print
-argument_list|(
-literal|"<"
-argument_list|)
-expr_stmt|;
-name|printWriter
-operator|.
 name|flush
 argument_list|()
 expr_stmt|;
@@ -2261,7 +2247,7 @@ name|println
 argument_list|(
 name|lastLine
 condition|?
-literal|"> Tj\n"
+literal|" Tj\n"
 else|:
 literal|"> Tj 0 -13 Td"
 argument_list|)
