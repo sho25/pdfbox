@@ -456,6 +456,21 @@ name|COSBase
 name|value
 parameter_list|)
 block|{
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+name|removeInheritableAttribute
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|PDFieldTreeNode
 name|attributesNode
 init|=
@@ -498,6 +513,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Removes the given attribute, inheriting from parent nodes if necessary.      *      * @param key the key to look up      */
