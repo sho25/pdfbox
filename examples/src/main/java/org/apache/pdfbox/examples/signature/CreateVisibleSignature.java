@@ -752,14 +752,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|fis
-operator|=
-operator|new
-name|FileInputStream
-argument_list|(
-name|outputDocument
-argument_list|)
-expr_stmt|;
 comment|// load document
 name|PDDocument
 name|doc
@@ -907,8 +899,6 @@ name|doc
 operator|.
 name|saveIncremental
 argument_list|(
-name|fis
-argument_list|,
 name|fos
 argument_list|)
 expr_stmt|;
