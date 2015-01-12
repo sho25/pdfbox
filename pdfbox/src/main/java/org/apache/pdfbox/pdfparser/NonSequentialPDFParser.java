@@ -1941,6 +1941,17 @@ argument_list|(
 name|trailer
 argument_list|)
 expr_stmt|;
+name|getDocument
+argument_list|()
+operator|.
+name|addXRefTable
+argument_list|(
+name|xrefTrailerResolver
+operator|.
+name|getXrefTable
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|initialParseDone
 operator|=
 literal|true
