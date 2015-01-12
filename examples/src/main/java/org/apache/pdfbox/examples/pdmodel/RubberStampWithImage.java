@@ -388,7 +388,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to add a rubber stamp with an image to pages of a PDF document.  * @author Andreas Lehmkühler  */
+comment|/**  * This is an example on how to add a rubber stamp with an image to pages of a PDF document.  * @author Andreas LehmkÃ¼hler  */
 end_comment
 
 begin_class
