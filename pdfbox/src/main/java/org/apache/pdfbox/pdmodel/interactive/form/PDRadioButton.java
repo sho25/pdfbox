@@ -89,20 +89,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|cos
-operator|.
-name|COSString
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|common
@@ -123,6 +109,20 @@ name|PDRadioButton
 extends|extends
 name|PDButton
 block|{
+comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+specifier|public
+name|PDRadioButton
+parameter_list|(
+name|PDAcroForm
+name|theAcroForm
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|theAcroForm
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
 specifier|public
 name|PDRadioButton
@@ -194,7 +194,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|COSName
+name|String
 name|getDefaultValue
 parameter_list|()
 throws|throws
@@ -219,9 +219,14 @@ condition|)
 block|{
 return|return
 operator|(
+operator|(
 name|COSName
 operator|)
 name|attribute
+operator|)
+operator|.
+name|getName
+argument_list|()
 return|;
 block|}
 else|else
@@ -275,8 +280,9 @@ name|COSName
 operator|.
 name|DV
 argument_list|,
-operator|new
-name|COSString
+name|COSName
+operator|.
+name|getPDFName
 argument_list|(
 name|defaultValue
 argument_list|)
