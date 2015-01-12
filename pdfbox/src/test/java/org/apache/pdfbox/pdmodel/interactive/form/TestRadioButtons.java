@@ -238,6 +238,40 @@ argument_list|(
 name|form
 argument_list|)
 decl_stmt|;
+comment|// test that there are no nulls returned for an empty field
+comment|// only specific methods are tested here
+name|assertNotNull
+argument_list|(
+name|radioButton
+operator|.
+name|getDefaultValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|radioButton
+operator|.
+name|getExportValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|radioButton
+operator|.
+name|getOptions
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|radioButton
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Test setting/getting option values - the dictionaries Opt entry
 name|List
 argument_list|<
