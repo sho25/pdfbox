@@ -739,7 +739,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Signs the given PDF file.      * @param inFile is the PDF file      * @throws IOException if the input file could not be read      */
+comment|/**      * Signs the given PDF file.      * @param inFile input PDF file      * @param outFile output PDF file      * @throws IOException if the input file could not be read      */
 specifier|public
 name|void
 name|signDetached
@@ -763,7 +763,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Signs the given PDF file.      * @param inFile is the PDF file      * @param tsaClient TSA client      * @throws IOException if the input file could not be read      */
+comment|/**      * Signs the given PDF file.      * @param inFile input PDF file      * @param outFile output PDF file      * @param tsaClient optional TSA client      * @throws IOException if the input file could not be read      */
 specifier|public
 name|void
 name|signDetached
