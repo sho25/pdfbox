@@ -59,6 +59,20 @@ name|PDListBox
 extends|extends
 name|PDChoice
 block|{
+comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+specifier|protected
+name|PDListBox
+parameter_list|(
+name|PDAcroForm
+name|theAcroForm
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|theAcroForm
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
 specifier|public
 name|PDListBox
