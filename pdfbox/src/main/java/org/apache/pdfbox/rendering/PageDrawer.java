@@ -1080,7 +1080,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Draws the pattern stream to the requested context.      *      * @param g The graphics context to draw onto.      * @param pattern The tiling pattern to be used.      * @param colorSpace color space for this tiling.      * @param color color for this tiling.      * @throws IOException If there is an IO error while drawing the page.      */
+comment|/**      * Draws the pattern stream to the requested context.      *      * @param g The graphics context to draw onto.      * @param pattern The tiling pattern to be used.      * @param colorSpace color space for this tiling.      * @param color color for this tiling.      * @param patternMatrix the pattern matrix      * @throws IOException If there is an IO error while drawing the page.      */
 specifier|public
 name|void
 name|drawTilingPattern
