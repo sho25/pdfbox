@@ -663,6 +663,7 @@ implements|implements
 name|Closeable
 block|{
 specifier|private
+specifier|final
 name|COSDocument
 name|document
 decl_stmt|;
@@ -694,6 +695,7 @@ name|documentId
 decl_stmt|;
 comment|// the PDF parser
 specifier|private
+specifier|final
 name|BaseParser
 name|parser
 decl_stmt|;
@@ -717,6 +719,10 @@ operator|=
 operator|new
 name|COSDocument
 argument_list|()
+expr_stmt|;
+name|parser
+operator|=
+literal|null
 expr_stmt|;
 comment|// First we need a trailer
 name|COSDictionary
@@ -3558,8 +3564,9 @@ block|{
 if|if
 condition|(
 name|document
-operator|==
-literal|null
+operator|.
+name|isClosed
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -3746,35 +3753,22 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|documentCatalog
-operator|=
-literal|null
-expr_stmt|;
-name|documentInformation
-operator|=
-literal|null
-expr_stmt|;
-name|encryption
-operator|=
-literal|null
-expr_stmt|;
 if|if
 condition|(
+operator|!
 name|document
-operator|!=
-literal|null
+operator|.
+name|isClosed
+argument_list|()
 condition|)
 block|{
+comment|// close all intermediate I/O streams
 name|document
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|document
-operator|=
-literal|null
-expr_stmt|;
-block|}
+comment|// close the source PDF stream, if we read from one
 if|if
 condition|(
 name|parser
@@ -3784,18 +3778,11 @@ condition|)
 block|{
 name|parser
 operator|.
-name|clearResources
+name|close
 argument_list|()
 expr_stmt|;
-name|parser
-operator|=
-literal|null
-expr_stmt|;
 block|}
-name|accessPermission
-operator|=
-literal|null
-expr_stmt|;
+block|}
 block|}
 comment|/**      * Protects the document with the protection policy pp. The document content will be really encrypted when it will      * be saved. This method only marks the document for encryption.      *      * @see org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyProtectionPolicy      *       * @param policy The protection policy.      *       * @throws IOException if there isn't any suitable security handler.      */
 specifier|public

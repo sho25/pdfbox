@@ -63,6 +63,12 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns true if this stream has been closed.      */
+specifier|public
+name|boolean
+name|isClosed
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

@@ -257,6 +257,10 @@ name|fileOffset
 init|=
 literal|0
 decl_stmt|;
+specifier|private
+name|boolean
+name|isClosed
+decl_stmt|;
 comment|// ------------------------------------------------------------------------
 comment|/** Create input stream instance for given file. */
 specifier|public
@@ -803,6 +807,21 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|isClosed
+operator|=
+literal|true
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isClosed
+parameter_list|()
+block|{
+return|return
+name|isClosed
+return|;
 block|}
 block|}
 end_class

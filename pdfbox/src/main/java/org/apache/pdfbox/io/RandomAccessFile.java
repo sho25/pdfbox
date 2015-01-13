@@ -76,6 +76,10 @@ operator|.
 name|RandomAccessFile
 name|ras
 decl_stmt|;
+specifier|private
+name|boolean
+name|isClosed
+decl_stmt|;
 comment|/**      * Constructor.      *      * @param file The file to write the data to.      * @param mode The writing mode.      * @throws FileNotFoundException If the file cannot be created.      */
 specifier|public
 name|RandomAccessFile
@@ -118,6 +122,10 @@ name|ras
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|isClosed
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
@@ -223,6 +231,17 @@ name|ras
 operator|.
 name|length
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isClosed
+parameter_list|()
+block|{
+return|return
+name|isClosed
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
