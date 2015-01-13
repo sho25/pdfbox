@@ -5030,7 +5030,7 @@ name|endObjectKey
 operator|.
 name|startsWith
 argument_list|(
-literal|"endobj"
+name|ENDOBJ_STRING
 argument_list|)
 operator|&&
 name|endObjectKey
@@ -5105,7 +5105,7 @@ name|endObjectKey
 operator|.
 name|startsWith
 argument_list|(
-literal|"endobj"
+name|ENDOBJ_STRING
 argument_list|)
 condition|)
 block|{

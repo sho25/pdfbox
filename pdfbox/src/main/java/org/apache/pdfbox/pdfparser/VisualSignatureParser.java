@@ -759,7 +759,7 @@ name|endObjectKey
 operator|.
 name|equals
 argument_list|(
-literal|"endobj"
+name|ENDOBJ_STRING
 argument_list|)
 condition|)
 block|{
@@ -769,7 +769,7 @@ name|endObjectKey
 operator|.
 name|startsWith
 argument_list|(
-literal|"endobj"
+name|ENDOBJ_STRING
 argument_list|)
 condition|)
 block|{
@@ -852,7 +852,7 @@ name|secondEndObjectKey
 operator|.
 name|equals
 argument_list|(
-literal|"endobj"
+name|ENDOBJ_STRING
 argument_list|)
 condition|)
 block|{
@@ -888,7 +888,7 @@ name|thirdPossibleEndObj
 operator|.
 name|equals
 argument_list|(
-literal|"endobj"
+name|ENDOBJ_STRING
 argument_list|)
 condition|)
 block|{

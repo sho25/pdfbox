@@ -2102,7 +2102,7 @@ name|endObjectKey
 operator|.
 name|equals
 argument_list|(
-literal|"endobj"
+name|ENDOBJ_STRING
 argument_list|)
 condition|)
 block|{
@@ -2112,7 +2112,7 @@ name|endObjectKey
 operator|.
 name|startsWith
 argument_list|(
-literal|"endobj"
+name|ENDOBJ_STRING
 argument_list|)
 condition|)
 block|{
@@ -2153,7 +2153,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"endobj"
+name|ENDOBJ_STRING
 argument_list|)
 condition|)
 block|{
