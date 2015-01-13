@@ -35,6 +35,20 @@ name|COSDictionary
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
 begin_comment
 comment|/**  * This represents an outline in a pdf document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
 end_comment
@@ -58,7 +72,9 @@ name|node
 operator|.
 name|setName
 argument_list|(
-literal|"Type"
+name|COSName
+operator|.
+name|TYPE
 argument_list|,
 literal|"Outlines"
 argument_list|)

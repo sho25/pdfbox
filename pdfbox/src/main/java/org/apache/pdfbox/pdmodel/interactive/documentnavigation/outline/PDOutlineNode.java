@@ -121,6 +121,8 @@ name|dict
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -233,7 +235,9 @@ name|node
 operator|.
 name|setItem
 argument_list|(
-literal|"Parent"
+name|COSName
+operator|.
+name|PARENT
 argument_list|,
 name|parent
 argument_list|)
@@ -428,7 +432,9 @@ name|node
 operator|.
 name|setItem
 argument_list|(
-literal|"First"
+name|COSName
+operator|.
+name|FIRST
 argument_list|,
 name|outlineNode
 argument_list|)
