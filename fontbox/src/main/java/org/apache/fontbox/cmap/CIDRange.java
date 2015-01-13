@@ -24,14 +24,17 @@ class|class
 name|CIDRange
 block|{
 specifier|private
+specifier|final
 name|char
 name|from
 decl_stmt|;
 specifier|private
+specifier|final
 name|char
 name|to
 decl_stmt|;
 specifier|private
+specifier|final
 name|int
 name|cid
 decl_stmt|;
