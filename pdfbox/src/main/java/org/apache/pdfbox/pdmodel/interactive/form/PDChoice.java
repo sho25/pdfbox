@@ -457,8 +457,29 @@ condition|(
 name|displayValues
 operator|!=
 literal|null
+operator|&&
+name|displayValues
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|isSort
+argument_list|()
+condition|)
+block|{
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|displayValues
+argument_list|)
+expr_stmt|;
+block|}
 name|getDictionary
 argument_list|()
 operator|.
@@ -594,6 +615,14 @@ throw|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|isSort
+argument_list|()
+condition|)
+block|{
+comment|// TODO implement sorting for two-element arrays
+block|}
 name|COSArray
 name|options
 init|=
@@ -993,7 +1022,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Determines if Sort is set.      *       * @return true if the options are sorted.      */
+comment|/**      * Determines if Sort is set.      *       *<p>      * If set, the field’s option items shall be sorted alphabetically.      * The sorting has to be done when writing the PDF. PDF Readers are supposed to      * display the options in the order in which they occur in the Opt array.       *</p>      *       * @return true if the options are sorted.      */
 specifier|public
 name|boolean
 name|isSort
@@ -1013,7 +1042,7 @@ name|FLAG_SORT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the Sort bit.      *      * @param sort The value for Sort.      */
+comment|/**      * Set the Sort bit.      *       * @see #isSort()      * @param sort The value for Sort.      */
 specifier|public
 name|void
 name|setSort
