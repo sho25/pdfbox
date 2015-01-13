@@ -1370,7 +1370,7 @@ name|println
 argument_list|(
 literal|"Usage: java "
 operator|+
-name|CreateSignature
+name|CreateVisibleSignature
 operator|.
 name|class
 operator|.
