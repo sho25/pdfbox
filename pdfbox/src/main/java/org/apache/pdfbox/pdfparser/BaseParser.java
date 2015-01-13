@@ -353,6 +353,14 @@ name|GENERATION_NUMBER_THRESHOLD
 init|=
 literal|65535
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ISO_8859_1
+init|=
+literal|"ISO-8859-1"
+decl_stmt|;
 comment|/**      * system property allowing to define size of push back buffer.      */
 specifier|public
 specifier|static
@@ -1285,7 +1293,7 @@ name|potentialDEF
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1901,7 +1909,7 @@ name|endStream
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 name|pdfSource
@@ -1947,7 +1955,7 @@ name|extra
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 name|pdfSource
@@ -3516,7 +3524,7 @@ name|isThisTheEnd
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3890,7 +3898,7 @@ argument_list|(
 literal|4
 argument_list|)
 argument_list|,
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 if|if
@@ -3952,7 +3960,7 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 if|if
@@ -4176,7 +4184,7 @@ argument_list|(
 literal|4
 argument_list|)
 argument_list|,
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 if|if
@@ -4231,7 +4239,7 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 if|if
@@ -4520,7 +4528,7 @@ name|badString
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5289,7 +5297,7 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5366,7 +5374,7 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;

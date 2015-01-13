@@ -401,7 +401,7 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;

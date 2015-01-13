@@ -4944,7 +4944,7 @@ name|endObjectKey
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6185,7 +6185,7 @@ literal|"endobj"
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6247,7 +6247,7 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6390,7 +6390,7 @@ literal|"endstream"
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 condition|)
@@ -7019,7 +7019,7 @@ name|objectString
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -7173,7 +7173,7 @@ name|objString
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 do|do
@@ -7349,7 +7349,7 @@ name|objIDBytes
 operator|.
 name|length
 argument_list|,
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 name|Long
@@ -7704,7 +7704,7 @@ name|objString
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 while|while
