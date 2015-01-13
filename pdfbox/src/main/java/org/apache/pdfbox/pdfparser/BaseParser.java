@@ -569,7 +569,7 @@ init|=
 literal|"endobj"
 decl_stmt|;
 comment|/**      * This is a string constant that will be used for comparisons.      */
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String

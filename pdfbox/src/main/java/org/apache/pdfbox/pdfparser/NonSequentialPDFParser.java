@@ -5037,7 +5037,7 @@ name|endObjectKey
 operator|.
 name|startsWith
 argument_list|(
-literal|"endstream"
+name|ENDSTREAM_STRING
 argument_list|)
 condition|)
 block|{
@@ -6213,7 +6213,7 @@ argument_list|)
 operator|.
 name|equals
 argument_list|(
-literal|"endstream"
+name|ENDSTREAM_STRING
 argument_list|)
 condition|)
 block|{
@@ -6260,7 +6260,7 @@ name|endStream
 operator|.
 name|equals
 argument_list|(
-literal|"endstream"
+name|ENDSTREAM_STRING
 argument_list|)
 condition|)
 block|{
@@ -6386,7 +6386,7 @@ condition|(
 operator|!
 name|checkBytesAtOffset
 argument_list|(
-literal|"endstream"
+name|ENDSTREAM_STRING
 operator|.
 name|getBytes
 argument_list|(
