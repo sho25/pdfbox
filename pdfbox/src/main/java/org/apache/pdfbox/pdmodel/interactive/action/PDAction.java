@@ -184,6 +184,8 @@ name|a
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -214,7 +216,9 @@ name|action
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"Type"
+name|COSName
+operator|.
+name|TYPE
 argument_list|)
 return|;
 block|}
@@ -231,7 +235,9 @@ name|action
 operator|.
 name|setName
 argument_list|(
-literal|"Type"
+name|COSName
+operator|.
+name|TYPE
 argument_list|,
 name|type
 argument_list|)
@@ -289,7 +295,9 @@ name|action
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"Next"
+name|COSName
+operator|.
+name|NEXT
 argument_list|)
 decl_stmt|;
 if|if
@@ -325,10 +333,7 @@ name|action
 argument_list|,
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"Next"
-argument_list|)
+name|NEXT
 argument_list|)
 expr_stmt|;
 block|}
@@ -422,7 +427,9 @@ name|action
 operator|.
 name|setItem
 argument_list|(
-literal|"Next"
+name|COSName
+operator|.
+name|NEXT
 argument_list|,
 name|COSArrayList
 operator|.
