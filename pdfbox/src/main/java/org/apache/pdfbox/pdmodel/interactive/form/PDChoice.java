@@ -35,6 +35,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -78,20 +88,6 @@ operator|.
 name|cos
 operator|.
 name|COSDictionary
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSInteger
 import|;
 end_import
 
@@ -308,11 +304,12 @@ argument_list|)
 return|;
 block|}
 return|return
-operator|new
-name|ArrayList
-argument_list|<
+name|Collections
+operator|.
+expr|<
 name|String
-argument_list|>
+operator|>
+name|emptyList
 argument_list|()
 return|;
 block|}
@@ -369,14 +366,16 @@ block|}
 block|}
 comment|/**      * This will get the indices of the selected options "I".      *      * @return COSArray containing the indices of all selected options.      */
 specifier|public
-name|COSArray
+name|List
+argument_list|<
+name|Integer
+argument_list|>
 name|getSelectedOptions
 parameter_list|()
 block|{
-return|return
-operator|(
-name|COSArray
-operator|)
+name|COSBase
+name|value
+init|=
 name|getDictionary
 argument_list|()
 operator|.
@@ -386,6 +385,34 @@ name|COSName
 operator|.
 name|I
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|COSArrayList
+operator|.
+name|convertIntegerCOSArrayToList
+argument_list|(
+operator|(
+name|COSArray
+operator|)
+name|value
+argument_list|)
+return|;
+block|}
+return|return
+name|Collections
+operator|.
+expr|<
+name|Integer
+operator|>
+name|emptyList
+argument_list|()
 return|;
 block|}
 comment|/**      * This will set the indices of the selected options "I".      *      * @param values COSArray containing the indices of all selected options.      */
@@ -682,6 +709,7 @@ operator|)
 name|value
 argument_list|)
 expr_stmt|;
+comment|// TODO handle MultiSelect option as this might need to set the 'I' key.
 name|int
 name|index
 init|=
@@ -709,11 +737,6 @@ literal|"The list box does not contain the given value."
 argument_list|)
 throw|;
 block|}
-name|selectMultiple
-argument_list|(
-name|index
-argument_list|)
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -764,6 +787,7 @@ literal|"The list box does not allow multiple selection."
 argument_list|)
 throw|;
 block|}
+comment|// TODO handle MultiSelect option completely as this might need to set the 'I' key.
 name|getDictionary
 argument_list|()
 operator|.
@@ -881,11 +905,12 @@ argument_list|)
 return|;
 block|}
 return|return
-operator|new
-name|ArrayList
-argument_list|<
+name|Collections
+operator|.
+expr|<
 name|String
-argument_list|>
+operator|>
+name|emptyList
 argument_list|()
 return|;
 block|}
@@ -967,47 +992,12 @@ return|return
 name|indexSelected
 return|;
 block|}
+comment|// TODO the implementation below is not inline
+comment|// with the specification nor does it allow multiple selections
+comment|// deactivating for now as it's not part of the public API
+comment|//
 comment|// implements "MultiSelect"
-specifier|private
-name|void
-name|selectMultiple
-parameter_list|(
-name|int
-name|selectedIndex
-parameter_list|)
-block|{
-name|COSArray
-name|indexArray
-init|=
-name|getSelectedOptions
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|indexArray
-operator|!=
-literal|null
-condition|)
-block|{
-name|indexArray
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|indexArray
-operator|.
-name|add
-argument_list|(
-name|COSInteger
-operator|.
-name|get
-argument_list|(
-name|selectedIndex
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|/*     private void selectMultiple(int selectedIndex)     {         COSArray indexArray = getSelectedOptions();         if (indexArray != null)         {             indexArray.clear();             indexArray.add(COSInteger.get(selectedIndex));         }     }     */
 block|}
 end_class
 
