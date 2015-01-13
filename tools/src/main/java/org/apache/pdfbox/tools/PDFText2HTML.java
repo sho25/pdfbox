@@ -159,6 +159,7 @@ init|=
 literal|true
 decl_stmt|;
 specifier|private
+specifier|final
 name|FontState
 name|fontState
 init|=
@@ -299,6 +300,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|writePage
@@ -326,6 +329,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|endDocument
@@ -520,6 +525,8 @@ literal|""
 return|;
 block|}
 comment|/**      * Write out the article separator (div tag) with proper text direction      * information.      *      * @param isLTR true if direction of text is left to right      * @throws IOException      *             If there is an error writing to the stream.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|startArticle
@@ -555,6 +562,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Write out the article separator.      *      * @throws IOException      *             If there is an error writing to the stream.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|endArticle
@@ -576,6 +585,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Write a string to the output stream, maintain font state, and escape some HTML characters.      * The font state is only preserved per word.      *      * @param text The text to write to the stream.      * @param textPositions the corresponding text positions      * @throws IOException If there is an error writing to the stream.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|writeString
@@ -608,6 +619,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Write a string to the output stream and escape some HTML characters.      *      * @param chars String to be written to the stream      * @throws IOException      *             If there is an error writing to the stream.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|writeString
@@ -834,7 +847,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * A helper class to maintain the current font state. It's public methods will emit opening and      * closing tags as needed, and in the correct order.      *      * @author Axel Dörfler      */
+comment|/**      * A helper class to maintain the current font state. It's public methods will emit opening and      * closing tags as needed, and in the correct order.      *      * @author Axel Dï¿½rfler      */
 specifier|private
 specifier|static
 class|class
