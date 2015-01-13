@@ -98,6 +98,7 @@ name|COSBase
 argument_list|>
 block|{
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|COSBase

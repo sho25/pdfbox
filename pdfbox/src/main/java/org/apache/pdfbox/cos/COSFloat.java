@@ -126,6 +126,7 @@ block|}
 block|}
 comment|/**      * Set the value of the float object.      *      * @param floatValue The new float value.      */
 specifier|public
+specifier|final
 name|void
 name|setValue
 parameter_list|(
