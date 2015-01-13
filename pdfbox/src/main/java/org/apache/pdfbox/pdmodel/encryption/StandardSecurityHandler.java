@@ -277,7 +277,7 @@ operator|.
 name|class
 decl_stmt|;
 comment|/** Standard padding for encryption. */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|byte
@@ -516,7 +516,7 @@ name|getEncryptionKeyLength
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Computes the version number of the StandardSecurityHandler      * regarding the encryption key length.      * See PDF Spec 1.6 p 93      *      * @return The computed cersion number.      */
+comment|/**      * Computes the version number of the StandardSecurityHandler      * regarding the encryption key length.      * See PDF Spec 1.6 p 93      *      * @return The computed version number.      */
 specifier|private
 name|int
 name|computeVersionNumber
