@@ -4837,6 +4837,7 @@ block|}
 comment|/**      *  Format 3 FDSelect data.      */
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|Format3FDSelect
 extends|extends
@@ -5021,6 +5022,7 @@ block|}
 comment|/**      * Structure of a Range3 element.      */
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|Range3
 block|{
