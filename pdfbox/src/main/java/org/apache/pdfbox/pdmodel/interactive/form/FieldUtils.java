@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A set of utility methods to help with common AcroForm form and field related functions.  *   * @author Maruan Sahyoun  */
+comment|/**  * A set of utility methods to help with common AcroForm form and field related functions.  */
 end_comment
 
 begin_class

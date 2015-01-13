@@ -122,7 +122,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will test the functionality of Radio Buttons in PDFBox.  *  * @author Maruan Sahyoun  */
+comment|/**  * This will test the functionality of Radio Buttons in PDFBox.  */
 end_comment
 
 begin_class
