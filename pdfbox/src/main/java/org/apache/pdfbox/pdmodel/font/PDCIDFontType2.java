@@ -1112,18 +1112,24 @@ comment|// The conforming reader shall select glyphs by translating characters f
 comment|// encoding specified by the predefined CMap to one of the encodings in the TrueType
 comment|// font's 'cmap' table. The means by which this is accomplished are implementation-
 comment|// dependent.
-name|String
-name|unicode
+name|boolean
+name|hasUnicodeMap
+init|=
+name|parent
+operator|.
+name|getCMapUCS2
+argument_list|()
+operator|!=
+literal|null
 decl_stmt|;
 if|if
 condition|(
 name|cid2gid
 operator|!=
 literal|null
-operator|||
-name|hasIdentityCid2Gid
 condition|)
 block|{
+comment|// Acrobat allows non-embedded GIDs - todo: can we find a test PDF for this?
 name|int
 name|cid
 init|=
@@ -1132,18 +1138,6 @@ argument_list|(
 name|code
 argument_list|)
 decl_stmt|;
-comment|// strange but true, Acrobat allows non-embedded GIDs, test with PDFBOX-2060
-if|if
-condition|(
-name|hasIdentityCid2Gid
-condition|)
-block|{
-return|return
-name|cid
-return|;
-block|}
-else|else
-block|{
 return|return
 name|cid2gid
 index|[
@@ -1151,20 +1145,38 @@ name|cid
 index|]
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|hasIdentityCid2Gid
+operator|||
+operator|!
+name|hasUnicodeMap
+condition|)
+block|{
+comment|// same as above, but for the default Identity CID2GIDMap or when there is no
+comment|// ToUnicode CMap to fallback to, see PDFBOX-2599 and PDFBOX-2560
+comment|// todo: can we find a test PDF for the Identity case?
+return|return
+name|codeToCID
+argument_list|(
+name|code
+argument_list|)
+return|;
 block|}
 else|else
 block|{
-comment|// test with PDFBOX-1422 and PDFBOX-2560
+comment|// fallback to the ToUnicode CMap, test with PDFBOX-1422 and PDFBOX-2560
+name|String
 name|unicode
-operator|=
+init|=
 name|parent
 operator|.
 name|toUnicode
 argument_list|(
 name|code
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|unicode
@@ -1172,6 +1184,20 @@ operator|==
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Failed to find a character mapping for "
+operator|+
+name|code
+operator|+
+literal|" in "
+operator|+
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;
@@ -1191,7 +1217,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"trying to map a multi-byte character using 'cmap', result will be poor"
+literal|"Trying to map multi-byte character using 'cmap', result will be poor"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1209,6 +1235,7 @@ literal|0
 argument_list|)
 argument_list|)
 return|;
+block|}
 block|}
 else|else
 block|{
