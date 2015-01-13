@@ -411,6 +411,26 @@ operator|.
 name|getFontFile3
 argument_list|()
 decl_stmt|;
+comment|// Acrobat looks in FontFile too, even though it is not in the spec, see PDFBOX-2599
+if|if
+condition|(
+name|ff2Stream
+operator|==
+literal|null
+operator|&&
+name|ff3Stream
+operator|==
+literal|null
+condition|)
+block|{
+name|ff2Stream
+operator|=
+name|fd
+operator|.
+name|getFontFile
+argument_list|()
+expr_stmt|;
+block|}
 name|TrueTypeFont
 name|ttfFont
 init|=
