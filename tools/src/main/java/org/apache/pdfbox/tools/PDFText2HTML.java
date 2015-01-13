@@ -847,7 +847,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * A helper class to maintain the current font state. It's public methods will emit opening and      * closing tags as needed, and in the correct order.      *      * @author Axel D�rfler      */
+comment|/**      * A helper class to maintain the current font state. It's public methods will emit opening and      * closing tags as needed, and in the correct order.      *      * @author Axel Dörfler      */
 specifier|private
 specifier|static
 class|class
