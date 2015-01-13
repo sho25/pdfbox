@@ -144,6 +144,7 @@ comment|/**  * Used by ImageIOUtil to write TIFF files.  * @author Tilman Haushe
 end_comment
 
 begin_class
+specifier|final
 class|class
 name|TIFFUtil
 block|{
