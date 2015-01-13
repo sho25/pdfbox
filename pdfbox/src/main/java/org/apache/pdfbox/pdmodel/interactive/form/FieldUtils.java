@@ -227,6 +227,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/**      * Constructor.      */
 specifier|private
 name|FieldUtils
 parameter_list|()
@@ -341,7 +342,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sort two related lists simultaneously by the elements in the value parameter.      *       * @param key the key elements      * @param value the value elements      * @return a sorted list of KeyValue elements.      */
+comment|/**      * Sort two related lists simultaneously by the elements in the value parameter.      *       * @param pairs a list of KeyValue elements      */
 specifier|static
 specifier|final
 name|void
