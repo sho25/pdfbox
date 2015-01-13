@@ -981,7 +981,6 @@ name|TMP_FILE_PREFIX
 init|=
 literal|"tmpPDF"
 decl_stmt|;
-comment|// ------------------------------------------------------------------------
 comment|/**      * Constructs parser for given file using memory buffer.      *       * @param filename the filename of the pdf to be parsed      *       * @throws IOException If something went wrong.      */
 specifier|public
 name|NonSequentialPDFParser
@@ -1590,7 +1589,6 @@ name|accessPermission
 argument_list|)
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/**      * Sets how many trailing bytes of PDF file are searched for EOF marker and 'startxref' marker. If not set we use      * default value {@link #DEFAULT_TRAIL_BYTECOUNT}.      *       *<p>We check that new value is at least 16. However for practical use cases this value should not be lower than      * 1000; even 2000 was found to not be enough in some cases where some trailing garbage like HTML snippets followed      * the EOF marker.</p>      *       *<p>      * In case system property {@link #SYSPROP_EOFLOOKUPRANGE} is defined this value will be set on initialization but      * can be overwritten later.      *</p>      *       * @param byteCount number of trailing bytes      */
 specifier|public
 name|void
@@ -2723,7 +2721,6 @@ name|PREV
 argument_list|)
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/**      * Looks for and parses startxref. We first look for last '%%EOF' marker (within last      * {@link #DEFAULT_TRAIL_BYTECOUNT} bytes (or range set via {@link #setEOFLookupRange(int)}) and go back to find      *<code>startxref</code>.      *       * @return the offset of StartXref      * @throws IOException If something went wrong.      */
 specifier|protected
 specifier|final
@@ -3012,7 +3009,6 @@ operator|+
 name|bufOff
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/**      * Searches last appearance of pattern within buffer. Lookup before _lastOff and goes back until 0.      *       * @param pattern pattern to search for      * @param buf buffer to search pattern in      * @param endOff offset (exclusive) where lookup starts at      *       * @return start offset of pattern within buffer or<code>-1</code> if pattern could not be found      */
 specifier|protected
 name|int
@@ -3128,7 +3124,6 @@ operator|-
 literal|1
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/**      * Reads given pattern from {@link #pdfSource}. Skipping whitespace at start and end.      *       * @param pattern pattern to be skipped      * @throws IOException if pattern could not be read      */
 specifier|protected
 specifier|final
@@ -3194,7 +3189,6 @@ name|skipSpaces
 argument_list|()
 expr_stmt|;
 block|}
-comment|// ------------------------------------------------------------------------
 specifier|private
 name|COSDictionary
 name|pagesDictionary
@@ -3300,7 +3294,6 @@ return|return
 name|pagesDictionary
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/** Parses all objects needed by pages and closes input stream. */
 comment|/**      * {@inheritDoc}      */
 annotation|@
@@ -3564,7 +3557,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/**      * Returns the number of pages in a document.      *       * @return the number of pages.      *       * @throws IOException if PAGES or other needed object is missing      */
 specifier|public
 name|int
@@ -3605,7 +3597,6 @@ return|return
 name|pageCount
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/**      * Returns the page requested with all the objects loaded into it.      *       * @param pageNr starts from 0 to the number of pages.      * @return the page with the given pagenumber.      * @throws IOException If something went wrong.      */
 specifier|public
 name|PDPage
@@ -5307,7 +5298,6 @@ name|getObject
 argument_list|()
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/**      *       * @param dict the dictionary to be decrypted      * @param objNr the object number      * @param objGenNr the object generation number      * @throws IOException ff something went wrong      */
 specifier|protected
 specifier|final
@@ -5593,7 +5583,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// ------------------------------------------------------------------------
 specifier|private
 name|boolean
 name|inGetLength
@@ -5814,7 +5803,6 @@ return|return
 name|retVal
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 specifier|private
 specifier|final
 name|int

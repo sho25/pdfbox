@@ -418,7 +418,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// ---------------
 comment|// built-in color spaces
 if|if
 condition|(

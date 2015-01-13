@@ -261,7 +261,6 @@ specifier|private
 name|boolean
 name|isClosed
 decl_stmt|;
-comment|// ------------------------------------------------------------------------
 comment|/** Create input stream instance for given file. */
 specifier|public
 name|RandomAccessBufferedFileInputStream
@@ -297,7 +296,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/**      *  Returns offset in file at which next byte would be read.      *        *  @deprecated  use {@link #getPosition()} instead      */
 specifier|public
 name|long
@@ -308,7 +306,6 @@ return|return
 name|fileOffset
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/** Returns offset in file at which next byte would be read. */
 annotation|@
 name|Override
@@ -321,7 +318,6 @@ return|return
 name|fileOffset
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/**      * Seeks to new position. If new position is outside of current page the new      * page is either taken from cache or read from file and added to cache.      */
 annotation|@
 name|Override
@@ -416,7 +412,6 @@ operator|=
 name|newOffset
 expr_stmt|;
 block|}
-comment|// ------------------------------------------------------------------------
 comment|/**      * Reads a page with data from current file position. If we have a      * previously removed page from cache the buffer of this page is reused.      * Otherwise a new byte buffer is created.      */
 specifier|private
 name|byte
@@ -504,7 +499,6 @@ return|return
 name|page
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 annotation|@
 name|Override
 specifier|public
@@ -552,7 +546,6 @@ operator|&
 literal|0xff
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 annotation|@
 name|Override
 specifier|public
@@ -666,7 +659,6 @@ return|return
 name|commonLen
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 annotation|@
 name|Override
 specifier|public
@@ -694,7 +686,6 @@ name|MAX_VALUE
 argument_list|)
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 annotation|@
 name|Override
 specifier|public
@@ -773,7 +764,6 @@ return|return
 name|toSkip
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 annotation|@
 name|Override
 specifier|public
@@ -787,7 +777,6 @@ return|return
 name|fileLength
 return|;
 block|}
-comment|// ------------------------------------------------------------------------
 annotation|@
 name|Override
 specifier|public
