@@ -578,7 +578,7 @@ init|=
 literal|"endstream"
 decl_stmt|;
 comment|/**      * This is a string constant that will be used for comparisons.      */
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -5601,7 +5601,7 @@ name|s
 operator|.
 name|startsWith
 argument_list|(
-literal|"stream"
+name|STREAM_STRING
 argument_list|)
 operator|||
 name|p

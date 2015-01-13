@@ -671,7 +671,7 @@ name|endObjectKey
 operator|.
 name|equals
 argument_list|(
-literal|"stream"
+name|STREAM_STRING
 argument_list|)
 condition|)
 block|{
