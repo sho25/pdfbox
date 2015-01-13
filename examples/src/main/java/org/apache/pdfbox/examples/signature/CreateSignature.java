@@ -643,10 +643,12 @@ implements|implements
 name|SignatureInterface
 block|{
 specifier|private
+specifier|final
 name|PrivateKey
 name|privateKey
 decl_stmt|;
 specifier|private
+specifier|final
 name|Certificate
 index|[]
 name|certificateChain
