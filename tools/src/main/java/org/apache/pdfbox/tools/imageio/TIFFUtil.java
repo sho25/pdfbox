@@ -162,6 +162,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+specifier|private
+name|TIFFUtil
+parameter_list|()
+block|{     }
 comment|/**      * Sets the ImageIO parameter compression type based on the given image.      * @param image buffered image used to decide compression type      * @param param ImageIO write parameter to update      */
 specifier|public
 specifier|static
