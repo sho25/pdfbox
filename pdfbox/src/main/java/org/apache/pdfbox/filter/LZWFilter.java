@@ -502,8 +502,6 @@ argument_list|)
 decl_stmt|;
 name|long
 name|nextCommand
-init|=
-literal|0
 decl_stmt|;
 name|long
 name|prevCommand
@@ -958,10 +956,6 @@ argument_list|,
 name|chunk
 argument_list|)
 expr_stmt|;
-name|chunk
-operator|=
-literal|9
-expr_stmt|;
 name|codeTable
 operator|=
 name|createCodeTable
@@ -1051,6 +1045,7 @@ argument_list|,
 name|chunk
 argument_list|)
 expr_stmt|;
+comment|// pad with 0
 name|out
 operator|.
 name|writeBits
@@ -1060,13 +1055,12 @@ argument_list|,
 literal|7
 argument_list|)
 expr_stmt|;
-comment|// pad with 0
+comment|// must do or file will be empty :-(
 name|out
 operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-comment|// must do or file will be empty :-(
 block|}
 comment|/**      * Find the longest matching pattern in the code table.      *      * @param codeTable The LZW code table.      * @param pattern The pattern to be searched for.      * @return The index of the longest matching pattern or -1 if nothing is      * found.      */
 specifier|private
@@ -1132,10 +1126,10 @@ operator|-
 literal|1
 condition|)
 block|{
+comment|// we already found pattern with size> 1
 return|return
 name|foundCode
 return|;
-comment|// we already found pattern with size> 1
 block|}
 elseif|else
 if|if
@@ -1147,11 +1141,11 @@ operator|>
 literal|1
 condition|)
 block|{
+comment|// we won't find anything here anyway
 return|return
 operator|-
 literal|1
 return|;
-comment|// we won't find anything here anyway
 block|}
 block|}
 name|byte
@@ -1167,6 +1161,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|(
 name|foundCode
 operator|!=
 operator|-
@@ -1177,10 +1172,8 @@ operator|.
 name|length
 operator|>
 name|foundLen
-condition|)
-block|{
-if|if
-condition|(
+operator|)
+operator|&&
 name|Arrays
 operator|.
 name|equals
@@ -1201,7 +1194,6 @@ name|tryPattern
 operator|.
 name|length
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
