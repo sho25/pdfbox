@@ -45,6 +45,10 @@ begin_class
 class|class
 name|MessageDigests
 block|{
+specifier|private
+name|MessageDigests
+parameter_list|()
+block|{     }
 comment|/**      * @return MD5 message digest      */
 specifier|static
 name|MessageDigest
