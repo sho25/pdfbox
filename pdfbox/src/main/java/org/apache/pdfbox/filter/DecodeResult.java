@@ -59,8 +59,8 @@ name|DecodeResult
 block|{
 comment|/** Default decode result. */
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|DecodeResult
 name|DEFAULT
 init|=
@@ -73,6 +73,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSDictionary
 name|parameters
 decl_stmt|;
