@@ -82,7 +82,6 @@ block|{
 comment|/**      * Singleton instance.      */
 specifier|public
 specifier|static
-specifier|final
 name|FilterFactory
 name|INSTANCE
 init|=
@@ -91,8 +90,6 @@ name|FilterFactory
 argument_list|()
 decl_stmt|;
 specifier|private
-specifier|static
-specifier|final
 name|Map
 argument_list|<
 name|COSName
