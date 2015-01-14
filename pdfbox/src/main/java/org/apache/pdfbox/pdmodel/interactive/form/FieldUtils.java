@@ -23,6 +23,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -158,11 +168,21 @@ specifier|static
 class|class
 name|KeyValueKeyComparator
 implements|implements
+name|Serializable
+implements|,
 name|Comparator
 argument_list|<
 name|KeyValue
 argument_list|>
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|6715364290007167694L
+decl_stmt|;
 annotation|@
 name|Override
 specifier|public
@@ -195,11 +215,22 @@ specifier|static
 class|class
 name|KeyValueValueComparator
 implements|implements
+name|Serializable
+implements|,
 name|Comparator
 argument_list|<
 name|KeyValue
 argument_list|>
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|3984095679894798265L
+decl_stmt|;
 annotation|@
 name|Override
 specifier|public
@@ -234,7 +265,6 @@ parameter_list|()
 block|{     }
 comment|/**      * Return two related lists as a single list with key value pairs.      *       * @param key the key elements      * @param value the value elements      * @return a sorted list of KeyValue elements.      */
 specifier|static
-specifier|final
 name|List
 argument_list|<
 name|KeyValue
@@ -254,7 +284,7 @@ argument_list|>
 name|value
 parameter_list|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|KeyValue
 argument_list|>
@@ -317,7 +347,6 @@ return|;
 block|}
 comment|/**      * Sort two related lists simultaneously by the elements in the key parameter.      *       * @param pairs a list of KeyValue elements      */
 specifier|static
-specifier|final
 name|void
 name|sortByValue
 parameter_list|(
@@ -344,7 +373,6 @@ expr_stmt|;
 block|}
 comment|/**      * Sort two related lists simultaneously by the elements in the value parameter.      *       * @param pairs a list of KeyValue elements      */
 specifier|static
-specifier|final
 name|void
 name|sortByKey
 parameter_list|(

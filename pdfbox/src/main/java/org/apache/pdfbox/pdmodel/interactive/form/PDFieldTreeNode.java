@@ -1343,12 +1343,11 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|!
 name|kids
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|>
-literal|0
 condition|)
 block|{
 name|Object

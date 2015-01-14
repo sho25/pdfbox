@@ -233,10 +233,9 @@ comment|// doesn't have a supported type.
 comment|// Ignoring as that will also mean that the field is not checked.
 comment|// Setting the value explicitly as Code Analysis (Sonar) doesn't like
 comment|// empty catch blocks.
-name|fieldValue
-operator|=
-literal|null
-expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 name|COSName
 name|radioValue
