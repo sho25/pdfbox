@@ -82,6 +82,7 @@ block|{
 comment|/**      * Singleton instance.      */
 specifier|public
 specifier|static
+specifier|final
 name|FilterFactory
 name|INSTANCE
 init|=
