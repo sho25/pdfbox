@@ -3377,7 +3377,7 @@ argument_list|()
 decl_stmt|;
 name|byte
 index|[]
-name|encryptionKey
+name|encKey
 init|=
 name|computeEncryptedKey
 argument_list|(
@@ -3415,7 +3415,7 @@ name|rc4
 operator|.
 name|setKey
 argument_list|(
-name|encryptionKey
+name|encKey
 argument_list|)
 expr_stmt|;
 name|rc4
@@ -3479,7 +3479,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|encryptionKey
+name|encKey
 operator|.
 name|length
 index|]
@@ -3503,7 +3503,7 @@ name|System
 operator|.
 name|arraycopy
 argument_list|(
-name|encryptionKey
+name|encKey
 argument_list|,
 literal|0
 argument_list|,
