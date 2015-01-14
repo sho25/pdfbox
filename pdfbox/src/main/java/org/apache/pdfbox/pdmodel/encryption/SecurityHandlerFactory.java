@@ -98,6 +98,7 @@ block|{
 comment|/** Singleton instance */
 specifier|public
 specifier|static
+specifier|final
 name|SecurityHandlerFactory
 name|INSTANCE
 init|=
@@ -408,7 +409,7 @@ name|args
 argument_list|)
 return|;
 block|}
-comment|/* Returns a new security handler for the given parameters, or null none is available.      *      * @param handlerClass the handler class.      * @param argsClasses the parameter array.      * @param args array of objects to be passed as arguments to the constructor call.      * @return a new SecurityHandler instance, or null if none is available.      * @throws RuntimeException       */
+comment|/* Returns a new security handler for the given parameters, or null none is available.      *      * @param handlerClass the handler class.      * @param argsClasses the parameter array.      * @param args array of objects to be passed as arguments to the constructor call.      * @return a new SecurityHandler instance, or null if none is available.      */
 specifier|private
 name|SecurityHandler
 name|newSecurityHandler
@@ -429,8 +430,6 @@ name|Object
 index|[]
 name|args
 parameter_list|)
-throws|throws
-name|RuntimeException
 block|{
 try|try
 block|{
