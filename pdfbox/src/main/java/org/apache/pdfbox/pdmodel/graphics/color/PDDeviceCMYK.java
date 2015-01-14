@@ -125,6 +125,7 @@ block|{
 comment|/**  The single instance of this class. */
 specifier|public
 specifier|static
+specifier|final
 name|PDDeviceCMYK
 name|INSTANCE
 decl_stmt|;
