@@ -116,7 +116,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -521,7 +521,7 @@ operator|-
 literal|1
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -595,7 +595,7 @@ operator|-
 literal|1
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
