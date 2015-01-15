@@ -83,25 +83,21 @@ interface|interface
 name|PDContentStream
 block|{
 comment|/**      * Returns the underlying COS stream.      */
-specifier|public
 name|COSStream
 name|getContentStream
 parameter_list|()
 function_decl|;
 comment|/**      * Returns this stream's resources, if any.      */
-specifier|public
 name|PDResources
 name|getResources
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the bounding box of the contents.      */
-specifier|public
 name|PDRectangle
 name|getBBox
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the matrix which transforms from the stream's space to user space.      */
-specifier|public
 name|Matrix
 name|getMatrix
 parameter_list|()
