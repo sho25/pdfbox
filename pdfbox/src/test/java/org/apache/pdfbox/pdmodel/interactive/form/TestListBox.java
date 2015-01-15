@@ -217,57 +217,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDDocument
-name|doc
-init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|doc
-operator|=
-operator|new
-name|PDDocument
-argument_list|()
-expr_stmt|;
-name|PDAcroForm
-name|form
-init|=
-operator|new
-name|PDAcroForm
-argument_list|(
-name|doc
-argument_list|)
-decl_stmt|;
-name|PDChoice
-name|choice
-init|=
-operator|new
-name|PDListBox
-argument_list|(
-name|form
-argument_list|)
-decl_stmt|;
-comment|// test that there are no nulls returned for an empty field
-comment|// only specific methods are tested here
-comment|// assertNotNull(choice.getDefaultValue());
-name|assertNotNull
-argument_list|(
-name|choice
-operator|.
-name|getOptions
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|choice
-operator|.
-name|getValue
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// define display and export values as the choice field can hold a pair
+comment|/*          * Set up two data list which will be used for the tests          */
+comment|// export values
 name|List
 argument_list|<
 name|String
@@ -302,6 +253,8 @@ argument_list|(
 literal|"export03"
 argument_list|)
 expr_stmt|;
+comment|// display values, not sorted on purpose as this
+comment|// will be used to test the sort option of the list box
 name|List
 argument_list|<
 name|String
@@ -336,7 +289,56 @@ argument_list|(
 literal|"display03"
 argument_list|)
 expr_stmt|;
-comment|// test with exportValue being set
+name|PDDocument
+name|doc
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|doc
+operator|=
+operator|new
+name|PDDocument
+argument_list|()
+expr_stmt|;
+name|PDAcroForm
+name|form
+init|=
+operator|new
+name|PDAcroForm
+argument_list|(
+name|doc
+argument_list|)
+decl_stmt|;
+name|PDChoice
+name|choice
+init|=
+operator|new
+name|PDListBox
+argument_list|(
+name|form
+argument_list|)
+decl_stmt|;
+comment|// test that there are no nulls returned for an empty field
+comment|// only specific methods are tested here
+name|assertNotNull
+argument_list|(
+name|choice
+operator|.
+name|getOptions
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|choice
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|/*              * Tests for setting the export values              */
 comment|// setting/getting option values - the dictionaries Opt entry
 name|choice
 operator|.
@@ -365,6 +367,7 @@ name|getOptionsExportValues
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// assert that the option values have been correctly set
 name|COSArray
 name|optItem
 init|=
@@ -383,7 +386,6 @@ operator|.
 name|OPT
 argument_list|)
 decl_stmt|;
-comment|// assert that the option values have been correctly set
 name|assertNotNull
 argument_list|(
 name|choice
@@ -461,11 +463,27 @@ argument_list|,
 name|exportValues
 argument_list|)
 expr_stmt|;
+comment|/*              * Tests for setting the field values              */
 comment|// assert that the field value can be set
 name|choice
 operator|.
 name|setValue
 argument_list|(
+literal|"export01"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|choice
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
 literal|"export01"
 argument_list|)
 expr_stmt|;
@@ -477,7 +495,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// wo multiselect setting multiple items shall fail
+comment|// without multiselect setting multiple items shall fail
 try|try
 block|{
 name|choice
@@ -687,7 +705,7 @@ name|emptyList
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// test with exportValue and displayValue being set
+comment|/*              * Test for setting export and display values              */
 comment|// setting display and export value
 name|choice
 operator|.
@@ -718,7 +736,7 @@ name|getOptionsExportValues
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// testing the sort option
+comment|/*              * Testing the sort option              */
 name|assertEquals
 argument_list|(
 name|choice
@@ -765,6 +783,7 @@ argument_list|,
 literal|"display01"
 argument_list|)
 expr_stmt|;
+comment|/*              * Setting options with an empty list              */
 comment|// assert that the Opt entry is removed
 name|choice
 operator|.
@@ -790,7 +809,7 @@ name|OPT
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// if there is no Opt entry an empty List shall be returned
+comment|// if there is no Opt entry an empty list shall be returned
 name|assertEquals
 argument_list|(
 name|choice
