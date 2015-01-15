@@ -306,7 +306,7 @@ name|XMPSchema
 extends|extends
 name|AbstractStructuredType
 block|{
-comment|/**      * Create a new blank schema that can be populated.      *       * @param metadata      *            The parent XMP metadata that this schema will be part of.      * @param namespaceURI      *            The URI of the namespace, ie "http://ns.adobe.com/pdf/1.3/"      *       */
+comment|/**      * Create a new blank schema that can be populated.      *      * @param metadata The parent XMP metadata that this schema will be part of.      * @param namespaceURI The URI of the namespace, e.g. "http://ns.adobe.com/pdf/1.3/"      * @param prefix The field prefix of the namespace.      * @param name The property name.      */
 specifier|public
 name|XMPSchema
 parameter_list|(
@@ -344,6 +344,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Create a new blank schema that can be populated.      *      * @param metadata The parent XMP metadata that this schema will be part of.      */
 specifier|public
 name|XMPSchema
 parameter_list|(
@@ -363,6 +364,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Create a new blank schema that can be populated.      *      * @param metadata The parent XMP metadata that this schema will be part of.      * @param prefix The field prefix of the namespace.      */
 specifier|public
 name|XMPSchema
 parameter_list|(
@@ -385,6 +387,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Create a new blank schema that can be populated.      *      * @param metadata The parent XMP metadata that this schema will be part of.      * @param namespaceURI The URI of the namespace, e.g. "http://ns.adobe.com/pdf/1.3/"      * @param prefix The field prefix of the namespace.      */
 specifier|public
 name|XMPSchema
 parameter_list|(
@@ -410,7 +413,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Retrieve a generic simple type property      *       * @param qualifiedName      *            Full qualified name of proeprty wanted      * @return The generic simple type property according to its qualified Name      */
+comment|/**      * Retrieve a generic simple type property      *       * @param qualifiedName      *            Full qualified name of property wanted      * @return The generic simple type property according to its qualified name      */
 specifier|public
 name|AbstractField
 name|getAbstractProperty
@@ -419,42 +422,21 @@ name|String
 name|qualifiedName
 parameter_list|)
 block|{
-name|Iterator
-argument_list|<
+for|for
+control|(
 name|AbstractField
-argument_list|>
-name|it
-init|=
+name|child
+range|:
 name|getContainer
 argument_list|()
 operator|.
 name|getAllProperties
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-name|AbstractField
-name|tmp
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+control|)
 block|{
-name|tmp
-operator|=
-name|it
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
-name|tmp
+name|child
 operator|.
 name|getPropertyName
 argument_list|()
@@ -466,7 +448,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|tmp
+name|child
 return|;
 block|}
 block|}
@@ -489,7 +471,7 @@ name|ABOUT_NAME
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the RDF about value.      *       * @return The RDF 'about' value. If there are not rdf:about attribute, an empty string is returned.      */
+comment|/**      * Get the RDF about value.      *       * @return The RDF 'about' value. If there is no rdf:about attribute, an empty string is returned.      */
 specifier|public
 name|String
 name|getAboutValue
@@ -519,10 +501,10 @@ name|getValue
 argument_list|()
 return|;
 block|}
+comment|// PDFBOX-1685 : if missing, rdf:about should be considered as empty string
 return|return
 literal|""
 return|;
-comment|// PDFBOX-1685 : if missing rdf:about should be considered as empty string
 block|}
 comment|/**      * Set the RDF 'about' attribute      *       * @param about      *            the well-formed attribute      * @throws BadFieldValueException      *             Bad Attribute name (not corresponding to about attribute)      */
 specifier|public
@@ -644,42 +626,21 @@ literal|null
 condition|)
 block|{
 comment|// Search in properties to erase
-name|Iterator
-argument_list|<
+for|for
+control|(
 name|AbstractField
-argument_list|>
-name|it
-init|=
+name|child
+range|:
 name|getContainer
 argument_list|()
 operator|.
 name|getAllProperties
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-name|AbstractField
-name|tmp
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+control|)
 block|{
-name|tmp
-operator|=
-name|it
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
-name|tmp
+name|child
 operator|.
 name|getPropertyName
 argument_list|()
@@ -695,7 +656,7 @@ argument_list|()
 operator|.
 name|removeProperty
 argument_list|(
-name|tmp
+name|child
 argument_list|)
 expr_stmt|;
 return|return;
@@ -755,39 +716,18 @@ throw|;
 block|}
 comment|// attribute placement for simple property has been removed
 comment|// Search in properties to erase
-name|Iterator
-argument_list|<
+for|for
+control|(
 name|AbstractField
-argument_list|>
-name|it
-init|=
+name|child
+range|:
 name|getAllProperties
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-name|AbstractField
-name|tmp
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+control|)
 block|{
-name|tmp
-operator|=
-name|it
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
-name|tmp
+name|child
 operator|.
 name|getPropertyName
 argument_list|()
@@ -800,7 +740,7 @@ condition|)
 block|{
 name|removeProperty
 argument_list|(
-name|tmp
+name|child
 argument_list|)
 expr_stmt|;
 name|addProperty
@@ -829,39 +769,18 @@ parameter_list|)
 block|{
 comment|// attribute placement for simple property has been removed
 comment|// Search in properties to erase
-name|Iterator
-argument_list|<
+for|for
+control|(
 name|AbstractField
-argument_list|>
-name|it
-init|=
+name|child
+range|:
 name|getAllProperties
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-name|AbstractField
-name|tmp
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+control|)
 block|{
-name|tmp
-operator|=
-name|it
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
-name|tmp
+name|child
 operator|.
 name|getPropertyName
 argument_list|()
@@ -877,7 +796,7 @@ condition|)
 block|{
 name|removeProperty
 argument_list|(
-name|tmp
+name|child
 argument_list|)
 expr_stmt|;
 name|addProperty
@@ -955,7 +874,7 @@ name|propertyValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get a TextProperty Type from its name      *       * @return The Text Type property wanted      */
+comment|/**      * Get a TextProperty Type from its name      *       * @param name The property name.      * @return The Text Type property wanted      */
 specifier|public
 name|TextType
 name|getUnqualifiedTextProperty
@@ -1008,7 +927,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Get the value of a simple text property.      *       * @return The value of the text property or the null if there is no value.      *       */
+comment|/**      * Get the value of a simple text property.      *       * @param name The property name.      * @return The value of the text property or null if there is no value.      *       */
 specifier|public
 name|String
 name|getUnqualifiedTextPropertyValue
@@ -1038,7 +957,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the Date property with its name      *       * @param qualifiedName      *            The name of the property to get, it must include the namespace prefix. ie "pdf:Keywords".      * @return Date Type property      *       */
+comment|/**      * Get the Date property with its name      *       * @param qualifiedName      *            The name of the property to get, it must include the namespace prefix, e.g. "pdf:Keywords".      * @return Date Type property      *       */
 specifier|public
 name|DateType
 name|getDateProperty
@@ -1299,7 +1218,7 @@ name|simpleName
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the value of the property as a boolean.      *       * @param qualifiedName      *            The fully qualified property name for the boolean.      *       * @return The value of the property as a boolean or null if the property does not exist.      */
+comment|/**      * Get the value of the property as a Boolean. If you want to use this value      * like a condition, you<i>must</i> do a null check before.      *      * @param qualifiedName The fully qualified property name for the Boolean.      *      * @return The value of the property as a Boolean, or null if the property      * does not exist.      */
 specifier|public
 name|Boolean
 name|getBooleanPropertyValue
@@ -1353,10 +1272,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// Return null if property not exist. This method give the property
-comment|// value so treat this return in this way.
-comment|// If you want to use this value like a condition, you must check this
-comment|// return before
 return|return
 literal|null
 return|;
@@ -1674,9 +1589,6 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-name|AbstractSimpleProperty
-name|tmp
-decl_stmt|;
 while|while
 condition|(
 name|it
@@ -1685,8 +1597,9 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
+name|AbstractSimpleProperty
 name|tmp
-operator|=
+init|=
 operator|(
 name|AbstractSimpleProperty
 operator|)
@@ -1694,7 +1607,7 @@ name|it
 operator|.
 name|next
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|tmp
@@ -1752,7 +1665,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Remove all matching entries with the given value from the bag.      *       * @param bagValue      *            The value to remove from the bagList.      */
+comment|/**      * Remove all matching entries with the given value from the bag.      *       * @param bagName The bag name.      * @param bagValue      *            The value to remove from the bagList.      */
 specifier|public
 name|void
 name|removeUnqualifiedBagValue
@@ -1897,7 +1810,7 @@ name|bagValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get all the values of the bag property. This will return a list of java.lang.String objects, this is a read-only      * list.      *       * @return All values of the bag property in a list.      */
+comment|/**      * Get all the values of the bag property. This will return a list of java.lang.String objects, this is a read-only      * list.      *       * @param bagName The bag name.      * @return All values of the bag property in a list.      */
 specifier|public
 name|List
 argument_list|<
@@ -1941,7 +1854,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Remove all matching values from a sequence property.      *       * @param qualifiedSeqName      *            The name of the sequence property. It must include the namespace prefix. ie "pdf:Keywords".      * @param seqValue      *            The value to remove from the list.      */
+comment|/**      * Remove all matching values from a sequence property.      *       * @param qualifiedSeqName      *            The name of the sequence property. It must include the namespace prefix, e.g. "pdf:Keywords".      * @param seqValue      *            The value to remove from the list.      */
 specifier|public
 name|void
 name|removeUnqualifiedSequenceValue
@@ -2026,9 +1939,6 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-name|AbstractSimpleProperty
-name|tmp
-decl_stmt|;
 while|while
 condition|(
 name|it
@@ -2037,8 +1947,9 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
+name|AbstractSimpleProperty
 name|tmp
-operator|=
+init|=
 operator|(
 name|AbstractSimpleProperty
 operator|)
@@ -2046,7 +1957,7 @@ name|it
 operator|.
 name|next
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|tmp
@@ -2101,7 +2012,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Remove a value from a sequence property. This will remove all entries from the list.      *       * @param qualifiedSeqName      *            The name of the sequence property. It must include the namespace prefix. ie "pdf:Keywords".      * @param seqValue      *            The value to remove from the list.      */
+comment|/**      * Remove a value from a sequence property. This will remove all entries from the list.      *       * @param qualifiedSeqName      *            The name of the sequence property. It must include the namespace prefix, e.g. "pdf:Keywords".      * @param seqValue      *            The value to remove from the list.      */
 specifier|public
 name|void
 name|removeUnqualifiedSequenceValue
@@ -2210,7 +2121,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Add a new value to a bag property.      *       * @param qualifiedSeqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param seqValue      *            The value to add to the bag.      */
+comment|/**      * Add a new value to a bag property.      *       * @param qualifiedSeqName      *            The name of the sequence property, it must include the namespace prefix, e.g. "pdf:Keywords"      * @param seqValue      *            The value to add to the bag.      */
 specifier|public
 name|void
 name|addBagValue
@@ -2282,7 +2193,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Add a new value to a sequence property.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param seqValue      *            The value to add to the sequence.      */
+comment|/**      * Add a new value to a sequence property.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix, e.g. "pdf:Keywords"      * @param seqValue      *            The value to add to the sequence.      */
 specifier|public
 name|void
 name|addUnqualifiedSequenceValue
@@ -2403,7 +2314,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Remove a date sequence value from the list.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param date      *            The date to remove from the sequence property.      */
+comment|/**      * Remove a date sequence value from the list.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix, e.g. "pdf:Keywords"      * @param date      *            The date to remove from the sequence property.      */
 specifier|public
 name|void
 name|removeUnqualifiedSequenceDateValue
@@ -2468,9 +2379,6 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-name|AbstractField
-name|tmp
-decl_stmt|;
 while|while
 condition|(
 name|it
@@ -2479,13 +2387,14 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
+name|AbstractField
 name|tmp
-operator|=
+init|=
 name|it
 operator|.
 name|next
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|tmp
@@ -2572,7 +2481,7 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a date sequence value to the list.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords"      * @param date      *            The date to add to the sequence property.      */
+comment|/**      * Add a date sequence value to the list.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix, e.g. "pdf:Keywords"      * @param date      *            The date to add to the sequence property.      */
 specifier|public
 name|void
 name|addUnqualifiedSequenceDateValue
@@ -2611,7 +2520,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get all the date values in a sequence property.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix. ie "pdf:Keywords".      *       * @return A read-only list of java.util.Calendar objects or null if the property does not exist.      *       */
+comment|/**      * Get all the date values in a sequence property.      *       * @param seqName      *            The name of the sequence property, it must include the namespace prefix, e.g. "pdf:Keywords".      *       * @return A read-only list of java.util.Calendar objects or null if the property does not exist.      *       */
 specifier|public
 name|List
 argument_list|<
@@ -2663,12 +2572,11 @@ name|Calendar
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|Iterator
-argument_list|<
+for|for
+control|(
 name|AbstractField
-argument_list|>
-name|it
-init|=
+name|child
+range|:
 name|seq
 operator|.
 name|getContainer
@@ -2676,31 +2584,11 @@ argument_list|()
 operator|.
 name|getAllProperties
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-name|AbstractField
-name|tmp
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+control|)
 block|{
-name|tmp
-operator|=
-name|it
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
-name|tmp
+name|child
 operator|instanceof
 name|DateType
 condition|)
@@ -2713,7 +2601,7 @@ operator|(
 operator|(
 name|DateType
 operator|)
-name|tmp
+name|child
 operator|)
 operator|.
 name|getValue
@@ -2895,9 +2783,6 @@ argument_list|(
 name|xdefault
 argument_list|)
 expr_stmt|;
-name|AbstractField
-name|tmp
-decl_stmt|;
 while|while
 condition|(
 name|it
@@ -2906,13 +2791,14 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
+name|AbstractField
 name|tmp
-operator|=
+init|=
 name|it
 operator|.
 name|next
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|reordered
 operator|.
 name|add
@@ -2986,7 +2872,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Set the value of a multi-lingual property.      *       * @param name      *            The name of the property, it must include the namespace prefix. ie "pdf:Keywords"      * @param language      *            The language code of the value. If null then "x-default" is assumed.      * @param value      *            The value of the property in the specified language.      */
+comment|/**      * Set the value of a multi-lingual property.      *       * @param name      *            The name of the property, it must include the namespace prefix, e.g. "pdf:Keywords"      * @param language      *            The language code of the value. If null then "x-default" is assumed.      * @param value      *            The value of the property in the specified language.      */
 specifier|public
 name|void
 name|setUnqualifiedLanguagePropertyValue
@@ -3015,7 +2901,7 @@ name|qualifiedName
 argument_list|)
 decl_stmt|;
 name|ArrayProperty
-name|prop
+name|arrayProp
 decl_stmt|;
 if|if
 condition|(
@@ -3032,53 +2918,32 @@ operator|instanceof
 name|ArrayProperty
 condition|)
 block|{
-name|prop
+name|arrayProp
 operator|=
 operator|(
 name|ArrayProperty
 operator|)
 name|property
 expr_stmt|;
-name|Iterator
-argument_list|<
+comment|// Try to find a definition
+for|for
+control|(
 name|AbstractField
-argument_list|>
-name|itCplx
-init|=
-name|prop
+name|child
+range|:
+name|arrayProp
 operator|.
 name|getContainer
 argument_list|()
 operator|.
 name|getAllProperties
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-comment|// try to find the same lang definition
-name|AbstractField
-name|tmp
-decl_stmt|;
-comment|// Try to find a definition
-while|while
-condition|(
-name|itCplx
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+control|)
 block|{
-name|tmp
-operator|=
-name|itCplx
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
+comment|// try to find the same lang definition
 if|if
 condition|(
-name|tmp
+name|child
 operator|.
 name|getAttribute
 argument_list|(
@@ -3097,42 +2962,26 @@ argument_list|)
 condition|)
 block|{
 comment|// the same language has been found
+name|arrayProp
+operator|.
+name|getContainer
+argument_list|()
+operator|.
+name|removeProperty
+argument_list|(
+name|child
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|value
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-comment|// if value null, erase this definition
-name|prop
-operator|.
-name|getContainer
-argument_list|()
-operator|.
-name|removeProperty
-argument_list|(
-name|tmp
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|prop
-operator|.
-name|getContainer
-argument_list|()
-operator|.
-name|removeProperty
-argument_list|(
-name|tmp
-argument_list|)
-expr_stmt|;
 name|TextType
 name|langValue
-decl_stmt|;
-name|langValue
-operator|=
+init|=
 name|createTextType
 argument_list|(
 name|XmpConstants
@@ -3141,7 +2990,7 @@ name|LIST_NAME
 argument_list|,
 name|value
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|langValue
 operator|.
 name|setAttribute
@@ -3161,7 +3010,7 @@ name|language
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|prop
+name|arrayProp
 operator|.
 name|getContainer
 argument_list|()
@@ -3174,7 +3023,7 @@ expr_stmt|;
 block|}
 name|reorganizeAltOrder
 argument_list|(
-name|prop
+name|arrayProp
 operator|.
 name|getContainer
 argument_list|()
@@ -3186,9 +3035,7 @@ block|}
 comment|// if no definition found, we add a new one
 name|TextType
 name|langValue
-decl_stmt|;
-name|langValue
-operator|=
+init|=
 name|createTextType
 argument_list|(
 name|XmpConstants
@@ -3197,7 +3044,7 @@ name|LIST_NAME
 argument_list|,
 name|value
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|langValue
 operator|.
 name|setAttribute
@@ -3217,7 +3064,7 @@ name|language
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|prop
+name|arrayProp
 operator|.
 name|getContainer
 argument_list|()
@@ -3229,7 +3076,7 @@ argument_list|)
 expr_stmt|;
 name|reorganizeAltOrder
 argument_list|(
-name|prop
+name|arrayProp
 operator|.
 name|getContainer
 argument_list|()
@@ -3239,7 +3086,7 @@ block|}
 block|}
 else|else
 block|{
-name|prop
+name|arrayProp
 operator|=
 name|createArrayProperty
 argument_list|(
@@ -3252,9 +3099,7 @@ argument_list|)
 expr_stmt|;
 name|TextType
 name|langValue
-decl_stmt|;
-name|langValue
-operator|=
+init|=
 name|createTextType
 argument_list|(
 name|XmpConstants
@@ -3263,7 +3108,7 @@ name|LIST_NAME
 argument_list|,
 name|value
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|langValue
 operator|.
 name|setAttribute
@@ -3283,7 +3128,7 @@ name|language
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|prop
+name|arrayProp
 operator|.
 name|getContainer
 argument_list|()
@@ -3295,7 +3140,7 @@ argument_list|)
 expr_stmt|;
 name|addProperty
 argument_list|(
-name|prop
+name|arrayProp
 argument_list|)
 expr_stmt|;
 block|}
@@ -3350,54 +3195,31 @@ name|ArrayProperty
 condition|)
 block|{
 name|ArrayProperty
-name|prop
+name|arrayProp
 init|=
 operator|(
 name|ArrayProperty
 operator|)
 name|property
 decl_stmt|;
-name|Iterator
-argument_list|<
+for|for
+control|(
 name|AbstractField
-argument_list|>
-name|langsDef
-init|=
-name|prop
+name|child
+range|:
+name|arrayProp
 operator|.
 name|getContainer
 argument_list|()
 operator|.
 name|getAllProperties
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-name|AbstractField
-name|tmp
-decl_stmt|;
+control|)
+block|{
 name|Attribute
 name|text
-decl_stmt|;
-while|while
-condition|(
-name|langsDef
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
-name|tmp
-operator|=
-name|langsDef
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
-name|text
-operator|=
-name|tmp
+init|=
+name|child
 operator|.
 name|getAttribute
 argument_list|(
@@ -3405,7 +3227,7 @@ name|XmpConstants
 operator|.
 name|LANG_NAME
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|text
@@ -3428,7 +3250,7 @@ operator|(
 operator|(
 name|TextType
 operator|)
-name|tmp
+name|child
 operator|)
 operator|.
 name|getStringValue
@@ -3459,7 +3281,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Get a list of all languages that are currently defined for a specific property.      *       * @param name      *            The name of the property, it must include the namespace prefix. ie "pdf:Keywords"      *       * @return A list of all languages, this will return an non-null empty list if none have been defined.      */
+comment|/**      * Get a list of all languages that are currently defined for a specific      * property.      *      * @param name The name of the property, it must include the namespace      * prefix, e.g. "pdf:Keywords".      *      * @return A list of all languages, this will return an non-null empty list      * if none have been defined, and null if the property doesn't exist.      */
 specifier|public
 name|List
 argument_list|<
@@ -3471,19 +3293,6 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|retval
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
 name|AbstractField
 name|property
 init|=
@@ -3506,55 +3315,45 @@ operator|instanceof
 name|ArrayProperty
 condition|)
 block|{
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|retval
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
 name|ArrayProperty
-name|prop
+name|arrayProp
 init|=
 operator|(
 name|ArrayProperty
 operator|)
 name|property
 decl_stmt|;
-name|Iterator
-argument_list|<
+for|for
+control|(
 name|AbstractField
-argument_list|>
-name|langsDef
-init|=
-name|prop
+name|child
+range|:
+name|arrayProp
 operator|.
 name|getContainer
 argument_list|()
 operator|.
 name|getAllProperties
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-name|AbstractField
-name|tmp
-decl_stmt|;
+control|)
+block|{
 name|Attribute
 name|text
-decl_stmt|;
-while|while
-condition|(
-name|langsDef
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
-name|tmp
-operator|=
-name|langsDef
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
-name|text
-operator|=
-name|tmp
+init|=
+name|child
 operator|.
 name|getAttribute
 argument_list|(
@@ -3562,7 +3361,7 @@ name|XmpConstants
 operator|.
 name|LANG_NAME
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|text
@@ -3654,38 +3453,17 @@ literal|"Can only merge schemas of the same type."
 argument_list|)
 throw|;
 block|}
-name|Iterator
-argument_list|<
+for|for
+control|(
 name|Attribute
-argument_list|>
-name|itAtt
-init|=
+name|att
+range|:
 name|xmpSchema
 operator|.
 name|getAllAttributes
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-name|Attribute
-name|att
-decl_stmt|;
-while|while
-condition|(
-name|itAtt
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+control|)
 block|{
-name|att
-operator|=
-name|itAtt
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|att
@@ -3710,12 +3488,11 @@ block|}
 name|String
 name|analyzedPropQualifiedName
 decl_stmt|;
-name|Iterator
-argument_list|<
+for|for
+control|(
 name|AbstractField
-argument_list|>
-name|itProp
-init|=
+name|child
+range|:
 name|xmpSchema
 operator|.
 name|getContainer
@@ -3723,31 +3500,11 @@ argument_list|()
 operator|.
 name|getAllProperties
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-name|AbstractField
-name|prop
-decl_stmt|;
-while|while
-condition|(
-name|itProp
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+control|)
 block|{
-name|prop
-operator|=
-name|itProp
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
-name|prop
+name|child
 operator|.
 name|getPrefix
 argument_list|()
@@ -3761,46 +3518,27 @@ condition|)
 block|{
 if|if
 condition|(
-name|prop
+name|child
 operator|instanceof
 name|ArrayProperty
 condition|)
 block|{
 name|analyzedPropQualifiedName
 operator|=
-name|prop
+name|child
 operator|.
 name|getPropertyName
 argument_list|()
 expr_stmt|;
-name|Iterator
-argument_list|<
-name|AbstractField
-argument_list|>
-name|itActualEmbeddedProperties
-init|=
-name|getAllProperties
-argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|itActualEmbeddedProperties
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
+for|for
+control|(
 name|AbstractField
 name|tmpEmbeddedProperty
-init|=
-name|itActualEmbeddedProperties
-operator|.
-name|next
+range|:
+name|getAllProperties
 argument_list|()
-decl_stmt|;
+control|)
+block|{
 if|if
 condition|(
 name|tmpEmbeddedProperty
@@ -3828,7 +3566,7 @@ operator|(
 operator|(
 name|ArrayProperty
 operator|)
-name|prop
+name|child
 operator|)
 operator|.
 name|getContainer
@@ -3862,7 +3600,7 @@ else|else
 block|{
 name|addProperty
 argument_list|(
-name|prop
+name|child
 argument_list|)
 expr_stmt|;
 block|}
@@ -3974,7 +3712,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Get an AbstractField list corresponding to the content of an array Return null if the property is unknown      *       * @param name      *            the property name whitout namespace;      * @return List of property contained in the complex property      * @throws BadFieldValueException      *             Property not contains property (not complex property)      */
+comment|/**      * Get an AbstractField list corresponding to the content of an array      * property.      *      * @param name The property name whitout namespace.      * @return List of properties contained in the array property.      * @throws BadFieldValueException If the property with the requested name isn't an array.      */
 specifier|public
 name|List
 argument_list|<
@@ -3993,39 +3731,18 @@ name|array
 init|=
 literal|null
 decl_stmt|;
-name|Iterator
-argument_list|<
+for|for
+control|(
 name|AbstractField
-argument_list|>
-name|itProp
-init|=
+name|child
+range|:
 name|getAllProperties
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-name|AbstractField
-name|tmp
-decl_stmt|;
-while|while
-condition|(
-name|itProp
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+control|)
 block|{
-name|tmp
-operator|=
-name|itProp
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
-name|tmp
+name|child
 operator|.
 name|getPropertyName
 argument_list|()
@@ -4038,7 +3755,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|tmp
+name|child
 operator|instanceof
 name|ArrayProperty
 condition|)
@@ -4048,20 +3765,17 @@ operator|=
 operator|(
 name|ArrayProperty
 operator|)
-name|tmp
+name|child
 expr_stmt|;
 break|break;
 block|}
-else|else
-block|{
 throw|throw
 operator|new
 name|BadFieldValueException
 argument_list|(
-literal|"Property asked not seems to be an array"
+literal|"Property asked is not an array"
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 if|if
@@ -4071,12 +3785,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Iterator
+return|return
+operator|new
+name|ArrayList
 argument_list|<
 name|AbstractField
 argument_list|>
-name|it
-init|=
+argument_list|(
 name|array
 operator|.
 name|getContainer
@@ -4084,44 +3799,7 @@ argument_list|()
 operator|.
 name|getAllProperties
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-name|List
-argument_list|<
-name|AbstractField
-argument_list|>
-name|list
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|AbstractField
-argument_list|>
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
-name|list
-operator|.
-name|add
-argument_list|(
-name|it
-operator|.
-name|next
-argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|list
 return|;
 block|}
 return|return
