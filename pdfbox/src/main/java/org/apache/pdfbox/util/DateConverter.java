@@ -1092,6 +1092,9 @@ name|MILLIS_PER_HOUR
 operator|+
 name|tzMin
 operator|*
+operator|(
+name|long
+operator|)
 name|MILLIS_PER_MINUTE
 operator|)
 argument_list|)
