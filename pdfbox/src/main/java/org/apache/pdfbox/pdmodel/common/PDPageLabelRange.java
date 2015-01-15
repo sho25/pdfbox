@@ -273,7 +273,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the start value for page numbering in this page range.      *       * @param start      *            a positive integer representing the start value.      * @throws IllegalArgumentException      *             if {@code start} is not a positive integer      */
+comment|/**      * Sets the start value for page numbering in this page range.      *       * @param start      *            a positive integer representing the start value.      */
 specifier|public
 name|void
 name|setStart
