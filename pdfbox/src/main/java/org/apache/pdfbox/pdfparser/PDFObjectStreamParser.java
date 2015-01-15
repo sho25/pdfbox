@@ -144,7 +144,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will parse a PDF 1.5 object stream and extract all of the objects from the stream.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
+comment|/**  * This will parse a PDF 1.5 object stream and extract all of the objects from the stream.  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class
@@ -214,10 +214,9 @@ name|getUnfilteredStream
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setDocument
-argument_list|(
+name|document
+operator|=
 name|doc
-argument_list|)
 expr_stmt|;
 name|stream
 operator|=
