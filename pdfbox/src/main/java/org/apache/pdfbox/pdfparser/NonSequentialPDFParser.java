@@ -5792,9 +5792,10 @@ name|retVal
 return|;
 block|}
 specifier|private
+specifier|static
 specifier|final
 name|int
-name|streamCopyBufLen
+name|STREAMCOPYBUFLEN
 init|=
 literal|8192
 decl_stmt|;
@@ -5807,7 +5808,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|streamCopyBufLen
+name|STREAMCOPYBUFLEN
 index|]
 decl_stmt|;
 comment|/**      * This will read a COSStream from the input stream using length attribute within dictionary. If length attribute is      * a indirect reference it is first resolved to get the stream length. This means we copy stream data without      * testing for 'endstream' or 'endobj' and thus it is no problem if these keywords occur within stream. We require      * 'endstream' to be found after stream data is read.      *       * @param dic dictionary that goes with this stream.      *       * @return parsed pdf stream.      *       * @throws IOException if an error occurred reading the stream, like problems with reading length attribute, stream      * does not end with 'endstream' after data read, stream too short etc.      */
@@ -6036,10 +6037,10 @@ argument_list|,
 operator|(
 name|remainBytes
 operator|>
-name|streamCopyBufLen
+name|STREAMCOPYBUFLEN
 operator|)
 condition|?
-name|streamCopyBufLen
+name|STREAMCOPYBUFLEN
 else|:
 operator|(
 name|int
