@@ -1186,8 +1186,6 @@ block|{
 name|super
 argument_list|(
 name|EMPTY_INPUT_STREAM
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|pdfFile
@@ -1283,13 +1281,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|setDocument
-argument_list|(
+name|document
+operator|=
 operator|new
 name|COSDocument
 argument_list|(
 name|useScratchFiles
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|pdfSource
@@ -1457,8 +1454,6 @@ block|{
 name|super
 argument_list|(
 name|EMPTY_INPUT_STREAM
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|pdfFile
@@ -3294,10 +3289,7 @@ return|return
 name|pagesDictionary
 return|;
 block|}
-comment|/** Parses all objects needed by pages and closes input stream. */
-comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
+comment|/**      * This will parse the stream and populate the COSDocument object.  This will close      * the stream when it is done parsing.      *      * @throws IOException If there is an error reading from the stream or corrupt data      * is found.      */
 specifier|public
 name|void
 name|parse

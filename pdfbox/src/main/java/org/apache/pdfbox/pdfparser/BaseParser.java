@@ -752,20 +752,6 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Set the document for this stream.      *      * @param doc The current document.      */
-specifier|public
-name|void
-name|setDocument
-parameter_list|(
-name|COSDocument
-name|doc
-parameter_list|)
-block|{
-name|document
-operator|=
-name|doc
-expr_stmt|;
-block|}
 specifier|private
 specifier|static
 name|boolean
@@ -2497,24 +2483,6 @@ expr_stmt|;
 block|}
 return|return
 name|braces
-return|;
-block|}
-comment|/**      * This will parse a PDF string.      *      * @param isDictionary indicates if the stream is a dictionary or not      * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      * @deprecated Not needed anymore. Use {@link #parseCOSString()} instead. PDFBOX-1437      */
-annotation|@
-name|Deprecated
-specifier|protected
-name|COSString
-name|parseCOSString
-parameter_list|(
-name|boolean
-name|isDictionary
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|parseCOSString
-argument_list|()
 return|;
 block|}
 comment|/**      * This will parse a PDF string.      *      * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      */
