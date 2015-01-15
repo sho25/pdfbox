@@ -3451,7 +3451,7 @@ return|return
 name|isLenient
 return|;
 block|}
-comment|/**      * Change the parser leniency flag.      *      * This method can only be called before the parsing of the file.      *      * @param lenient try to handle malformed PDFs.      *      * @throws IllegalArgumentException if the method is called after parsing.      */
+comment|/**      * Change the parser leniency flag.      *      * This method can only be called before the parsing of the file, or an      * IllegalArgumentException will be thrown.      *      * @param lenient try to handle malformed PDFs.      */
 specifier|public
 name|void
 name|setLenient
@@ -3459,8 +3459,6 @@ parameter_list|(
 name|boolean
 name|lenient
 parameter_list|)
-throws|throws
-name|IllegalArgumentException
 block|{
 if|if
 condition|(
