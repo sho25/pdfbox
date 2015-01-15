@@ -295,6 +295,7 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Object
@@ -311,6 +312,7 @@ literal|100
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|int
 name|MAX_BIN_CHAR_TEST_LENGTH
