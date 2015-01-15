@@ -49,7 +49,6 @@ interface|interface
 name|SignatureInterface
 block|{
 comment|/**      * Creates a cms signature for the given content      *      * @param content is the content as a (Filter)InputStream      * @return signature as a byte array      */
-specifier|public
 name|byte
 index|[]
 name|sign

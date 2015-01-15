@@ -127,7 +127,6 @@ extends|extends
 name|COSObjectable
 block|{
 comment|/**      * Returns the content of this image as an AWT buffered image with an (A)RGB color space.      * @return content of this image as a buffered image.      * @throws IOException      */
-specifier|public
 name|BufferedImage
 name|getImage
 parameter_list|()
@@ -135,7 +134,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns an ARGB image filled with the given paint and using this image as a mask.      * @param paint the paint to fill the visible portions of the image with      * @return a masked image filled with the given paint      * @throws IOException if the image cannot be read      * @throws IllegalStateException if the image is not a stencil.      */
-specifier|public
 name|BufferedImage
 name|getStencilImage
 parameter_list|(
@@ -146,7 +144,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns a stream containing this image's data.      * @throws IOException if the      */
-specifier|public
 name|PDStream
 name|getStream
 parameter_list|()
@@ -154,13 +151,11 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns true if the image is a stencil mask.      */
-specifier|public
 name|boolean
 name|isStencil
 parameter_list|()
 function_decl|;
 comment|/**      * Sets whether or not the image is a stencil.      * This corresponds to the {@code ImageMask} entry in the image stream's dictionary.      * @param isStencil True to make the image a stencil.      */
-specifier|public
 name|void
 name|setStencil
 parameter_list|(
@@ -169,13 +164,11 @@ name|isStencil
 parameter_list|)
 function_decl|;
 comment|/**      * Returns bits per component of this image, or -1 if one has not been set.      */
-specifier|public
 name|int
 name|getBitsPerComponent
 parameter_list|()
 function_decl|;
 comment|/**      * Set the number of bits per component.      * @param bitsPerComponent The number of bits per component.      */
-specifier|public
 name|void
 name|setBitsPerComponent
 parameter_list|(
@@ -184,7 +177,6 @@ name|bitsPerComponent
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the image's color space.      * @throws IOException If there is an error getting the color space.      */
-specifier|public
 name|PDColorSpace
 name|getColorSpace
 parameter_list|()
@@ -192,7 +184,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Sets the color space for this image.      * @param colorSpace The color space for this image.      */
-specifier|public
 name|void
 name|setColorSpace
 parameter_list|(
@@ -201,13 +192,11 @@ name|colorSpace
 parameter_list|)
 function_decl|;
 comment|/**      * Returns height of this image, or -1 if one has not been set.      */
-specifier|public
 name|int
 name|getHeight
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the height of the image.      * @param height The height of the image.      */
-specifier|public
 name|void
 name|setHeight
 parameter_list|(
@@ -216,13 +205,11 @@ name|height
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the width of this image, or -1 if one has not been set.      */
-specifier|public
 name|int
 name|getWidth
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the width of the image.      * @param width The width of the image.      */
-specifier|public
 name|void
 name|setWidth
 parameter_list|(
@@ -231,7 +218,6 @@ name|width
 parameter_list|)
 function_decl|;
 comment|/**      * Sets the decode array.      * @param decode  the new decode array.      */
-specifier|public
 name|void
 name|setDecode
 parameter_list|(
@@ -240,19 +226,16 @@ name|decode
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the decode array.      */
-specifier|public
 name|COSArray
 name|getDecode
 parameter_list|()
 function_decl|;
 comment|/**      * Returns true if the image should be interpolated when rendered.      */
-specifier|public
 name|boolean
 name|getInterpolate
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the Interpolate flag, true for high-quality image scaling.      */
-specifier|public
 name|void
 name|setInterpolate
 parameter_list|(
@@ -261,7 +244,6 @@ name|value
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the suffix for this image type, e.g. "jpg"      */
-specifier|public
 name|String
 name|getSuffix
 parameter_list|()
