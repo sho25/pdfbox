@@ -188,10 +188,9 @@ name|getUnfilteredStream
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setDocument
-argument_list|(
+name|document
+operator|=
 name|doc
-argument_list|)
 expr_stmt|;
 name|stream
 operator|=
