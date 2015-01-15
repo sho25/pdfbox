@@ -35,7 +35,6 @@ interface|interface
 name|ICOSVisitor
 block|{
 comment|/**      * Notification of visit to Array object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
-specifier|public
 name|Object
 name|visitFromArray
 parameter_list|(
@@ -46,7 +45,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Notification of visit to boolean object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
-specifier|public
 name|Object
 name|visitFromBoolean
 parameter_list|(
@@ -57,7 +55,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Notification of visit to dictionary object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
-specifier|public
 name|Object
 name|visitFromDictionary
 parameter_list|(
@@ -68,7 +65,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Notification of visit to document object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
-specifier|public
 name|Object
 name|visitFromDocument
 parameter_list|(
@@ -79,7 +75,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Notification of visit to float object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
-specifier|public
 name|Object
 name|visitFromFloat
 parameter_list|(
@@ -90,7 +85,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Notification of visit to integer object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
-specifier|public
 name|Object
 name|visitFromInt
 parameter_list|(
@@ -101,7 +95,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Notification of visit to name object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
-specifier|public
 name|Object
 name|visitFromName
 parameter_list|(
@@ -112,7 +105,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Notification of visit to null object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
-specifier|public
 name|Object
 name|visitFromNull
 parameter_list|(
@@ -123,7 +115,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Notification of visit to stream object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
-specifier|public
 name|Object
 name|visitFromStream
 parameter_list|(
@@ -134,7 +125,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Notification of visit to string object.      *      * @param obj The Object that is being visited.      * @return any Object depending on the visitor implementation, or null      * @throws IOException If there is an error while visiting this object.      */
-specifier|public
 name|Object
 name|visitFromString
 parameter_list|(
