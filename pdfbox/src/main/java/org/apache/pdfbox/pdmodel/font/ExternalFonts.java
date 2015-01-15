@@ -531,8 +531,8 @@ return|;
 block|}
 comment|/** Map of PostScript name substitutes, in priority order. */
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String

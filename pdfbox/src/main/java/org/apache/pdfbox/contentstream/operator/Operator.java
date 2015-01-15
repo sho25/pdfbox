@@ -68,8 +68,8 @@ name|imageParameters
 decl_stmt|;
 comment|/** map for singleton operator objects; use {@link ConcurrentHashMap} for better scalability with multiple threads */
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ConcurrentHashMap
 argument_list|<
 name|String
