@@ -2251,6 +2251,13 @@ argument_list|(
 name|dest
 argument_list|)
 expr_stmt|;
+name|is
+operator|=
+name|src
+operator|.
+name|createInputStream
+argument_list|()
+expr_stmt|;
 name|os
 operator|=
 name|dest
