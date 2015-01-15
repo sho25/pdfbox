@@ -45,7 +45,6 @@ begin_interface
 interface|interface
 name|Subsetter
 block|{
-specifier|public
 name|void
 name|subset
 parameter_list|(
