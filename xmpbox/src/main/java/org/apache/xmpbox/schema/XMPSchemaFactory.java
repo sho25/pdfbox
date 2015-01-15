@@ -77,10 +77,12 @@ class|class
 name|XMPSchemaFactory
 block|{
 specifier|private
+specifier|final
 name|String
 name|namespace
 decl_stmt|;
 specifier|private
+specifier|final
 name|Class
 argument_list|<
 name|?
@@ -90,6 +92,7 @@ argument_list|>
 name|schemaClass
 decl_stmt|;
 specifier|private
+specifier|final
 name|PropertiesDescription
 name|propDef
 decl_stmt|;
@@ -179,8 +182,6 @@ name|XmpSchemaException
 block|{
 name|XMPSchema
 name|schema
-init|=
-literal|null
 decl_stmt|;
 name|Class
 argument_list|<
@@ -358,7 +359,7 @@ throw|throw
 operator|new
 name|XmpSchemaException
 argument_list|(
-literal|"Cannot Instanciate specified Object Schema"
+literal|"Cannot instanciate specified object schema"
 argument_list|,
 name|e
 argument_list|)
