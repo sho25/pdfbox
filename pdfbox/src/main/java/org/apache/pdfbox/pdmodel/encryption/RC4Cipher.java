@@ -56,6 +56,7 @@ class|class
 name|RC4Cipher
 block|{
 specifier|private
+specifier|final
 name|int
 index|[]
 name|salt
@@ -221,7 +222,6 @@ block|}
 comment|/**      * Thie will ensure that the value for a byte&gt;=0.      *      * @param aByte The byte to test against.      *      * @return A value&gt;=0 and&lt; 256      */
 specifier|private
 specifier|static
-specifier|final
 name|int
 name|fixByte
 parameter_list|(
@@ -244,7 +244,6 @@ block|}
 comment|/**      * This will swap two values in an array.      *      * @param data The array to swap from.      * @param firstIndex The index of the first element to swap.      * @param secondIndex The index of the second element to swap.      */
 specifier|private
 specifier|static
-specifier|final
 name|void
 name|swap
 parameter_list|(
@@ -434,8 +433,6 @@ index|]
 decl_stmt|;
 name|int
 name|amountRead
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
