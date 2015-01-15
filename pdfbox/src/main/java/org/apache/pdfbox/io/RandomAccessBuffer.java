@@ -1021,6 +1021,9 @@ name|remainingBytes2Write
 operator|-=
 name|numberOfNewArrays
 operator|*
+operator|(
+name|long
+operator|)
 name|BUFFER_SIZE
 expr_stmt|;
 if|if
