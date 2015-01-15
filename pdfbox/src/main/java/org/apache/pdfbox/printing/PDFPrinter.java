@@ -912,8 +912,6 @@ parameter_list|(
 name|int
 name|pageIndex
 parameter_list|)
-throws|throws
-name|IndexOutOfBoundsException
 block|{
 comment|// note: PDFPrintable#print() is responsible for fitting the current page to
 comment|//       the printer's actual paper size, so this method must return the full
@@ -1059,8 +1057,6 @@ parameter_list|(
 name|int
 name|i
 parameter_list|)
-throws|throws
-name|IndexOutOfBoundsException
 block|{
 if|if
 condition|(
