@@ -149,9 +149,11 @@ name|length
 operator|<
 literal|1
 condition|)
+block|{
 name|usage
 argument_list|()
 expr_stmt|;
+block|}
 name|String
 name|inputFilename
 init|=
@@ -191,6 +193,7 @@ argument_list|(
 literal|".*\\.[pP][dD][fF]$"
 argument_list|)
 condition|)
+block|{
 name|outputFilename
 operator|=
 name|inputFilename
@@ -202,13 +205,16 @@ argument_list|,
 literal|".unc.pdf"
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|outputFilename
 operator|=
 name|inputFilename
 operator|+
 literal|".unc.pdf"
 expr_stmt|;
+block|}
 block|}
 name|PDDocument
 name|doc
@@ -374,6 +380,7 @@ name|doc
 operator|!=
 literal|null
 condition|)
+block|{
 try|try
 block|{
 name|doc
@@ -387,7 +394,8 @@ parameter_list|(
 name|Exception
 name|e
 parameter_list|)
-block|{ }
+block|{                 }
+block|}
 block|}
 block|}
 comment|/**      * Explains how to use the program.      */

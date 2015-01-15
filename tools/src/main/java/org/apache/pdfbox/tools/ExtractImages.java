@@ -701,7 +701,9 @@ literal|"  -password<password>        Password to decrypt document\n"
 operator|+
 literal|"  -prefix<image-prefix>      Image prefix(default to pdf name)\n"
 operator|+
-literal|"  -directJPEG                  Forces the direct extraction of JPEG images regardless of colorspace\n"
+literal|"  -directJPEG                  Forces the direct extraction of JPEG images "
+operator|+
+literal|"regardless of colorspace\n"
 operator|+
 literal|"<PDF file>                   The PDF document to use\n"
 argument_list|)

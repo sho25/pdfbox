@@ -191,7 +191,9 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFMerger<Source PDF File 2..n><Destination PDF File>\n"
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFMerger "
+operator|+
+literal|"<Source PDF File 2..n><Destination PDF File>\n"
 operator|+
 literal|"<Source PDF File 2..n>       2 or more source PDF documents to merge\n"
 operator|+
