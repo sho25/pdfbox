@@ -42,6 +42,7 @@ comment|/**  * Utility class for creating MessageDigest instances.  * @author Jo
 end_comment
 
 begin_class
+specifier|final
 class|class
 name|MessageDigests
 block|{
