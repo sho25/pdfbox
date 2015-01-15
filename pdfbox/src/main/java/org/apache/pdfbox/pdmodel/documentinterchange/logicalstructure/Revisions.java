@@ -140,7 +140,7 @@ specifier|public
 name|Revisions
 parameter_list|()
 block|{     }
-comment|/**      * Returns the object at the specified position.      *       * @param index the position      * @return the object      * @throws IndexOutOfBoundsException if the index is out of range      */
+comment|/**      * Returns the object at the specified position.      *       * @param index the position      * @return the object      */
 specifier|public
 name|T
 name|getObject
@@ -148,8 +148,6 @@ parameter_list|(
 name|int
 name|index
 parameter_list|)
-throws|throws
-name|IndexOutOfBoundsException
 block|{
 return|return
 name|this
@@ -163,7 +161,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the revision number at the specified position.      *       * @param index the position      * @return the revision number      * @throws IndexOutOfBoundsException if the index is out of range      */
+comment|/**      * Returns the revision number at the specified position.      *       * @param index the position      * @return the revision number      */
 specifier|public
 name|int
 name|getRevisionNumber
@@ -171,8 +169,6 @@ parameter_list|(
 name|int
 name|index
 parameter_list|)
-throws|throws
-name|IndexOutOfBoundsException
 block|{
 return|return
 name|this
@@ -283,6 +279,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
