@@ -948,13 +948,13 @@ name|getOptions
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the indices of the selected options "I".      *      * @return COSArray containing the indices of all selected options.      */
+comment|/**      * This will get the indices of the selected options - the 'I' key.      *<p>      * This is only needed if a choice field allows multiple selections and      * two different items have the same export value or more than one values      * is selected.      *</p>      *<p>The indices are zero-based</p>      *      * @return List containing the indices of all selected options.      */
 specifier|public
 name|List
 argument_list|<
 name|Integer
 argument_list|>
-name|getSelectedOptions
+name|getSelectedOptionsIndex
 parameter_list|()
 block|{
 name|COSBase
@@ -999,12 +999,15 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the indices of the selected options "I".      *      * @param values COSArray containing the indices of all selected options.      */
+comment|/**      * This will set the indices of the selected options - the 'I' key.      *<p>      * This method is preferred over {@link #setValue(List)} for choice fields which      *<ul>      *<li>do support multiple selections</li>      *<li>have export values with the same value</li>      *</ul>      *</p>      *<p>      * Setting the index will set the value too.      *</p>      *      * @param values List containing the indices of all selected options.      */
 specifier|public
 name|void
-name|setSelectedOptions
+name|setSelectedOptionsIndex
 parameter_list|(
-name|COSArray
+name|List
+argument_list|<
+name|Integer
+argument_list|>
 name|values
 parameter_list|)
 block|{
@@ -1013,8 +1016,29 @@ condition|(
 name|values
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|values
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|isMultiSelect
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Setting the indices is not allowed for choice fields not allowing multiple selections."
+argument_list|)
+throw|;
+block|}
 name|getDictionary
 argument_list|()
 operator|.
@@ -1024,7 +1048,12 @@ name|COSName
 operator|.
 name|I
 argument_list|,
+name|COSArrayList
+operator|.
+name|converterToCOSArray
+argument_list|(
 name|values
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1278,6 +1307,33 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|getOptions
+argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+operator|(
+name|String
+operator|)
+name|value
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The list box does not contain the given value."
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 name|getDictionary
 argument_list|()
 operator|.
@@ -1293,33 +1349,12 @@ operator|)
 name|value
 argument_list|)
 expr_stmt|;
-comment|// TODO handle MultiSelect option as this might need to set the 'I' key.
-name|int
-name|index
-init|=
-name|getSelectedIndex
+comment|// remove I key for single valued choice field
+name|setSelectedOptionsIndex
 argument_list|(
-operator|(
-name|String
-operator|)
-name|value
+literal|null
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|index
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"The list box does not contain the given value."
-argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 else|else
@@ -1337,7 +1372,7 @@ expr_stmt|;
 block|}
 comment|// TODO create/update appearance
 block|}
-comment|/**      * setValue sets the entry "V" to the given value.      *       * @param values the list of values      *       */
+comment|/**      * setValue sets the entry "V" to the given value.      *       * @param values the list of values      */
 specifier|public
 name|void
 name|setValue
@@ -1371,7 +1406,8 @@ literal|"The list box does not allow multiple selection."
 argument_list|)
 throw|;
 block|}
-comment|// TODO handle MultiSelect option completely as this might need to set the 'I' key.
+comment|// TODO set the 'I' key
+comment|// TODO check if the values are contained in the options
 name|getDictionary
 argument_list|()
 operator|.
@@ -1405,7 +1441,7 @@ expr_stmt|;
 block|}
 comment|// TODO create/update appearance
 block|}
-comment|/**      * getValue gets the value of the "V" entry.      *       * @return The value of this entry.      *       */
+comment|/**      * getValue gets the value of the "V" entry.      *       * @return The value of this entry.      */
 annotation|@
 name|Override
 specifier|public
@@ -1498,90 +1534,6 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|// returns the "Opt" index for the given string
-specifier|private
-name|int
-name|getSelectedIndex
-parameter_list|(
-name|String
-name|optionValue
-parameter_list|)
-block|{
-name|int
-name|indexSelected
-init|=
-operator|-
-literal|1
-decl_stmt|;
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|options
-init|=
-name|getOptions
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|options
-operator|.
-name|size
-argument_list|()
-operator|&&
-name|indexSelected
-operator|==
-operator|-
-literal|1
-condition|;
-name|i
-operator|++
-control|)
-block|{
-name|String
-name|option
-init|=
-name|options
-operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|option
-operator|.
-name|compareTo
-argument_list|(
-name|optionValue
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-name|i
-return|;
-block|}
-block|}
-return|return
-name|indexSelected
-return|;
-block|}
-comment|// TODO the implementation below is not in line
-comment|// with the specification nor does it allow multiple selections
-comment|// deactivating for now as it's not part of the public API
-comment|//
-comment|// implements "MultiSelect"
-comment|/*     private void selectMultiple(int selectedIndex)     {         COSArray indexArray = getSelectedOptions();         if (indexArray != null)         {             indexArray.clear();             indexArray.add(COSInteger.get(selectedIndex));         }     }     */
 block|}
 end_class
 
