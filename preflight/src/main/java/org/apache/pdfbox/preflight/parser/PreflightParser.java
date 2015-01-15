@@ -2572,26 +2572,6 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Check that the hexa string contains only an even number of Hexadecimal characters. Once it is done, reset the      * offset at the beginning of the string and call {@link BaseParser#parseCOSString()}      * @deprecated Not needed anymore. Use {@link #parseCOSString()} instead. PDFBOX-1437      */
-annotation|@
-name|Override
-annotation|@
-name|Deprecated
-specifier|protected
-name|COSString
-name|parseCOSString
-parameter_list|(
-name|boolean
-name|isDictionary
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|parseCOSString
-argument_list|()
-return|;
-block|}
 comment|/**      * Check that the hexa string contains only an even number of Hexadecimal characters. Once it is done, reset the      * offset at the beginning of the string and call {@link BaseParser#parseCOSString()}      */
 annotation|@
 name|Override
