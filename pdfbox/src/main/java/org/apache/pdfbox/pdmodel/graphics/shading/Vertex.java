@@ -78,10 +78,12 @@ name|String
 name|toString
 parameter_list|()
 block|{
-name|String
-name|colorStr
+name|StringBuilder
+name|sb
 init|=
-literal|""
+operator|new
+name|StringBuilder
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -93,20 +95,26 @@ control|)
 block|{
 if|if
 condition|(
-operator|!
-name|colorStr
+name|sb
 operator|.
-name|isEmpty
+name|length
 argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
-name|colorStr
-operator|+=
-literal|" "
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|' '
+argument_list|)
 expr_stmt|;
 block|}
-name|colorStr
-operator|+=
+name|sb
+operator|.
+name|append
+argument_list|(
 name|String
 operator|.
 name|format
@@ -115,18 +123,17 @@ literal|"%3.2f"
 argument_list|,
 name|f
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 return|return
-literal|"Vertex{"
-operator|+
-literal|" "
+literal|"Vertex{ "
 operator|+
 name|point
 operator|+
 literal|", colors=["
 operator|+
-name|colorStr
+name|sb
 operator|+
 literal|"] }"
 return|;
