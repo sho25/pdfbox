@@ -253,7 +253,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_Adobe
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_Adobe
 import|;
 end_import
 
@@ -269,7 +269,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_CGATS_TR001
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR001
 import|;
 end_import
 
@@ -285,7 +285,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_CGATS_TR002
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR002
 import|;
 end_import
 
@@ -301,7 +301,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_CGATS_TR003
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR003
 import|;
 end_import
 
@@ -317,7 +317,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_CGATS_TR005
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR005
 import|;
 end_import
 
@@ -333,7 +333,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_CGATS_TR006
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR006
 import|;
 end_import
 
@@ -349,7 +349,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_CGATS_TR_001
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR_001
 import|;
 end_import
 
@@ -365,7 +365,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_CGATS_TR_002
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR_002
 import|;
 end_import
 
@@ -381,7 +381,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_CGATS_TR_003
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR_003
 import|;
 end_import
 
@@ -397,7 +397,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_CGATS_TR_005
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR_005
 import|;
 end_import
 
@@ -413,7 +413,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_CGATS_TR_006
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR_006
 import|;
 end_import
 
@@ -429,7 +429,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_ERIMM
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_ERIMM
 import|;
 end_import
 
@@ -445,7 +445,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_EUROSB104
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_EUROSB104
 import|;
 end_import
 
@@ -461,7 +461,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_EUROSB204
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_EUROSB204
 import|;
 end_import
 
@@ -477,7 +477,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA27
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA27
 import|;
 end_import
 
@@ -493,7 +493,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA28
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA28
 import|;
 end_import
 
@@ -509,7 +509,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA29
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA29
 import|;
 end_import
 
@@ -525,7 +525,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA30
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA30
 import|;
 end_import
 
@@ -541,7 +541,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA31
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA31
 import|;
 end_import
 
@@ -557,7 +557,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA32
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA32
 import|;
 end_import
 
@@ -573,7 +573,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA33
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA33
 import|;
 end_import
 
@@ -589,7 +589,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA34
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA34
 import|;
 end_import
 
@@ -605,7 +605,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA35
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA35
 import|;
 end_import
 
@@ -621,7 +621,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA36
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA36
 import|;
 end_import
 
@@ -637,7 +637,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA37
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA37
 import|;
 end_import
 
@@ -653,7 +653,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA38
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA38
 import|;
 end_import
 
@@ -669,7 +669,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA39
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA39
 import|;
 end_import
 
@@ -685,7 +685,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA40
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA40
 import|;
 end_import
 
@@ -701,7 +701,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA41
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA41
 import|;
 end_import
 
@@ -717,7 +717,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA42
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA42
 import|;
 end_import
 
@@ -733,7 +733,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA43
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA43
 import|;
 end_import
 
@@ -749,7 +749,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA44
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA44
 import|;
 end_import
 
@@ -765,7 +765,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA45
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA45
 import|;
 end_import
 
@@ -781,7 +781,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA46
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA46
 import|;
 end_import
 
@@ -797,7 +797,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_FOGRA47
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA47
 import|;
 end_import
 
@@ -813,7 +813,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_IFRA26
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_IFRA26
 import|;
 end_import
 
@@ -829,7 +829,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_JC200103
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_JC200103
 import|;
 end_import
 
@@ -845,7 +845,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_JC200104
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_JC200104
 import|;
 end_import
 
@@ -861,7 +861,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_JCN2002
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_JCN2002
 import|;
 end_import
 
@@ -877,7 +877,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_JCW2003
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_JCW2003
 import|;
 end_import
 
@@ -893,7 +893,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_RIMM
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_RIMM
 import|;
 end_import
 
@@ -909,7 +909,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_ROMM
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_ROMM
 import|;
 end_import
 
@@ -925,7 +925,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_bg_sRGB
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_bg_sRGB
 import|;
 end_import
 
@@ -941,7 +941,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_eciRGB
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_eciRGB
 import|;
 end_import
 
@@ -957,7 +957,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_opRGB
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_opRGB
 import|;
 end_import
 
@@ -973,7 +973,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_sRGB
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_sRGB
 import|;
 end_import
 
@@ -989,7 +989,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_sRGB_IEC
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_sRGB_IEC
 import|;
 end_import
 
@@ -1005,7 +1005,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_sYCC
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_sYCC
 import|;
 end_import
 
@@ -1021,7 +1021,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_scRGB
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_scRGB
 import|;
 end_import
 
@@ -1037,7 +1037,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_scRGB_nl
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_scRGB_nl
 import|;
 end_import
 
@@ -1053,7 +1053,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ICC_Characterization_Data_Registry_scYCC_nl
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_scYCC_nl
 import|;
 end_import
 
@@ -1516,357 +1516,357 @@ name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA43
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA43
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_CGATS_TR_006
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR_006
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_CGATS_TR006
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR006
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA39
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA39
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_JC200103
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_JC200103
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA27
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA27
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_EUROSB104
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_EUROSB104
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA45
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA45
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA46
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA46
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA41
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA41
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_CGATS_TR_001
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR_001
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_CGATS_TR_003
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR_003
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_CGATS_TR_005
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR_005
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_CGATS_TR001
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR001
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_CGATS_TR003
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR003
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_CGATS_TR005
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR005
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA28
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA28
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_JCW2003
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_JCW2003
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_EUROSB204
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_EUROSB204
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA47
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA47
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA44
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA44
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA29
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA29
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_JC200104
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_JC200104
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA40
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA40
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA30
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA30
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA42
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA42
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_IFRA26
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_IFRA26
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_JCN2002
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_JCN2002
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_CGATS_TR_002
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR_002
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_CGATS_TR002
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_CGATS_TR002
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA33
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA33
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA37
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA37
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA31
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA31
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA35
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA35
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA32
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA32
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA34
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA34
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA36
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA36
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_FOGRA38
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_FOGRA38
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_sRGB
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_sRGB
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_sRGB_IEC
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_sRGB_IEC
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_Adobe
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_Adobe
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_bg_sRGB
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_bg_sRGB
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_sYCC
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_sYCC
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_scRGB
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_scRGB
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_scRGB_nl
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_scRGB_nl
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_scYCC_nl
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_scYCC_nl
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_ROMM
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_ROMM
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_RIMM
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_RIMM
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_ERIMM
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_ERIMM
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_eciRGB
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_eciRGB
 argument_list|)
 expr_stmt|;
 name|listICC
 operator|.
 name|add
 argument_list|(
-name|ICC_Characterization_Data_Registry_opRGB
+name|ICC_CHARACTERIZATION_DATA_REGISTRY_opRGB
 argument_list|)
 expr_stmt|;
 block|}
