@@ -430,7 +430,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new ICC color space using the PDF array.      * @param iccArray the ICC stream object      */
+comment|/**      * Creates a new ICC color space using the PDF array.      *      * @param iccArray the ICC stream object      * @throws java.io.IOException if there is an error reading the ICC profile.      */
 specifier|public
 name|PDICCBased
 parameter_list|(

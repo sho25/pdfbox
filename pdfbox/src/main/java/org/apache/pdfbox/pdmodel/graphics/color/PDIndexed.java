@@ -565,6 +565,9 @@ argument_list|(
 name|baseRaster
 argument_list|)
 decl_stmt|;
+comment|//File f = new File("C:\\Users\\Tilman Hausherr\\Documents\\Java\\PDFBoxPageImageExtraction", "BaseRaster-" + baseColorSpace.getName() + System.currentTimeMillis() + ".png");
+comment|//System.out.println("BaseRaster file: " + f.getName());
+comment|//ImageIO.write(rgbImage, "png", f);
 name|WritableRaster
 name|rgbRaster
 init|=
@@ -628,6 +631,7 @@ argument_list|,
 name|nil
 argument_list|)
 expr_stmt|;
+comment|//System.out.println(String.format("%d: %02x %02x %02x - %02x %02x %02x", i, rgbColorTable[i][0], rgbColorTable[i][1], rgbColorTable[i][2], (int) (colorTable[i][0] * 255f), (int) (colorTable[i][1] * 255f), (int) (colorTable[i][2] * 255f)));
 block|}
 block|}
 comment|//
@@ -1031,6 +1035,11 @@ init|=
 name|getLookupData
 argument_list|()
 decl_stmt|;
+comment|//File f = new File("C:\\Users\\Tilman Hausherr\\Documents\\Java\\PDFBoxPageImageExtraction", "Lookup-" + baseColorSpace.getName() + System.currentTimeMillis() + ".dat");
+comment|//FileOutputStream fos = new FileOutputStream(f);
+comment|//fos.write(lookupData);
+comment|//fos.close();
+comment|//System.out.println("Lookup file: " + f.getName());
 name|int
 name|maxIndex
 init|=
