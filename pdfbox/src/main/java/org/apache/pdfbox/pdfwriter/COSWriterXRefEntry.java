@@ -79,6 +79,7 @@ literal|false
 decl_stmt|;
 specifier|private
 specifier|static
+specifier|final
 name|COSWriterXRefEntry
 name|nullEntry
 decl_stmt|;
