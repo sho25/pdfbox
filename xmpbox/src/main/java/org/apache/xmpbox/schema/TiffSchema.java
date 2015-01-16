@@ -457,7 +457,7 @@ specifier|public
 specifier|static
 specifier|final
 name|String
-name|XResolution
+name|XRESOLUTION
 init|=
 literal|"XResolution"
 decl_stmt|;
