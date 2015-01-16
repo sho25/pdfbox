@@ -79,6 +79,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|EnumMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -372,6 +382,7 @@ argument_list|>
 name|definedStructuredMappings
 decl_stmt|;
 specifier|private
+specifier|final
 name|XMPMetadata
 name|metadata
 decl_stmt|;
@@ -403,6 +414,7 @@ expr_stmt|;
 block|}
 specifier|private
 specifier|static
+specifier|final
 name|Class
 argument_list|<
 name|?
@@ -447,13 +459,17 @@ comment|// structured types
 name|structuredMappings
 operator|=
 operator|new
-name|HashMap
+name|EnumMap
 argument_list|<
 name|Types
 argument_list|,
 name|PropertiesDescription
 argument_list|>
-argument_list|()
+argument_list|(
+name|Types
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|structuredNamespaces
 operator|=
@@ -1410,7 +1426,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Return the specialized schema class representation if it's known (create and add it to metadata). In other cases,      * return null      *       * @param metadata      *            Metadata to link the new schema      * @param namespace      *            The namespace URI      * @return Schema representation      * @throws XmpSchemaException      *             When Instancing specified Object Schema failed      */
+comment|/**      * Return the specialized schema class representation if it's known (create and add it to metadata). In other cases,      * return null      *       * @param metadata      *            Metadata to link the new schema      * @param namespace      *            The namespace URI      * @param prefix The namespace prefix      * @return Schema representation      * @throws XmpSchemaException      *             When Instancing specified Object Schema failed      */
 end_comment
 
 begin_function
@@ -1564,7 +1580,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Give type of specified property in specified schema (given by its namespaceURI)      *       * @param name      *            the property Qualified Name      * @return Property type declared for namespace specified, null if unknown      */
+comment|/**      * Give type of specified property in specified schema (given by its namespaceURI)      *       * @param name      *            the property Qualified Name      * @return Property type declared for namespace specified, null if unknown      * @throws org.apache.xmpbox.type.BadFieldValueException if the name was not found.      */
 end_comment
 
 begin_function
@@ -2447,6 +2463,8 @@ operator|new
 name|PropertyType
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Class
 argument_list|<
@@ -2461,6 +2479,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Types
 name|type
@@ -2470,6 +2490,8 @@ return|return
 name|type
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Cardinality
 name|card
