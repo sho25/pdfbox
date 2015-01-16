@@ -839,10 +839,12 @@ operator|==
 literal|null
 condition|)
 block|{
-name|String
+name|StringBuilder
 name|filterInfo
 init|=
-literal|""
+operator|new
+name|StringBuilder
+argument_list|()
 decl_stmt|;
 name|COSBase
 name|filters
@@ -858,8 +860,11 @@ literal|null
 condition|)
 block|{
 name|filterInfo
-operator|=
+operator|.
+name|append
+argument_list|(
 literal|" - filter: "
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -869,7 +874,9 @@ name|COSName
 condition|)
 block|{
 name|filterInfo
-operator|+=
+operator|.
+name|append
+argument_list|(
 operator|(
 operator|(
 name|COSName
@@ -879,6 +886,7 @@ operator|)
 operator|.
 name|getName
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -926,12 +934,17 @@ literal|1
 condition|)
 block|{
 name|filterInfo
-operator|+=
+operator|.
+name|append
+argument_list|(
 literal|", "
+argument_list|)
 expr_stmt|;
 block|}
 name|filterInfo
-operator|+=
+operator|.
+name|append
+argument_list|(
 operator|(
 operator|(
 name|COSName
@@ -946,6 +959,7 @@ operator|)
 operator|.
 name|getName
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
