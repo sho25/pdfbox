@@ -3103,8 +3103,6 @@ name|IOException
 block|{
 name|String
 name|retval
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -3250,6 +3248,7 @@ return|;
 block|}
 comment|/**      * Internal class.      */
 specifier|private
+specifier|final
 class|class
 name|LiteralName
 block|{
@@ -3272,6 +3271,7 @@ block|}
 block|}
 comment|/**      * Internal class.      */
 specifier|private
+specifier|final
 class|class
 name|Operator
 block|{
