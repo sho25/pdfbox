@@ -140,7 +140,7 @@ specifier|public
 name|Revisions
 parameter_list|()
 block|{     }
-comment|/**      * Returns the object at the specified position.      *       * @param index the position      * @return the object      */
+comment|/**      * Returns the object at the specified position.      *       * @param index the position      * @return the object      * @throws IndexOutOfBoundsException if the index is out of range      */
 specifier|public
 name|T
 name|getObject
@@ -161,7 +161,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the revision number at the specified position.      *       * @param index the position      * @return the revision number      */
+comment|/**      * Returns the revision number at the specified position.      *       * @param index the position      * @return the revision number      * @throws IndexOutOfBoundsException if the index is out of range      */
 specifier|public
 name|int
 name|getRevisionNumber
