@@ -128,17 +128,6 @@ specifier|public
 specifier|static
 specifier|final
 name|int
-name|FLAG_NO_TOGGLE_TO_OFF
-init|=
-literal|1
-operator|<<
-literal|14
-decl_stmt|;
-comment|/**      * A Ff flag.      */
-specifier|public
-specifier|static
-specifier|final
-name|int
 name|FLAG_RADIO
 init|=
 literal|1
