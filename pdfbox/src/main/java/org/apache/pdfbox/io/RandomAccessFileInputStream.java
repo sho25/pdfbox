@@ -47,6 +47,7 @@ extends|extends
 name|InputStream
 block|{
 specifier|private
+specifier|final
 name|RandomAccess
 name|file
 decl_stmt|;
@@ -55,6 +56,7 @@ name|long
 name|currentPosition
 decl_stmt|;
 specifier|private
+specifier|final
 name|long
 name|endPosition
 decl_stmt|;
@@ -88,6 +90,8 @@ name|length
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|available
@@ -105,6 +109,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -113,6 +119,8 @@ block|{
 comment|//do nothing because we want to leave the random access file open.
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -162,6 +170,8 @@ return|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -255,6 +265,8 @@ name|amountRead
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|skip

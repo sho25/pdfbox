@@ -89,10 +89,12 @@ extends|extends
 name|OutputStream
 block|{
 specifier|private
+specifier|final
 name|RandomAccess
 name|file
 decl_stmt|;
 specifier|private
+specifier|final
 name|long
 name|position
 decl_stmt|;
@@ -244,6 +246,8 @@ name|length
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|write
@@ -287,6 +291,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|write

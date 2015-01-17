@@ -69,6 +69,7 @@ implements|,
 name|Closeable
 block|{
 specifier|private
+specifier|final
 name|java
 operator|.
 name|io

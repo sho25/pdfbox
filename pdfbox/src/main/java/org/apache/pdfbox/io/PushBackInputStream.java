@@ -167,6 +167,8 @@ name|offset
 return|;
 block|}
 comment|/**      * {@inheritDoc}       */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -199,6 +201,8 @@ name|retval
 return|;
 block|}
 comment|/**      * {@inheritDoc}       */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -226,6 +230,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}       */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -275,6 +281,8 @@ name|retval
 return|;
 block|}
 comment|/**      * {@inheritDoc}       */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|unread
@@ -297,6 +305,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}       */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|unread
@@ -323,6 +333,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}       */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|unread
