@@ -208,7 +208,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Checks the radiobutton.      */
+comment|/**      * Checks the check box.      */
 specifier|public
 name|void
 name|check
@@ -243,7 +243,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Unchecks the radiobutton.      */
+comment|/**      * Unchecks the check box.      */
 specifier|public
 name|void
 name|unCheck
@@ -264,7 +264,7 @@ name|OFF
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the value of the radio button.      *      * @return The value of the radio button.      */
+comment|/**      * This will get the value assigned to the OFF state.      *      * @return The value of the check box.      */
 specifier|public
 name|String
 name|getOffValue
@@ -279,7 +279,7 @@ name|getName
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the value of the radio button.      *      * @return The value of the radio button.      */
+comment|/**      * This will get the value assigned to the ON state.      *      * @return The value of the check box.      */
 specifier|public
 name|String
 name|getOnValue
