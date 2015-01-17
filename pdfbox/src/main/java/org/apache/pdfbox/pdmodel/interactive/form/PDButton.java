@@ -123,7 +123,7 @@ name|PDButton
 extends|extends
 name|PDField
 block|{
-comment|/**      * A Ff flag.      */
+comment|/**      * A Ff flag. If set, the field is a set of radio buttons      */
 specifier|public
 specifier|static
 specifier|final
@@ -134,7 +134,7 @@ literal|1
 operator|<<
 literal|15
 decl_stmt|;
-comment|/**      * A Ff flag.      */
+comment|/**      * A Ff flag. If set, the field is a pushbutton.      */
 specifier|public
 specifier|static
 specifier|final
@@ -145,7 +145,7 @@ literal|1
 operator|<<
 literal|16
 decl_stmt|;
-comment|/**      * A Ff flag.      */
+comment|/**      * A Ff flag. If set, radio buttons individual fields, using the same      * value for the on state will turn on and off in unison.      */
 specifier|public
 specifier|static
 specifier|final
