@@ -296,7 +296,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the fields default value.      *       * The field value holds a name object which is corresponding to the       * appearance state representing the corresponding appearance       * from the appearance directory.      *      * The default value is used to represent the initial state of the      * checkbox or to revert when resetting the form.      *       * @param defaultValue the COSName object to set the field value.      */
+comment|/**      * Set the fields default value.      *       * The field value holds a name object which is corresponding to the       * appearance state representing the corresponding appearance       * from the appearance directory.      *      * The default value is used to represent the initial state of the      * field or to revert when resetting the form.      *       * @param defaultValue the new field value.      */
 annotation|@
 name|Override
 specifier|public
@@ -434,7 +434,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the options.      *       * @see #getOptions()      * @param values List containing all possible options. Supplying null will remove the Opt entry.      */
+comment|/**      * This will set the options.      *       * @see #getOptions()      * @param values List containing all possible options. Supplying null or an empty list will remove the Opt entry.      */
 specifier|public
 name|void
 name|setOptions
@@ -451,6 +451,11 @@ condition|(
 name|values
 operator|==
 literal|null
+operator|||
+name|values
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|removeInheritableAttribute

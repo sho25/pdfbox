@@ -88,6 +88,7 @@ name|parentNode
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Get the fields default value.      *       * A push button field does not have a field value.      *       * @return This will always return an empty string.      */
 annotation|@
 name|Override
 specifier|public
@@ -100,6 +101,7 @@ return|return
 literal|""
 return|;
 block|}
+comment|/**      * Set the fields default value.      *       * A push button field does not have a field value.      *       * @param defaultValue The field doesn't support setting any value      * @throws IllegalArgumentException when trying to set a value other than null      */
 annotation|@
 name|Override
 specifier|public
@@ -110,6 +112,19 @@ name|String
 name|defaultValue
 parameter_list|)
 block|{
+if|if
+condition|(
+name|defaultValue
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|defaultValue
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -118,6 +133,8 @@ literal|"A PDPushButton shall not use the DV entry in the field dictionary"
 argument_list|)
 throw|;
 block|}
+block|}
+comment|/**      * Get the fields options.      *       * A push button field does not have option value.      *       * @return This will always return an empty List.      */
 annotation|@
 name|Override
 specifier|public
@@ -138,6 +155,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+comment|/**      * Set the fields options.      *       * A push button field does not have a option values.      *       * @param values The field doesn't support setting any option value      * @throws IllegalArgumentException when trying to set the a value other than null or an empty list.      */
 annotation|@
 name|Override
 specifier|public
@@ -151,6 +169,19 @@ argument_list|>
 name|values
 parameter_list|)
 block|{
+if|if
+condition|(
+name|values
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|values
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -159,18 +190,21 @@ literal|"A PDPushButton shall not use the Opt entry in the field dictionary"
 argument_list|)
 throw|;
 block|}
+block|}
+comment|/**      * Get the fields value.      *       * A push button field does not have field value.      *       * @return This will always return an empty String.      */
 annotation|@
 name|Override
 specifier|public
-name|Object
+name|String
 name|getValue
 parameter_list|()
 block|{
 comment|// PushButton fields don't support the "V" entry.
 return|return
-literal|null
+literal|""
 return|;
 block|}
+comment|/**      * Set the fields value.      *       * A push button field does not have a field value.      *       * @param fieldValue The field doesn't support setting any field value.      * @throws IllegalArgumentException when trying to set the a value other than null or an empty String.      */
 annotation|@
 name|Override
 specifier|public
@@ -181,6 +215,19 @@ name|String
 name|fieldValue
 parameter_list|)
 block|{
+if|if
+condition|(
+name|fieldValue
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|fieldValue
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -188,6 +235,7 @@ argument_list|(
 literal|"A PDPushButton shall not use the V entry in the field dictionary"
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 end_class
