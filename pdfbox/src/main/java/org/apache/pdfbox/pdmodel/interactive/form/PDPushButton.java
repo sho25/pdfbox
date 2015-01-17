@@ -91,13 +91,13 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Object
+name|String
 name|getDefaultValue
 parameter_list|()
 block|{
-comment|// PushButton fields don't support the "V" entry.
+comment|// PushButton fields don't support the "DV" entry.
 return|return
-literal|null
+literal|""
 return|;
 block|}
 annotation|@
