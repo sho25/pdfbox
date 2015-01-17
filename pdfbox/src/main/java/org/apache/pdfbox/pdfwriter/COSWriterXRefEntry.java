@@ -81,11 +81,11 @@ specifier|private
 specifier|static
 specifier|final
 name|COSWriterXRefEntry
-name|nullEntry
+name|NULLENTRY
 decl_stmt|;
 static|static
 block|{
-name|nullEntry
+name|NULLENTRY
 operator|=
 operator|new
 name|COSWriterXRefEntry
@@ -103,7 +103,7 @@ literal|65535
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|nullEntry
+name|NULLENTRY
 operator|.
 name|setFree
 argument_list|(
@@ -163,7 +163,7 @@ name|getNullEntry
 parameter_list|()
 block|{
 return|return
-name|nullEntry
+name|NULLENTRY
 return|;
 block|}
 comment|/**      * This will get the Object key.      *      * @return The object key.      */
