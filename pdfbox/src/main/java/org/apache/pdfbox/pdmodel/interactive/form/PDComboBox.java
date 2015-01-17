@@ -21,16 +21,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -148,7 +138,9 @@ name|edit
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      *       */
+comment|/**      * Sets the field value - the 'V' key.      *       * @param value the value      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValue
@@ -159,71 +151,82 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|(
-name|getFieldFlags
-argument_list|()
-operator|&
-name|FLAG_EDIT
-operator|)
+name|value
 operator|!=
-literal|0
+literal|null
+condition|)
+block|{
+comment|// check if the options contain the value to be set is
+comment|// only necessary if the edit flag has not been set.
+comment|// If the edit flag has been set the field allows a custom value.
+if|if
+condition|(
+operator|!
+name|isEdit
+argument_list|()
+operator|&&
+name|getOptions
+argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+operator|(
+name|String
+operator|)
+name|value
+argument_list|)
+operator|==
+operator|-
+literal|1
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The combo box isn't editable."
+literal|"The list box does not contain the given value."
 argument_list|)
 throw|;
 block|}
-name|super
+else|else
+block|{
+name|getDictionary
+argument_list|()
 operator|.
-name|setValue
+name|setString
 argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|,
+operator|(
+name|String
+operator|)
 name|value
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * setValue sets the entry "V" to the given value.      *       * @param values the value      *       */
-specifier|public
-name|void
-name|setValue
-parameter_list|(
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|values
-parameter_list|)
-block|{
-if|if
-condition|(
-operator|(
-name|getFieldFlags
-argument_list|()
-operator|&
-name|FLAG_EDIT
-operator|)
-operator|!=
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+comment|// remove I key for single valued choice field
+name|setSelectedOptionsIndex
 argument_list|(
-literal|"The combo box isn't editable."
-argument_list|)
-throw|;
-block|}
-name|super
-operator|.
-name|setValue
-argument_list|(
-name|values
+literal|null
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|getDictionary
+argument_list|()
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO create/update appearance
 block|}
 block|}
 end_class
