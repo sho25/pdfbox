@@ -571,6 +571,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sets the default value for the field.      *       * The value is stored in the field dictionaries "DV" entry.      *      * @param value the default value      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setDefaultValue
@@ -604,7 +606,6 @@ argument_list|,
 name|fieldValue
 argument_list|)
 expr_stmt|;
-comment|// TODO stream instead of string
 block|}
 else|else
 block|{
@@ -654,12 +655,13 @@ name|getString
 argument_list|()
 return|;
 block|}
-comment|// TODO handle PDTextStream, IOException in case of wrong type
 return|return
-literal|null
+literal|""
 return|;
 block|}
-comment|/**      * Set the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @param value the value      */
+comment|/**      * Set the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *<p>      * For long text it's more efficient to provide the text content as a      * text stream {@link #setValue(PDTextStream)}      *</p>      * @param value the value      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValue
@@ -673,6 +675,12 @@ condition|(
 name|value
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|value
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|COSString
@@ -693,7 +701,50 @@ argument_list|,
 name|fieldValue
 argument_list|)
 expr_stmt|;
-comment|// TODO stream instead of string
+block|}
+else|else
+block|{
+name|removeInheritableAttribute
+argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO move appearance generation out of fields PD model
+name|updateFieldAppearances
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Set the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @param textStream the value      */
+specifier|public
+name|void
+name|setValue
+parameter_list|(
+name|PDTextStream
+name|textStream
+parameter_list|)
+block|{
+if|if
+condition|(
+name|textStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|setInheritableAttribute
+argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|,
+name|textStream
+operator|.
+name|getCOSObject
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -748,7 +799,27 @@ argument_list|()
 return|;
 block|}
 return|return
-literal|null
+literal|""
+return|;
+block|}
+comment|/**      * Get the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @return The value of this entry.      * @throws IOException if the field dictionary entry is not a text type      */
+specifier|public
+name|PDTextStream
+name|getValueAsStream
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|getAsTextStream
+argument_list|(
+name|getInheritableAttribute
+argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|)
+argument_list|)
 return|;
 block|}
 block|}
