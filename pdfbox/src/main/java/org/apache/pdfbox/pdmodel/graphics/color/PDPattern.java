@@ -111,6 +111,23 @@ name|PDPattern
 extends|extends
 name|PDSpecialColorSpace
 block|{
+comment|/** A pattern which leaves no marks on the page. */
+specifier|private
+specifier|static
+name|PDColor
+name|EMPTY_PATTERN
+init|=
+operator|new
+name|PDColor
+argument_list|(
+operator|new
+name|float
+index|[]
+block|{ }
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 specifier|private
 specifier|final
 name|PDResources
@@ -213,8 +230,6 @@ name|getInitialColor
 parameter_list|()
 block|{
 return|return
-name|PDColor
-operator|.
 name|EMPTY_PATTERN
 return|;
 block|}

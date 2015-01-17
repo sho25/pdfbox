@@ -91,44 +91,6 @@ specifier|final
 class|class
 name|PDColor
 block|{
-comment|/** The color black in the DeviceGray color space. */
-specifier|public
-specifier|static
-name|PDColor
-name|DEVICE_GRAY_BLACK
-init|=
-operator|new
-name|PDColor
-argument_list|(
-operator|new
-name|float
-index|[]
-block|{
-literal|0
-block|}
-argument_list|,
-name|PDDeviceGray
-operator|.
-name|INSTANCE
-argument_list|)
-decl_stmt|;
-comment|/** A pattern which leaves no marks on the page. */
-specifier|public
-specifier|static
-name|PDColor
-name|EMPTY_PATTERN
-init|=
-operator|new
-name|PDColor
-argument_list|(
-operator|new
-name|float
-index|[]
-block|{ }
-argument_list|,
-literal|null
-argument_list|)
-decl_stmt|;
 specifier|private
 specifier|final
 name|float
