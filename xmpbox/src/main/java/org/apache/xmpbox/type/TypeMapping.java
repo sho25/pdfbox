@@ -420,7 +420,7 @@ argument_list|<
 name|?
 argument_list|>
 index|[]
-name|simplePropertyConstParams
+name|SIMPLEPROPERTYCONSTPARAMS
 init|=
 operator|new
 name|Class
@@ -1047,7 +1047,7 @@ name|clz
 operator|.
 name|getConstructor
 argument_list|(
-name|simplePropertyConstParams
+name|SIMPLEPROPERTYCONSTPARAMS
 argument_list|)
 decl_stmt|;
 return|return
