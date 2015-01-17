@@ -582,10 +582,10 @@ operator|==
 literal|5
 condition|)
 block|{
+comment|// note about revision 5: "Shall not be used. This value was used by a deprecated Adobe extension."
 return|return
 literal|6
 return|;
-comment|// note about revision 5: "Shall not be used. This value was used by a deprecated Adobe extension."
 block|}
 if|if
 condition|(
@@ -613,58 +613,6 @@ block|}
 return|return
 literal|4
 return|;
-block|}
-comment|/**      * Decrypt the document.      *      * @param doc The document to be decrypted.      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
-annotation|@
-name|Override
-specifier|public
-name|void
-name|decryptDocument
-parameter_list|(
-name|PDDocument
-name|doc
-parameter_list|,
-name|DecryptionMaterial
-name|decryptionMaterial
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|document
-operator|=
-name|doc
-expr_stmt|;
-name|PDEncryption
-name|dictionary
-init|=
-name|document
-operator|.
-name|getEncryption
-argument_list|()
-decl_stmt|;
-name|COSArray
-name|documentIDArray
-init|=
-name|document
-operator|.
-name|getDocument
-argument_list|()
-operator|.
-name|getDocumentID
-argument_list|()
-decl_stmt|;
-name|prepareForDecryption
-argument_list|(
-name|dictionary
-argument_list|,
-name|documentIDArray
-argument_list|,
-name|decryptionMaterial
-argument_list|)
-expr_stmt|;
-name|proceedDecryption
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * Prepares everything to decrypt the document.      *      * Called from {@link #decryptDocument(PDDocument, DecryptionMaterial)}.      * Only if decryption of single objects is needed this should be called instead.      *      * @param encryption  encryption dictionary      * @param documentIDArray  document id      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
 annotation|@
@@ -2134,8 +2082,7 @@ operator|.
 name|getDocumentID
 argument_list|()
 decl_stmt|;
-comment|//check if the document has an id yet.  If it does not then
-comment|//generate one
+comment|//check if the document has an id yet.  If it does not then generate one
 if|if
 condition|(
 name|idArray
