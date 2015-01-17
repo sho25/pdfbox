@@ -3547,6 +3547,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|securityHandler
+operator|.
 name|decrypt
 argument_list|(
 name|pb

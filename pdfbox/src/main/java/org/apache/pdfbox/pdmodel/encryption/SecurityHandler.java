@@ -906,41 +906,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Encrypt a set of data.      *      * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      * @throws IOException If there is an error reading the data.      * @deprecated While this works fine for RC4 encryption, it will never decrypt AES data      *             You should use encryptData(objectNumber, genNumber, data, output, decrypt)      *             which can do everything.  This function is just here for compatibility      *             reasons and will be removed in the future.      */
-specifier|public
-name|void
-name|encryptData
-parameter_list|(
-name|long
-name|objectNumber
-parameter_list|,
-name|long
-name|genNumber
-parameter_list|,
-name|InputStream
-name|data
-parameter_list|,
-name|OutputStream
-name|output
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|// default to encrypting since the function is named "encryptData"
-name|encryptData
-argument_list|(
-name|objectNumber
-argument_list|,
-name|genNumber
-argument_list|,
-name|data
-argument_list|,
-name|output
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Encrypt or decrypt a set of data.      *      * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      * @param decrypt true to decrypt the data, false to encrypt it.      *      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
@@ -1771,7 +1736,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will dispatch to the correct method.      *      * @param obj The object to decrypt.      * @param objNum The object number.      * @param genNum The object generation Number.      *      * @throws IOException If there is an error getting the stream data.      */
-specifier|private
+specifier|public
 name|void
 name|decrypt
 parameter_list|(
@@ -2048,6 +2013,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// skip dictionary containing the signature
+if|if
+condition|(
+operator|!
+name|COSName
+operator|.
+name|SIG
+operator|.
+name|equals
+argument_list|(
+name|dictionary
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|)
+argument_list|)
+condition|)
+block|{
 for|for
 control|(
 name|Map
@@ -2138,8 +2124,9 @@ block|}
 block|}
 block|}
 block|}
+block|}
 comment|/**      * This will decrypt a string.      *      * @param string the string to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If an error occurs writing the new string.      */
-specifier|public
+specifier|private
 name|void
 name|decryptString
 parameter_list|(
@@ -2261,7 +2248,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will decrypt an array.      *      * @param array The array to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error accessing the data.      */
-specifier|public
+specifier|private
 name|void
 name|decryptArray
 parameter_list|(
