@@ -91,6 +91,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|regex
 operator|.
 name|Pattern
@@ -365,6 +375,7 @@ name|GENERATION_NUMBER_THRESHOLD
 init|=
 literal|65535
 decl_stmt|;
+comment|/**      * String constant for ISO-8859-1 charset.      */
 specifier|public
 specifier|static
 specifier|final
@@ -625,6 +636,48 @@ name|NULL
 init|=
 literal|"null"
 decl_stmt|;
+comment|/**      * ASCII code for line feed.      */
+specifier|protected
+specifier|static
+specifier|final
+name|byte
+name|ASCII_LF
+init|=
+literal|10
+decl_stmt|;
+comment|/**      * ASCII code for carriage return.      */
+specifier|protected
+specifier|static
+specifier|final
+name|byte
+name|ASCII_CR
+init|=
+literal|13
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|byte
+name|ASCII_ZERO
+init|=
+literal|48
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|byte
+name|ASCII_NINE
+init|=
+literal|57
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|byte
+name|ASCII_SPACE
+init|=
+literal|32
+decl_stmt|;
 comment|/**      * This is the stream that will be read from.      */
 specifier|protected
 name|PushBackInputStream
@@ -765,11 +818,11 @@ return|return
 operator|(
 name|ch
 operator|>=
-literal|'0'
+name|ASCII_ZERO
 operator|&&
 name|ch
 operator|<=
-literal|'9'
+name|ASCII_NINE
 operator|)
 operator|||
 operator|(
@@ -792,9 +845,6 @@ operator|<=
 literal|'F'
 operator|)
 return|;
-comment|// the line below can lead to problems with certain versions of the IBM JIT compiler
-comment|// (and is slower anyway)
-comment|//return (HEXDIGITS.indexOf(ch) != -1);
 block|}
 comment|/**      * This will parse a PDF dictionary value.      *      * @return The parsed Dictionary object.      *      * @throws IOException If there is an error parsing the dictionary object.      */
 specifier|private
@@ -841,11 +891,11 @@ if|if
 condition|(
 name|next
 operator|>=
-literal|'0'
+name|ASCII_ZERO
 operator|&&
 name|next
 operator|<=
-literal|'9'
+name|ASCII_NINE
 condition|)
 block|{
 name|long
@@ -1401,9 +1451,9 @@ comment|//after the stream but before the start of the
 comment|//data, so just read those first
 while|while
 condition|(
-name|whitespace
+name|ASCII_SPACE
 operator|==
-literal|0x20
+name|whitespace
 condition|)
 block|{
 name|whitespace
@@ -1416,9 +1466,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|whitespace
+name|ASCII_CR
 operator|==
-literal|0x0D
+name|whitespace
 condition|)
 block|{
 name|whitespace
@@ -1430,9 +1480,9 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|whitespace
+name|ASCII_LF
 operator|!=
-literal|0x0A
+name|whitespace
 condition|)
 block|{
 name|pdfSource
@@ -1449,9 +1499,9 @@ block|}
 elseif|else
 if|if
 condition|(
-name|whitespace
+name|ASCII_LF
 operator|==
-literal|0x0A
+name|whitespace
 condition|)
 block|{
 comment|//that is fine
@@ -1519,19 +1569,6 @@ name|intValue
 argument_list|()
 expr_stmt|;
 block|}
-comment|// commented out next chunk since for the sequentially working PDFParser
-comment|// we do not know if length object is redefined later on and the currently
-comment|// read indirect object might be obsolete (e.g. not referenced in xref table);
-comment|// this would result in reading wrong number of bytes;
-comment|// Thus the only reliable information is a direct length.
-comment|// This exclusion shouldn't harm much since in case of indirect objects they will
-comment|// typically be defined after the stream object, thus keeping the directly
-comment|// provided length will fix most cases
-comment|// else if ( ( streamLength instanceof COSObject )&&
-comment|//           ( ( (COSObject) streamLength ).getObject() instanceof COSNumber ) )
-comment|// {
-comment|//     length = ( (COSNumber) ( (COSObject) streamLength ).getObject() ).intValue();
-comment|// }
 if|if
 condition|(
 name|length
@@ -2004,7 +2041,7 @@ return|return
 name|stream
 return|;
 block|}
-comment|/**      * This method will read through the current stream object until      * we find the keyword "endstream" meaning we're at the end of this      * object. Some pdf files, however, forget to write some endstream tags      * and just close off objects with an "endobj" tag so we have to handle      * this case as well.      *       * This method is optimized using buffered IO and reduced number of      * byte compare operations.      *       * @param out  stream we write out to.      *       * @throws IOException      */
+comment|/**      * This method will read through the current stream object until      * we find the keyword "endstream" meaning we're at the end of this      * object. Some pdf files, however, forget to write some endstream tags      * and just close off objects with an "endobj" tag so we have to handle      * this case as well.      *       * This method is optimized using buffered IO and reduced number of      * byte compare operations.      *       * @param out  stream we write out to.      *       * @throws IOException if something went wrong      */
 specifier|protected
 name|void
 name|readUntilEndStream
@@ -2339,13 +2376,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// while
+comment|// this writes a lonely CR or drops trailing CR LF and LF
 name|out
 operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-comment|// this writes a lonely CR or drops trailing CR LF and LF
 block|}
 comment|/**      * This is really a bug in the Document creators code, but it caused a crash      * in PDFBox, the first bug was in this format:      * /Title ( (5)      * /Creator which was patched in 1 place.      * However it missed the case where the Close Paren was escaped      *      * The second bug was in this format      * /Title (c:\)      * /Producer      *      * This patch  moves this code out of the parseCOSString method, so it can be used twice.      *      *      * @param bracesParameter the number of braces currently open.      *      * @return the corrected value of the brace counter      * @throws IOException      */
 specifier|private
@@ -2416,7 +2452,7 @@ index|[
 literal|0
 index|]
 operator|==
-literal|0x0d
+name|ASCII_CR
 comment|// Look for a carriage return
 operator|&&
 name|nextThreeBytes
@@ -2424,7 +2460,7 @@ index|[
 literal|1
 index|]
 operator|==
-literal|0x0a
+name|ASCII_LF
 comment|// Look for a new line
 operator|&&
 name|nextThreeBytes
@@ -2443,7 +2479,7 @@ index|[
 literal|0
 index|]
 operator|==
-literal|0x0d
+name|ASCII_CR
 comment|// Look for a carriage return
 operator|&&
 name|nextThreeBytes
@@ -2788,10 +2824,10 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-literal|10
+name|ASCII_LF
 case|:
 case|case
-literal|13
+name|ASCII_CR
 case|:
 comment|//this is a break in the line so ignore it and the newline and continue
 name|c
@@ -3534,12 +3570,12 @@ name|skipSpaces
 argument_list|()
 expr_stmt|;
 block|}
+comment|// read ']'
 name|pdfSource
 operator|.
 name|read
 argument_list|()
 expr_stmt|;
-comment|//read ']'
 name|skipSpaces
 argument_list|()
 expr_stmt|;
@@ -3560,15 +3596,15 @@ return|return
 operator|(
 name|ch
 operator|==
-literal|' '
+name|ASCII_SPACE
 operator|||
 name|ch
 operator|==
-literal|13
+name|ASCII_CR
 operator|||
 name|ch
 operator|==
-literal|10
+name|ASCII_LF
 operator|||
 name|ch
 operator|==
@@ -4045,6 +4081,7 @@ case|case
 literal|'<'
 case|:
 block|{
+comment|// pull off first left bracket
 name|int
 name|leftBracket
 init|=
@@ -4053,7 +4090,7 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-comment|//pull off first left bracket
+comment|// check for second left bracket
 name|c
 operator|=
 operator|(
@@ -4064,7 +4101,6 @@ operator|.
 name|peek
 argument_list|()
 expr_stmt|;
-comment|//check for second left bracket
 name|pdfSource
 operator|.
 name|unread
@@ -4101,8 +4137,8 @@ block|}
 case|case
 literal|'['
 case|:
-comment|// array
 block|{
+comment|// array
 name|retval
 operator|=
 name|parseCOSArray
@@ -4132,8 +4168,8 @@ break|break;
 case|case
 literal|'n'
 case|:
-comment|// null
 block|{
+comment|// null
 name|readExpectedString
 argument_list|(
 name|NULL
@@ -4604,45 +4640,81 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Read one String and throw an exception if it is not the expected value.      *      * @param es the String value that is expected.      * @throws IOException if the String char is not the expected value or if an      * I/O error occurs.      */
+comment|/**      * Read one String and throw an exception if it is not the expected value.      *      * @param expectedString the String value that is expected.      * @throws IOException if the String char is not the expected value or if an      * I/O error occurs.      */
 specifier|protected
 name|void
 name|readExpectedString
 parameter_list|(
 name|String
-name|es
+name|expectedString
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|String
-name|s
-init|=
-name|readString
+name|readExpectedString
+argument_list|(
+name|expectedString
+operator|.
+name|toCharArray
 argument_list|()
-decl_stmt|;
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Reads given pattern from {@link #pdfSource}. Skipping whitespace at start and end if wanted.      *       * @param expectedString pattern to be skipped      * @param skipSpaces if set to true spaces before and after the string will be skipped      * @throws IOException if pattern could not be read      */
+specifier|protected
+specifier|final
+name|void
+name|readExpectedString
+parameter_list|(
+specifier|final
+name|char
+index|[]
+name|expectedString
+parameter_list|,
+name|boolean
+name|skipSpaces
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|skipSpaces
+argument_list|()
+expr_stmt|;
+for|for
+control|(
+name|char
+name|c
+range|:
+name|expectedString
+control|)
+block|{
 if|if
 condition|(
-operator|!
-name|s
+name|pdfSource
 operator|.
-name|equals
-argument_list|(
-name|es
-argument_list|)
+name|read
+argument_list|()
+operator|!=
+name|c
 condition|)
 block|{
 throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"expected='"
+literal|"Expected string '"
 operator|+
-name|es
+operator|new
+name|String
+argument_list|(
+name|expectedString
+argument_list|)
 operator|+
-literal|"' actual='"
+literal|"' but missed at character '"
 operator|+
-name|s
+name|c
 operator|+
 literal|"' at offset "
 operator|+
@@ -4653,6 +4725,10 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+block|}
+name|skipSpaces
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Read one char and throw an exception if it is not the expected value.      *      * @param ec the char value that is expected.      * @throws IOException if the read char is not the expected value or if an      * I/O error occurs.      */
 specifier|protected
@@ -4962,13 +5038,13 @@ name|c
 parameter_list|)
 block|{
 return|return
-name|c
+name|ASCII_LF
 operator|==
-literal|10
+name|c
 operator|||
-name|c
+name|ASCII_CR
 operator|==
-literal|13
+name|c
 return|;
 block|}
 comment|/**      * This will tell if the next byte is whitespace or not.      *      * @return true if the next byte in the stream is a whitespace character.      *      * @throws IOException If there is an error reading from the stream.      */
@@ -5013,15 +5089,276 @@ literal|12
 operator|||
 name|c
 operator|==
-literal|10
+name|ASCII_LF
 operator|||
 name|c
 operator|==
-literal|13
+name|ASCII_CR
 operator|||
 name|c
 operator|==
-literal|32
+name|ASCII_SPACE
+return|;
+block|}
+comment|/**      * This will tell if the next byte is a space or not.      *      * @return true if the next byte in the stream is a space character.      *      * @throws IOException If there is an error reading from the stream.      */
+specifier|protected
+name|boolean
+name|isSpace
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|isSpace
+argument_list|(
+name|pdfSource
+operator|.
+name|peek
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * This will tell if the given value is a space or not.      *       * @param c The character to check against space      * @return true if the next byte in the stream is a space character.      */
+specifier|protected
+name|boolean
+name|isSpace
+parameter_list|(
+name|int
+name|c
+parameter_list|)
+block|{
+return|return
+name|ASCII_SPACE
+operator|==
+name|c
+return|;
+block|}
+comment|/**      * This will tell if the next byte is a digit or not.      *      * @return true if the next byte in the stream is a digit.      *      * @throws IOException If there is an error reading from the stream.      */
+specifier|protected
+name|boolean
+name|isDigit
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|isDigit
+argument_list|(
+name|pdfSource
+operator|.
+name|peek
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * This will tell if the given value is a digit or not.      *       * @param c The character to be checked      * @return true if the next byte in the stream is a digit.      */
+specifier|protected
+name|boolean
+name|isDigit
+parameter_list|(
+name|int
+name|c
+parameter_list|)
+block|{
+return|return
+name|c
+operator|>=
+name|ASCII_ZERO
+operator|&&
+name|c
+operator|<=
+name|ASCII_NINE
+return|;
+block|}
+comment|/**      * Checks if the given string can be found at the current offset.      *       * @param string the bytes of the string to look for      * @return true if the bytes are in place, false if not      * @throws IOException if something went wrong      */
+specifier|protected
+name|boolean
+name|isString
+parameter_list|(
+name|byte
+index|[]
+name|string
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|boolean
+name|bytesMatching
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|pdfSource
+operator|.
+name|peek
+argument_list|()
+operator|==
+name|string
+index|[
+literal|0
+index|]
+condition|)
+block|{
+name|int
+name|length
+init|=
+name|string
+operator|.
+name|length
+decl_stmt|;
+name|byte
+index|[]
+name|bytesRead
+init|=
+operator|new
+name|byte
+index|[
+name|length
+index|]
+decl_stmt|;
+name|int
+name|numberOfBytes
+init|=
+name|pdfSource
+operator|.
+name|read
+argument_list|(
+name|bytesRead
+argument_list|,
+literal|0
+argument_list|,
+name|length
+argument_list|)
+decl_stmt|;
+while|while
+condition|(
+name|numberOfBytes
+operator|<
+name|length
+condition|)
+block|{
+name|int
+name|readMore
+init|=
+name|pdfSource
+operator|.
+name|read
+argument_list|(
+name|bytesRead
+argument_list|,
+name|numberOfBytes
+argument_list|,
+name|length
+operator|-
+name|numberOfBytes
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|readMore
+operator|<
+literal|0
+condition|)
+block|{
+break|break;
+block|}
+name|numberOfBytes
+operator|+=
+name|readMore
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|Arrays
+operator|.
+name|equals
+argument_list|(
+name|string
+argument_list|,
+name|bytesRead
+argument_list|)
+condition|)
+block|{
+name|bytesMatching
+operator|=
+literal|true
+expr_stmt|;
+block|}
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
+name|bytesRead
+argument_list|,
+literal|0
+argument_list|,
+name|numberOfBytes
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|bytesMatching
+return|;
+block|}
+comment|/**      * Checks if the given string can be found at the current offset.      *       * @param string the bytes of the string to look for      * @return true if the bytes are in place, false if not      * @throws IOException if something went wrong      */
+specifier|protected
+name|boolean
+name|isString
+parameter_list|(
+name|char
+index|[]
+name|string
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|boolean
+name|bytesMatching
+init|=
+literal|true
+decl_stmt|;
+name|long
+name|originOffset
+init|=
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|char
+name|c
+range|:
+name|string
+control|)
+block|{
+if|if
+condition|(
+name|pdfSource
+operator|.
+name|read
+argument_list|()
+operator|!=
+name|c
+condition|)
+block|{
+name|bytesMatching
+operator|=
+literal|false
+expr_stmt|;
+block|}
+block|}
+name|pdfSource
+operator|.
+name|seek
+argument_list|(
+name|originOffset
+argument_list|)
+expr_stmt|;
+return|return
+name|bytesMatching
 return|;
 block|}
 comment|/**      * This will skip all spaces and comments that are present.      *      * @throws IOException If there is an error reading from the stream.      */
@@ -5032,7 +5369,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//log( "skipSpaces() " + pdfSource );
 name|int
 name|c
 init|=
@@ -5041,38 +5377,18 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-comment|// identical to, but faster as: isWhiteSpace(c) || c == 37
+comment|// 37 is the % character, a comment
 while|while
 condition|(
+name|isWhitespace
+argument_list|(
 name|c
-operator|==
-literal|0
-operator|||
-name|c
-operator|==
-literal|9
-operator|||
-name|c
-operator|==
-literal|12
-operator|||
-name|c
-operator|==
-literal|10
-operator|||
-name|c
-operator|==
-literal|13
-operator|||
-name|c
-operator|==
-literal|32
+argument_list|)
 operator|||
 name|c
 operator|==
 literal|37
 condition|)
-comment|//37 is the % character, a comment
 block|{
 if|if
 condition|(
@@ -5139,7 +5455,6 @@ name|c
 argument_list|)
 expr_stmt|;
 block|}
-comment|//log( "skipSpaces() done peek='" + (char)pdfSource.peek() + "'" );
 block|}
 comment|/**      * This will read a long from the Stream and throw an {@link IOException} if      * the long value is negative or has more than 10 digits (i.e. : bigger than      * {@link #OBJECT_NUMBER_THRESHOLD})      *      * @return the object number being read.      * @throws IOException if an I/O error occurs      */
 specifier|protected
@@ -5415,15 +5730,15 @@ name|read
 argument_list|()
 operator|)
 operator|!=
-literal|32
+name|ASCII_SPACE
 operator|&&
 name|lastByte
 operator|!=
-literal|10
+name|ASCII_LF
 operator|&&
 name|lastByte
 operator|!=
-literal|13
+name|ASCII_CR
 operator|&&
 name|lastByte
 operator|!=
@@ -5482,7 +5797,7 @@ return|return
 name|buffer
 return|;
 block|}
-comment|/**      * Skip to the start of the next object. This is used to recover from a      * corrupt object. This should handle all cases that parseObject supports.      * This assumes that the next object will start on its own line.      *      * @throws IOException      */
+comment|/**      * Skip to the start of the next object. This is used to recover from a      * corrupt object. This should handle all cases that parseObject supports.      * This assumes that the next object will start on its own line.      *      * @throws IOException if something went wrong.      */
 specifier|protected
 name|void
 name|skipToNextObj
