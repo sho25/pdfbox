@@ -233,6 +233,24 @@ name|pfb
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Create a new object.      * @param bytes   The input.      * @throws IOException if an IO-error occurs.      */
+specifier|public
+name|PfbParser
+parameter_list|(
+specifier|final
+name|byte
+index|[]
+name|bytes
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|parsePfb
+argument_list|(
+name|bytes
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Parse the pfb-array.      * @param pfb   The pfb-Array      * @throws IOException in an IO-error occurs.      */
 specifier|private
 name|void

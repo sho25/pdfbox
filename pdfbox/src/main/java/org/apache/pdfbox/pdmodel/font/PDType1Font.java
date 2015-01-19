@@ -483,6 +483,14 @@ argument_list|)
 expr_stmt|;
 comment|// misspelled in ArialMT
 block|}
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|PFB_START_MARKER
+init|=
+literal|0x80
+decl_stmt|;
 comment|// todo: replace with enum? or getters?
 specifier|public
 specifier|static
@@ -960,6 +968,33 @@ argument_list|,
 name|length1
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|(
+name|bytes
+index|[
+literal|0
+index|]
+operator|&
+literal|0xff
+operator|)
+operator|==
+name|PFB_START_MARKER
+condition|)
+block|{
+comment|// some bad files embed the entire PFB, see PDFBOX-2607
+name|t1
+operator|=
+name|Type1Font
+operator|.
+name|createWithPFB
+argument_list|(
+name|bytes
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// the PFB embedded as two segments back-to-back
 name|byte
 index|[]
@@ -1016,6 +1051,7 @@ argument_list|,
 name|segment2
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
