@@ -489,6 +489,10 @@ operator|+
 literal|" name="
 operator|+
 name|nameId
+operator|+
+literal|" "
+operator|+
+name|string
 return|;
 block|}
 comment|/**      * @return Returns the string.      */

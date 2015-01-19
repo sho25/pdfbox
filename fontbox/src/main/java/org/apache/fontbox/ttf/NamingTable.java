@@ -267,6 +267,27 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+comment|// don't try to read invalid offsets, see PDFBOX-2608
+if|if
+condition|(
+name|nr
+operator|.
+name|getStringOffset
+argument_list|()
+operator|>
+name|getLength
+argument_list|()
+condition|)
+block|{
+name|nr
+operator|.
+name|setString
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|data
 operator|.
 name|seek
