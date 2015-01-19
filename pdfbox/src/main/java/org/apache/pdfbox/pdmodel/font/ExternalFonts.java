@@ -1210,22 +1210,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|String
-name|message
-init|=
-name|fontProvider
-operator|.
-name|toDebugString
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|message
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// if we couldn't get a PFB font by now then there's no point continuing
+comment|// only systems with no fonts should reach this point, so we return a basic fallback
 name|log
 operator|.
 name|error
@@ -1234,26 +1219,12 @@ literal|"No fallback font for '"
 operator|+
 name|fontName
 operator|+
-literal|"', dumping debug information:"
+literal|"'"
 argument_list|)
 expr_stmt|;
-name|log
-operator|.
-name|error
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
-block|}
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"No fonts available on the system for "
-operator|+
-name|fontName
-argument_list|)
-throw|;
+return|return
+name|ttfFallbackFont
+return|;
 block|}
 return|return
 name|type1Equivalent
