@@ -18,18 +18,16 @@ package|;
 end_package
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|pdfbox
 operator|.
-name|preflight
+name|cos
 operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_ACTION_MISING_KEY
+name|COSArray
 import|;
 end_import
 
@@ -72,6 +70,52 @@ operator|.
 name|cos
 operator|.
 name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSNumber
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_ACTION_INVALID_TYPE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_ACTION_MISING_KEY
 import|;
 end_import
 
@@ -145,7 +189,7 @@ name|aaKey
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.actions.AbstractActionManager#valid(java.util .List)      */
+comment|/*      * (non-Javadoc)      *       * @see AbstractActionManager#valid(java.util.List)      */
 annotation|@
 name|Override
 specifier|protected
@@ -199,6 +243,60 @@ return|return
 literal|false
 return|;
 block|}
+block|}
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|validateExplicitDestination
+parameter_list|(
+name|COSArray
+name|ar
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|ar
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|instanceof
+name|COSNumber
+operator|)
+condition|)
+block|{
+comment|// "its first element shall be a page number"
+name|context
+operator|.
+name|addValidationError
+argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_ACTION_INVALID_TYPE
+argument_list|,
+literal|"First element in /D array entry of GoToRemoteAction must be a page number, but is "
+operator|+
+name|ar
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 return|return
 literal|true
