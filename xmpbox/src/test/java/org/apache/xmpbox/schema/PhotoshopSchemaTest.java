@@ -131,6 +131,8 @@ name|schema
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|PhotoshopSchema
 name|getSchema
@@ -142,6 +144,8 @@ return|;
 block|}
 annotation|@
 name|Before
+annotation|@
+name|Override
 specifier|public
 name|void
 name|before
@@ -530,7 +534,7 @@ name|Text
 block|,
 name|Cardinality
 operator|.
-name|Bag
+name|Simple
 block|}
 argument_list|)
 expr_stmt|;
