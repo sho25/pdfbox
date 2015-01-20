@@ -2536,6 +2536,32 @@ condition|)
 block|{
 if|if
 condition|(
+name|nextChar
+operator|==
+literal|'\t'
+operator|||
+name|nextChar
+operator|==
+literal|'\f'
+operator|||
+name|nextChar
+operator|==
+literal|'\n'
+operator|||
+name|nextChar
+operator|==
+literal|'\r'
+operator|||
+name|nextChar
+operator|==
+literal|' '
+condition|)
+block|{
+comment|// ignore space characters
+continue|continue;
+block|}
+if|if
+condition|(
 name|Character
 operator|.
 name|digit
