@@ -2464,7 +2464,12 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_NAME_TOO_LONG
 argument_list|,
-literal|"Name too long"
+literal|"Name too long: "
+operator|+
+name|result
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
