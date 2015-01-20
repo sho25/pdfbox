@@ -1535,13 +1535,17 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|": The character with CID\""
+literal|": The character with CID "
 operator|+
 name|code
 operator|+
-literal|"\" should have a width equals to "
+literal|" should have a width equals to "
 operator|+
 name|width
+operator|+
+literal|", but has "
+operator|+
+name|fontProgramWidth
 argument_list|)
 decl_stmt|;
 name|this
