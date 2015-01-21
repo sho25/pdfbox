@@ -34,11 +34,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will take a dictionary and determine which type of action to create.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
+comment|/**  * This class will take a dictionary and determine which type of action to create.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|PDActionFactory
 block|{
@@ -185,6 +186,28 @@ name|retval
 operator|=
 operator|new
 name|PDActionURI
+argument_list|(
+name|action
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|PDActionNamed
+operator|.
+name|SUB_TYPE
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+name|retval
+operator|=
+operator|new
+name|PDActionNamed
 argument_list|(
 name|action
 argument_list|)
