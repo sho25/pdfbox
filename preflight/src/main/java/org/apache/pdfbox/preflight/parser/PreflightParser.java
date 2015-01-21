@@ -1486,7 +1486,7 @@ name|PreflightConstants
 operator|.
 name|ERROR_SYNTAX_HEADER
 argument_list|,
-literal|"Second line must contains at least 4 bytes greater than 127"
+literal|"Second line must begin with '%' followed by at least 4 bytes greater than 127"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1519,7 +1519,7 @@ name|PreflightConstants
 operator|.
 name|ERROR_SYNTAX_HEADER
 argument_list|,
-literal|"Second line must contains at least 4 bytes greater than 127"
+literal|"Second line must begin with '%' followed by at least 4 bytes greater than 127"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1538,7 +1538,7 @@ name|PreflightConstants
 operator|.
 name|ERROR_SYNTAX_HEADER
 argument_list|,
-literal|"Second line must contains at least 4 bytes greater than 127"
+literal|"Second line must begin with '%' followed by at least 4 bytes greater than 127"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2541,25 +2541,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|isWhitespace
+argument_list|(
 name|nextChar
-operator|==
-literal|'\t'
-operator|||
-name|nextChar
-operator|==
-literal|'\f'
-operator|||
-name|nextChar
-operator|==
-literal|'\n'
-operator|||
-name|nextChar
-operator|==
-literal|'\r'
-operator|||
-name|nextChar
-operator|==
-literal|' '
+argument_list|)
 condition|)
 block|{
 comment|// ignore space characters
