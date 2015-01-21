@@ -224,6 +224,7 @@ return|;
 block|}
 comment|/**      * This will set the type of PDF object that the actions dictionary describes.      * If present must be Action for an action dictionary.      *      * @param type The new Type for the PDF object.      */
 specifier|public
+specifier|final
 name|void
 name|setType
 parameter_list|(
