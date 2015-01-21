@@ -488,7 +488,7 @@ name|xmp
 argument_list|,
 name|baos
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|metadata
