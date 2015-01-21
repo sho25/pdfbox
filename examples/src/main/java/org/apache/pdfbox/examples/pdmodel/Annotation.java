@@ -260,7 +260,7 @@ parameter_list|()
 block|{
 comment|//utility class, should not be instantiated.
 block|}
-comment|/**      * This will create a doucument showing various annotations.      *      * @param args The command line arguments.      *      * @throws Exception If there is an error parsing the document.      */
+comment|/**      * This will create a document showing various annotations.      *      * @param args The command line arguments.      *      * @throws Exception If there is an error parsing the document.      */
 specifier|public
 specifier|static
 name|void
