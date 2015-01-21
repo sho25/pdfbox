@@ -715,14 +715,6 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
-specifier|static
-specifier|final
-name|String
-name|SPACE
-init|=
-literal|" "
-decl_stmt|;
-specifier|private
 name|OutputStream
 name|output
 decl_stmt|;
@@ -792,6 +784,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Stack
 argument_list|<
 name|PDColorSpace
@@ -806,6 +799,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Stack
 argument_list|<
 name|PDColorSpace
@@ -818,19 +812,6 @@ argument_list|<
 name|PDColorSpace
 argument_list|>
 argument_list|()
-decl_stmt|;
-comment|// cached storage component for getting color values
-specifier|private
-specifier|final
-name|float
-index|[]
-name|colorComponents
-init|=
-operator|new
-name|float
-index|[
-literal|4
-index|]
 decl_stmt|;
 comment|// number format
 specifier|private
@@ -964,8 +945,6 @@ decl_stmt|;
 comment|// This will be the resulting COSStreamArray after existing and new streams are merged
 name|COSStreamArray
 name|compoundStream
-init|=
-literal|null
 decl_stmt|;
 comment|// If contents is already an array, a new stream is simply appended to it
 if|if
@@ -2641,8 +2620,6 @@ throw|;
 block|}
 name|String
 name|xObjectPrefix
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
