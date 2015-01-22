@@ -7596,6 +7596,14 @@ literal|false
 return|;
 block|}
 comment|//read "trailer"
+name|long
+name|currentOffset
+init|=
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
+decl_stmt|;
 name|String
 name|nextLine
 init|=
@@ -7630,17 +7638,7 @@ literal|"trailer"
 argument_list|)
 condition|)
 block|{
-name|byte
-index|[]
-name|b
-init|=
-name|nextLine
-operator|.
-name|getBytes
-argument_list|(
-name|ISO_8859_1
-argument_list|)
-decl_stmt|;
+comment|// we can't just unread a portion of the read data as we don't know if the EOL consist of 1 or 2 bytes
 name|int
 name|len
 init|=
@@ -7649,25 +7647,13 @@ operator|.
 name|length
 argument_list|()
 decl_stmt|;
+comment|// jump back right after "trailer"
 name|pdfSource
 operator|.
-name|unread
+name|seek
 argument_list|(
-literal|'\n'
-argument_list|)
-expr_stmt|;
-name|pdfSource
-operator|.
-name|unread
-argument_list|(
-name|b
-argument_list|,
-name|len
-argument_list|,
-name|b
-operator|.
-name|length
-operator|-
+name|currentOffset
+operator|+
 name|len
 argument_list|)
 expr_stmt|;
