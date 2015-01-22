@@ -292,6 +292,20 @@ name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fontDescriptor
+operator|.
+name|setSymbolic
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|fontDescriptor
+operator|.
+name|setNonSymbolic
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// add the font descriptor
 name|dict
 operator|.
