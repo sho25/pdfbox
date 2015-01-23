@@ -41,13 +41,11 @@ interface|interface
 name|DualCOSObjectable
 block|{
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-specifier|public
 name|COSBase
 name|getFirstCOSObject
 parameter_list|()
 function_decl|;
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-specifier|public
 name|COSBase
 name|getSecondCOSObject
 parameter_list|()

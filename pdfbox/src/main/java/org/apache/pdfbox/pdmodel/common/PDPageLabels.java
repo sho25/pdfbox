@@ -710,7 +710,6 @@ specifier|static
 interface|interface
 name|LabelHandler
 block|{
-specifier|public
 name|void
 name|newLabel
 parameter_list|(
