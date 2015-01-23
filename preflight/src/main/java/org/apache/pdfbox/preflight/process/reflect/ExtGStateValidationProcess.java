@@ -401,8 +401,6 @@ extends|extends
 name|AbstractProcess
 block|{
 comment|/**      * Validate the ExtGState dictionaries.      *       * @param context the context which contains the Resource dictionary.      * @throws ValidationException thrown if a the Extended Graphic State isn't valid.      */
-annotation|@
-name|Override
 specifier|public
 name|void
 name|validate
@@ -725,6 +723,13 @@ operator|.
 name|SMASK
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|smVal
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// ---- Soft Mask is valid only if it is a COSName equals to None
 if|if
 condition|(
@@ -766,6 +771,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 comment|/**      * This method checks the BM value of the ExtGState dictionary. The Blend Mode is optional but must be "Normal" or      * "Compatible" if it is present.      *       * @param context the preflight context     * @param egs the graphic state to check      */
 specifier|private
 name|void
@@ -788,6 +794,13 @@ argument_list|(
 name|TRANSPARENCY_DICTIONARY_KEY_BLEND_MODE
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|bmVal
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// ---- Blend Mode is valid only if it is equals to Normal or Compatible
 if|if
 condition|(
@@ -844,6 +857,7 @@ literal|"BlendMode value isn't valid (only Normal and Compatible are authorized)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * This method checks the "CA" and "ca" values of the ExtGState dictionary. They are optional but must be 1.0 if      * they are present.      *       * @param context the preflight context.      * @param egs the graphic state to check      */
