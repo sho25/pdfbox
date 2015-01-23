@@ -65,13 +65,13 @@ extends|extends
 name|PDFontLike
 block|{
 comment|/**      * Returns the name of this font.      */
-specifier|public
+annotation|@
+name|Override
 name|String
 name|getName
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the glyph name for the given character code.      *      * @param code character code      * @return PostScript glyph name      */
-specifier|public
 name|String
 name|codeToName
 parameter_list|(
@@ -82,7 +82,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns the glyph path for the given character code.      * @param name PostScript glyph name      * @throws java.io.IOException if the font could not be read      */
-specifier|public
 name|GeneralPath
 name|getPath
 parameter_list|(
@@ -93,7 +92,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns the embedded or system font for rendering. This font is a Type 1-equivalent, but      * may not be a Type 1 font, it could be a CFF font or TTF font. If there is no suitable font      * then the fallback font will be returned: this method never returns null.      */
-specifier|public
 name|Type1Equivalent
 name|getType1Equivalent
 parameter_list|()
