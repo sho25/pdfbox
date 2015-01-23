@@ -1853,10 +1853,7 @@ condition|(
 name|ocProperties
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|document
 operator|.
 name|getDocument
@@ -1878,7 +1875,6 @@ argument_list|(
 literal|1.5
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
