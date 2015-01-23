@@ -54,42 +54,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|tools
-operator|.
-name|imageio
-operator|.
-name|MetaUtil
-operator|.
-name|JPEG_NATIVE_FORMAT
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|tools
-operator|.
-name|imageio
-operator|.
-name|MetaUtil
-operator|.
-name|debugLogMetadata
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -118,9 +82,14 @@ comment|/**  *  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
+specifier|final
 class|class
 name|JPEGUtil
 block|{
+specifier|private
+name|JPEGUtil
+parameter_list|()
+block|{     }
 comment|/**      * Set dpi in a JPEG file      *      * @param metadata the meta data      * @param dpi the dpi      *      * @throws IIOInvalidTreeException if something goes wrong      */
 specifier|static
 name|void
@@ -401,6 +370,7 @@ literal|"0"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// mergeTree doesn't work for ARGB
 name|metadata
 operator|.
 name|setFromTree
@@ -412,7 +382,6 @@ argument_list|,
 name|root
 argument_list|)
 expr_stmt|;
-comment|// mergeTree doesn't work for ARGB
 block|}
 block|}
 end_class
