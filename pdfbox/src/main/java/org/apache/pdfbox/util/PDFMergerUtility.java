@@ -1818,10 +1818,7 @@ condition|(
 name|destParentTreeNextKey
 operator|>
 literal|0
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|srcStructTree
 operator|!=
 literal|null
@@ -1874,7 +1871,6 @@ name|mergeStructTree
 operator|=
 literal|true
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2580,10 +2576,7 @@ condition|(
 name|page
 operator|instanceof
 name|COSDictionary
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|objMapping
 operator|.
 name|containsKey
@@ -2609,7 +2602,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 name|COSBase
 name|obj
 init|=
@@ -2627,10 +2619,7 @@ condition|(
 name|obj
 operator|instanceof
 name|COSDictionary
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|objMapping
 operator|.
 name|containsKey
@@ -2655,7 +2644,6 @@ name|obj
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|COSBase
 name|kSubEntry
