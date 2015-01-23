@@ -410,7 +410,9 @@ name|object
 argument_list|)
 expr_stmt|;
 block|}
-comment|// skip endobject marker
+comment|// According to the spec objects within an object stream shall not be enclosed
+comment|// by obj/endobj tags, but there are some pdfs in the wild using those tags
+comment|// skip endobject marker if present
 if|if
 condition|(
 operator|!
@@ -418,10 +420,7 @@ name|pdfSource
 operator|.
 name|isEOF
 argument_list|()
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|pdfSource
 operator|.
 name|peek
@@ -433,21 +432,6 @@ block|{
 name|readLine
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"no endobject marker found for object "
-operator|+
-name|objNum
-operator|+
-literal|" in object stream"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 name|objectCounter
 operator|++
