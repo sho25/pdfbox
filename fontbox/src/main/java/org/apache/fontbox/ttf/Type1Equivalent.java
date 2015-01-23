@@ -75,7 +75,6 @@ interface|interface
 name|Type1Equivalent
 block|{
 comment|/**      * The PostScript name of the font.      */
-specifier|public
 name|String
 name|getName
 parameter_list|()
@@ -83,7 +82,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns the Type 1 CharString for the character with the given name.      *      * @return glyph path      * @throws IOException if the path could not be read      */
-specifier|public
 name|GeneralPath
 name|getPath
 parameter_list|(
@@ -94,7 +92,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns the advance width for the character with the given name.      *      * @return glyph advance width      * @throws IOException if the path could not be read      */
-specifier|public
 name|float
 name|getWidth
 parameter_list|(
@@ -105,7 +102,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns true if the font contains the given glyph.      * @param name PostScript glyph name      */
-specifier|public
 name|boolean
 name|hasGlyph
 parameter_list|(
@@ -116,7 +112,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns the PostScript Encoding vector for the font.      */
-specifier|public
 name|Encoding
 name|getEncoding
 parameter_list|()
@@ -124,8 +119,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns the font's bounding box in PostScript units.      */
-specifier|public
-specifier|abstract
 name|BoundingBox
 name|getFontBBox
 parameter_list|()
