@@ -466,6 +466,17 @@ name|this
 operator|.
 name|xobject
 operator|.
+name|getItem
+argument_list|(
+literal|"Interpolate"
+argument_list|)
+operator|!=
+literal|null
+operator|&&
+name|this
+operator|.
+name|xobject
+operator|.
 name|getBoolean
 argument_list|(
 literal|"Interpolate"
