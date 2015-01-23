@@ -284,6 +284,7 @@ argument_list|)
 throw|;
 block|}
 specifier|private
+specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
@@ -342,6 +343,8 @@ name|dictionary
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
