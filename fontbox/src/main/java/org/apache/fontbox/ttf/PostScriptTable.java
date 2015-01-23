@@ -25,20 +25,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|encoding
-operator|.
-name|Encoding
-import|;
-end_import
-
 begin_comment
 comment|/**  * A table in a true type font.  *   * @author Ben Litchfield (ben@benlitchfield.com)  */
 end_comment
@@ -103,6 +89,8 @@ init|=
 literal|"post"
 decl_stmt|;
 comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|read
