@@ -1167,6 +1167,7 @@ argument_list|(
 name|acroForm
 argument_list|)
 expr_stmt|;
+comment|// append the signature object
 name|signatureField
 operator|.
 name|setSignature
@@ -1174,7 +1175,7 @@ argument_list|(
 name|sigObject
 argument_list|)
 expr_stmt|;
-comment|// append the signature object
+comment|// backward linking
 name|signatureField
 operator|.
 name|getWidget
@@ -1185,7 +1186,6 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
-comment|// backward linking
 block|}
 comment|// Set the AcroForm Fields
 name|List
@@ -1919,6 +1919,7 @@ name|isSignaturesExist
 argument_list|()
 condition|)
 block|{
+comment|// 1 if at least one signature field is available
 name|acroForm
 operator|.
 name|setSignaturesExist
@@ -1926,7 +1927,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// 1 if at least one signature field is available
 block|}
 name|List
 argument_list|<
@@ -1965,7 +1965,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// Check if the field already exist
+comment|// Check if the field already exists
 name|boolean
 name|checkFields
 init|=
@@ -2523,10 +2523,7 @@ condition|(
 name|encryption
 operator|==
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|isEncrypted
 argument_list|()
 condition|)
@@ -2542,7 +2539,6 @@ name|getEncryptionDictionary
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|encryption
