@@ -103,6 +103,7 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|PDFontFactory
 block|{
@@ -417,7 +418,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Type 0 descendant font not allowed"
+literal|"Type 2 descendant font not allowed"
 argument_list|)
 throw|;
 block|}
