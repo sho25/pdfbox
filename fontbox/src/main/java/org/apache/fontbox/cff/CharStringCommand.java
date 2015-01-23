@@ -154,6 +154,8 @@ name|key
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -215,6 +217,8 @@ return|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode
@@ -229,6 +233,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
@@ -366,6 +372,8 @@ name|value
 expr_stmt|;
 block|}
 comment|/**          * {@inheritDoc}          */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -382,6 +390,8 @@ argument_list|)
 return|;
 block|}
 comment|/**          * {@inheritDoc}          */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode
@@ -395,10 +405,7 @@ literal|0
 index|]
 operator|==
 literal|12
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|keyValues
 operator|.
 name|length
@@ -418,7 +425,6 @@ literal|1
 index|]
 return|;
 block|}
-block|}
 return|return
 name|keyValues
 index|[
@@ -427,6 +433,8 @@ index|]
 return|;
 block|}
 comment|/**          * {@inheritDoc}          */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
