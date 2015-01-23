@@ -6047,6 +6047,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Close the content stream.  This must be called when you are done with this object.      *      * @throws IOException If the underlying stream has a problem being written to.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -6068,10 +6070,7 @@ condition|(
 name|font
 operator|instanceof
 name|PDType0Font
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|(
 operator|(
 name|PDType0Font
@@ -6097,7 +6096,6 @@ name|font
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|output
