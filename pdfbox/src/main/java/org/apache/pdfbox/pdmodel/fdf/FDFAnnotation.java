@@ -347,10 +347,7 @@ condition|(
 name|color
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|color
 operator|.
 name|length
@@ -396,7 +393,6 @@ name|colorValue
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|setDate
 argument_list|(
