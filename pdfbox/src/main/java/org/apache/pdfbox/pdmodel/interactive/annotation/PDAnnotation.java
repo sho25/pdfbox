@@ -187,7 +187,25 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDGamma
+name|PDColor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|color
+operator|.
+name|PDDeviceRGB
 import|;
 end_import
 
@@ -1766,12 +1784,12 @@ name|structParent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the colour used in drawing various elements. As of PDF 1.6 these are : Background of icon when      * closed Title bar of popup window Border of a link annotation      *       * Colour is in DeviceRGB colourspace      *       * @param c colour in the DeviceRGB colourspace      *       */
+comment|/**      * This will set the color used in drawing various elements. As of PDF 1.6 these are : Background of icon when      * closed Title bar of popup window Border of a link annotation      *       * Colour is in DeviceRGB colourspace      *       * @param c colour in the DeviceRGB colourspace      *       */
 specifier|public
 name|void
-name|setColour
+name|setColor
 parameter_list|(
-name|PDGamma
+name|PDColor
 name|c
 parameter_list|)
 block|{
@@ -1785,13 +1803,16 @@ operator|.
 name|C
 argument_list|,
 name|c
+operator|.
+name|toCOSArray
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the colour used in drawing various elements. As of PDF 1.6 these are : Background of icon when      * closed Title bar of popup window Border of a link annotation      *       * Colour is in DeviceRGB colourspace      *       * @return PDGamma object representing the colour      *       */
+comment|/**      * This will retrieve the color used in drawing various elements. As of PDF 1.6 these are : Background of icon when      * closed Title bar of popup window Border of a link annotation      *       * Colour is in DeviceRGB colourspace      *       * @return PDGamma object representing the colour      *       */
 specifier|public
-name|PDGamma
-name|getColour
+name|PDColor
+name|getColor
 parameter_list|()
 block|{
 name|COSBase
@@ -1816,12 +1837,16 @@ condition|)
 block|{
 return|return
 operator|new
-name|PDGamma
+name|PDColor
 argument_list|(
 operator|(
 name|COSArray
 operator|)
 name|obj
+argument_list|,
+name|PDDeviceRGB
+operator|.
+name|INSTANCE
 argument_list|)
 return|;
 block|}

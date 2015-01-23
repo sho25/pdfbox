@@ -71,11 +71,9 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|graphics
+name|common
 operator|.
-name|color
-operator|.
-name|PDGamma
+name|PDRectangle
 import|;
 end_import
 
@@ -89,9 +87,29 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|common
+name|graphics
 operator|.
-name|PDRectangle
+name|color
+operator|.
+name|PDColor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|color
+operator|.
+name|PDDeviceRGB
 import|;
 end_import
 
@@ -155,12 +173,12 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set interior colour of the drawn area      * Colour is in DeviceRGB colourspace.      *      * @param ic      *            colour in the DeviceRGB colourspace.      *      */
+comment|/**      * This will set interior color of the drawn area      * color is in DeviceRGB colo rspace.      *      * @param ic color in the DeviceRGB color space.      *      */
 specifier|public
 name|void
-name|setInteriorColour
+name|setInteriorColor
 parameter_list|(
-name|PDGamma
+name|PDColor
 name|ic
 parameter_list|)
 block|{
@@ -172,13 +190,16 @@ argument_list|(
 literal|"IC"
 argument_list|,
 name|ic
+operator|.
+name|toCOSArray
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the interior colour of the drawn area      * Colour is in DeviceRGB colourspace.      *      *      * @return PDGamma object representing the colour.      *      */
+comment|/**      * This will retrieve the interior color of the drawn area      * color is in DeviceRGB color space.      *      * @return  object representing the color.      */
 specifier|public
-name|PDGamma
-name|getInteriorColour
+name|PDColor
+name|getInteriorColor
 parameter_list|()
 block|{
 name|COSArray
@@ -209,9 +230,13 @@ condition|)
 block|{
 return|return
 operator|new
-name|PDGamma
+name|PDColor
 argument_list|(
 name|ic
+argument_list|,
+name|PDDeviceRGB
+operator|.
+name|INSTANCE
 argument_list|)
 return|;
 block|}
