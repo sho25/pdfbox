@@ -1152,13 +1152,6 @@ decl_stmt|;
 if|if
 condition|(
 name|cff
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|cff
 operator|instanceof
 name|CFFCIDFont
 condition|)
@@ -1169,7 +1162,6 @@ name|CFFCIDFont
 operator|)
 name|cff
 return|;
-block|}
 block|}
 block|}
 block|}
