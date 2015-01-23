@@ -248,26 +248,17 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|PDDestination
-name|dest
-init|=
+if|if
+condition|(
 name|this
 operator|.
 name|pdLink
 operator|.
 name|getDestination
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|dest
 operator|!=
 literal|null
-condition|)
-block|{
-comment|// ---- check the if an A entry is present.
-if|if
-condition|(
+operator|&&
 name|this
 operator|.
 name|pdLink
@@ -294,7 +285,6 @@ expr_stmt|;
 return|return
 literal|false
 return|;
-block|}
 block|}
 block|}
 catch|catch
