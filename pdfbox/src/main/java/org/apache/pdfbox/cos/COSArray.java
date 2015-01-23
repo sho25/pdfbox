@@ -1104,10 +1104,7 @@ condition|(
 name|item
 operator|instanceof
 name|COSObject
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|(
 operator|(
 name|COSObject
@@ -1129,7 +1126,6 @@ operator|=
 name|i
 expr_stmt|;
 break|break;
-block|}
 block|}
 block|}
 return|return
