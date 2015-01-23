@@ -369,8 +369,6 @@ decl_stmt|;
 specifier|public
 name|XmpSerializer
 parameter_list|()
-throws|throws
-name|XmpSerializationException
 block|{
 comment|// xml init
 name|DocumentBuilderFactory
@@ -397,12 +395,11 @@ name|ParserConfigurationException
 name|e
 parameter_list|)
 block|{
+comment|// never happens, because we don't call builderFactory#setAttribute
 throw|throw
 operator|new
-name|XmpSerializationException
+name|RuntimeException
 argument_list|(
-literal|"Failed to init XmpSerializer"
-argument_list|,
 name|e
 argument_list|)
 throw|;
