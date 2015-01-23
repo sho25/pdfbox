@@ -2442,10 +2442,8 @@ condition|(
 name|amountRead
 operator|==
 literal|3
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
+operator|(
 operator|(
 name|nextThreeBytes
 index|[
@@ -2489,6 +2487,7 @@ index|]
 operator|==
 literal|0x2f
 operator|)
+operator|)
 condition|)
 comment|// Look for a slash /
 block|{
@@ -2496,7 +2495,6 @@ name|braces
 operator|=
 literal|0
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
