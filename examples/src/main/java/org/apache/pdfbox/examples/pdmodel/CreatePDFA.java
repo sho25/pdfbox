@@ -13,7 +13,7 @@ name|pdfbox
 operator|.
 name|examples
 operator|.
-name|pdfa
+name|pdmodel
 package|;
 end_package
 
