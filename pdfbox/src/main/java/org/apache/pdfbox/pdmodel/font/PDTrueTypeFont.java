@@ -1547,10 +1547,7 @@ name|cmap
 operator|.
 name|getPlatformId
 argument_list|()
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|CmapTable
 operator|.
 name|ENCODING_MAC_ROMAN
@@ -1565,7 +1562,6 @@ name|cmapMacRoman
 operator|=
 name|cmap
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
