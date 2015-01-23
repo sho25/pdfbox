@@ -202,6 +202,7 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSDictionary
 name|node
 decl_stmt|;
@@ -474,6 +475,7 @@ name|kidsNode
 range|:
 name|kids
 control|)
+block|{
 name|kidsNode
 operator|.
 name|setParent
@@ -481,6 +483,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 name|node
 operator|.
 name|setItem
