@@ -1962,10 +1962,7 @@ condition|(
 name|unicodes
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|unicodes
 operator|.
 name|length
@@ -2004,7 +2001,6 @@ block|{
 return|return
 name|uniName
 return|;
-block|}
 block|}
 block|}
 block|}
