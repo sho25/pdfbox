@@ -1239,14 +1239,10 @@ specifier|private
 interface|interface
 name|CodeWord
 block|{
-specifier|public
-specifier|abstract
 name|int
 name|getType
 parameter_list|()
 function_decl|;
-specifier|public
-specifier|abstract
 name|int
 name|execute
 parameter_list|(
