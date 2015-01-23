@@ -493,10 +493,7 @@ condition|(
 name|base
 operator|instanceof
 name|COSArray
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|(
 operator|(
 name|COSArray
@@ -520,7 +517,6 @@ operator|)
 name|base
 argument_list|)
 return|;
-block|}
 block|}
 return|return
 literal|null
