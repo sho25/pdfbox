@@ -45,6 +45,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -109,6 +119,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|io
+operator|.
+name|RandomAccessFile
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -134,7 +158,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for creating a PDImageXObject containing a CCITT Fax compressed TIFF image.  * @author Ben Litchfield  * @author Paul King  */
+comment|/**  * Factory for creating a PDImageXObject containing a CCITT Fax compressed TIFF image.  *   * @author Ben Litchfield  * @author Paul King  */
 end_comment
 
 begin_class
@@ -147,7 +171,76 @@ specifier|private
 name|CCITTFactory
 parameter_list|()
 block|{     }
+comment|/**      * Creates a new CCITT Fax compressed Image XObject from the first page of       * a TIFF file.      *      * @param document the document to create the image as part of.      * @param file the  TIFF file which contains a suitable CCITT compressed image      * @return a new Image XObject      * @throws IOException if there is an error reading the TIFF data.      */
+specifier|public
+specifier|static
+name|PDImageXObject
+name|createFromFile
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|,
+name|File
+name|file
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|createFromRandomAccess
+argument_list|(
+name|document
+argument_list|,
+operator|new
+name|RandomAccessFile
+argument_list|(
+name|file
+argument_list|,
+literal|"r"
+argument_list|)
+argument_list|,
+literal|0
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new CCITT Fax compressed Image XObject from the first page of       * a TIFF file.      *      * @param document the document to create the image as part of.      * @param file the  TIFF file which contains a suitable CCITT compressed image      * @param number TIFF image number, starting from 0      * @return a new Image XObject      * @throws IOException if there is an error reading the TIFF data.      */
+specifier|public
+specifier|static
+name|PDImageXObject
+name|createFromFile
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|,
+name|File
+name|file
+parameter_list|,
+name|int
+name|number
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|createFromRandomAccess
+argument_list|(
+name|document
+argument_list|,
+operator|new
+name|RandomAccessFile
+argument_list|(
+name|file
+argument_list|,
+literal|"r"
+argument_list|)
+argument_list|,
+name|number
+argument_list|)
+return|;
+block|}
 comment|/**      * Creates a new CCITT Fax compressed Image XObject from the first page of       * a TIFF file.      *       * @param document the document to create the image as part of.      * @param reader the random access TIFF file which contains a suitable CCITT      * compressed image      * @return a new Image XObject      * @throws IOException if there is an error reading the TIFF data.      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 name|PDImageXObject
@@ -174,6 +267,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a new CCITT Fax compressed Image XObject from a TIFF file.      *       * @param document the document to create the image as part of.      * @param reader the random access TIFF file which contains a suitable CCITT      * compressed image      * @param number TIFF image number, starting from 0      * @return a new Image XObject, or null if no such page      * @throws IOException if there is an error reading the TIFF data.      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 name|PDImageXObject
