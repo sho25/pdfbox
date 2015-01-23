@@ -901,10 +901,6 @@ argument_list|)
 expr_stmt|;
 name|ImageType
 name|imageType
-init|=
-name|ImageType
-operator|.
-name|RGB
 decl_stmt|;
 if|if
 condition|(
@@ -1325,10 +1321,7 @@ index|[
 name|i
 index|]
 operator|.
-name|toLowerCase
-argument_list|()
-operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
 name|formats
 index|[
