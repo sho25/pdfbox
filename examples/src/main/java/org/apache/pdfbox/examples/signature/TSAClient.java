@@ -266,7 +266,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -521,7 +521,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -560,7 +560,7 @@ argument_list|,
 literal|"application/timestamp-query"
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -576,10 +576,7 @@ operator|&&
 name|password
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|!
 name|username
 operator|.
@@ -602,7 +599,6 @@ argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// read response
 name|OutputStream
@@ -637,7 +633,7 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -682,7 +678,7 @@ name|input
 argument_list|)
 expr_stmt|;
 block|}
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
