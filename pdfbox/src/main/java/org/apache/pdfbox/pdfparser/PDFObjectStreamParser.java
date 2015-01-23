@@ -287,12 +287,10 @@ init|=
 name|readObjectNumber
 argument_list|()
 decl_stmt|;
-name|long
-name|offset
-init|=
+comment|// skip offset
 name|readLong
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|objectNumbers
 operator|.
 name|add
@@ -411,6 +409,45 @@ operator|+
 name|object
 argument_list|)
 expr_stmt|;
+block|}
+comment|// skip endobject marker
+if|if
+condition|(
+operator|!
+name|pdfSource
+operator|.
+name|isEOF
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|pdfSource
+operator|.
+name|peek
+argument_list|()
+operator|==
+literal|'e'
+condition|)
+block|{
+name|readLine
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"no endobject marker found for object "
+operator|+
+name|objNum
+operator|+
+literal|" in object stream"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|objectCounter
 operator|++
