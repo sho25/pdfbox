@@ -79,26 +79,21 @@ interface|interface
 name|PDFontLike
 block|{
 comment|/**      * Returns the name of this font, either the PostScript "BaseName" or the Type 3 "Name".      */
-specifier|public
 name|String
 name|getName
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the font descriptor, may be null.      */
-specifier|public
 name|PDFontDescriptor
 name|getFontDescriptor
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the font matrix, which represents the transformation from glyph space to text space.      */
-specifier|public
 name|Matrix
 name|getFontMatrix
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the font's bounding box.      */
-specifier|public
-specifier|abstract
 name|BoundingBox
 name|getBoundingBox
 parameter_list|()
@@ -106,7 +101,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns the position vector (v), in text space, for the given character.      * This represents the position of vertical origin relative to horizontal origin, for      * horizontal writing it will always be (0, 0). For vertical writing both x and y are set.      *      * @param code character code      * @return position vector      */
-specifier|public
 name|Vector
 name|getPositionVector
 parameter_list|(
@@ -115,8 +109,6 @@ name|code
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the height of the given character, in glyph space. This can be expensive to      * calculate. Results are only approximate.      *      * @param code character code      */
-specifier|public
-specifier|abstract
 name|float
 name|getHeight
 parameter_list|(
@@ -127,7 +119,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns the advance width of the given character, in glyph space.      *      * @param code character code      */
-specifier|public
 name|float
 name|getWidth
 parameter_list|(
@@ -138,8 +129,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns the width of a glyph in the embedded font file.      *      * @param code character code      * @return width in glyph space      * @throws IOException if the font could not be read      */
-specifier|public
-specifier|abstract
 name|float
 name|getWidthFromFont
 parameter_list|(
@@ -150,22 +139,17 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns true if the font file is embedded in the PDF.      */
-specifier|public
-specifier|abstract
 name|boolean
 name|isEmbedded
 parameter_list|()
 function_decl|;
 comment|/**      * Returns true if the embedded font file is damaged.      */
-specifier|public
-specifier|abstract
 name|boolean
 name|isDamaged
 parameter_list|()
 function_decl|;
 comment|/**      * This will get the average font width for all characters.      *      * @return The width is in 1000 unit of text space, ie 333 or 777      */
 comment|// todo: this method is highly suspicious, the average glyph width is not usually a good metric
-specifier|public
 name|float
 name|getAverageFontWidth
 parameter_list|()
