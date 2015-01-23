@@ -19,16 +19,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -187,6 +177,7 @@ name|float
 name|descender
 decl_stmt|;
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -244,6 +235,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -347,8 +339,6 @@ parameter_list|)
 block|{
 name|float
 name|result
-init|=
-literal|0
 decl_stmt|;
 name|CharMetric
 name|metric
@@ -399,8 +389,6 @@ parameter_list|)
 block|{
 name|float
 name|result
-init|=
-literal|0
 decl_stmt|;
 name|CharMetric
 name|metric
@@ -464,7 +452,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * This will get the average width of a character.      *      * @return The width of the character.      *      * @throws IOException If this AFM file does not handle the character.      */
+comment|/**      * This will get the average width of a character.      *      * @return The width of the character.      */
 specifier|public
 name|float
 name|getAverageCharacterWidth
