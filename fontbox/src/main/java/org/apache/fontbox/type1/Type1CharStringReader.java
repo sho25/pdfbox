@@ -49,7 +49,6 @@ interface|interface
 name|Type1CharStringReader
 block|{
 comment|/**      * Returns the Type 1 CharString for the character with the given name.      *      * @return Type 1 CharString      * @throws IOException if something went wrong      */
-specifier|public
 name|Type1CharString
 name|getType1CharString
 parameter_list|(
