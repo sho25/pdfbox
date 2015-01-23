@@ -49,7 +49,6 @@ interface|interface
 name|Glyph2D
 block|{
 comment|/**      * Returns the path describing the glyph for the given character code.      *       * @param code the character code      *       * @return the GeneralPath for the given character code      */
-specifier|public
 name|GeneralPath
 name|getPathForCharacterCode
 parameter_list|(
@@ -60,7 +59,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Remove all cached resources.      */
-specifier|public
 name|void
 name|dispose
 parameter_list|()
