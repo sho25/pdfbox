@@ -19,6 +19,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -123,7 +133,25 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDGamma
+name|PDColor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|color
+operator|.
+name|PDDeviceRGB
 import|;
 end_import
 
@@ -159,7 +187,43 @@ name|interactive
 operator|.
 name|annotation
 operator|.
+name|PDAnnotation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|annotation
+operator|.
 name|PDAnnotationLine
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|annotation
+operator|.
+name|PDAnnotationLink
 import|;
 end_import
 
@@ -213,54 +277,26 @@ name|interactive
 operator|.
 name|annotation
 operator|.
-name|PDAnnotationLink
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|annotation
-operator|.
 name|PDBorderStyleDictionary
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * This is an example on how to add annotations to pages of a PDF document.  *  * @author Paul King  * @version $Revision: 1.2 $  */
+comment|/**  * Add annotations to pages of a PDF document.  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|Annotation
+name|AddAnnotations
 block|{
-specifier|private
-name|Annotation
-parameter_list|()
-block|{
-comment|//utility class, should not be instantiated.
-block|}
-comment|/**      * This will create a document showing various annotations.      *      * @param args The command line arguments.      *      * @throws Exception If there is an error parsing the document.      */
+specifier|static
+specifier|final
+name|float
+name|INCH
+init|=
+literal|72
+decl_stmt|;
 specifier|public
 specifier|static
 name|void
@@ -282,12 +318,32 @@ operator|!=
 literal|1
 condition|)
 block|{
-name|usage
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Usage: "
+operator|+
+name|AddAnnotations
+operator|.
+name|class
+operator|.
+name|getName
 argument_list|()
+operator|+
+literal|"<output-pdf>"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|exit
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
 name|PDDocument
 name|document
 init|=
@@ -312,6 +368,9 @@ name|page
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|PDAnnotation
+argument_list|>
 name|annotations
 init|=
 name|page
@@ -319,47 +378,73 @@ operator|.
 name|getAnnotations
 argument_list|()
 decl_stmt|;
-comment|// Setup some basic reusable objects/constants
+comment|// Some basic reusable objects/constants
 comment|// Annotations themselves can only be used once!
+name|PDColor
+name|red
+init|=
+operator|new
+name|PDColor
+argument_list|(
+operator|new
 name|float
-name|inch
-init|=
-literal|72
-decl_stmt|;
-name|PDGamma
-name|colourRed
-init|=
-operator|new
-name|PDGamma
-argument_list|()
-decl_stmt|;
-name|colourRed
-operator|.
-name|setR
-argument_list|(
+index|[]
+block|{
 literal|1
-argument_list|)
-expr_stmt|;
-name|PDGamma
-name|colourBlue
-init|=
-operator|new
-name|PDGamma
-argument_list|()
-decl_stmt|;
-name|colourBlue
+block|,
+literal|0
+block|,
+literal|0
+block|}
+argument_list|,
+name|PDDeviceRGB
 operator|.
-name|setB
-argument_list|(
-literal|1
+name|INSTANCE
 argument_list|)
-expr_stmt|;
-name|PDGamma
-name|colourBlack
+decl_stmt|;
+name|PDColor
+name|blue
 init|=
 operator|new
-name|PDGamma
-argument_list|()
+name|PDColor
+argument_list|(
+operator|new
+name|float
+index|[]
+block|{
+literal|0
+block|,
+literal|0
+block|,
+literal|1
+block|}
+argument_list|,
+name|PDDeviceRGB
+operator|.
+name|INSTANCE
+argument_list|)
+decl_stmt|;
+name|PDColor
+name|black
+init|=
+operator|new
+name|PDColor
+argument_list|(
+operator|new
+name|float
+index|[]
+block|{
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|}
+argument_list|,
+name|PDDeviceRGB
+operator|.
+name|INSTANCE
+argument_list|)
 decl_stmt|;
 name|PDBorderStyleDictionary
 name|borderThick
@@ -372,7 +457,7 @@ name|borderThick
 operator|.
 name|setWidth
 argument_list|(
-name|inch
+name|INCH
 operator|/
 literal|12
 argument_list|)
@@ -389,7 +474,7 @@ name|borderThin
 operator|.
 name|setWidth
 argument_list|(
-name|inch
+name|INCH
 operator|/
 literal|72
 argument_list|)
@@ -415,7 +500,7 @@ name|borderULine
 operator|.
 name|setWidth
 argument_list|(
-name|inch
+name|INCH
 operator|/
 literal|72
 argument_list|)
@@ -452,7 +537,7 @@ operator|.
 name|HELVETICA_BOLD
 decl_stmt|;
 name|PDPageContentStream
-name|contentStream
+name|contents
 init|=
 operator|new
 name|PDPageContentStream
@@ -462,12 +547,12 @@ argument_list|,
 name|page
 argument_list|)
 decl_stmt|;
-name|contentStream
+name|contents
 operator|.
 name|beginText
 argument_list|()
 expr_stmt|;
-name|contentStream
+name|contents
 operator|.
 name|setFont
 argument_list|(
@@ -476,27 +561,27 @@ argument_list|,
 literal|18
 argument_list|)
 expr_stmt|;
-name|contentStream
+name|contents
 operator|.
 name|newLineAtOffset
 argument_list|(
-name|inch
+name|INCH
 argument_list|,
 name|ph
 operator|-
-name|inch
+name|INCH
 operator|-
 literal|18
 argument_list|)
 expr_stmt|;
-name|contentStream
+name|contents
 operator|.
 name|showText
 argument_list|(
 literal|"PDFBox"
 argument_list|)
 expr_stmt|;
-name|contentStream
+name|contents
 operator|.
 name|newLineAtOffset
 argument_list|(
@@ -504,25 +589,25 @@ literal|0
 argument_list|,
 operator|-
 operator|(
-name|inch
+name|INCH
 operator|/
 literal|2
 operator|)
 argument_list|)
 expr_stmt|;
-name|contentStream
+name|contents
 operator|.
 name|showText
 argument_list|(
 literal|"Click Here"
 argument_list|)
 expr_stmt|;
-name|contentStream
+name|contents
 operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|contentStream
+name|contents
 operator|.
 name|close
 argument_list|()
@@ -541,9 +626,9 @@ argument_list|)
 decl_stmt|;
 name|txtMark
 operator|.
-name|setColour
+name|setColor
 argument_list|(
-name|colourBlue
+name|blue
 argument_list|)
 expr_stmt|;
 name|txtMark
@@ -556,12 +641,11 @@ operator|)
 literal|0.2
 argument_list|)
 expr_stmt|;
-comment|// Make the highlight 20% transparent
+comment|// 20% transparent
 comment|// Set the rectangle containing the markup
 name|float
 name|textWidth
 init|=
-operator|(
 name|font
 operator|.
 name|getStringWidth
@@ -570,7 +654,6 @@ literal|"PDFBox"
 argument_list|)
 operator|/
 literal|1000
-operator|)
 operator|*
 literal|18
 decl_stmt|;
@@ -585,7 +668,7 @@ name|position
 operator|.
 name|setLowerLeftX
 argument_list|(
-name|inch
+name|INCH
 argument_list|)
 expr_stmt|;
 name|position
@@ -594,7 +677,7 @@ name|setLowerLeftY
 argument_list|(
 name|ph
 operator|-
-name|inch
+name|INCH
 operator|-
 literal|18
 argument_list|)
@@ -614,7 +697,7 @@ name|setUpperRightY
 argument_list|(
 name|ph
 operator|-
-name|inch
+name|INCH
 argument_list|)
 expr_stmt|;
 name|txtMark
@@ -769,7 +852,6 @@ expr_stmt|;
 comment|// Set the rectangle containing the link
 name|textWidth
 operator|=
-operator|(
 name|font
 operator|.
 name|getStringWidth
@@ -778,7 +860,6 @@ literal|"Click Here"
 argument_list|)
 operator|/
 literal|1000
-operator|)
 operator|*
 literal|18
 expr_stmt|;
@@ -792,7 +873,7 @@ name|position
 operator|.
 name|setLowerLeftX
 argument_list|(
-name|inch
+name|INCH
 argument_list|)
 expr_stmt|;
 name|position
@@ -801,14 +882,9 @@ name|setLowerLeftY
 argument_list|(
 name|ph
 operator|-
-call|(
-name|float
-call|)
-argument_list|(
-literal|1.5
+literal|1.5f
 operator|*
-name|inch
-argument_list|)
+name|INCH
 operator|-
 literal|20
 argument_list|)
@@ -829,14 +905,9 @@ name|setUpperRightY
 argument_list|(
 name|ph
 operator|-
-call|(
-name|float
-call|)
-argument_list|(
-literal|1.5
+literal|1.5f
 operator|*
-name|inch
-argument_list|)
+name|INCH
 argument_list|)
 expr_stmt|;
 name|txtLink
@@ -896,17 +967,17 @@ argument_list|)
 expr_stmt|;
 name|aCircle
 operator|.
-name|setInteriorColour
+name|setInteriorColor
 argument_list|(
-name|colourRed
+name|red
 argument_list|)
 expr_stmt|;
 comment|// Fill in circle in red
 name|aCircle
 operator|.
-name|setColour
+name|setColor
 argument_list|(
-name|colourBlue
+name|blue
 argument_list|)
 expr_stmt|;
 comment|// The border itself will be blue
@@ -929,7 +1000,7 @@ name|position
 operator|.
 name|setLowerLeftX
 argument_list|(
-name|inch
+name|INCH
 argument_list|)
 expr_stmt|;
 name|position
@@ -938,13 +1009,11 @@ name|setLowerLeftY
 argument_list|(
 name|ph
 operator|-
-operator|(
 literal|3
 operator|*
-name|inch
-operator|)
+name|INCH
 operator|-
-name|inch
+name|INCH
 argument_list|)
 expr_stmt|;
 comment|// 1" height, 3" down
@@ -954,7 +1023,7 @@ name|setUpperRightX
 argument_list|(
 literal|2
 operator|*
-name|inch
+name|INCH
 argument_list|)
 expr_stmt|;
 comment|// 1" in, 1" width
@@ -964,11 +1033,9 @@ name|setUpperRightY
 argument_list|(
 name|ph
 operator|-
-operator|(
 literal|3
 operator|*
-name|inch
-operator|)
+name|INCH
 argument_list|)
 expr_stmt|;
 comment|// 3" down
@@ -979,7 +1046,6 @@ argument_list|(
 name|position
 argument_list|)
 expr_stmt|;
-comment|//  add to the annotations on the page
 name|annotations
 operator|.
 name|add
@@ -1008,9 +1074,9 @@ argument_list|)
 expr_stmt|;
 name|aSquare
 operator|.
-name|setColour
+name|setColor
 argument_list|(
-name|colourRed
+name|red
 argument_list|)
 expr_stmt|;
 comment|// Outline in red, not setting a fill
@@ -1036,11 +1102,9 @@ name|setLowerLeftX
 argument_list|(
 name|pw
 operator|-
-operator|(
 literal|2
 operator|*
-name|inch
-operator|)
+name|INCH
 argument_list|)
 expr_stmt|;
 comment|// 1" in from right, 1" wide
@@ -1050,16 +1114,11 @@ name|setLowerLeftY
 argument_list|(
 name|ph
 operator|-
-call|(
-name|float
-call|)
-argument_list|(
-literal|3.5
+literal|3.5f
 operator|*
-name|inch
-argument_list|)
+name|INCH
 operator|-
-name|inch
+name|INCH
 argument_list|)
 expr_stmt|;
 comment|// 1" height, 3.5" down
@@ -1069,7 +1128,7 @@ name|setUpperRightX
 argument_list|(
 name|pw
 operator|-
-name|inch
+name|INCH
 argument_list|)
 expr_stmt|;
 comment|// 1" in from right
@@ -1079,14 +1138,9 @@ name|setUpperRightY
 argument_list|(
 name|ph
 operator|-
-call|(
-name|float
-call|)
-argument_list|(
-literal|3.5
+literal|3.5f
 operator|*
-name|inch
-argument_list|)
+name|INCH
 argument_list|)
 expr_stmt|;
 comment|// 3.5" down
@@ -1097,7 +1151,6 @@ argument_list|(
 name|position
 argument_list|)
 expr_stmt|;
-comment|//  add to the annotations on the page
 name|annotations
 operator|.
 name|add
@@ -1151,7 +1204,7 @@ name|setLowerLeftX
 argument_list|(
 literal|2
 operator|*
-name|inch
+name|INCH
 argument_list|)
 expr_stmt|;
 comment|// 1" in + width of circle
@@ -1161,16 +1214,11 @@ name|setLowerLeftY
 argument_list|(
 name|ph
 operator|-
-call|(
-name|float
-call|)
-argument_list|(
-literal|3.5
+literal|3.5f
 operator|*
-name|inch
-argument_list|)
+name|INCH
 operator|-
-name|inch
+name|INCH
 argument_list|)
 expr_stmt|;
 comment|// 1" height, 3.5" down
@@ -1180,9 +1228,9 @@ name|setUpperRightX
 argument_list|(
 name|pw
 operator|-
-name|inch
+name|INCH
 operator|-
-name|inch
+name|INCH
 argument_list|)
 expr_stmt|;
 comment|// 1" in from right, and width of square
@@ -1192,11 +1240,9 @@ name|setUpperRightY
 argument_list|(
 name|ph
 operator|-
-operator|(
 literal|3
 operator|*
-name|inch
-operator|)
+name|INCH
 argument_list|)
 expr_stmt|;
 comment|// 3" down (top of circle)
@@ -1225,7 +1271,7 @@ index|]
 operator|=
 literal|2
 operator|*
-name|inch
+name|INCH
 expr_stmt|;
 comment|// x1 = rhs of circle
 name|linepos
@@ -1235,14 +1281,9 @@ index|]
 operator|=
 name|ph
 operator|-
-call|(
-name|float
-call|)
-argument_list|(
-literal|3.5
+literal|3.5f
 operator|*
-name|inch
-argument_list|)
+name|INCH
 expr_stmt|;
 comment|// y1 halfway down circle
 name|linepos
@@ -1252,11 +1293,9 @@ index|]
 operator|=
 name|pw
 operator|-
-operator|(
 literal|2
 operator|*
-name|inch
-operator|)
+name|INCH
 expr_stmt|;
 comment|// x2 = lhs of square
 name|linepos
@@ -1266,11 +1305,9 @@ index|]
 operator|=
 name|ph
 operator|-
-operator|(
 literal|4
 operator|*
-name|inch
-operator|)
+name|INCH
 expr_stmt|;
 comment|// y2 halfway down square
 name|aLine
@@ -1289,12 +1326,11 @@ argument_list|)
 expr_stmt|;
 name|aLine
 operator|.
-name|setColour
+name|setColor
 argument_list|(
-name|colourBlack
+name|black
 argument_list|)
 expr_stmt|;
-comment|// add to the annotations on the page
 name|annotations
 operator|.
 name|add
@@ -1302,7 +1338,7 @@ argument_list|(
 name|aLine
 argument_list|)
 expr_stmt|;
-comment|// Finally all done
+comment|// save the PDF
 name|document
 operator|.
 name|save
@@ -1322,24 +1358,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-block|}
-comment|/**      * This will print the usage for this document.      */
-specifier|private
-specifier|static
-name|void
-name|usage
-parameter_list|()
-block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.pdmodel.Annotation<output-pdf>"
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
