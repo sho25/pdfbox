@@ -25,7 +25,6 @@ interface|interface
 name|GlyphDescription
 block|{
 comment|/**       * Returns the index of the ending point of the given contour.      *       * @param i the number of the contour      * @return the index of the ending point of the given contour      */
-specifier|public
 name|int
 name|getEndPtOfContours
 parameter_list|(
@@ -34,7 +33,6 @@ name|i
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the flags of the given point.      * @param i the given point      * @return the flags value for the given point      */
-specifier|public
 name|byte
 name|getFlags
 parameter_list|(
@@ -43,7 +41,6 @@ name|i
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the x coordinate of the given point.      * @param i the given point      * @return the x coordinate value for the given point      */
-specifier|public
 name|short
 name|getXCoordinate
 parameter_list|(
@@ -52,7 +49,6 @@ name|i
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the y coordinate of the given point.      * @param i the given point      * @return the y coordinate value for the given point      */
-specifier|public
 name|short
 name|getYCoordinate
 parameter_list|(
@@ -61,25 +57,21 @@ name|i
 parameter_list|)
 function_decl|;
 comment|/**      * Returns whether this point is a composite or not.      * @return true if this point is a composite      */
-specifier|public
 name|boolean
 name|isComposite
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the number of points.      * @return the number of points      */
-specifier|public
 name|int
 name|getPointCount
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the number of contours.      * @return the number of contours      */
-specifier|public
 name|int
 name|getContourCount
 parameter_list|()
 function_decl|;
 comment|/**      * Resolve all parts of an composite glyph.      */
-specifier|public
 name|void
 name|resolve
 parameter_list|()
