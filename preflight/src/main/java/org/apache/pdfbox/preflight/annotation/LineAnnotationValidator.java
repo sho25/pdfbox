@@ -222,7 +222,7 @@ name|this
 operator|.
 name|pdLine
 operator|.
-name|getInteriorColour
+name|getInteriorColor
 argument_list|()
 operator|!=
 literal|null

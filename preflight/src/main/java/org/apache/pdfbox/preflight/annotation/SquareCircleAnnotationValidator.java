@@ -18,22 +18,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_ANNOT_FORBIDDEN_COLOR
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -108,6 +92,22 @@ operator|.
 name|exception
 operator|.
 name|ValidationException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_ANNOT_FORBIDDEN_COLOR
 import|;
 end_import
 
@@ -208,7 +208,7 @@ name|this
 operator|.
 name|pdSquareCircle
 operator|.
-name|getInteriorColour
+name|getInteriorColor
 argument_list|()
 operator|!=
 literal|null
