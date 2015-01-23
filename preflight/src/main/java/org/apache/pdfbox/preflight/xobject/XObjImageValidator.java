@@ -466,20 +466,6 @@ name|this
 operator|.
 name|xobject
 operator|.
-name|getItem
-argument_list|(
-literal|"Interpolate"
-argument_list|)
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|this
-operator|.
-name|xobject
-operator|.
 name|getBoolean
 argument_list|(
 literal|"Interpolate"
@@ -501,7 +487,6 @@ literal|"Unexpected 'true' value for 'Interpolate' Key"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/*      * 6.2.4 Intent has specific values      */
@@ -777,10 +762,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|imgMask
-operator|!=
-literal|null
-operator|&&
 name|imgMask
 operator|instanceof
 name|COSBoolean
