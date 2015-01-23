@@ -613,8 +613,6 @@ name|embeddedFile
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|FileNotFoundException
 block|{
 name|String
 name|embeddedFilename
