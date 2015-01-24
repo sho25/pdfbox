@@ -655,6 +655,20 @@ name|pdfbox
 operator|.
 name|pdfparser
 operator|.
+name|PDFParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdfparser
+operator|.
 name|XrefTrailerResolver
 operator|.
 name|XRefType
@@ -812,7 +826,7 @@ specifier|public
 class|class
 name|PreflightParser
 extends|extends
-name|NonSequentialPDFParser
+name|PDFParser
 block|{
 comment|/**      * Define a one byte encoding that hasn't specific encoding in UTF-8 charset. Avoid unexpected error when the      * encoding is Cp5816      */
 specifier|public
@@ -1273,17 +1287,6 @@ name|super
 operator|.
 name|initialParse
 argument_list|()
-expr_stmt|;
-comment|// fill xref table
-name|document
-operator|.
-name|addXRefTable
-argument_list|(
-name|xrefTrailerResolver
-operator|.
-name|getXrefTable
-argument_list|()
-argument_list|)
 expr_stmt|;
 comment|// For each ObjectKey, we check if the object has been loaded
 comment|// useful for linearized PDFs
@@ -3661,6 +3664,11 @@ decl_stmt|;
 name|parser
 operator|.
 name|parse
+argument_list|()
+expr_stmt|;
+name|parser
+operator|.
+name|close
 argument_list|()
 expr_stmt|;
 comment|// get set of object numbers referenced for this object stream
