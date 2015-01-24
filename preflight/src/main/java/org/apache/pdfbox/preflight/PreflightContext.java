@@ -214,7 +214,7 @@ decl_stmt|;
 comment|/**      * Contains all Xref/trailer objects and resolves them into single object using startxref reference.      */
 specifier|private
 name|XrefTrailerResolver
-name|xrefTableResolver
+name|xrefTrailerResolver
 decl_stmt|;
 comment|/**      * This wrapper contains the ICCProfile used by the PDF file.      */
 specifier|protected
@@ -327,26 +327,26 @@ return|;
 block|}
 specifier|public
 name|XrefTrailerResolver
-name|getXrefTableResolver
+name|getXrefTrailerResolver
 parameter_list|()
 block|{
 return|return
-name|xrefTableResolver
+name|xrefTrailerResolver
 return|;
 block|}
 specifier|public
 name|void
-name|setXrefTableResolver
+name|setXrefTrailerResolver
 parameter_list|(
 name|XrefTrailerResolver
-name|xrefTableResolver
+name|xrefTrailerResolver
 parameter_list|)
 block|{
 name|this
 operator|.
-name|xrefTableResolver
+name|xrefTrailerResolver
 operator|=
-name|xrefTableResolver
+name|xrefTrailerResolver
 expr_stmt|;
 block|}
 comment|/**      * Initialize the PDFBox object which present the PDF File.      *       * @param document      */
@@ -514,7 +514,7 @@ name|error
 parameter_list|)
 block|{
 name|PreflightDocument
-name|document
+name|pfDoc
 init|=
 operator|(
 name|PreflightDocument
@@ -530,7 +530,7 @@ argument_list|(
 name|currentPageNumber
 argument_list|)
 expr_stmt|;
-name|document
+name|pfDoc
 operator|.
 name|addValidationError
 argument_list|(
@@ -551,7 +551,7 @@ name|errors
 parameter_list|)
 block|{
 name|PreflightDocument
-name|document
+name|pfDoc
 init|=
 operator|(
 name|PreflightDocument
@@ -568,7 +568,7 @@ range|:
 name|errors
 control|)
 block|{
-name|document
+name|pfDoc
 operator|.
 name|addValidationError
 argument_list|(

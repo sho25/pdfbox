@@ -589,7 +589,7 @@ name|first
 init|=
 name|ctx
 operator|.
-name|getXrefTableResolver
+name|getXrefTrailerResolver
 argument_list|()
 operator|.
 name|getFirstTrailer
@@ -623,7 +623,7 @@ name|last
 init|=
 name|ctx
 operator|.
-name|getXrefTableResolver
+name|getXrefTrailerResolver
 argument_list|()
 operator|.
 name|getLastTrailer

@@ -1214,7 +1214,7 @@ argument_list|)
 expr_stmt|;
 name|ctx
 operator|.
-name|setXrefTableResolver
+name|setXrefTrailerResolver
 argument_list|(
 name|xrefTrailerResolver
 argument_list|)
