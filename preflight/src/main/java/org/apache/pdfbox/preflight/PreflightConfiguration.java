@@ -648,6 +648,7 @@ init|=
 literal|false
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -677,6 +678,7 @@ argument_list|()
 decl_stmt|;
 comment|// TODO use annotation to mark these validation processes as inner page validation and factorize the access method
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
