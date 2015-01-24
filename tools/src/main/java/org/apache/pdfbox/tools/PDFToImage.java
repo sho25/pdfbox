@@ -901,6 +901,8 @@ argument_list|)
 expr_stmt|;
 name|ImageType
 name|imageType
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -973,7 +975,12 @@ operator|.
 name|ARGB
 expr_stmt|;
 block|}
-else|else
+if|if
+condition|(
+name|imageType
+operator|==
+literal|null
+condition|)
 block|{
 name|System
 operator|.
