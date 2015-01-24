@@ -72,10 +72,13 @@ name|COSFilterInputStream
 extends|extends
 name|FilterInputStream
 block|{
+specifier|private
+specifier|final
 name|int
 index|[]
 name|byteRange
 decl_stmt|;
+specifier|private
 name|long
 name|position
 init|=
@@ -159,9 +162,11 @@ operator|>
 operator|-
 literal|1
 condition|)
+block|{
 operator|++
 name|position
 expr_stmt|;
+block|}
 return|return
 name|i
 return|;
@@ -404,7 +409,9 @@ argument_list|()
 operator|<
 literal|0
 condition|)
+block|{
 break|break;
+block|}
 block|}
 block|}
 specifier|public
@@ -451,6 +458,7 @@ operator|!=
 operator|-
 literal|1
 condition|)
+block|{
 name|byteOS
 operator|.
 name|write
@@ -462,6 +470,7 @@ argument_list|,
 name|c
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|byteOS
 operator|.
