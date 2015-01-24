@@ -1041,7 +1041,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_TRANSPARENCY_EXT_GS_CA
 argument_list|,
-literal|"ca entry in a ExtGState  is invalid."
+literal|"ca entry in a ExtGState is invalid"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -1208,7 +1208,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_TRANSPARENCY_GROUP
 argument_list|,
-literal|"Group has a transparency S entry or the S entry is null."
+literal|"Group has a transparency S entry or the S entry is null"
 argument_list|)
 argument_list|)
 expr_stmt|;
