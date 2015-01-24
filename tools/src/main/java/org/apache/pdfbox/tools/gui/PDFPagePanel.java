@@ -136,10 +136,6 @@ name|PDFRenderer
 name|renderer
 decl_stmt|;
 specifier|private
-name|PDPage
-name|page
-decl_stmt|;
-specifier|private
 name|int
 name|pageNum
 decl_stmt|;
@@ -177,12 +173,6 @@ operator|.
 name|renderer
 operator|=
 name|renderer
-expr_stmt|;
-name|this
-operator|.
-name|page
-operator|=
-name|page
 expr_stmt|;
 name|this
 operator|.
