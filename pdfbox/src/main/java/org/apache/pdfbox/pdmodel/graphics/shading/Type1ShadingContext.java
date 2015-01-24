@@ -192,10 +192,6 @@ name|float
 index|[]
 name|domain
 decl_stmt|;
-specifier|private
-name|Matrix
-name|patternMatrix
-decl_stmt|;
 comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      */
 specifier|public
 name|Type1ShadingContext
@@ -279,13 +275,6 @@ literal|1
 block|}
 expr_stmt|;
 block|}
-name|patternMatrix
-operator|=
-name|shading
-operator|.
-name|getMatrix
-argument_list|()
-expr_stmt|;
 try|try
 block|{
 comment|// get inverse transform to be independent of
@@ -293,7 +282,10 @@ comment|// shading matrix and current user / device space
 comment|// when handling actual pixels in getRaster()
 name|rat
 operator|=
-name|patternMatrix
+name|shading
+operator|.
+name|getMatrix
+argument_list|()
 operator|.
 name|createAffineTransform
 argument_list|()
