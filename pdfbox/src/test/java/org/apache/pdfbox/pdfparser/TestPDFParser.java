@@ -189,7 +189,7 @@ name|name
 operator|.
 name|startsWith
 argument_list|(
-name|NonSequentialPDFParser
+name|COSParser
 operator|.
 name|TMP_FILE_PREFIX
 argument_list|)

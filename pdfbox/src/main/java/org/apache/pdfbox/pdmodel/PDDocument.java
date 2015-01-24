@@ -269,7 +269,7 @@ name|pdfbox
 operator|.
 name|pdfparser
 operator|.
-name|NonSequentialPDFParser
+name|COSParser
 import|;
 end_import
 

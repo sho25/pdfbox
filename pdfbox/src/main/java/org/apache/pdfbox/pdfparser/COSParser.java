@@ -396,7 +396,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|NonSequentialPDFParser
+name|COSParser
 extends|extends
 name|BaseParser
 block|{
@@ -725,7 +725,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|NonSequentialPDFParser
+name|COSParser
 operator|.
 name|class
 argument_list|)
@@ -750,7 +750,7 @@ literal|"tmpPDF"
 decl_stmt|;
 comment|/**      * Constructor.      *       * @param input inputStream of the pdf to be read      * @throws IOException if something went wrong      */
 specifier|public
-name|NonSequentialPDFParser
+name|COSParser
 parameter_list|(
 name|InputStream
 name|input

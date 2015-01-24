@@ -226,7 +226,7 @@ specifier|public
 class|class
 name|FDFParser
 extends|extends
-name|NonSequentialPDFParser
+name|COSParser
 block|{
 specifier|private
 specifier|static

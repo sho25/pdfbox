@@ -627,7 +627,7 @@ name|pdfbox
 operator|.
 name|pdfparser
 operator|.
-name|NonSequentialPDFParser
+name|COSParser
 import|;
 end_import
 
@@ -2070,7 +2070,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Wraps the {@link NonSequentialPDFParser#parseCOSStream} to check rules on 'stream' and 'endstream' keywords.      * {@link #checkStreamKeyWord()} and {@link #checkEndstreamKeyWord()}      */
+comment|/**      * Wraps the {@link COSParser#parseCOSStream} to check rules on 'stream' and 'endstream' keywords.      * {@link #checkStreamKeyWord()} and {@link #checkEndstreamKeyWord()}      */
 annotation|@
 name|Override
 specifier|protected

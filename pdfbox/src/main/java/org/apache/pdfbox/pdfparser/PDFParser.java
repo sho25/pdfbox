@@ -328,7 +328,7 @@ specifier|public
 class|class
 name|PDFParser
 extends|extends
-name|NonSequentialPDFParser
+name|COSParser
 block|{
 specifier|private
 specifier|static
