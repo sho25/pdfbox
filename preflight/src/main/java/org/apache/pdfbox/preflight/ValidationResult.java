@@ -509,6 +509,26 @@ name|startsWith
 argument_list|(
 name|PreflightConstants
 operator|.
+name|ERROR_SYNTAX_TRAILER_OUTLINES_INVALID
+argument_list|)
+condition|)
+block|{
+name|this
+operator|.
+name|details
+operator|=
+literal|"Outlines invalid"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|errorCode
+operator|.
+name|startsWith
+argument_list|(
+name|PreflightConstants
+operator|.
 name|ERROR_SYNTAX_TRAILER
 argument_list|)
 condition|)
