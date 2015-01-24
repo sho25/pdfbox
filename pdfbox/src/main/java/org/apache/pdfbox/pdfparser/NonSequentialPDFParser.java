@@ -965,15 +965,13 @@ name|password
 init|=
 literal|""
 decl_stmt|;
+comment|/**      *  how many trailing bytes to read for EOF marker.      */
 specifier|private
 name|int
 name|readTrailBytes
 init|=
 name|DEFAULT_TRAIL_BYTECOUNT
 decl_stmt|;
-comment|// how many trailing
-comment|// bytes to read for
-comment|// EOF marker
 comment|/**      * If<code>true</code> object references in catalog are not followed; pro: page objects will be only parsed when      * needed; cons: some information of catalog might not be available (e.g. outline). Catalog parsing without pages is      * not an option since a number of entries will also refer to page objects (like OpenAction).      */
 specifier|private
 specifier|final
@@ -3671,7 +3669,6 @@ literal|" not found."
 argument_list|)
 throw|;
 block|}
-comment|// parse all objects necessary to load page.
 name|COSDictionary
 name|pageDict
 init|=
@@ -3683,6 +3680,7 @@ operator|.
 name|getObject
 argument_list|()
 decl_stmt|;
+comment|// parse all objects necessary to load page.
 if|if
 condition|(
 name|parseMinimalCatalog
@@ -3693,25 +3691,9 @@ name|allPagesParsed
 operator|)
 condition|)
 block|{
-comment|// parse page resources since we did not do this on start
-name|COSDictionary
-name|resDict
-init|=
-operator|(
-name|COSDictionary
-operator|)
-name|pageDict
-operator|.
-name|getDictionaryObject
-argument_list|(
-name|COSName
-operator|.
-name|RESOURCES
-argument_list|)
-decl_stmt|;
 name|parseDictObjects
 argument_list|(
-name|resDict
+name|pageDict
 argument_list|)
 expr_stmt|;
 block|}
