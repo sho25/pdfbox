@@ -236,7 +236,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class which check if document information available in a document are synchronized with XMP  *   * @author Germain Costenobel  *   */
+comment|/**  * Class which checks if document information available in a document is synchronized with XMP  *   * @author Germain Costenobel  *   */
 end_comment
 
 begin_class
@@ -292,8 +292,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Check the x-default value, if not found, check with the first value
-comment|// found
+comment|// Check the x-default value, if not found, check with the first value found
 if|if
 condition|(
 name|dc
@@ -430,7 +429,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"Title"
 argument_list|,
@@ -446,7 +445,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"Title"
 argument_list|,
@@ -463,7 +462,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"Title"
 argument_list|,
@@ -479,7 +478,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentSchemaMetaDataError
+name|absentSchemaMetaDataError
 argument_list|(
 literal|"Title"
 argument_list|,
@@ -565,7 +564,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -595,7 +594,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -645,7 +644,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -661,7 +660,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentSchemaMetaDataError
+name|absentSchemaMetaDataError
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -748,7 +747,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"Subject"
 argument_list|,
@@ -794,7 +793,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"Subject"
 argument_list|,
@@ -810,7 +809,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentSchemaMetaDataError
+name|absentSchemaMetaDataError
 argument_list|(
 literal|"Subject"
 argument_list|,
@@ -883,7 +882,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"Keywords"
 argument_list|,
@@ -927,7 +926,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentSchemaMetaDataError
+name|absentSchemaMetaDataError
 argument_list|(
 literal|"Keywords"
 argument_list|,
@@ -1000,7 +999,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"Producer"
 argument_list|,
@@ -1044,7 +1043,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentSchemaMetaDataError
+name|absentSchemaMetaDataError
 argument_list|(
 literal|"Producer"
 argument_list|,
@@ -1117,7 +1116,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"CreatorTool"
 argument_list|,
@@ -1161,7 +1160,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentSchemaMetaDataError
+name|absentSchemaMetaDataError
 argument_list|(
 literal|"CreatorTool"
 argument_list|,
@@ -1268,7 +1267,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"CreationDate"
 argument_list|,
@@ -1319,7 +1318,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentSchemaMetaDataError
+name|absentSchemaMetaDataError
 argument_list|(
 literal|"CreationDate"
 argument_list|,
@@ -1395,7 +1394,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 argument_list|(
 literal|"ModifyDate"
 argument_list|,
@@ -1446,7 +1445,7 @@ name|ve
 operator|.
 name|add
 argument_list|(
-name|AbsentSchemaMetaDataError
+name|absentSchemaMetaDataError
 argument_list|(
 literal|"ModifyDate"
 argument_list|,
@@ -1838,7 +1837,7 @@ block|}
 comment|/**      * Return a formatted validation error when a specific metadata schema can't be found      *       * @param target      *            the concerned property      * @param schema      *            the XMP schema which can't be found      * @return the generated validation error      */
 specifier|protected
 name|ValidationError
-name|AbsentSchemaMetaDataError
+name|absentSchemaMetaDataError
 parameter_list|(
 name|String
 name|target
@@ -1896,7 +1895,7 @@ block|}
 comment|/**      * Return a formatted validation error when a specific XMP property can't be found      *       * @param target      *            the concerned property      * @param details      *            comments about the XMP property      * @return the generated validation error      */
 specifier|protected
 name|ValidationError
-name|AbsentXMPPropertyError
+name|absentXMPPropertyError
 parameter_list|(
 name|String
 name|target
