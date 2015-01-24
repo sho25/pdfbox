@@ -260,6 +260,8 @@ name|BookmarkValidationProcess
 extends|extends
 name|AbstractProcess
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
@@ -416,7 +418,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_NOCATALOG
 argument_list|,
-literal|"There are no Catalog entry in the Document."
+literal|"There are no Catalog entry in the Document"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -702,7 +704,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_TRAILER_OUTLINES_INVALID
 argument_list|,
-literal|"Outline item doesn't have Count entry but has at least one descendant."
+literal|"Outline item doesn't have Count entry but has at least one descendant"
 argument_list|)
 argument_list|)
 expr_stmt|;

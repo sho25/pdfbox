@@ -431,7 +431,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_NOCATALOG
 argument_list|,
-literal|"There is no Catalog entry in the Document."
+literal|"There is no Catalog entry in the Document"
 argument_list|)
 argument_list|)
 expr_stmt|;
