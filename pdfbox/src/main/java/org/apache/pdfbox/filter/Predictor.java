@@ -65,9 +65,14 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|Predictor
 block|{
+specifier|private
+name|Predictor
+parameter_list|()
+block|{     }
 specifier|static
 name|void
 name|decodePredictor
