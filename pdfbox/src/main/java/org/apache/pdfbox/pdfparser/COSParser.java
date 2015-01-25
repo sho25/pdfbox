@@ -1442,15 +1442,17 @@ index|[
 name|trailByteCount
 index|]
 expr_stmt|;
-name|pdfSource
-operator|.
-name|seek
-argument_list|(
 name|skipBytes
 operator|=
 name|fileLen
 operator|-
 name|trailByteCount
+expr_stmt|;
+name|pdfSource
+operator|.
+name|seek
+argument_list|(
+name|skipBytes
 argument_list|)
 expr_stmt|;
 name|int
@@ -2947,12 +2949,12 @@ literal|0
 condition|)
 block|{
 comment|// no other characters in extra endstream line
+comment|// read next line
 name|endObjectKey
 operator|=
 name|readLine
 argument_list|()
 expr_stmt|;
-comment|// read next line
 block|}
 block|}
 block|}
@@ -5780,10 +5782,7 @@ name|startsWith
 argument_list|(
 name|headerMarker
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|!
 name|header
 operator|.
@@ -5881,7 +5880,6 @@ name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|document
@@ -6209,20 +6207,20 @@ condition|(
 literal|true
 condition|)
 block|{
+comment|// first obj id
 name|long
 name|currObjID
 init|=
 name|readObjectNumber
 argument_list|()
 decl_stmt|;
-comment|// first obj id
+comment|// the number of objects in the xref table
 name|long
 name|count
 init|=
 name|readLong
 argument_list|()
 decl_stmt|;
-comment|// the number of objects in the xref table
 name|skipSpaces
 argument_list|()
 expr_stmt|;
