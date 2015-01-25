@@ -227,6 +227,7 @@ end_import
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|COSUtils
 block|{
@@ -245,6 +246,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+specifier|private
+name|COSUtils
+parameter_list|()
+block|{     }
 comment|/**      * return true if the elt is a COSDictionary or a reference to a COSDictionary      *       * @param elt the object to check.      * @param doc the document.      * @return true if the object is a COSDictionary or a reference to it.      */
 specifier|public
 specifier|static
