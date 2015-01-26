@@ -5279,9 +5279,14 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+comment|// it's ok to use the same ID for the second part if the ID is created for the first time
 name|COSString
 name|secondID
 init|=
+name|missingID
+condition|?
+name|firstID
+else|:
 operator|new
 name|COSString
 argument_list|(
