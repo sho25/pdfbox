@@ -563,13 +563,15 @@ name|getCOSObject
 argument_list|()
 operator|)
 operator|.
-name|setName
+name|setItem
 argument_list|(
 name|COSName
 operator|.
 name|AS
 argument_list|,
-literal|"Off"
+name|PDButton
+operator|.
+name|OFF
 argument_list|)
 expr_stmt|;
 block|}
