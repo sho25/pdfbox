@@ -379,15 +379,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|args
-operator|=
-operator|new
-name|String
-index|[]
-block|{
-literal|"C:\\Users\\Tilman Hausherr\\Documents\\Java\\PDFBoxPageImageExtraction\\1.pdf"
-block|}
-expr_stmt|;
 if|if
 condition|(
 name|args
