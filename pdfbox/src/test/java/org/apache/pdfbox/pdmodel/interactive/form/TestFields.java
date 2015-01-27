@@ -730,9 +730,6 @@ operator|)
 operator|.
 name|getDefaultAppearance
 argument_list|()
-operator|.
-name|getString
-argument_list|()
 argument_list|,
 literal|"/Helv 12 Tf 0 g"
 argument_list|)
@@ -810,9 +807,6 @@ name|field
 operator|)
 operator|.
 name|getDefaultAppearance
-argument_list|()
-operator|.
-name|getString
 argument_list|()
 argument_list|,
 literal|"/Helv 12 Tf 0 g"

@@ -179,11 +179,13 @@ expr_stmt|;
 block|}
 comment|/**      * Get the default appearance.      *       * This is an inheritable attribute.      *       * The default appearance contains a set of default graphics and text operators      * to define the field’s text size and color.      *       * @return the DA element of the dictionary object      */
 specifier|public
-name|COSString
+name|String
 name|getDefaultAppearance
 parameter_list|()
 block|{
-return|return
+name|COSString
+name|defaultAppearance
+init|=
 operator|(
 name|COSString
 operator|)
@@ -193,6 +195,12 @@ name|COSName
 operator|.
 name|DA
 argument_list|)
+decl_stmt|;
+return|return
+name|defaultAppearance
+operator|.
+name|getString
+argument_list|()
 return|;
 block|}
 comment|/**      * Set the default appearance.      *       * This will set the local default appearance for the variable text field only not       * affecting a default appearance in the parent hierarchy.      *       * Providing null as the value will remove the local default appearance.      *       * @param daValue a string describing the default appearance      */
