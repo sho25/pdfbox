@@ -157,6 +157,19 @@ name|PDButton
 extends|extends
 name|PDField
 block|{
+comment|/**      * The value for the Off state for PDCheckbox and PDRadioButton.      *       * This shall not be confused with the OFF state as it is used within      * other parts of a PDF.       *       */
+specifier|static
+specifier|final
+name|COSName
+name|OFF
+init|=
+name|COSName
+operator|.
+name|getPDFName
+argument_list|(
+literal|"Off"
+argument_list|)
+decl_stmt|;
 comment|/**      * A Ff flag. If set, the field is a set of radio buttons      */
 specifier|public
 specifier|static

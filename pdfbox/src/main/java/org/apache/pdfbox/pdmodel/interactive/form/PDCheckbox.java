@@ -258,7 +258,7 @@ name|COSName
 operator|.
 name|AS
 argument_list|,
-name|COSName
+name|PDButton
 operator|.
 name|OFF
 argument_list|)
@@ -271,7 +271,7 @@ name|getOffValue
 parameter_list|()
 block|{
 return|return
-name|COSName
+name|PDButton
 operator|.
 name|OFF
 operator|.
@@ -344,7 +344,7 @@ name|key
 operator|.
 name|equals
 argument_list|(
-name|COSName
+name|PDButton
 operator|.
 name|OFF
 argument_list|)
@@ -467,7 +467,7 @@ name|COSName
 operator|.
 name|AS
 argument_list|,
-name|COSName
+name|PDButton
 operator|.
 name|OFF
 argument_list|)
