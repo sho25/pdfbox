@@ -347,10 +347,7 @@ name|getItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"BC"
-argument_list|)
+name|BC
 argument_list|)
 decl_stmt|;
 if|if
@@ -442,7 +439,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"BC"
+name|COSName
+operator|.
+name|BC
 argument_list|,
 name|c
 operator|.
@@ -469,10 +468,7 @@ name|getItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"BG"
-argument_list|)
+name|BG
 argument_list|)
 decl_stmt|;
 if|if
@@ -564,7 +560,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"BG"
+name|COSName
+operator|.
+name|BG
 argument_list|,
 name|c
 operator|.

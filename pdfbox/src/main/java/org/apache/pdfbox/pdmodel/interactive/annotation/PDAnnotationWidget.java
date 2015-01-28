@@ -291,10 +291,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"MK"
-argument_list|)
+name|MK
 argument_list|)
 decl_stmt|;
 if|if
@@ -335,7 +332,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"MK"
+name|COSName
+operator|.
+name|MK
 argument_list|,
 name|appearanceCharacteristics
 argument_list|)
