@@ -659,7 +659,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"IC"
+name|COSName
+operator|.
+name|IC
 argument_list|,
 name|ic
 operator|.
@@ -685,7 +687,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"IC"
+name|COSName
+operator|.
+name|IC
 argument_list|)
 decl_stmt|;
 if|if
@@ -795,10 +799,7 @@ name|getItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"BS"
-argument_list|)
+name|BS
 argument_list|)
 decl_stmt|;
 if|if

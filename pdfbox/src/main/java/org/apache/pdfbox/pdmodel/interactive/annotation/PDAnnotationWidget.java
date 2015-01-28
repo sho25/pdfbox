@@ -510,10 +510,7 @@ name|getItem
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"BS"
-argument_list|)
+name|BS
 argument_list|)
 decl_stmt|;
 if|if
