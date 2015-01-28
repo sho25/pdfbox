@@ -241,6 +241,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
