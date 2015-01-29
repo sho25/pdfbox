@@ -53,6 +53,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -364,6 +374,26 @@ specifier|final
 name|CmapSubtable
 name|cmap
 decl_stmt|;
+specifier|private
+specifier|final
+name|Set
+argument_list|<
+name|Integer
+argument_list|>
+name|subsetCodePoints
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|Integer
+argument_list|>
+argument_list|()
+decl_stmt|;
+specifier|private
+specifier|final
+name|boolean
+name|embedSubset
+decl_stmt|;
 comment|/**      * Creates a new TrueType font for embedding.      */
 name|TrueTypeEmbedder
 parameter_list|(
@@ -375,6 +405,9 @@ name|dict
 parameter_list|,
 name|InputStream
 name|ttfStream
+parameter_list|,
+name|boolean
+name|embedSubset
 parameter_list|)
 throws|throws
 name|IOException
@@ -384,6 +417,12 @@ operator|.
 name|document
 operator|=
 name|document
+expr_stmt|;
+name|this
+operator|.
+name|embedSubset
+operator|=
+name|embedSubset
 expr_stmt|;
 name|buildFontFile2
 argument_list|(
@@ -1219,14 +1258,26 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|subset
+name|addToSubset
 parameter_list|(
-name|Set
-argument_list|<
-name|Integer
-argument_list|>
-name|codePoints
+name|int
+name|codePoint
 parameter_list|)
+block|{
+name|subsetCodePoints
+operator|.
+name|add
+argument_list|(
+name|codePoint
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|subset
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -1244,6 +1295,20 @@ operator|new
 name|IOException
 argument_list|(
 literal|"This font does not permit subsetting"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+operator|!
+name|embedSubset
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Subsetting is disabled"
 argument_list|)
 throw|;
 block|}
@@ -1349,7 +1414,7 @@ name|subsetter
 operator|.
 name|addAll
 argument_list|(
-name|codePoints
+name|subsetCodePoints
 argument_list|)
 expr_stmt|;
 comment|// calculate deterministic tag based on the chosen subset
@@ -1413,6 +1478,16 @@ argument_list|,
 name|gidToCid
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Returns true if the font needs to be subset.      */
+specifier|public
+name|boolean
+name|needsSubset
+parameter_list|()
+block|{
+return|return
+name|embedSubset
+return|;
 block|}
 comment|/**      * Rebuild a font subset.      */
 specifier|protected

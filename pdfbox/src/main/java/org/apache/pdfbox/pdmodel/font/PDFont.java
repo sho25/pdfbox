@@ -69,16 +69,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -239,24 +229,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|font
-operator|.
-name|encoding
-operator|.
-name|GlyphList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|io
 operator|.
 name|IOUtils
@@ -292,6 +264,24 @@ operator|.
 name|common
 operator|.
 name|COSObjectable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|encoding
+operator|.
+name|GlyphList
 import|;
 end_import
 
@@ -1693,20 +1683,31 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Replaces this font with a subset containing only the given Unicode characters.      *      * @param codePoints Unicode code points to keep      * @throws IOException if the subset could not be written      */
+comment|/**      * Adds the given Unicode point to the subset.      *       * @param codePoint Unicode code point      */
+specifier|public
+specifier|abstract
+name|void
+name|addToSubset
+parameter_list|(
+name|int
+name|codePoint
+parameter_list|)
+function_decl|;
+comment|/**      * Replaces this font with a subset containing only the given Unicode characters.      *      * @throws IOException if the subset could not be written      */
 specifier|public
 specifier|abstract
 name|void
 name|subset
-parameter_list|(
-name|Set
-argument_list|<
-name|Integer
-argument_list|>
-name|codePoints
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
+function_decl|;
+comment|/**      * Returns true if this font will be subset when embedded.      */
+specifier|public
+specifier|abstract
+name|boolean
+name|willBeSubset
+parameter_list|()
 function_decl|;
 annotation|@
 name|Override

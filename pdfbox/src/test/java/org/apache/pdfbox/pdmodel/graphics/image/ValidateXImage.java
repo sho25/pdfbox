@@ -82,42 +82,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertTrue
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -193,8 +157,6 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|edit
-operator|.
 name|PDPageContentStream
 import|;
 end_import
@@ -210,6 +172,42 @@ operator|.
 name|rendering
 operator|.
 name|PDFRenderer
+import|;
+end_import
+
+begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+operator|.
+name|assertTrue
 import|;
 end_import
 

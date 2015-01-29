@@ -257,8 +257,6 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|edit
-operator|.
 name|TestPDPageContentStream
 import|;
 end_import

@@ -111,8 +111,6 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|edit
-operator|.
 name|PDPageContentStream
 import|;
 end_import
@@ -187,7 +185,7 @@ name|void
 name|validateCIDFontType2
 parameter_list|(
 name|boolean
-name|subset
+name|useSubset
 parameter_list|)
 throws|throws
 name|Exception
@@ -242,6 +240,8 @@ argument_list|(
 name|document
 argument_list|,
 name|input
+argument_list|,
+name|useSubset
 argument_list|)
 decl_stmt|;
 name|PDPageContentStream
@@ -267,8 +267,6 @@ argument_list|(
 name|font
 argument_list|,
 literal|12
-argument_list|,
-name|subset
 argument_list|)
 expr_stmt|;
 name|String

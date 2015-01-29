@@ -27,16 +27,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|/**  * Interface for a font subsetter.  */
 end_comment
@@ -45,15 +35,18 @@ begin_interface
 interface|interface
 name|Subsetter
 block|{
+comment|/**      * Adds the given Unicode code point to this subset.      *       * @param codePoint Unicode code point      */
+name|void
+name|addToSubset
+parameter_list|(
+name|int
+name|codePoint
+parameter_list|)
+function_decl|;
+comment|/**      * Subset this font now.      *       * @throws IOException if the font could not be read      */
 name|void
 name|subset
-parameter_list|(
-name|Set
-argument_list|<
-name|Integer
-argument_list|>
-name|codePoints
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 function_decl|;

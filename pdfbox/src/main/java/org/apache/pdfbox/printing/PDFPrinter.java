@@ -594,6 +594,18 @@ operator|.
 name|paper
 operator|=
 name|paper
+operator|!=
+literal|null
+condition|?
+name|paper
+else|:
+name|printerJob
+operator|.
+name|defaultPage
+argument_list|()
+operator|.
+name|getPaper
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -1482,7 +1494,7 @@ expr_stmt|;
 comment|// draw crop box
 if|if
 condition|(
-name|showPageBorder
+literal|true
 condition|)
 block|{
 name|graphics2D

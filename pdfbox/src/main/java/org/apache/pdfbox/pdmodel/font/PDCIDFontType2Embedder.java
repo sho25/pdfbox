@@ -226,6 +226,9 @@ parameter_list|,
 name|InputStream
 name|ttfStream
 parameter_list|,
+name|boolean
+name|embedSubset
+parameter_list|,
 name|PDType0Font
 name|parent
 parameter_list|)
@@ -239,6 +242,8 @@ argument_list|,
 name|dict
 argument_list|,
 name|ttfStream
+argument_list|,
+name|embedSubset
 argument_list|)
 expr_stmt|;
 name|this
