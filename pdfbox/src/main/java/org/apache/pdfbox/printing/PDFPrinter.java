@@ -1494,7 +1494,7 @@ expr_stmt|;
 comment|// draw crop box
 if|if
 condition|(
-literal|true
+name|showPageBorder
 condition|)
 block|{
 name|graphics2D
