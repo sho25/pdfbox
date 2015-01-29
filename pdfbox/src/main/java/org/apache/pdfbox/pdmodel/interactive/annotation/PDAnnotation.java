@@ -1954,6 +1954,8 @@ operator|.
 name|INSTANCE
 expr_stmt|;
 break|break;
+default|default:
+break|break;
 block|}
 return|return
 operator|new
