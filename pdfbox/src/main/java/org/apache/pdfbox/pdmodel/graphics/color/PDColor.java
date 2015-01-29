@@ -122,6 +122,13 @@ if|if
 condition|(
 name|array
 operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+operator|&&
+name|array
+operator|.
 name|get
 argument_list|(
 name|array
