@@ -1234,9 +1234,7 @@ return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-operator|!
+return|return
 name|checkIndirectObject
 argument_list|(
 name|ctx
@@ -1247,14 +1245,6 @@ name|COSName
 operator|.
 name|LAST
 argument_list|)
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-return|return
-literal|true
 return|;
 block|}
 comment|// verify that if the named item exists, that it is is an indirect object
