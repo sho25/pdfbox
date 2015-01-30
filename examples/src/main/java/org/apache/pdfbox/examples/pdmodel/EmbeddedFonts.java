@@ -227,7 +227,7 @@ name|stream
 operator|.
 name|showText
 argument_list|(
-literal|"PDFBox Unicode with Embedded TrueType Font"
+literal|"PDFBox's Unicode with Embedded TrueType Font"
 argument_list|)
 expr_stmt|;
 name|stream
