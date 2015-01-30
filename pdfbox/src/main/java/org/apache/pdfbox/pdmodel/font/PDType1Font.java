@@ -970,6 +970,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|bytes
+operator|.
+name|length
+operator|>
+literal|0
+operator|&&
 operator|(
 name|bytes
 index|[
