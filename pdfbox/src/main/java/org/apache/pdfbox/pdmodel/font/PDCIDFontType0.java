@@ -303,7 +303,6 @@ name|CFFType1Font
 name|t1Font
 decl_stmt|;
 comment|// Top DICT that does not use CIDFont operators
-comment|// todo: PDFBOX-2642 contains a Type1 PFB font in a CIDFont, but we can't handle that currently
 specifier|private
 specifier|final
 name|Map
@@ -425,6 +424,49 @@ name|cffFont
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|bytes
+operator|!=
+literal|null
+operator|&&
+name|bytes
+operator|.
+name|length
+operator|>
+literal|0
+operator|&&
+operator|(
+name|bytes
+index|[
+literal|0
+index|]
+operator|&
+literal|0xff
+operator|)
+operator|==
+literal|'%'
+condition|)
+block|{
+comment|// todo: PDFBOX-2642 contains a Type1 PFB font in a CIDFont, but we can't handle it yet
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Unsupported: Type1 font instead of CFF in "
+operator|+
+name|fd
+operator|.
+name|getFontName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|fontIsDamaged
+operator|=
+literal|true
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|bytes
@@ -671,6 +713,12 @@ condition|)
 block|{
 comment|// this error often indicates that the user needs to install the Adobe Reader
 comment|// Asian and Extended Language Pack
+if|if
+condition|(
+operator|!
+name|fontIsDamaged
+condition|)
+block|{
 name|LOG
 operator|.
 name|error
@@ -681,6 +729,7 @@ name|getBaseFont
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
