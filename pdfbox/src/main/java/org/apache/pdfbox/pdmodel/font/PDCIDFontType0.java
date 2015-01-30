@@ -303,6 +303,7 @@ name|CFFType1Font
 name|t1Font
 decl_stmt|;
 comment|// Top DICT that does not use CIDFont operators
+comment|// todo: PDFBOX-2642 contains a Type1 PFB font in a CIDFont, but we can't handle that currently
 specifier|private
 specifier|final
 name|Map
@@ -414,21 +415,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|bytes
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// embedded
-name|CFFParser
-name|cffParser
-init|=
-operator|new
-name|CFFParser
-argument_list|()
-decl_stmt|;
 name|boolean
 name|fontIsDamaged
 init|=
@@ -438,6 +424,20 @@ name|CFFFont
 name|cffFont
 init|=
 literal|null
+decl_stmt|;
+if|if
+condition|(
+name|bytes
+operator|!=
+literal|null
+condition|)
+block|{
+name|CFFParser
+name|cffParser
+init|=
+operator|new
+name|CFFParser
+argument_list|()
 decl_stmt|;
 try|try
 block|{
@@ -481,6 +481,15 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|cffFont
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// embedded
 if|if
 condition|(
 name|cffFont
@@ -520,7 +529,7 @@ literal|true
 expr_stmt|;
 name|isDamaged
 operator|=
-name|fontIsDamaged
+literal|false
 expr_stmt|;
 block|}
 else|else
@@ -693,7 +702,7 @@ literal|false
 expr_stmt|;
 name|isDamaged
 operator|=
-literal|false
+name|fontIsDamaged
 expr_stmt|;
 block|}
 name|fontMatrixTransform
