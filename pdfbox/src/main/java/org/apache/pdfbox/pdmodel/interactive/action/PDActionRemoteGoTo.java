@@ -126,30 +126,6 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-annotation|@
-name|Override
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|action
-return|;
-block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-annotation|@
-name|Override
-specifier|public
-name|COSDictionary
-name|getCOSDictionary
-parameter_list|()
-block|{
-return|return
-name|action
-return|;
-block|}
 comment|/**      * This will get the type of action that the actions dictionary describes.      * It must be GoToR for a remote go-to action.      *      * @return The S entry of the specific remote go-to action dictionary.      */
 specifier|public
 name|String

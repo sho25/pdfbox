@@ -98,30 +98,6 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-annotation|@
-name|Override
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|action
-return|;
-block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-annotation|@
-name|Override
-specifier|public
-name|COSDictionary
-name|getCOSDictionary
-parameter_list|()
-block|{
-return|return
-name|action
-return|;
-block|}
 comment|/**      * This will get the name of the action to be performed.      *      * @return The name of the action to be performed.      */
 specifier|public
 name|String
