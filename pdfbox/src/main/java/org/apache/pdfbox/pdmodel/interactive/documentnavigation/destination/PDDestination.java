@@ -332,9 +332,12 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Unknown destination type:"
+literal|"Unknown destination type: "
 operator|+
 name|type
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -396,6 +399,8 @@ name|retval
 return|;
 block|}
 comment|/**      * Return a string representation of this class.      *      * @return A human readable string.      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
