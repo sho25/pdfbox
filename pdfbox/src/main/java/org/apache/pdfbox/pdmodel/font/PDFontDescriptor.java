@@ -1910,6 +1910,27 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set a stream containing a CIDSet.      *      * @param stream The font program stream.      */
+specifier|public
+name|void
+name|setCIDSet
+parameter_list|(
+name|PDStream
+name|stream
+parameter_list|)
+block|{
+name|dic
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|CID_SET
+argument_list|,
+name|stream
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

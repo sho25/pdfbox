@@ -107,9 +107,7 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|common
-operator|.
-name|PDMetadata
+name|PDPageContentStream
 import|;
 end_import
 
@@ -123,7 +121,9 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|PDPageContentStream
+name|common
+operator|.
+name|PDMetadata
 import|;
 end_import
 
@@ -155,7 +155,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDTrueTypeFont
+name|PDType0Font
 import|;
 end_import
 
@@ -340,9 +340,9 @@ comment|// load the font as this needs to be embedded
 name|PDFont
 name|font
 init|=
-name|PDTrueTypeFont
+name|PDType0Font
 operator|.
-name|loadTTF
+name|load
 argument_list|(
 name|doc
 argument_list|,
