@@ -97,12 +97,6 @@ name|TestVersionType
 extends|extends
 name|AbstractStructuredTypeTester
 block|{
-specifier|protected
-name|VersionType
-name|structured
-init|=
-literal|null
-decl_stmt|;
 annotation|@
 name|Before
 specifier|public
@@ -116,14 +110,6 @@ name|super
 operator|.
 name|before
 argument_list|()
-expr_stmt|;
-name|structured
-operator|=
-operator|new
-name|VersionType
-argument_list|(
-name|xmp
-argument_list|)
 expr_stmt|;
 block|}
 specifier|public
@@ -162,7 +148,11 @@ name|getStructured
 parameter_list|()
 block|{
 return|return
-name|structured
+operator|new
+name|VersionType
+argument_list|(
+name|xmp
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -194,10 +184,6 @@ index|[]
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// result.add(new Object [] {VersionType.class,"version",Types.Text});
-comment|// result.add(new Object [] {VersionType.class,"comments",Types.Text});
-comment|// result.add(new Object []
-comment|// {VersionType.class,"modifyDate",Types.Date});
 name|result
 operator|.
 name|add
