@@ -173,6 +173,24 @@ return|return
 name|info
 return|;
 block|}
+comment|/**      * Return the properties String value.      *<p>      * Allows to retrieve the      * low level date for validation purposes.      *</p>       *       * @param propertyKey the dictionaries key      * @return the properties value      */
+specifier|public
+name|Object
+name|getPropertyStringValue
+parameter_list|(
+name|String
+name|propertyKey
+parameter_list|)
+block|{
+return|return
+name|info
+operator|.
+name|getString
+argument_list|(
+name|propertyKey
+argument_list|)
+return|;
+block|}
 comment|/**      * This will get the title of the document.  This will return null if no title exists.      *      * @return The title of the document.      */
 specifier|public
 name|String
