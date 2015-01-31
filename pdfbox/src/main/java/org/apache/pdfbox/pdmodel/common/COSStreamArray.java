@@ -359,8 +359,6 @@ argument_list|<
 name|Object
 argument_list|>
 name|retval
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

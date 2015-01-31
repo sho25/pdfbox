@@ -84,7 +84,7 @@ name|str
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will create a new PDStream object.      *      * @param document The document that the stream will be part of.      * @return A new stream object.      */
+comment|/**      * This will create a new PDObjectStream object.      *      * @param document The document that the stream will be part of.      * @return A new stream object.      */
 specifier|public
 specifier|static
 name|PDObjectStream

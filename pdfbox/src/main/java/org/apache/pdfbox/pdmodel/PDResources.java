@@ -359,7 +359,9 @@ operator|=
 name|resourceDictionary
 expr_stmt|;
 block|}
-comment|/**      * Returns the the underlying dictionary.      */
+comment|/**      * Returns the underlying dictionary.      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
 name|getCOSObject

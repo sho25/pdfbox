@@ -4394,7 +4394,7 @@ literal|"m"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw a line from the current position to the the given coordinates.      *      * @param x The x coordinate.      * @param y The y coordinate.      * @throws IOException If the content stream could not be written.      */
+comment|/**      * Draw a line from the current position to the given coordinates.      *      * @param x The x coordinate.      * @param y The y coordinate.      * @throws IOException If the content stream could not be written.      */
 specifier|public
 name|void
 name|lineTo
