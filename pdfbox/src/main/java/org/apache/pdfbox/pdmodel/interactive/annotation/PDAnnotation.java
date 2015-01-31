@@ -1734,7 +1734,7 @@ name|M
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the the date and time the annotation was modified.      *       * @param m the date and time the annotation was created.      */
+comment|/**      * This will set the date and time the annotation was modified.      *       * @param m the date and time the annotation was created.      */
 specifier|public
 name|void
 name|setModifiedDate

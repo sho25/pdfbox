@@ -1015,7 +1015,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will retrieve the horizontal offset of the caption.      *       * @return the the horizontal offset of the caption      */
+comment|/**      * This will retrieve the horizontal offset of the caption.      *       * @return the horizontal offset of the caption      */
 specifier|public
 name|float
 name|getCaptionHorizontalOffset

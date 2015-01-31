@@ -404,7 +404,7 @@ literal|"CreationDate"
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the the date and time the annotation was created.      *      * @param creationDate      *            the date and time the annotation was created.      */
+comment|/**      * This will set the date and time the annotation was created.      *      * @param creationDate      *            the date and time the annotation was created.      */
 specifier|public
 name|void
 name|setCreationDate
