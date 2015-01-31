@@ -4020,7 +4020,7 @@ return|return
 name|padded
 return|;
 block|}
-comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|boolean
 name|isUserPassword
@@ -4284,7 +4284,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|boolean
 name|isUserPassword

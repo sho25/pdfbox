@@ -669,7 +669,7 @@ name|getEncryptionKeyLength
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Prepares everything to decrypt the document.      *      * @param encryption encryption dictionary, can be retrieved via      * {@link PDDocument#getEncryption()}      * @param documentIDArray document id which is returned via      * {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()} (not used by      * this handler)      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data. If verbose mode      * is enabled, the exception message will provide more details why the the      * match wasn't successful.      */
+comment|/**      * Prepares everything to decrypt the document.      *      * @param encryption encryption dictionary, can be retrieved via      * {@link PDDocument#getEncryption()}      * @param documentIDArray document id which is returned via      * {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()} (not used by      * this handler)      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data. If verbose mode      * is enabled, the exception message will provide more details why the      * match wasn't successful.      */
 annotation|@
 name|Override
 specifier|public

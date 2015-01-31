@@ -156,7 +156,7 @@ return|return
 name|decryptionCertificate
 return|;
 block|}
-comment|/**      * Sets the the decryption certificate      * @param decryptionCertificate the new decryption certificate.      */
+comment|/**      * Sets the decryption certificate      * @param decryptionCertificate the new decryption certificate.      */
 specifier|public
 name|void
 name|setDecryptionCertificate
