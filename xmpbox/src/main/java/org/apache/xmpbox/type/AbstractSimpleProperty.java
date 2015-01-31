@@ -47,6 +47,10 @@ specifier|private
 name|String
 name|prefix
 decl_stmt|;
+specifier|private
+name|Object
+name|rawValue
+decl_stmt|;
 comment|/**      * Property specific type constructor (namespaceURI is given)      *       * @param metadata      *            The metadata to attach to this property      * @param namespaceURI      *            the specified namespace URI associated to this property      * @param prefix      *            The prefix to set for this property      * @param propertyName      *            The local Name of this property      * @param value      *            the value to give      */
 specifier|public
 name|AbstractSimpleProperty
@@ -91,6 +95,12 @@ name|prefix
 operator|=
 name|prefix
 expr_stmt|;
+name|this
+operator|.
+name|rawValue
+operator|=
+name|value
+expr_stmt|;
 block|}
 comment|/**      * Check and set new property value (in Element and in its Object Representation)      *       * @param value      *            Object value to set      */
 specifier|public
@@ -115,6 +125,18 @@ name|Object
 name|getValue
 parameter_list|()
 function_decl|;
+comment|/**      * Return the properties raw value.      *<p>      * The properties raw value is how it has been      * serialized into the XML. Allows to retrieve the      * low level date for validation purposes.      *</p>       *       * @return the raw value.      */
+specifier|public
+name|Object
+name|getRawValue
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|rawValue
+return|;
+block|}
 specifier|public
 name|String
 name|toString
