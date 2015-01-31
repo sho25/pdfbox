@@ -132,8 +132,6 @@ name|getRawValue
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|rawValue
 return|;
 block|}
