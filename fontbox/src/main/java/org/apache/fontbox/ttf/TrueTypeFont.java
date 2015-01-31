@@ -1130,15 +1130,38 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Returns the best Unicode from the font (the most general). The PDF spec says that "The means      * by which this is accomplished are implementation-dependent."      */
-specifier|private
+comment|/**      * Returns the best Unicode from the font (the most general). The PDF spec says that "The means      * by which this is accomplished are implementation-dependent."      *       * @throws IOException if the font could not be read      */
+specifier|public
+name|CmapSubtable
+name|getUnicodeCmap
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|getUnicodeCmap
+argument_list|(
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns the best Unicode from the font (the most general). The PDF spec says that "The means      * by which this is accomplished are implementation-dependent."      *       * @param isStrict False if we allow falling back to any cmap, even if it's not Unicode.      * @throws IOException if the font could not be read, or there is no Unicode cmap      */
+specifier|public
 name|CmapSubtable
 name|getUnicodeCmap
 parameter_list|(
+name|boolean
+name|isStrict
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|CmapTable
 name|cmapTable
-parameter_list|)
-block|{
+init|=
+name|getCmap
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|cmapTable
@@ -1244,6 +1267,21 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|isStrict
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"The TrueType font does not contain a Unicode cmap"
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 comment|// fallback to the first cmap (may not be Unicode, so may produce poor results)
 name|cmap
 operator|=
@@ -1255,6 +1293,7 @@ index|[
 literal|0
 index|]
 expr_stmt|;
+block|}
 block|}
 return|return
 name|cmap
@@ -1330,8 +1369,7 @@ name|cmap
 init|=
 name|getUnicodeCmap
 argument_list|(
-name|getCmap
-argument_list|()
+literal|false
 argument_list|)
 decl_stmt|;
 return|return
