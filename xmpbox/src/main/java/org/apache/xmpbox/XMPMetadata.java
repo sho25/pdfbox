@@ -287,7 +287,7 @@ specifier|private
 name|TypeMapping
 name|typeMapping
 decl_stmt|;
-comment|/**      * Contructor of an empty default XMPMetaData      *        */
+comment|/**      * Contructor of an empty default XMPMetaData.      *       */
 specifier|protected
 name|XMPMetadata
 parameter_list|()
@@ -312,7 +312,7 @@ name|DEFAULT_XPACKET_ENCODING
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * creates blank XMP doc with specified parameters      *       * @param xpacketBegin      *            Value of xpacketBegin      * @param xpacketId      *            Value of xpacketId      * @param xpacketBytes      *            Value of xpacketBytes      * @param xpacketEncoding      *            Value of xpacket encoding      */
+comment|/**      * Creates blank XMP doc with specified parameters.      *       * @param xpacketBegin Value of xpacketBegin      * @param xpacketId Value of xpacketId      * @param xpacketBytes Value of xpacketBytes      * @param xpacketEncoding Value of xpacket encoding      */
 specifier|protected
 name|XMPMetadata
 parameter_list|(
@@ -375,6 +375,7 @@ operator|=
 name|xpacketEncoding
 expr_stmt|;
 block|}
+comment|/**      * Creates blank XMP doc with default parameters.      *      * @return the XMPMetadata created.      */
 specifier|public
 specifier|static
 name|XMPMetadata
@@ -387,6 +388,7 @@ name|XMPMetadata
 argument_list|()
 return|;
 block|}
+comment|/**      * Creates blank XMP doc with specified parameters.      *       * @param xpacketBegin Value of xpacketBegin      * @param xpacketId Value of xpacketId      * @param xpacketBytes Value of xpacketBytes      * @param xpacketEncoding Value of xpacket encoding      * @return the XMPMetadata created.      */
 specifier|public
 specifier|static
 name|XMPMetadata
@@ -419,6 +421,7 @@ name|xpacketEncoding
 argument_list|)
 return|;
 block|}
+comment|/**      * Get TypeMapping.      * @return the defined TypeMapping.      */
 specifier|public
 name|TypeMapping
 name|getTypeMapping
@@ -430,7 +433,7 @@ operator|.
 name|typeMapping
 return|;
 block|}
-comment|/**      * Get xpacketBytes      *       * @return value of xpacketBytes field      */
+comment|/**      * Get xpacketBytes.      *       * @return value of xpacketBytes field      */
 specifier|public
 name|String
 name|getXpacketBytes
@@ -440,7 +443,7 @@ return|return
 name|xpacketBytes
 return|;
 block|}
-comment|/**      * Get xpacket encoding      *       * @return value of xpacket Encoding field      */
+comment|/**      * Get xpacket encoding.      *       * @return value of xpacket Encoding field      */
 specifier|public
 name|String
 name|getXpacketEncoding
@@ -450,7 +453,7 @@ return|return
 name|xpacketEncoding
 return|;
 block|}
-comment|/**      * Get xpacket Begin      *       * @return value of xpacket Begin field      */
+comment|/**      * Get xpacket Begin.      *       * @return value of xpacket Begin field      */
 specifier|public
 name|String
 name|getXpacketBegin
@@ -460,7 +463,7 @@ return|return
 name|xpacketBegin
 return|;
 block|}
-comment|/**      * Get xpacket Id      *       * @return value of xpacket Id field      */
+comment|/**      * Get xpacket Id.      *       * @return value of xpacket Id field      */
 specifier|public
 name|String
 name|getXpacketId
@@ -470,7 +473,7 @@ return|return
 name|xpacketId
 return|;
 block|}
-comment|/**      * Get All Schemas declared in this metadata representation      *       * @return List of declared schemas      */
+comment|/**      * Get All Schemas declared in this metadata representation.      *       * @return List of declared schemas      */
 specifier|public
 name|List
 argument_list|<
@@ -529,7 +532,7 @@ return|return
 name|schem
 return|;
 block|}
-comment|/**      * Set special XPACKET END PI      *       * @param data      *            The XPacket End value      */
+comment|/**      * Set special XPACKET END PI.      *       * @param data The XPacket End value      */
 specifier|public
 name|void
 name|setEndXPacket
@@ -543,7 +546,7 @@ operator|=
 name|data
 expr_stmt|;
 block|}
-comment|/**      * get XPACKET END PI      *       * @return XPACKET END Value      */
+comment|/**      * get XPACKET END PI.      *       * @return XPACKET END Value      */
 specifier|public
 name|String
 name|getEndXPacket
@@ -553,7 +556,7 @@ return|return
 name|xpacketEndData
 return|;
 block|}
-comment|/**      * Return the schema corresponding to this nsURI BE CAREFUL: typically, Metadata should contains one schema for each      * type this method return the first schema encountered corresponding to this NSURI Return null if unknown      *       * @param nsURI      *            The namespace URI corresponding to the schema wanted      * @return The Class Schema representation      */
+comment|/**      * Get the XMPSchema for the specified namespace.      *       * Return the schema corresponding to this nsURI<br/>      * BE CAREFUL: typically, Metadata should contain one schema for each type.      * This method returns the first schema encountered      * corresponding to this NSURI.<br/>      * Return null if unknown      *       * @param nsURI The namespace URI corresponding to the schema wanted      * @return The matching XMP schema representation      */
 specifier|public
 name|XMPSchema
 name|getSchema
@@ -613,6 +616,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**       * Get the XMPSchema for the specified Class.      *       * Return the schema corresponding to this Class<br/>      * BE CAREFUL: typically, Metadata should contain one schema for each type.      * This method returns the first schema encountered      * corresponding to this Class.<br/>      * Return null if unknown      *       * @param clz The Class corresponding to the schema wanted      * @return The matching XMP schema representation      */
 specifier|public
 name|XMPSchema
 name|getSchema
@@ -648,18 +652,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-specifier|public
-name|void
-name|clearSchemas
-parameter_list|()
-block|{
-name|schemas
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * Return the schema corresponding to this nsURI and a prefix This method is here to treat metadata which embed more      * than one time the same schema It permit to retrieve a specific schema with its prefix      *       * @param prefix      *            The prefix fixed in the schema wanted      * @param nsURI      *            The namespace URI corresponding to the schema wanted      * @return The Class Schema representation      */
+comment|/**      * Return the schema corresponding to this nsURI and a prefix.      *       * This method is here to treat metadata which embed more      * than one time the same schema. It permits to retrieve a specific schema with its prefix      *       * @param prefix The prefix fixed in the schema wanted      * @param nsURI The namespace URI corresponding to the schema wanted      * @return The Class Schema representation      */
 specifier|public
 name|XMPSchema
 name|getSchema
@@ -733,7 +726,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Set a unspecialized schema      *       * @param nsPrefix      *            The prefix wanted for the schema      * @param nsURI      *            The namespace URI wanted for the schema      * @return The schema added in order to work on it      */
+comment|/**      * Create and add an unspecified schema.      *       * @param nsPrefix The prefix wanted for the schema      * @param nsURI The namespace URI wanted for the schema      * @return The schema added in order to work on it      */
 specifier|public
 name|XMPSchema
 name|createAndAddDefaultSchema
@@ -774,7 +767,7 @@ return|return
 name|schem
 return|;
 block|}
-comment|/**      * Create and add a default PDFA Extension schema to this metadata This method return the created schema to enter      * information This PDFAExtension is created with all default namespaces used in PDFAExtensionSchema      *       * @return PDFAExtension schema added in order to work on it      */
+comment|/**      * Create and add a default PDFA Extension schema to this metadata.      *       * This method return the created schema to enter information.      * This PDFAExtension is created with all default namespaces used in PDFAExtensionSchema.      *       * @return PDFAExtension schema added in order to work on it      */
 specifier|public
 name|PDFAExtensionSchema
 name|createAndAddPDFAExtensionSchemaWithDefaultNS
@@ -805,38 +798,7 @@ return|return
 name|pdfAExt
 return|;
 block|}
-comment|/**      * Create and add a default XMPRights schema to this metadata This method return the created schema to enter      * information      *       * @return schema added in order to work on it      */
-specifier|public
-name|XMPRightsManagementSchema
-name|createAndAddXMPRightsManagementSchema
-parameter_list|()
-block|{
-name|XMPRightsManagementSchema
-name|rights
-init|=
-operator|new
-name|XMPRightsManagementSchema
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
-name|rights
-operator|.
-name|setAboutAsSimple
-argument_list|(
-literal|""
-argument_list|)
-expr_stmt|;
-name|addSchema
-argument_list|(
-name|rights
-argument_list|)
-expr_stmt|;
-return|return
-name|rights
-return|;
-block|}
-comment|/**      * Create and add a default PDFA Extension schema to this metadata This method return the created schema to enter      * information This PDFAExtension is created with specified list of namespaces      *       * @param namespaces      *            Special namespaces list to use      * @return schema added in order to work on it      * @throws XmpSchemaException      *             If namespaces list not contains PDF/A Extension namespace URI      */
+comment|/**      * Create and add a default PDFA Extension schema to this metadata.      *       * This method return the created schema to enter information.      * This PDFAExtension is created with specified list of namespaces.      *       * @param namespaces Special namespaces list to use      * @return schema added in order to work on it      * @throws XmpSchemaException If namespaces list not contains PDF/A Extension namespace URI      */
 specifier|public
 name|PDFAExtensionSchema
 name|createAndAddPDFAExtensionSchemaWithNS
@@ -877,7 +839,7 @@ return|return
 name|pdfAExt
 return|;
 block|}
-comment|/**      * Get the PDFA Extension schema This method return null if not found      *       * @return The PDFAExtension schema or null if not declared      */
+comment|/**      * Get the PDFA Extension schema.      *       * This method return null if not found.      *       * @return The PDFAExtension schema or null if not declared      */
 specifier|public
 name|PDFAExtensionSchema
 name|getPDFExtensionSchema
@@ -895,7 +857,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Create and add a default PDFA Identification schema to this metadata This method return the created schema to      * enter information      *       * @return schema added in order to work on it      */
+comment|/**      * Create and add a default PDFA Identification schema to this metadata.      *       * This method return the created schema to enter information.      *       * @return schema added in order to work on it      */
 specifier|public
 name|PDFAIdentificationSchema
 name|createAndAddPFAIdentificationSchema
@@ -926,7 +888,7 @@ return|return
 name|pdfAId
 return|;
 block|}
-comment|/**      * Get the PDFA Identification schema This method return null if not found      *       * @return The PDFAIdentificationSchema schema or null if not declared      */
+comment|/**      * Get the PDFA Identification schema.      *       * This method return null if not found.      *       * @return The PDFAIdentificationSchema schema or null if not declared      */
 specifier|public
 name|PDFAIdentificationSchema
 name|getPDFIdentificationSchema
@@ -944,7 +906,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Create and add a default Dublin Core schema to this metadata This method return the created schema to enter      * information      *       * @return schema added in order to work on it      */
+comment|/**      * Create and add a default Dublin Core schema to this metadata.      *       * This method return the created schema to enter information      *       * @return schema added in order to work on it      */
 specifier|public
 name|DublinCoreSchema
 name|createAndAddDublinCoreSchema
@@ -975,7 +937,25 @@ return|return
 name|dc
 return|;
 block|}
-comment|/**      * Create and add a default Basic Job Ticket schema to this metadata This method return the created schema to enter      * information      *       * @return schema added in order to work on it      */
+comment|/**      * Get the Dublin Core schema.      *       * This method return null if not found      *       * @return The DublinCoreSchema schema or null if not declared.      */
+specifier|public
+name|DublinCoreSchema
+name|getDublinCoreSchema
+parameter_list|()
+block|{
+return|return
+operator|(
+name|DublinCoreSchema
+operator|)
+name|getSchema
+argument_list|(
+name|DublinCoreSchema
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+comment|/**      * Create and add a default Basic Job Ticket schema to this metadata.      *       * This method return the created schema to enter information.      *       * @return schema added in order to work on it.      */
 specifier|public
 name|XMPBasicJobTicketSchema
 name|createAndAddBasicJobTicketSchema
@@ -1006,25 +986,7 @@ return|return
 name|sc
 return|;
 block|}
-comment|/**      * Get the Dublin Core schema This method return null if not found      *       * @return The DublinCoreSchema schema or null if not declared      */
-specifier|public
-name|DublinCoreSchema
-name|getDublinCoreSchema
-parameter_list|()
-block|{
-return|return
-operator|(
-name|DublinCoreSchema
-operator|)
-name|getSchema
-argument_list|(
-name|DublinCoreSchema
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
-comment|/**      * Get the Basic JOb Ticket Schema schema This method return null if not found      *       * @return The XMPBasicJobTicketSchema schema or null if not declared      */
+comment|/**      * Get the Basic Job Ticket Schema.      *       * This method return null if not found      *       * @return The XMPBasicJobTicketSchema schema or null if not declared.      */
 specifier|public
 name|XMPBasicJobTicketSchema
 name|getBasicJobTicketSchema
@@ -1042,7 +1004,38 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the XMPRights schema This method return null if not found      *       * @return The XMPRightsManagementSchema schema or null if not declared      */
+comment|/**      * Create and add a default XMP Rights Management Schema to this metadata.      *       * This method return the created schema to enter information.      *       * @return schema added in order to work on it      */
+specifier|public
+name|XMPRightsManagementSchema
+name|createAndAddXMPRightsManagementSchema
+parameter_list|()
+block|{
+name|XMPRightsManagementSchema
+name|rights
+init|=
+operator|new
+name|XMPRightsManagementSchema
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+name|rights
+operator|.
+name|setAboutAsSimple
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+name|addSchema
+argument_list|(
+name|rights
+argument_list|)
+expr_stmt|;
+return|return
+name|rights
+return|;
+block|}
+comment|/**      * Get the XMP Rights Management Schema.      *       * This method return null if not found.      *       * @return The XMPRightsManagementSchema schema or null if not declared      */
 specifier|public
 name|XMPRightsManagementSchema
 name|getXMPRightsManagementSchema
@@ -1060,25 +1053,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/*      * Get the Photoshop schema This method return null if not found      *      * @return The PhotoshopSchema schema or null if not declared      */
-specifier|public
-name|PhotoshopSchema
-name|getPhotoshopSchema
-parameter_list|()
-block|{
-return|return
-operator|(
-name|PhotoshopSchema
-operator|)
-name|getSchema
-argument_list|(
-name|PhotoshopSchema
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
-comment|/**      * Create and add a XMP Basic schema to this metadata This method return the created schema to enter information      *       * @return schema added in order to work on it      */
+comment|/**      * Create and add a XMP Basic schema to this metadata.      *       * This method return the created schema to enter information      *       * @return schema added in order to work on it      */
 specifier|public
 name|XMPBasicSchema
 name|createAndAddXMPBasicSchema
@@ -1109,7 +1084,7 @@ return|return
 name|xmpB
 return|;
 block|}
-comment|/**      * Get the XMP Basic schema This method return null if not found      *       * @return The XMPBasicSchema schema or null if not declared      */
+comment|/**      * Get the XMP Basic schema.      *       * This method return null if not found      *       * @return The XMPBasicSchema schema or null if not declared      */
 specifier|public
 name|XMPBasicSchema
 name|getXMPBasicSchema
@@ -1127,7 +1102,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Create and add a XMP Media Management schema to this metadata This method return the created schema to enter      * information      *       * @return schema added in order to work on it      */
+comment|/**      * Create and add a XMP Media Management schema to this metadata.      *       * This method return the created schema to enter      * information      *       * @return schema added in order to work on it      */
 specifier|public
 name|XMPMediaManagementSchema
 name|createAndAddXMPMediaManagementSchema
@@ -1158,7 +1133,7 @@ return|return
 name|xmpMM
 return|;
 block|}
-comment|/***      * create and add Photoshop Schema to this metadata. This method return the created schema to enter information      *       * @return schema added in order to work on it      */
+comment|/***      * Create and add Photoshop Schema to this metadata.      *       * This method return the created schema to enter information      *       * @return schema added in order to work on it      */
 specifier|public
 name|PhotoshopSchema
 name|createAndAddPhotoshopSchema
@@ -1189,7 +1164,25 @@ return|return
 name|photoshop
 return|;
 block|}
-comment|/**      * Get the XMP Media Management schema This method return null if not found      *       * @return The XMPMediaManagementSchema schema or null if not declared      */
+comment|/**      * Get the Photoshop schema.      *       * This method return null if not found      *      * @return The PhotoshopSchema schema or null if not declared      */
+specifier|public
+name|PhotoshopSchema
+name|getPhotoshopSchema
+parameter_list|()
+block|{
+return|return
+operator|(
+name|PhotoshopSchema
+operator|)
+name|getSchema
+argument_list|(
+name|PhotoshopSchema
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+comment|/**      * Get the XMP Media Management schema.      *       * This method return null if not found      *       * @return The XMPMediaManagementSchema schema or null if not declared      */
 specifier|public
 name|XMPMediaManagementSchema
 name|getXMPMediaManagementSchema
@@ -1207,7 +1200,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Create and add an Adobe PDF schema to this metadata This method return the created schema to enter information      *       * @return schema added in order to work on it      */
+comment|/**      * Create and add an Adobe PDF schema to this metadata.      *       * This method return the created schema to enter information      *       * @return schema added in order to work on it      */
 specifier|public
 name|AdobePDFSchema
 name|createAndAddAdobePDFSchema
@@ -1238,7 +1231,7 @@ return|return
 name|pdf
 return|;
 block|}
-comment|/**      * Get the Adobe PDF schema This method return null if not found      *       * @return The AdobePDFSchema schema or null if not declared      */
+comment|/**      * Get the Adobe PDF schema.      *       * This method return null if not found      *       * @return The AdobePDFSchema schema or null if not declared      */
 specifier|public
 name|AdobePDFSchema
 name|getAdobePDFSchema
@@ -1256,7 +1249,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Add a schema to the current structure      *       * @param obj      *            the schema to add      */
+comment|/**      * Add a schema to the current structure.      *       * @param obj the schema to add      */
 specifier|public
 name|void
 name|addSchema
@@ -1273,7 +1266,7 @@ name|obj
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Remove a schema      *       * @param schema      *            The schema to remove      */
+comment|/**      * Remove a schema.      *       * @param schema The schema to remove      */
 specifier|public
 name|void
 name|removeSchema
@@ -1288,6 +1281,18 @@ name|remove
 argument_list|(
 name|schema
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Removes all schemas defined.      */
+specifier|public
+name|void
+name|clearSchemas
+parameter_list|()
+block|{
+name|schemas
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 block|}

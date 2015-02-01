@@ -13,12 +13,17 @@ name|xmpbox
 package|;
 end_package
 
+begin_comment
+comment|/**  * Several constants used in XMP.  */
+end_comment
+
 begin_class
 specifier|public
 specifier|final
 class|class
 name|XmpConstants
 block|{
+comment|/**      * The RDF namespace URI reference.      */
 specifier|public
 specifier|static
 specifier|final
@@ -27,6 +32,7 @@ name|RDF_NAMESPACE
 init|=
 literal|"http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 decl_stmt|;
+comment|/**      * The default xpacket header begin attribute.      */
 specifier|public
 specifier|static
 specifier|final
@@ -35,6 +41,7 @@ name|DEFAULT_XPACKET_BEGIN
 init|=
 literal|"\uFEFF"
 decl_stmt|;
+comment|/**      * The default xpacket header id attribute.      */
 specifier|public
 specifier|static
 specifier|final
@@ -43,6 +50,7 @@ name|DEFAULT_XPACKET_ID
 init|=
 literal|"W5M0MpCehiHzreSzNTczkc9d"
 decl_stmt|;
+comment|/**      * The default xpacket header encoding attribute.      */
 specifier|public
 specifier|static
 specifier|final
@@ -51,6 +59,7 @@ name|DEFAULT_XPACKET_ENCODING
 init|=
 literal|"UTF-8"
 decl_stmt|;
+comment|/**      * The default xpacket data (XMP Data).      */
 specifier|public
 specifier|static
 specifier|final
@@ -59,6 +68,7 @@ name|DEFAULT_XPACKET_BYTES
 init|=
 literal|null
 decl_stmt|;
+comment|/**      * The default xpacket trailer end attribute.      */
 specifier|public
 specifier|static
 specifier|final
@@ -67,6 +77,7 @@ name|DEFAULT_XPACKET_END
 init|=
 literal|"w"
 decl_stmt|;
+comment|/**      * The default namespace prefix for RDF.      */
 specifier|public
 specifier|static
 specifier|final
@@ -75,6 +86,7 @@ name|DEFAULT_RDF_PREFIX
 init|=
 literal|"rdf"
 decl_stmt|;
+comment|/**      * The default local name for RDF.      */
 specifier|public
 specifier|static
 specifier|final
@@ -83,6 +95,7 @@ name|DEFAULT_RDF_LOCAL_NAME
 init|=
 literal|"RDF"
 decl_stmt|;
+comment|/**      * The list element name.      */
 specifier|public
 specifier|static
 specifier|final
@@ -91,6 +104,7 @@ name|LIST_NAME
 init|=
 literal|"li"
 decl_stmt|;
+comment|/**      * The language attribute name.      */
 specifier|public
 specifier|static
 specifier|final
@@ -99,6 +113,7 @@ name|LANG_NAME
 init|=
 literal|"lang"
 decl_stmt|;
+comment|/**      * The about attribute name.      */
 specifier|public
 specifier|static
 specifier|final
@@ -107,6 +122,7 @@ name|ABOUT_NAME
 init|=
 literal|"about"
 decl_stmt|;
+comment|/**      * The Description element name.      */
 specifier|public
 specifier|static
 specifier|final
@@ -115,6 +131,7 @@ name|DESCRIPTION_NAME
 init|=
 literal|"Description"
 decl_stmt|;
+comment|/**      * The resource attribute name.      */
 specifier|public
 specifier|static
 specifier|final
@@ -123,6 +140,7 @@ name|RESOURCE_NAME
 init|=
 literal|"Resource"
 decl_stmt|;
+comment|/**      * The parse type attribute name.      */
 specifier|public
 specifier|static
 specifier|final
@@ -131,6 +149,7 @@ name|PARSE_TYPE
 init|=
 literal|"parseType"
 decl_stmt|;
+comment|/**      * The default language code.      */
 specifier|public
 specifier|static
 specifier|final
