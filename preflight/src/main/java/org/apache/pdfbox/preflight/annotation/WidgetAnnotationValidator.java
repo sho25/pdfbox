@@ -165,7 +165,7 @@ operator|.
 name|pdWidget
 expr_stmt|;
 block|}
-comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the the checkAAField method.      *       * @see AnnotationValidator#validate()      */
+comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the checkAAField method.      *       * @see AnnotationValidator#validate()      */
 annotation|@
 name|Override
 specifier|public

@@ -165,7 +165,7 @@ operator|.
 name|pdSquareCircle
 expr_stmt|;
 block|}
-comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the the checkIColors method.      *       * @see AnnotationValidator#validate()      */
+comment|/**      * In addition of the AnnotationValidator.validate() method, this method executes the checkIColors method.      *       * @see AnnotationValidator#validate()      */
 annotation|@
 name|Override
 specifier|public
