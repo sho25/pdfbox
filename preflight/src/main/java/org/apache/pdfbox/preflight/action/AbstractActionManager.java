@@ -267,7 +267,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Call the {@link AbstractActionManager#valid(boolean)} method with the additonalActionAuth set to false.      *       * @return the validation state.      * @throws ValidationException      */
+comment|/**      * Call the {@link AbstractActionManager#valid(boolean)} method with the additionalActionAuth set to false.      *       * @return the validation state.      * @throws ValidationException      */
 specifier|public
 name|boolean
 name|valid
@@ -340,6 +340,8 @@ specifier|abstract
 name|boolean
 name|innerValid
 parameter_list|()
+throws|throws
+name|ValidationException
 function_decl|;
 block|}
 end_class

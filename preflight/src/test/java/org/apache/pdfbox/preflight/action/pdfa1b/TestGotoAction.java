@@ -229,7 +229,7 @@ literal|false
 argument_list|,
 name|PreflightConstants
 operator|.
-name|ERROR_ACTION_INVALID_TYPE
+name|ERROR_SYNTAX_DICT_INVALID
 argument_list|)
 expr_stmt|;
 block|}

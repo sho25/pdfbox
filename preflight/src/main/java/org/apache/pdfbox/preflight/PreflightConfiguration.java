@@ -369,6 +369,24 @@ name|process
 operator|.
 name|reflect
 operator|.
+name|DestinationValidationProcess
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|process
+operator|.
+name|reflect
+operator|.
 name|ExtGStateValidationProcess
 import|;
 end_import
@@ -631,6 +649,14 @@ name|String
 name|TILING_PATTERN_PROCESS
 init|=
 literal|"tiling-pattern-process"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DESTINATION_PROCESS
+init|=
+literal|"destination-process"
 decl_stmt|;
 comment|/*      * TODO other configuration option should be possible : - skip some validation process ? - ???      */
 comment|/**      * Boolean to know if an exception must be thrown if a ValidationProcess is missing.      */
@@ -928,6 +954,17 @@ argument_list|(
 name|ANNOTATIONS_PROCESS
 argument_list|,
 name|AnnotationValidationProcess
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|configuration
+operator|.
+name|replacePageProcess
+argument_list|(
+name|DESTINATION_PROCESS
+argument_list|,
+name|DestinationValidationProcess
 operator|.
 name|class
 argument_list|)
