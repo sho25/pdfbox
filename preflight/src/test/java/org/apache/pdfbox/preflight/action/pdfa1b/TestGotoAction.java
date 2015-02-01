@@ -154,6 +154,8 @@ operator|new
 name|PDDestination
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -203,6 +205,8 @@ operator|new
 name|PDDestination
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
