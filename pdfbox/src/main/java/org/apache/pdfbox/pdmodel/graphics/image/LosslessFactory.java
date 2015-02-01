@@ -638,6 +638,18 @@ operator|.
 name|getAlphaRaster
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|alphaRaster
+operator|==
+literal|null
+condition|)
+block|{
+comment|// happens sometimes (PDFBOX-2654) despite colormodel claiming to have alpha
+return|return
+literal|null
+return|;
+block|}
 name|int
 index|[]
 name|pixels
