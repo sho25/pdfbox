@@ -234,6 +234,7 @@ name|tiffheader
 decl_stmt|;
 comment|// Byte array to store tiff header data
 specifier|private
+specifier|final
 name|InputStream
 name|datastream
 decl_stmt|;
@@ -328,6 +329,8 @@ name|rawstream
 expr_stmt|;
 block|}
 comment|// Implement basic methods from InputStream
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|markSupported
@@ -337,6 +340,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|reset
@@ -353,6 +358,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * For simple read, take a byte from the tiff header array or pass through.      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -385,6 +392,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * For read methods only return as many bytes as we have left in the header if we've      * exhausted the header, pass through to the InputStream of the raw CCITT data.      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -471,6 +480,8 @@ return|;
 block|}
 block|}
 comment|/**      * For read methods only return as many bytes as we have left in the header if we've      * exhausted the header, pass  through to the InputStream of the raw CCITT data.      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -565,6 +576,8 @@ return|;
 block|}
 block|}
 comment|/**      * When skipping if any header data not yet read, only allow to      * skip what we've in the buffer Otherwise just pass through.      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|skip
@@ -843,7 +856,13 @@ operator|)
 name|dicOrArrayParms
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|dicOrArrayParms
+operator|instanceof
+name|COSArray
+condition|)
 block|{
 name|COSArray
 name|parmsArray
