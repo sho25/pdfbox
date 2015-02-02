@@ -118,7 +118,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to convert dates to strings and back using the PDF date standards. Date are described in  * PDFReference1.4 section 3.8.2  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author<a href="mailto:chris@oezbek.net">Christopher Oezbek</a>  *   * @version $Revision: 1.3 $  */
+comment|/**  * This class is used to convert dates to strings and back using the PDF date standards. Date are described in  * PDFReference1.4 section 3.8.2  *   *<p>  *<strong>This is (and will not be) a Java date parsing library and will likely still have limited  * support for various strings as it’s main use case it to parse from PDF date strings.</strong>  *</p>  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author<a href="mailto:chris@oezbek.net">Christopher Oezbek</a>  *   * @version $Revision: 1.3 $  */
 end_comment
 
 begin_class
