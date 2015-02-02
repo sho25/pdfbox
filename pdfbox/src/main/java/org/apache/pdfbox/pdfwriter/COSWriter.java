@@ -2566,6 +2566,11 @@ block|}
 name|doWriteXRefTable
 argument_list|()
 expr_stmt|;
+name|doWriteTrailer
+argument_list|(
+name|doc
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// writes the "xref" table
