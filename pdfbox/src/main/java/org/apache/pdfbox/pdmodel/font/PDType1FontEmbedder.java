@@ -938,6 +938,14 @@ name|getCharacterSet
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fd
+operator|.
+name|setStemV
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// for PDF/A
 return|return
 name|fd
 return|;
