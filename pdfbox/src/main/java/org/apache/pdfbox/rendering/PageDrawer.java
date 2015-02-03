@@ -3623,6 +3623,28 @@ name|lastClip
 operator|=
 literal|null
 expr_stmt|;
+comment|//TODO support more flags; make a difference between viewing and printing
+if|if
+condition|(
+operator|!
+name|annotation
+operator|.
+name|isHidden
+argument_list|()
+operator|&&
+operator|!
+name|annotation
+operator|.
+name|isInvisible
+argument_list|()
+operator|&&
+operator|!
+name|annotation
+operator|.
+name|isNoView
+argument_list|()
+condition|)
+block|{
 name|super
 operator|.
 name|showAnnotation
@@ -3630,6 +3652,7 @@ argument_list|(
 name|annotation
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
