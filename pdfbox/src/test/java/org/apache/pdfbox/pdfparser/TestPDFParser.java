@@ -110,7 +110,7 @@ specifier|final
 name|String
 name|PATH_OF_PDF
 init|=
-literal|"src/test/resources/org/apache/pdfbox/pdfparser/gdb-refcard.pdf"
+literal|"src/test/resources/input/yaddatest.pdf"
 decl_stmt|;
 specifier|private
 specifier|static
