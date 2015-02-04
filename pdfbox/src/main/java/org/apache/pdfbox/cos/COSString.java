@@ -800,6 +800,22 @@ literal|0
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"COSString{"
+operator|+
+name|getString
+argument_list|()
+operator|+
+literal|"}"
+return|;
+block|}
 block|}
 end_class
 
