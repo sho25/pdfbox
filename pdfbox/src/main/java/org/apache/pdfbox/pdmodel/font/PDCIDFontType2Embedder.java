@@ -1197,7 +1197,6 @@ init|=
 operator|new
 name|byte
 index|[
-operator|(
 name|Collections
 operator|.
 name|max
@@ -1207,11 +1206,10 @@ operator|.
 name|keySet
 argument_list|()
 argument_list|)
-operator|+
-literal|7
-operator|)
 operator|/
 literal|8
+operator|+
+literal|1
 index|]
 decl_stmt|;
 for|for
