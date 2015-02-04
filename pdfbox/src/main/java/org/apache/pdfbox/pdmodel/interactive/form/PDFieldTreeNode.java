@@ -655,7 +655,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Set the value of the "V" entry. The "V" entry is an inheritable attribute.      *       * The different field types do require specific object types for their value      * e.g. for RadioButtons the V entry needs to be a name object. This needs to be handled by the      * individual classes.      *       * Trying to set the value for a {@link PDPushButton} field will lead to an      * {@link IllegalArgumentException} as PDPushButton fields do not support setting the      * entry although, common to all field types, the DV entry shall not be set.      *       * As a result it might be necessary to check the type of the value before      * reusing it.      *       * @param fieldValue The new field value.      */
+comment|/**      * Set the value of the "V" entry. The "V" entry is an inheritable attribute.      *       * The different field types do require specific object types for their value      * e.g. for RadioButtons the V entry needs to be a name object. This needs to be handled by the      * individual classes.      *       * Trying to set the value for a {@link PDPushButton} field will lead to an      * {@link IllegalArgumentException} as PDPushButton fields do not support setting the      * entry although, common to all field types, the DV entry shall not be set.      *       * As a result it might be necessary to check the type of the value before      * reusing it.      *       * @param fieldValue The new field value.      * @throws IOException if there is an error setting the field value.      */
 specifier|public
 specifier|abstract
 name|void
@@ -664,6 +664,8 @@ parameter_list|(
 name|String
 name|fieldValue
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * sets the field to be read-only.      *       * @param readonly The new flag for readonly.      */
 specifier|public

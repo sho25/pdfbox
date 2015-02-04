@@ -138,7 +138,7 @@ specifier|private
 name|AppearanceGenerator
 parameter_list|()
 block|{     }
-comment|/**      * Generate the appearances for a single field.      *       * @param field The field which appearances need to be generated.      */
+comment|/**      * Generate the appearances for a single field.      *       * @param field The field which appearances need to be generated.      * @throws IOException       */
 specifier|public
 specifier|static
 name|void
@@ -147,6 +147,8 @@ parameter_list|(
 name|PDField
 name|field
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -165,8 +167,6 @@ name|fieldValue
 init|=
 literal|null
 decl_stmt|;
-try|try
-block|{
 name|pdAppearance
 operator|=
 operator|new
@@ -190,17 +190,6 @@ operator|.
 name|getValue
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// TODO: Implement the removal of the appearance as this
-comment|//       exception occurred either because the value couldn't be read or
-comment|//       the type is not valid for the field.
-block|}
 comment|// TODO: implement the handling for additional values.
 if|if
 condition|(
@@ -208,8 +197,6 @@ name|fieldValue
 operator|instanceof
 name|String
 condition|)
-block|{
-try|try
 block|{
 name|pdAppearance
 operator|.
@@ -222,23 +209,6 @@ name|fieldValue
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Unable to generate the field appearance."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 elseif|else
 if|if
 condition|(
@@ -246,8 +216,6 @@ name|fieldValue
 operator|instanceof
 name|PDTextStream
 condition|)
-block|{
-try|try
 block|{
 name|pdAppearance
 operator|.
@@ -264,23 +232,6 @@ name|getAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Unable to generate the field appearance."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 elseif|else
 if|if

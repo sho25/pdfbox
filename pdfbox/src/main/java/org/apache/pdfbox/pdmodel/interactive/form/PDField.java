@@ -21,6 +21,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -303,11 +313,13 @@ return|return
 name|fieldType
 return|;
 block|}
-comment|/**      * Update the fields appearance stream.      *       * The fields appearance stream needs to be updated to reflect the new field      * value. This will be done only if the NeedAppearances flag has not been set.      */
+comment|/**      * Update the fields appearance stream.      *       * The fields appearance stream needs to be updated to reflect the new field      * value. This will be done only if the NeedAppearances flag has not been set.      * @throws IOException if the appearance couldn't be generated      */
 specifier|protected
 name|void
 name|updateFieldAppearances
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(

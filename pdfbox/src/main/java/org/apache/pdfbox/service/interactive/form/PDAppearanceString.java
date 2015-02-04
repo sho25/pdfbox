@@ -2067,7 +2067,9 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Unable to generate field appearance - missing required font resources"
+literal|"Unable to generate field appearance - missing required font resources: "
+operator|+
+name|cosFontName
 argument_list|)
 throw|;
 block|}

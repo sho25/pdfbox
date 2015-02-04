@@ -659,7 +659,7 @@ return|return
 literal|""
 return|;
 block|}
-comment|/**      * Set the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *<p>      * For long text it's more efficient to provide the text content as a      * text stream {@link #setValue(PDTextStream)}      *</p>      * @param value the value      */
+comment|/**      * Set the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *<p>      * For long text it's more efficient to provide the text content as a      * text stream {@link #setValue(PDTextStream)}      *</p>      * @param value the value      * @throws IOException if there is an error setting the field value      */
 annotation|@
 name|Override
 specifier|public
@@ -669,6 +669,8 @@ parameter_list|(
 name|String
 name|value
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -717,7 +719,7 @@ name|updateFieldAppearances
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Set the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @param textStream the value      */
+comment|/**      * Set the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @param textStream the value      * @throws IOException if there is an error setting the field value      */
 specifier|public
 name|void
 name|setValue
@@ -725,6 +727,8 @@ parameter_list|(
 name|PDTextStream
 name|textStream
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
