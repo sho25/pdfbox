@@ -1474,11 +1474,12 @@ condition|(
 name|codePoint
 operator|<=
 literal|0xD7FF
-operator|&&
+operator|||
 name|codePoint
 operator|>=
 literal|0xE000
 condition|)
+comment|// disallowed code area
 block|{
 name|uniStr
 operator|.
@@ -1500,6 +1501,21 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|unicode
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
 return|return
 name|unicode
 operator|.
