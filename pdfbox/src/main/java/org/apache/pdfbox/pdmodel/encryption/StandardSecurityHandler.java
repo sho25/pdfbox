@@ -1026,7 +1026,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IOException
+name|InvalidPasswordException
 argument_list|(
 literal|"Cannot decrypt PDF, the password is incorrect"
 argument_list|)
