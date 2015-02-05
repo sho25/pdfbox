@@ -1056,15 +1056,20 @@ operator|!
 name|isClippingPathDirty
 condition|)
 block|{
-name|clippingPath
-operator|=
-operator|(
+comment|// deep copy (can't use clone() as it performs only a shallow copy)
 name|Area
-operator|)
-name|clippingPath
-operator|.
-name|clone
+name|cloned
+init|=
+operator|new
+name|Area
 argument_list|()
+decl_stmt|;
+name|cloned
+operator|.
+name|add
+argument_list|(
+name|clippingPath
+argument_list|)
 expr_stmt|;
 name|isClippingPathDirty
 operator|=
