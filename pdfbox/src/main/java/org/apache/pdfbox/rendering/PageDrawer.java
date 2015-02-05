@@ -2427,17 +2427,25 @@ operator|++
 name|i
 control|)
 block|{
+comment|// minimum line dash width avoids JVM crash, see PDFBOX-2373
 name|dashArray
 index|[
 name|i
 index|]
 operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
 name|transformWidth
 argument_list|(
 name|dashArray
 index|[
 name|i
 index|]
+argument_list|)
+argument_list|,
+literal|0.25f
 argument_list|)
 expr_stmt|;
 block|}
