@@ -1468,6 +1468,40 @@ return|return
 name|acroForm
 return|;
 block|}
+comment|/**      * This will tell if the AcroForm has XFA content.      *      * @return true if the AcroForm is an XFA form      */
+specifier|public
+name|boolean
+name|hasXFA
+parameter_list|()
+block|{
+return|return
+name|acroForm
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|XFA
+argument_list|)
+return|;
+block|}
+comment|/**      * This will tell if the AcroForm is a dynamic XFA form.      *      * @return true if the AcroForm is a dynamic XFA form      */
+specifier|public
+name|boolean
+name|xfaIsDynamic
+parameter_list|()
+block|{
+return|return
+name|hasXFA
+argument_list|()
+operator|&&
+name|getFields
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 comment|/**      * Get the XFA resource, the XFA resource is only used for PDF 1.5+ forms.      *      * @return The xfa resource or null if it does not exist.      */
 specifier|public
 name|PDXFAResource
