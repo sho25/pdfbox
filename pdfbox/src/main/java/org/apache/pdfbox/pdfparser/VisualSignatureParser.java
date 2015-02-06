@@ -141,9 +141,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|persistence
-operator|.
-name|util
+name|cos
 operator|.
 name|COSObjectKey
 import|;

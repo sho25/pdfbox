@@ -165,22 +165,6 @@ name|SignatureInterface
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|persistence
-operator|.
-name|util
-operator|.
-name|COSObjectKey
-import|;
-end_import
-
 begin_comment
 comment|/**  * This is the in-memory representation of the PDF document.  You need to call  * close() on this object when you are done using it!!  *  * @author Ben Litchfield  *   */
 end_comment

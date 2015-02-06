@@ -11,25 +11,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|persistence
-operator|.
-name|util
+name|cos
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSObject
-import|;
-end_import
 
 begin_comment
 comment|/**  * Object representing the physical reference to an indirect pdf object.  *  * @author Michael Traut  * @version $Revision: 1.5 $  */
