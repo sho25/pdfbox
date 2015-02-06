@@ -2381,7 +2381,7 @@ name|i
 index|]
 argument_list|)
 argument_list|,
-literal|0.25f
+literal|0.016f
 argument_list|)
 expr_stmt|;
 block|}
