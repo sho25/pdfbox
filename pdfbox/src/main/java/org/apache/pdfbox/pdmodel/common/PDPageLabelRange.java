@@ -83,10 +83,7 @@ name|KEY_START
 init|=
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"St"
-argument_list|)
+name|ST
 decl_stmt|;
 specifier|private
 specifier|static
@@ -106,10 +103,7 @@ name|KEY_STYLE
 init|=
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"S"
-argument_list|)
+name|S
 decl_stmt|;
 comment|// Style entry values (PDF32000-1:2008 Section 12.4.2, Table 159)
 comment|/**      * Decimal page numbering style (1, 2, 3, ...).      */

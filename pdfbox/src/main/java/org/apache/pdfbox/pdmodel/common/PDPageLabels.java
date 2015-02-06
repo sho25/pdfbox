@@ -205,7 +205,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
-name|SortedMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -913,10 +913,12 @@ name|String
 argument_list|>
 block|{
 specifier|private
+specifier|final
 name|PDPageLabelRange
 name|labelInfo
 decl_stmt|;
 specifier|private
+specifier|final
 name|int
 name|numPages
 decl_stmt|;
