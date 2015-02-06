@@ -84,8 +84,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// ttf file is from TIKA trunk
-comment|// tika-parsers/src/test/resources/test-documents/testTrueType.ttf
 specifier|final
 name|File
 name|testFile
@@ -93,7 +91,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/ttf/testTrueType.ttf"
+literal|"src/test/resources/ttf/LiberationSans-Regular.ttf"
 argument_list|)
 decl_stmt|;
 name|TimeZone
@@ -172,17 +170,17 @@ name|target
 operator|.
 name|set
 argument_list|(
-literal|1904
+literal|2012
 argument_list|,
-literal|0
+literal|9
 argument_list|,
-literal|1
+literal|4
 argument_list|,
-literal|0
+literal|11
 argument_list|,
-literal|0
+literal|2
 argument_list|,
-literal|0
+literal|31
 argument_list|)
 expr_stmt|;
 name|target
@@ -198,9 +196,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|created
-argument_list|,
 name|target
+argument_list|,
+name|created
 argument_list|)
 expr_stmt|;
 block|}
