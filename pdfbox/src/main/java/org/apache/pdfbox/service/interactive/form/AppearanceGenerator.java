@@ -156,8 +156,8 @@ operator|instanceof
 name|PDVariableText
 condition|)
 block|{
-name|PDAppearanceString
-name|pdAppearance
+name|AppearanceGeneratorHelper
+name|apHelper
 init|=
 literal|null
 decl_stmt|;
@@ -166,10 +166,10 @@ name|fieldValue
 init|=
 literal|null
 decl_stmt|;
-name|pdAppearance
+name|apHelper
 operator|=
 operator|new
-name|PDAppearanceString
+name|AppearanceGeneratorHelper
 argument_list|(
 name|field
 operator|.
@@ -197,7 +197,7 @@ operator|instanceof
 name|String
 condition|)
 block|{
-name|pdAppearance
+name|apHelper
 operator|.
 name|setAppearanceValue
 argument_list|(
@@ -216,7 +216,7 @@ operator|instanceof
 name|PDTextStream
 condition|)
 block|{
-name|pdAppearance
+name|apHelper
 operator|.
 name|setAppearanceValue
 argument_list|(

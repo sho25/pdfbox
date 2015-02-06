@@ -472,12 +472,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default appearance string contains any graphics state or text state operators needed to  * establish the graphics state parameters, such as text size and colour, for displaying the field's  * variable text. Only operators that are allowed within text objects shall occur in this string.  *  * @author Stephan Gerhard  * @author Ben Litchfield  */
+comment|/**  * Create the AcroForms filed appearance helper.  *<p>  * A helper class to the {@link AppearanceGenerator} to generate update an AcroForm field appearance.  *</p>  * @author Stephan Gerhard  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 class|class
-name|PDAppearanceString
+name|AppearanceGeneratorHelper
 block|{
 specifier|private
 specifier|static
@@ -489,7 +489,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|PDAppearanceString
+name|AppearanceGeneratorHelper
 operator|.
 name|class
 argument_list|)
@@ -529,7 +529,7 @@ argument_list|()
 decl_stmt|;
 comment|/**      * Constructs a COSAppearance from the given field.      *      * @param theAcroForm the AcroForm that this field is part of.      * @param field the field which you wish to control the appearance of      * @throws IOException       */
 specifier|public
-name|PDAppearanceString
+name|AppearanceGeneratorHelper
 parameter_list|(
 name|PDAcroForm
 name|theAcroForm
