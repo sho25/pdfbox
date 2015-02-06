@@ -12,8 +12,6 @@ operator|.
 name|pdfbox
 operator|.
 name|rendering
-operator|.
-name|font
 package|;
 end_package
 
@@ -210,7 +208,7 @@ comment|/**  * This class provides a glyph to GeneralPath conversion for TrueTyp
 end_comment
 
 begin_class
-specifier|public
+specifier|final
 class|class
 name|TTFGlyph2D
 implements|implements

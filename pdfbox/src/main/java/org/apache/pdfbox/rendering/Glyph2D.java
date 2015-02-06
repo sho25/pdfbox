@@ -12,8 +12,6 @@ operator|.
 name|pdfbox
 operator|.
 name|rendering
-operator|.
-name|font
 package|;
 end_package
 
@@ -44,7 +42,6 @@ comment|/**  * This interface is implemented by several font specific classes wh
 end_comment
 
 begin_interface
-specifier|public
 interface|interface
 name|Glyph2D
 block|{
