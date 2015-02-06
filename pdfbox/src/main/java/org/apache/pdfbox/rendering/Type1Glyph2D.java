@@ -49,6 +49,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -119,7 +129,7 @@ argument_list|)
 decl_stmt|;
 specifier|private
 specifier|final
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
