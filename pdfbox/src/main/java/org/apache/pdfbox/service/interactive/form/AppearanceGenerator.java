@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|service
 operator|.
 name|interactive
 operator|.
@@ -73,11 +73,48 @@ name|PDTextStream
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|form
+operator|.
+name|PDField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|form
+operator|.
+name|PDVariableText
+import|;
+end_import
+
 begin_comment
 comment|/**  * (Re-) Generate the appearance for a field.  *   * The fields appearance defines the 'look' the field has when it's rendered for display or printing.  */
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|AppearanceGenerator
 block|{

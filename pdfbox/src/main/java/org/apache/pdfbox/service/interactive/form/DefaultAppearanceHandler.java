@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|service
 operator|.
 name|interactive
 operator|.
