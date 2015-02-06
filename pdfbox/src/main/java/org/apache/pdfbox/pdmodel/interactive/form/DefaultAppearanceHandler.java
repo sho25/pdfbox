@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|service
+name|pdmodel
 operator|.
 name|interactive
 operator|.
@@ -132,7 +132,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default appearance, an inheritable attribute contained in the dictionaries  * /DA entry, contains any graphics state or text state operators needed  * to establish the graphics state parameters, such as text size  * and color, for displaying the field’s variable text.  *<p>  * Allowed operators are all which are permitted in text objects.  * The Tf operator is required specifying the font and the font size  *</p>  *   *<p>  *<strong>Currently only the Tf operator is abstracted through this class!</strong>  *</p>   *   */
+comment|/**  * The default appearance, an inheritable attribute contained in the dictionaries  * /DA entry, contains any graphics state or text state operators needed  * to establish the graphics state parameters, such as text size  * and color, for displaying the field’s variable text.  *<p>  * Allowed operators are all which are permitted in text objects.  * The Tf operator is required specifying the font and the font size  *</p>  *   *<p>  *<strong>Currently only the Tf operator is abstracted through this class!</strong>  *</p>  */
 end_comment
 
 begin_class
@@ -140,6 +140,7 @@ class|class
 name|DefaultAppearanceHandler
 block|{
 comment|/**      * The tokens making up the content of the default appearance string.      */
+specifier|private
 name|List
 argument_list|<
 name|Object

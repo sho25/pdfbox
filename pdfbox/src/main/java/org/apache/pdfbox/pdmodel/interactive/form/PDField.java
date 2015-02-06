@@ -89,24 +89,6 @@ name|PDFormFieldAdditionalActions
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|service
-operator|.
-name|interactive
-operator|.
-name|form
-operator|.
-name|AppearanceGenerator
-import|;
-end_import
-
 begin_comment
 comment|/**  * A field in an interactive form.  * Fields may be one of four types: button, text, choice, or signature.  *  * @author sug  */
 end_comment
