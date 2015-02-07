@@ -583,7 +583,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"No result file defined, will use standart error"
+literal|"No result file defined, will use standard error"
 argument_list|)
 expr_stmt|;
 name|isartorResultFile
