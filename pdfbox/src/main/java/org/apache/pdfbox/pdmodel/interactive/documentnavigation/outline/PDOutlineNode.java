@@ -166,10 +166,6 @@ argument_list|(
 name|COSName
 operator|.
 name|PARENT
-argument_list|,
-name|COSName
-operator|.
-name|P
 argument_list|)
 decl_stmt|;
 if|if
@@ -188,10 +184,6 @@ argument_list|(
 name|COSName
 operator|.
 name|PARENT
-argument_list|,
-name|COSName
-operator|.
-name|P
 argument_list|)
 operator|==
 literal|null
