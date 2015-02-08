@@ -206,7 +206,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A field in an interactive form.  *  * @author Andreas Lehmkühler  *   */
+comment|/**  * A field in an interactive form.  *  */
 end_comment
 
 begin_class

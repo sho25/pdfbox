@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A shading pattern dictionary.  *  * @author Andreas Lehmkühler  */
+comment|/**  * A shading pattern dictionary.  *  */
 end_comment
 
 begin_class

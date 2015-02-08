@@ -178,7 +178,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Shading Resource.  *  * @author Andreas Lehmk�hler  */
+comment|/**  * A Shading Resource.  *  */
 end_comment
 
 begin_class

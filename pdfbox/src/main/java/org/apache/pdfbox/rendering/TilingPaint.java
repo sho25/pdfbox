@@ -296,7 +296,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT Paint for a tiling pattern, which consists of a small repeating graphical figure.  *  * @author Andreas Lehmkühler  * @author John Hewson  */
+comment|/**  * AWT Paint for a tiling pattern, which consists of a small repeating graphical figure.  *  * @author John Hewson  */
 end_comment
 
 begin_class

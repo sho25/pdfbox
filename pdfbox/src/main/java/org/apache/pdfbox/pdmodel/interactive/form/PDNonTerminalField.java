@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A non terminal field in an interactive form.  *   * A non terminal field is a node in the fields tree node whose descendants  * are fields.   *   * The attributes such as FT (field type) or V (field value) do not logically  * belong to the non terminal field but are inheritable attributes  * for descendant terminal fields.   *   * @author Andreas Lehmkühler  */
+comment|/**  * A non terminal field in an interactive form.  *   * A non terminal field is a node in the fields tree node whose descendants  * are fields.   *   * The attributes such as FT (field type) or V (field value) do not logically  * belong to the non terminal field but are inheritable attributes  * for descendant terminal fields.   *   */
 end_comment
 
 begin_class

@@ -100,7 +100,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * M: Set miter limit.  *  * @author Andreas Lehmkühler  */
+comment|/**  * M: Set miter limit.  *  */
 end_comment
 
 begin_class

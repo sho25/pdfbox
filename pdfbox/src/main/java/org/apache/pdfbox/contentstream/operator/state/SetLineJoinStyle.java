@@ -100,7 +100,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * j: Set the line join style.  *  * @author Andreas Lehmkühler  */
+comment|/**  * j: Set the line join style.  *  */
 end_comment
 
 begin_class

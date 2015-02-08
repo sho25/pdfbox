@@ -158,7 +158,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT Paint for axial shading.  *  * @author Andreas Lehmkühler  */
+comment|/**  * AWT Paint for axial shading.  *  */
 end_comment
 
 begin_class

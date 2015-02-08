@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A tiling pattern dictionary.  *  * @author Andreas Lehmkühler  */
+comment|/**  * A tiling pattern dictionary.  *  */
 end_comment
 
 begin_class

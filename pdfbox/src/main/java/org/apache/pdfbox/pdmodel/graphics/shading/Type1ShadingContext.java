@@ -152,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT PaintContext for function-based (Type 1) shading.  *  * @author Andreas Lehmkühler  * @author Tilman Hausherr  */
+comment|/**  * AWT PaintContext for function-based (Type 1) shading.  *  * @author Tilman Hausherr  */
 end_comment
 
 begin_class

@@ -158,7 +158,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT Paint for radial shading.  *  * @author Andreas Lehmkühler  */
+comment|/**  * AWT Paint for radial shading.  *  */
 end_comment
 
 begin_class

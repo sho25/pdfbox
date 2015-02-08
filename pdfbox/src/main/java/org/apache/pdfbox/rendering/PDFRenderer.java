@@ -102,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Renders a PDF document to an AWT BufferedImage.  * This class may be overridden in order to perform custom rendering.  *  * @author John Hewson  * @author Andreas Lehmkühler  */
+comment|/**  * Renders a PDF document to an AWT BufferedImage.  * This class may be overridden in order to perform custom rendering.  *  * @author John Hewson  */
 end_comment
 
 begin_class

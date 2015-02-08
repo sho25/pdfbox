@@ -196,7 +196,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shades Gouraud triangles for Type4ShadingContext and Type5ShadingContext.  *  * @author Andreas Lehmkühler  * @author Tilman Hausherr  * @author Shaola Ren  */
+comment|/**  * Shades Gouraud triangles for Type4ShadingContext and Type5ShadingContext.  *  * @author Tilman Hausherr  * @author Shaola Ren  */
 end_comment
 
 begin_class

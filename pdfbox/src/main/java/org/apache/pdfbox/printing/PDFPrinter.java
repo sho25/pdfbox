@@ -244,7 +244,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prints a PDF document using AWT.  * This class may be overridden in order to perform custom printing.  *  * @author Andreas Lehmkühler  * @author John Hewson  */
+comment|/**  * Prints a PDF document using AWT.  * This class may be overridden in order to perform custom printing.  *  * @author John Hewson  */
 end_comment
 
 begin_class

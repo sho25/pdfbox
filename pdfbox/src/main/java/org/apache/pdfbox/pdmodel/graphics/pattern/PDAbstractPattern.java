@@ -142,7 +142,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Pattern dictionary from a page's resources.  * @author Andreas Lehmkühler  */
+comment|/**  * A Pattern dictionary from a page's resources.  */
 end_comment
 
 begin_class

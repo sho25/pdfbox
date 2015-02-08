@@ -210,7 +210,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT PaintContext for radial shading.  *  * Performance improvement done as part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Andreas Lehmkühler  * @author Shaola Ren  */
+comment|/**  * AWT PaintContext for radial shading.  *  * Performance improvement done as part of GSoC2014, Tilman Hausherr is the mentor.  *  * @author Shaola Ren  */
 end_comment
 
 begin_class

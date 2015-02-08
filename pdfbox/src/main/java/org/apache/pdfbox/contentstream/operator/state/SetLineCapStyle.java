@@ -100,7 +100,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * J: Set the line cap style.  *  * @author Andreas Lehmkühler  */
+comment|/**  * J: Set the line cap style.  *  */
 end_comment
 
 begin_class
