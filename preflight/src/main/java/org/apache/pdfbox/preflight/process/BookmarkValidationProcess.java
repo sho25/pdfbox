@@ -1212,7 +1212,26 @@ name|COSDictionary
 name|dictionary
 parameter_list|)
 block|{
-comment|// Prev, Next, First and Last must be indirect objects
+comment|// Parent, Prev, Next, First and Last must be indirect objects
+if|if
+condition|(
+operator|!
+name|checkIndirectObject
+argument_list|(
+name|ctx
+argument_list|,
+name|dictionary
+argument_list|,
+name|COSName
+operator|.
+name|PARENT
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 if|if
 condition|(
 operator|!
