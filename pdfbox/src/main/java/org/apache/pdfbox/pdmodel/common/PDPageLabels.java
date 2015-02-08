@@ -457,7 +457,7 @@ name|startPage
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the page label range beginning at the specified start page.      *       * @param startPage      *            the 0-based index of the page representing the start of the      *            page label range.      * @param item      *            the page label item to set.      */
+comment|/**      * Sets the page label range beginning at the specified start page.      *       * @param startPage      *            the 0-based index of the page representing the start of the      *            page label range.      * @param item      *            the page label item to set.      * @throws IllegalArgumentException if the startPage parameter is&lt; 0.      */
 specifier|public
 name|void
 name|setLabelItem
@@ -469,6 +469,21 @@ name|PDPageLabelRange
 name|item
 parameter_list|)
 block|{
+if|if
+condition|(
+name|startPage
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"startPage parameter of setLabelItem may not be< 0"
+argument_list|)
+throw|;
+block|}
 name|labels
 operator|.
 name|put
