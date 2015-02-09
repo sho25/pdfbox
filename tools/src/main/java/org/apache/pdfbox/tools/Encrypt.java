@@ -991,7 +991,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"   -keyLength<length>                      The length of the key in bits(40)"
+literal|"   -keyLength<length>                      The length of the key in bits (valid values: 40, 128 or 256, default is 40)"
 argument_list|)
 expr_stmt|;
 name|System
