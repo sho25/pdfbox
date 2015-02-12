@@ -1122,11 +1122,6 @@ name|PDColor
 name|getTextColor
 parameter_list|()
 block|{
-name|PDColor
-name|retval
-init|=
-literal|null
-decl_stmt|;
 name|COSArray
 name|csValues
 init|=
@@ -1182,23 +1177,16 @@ name|csValues
 argument_list|)
 expr_stmt|;
 block|}
-name|retval
-operator|=
+return|return
 operator|new
 name|PDColor
 argument_list|(
 name|csValues
-operator|.
-name|toFloatArray
-argument_list|()
 argument_list|,
 name|PDDeviceRGB
 operator|.
 name|INSTANCE
 argument_list|)
-expr_stmt|;
-return|return
-name|retval
 return|;
 block|}
 comment|/**      * Set the RGB text color for this node.      *      * @param textColor The text color for this node.      */
