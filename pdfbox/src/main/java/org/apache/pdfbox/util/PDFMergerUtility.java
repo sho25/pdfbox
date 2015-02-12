@@ -1347,7 +1347,7 @@ argument_list|)
 decl_stmt|;
 name|destOutline
 operator|.
-name|appendChild
+name|addLast
 argument_list|(
 name|clonedFirst
 argument_list|)
