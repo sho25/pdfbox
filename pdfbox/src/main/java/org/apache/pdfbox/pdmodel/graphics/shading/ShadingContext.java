@@ -265,7 +265,7 @@ specifier|protected
 name|int
 name|rgbBackground
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      */
+comment|/**      * Constructor.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      * @throws java.io.IOException if there is an error getting the color space      * or doing background color conversion.      */
 specifier|public
 name|ShadingContext
 parameter_list|(
@@ -580,7 +580,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Convert color values from shading colorspace to RGB color values encoded      * into an integer.      *      * @param values color values in shading colorspace.      * @return RGB values encoded in an integer.      */
+comment|/**      * Convert color values from shading colorspace to RGB color values encoded      * into an integer.      *      * @param values color values in shading colorspace.      * @return RGB values encoded in an integer.      * @throws java.io.IOException if the color conversion fails.      */
 specifier|protected
 specifier|final
 name|int

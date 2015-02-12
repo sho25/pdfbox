@@ -314,7 +314,7 @@ specifier|private
 name|AffineTransform
 name|rat
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      * @throws java.io.IOException if there is an error getting the color space or doing color conversion.      */
 specifier|public
 name|RadialShadingContext
 parameter_list|(
