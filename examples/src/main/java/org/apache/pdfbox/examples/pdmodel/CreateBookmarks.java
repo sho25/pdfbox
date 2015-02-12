@@ -239,7 +239,7 @@ argument_list|)
 expr_stmt|;
 name|outline
 operator|.
-name|appendChild
+name|addLast
 argument_list|(
 name|pagesOutline
 argument_list|)
@@ -302,7 +302,7 @@ argument_list|)
 expr_stmt|;
 name|pagesOutline
 operator|.
-name|appendChild
+name|addLast
 argument_list|(
 name|bookmark
 argument_list|)
