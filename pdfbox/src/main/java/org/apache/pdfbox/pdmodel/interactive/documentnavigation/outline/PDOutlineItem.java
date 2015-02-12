@@ -392,7 +392,7 @@ name|dic
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Insert a single sibling after this node.      *      * @param newSibling The item to insert.      * @throws IllegalArgumentException if the given node is part of a list (i.e. if it has a previous or a next      * sibling)      */
+comment|/**      * Insert a single sibling after this node.      *      * @param newSibling The item to insert.      * @throws IllegalArgumentException if the given sibling node is part of a list       * (i.e. if it has a previous or a next sibling)      */
 specifier|public
 name|void
 name|insertSiblingAfter
@@ -482,7 +482,7 @@ name|newSibling
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Insert a single sibling before this node.      *      * @param newSibling The item to insert.      * @throws IllegalArgumentException if the given node is part of a list (i.e. if it has a previous or a next      * sibling)      */
+comment|/**      * Insert a single sibling before this node.      *      * @param newSibling The item to insert.      * @throws IllegalArgumentException if the given sibling node is part of a list       * (i.e. if it has a previous or a next sibling)      */
 specifier|public
 name|void
 name|insertSiblingBefore
