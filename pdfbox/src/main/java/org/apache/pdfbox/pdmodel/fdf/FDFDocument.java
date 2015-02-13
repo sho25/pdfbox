@@ -251,9 +251,9 @@ argument_list|()
 expr_stmt|;
 name|document
 operator|.
-name|setHeaderString
+name|setVersion
 argument_list|(
-literal|"%FDF-1.2"
+literal|1.2f
 argument_list|)
 expr_stmt|;
 comment|//First we need a trailer
