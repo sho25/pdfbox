@@ -99,20 +99,6 @@ name|dict
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|COSDictionary
-name|getCOSDictionary
-parameter_list|()
-block|{
-return|return
-name|super
-operator|.
-name|getCOSDictionary
-argument_list|()
-return|;
-block|}
 comment|/**      * @return The parent of this node or null if there is no parent.      */
 name|PDOutlineNode
 name|getParent

@@ -105,7 +105,7 @@ name|dictionary
 return|;
 block|}
 comment|/**      * Gets the COS dictionary.      *       * @return the COS dictionary      */
-specifier|protected
+specifier|public
 name|COSDictionary
 name|getCOSDictionary
 parameter_list|()
