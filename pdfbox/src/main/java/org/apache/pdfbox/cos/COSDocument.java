@@ -147,24 +147,6 @@ name|PDFObjectStreamParser
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|digitalsignature
-operator|.
-name|SignatureInterface
-import|;
-end_import
-
 begin_comment
 comment|/**  * This is the in-memory representation of the PDF document.  You need to call  * close() on this object when you are done using it!!  *  * @author Ben Litchfield  *   */
 end_comment
@@ -244,11 +226,6 @@ comment|/**      * Document trailer dictionary.      */
 specifier|private
 name|COSDictionary
 name|trailer
-decl_stmt|;
-comment|/**      * Signature interface.      */
-specifier|private
-name|SignatureInterface
-name|signatureInterface
 decl_stmt|;
 specifier|private
 name|boolean
@@ -810,16 +787,6 @@ name|ENCRYPT
 argument_list|)
 return|;
 block|}
-comment|/**      * This will return the signature interface.      * @return the signature interface       */
-specifier|public
-name|SignatureInterface
-name|getSignatureInterface
-parameter_list|()
-block|{
-return|return
-name|signatureInterface
-return|;
-block|}
 comment|/**      * This will set the encryption dictionary, this should only be called when      * encrypting the document.      *      * @param encDictionary The encryption dictionary.      */
 specifier|public
 name|void
@@ -1152,20 +1119,6 @@ name|ID
 argument_list|,
 name|id
 argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Set the signature interface to the given value.      * @param sigInterface the signature interface      */
-specifier|public
-name|void
-name|setSignatureInterface
-parameter_list|(
-name|SignatureInterface
-name|sigInterface
-parameter_list|)
-block|{
-name|signatureInterface
-operator|=
-name|sigInterface
 expr_stmt|;
 block|}
 comment|/**      * This will get the document catalog.      *      * Maybe this should move to an object at PDFEdit level      *      * @return catalog is the root of all document activities      *      * @throws IOException If no catalog can be found.      */

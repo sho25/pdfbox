@@ -1185,6 +1185,10 @@ specifier|private
 name|OutputStream
 name|incrementalOutput
 decl_stmt|;
+specifier|private
+name|SignatureInterface
+name|signatureInterface
+decl_stmt|;
 comment|/**      * COSWriter constructor comment.      *      * @param os The wrapped output stream.      */
 specifier|public
 name|COSWriter
@@ -3090,14 +3094,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// sign the bytes
-name|SignatureInterface
-name|signatureInterface
-init|=
-name|doc
-operator|.
-name|getSignatureInterface
-argument_list|()
-decl_stmt|;
 name|byte
 index|[]
 name|sign
@@ -5029,6 +5025,28 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|write
+argument_list|(
+name|doc
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This will write the pdf document.      *      * @param doc The document to write.      * @param signInterface class to be used for signing       *      * @throws IOException If an error occurs while generating the data.      */
+specifier|public
+name|void
+name|write
+parameter_list|(
+name|PDDocument
+name|doc
+parameter_list|,
+name|SignatureInterface
+name|signInterface
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|Long
 name|idTime
 init|=
@@ -5052,6 +5070,10 @@ decl_stmt|;
 name|pdDocument
 operator|=
 name|doc
+expr_stmt|;
+name|signatureInterface
+operator|=
+name|signInterface
 expr_stmt|;
 if|if
 condition|(

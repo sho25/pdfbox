@@ -744,6 +744,11 @@ name|PDFont
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// Signature interface
+specifier|private
+name|SignatureInterface
+name|signInterface
+decl_stmt|;
 comment|/**      * Creates an empty PDF document.      * You need to add at least one page for the document to be valid.      */
 specifier|public
 name|PDDocument
@@ -1010,13 +1015,9 @@ literal|1000000000
 block|}
 argument_list|)
 expr_stmt|;
-name|getDocument
-argument_list|()
-operator|.
-name|setSignatureInterface
-argument_list|(
+name|signInterface
+operator|=
 name|signatureInterface
-argument_list|)
 expr_stmt|;
 comment|//
 comment|// Create SignatureForm for signature
@@ -3428,6 +3429,8 @@ operator|.
 name|write
 argument_list|(
 name|this
+argument_list|,
+name|signInterface
 argument_list|)
 expr_stmt|;
 name|writer
