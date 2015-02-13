@@ -515,29 +515,19 @@ comment|// if the pdf is a linearized pdf. the first trailer must be checked
 comment|// and it must have the same ID than the last trailer.
 comment|// According to the PDF version, trailers are available by the trailer key word (pdf<= 1.4)
 comment|// or in the dictionary of the XRef stream ( PDF>= 1.5)
-name|String
+name|float
 name|pdfVersion
 init|=
 name|pdfDoc
 operator|.
-name|getDocument
-argument_list|()
-operator|.
-name|getHeaderString
+name|getVersion
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
 name|pdfVersion
-operator|!=
-literal|null
-operator|&&
-name|pdfVersion
-operator|.
-name|matches
-argument_list|(
-literal|"%PDF-1\\.[1-4]"
-argument_list|)
+operator|<=
+literal|1.4f
 condition|)
 block|{
 name|checkTrailersForLinearizedPDF14
