@@ -733,9 +733,6 @@ name|version
 init|=
 name|document
 operator|.
-name|getDocument
-argument_list|()
-operator|.
 name|getVersion
 argument_list|()
 decl_stmt|;
@@ -747,9 +744,6 @@ literal|1.5
 condition|)
 block|{
 name|document
-operator|.
-name|getDocument
-argument_list|()
 operator|.
 name|setVersion
 argument_list|(

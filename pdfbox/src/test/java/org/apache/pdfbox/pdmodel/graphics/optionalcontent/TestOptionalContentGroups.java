@@ -782,14 +782,11 @@ try|try
 block|{
 name|assertEquals
 argument_list|(
-literal|"%PDF-1.5"
+literal|1.5f
 argument_list|,
 name|doc
 operator|.
-name|getDocument
-argument_list|()
-operator|.
-name|getHeaderString
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;

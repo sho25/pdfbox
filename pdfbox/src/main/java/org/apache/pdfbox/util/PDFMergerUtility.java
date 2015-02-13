@@ -972,9 +972,6 @@ name|destVersion
 init|=
 name|destination
 operator|.
-name|getDocument
-argument_list|()
-operator|.
 name|getVersion
 argument_list|()
 decl_stmt|;
@@ -982,9 +979,6 @@ name|float
 name|srcVersion
 init|=
 name|source
-operator|.
-name|getDocument
-argument_list|()
 operator|.
 name|getVersion
 argument_list|()
@@ -997,9 +991,6 @@ name|srcVersion
 condition|)
 block|{
 name|destination
-operator|.
-name|getDocument
-argument_list|()
 operator|.
 name|setVersion
 argument_list|(

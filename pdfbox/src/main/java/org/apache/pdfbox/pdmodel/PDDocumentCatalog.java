@@ -1856,9 +1856,6 @@ literal|null
 operator|&&
 name|document
 operator|.
-name|getDocument
-argument_list|()
-operator|.
 name|getVersion
 argument_list|()
 operator|<
@@ -1867,12 +1864,9 @@ condition|)
 block|{
 name|document
 operator|.
-name|getDocument
-argument_list|()
-operator|.
 name|setVersion
 argument_list|(
-literal|1.5
+literal|1.5f
 argument_list|)
 expr_stmt|;
 block|}
