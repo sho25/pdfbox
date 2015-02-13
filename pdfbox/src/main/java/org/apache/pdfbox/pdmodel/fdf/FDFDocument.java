@@ -763,7 +763,7 @@ name|writer
 operator|.
 name|write
 argument_list|(
-name|document
+name|this
 argument_list|)
 expr_stmt|;
 name|writer
