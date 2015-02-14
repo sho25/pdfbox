@@ -5423,7 +5423,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will write the pdf document.      *      * @param doc The document to write.      *      * @throws IOException If an error occurs while generating the data.      */
+comment|/**      * This will write the fdf document.      *      * @param doc The document to write.      *      * @throws IOException If an error occurs while generating the data.      */
 specifier|public
 name|void
 name|write
