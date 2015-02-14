@@ -2791,10 +2791,7 @@ block|}
 specifier|private
 name|void
 name|doWriteSignature
-parameter_list|(
-name|COSDocument
-name|doc
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -4440,9 +4437,7 @@ name|incrementalUpdate
 condition|)
 block|{
 name|doWriteSignature
-argument_list|(
-name|doc
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 return|return
