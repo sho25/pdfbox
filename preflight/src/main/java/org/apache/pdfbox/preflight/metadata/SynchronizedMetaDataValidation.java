@@ -21,16 +21,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1208,8 +1198,6 @@ name|creationDate
 init|=
 literal|null
 decl_stmt|;
-try|try
-block|{
 name|creationDate
 operator|=
 name|dico
@@ -1217,35 +1205,6 @@ operator|.
 name|getCreationDate
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// If there is an error while converting this property to a date
-name|ve
-operator|.
-name|add
-argument_list|(
-operator|new
-name|ValidationError
-argument_list|(
-name|PreflightConstants
-operator|.
-name|ERROR_METADATA_DICT_INFO_CORRUPT
-argument_list|,
-literal|"Document Information 'CreationDate' can't be read : "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|creationDate
@@ -1400,8 +1359,6 @@ block|{
 name|Calendar
 name|modifyDate
 decl_stmt|;
-try|try
-block|{
 name|modifyDate
 operator|=
 name|dico
@@ -1538,35 +1495,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// If there is an error while converting this property to a date
-name|ve
-operator|.
-name|add
-argument_list|(
-operator|new
-name|ValidationError
-argument_list|(
-name|PreflightConstants
-operator|.
-name|ERROR_METADATA_DICT_INFO_CORRUPT
-argument_list|,
-literal|"Document Information 'ModifyDate' can't be read : "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Check if document information entries and XMP information are synchronized      *       * @param document      *            the PDF Document      * @param metadata      *            the XMP MetaData      * @return List of validation errors      * @throws ValidationException      */
