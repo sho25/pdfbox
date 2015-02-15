@@ -338,7 +338,7 @@ specifier|public
 class|class
 name|FilterHelper
 block|{
-comment|/**      * This method checks if the filter is authorized for the PDF file according to the preflight document specification      * attribute. For example according to the PDF/A-1 specification, only the LZW filter is forbidden due to Copyright      * compatibility. Because of the PDF/A is based on the PDF1.4 specification, all filters that aren't declared in the      * PDF Reference Third Edition are rejected.      *       * @param context      *            the preflight context      * @param filter      *            the filter to checks      */
+comment|/**      * This method checks if the filter is authorized for the PDF file according to the preflight document specification      * attribute. For example according to the PDF/A-1 specification, only the LZW filter is forbidden due to Copyright      * compatibility. Because of the PDF/A is based on the PDF1.4 specification, all filters that aren't declared in the      * PDF Reference Third Edition are rejected.      *       * @param context      *            the preflight context      * @param filter      *            the filter to check      */
 specifier|public
 specifier|static
 name|void
@@ -441,6 +441,7 @@ literal|"LZWDecode is forbidden"
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 comment|// --- Filters declared in the PDF Reference for PDF 1.4
 comment|// --- Other Filters are considered as invalid to avoid not consistent behaviour
