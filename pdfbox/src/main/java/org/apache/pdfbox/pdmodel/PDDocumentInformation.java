@@ -125,6 +125,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|info
 decl_stmt|;
@@ -164,6 +165,8 @@ name|info
 return|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -419,13 +422,11 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the creation date of the document.  This will return null if no creation date exists.      *      * @return The creation date of the document.      *      * @throws IOException If there is an error creating the date.      */
+comment|/**      * This will get the creation date of the document.  This will return null if no creation date exists.      *      * @return The creation date of the document.      */
 specifier|public
 name|Calendar
 name|getCreationDate
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|info
@@ -459,13 +460,11 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the modification date of the document.  This will return null if no modification date exists.      *      * @return The modification date of the document.      *      * @throws IOException If there is an error creating the date.      */
+comment|/**      * This will get the modification date of the document.  This will return null if no modification date exists.      *      * @return The modification date of the document.      */
 specifier|public
 name|Calendar
 name|getModificationDate
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|info
