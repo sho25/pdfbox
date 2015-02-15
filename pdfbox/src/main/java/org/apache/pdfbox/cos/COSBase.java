@@ -55,22 +55,13 @@ name|COSObjectable
 block|{
 specifier|private
 name|boolean
-name|needToBeUpdate
-decl_stmt|;
-specifier|private
-name|boolean
 name|direct
 decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|COSBase
 parameter_list|()
-block|{
-name|needToBeUpdate
-operator|=
-literal|false
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
 annotation|@
 name|Override
@@ -95,19 +86,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-specifier|public
-name|void
-name|setNeedToBeUpdate
-parameter_list|(
-name|boolean
-name|flag
-parameter_list|)
-block|{
-name|needToBeUpdate
-operator|=
-name|flag
-expr_stmt|;
-block|}
 comment|/**      * If the state is set true, the dictionary will be written direct into the called object.       * This means, no indirect object will be created.      *       * @return the state      */
 specifier|public
 name|boolean
@@ -133,15 +111,6 @@ name|direct
 operator|=
 name|direct
 expr_stmt|;
-block|}
-specifier|public
-name|boolean
-name|isNeedToBeUpdate
-parameter_list|()
-block|{
-return|return
-name|needToBeUpdate
-return|;
 block|}
 block|}
 end_class

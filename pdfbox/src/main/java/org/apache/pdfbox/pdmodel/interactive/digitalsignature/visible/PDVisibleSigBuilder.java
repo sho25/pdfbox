@@ -2052,7 +2052,7 @@ argument_list|()
 decl_stmt|;
 name|widgetDict
 operator|.
-name|setNeedToBeUpdate
+name|setNeedToBeUpdated
 argument_list|(
 literal|true
 argument_list|)

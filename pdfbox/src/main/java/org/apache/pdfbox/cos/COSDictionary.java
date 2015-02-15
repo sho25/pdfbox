@@ -124,6 +124,10 @@ name|PATH_SEPARATOR
 init|=
 literal|"/"
 decl_stmt|;
+specifier|private
+name|boolean
+name|needToBeUpdated
+decl_stmt|;
 comment|/**      * The name-value pairs of this dictionary. The pairs are kept in the order they were added to the dictionary.      */
 specifier|protected
 name|Map
@@ -3012,6 +3016,30 @@ argument_list|(
 name|this
 argument_list|)
 return|;
+block|}
+comment|/**      * Get the update state for the COSWriter.      *       * @return the update state.      */
+specifier|public
+name|boolean
+name|isNeedToBeUpdated
+parameter_list|()
+block|{
+return|return
+name|needToBeUpdated
+return|;
+block|}
+comment|/**      * Set the update state of the dictionary for the COSWriter.      *       * @param flag the update state.      */
+specifier|public
+name|void
+name|setNeedToBeUpdated
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+block|{
+name|needToBeUpdated
+operator|=
+name|flag
+expr_stmt|;
 block|}
 comment|/**      * This will add all of the dictionarys keys/values to this dictionary. Only called when adding keys to a trailer      * that already exists.      *      * @param dic The dic to get the keys from.      */
 specifier|public
