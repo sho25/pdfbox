@@ -83,6 +83,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -173,6 +187,7 @@ init|=
 literal|"D"
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
@@ -202,6 +217,8 @@ name|dic
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -237,7 +254,9 @@ name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"C"
+name|COSName
+operator|.
+name|C
 argument_list|)
 decl_stmt|;
 if|if
@@ -284,7 +303,9 @@ name|dictionary
 operator|.
 name|setItem
 argument_list|(
-literal|"C"
+name|COSName
+operator|.
+name|C
 argument_list|,
 name|colorValues
 argument_list|)
@@ -343,7 +364,9 @@ name|dictionary
 operator|.
 name|setItem
 argument_list|(
-literal|"C"
+name|COSName
+operator|.
+name|C
 argument_list|,
 name|values
 argument_list|)
@@ -360,7 +383,9 @@ name|dictionary
 operator|.
 name|getFloat
 argument_list|(
-literal|"W"
+name|COSName
+operator|.
+name|W
 argument_list|,
 literal|1
 argument_list|)
@@ -379,7 +404,9 @@ name|dictionary
 operator|.
 name|setFloat
 argument_list|(
-literal|"W"
+name|COSName
+operator|.
+name|W
 argument_list|,
 name|width
 argument_list|)
@@ -396,7 +423,9 @@ name|dictionary
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"S"
+name|COSName
+operator|.
+name|S
 argument_list|,
 name|GUIDELINE_STYLE_SOLID
 argument_list|)
@@ -415,7 +444,9 @@ name|dictionary
 operator|.
 name|setName
 argument_list|(
-literal|"S"
+name|COSName
+operator|.
+name|S
 argument_list|,
 name|style
 argument_list|)
@@ -429,8 +460,6 @@ parameter_list|()
 block|{
 name|PDLineDashPattern
 name|pattern
-init|=
-literal|null
 decl_stmt|;
 name|COSArray
 name|d
@@ -442,7 +471,9 @@ name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"D"
+name|COSName
+operator|.
+name|D
 argument_list|)
 decl_stmt|;
 if|if
@@ -471,7 +502,9 @@ name|dictionary
 operator|.
 name|setItem
 argument_list|(
-literal|"D"
+name|COSName
+operator|.
+name|D
 argument_list|,
 name|d
 argument_list|)
@@ -536,7 +569,9 @@ name|dictionary
 operator|.
 name|setItem
 argument_list|(
-literal|"D"
+name|COSName
+operator|.
+name|D
 argument_list|,
 name|array
 argument_list|)
