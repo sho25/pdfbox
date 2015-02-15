@@ -812,6 +812,7 @@ return|;
 block|}
 comment|/**      * This class represents one point of a glyph.      */
 specifier|private
+specifier|static
 class|class
 name|Point
 block|{
