@@ -72,9 +72,29 @@ name|float
 name|aFloat
 parameter_list|)
 block|{
-name|setValue
+comment|// use a BigDecimal as intermediate state to avoid
+comment|// a floating point string representation of the float value
+name|value
+operator|=
+operator|new
+name|BigDecimal
+argument_list|(
+name|String
+operator|.
+name|valueOf
 argument_list|(
 name|aFloat
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|valueAsString
+operator|=
+name|removeNullDigits
+argument_list|(
+name|value
+operator|.
+name|toPlainString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -123,42 +143,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-comment|/**      * Set the value of the float object.      *      * @param floatValue The new float value.      */
-specifier|public
-specifier|final
-name|void
-name|setValue
-parameter_list|(
-name|float
-name|floatValue
-parameter_list|)
-block|{
-comment|// use a BigDecimal as intermediate state to avoid
-comment|// a floating point string representation of the float value
-name|value
-operator|=
-operator|new
-name|BigDecimal
-argument_list|(
-name|String
-operator|.
-name|valueOf
-argument_list|(
-name|floatValue
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|valueAsString
-operator|=
-name|removeNullDigits
-argument_list|(
-name|value
-operator|.
-name|toPlainString
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 specifier|private
 name|String

@@ -290,20 +290,6 @@ operator|+
 literal|"}"
 return|;
 block|}
-comment|/**      * Change the value of this reference.      *      * @param newValue The new value.      */
-specifier|public
-name|void
-name|setValue
-parameter_list|(
-name|long
-name|newValue
-parameter_list|)
-block|{
-name|value
-operator|=
-name|newValue
-expr_stmt|;
-block|}
 comment|/**      * polymorphic access to value as float.      *      * @return The float value of this object.      */
 annotation|@
 name|Override
