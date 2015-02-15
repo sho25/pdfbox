@@ -77,6 +77,7 @@ name|PDOutlineNode
 extends|extends
 name|PDDictionaryWrapper
 block|{
+comment|/**      * Default Constructor.      */
 specifier|public
 name|PDOutlineNode
 parameter_list|()
@@ -211,7 +212,7 @@ name|newChild
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds the given node to the top of the children list.      *       * @param newChild      * @throws IllegalArgumentException if the given node is part of a list (i.e. if it has a previous or a next      * sibling)      */
+comment|/**      * Adds the given node to the top of the children list.      *       * @param newChild The node to add.      * @throws IllegalArgumentException if the given node is part of a list (i.e. if it has a previous or a next      * sibling)      */
 specifier|public
 name|void
 name|addFirst
