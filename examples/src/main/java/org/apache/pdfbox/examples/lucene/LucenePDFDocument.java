@@ -1187,8 +1187,6 @@ name|getAuthor
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|addTextField
 argument_list|(
 name|document
@@ -1201,15 +1199,6 @@ name|getCreationDate
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|io
-parameter_list|)
-block|{
-comment|// ignore, bad date but continue with indexing
-block|}
 name|addTextField
 argument_list|(
 name|document
@@ -1234,8 +1223,6 @@ name|getKeywords
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|addTextField
 argument_list|(
 name|document
@@ -1248,15 +1235,6 @@ name|getModificationDate
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|io
-parameter_list|)
-block|{
-comment|// ignore, bad date but continue with indexing
-block|}
 name|addTextField
 argument_list|(
 name|document
