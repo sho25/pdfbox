@@ -330,6 +330,10 @@ specifier|private
 name|DecodeResult
 name|decodeResult
 decl_stmt|;
+specifier|private
+name|File
+name|scratchFile
+decl_stmt|;
 comment|/**      * Constructor.  Creates a new stream with an empty dictionary.      *      */
 specifier|public
 name|COSStream
@@ -451,9 +455,8 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|File
 name|scratchFile
-init|=
+operator|=
 name|File
 operator|.
 name|createTempFile
@@ -464,12 +467,6 @@ literal|null
 argument_list|,
 name|scratchDirectory
 argument_list|)
-decl_stmt|;
-comment|// mark scratch file to deleted automatically after usage
-name|scratchFile
-operator|.
-name|deleteOnExit
-argument_list|()
 expr_stmt|;
 return|return
 operator|new
@@ -1821,6 +1818,19 @@ block|{
 name|unFilteredStream
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|scratchFile
+operator|!=
+literal|null
+condition|)
+block|{
+name|scratchFile
+operator|.
+name|delete
 argument_list|()
 expr_stmt|;
 block|}
