@@ -149,13 +149,13 @@ name|String
 name|removeNullDigits
 parameter_list|(
 name|String
-name|value
+name|plainStringValue
 parameter_list|)
 block|{
 comment|// remove fraction digit "0" only
 if|if
 condition|(
-name|value
+name|plainStringValue
 operator|.
 name|indexOf
 argument_list|(
@@ -166,7 +166,7 @@ operator|-
 literal|1
 operator|&&
 operator|!
-name|value
+name|plainStringValue
 operator|.
 name|endsWith
 argument_list|(
@@ -176,7 +176,7 @@ condition|)
 block|{
 while|while
 condition|(
-name|value
+name|plainStringValue
 operator|.
 name|endsWith
 argument_list|(
@@ -184,7 +184,7 @@ literal|"0"
 argument_list|)
 operator|&&
 operator|!
-name|value
+name|plainStringValue
 operator|.
 name|endsWith
 argument_list|(
@@ -192,15 +192,15 @@ literal|".0"
 argument_list|)
 condition|)
 block|{
-name|value
+name|plainStringValue
 operator|=
-name|value
+name|plainStringValue
 operator|.
 name|substring
 argument_list|(
 literal|0
 argument_list|,
-name|value
+name|plainStringValue
 operator|.
 name|length
 argument_list|()
@@ -211,7 +211,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|value
+name|plainStringValue
 return|;
 block|}
 comment|/**      * The value of the float object that this one wraps.      *      * @return The value of this object.      */
