@@ -151,6 +151,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Deque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -1078,7 +1088,7 @@ decl_stmt|;
 comment|//A list of objects to write.
 specifier|private
 specifier|final
-name|LinkedList
+name|Deque
 argument_list|<
 name|COSBase
 argument_list|>
@@ -1938,13 +1948,6 @@ argument_list|(
 name|actual
 argument_list|)
 operator|&&
-name|cosBase
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
 name|object
 operator|instanceof
 name|COSDictionary
@@ -1977,7 +1980,6 @@ argument_list|()
 condition|)
 block|{
 return|return;
-block|}
 block|}
 name|objectsToWrite
 operator|.
