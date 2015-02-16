@@ -2029,7 +2029,7 @@ specifier|final
 name|String
 name|datePattern
 init|=
-literal|"^D:.*[Z]$|^D:.*[+-].*|^\\d{4}.*T.*Z$|^\\d{4}.*T.*[\\+]\\d{2}.*$"
+literal|"^D:.*[Z]$|^D:.*[+-].*|^\\d{4}.*T.*Z(\\d{2}:\\d{2}){0,1}$|^\\d{4}.*T.*[+-]\\d{2}.*$"
 decl_stmt|;
 if|if
 condition|(
