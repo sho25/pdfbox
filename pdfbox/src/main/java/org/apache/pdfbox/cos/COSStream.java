@@ -97,16 +97,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -256,20 +246,6 @@ operator|.
 name|io
 operator|.
 name|RandomAccessFileOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdfparser
-operator|.
-name|PDFStreamParser
 import|;
 end_import
 
@@ -499,38 +475,6 @@ name|RandomAccessBuffer
 argument_list|()
 return|;
 block|}
-block|}
-comment|/**      * This will get all the tokens in the stream.      *      * @return All of the tokens in the stream.      *      * @throws IOException If there is an error parsing the stream.      */
-specifier|public
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|getStreamTokens
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|PDFStreamParser
-name|parser
-init|=
-operator|new
-name|PDFStreamParser
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
-return|return
-name|parser
-operator|.
-name|getTokens
-argument_list|()
-return|;
 block|}
 comment|/**      * This will get the stream with all of the filters applied.      *      * @return the bytes of the physical (encoded) stream      *      * @throws IOException when encoding/decoding causes an exception      */
 specifier|public
