@@ -1253,7 +1253,7 @@ name|COSArray
 operator|)
 name|root
 operator|.
-name|getItem
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
@@ -1282,7 +1282,7 @@ operator|new
 name|PDOutputIntent
 argument_list|(
 operator|(
-name|COSStream
+name|COSDictionary
 operator|)
 name|cosBase
 argument_list|)
