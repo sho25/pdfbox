@@ -217,11 +217,11 @@ return|return;
 block|}
 else|else
 block|{
+comment|// add 10 to tread value 0 as 10, 1 as 11, ...
 name|linepredictor
 operator|+=
 literal|10
 expr_stmt|;
-comment|// add 10 to tread value 0 as 10, 1 as 11, ...
 block|}
 block|}
 comment|// read line
@@ -276,7 +276,7 @@ case|case
 literal|2
 case|:
 comment|// PRED TIFF SUB
-comment|// TODO decode tiff with bitsPerComponent< 8;
+comment|// TODO decode tiff with bpc smaller 8
 comment|// e.g. for 4 bpc each nibble must be subtracted separately
 if|if
 condition|(
@@ -429,7 +429,7 @@ literal|"TIFF-Predictor with "
 operator|+
 name|bitsPerComponent
 operator|+
-literal|" bits per component not supported"
+literal|" bits per component not supported; please open JIRA issue with sample PDF"
 argument_list|)
 throw|;
 block|}
