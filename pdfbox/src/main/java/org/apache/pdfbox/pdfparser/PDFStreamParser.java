@@ -625,6 +625,7 @@ case|case
 literal|'<'
 case|:
 block|{
+comment|// pull off first left bracket
 name|int
 name|leftBracket
 init|=
@@ -633,7 +634,7 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-comment|//pull off first left bracket
+comment|// check for second left bracket
 name|c
 operator|=
 operator|(
@@ -644,7 +645,7 @@ operator|.
 name|peek
 argument_list|()
 expr_stmt|;
-comment|//check for second left bracket
+comment|// put back first bracket
 name|pdfSource
 operator|.
 name|unread
@@ -652,7 +653,6 @@ argument_list|(
 name|leftBracket
 argument_list|)
 expr_stmt|;
-comment|//put back first bracket
 if|if
 condition|(
 name|c
@@ -711,8 +711,8 @@ block|}
 case|case
 literal|'['
 case|:
-comment|// array
 block|{
+comment|// array
 name|retval
 operator|=
 name|parseCOSArray
@@ -743,8 +743,8 @@ break|break;
 case|case
 literal|'n'
 case|:
-comment|// null
 block|{
+comment|// null
 name|String
 name|nullString
 init|=
@@ -1307,13 +1307,13 @@ operator|.
 name|read
 argument_list|()
 expr_stmt|;
+comment|// must be a better solution than null...
 name|retval
 operator|=
 name|COSNull
 operator|.
 name|NULL
 expr_stmt|;
-comment|// must be a better solution than null...
 break|break;
 block|}
 default|default:
@@ -1535,13 +1535,13 @@ name|bIdx
 expr_stmt|;
 block|}
 block|}
+comment|// only if not close to eof
 if|if
 condition|(
 name|readBytes
 operator|==
 name|MAX_BIN_CHAR_TEST_LENGTH
 condition|)
-comment|// only if not close to eof
 block|{
 comment|// a PDF operator is 1-3 bytes long
 if|if
