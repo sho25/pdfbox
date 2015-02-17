@@ -1229,7 +1229,7 @@ name|List
 argument_list|<
 name|PDOutputIntent
 argument_list|>
-name|getOutputIntent
+name|getOutputIntents
 parameter_list|()
 block|{
 name|List
@@ -1317,7 +1317,7 @@ name|COSArray
 operator|)
 name|root
 operator|.
-name|getItem
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
