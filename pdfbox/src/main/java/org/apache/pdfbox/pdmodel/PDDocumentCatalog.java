@@ -732,7 +732,7 @@ name|outlines
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the document?s article threads.      */
+comment|/**      * Returns the document's article threads.      */
 specifier|public
 name|List
 argument_list|<
