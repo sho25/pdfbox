@@ -474,20 +474,6 @@ init|=
 literal|1
 decl_stmt|;
 specifier|private
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_REVISION
-init|=
-literal|3
-decl_stmt|;
-specifier|private
-name|int
-name|revision
-init|=
-name|DEFAULT_REVISION
-decl_stmt|;
-specifier|private
 name|StandardProtectionPolicy
 name|policy
 decl_stmt|;
@@ -1330,11 +1316,12 @@ operator|=
 name|computeVersionNumber
 argument_list|()
 expr_stmt|;
+name|int
 name|revision
-operator|=
+init|=
 name|computeRevisionNumber
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|encryptionDictionary
 operator|.
 name|setFilter
@@ -2659,7 +2646,6 @@ operator|.
 name|length
 index|]
 decl_stmt|;
-comment|//sm
 name|System
 operator|.
 name|arraycopy
@@ -2677,7 +2663,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-comment|//sm
 for|for
 control|(
 name|int
@@ -2760,7 +2745,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|//sm
 name|rc4
 operator|.
 name|write
@@ -2770,7 +2754,6 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-comment|//sm
 name|otemp
 operator|=
 name|result
@@ -2778,7 +2761,6 @@ operator|.
 name|toByteArray
 argument_list|()
 expr_stmt|;
-comment|//sm
 block|}
 block|}
 return|return
