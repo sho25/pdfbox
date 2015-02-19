@@ -61,6 +61,7 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|InstructionSequenceBuilder
 extends|extends
@@ -69,6 +70,7 @@ operator|.
 name|AbstractSyntaxHandler
 block|{
 specifier|private
+specifier|final
 name|InstructionSequence
 name|mainSequence
 init|=
@@ -77,6 +79,7 @@ name|InstructionSequence
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Stack
 argument_list|<
 name|InstructionSequence
@@ -192,6 +195,8 @@ literal|"[\\-]?\\d*\\.\\d*([Ee]\\-?\\d+)?"
 argument_list|)
 decl_stmt|;
 comment|/** {@inheritDoc} */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|token
