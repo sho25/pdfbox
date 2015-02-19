@@ -224,11 +224,6 @@ condition|)
 block|{
 comment|// these are the default values
 name|int
-name|year
-init|=
-literal|0
-decl_stmt|;
-name|int
 name|month
 init|=
 literal|1
@@ -340,8 +335,9 @@ literal|"'"
 argument_list|)
 throw|;
 block|}
+name|int
 name|year
-operator|=
+init|=
 name|Integer
 operator|.
 name|parseInt
@@ -355,7 +351,7 @@ argument_list|,
 literal|4
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|date
@@ -1030,42 +1026,6 @@ block|}
 return|return
 name|retval
 return|;
-block|}
-comment|/**      * Append Zero to String Buffer.      *       * This will append zero before number&lt; 10 ('1' become '01')      *       * @param out The String buffer      * @param number The concerned number      */
-specifier|private
-specifier|static
-name|void
-name|zeroAppend
-parameter_list|(
-name|StringBuffer
-name|out
-parameter_list|,
-name|int
-name|number
-parameter_list|)
-block|{
-if|if
-condition|(
-name|number
-operator|<
-literal|10
-condition|)
-block|{
-name|out
-operator|.
-name|append
-argument_list|(
-literal|"0"
-argument_list|)
-expr_stmt|;
-block|}
-name|out
-operator|.
-name|append
-argument_list|(
-name|number
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Convert the date to iso 8601 string format.      *       * @param cal      *            The date to convert.      * @return The date represented as an ISO 8601 string.      */
 specifier|public
