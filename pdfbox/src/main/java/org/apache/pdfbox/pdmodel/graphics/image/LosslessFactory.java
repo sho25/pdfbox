@@ -256,6 +256,10 @@ specifier|public
 class|class
 name|LosslessFactory
 block|{
+specifier|private
+name|LosslessFactory
+parameter_list|()
+block|{     }
 comment|/**      * Creates a new lossless encoded Image XObject from a Buffered Image.      *      * @param document the document where the image will be created      * @param image the buffered image to embed      * @return a new Image XObject      * @throws IOException if something goes wrong      */
 specifier|public
 specifier|static
