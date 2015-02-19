@@ -249,7 +249,7 @@ name|short
 operator|)
 name|bais
 operator|.
-name|readUnsignedByte
+name|readSignedByte
 argument_list|()
 expr_stmt|;
 name|argument2
@@ -259,7 +259,7 @@ name|short
 operator|)
 name|bais
 operator|.
-name|readUnsignedByte
+name|readSignedByte
 argument_list|()
 expr_stmt|;
 block|}
