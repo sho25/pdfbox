@@ -309,6 +309,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+specifier|private
+name|SampledImageReader
+parameter_list|()
+block|{     }
 comment|/**      * Returns an ARGB image filled with the given paint and using the given image as a mask.      * @param paint the paint to fill the visible portions of the image with      * @return a masked image filled with the given paint      * @throws IOException if the image cannot be read      * @throws IllegalStateException if the image is not a stencil.      */
 specifier|public
 specifier|static
