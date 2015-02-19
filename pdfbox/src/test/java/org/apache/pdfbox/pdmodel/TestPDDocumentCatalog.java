@@ -21,6 +21,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -54,29 +64,57 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Assert
 operator|.
-name|TestCase
+name|assertEquals
 import|;
 end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_comment
+comment|/**  * Test PDDocument Catalog functionality.  *  */
+end_comment
 
 begin_class
 specifier|public
 class|class
 name|TestPDDocumentCatalog
-extends|extends
-name|TestCase
 block|{
-comment|/**      * Test case for      *<a href="https://issues.apache.org/jira/browse/PDFBOX-90"      *>PDFBOX-90</a> - Support explicit retrieval of page labels.      */
+comment|/**      * Test getPageLabels().      *       * Test case for      *<a href="https://issues.apache.org/jira/browse/PDFBOX-90"      *>PDFBOX-90</a> - Support explicit retrieval of page labels.      *         * @throws IOException in case the document can not be parsed.      */
+annotation|@
+name|Test
 specifier|public
 name|void
-name|testPageLabels
+name|retrievePageLabels
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|PDDocument
 name|doc
@@ -259,6 +297,7 @@ name|doc
 operator|!=
 literal|null
 condition|)
+block|{
 name|doc
 operator|.
 name|close
@@ -266,13 +305,16 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test case for      *<a href="https://issues.apache.org/jira/browse/PDFBOX-900"      *>PDFBOX-900</a> - Handle malformed PDFs      */
+block|}
+comment|/**      * Test page labels for malformed PDF.      *       * Test case for      *<a href="https://issues.apache.org/jira/browse/PDFBOX-900"      *>PDFBOX-900</a> - Handle malformed PDFs      *         * @throws IOException in case the document can not be parsed.      */
+annotation|@
+name|Test
 specifier|public
 name|void
-name|testLabelsOnMalformedPdf
+name|retrievePageLabelsOnMalformedPdf
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|PDDocument
 name|doc
@@ -315,25 +357,6 @@ name|getLabelsByPageIndices
 argument_list|()
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Threw exception!"
-operator|+
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 finally|finally
 block|{
 if|if
@@ -342,6 +365,7 @@ name|doc
 operator|!=
 literal|null
 condition|)
+block|{
 name|doc
 operator|.
 name|close
@@ -349,13 +373,16 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test case for      *<a href="https://issues.apache.org/jira/browse/PDFBOX-911"      *>PDFBOX-911</a> - Method PDDocument.getNumberOfPages() returns wrong      * number of pages      */
+block|}
+comment|/**      * Test getNumberOfPages().      *       * Test case for      *<a href="https://issues.apache.org/jira/browse/PDFBOX-911"      *>PDFBOX-911</a> - Method PDDocument.getNumberOfPages() returns wrong      * number of pages      *       * @throws IOException in case the document can not be parsed.      */
+annotation|@
+name|Test
 specifier|public
 name|void
-name|testGetNumberOfPages
+name|retrieveNumberOfPages
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|PDDocument
 name|doc
@@ -399,6 +426,7 @@ name|doc
 operator|!=
 literal|null
 condition|)
+block|{
 name|doc
 operator|.
 name|close
@@ -406,13 +434,16 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test case for      *<a https://issues.apache.org/jira/browse/PDFBOX-2687">PDFBOX-2687</a>      * ClassCastException when trying to get OutputIntents or add to it      */
+block|}
+comment|/**      * Test OutputIntents functionality.      *       * Test case for      *<a https://issues.apache.org/jira/browse/PDFBOX-2687">PDFBOX-2687</a>      * ClassCastException when trying to get OutputIntents or add to it.      *       * @throws IOException in case the document can not be parsed.      */
+annotation|@
+name|Test
 specifier|public
 name|void
-name|testOutputIntents
+name|handleOutputIntents
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|PDDocument
 name|doc
