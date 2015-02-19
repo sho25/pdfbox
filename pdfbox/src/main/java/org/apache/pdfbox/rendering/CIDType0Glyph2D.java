@@ -314,6 +314,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+comment|// todo: escalate this error?
 name|LOG
 operator|.
 name|error
@@ -323,7 +324,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-comment|// todo: escalate this error?
 return|return
 operator|new
 name|GeneralPath
