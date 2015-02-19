@@ -98,6 +98,7 @@ index|[]
 name|instructions
 decl_stmt|;
 specifier|private
+specifier|final
 name|int
 name|contourCount
 decl_stmt|;
@@ -120,12 +121,16 @@ name|numberOfContours
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|resolve
 parameter_list|()
 block|{     }
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getContourCount
