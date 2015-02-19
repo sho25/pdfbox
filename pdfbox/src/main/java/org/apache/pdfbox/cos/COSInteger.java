@@ -41,6 +41,7 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|COSInteger
 extends|extends
@@ -204,6 +205,7 @@ return|;
 block|}
 block|}
 specifier|private
+specifier|final
 name|long
 name|value
 decl_stmt|;
