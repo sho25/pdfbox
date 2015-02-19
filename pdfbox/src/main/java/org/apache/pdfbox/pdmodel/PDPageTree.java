@@ -441,6 +441,7 @@ return|;
 block|}
 comment|/**      * Iterator which walks all pages in the tree, in order.      */
 specifier|private
+specifier|final
 class|class
 name|PageIterator
 implements|implements
