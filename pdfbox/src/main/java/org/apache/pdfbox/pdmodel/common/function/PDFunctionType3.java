@@ -131,6 +131,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getFunctionType
@@ -141,6 +143,8 @@ literal|3
 return|;
 block|}
 comment|/**     * {@inheritDoc}     */
+annotation|@
+name|Override
 specifier|public
 name|float
 index|[]
@@ -453,6 +457,21 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+block|}
+if|if
+condition|(
+name|function
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"partition not found in type 3 function"
+argument_list|)
+throw|;
 block|}
 block|}
 name|float
