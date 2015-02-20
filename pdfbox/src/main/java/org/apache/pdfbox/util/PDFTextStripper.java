@@ -355,14 +355,14 @@ block|{
 specifier|private
 specifier|static
 name|float
-name|DEFAULT_INDENT_THRESHOLD
+name|defaultIndentThreshold
 init|=
 literal|2.0f
 decl_stmt|;
 specifier|private
 specifier|static
 name|float
-name|DEFAULT_DROP_THRESHOLD
+name|defaultDropThreshold
 init|=
 literal|2.5f
 decl_stmt|;
@@ -459,7 +459,7 @@ condition|)
 block|{
 try|try
 block|{
-name|DEFAULT_INDENT_THRESHOLD
+name|defaultIndentThreshold
 operator|=
 name|Float
 operator|.
@@ -494,7 +494,7 @@ condition|)
 block|{
 try|try
 block|{
-name|DEFAULT_DROP_THRESHOLD
+name|defaultDropThreshold
 operator|=
 name|Float
 operator|.
@@ -726,13 +726,13 @@ specifier|private
 name|float
 name|indentThreshold
 init|=
-name|DEFAULT_INDENT_THRESHOLD
+name|defaultIndentThreshold
 decl_stmt|;
 specifier|private
 name|float
 name|dropThreshold
 init|=
-name|DEFAULT_DROP_THRESHOLD
+name|defaultDropThreshold
 decl_stmt|;
 comment|// we will need to estimate where to add spaces, these are used to help guess
 specifier|private
