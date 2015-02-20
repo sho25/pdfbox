@@ -4542,7 +4542,7 @@ name|boolean
 name|hasRtl
 parameter_list|)
 block|{
-name|LinkedList
+name|List
 argument_list|<
 name|WordWithTextPositions
 argument_list|>
@@ -4946,7 +4946,7 @@ specifier|private
 name|StringBuilder
 name|normalizeAdd
 parameter_list|(
-name|LinkedList
+name|List
 argument_list|<
 name|WordWithTextPositions
 argument_list|>
