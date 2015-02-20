@@ -3349,7 +3349,7 @@ return|;
 block|}
 comment|/**      * Character strings are grouped by articles.  It is quite common that there      * will only be a single article.  This returns a List that contains List objects,      * the inner lists will contain TextPosition objects.      *      * @return A double List of TextPositions for all text strings on the page.      */
 specifier|protected
-name|Vector
+name|List
 argument_list|<
 name|List
 argument_list|<
