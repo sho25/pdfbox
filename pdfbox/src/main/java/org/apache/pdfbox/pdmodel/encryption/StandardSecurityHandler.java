@@ -3223,11 +3223,6 @@ control|)
 block|{
 name|md
 operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|md
-operator|.
 name|update
 argument_list|(
 name|digest
