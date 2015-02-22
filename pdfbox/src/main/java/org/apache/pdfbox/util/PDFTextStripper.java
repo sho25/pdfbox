@@ -370,7 +370,7 @@ specifier|private
 specifier|static
 specifier|final
 name|boolean
-name|useCustomQuicksort
+name|USE_CUSTOM_QUICKSORT
 decl_stmt|;
 comment|// enable the ability to set the default indent/drop thresholds
 comment|// with -D system properties:
@@ -585,7 +585,7 @@ block|{
 comment|// when run in an applet ignore and use default
 comment|// assume 1.7 or higher so that quicksort is used
 block|}
-name|useCustomQuicksort
+name|USE_CUSTOM_QUICKSORT
 operator|=
 operator|!
 name|is16orLess
@@ -1514,7 +1514,7 @@ comment|// JDK7+ enforces transitivity on comparators, we need to use
 comment|// a custom quicksort implementation (which is slower, unfortunately).
 if|if
 condition|(
-name|useCustomQuicksort
+name|USE_CUSTOM_QUICKSORT
 condition|)
 block|{
 name|QuickSort
