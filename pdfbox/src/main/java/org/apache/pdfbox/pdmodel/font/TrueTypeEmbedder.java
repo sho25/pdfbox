@@ -1073,7 +1073,7 @@ operator|.
 name|getTypoAscender
 argument_list|()
 operator|/
-literal|2
+literal|2.0f
 operator|)
 operator|/
 name|scaling
