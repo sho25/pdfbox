@@ -967,7 +967,7 @@ name|trailer
 operator|=
 name|searchXref
 argument_list|(
-name|startXRefOffset
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
