@@ -945,7 +945,8 @@ if|if
 condition|(
 name|startXRefOffset
 operator|>
-literal|0
+operator|-
+literal|1
 condition|)
 block|{
 name|trailer
