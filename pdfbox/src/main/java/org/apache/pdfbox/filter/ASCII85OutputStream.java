@@ -249,7 +249,6 @@ return|;
 block|}
 comment|/**      * This will transform the next four ascii bytes.      */
 specifier|private
-specifier|final
 name|void
 name|transformASCII85
 parameter_list|()
@@ -484,8 +483,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will write a single byte.      *      * @param b The byte to write.      *      * @throws IOException If there is an error writing to the stream.      */
+annotation|@
+name|Override
 specifier|public
-specifier|final
 name|void
 name|write
 parameter_list|(
@@ -586,8 +586,9 @@ literal|0
 expr_stmt|;
 block|}
 comment|/**      * This will flush the data to the stream.      *      * @throws IOException If there is an error writing the data to the stream.      */
+annotation|@
+name|Override
 specifier|public
-specifier|final
 name|void
 name|flush
 parameter_list|()
@@ -770,6 +771,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * This will close the stream.      *      * @throws IOException If there is an error closing the wrapped stream.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
