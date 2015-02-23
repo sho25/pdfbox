@@ -966,10 +966,8 @@ condition|)
 block|{
 name|trailer
 operator|=
-name|searchXref
-argument_list|(
-literal|0
-argument_list|)
+name|rebuildTrailer
+argument_list|()
 expr_stmt|;
 block|}
 comment|// prepare decryption if necessary
