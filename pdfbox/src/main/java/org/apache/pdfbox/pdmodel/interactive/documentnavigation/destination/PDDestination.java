@@ -412,21 +412,6 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Return a string representation of this class.      *      * @return A human readable string.      */
-annotation|@
-name|Override
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-name|super
-operator|.
-name|toString
-argument_list|()
-return|;
-block|}
 block|}
 end_class
 
