@@ -66,7 +66,7 @@ specifier|static
 specifier|final
 name|int
 index|[]
-name|codeToUni
+name|CODE_TO_UNI
 decl_stmt|;
 specifier|private
 specifier|static
@@ -77,11 +77,11 @@ name|Character
 argument_list|,
 name|Integer
 argument_list|>
-name|uniToCode
+name|UNI_TO_CODE
 decl_stmt|;
 static|static
 block|{
-name|codeToUni
+name|CODE_TO_UNI
 operator|=
 operator|new
 name|int
@@ -89,7 +89,7 @@ index|[
 literal|256
 index|]
 expr_stmt|;
-name|uniToCode
+name|UNI_TO_CODE
 operator|=
 operator|new
 name|HashMap
@@ -486,14 +486,14 @@ name|char
 name|unicode
 parameter_list|)
 block|{
-name|codeToUni
+name|CODE_TO_UNI
 index|[
 name|code
 index|]
 operator|=
 name|unicode
 expr_stmt|;
-name|uniToCode
+name|UNI_TO_CODE
 operator|.
 name|put
 argument_list|(
@@ -537,7 +537,7 @@ operator|&
 literal|0xff
 operator|)
 operator|>=
-name|codeToUni
+name|CODE_TO_UNI
 operator|.
 name|length
 condition|)
@@ -559,7 +559,7 @@ argument_list|(
 operator|(
 name|char
 operator|)
-name|codeToUni
+name|CODE_TO_UNI
 index|[
 name|b
 operator|&
@@ -608,7 +608,7 @@ block|{
 name|Integer
 name|code
 init|=
-name|uniToCode
+name|UNI_TO_CODE
 operator|.
 name|get
 argument_list|(
@@ -659,7 +659,7 @@ name|character
 parameter_list|)
 block|{
 return|return
-name|uniToCode
+name|UNI_TO_CODE
 operator|.
 name|containsKey
 argument_list|(
