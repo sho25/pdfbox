@@ -468,6 +468,10 @@ name|INLINE_DICTIONARY_VALUE_FILTER_RUN
 argument_list|)
 expr_stmt|;
 block|}
+specifier|private
+name|FilterHelper
+parameter_list|()
+block|{     }
 comment|/**      * This method checks if the filter is authorized for the PDF file according to the preflight document specification      * attribute. For example according to the PDF/A-1 specification, only the LZW filter is forbidden due to Copyright      * compatibility. Because of the PDF/A is based on the PDF1.4 specification, all filters that aren't declared in the      * PDF Reference Third Edition are rejected.      *       * @param context      *            the preflight context      * @param filter      *            the filter to check      */
 specifier|public
 specifier|static
