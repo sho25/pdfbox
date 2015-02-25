@@ -326,10 +326,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|encodingValue
-operator|==
-literal|null
-operator|||
 operator|!
 operator|(
 name|encodingValue
