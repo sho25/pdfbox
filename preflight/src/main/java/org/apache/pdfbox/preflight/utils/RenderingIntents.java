@@ -122,6 +122,7 @@ name|RenderingIntents
 block|{
 specifier|private
 specifier|static
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -183,12 +184,16 @@ name|al
 argument_list|)
 expr_stmt|;
 block|}
+specifier|private
+name|RenderingIntents
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|boolean
 name|contains
 parameter_list|(
-name|Object
+name|String
 name|riArg
 parameter_list|)
 block|{
