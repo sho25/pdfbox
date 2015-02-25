@@ -127,6 +127,10 @@ argument_list|>
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|private
+name|CMapManager
+parameter_list|()
+block|{     }
 comment|/**      * Fetches the predefined CMap from disk (or cache).      *      * @param cMapName CMap name      */
 specifier|public
 specifier|static
