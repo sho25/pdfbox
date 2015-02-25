@@ -334,7 +334,7 @@ operator|++
 control|)
 block|{
 name|float
-name|C0j
+name|c0j
 init|=
 operator|(
 operator|(
@@ -352,7 +352,7 @@ name|floatValue
 argument_list|()
 decl_stmt|;
 name|float
-name|C1j
+name|c1j
 init|=
 operator|(
 operator|(
@@ -374,14 +374,14 @@ index|[
 name|j
 index|]
 operator|=
-name|C0j
+name|c0j
 operator|+
 name|xToN
 operator|*
 operator|(
-name|C1j
+name|c1j
 operator|-
-name|C0j
+name|c0j
 operator|)
 expr_stmt|;
 block|}
