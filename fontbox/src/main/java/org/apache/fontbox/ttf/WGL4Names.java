@@ -585,6 +585,7 @@ decl_stmt|;
 comment|/**      * The indices of the standard mac glyph names.      */
 specifier|public
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -635,6 +636,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+specifier|private
+name|WGL4Names
+parameter_list|()
+block|{     }
 block|}
 end_class
 
