@@ -210,10 +210,12 @@ class|class
 name|PDFCloneUtility
 block|{
 specifier|private
+specifier|final
 name|PDDocument
 name|destination
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|Object
