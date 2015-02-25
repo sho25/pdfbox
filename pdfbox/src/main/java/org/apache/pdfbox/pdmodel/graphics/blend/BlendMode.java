@@ -212,6 +212,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
@@ -247,6 +249,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
@@ -276,6 +280,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
@@ -309,6 +315,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
@@ -360,6 +368,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
@@ -394,6 +404,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
@@ -428,6 +440,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
@@ -476,6 +490,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
@@ -526,6 +542,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
@@ -577,6 +595,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
@@ -618,7 +638,7 @@ block|}
 else|else
 block|{
 name|float
-name|D
+name|d
 init|=
 operator|(
 name|dstValue
@@ -664,7 +684,7 @@ literal|1
 operator|)
 operator|*
 operator|(
-name|D
+name|d
 operator|-
 name|dstValue
 operator|)
@@ -683,6 +703,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
@@ -717,6 +739,8 @@ operator|new
 name|SeparableBlendMode
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|blendChannel
