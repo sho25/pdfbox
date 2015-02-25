@@ -1354,7 +1354,7 @@ init|=
 literal|null
 decl_stmt|;
 name|COSString
-name|cos_perms
+name|permsCosString
 init|=
 operator|(
 name|COSString
@@ -1370,14 +1370,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|cos_perms
+name|permsCosString
 operator|!=
 literal|null
 condition|)
 block|{
 name|perms
 operator|=
-name|cos_perms
+name|permsCosString
 operator|.
 name|getBytes
 argument_list|()
