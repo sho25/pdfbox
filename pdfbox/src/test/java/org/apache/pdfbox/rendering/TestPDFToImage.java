@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|rendering
 package|;
 end_package
 
@@ -166,20 +166,6 @@ operator|.
 name|pdmodel
 operator|.
 name|PDDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|rendering
-operator|.
-name|PDFRenderer
 import|;
 end_import
 

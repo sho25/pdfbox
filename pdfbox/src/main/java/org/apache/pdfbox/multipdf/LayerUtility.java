@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|multipdf
 package|;
 end_package
 
@@ -314,6 +314,20 @@ operator|.
 name|optionalcontent
 operator|.
 name|PDOptionalContentProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
 import|;
 end_import
 

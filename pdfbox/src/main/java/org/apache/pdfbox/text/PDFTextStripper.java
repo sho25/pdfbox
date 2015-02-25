@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|text
 package|;
 end_package
 
@@ -195,20 +195,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|contentstream
-operator|.
-name|PDFTextStreamEngine
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -321,23 +307,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|text
+name|util
 operator|.
-name|TextPosition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|text
-operator|.
-name|TextPositionComparator
+name|QuickSort
 import|;
 end_import
 

@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|multipdf
 package|;
 end_package
 
@@ -206,7 +206,6 @@ comment|/**  * Utility class used to clone PDF objects. It keeps track of object
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|PDFCloneUtility
 block|{

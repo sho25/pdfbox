@@ -53,7 +53,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|text
 operator|.
 name|PDFTextStripperByArea
 import|;

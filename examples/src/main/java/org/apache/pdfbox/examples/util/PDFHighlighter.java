@@ -11,6 +11,8 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|examples
+operator|.
 name|util
 package|;
 end_package
@@ -114,6 +116,20 @@ operator|.
 name|pdmodel
 operator|.
 name|PDPage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|text
+operator|.
+name|PDFTextStripper
 import|;
 end_import
 

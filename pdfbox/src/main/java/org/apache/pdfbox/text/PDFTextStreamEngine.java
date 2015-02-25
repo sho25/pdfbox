@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|contentstream
+name|text
 package|;
 end_package
 
@@ -50,6 +50,20 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|PDFStreamEngine
 import|;
 end_import
 
@@ -164,20 +178,6 @@ operator|.
 name|state
 operator|.
 name|PDGraphicsState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|text
-operator|.
-name|TextPosition
 import|;
 end_import
 
@@ -618,7 +618,6 @@ comment|/**  * PDFStreamEngine subclass for advanced processing of text via Text
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|PDFTextStreamEngine
 extends|extends

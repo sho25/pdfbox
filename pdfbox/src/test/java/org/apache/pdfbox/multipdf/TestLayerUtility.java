@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|multipdf
 package|;
 end_package
 
@@ -78,6 +78,20 @@ operator|.
 name|cos
 operator|.
 name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|multipdf
+operator|.
+name|LayerUtility
 import|;
 end_import
 
@@ -253,8 +267,22 @@ name|PDOptionalContentProperties
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
 begin_comment
-comment|/**  * Tests the {@link LayerUtility} class.  *  * @version $Revision$  */
+comment|/**  * Tests the {@link org.apache.pdfbox.multipdf.LayerUtility} class.  *  * @version $Revision$  */
 end_comment
 
 begin_class

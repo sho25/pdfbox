@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|multipdf
 package|;
 end_package
 
@@ -32,18 +32,6 @@ operator|.
 name|framework
 operator|.
 name|TestCase
-import|;
-end_import
-
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertEquals
 import|;
 end_import
 

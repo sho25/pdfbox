@@ -23,7 +23,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|multipdf
 operator|.
 name|PDFMergerUtility
 import|;

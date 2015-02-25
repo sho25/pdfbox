@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|text
 package|;
 end_package
 
@@ -134,20 +134,6 @@ operator|.
 name|common
 operator|.
 name|PDStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|text
-operator|.
-name|TextPosition
 import|;
 end_import
 

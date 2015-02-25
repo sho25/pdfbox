@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|rendering
 package|;
 end_package
 
@@ -152,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Functional test for PDF rendering. This test simply tries to render  * a series of PDFs using PDFBox to make sure that no exceptions are thrown.  *  * It does not attempt to detect if rendering is correct, see {@link TestPDFToImage}.  *  * @author John Hewson  */
+comment|/**  * Functional test for PDF rendering. This test simply tries to render  * a series of PDFs using PDFBox to make sure that no exceptions are thrown.  *  * It does not attempt to detect if rendering is correct, see {@link org.apache.pdfbox.rendering.TestPDFToImage}.  *  * @author John Hewson  */
 end_comment
 
 begin_class

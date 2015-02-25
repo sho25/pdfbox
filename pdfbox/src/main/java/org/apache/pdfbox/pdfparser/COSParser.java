@@ -3924,23 +3924,13 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"The end of the stream is out of range, using workaround to read the stream"
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Stream start offset: "
+literal|"The end of the stream is out of range, using workaround to read the stream, "
+operator|+
+literal|"found "
 operator|+
 name|originOffset
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Expected endofstream offset: "
+operator|+
+literal|" but expected "
 operator|+
 name|expectedEndOfStream
 argument_list|)
@@ -3975,23 +3965,13 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"The end of the stream doesn't point to the correct offset, using workaround to read the stream"
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Stream start offset: "
+literal|"The end of the stream doesn't point to the correct offset, using workaround to read the stream, "
+operator|+
+literal|"found "
 operator|+
 name|originOffset
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Expected endofstream offset: "
+operator|+
+literal|" but expected "
 operator|+
 name|expectedEndOfStream
 argument_list|)

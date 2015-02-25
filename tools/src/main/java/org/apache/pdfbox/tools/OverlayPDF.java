@@ -71,7 +71,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|multipdf
 operator|.
 name|Overlay
 import|;
@@ -85,7 +85,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|multipdf
 operator|.
 name|Overlay
 operator|.
