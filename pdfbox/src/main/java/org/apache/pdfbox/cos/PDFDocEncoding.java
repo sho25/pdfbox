@@ -471,6 +471,10 @@ comment|// EURO SIGN
 comment|// end of deviations
 block|}
 specifier|private
+name|PDFDocEncoding
+parameter_list|()
+block|{     }
+specifier|private
 specifier|static
 name|void
 name|set
