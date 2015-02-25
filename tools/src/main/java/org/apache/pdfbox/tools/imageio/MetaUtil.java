@@ -200,6 +200,10 @@ name|STANDARD_METADATA_FORMAT
 init|=
 literal|"javax_imageio_1.0"
 decl_stmt|;
+specifier|private
+name|MetaUtil
+parameter_list|()
+block|{     }
 comment|// logs metadata as an XML tree if debug is enabled
 specifier|static
 name|void
