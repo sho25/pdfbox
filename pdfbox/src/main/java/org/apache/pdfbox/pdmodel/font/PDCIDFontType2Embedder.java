@@ -412,6 +412,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Rebuild a font subset.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|buildSubset
@@ -1531,6 +1533,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+enum|enum
+name|State
+block|{
+name|FIRST
+block|,
+name|BRACKET
+block|,
+name|SERIAL
+block|}
 specifier|private
 name|COSArray
 name|getWidths
@@ -1619,23 +1630,11 @@ name|lastCid
 argument_list|)
 argument_list|)
 expr_stmt|;
-specifier|final
-name|int
-name|FIRST
-init|=
-literal|0
-decl_stmt|,
-name|BRACKET
-init|=
-literal|1
-decl_stmt|,
-name|SERIAL
-init|=
-literal|2
-decl_stmt|;
-name|int
+name|State
 name|state
 init|=
+name|State
+operator|.
 name|FIRST
 decl_stmt|;
 for|for
@@ -1704,6 +1703,8 @@ condition|)
 block|{
 name|state
 operator|=
+name|State
+operator|.
 name|SERIAL
 expr_stmt|;
 block|}
@@ -1719,6 +1720,8 @@ condition|)
 block|{
 name|state
 operator|=
+name|State
+operator|.
 name|BRACKET
 expr_stmt|;
 name|inner
@@ -1799,6 +1802,8 @@ condition|)
 block|{
 name|state
 operator|=
+name|State
+operator|.
 name|SERIAL
 expr_stmt|;
 name|outer
@@ -1848,6 +1853,8 @@ else|else
 block|{
 name|state
 operator|=
+name|State
+operator|.
 name|FIRST
 expr_stmt|;
 name|inner
@@ -1937,6 +1944,8 @@ argument_list|)
 expr_stmt|;
 name|state
 operator|=
+name|State
+operator|.
 name|FIRST
 expr_stmt|;
 block|}
