@@ -1708,10 +1708,6 @@ decl_stmt|;
 if|if
 condition|(
 name|decode
-operator|!=
-literal|null
-operator|&&
-name|decode
 operator|instanceof
 name|COSArray
 condition|)
