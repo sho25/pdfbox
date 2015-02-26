@@ -471,10 +471,8 @@ else|else
 block|{
 name|trailer
 operator|=
-name|searchXref
-argument_list|(
-name|startXRefOffset
-argument_list|)
+name|rebuildTrailer
+argument_list|()
 expr_stmt|;
 block|}
 comment|// PDFBOX-1557 - ensure that all COSObject are loaded in the trailer
