@@ -100,6 +100,7 @@ comment|/**  * CMap resource loader and cache.  */
 end_comment
 
 begin_class
+specifier|final
 class|class
 name|CMapManager
 block|{
