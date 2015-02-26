@@ -153,6 +153,18 @@ name|javax
 operator|.
 name|imageio
 operator|.
+name|metadata
+operator|.
+name|IIOMetadataNode
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|imageio
+operator|.
 name|stream
 operator|.
 name|ImageInputStream
@@ -198,6 +210,18 @@ operator|.
 name|cos
 operator|.
 name|COSDictionary
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|DOMException
 import|;
 end_import
 
@@ -313,6 +337,14 @@ argument_list|(
 name|iis
 argument_list|)
 expr_stmt|;
+name|String
+name|numChannels
+init|=
+name|getNumChannels
+argument_list|(
+name|reader
+argument_list|)
+decl_stmt|;
 comment|// get the raster using horrible JAI workarounds
 name|ImageIO
 operator|.
@@ -324,6 +356,24 @@ expr_stmt|;
 name|Raster
 name|raster
 decl_stmt|;
+comment|// Strategy: use read() for RGB or "can't get metadata"
+comment|// use readRaster() for CMYK and gray and as fallback if read() fails
+comment|// after "can't get metadata" because "no meta" file was CMYK
+if|if
+condition|(
+literal|"3"
+operator|.
+name|equals
+argument_list|(
+name|numChannels
+argument_list|)
+operator|||
+name|numChannels
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 try|try
 block|{
 comment|// I'd like to use ImageReader#readRaster but it is buggy and can't read RGB correctly
@@ -350,6 +400,23 @@ parameter_list|(
 name|IIOException
 name|e
 parameter_list|)
+block|{
+comment|// JAI can't read CMYK JPEGs using ImageReader#read or ImageIO.read but
+comment|// fortunately ImageReader#readRaster isn't buggy when reading 4-channel files
+name|raster
+operator|=
+name|reader
+operator|.
+name|readRaster
+argument_list|(
+literal|0
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
 block|{
 comment|// JAI can't read CMYK JPEGs using ImageReader#read or ImageIO.read but
 comment|// fortunately ImageReader#readRaster isn't buggy when reading 4-channel files
@@ -453,11 +520,11 @@ operator|==
 literal|9
 condition|)
 block|{
+comment|// YCCK
 name|transform
 operator|=
 literal|2
 expr_stmt|;
-comment|// YCCK
 block|}
 elseif|else
 if|if
@@ -467,11 +534,11 @@ operator|==
 literal|4
 condition|)
 block|{
+comment|// CMYK
 name|transform
 operator|=
 literal|0
 expr_stmt|;
-comment|// CMYK
 block|}
 else|else
 block|{
@@ -1101,6 +1168,104 @@ block|}
 return|return
 name|writableRaster
 return|;
+block|}
+comment|// returns the number of channels as a string, or an empty string if there is an error getting the meta data
+specifier|private
+name|String
+name|getNumChannels
+parameter_list|(
+name|ImageReader
+name|reader
+parameter_list|)
+throws|throws
+name|DOMException
+throws|,
+name|IOException
+block|{
+try|try
+block|{
+name|IIOMetadata
+name|imageMetadata
+init|=
+name|reader
+operator|.
+name|getImageMetadata
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|imageMetadata
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|""
+return|;
+block|}
+name|IIOMetadataNode
+name|metaTree
+init|=
+operator|(
+name|IIOMetadataNode
+operator|)
+name|imageMetadata
+operator|.
+name|getAsTree
+argument_list|(
+literal|"javax_imageio_1.0"
+argument_list|)
+decl_stmt|;
+name|Element
+name|numChannelsItem
+init|=
+operator|(
+name|Element
+operator|)
+name|metaTree
+operator|.
+name|getElementsByTagName
+argument_list|(
+literal|"NumChannels"
+argument_list|)
+operator|.
+name|item
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|numChannelsItem
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|""
+return|;
+block|}
+return|return
+name|numChannelsItem
+operator|.
+name|getAttribute
+argument_list|(
+literal|"value"
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+return|return
+literal|""
+return|;
+block|}
 block|}
 comment|// clamps value to 0-255 range
 specifier|private
