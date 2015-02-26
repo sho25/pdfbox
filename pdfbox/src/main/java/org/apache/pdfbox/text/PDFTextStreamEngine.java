@@ -627,7 +627,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -647,6 +647,7 @@ name|PDRectangle
 name|pageSize
 decl_stmt|;
 specifier|private
+specifier|final
 name|GlyphList
 name|glyphList
 decl_stmt|;
@@ -1165,7 +1166,7 @@ name|Throwable
 name|exception
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
