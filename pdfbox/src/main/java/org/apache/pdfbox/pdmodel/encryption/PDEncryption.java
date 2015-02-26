@@ -193,6 +193,7 @@ init|=
 name|VERSION0_UNDOCUMENTED_UNSUPPORTED
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
@@ -336,6 +337,7 @@ expr_stmt|;
 block|}
 comment|/**      * Get the name of the filter.      *      * @return The filter name contained in this encryption dictionary.      */
 specifier|public
+specifier|final
 name|String
 name|getFilter
 parameter_list|()
