@@ -949,6 +949,7 @@ block|}
 comment|/**      * Stores the overlay page information.      */
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|LayoutPage
 block|{
@@ -1073,7 +1074,7 @@ argument_list|)
 return|;
 block|}
 specifier|private
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1095,7 +1096,7 @@ operator|.
 name|getNumberOfPages
 argument_list|()
 decl_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
