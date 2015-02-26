@@ -50,6 +50,7 @@ comment|/**  * The "PDFDocEncoding" encoding. Note that this is *not* a Type 1 f
 end_comment
 
 begin_class
+specifier|final
 class|class
 name|PDFDocEncoding
 block|{
