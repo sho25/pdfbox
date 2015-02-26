@@ -148,11 +148,11 @@ name|stringIndex
 init|=
 literal|null
 decl_stmt|;
+comment|// for debugging only
 specifier|private
 name|String
 name|debugFontName
 decl_stmt|;
-comment|// for debugging only
 comment|/**      * Parsing CFF Font using a byte array as input.      * @param bytes the given byte array      * @return the parsed CFF fonts      * @throws IOException If there is an error reading from the stream      */
 specifier|public
 name|List
@@ -675,18 +675,45 @@ name|i
 operator|++
 control|)
 block|{
-name|index
-operator|.
-name|setOffset
-argument_list|(
-name|i
-argument_list|,
+name|int
+name|offset
+init|=
 name|input
 operator|.
 name|readOffset
 argument_list|(
 name|offSize
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|offset
+operator|>
+name|input
+operator|.
+name|length
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"illegal offset value "
+operator|+
+name|offset
+operator|+
+literal|" in CFF font"
+argument_list|)
+throw|;
+block|}
+name|index
+operator|.
+name|setOffset
+argument_list|(
+name|i
+argument_list|,
+name|offset
 argument_list|)
 expr_stmt|;
 block|}

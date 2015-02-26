@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class contains some functionality to read a byte buffer.  *   * @author Villu Ruusmann  * @version $Revision$  */
+comment|/**  * This class contains some functionality to read a byte buffer.  *   * @author Villu Ruusmann  */
 end_comment
 
 begin_class
@@ -463,6 +463,17 @@ operator|-
 literal|1
 return|;
 block|}
+block|}
+specifier|public
+name|int
+name|length
+parameter_list|()
+block|{
+return|return
+name|inputBuffer
+operator|.
+name|length
+return|;
 block|}
 block|}
 end_class
