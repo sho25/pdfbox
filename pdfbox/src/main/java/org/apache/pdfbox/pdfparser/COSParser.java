@@ -5944,6 +5944,15 @@ name|containsKey
 argument_list|(
 name|COSName
 operator|.
+name|CF
+argument_list|)
+operator|||
+name|dictionary
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
 name|SUB_FILTER
 argument_list|)
 operator|||
