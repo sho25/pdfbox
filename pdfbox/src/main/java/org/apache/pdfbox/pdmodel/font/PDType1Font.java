@@ -1276,7 +1276,7 @@ name|offset
 operator|+=
 literal|4
 expr_stmt|;
-comment|// skip additional CR LF characters
+comment|// skip additional CR LF space characters
 while|while
 condition|(
 name|offset
@@ -1297,6 +1297,13 @@ name|offset
 index|]
 operator|==
 literal|'\n'
+operator|||
+name|bytes
+index|[
+name|offset
+index|]
+operator|==
+literal|' '
 operator|)
 condition|)
 block|{
