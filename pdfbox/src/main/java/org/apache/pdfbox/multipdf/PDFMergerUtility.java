@@ -117,6 +117,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1704,8 +1714,6 @@ literal|null
 decl_stmt|;
 name|COSDictionary
 name|srcParentTreeDict
-init|=
-literal|null
 decl_stmt|;
 name|COSArray
 name|destNumbersArray
@@ -1924,7 +1932,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|HashMap
+name|Map
 argument_list|<
 name|COSDictionary
 argument_list|,
@@ -2560,7 +2568,7 @@ parameter_list|(
 name|COSDictionary
 name|parentTreeEntry
 parameter_list|,
-name|HashMap
+name|Map
 argument_list|<
 name|COSDictionary
 argument_list|,
@@ -2712,7 +2720,7 @@ parameter_list|(
 name|COSArray
 name|parentTreeEntry
 parameter_list|,
-name|HashMap
+name|Map
 argument_list|<
 name|COSDictionary
 argument_list|,
