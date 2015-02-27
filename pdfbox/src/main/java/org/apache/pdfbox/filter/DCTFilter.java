@@ -221,7 +221,7 @@ name|w3c
 operator|.
 name|dom
 operator|.
-name|DOMException
+name|Element
 import|;
 end_import
 
@@ -233,7 +233,7 @@ name|w3c
 operator|.
 name|dom
 operator|.
-name|Element
+name|NodeList
 import|;
 end_import
 
@@ -596,11 +596,12 @@ block|{
 case|case
 literal|0
 case|:
-break|break;
 comment|// already CMYK
+break|break;
 case|case
 literal|1
 case|:
+comment|// TODO YCbCr
 name|LOG
 operator|.
 name|warn
@@ -609,7 +610,6 @@ literal|"YCbCr JPEGs not implemented"
 argument_list|)
 expr_stmt|;
 break|break;
-comment|// TODO YCbCr
 case|case
 literal|2
 case|:
@@ -694,7 +694,7 @@ name|parameters
 argument_list|)
 return|;
 block|}
-comment|// reads the APP14 Adobe transform tag
+comment|// reads the APP14 Adobe transform tag and returns its value, or 0 if unknown
 specifier|private
 name|Integer
 name|getAdobeTransform
@@ -734,16 +734,28 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+name|NodeList
+name|app14AdobeNodeList
+init|=
 name|markerSequence
 operator|.
 name|getElementsByTagName
 argument_list|(
 literal|"app14Adobe"
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|app14AdobeNodeList
 operator|!=
 literal|null
+operator|&&
+name|app14AdobeNodeList
+operator|.
+name|getLength
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|Element
@@ -752,12 +764,7 @@ init|=
 operator|(
 name|Element
 operator|)
-name|markerSequence
-operator|.
-name|getElementsByTagName
-argument_list|(
-literal|"app14Adobe"
-argument_list|)
+name|app14AdobeNodeList
 operator|.
 name|item
 argument_list|(
@@ -781,7 +788,6 @@ block|}
 return|return
 literal|0
 return|;
-comment|// Unknown
 block|}
 comment|// converts YCCK image to CMYK. YCCK is an equivalent encoding for
 comment|// CMYK data, so no color management code is needed here, nor does the
@@ -1178,8 +1184,6 @@ name|ImageReader
 name|reader
 parameter_list|)
 throws|throws
-name|DOMException
-throws|,
 name|IOException
 block|{
 try|try
