@@ -2018,7 +2018,7 @@ init|=
 operator|new
 name|COSName
 argument_list|(
-literal|"ETen?B5?H"
+literal|"ETen-B5-H"
 argument_list|)
 decl_stmt|;
 specifier|public
@@ -2030,7 +2030,7 @@ init|=
 operator|new
 name|COSName
 argument_list|(
-literal|"ETen?B5?V"
+literal|"ETen-B5-V"
 argument_list|)
 decl_stmt|;
 specifier|public
@@ -4752,18 +4752,6 @@ specifier|static
 specifier|final
 name|COSName
 name|SUB_FILTER
-init|=
-operator|new
-name|COSName
-argument_list|(
-literal|"SubFilter"
-argument_list|)
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|COSName
-name|SUBFILTER
 init|=
 operator|new
 name|COSName

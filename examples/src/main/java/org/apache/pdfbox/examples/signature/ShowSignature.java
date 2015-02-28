@@ -481,7 +481,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|SUBFILTER
+name|SUB_FILTER
 argument_list|)
 decl_stmt|;
 if|if

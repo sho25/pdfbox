@@ -398,7 +398,7 @@ name|setItem
 argument_list|(
 name|COSName
 operator|.
-name|SUBFILTER
+name|SUB_FILTER
 argument_list|,
 name|subfilter
 argument_list|)
@@ -539,7 +539,7 @@ name|getNameAsString
 argument_list|(
 name|COSName
 operator|.
-name|SUBFILTER
+name|SUB_FILTER
 argument_list|)
 return|;
 block|}
