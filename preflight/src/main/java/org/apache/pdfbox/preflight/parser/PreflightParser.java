@@ -1682,11 +1682,11 @@ literal|true
 condition|)
 block|{
 comment|// just after the xref<EOL> there are an integer
-name|long
+name|int
 name|currObjID
 decl_stmt|;
 comment|// first obj id
-name|long
+name|int
 name|count
 decl_stmt|;
 comment|// the number of objects in the xref table
@@ -1790,7 +1790,7 @@ expr_stmt|;
 comment|// first obj id
 name|count
 operator|=
-name|readLong
+name|readInt
 argument_list|()
 expr_stmt|;
 comment|// the number of objects in the xref table
@@ -1923,12 +1923,12 @@ condition|)
 block|{
 try|try
 block|{
-name|long
+name|int
 name|currOffset
 init|=
-name|Long
+name|Integer
 operator|.
-name|parseLong
+name|parseInt
 argument_list|(
 name|splitString
 index|[
@@ -3673,7 +3673,7 @@ comment|// get set of object numbers referenced for this object stream
 specifier|final
 name|Set
 argument_list|<
-name|Long
+name|Integer
 argument_list|>
 name|refObjNrs
 init|=

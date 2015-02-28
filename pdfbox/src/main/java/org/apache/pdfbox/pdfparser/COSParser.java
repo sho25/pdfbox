@@ -2204,6 +2204,9 @@ argument_list|(
 operator|new
 name|COSObjectKey
 argument_list|(
+operator|(
+name|int
+operator|)
 operator|-
 name|fileOffset
 argument_list|,
@@ -3026,7 +3029,7 @@ comment|// stream
 specifier|final
 name|Set
 argument_list|<
-name|Long
+name|Integer
 argument_list|>
 name|refObjNrs
 init|=
@@ -4767,14 +4770,14 @@ argument_list|,
 name|ISO_8859_1
 argument_list|)
 decl_stmt|;
-name|Long
+name|Integer
 name|objectID
 decl_stmt|;
 try|try
 block|{
 name|objectID
 operator|=
-name|Long
+name|Integer
 operator|.
 name|valueOf
 argument_list|(
@@ -6679,7 +6682,7 @@ literal|true
 condition|)
 block|{
 comment|// first obj id
-name|long
+name|int
 name|currObjID
 init|=
 name|readObjectNumber
@@ -6801,12 +6804,12 @@ condition|)
 block|{
 try|try
 block|{
-name|long
+name|int
 name|currOffset
 init|=
-name|Long
+name|Integer
 operator|.
-name|parseLong
+name|parseInt
 argument_list|(
 name|splitString
 index|[

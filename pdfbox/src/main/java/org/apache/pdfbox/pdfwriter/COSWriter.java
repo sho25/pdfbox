@@ -1046,7 +1046,7 @@ literal|0
 decl_stmt|;
 comment|// the current object number
 specifier|private
-name|long
+name|int
 name|number
 init|=
 literal|0
@@ -1392,7 +1392,7 @@ operator|.
 name|keySet
 argument_list|()
 decl_stmt|;
-name|long
+name|int
 name|highestNumber
 init|=
 literal|0
@@ -1455,7 +1455,7 @@ name|object
 argument_list|)
 expr_stmt|;
 block|}
-name|long
+name|int
 name|num
 init|=
 name|cosObjectKey
@@ -1574,7 +1574,7 @@ block|}
 block|}
 comment|/**      * This will get the current object number.      *      * @return The current object number.      */
 specifier|protected
-name|long
+name|int
 name|getNumber
 parameter_list|()
 block|{
@@ -1649,7 +1649,7 @@ specifier|protected
 name|void
 name|setNumber
 parameter_list|(
-name|long
+name|int
 name|newNumber
 parameter_list|)
 block|{

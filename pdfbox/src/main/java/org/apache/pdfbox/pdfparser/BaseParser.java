@@ -5508,16 +5508,16 @@ block|}
 block|}
 comment|/**      * This will read a long from the Stream and throw an {@link IOException} if      * the long value is negative or has more than 10 digits (i.e. : bigger than      * {@link #OBJECT_NUMBER_THRESHOLD})      *      * @return the object number being read.      * @throws IOException if an I/O error occurs      */
 specifier|protected
-name|long
+name|int
 name|readObjectNumber
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|long
+name|int
 name|retval
 init|=
-name|readLong
+name|readInt
 argument_list|()
 decl_stmt|;
 if|if
@@ -6022,7 +6022,7 @@ throws|throws
 name|IOException
 block|{
 comment|//we are going to parse a normal object
-name|long
+name|int
 name|number
 init|=
 operator|-

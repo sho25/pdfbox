@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Object representing the physical reference to an indirect pdf object.  *  * @author Michael Traut  * @version $Revision: 1.5 $  */
+comment|/**  * Object representing the physical reference to an indirect pdf object.  *  * @author Michael Traut  *   */
 end_comment
 
 begin_class
@@ -30,11 +30,11 @@ name|COSObjectKey
 argument_list|>
 block|{
 specifier|private
-name|long
+name|int
 name|number
 decl_stmt|;
 specifier|private
-name|long
+name|int
 name|generation
 decl_stmt|;
 comment|/**      * PDFObjectKey constructor comment.      *      * @param object The object that this key will represent.      */
@@ -52,7 +52,7 @@ operator|.
 name|getObjectNumber
 argument_list|()
 operator|.
-name|longValue
+name|intValue
 argument_list|()
 argument_list|,
 name|object
@@ -60,7 +60,7 @@ operator|.
 name|getGenerationNumber
 argument_list|()
 operator|.
-name|longValue
+name|intValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -69,10 +69,10 @@ comment|/**      * PDFObjectKey constructor comment.      *      * @param num Th
 specifier|public
 name|COSObjectKey
 parameter_list|(
-name|long
+name|int
 name|num
 parameter_list|,
-name|long
+name|int
 name|gen
 parameter_list|)
 block|{
@@ -132,7 +132,7 @@ return|;
 block|}
 comment|/**      * This will get the generation number.      *      * @return The objects generation number.      */
 specifier|public
-name|long
+name|int
 name|getGeneration
 parameter_list|()
 block|{
@@ -142,7 +142,7 @@ return|;
 block|}
 comment|/**      * This will get the objects id.      *      * @return The object's id.      */
 specifier|public
-name|long
+name|int
 name|getNumber
 parameter_list|()
 block|{
@@ -159,14 +159,9 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-call|(
-name|int
-call|)
-argument_list|(
 name|number
 operator|+
 name|generation
-argument_list|)
 return|;
 block|}
 comment|/**      * This will set the objects generation number.      *      * @param newGeneration The objects generation number.      */
@@ -174,7 +169,7 @@ specifier|public
 name|void
 name|setGeneration
 parameter_list|(
-name|long
+name|int
 name|newGeneration
 parameter_list|)
 block|{
@@ -188,7 +183,7 @@ specifier|public
 name|void
 name|setNumber
 parameter_list|(
-name|long
+name|int
 name|newNumber
 parameter_list|)
 block|{
@@ -197,7 +192,6 @@ operator|=
 name|newNumber
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -206,20 +200,25 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|""
-operator|+
-name|getNumber
-argument_list|()
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|number
+argument_list|)
 operator|+
 literal|" "
 operator|+
-name|getGeneration
-argument_list|()
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|generation
+argument_list|)
 operator|+
 literal|" R"
 return|;
 block|}
-comment|/** {@inheritDoc} */
 annotation|@
 name|Override
 specifier|public

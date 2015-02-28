@@ -188,7 +188,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will collect all XRef/trailer objects and creates correct  * xref/trailer information after all objects are read using startxref  * and 'Prev' information (unused XRef/trailer objects are discarded).  *  * In case of missing startxref or wrong startxref pointer all  * XRef/trailer objects are used to create xref table / trailer dictionary  * in order they occur.  *  * For each new xref object/XRef stream method {@link #nextXrefObj(long, XRefType)}  * must be called with start byte position. All following calls to  * {@link #setXRef(COSObjectKey, long)} or {@link #setTrailer(COSDictionary)}  * will add the data for this byte position.  *  * After all objects are parsed the startxref position must be provided  * using {@link #setStartxref(long)}. This is used to build the chain of  * active xref/trailer objects used for creating document trailer and xref table.  *  * @author Timo Böhme (timo.boehme at ontochem.com)  */
+comment|/**  * This class will collect all XRef/trailer objects and creates correct  * xref/trailer information after all objects are read using startxref  * and 'Prev' information (unused XRef/trailer objects are discarded).  *  * In case of missing startxref or wrong startxref pointer all  * XRef/trailer objects are used to create xref table / trailer dictionary  * in order they occur.  *  * For each new xref object/XRef stream method {@link #nextXrefObj(long, XRefType)}  * must be called with start byte position. All following calls to  * {@link #setXRef(COSObjectKey, long)} or {@link #setTrailer(COSDictionary)}  * will add the data for this byte position.  *  * After all objects are parsed the startxref position must be provided  * using {@link #setStartxref(long)}. This is used to build the chain of  * active xref/trailer objects used for creating document trailer and xref table.  *  * @author Timo Böhme  */
 end_comment
 
 begin_class
@@ -880,7 +880,7 @@ comment|/** Returns object numbers which are referenced as contained      *  in 
 specifier|public
 name|Set
 argument_list|<
-name|Long
+name|Integer
 argument_list|>
 name|getContainedObjectNumbers
 parameter_list|(
@@ -903,14 +903,14 @@ block|}
 specifier|final
 name|Set
 argument_list|<
-name|Long
+name|Integer
 argument_list|>
 name|refObjNrs
 init|=
 operator|new
 name|HashSet
 argument_list|<
-name|Long
+name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
