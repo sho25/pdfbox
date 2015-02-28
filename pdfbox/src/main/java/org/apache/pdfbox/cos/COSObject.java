@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a PDF object.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.37 $  */
+comment|/**  * This class represents a PDF object.  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class
@@ -35,6 +35,8 @@ class|class
 name|COSObject
 extends|extends
 name|COSBase
+implements|implements
+name|COSUpdateInfo
 block|{
 specifier|private
 name|COSBase
@@ -47,6 +49,10 @@ decl_stmt|;
 specifier|private
 name|COSInteger
 name|generationNumber
+decl_stmt|;
+specifier|private
+name|boolean
+name|needToBeUpdated
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param object The object that this encapsulates.      *      * @throws IOException If there is an error with the object passed in.      */
 specifier|public
@@ -301,6 +307,34 @@ argument_list|(
 name|visitor
 argument_list|)
 return|;
+block|}
+comment|/**      * Get the update state for the COSWriter.      *       * @return the update state.      */
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isNeedToBeUpdated
+parameter_list|()
+block|{
+return|return
+name|needToBeUpdated
+return|;
+block|}
+comment|/**      * Set the update state of the dictionary for the COSWriter.      *       * @param flag the update state.      */
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setNeedToBeUpdated
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+block|{
+name|needToBeUpdated
+operator|=
+name|flag
+expr_stmt|;
 block|}
 block|}
 end_class

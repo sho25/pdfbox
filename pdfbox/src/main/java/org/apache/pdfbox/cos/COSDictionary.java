@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a dictionary where name/value pairs reside.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.32 $  */
+comment|/**  * This class represents a dictionary where name/value pairs reside.  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class
@@ -115,6 +115,8 @@ class|class
 name|COSDictionary
 extends|extends
 name|COSBase
+implements|implements
+name|COSUpdateInfo
 block|{
 specifier|private
 specifier|static
@@ -3017,7 +3019,8 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the update state for the COSWriter.      *       * @return the update state.      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isNeedToBeUpdated
@@ -3027,7 +3030,8 @@ return|return
 name|needToBeUpdated
 return|;
 block|}
-comment|/**      * Set the update state of the dictionary for the COSWriter.      *       * @param flag the update state.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setNeedToBeUpdated

@@ -40,6 +40,28 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -50,24 +72,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test class for {@link COSDictionary}.  */
+comment|/**  * Test class for {@link COSUpdateInfo}.  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|TestCOSDictionary
+name|TestCOSUpdateInfo
 block|{
-comment|/** The COSDictionary abstraction of the object being tested. */
-specifier|protected
-name|COSDictionary
-name|testCOSDictionary
-init|=
-operator|new
-name|COSDictionary
-argument_list|()
-decl_stmt|;
-empty_stmt|;
 comment|/**      * Tests isNeedToBeUpdate() and setNeedToBeUpdate() - tests the getter/setter methods.      */
 annotation|@
 name|Test
@@ -76,6 +88,14 @@ name|void
 name|testIsSetNeedToBeUpdate
 parameter_list|()
 block|{
+comment|// COSDictionary
+name|COSUpdateInfo
+name|testCOSDictionary
+init|=
+operator|new
+name|COSDictionary
+argument_list|()
+decl_stmt|;
 name|testCOSDictionary
 operator|.
 name|setNeedToBeUpdated
@@ -106,6 +126,66 @@ name|isNeedToBeUpdated
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// COSObject
+name|COSUpdateInfo
+name|testCOSObject
+decl_stmt|;
+try|try
+block|{
+name|testCOSObject
+operator|=
+operator|new
+name|COSObject
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+name|testCOSObject
+operator|.
+name|setNeedToBeUpdated
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|testCOSObject
+operator|.
+name|isNeedToBeUpdated
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|testCOSObject
+operator|.
+name|setNeedToBeUpdated
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|testCOSObject
+operator|.
+name|isNeedToBeUpdated
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
