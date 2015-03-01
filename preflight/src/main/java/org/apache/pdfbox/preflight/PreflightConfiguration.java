@@ -1014,7 +1014,7 @@ name|keySet
 argument_list|()
 return|;
 block|}
-comment|/**      * Return the validation process linked with the given name      *       * @param processName      * @return an instance of validationProcess, null if it doesn't exist and if the errorOnMissingProcess is false      * @throws MissingValidationProcessException      *             if the Process doesn't exist (errorOnMissingProcess is true)      */
+comment|/**      * Return the validation process linked with the given name      *      * @param processName      * @return an instance of validationProcess, null if it doesn't exist and if      * the errorOnMissingProcess is false.      * @throws MissingValidationProcessException if the Process doesn't exist      * (errorOnMissingProcess is true).      * @throws ValidationException if the process instance can't be created.      */
 specifier|public
 name|ValidationProcess
 name|getInstanceOfProcess
@@ -1023,8 +1023,6 @@ name|String
 name|processName
 parameter_list|)
 throws|throws
-name|MissingValidationProcessException
-throws|,
 name|ValidationException
 block|{
 name|Class
