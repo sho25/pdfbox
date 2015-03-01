@@ -346,7 +346,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to contain parsing logic that will be used by both the  * PDFParser and the COSStreamParser.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision$  */
+comment|/**  * This class is used to contain parsing logic that will be used by both the  * PDFParser and the COSStreamParser.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -979,7 +979,7 @@ operator|)
 name|number
 operator|)
 operator|.
-name|intValue
+name|longValue
 argument_list|()
 argument_list|,
 operator|(
@@ -3454,7 +3454,7 @@ name|COSObjectKey
 argument_list|(
 name|number
 operator|.
-name|intValue
+name|longValue
 argument_list|()
 argument_list|,
 name|genNumber
@@ -5508,16 +5508,16 @@ block|}
 block|}
 comment|/**      * This will read a long from the Stream and throw an {@link IOException} if      * the long value is negative or has more than 10 digits (i.e. : bigger than      * {@link #OBJECT_NUMBER_THRESHOLD})      *      * @return the object number being read.      * @throws IOException if an I/O error occurs      */
 specifier|protected
-name|int
+name|long
 name|readObjectNumber
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|int
+name|long
 name|retval
 init|=
-name|readInt
+name|readLong
 argument_list|()
 decl_stmt|;
 if|if
@@ -6022,7 +6022,7 @@ throws|throws
 name|IOException
 block|{
 comment|//we are going to parse a normal object
-name|int
+name|long
 name|number
 init|=
 operator|-

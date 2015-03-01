@@ -1594,7 +1594,7 @@ parameter_list|,
 name|long
 name|objNum
 parameter_list|,
-name|long
+name|int
 name|genNum
 parameter_list|)
 throws|throws
@@ -1827,7 +1827,7 @@ parameter_list|,
 name|long
 name|objNum
 parameter_list|,
-name|long
+name|int
 name|genNum
 parameter_list|)
 throws|throws

@@ -1675,21 +1675,21 @@ operator|.
 name|TABLE
 argument_list|)
 expr_stmt|;
-comment|/*          * Xref tables can have multiple sections. Each starts with a starting object id and a count.          */
+comment|// Xref tables can have multiple sections. Each starts with a starting object id and a count.
 while|while
 condition|(
 literal|true
 condition|)
 block|{
 comment|// just after the xref<EOL> there are an integer
-name|int
+comment|// first obj id
+name|long
 name|currObjID
 decl_stmt|;
-comment|// first obj id
+comment|// the number of objects in the xref table
 name|int
 name|count
 decl_stmt|;
-comment|// the number of objects in the xref table
 name|long
 name|offset
 init|=
@@ -1734,9 +1734,9 @@ condition|)
 block|{
 name|currObjID
 operator|=
-name|Integer
+name|Long
 operator|.
-name|parseInt
+name|parseLong
 argument_list|(
 name|matcher
 operator|.
@@ -1782,18 +1782,18 @@ argument_list|(
 name|offset
 argument_list|)
 expr_stmt|;
+comment|// first obj id
 name|currObjID
 operator|=
 name|readObjectNumber
 argument_list|()
 expr_stmt|;
-comment|// first obj id
+comment|// the number of objects in the xref table
 name|count
 operator|=
 name|readInt
 argument_list|()
 expr_stmt|;
-comment|// the number of objects in the xref table
 block|}
 name|skipSpaces
 argument_list|()
@@ -1903,7 +1903,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-comment|/*                  * This supports the corrupt table as reported in PDFBOX-474 (XXXX XXX XX n)                  */
+comment|// This supports the corrupt table as reported in PDFBOX-474 (XXXX XXX XX n)
 if|if
 condition|(
 name|splitString
@@ -1923,12 +1923,12 @@ condition|)
 block|{
 try|try
 block|{
-name|int
+name|long
 name|currOffset
 init|=
-name|Integer
+name|Long
 operator|.
-name|parseInt
+name|parseLong
 argument_list|(
 name|splitString
 index|[
@@ -2861,7 +2861,7 @@ specifier|protected
 name|COSBase
 name|parseObjectDynamically
 parameter_list|(
-name|int
+name|long
 name|objNr
 parameter_list|,
 name|int
@@ -3101,9 +3101,9 @@ condition|)
 block|{
 name|readObjNr
 operator|=
-name|Integer
+name|Long
 operator|.
-name|parseInt
+name|parseLong
 argument_list|(
 name|matcher
 operator|.
@@ -3673,7 +3673,7 @@ comment|// get set of object numbers referenced for this object stream
 specifier|final
 name|Set
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 name|refObjNrs
 init|=

@@ -281,14 +281,14 @@ expr_stmt|;
 block|}
 name|ArrayList
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 name|objNums
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -312,7 +312,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|int
+name|long
 name|objID
 init|=
 operator|(
@@ -325,7 +325,7 @@ name|next
 argument_list|()
 operator|)
 operator|.
-name|intValue
+name|longValue
 argument_list|()
 decl_stmt|;
 name|int
@@ -372,7 +372,7 @@ block|}
 block|}
 name|Iterator
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 name|objIter
 init|=
@@ -499,7 +499,7 @@ operator|)
 expr_stmt|;
 block|}
 comment|//Need to remember the current objID
-name|Integer
+name|Long
 name|objID
 init|=
 name|objIter

@@ -1046,7 +1046,7 @@ literal|0
 decl_stmt|;
 comment|// the current object number
 specifier|private
-name|int
+name|long
 name|number
 init|=
 literal|0
@@ -1392,7 +1392,7 @@ operator|.
 name|keySet
 argument_list|()
 decl_stmt|;
-name|int
+name|long
 name|highestNumber
 init|=
 literal|0
@@ -1455,7 +1455,7 @@ name|object
 argument_list|)
 expr_stmt|;
 block|}
-name|int
+name|long
 name|num
 init|=
 name|cosObjectKey
@@ -1574,7 +1574,7 @@ block|}
 block|}
 comment|/**      * This will get the current object number.      *      * @return The current object number.      */
 specifier|protected
-name|int
+name|long
 name|getNumber
 parameter_list|()
 block|{
@@ -1649,7 +1649,7 @@ specifier|protected
 name|void
 name|setNumber
 parameter_list|(
-name|int
+name|long
 name|newNumber
 parameter_list|)
 block|{
@@ -2428,15 +2428,12 @@ argument_list|)
 decl_stmt|;
 name|trailer
 operator|.
-name|setInt
+name|setLong
 argument_list|(
 name|COSName
 operator|.
 name|SIZE
 argument_list|,
-operator|(
-name|int
-operator|)
 name|lastEntry
 operator|.
 name|getKey
@@ -2754,7 +2751,7 @@ argument_list|()
 expr_stmt|;
 comment|// write start object number and object count for this x ref section
 comment|// we assume starting from scratch
-name|Integer
+name|Long
 index|[]
 name|xRefRanges
 init|=
@@ -3406,7 +3403,7 @@ expr_stmt|;
 block|}
 comment|/**      * check the xref entries and write out the ranges.  The format of the      * returned array is exactly the same as the pdf specification.  See section      * 7.5.4 of ISO32000-1:2008, example 1 (page 40) for reference.      *<p>      * example: 0 1 2 5 6 7 8 10      *<p>      * will create a array with follow ranges      *<p>      * 0 3 5 4 10 1      *<p>      * this mean that the element 0 is followed by two other related numbers       * that represent a cluster of the size 3. 5 is follow by three other      * related numbers and create a cluster of size 4. etc.      *       * @param xRefEntriesList list with the xRef entries that was written      * @return a integer array with the ranges      */
 specifier|protected
-name|Integer
+name|Long
 index|[]
 name|getXRefRanges
 parameter_list|(
@@ -3417,27 +3414,27 @@ argument_list|>
 name|xRefEntriesList
 parameter_list|)
 block|{
-name|int
+name|long
 name|last
 init|=
 operator|-
 literal|2
 decl_stmt|;
-name|int
+name|long
 name|count
 init|=
 literal|1
 decl_stmt|;
 name|ArrayList
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 name|list
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -3449,7 +3446,7 @@ range|:
 name|xRefEntriesList
 control|)
 block|{
-name|int
+name|long
 name|nr
 init|=
 call|(
@@ -3565,7 +3562,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|Integer
+name|Long
 index|[
 name|list
 operator|.

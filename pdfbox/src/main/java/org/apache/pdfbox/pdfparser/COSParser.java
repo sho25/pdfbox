@@ -2113,7 +2113,7 @@ operator|.
 name|getObjectNumber
 argument_list|()
 operator|.
-name|intValue
+name|longValue
 argument_list|()
 argument_list|,
 name|obj
@@ -2496,7 +2496,7 @@ specifier|protected
 name|COSBase
 name|parseObjectDynamically
 parameter_list|(
-name|int
+name|long
 name|objNr
 parameter_list|,
 name|int
@@ -2641,7 +2641,7 @@ name|readObjectNumber
 argument_list|()
 decl_stmt|;
 specifier|final
-name|long
+name|int
 name|readObjGen
 init|=
 name|readGenerationNumber
@@ -3029,7 +3029,7 @@ comment|// stream
 specifier|final
 name|Set
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 name|refObjNrs
 init|=
@@ -4316,7 +4316,7 @@ operator|.
 name|getNumber
 argument_list|()
 decl_stmt|;
-name|long
+name|int
 name|objectGen
 init|=
 name|objectKey
@@ -4481,7 +4481,7 @@ parameter_list|(
 name|long
 name|objectID
 parameter_list|,
-name|long
+name|int
 name|genID
 parameter_list|)
 block|{
@@ -4495,7 +4495,7 @@ argument_list|)
 operator|+
 literal|" "
 operator|+
-name|Long
+name|Integer
 operator|.
 name|toString
 argument_list|(
@@ -4770,14 +4770,14 @@ argument_list|,
 name|ISO_8859_1
 argument_list|)
 decl_stmt|;
-name|Integer
+name|Long
 name|objectID
 decl_stmt|;
 try|try
 block|{
 name|objectID
 operator|=
-name|Integer
+name|Long
 operator|.
 name|valueOf
 argument_list|(
@@ -6682,7 +6682,7 @@ literal|true
 condition|)
 block|{
 comment|// first obj id
-name|int
+name|long
 name|currObjID
 init|=
 name|readObjectNumber
