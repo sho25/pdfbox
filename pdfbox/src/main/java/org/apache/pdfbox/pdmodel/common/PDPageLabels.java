@@ -711,7 +711,6 @@ return|;
 block|}
 comment|/**      * Internal interface for the control flow support.      *       * @author Igor Podolskiy      */
 specifier|private
-specifier|static
 interface|interface
 name|LabelHandler
 block|{
