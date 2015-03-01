@@ -437,7 +437,6 @@ decl_stmt|;
 annotation|@
 name|Override
 specifier|public
-specifier|final
 name|DecodeResult
 name|decode
 parameter_list|(

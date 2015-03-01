@@ -87,7 +87,6 @@ block|{
 annotation|@
 name|Override
 specifier|public
-specifier|final
 name|DecodeResult
 name|decode
 parameter_list|(
@@ -194,7 +193,6 @@ block|}
 annotation|@
 name|Override
 specifier|protected
-specifier|final
 name|void
 name|encode
 parameter_list|(
