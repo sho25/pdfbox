@@ -21,15 +21,11 @@ interface|interface
 name|COSUpdateInfo
 block|{
 comment|/**      * Get the update state for the COSWriter.      *       * @return the update state.      */
-specifier|public
-specifier|abstract
 name|boolean
 name|isNeedToBeUpdated
 parameter_list|()
 function_decl|;
 comment|/**      * Set the update state of the dictionary for the COSWriter.      *       * @param flag the update state.      */
-specifier|public
-specifier|abstract
 name|void
 name|setNeedToBeUpdated
 parameter_list|(
