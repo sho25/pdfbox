@@ -401,6 +401,8 @@ extends|extends
 name|AbstractProcess
 block|{
 comment|/**      * Validate the ExtGState dictionaries.      *       * @param context the context which contains the Resource dictionary.      * @throws ValidationException thrown if a the Extended Graphic State isn't valid.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
@@ -728,11 +730,7 @@ condition|(
 name|smVal
 operator|!=
 literal|null
-condition|)
-block|{
-comment|// ---- Soft Mask is valid only if it is a COSName equals to None
-if|if
-condition|(
+operator|&&
 operator|!
 operator|(
 name|smVal
@@ -756,6 +754,7 @@ argument_list|)
 operator|)
 condition|)
 block|{
+comment|// ---- Soft Mask is valid only if it is a COSName equals to None
 name|context
 operator|.
 name|addValidationError
@@ -769,7 +768,6 @@ literal|"SoftMask must be null or None"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * This method checks the BM value of the ExtGState dictionary. The Blend Mode is optional but must be "Normal" or      * "Compatible" if it is present.      *       * @param context the preflight context     * @param egs the graphic state to check      */
