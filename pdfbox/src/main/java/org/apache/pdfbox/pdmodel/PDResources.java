@@ -745,9 +745,6 @@ name|object
 operator|.
 name|getObjectNumber
 argument_list|()
-operator|.
-name|intValue
-argument_list|()
 expr_stmt|;
 return|return
 name|PDXObject

@@ -53,16 +53,10 @@ name|object
 operator|.
 name|getObjectNumber
 argument_list|()
-operator|.
-name|intValue
-argument_list|()
 argument_list|,
 name|object
 operator|.
 name|getGenerationNumber
-argument_list|()
-operator|.
-name|intValue
 argument_list|()
 argument_list|)
 expr_stmt|;

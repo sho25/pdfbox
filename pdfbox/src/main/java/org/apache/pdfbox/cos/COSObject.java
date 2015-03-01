@@ -43,11 +43,11 @@ name|COSBase
 name|baseObject
 decl_stmt|;
 specifier|private
-name|COSInteger
+name|long
 name|objectNumber
 decl_stmt|;
 specifier|private
-name|COSInteger
+name|int
 name|generationNumber
 decl_stmt|;
 specifier|private
@@ -188,44 +188,28 @@ block|{
 return|return
 literal|"COSObject{"
 operator|+
-operator|(
-name|objectNumber
-operator|==
-literal|null
-condition|?
-literal|"unknown"
-else|:
-literal|""
-operator|+
-name|objectNumber
+name|Long
 operator|.
-name|intValue
-argument_list|()
-operator|)
+name|toString
+argument_list|(
+name|objectNumber
+argument_list|)
 operator|+
 literal|", "
 operator|+
-operator|(
-name|generationNumber
-operator|==
-literal|null
-condition|?
-literal|"unknown"
-else|:
-literal|""
-operator|+
-name|generationNumber
+name|Integer
 operator|.
-name|intValue
-argument_list|()
-operator|)
+name|toString
+argument_list|(
+name|generationNumber
+argument_list|)
 operator|+
 literal|"}"
 return|;
 block|}
-comment|/** Getter for property objectNumber.      * @return Value of property objectNumber.      */
+comment|/**       * Getter for property objectNumber.      * @return Value of property objectNumber.      */
 specifier|public
-name|COSInteger
+name|long
 name|getObjectNumber
 parameter_list|()
 block|{
@@ -233,12 +217,12 @@ return|return
 name|objectNumber
 return|;
 block|}
-comment|/** Setter for property objectNumber.      * @param objectNum New value of property objectNumber.      */
+comment|/**       * Setter for property objectNumber.      * @param objectNum New value of property objectNumber.      */
 specifier|public
 name|void
 name|setObjectNumber
 parameter_list|(
-name|COSInteger
+name|long
 name|objectNum
 parameter_list|)
 block|{
@@ -247,9 +231,9 @@ operator|=
 name|objectNum
 expr_stmt|;
 block|}
-comment|/** Getter for property generationNumber.      * @return Value of property generationNumber.      */
+comment|/**       * Getter for property generationNumber.      * @return Value of property generationNumber.      */
 specifier|public
-name|COSInteger
+name|int
 name|getGenerationNumber
 parameter_list|()
 block|{
@@ -257,12 +241,12 @@ return|return
 name|generationNumber
 return|;
 block|}
-comment|/** Setter for property generationNumber.      * @param generationNumberValue New value of property generationNumber.      */
+comment|/**       * Setter for property generationNumber.      * @param generationNumberValue New value of property generationNumber.      */
 specifier|public
 name|void
 name|setGenerationNumber
 parameter_list|(
-name|COSInteger
+name|int
 name|generationNumberValue
 parameter_list|)
 block|{
