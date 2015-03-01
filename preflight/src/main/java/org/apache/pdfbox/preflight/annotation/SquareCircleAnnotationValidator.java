@@ -212,10 +212,7 @@ name|getInteriorColor
 argument_list|()
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|!
 name|searchRGBProfile
 argument_list|()
@@ -237,7 +234,6 @@ expr_stmt|;
 return|return
 literal|false
 return|;
-block|}
 block|}
 return|return
 literal|true
