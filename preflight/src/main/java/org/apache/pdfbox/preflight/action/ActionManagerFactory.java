@@ -647,10 +647,7 @@ condition|(
 name|oaDict
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|!
 name|COSUtils
 operator|.
@@ -674,9 +671,7 @@ name|alreadyCreated
 argument_list|)
 expr_stmt|;
 block|}
-comment|// else Nothing to do because of an array contains a Destination not an
-comment|// action.
-block|}
+comment|// else nothing to do because an array contains a Destination and not an Action.
 name|COSBase
 name|aa
 init|=
