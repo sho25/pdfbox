@@ -271,7 +271,6 @@ throw|;
 block|}
 comment|/**      * Returns the pattern for the given color.      *       * @param color color containing a pattern name      * @return pattern for the given color      * @throws java.io.IOException if the pattern name was not found.      */
 specifier|public
-specifier|final
 name|PDAbstractPattern
 name|getPattern
 parameter_list|(
@@ -325,7 +324,6 @@ block|}
 block|}
 comment|/**      * Returns the underlying color space, if this is an uncolored tiling pattern, otherwise null.      */
 specifier|public
-specifier|final
 name|PDColorSpace
 name|getUnderlyingColorSpace
 parameter_list|()
