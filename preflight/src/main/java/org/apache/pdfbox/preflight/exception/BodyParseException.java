@@ -153,16 +153,13 @@ name|PreflightConstants
 operator|.
 name|ERROR_SYNTAX_BODY
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|isTokenMgrError
-condition|)
-block|{
 comment|// it is a parse error, according to the ExpectedTokens data
 comment|// some error code can be returned
 if|if
 condition|(
+operator|!
+name|isTokenMgrError
+operator|&&
 name|this
 operator|.
 name|expectedTokenSequences
@@ -174,33 +171,20 @@ comment|// check object delimiters error
 for|for
 control|(
 name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|expectedTokenSequence
+index|[]
+range|:
 name|this
 operator|.
 name|expectedTokenSequences
-operator|.
-name|length
-condition|;
-operator|++
-name|i
 control|)
 block|{
-comment|// Check only the first Expected token on each array.
-comment|// Others can be check if some choice can start by the same token
+comment|// Check only the first expected token on each array.
+comment|// Others can be checked if some choice can started by the same token
 comment|// in this case, a factorization is possible
 switch|switch
 condition|(
-name|this
-operator|.
-name|expectedTokenSequences
-index|[
-name|i
-index|]
+name|expectedTokenSequence
 index|[
 literal|0
 index|]
@@ -227,8 +211,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-comment|// add here other error code
-block|}
+comment|// add other error code here
 block|}
 return|return
 name|errorCode
