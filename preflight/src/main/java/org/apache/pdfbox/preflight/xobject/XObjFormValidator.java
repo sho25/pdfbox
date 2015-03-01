@@ -764,10 +764,7 @@ argument_list|)
 argument_list|)
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 literal|"PS"
 operator|.
 name|equals
@@ -797,7 +794,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
-block|}
 block|}
 block|}
 specifier|protected
