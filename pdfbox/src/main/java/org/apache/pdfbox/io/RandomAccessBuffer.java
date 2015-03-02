@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the RandomAccess interface to store a pdf in memory.  * The data will be stored in 16kb chunks organized in an ArrayList.    *  */
+comment|/**  * An implementation of the RandomAccess interface to store a pdf in memory.  * The data will be stored in chunks organized in an ArrayList.    *  */
 end_comment
 
 begin_class
@@ -70,14 +70,14 @@ name|Closeable
 implements|,
 name|Cloneable
 block|{
-comment|// chunk size is 16kb
+comment|// chunk size is 1kb
 specifier|private
 specifier|static
 specifier|final
 name|int
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 init|=
-literal|16384
+literal|1024
 decl_stmt|;
 comment|// list containing all chunks
 specifier|private
@@ -142,7 +142,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 index|]
 expr_stmt|;
 name|bufferList
@@ -388,14 +388,14 @@ call|)
 argument_list|(
 name|position
 operator|/
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 argument_list|)
 expr_stmt|;
 name|currentBufferPointer
 operator|=
 name|position
 operator|%
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 expr_stmt|;
 name|currentBuffer
 operator|=
@@ -455,7 +455,7 @@ if|if
 condition|(
 name|currentBufferPointer
 operator|>=
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 condition|)
 block|{
 if|if
@@ -562,7 +562,7 @@ decl_stmt|;
 name|long
 name|remainingBytes
 init|=
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|-
 name|currentBufferPointer
 decl_stmt|;
@@ -621,7 +621,7 @@ name|int
 operator|)
 name|remainingBytes2Read
 operator|/
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 decl_stmt|;
 for|for
 control|(
@@ -653,19 +653,19 @@ name|b
 argument_list|,
 name|newOffset
 argument_list|,
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 argument_list|)
 expr_stmt|;
 name|newOffset
 operator|+=
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 expr_stmt|;
 block|}
 name|remainingBytes2Read
 operator|=
 name|remainingBytes2Read
 operator|%
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 expr_stmt|;
 comment|// are there still some bytes to be read?
 if|if
@@ -773,14 +773,14 @@ if|if
 condition|(
 name|currentBufferPointer
 operator|>=
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 condition|)
 block|{
 if|if
 condition|(
 name|pointer
 operator|+
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|>=
 name|Integer
 operator|.
@@ -837,14 +837,14 @@ if|if
 condition|(
 name|currentBufferPointer
 operator|>=
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 condition|)
 block|{
 if|if
 condition|(
 name|pointer
 operator|+
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|>=
 name|Integer
 operator|.
@@ -897,7 +897,7 @@ decl_stmt|;
 name|long
 name|remainingBytes
 init|=
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|-
 name|currentBufferPointer
 decl_stmt|;
@@ -973,7 +973,7 @@ name|int
 operator|)
 name|remainingBytes2Write
 operator|/
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 decl_stmt|;
 for|for
 control|(
@@ -1008,12 +1008,12 @@ name|int
 operator|)
 name|currentBufferPointer
 argument_list|,
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 argument_list|)
 expr_stmt|;
 name|newOffset
 operator|+=
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 expr_stmt|;
 block|}
 comment|// are there still some bytes to be written?
@@ -1024,7 +1024,7 @@ operator|*
 operator|(
 name|long
 operator|)
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 expr_stmt|;
 if|if
 condition|(
@@ -1143,7 +1143,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 index|]
 expr_stmt|;
 name|bufferList

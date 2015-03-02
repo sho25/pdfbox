@@ -50,9 +50,9 @@ specifier|private
 specifier|static
 specifier|final
 name|int
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 init|=
-literal|16384
+literal|1024
 decl_stmt|;
 comment|/**      * This will test the {@link RandomAccessBuffer#read()}       * and {@link RandomAccessBuffer#write(int)} method.      *       * @throws IOException is thrown if something went wrong.      */
 specifier|public
@@ -312,7 +312,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// create an array filled with 16384 * "0", 16384 * "1" and 100 * "2"
+comment|// create an array filled with 1024 * "0", 1024 * "1" and 100 * "2"
 name|byte
 index|[]
 name|byteArray
@@ -322,7 +322,7 @@ name|byte
 index|[
 literal|2
 operator|*
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|+
 literal|100
 index|]
@@ -332,13 +332,13 @@ control|(
 name|int
 name|i
 init|=
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 init|;
 name|i
 operator|<
 literal|2
 operator|*
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 condition|;
 name|i
 operator|++
@@ -359,13 +359,13 @@ name|i
 init|=
 literal|2
 operator|*
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 init|;
 name|i
 operator|<
 literal|2
 operator|*
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|+
 literal|100
 condition|;
@@ -426,7 +426,7 @@ name|buffer
 operator|.
 name|seek
 argument_list|(
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|-
 literal|1
 argument_list|)
@@ -446,7 +446,7 @@ name|buffer
 operator|.
 name|seek
 argument_list|(
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -464,7 +464,7 @@ name|buffer
 operator|.
 name|seek
 argument_list|(
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|-
 literal|5
 argument_list|)
@@ -534,7 +534,7 @@ name|seek
 argument_list|(
 literal|2
 operator|*
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|-
 literal|5
 argument_list|)
@@ -605,7 +605,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// create a buffer filled with 16384 * "0" and 100 * "1"
+comment|// create a buffer filled with 1024 * "0" and 100 * "1"
 name|byte
 index|[]
 name|byteArray
@@ -613,7 +613,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|+
 literal|100
 index|]
@@ -630,11 +630,11 @@ control|(
 name|int
 name|i
 init|=
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 init|;
 name|i
 operator|<
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|+
 literal|100
 condition|;
@@ -668,7 +668,7 @@ name|buffer
 operator|.
 name|seek
 argument_list|(
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|-
 literal|5
 argument_list|)
@@ -736,7 +736,7 @@ name|buffer
 operator|.
 name|seek
 argument_list|(
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|-
 literal|5
 argument_list|)
@@ -793,7 +793,7 @@ name|buffer
 operator|.
 name|seek
 argument_list|(
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|-
 literal|5
 argument_list|)
@@ -863,7 +863,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// create a buffer filled with 16383 * "0"
+comment|// create a buffer filled with 1024 * "0"
 name|byte
 index|[]
 name|byteArray
@@ -871,7 +871,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|BUFFER_SIZE
+name|CHUNK_SIZE
 operator|-
 literal|1
 index|]
