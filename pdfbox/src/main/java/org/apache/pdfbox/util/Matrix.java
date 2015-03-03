@@ -2157,7 +2157,7 @@ return|return
 name|matrix
 return|;
 block|}
-comment|/**      * Convenience method to create a rotated instance.      *      * @param theta The angle of rotation measured in radians      * @param tx The x translation.      * @param ty The y translation.      * @return A new matrix with just the x/y translating.      */
+comment|/**      * Convenience method to create a rotated instance.      *      * @param theta The angle of rotation measured in radians      * @param tx The x translation.      * @param ty The y translation.      * @return A new matrix with the rotation and the x/y translating.      */
 specifier|public
 specifier|static
 name|Matrix
