@@ -128,6 +128,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|arguments
+operator|.
+name|size
+argument_list|()
+operator|<
+literal|1
+condition|)
+block|{
+comment|// ignore ( )Tj
+return|return;
+block|}
 name|COSString
 name|string
 init|=
