@@ -3687,6 +3687,23 @@ name|float
 name|getVersion
 parameter_list|()
 block|{
+name|float
+name|headerVersionFloat
+init|=
+name|getDocument
+argument_list|()
+operator|.
+name|getVersion
+argument_list|()
+decl_stmt|;
+comment|// there may be a second version information in the document catalog starting with 1.4
+if|if
+condition|(
+name|headerVersionFloat
+operator|>=
+literal|1.4f
+condition|)
+block|{
 name|String
 name|catalogVersion
 init|=
@@ -3701,15 +3718,6 @@ name|catalogVersionFloat
 init|=
 operator|-
 literal|1
-decl_stmt|;
-name|float
-name|headerVersionFloat
-init|=
-name|getDocument
-argument_list|()
-operator|.
-name|getVersion
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -3747,14 +3755,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// there may be a second version information in the document catalog starting with 1.4
-if|if
-condition|(
-name|catalogVersionFloat
-operator|>=
-literal|1.4f
-condition|)
-block|{
 comment|// the most recent version is the correct one
 return|return
 name|Math
@@ -3816,10 +3816,14 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// update the catalog version if the new version is>= 1.4
+comment|// update the catalog version if the document version is>= 1.4
 if|if
 condition|(
-name|newVersion
+name|getDocument
+argument_list|()
+operator|.
+name|getVersion
+argument_list|()
 operator|>=
 literal|1.4f
 condition|)
@@ -3837,26 +3841,6 @@ name|newVersion
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|getDocument
-argument_list|()
-operator|.
-name|getVersion
-argument_list|()
-operator|>
-name|newVersion
-condition|)
-block|{
-name|getDocument
-argument_list|()
-operator|.
-name|setVersion
-argument_list|(
-name|newVersion
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 else|else
 block|{
