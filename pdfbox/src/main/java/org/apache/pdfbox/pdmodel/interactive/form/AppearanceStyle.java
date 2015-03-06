@@ -21,16 +21,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -45,30 +35,33 @@ name|PDFont
 import|;
 end_import
 
+begin_comment
+comment|/**  * Define styling attributes to be used for text formatting.  *   */
+end_comment
+
 begin_class
 class|class
 name|AppearanceStyle
 block|{
 specifier|private
-specifier|static
-specifier|final
-name|float
-name|FONTSCALE
-init|=
-literal|1000f
-decl_stmt|;
-specifier|private
 name|PDFont
 name|font
 decl_stmt|;
+comment|/**      * The font size to be used for text formatting.      *      * Defaulting to 12 to math Acrobats default.      */
 specifier|private
 name|float
 name|fontSize
+init|=
+literal|12.0f
 decl_stmt|;
+comment|/**      * The leading (distance between lines) to be used for text formatting.      *      * Defaulting to 1.2*fontSize to match Acrobats default.      */
 specifier|private
 name|float
 name|leading
+init|=
+literal|14.4f
 decl_stmt|;
+comment|/**      * Get the font used for text formatting.      *       * @return the font used for text formatting.      */
 name|PDFont
 name|getFont
 parameter_list|()
@@ -77,6 +70,7 @@ return|return
 name|font
 return|;
 block|}
+comment|/**      * Set the font to be used for text formatting.      *       * @param font the font to be used.      */
 name|void
 name|setFont
 parameter_list|(
@@ -91,6 +85,7 @@ operator|=
 name|font
 expr_stmt|;
 block|}
+comment|/**      * Get the fontSize used for text formatting.      *       * @return the fontSize used for text formatting.      */
 name|float
 name|getFontSize
 parameter_list|()
@@ -99,6 +94,7 @@ return|return
 name|fontSize
 return|;
 block|}
+comment|/**      * Set the font size to be used for formatting.      *       * @param fontSize the font size.      */
 name|void
 name|setFontSize
 parameter_list|(
@@ -106,48 +102,12 @@ name|float
 name|fontSize
 parameter_list|)
 block|{
-specifier|final
-name|float
-name|scale
-init|=
-name|fontSize
-operator|/
-name|FONTSCALE
-decl_stmt|;
 name|this
 operator|.
 name|fontSize
 operator|=
 name|fontSize
 expr_stmt|;
-if|if
-condition|(
-name|leading
-operator|==
-literal|0
-condition|)
-block|{
-try|try
-block|{
-name|leading
-operator|=
-name|font
-operator|.
-name|getBoundingBox
-argument_list|()
-operator|.
-name|getHeight
-argument_list|()
-operator|*
-name|scale
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
 name|leading
 operator|=
 name|fontSize
@@ -155,8 +115,7 @@ operator|*
 literal|1.2f
 expr_stmt|;
 block|}
-block|}
-block|}
+comment|/**      * Get the leading used for text formatting.      *       * @return the leading used for text formatting.      */
 name|float
 name|getLeading
 parameter_list|()
@@ -165,6 +124,7 @@ return|return
 name|leading
 return|;
 block|}
+comment|/**      * Set the leading used for text formatting.      *       * @param leading the leading to be used.      */
 name|void
 name|setLeading
 parameter_list|(
