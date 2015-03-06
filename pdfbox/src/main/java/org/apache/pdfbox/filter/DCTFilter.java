@@ -517,6 +517,10 @@ operator|||
 name|colorSpaceCode
 operator|==
 literal|9
+operator|||
+name|colorSpaceCode
+operator|==
+literal|11
 condition|)
 block|{
 comment|// YCCK
