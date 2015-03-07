@@ -1725,8 +1725,6 @@ operator|/
 literal|1000
 operator|*
 name|fontSize
-operator|-
-literal|4f
 expr_stmt|;
 name|printWriter
 operator|.
@@ -1807,6 +1805,11 @@ operator|.
 name|wrapLines
 argument_list|(
 literal|true
+argument_list|)
+operator|.
+name|hAlign
+argument_list|(
+name|q
 argument_list|)
 operator|.
 name|build
@@ -2150,7 +2153,6 @@ name|isMultiLine
 parameter_list|()
 block|{
 return|return
-operator|(
 name|parent
 operator|instanceof
 name|PDTextField
@@ -2164,7 +2166,6 @@ operator|)
 operator|.
 name|isMultiline
 argument_list|()
-operator|)
 return|;
 block|}
 comment|/**      * Writes the stream to the actual stream in the COSStream.      *      * @throws IOException If there is an error writing to the stream      */
@@ -2665,11 +2666,9 @@ name|Math
 operator|.
 name|min
 argument_list|(
-operator|(
 name|availHeight
 operator|/
 name|height
-operator|)
 argument_list|,
 name|widthBasedFontSize
 argument_list|)
