@@ -927,7 +927,7 @@ name|action
 operator|.
 name|setURI
 argument_list|(
-literal|"http://www.pdfbox.org"
+literal|"http://pdfbox.apache.org"
 argument_list|)
 expr_stmt|;
 name|txtLink

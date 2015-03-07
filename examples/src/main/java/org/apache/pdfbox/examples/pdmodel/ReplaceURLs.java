@@ -153,7 +153,7 @@ parameter_list|()
 block|{
 comment|//utility class
 block|}
-comment|/**      * This will read in a document and replace all of the urls with      * http://www.pdfbox.org.      *<br />      * see usage() for commandline      *      * @param args Command line arguments.      *      * @throws Exception If there is an error during the process.      */
+comment|/**      * This will read in a document and replace all of the urls with      * http://pdfbox.apache.org.      *<br />      * see usage() for commandline      *      * @param args Command line arguments.      *      * @throws Exception If there is an error during the process.      */
 specifier|public
 specifier|static
 name|void
@@ -314,7 +314,7 @@ decl_stmt|;
 name|String
 name|newURI
 init|=
-literal|"http://www.pdfbox.org"
+literal|"http://pdfbox.apache.org"
 decl_stmt|;
 name|System
 operator|.
