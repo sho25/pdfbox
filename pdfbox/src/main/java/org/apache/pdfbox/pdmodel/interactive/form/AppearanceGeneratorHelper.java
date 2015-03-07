@@ -1807,7 +1807,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|hAlign
+name|textAlign
 argument_list|(
 name|q
 argument_list|)
