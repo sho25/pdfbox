@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides the relational operators such as "eq" and "le".  *  * @version $Revision$  */
+comment|/**  * Provides the relational operators such as "eq" and "le".  *  */
 end_comment
 
 begin_class

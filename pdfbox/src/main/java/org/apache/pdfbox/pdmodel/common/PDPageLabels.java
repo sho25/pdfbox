@@ -184,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the page label dictionary of a document.  *   * @author<a href="mailto:igor.podolskiy@ievvwi.uni-stuttgart.de">Igor  *         Podolskiy</a>  * @version $Revision$  */
+comment|/**  * Represents the page label dictionary of a document.  *   * @author Igor Podolskiy  */
 end_comment
 
 begin_class

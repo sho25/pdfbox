@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A named text stream is a combination of a name and a PDTextStream object.  This  * is used in name trees.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * A named text stream is a combination of a name and a PDTextStream object.  This  * is used in name trees.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

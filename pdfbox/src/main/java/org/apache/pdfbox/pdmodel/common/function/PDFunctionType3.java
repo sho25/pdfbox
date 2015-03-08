@@ -88,7 +88,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a Type 3 (stitching) function in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This class represents a Type 3 (stitching) function in a PDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

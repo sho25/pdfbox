@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Contains information for a page label range.  *   * @author<a href="mailto:igor.podolskiy@ievvwi.uni-stuttgart.de">Igor  *         Podolskiy</a>  *   * @see PDPageLabels  *   * @version $Revision$  */
+comment|/**  * Contains information for a page label range.  *   * @author Igor Podolskiy  *   * @see PDPageLabels  *   */
 end_comment
 
 begin_class

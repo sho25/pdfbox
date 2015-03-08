@@ -208,7 +208,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an implementation of a List that will sync its contents to a COSArray.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.15 $  */
+comment|/**  * This is an implementation of a List that will sync its contents to a COSArray.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

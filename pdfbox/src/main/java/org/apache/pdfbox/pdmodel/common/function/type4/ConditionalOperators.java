@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides the conditional operators such as "if" and "ifelse".  *  * @version $Revision$  */
+comment|/**  * Provides the conditional operators such as "if" and "ifelse".  *  */
 end_comment
 
 begin_class

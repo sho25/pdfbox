@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Basic parser for Type 4 functions which is used to build up instruction sequences.  *  * @version $Revision$  */
+comment|/**  * Basic parser for Type 4 functions which is used to build up instruction sequences.  *  */
 end_comment
 
 begin_class

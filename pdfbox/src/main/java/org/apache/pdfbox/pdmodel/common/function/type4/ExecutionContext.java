@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Makes up the execution context, holding the available operators and the execution stack.  *  * @version $Revision$  */
+comment|/**  * Makes up the execution context, holding the available operators and the execution stack.  *  */
 end_comment
 
 begin_class

@@ -114,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A PDTextStream class is used when the PDF specification supports either  * a string or a stream for the value of an object.  This is usually when  * a value could be large or small, for example a JavaScript method.  This  * class will help abstract that and give a single unified interface to  * those types of fields.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * A PDTextStream class is used when the PDF specification supports either  * a string or a stream for the value of an object.  This is usually when  * a value could be large or small, for example a JavaScript method.  This  * class will help abstract that and give a single unified interface to  * those types of fields.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

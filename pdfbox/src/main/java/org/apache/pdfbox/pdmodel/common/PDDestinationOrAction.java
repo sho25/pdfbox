@@ -18,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This is an interface used for some elements such as the document  * OpenAction that can be either a Destination or an Action.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *  * @version $Revision: 1.2 $  */
+comment|/**  * This is an interface used for some elements such as the document  * OpenAction that can be either a Destination or an Action.  *  * @author Ben Litchfield  *  */
 end_comment
 
 begin_interface

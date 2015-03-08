@@ -22,7 +22,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Interface for PostScript operators.  *  * @version $Revision$  */
+comment|/**  * Interface for PostScript operators.  *  */
 end_comment
 
 begin_interface

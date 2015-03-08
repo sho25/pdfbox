@@ -140,7 +140,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a Type 4 (PostScript calculator) function in a PDF document.  *<p>  * See section 3.9.4 of the PDF 1.4 Reference.  *  * @version $Revision: 1.2 $  */
+comment|/**  * This class represents a Type 4 (PostScript calculator) function in a PDF document.  *<p>  * See section 3.9.4 of the PDF 1.4 Reference.  *  */
 end_comment
 
 begin_class

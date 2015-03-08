@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an instruction sequence, a combination of values, operands and nested procedures.  *  * @version $Revision$  */
+comment|/**  * Represents an instruction sequence, a combination of values, operands and nested procedures.  *  */
 end_comment
 
 begin_class

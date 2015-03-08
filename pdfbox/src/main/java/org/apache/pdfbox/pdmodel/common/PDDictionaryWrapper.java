@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A wrapper for a COS dictionary.  *  * @author<a href="mailto:Johannes%20Koch%20%3Ckoch@apache.org%3E">Johannes Koch</a>  * @version $Revision: $  *  */
+comment|/**  * A wrapper for a COS dictionary.  *  * @author Johannes Koch  *  */
 end_comment
 
 begin_class

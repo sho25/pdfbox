@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides the arithmetic operators such as "add" and "sub".  *  * @version $Revision$  */
+comment|/**  * Provides the arithmetic operators such as "add" and "sub".  *  */
 end_comment
 
 begin_class

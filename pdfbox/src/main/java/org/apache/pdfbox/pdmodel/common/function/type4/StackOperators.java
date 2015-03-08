@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides the stack operators such as "pop" and "dup".  *  * @version $Revision$  */
+comment|/**  * Provides the stack operators such as "pop" and "dup".  *  */
 end_comment
 
 begin_class

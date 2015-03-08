@@ -22,7 +22,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Parser for PDF Type 4 functions. This implements a small subset of the PostScript  * language but is no full PostScript interpreter.  *  * @version $Revision$  */
+comment|/**  * Parser for PDF Type 4 functions. This implements a small subset of the PostScript  * language but is no full PostScript interpreter.  *  */
 end_comment
 
 begin_class

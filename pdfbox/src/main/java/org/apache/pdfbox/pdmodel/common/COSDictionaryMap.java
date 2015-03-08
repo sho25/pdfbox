@@ -176,7 +176,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a Map that will automatically sync the contents to a COSDictionary.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.10 $  */
+comment|/**  * This is a Map that will automatically sync the contents to a COSDictionary.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

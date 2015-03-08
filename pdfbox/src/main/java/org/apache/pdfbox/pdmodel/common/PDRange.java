@@ -74,7 +74,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will be used to signify a range.  a(min)&lt;= a*&lt;= a(max)  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This class will be used to signify a range.  a(min)&lt;= a*&lt;= a(max)  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

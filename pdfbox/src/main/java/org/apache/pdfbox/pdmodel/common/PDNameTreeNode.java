@@ -176,7 +176,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a PDF Name tree.  See the PDF Reference 1.5 section 3.8.5  * for more details.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This class represents a PDF Name tree.  See the PDF Reference 1.5 section 3.8.5  * for more details.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

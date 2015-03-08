@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides the bitwise operators such as "and" and "xor".  *  * @version $Revision$  */
+comment|/**  * Provides the bitwise operators such as "and" and "xor".  *  */
 end_comment
 
 begin_class

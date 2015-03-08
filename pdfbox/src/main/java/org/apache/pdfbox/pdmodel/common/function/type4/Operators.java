@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class provides all the supported operators.  * @version $Revision$  */
+comment|/**  * This class provides all the supported operators.  */
 end_comment
 
 begin_class

@@ -114,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A PDStream represents a stream in a PDF document.  Streams are tied to a single  * PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * A PDStream represents a stream in a PDF document.  Streams are tied to a single  * PDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
