@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a PDF /BE entry the border effect dictionary.  *  * @author Paul King  * @version $Revision: 1.1 $  */
+comment|/**  * This class represents a PDF /BE entry the border effect dictionary.  *  * @author Paul King  */
 end_comment
 
 begin_class

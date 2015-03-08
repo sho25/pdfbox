@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a launch action that can be executed in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Panagiotis Toumasis (ptoumasis@mail.gr)  * @version $Revision: 1.5 $  */
+comment|/**  * This represents a launch action that can be executed in a PDF document.  *  * @author Ben Litchfield  * @author Panagiotis Toumasis  */
 end_comment
 
 begin_class

@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the implementation of an URI dictionary.  *  * @version $Revision: 1.0 $  *  */
+comment|/**  * This is the implementation of an URI dictionary.  *  */
 end_comment
 
 begin_class

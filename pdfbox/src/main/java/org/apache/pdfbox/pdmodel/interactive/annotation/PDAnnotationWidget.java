@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a widget.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * This is the class that represents a widget.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

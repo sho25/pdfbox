@@ -34,7 +34,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will take a dictionary and determine which type of action to create.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This class will take a dictionary and determine which type of action to create.  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class

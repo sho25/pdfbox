@@ -230,7 +230,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents an appearance characteristics dictionary.  *  * @version $Revision: 1.0 $   *  */
+comment|/**  * This class represents an appearance characteristics dictionary.  *  */
 end_comment
 
 begin_class

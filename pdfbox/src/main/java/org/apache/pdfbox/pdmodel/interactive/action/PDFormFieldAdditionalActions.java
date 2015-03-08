@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a form field's dictionary of actions  * that occur due to events.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Panagiotis Toumasis (ptoumasis@mail.gr)  * @version $Revision: 1.2 $  */
+comment|/**  * This class represents a form field's dictionary of actions  * that occur due to events.  *  * @author Ben Litchfield  * @author Panagiotis Toumasis  */
 end_comment
 
 begin_class

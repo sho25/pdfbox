@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a text annotation.  *  * @author Paul King  * @version $Revision: 1.1 $  */
+comment|/**  * This is the class that represents a text annotation.  *  * @author Paul King  */
 end_comment
 
 begin_class

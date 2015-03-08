@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a line annotation.  * Introduced in PDF 1.3 specification  *  * @author Paul King  * @version $Revision: 1.1 $  */
+comment|/**  * This is the class that represents a line annotation.  * Introduced in PDF 1.3 specification  *  * @author Paul King  */
 end_comment
 
 begin_class

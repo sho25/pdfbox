@@ -146,7 +146,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a font setting used for the graphics state.  A font setting is a font and a  * font size.  Maybe there is a better name for this?  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This class represents a font setting used for the graphics state.  A font setting is a font and a  * font size.  Maybe there is a better name for this?  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

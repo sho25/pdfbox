@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Launch paramaters for the windows OS.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * Launch paramaters for the windows OS.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

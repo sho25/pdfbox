@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This the win ansi encoding.  *   * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  */
+comment|/**  * This the win ansi encoding.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class

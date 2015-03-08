@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the abstract class that represents a text markup annotation  * Introduced in PDF 1.3 specification, except Squiggly lines in 1.4.  *  * @author Paul King  * @version $Revision: 1.1 $  */
+comment|/**  * This is the abstract class that represents a text markup annotation  * Introduced in PDF 1.3 specification, except Squiggly lines in 1.4.  *  * @author Paul King  */
 end_comment
 
 begin_class

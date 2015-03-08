@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a dictionary of actions that occur due to events.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This represents a dictionary of actions that occur due to events.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

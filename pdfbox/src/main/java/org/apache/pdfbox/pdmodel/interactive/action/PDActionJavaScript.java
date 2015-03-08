@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a JavaScript action.  *  * @author Michael Schwarzenberger (mi2kee@gmail.com)  * @version $Revision: 1.1 $  */
+comment|/**  * This represents a JavaScript action.  *  * @author Michael Schwarzenberger  */
 end_comment
 
 begin_class

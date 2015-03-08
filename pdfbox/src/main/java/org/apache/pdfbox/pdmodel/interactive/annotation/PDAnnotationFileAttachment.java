@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a file attachement.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This is the class that represents a file attachement.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
