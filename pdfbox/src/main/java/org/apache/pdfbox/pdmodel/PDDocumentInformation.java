@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the document metadata.  Each getXXX method will return the entry if  * it exists or null if it does not exist.  If you pass in null for the setXXX  * method then it will clear the value.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author  Gerardo Ortiz  *  * @version $Revision: 1.12 $  */
+comment|/**  * This is the document metadata.  Each getXXX method will return the entry if  * it exists or null if it does not exist.  If you pass in null for the setXXX  * method then it will clear the value.  *  * @author Ben Litchfield  * @author Gerardo Ortiz  *  */
 end_comment
 
 begin_class

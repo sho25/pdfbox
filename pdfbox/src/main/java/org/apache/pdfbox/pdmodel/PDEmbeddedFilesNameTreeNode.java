@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class holds all of the name trees that are available at the document level.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * This class holds all of the name trees that are available at the document level.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

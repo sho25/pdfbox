@@ -138,7 +138,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will extract text from a specified region in the PDF.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
+comment|/**  * This will extract text from a specified region in the PDF.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
