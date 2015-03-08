@@ -186,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class to model a PDF document as a tree structure.  *  * @author Ben Litchfield  * @version $Revision: 1.9 $  */
+comment|/**  * A class to model a PDF document as a tree structure.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
