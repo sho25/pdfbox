@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This class contains some helper methods handling Type1-Fonts.  *  * @author Villu Ruusmann  * @version $Revision$  */
+comment|/**  * This class contains some helper methods handling Type1-Fonts.  *  * @author Villu Ruusmann  */
 end_comment
 
 begin_class

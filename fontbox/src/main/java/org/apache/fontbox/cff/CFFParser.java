@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a parser for a CFF font.   * @author Villu Ruusmann  * @version $Revision: 1.0 $  */
+comment|/**  * This class represents a parser for a CFF font.   * @author Villu Ruusmann  */
 end_comment
 
 begin_class

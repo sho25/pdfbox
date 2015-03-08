@@ -80,7 +80,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to parse AFM(Adobe Font Metrics) documents.  *  * @see<A href="http://partners.adobe.com/asn/developer/type/">AFM Documentation</A>  *  * @author Ben Litchfield (ben@benlitchfield.com)  *   */
+comment|/**  * This class is used to parse AFM(Adobe Font Metrics) documents.  *  * @see<A href="http://partners.adobe.com/asn/developer/type/">AFM Documentation</A>  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class

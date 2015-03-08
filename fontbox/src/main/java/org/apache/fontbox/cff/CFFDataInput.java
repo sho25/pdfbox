@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is specialized DataInput. It's used to parse a CFFFont.  *   * @author Villu Ruusmann  * @version $Revision$  */
+comment|/**  * This is specialized DataInput. It's used to parse a CFFFont.  *   * @author Villu Ruusmann  */
 end_comment
 
 begin_class

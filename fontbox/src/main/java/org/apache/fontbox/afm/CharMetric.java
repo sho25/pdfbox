@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a single character metric.  *  * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * This class represents a single character metric.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

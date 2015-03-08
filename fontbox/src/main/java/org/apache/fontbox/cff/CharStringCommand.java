@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a CharStringCommand.  *   * @author Villu Ruusmann  * @version $Revision$  */
+comment|/**  * This class represents a CharStringCommand.  *   * @author Villu Ruusmann  */
 end_comment
 
 begin_class

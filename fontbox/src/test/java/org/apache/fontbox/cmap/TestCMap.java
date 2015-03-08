@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will test the CMap implementation.  *  * @version $Revision$  */
+comment|/**  * This will test the CMap implementation.  *  */
 end_comment
 
 begin_class

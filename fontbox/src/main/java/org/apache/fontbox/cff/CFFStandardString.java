@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This class represents a standard SID to String mapping.  * @author Villu Ruusmann  * @version $Revision: 1.0 $  */
+comment|/**  * This class represents a standard SID to String mapping.  * @author Villu Ruusmann  */
 end_comment
 
 begin_class

@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   * @author Villu Ruusmann  * @version $Revision: 1.0 $  */
+comment|/**  * @author Villu Ruusmann  */
 end_comment
 
 begin_class

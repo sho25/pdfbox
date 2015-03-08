@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This is specialized CFFCharset. It's used if the CharsetId of a font is set to 0.  *   * @author Villu Ruusmann  * @version $Revision$  */
+comment|/**  * This is specialized CFFCharset. It's used if the CharsetId of a font is set to 0.  *   * @author Villu Ruusmann  */
 end_comment
 
 begin_class

@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a CMap file.  *  * @author Ben Litchfield (ben@benlitchfield.com)  */
+comment|/**  * This class represents a CMap file.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

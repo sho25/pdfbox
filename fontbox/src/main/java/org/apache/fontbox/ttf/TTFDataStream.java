@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface into a data stream.  *   * @author Ben Litchfield (ben@benlitchfield.com)  *   */
+comment|/**  * An interface into a data stream.  *   * @author Ben Litchfield  *   */
 end_comment
 
 begin_class

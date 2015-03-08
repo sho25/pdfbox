@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This represents some kern pair data.  *  * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * This represents some kern pair data.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A glyph data record in the glyf table.  *   * @author Ben Litchfield (ben@benlitchfield.com)  */
+comment|/**  * A glyph data record in the glyf table.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class

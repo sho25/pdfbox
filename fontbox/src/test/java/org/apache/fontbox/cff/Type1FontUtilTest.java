@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class includes some tests for the Type1FontUtil class.  *  * @author Villu Ruusmann  * @version $Revision$  */
+comment|/**  * This class includes some tests for the Type1FontUtil class.  *  * @author Villu Ruusmann  */
 end_comment
 
 begin_class

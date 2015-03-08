@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an implementation of a bounding box.  This was originally written for the  * AMF parser.  *  * @author Ben Litchfield (ben@benlitchfield.com)  */
+comment|/**  * This is an implementation of a bounding box.  This was originally written for the  * AMF parser.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

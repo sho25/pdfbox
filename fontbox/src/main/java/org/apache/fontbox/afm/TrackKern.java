@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This class represents a piece of track kerning data.  *  * @author Ben Litchfield (ben@benlitchfield.com)  * @version $Revision: 1.1 $  */
+comment|/**  * This class represents a piece of track kerning data.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
