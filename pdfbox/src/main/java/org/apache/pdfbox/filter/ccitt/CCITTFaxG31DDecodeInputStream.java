@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a CCITT Group 3 1D decoder (ITU T.4).  * @version $Revision$  */
+comment|/**  * This is a CCITT Group 3 1D decoder (ITU T.4).  */
 end_comment
 
 begin_class

@@ -22,7 +22,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents an array of bits packed in a byte array of fixed size.  * @version $Revision$  */
+comment|/**  * Represents an array of bits packed in a byte array of fixed size.  */
 end_comment
 
 begin_class

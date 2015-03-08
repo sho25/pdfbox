@@ -22,7 +22,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants for CCITT Fax Filter.  * @version $Revision$  */
+comment|/**  * Constants for CCITT Fax Filter.  */
 end_comment
 
 begin_class

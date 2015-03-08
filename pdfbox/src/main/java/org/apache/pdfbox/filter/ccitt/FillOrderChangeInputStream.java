@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This filtering input stream does a fill order change required for certain TIFF images.  * @version $Revision$  */
+comment|/**  * This filtering input stream does a fill order change required for certain TIFF images.  */
 end_comment
 
 begin_class
