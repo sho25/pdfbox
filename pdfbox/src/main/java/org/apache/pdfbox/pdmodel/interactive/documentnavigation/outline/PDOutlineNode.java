@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for a node in the outline of a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * Base class for a node in the outline of a PDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

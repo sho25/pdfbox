@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a destination to a page at an x,y coordinate with a zoom setting.  * The default x,y,z will be whatever is the current value in the viewer application and  * are not required.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This represents a destination to a page at an x,y coordinate with a zoom setting.  * The default x,y,z will be whatever is the current value in the viewer application and  * are not required.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

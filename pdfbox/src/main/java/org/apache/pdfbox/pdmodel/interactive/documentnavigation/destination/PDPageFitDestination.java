@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a destination to a page and the page contents will be magnified to just  * fit on the screen.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This represents a destination to a page and the page contents will be magnified to just  * fit on the screen.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
