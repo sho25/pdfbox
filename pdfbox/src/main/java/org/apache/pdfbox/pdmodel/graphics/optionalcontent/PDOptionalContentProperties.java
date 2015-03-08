@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents the optional content properties dictionary.  *  * @since PDF 1.5  * @version $Revision$  */
+comment|/**  * This class represents the optional content properties dictionary.  *  * @since PDF 1.5  */
 end_comment
 
 begin_class

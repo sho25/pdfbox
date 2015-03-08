@@ -108,7 +108,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a viewport dictionary.  *   * @version $Revision: 1.0 $  *  */
+comment|/**  * This class represents a viewport dictionary.  *   */
 end_comment
 
 begin_class

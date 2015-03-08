@@ -78,7 +78,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a number format dictionary.  *   * @version $Revision: 1.0$  *  */
+comment|/**  * This class represents a number format dictionary.  *   */
 end_comment
 
 begin_class
