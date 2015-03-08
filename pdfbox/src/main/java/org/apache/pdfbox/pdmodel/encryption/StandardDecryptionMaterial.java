@@ -18,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  * Represents the necessary information to decrypt a document protected by  * the standard security handler (password protection).  *  * This is only composed of a password.  *  * The following example shows how to decrypt a document protected with  * the standard security handler:  *  *<pre>  *  PDDocument doc = PDDocument.load(in);  *  StandardDecryptionMaterial dm = new StandardDecryptionMaterial("password");  *  doc.openProtection(dm);  *</pre>  *  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  * @version $Revision: 1.2 $  */
+comment|/**  *  * Represents the necessary information to decrypt a document protected by  * the standard security handler (password protection).  *  * This is only composed of a password.  *  * The following example shows how to decrypt a document protected with  * the standard security handler:  *  *<pre>  *  PDDocument doc = PDDocument.load(in);  *  StandardDecryptionMaterial dm = new StandardDecryptionMaterial("password");  *  doc.openProtection(dm);  *</pre>  *  * @author Benoit Guillon  *  */
 end_comment
 
 begin_class

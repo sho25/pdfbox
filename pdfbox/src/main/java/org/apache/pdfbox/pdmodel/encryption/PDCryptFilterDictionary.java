@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is a specialized view of the crypt filter dictionary of a PDF document.  * It contains a low level dictionary (COSDictionary) and provides the methods to  * manage its fields.  *  *  * @version $Revision: 1.0 $  */
+comment|/**  * This class is a specialized view of the crypt filter dictionary of a PDF document.  * It contains a low level dictionary (COSDictionary) and provides the methods to  * manage its fields.  *  */
 end_comment
 
 begin_class

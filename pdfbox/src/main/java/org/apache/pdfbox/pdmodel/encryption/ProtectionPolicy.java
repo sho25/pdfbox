@@ -18,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This class represents the protection policy to apply to a document.  *  * Objects implementing this abstract class can be passed to the protect method of PDDocument  * to protect a document.  *  * @see org.apache.pdfbox.pdmodel.PDDocument#protect(ProtectionPolicy)  *  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  * @version $Revision: 1.3 $  */
+comment|/**  * This class represents the protection policy to apply to a document.  *  * Objects implementing this abstract class can be passed to the protect method of PDDocument  * to protect a document.  *  * @see org.apache.pdfbox.pdmodel.PDDocument#protect(ProtectionPolicy)  *  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  */
 end_comment
 
 begin_class

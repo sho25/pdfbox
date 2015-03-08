@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a recipient in the public key protection policy.  *  * @see PublicKeyProtectionPolicy  *  * @author Benoit Guillon (benoit.guillon@snv.jussieu.fr)  *  * @version $Revision: 1.2 $  */
+comment|/**  * Represents a recipient in the public key protection policy.  *  * @see PublicKeyProtectionPolicy  *  * @author Benoit Guillon  *  */
 end_comment
 
 begin_class
