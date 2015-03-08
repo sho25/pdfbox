@@ -102,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The standard structure types.  *   * @author<a href="mailto:Johannes%20Koch%20%3Ckoch@apache.org%3E">Johannes Koch</a>  * @version $Revision: $  */
+comment|/**  * The standard structure types.  *   * @author Johannes Koch  */
 end_comment
 
 begin_class

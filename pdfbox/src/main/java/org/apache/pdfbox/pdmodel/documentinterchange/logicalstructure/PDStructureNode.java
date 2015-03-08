@@ -200,7 +200,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A node in the structure tree.  *   * @author Koch  * @version $Revision: $  */
+comment|/**  * A node in the structure tree.  *   * @author Johannes Koch  */
 end_comment
 
 begin_class

@@ -140,7 +140,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An object reference.  *   * @author<a href="mailto:Johannes%20Koch%20%3Ckoch@apache.org%3E">Johannes Koch</a>  * @version $Revision: $  */
+comment|/**  * An object reference.  *   * @author Johannes Koch  */
 end_comment
 
 begin_class

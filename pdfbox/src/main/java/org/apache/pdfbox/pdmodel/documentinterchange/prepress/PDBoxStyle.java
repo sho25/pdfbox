@@ -158,7 +158,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Box Style specifies visual characteristics for displaying box areas.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * The Box Style specifies visual characteristics for displaying box areas.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

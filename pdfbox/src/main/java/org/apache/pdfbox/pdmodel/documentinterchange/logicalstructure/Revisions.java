@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   * @author Koch  * @version $Revision: $  *  * @param<T> the type of object to store the revision numbers with  */
+comment|/**  *   * @author Johannes Koch   * @param<T> the type of object to store the revision numbers with  */
 end_comment
 
 begin_class
