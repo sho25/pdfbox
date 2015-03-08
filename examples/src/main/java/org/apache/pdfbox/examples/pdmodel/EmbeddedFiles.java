@@ -216,7 +216,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example that creates a simple document and embeds a file into it..  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * This is an example that creates a simple document and embeds a file into it..  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

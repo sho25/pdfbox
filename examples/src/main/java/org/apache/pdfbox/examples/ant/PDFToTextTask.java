@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an ant task that will allow pdf documents to be converted using an  * and task.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.8 $  */
+comment|/**  * This is an ant task that will allow pdf documents to be converted using an  * and task.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
