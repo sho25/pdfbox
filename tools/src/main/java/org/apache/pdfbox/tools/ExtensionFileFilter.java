@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A FileFilter that will only accept files of a certain extension.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * A FileFilter that will only accept files of a certain extension.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

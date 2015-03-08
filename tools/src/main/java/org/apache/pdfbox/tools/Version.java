@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A simple command line utility to get the version of PDFBox.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
+comment|/**  * A simple command line utility to get the version of PDFBox.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

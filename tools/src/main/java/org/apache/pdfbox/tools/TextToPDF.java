@@ -176,7 +176,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will take a text file and ouput a pdf with that text.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This will take a text file and ouput a pdf with that text.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

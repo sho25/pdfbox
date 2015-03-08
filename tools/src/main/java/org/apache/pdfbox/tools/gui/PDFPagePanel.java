@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a simple JPanel that can be used to display a PDF page.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This is a simple JPanel that can be used to display a PDF page.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

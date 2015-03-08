@@ -58,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A panel to display at the bottom of the window for status and other stuff.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * A panel to display at the bottom of the window for status and other stuff.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

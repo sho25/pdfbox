@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Wrap stripped text in simple HTML, trying to form HTML paragraphs. Paragraphs  * broken by pages, columns, or figures are not mended.  *  * @author jjb - http://www.johnjbarton.com  *   */
+comment|/**  * Wrap stripped text in simple HTML, trying to form HTML paragraphs. Paragraphs  * broken by pages, columns, or figures are not mended.  *  * @author John J Barton  *   */
 end_comment
 
 begin_class

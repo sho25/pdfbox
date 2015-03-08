@@ -18,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A tree model that uses a cos document.  *  *  * @author  wurtz  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.9 $  */
+comment|/**  * A tree model that uses a cos document.  *  *  * @author wurtz  * @author Ben Litchfield  */
 end_comment
 
 begin_import
@@ -186,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class to model a PDF document as a tree structure.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.9 $  */
+comment|/**  * A class to model a PDF document as a tree structure.  *  * @author Ben Litchfield  * @version $Revision: 1.9 $  */
 end_comment
 
 begin_class

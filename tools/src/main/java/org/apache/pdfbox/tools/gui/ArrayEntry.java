@@ -18,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This is a simple class that will contain an index and a value.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.3 $  */
+comment|/**  * This is a simple class that will contain an index and a value.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
