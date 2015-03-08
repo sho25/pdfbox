@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface to allow PDF files to be stored completely in memory or  * to use a scratch file on the disk.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * An interface to allow PDF files to be stored completely in memory or  * to use a scratch file on the disk.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_interface

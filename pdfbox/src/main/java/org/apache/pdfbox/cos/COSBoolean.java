@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a boolean value in the PDF document.  *  * @author<a href="ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.14 $  */
+comment|/**  * This class represents a boolean value in the PDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

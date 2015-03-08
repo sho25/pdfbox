@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface to allow temp PDF data to be stored in a scratch  * file on the disk to reduce memory consumption.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.2 $  */
+comment|/**  * An interface to allow temp PDF data to be stored in a scratch  * file on the disk to reduce memory consumption.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

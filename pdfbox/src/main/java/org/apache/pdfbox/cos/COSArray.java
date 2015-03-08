@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An array of PDFBase objects as part of the PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.24 $  */
+comment|/**  * An array of PDFBase objects as part of the PDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a floating point number in a PDF document.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This class represents a floating point number in a PDF document.  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class

@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides {@link InputStream} access to portions of a file combined with  * buffered reading of content. Start of next bytes to read can be set via seek  * method.  *   * File is accessed via {@link RandomAccessFile} and is read in byte chunks  * which are cached.  *   * @author Timo Boehme (timo.boehme at ontochem com)  */
+comment|/**  * Provides {@link InputStream} access to portions of a file combined with  * buffered reading of content. Start of next bytes to read can be set via seek  * method.  *   * File is accessed via {@link RandomAccessFile} and is read in byte chunks  * which are cached.  *   * @author Timo Boehme  */
 end_comment
 
 begin_class

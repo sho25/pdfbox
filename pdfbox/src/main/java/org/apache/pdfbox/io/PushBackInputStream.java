@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple subclass that adds a few convience methods.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.6 $  */
+comment|/**  * A simple subclass that adds a few convience methods.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

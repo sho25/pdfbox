@@ -144,7 +144,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will parse a PDF 1.5 (or better) Xref stream and  * extract the xref information from the stream.  *  *  @author<a href="mailto:justinl@basistech.com">Justin LeFebvre</a>  *  @version $Revision: 1.0 $  */
+comment|/**  * This will parse a PDF 1.5 (or better) Xref stream and  * extract the xref information from the stream.  *  *  @author Justin LeFebvre  */
 end_comment
 
 begin_class

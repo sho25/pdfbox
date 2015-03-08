@@ -80,7 +80,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class contains various I/O-related methods.  * @version $Revision$  */
+comment|/**  * This class contains various I/O-related methods.  */
 end_comment
 
 begin_class

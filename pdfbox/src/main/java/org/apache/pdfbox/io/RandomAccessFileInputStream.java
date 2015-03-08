@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class allows a section of a RandomAccessFile to be accessed as an  * input stream.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.5 $  */
+comment|/**  * This class allows a section of a RandomAccessFile to be accessed as an  * input stream.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

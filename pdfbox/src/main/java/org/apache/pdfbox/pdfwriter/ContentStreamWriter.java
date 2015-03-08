@@ -184,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class that will take a list of tokens and write out a stream with them.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.8 $  */
+comment|/**  * A class that will take a list of tokens and write out a stream with them.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

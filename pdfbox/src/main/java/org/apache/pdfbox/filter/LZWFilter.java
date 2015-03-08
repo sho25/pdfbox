@@ -186,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * This is the filter used for the LZWDecode filter.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author Tilman Hausherr  */
+comment|/**  *  * This is the filter used for the LZWDecode filter.  *  * @author Ben Litchfield  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
