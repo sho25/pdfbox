@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface for visiting a PDF document at the type (COS) level.  *  * @author Michael Traut  * @version $Revision: 1.6 $  */
+comment|/**  * An interface for visiting a PDF document at the type (COS) level.  *  * @author Michael Traut  */
 end_comment
 
 begin_interface

@@ -202,7 +202,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class used to clone PDF objects. It keeps track of objects it has already cloned.  *  * @version $Revision$  */
+comment|/**  * Utility class used to clone PDF objects. It keeps track of objects it has already cloned.  *  */
 end_comment
 
 begin_class

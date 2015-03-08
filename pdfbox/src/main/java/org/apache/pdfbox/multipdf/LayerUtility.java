@@ -332,7 +332,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class allows to import pages as Form XObjects into a PDF file and use them to create  * layers (optional content groups).  *  * @version $Revision$  */
+comment|/**  * This class allows to import pages as Form XObjects into a PDF file and use them to create  * layers (optional content groups).  *  */
 end_comment
 
 begin_class

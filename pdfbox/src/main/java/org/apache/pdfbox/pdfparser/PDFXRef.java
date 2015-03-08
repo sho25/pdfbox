@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Alexander Funk  * @version $Revision: $  */
+comment|/**  * @author Alexander Funk  */
 end_comment
 
 begin_interface
