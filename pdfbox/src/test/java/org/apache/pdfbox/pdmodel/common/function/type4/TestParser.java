@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests the type 4 function parser.  *  * @version $Revision$  */
+comment|/**  * Tests the type 4 function parser.  *  */
 end_comment
 
 begin_class

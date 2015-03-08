@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests PDF functions.  *  * @version $Revision$  */
+comment|/**  * Tests PDF functions.  */
 end_comment
 
 begin_class

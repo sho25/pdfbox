@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Testing helper class for testing type 4 functions from the PDF specification.  *  * @version $Revision$  */
+comment|/**  * Testing helper class for testing type 4 functions from the PDF specification.  */
 end_comment
 
 begin_class

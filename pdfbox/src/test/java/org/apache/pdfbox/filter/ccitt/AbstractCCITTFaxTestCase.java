@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract base class for testing CCITT fax encoding.  * @version $Revision$  */
+comment|/**  * Abstract base class for testing CCITT fax encoding.  */
 end_comment
 
 begin_class

@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests the CCITT Fax G3 1D decoder.  * @version $Revision$  */
+comment|/**  * Tests the CCITT Fax G3 1D decoder.  */
 end_comment
 
 begin_class

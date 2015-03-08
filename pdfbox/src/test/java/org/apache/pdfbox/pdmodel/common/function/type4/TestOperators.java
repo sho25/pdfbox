@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests all implemented PostScript operators.  *  * @version $Revision$  */
+comment|/**  * Tests all implemented PostScript operators.  *  */
 end_comment
 
 begin_class

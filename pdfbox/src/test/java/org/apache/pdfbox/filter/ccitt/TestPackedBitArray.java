@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a unit test for {@link PackedBitArray}.  * @version $Revision$  */
+comment|/**  * This is a unit test for {@link PackedBitArray}.  */
 end_comment
 
 begin_class
