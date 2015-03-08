@@ -96,7 +96,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parser for a pfb-file.  *  * @author Ben Litchfield (ben@benlitchfield.com)  * @author<a href="mailto:m.g.n@gmx.de">Michael Niedermair</a>  * @version $Revision: 1.1 $  */
+comment|/**  * Parser for a pfb-file.  *  * @author Ben Litchfield  * @author Michael Niedermair  */
 end_comment
 
 begin_class
