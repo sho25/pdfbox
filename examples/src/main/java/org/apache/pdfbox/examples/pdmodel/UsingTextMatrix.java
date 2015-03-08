@@ -132,7 +132,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example of how to use a text matrix.  * @version $Revision: 1.0 $  */
+comment|/**  * This is an example of how to use a text matrix.  */
 end_comment
 
 begin_class

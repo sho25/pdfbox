@@ -132,7 +132,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example of how to create a page with a landscape orientation.  * @version $Revision: 1.0 $  */
+comment|/**  * This is an example of how to create a page with a landscape orientation.  */
 end_comment
 
 begin_class
