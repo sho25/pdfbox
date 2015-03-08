@@ -326,7 +326,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a holder for all test cases in the pdfbox system.  * It's part of the ant build and isn't used by the maven build.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  *   */
+comment|/**  * This is a holder for all test cases in the pdfbox system.  * It's part of the ant build and isn't used by the maven build.  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class

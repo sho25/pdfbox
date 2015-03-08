@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test suite for PDFCloneUtility, see PDFBOX-2052.  *  * @author<a href="mailto:c.hoeflake@gmail.com">Cornelis Hoeflake</a>  * @author Tilman Hausherr  */
+comment|/**  * Test suite for PDFCloneUtility, see PDFBOX-2052.  *  * @author Cornelis Hoeflake  * @author Tilman Hausherr  */
 end_comment
 
 begin_class

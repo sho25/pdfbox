@@ -282,7 +282,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests the {@link org.apache.pdfbox.multipdf.LayerUtility} class.  *  * @version $Revision$  */
+comment|/**  * Tests the {@link org.apache.pdfbox.multipdf.LayerUtility} class.  *  */
 end_comment
 
 begin_class

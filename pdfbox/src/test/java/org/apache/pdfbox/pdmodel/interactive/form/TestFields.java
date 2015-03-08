@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will test the form fields in PDFBox.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @version $Revision: 1.4 $  */
+comment|/**  * This will test the form fields in PDFBox.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class

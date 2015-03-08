@@ -130,7 +130,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test the date conversion utility.  *  * @author<a href="mailto:ben@benlitchfield.com">Ben Litchfield</a>  * @author<a href="mailto:zweibieren@ahoo.com">Fred Hansen</a>  *   */
+comment|/**  * Test the date conversion utility.  *  * @author Ben Litchfield  * @author Fred Hansen  *   */
 end_comment
 
 begin_class
