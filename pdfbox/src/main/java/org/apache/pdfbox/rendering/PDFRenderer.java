@@ -674,8 +674,6 @@ init|=
 operator|new
 name|PageDrawer
 argument_list|(
-name|this
-argument_list|,
 name|page
 argument_list|)
 decl_stmt|;
