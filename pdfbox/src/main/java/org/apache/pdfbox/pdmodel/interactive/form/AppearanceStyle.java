@@ -47,7 +47,7 @@ specifier|private
 name|PDFont
 name|font
 decl_stmt|;
-comment|/**      * The font size to be used for text formatting.      *      * Defaulting to 12 to math Acrobats default.      */
+comment|/**      * The font size to be used for text formatting.      *      * Defaulting to 12 to match Acrobats default.      */
 specifier|private
 name|float
 name|fontSize
