@@ -1702,9 +1702,7 @@ operator|+=
 name|delta
 expr_stmt|;
 name|glyphIndex
-operator|=
-name|glyphIndex
-operator|%
+operator|%=
 literal|65536
 expr_stmt|;
 if|if
