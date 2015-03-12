@@ -40,6 +40,7 @@ argument_list|(
 literal|"rawtypes"
 argument_list|)
 specifier|private
+specifier|final
 name|Stack
 name|objectPath
 init|=
@@ -53,6 +54,7 @@ argument_list|(
 literal|"rawtypes"
 argument_list|)
 specifier|private
+specifier|final
 name|Stack
 argument_list|<
 name|Class
