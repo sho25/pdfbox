@@ -149,6 +149,7 @@ extends|extends
 name|PDFTextStripper
 block|{
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -163,6 +164,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -181,13 +183,14 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
 argument_list|,
 name|Vector
 argument_list|<
-name|ArrayList
+name|List
 argument_list|<
 name|TextPosition
 argument_list|>
@@ -202,7 +205,7 @@ name|String
 argument_list|,
 name|Vector
 argument_list|<
-name|ArrayList
+name|List
 argument_list|<
 name|TextPosition
 argument_list|>
@@ -211,6 +214,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -361,7 +365,7 @@ argument_list|()
 decl_stmt|;
 name|Vector
 argument_list|<
-name|ArrayList
+name|List
 argument_list|<
 name|TextPosition
 argument_list|>
@@ -371,7 +375,7 @@ init|=
 operator|new
 name|Vector
 argument_list|<
-name|ArrayList
+name|List
 argument_list|<
 name|TextPosition
 argument_list|>
@@ -504,9 +508,6 @@ condition|)
 block|{
 name|charactersByArticle
 operator|=
-operator|(
-name|Vector
-operator|)
 name|regionCharacterList
 operator|.
 name|get
@@ -525,6 +526,8 @@ block|}
 block|}
 block|}
 comment|/**      * This will print the processed page text to the output stream.      *      * @throws IOException If there is an error writing the text.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|writePage
@@ -564,9 +567,6 @@ argument_list|()
 decl_stmt|;
 name|charactersByArticle
 operator|=
-operator|(
-name|Vector
-operator|)
 name|regionCharacterList
 operator|.
 name|get
