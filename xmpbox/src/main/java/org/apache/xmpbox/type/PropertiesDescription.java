@@ -65,6 +65,7 @@ class|class
 name|PropertiesDescription
 block|{
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
