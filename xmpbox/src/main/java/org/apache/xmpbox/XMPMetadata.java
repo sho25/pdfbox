@@ -518,9 +518,6 @@ name|schem
 operator|.
 name|add
 argument_list|(
-operator|(
-name|XMPSchema
-operator|)
 name|it
 operator|.
 name|next
