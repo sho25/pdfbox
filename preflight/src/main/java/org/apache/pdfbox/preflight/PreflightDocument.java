@@ -155,9 +155,6 @@ name|this
 argument_list|(
 name|format
 argument_list|,
-operator|(
-name|PreflightConfiguration
-operator|)
 literal|null
 argument_list|)
 expr_stmt|;
