@@ -371,6 +371,7 @@ extends|extends
 name|OperatorProcessor
 block|{
 specifier|private
+specifier|final
 name|String
 name|name
 decl_stmt|;
@@ -1583,7 +1584,7 @@ name|createLimitError
 argument_list|(
 name|ERROR_SYNTAX_NUMERIC_RANGE
 argument_list|,
-literal|"Invalid integer range in a Number operands"
+literal|"Invalid integer range in a Number operand"
 argument_list|)
 throw|;
 block|}
@@ -1625,7 +1626,7 @@ name|createLimitError
 argument_list|(
 name|ERROR_SYNTAX_NUMERIC_RANGE
 argument_list|,
-literal|"Invalid float range in a Number operands"
+literal|"Invalid float range in a Number operand"
 argument_list|)
 throw|;
 block|}
