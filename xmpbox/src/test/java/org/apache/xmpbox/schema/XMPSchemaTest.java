@@ -1983,10 +1983,8 @@ expr_stmt|;
 block|}
 name|Assert
 operator|.
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|true
-argument_list|,
 name|ok
 argument_list|)
 expr_stmt|;
@@ -2017,10 +2015,8 @@ expr_stmt|;
 block|}
 name|Assert
 operator|.
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|true
-argument_list|,
 name|ok
 argument_list|)
 expr_stmt|;
@@ -2051,10 +2047,8 @@ expr_stmt|;
 block|}
 name|Assert
 operator|.
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|true
-argument_list|,
 name|ok
 argument_list|)
 expr_stmt|;
