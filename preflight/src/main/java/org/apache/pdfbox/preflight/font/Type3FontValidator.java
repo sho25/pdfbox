@@ -1734,7 +1734,7 @@ name|e
 parameter_list|)
 block|{
 comment|// TODO spaces/isartor-6-2-3-3-t02-fail-h.pdf --> si ajout de l'erreur dans le container le test
-comment|// echoue... pourquoi si la font est utilisÃ©e ca devrait planter???
+comment|// echoue... pourquoi si la font est utilisée ca devrait planter???
 name|this
 operator|.
 name|context
@@ -1744,12 +1744,7 @@ argument_list|(
 operator|new
 name|ValidationError
 argument_list|(
-operator|(
-operator|(
-name|ContentStreamException
-operator|)
 name|e
-operator|)
 operator|.
 name|getErrorCode
 argument_list|()
