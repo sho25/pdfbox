@@ -1986,9 +1986,6 @@ name|length
 operator|>
 literal|0
 operator|&&
-operator|(
-name|int
-operator|)
 name|string
 operator|.
 name|charAt
