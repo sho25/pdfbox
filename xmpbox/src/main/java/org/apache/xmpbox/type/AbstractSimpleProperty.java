@@ -40,14 +40,17 @@ extends|extends
 name|AbstractField
 block|{
 specifier|private
+specifier|final
 name|String
 name|namespace
 decl_stmt|;
 specifier|private
+specifier|final
 name|String
 name|prefix
 decl_stmt|;
 specifier|private
+specifier|final
 name|Object
 name|rawValue
 decl_stmt|;
@@ -135,6 +138,8 @@ return|return
 name|rawValue
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -191,6 +196,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Get the namespace URI of this entity      *       * @return the namespace URI      */
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|String
@@ -202,6 +209,8 @@ name|namespace
 return|;
 block|}
 comment|/**      * Get the prefix of this entity      *       * @return the prefix specified      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getPrefix
