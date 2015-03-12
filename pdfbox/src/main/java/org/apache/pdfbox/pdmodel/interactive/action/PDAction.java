@@ -281,10 +281,16 @@ block|}
 comment|/**      * This will get the next action, or sequence of actions, to be performed after this one.      * The value is either a single action dictionary or an array of action dictionaries      * to be performed in order.      *      * @return The Next action or sequence of actions.      */
 specifier|public
 name|List
+argument_list|<
+name|PDAction
+argument_list|>
 name|getNext
 parameter_list|()
 block|{
 name|List
+argument_list|<
+name|PDAction
+argument_list|>
 name|retval
 init|=
 literal|null
@@ -325,6 +331,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|PDAction
+argument_list|>
 argument_list|(
 name|pdAction
 argument_list|,
@@ -355,10 +364,16 @@ operator|)
 name|next
 decl_stmt|;
 name|List
+argument_list|<
+name|PDAction
+argument_list|>
 name|actions
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|PDAction
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -404,6 +419,9 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
+argument_list|<
+name|PDAction
+argument_list|>
 argument_list|(
 name|actions
 argument_list|,
@@ -421,6 +439,9 @@ name|void
 name|setNext
 parameter_list|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|next
 parameter_list|)
 block|{
