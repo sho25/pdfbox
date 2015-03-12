@@ -41,6 +41,7 @@ literal|true
 argument_list|)
 block|;
 specifier|private
+specifier|final
 name|boolean
 name|array
 decl_stmt|;
