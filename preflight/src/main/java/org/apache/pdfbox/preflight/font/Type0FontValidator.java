@@ -637,9 +637,6 @@ block|{
 name|COSDictionary
 name|fontDictionary
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|font
 operator|.
 name|getCOSObject
@@ -740,9 +737,6 @@ block|{
 name|COSDictionary
 name|fontDictionary
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|font
 operator|.
 name|getCOSObject
@@ -1126,6 +1120,8 @@ return|;
 block|}
 block|}
 comment|/**      * Check the CMap entry.      *       * The CMap entry must be a dictionary in a PDF/A. This entry can be a String only if the String value is Identity-H      * or Identity-V      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|checkEncoding
@@ -1135,9 +1131,6 @@ name|COSBase
 name|encoding
 init|=
 operator|(
-operator|(
-name|COSDictionary
-operator|)
 name|font
 operator|.
 name|getCOSObject
@@ -1725,9 +1718,6 @@ block|{
 name|COSDictionary
 name|fontDictionary
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|font
 operator|.
 name|getCOSObject
