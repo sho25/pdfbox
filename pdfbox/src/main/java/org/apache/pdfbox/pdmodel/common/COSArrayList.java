@@ -225,10 +225,12 @@ name|E
 argument_list|>
 block|{
 specifier|private
+specifier|final
 name|COSArray
 name|array
 decl_stmt|;
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|E
