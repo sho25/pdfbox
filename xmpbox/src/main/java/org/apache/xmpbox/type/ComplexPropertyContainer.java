@@ -55,6 +55,7 @@ class|class
 name|ComplexPropertyContainer
 block|{
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|AbstractField
@@ -261,10 +262,8 @@ if|if
 condition|(
 name|list
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
 block|{
 return|return
