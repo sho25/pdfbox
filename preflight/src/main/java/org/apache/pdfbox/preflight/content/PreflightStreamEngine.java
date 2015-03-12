@@ -2821,9 +2821,6 @@ block|{
 name|colorSpaceName
 operator|=
 operator|(
-operator|(
-name|COSString
-operator|)
 name|arguments
 operator|.
 name|get
