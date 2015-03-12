@@ -26,6 +26,7 @@ name|ValidationException
 block|{
 comment|/**      * Name of the Missing process      */
 specifier|private
+specifier|final
 name|String
 name|processName
 decl_stmt|;
