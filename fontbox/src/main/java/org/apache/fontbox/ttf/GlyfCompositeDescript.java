@@ -307,9 +307,6 @@ block|{
 name|GlyfCompositeComp
 name|comp
 init|=
-operator|(
-name|GlyfCompositeComp
-operator|)
 name|i
 operator|.
 name|next
@@ -725,9 +722,6 @@ block|}
 name|GlyfCompositeComp
 name|c
 init|=
-operator|(
-name|GlyfCompositeComp
-operator|)
 name|components
 operator|.
 name|get
@@ -813,9 +807,6 @@ block|}
 name|GlyfCompositeComp
 name|c
 init|=
-operator|(
-name|GlyfCompositeComp
-operator|)
 name|components
 operator|.
 name|get
