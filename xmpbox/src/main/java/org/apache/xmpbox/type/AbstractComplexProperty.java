@@ -66,10 +66,12 @@ extends|extends
 name|AbstractField
 block|{
 specifier|private
+specifier|final
 name|ComplexPropertyContainer
 name|container
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
