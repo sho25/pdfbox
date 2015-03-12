@@ -146,11 +146,7 @@ name|path
 operator|.
 name|pushObject
 argument_list|(
-operator|new
-name|Integer
-argument_list|(
 literal|6
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -311,9 +307,6 @@ name|assertEquals
 argument_list|(
 literal|"b"
 argument_list|,
-operator|(
-name|String
-operator|)
 name|str
 argument_list|)
 expr_stmt|;
@@ -350,9 +343,6 @@ name|assertEquals
 argument_list|(
 literal|"b"
 argument_list|,
-operator|(
-name|String
-operator|)
 name|str
 argument_list|)
 expr_stmt|;
