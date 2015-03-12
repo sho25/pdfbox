@@ -685,12 +685,7 @@ name|result
 operator|.
 name|setVersion
 argument_list|(
-operator|(
-operator|(
-name|Number
-operator|)
 name|next
-operator|)
 operator|.
 name|toString
 argument_list|()
@@ -1837,10 +1832,6 @@ condition|)
 block|{
 name|tokenBytes
 operator|=
-operator|(
-name|byte
-index|[]
-operator|)
 name|array
 operator|.
 name|get
