@@ -296,9 +296,6 @@ name|DateConverter
 operator|.
 name|toCalendar
 argument_list|(
-operator|(
-name|String
-operator|)
 name|value
 argument_list|)
 argument_list|)
