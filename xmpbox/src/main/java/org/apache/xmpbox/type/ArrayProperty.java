@@ -79,14 +79,17 @@ extends|extends
 name|AbstractComplexProperty
 block|{
 specifier|private
+specifier|final
 name|Cardinality
 name|arrayType
 decl_stmt|;
 specifier|private
+specifier|final
 name|String
 name|namespace
 decl_stmt|;
 specifier|private
+specifier|final
 name|String
 name|prefix
 decl_stmt|;
@@ -158,8 +161,6 @@ argument_list|<
 name|String
 argument_list|>
 name|retval
-init|=
-literal|null
 decl_stmt|;
 name|retval
 operator|=
@@ -231,6 +232,8 @@ name|retval
 return|;
 block|}
 comment|/**      * Get the namespace URI of this entity      *       * @return the namespace URI      */
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|String
@@ -242,6 +245,8 @@ name|namespace
 return|;
 block|}
 comment|/**      * Get the prefix of this entity      *       * @return the prefix specified      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getPrefix
