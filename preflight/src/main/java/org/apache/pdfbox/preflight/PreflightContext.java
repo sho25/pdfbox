@@ -516,9 +516,6 @@ block|{
 name|PreflightDocument
 name|pfDoc
 init|=
-operator|(
-name|PreflightDocument
-operator|)
 name|this
 operator|.
 name|document
@@ -553,9 +550,6 @@ block|{
 name|PreflightDocument
 name|pfDoc
 init|=
-operator|(
-name|PreflightDocument
-operator|)
 name|this
 operator|.
 name|document
