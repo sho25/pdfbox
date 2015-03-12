@@ -415,14 +415,17 @@ argument_list|)
 block|;
 comment|// For defined types
 specifier|private
+specifier|final
 name|boolean
 name|simple
 decl_stmt|;
 specifier|private
+specifier|final
 name|Types
 name|basic
 decl_stmt|;
 specifier|private
+specifier|final
 name|Class
 argument_list|<
 name|?
