@@ -285,9 +285,6 @@ block|}
 name|COSBase
 name|retval
 init|=
-operator|(
-name|COSBase
-operator|)
 name|clonedVersion
 operator|.
 name|get
@@ -320,10 +317,16 @@ name|COSArray
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 operator|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|base
 decl_stmt|;
@@ -505,8 +508,8 @@ name|base
 operator|instanceof
 name|COSStreamArray
 condition|)
-comment|// PDFBOX-2052
 block|{
+comment|// PDFBOX-2052
 name|COSStreamArray
 name|originalStream
 init|=
@@ -796,6 +799,7 @@ specifier|public
 name|void
 name|cloneMerge
 parameter_list|(
+specifier|final
 name|COSObjectable
 name|base
 parameter_list|,
@@ -817,9 +821,6 @@ block|}
 name|COSBase
 name|retval
 init|=
-operator|(
-name|COSBase
-operator|)
 name|clonedVersion
 operator|.
 name|get
@@ -853,10 +854,16 @@ name|COSArray
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 operator|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|base
 decl_stmt|;
@@ -882,6 +889,9 @@ block|}
 operator|(
 operator|(
 name|List
+argument_list|<
+name|COSArray
+argument_list|>
 operator|)
 name|target
 operator|)
@@ -909,22 +919,12 @@ condition|)
 block|{
 name|cloneMerge
 argument_list|(
-operator|(
-operator|(
-name|COSObjectable
-operator|)
 name|base
-operator|)
 operator|.
 name|getCOSObject
 argument_list|()
 argument_list|,
-operator|(
-operator|(
-name|COSObjectable
-operator|)
 name|target
-operator|)
 operator|.
 name|getCOSObject
 argument_list|()
@@ -999,12 +999,7 @@ operator|.
 name|getObject
 argument_list|()
 argument_list|,
-operator|(
-operator|(
-name|COSDictionary
-operator|)
 name|target
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
