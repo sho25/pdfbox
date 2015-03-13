@@ -92,18 +92,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertTrue
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -623,6 +611,18 @@ name|equals
 argument_list|(
 literal|"1.7"
 argument_list|)
+operator|||
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.specification.version"
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|"1.8"
+argument_list|)
 operator|)
 condition|)
 block|{
@@ -925,6 +925,18 @@ operator|.
 name|equals
 argument_list|(
 literal|"1.7"
+argument_list|)
+operator|||
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.specification.version"
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|"1.8"
 argument_list|)
 operator|)
 condition|)
