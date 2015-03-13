@@ -670,9 +670,6 @@ block|{
 name|checksum
 operator|+=
 operator|(
-operator|(
-name|long
-operator|)
 name|bytes
 index|[
 name|nup
@@ -2579,9 +2576,6 @@ block|{
 name|flags
 operator|=
 operator|(
-operator|(
-name|int
-operator|)
 name|buf
 index|[
 name|off
@@ -2609,9 +2603,6 @@ name|int
 name|ogid
 init|=
 operator|(
-operator|(
-name|int
-operator|)
 name|buf
 index|[
 name|off
@@ -3011,9 +3002,6 @@ comment|// flags
 name|flags
 operator|=
 operator|(
-operator|(
-name|int
-operator|)
 name|buf
 index|[
 name|off
@@ -3024,9 +3012,6 @@ operator|)
 operator|<<
 literal|8
 operator||
-operator|(
-name|int
-operator|)
 name|buf
 index|[
 name|off
@@ -3045,9 +3030,6 @@ name|int
 name|componentGid
 init|=
 operator|(
-operator|(
-name|int
-operator|)
 name|buf
 index|[
 name|off
@@ -3058,9 +3040,6 @@ operator|)
 operator|<<
 literal|8
 operator||
-operator|(
-name|int
-operator|)
 name|buf
 index|[
 name|off
@@ -3250,9 +3229,6 @@ name|int
 name|numInstr
 init|=
 operator|(
-operator|(
-name|int
-operator|)
 name|buf
 index|[
 name|off
@@ -3263,9 +3239,6 @@ operator|)
 operator|<<
 literal|8
 operator||
-operator|(
-name|int
-operator|)
 name|buf
 index|[
 name|off
@@ -5402,9 +5375,6 @@ parameter_list|)
 block|{
 return|return
 operator|(
-operator|(
-name|long
-operator|)
 name|high
 operator|&
 literal|0xffffL
@@ -5412,9 +5382,6 @@ operator|)
 operator|<<
 literal|16
 operator||
-operator|(
-name|long
-operator|)
 name|low
 operator|&
 literal|0xffffL
@@ -5432,9 +5399,6 @@ parameter_list|)
 block|{
 return|return
 operator|(
-operator|(
-name|long
-operator|)
 name|bytes
 index|[
 literal|0
@@ -5446,9 +5410,6 @@ operator|<<
 literal|24
 operator||
 operator|(
-operator|(
-name|long
-operator|)
 name|bytes
 index|[
 literal|1
@@ -5460,9 +5421,6 @@ operator|<<
 literal|16
 operator||
 operator|(
-operator|(
-name|long
-operator|)
 name|bytes
 index|[
 literal|2
@@ -5473,9 +5431,6 @@ operator|)
 operator|<<
 literal|8
 operator||
-operator|(
-name|long
-operator|)
 name|bytes
 index|[
 literal|3
