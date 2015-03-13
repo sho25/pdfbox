@@ -41,6 +41,15 @@ name|EmptyGraphicsStackException
 extends|extends
 name|IOException
 block|{
+comment|/**      * See https://stackoverflow.com/questions/285793/      */
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 name|EmptyGraphicsStackException
 parameter_list|()
 block|{
