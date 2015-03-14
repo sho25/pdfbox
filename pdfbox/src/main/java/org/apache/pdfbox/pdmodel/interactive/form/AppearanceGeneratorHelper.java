@@ -966,8 +966,6 @@ name|PDAppearanceStream
 name|appearanceStream
 parameter_list|)
 throws|throws
-name|UnsupportedEncodingException
-throws|,
 name|IOException
 block|{
 name|ByteArrayOutputStream
@@ -1078,8 +1076,6 @@ name|PDAppearanceStream
 name|appearanceStream
 parameter_list|)
 throws|throws
-name|UnsupportedEncodingException
-throws|,
 name|IOException
 block|{
 name|ByteArrayOutputStream
