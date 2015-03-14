@@ -511,7 +511,9 @@ name|Cardinality
 operator|.
 name|Simple
 condition|)
+block|{
 return|return;
+block|}
 name|XMPSchema
 name|schema
 init|=
@@ -694,7 +696,9 @@ name|Cardinality
 operator|.
 name|Simple
 condition|)
+block|{
 return|return;
+block|}
 name|XMPSchema
 name|schema
 init|=
@@ -921,7 +925,9 @@ name|Cardinality
 operator|.
 name|Simple
 condition|)
+block|{
 return|return;
+block|}
 name|XMPSchema
 name|schema
 init|=
@@ -1179,7 +1185,9 @@ name|Cardinality
 operator|.
 name|Simple
 condition|)
+block|{
 return|return;
+block|}
 name|XMPSchema
 name|schema
 init|=
