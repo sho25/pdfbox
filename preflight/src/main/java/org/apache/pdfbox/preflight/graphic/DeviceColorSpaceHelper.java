@@ -18,22 +18,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_FORBIDDEN
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -99,6 +83,22 @@ name|ValidationError
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_FORBIDDEN
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class defines restrictions on Color Spaces. It checks the consistency of the Color space with the  * DestOutputIntent, if the color space isn't a Device Color space or a Indexed color space using Device the validation  * will fail.  */
 end_comment
@@ -136,7 +136,7 @@ name|void
 name|processPatternColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 name|context
@@ -161,7 +161,7 @@ name|void
 name|processDeviceNColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 name|context
@@ -186,7 +186,7 @@ name|void
 name|processIndexedColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 name|PDIndexed
@@ -195,10 +195,10 @@ init|=
 operator|(
 name|PDIndexed
 operator|)
-name|pdcs
+name|colorSpace
 decl_stmt|;
 name|PDColorSpace
-name|based
+name|baseColorSpace
 init|=
 name|indexed
 operator|.
@@ -206,13 +206,13 @@ name|getBaseColorSpace
 argument_list|()
 decl_stmt|;
 name|ColorSpaces
-name|colorSpace
+name|colorSpaces
 init|=
 name|ColorSpaces
 operator|.
 name|valueOf
 argument_list|(
-name|based
+name|baseColorSpace
 operator|.
 name|getName
 argument_list|()
@@ -220,7 +220,7 @@ argument_list|)
 decl_stmt|;
 switch|switch
 condition|(
-name|colorSpace
+name|colorSpaces
 condition|)
 block|{
 case|case
@@ -241,7 +241,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_FORBIDDEN
 argument_list|,
-name|colorSpace
+name|colorSpaces
 operator|.
 name|getLabel
 argument_list|()
@@ -254,7 +254,7 @@ break|break;
 default|default:
 name|processAllColorSpace
 argument_list|(
-name|based
+name|baseColorSpace
 argument_list|)
 expr_stmt|;
 block|}

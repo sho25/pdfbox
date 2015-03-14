@@ -18,22 +18,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -81,6 +65,22 @@ name|ValidationError
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class defines restrictions on Pattern ColorSpace. It checks the consistency of the Color space with the  * DestOutputIntent, if the color space is a Pattern the validation will fail.  */
 end_comment
@@ -118,7 +118,7 @@ name|void
 name|processPatternColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 name|context

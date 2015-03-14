@@ -18,182 +18,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_COLOR_SPACE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_ALTERNATE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_CMYK
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_ICCBASED
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_INDEXED
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_MISSING
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_RGB
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_TOO_MANY_COMPONENTS_DEVICEN
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_INVALID_UNKNOWN_COLOR_SPACE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|MAX_DEVICE_N_LIMIT
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -379,6 +203,24 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|color
+operator|.
+name|PDSeparation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|preflight
 operator|.
 name|PreflightContext
@@ -428,6 +270,182 @@ operator|.
 name|exception
 operator|.
 name|ValidationException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_COLOR_SPACE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_ALTERNATE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_CMYK
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_ICCBASED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_INDEXED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_MISSING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_RGB
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_TOO_MANY_COMPONENTS_DEVICEN
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_PATTERN_COLOR_SPACE_FORBIDDEN
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_INVALID_UNKNOWN_COLOR_SPACE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|MAX_DEVICE_N_LIMIT
 import|;
 end_import
 
@@ -529,14 +547,14 @@ name|pdcs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Method called by the validate method. According to the ColorSpace, a specific ColorSpace method is called.      *       * @param pdcs the color space object to check.      */
+comment|/**      * Method called by the validate method. According to the ColorSpace, a specific ColorSpace method is called.      *       * @param colorSpace the color space object to check.      */
 specifier|protected
 specifier|final
 name|void
 name|processAllColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 name|ColorSpaces
@@ -546,7 +564,7 @@ name|ColorSpaces
 operator|.
 name|valueOf
 argument_list|(
-name|pdcs
+name|colorSpace
 operator|.
 name|getName
 argument_list|()
@@ -565,7 +583,7 @@ name|DeviceRGB_SHORT
 case|:
 name|processRGBColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 expr_stmt|;
 break|break;
@@ -577,7 +595,7 @@ name|DeviceCMYK_SHORT
 case|:
 name|processCYMKColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 expr_stmt|;
 break|break;
@@ -592,7 +610,7 @@ name|Lab
 case|:
 name|processCalibratedColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 expr_stmt|;
 break|break;
@@ -604,7 +622,7 @@ name|DeviceGray_SHORT
 case|:
 name|processGrayColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 expr_stmt|;
 break|break;
@@ -613,7 +631,7 @@ name|ICCBased
 case|:
 name|processICCBasedColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 expr_stmt|;
 break|break;
@@ -622,7 +640,7 @@ name|DeviceN
 case|:
 name|processDeviceNColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 expr_stmt|;
 break|break;
@@ -634,7 +652,7 @@ name|Indexed_SHORT
 case|:
 name|processIndexedColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 expr_stmt|;
 break|break;
@@ -643,7 +661,7 @@ name|Separation
 case|:
 name|processSeparationColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 expr_stmt|;
 break|break;
@@ -652,7 +670,7 @@ name|Pattern
 case|:
 name|processPatternColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 expr_stmt|;
 break|break;
@@ -683,7 +701,7 @@ name|void
 name|processRGBColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 if|if
@@ -691,7 +709,7 @@ condition|(
 operator|!
 name|processDefaultColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 condition|)
 block|{
@@ -748,7 +766,7 @@ name|void
 name|processCYMKColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 if|if
@@ -756,7 +774,7 @@ condition|(
 operator|!
 name|processDefaultColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 condition|)
 block|{
@@ -807,13 +825,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is a Pattern.      */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is a Pattern.      * @param colorSpace       */
 specifier|protected
 name|void
 name|processPatternColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 if|if
@@ -844,7 +862,7 @@ name|void
 name|processGrayColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 if|if
@@ -852,7 +870,7 @@ condition|(
 operator|!
 name|processDefaultColorSpace
 argument_list|(
-name|pdcs
+name|colorSpace
 argument_list|)
 operator|&&
 name|iccpw
@@ -875,24 +893,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is a Clibrated Color (CalGary, CalRGB, Lab).      *       */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is a Clibrated Color (CalGary, CalRGB, Lab).      * @param colorSpace       *       */
 specifier|protected
 name|void
 name|processCalibratedColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 comment|// ---- OutputIntent isn't mandatory
 block|}
-comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is a ICCBased color space. Because this kind      * of ColorSpace can have alternate color space, the processAllColorSpace is called to check this alternate color      * space. (Pattern is forbidden as Alternate Color Space)      *       * @param pdcs      *            the color space object to check.      */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is a ICCBased color space. Because this kind      * of ColorSpace can have alternate color space, the processAllColorSpace is called to check this alternate color      * space. (Pattern is forbidden as Alternate Color Space)      *       * @param colorSpace      *            the color space object to check.      */
 specifier|protected
 name|void
 name|processICCBasedColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 name|PDICCBased
@@ -901,7 +919,7 @@ init|=
 operator|(
 name|PDICCBased
 operator|)
-name|pdcs
+name|colorSpace
 decl_stmt|;
 try|try
 block|{
@@ -1028,13 +1046,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is DeviceN. Because this kind of ColorSpace      * can have alternate color space, the processAllColorSpace is called to check this alternate color space. (There      * are no restrictions on the Alternate Color space)      *       * @param pdcs      *            the color space object to check.      */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is DeviceN. Because this kind of ColorSpace      * can have alternate color space, the processAllColorSpace is called to check this alternate color space. (There      * are no restrictions on the Alternate Color space)      *       * @param colorSpace      *            the color space object to check.      */
 specifier|protected
 name|void
 name|processDeviceNColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 name|PDDeviceN
@@ -1043,7 +1061,7 @@ init|=
 operator|(
 name|PDDeviceN
 operator|)
-name|pdcs
+name|colorSpace
 decl_stmt|;
 try|try
 block|{
@@ -1076,7 +1094,7 @@ operator|(
 operator|(
 name|COSArray
 operator|)
-name|pdcs
+name|colorSpace
 operator|.
 name|getCOSObject
 argument_list|()
@@ -1130,7 +1148,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+specifier|final
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PDSeparation
+argument_list|>
 name|colorants
 init|=
 name|attr
@@ -1154,7 +1178,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|Object
+name|PDSeparation
 name|col
 range|:
 name|colorants
@@ -1172,9 +1196,6 @@ condition|)
 block|{
 name|processAllColorSpace
 argument_list|(
-operator|(
-name|PDColorSpace
-operator|)
 name|col
 argument_list|)
 expr_stmt|;
@@ -1244,13 +1265,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is Indexed. Because this kind of ColorSpace      * can have a Base color space, the processAllColorSpace is called to check this base color space. (Indexed and      * Pattern can't be a Base color space)      *       * @param pdcs      *            the color space object to check.      */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is Indexed. Because this kind of ColorSpace      * can have a Base color space, the processAllColorSpace is called to check this base color space. (Indexed and      * Pattern can't be a Base color space)      *       * @param colorSpace      *            the color space object to check.      */
 specifier|protected
 name|void
 name|processIndexedColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 name|PDIndexed
@@ -1259,7 +1280,7 @@ init|=
 operator|(
 name|PDIndexed
 operator|)
-name|pdcs
+name|colorSpace
 decl_stmt|;
 name|PDColorSpace
 name|based
@@ -1342,13 +1363,13 @@ name|based
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is Separation. Because this kind of      * ColorSpace can have an alternate color space, the processAllColorSpace is called to check this alternate color      * space. (Indexed, Separation, DeviceN and Pattern can't be a Base color space)      *       * @param pdcs      *            the color space object to check.      */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is Separation. Because this kind of      * ColorSpace can have an alternate color space, the processAllColorSpace is called to check this alternate color      * space. (Indexed, Separation, DeviceN and Pattern can't be a Base color space)      *       * @param colorSpace      *            the color space object to check.      */
 specifier|protected
 name|void
 name|processSeparationColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 try|try
@@ -1360,7 +1381,7 @@ operator|(
 operator|(
 name|COSArray
 operator|)
-name|pdcs
+name|colorSpace
 operator|.
 name|getCOSObject
 argument_list|()
@@ -1477,13 +1498,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Look up in the closest PDResources objects if there are a default ColorSpace. If there are, check that is a      * authorized ColorSpace.      *       * @param pdcs      * @return true if the default colorspace is a right one, false otherwise.      */
+comment|/**      * Look up in the closest PDResources objects if there are a default ColorSpace. If there are, check that is a      * authorized ColorSpace.      *       * @param colorSpace      * @return true if the default colorspace is a right one, false otherwise.      */
 specifier|protected
 name|boolean
 name|processDefaultColorSpace
 parameter_list|(
 name|PDColorSpace
-name|pdcs
+name|colorSpace
 parameter_list|)
 block|{
 name|boolean
@@ -1528,7 +1549,7 @@ try|try
 block|{
 if|if
 condition|(
-name|pdcs
+name|colorSpace
 operator|.
 name|getName
 argument_list|()
@@ -1568,7 +1589,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|pdcs
+name|colorSpace
 operator|.
 name|getName
 argument_list|()
@@ -1608,7 +1629,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|pdcs
+name|colorSpace
 operator|.
 name|getName
 argument_list|()
