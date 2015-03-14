@@ -33,24 +33,6 @@ name|COSDictionary
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|documentinterchange
-operator|.
-name|logicalstructure
-operator|.
-name|PDStructureElement
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Table attribute object.  *   * @author Johannes Koch  */
 end_comment
