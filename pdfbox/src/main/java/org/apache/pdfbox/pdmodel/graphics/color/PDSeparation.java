@@ -554,8 +554,8 @@ name|samples
 argument_list|)
 expr_stmt|;
 name|int
-name|alt
 index|[]
+name|alt
 init|=
 name|calculatedValues
 operator|.
@@ -634,12 +634,12 @@ name|void
 name|tintTransform
 parameter_list|(
 name|float
-name|samples
 index|[]
+name|samples
 parameter_list|,
 name|int
-name|alt
 index|[]
+name|alt
 parameter_list|)
 throws|throws
 name|IOException
@@ -653,8 +653,8 @@ literal|255
 expr_stmt|;
 comment|// 0..1
 name|float
-name|result
 index|[]
+name|result
 init|=
 name|tintTransform
 operator|.

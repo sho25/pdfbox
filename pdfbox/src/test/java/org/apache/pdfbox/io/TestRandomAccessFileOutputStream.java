@@ -140,8 +140,8 @@ name|RandomAccessFileOutputStream
 name|out
 decl_stmt|;
 name|byte
-name|buffer
 index|[]
+name|buffer
 decl_stmt|;
 name|File
 name|file
@@ -771,8 +771,8 @@ literal|"rw"
 argument_list|)
 decl_stmt|;
 name|byte
-name|buffer
 index|[]
+name|buffer
 init|=
 name|createDataSequence
 argument_list|(
@@ -1230,8 +1230,8 @@ name|firstByteValue
 parameter_list|)
 block|{
 name|byte
-name|buffer
 index|[]
+name|buffer
 init|=
 operator|new
 name|byte

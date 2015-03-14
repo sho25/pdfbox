@@ -90,8 +90,8 @@ name|baos
 argument_list|)
 decl_stmt|;
 name|byte
-name|tab1
 index|[]
+name|tab1
 init|=
 block|{
 literal|1
@@ -104,8 +104,8 @@ literal|4
 block|}
 decl_stmt|;
 name|byte
-name|tab2
 index|[]
+name|tab2
 init|=
 block|{
 literal|5
@@ -120,8 +120,8 @@ literal|'\n'
 block|}
 decl_stmt|;
 name|byte
-name|tab3
 index|[]
+name|tab3
 init|=
 block|{
 literal|8
@@ -178,8 +178,8 @@ name|flush
 argument_list|()
 expr_stmt|;
 name|byte
-name|expectedResult1
 index|[]
+name|expectedResult1
 init|=
 block|{
 literal|1
@@ -232,8 +232,8 @@ name|baos
 argument_list|)
 expr_stmt|;
 name|byte
-name|tab4
 index|[]
+name|tab4
 init|=
 block|{
 literal|1
@@ -246,8 +246,8 @@ literal|4
 block|}
 decl_stmt|;
 name|byte
-name|tab5
 index|[]
+name|tab5
 init|=
 block|{
 literal|5
@@ -260,8 +260,8 @@ literal|'\r'
 block|}
 decl_stmt|;
 name|byte
-name|tab6
 index|[]
+name|tab6
 init|=
 block|{
 literal|8
@@ -316,8 +316,8 @@ name|flush
 argument_list|()
 expr_stmt|;
 name|byte
-name|expectedResult2
 index|[]
+name|expectedResult2
 init|=
 block|{
 literal|1
@@ -368,8 +368,8 @@ name|baos
 argument_list|)
 expr_stmt|;
 name|byte
+index|[]
 name|tab7
-index|[]
 init|=
 block|{
 literal|1
@@ -384,8 +384,8 @@ literal|'\r'
 block|}
 decl_stmt|;
 name|byte
-name|tab8
 index|[]
+name|tab8
 init|=
 block|{
 literal|'\n'
@@ -400,8 +400,8 @@ literal|'\n'
 block|}
 decl_stmt|;
 name|byte
-name|tab9
 index|[]
+name|tab9
 init|=
 block|{
 literal|8
@@ -457,8 +457,8 @@ name|flush
 argument_list|()
 expr_stmt|;
 name|byte
-name|expectedResult3
 index|[]
+name|expectedResult3
 init|=
 block|{
 literal|1
@@ -515,8 +515,8 @@ name|baos
 argument_list|)
 expr_stmt|;
 name|byte
-name|tab10
 index|[]
+name|tab10
 init|=
 block|{
 literal|1
@@ -531,8 +531,8 @@ literal|'\r'
 block|}
 decl_stmt|;
 name|byte
-name|tab11
 index|[]
+name|tab11
 init|=
 block|{
 literal|'\n'
@@ -547,8 +547,8 @@ literal|'\r'
 block|}
 decl_stmt|;
 name|byte
-name|tab12
 index|[]
+name|tab12
 init|=
 block|{
 literal|8
@@ -559,8 +559,8 @@ literal|'\r'
 block|}
 decl_stmt|;
 name|byte
-name|tab13
 index|[]
+name|tab13
 init|=
 block|{
 literal|'\n'
@@ -625,8 +625,8 @@ name|flush
 argument_list|()
 expr_stmt|;
 name|byte
-name|expectedResult4
 index|[]
+name|expectedResult4
 init|=
 block|{
 literal|1
@@ -681,8 +681,8 @@ name|baos
 argument_list|)
 expr_stmt|;
 name|byte
-name|tab14
 index|[]
+name|tab14
 init|=
 block|{
 literal|1
@@ -697,8 +697,8 @@ literal|'\r'
 block|}
 decl_stmt|;
 name|byte
-name|tab15
 index|[]
+name|tab15
 init|=
 block|{
 literal|'\n'
@@ -713,8 +713,8 @@ literal|'\r'
 block|}
 decl_stmt|;
 name|byte
-name|tab16
 index|[]
+name|tab16
 init|=
 block|{
 literal|8
@@ -725,8 +725,8 @@ literal|'\n'
 block|}
 decl_stmt|;
 name|byte
-name|tab17
 index|[]
+name|tab17
 init|=
 block|{
 literal|'\r'
@@ -791,8 +791,8 @@ name|flush
 argument_list|()
 expr_stmt|;
 name|byte
-name|expectedResult5
 index|[]
+name|expectedResult5
 init|=
 block|{
 literal|1
