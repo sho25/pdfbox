@@ -436,7 +436,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|this
+name|PDUserProperty
 operator|.
 name|isEntryChanged
 argument_list|(
@@ -459,6 +459,7 @@ block|}
 block|}
 comment|/**      * Is the value changed?      *       * @param oldEntry old entry      * @param newEntry new entry      * @return<code>true</code> if the entry is changed,<code>false</code>      * otherwise      */
 specifier|private
+specifier|static
 name|boolean
 name|isEntryChanged
 parameter_list|(

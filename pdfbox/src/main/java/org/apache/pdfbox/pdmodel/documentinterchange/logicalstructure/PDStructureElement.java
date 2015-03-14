@@ -303,9 +303,6 @@ name|PDStructureNode
 operator|.
 name|create
 argument_list|(
-operator|(
-name|COSDictionary
-operator|)
 name|p
 argument_list|)
 return|;

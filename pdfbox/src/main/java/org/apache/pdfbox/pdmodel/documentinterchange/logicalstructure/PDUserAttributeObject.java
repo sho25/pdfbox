@@ -359,6 +359,7 @@ name|notifyChanged
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * @param userProperty        */
 specifier|public
 name|void
 name|userPropertyChanged

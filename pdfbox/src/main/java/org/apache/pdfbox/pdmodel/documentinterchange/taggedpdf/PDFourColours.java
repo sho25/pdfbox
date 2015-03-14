@@ -107,6 +107,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSArray
 name|array
 decl_stmt|;
@@ -368,6 +369,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject

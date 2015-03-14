@@ -2845,9 +2845,6 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
-operator|(
-name|Float
-operator|)
 name|borderThickness
 argument_list|)
 argument_list|)
@@ -2912,9 +2909,6 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
-operator|(
-name|Float
-operator|)
 name|padding
 argument_list|)
 argument_list|)
@@ -3194,9 +3188,6 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
-operator|(
-name|Float
-operator|)
 name|width
 argument_list|)
 argument_list|)
@@ -3253,9 +3244,6 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
-operator|(
-name|Float
-operator|)
 name|height
 argument_list|)
 argument_list|)
@@ -3441,9 +3429,6 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
-operator|(
-name|Float
-operator|)
 name|tPadding
 argument_list|)
 argument_list|)
@@ -3521,9 +3506,6 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
-operator|(
-name|Float
-operator|)
 name|lineHeight
 argument_list|)
 argument_list|)
@@ -3790,9 +3772,6 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
-operator|(
-name|Float
-operator|)
 name|columnGap
 argument_list|)
 argument_list|)
@@ -3857,9 +3836,6 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
-operator|(
-name|Float
-operator|)
 name|columnWidth
 argument_list|)
 argument_list|)

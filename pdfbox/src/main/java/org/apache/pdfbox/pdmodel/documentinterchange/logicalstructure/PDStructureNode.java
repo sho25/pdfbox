@@ -165,6 +165,40 @@ name|COSObjectable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|PDXObject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|annotation
+operator|.
+name|PDAnnotation
+import|;
+end_import
+
 begin_comment
 comment|/**  * A node in the structure tree.  *   * @author Johannes Koch  */
 end_comment
@@ -421,7 +455,7 @@ decl_stmt|;
 name|Object
 name|kidObject
 init|=
-name|this
+name|PDStructureNode
 operator|.
 name|createObject
 argument_list|(
@@ -450,7 +484,7 @@ block|{
 name|Object
 name|kidObject
 init|=
-name|this
+name|PDStructureNode
 operator|.
 name|createObject
 argument_list|(
@@ -1216,6 +1250,7 @@ block|}
 block|}
 comment|/**      * Creates an object for a kid of this structure node.      * The type of object depends on the type of the kid. It can be      *<ul>      *<li>a {@link PDStructureElement},</li>      *<li>a {@link PDAnnotation},</li>      *<li>a {@link PDXObject},</li>      *<li>a {@link PDMarkedContentReference}</li>      *<li>a {@link Integer}</li>      *</ul>      *       * @param kid the kid      * @return the object      */
 specifier|protected
+specifier|static
 name|Object
 name|createObject
 parameter_list|(
