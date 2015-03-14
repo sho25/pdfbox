@@ -1116,13 +1116,16 @@ operator|.
 name|KIDS
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
 name|kids
 operator|.
-name|remove
+name|removeObject
 argument_list|(
 name|node
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
 comment|// update ancestor counts
 do|do
 block|{
@@ -1180,6 +1183,7 @@ operator|!=
 literal|null
 condition|)
 do|;
+block|}
 block|}
 comment|/**      * Adds the given page to this page tree.      */
 specifier|public
