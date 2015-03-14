@@ -1405,6 +1405,8 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|parser
 operator|.
 name|parse
@@ -1452,8 +1454,8 @@ name|getObject
 argument_list|()
 operator|==
 literal|null
-operator|||
 comment|// xrefTable stores negated objNr of objStream for objects in objStreams
+operator|||
 operator|(
 name|xrefTable
 operator|.
@@ -1496,6 +1498,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+finally|finally
+block|{
+name|parser
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}

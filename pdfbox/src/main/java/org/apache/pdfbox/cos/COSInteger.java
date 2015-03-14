@@ -193,8 +193,6 @@ name|index
 index|]
 return|;
 block|}
-else|else
-block|{
 return|return
 operator|new
 name|COSInteger
@@ -202,7 +200,6 @@ argument_list|(
 name|val
 argument_list|)
 return|;
-block|}
 block|}
 specifier|private
 specifier|final

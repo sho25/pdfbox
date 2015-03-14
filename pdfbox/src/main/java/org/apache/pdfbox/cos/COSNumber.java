@@ -38,6 +38,8 @@ extends|extends
 name|COSBase
 block|{
 comment|/**      * @deprecated Use the {@link COSInteger#ZERO} constant instead      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 specifier|final
@@ -49,6 +51,8 @@ operator|.
 name|ZERO
 decl_stmt|;
 comment|/**      * @deprecated Use the {@link COSInteger#ONE} constant instead      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 specifier|final
@@ -235,8 +239,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-else|else
-block|{
 return|return
 name|COSInteger
 operator|.
@@ -250,7 +252,6 @@ name|number
 argument_list|)
 argument_list|)
 return|;
-block|}
 block|}
 catch|catch
 parameter_list|(

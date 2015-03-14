@@ -71,7 +71,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
+name|IOException
 import|;
 end_import
 
@@ -81,7 +81,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|InputStream
 import|;
 end_import
 
@@ -879,12 +879,9 @@ name|filterInfo
 argument_list|)
 throw|;
 block|}
-else|else
-block|{
 return|return
 name|decodeResult
 return|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -1254,6 +1251,10 @@ if|if
 condition|(
 operator|!
 name|done
+operator|&&
+name|exception
+operator|!=
+literal|null
 condition|)
 block|{
 throw|throw
