@@ -122,7 +122,6 @@ parameter_list|)
 block|{
 comment|/* Can't do much about this... */
 block|}
-empty_stmt|;
 block|}
 block|}
 comment|/**      * Test of extract method, of class org.apache.pdfbox.util.PageExtractor.      */
