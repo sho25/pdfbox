@@ -220,8 +220,8 @@ specifier|public
 class|class
 name|ValidateXImage
 block|{
-specifier|static
 specifier|public
+specifier|static
 name|void
 name|validate
 parameter_list|(
@@ -749,8 +749,8 @@ name|count
 return|;
 block|}
 comment|/**      * Check whether the images are identical.      *      * @param expectedImage      * @param actualImage      */
-specifier|static
 specifier|public
+specifier|static
 name|void
 name|checkIdent
 parameter_list|(
