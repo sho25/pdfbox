@@ -168,6 +168,8 @@ name|dictionary
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
