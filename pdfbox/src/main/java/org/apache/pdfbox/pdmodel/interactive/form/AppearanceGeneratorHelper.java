@@ -1364,18 +1364,10 @@ argument_list|,
 name|fontSize
 argument_list|)
 decl_stmt|;
-comment|// calculation of the horizontal offset from where the text will be printed
 name|float
 name|leftOffset
 init|=
-name|calculateHorizontalOffset
-argument_list|(
-name|contentEdge
-argument_list|,
-name|font
-argument_list|,
-name|fontSize
-argument_list|)
+literal|0f
 decl_stmt|;
 comment|// show the text
 if|if
@@ -1385,6 +1377,18 @@ name|isMultiLine
 argument_list|()
 condition|)
 block|{
+comment|// calculation of the horizontal offset from where the text will be printed
+name|leftOffset
+operator|=
+name|calculateHorizontalOffset
+argument_list|(
+name|contentEdge
+argument_list|,
+name|font
+argument_list|,
+name|fontSize
+argument_list|)
+expr_stmt|;
 name|composer
 operator|.
 name|newLineAtOffset
@@ -1406,6 +1410,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|leftOffset
+operator|=
+name|contentEdge
+operator|.
+name|getLowerLeftX
+argument_list|()
+expr_stmt|;
 name|PlainText
 name|textContent
 init|=
