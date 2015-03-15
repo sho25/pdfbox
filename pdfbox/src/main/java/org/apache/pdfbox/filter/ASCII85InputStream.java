@@ -176,8 +176,9 @@ index|]
 expr_stmt|;
 block|}
 comment|/**      * This will read the next byte from the stream.      *      * @return The next byte read from the stream.      *      * @throws IOException If there is an error reading from the wrapped stream.      */
+annotation|@
+name|Override
 specifier|public
-specifier|final
 name|int
 name|read
 parameter_list|()
@@ -623,8 +624,9 @@ literal|0xFF
 return|;
 block|}
 comment|/**      * This will read a chunk of data.      *      * @param data The buffer to write data to.      * @param offset The offset into the data stream.      * @param len The number of byte to attempt to read.      *      * @return The number of bytes actually read.      *      * @throws IOException If there is an error reading data from the underlying stream.      */
+annotation|@
+name|Override
 specifier|public
-specifier|final
 name|int
 name|read
 parameter_list|(
@@ -730,6 +732,8 @@ name|len
 return|;
 block|}
 comment|/**      * This will close the underlying stream and release any resources.      *      * @throws IOException If there is an error closing the underlying stream.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -756,6 +760,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * non supported interface methods.      *      * @return False always.      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|markSupported
@@ -766,6 +772,8 @@ literal|false
 return|;
 block|}
 comment|/**      * Unsupported.      *      * @param nValue ignored.      *      * @return Always zero.      */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|skip
@@ -779,6 +787,8 @@ literal|0
 return|;
 block|}
 comment|/**      * Unsupported.      *      * @return Always zero.      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|available
@@ -789,6 +799,8 @@ literal|0
 return|;
 block|}
 comment|/**      * Unsupported.      *      * @param readlimit ignored.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|mark
@@ -798,6 +810,8 @@ name|readlimit
 parameter_list|)
 block|{     }
 comment|/**      * Unsupported.      *      * @throws IOException telling that this is an unsupported action.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|reset

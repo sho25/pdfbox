@@ -483,7 +483,13 @@ index|[]
 argument_list|>
 name|codeTable
 init|=
-literal|null
+operator|new
+name|ArrayList
+argument_list|<
+name|byte
+index|[]
+argument_list|>
+argument_list|()
 decl_stmt|;
 name|int
 name|chunk

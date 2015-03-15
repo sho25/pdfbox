@@ -197,6 +197,7 @@ literal|10
 condition|)
 block|{
 comment|// PNG predictor; each row starts with predictor type (0, 1, 2, 3, 4)
+comment|// read per line predictor
 name|linepredictor
 operator|=
 name|in
@@ -204,7 +205,6 @@ operator|.
 name|read
 argument_list|()
 expr_stmt|;
-comment|// read per line predictor
 if|if
 condition|(
 name|linepredictor
@@ -215,14 +215,11 @@ condition|)
 block|{
 return|return;
 block|}
-else|else
-block|{
 comment|// add 10 to tread value 0 as 10, 1 as 11, ...
 name|linepredictor
 operator|+=
 literal|10
 expr_stmt|;
-block|}
 block|}
 comment|// read line
 name|int
