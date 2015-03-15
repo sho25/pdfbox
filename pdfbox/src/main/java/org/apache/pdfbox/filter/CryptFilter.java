@@ -165,8 +165,6 @@ name|parameters
 argument_list|)
 return|;
 block|}
-else|else
-block|{
 throw|throw
 operator|new
 name|IOException
@@ -179,7 +177,6 @@ name|getName
 argument_list|()
 argument_list|)
 throw|;
-block|}
 block|}
 annotation|@
 name|Override

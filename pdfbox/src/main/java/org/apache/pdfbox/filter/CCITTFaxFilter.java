@@ -611,6 +611,7 @@ argument_list|)
 return|;
 block|}
 specifier|private
+specifier|static
 name|void
 name|invertBitmap
 parameter_list|(

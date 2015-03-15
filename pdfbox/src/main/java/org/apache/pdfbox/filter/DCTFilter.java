@@ -624,6 +624,14 @@ name|raster
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unknown colorTransform"
+argument_list|)
+throw|;
 block|}
 block|}
 elseif|else
@@ -699,6 +707,7 @@ return|;
 block|}
 comment|// reads the APP14 Adobe transform tag and returns its value, or 0 if unknown
 specifier|private
+specifier|static
 name|Integer
 name|getAdobeTransform
 parameter_list|(
@@ -796,14 +805,13 @@ comment|// converts YCCK image to CMYK. YCCK is an equivalent encoding for
 comment|// CMYK data, so no color management code is needed here, nor does the
 comment|// PDF color space have to be consulted
 specifier|private
+specifier|static
 name|WritableRaster
 name|fromYCCKtoCMYK
 parameter_list|(
 name|Raster
 name|raster
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|WritableRaster
 name|writableRaster
@@ -1031,14 +1039,13 @@ return|;
 block|}
 comment|// converts from BGR to RGB
 specifier|private
+specifier|static
 name|WritableRaster
 name|fromBGRtoRGB
 parameter_list|(
 name|Raster
 name|raster
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|WritableRaster
 name|writableRaster
@@ -1180,14 +1187,13 @@ return|;
 block|}
 comment|// returns the number of channels as a string, or an empty string if there is an error getting the meta data
 specifier|private
+specifier|static
 name|String
 name|getNumChannels
 parameter_list|(
 name|ImageReader
 name|reader
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 try|try
 block|{
@@ -1276,6 +1282,7 @@ block|}
 block|}
 comment|// clamps value to 0-255 range
 specifier|private
+specifier|static
 name|int
 name|clamp
 parameter_list|(

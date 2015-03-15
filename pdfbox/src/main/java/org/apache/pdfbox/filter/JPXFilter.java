@@ -293,6 +293,7 @@ return|;
 block|}
 comment|// try to read using JAI Image I/O
 specifier|private
+specifier|static
 name|BufferedImage
 name|readJPX
 parameter_list|(

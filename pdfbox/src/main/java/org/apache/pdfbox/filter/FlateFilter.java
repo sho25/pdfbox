@@ -218,6 +218,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+specifier|final
 name|COSDictionary
 name|decodeParams
 init|=
@@ -256,6 +257,11 @@ operator|>
 literal|1
 condition|)
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"null"
+argument_list|)
 name|int
 name|colors
 init|=
@@ -409,6 +415,7 @@ block|}
 comment|// Use Inflater instead of InflateInputStream to avoid an EOFException due to a probably
 comment|// missing Z_STREAM_END, see PDFBOX-1232 for details
 specifier|private
+specifier|static
 name|void
 name|decompress
 parameter_list|(

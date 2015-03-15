@@ -78,6 +78,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** {@inheritDoc} */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -160,6 +162,8 @@ name|result
 return|;
 block|}
 comment|/** {@inheritDoc} */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
