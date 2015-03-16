@@ -544,7 +544,9 @@ argument_list|()
 expr_stmt|;
 block|}
 name|result
-operator|+=
+operator|=
+name|result
+operator|+
 literal|")"
 expr_stmt|;
 block|}
