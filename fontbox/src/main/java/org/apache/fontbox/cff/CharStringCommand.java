@@ -207,14 +207,11 @@ operator|+
 literal|'|'
 return|;
 block|}
-else|else
-block|{
 return|return
 name|str
 operator|+
 literal|'|'
 return|;
-block|}
 block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@

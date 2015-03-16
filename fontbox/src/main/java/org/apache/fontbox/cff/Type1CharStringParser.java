@@ -17,34 +17,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -80,6 +52,34 @@ operator|.
 name|util
 operator|.
 name|Stack
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -737,6 +737,7 @@ block|}
 comment|// this method is a workaround for the fact that Type1CharStringParser assumes that subrs and
 comment|// othersubrs can be unrolled without executing the 'div' operator, which isn't true
 specifier|private
+specifier|static
 name|Integer
 name|removeInteger
 parameter_list|(
@@ -778,8 +779,6 @@ operator|)
 name|item
 return|;
 block|}
-else|else
-block|{
 name|CharStringCommand
 name|command
 init|=
@@ -860,8 +859,6 @@ operator|/
 name|a
 return|;
 block|}
-else|else
-block|{
 throw|throw
 operator|new
 name|IOException
@@ -875,9 +872,8 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-block|}
-block|}
 specifier|private
+specifier|static
 name|CharStringCommand
 name|readCommand
 parameter_list|(
@@ -924,6 +920,7 @@ argument_list|)
 return|;
 block|}
 specifier|private
+specifier|static
 name|Integer
 name|readNumber
 parameter_list|(

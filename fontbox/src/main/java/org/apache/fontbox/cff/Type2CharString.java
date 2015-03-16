@@ -17,20 +17,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|type1
-operator|.
-name|Type1CharStringReader
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -66,6 +52,20 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|type1
+operator|.
+name|Type1CharStringReader
 import|;
 end_import
 
@@ -228,6 +228,8 @@ operator|new
 name|CharStringHandler
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1580,6 +1582,7 @@ return|return
 name|numbers
 return|;
 block|}
+comment|/**      * @param numbers        * @param horizontal       */
 specifier|private
 name|void
 name|expandStemHints

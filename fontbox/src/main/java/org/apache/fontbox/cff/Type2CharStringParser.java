@@ -888,6 +888,7 @@ argument_list|)
 return|;
 block|}
 specifier|private
+specifier|static
 name|Integer
 name|readNumber
 parameter_list|(
