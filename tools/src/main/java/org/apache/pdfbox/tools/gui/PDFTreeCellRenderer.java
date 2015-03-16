@@ -187,6 +187,8 @@ extends|extends
 name|DefaultTreeCellRenderer
 block|{
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|Component
 name|getTreeCellRendererComponent
@@ -213,13 +215,6 @@ name|boolean
 name|componentHasFocus
 parameter_list|)
 block|{
-name|nodeValue
-operator|=
-name|convertToTreeObject
-argument_list|(
-name|nodeValue
-argument_list|)
-expr_stmt|;
 return|return
 name|super
 operator|.
@@ -227,7 +222,10 @@ name|getTreeCellRendererComponent
 argument_list|(
 name|tree
 argument_list|,
+name|convertToTreeObject
+argument_list|(
 name|nodeValue
+argument_list|)
 argument_list|,
 name|isSelected
 argument_list|,
@@ -249,6 +247,11 @@ name|Object
 name|nodeValue
 parameter_list|)
 block|{
+name|Object
+name|result
+init|=
+name|nodeValue
+decl_stmt|;
 if|if
 condition|(
 name|nodeValue
@@ -286,7 +289,7 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-name|nodeValue
+name|result
 operator|=
 name|key
 operator|.
@@ -309,7 +312,7 @@ operator|instanceof
 name|COSFloat
 condition|)
 block|{
-name|nodeValue
+name|result
 operator|=
 literal|""
 operator|+
@@ -332,7 +335,7 @@ operator|instanceof
 name|COSInteger
 condition|)
 block|{
-name|nodeValue
+name|result
 operator|=
 literal|""
 operator|+
@@ -355,7 +358,7 @@ operator|instanceof
 name|COSString
 condition|)
 block|{
-name|nodeValue
+name|result
 operator|=
 operator|(
 operator|(
@@ -376,7 +379,7 @@ operator|instanceof
 name|COSName
 condition|)
 block|{
-name|nodeValue
+name|result
 operator|=
 operator|(
 operator|(
@@ -405,7 +408,7 @@ name|ArrayEntry
 operator|)
 name|nodeValue
 decl_stmt|;
-name|nodeValue
+name|result
 operator|=
 literal|"["
 operator|+
@@ -433,7 +436,7 @@ operator|instanceof
 name|COSNull
 condition|)
 block|{
-name|nodeValue
+name|result
 operator|=
 literal|"null"
 expr_stmt|;
@@ -461,14 +464,14 @@ operator|instanceof
 name|COSStream
 condition|)
 block|{
-name|nodeValue
+name|result
 operator|=
 literal|"Stream"
 expr_stmt|;
 block|}
 else|else
 block|{
-name|nodeValue
+name|result
 operator|=
 literal|"Dictionary"
 expr_stmt|;
@@ -495,9 +498,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|nodeValue
+name|result
 operator|=
-name|nodeValue
+name|result
 operator|+
 literal|"("
 operator|+
@@ -528,9 +531,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|nodeValue
+name|result
 operator|=
-name|nodeValue
+name|result
 operator|+
 literal|":"
 operator|+
@@ -540,10 +543,8 @@ name|getName
 argument_list|()
 expr_stmt|;
 block|}
-name|nodeValue
-operator|=
-name|nodeValue
-operator|+
+name|result
+operator|+=
 literal|")"
 expr_stmt|;
 block|}
@@ -556,7 +557,7 @@ operator|instanceof
 name|COSArray
 condition|)
 block|{
-name|nodeValue
+name|result
 operator|=
 literal|"Array"
 expr_stmt|;
@@ -569,7 +570,7 @@ operator|instanceof
 name|COSString
 condition|)
 block|{
-name|nodeValue
+name|result
 operator|=
 operator|(
 operator|(
@@ -583,7 +584,7 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|nodeValue
+name|result
 return|;
 block|}
 block|}
