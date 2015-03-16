@@ -532,6 +532,10 @@ comment|// we're done when we have enough bytes for the matched range
 if|if
 condition|(
 name|match
+operator|!=
+literal|null
+operator|&&
+name|match
 operator|.
 name|getStart
 argument_list|()
@@ -562,6 +566,7 @@ throw|;
 block|}
 comment|/**      * Returns an int given a List<Byte>      */
 specifier|private
+specifier|static
 name|int
 name|toInt
 parameter_list|(
@@ -632,8 +637,6 @@ name|code
 argument_list|)
 return|;
 block|}
-else|else
-block|{
 for|for
 control|(
 name|CIDRange
@@ -672,9 +675,9 @@ return|return
 literal|0
 return|;
 block|}
-block|}
 comment|/**      * Convert the given part of a byte array to an integer.      * @param data the byte array      * @param offset The offset into the byte array.      * @param length The length of the data we are getting.      * @return the resulting integer      */
 specifier|private
+specifier|static
 name|int
 name|getCodeFromArray
 parameter_list|(

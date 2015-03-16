@@ -100,13 +100,10 @@ name|from
 operator|)
 return|;
 block|}
-else|else
-block|{
 return|return
 operator|-
 literal|1
 return|;
-block|}
 block|}
 comment|/**      * Maps the given CID to the corresponding Unicode character in this range.      *      * @param code CID      * @return corresponding Unicode character, or -1 if the CID is out of range      */
 specifier|public
@@ -144,13 +141,10 @@ name|cid
 operator|)
 return|;
 block|}
-else|else
-block|{
 return|return
 operator|-
 literal|1
 return|;
-block|}
 block|}
 block|}
 end_class
