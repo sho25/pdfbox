@@ -3532,9 +3532,9 @@ argument_list|,
 name|font
 argument_list|)
 decl_stmt|;
-comment|// todo: almost certainly erroneous - CIDFonts do not have a top-level private dict
-comment|//font.addValueToPrivateDict("defaultWidthX", 1000);
-comment|//font.addValueToPrivateDict("nominalWidthX", 0);
+comment|// TODO almost certainly erroneous - CIDFonts do not have a top-level private dict
+comment|// font.addValueToPrivateDict("defaultWidthX", 1000);
+comment|// font.addValueToPrivateDict("nominalWidthX", 0);
 name|font
 operator|.
 name|setFontDict
@@ -6632,7 +6632,6 @@ name|Supplement
 index|[]
 name|supplement
 decl_stmt|;
-comment|/*List<Supplement> getSupplements()         {             if (supplement == null)             {                 return Collections.emptyList();             }             return Arrays.asList(supplement);         }*/
 comment|/**          * Inner class representing a supplement for an encoding.           */
 specifier|static
 class|class

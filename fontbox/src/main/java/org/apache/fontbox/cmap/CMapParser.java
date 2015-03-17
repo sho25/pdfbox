@@ -1746,8 +1746,6 @@ name|done
 init|=
 literal|false
 decl_stmt|;
-comment|// don't add 1:1 mappings to reduce the memory footprint
-comment|/*if (Arrays.equals(startCode, tokenBytes))              {              done = true;              }*/
 name|String
 name|value
 init|=
@@ -2540,7 +2538,7 @@ operator|-
 literal|1
 case|:
 block|{
-comment|// EOF return null;
+comment|// EOF returning null
 break|break;
 block|}
 case|case

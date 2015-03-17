@@ -361,8 +361,6 @@ name|result
 operator|=
 literal|0
 expr_stmt|;
-comment|//don't throw an exception right away.
-comment|//throw new IOException( "Unknown AFM(" + getFullName() + ") characer '" + name + "'" );
 block|}
 else|else
 block|{
@@ -411,8 +409,6 @@ name|result
 operator|=
 literal|0
 expr_stmt|;
-comment|//don't throw an exception right away.
-comment|//throw new IOException( "Unknown AFM(" + getFullName() + ") characer '" + name + "'" );
 block|}
 else|else
 block|{
