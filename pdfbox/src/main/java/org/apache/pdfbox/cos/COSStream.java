@@ -669,21 +669,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// We should check if the COSStream contains data, maybe it
-comment|// has been created with a RandomAccessFile - which is not
-comment|// necessary empty.
-comment|// In this case, the creation was been done as an input, this should
-comment|// be the unfiltered file, since no filter has been applied yet.
-comment|//            if ( (file != null)&&
-comment|//                    (file.length()> 0) )
-comment|//            {
-comment|//                retval = new RandomAccessFileInputStream( file,
-comment|//                                                          0,
-comment|//                                                          file.length() );
-comment|//            }
-comment|//            else
-comment|//            {
-comment|//if there is no stream data then simply return an empty stream.
 name|retval
 operator|=
 operator|new
@@ -696,7 +681,6 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
-comment|//            }
 block|}
 return|return
 name|retval

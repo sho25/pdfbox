@@ -320,7 +320,6 @@ name|decodedReadPos
 operator|++
 index|]
 decl_stmt|;
-comment|//System.out.println("Returning " + PackedBitArray.visualizeByte(data));
 return|return
 name|data
 operator|&
@@ -359,17 +358,16 @@ operator|<
 literal|0
 condition|)
 block|{
+comment|//Shortcut after EOD
 return|return
 literal|false
 return|;
-comment|//Shortcut after EOD
 block|}
 name|this
 operator|.
 name|y
 operator|++
 expr_stmt|;
-comment|//System.out.println("decodeLine " + this.y);
 name|int
 name|x
 init|=
@@ -392,10 +390,10 @@ operator|.
 name|rows
 condition|)
 block|{
+comment|//All rows decoded, ignore further bits
 return|return
 literal|false
 return|;
-comment|//All rows decoded, ignore further bits
 block|}
 name|this
 operator|.
@@ -510,11 +508,10 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|//System.out.println("Return to Control");
+comment|//Return to Control = End Of Data
 return|return
 literal|false
 return|;
-comment|//Return to Control = End Of Data
 block|}
 if|if
 condition|(
@@ -523,9 +520,8 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|//System.out.println("Ignoring leading EOL");
-continue|continue;
 comment|//Ignore leading EOL
+continue|continue;
 block|}
 block|}
 else|else
@@ -589,7 +585,6 @@ name|accumulatedRunLength
 operator|+=
 name|length
 expr_stmt|;
-comment|//System.out.println(" Run " + bit + " for " + this.accumulatedRunLength + " at " + decodedWritePos);
 if|if
 condition|(
 name|bit
@@ -636,7 +631,6 @@ name|int
 name|length
 parameter_list|)
 block|{
-comment|//System.out.println(" Make up code for " + length + " bits");
 name|this
 operator|.
 name|accumulatedRunLength
@@ -729,7 +723,6 @@ literal|0
 else|:
 literal|1
 decl_stmt|;
-comment|//System.out.print(bit);
 return|return
 name|bit
 return|;
@@ -1620,6 +1613,7 @@ operator|.
 name|readBit
 argument_list|()
 expr_stmt|;
+comment|//bit 1 finishes the EOL, any number of bit 0 allowed as fillers
 block|}
 do|while
 condition|(
@@ -1628,7 +1622,6 @@ operator|==
 literal|0
 condition|)
 do|;
-comment|//bit 1 finishes the EOL, any number of bit 0 allowed as fillers
 if|if
 condition|(
 name|bit

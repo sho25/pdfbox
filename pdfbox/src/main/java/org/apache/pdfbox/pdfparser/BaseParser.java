@@ -1517,7 +1517,8 @@ name|whitespace
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*This needs to be dic.getItem because when we are parsing, the underlying object              * might still be null.              */
+comment|// This needs to be dic.getItem because when we are parsing, the underlying object
+comment|// might still be null.
 name|COSBase
 name|streamLength
 init|=
@@ -2065,13 +2066,13 @@ name|keyw
 init|=
 name|ENDSTREAM
 decl_stmt|;
+comment|// last character position of shortest keyword ('endobj')
 specifier|final
 name|int
 name|quickTestOffset
 init|=
 literal|5
 decl_stmt|;
-comment|// last character position of shortest keyword ('endobj')
 comment|// read next chunk into buffer; already matched chars are added to beginning of buffer
 while|while
 condition|(
@@ -2184,6 +2185,7 @@ expr_stmt|;
 continue|continue;
 block|}
 block|}
+comment|// could be negative - but we only compare to ASCII
 specifier|final
 name|byte
 name|ch
@@ -2193,7 +2195,6 @@ index|[
 name|bIdx
 index|]
 decl_stmt|;
-comment|// could be negative - but we only compare to ASCII
 if|if
 condition|(
 name|ch
@@ -4454,8 +4455,6 @@ init|=
 name|readString
 argument_list|()
 decl_stmt|;
-comment|//throw new IOException( "Unknown dir object c='" + c +
-comment|//"' peek='" + (char)pdfSource.peek() + "' " + pdfSource );
 if|if
 condition|(
 name|badString

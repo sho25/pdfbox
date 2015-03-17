@@ -1629,13 +1629,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// if you need text on the visible signature:
-comment|//
-comment|// PDFont font = PDTrueTypeFont.loadTTF(this.pdfStructure.getTemplate(),
-comment|//                                      new File("D:\\arial.ttf"));
-comment|// font.setFontEncoding(new WinAnsiEncoding());
-comment|//
-comment|// Map<String, PDFont> fonts = new HashMap<String, PDFont>(); fonts.put("arial", font);
 name|PDFormXObject
 name|imageForm
 init|=
@@ -1673,8 +1666,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// imageForm.getResources().addFont(font);
-comment|// imageForm.getResources().setFonts(fonts);
 name|imageFormResources
 operator|.
 name|getCOSObject

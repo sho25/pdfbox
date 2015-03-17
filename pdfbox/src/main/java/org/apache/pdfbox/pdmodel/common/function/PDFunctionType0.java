@@ -943,24 +943,24 @@ comment|/**      * Inner class do to an interpolation in the Nth dimension by co
 class|class
 name|Rinterpol
 block|{
+comment|// coordinate that is to be interpolated
 specifier|final
 name|float
 index|[]
 name|in
 decl_stmt|;
-comment|// coordinate that is to be interpolated
+comment|// coordinate of the "ceil" point
 specifier|final
 name|int
 index|[]
 name|inPrev
 decl_stmt|;
-comment|// coordinate of the "ceil" point
+comment|// coordinate of the "floor" point
 specifier|final
 name|int
 index|[]
 name|inNext
 decl_stmt|;
-comment|// coordinate of the "floor" point
 specifier|final
 name|int
 name|numberOfInputValues
