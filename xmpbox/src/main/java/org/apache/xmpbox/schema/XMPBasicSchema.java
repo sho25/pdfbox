@@ -1082,7 +1082,6 @@ name|Integer
 name|rate
 parameter_list|)
 block|{
-comment|// addProperty(new IntegerType(metadata, localPrefix, RATING, rate));
 name|IntegerType
 name|tt
 init|=
