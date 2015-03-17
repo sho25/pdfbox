@@ -794,7 +794,6 @@ name|y
 argument_list|)
 expr_stmt|;
 block|}
-comment|//System.out.println( "Drawing string at " + x + "," + y );
 if|if
 condition|(
 name|contentStream

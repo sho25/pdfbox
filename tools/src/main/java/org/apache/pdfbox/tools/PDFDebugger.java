@@ -726,7 +726,6 @@ operator|new
 name|JScrollPane
 argument_list|()
 decl_stmt|;
-comment|//documentScroller.setPreferredSize( new Dimension( 300, 500 ) );
 name|documentScroller
 operator|.
 name|setViewportView
