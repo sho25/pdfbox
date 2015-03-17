@@ -640,11 +640,24 @@ comment|// check for 'name' table
 name|NamingTable
 name|nameTable
 init|=
+literal|null
+decl_stmt|;
+comment|// ttf could still be null
+if|if
+condition|(
+name|ttf
+operator|!=
+literal|null
+condition|)
+block|{
+name|nameTable
+operator|=
 name|ttf
 operator|.
 name|getNaming
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|nameTable
