@@ -150,7 +150,6 @@ name|highlighterOutput
 init|=
 literal|null
 decl_stmt|;
-comment|//private Color highlightColor = Color.YELLOW;
 specifier|private
 name|String
 index|[]
@@ -279,10 +278,6 @@ name|write
 argument_list|(
 literal|"<XML>\n<Body units=characters "
 operator|+
-comment|//color and mode are not implemented by the highlight spec
-comment|//so don't include them for now
-comment|//" color=#" + getHighlightColorAsString() +
-comment|//" mode=active " + */
 literal|" version=2>\n<Highlight>\n"
 argument_list|)
 expr_stmt|;
@@ -357,10 +352,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|//page = page.replaceAll( "\n", "" );
-comment|//page = page.replaceAll( "\r", "" );
-comment|//page = CCRStringUtil.stripChar(page, '\n');
-comment|//page = CCRStringUtil.stripChar(page, '\r');
 comment|// Traitement des listes � puces (caract�res sp�ciaux)
 if|if
 condition|(
@@ -630,14 +621,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the color to highlight the strings with.  Default is Color.YELLOW.      *      * @return The color to highlight strings with.      */
-comment|/*public Color getHighlightColor()     {         return highlightColor;     }**/
-comment|/**      * Get the color to highlight the strings with.  Default is Color.YELLOW.      *      * @param color The color to highlight strings with.      */
-comment|/*public void setHighlightColor(Color color)     {         this.highlightColor = color;     }**/
-comment|/**      * Set the highlight color using HTML like rgb string.  The string must be 6 characters long.      *      * @param color The color to use for highlighting.  Should be in the format of "FF0000".      */
-comment|/*public void setHighlightColor( String color )     {         highlightColor = Color.decode( color );     }**/
-comment|/**      * Get the highlight color as an HTML like string.  This will return a string of six characters.      *      * @return The current highlight color.  For example FF0000      */
-comment|/*public String getHighlightColorAsString()     {         //BJL: kudos to anyone that has a cleaner way of doing this!         String red = Integer.toHexString( highlightColor.getRed() );         String green = Integer.toHexString( highlightColor.getGreen() );         String blue = Integer.toHexString( highlightColor.getBlue() );          return (red.length()< 2 ? "0" + red : red) +                (green.length()< 2 ? "0" + green : green) +                (blue.length()< 2 ? "0" + blue : blue);     }**/
 block|}
 end_class
 

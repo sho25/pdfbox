@@ -473,8 +473,8 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
-comment|// draw the image at half size at (x=20, y=20)
-comment|//contents.drawImage(pdImage, 20, 20, pdImage.getWidth() / 2, pdImage.getHeight() / 2);
+comment|// to draw the image at half size at (x=20, y=20) use
+comment|// contents.drawImage(pdImage, 20, 20, pdImage.getWidth() / 2, pdImage.getHeight() / 2);
 name|contents
 operator|.
 name|close

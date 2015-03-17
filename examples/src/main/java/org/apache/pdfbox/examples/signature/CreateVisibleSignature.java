@@ -851,8 +851,6 @@ argument_list|(
 name|signatureProperties
 argument_list|)
 expr_stmt|;
-comment|// options.setPage(signatureProperties.getPage());
-comment|// options.setPreferedSignatureSize(signatureProperties.getPreferredSize());
 name|doc
 operator|.
 name|addSignature

@@ -400,14 +400,14 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|//contentStream.drawImage(ximage, 20, 20 );
+comment|// contentStream.drawImage(ximage, 20, 20 );
 comment|// better method inspired by http://stackoverflow.com/a/22318681/535646
+comment|// reduce this value if the image is too large
 name|float
 name|scale
 init|=
 literal|1f
 decl_stmt|;
-comment|// reduce this value if the image is too large
 name|contentStream
 operator|.
 name|drawImage
