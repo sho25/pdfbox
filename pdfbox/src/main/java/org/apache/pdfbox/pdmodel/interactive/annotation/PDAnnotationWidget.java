@@ -156,7 +156,7 @@ name|SUB_TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a PDWidget from a COSDictionary, expected to be      * a correct object definition for a field in PDF.      *      * @param field the PDF objet to represent as a field.      */
+comment|/**      * Creates a PDWidget from a COSDictionary, expected to be      * a correct object definition for a field in PDF.      *      * @param field the PDF object to represent as a field.      */
 specifier|public
 name|PDAnnotationWidget
 parameter_list|(
@@ -167,6 +167,18 @@ block|{
 name|super
 argument_list|(
 name|field
+argument_list|)
+expr_stmt|;
+name|getDictionary
+argument_list|()
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|SUBTYPE
+argument_list|,
+name|SUB_TYPE
 argument_list|)
 expr_stmt|;
 block|}

@@ -837,6 +837,19 @@ name|dictionary
 operator|=
 name|dict
 expr_stmt|;
+name|dictionary
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|,
+name|COSName
+operator|.
+name|ANNOT
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * returns the dictionary.      *       * @return the dictionary      */
 specifier|public
