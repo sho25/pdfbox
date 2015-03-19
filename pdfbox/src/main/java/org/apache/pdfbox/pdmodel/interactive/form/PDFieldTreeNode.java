@@ -440,9 +440,21 @@ name|key
 argument_list|)
 return|;
 block|}
+else|else
+block|{
 return|return
-literal|null
+name|getAcroForm
+argument_list|()
+operator|.
+name|getDictionary
+argument_list|()
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|key
+argument_list|)
 return|;
+block|}
 block|}
 comment|/**      * Sets the given attribute, inheriting from parent nodes if necessary.      *      * @param key the key to look up      * @param value the new attributes value      */
 specifier|protected

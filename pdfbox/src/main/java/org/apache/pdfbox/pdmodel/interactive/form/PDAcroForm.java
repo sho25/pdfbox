@@ -1245,11 +1245,13 @@ return|;
 block|}
 comment|/**      * Get the default appearance.      *       * @return the DA element of the dictionary object      */
 specifier|public
-name|COSString
+name|String
 name|getDefaultAppearance
 parameter_list|()
 block|{
-return|return
+name|COSString
+name|defaultAppearance
+init|=
 operator|(
 name|COSString
 operator|)
@@ -1262,6 +1264,12 @@ name|COSName
 operator|.
 name|DA
 argument_list|)
+decl_stmt|;
+return|return
+name|defaultAppearance
+operator|.
+name|getString
+argument_list|()
 return|;
 block|}
 comment|/**      * Set the default appearance.      *       * @param daValue a string describing the default appearance      */
