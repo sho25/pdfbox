@@ -758,6 +758,19 @@ argument_list|(
 literal|"BS"
 argument_list|)
 decl_stmt|;
+comment|//** Acro form field type for button fields.
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|BTN
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Btn"
+argument_list|)
+decl_stmt|;
 specifier|public
 specifier|static
 specifier|final
@@ -937,6 +950,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"CFM"
+argument_list|)
+decl_stmt|;
+comment|//** Acro form field type for choice fields.
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|CH
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Ch"
 argument_list|)
 decl_stmt|;
 specifier|public
@@ -5070,6 +5096,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"TU"
+argument_list|)
+decl_stmt|;
+comment|/** Acro form field type for text field. */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|TX
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Tx"
 argument_list|)
 decl_stmt|;
 specifier|public

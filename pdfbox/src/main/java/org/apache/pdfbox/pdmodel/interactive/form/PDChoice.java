@@ -219,7 +219,7 @@ operator|<<
 literal|26
 decl_stmt|;
 comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
-specifier|protected
+specifier|public
 name|PDChoice
 parameter_list|(
 name|PDAcroForm
@@ -231,9 +231,23 @@ argument_list|(
 name|theAcroForm
 argument_list|)
 expr_stmt|;
+name|getDictionary
+argument_list|()
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|FT
+argument_list|,
+name|COSName
+operator|.
+name|CH
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
-specifier|protected
+specifier|public
 name|PDChoice
 parameter_list|(
 name|PDAcroForm

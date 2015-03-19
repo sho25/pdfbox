@@ -64,6 +64,25 @@ name|PDPushButton
 extends|extends
 name|PDButton
 block|{
+comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+specifier|public
+name|PDPushButton
+parameter_list|(
+name|PDAcroForm
+name|theAcroForm
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|theAcroForm
+argument_list|)
+expr_stmt|;
+name|setPushButton
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
 specifier|public
 name|PDPushButton

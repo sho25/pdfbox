@@ -60,7 +60,7 @@ extends|extends
 name|PDChoice
 block|{
 comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
-specifier|protected
+specifier|public
 name|PDListBox
 parameter_list|(
 name|PDAcroForm
