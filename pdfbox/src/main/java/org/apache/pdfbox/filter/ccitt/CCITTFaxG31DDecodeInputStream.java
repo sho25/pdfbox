@@ -699,10 +699,7 @@ name|SIGNAL_EOD
 return|;
 block|}
 block|}
-specifier|final
-name|int
-name|bit
-init|=
+return|return
 operator|(
 name|this
 operator|.
@@ -722,9 +719,6 @@ condition|?
 literal|0
 else|:
 literal|1
-decl_stmt|;
-return|return
-name|bit
 return|;
 block|}
 specifier|private
