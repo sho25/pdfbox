@@ -1061,11 +1061,11 @@ name|startIndex
 init|=
 name|Math
 operator|.
-name|max
+name|min
 argument_list|(
 name|Math
 operator|.
-name|min
+name|max
 argument_list|(
 name|options
 operator|.
