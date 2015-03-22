@@ -926,8 +926,6 @@ operator|instanceof
 name|String
 condition|)
 block|{
-name|fdfField
-operator|.
 name|setValue
 argument_list|(
 operator|(
@@ -945,8 +943,6 @@ operator|instanceof
 name|PDTextStream
 condition|)
 block|{
-name|fdfField
-operator|.
 name|setValue
 argument_list|(
 operator|(
