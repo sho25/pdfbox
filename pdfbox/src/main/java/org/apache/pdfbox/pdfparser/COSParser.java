@@ -4570,6 +4570,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// there can't be any object at the very beginning of a pdf
+if|if
+condition|(
+name|offset
+operator|<
+name|MINIMUM_SEARCH_OFFSET
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|long
 name|objectNr
 init|=
