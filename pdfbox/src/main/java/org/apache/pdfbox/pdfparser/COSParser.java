@@ -1305,6 +1305,11 @@ argument_list|,
 name|isStandalone
 argument_list|)
 expr_stmt|;
+name|xrefStream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return
 name|dict
 operator|.
