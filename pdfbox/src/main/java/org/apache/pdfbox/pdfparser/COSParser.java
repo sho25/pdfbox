@@ -4340,11 +4340,6 @@ argument_list|)
 expr_stmt|;
 name|xrefOffset
 operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|xrefOffset
-operator|.
 name|putAll
 argument_list|(
 name|bfSearchCOSObjectKeyOffsets
@@ -4760,6 +4755,8 @@ name|genID
 argument_list|)
 argument_list|,
 name|tempOffset
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
