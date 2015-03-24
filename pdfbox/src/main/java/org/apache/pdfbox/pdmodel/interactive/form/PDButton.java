@@ -203,7 +203,7 @@ literal|1
 operator|<<
 literal|25
 decl_stmt|;
-comment|/**      * @see PDField#PDField(PDAcroForm,COSDictionary)      *      * @param theAcroForm The acroform.      */
+comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
 specifier|public
 name|PDButton
 parameter_list|(

@@ -1210,7 +1210,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Creates an object for a kid of this structure node.      * The type of object depends on the type of the kid. It can be      *<ul>      *<li>a {@link PDStructureElement},</li>      *<li>a {@link PDAnnotation},</li>      *<li>a {@link PDXObject},</li>      *<li>a {@link PDMarkedContentReference}</li>      *<li>a {@link Integer}</li>      *</ul>      *       * @param kid the kid      * @return the object      */
+comment|/**      * Creates an object for a kid of this structure node.      * The type of object depends on the type of the kid. It can be      *<ul>      *<li>a {@link PDStructureElement},</li>      *<li>a {@link org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotation PDAnnotation},</li>      *<li>a {@link org.apache.pdfbox.pdmodel.graphics.PDXObject PDXObject},</li>      *<li>a {@link PDMarkedContentReference}</li>      *<li>a {@link Integer}</li>      *</ul>      *       * @param kid the kid      * @return the object      */
 specifier|protected
 specifier|static
 name|Object

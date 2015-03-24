@@ -219,7 +219,7 @@ name|colSpan
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets the headers (Headers). An array of byte strings, where each string      * shall be the element identifier (see the      * {@link PDStructureElement#getElementIdentifier()}) for a TH structure      * element that shall be used as a header associated with this cell.      *       * @return the headers.      */
+comment|/**      * Gets the headers (Headers). An array of byte strings, where each string      * shall be the element identifier (see the      * {@link org.apache.pdfbox.pdmodel.documentinterchange.logicalstructure.PDStructureElement#getElementIdentifier()}) for a TH structure      * element that shall be used as a header associated with this cell.      *       * @return the headers.      */
 specifier|public
 name|String
 index|[]
@@ -235,7 +235,7 @@ name|HEADERS
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the headers (Headers). An array of byte strings, where each string      * shall be the element identifier (see the      * {@link PDStructureElement#getElementIdentifier()}) for a TH structure      * element that shall be used as a header associated with this cell.      *       * @param headers the headers      */
+comment|/**      * Sets the headers (Headers). An array of byte strings, where each string      * shall be the element identifier (see the      * {@link org.apache.pdfbox.pdmodel.documentinterchange.logicalstructure.PDStructureElement#getElementIdentifier()}) for a TH structure      * element that shall be used as a header associated with this cell.      *       * @param headers the headers      */
 specifier|public
 name|void
 name|setHeaders
