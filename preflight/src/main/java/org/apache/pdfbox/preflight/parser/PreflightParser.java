@@ -2040,7 +2040,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Wraps the {@link COSParser#parseCOSStream} to check rules on 'stream' and 'endstream' keywords.      * {@link #checkStreamKeyWord()} and {@link #checkEndstreamKeyWord()}      */
+comment|/**      * Wraps the {@link PDFParser#parseCOSStream} to check rules on 'stream' and 'endstream' keywords.      * {@link #checkStreamKeyWord()} and {@link #checkEndstreamKeyWord()}      */
 annotation|@
 name|Override
 specifier|protected
@@ -2451,7 +2451,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Check that the hexa string contains only an even number of Hexadecimal characters. Once it is done, reset the      * offset at the beginning of the string and call {@link BaseParser#parseCOSString()}      */
+comment|/**      * Check that the hexa string contains only an even number of Hexadecimal characters. Once it is done, reset the      * offset at the beginning of the string and call {@link PDFParser#parseCOSString()}      */
 annotation|@
 name|Override
 specifier|protected
@@ -2651,7 +2651,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Call {@link BaseParser#parseDirObject()} check limit range for Float, Integer and number of Dictionary entries.      */
+comment|/**      * Call {@link PDFParser#parseDirObject()} check limit range for Float, Integer and number of Dictionary entries.      */
 annotation|@
 name|Override
 specifier|protected

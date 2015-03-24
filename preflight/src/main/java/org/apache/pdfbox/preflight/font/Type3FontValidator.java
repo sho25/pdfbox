@@ -1085,7 +1085,7 @@ return|return;
 block|}
 block|}
 block|}
-comment|/**      * For a Type3 font, the mapping between the Character Code and the      * Character name is entirely defined in the /Encoding entry. The /Encoding      * Entry can be a Name (For the 5 predefined encodings) or a dictionary. If      * it is a dictionary, the /Differences array contains the correspondence      * between a character code and a set of character name which are different      * from the encoding entry of the dictionary.      *      * This method checks that the encoding is :      *<UL>      *<li>An existing encoding name.      *<li>A dictionary with an existing encoding name (the name is optional)      * and a well formed "Differences" array (the array is optional)      *</UL>      *      * At the end of this method, if the validation succeed the Font encoding is      * kept in the {@link #encoding} attribute      */
+comment|/**      * For a Type3 font, the mapping between the Character Code and the      * Character name is entirely defined in the /Encoding entry. The /Encoding      * Entry can be a Name (For the 5 predefined encodings) or a dictionary. If      * it is a dictionary, the /Differences array contains the correspondence      * between a character code and a set of character name which are different      * from the encoding entry of the dictionary.      *      * This method checks that the encoding is :      *<UL>      *<li>An existing encoding name.      *<li>A dictionary with an existing encoding name (the name is optional)      * and a well formed "Differences" array (the array is optional)      *</UL>      *      */
 annotation|@
 name|Override
 specifier|protected
