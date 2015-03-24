@@ -66,13 +66,13 @@ specifier|protected
 name|PDDocument
 name|sourceDocument
 decl_stmt|;
+comment|// first page to extract is page 1 (by default)
 specifier|protected
 name|int
 name|startPage
 init|=
 literal|1
 decl_stmt|;
-comment|// first page to extract is page 1 (by default)
 specifier|protected
 name|int
 name|endPage
