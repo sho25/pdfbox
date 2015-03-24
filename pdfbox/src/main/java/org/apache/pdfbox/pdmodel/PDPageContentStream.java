@@ -195,7 +195,7 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSInteger
+name|COSName
 import|;
 end_import
 
@@ -209,7 +209,7 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSName
+name|COSNumber
 import|;
 end_import
 
@@ -2235,7 +2235,7 @@ name|append
 argument_list|(
 operator|(
 operator|(
-name|COSInteger
+name|COSNumber
 operator|)
 name|base
 operator|)
@@ -5072,12 +5072,12 @@ argument_list|(
 literal|"W"
 argument_list|)
 expr_stmt|;
+comment|// end path without filling or stroking
 name|writeOperator
 argument_list|(
 literal|"n"
 argument_list|)
 expr_stmt|;
-comment|// end path without filling or stroking
 block|}
 comment|/**      * Intersects the current clipping path with the current path, using the even-odd rule.      *      * @throws IOException If the content stream could not be written      */
 specifier|public
@@ -5105,12 +5105,12 @@ argument_list|(
 literal|"W*"
 argument_list|)
 expr_stmt|;
+comment|// end path without filling or stroking
 name|writeOperator
 argument_list|(
 literal|"n"
 argument_list|)
 expr_stmt|;
-comment|// end path without filling or stroking
 block|}
 comment|/**      * Set line width to the given value.      *      * @param lineWidth The width which is used for drwaing.      * @throws IOException If the content stream could not be written      */
 specifier|public
