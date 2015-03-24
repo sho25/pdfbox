@@ -4282,10 +4282,7 @@ operator|&&
 name|objectOffset
 operator|>=
 literal|0
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|!
 name|checkObjectKeys
 argument_list|(
@@ -4307,7 +4304,6 @@ operator|=
 literal|true
 expr_stmt|;
 break|break;
-block|}
 block|}
 block|}
 if|if
@@ -6765,6 +6761,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//LOG.info ("parseXrefStream: objByteOffset = " + objByteOffset);
 comment|// the cross reference stream of a hybrid xref table will be added to the existing one
 comment|// and we must not override the offset and the trailer
 if|if
