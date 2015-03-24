@@ -88,7 +88,7 @@ specifier|public
 specifier|static
 specifier|final
 name|Charset
-name|ISO_8859_1_CHARSET
+name|ISO_8859_1
 init|=
 name|Charset
 operator|.
@@ -102,7 +102,7 @@ specifier|public
 specifier|static
 specifier|final
 name|Charset
-name|UTF_8_CHARSET
+name|UTF_8
 init|=
 name|Charset
 operator|.
