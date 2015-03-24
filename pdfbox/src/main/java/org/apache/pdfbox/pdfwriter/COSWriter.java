@@ -594,22 +594,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Charsets
-operator|.
-name|ISO_8859_1_CHARSET
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -2182,7 +2166,9 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2211,7 +2197,9 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2333,7 +2321,9 @@ name|headerString
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3345,7 +3335,9 @@ name|offset
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3366,7 +3358,9 @@ name|generation
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4465,7 +4459,9 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4634,7 +4630,9 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4663,7 +4661,9 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5331,7 +5331,9 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5393,7 +5395,9 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
