@@ -1475,6 +1475,14 @@ argument_list|(
 name|unicode
 argument_list|)
 decl_stmt|;
+name|String
+name|nameInFont
+init|=
+name|getNameInFont
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -1488,7 +1496,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|name
+name|nameInFont
 operator|.
 name|equals
 argument_list|(
@@ -1500,7 +1508,7 @@ name|type1Equivalent
 operator|.
 name|hasGlyph
 argument_list|(
-name|name
+name|nameInFont
 argument_list|)
 condition|)
 block|{
@@ -1889,6 +1897,24 @@ argument_list|(
 name|code
 argument_list|)
 decl_stmt|;
+return|return
+name|getNameInFont
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * Maps a PostScript glyph name to the name in the underlying font, for example when      * using a TTF font we might map "W" to "uni0057".      */
+specifier|private
+name|String
+name|getNameInFont
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 if|if
 condition|(
 name|isEmbedded
