@@ -1224,7 +1224,7 @@ name|tables
 operator|.
 name|add
 argument_list|(
-literal|"cvt"
+literal|"cvt "
 argument_list|)
 expr_stmt|;
 name|tables
