@@ -238,7 +238,7 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
@@ -248,24 +248,6 @@ operator|.
 name|util
 operator|.
 name|Charsets
-operator|.
-name|ISO_8859_1_CHARSET
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Charsets
-operator|.
-name|UTF_8_CHARSET
 import|;
 end_import
 
@@ -800,7 +782,9 @@ decl_stmt|;
 name|Charset
 name|passwordCharset
 init|=
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 decl_stmt|;
 if|if
 condition|(
@@ -815,7 +799,9 @@ condition|)
 block|{
 name|passwordCharset
 operator|=
-name|UTF_8_CHARSET
+name|Charsets
+operator|.
+name|UTF_8
 expr_stmt|;
 name|ue
 operator|=
@@ -1644,7 +1630,9 @@ name|userPassword
 operator|.
 name|getBytes
 argument_list|(
-name|UTF_8_CHARSET
+name|Charsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1781,7 +1769,9 @@ name|ownerPassword
 operator|.
 name|getBytes
 argument_list|(
-name|UTF_8_CHARSET
+name|Charsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2308,7 +2298,9 @@ name|ownerPassword
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2320,7 +2312,9 @@ name|userPassword
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2355,7 +2349,9 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2422,14 +2418,18 @@ name|ownerPassword
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|,
 name|userPassword
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|,
 name|revision
@@ -2447,7 +2447,9 @@ name|userPassword
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|,
 name|ownerBytes
@@ -2474,7 +2476,9 @@ name|userPassword
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|,
 name|ownerBytes
@@ -4579,7 +4583,9 @@ name|password
 operator|.
 name|getBytes
 argument_list|(
-name|UTF_8_CHARSET
+name|Charsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|,
 name|user
@@ -4607,7 +4613,9 @@ name|password
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|,
 name|user
@@ -4669,7 +4677,9 @@ name|password
 operator|.
 name|getBytes
 argument_list|(
-name|ISO_8859_1_CHARSET
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|,
 name|user
