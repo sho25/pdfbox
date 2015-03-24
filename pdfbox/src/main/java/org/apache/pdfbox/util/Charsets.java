@@ -28,7 +28,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class providing common Charsets used in PDF.  *  * @author John Hewson  */
+comment|/**  * Utility class providing common Charsets used in PDFBox.  *  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -81,6 +81,34 @@ operator|.
 name|forName
 argument_list|(
 literal|"UTF-16LE"
+argument_list|)
+decl_stmt|;
+comment|/*** ISO-8859-1 charset */
+specifier|public
+specifier|static
+specifier|final
+name|Charset
+name|ISO_8859_1_CHARSET
+init|=
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"ISO-8859-1"
+argument_list|)
+decl_stmt|;
+comment|/*** UTF-8 charset */
+specifier|public
+specifier|static
+specifier|final
+name|Charset
+name|UTF_8_CHARSET
+init|=
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
 argument_list|)
 decl_stmt|;
 block|}
