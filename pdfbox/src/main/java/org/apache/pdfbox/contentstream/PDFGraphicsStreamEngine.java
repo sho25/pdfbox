@@ -1784,8 +1784,6 @@ comment|/**      * Returns the current point of the current path.      */
 specifier|public
 specifier|abstract
 name|Point2D
-operator|.
-name|Float
 name|getCurrentPoint
 parameter_list|()
 throws|throws
