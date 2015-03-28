@@ -1074,8 +1074,7 @@ if|if
 condition|(
 name|prev
 operator|>
-operator|-
-literal|1
+literal|0
 condition|)
 block|{
 comment|// check the xref table reference
@@ -1132,8 +1131,7 @@ if|if
 condition|(
 name|prev
 operator|>
-operator|-
-literal|1
+literal|0
 condition|)
 block|{
 comment|// check the xref table reference
