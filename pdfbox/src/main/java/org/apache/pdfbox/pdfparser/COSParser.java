@@ -828,8 +828,7 @@ while|while
 condition|(
 name|prev
 operator|>
-operator|-
-literal|1
+literal|0
 condition|)
 block|{
 comment|// seek to xref table
@@ -3462,7 +3461,12 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"The stream doesn't provide any stream length, using fallback readUntilEnd"
+literal|"The stream doesn't provide any stream length, using fallback readUntilEnd, at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
