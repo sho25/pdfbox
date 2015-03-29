@@ -321,7 +321,6 @@ name|PageDrawer
 name|drawer
 decl_stmt|;
 comment|/**      * Creates a new colored tiling Paint.      *      * @param drawer renderer to render the page      * @param pattern tiling pattern dictionary      *      * @throws java.io.IOException if something goes wrong while drawing the      * pattern      */
-specifier|public
 name|TilingPaint
 parameter_list|(
 name|PageDrawer
@@ -370,7 +369,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Creates a new uncolored tiling Paint.      *      * @param drawer renderer to render the page      * @param pattern tiling pattern dictionary      * @param colorSpace color space for this tiling      * @param color color for this tiling      *      * @throws java.io.IOException if something goes wrong while drawing the pattern      */
-specifier|public
 name|TilingPaint
 parameter_list|(
 name|PageDrawer
