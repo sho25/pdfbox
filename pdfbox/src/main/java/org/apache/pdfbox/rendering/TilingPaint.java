@@ -351,10 +351,6 @@ name|TexturePaint
 argument_list|(
 name|getImage
 argument_list|(
-name|drawer
-argument_list|,
-name|pattern
-argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -363,11 +359,7 @@ name|xform
 argument_list|)
 argument_list|,
 name|getAnchorRect
-argument_list|(
-name|pattern
-argument_list|,
-name|drawer
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -414,10 +406,6 @@ name|TexturePaint
 argument_list|(
 name|getImage
 argument_list|(
-name|drawer
-argument_list|,
-name|pattern
-argument_list|,
 name|colorSpace
 argument_list|,
 name|color
@@ -426,11 +414,7 @@ name|xform
 argument_list|)
 argument_list|,
 name|getAnchorRect
-argument_list|(
-name|pattern
-argument_list|,
-name|drawer
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -547,16 +531,9 @@ return|;
 block|}
 comment|/**      * Returns the pattern image in parent stream coordinates.      */
 specifier|private
-specifier|static
 name|BufferedImage
 name|getImage
 parameter_list|(
-name|PageDrawer
-name|drawer
-parameter_list|,
-name|PDTilingPattern
-name|pattern
-parameter_list|,
 name|PDColorSpace
 name|colorSpace
 parameter_list|,
@@ -606,11 +583,7 @@ name|Rectangle2D
 name|anchor
 init|=
 name|getAnchorRect
-argument_list|(
-name|pattern
-argument_list|,
-name|drawer
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|float
 name|width
@@ -969,16 +942,9 @@ return|;
 block|}
 comment|/**      * Returns the anchor rectangle, which includes the XStep/YStep and scaling.      */
 specifier|private
-specifier|static
 name|Rectangle2D
 name|getAnchorRect
-parameter_list|(
-name|PDTilingPattern
-name|pattern
-parameter_list|,
-name|PageDrawer
-name|drawer
-parameter_list|)
+parameter_list|()
 block|{
 name|float
 name|xStep
