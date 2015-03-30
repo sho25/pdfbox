@@ -740,8 +740,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{
 comment|// TODO preserve links to pages within the splitted result
 name|annotation
 operator|.
@@ -750,7 +748,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * The source PDF document.      *       * @return the pdf to be splitted      */
