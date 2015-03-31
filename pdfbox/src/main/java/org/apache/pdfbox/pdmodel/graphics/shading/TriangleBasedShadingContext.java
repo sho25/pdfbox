@@ -225,7 +225,6 @@ argument_list|>
 name|pixelTable
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @throws IOException if there is an error getting the color space or doing background color conversion.      */
-specifier|public
 name|TriangleBasedShadingContext
 parameter_list|(
 name|PDShading
