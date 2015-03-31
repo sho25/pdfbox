@@ -263,6 +263,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test suite setup.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -511,6 +513,7 @@ block|}
 block|}
 block|}
 else|else
+block|{
 name|equals
 operator|=
 operator|(
@@ -528,7 +531,7 @@ name|trim
 argument_list|()
 operator|.
 name|isEmpty
-argument_list|(  )
+argument_list|()
 operator|)
 operator|||
 operator|(
@@ -546,9 +549,10 @@ name|trim
 argument_list|()
 operator|.
 name|isEmpty
-argument_list|(  )
+argument_list|()
 operator|)
 expr_stmt|;
+block|}
 return|return
 name|equals
 return|;
@@ -731,13 +735,9 @@ try|try
 block|{
 name|File
 name|outFile
-init|=
-literal|null
 decl_stmt|;
 name|File
 name|expectedFile
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1136,6 +1136,16 @@ block|{
 break|break;
 block|}
 block|}
+name|expectedReader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|actualReader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -1172,6 +1182,8 @@ operator|new
 name|FilenameFilter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept
