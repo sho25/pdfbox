@@ -476,6 +476,8 @@ name|getUnfilteredStream
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|byte
 name|flag
 init|=
@@ -934,11 +936,15 @@ block|{
 break|break;
 block|}
 block|}
+block|}
+finally|finally
+block|{
 name|mciis
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 name|list
 return|;

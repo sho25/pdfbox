@@ -475,6 +475,8 @@ name|getUnfilteredStream
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 while|while
 condition|(
 literal|true
@@ -522,6 +524,15 @@ parameter_list|)
 block|{
 break|break;
 block|}
+block|}
+block|}
+finally|finally
+block|{
+name|mciis
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 name|int
 name|sz
