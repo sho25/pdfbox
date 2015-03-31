@@ -193,7 +193,6 @@ index|[]
 name|domain
 decl_stmt|;
 comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      */
-specifier|public
 name|Type1ShadingContext
 parameter_list|(
 name|PDShadingType1
