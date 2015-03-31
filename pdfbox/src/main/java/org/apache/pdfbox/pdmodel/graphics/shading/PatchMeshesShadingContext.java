@@ -332,7 +332,7 @@ name|bitsPerFlag
 operator|=
 operator|(
 operator|(
-name|PDShadingType6
+name|PDShadingType4
 operator|)
 name|shading
 operator|)
@@ -1027,9 +1027,6 @@ index|[
 name|j
 index|]
 operator|=
-operator|(
-name|float
-operator|)
 name|interpolate
 argument_list|(
 name|c
