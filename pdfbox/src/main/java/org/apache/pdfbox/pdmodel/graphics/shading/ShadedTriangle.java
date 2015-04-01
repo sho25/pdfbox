@@ -118,7 +118,6 @@ name|double
 name|v2
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param p an array of the 3 vertices of a triangle      * @param c an array of color corresponding the vertex array p      */
-specifier|public
 name|ShadedTriangle
 parameter_list|(
 name|Point2D

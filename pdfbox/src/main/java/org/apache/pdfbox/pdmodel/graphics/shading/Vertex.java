@@ -48,7 +48,6 @@ name|float
 index|[]
 name|color
 decl_stmt|;
-specifier|public
 name|Vertex
 parameter_list|(
 name|Point2D

@@ -57,7 +57,6 @@ index|[]
 name|curve
 decl_stmt|;
 comment|/**      * Constructor of CubicBezierCurve      *      * @param ctrlPnts, 4 control points [p0, p1, p2, p3]      * @param l, dividing level, if l = 0, one cubic Bezier curve is divided      * into 2^0 = 1 segments, if l = n, one cubic Bezier curve is divided into      * 2^n segments      */
-specifier|public
 name|CubicBezierCurve
 parameter_list|(
 name|Point2D
@@ -88,7 +87,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Get level parameter      *      * @return level      */
-specifier|public
 name|int
 name|getLevel
 parameter_list|()
@@ -374,7 +372,6 @@ name|res
 return|;
 block|}
 comment|/**      * Get sampled points of this cubic Bezier curve.      *      * @return sampled points      */
-specifier|public
 name|Point2D
 index|[]
 name|getCubicBezierCurve

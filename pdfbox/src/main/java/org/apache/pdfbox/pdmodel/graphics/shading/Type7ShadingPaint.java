@@ -193,7 +193,6 @@ name|Matrix
 name|matrix
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param shading the shading resources      * @param matrix the pattern matrix concatenated with that of the parent content stream      */
-specifier|public
 name|Type7ShadingPaint
 parameter_list|(
 name|PDShadingType7

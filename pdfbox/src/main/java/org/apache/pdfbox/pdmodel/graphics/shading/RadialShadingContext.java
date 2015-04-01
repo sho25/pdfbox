@@ -884,9 +884,6 @@ name|d1d0
 operator|*
 name|i
 operator|/
-operator|(
-name|float
-operator|)
 name|factor
 decl_stmt|;
 name|float
@@ -1790,7 +1787,7 @@ return|return
 name|extend
 return|;
 block|}
-comment|/**      * Returns the function.      */
+comment|/**      * Returns the function.      *      * @throws java.io.IOException if we were not able to create the function.      */
 specifier|public
 name|PDFunction
 name|getFunction

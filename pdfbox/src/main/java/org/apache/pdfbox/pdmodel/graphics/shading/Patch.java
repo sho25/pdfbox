@@ -86,7 +86,6 @@ argument_list|>
 name|listOfTriangles
 decl_stmt|;
 comment|/**      * Constructor of Patch.      *      * @param ctl control points, size is 12 (for type 6 shading) or 16 (for      * type 7 shading)      * @param color 4 corner's colors      */
-specifier|public
 name|Patch
 parameter_list|(
 name|Point2D

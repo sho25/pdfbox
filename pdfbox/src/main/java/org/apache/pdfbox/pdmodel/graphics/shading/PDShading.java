@@ -190,6 +190,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
@@ -323,6 +324,8 @@ name|dictionary
 return|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return the cos object that matches this Java object      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -901,7 +904,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will return the function used to convert the color values.      *      * @return the function      * @exception IOException if we are unable to create the PDFunction object      */
+comment|/**      * This will return the function used to convert the color values.      *      * @return the function      * @throws java.io.IOException if we were not able to create the function.      */
 specifier|public
 name|PDFunction
 name|getFunction
@@ -1127,8 +1130,6 @@ decl_stmt|;
 name|float
 index|[]
 name|returnValues
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

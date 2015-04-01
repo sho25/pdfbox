@@ -639,7 +639,7 @@ name|calcColorTable
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Calculate the color on the axial line and store them in an array.      *      * @return an array, index denotes the relative position, the corresponding      * value is the color on the axial line      */
+comment|/**      * Calculate the color on the axial line and store them in an array.      *      * @return an array, index denotes the relative position, the corresponding      * value is the color on the axial line      * @throws IOException if the color conversion fails.      */
 specifier|private
 name|int
 index|[]
@@ -725,9 +725,6 @@ name|d1d0
 operator|*
 name|i
 operator|/
-operator|(
-name|float
-operator|)
 name|factor
 decl_stmt|;
 name|float
@@ -1256,7 +1253,7 @@ return|return
 name|extend
 return|;
 block|}
-comment|/**      * Returns the function.      */
+comment|/**      * Returns the function.      *      * @throws java.io.IOException if we were not able to create the function.      */
 specifier|public
 name|PDFunction
 name|getFunction

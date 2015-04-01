@@ -89,7 +89,6 @@ name|linePoints
 decl_stmt|;
 comment|// all the points in this rasterized line
 comment|/**      * Constructor of class Line.      *      * @param p0 one end of a line      * @param p1 the other end of the line      * @param c0 color of point p0      * @param c1 color of point p1      */
-specifier|public
 name|Line
 parameter_list|(
 name|Point
@@ -289,15 +288,11 @@ name|dy
 condition|)
 block|{
 name|err
-operator|=
-name|err
-operator|-
+operator|-=
 name|dy
 expr_stmt|;
 name|x0
-operator|=
-name|x0
-operator|+
+operator|+=
 name|sx
 expr_stmt|;
 block|}
@@ -309,15 +304,11 @@ name|dx
 condition|)
 block|{
 name|err
-operator|=
-name|err
-operator|+
+operator|+=
 name|dx
 expr_stmt|;
 name|y0
-operator|=
-name|y0
-operator|+
+operator|+=
 name|sy
 expr_stmt|;
 block|}
@@ -419,10 +410,7 @@ index|[
 name|i
 index|]
 operator|=
-call|(
-name|float
-call|)
-argument_list|(
+operator|(
 name|color0
 index|[
 name|i
@@ -456,7 +444,7 @@ name|y
 operator|)
 operator|/
 name|l
-argument_list|)
+operator|)
 expr_stmt|;
 block|}
 block|}
@@ -493,10 +481,7 @@ index|[
 name|i
 index|]
 operator|=
-call|(
-name|float
-call|)
-argument_list|(
+operator|(
 name|color0
 index|[
 name|i
@@ -530,7 +515,7 @@ name|x
 operator|)
 operator|/
 name|l
-argument_list|)
+operator|)
 expr_stmt|;
 block|}
 block|}

@@ -183,10 +183,12 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDShadingType5
 name|shading
 decl_stmt|;
 specifier|private
+specifier|final
 name|Matrix
 name|matrix
 decl_stmt|;
