@@ -700,12 +700,7 @@ range|:
 name|kids
 control|)
 block|{
-operator|(
-operator|(
-name|FDFField
-operator|)
 name|kid
-operator|)
 operator|.
 name|writeXML
 argument_list|(
@@ -723,6 +718,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -2444,14 +2441,18 @@ operator|.
 name|append
 argument_list|(
 literal|"&#"
-operator|+
-operator|(
+argument_list|)
+operator|.
+name|append
+argument_list|(
 operator|(
 name|int
 operator|)
 name|c
-operator|)
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|";"
 argument_list|)
 expr_stmt|;
