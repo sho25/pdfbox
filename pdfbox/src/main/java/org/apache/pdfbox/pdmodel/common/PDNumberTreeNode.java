@@ -1028,9 +1028,6 @@ expr_stmt|;
 name|COSObjectable
 name|obj
 init|=
-operator|(
-name|COSObjectable
-operator|)
 name|numbers
 operator|.
 name|get
