@@ -148,10 +148,8 @@ if|if
 condition|(
 name|arguments
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
 block|{
 throw|throw
