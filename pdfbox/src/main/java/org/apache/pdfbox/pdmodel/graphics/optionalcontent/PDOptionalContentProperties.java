@@ -153,6 +153,7 @@ name|UNCHANGED
 parameter_list|)
 constructor_decl|;
 specifier|private
+specifier|final
 name|COSName
 name|name
 decl_stmt|;
@@ -225,6 +226,7 @@ end_class
 
 begin_decl_stmt
 specifier|private
+specifier|final
 name|COSDictionary
 name|dict
 decl_stmt|;
@@ -306,6 +308,8 @@ comment|/** {@inheritDoc} */
 end_comment
 
 begin_function
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -804,9 +808,6 @@ block|{
 name|COSBase
 name|obj
 init|=
-operator|(
-name|COSBase
-operator|)
 name|ocgs
 operator|.
 name|get
