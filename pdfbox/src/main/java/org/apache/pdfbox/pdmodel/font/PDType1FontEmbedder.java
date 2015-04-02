@@ -357,7 +357,6 @@ name|Type1Font
 name|type1
 decl_stmt|;
 comment|/**      * This will load a afm and pfb to be embedding into a document.      *      * @param doc The PDF document that will hold the embedded font.      * @param dict The Font dictionary to write to.      * @param afmStream The afm input.      * @param pfbStream The pfb input.      * @throws IOException If there is an error loading the data.      */
-specifier|public
 name|PDType1FontEmbedder
 parameter_list|(
 name|PDDocument
@@ -596,12 +595,6 @@ init|=
 name|metrics
 operator|.
 name|getCharMetrics
-argument_list|()
-decl_stmt|;
-name|Encoding
-name|encoding
-init|=
-name|getFontEncoding
 argument_list|()
 decl_stmt|;
 name|int
