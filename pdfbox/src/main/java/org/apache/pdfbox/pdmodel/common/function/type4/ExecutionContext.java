@@ -41,10 +41,12 @@ class|class
 name|ExecutionContext
 block|{
 specifier|private
+specifier|final
 name|Operators
 name|operators
 decl_stmt|;
 specifier|private
+specifier|final
 name|Stack
 argument_list|<
 name|Object

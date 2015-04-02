@@ -51,6 +51,7 @@ class|class
 name|InstructionSequence
 block|{
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Object
