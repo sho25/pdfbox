@@ -104,7 +104,6 @@ specifier|final
 class|class
 name|CMapManager
 block|{
-specifier|protected
 specifier|static
 name|Map
 argument_list|<
