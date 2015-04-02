@@ -144,7 +144,6 @@ name|int
 name|wMode
 decl_stmt|;
 comment|/**      * Creates a new ToUnicode CMap writer.      */
-specifier|public
 name|ToUnicodeWriter
 parameter_list|()
 block|{
