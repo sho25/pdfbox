@@ -193,6 +193,7 @@ class|class
 name|ContentStreamWriter
 block|{
 specifier|private
+specifier|final
 name|OutputStream
 name|output
 decl_stmt|;

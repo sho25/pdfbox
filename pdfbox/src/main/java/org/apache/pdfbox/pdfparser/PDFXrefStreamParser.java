@@ -155,10 +155,12 @@ extends|extends
 name|BaseParser
 block|{
 specifier|private
+specifier|final
 name|COSStream
 name|stream
 decl_stmt|;
 specifier|private
+specifier|final
 name|XrefTrailerResolver
 name|xrefTrailerResolver
 decl_stmt|;
