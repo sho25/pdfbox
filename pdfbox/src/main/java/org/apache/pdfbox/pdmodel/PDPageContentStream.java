@@ -1127,7 +1127,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Begin some text operations.      *      * @throws IOException If there is an error writing to the stream or if you attempt to      *         nest beginText calls.      */
+comment|/**      * Begin some text operations.      *      * @throws IOException If there is an error writing to the stream or if you attempt to      *         nest beginText calls.      * @throws IllegalStateException If the method was not allowed to be called at this time.      */
 specifier|public
 name|void
 name|beginText
@@ -1142,7 +1142,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: Nested beginText() calls are not allowed."
 argument_list|)
@@ -1158,7 +1158,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * End some text operations.      *      * @throws IOException If there is an error writing to the stream or if you attempt to      *         nest endText calls.      */
+comment|/**      * End some text operations.      *      * @throws IOException If there is an error writing to the stream or if you attempt to      *         nest endText calls.      * @throws IllegalStateException If the method was not allowed to be called at this time.      */
 specifier|public
 name|void
 name|endText
@@ -1174,7 +1174,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: You must call beginText() before calling endText."
 argument_list|)
@@ -1511,7 +1511,7 @@ name|ty
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The Td operator.      * Move to the start of the next line, offset from the start of the current line by (tx, ty).      *      * @param tx The x translation.      * @param ty The y translation.      * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * The Td operator.      * Move to the start of the next line, offset from the start of the current line by (tx, ty).      *      * @param tx The x translation.      * @param ty The y translation.      * @throws IOException If there is an error writing to the stream.      * @throws IllegalStateException If the method was not allowed to be called at this time.      */
 specifier|public
 name|void
 name|newLineAtOffset
@@ -1533,7 +1533,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: must call beginText() before newLineAtOffset()"
 argument_list|)
@@ -1644,7 +1644,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The Tm operator. Sets the text matrix to the given values.      * A current text matrix will be replaced with the new one.      *      * @param matrix the transformation matrix      * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * The Tm operator. Sets the text matrix to the given values.      * A current text matrix will be replaced with the new one.      *      * @param matrix the transformation matrix      * @throws IOException If there is an error writing to the stream.      * @throws IllegalStateException If the method was not allowed to be called at this time.      */
 specifier|public
 name|void
 name|setTextMatrix
@@ -1663,7 +1663,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: must call beginText() before setTextMatrix"
 argument_list|)
@@ -1849,7 +1849,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw an image at the x,y coordinates, with the given size.      *      * @param image The image to draw.      * @param x The x-coordinate to draw the image.      * @param y The y-coordinate to draw the image.      * @param width The width to draw the image.      * @param height The height to draw the image.      *      * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * Draw an image at the x,y coordinates, with the given size.      *      * @param image The image to draw.      * @param x The x-coordinate to draw the image.      * @param y The y-coordinate to draw the image.      * @param width The width to draw the image.      * @param height The height to draw the image.      *      * @throws IOException If there is an error writing to the stream.      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|drawImage
@@ -1879,7 +1879,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: drawImage is not allowed within a text block."
 argument_list|)
@@ -2050,7 +2050,7 @@ name|height
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw an inline image at the x,y coordinates and a certain width and height.      *      * @param inlineImage The inline image to draw.      * @param x The x-coordinate to draw the inline image.      * @param y The y-coordinate to draw the inline image.      * @param width The width of the inline image to draw.      * @param height The height of the inline image to draw.      *      * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * Draw an inline image at the x,y coordinates and a certain width and height.      *      * @param inlineImage The inline image to draw.      * @param x The x-coordinate to draw the inline image.      * @param y The y-coordinate to draw the inline image.      * @param width The width of the inline image to draw.      * @param height The height of the inline image to draw.      *      * @throws IOException If there is an error writing to the stream.      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|drawImage
@@ -2080,7 +2080,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: drawImage is not allowed within a text block."
 argument_list|)
@@ -2386,7 +2386,7 @@ name|transform
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw an xobject(form or image) using the given {@link AffineTransform} to position      * the xobject.      *      * @param xobject The xobject to draw.      * @param transform the transformation matrix      * @throws IOException If there is an error writing to the stream.      * @deprecated Use {@link #drawImage} or {@link #drawForm} instead.      */
+comment|/**      * Draw an xobject(form or image) using the given {@link AffineTransform} to position      * the xobject.      *      * @param xobject The xobject to draw.      * @param transform the transformation matrix      * @throws IOException If there is an error writing to the stream.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #drawImage} or {@link #drawForm} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -2409,7 +2409,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: drawXObject is not allowed within a text block."
 argument_list|)
@@ -2475,7 +2475,7 @@ name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Draws the given Form XObject at the current location.      *      * @param form Form XObject      * @throws IOException if the content stream could not be written      */
+comment|/**      * Draws the given Form XObject at the current location.      *      * @param form Form XObject      * @throws IOException if the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|drawForm
@@ -2493,7 +2493,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: drawForm is not allowed within a text block."
 argument_list|)
@@ -3252,7 +3252,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Set the stroking color in the DeviceRGB color space. Range is 0..255.      *      * @param r The red value      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the stroking color in the DeviceRGB color space. Range is 0..255.      *      * @param r The red value      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameters are invalid.      */
 specifier|public
 name|void
 name|setStrokingColor
@@ -3269,6 +3269,45 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isOutside255Interval
+argument_list|(
+name|r
+argument_list|)
+operator|||
+name|isOutside255Interval
+argument_list|(
+name|g
+argument_list|)
+operator|||
+name|isOutside255Interval
+argument_list|(
+name|b
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameters must be within 0..255, but are "
+operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"(%d,%d,%d)"
+argument_list|,
+name|r
+argument_list|,
+name|g
+argument_list|,
+name|b
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|writeOperand
 argument_list|(
 name|r
@@ -3296,7 +3335,7 @@ literal|"RG"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color in the DeviceCMYK color space. Range is 0..255.      *      * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      * @deprecated Use {@link #setStrokingColor(float, float, float, float)} instead.      */
+comment|/**      * Set the stroking color in the DeviceCMYK color space. Range is 0..255.      *      * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameters are invalid.      * @deprecated Use {@link #setStrokingColor(float, float, float, float)} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -3318,6 +3357,52 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isOutside255Interval
+argument_list|(
+name|c
+argument_list|)
+operator|||
+name|isOutside255Interval
+argument_list|(
+name|m
+argument_list|)
+operator|||
+name|isOutside255Interval
+argument_list|(
+name|y
+argument_list|)
+operator|||
+name|isOutside255Interval
+argument_list|(
+name|k
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameters must be within 0..255, but are "
+operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"(%d,%d,%d,%d)"
+argument_list|,
+name|c
+argument_list|,
+name|m
+argument_list|,
+name|y
+argument_list|,
+name|k
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|setStrokingColor
 argument_list|(
 name|c
@@ -3338,7 +3423,7 @@ literal|255f
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color in the DeviceCMYK color space. Range is 0..1      *      * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the stroking color in the DeviceCMYK color space. Range is 0..1      *      * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameters are invalid.      */
 specifier|public
 name|void
 name|setStrokingColor
@@ -3358,6 +3443,52 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isOutsideOneInterval
+argument_list|(
+name|c
+argument_list|)
+operator|||
+name|isOutsideOneInterval
+argument_list|(
+name|m
+argument_list|)
+operator|||
+name|isOutsideOneInterval
+argument_list|(
+name|y
+argument_list|)
+operator|||
+name|isOutsideOneInterval
+argument_list|(
+name|k
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameters must be within 0..1, but are "
+operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"(%.2f,%.2f,%.2f,%.2f)"
+argument_list|,
+name|c
+argument_list|,
+name|m
+argument_list|,
+name|y
+argument_list|,
+name|k
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|writeOperand
 argument_list|(
 name|c
@@ -3384,7 +3515,7 @@ literal|"K"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color in the DeviceGray color space. Range is 0..255.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      * @deprecated Use {@link #setStrokingColor(double)} instead.      */
+comment|/**      * Set the stroking color in the DeviceGray color space. Range is 0..255.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameter is invalid.      * @deprecated Use {@link #setStrokingColor(double)} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -3397,6 +3528,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isOutside255Interval
+argument_list|(
+name|g
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameter must be within 0..255, but is "
+operator|+
+name|g
+argument_list|)
+throw|;
+block|}
 name|setStrokingColor
 argument_list|(
 name|g
@@ -3405,7 +3554,7 @@ literal|255f
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color in the DeviceGray color space. Range is 0..1.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the stroking color in the DeviceGray color space. Range is 0..1.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameter is invalid.      */
 specifier|public
 name|void
 name|setStrokingColor
@@ -3416,6 +3565,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isOutsideOneInterval
+argument_list|(
+name|g
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameter must be within 0..1, but is "
+operator|+
+name|g
+argument_list|)
+throw|;
+block|}
 name|writeOperand
 argument_list|(
 operator|(
@@ -3751,7 +3918,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Set the non-stroking color in the DeviceRGB color space. Range is 0..255.      *      * @param r The red value.      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the non-stroking color in the DeviceRGB color space. Range is 0..255.      *      * @param r The red value.      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameters are invalid.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -3768,6 +3935,45 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isOutside255Interval
+argument_list|(
+name|r
+argument_list|)
+operator|||
+name|isOutside255Interval
+argument_list|(
+name|g
+argument_list|)
+operator|||
+name|isOutside255Interval
+argument_list|(
+name|b
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameters must be within 0..255, but are "
+operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"(%d,%d,%d)"
+argument_list|,
+name|r
+argument_list|,
+name|g
+argument_list|,
+name|b
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|writeOperand
 argument_list|(
 name|r
@@ -3795,7 +4001,7 @@ literal|"rg"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the non-stroking color in the DeviceCMYK color space. Range is 0..255.      *      * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the non-stroking color in the DeviceCMYK color space. Range is 0..255.      *      * @param c The cyan value.      * @param m The magenta value.      * @param y The yellow value.      * @param k The black value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameters are invalid.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -3815,6 +4021,52 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isOutside255Interval
+argument_list|(
+name|c
+argument_list|)
+operator|||
+name|isOutside255Interval
+argument_list|(
+name|m
+argument_list|)
+operator|||
+name|isOutside255Interval
+argument_list|(
+name|y
+argument_list|)
+operator|||
+name|isOutside255Interval
+argument_list|(
+name|k
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameters must be within 0..255, but are "
+operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"(%d,%d,%d,%d)"
+argument_list|,
+name|c
+argument_list|,
+name|m
+argument_list|,
+name|y
+argument_list|,
+name|k
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|setNonStrokingColor
 argument_list|(
 name|c
@@ -3855,6 +4107,52 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isOutsideOneInterval
+argument_list|(
+name|c
+argument_list|)
+operator|||
+name|isOutsideOneInterval
+argument_list|(
+name|m
+argument_list|)
+operator|||
+name|isOutsideOneInterval
+argument_list|(
+name|y
+argument_list|)
+operator|||
+name|isOutsideOneInterval
+argument_list|(
+name|k
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameters must be within 0..1, but are "
+operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"(%.2f,%.2f,%.2f,%.2f)"
+argument_list|,
+name|c
+argument_list|,
+name|m
+argument_list|,
+name|y
+argument_list|,
+name|k
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|writeOperand
 argument_list|(
 operator|(
@@ -3893,7 +4191,7 @@ literal|"k"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the non-stroking color in the DeviceGray color space. Range is 0..255.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the non-stroking color in the DeviceGray color space. Range is 0..255.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameter is invalid.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -3904,6 +4202,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isOutside255Interval
+argument_list|(
+name|g
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameter must be within 0..255, but is "
+operator|+
+name|g
+argument_list|)
+throw|;
+block|}
 name|setNonStrokingColor
 argument_list|(
 name|g
@@ -3912,7 +4228,7 @@ literal|255f
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the non-stroking color in the DeviceGray color space. Range is 0..255.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      */
+comment|/**      * Set the non-stroking color in the DeviceGray color space. Range is 0..1.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameter is invalid.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -3923,6 +4239,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isOutsideOneInterval
+argument_list|(
+name|g
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameter must be within 0..1, but is "
+operator|+
+name|g
+argument_list|)
+throw|;
+block|}
 name|writeOperand
 argument_list|(
 operator|(
@@ -3937,7 +4271,7 @@ literal|"g"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a rectangle to the current path.      *      * @param x The lower left x coordinate.      * @param y The lower left y coordinate.      * @param width The width of the rectangle.      * @param height The height of the rectangle.      * @throws IOException If the content stream could not be written.      */
+comment|/**      * Add a rectangle to the current path.      *      * @param x The lower left x coordinate.      * @param y The lower left y coordinate.      * @param width The width of the rectangle.      * @param height The height of the rectangle.      * @throws IOException If the content stream could not be written.      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|addRect
@@ -3964,7 +4298,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: addRect is not allowed within a text block."
 argument_list|)
@@ -3996,7 +4330,7 @@ literal|"re"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw a rectangle on the page using the current non stroking color.      *      * @param x The lower left x coordinate.      * @param y The lower left y coordinate.      * @param width The width of the rectangle.      * @param height The height of the rectangle.      * @throws IOException If there is an error while drawing on the screen.      * @deprecated Use {@link #addRect} followed by {@link #fill()} instead.      */
+comment|/**      * Draw a rectangle on the page using the current non stroking color.      *      * @param x The lower left x coordinate.      * @param y The lower left y coordinate.      * @param width The width of the rectangle.      * @param height The height of the rectangle.      * @throws IOException If there is an error while drawing on the screen.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #addRect} followed by {@link #fill()} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -4025,7 +4359,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: fillRect is not allowed within a text block."
 argument_list|)
@@ -4090,7 +4424,7 @@ name|y3
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current point to      * the point (x3, y3), using (x1, y1) and (x2, y2) as the Bézier control points.      *      * @param x1 x coordinate of the point 1      * @param y1 y coordinate of the point 1      * @param x2 x coordinate of the point 2      * @param y2 y coordinate of the point 2      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If the content stream could not be written.      */
+comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current point to      * the point (x3, y3), using (x1, y1) and (x2, y2) as the Bézier control points.      *      * @param x1 x coordinate of the point 1      * @param y1 y coordinate of the point 1      * @param x2 x coordinate of the point 2      * @param y2 y coordinate of the point 2      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If the content stream could not be written.      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|curveTo
@@ -4123,7 +4457,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: curveTo is not allowed within a text block."
 argument_list|)
@@ -4199,7 +4533,7 @@ name|y3
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current point to      * the point (x3, y3), using the current point and (x2, y2) as the Bézier control points.      *      * @param x2 x coordinate of the point 2      * @param y2 y coordinate of the point 2      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If the content stream could not be written.      */
+comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current point to      * the point (x3, y3), using the current point and (x2, y2) as the Bézier control points.      *      * @param x2 x coordinate of the point 2      * @param y2 y coordinate of the point 2      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IllegalStateException If the method was called within a text block.      * @throws IOException If the content stream could not be written.      */
 specifier|public
 name|void
 name|curveTo2
@@ -4226,7 +4560,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: curveTo2 is not allowed within a text block."
 argument_list|)
@@ -4292,7 +4626,7 @@ name|y3
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current point to      * the point (x3, y3), using (x1, y1) and (x3, y3) as the Bézier control points.      *      * @param x1 x coordinate of the point 1      * @param y1 y coordinate of the point 1      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If the content stream could not be written.      */
+comment|/**      * Append a cubic Bézier curve to the current path. The curve extends from the current point to      * the point (x3, y3), using (x1, y1) and (x3, y3) as the Bézier control points.      *      * @param x1 x coordinate of the point 1      * @param y1 y coordinate of the point 1      * @param x3 x coordinate of the point 3      * @param y3 y coordinate of the point 3      * @throws IOException If the content stream could not be written.      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|curveTo1
@@ -4319,7 +4653,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: curveTo1 is not allowed within a text block."
 argument_list|)
@@ -4351,7 +4685,7 @@ literal|"y"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Move the current position to the given coordinates.      *      * @param x The x coordinate.      * @param y The y coordinate.      * @throws IOException If the content stream could not be written.      */
+comment|/**      * Move the current position to the given coordinates.      *      * @param x The x coordinate.      * @param y The y coordinate.      * @throws IOException If the content stream could not be written.      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|moveTo
@@ -4372,7 +4706,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: moveTo is not allowed within a text block."
 argument_list|)
@@ -4394,7 +4728,7 @@ literal|"m"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw a line from the current position to the given coordinates.      *      * @param x The x coordinate.      * @param y The y coordinate.      * @throws IOException If the content stream could not be written.      */
+comment|/**      * Draw a line from the current position to the given coordinates.      *      * @param x The x coordinate.      * @param y The y coordinate.      * @throws IOException If the content stream could not be written.      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|lineTo
@@ -4415,7 +4749,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: lineTo is not allowed within a text block."
 argument_list|)
@@ -4437,7 +4771,7 @@ literal|"l"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * add a line to the current path.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while adding the line.      * @deprecated Use {@link #moveTo} followed by {@link #lineTo}.      */
+comment|/**      * add a line to the current path.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while adding the line.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #moveTo} followed by {@link #lineTo}.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -4466,7 +4800,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: addLine is not allowed within a text block."
 argument_list|)
@@ -4487,7 +4821,7 @@ name|yEnd
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw a line on the page using the current non stroking color and the current line width.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while drawing on the screen.      * @deprecated Use {@link #moveTo} followed by {@link #lineTo} followed by {@link #stroke}.      */
+comment|/**      * Draw a line on the page using the current non stroking color and the current line width.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while drawing on the screen.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #moveTo} followed by {@link #lineTo} followed by {@link #stroke}.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -4516,7 +4850,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: drawLine is not allowed within a text block."
 argument_list|)
@@ -4540,7 +4874,7 @@ name|stroke
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Add a polygon to the current path.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      * @deprecated Use {@link #moveTo} and {@link #lineTo} methods instead.      */
+comment|/**      * Add a polygon to the current path.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      * @throws IllegalStateException If the method was called within a text block.      * @throws IllegalArgumentException If the two arrays have different lengths.      * @deprecated Use {@link #moveTo} and {@link #lineTo} methods instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -4565,7 +4899,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: addPolygon is not allowed within a text block."
 argument_list|)
@@ -4584,7 +4918,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalArgumentException
 argument_list|(
 literal|"Error: some points are missing coordinate"
 argument_list|)
@@ -4649,7 +4983,7 @@ name|closeSubPath
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Draw a polygon on the page using the current non stroking color.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      * @deprecated Use {@link #moveTo} and {@link #lineTo} methods instead.      */
+comment|/**      * Draw a polygon on the page using the current non stroking color.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #moveTo} and {@link #lineTo} methods instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -4674,7 +5008,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: drawPolygon is not allowed within a text block."
 argument_list|)
@@ -4691,7 +5025,7 @@ name|stroke
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Draw and fill a polygon on the page using the current non stroking color.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      * @deprecated Use {@link #moveTo} and {@link #lineTo} methods instead.      */
+comment|/**      * Draw and fill a polygon on the page using the current non stroking color.      * @param x x coordinate of each points      * @param y y coordinate of each points      * @throws IOException If there is an error while drawing on the screen.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #moveTo} and {@link #lineTo} methods instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -4716,7 +5050,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: fillPolygon is not allowed within a text block."
 argument_list|)
@@ -4733,7 +5067,7 @@ name|fill
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Stroke the path.      *       * @throws IOException If the content stream could not be written      */
+comment|/**      * Stroke the path.      *       * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|stroke
@@ -4748,7 +5082,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: stroke is not allowed within a text block."
 argument_list|)
@@ -4760,7 +5094,7 @@ literal|"S"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Close and stroke the path.      *       * @throws IOException If the content stream could not be written      */
+comment|/**      * Close and stroke the path.      *       * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|closeAndStroke
@@ -4775,7 +5109,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: closeAndStroke is not allowed within a text block."
 argument_list|)
@@ -4787,7 +5121,7 @@ literal|"s"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Fill the path.      *       * @param windingRule the winding rule to be used for filling      * @throws IOException If the content stream could not be written      * @deprecated Use {@link #fill()} or {@link #fillEvenOdd} instead.      */
+comment|/**      * Fill the path.      *       * @param windingRule the winding rule to be used for filling      * @throws IOException If the content stream could not be written      * @throws IllegalArgumentException If the parameter is not a valid winding rule.      * @deprecated Use {@link #fill()} or {@link #fillEvenOdd} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -4831,14 +5165,14 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalArgumentException
 argument_list|(
 literal|"Error: unknown value for winding rule"
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Fills the path using the nonzero winding rule.      *      * @throws IOException If the content stream could not be written      */
+comment|/**      * Fills the path using the nonzero winding rule.      *      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|fill
@@ -4853,7 +5187,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: fill is not allowed within a text block."
 argument_list|)
@@ -4865,7 +5199,7 @@ literal|"f"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Fills the path using the even-odd winding rule.      *      * @throws IOException If the content stream could not be written      */
+comment|/**      * Fills the path using the even-odd winding rule.      *      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|fillEvenOdd
@@ -4880,7 +5214,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: fill is not allowed within a text block."
 argument_list|)
@@ -4892,7 +5226,7 @@ literal|"f*"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Fills the clipping area with the given shading.      *      * @param shading Shading resource      * @throws IOException If the content stream could not be written      */
+comment|/**      * Fills the clipping area with the given shading.      *      * @param shading Shading resource      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|shadingFill
@@ -4910,7 +5244,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: shadingFill is not allowed within a text block."
 argument_list|)
@@ -4946,7 +5280,7 @@ name|closePath
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Closes the current subpath.      *      * @throws IOException If the content stream could not be written      */
+comment|/**      * Closes the current subpath.      *      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|closePath
@@ -4961,7 +5295,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: closePath is not allowed within a text block."
 argument_list|)
@@ -4973,7 +5307,7 @@ literal|"h"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Clip path.      *       * @param windingRule the winding rule to be used for clipping      * @throws IOException If there is an error while clipping the path.      * @deprecated Use {@link #clip()} or {@link #clipEvenOdd} instead.      */
+comment|/**      * Clip path.      *       * @param windingRule the winding rule to be used for clipping      * @throws IOException If there is an error while clipping the path.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #clip()} or {@link #clipEvenOdd} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -4993,7 +5327,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: clipPath is not allowed within a text block."
 argument_list|)
@@ -5034,7 +5368,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalArgumentException
 argument_list|(
 literal|"Error: unknown value for winding rule"
 argument_list|)
@@ -5046,7 +5380,7 @@ literal|"n"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Intersects the current clipping path with the current path, using the nonzero rule.      *      * @throws IOException If the content stream could not be written      */
+comment|/**      * Intersects the current clipping path with the current path, using the nonzero rule.      *      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|clip
@@ -5061,7 +5395,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: clip is not allowed within a text block."
 argument_list|)
@@ -5079,7 +5413,7 @@ literal|"n"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Intersects the current clipping path with the current path, using the even-odd rule.      *      * @throws IOException If the content stream could not be written      */
+comment|/**      * Intersects the current clipping path with the current path, using the even-odd rule.      *      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|clipEvenOdd
@@ -5094,7 +5428,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: clipEvenOdd is not allowed within a text block."
 argument_list|)
@@ -5112,7 +5446,7 @@ literal|"n"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set line width to the given value.      *      * @param lineWidth The width which is used for drwaing.      * @throws IOException If the content stream could not be written      */
+comment|/**      * Set line width to the given value.      *      * @param lineWidth The width which is used for drwaing.      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|setLineWidth
@@ -5130,7 +5464,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: setLineWidth is not allowed within a text block."
 argument_list|)
@@ -5147,7 +5481,7 @@ literal|"w"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the line join style.      *      * @param lineJoinStyle 0 for miter join, 1 for round join, and 2 for bevel join.      * @throws IOException If the content stream could not be written.      */
+comment|/**      * Set the line join style.      *      * @param lineJoinStyle 0 for miter join, 1 for round join, and 2 for bevel join.      * @throws IOException If the content stream could not be written.      * @throws IllegalStateException If the method was called within a text block.      * @throws IllegalArgumentException If the parameter is not a valid line join style.      */
 specifier|public
 name|void
 name|setLineJoinStyle
@@ -5165,7 +5499,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: setLineJoinStyle is not allowed within a text block."
 argument_list|)
@@ -5197,14 +5531,14 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalArgumentException
 argument_list|(
 literal|"Error: unknown value for line join style"
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the line cap style.      *      * @param lineCapStyle 0 for butt cap, 1 for round cap, and 2 for projecting square cap.      * @throws IOException If the content stream could not be written.      */
+comment|/**      * Set the line cap style.      *      * @param lineCapStyle 0 for butt cap, 1 for round cap, and 2 for projecting square cap.      * @throws IOException If the content stream could not be written.      * @throws IllegalStateException If the method was called within a text block.      * @throws IllegalArgumentException If the parameter is not a valid line cap style.      */
 specifier|public
 name|void
 name|setLineCapStyle
@@ -5222,7 +5556,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: setLineCapStyle is not allowed within a text block."
 argument_list|)
@@ -5254,14 +5588,14 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalArgumentException
 argument_list|(
 literal|"Error: unknown value for line cap style"
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the line dash pattern.      *      * @param pattern The pattern array      * @param phase The phase of the pattern      * @throws IOException If the content stream could not be written.      */
+comment|/**      * Set the line dash pattern.      *      * @param pattern The pattern array      * @param phase The phase of the pattern      * @throws IOException If the content stream could not be written.      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|setLineDashPattern
@@ -5283,7 +5617,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"Error: setLineDashPattern is not allowed within a text block."
 argument_list|)
@@ -5858,6 +6192,42 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+specifier|private
+name|boolean
+name|isOutside255Interval
+parameter_list|(
+name|int
+name|val
+parameter_list|)
+block|{
+return|return
+name|val
+argument_list|<
+literal|0
+operator|||
+name|val
+argument_list|>
+literal|255
+return|;
+block|}
+specifier|private
+name|boolean
+name|isOutsideOneInterval
+parameter_list|(
+name|double
+name|val
+parameter_list|)
+block|{
+return|return
+name|val
+argument_list|<
+literal|0
+operator|||
+name|val
+argument_list|>
+literal|1
+return|;
 block|}
 block|}
 end_class
