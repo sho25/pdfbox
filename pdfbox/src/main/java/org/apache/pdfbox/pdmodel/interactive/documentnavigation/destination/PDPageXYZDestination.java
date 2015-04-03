@@ -49,6 +49,34 @@ name|COSBase
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSFloat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSNumber
+import|;
+end_import
+
 begin_comment
 comment|/**  * This represents a destination to a page at an x,y coordinate with a zoom setting.  * The default x,y,z will be whatever is the current value in the viewer application and  * are not required.  *  * @author Ben Litchfield  */
 end_comment
@@ -108,7 +136,7 @@ name|arr
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the left x coordinate.  A return value of -1 implies that the current x-coordinate      * will be used.      *      * @return The left x coordinate.      */
+comment|/**      * Get the left x coordinate.  Return values of 0 or -1 imply that the current x-coordinate      * will be used.      *      * @return The left x coordinate.      */
 specifier|public
 name|int
 name|getLeft
@@ -123,7 +151,7 @@ literal|2
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the left x-coordinate, a value of -1 implies that the current x-coordinate      * will be used.      * @param x The left x coordinate.      */
+comment|/**      * Set the left x-coordinate, values 0 or -1 imply that the current x-coordinate      * will be used.      * @param x The left x coordinate.      */
 specifier|public
 name|void
 name|setLeft
@@ -173,7 +201,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the top y coordinate.  A return value of -1 implies that the current y-coordinate      * will be used.      *      * @return The top y coordinate.      */
+comment|/**      * Get the top y coordinate.  Return values of 0 or -1 imply that the current y-coordinate      * will be used.      *      * @return The top y coordinate.      */
 specifier|public
 name|int
 name|getTop
@@ -188,7 +216,7 @@ literal|3
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the top y-coordinate, a value of -1 implies that the current y-coordinate      * will be used.      * @param y The top ycoordinate.      */
+comment|/**      * Set the top y-coordinate, values 0 or -1 imply that the current y-coordinate      * will be used.      * @param y The top ycoordinate.      */
 specifier|public
 name|void
 name|setTop
@@ -238,27 +266,52 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the zoom value.  A return value of -1 implies that the current zoom      * will be used.      *      * @return The zoom value for the page.      */
+comment|/**      * Get the zoom value.  Return values of 0 or -1 imply that the current zoom      * will be used.      *      * @return The zoom value for the page.      */
 specifier|public
-name|int
+name|float
 name|getZoom
 parameter_list|()
 block|{
-return|return
+name|COSBase
+name|obj
+init|=
 name|array
 operator|.
-name|getInt
+name|getObject
 argument_list|(
 literal|4
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|obj
+operator|instanceof
+name|COSNumber
+condition|)
+block|{
+return|return
+operator|(
+operator|(
+name|COSNumber
+operator|)
+name|obj
+operator|)
+operator|.
+name|floatValue
+argument_list|()
 return|;
 block|}
-comment|/**      * Set the zoom value for the page, a value of -1 implies that the current zoom      * will be used.      * @param zoom The zoom value.      */
+return|return
+operator|-
+literal|1
+return|;
+block|}
+comment|/**      * Set the zoom value for the page, values 0 or -1 imply that the current zoom      * will be used.      * @param zoom The zoom value.      */
 specifier|public
 name|void
 name|setZoom
 parameter_list|(
-name|int
+name|float
 name|zoom
 parameter_list|)
 block|{
@@ -294,11 +347,15 @@ else|else
 block|{
 name|array
 operator|.
-name|setInt
+name|set
 argument_list|(
 literal|4
 argument_list|,
+operator|new
+name|COSFloat
+argument_list|(
 name|zoom
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
