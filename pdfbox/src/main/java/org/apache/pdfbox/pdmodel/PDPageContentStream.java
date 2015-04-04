@@ -2690,7 +2690,7 @@ name|nonStrokingColorSpaceStack
 operator|.
 name|push
 argument_list|(
-name|strokingColorSpaceStack
+name|nonStrokingColorSpaceStack
 operator|.
 name|peek
 argument_list|()
