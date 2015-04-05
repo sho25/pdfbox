@@ -3347,86 +3347,9 @@ comment|// read 'stream'; this was already tested in parseObjectsDynamically()
 name|readString
 argument_list|()
 expr_stmt|;
-comment|// skip whitespaces before start of data
-comment|// PDF Ref 1.7, chap. 3.2.7:
-comment|// 'stream' should be followed by either a CRLF (0x0d 0x0a) or LF
-comment|// but nothing else.
-name|int
-name|whitespace
-init|=
-name|pdfSource
-operator|.
-name|read
-argument_list|()
-decl_stmt|;
-comment|// see brother_scan_cover.pdf, it adds whitespaces
-comment|// after the stream but before the start of the
-comment|// data, so just read those first
-while|while
-condition|(
-name|whitespace
-operator|==
-literal|0x20
-condition|)
-block|{
-name|whitespace
-operator|=
-name|pdfSource
-operator|.
-name|read
+name|skipWhiteSpaces
 argument_list|()
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|whitespace
-operator|==
-literal|0x0D
-condition|)
-block|{
-name|whitespace
-operator|=
-name|pdfSource
-operator|.
-name|read
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|whitespace
-operator|!=
-literal|0x0A
-condition|)
-block|{
-comment|// the spec says this is invalid but it happens in the
-comment|// real world so we must support it
-name|pdfSource
-operator|.
-name|unread
-argument_list|(
-name|whitespace
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-elseif|else
-if|if
-condition|(
-name|whitespace
-operator|!=
-literal|0x0A
-condition|)
-block|{
-comment|// no whitespace after 'stream'; PDF ref. says 'should' so
-comment|// that is ok
-name|pdfSource
-operator|.
-name|unread
-argument_list|(
-name|whitespace
-argument_list|)
-expr_stmt|;
-block|}
 comment|/*              * This needs to be dic.getItem because when we are parsing, the underlying object might still be null.              */
 name|COSNumber
 name|streamLengthObj

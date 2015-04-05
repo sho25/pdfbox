@@ -1434,89 +1434,9 @@ argument_list|(
 name|STREAM_STRING
 argument_list|)
 expr_stmt|;
-comment|//PDF Ref 3.2.7 A stream must be followed by either
-comment|//a CRLF or LF but nothing else.
-name|int
-name|whitespace
-init|=
-name|pdfSource
-operator|.
-name|read
-argument_list|()
-decl_stmt|;
-comment|//see brother_scan_cover.pdf, it adds whitespaces
-comment|//after the stream but before the start of the
-comment|//data, so just read those first
-while|while
-condition|(
-name|ASCII_SPACE
-operator|==
-name|whitespace
-condition|)
-block|{
-name|whitespace
-operator|=
-name|pdfSource
-operator|.
-name|read
+name|skipWhiteSpaces
 argument_list|()
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|ASCII_CR
-operator|==
-name|whitespace
-condition|)
-block|{
-name|whitespace
-operator|=
-name|pdfSource
-operator|.
-name|read
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|ASCII_LF
-operator|!=
-name|whitespace
-condition|)
-block|{
-name|pdfSource
-operator|.
-name|unread
-argument_list|(
-name|whitespace
-argument_list|)
-expr_stmt|;
-comment|//The spec says this is invalid but it happens in the real
-comment|//world so we must support it.
-block|}
-block|}
-elseif|else
-if|if
-condition|(
-name|ASCII_LF
-operator|==
-name|whitespace
-condition|)
-block|{
-comment|//that is fine
-block|}
-else|else
-block|{
-comment|//we are in an error.
-comment|//but again we will do a lenient parsing and just assume that everything
-comment|//is fine
-name|pdfSource
-operator|.
-name|unread
-argument_list|(
-name|whitespace
-argument_list|)
-expr_stmt|;
-block|}
 comment|// This needs to be dic.getItem because when we are parsing, the underlying object
 comment|// might still be null.
 name|COSBase
@@ -2039,6 +1959,93 @@ block|}
 return|return
 name|stream
 return|;
+block|}
+specifier|protected
+name|void
+name|skipWhiteSpaces
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|//PDF Ref 3.2.7 A stream must be followed by either
+comment|//a CRLF or LF but nothing else.
+name|int
+name|whitespace
+init|=
+name|pdfSource
+operator|.
+name|read
+argument_list|()
+decl_stmt|;
+comment|//see brother_scan_cover.pdf, it adds whitespaces
+comment|//after the stream but before the start of the
+comment|//data, so just read those first
+while|while
+condition|(
+name|ASCII_SPACE
+operator|==
+name|whitespace
+condition|)
+block|{
+name|whitespace
+operator|=
+name|pdfSource
+operator|.
+name|read
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ASCII_CR
+operator|==
+name|whitespace
+condition|)
+block|{
+name|whitespace
+operator|=
+name|pdfSource
+operator|.
+name|read
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|ASCII_LF
+operator|!=
+name|whitespace
+condition|)
+block|{
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
+name|whitespace
+argument_list|)
+expr_stmt|;
+comment|//The spec says this is invalid but it happens in the real
+comment|//world so we must support it.
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|ASCII_LF
+operator|!=
+name|whitespace
+condition|)
+block|{
+comment|//we are in an error.
+comment|//but again we will do a lenient parsing and just assume that everything
+comment|//is fine
+name|pdfSource
+operator|.
+name|unread
+argument_list|(
+name|whitespace
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * This method will read through the current stream object until      * we find the keyword "endstream" meaning we're at the end of this      * object. Some pdf files, however, forget to write some endstream tags      * and just close off objects with an "endobj" tag so we have to handle      * this case as well.      *       * This method is optimized using buffered IO and reduced number of      * byte compare operations.      *       * @param out  stream we write out to.      *       * @throws IOException if something went wrong      */
 specifier|protected
