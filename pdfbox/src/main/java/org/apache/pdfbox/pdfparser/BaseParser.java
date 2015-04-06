@@ -756,27 +756,6 @@ name|pushbacksize
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param input The array to read the data from.      * @throws IOException If there is an error reading the byte data.      */
-specifier|protected
-name|BaseParser
-parameter_list|(
-name|byte
-index|[]
-name|input
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|this
-argument_list|(
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-name|input
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Returns a new instance of a COSStream.      *       * @param dictionary the dictionary belonging to the stream      * @return the new COSStream      */
 specifier|protected
 specifier|final
