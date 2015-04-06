@@ -161,6 +161,22 @@ name|COSObjectKey
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Charsets
+operator|.
+name|ISO_8859_1
+import|;
+end_import
+
 begin_class
 specifier|public
 class|class

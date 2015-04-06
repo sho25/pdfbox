@@ -345,6 +345,22 @@ name|COSObjectKey
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Charsets
+operator|.
+name|ISO_8859_1
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class is used to contain parsing logic that will be used by both the  * PDFParser and the COSStreamParser.  *  * @author Ben Litchfield  */
 end_comment
@@ -372,15 +388,6 @@ name|long
 name|GENERATION_NUMBER_THRESHOLD
 init|=
 literal|65535
-decl_stmt|;
-comment|/**      * String constant for ISO-8859-1 charset.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|ISO_8859_1
-init|=
-literal|"ISO-8859-1"
 decl_stmt|;
 comment|/**      * system property allowing to define size of push back buffer.      */
 specifier|public
