@@ -720,6 +720,11 @@ name|TMP_FILE_PREFIX
 init|=
 literal|"tmpPDF"
 decl_stmt|;
+comment|/**      * Default constructor.      */
+specifier|public
+name|COSParser
+parameter_list|()
+block|{     }
 comment|/**      * Constructor.      *       * @param input inputStream of the pdf to be read      * @throws IOException if something went wrong      */
 specifier|public
 name|COSParser
@@ -6693,6 +6698,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//LOG.info ("parseXrefStream: objByteOffset = " + objByteOffset);
 comment|// the cross reference stream of a hybrid xref table will be added to the existing one
 comment|// and we must not override the offset and the trailer
 if|if
