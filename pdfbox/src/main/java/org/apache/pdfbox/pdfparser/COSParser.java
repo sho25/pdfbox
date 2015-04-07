@@ -6992,7 +6992,7 @@ return|return
 name|document
 return|;
 block|}
-comment|/**      * Create a temporary file with the input stream. If the creation succeed, the {@linkplain #isTmpPDFFile} is set to      * true. This Temporary file will be deleted at end of the parse method      *      * @param input      * @return the temporary file      * @throws IOException If something went wrong.      */
+comment|/**      * Create a temporary file with the input stream. The caller must take care      * to delete this file at end of the parse method.      *      * @param input      * @return the temporary file      * @throws IOException If something went wrong.      */
 name|File
 name|createTmpFile
 parameter_list|(
