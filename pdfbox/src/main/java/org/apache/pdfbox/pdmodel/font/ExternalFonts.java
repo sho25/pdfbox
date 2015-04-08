@@ -838,6 +838,8 @@ argument_list|(
 literal|"ZapfDingbatsITC"
 argument_list|,
 literal|"Dingbats"
+argument_list|,
+literal|"arialuni"
 argument_list|)
 argument_list|)
 expr_stmt|;
