@@ -839,7 +839,7 @@ literal|"ZapfDingbatsITC"
 argument_list|,
 literal|"Dingbats"
 argument_list|,
-literal|"arialuni"
+literal|"MS-Gothic"
 argument_list|)
 argument_list|)
 expr_stmt|;
