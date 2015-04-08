@@ -126,7 +126,7 @@ name|PDImage
 extends|extends
 name|COSObjectable
 block|{
-comment|/**      * Returns the content of this image as an AWT buffered image with an (A)RGB color space.      * @return content of this image as a buffered image.      * @throws IOException      */
+comment|/**      * Returns the content of this image as an AWT buffered image with an (A)RGB color space.      * The size of the returned image is the larger of the size of the image itself or its mask.       * @return content of this image as a buffered image.      * @throws IOException      */
 name|BufferedImage
 name|getImage
 parameter_list|()
