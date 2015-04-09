@@ -417,7 +417,6 @@ return|;
 block|}
 comment|/* Returns a new security handler for the given parameters, or null none is available.      *      * @param handlerClass the handler class.      * @param argsClasses the parameter array.      * @param args array of objects to be passed as arguments to the constructor call.      * @return a new SecurityHandler instance, or null if none is available.      */
 specifier|private
-specifier|static
 name|SecurityHandler
 name|newSecurityHandler
 parameter_list|(
