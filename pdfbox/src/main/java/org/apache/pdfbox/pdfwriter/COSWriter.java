@@ -3396,7 +3396,6 @@ expr_stmt|;
 block|}
 comment|/**      * check the xref entries and write out the ranges.  The format of the      * returned array is exactly the same as the pdf specification.  See section      * 7.5.4 of ISO32000-1:2008, example 1 (page 40) for reference.      *<p>      * example: 0 1 2 5 6 7 8 10      *<p>      * will create a array with follow ranges      *<p>      * 0 3 5 4 10 1      *<p>      * this mean that the element 0 is followed by two other related numbers       * that represent a cluster of the size 3. 5 is follow by three other      * related numbers and create a cluster of size 4. etc.      *       * @param xRefEntriesList list with the xRef entries that was written      * @return a integer array with the ranges      */
 specifier|protected
-specifier|static
 name|Long
 index|[]
 name|getXRefRanges
