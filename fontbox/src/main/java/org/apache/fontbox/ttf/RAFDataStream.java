@@ -80,7 +80,6 @@ comment|/**  * An implementation of the TTFDataStream that goes against a RAF.  
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|RAFDataStream
 extends|extends
@@ -99,7 +98,6 @@ init|=
 literal|null
 decl_stmt|;
 comment|/**      * Constructor.      *       * @param name The raf file.      * @param mode The mode to open the RAF.      *       * @throws FileNotFoundException If there is a problem creating the RAF.      *       * @see RandomAccessFile#RandomAccessFile( String, String )      */
-specifier|public
 name|RAFDataStream
 parameter_list|(
 name|String
@@ -124,7 +122,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Constructor.      *       * @param file The raf file.      * @param mode The mode to open the RAF.      *       * @throws FileNotFoundException If there is a problem creating the RAF.      *       * @see RandomAccessFile#RandomAccessFile( File, String )      */
-specifier|public
 name|RAFDataStream
 parameter_list|(
 name|File

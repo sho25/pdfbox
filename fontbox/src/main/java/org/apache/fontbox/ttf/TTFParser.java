@@ -212,7 +212,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Parse a file and get a true type font.      *      * @param raf The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
-specifier|public
 name|TrueTypeFont
 name|parse
 parameter_list|(
@@ -322,7 +321,6 @@ return|return
 name|font
 return|;
 block|}
-specifier|protected
 name|TrueTypeFont
 name|newFont
 parameter_list|(

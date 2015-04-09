@@ -86,17 +86,19 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface into a data stream.  *   * @author Ben Litchfield  *   */
+comment|/**  * An interface into a data stream.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
-specifier|public
 specifier|abstract
 class|class
 name|TTFDataStream
 implements|implements
 name|Closeable
 block|{
+name|TTFDataStream
+parameter_list|()
+block|{     }
 comment|/**      * Read a 16.16 fixed value, where the first 16 bits are the decimal and the last 16 bits are the fraction.      *       * @return A 32 bit value.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|float
@@ -530,6 +532,27 @@ argument_list|)
 expr_stmt|;
 return|return
 name|cal
+return|;
+block|}
+comment|/**      * Reads a tag, an arrau of four uint8s used to identify a script, language system, feature,      * or baseline.      */
+specifier|public
+name|String
+name|readTag
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|String
+argument_list|(
+name|read
+argument_list|(
+literal|4
+argument_list|)
+argument_list|,
+literal|"US-ASCII"
+argument_list|)
 return|;
 block|}
 comment|/**      * Close the underlying resources.      *       * @throws IOException If there is an error closing the resources.      */

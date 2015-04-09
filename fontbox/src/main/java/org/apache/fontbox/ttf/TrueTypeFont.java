@@ -43,6 +43,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -127,6 +137,8 @@ class|class
 name|TrueTypeFont
 implements|implements
 name|Type1Equivalent
+implements|,
+name|Closeable
 block|{
 specifier|private
 name|float
@@ -189,7 +201,8 @@ operator|=
 name|fontData
 expr_stmt|;
 block|}
-comment|/**      * Close the underlying resources.      *       * @throws IOException If there is an error closing the resources.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close

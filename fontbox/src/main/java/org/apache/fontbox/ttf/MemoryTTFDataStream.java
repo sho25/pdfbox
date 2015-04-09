@@ -70,7 +70,6 @@ comment|/**  * An interface into a data stream.  *   * @author Ben Litchfield  *
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|MemoryTTFDataStream
 extends|extends
@@ -90,7 +89,6 @@ init|=
 literal|0
 decl_stmt|;
 comment|/**      * Constructor from a stream.       * @param is The stream of read from.      * @throws IOException If an error occurs while reading from the stream.      */
-specifier|public
 name|MemoryTTFDataStream
 parameter_list|(
 name|InputStream

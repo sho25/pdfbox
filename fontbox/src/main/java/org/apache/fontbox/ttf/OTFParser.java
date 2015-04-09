@@ -51,6 +51,7 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|OTFParser
 extends|extends
@@ -174,7 +175,7 @@ return|;
 block|}
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|OpenTypeFont
 name|parse
 parameter_list|(
@@ -198,7 +199,6 @@ return|;
 block|}
 annotation|@
 name|Override
-specifier|protected
 name|OpenTypeFont
 name|newFont
 parameter_list|(
