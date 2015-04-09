@@ -415,7 +415,6 @@ block|}
 comment|// Use Inflater instead of InflateInputStream to avoid an EOFException due to a probably
 comment|// missing Z_STREAM_END, see PDFBOX-1232 for details
 specifier|private
-specifier|static
 name|void
 name|decompress
 parameter_list|(

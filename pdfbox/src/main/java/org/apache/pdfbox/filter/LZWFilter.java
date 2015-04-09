@@ -466,7 +466,6 @@ argument_list|)
 return|;
 block|}
 specifier|private
-specifier|static
 name|void
 name|doLZWDecode
 parameter_list|(
@@ -1081,7 +1080,6 @@ expr_stmt|;
 block|}
 comment|/**      * Find the longest matching pattern in the code table.      *      * @param codeTable The LZW code table.      * @param pattern The pattern to be searched for.      * @return The index of the longest matching pattern or -1 if nothing is      * found.      */
 specifier|private
-specifier|static
 name|int
 name|findPatternCode
 parameter_list|(
@@ -1220,7 +1218,6 @@ return|;
 block|}
 comment|/**      * Init the code table with 1 byte entries and the EOD and CLEAR_TABLE      * markers.      */
 specifier|private
-specifier|static
 name|List
 argument_list|<
 name|byte
@@ -1303,7 +1300,6 @@ return|;
 block|}
 comment|/**      * Calculate the appropriate chunk size      *      * @param tabSize the size of the code table      * @param earlyChange 0 or 1 for early chunk increase      *      * @return a value between 9 and 12      */
 specifier|private
-specifier|static
 name|int
 name|calculateChunk
 parameter_list|(

@@ -648,7 +648,6 @@ comment|//  12  0x0C  Form feed (FF)
 comment|//  13  0x0D  Carriage return (CR)
 comment|//  32  0x20  Space (SP)
 specifier|private
-specifier|static
 name|boolean
 name|isWhitespace
 parameter_list|(
@@ -683,7 +682,6 @@ literal|32
 return|;
 block|}
 specifier|private
-specifier|static
 name|boolean
 name|isEOD
 parameter_list|(

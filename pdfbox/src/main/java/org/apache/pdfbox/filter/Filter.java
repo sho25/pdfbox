@@ -264,7 +264,6 @@ function_decl|;
 comment|// gets the decode params for a specific filter index, this is used to
 comment|// normalise the DecodeParams entry so that it is always a dictionary
 specifier|protected
-specifier|static
 name|COSDictionary
 name|getDecodeParams
 parameter_list|(
