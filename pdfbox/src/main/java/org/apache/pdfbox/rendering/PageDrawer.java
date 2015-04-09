@@ -2505,17 +2505,41 @@ argument_list|)
 expr_stmt|;
 comment|// disable anti-aliasing for rectangular paths, this is a workaround to avoid small stripes
 comment|// which occur when solid fills are used to simulate piecewise gradients, see PDFBOX-2302
+comment|// note that we ignore paths with a width/height under 1 as these are fills used as strokes,
+comment|// see PDFBOX-1658 for an example
+name|Rectangle2D
+name|bounds
+init|=
+name|linePath
+operator|.
+name|getBounds2D
+argument_list|()
+decl_stmt|;
 name|boolean
-name|isRectangular
+name|noAntiAlias
 init|=
 name|isRectangular
 argument_list|(
 name|linePath
 argument_list|)
+operator|&&
+name|bounds
+operator|.
+name|getWidth
+argument_list|()
+operator|>
+literal|1
+operator|&&
+name|bounds
+operator|.
+name|getHeight
+argument_list|()
+operator|>
+literal|1
 decl_stmt|;
 if|if
 condition|(
-name|isRectangular
+name|noAntiAlias
 condition|)
 block|{
 name|graphics
@@ -2546,7 +2570,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|isRectangular
+name|noAntiAlias
 condition|)
 block|{
 comment|// JDK 1.7 has a bug where rendering hints are reset by the above call to
