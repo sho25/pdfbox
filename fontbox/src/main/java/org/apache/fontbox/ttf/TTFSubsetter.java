@@ -519,7 +519,6 @@ return|;
 block|}
 comment|/**      * @param out The data output stream.      * @param nTables The number of table.      * @return The file offset of the first TTF table to write.      * @throws IOException Upon errors.      */
 specifier|private
-specifier|static
 name|long
 name|writeFileHeader
 parameter_list|(
@@ -621,7 +620,6 @@ argument_list|)
 return|;
 block|}
 specifier|private
-specifier|static
 name|long
 name|writeTableHeader
 parameter_list|(
@@ -761,7 +759,6 @@ name|length
 return|;
 block|}
 specifier|private
-specifier|static
 name|void
 name|writeTableBody
 parameter_list|(
@@ -1255,7 +1252,6 @@ argument_list|()
 return|;
 block|}
 specifier|private
-specifier|static
 name|boolean
 name|shouldCopyNameRecord
 parameter_list|(
@@ -2345,7 +2341,6 @@ argument_list|()
 return|;
 block|}
 specifier|private
-specifier|static
 name|byte
 index|[]
 name|buildLocaTable
@@ -5157,7 +5152,6 @@ expr_stmt|;
 block|}
 block|}
 specifier|private
-specifier|static
 name|void
 name|writeFixed
 parameter_list|(
@@ -5213,7 +5207,6 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|private
-specifier|static
 name|void
 name|writeUint32
 parameter_list|(
@@ -5238,7 +5231,6 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|private
-specifier|static
 name|void
 name|writeUint16
 parameter_list|(
@@ -5260,7 +5252,6 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|private
-specifier|static
 name|void
 name|writeSInt16
 parameter_list|(
@@ -5282,7 +5273,6 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|private
-specifier|static
 name|void
 name|writeUint8
 parameter_list|(
@@ -5304,7 +5294,6 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|private
-specifier|static
 name|void
 name|writeLongDateTime
 parameter_list|(
@@ -5362,7 +5351,6 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|private
-specifier|static
 name|long
 name|toUInt32
 parameter_list|(
@@ -5388,7 +5376,6 @@ literal|0xffffL
 return|;
 block|}
 specifier|private
-specifier|static
 name|long
 name|toUInt32
 parameter_list|(
@@ -5440,7 +5427,6 @@ literal|0xffL
 return|;
 block|}
 specifier|private
-specifier|static
 name|int
 name|log2
 parameter_list|(

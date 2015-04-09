@@ -2418,7 +2418,6 @@ return|;
 block|}
 comment|/**      * This will convert and angle bracket hex string to a string.      *      * @param hexString An angle bracket string.      *      * @return The bytes of the hex string.      *      * @throws IOException If the string is in an invalid format.      */
 specifier|private
-specifier|static
 name|String
 name|hexToString
 parameter_list|(
@@ -3752,7 +3751,6 @@ return|;
 block|}
 comment|/**      * This is used to verify that a semicolon is the next token in the stream.      *      * @param tokenizer The tokenizer to read from.      *      * @throws IOException If the semicolon is missing.      */
 specifier|private
-specifier|static
 name|void
 name|verifySemicolon
 parameter_list|(
@@ -4071,7 +4069,6 @@ return|;
 block|}
 comment|/**      * This will determine if the byte is a whitespace character or not.      *      * @param character The character to test for whitespace.      *      * @return true If the character is whitespace as defined by the AFM spec.      */
 specifier|private
-specifier|static
 name|boolean
 name|isEOL
 parameter_list|(
@@ -4091,7 +4088,6 @@ return|;
 block|}
 comment|/**      * This will determine if the byte is a whitespace character or not.      *      * @param character The character to test for whitespace.      *      * @return true If the character is whitespace as defined by the AFM spec.      */
 specifier|private
-specifier|static
 name|boolean
 name|isWhitespace
 parameter_list|(
