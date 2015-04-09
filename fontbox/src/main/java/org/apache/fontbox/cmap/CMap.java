@@ -566,7 +566,6 @@ throw|;
 block|}
 comment|/**      * Returns an int given a List<Byte>      */
 specifier|private
-specifier|static
 name|int
 name|toInt
 parameter_list|(
@@ -677,7 +676,6 @@ return|;
 block|}
 comment|/**      * Convert the given part of a byte array to an integer.      * @param data the byte array      * @param offset The offset into the byte array.      * @param length The length of the data we are getting.      * @return the resulting integer      */
 specifier|private
-specifier|static
 name|int
 name|getCodeFromArray
 parameter_list|(

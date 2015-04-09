@@ -2799,7 +2799,6 @@ name|retval
 return|;
 block|}
 specifier|private
-specifier|static
 name|void
 name|readUntilEndOfLine
 parameter_list|(
@@ -2856,7 +2855,6 @@ expr_stmt|;
 block|}
 block|}
 specifier|private
-specifier|static
 name|boolean
 name|isWhitespaceOrEOF
 parameter_list|(
@@ -2885,7 +2883,6 @@ return|;
 block|}
 comment|/** Is this a standard PDF delimiter character? */
 specifier|private
-specifier|static
 name|boolean
 name|isDelimiter
 parameter_list|(
@@ -3029,7 +3026,6 @@ expr_stmt|;
 block|}
 block|}
 specifier|private
-specifier|static
 name|int
 name|createIntFromBytes
 parameter_list|(
@@ -3084,7 +3080,6 @@ name|intValue
 return|;
 block|}
 specifier|private
-specifier|static
 name|String
 name|createStringFromBytes
 parameter_list|(
@@ -3136,7 +3131,6 @@ name|retval
 return|;
 block|}
 specifier|private
-specifier|static
 name|int
 name|compare
 parameter_list|(
