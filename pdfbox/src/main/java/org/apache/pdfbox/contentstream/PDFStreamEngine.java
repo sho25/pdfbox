@@ -649,6 +649,7 @@ end_comment
 
 begin_class
 specifier|public
+specifier|abstract
 class|class
 name|PDFStreamEngine
 block|{
@@ -725,7 +726,7 @@ name|Matrix
 name|initialMatrix
 decl_stmt|;
 comment|/**      * Creates a new PDFStreamEngine.      */
-specifier|public
+specifier|protected
 name|PDFStreamEngine
 parameter_list|()
 block|{     }

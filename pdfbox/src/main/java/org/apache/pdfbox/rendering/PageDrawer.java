@@ -297,20 +297,6 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|PDPage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
 name|common
 operator|.
 name|PDRectangle
@@ -726,12 +712,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Paints a page in a PDF document to a Graphics context.  *   * @author Ben Litchfield  */
+comment|/**  * Paints a page in a PDF document to a Graphics context. May be subclassed to provide custom  * rendering.  *   *<p>If you want to do custom graphics processing rather than Graphics2D rendering, then you should  * subclass PDFGraphicsStreamEngine instead. Subclassing PageDrawer is only suitable for cases  * where the goal is to render onto a Graphics2D surface.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
-specifier|final
 class|class
 name|PageDrawer
 extends|extends
@@ -752,6 +737,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// parent document renderer - note: this is needed for not-yet-implemented resource caching
+specifier|private
+specifier|final
+name|PDFRenderer
+name|renderer
+decl_stmt|;
 comment|// the graphics device to draw to, xform is the initial transform of the device (i.e. DPI)
 specifier|private
 name|Graphics2D
@@ -762,6 +753,7 @@ name|AffineTransform
 name|xform
 decl_stmt|;
 comment|// the page box to draw (usually the crop box but may be another)
+specifier|private
 name|PDRectangle
 name|pageSize
 decl_stmt|;
@@ -791,6 +783,7 @@ specifier|private
 name|Area
 name|textClippingArea
 decl_stmt|;
+comment|// glyph cache
 specifier|private
 specifier|final
 name|Map
@@ -810,21 +803,66 @@ name|Glyph2D
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param page the page that is to be rendered.      * @throws IOException If there is an error loading properties from the file.      */
+comment|/**      * Constructor.      *      * @param parameters Parameters for page drawing.      * @throws IOException If there is an error loading properties from the file.      */
 specifier|public
 name|PageDrawer
 parameter_list|(
-name|PDPage
-name|page
+name|PageDrawerParameters
+name|parameters
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 name|super
 argument_list|(
-name|page
+name|parameters
+operator|.
+name|getPage
+argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|renderer
+operator|=
+name|parameters
+operator|.
+name|getRenderer
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Returns the parent renderer.      */
+specifier|public
+specifier|final
+name|PDFRenderer
+name|getRenderer
+parameter_list|()
+block|{
+return|return
+name|renderer
+return|;
+block|}
+comment|/**      * Returns the underlying Graphics2D. May be null if drawPage has not yet been called.      */
+specifier|protected
+specifier|final
+name|Graphics2D
+name|getGraphics
+parameter_list|()
+block|{
+return|return
+name|graphics
+return|;
+block|}
+comment|/**      * Returns the current line path. This is reset to empty after each fill/stroke.      */
+specifier|protected
+specifier|final
+name|GeneralPath
+name|getLinePath
+parameter_list|()
+block|{
+return|return
+name|linePath
+return|;
 block|}
 comment|/**      * Sets high-quality rendering hints on the current Graphics2D.      */
 specifier|private
@@ -999,7 +1037,6 @@ literal|null
 expr_stmt|;
 block|}
 comment|/**      * Draws the pattern stream to the requested context.      *      * @param g The graphics context to draw onto.      * @param pattern The tiling pattern to be used.      * @param colorSpace color space for this tiling.      * @param color color for this tiling.      * @param patternMatrix the pattern matrix      * @throws IOException If there is an IO error while drawing the page.      */
-specifier|public
 name|void
 name|drawTilingPattern
 parameter_list|(
@@ -1078,7 +1115,7 @@ name|oldLastClip
 expr_stmt|;
 block|}
 comment|/**      * Returns an AWT paint for the given PDColor.      */
-specifier|private
+specifier|protected
 name|Paint
 name|getPaint
 parameter_list|(
@@ -3165,15 +3202,6 @@ argument_list|()
 condition|)
 block|{
 comment|// fill the image with paint
-name|PDColor
-name|color
-init|=
-name|getGraphicsState
-argument_list|()
-operator|.
-name|getNonStrokingColor
-argument_list|()
-decl_stmt|;
 name|BufferedImage
 name|image
 init|=
@@ -3181,10 +3209,8 @@ name|pdImage
 operator|.
 name|getStencilImage
 argument_list|(
-name|getPaint
-argument_list|(
-name|color
-argument_list|)
+name|getNonStrokingPaint
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// draw the image
@@ -3226,7 +3252,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-specifier|public
+specifier|private
 name|void
 name|drawBufferedImage
 parameter_list|(
