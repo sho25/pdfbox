@@ -45,9 +45,7 @@ name|java
 operator|.
 name|awt
 operator|.
-name|event
-operator|.
-name|InputEvent
+name|Toolkit
 import|;
 end_import
 
@@ -734,9 +732,13 @@ name|KeyEvent
 operator|.
 name|VK_O
 argument_list|,
-name|InputEvent
+name|Toolkit
 operator|.
-name|CTRL_DOWN_MASK
+name|getDefaultToolkit
+argument_list|()
+operator|.
+name|getMenuShortcutKeyMask
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -806,9 +808,13 @@ name|KeyEvent
 operator|.
 name|VK_P
 argument_list|,
-name|InputEvent
+name|Toolkit
 operator|.
-name|CTRL_DOWN_MASK
+name|getDefaultToolkit
+argument_list|()
+operator|.
+name|getMenuShortcutKeyMask
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1294,9 +1300,13 @@ name|KeyEvent
 operator|.
 name|VK_HOME
 argument_list|,
-name|InputEvent
+name|Toolkit
 operator|.
-name|CTRL_DOWN_MASK
+name|getDefaultToolkit
+argument_list|()
+operator|.
+name|getMenuShortcutKeyMask
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1340,9 +1350,13 @@ name|KeyEvent
 operator|.
 name|VK_END
 argument_list|,
-name|InputEvent
+name|Toolkit
 operator|.
-name|CTRL_DOWN_MASK
+name|getDefaultToolkit
+argument_list|()
+operator|.
+name|getMenuShortcutKeyMask
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1606,7 +1620,9 @@ literal|": "
 operator|+
 name|currentFilename
 operator|+
-literal|" ("
+literal|" "
+operator|+
+literal|"("
 operator|+
 operator|(
 name|currentPage
@@ -1696,6 +1712,9 @@ name|currentPage
 operator|=
 literal|0
 expr_stmt|;
+name|updateTitle
+argument_list|()
+expr_stmt|;
 name|showPage
 argument_list|(
 name|currentPage
@@ -1724,6 +1743,9 @@ operator|=
 name|numberOfPages
 operator|-
 literal|1
+expr_stmt|;
+name|updateTitle
+argument_list|()
 expr_stmt|;
 name|showPage
 argument_list|(
