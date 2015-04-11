@@ -873,7 +873,6 @@ argument_list|)
 throw|;
 block|}
 specifier|private
-specifier|static
 name|CharStringCommand
 name|readCommand
 parameter_list|(
@@ -920,7 +919,6 @@ argument_list|)
 return|;
 block|}
 specifier|private
-specifier|static
 name|Integer
 name|readNumber
 parameter_list|(
