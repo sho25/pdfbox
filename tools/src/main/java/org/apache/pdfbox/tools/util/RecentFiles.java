@@ -39,6 +39,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayDeque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|ArrayList
 import|;
 end_import
@@ -50,18 +60,6 @@ operator|.
 name|util
 operator|.
 name|Queue
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentLinkedDeque
 import|;
 end_import
 
@@ -178,7 +176,7 @@ block|{
 name|filePaths
 operator|=
 operator|new
-name|ConcurrentLinkedDeque
+name|ArrayDeque
 argument_list|<
 name|String
 argument_list|>
@@ -666,7 +664,7 @@ argument_list|>
 name|history
 init|=
 operator|new
-name|ConcurrentLinkedDeque
+name|ArrayDeque
 argument_list|<
 name|String
 argument_list|>
