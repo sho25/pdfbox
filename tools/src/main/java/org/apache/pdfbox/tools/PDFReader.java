@@ -147,7 +147,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -1922,7 +1922,7 @@ operator|.
 name|removeAll
 argument_list|()
 expr_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>

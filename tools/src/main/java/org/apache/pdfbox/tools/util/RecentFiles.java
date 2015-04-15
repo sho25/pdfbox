@@ -63,6 +63,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Queue
 import|;
 end_import
@@ -280,9 +290,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This gives the file in descending order where order is according to the time it is added.      * This checks for file's existence in file history.      *      * @return return the file paths in an ArrayList.      */
+comment|/**      * This gives the file in descending order where order is according to the time it is added.      * This checks for file's existence in file history.      *      * @return return the file paths in a List.      */
 specifier|public
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -296,7 +306,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -399,7 +409,7 @@ name|Preferences
 operator|.
 name|MAX_VALUE_LENGTH
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
