@@ -961,8 +961,6 @@ argument_list|)
 decl_stmt|;
 name|retval
 operator|=
-name|document
-operator|.
 name|getObjectFromPool
 argument_list|(
 name|key
@@ -978,6 +976,51 @@ expr_stmt|;
 block|}
 return|return
 name|retval
+return|;
+block|}
+specifier|private
+name|COSBase
+name|getObjectFromPool
+parameter_list|(
+name|COSObjectKey
+name|key
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|document
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"object reference "
+operator|+
+name|key
+operator|+
+literal|" at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
+operator|+
+literal|" in content stream"
+argument_list|)
+throw|;
+block|}
+return|return
+name|document
+operator|.
+name|getObjectFromPool
+argument_list|(
+name|key
+argument_list|)
 return|;
 block|}
 comment|/**      * This will parse a PDF dictionary.      *      * @return The parsed dictionary.      *      * @throws IOException IF there is an error reading the stream.      */
@@ -3439,8 +3482,6 @@ argument_list|)
 decl_stmt|;
 name|pbo
 operator|=
-name|document
-operator|.
 name|getObjectFromPool
 argument_list|(
 name|key
