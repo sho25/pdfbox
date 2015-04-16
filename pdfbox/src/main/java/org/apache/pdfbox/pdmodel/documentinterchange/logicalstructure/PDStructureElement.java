@@ -241,6 +241,7 @@ return|;
 block|}
 comment|/**      * Sets the structure type (S).      *       * @param structureType the structure type      */
 specifier|public
+specifier|final
 name|void
 name|setStructureType
 parameter_list|(
@@ -309,6 +310,7 @@ return|;
 block|}
 comment|/**      * Sets the parent in the structure hierarchy (P).      *       * @param structureNode the parent in the structure hierarchy      */
 specifier|public
+specifier|final
 name|void
 name|setParent
 parameter_list|(
@@ -842,8 +844,6 @@ argument_list|)
 decl_stmt|;
 name|COSArray
 name|array
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1649,8 +1649,6 @@ argument_list|)
 decl_stmt|;
 name|COSArray
 name|array
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

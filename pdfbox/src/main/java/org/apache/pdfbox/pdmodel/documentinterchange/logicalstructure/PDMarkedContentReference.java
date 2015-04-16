@@ -111,10 +111,11 @@ init|=
 literal|"MCR"
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
-specifier|protected
+specifier|public
 name|COSDictionary
 name|getCOSDictionary
 parameter_list|()
