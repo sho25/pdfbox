@@ -701,7 +701,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|setName
+name|setTitle
 argument_list|(
 name|element
 operator|.
