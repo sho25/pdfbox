@@ -871,7 +871,17 @@ literal|"link"
 argument_list|)
 condition|)
 block|{
-comment|// TODO: support link annotation
+name|annotList
+operator|.
+name|add
+argument_list|(
+operator|new
+name|FDFAnnotationLink
+argument_list|(
+name|annot
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
