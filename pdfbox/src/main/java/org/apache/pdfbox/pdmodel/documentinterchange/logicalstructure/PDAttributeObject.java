@@ -527,7 +527,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|PDAttributeObject
+name|this
 operator|.
 name|isValueChanged
 argument_list|(
@@ -546,7 +546,6 @@ block|}
 block|}
 comment|/**      * Is the value changed?      *       * @param oldValue old value      * @param newValue new value      * @return<code>true</code> if the value is changed,<code>false</code>      * otherwise      */
 specifier|private
-specifier|static
 name|boolean
 name|isValueChanged
 parameter_list|(
