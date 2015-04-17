@@ -349,10 +349,12 @@ init|=
 literal|true
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDDocument
 name|targetDoc
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDFCloneUtility
 name|cloner
 decl_stmt|;
