@@ -393,6 +393,7 @@ implements|implements
 name|PDFTemplateBuilder
 block|{
 specifier|private
+specifier|final
 name|PDFTemplateStructure
 name|pdfStructure
 decl_stmt|;
@@ -702,7 +703,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"PDSignatur has been created"
+literal|"PDSignature has been created"
 argument_list|)
 expr_stmt|;
 block|}
