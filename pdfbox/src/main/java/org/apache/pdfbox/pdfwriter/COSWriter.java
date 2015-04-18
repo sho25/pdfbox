@@ -4581,7 +4581,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|COSNull
+name|obj
 operator|.
 name|writePDF
 argument_list|(

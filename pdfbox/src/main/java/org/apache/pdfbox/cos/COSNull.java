@@ -111,7 +111,6 @@ return|;
 block|}
 comment|/**      * This will output this string as a PDF object.      *      * @param output The stream to write to.      * @throws IOException If there is an error writing to the stream.      */
 specifier|public
-specifier|static
 name|void
 name|writePDF
 parameter_list|(
