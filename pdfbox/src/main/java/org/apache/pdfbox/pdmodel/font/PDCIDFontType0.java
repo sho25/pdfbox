@@ -343,6 +343,7 @@ name|Matrix
 name|fontMatrix
 decl_stmt|;
 specifier|private
+specifier|final
 name|AffineTransform
 name|fontMatrixTransform
 decl_stmt|;
@@ -1019,6 +1020,8 @@ return|;
 block|}
 block|}
 comment|/**      * Returns the CID for the given character code. If not found then CID 0 is returned.      *      * @param code character code      * @return CID      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|codeToCID
