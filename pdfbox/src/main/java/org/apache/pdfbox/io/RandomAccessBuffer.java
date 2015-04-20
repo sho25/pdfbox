@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the RandomAccess interface to store a pdf in memory.  * The data will be stored in chunks organized in an ArrayList.    *  */
+comment|/**  * An implementation of the RandomAccess interface to store a pdf in memory.  * The data will be stored in chunks organized in an ArrayList.  *  */
 end_comment
 
 begin_class
@@ -355,6 +355,55 @@ operator|=
 literal|0
 expr_stmt|;
 name|bufferListIndex
+operator|=
+literal|0
+expr_stmt|;
+block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|bufferList
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|currentBuffer
+operator|=
+operator|new
+name|byte
+index|[
+name|CHUNK_SIZE
+index|]
+expr_stmt|;
+name|bufferList
+operator|.
+name|add
+argument_list|(
+name|currentBuffer
+argument_list|)
+expr_stmt|;
+name|pointer
+operator|=
+literal|0
+expr_stmt|;
+name|currentBufferPointer
+operator|=
+literal|0
+expr_stmt|;
+name|size
+operator|=
+literal|0
+expr_stmt|;
+name|bufferListIndex
+operator|=
+literal|0
+expr_stmt|;
+name|bufferListMaxIndex
 operator|=
 literal|0
 expr_stmt|;

@@ -134,6 +134,33 @@ annotation|@
 name|Override
 specifier|public
 name|void
+name|clear
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|java
+operator|.
+name|lang
+operator|.
+name|UnsupportedOperationException
+argument_list|(
+name|RandomAccessFile
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"clear() isn't yet supported"
+argument_list|)
+throw|;
+block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|void
 name|seek
 parameter_list|(
 name|long
