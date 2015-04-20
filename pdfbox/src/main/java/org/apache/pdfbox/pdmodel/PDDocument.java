@@ -3399,7 +3399,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Save the PDF as an incremental update.      *      * @param output stream to write      * @throws IOException if the output could not be written      */
+comment|/**      * Save the PDF as an incremental update. This is only possible if the PDF was loaded from a file.      *      * @param output stream to write      * @throws IOException if the output could not be written      * @throws IllegalStateException if the document was not loaded from a file.      */
 specifier|public
 name|void
 name|saveIncremental
@@ -3410,6 +3410,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|incrementalFile
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Incremental save is only possible if the document was loaded from a file"
+argument_list|)
+throw|;
+block|}
 name|InputStream
 name|input
 init|=
