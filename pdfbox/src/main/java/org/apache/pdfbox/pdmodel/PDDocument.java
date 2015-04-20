@@ -1586,6 +1586,14 @@ operator|instanceof
 name|COSDictionary
 condition|)
 block|{
+name|COSDictionary
+name|cosBaseDict
+init|=
+operator|(
+name|COSDictionary
+operator|)
+name|base
+decl_stmt|;
 name|COSBase
 name|ft
 init|=
@@ -1652,14 +1660,6 @@ name|type
 argument_list|)
 condition|)
 block|{
-name|COSDictionary
-name|cosBaseDict
-init|=
-operator|(
-name|COSDictionary
-operator|)
-name|base
-decl_stmt|;
 comment|// Read and set the Rectangle for visual signature
 name|COSArray
 name|rectAry
@@ -1719,14 +1719,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|COSDictionary
-name|cosBaseDict
-init|=
-operator|(
-name|COSDictionary
-operator|)
-name|base
-decl_stmt|;
 comment|// read and set Appearance Dictionary
 name|PDAppearanceDictionary
 name|ap
