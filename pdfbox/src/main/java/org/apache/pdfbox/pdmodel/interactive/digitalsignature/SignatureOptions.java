@@ -73,7 +73,7 @@ name|pdfbox
 operator|.
 name|pdfparser
 operator|.
-name|VisualSignatureParser
+name|PDFParser
 import|;
 end_import
 
@@ -167,23 +167,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|VisualSignatureParser
-name|visParser
+name|PDFParser
+name|parser
 init|=
 operator|new
-name|VisualSignatureParser
+name|PDFParser
 argument_list|(
 name|is
 argument_list|)
 decl_stmt|;
-name|visParser
+name|parser
 operator|.
 name|parse
 argument_list|()
 expr_stmt|;
 name|visualSignature
 operator|=
-name|visParser
+name|parser
 operator|.
 name|getDocument
 argument_list|()
