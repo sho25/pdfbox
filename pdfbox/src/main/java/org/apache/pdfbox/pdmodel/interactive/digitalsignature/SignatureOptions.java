@@ -166,7 +166,7 @@ return|return
 name|pageNo
 return|;
 block|}
-comment|/**      * Reads the visual signature from the given file.      *        * @param is the file containing the visual signature      * @throws IOException when something went wrong during parsing       */
+comment|/**      * Reads the visual signature from the given file.      *        * @param file the file containing the visual signature      * @throws IOException when something went wrong during parsing       */
 specifier|public
 name|void
 name|setVisualSignature
