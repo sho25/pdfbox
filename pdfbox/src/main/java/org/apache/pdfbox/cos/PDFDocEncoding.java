@@ -637,7 +637,7 @@ name|out
 operator|.
 name|write
 argument_list|(
-name|c
+name|code
 argument_list|)
 expr_stmt|;
 block|}
