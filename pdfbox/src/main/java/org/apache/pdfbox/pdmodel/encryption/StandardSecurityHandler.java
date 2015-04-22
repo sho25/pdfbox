@@ -5666,6 +5666,20 @@ name|ex
 parameter_list|)
 block|{         }
 block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|hasProtectionPolicy
+parameter_list|()
+block|{
+return|return
+name|policy
+operator|!=
+literal|null
+return|;
+block|}
 block|}
 end_class
 

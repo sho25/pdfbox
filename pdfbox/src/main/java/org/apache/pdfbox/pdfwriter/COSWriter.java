@@ -5085,7 +5085,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will write the pdf document.      *      * @param doc The document to write.      * @param signInterface class to be used for signing       *      * @throws IOException If an error occurs while generating the data.      */
+comment|/**      * This will write the pdf document.      *      * @param doc The document to write.      * @param signInterface class to be used for signing       *      * @throws IOException If an error occurs while generating the data.      * @throws IllegalStateException If the document has an encryption dictionary but no protection      * policy.      */
 specifier|public
 name|void
 name|write
@@ -5202,6 +5202,25 @@ operator|.
 name|getSecurityHandler
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|securityHandler
+operator|.
+name|hasProtectionPolicy
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"PDF contains an encryption dictionary, please remove it with "
+operator|+
+literal|"setAllSecurityToBeRemoved() or set a protection policy with protect()"
+argument_list|)
+throw|;
+block|}
 name|securityHandler
 operator|.
 name|prepareDocumentForEncryption

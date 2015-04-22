@@ -1993,6 +1993,13 @@ operator|=
 name|aesValue
 expr_stmt|;
 block|}
+comment|/**      * Returns whether a protection policy has been set.      *       * @return true if a protection policy has been set.      */
+specifier|public
+specifier|abstract
+name|boolean
+name|hasProtectionPolicy
+parameter_list|()
+function_decl|;
 block|}
 end_class
 
