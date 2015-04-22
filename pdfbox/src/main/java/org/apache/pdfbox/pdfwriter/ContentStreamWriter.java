@@ -183,6 +183,20 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Charsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * A class that will take a list of tokens and write out a stream with them.  *  * @author Ben Litchfield  */
 end_comment
@@ -626,7 +640,9 @@ literal|"BI"
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -694,7 +710,9 @@ literal|"ID"
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -730,7 +748,9 @@ literal|"EI"
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -755,7 +775,9 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
