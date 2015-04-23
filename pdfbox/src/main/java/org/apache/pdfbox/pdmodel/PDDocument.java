@@ -2064,7 +2064,7 @@ name|List
 argument_list|<
 name|PDFieldTreeNode
 argument_list|>
-name|field
+name|acroformFields
 init|=
 name|acroForm
 operator|.
@@ -2092,7 +2092,7 @@ expr_stmt|;
 comment|// Check if the field already exists
 name|checkSignatureField
 argument_list|(
-name|field
+name|acroformFields
 argument_list|,
 name|sigField
 argument_list|)
