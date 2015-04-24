@@ -70,6 +70,7 @@ import|;
 end_import
 
 begin_class
+specifier|public
 class|class
 name|COSFilterInputStream
 extends|extends
@@ -87,6 +88,7 @@ name|position
 init|=
 literal|0
 decl_stmt|;
+specifier|public
 name|COSFilterInputStream
 parameter_list|(
 name|InputStream
@@ -109,6 +111,7 @@ operator|=
 name|byteRange
 expr_stmt|;
 block|}
+specifier|public
 name|COSFilterInputStream
 parameter_list|(
 name|byte
