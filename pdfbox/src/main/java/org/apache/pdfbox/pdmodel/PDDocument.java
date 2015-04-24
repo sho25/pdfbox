@@ -1972,6 +1972,7 @@ operator|new
 name|PDAppearanceDictionary
 argument_list|()
 decl_stmt|;
+comment|// Create empty visual appearance stream
 name|COSStream
 name|apsStream
 init|=
@@ -1984,6 +1985,9 @@ decl_stmt|;
 name|apsStream
 operator|.
 name|createUnfilteredStream
+argument_list|()
+operator|.
+name|close
 argument_list|()
 expr_stmt|;
 name|PDAppearanceStream
