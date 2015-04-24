@@ -3346,8 +3346,6 @@ name|STREAMCOPYBUFLEN
 index|]
 decl_stmt|;
 comment|/**      * This will read a COSStream from the input stream using length attribute within dictionary. If length attribute is      * a indirect reference it is first resolved to get the stream length. This means we copy stream data without      * testing for 'endstream' or 'endobj' and thus it is no problem if these keywords occur within stream. We require      * 'endstream' to be found after stream data is read.      *       * @param dic dictionary that goes with this stream.      *       * @return parsed pdf stream.      *       * @throws IOException if an error occurred reading the stream, like problems with reading length attribute, stream      * does not end with 'endstream' after data read, stream too short etc.      */
-annotation|@
-name|Override
 specifier|protected
 name|COSStream
 name|parseCOSStream
