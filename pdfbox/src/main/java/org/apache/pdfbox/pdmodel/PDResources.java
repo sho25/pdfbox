@@ -371,7 +371,7 @@ return|return
 name|resources
 return|;
 block|}
-comment|/**      * Returns the font resource with the given name, or null if none exists.      */
+comment|/**      * Returns the font resource with the given name, or null if none exists.      *       * @param name Name of the font resource.      * @throws java.io.IOException if something went wrong.      */
 specifier|public
 name|PDFont
 name|getFont
@@ -417,7 +417,7 @@ name|dict
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the color space resource with the given name, or null if none exists.      */
+comment|/**      * Returns the color space resource with the given name, or null if none exists.      *       * @param name Name of the color space resource.      * @throws java.io.IOException if something went wrong.      */
 specifier|public
 name|PDColorSpace
 name|getColorSpace
@@ -473,7 +473,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Returns true if the given color space name exists in these resources.      * @param name color space name      */
+comment|/**      * Returns true if the given color space name exists in these resources.      *      * @param name Name of the color space resource.      */
 specifier|public
 name|boolean
 name|hasColorSpace
@@ -495,7 +495,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Returns the external graphics state resource with the given name, or null if none exists.      */
+comment|/**      * Returns the extended graphics state resource with the given name, or null      * if none exists.      *      * @param name Name of the graphics state resource.      */
 specifier|public
 name|PDExtendedGraphicsState
 name|getExtGState
@@ -503,8 +503,6 @@ parameter_list|(
 name|COSName
 name|name
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|COSDictionary
 name|dict
@@ -540,7 +538,7 @@ name|dict
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the shading resource with the given name, or null if none exists.      */
+comment|/**      * Returns the shading resource with the given name, or null if none exists.      *      * @param name Name of the shading resource.      * @throws java.io.IOException if something went wrong.      */
 specifier|public
 name|PDShading
 name|getShading
@@ -586,7 +584,7 @@ name|dict
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the pattern resource with the given name, or null if none exists.      */
+comment|/**      * Returns the pattern resource with the given name, or null if none exists.      *       * @param name Name of the pattern resource.      * @throws java.io.IOException if something went wrong.      */
 specifier|public
 name|PDAbstractPattern
 name|getPattern
@@ -632,7 +630,7 @@ name|dict
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the property list resource with the given name, or null if none exists.      */
+comment|/**      * Returns the property list resource with the given name, or null if none exists.      *       * @param name Name of the property list resource.      */
 specifier|public
 name|PDPropertyList
 name|getProperties
@@ -640,8 +638,6 @@ parameter_list|(
 name|COSName
 name|name
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|COSDictionary
 name|dict
@@ -678,7 +674,7 @@ name|dict
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the XObject resource with the given name, or null if none exists.      */
+comment|/**      * Returns the XObject resource with the given name, or null if none exists.      *       * @param name Name of the XObject resource.      * @throws java.io.IOException if something went wrong.      */
 specifier|public
 name|PDXObject
 name|getXObject
@@ -934,7 +930,7 @@ name|PATTERN
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the names of the external graphics state resources, if any.      */
+comment|/**      * Returns the names of the extended graphics state resources, if any.      */
 specifier|public
 name|Iterable
 argument_list|<
@@ -1006,8 +1002,6 @@ parameter_list|(
 name|PDFont
 name|font
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|add
@@ -1044,7 +1038,7 @@ name|colorSpace
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds the given external graphics state to the resources of the current page and returns the      * name for the new resources. Returns the existing resource name if the given item already exists.      *      * @param extGState the external graphics stae to add      * @return the name of the resource in the resources dictionary      */
+comment|/**      * Adds the given extended graphics state to the resources of the current page and returns the      * name for the new resources. Returns the existing resource name if the given item already exists.      *      * @param extGState the extended graphics state to add      * @return the name of the resource in the resources dictionary      */
 specifier|public
 name|COSName
 name|add
@@ -1463,8 +1457,6 @@ parameter_list|,
 name|PDFont
 name|font
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|put
 argument_list|(
@@ -1489,8 +1481,6 @@ parameter_list|,
 name|PDColorSpace
 name|colorSpace
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|put
 argument_list|(
@@ -1504,7 +1494,7 @@ name|colorSpace
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the external graphics state resource with the given name.      *      * @param name the name of the resource      * @param extGState the external graphics state to be added      */
+comment|/**      * Sets the extended graphics state resource with the given name.      *      * @param name the name of the resource      * @param extGState the extended graphics state to be added      */
 specifier|public
 name|void
 name|put
@@ -1515,8 +1505,6 @@ parameter_list|,
 name|PDExtendedGraphicsState
 name|extGState
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|put
 argument_list|(
@@ -1541,8 +1529,6 @@ parameter_list|,
 name|PDShading
 name|shading
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|put
 argument_list|(
@@ -1567,8 +1553,6 @@ parameter_list|,
 name|PDAbstractPattern
 name|pattern
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|put
 argument_list|(
@@ -1593,8 +1577,6 @@ parameter_list|,
 name|PDPropertyList
 name|properties
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|put
 argument_list|(
@@ -1619,8 +1601,6 @@ parameter_list|,
 name|PDXObject
 name|xobject
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|put
 argument_list|(
