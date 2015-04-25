@@ -965,6 +965,20 @@ return|;
 comment|// default is 0
 block|}
 block|}
+comment|// standard 14 font widths are specified by an AFM
+if|if
+condition|(
+name|isStandard14
+argument_list|()
+condition|)
+block|{
+return|return
+name|getStandard14Width
+argument_list|(
+name|code
+argument_list|)
+return|;
+block|}
 comment|// if there's nothing to override with, then obviously we fall back to the font
 return|return
 name|getWidthFromFont
@@ -973,6 +987,16 @@ name|code
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the glyph width from the AFM if this is a Standard 14 font.      *       * @param code character code      * @return width in 1/1000 text space      */
+specifier|protected
+specifier|abstract
+name|float
+name|getStandard14Width
+parameter_list|(
+name|int
+name|code
+parameter_list|)
+function_decl|;
 annotation|@
 name|Override
 specifier|public

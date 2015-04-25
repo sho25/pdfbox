@@ -1055,6 +1055,24 @@ return|;
 block|}
 annotation|@
 name|Override
+specifier|protected
+name|float
+name|getStandard14Width
+parameter_list|(
+name|int
+name|code
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"not suppported"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getWidthFromFont
