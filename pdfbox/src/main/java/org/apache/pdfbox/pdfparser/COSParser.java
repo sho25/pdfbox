@@ -3360,6 +3360,8 @@ specifier|final
 name|COSStream
 name|stream
 init|=
+name|document
+operator|.
 name|createCOSStream
 argument_list|(
 name|dic
