@@ -177,10 +177,11 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|PDStream
 name|stream
 decl_stmt|;
-comment|/**      * Creates a new XObject instance of the appropriate type for the COS stream.      * @param base The stream which is wrapped by this XObject.      * @return A new XObject instance.      */
+comment|/**      * Creates a new XObject instance of the appropriate type for the COS stream.      *      * @param base The stream which is wrapped by this XObject.      * @return A new XObject instance.      * @throws java.io.IOException if there is an error creating the XObject.      */
 specifier|public
 specifier|static
 name|PDXObject
@@ -468,6 +469,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the stream.      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|COSBase
