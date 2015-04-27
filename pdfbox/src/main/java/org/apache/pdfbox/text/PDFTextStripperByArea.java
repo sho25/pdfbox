@@ -242,7 +242,25 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
+name|super
+operator|.
+name|setShouldSeparateByBeads
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
+comment|/**      * This method does nothing in this derived class, because beads and regions are incompatible. Beads are      * ignored when stripping by area.      *      * @param aShouldSeparateByBeads The new grouping of beads.      */
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setShouldSeparateByBeads
+parameter_list|(
+name|boolean
+name|aShouldSeparateByBeads
+parameter_list|)
+block|{     }
 comment|/**      * Add a new region to group text by.      *      * @param regionName The name of the region.      * @param rect The rectangle area to retrieve the text from.      */
 specifier|public
 name|void
