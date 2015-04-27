@@ -67,6 +67,8 @@ comment|/**      * Clears all data of the buffer.      */
 name|void
 name|clear
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_interface
