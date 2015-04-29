@@ -1874,9 +1874,6 @@ name|setItem
 argument_list|(
 name|dictKey
 argument_list|,
-operator|(
-name|COSBase
-operator|)
 literal|null
 argument_list|)
 expr_stmt|;
