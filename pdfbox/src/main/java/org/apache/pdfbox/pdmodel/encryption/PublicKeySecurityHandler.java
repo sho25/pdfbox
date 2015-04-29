@@ -1507,6 +1507,12 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
+comment|// remove CF, StmF, and StrF entries that may be left from a previous encryption
+name|dictionary
+operator|.
+name|removeV45filters
+argument_list|()
+expr_stmt|;
 name|dictionary
 operator|.
 name|setSubFilter

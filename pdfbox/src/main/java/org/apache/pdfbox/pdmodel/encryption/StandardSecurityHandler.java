@@ -528,7 +528,7 @@ name|getEncryptionKeyLength
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Computes the version number of the StandardSecurityHandler      * regarding the encryption key length.      * See PDF Spec 1.6 p 93      *      * @return The computed version number.      */
+comment|/**      * Computes the version number of the StandardSecurityHandler      * regarding the encryption key length.      * See PDF Spec 1.6 p 93 and PDF 1.7 AEL3      *      * @return The computed version number.      */
 specifier|private
 name|int
 name|computeVersionNumber
@@ -1026,8 +1026,26 @@ name|encryptMetadata
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|encryption
+operator|.
+name|getVersion
+argument_list|()
+operator|==
+literal|4
+operator|||
+name|encryption
+operator|.
+name|getVersion
+argument_list|()
+operator|==
+literal|5
+condition|)
+block|{
 comment|// detect whether AES encryption is used. This assumes that the encryption algo is
 comment|// stored in the PDCryptFilterDictionary
+comment|// However, crypt filters are used only when V is 4 or 5.
 name|PDCryptFilterDictionary
 name|stdCryptFilterDictionary
 init|=
@@ -1081,6 +1099,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1414,6 +1433,24 @@ argument_list|(
 name|version
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|version
+operator|!=
+literal|4
+operator|&&
+name|version
+operator|!=
+literal|5
+condition|)
+block|{
+comment|// remove CF, StmF, and StrF entries that may be left from a previous encryption
+name|encryptionDictionary
+operator|.
+name|removeV45filters
+argument_list|()
+expr_stmt|;
+block|}
 name|encryptionDictionary
 operator|.
 name|setRevision
