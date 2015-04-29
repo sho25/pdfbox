@@ -181,9 +181,6 @@ name|set
 argument_list|(
 literal|2
 argument_list|,
-operator|(
-name|COSBase
-operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -246,9 +243,6 @@ name|set
 argument_list|(
 literal|3
 argument_list|,
-operator|(
-name|COSBase
-operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -336,9 +330,6 @@ name|set
 argument_list|(
 literal|4
 argument_list|,
-operator|(
-name|COSBase
-operator|)
 literal|null
 argument_list|)
 expr_stmt|;
