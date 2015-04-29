@@ -162,9 +162,6 @@ name|set
 argument_list|(
 literal|2
 argument_list|,
-operator|(
-name|COSBase
-operator|)
 literal|null
 argument_list|)
 expr_stmt|;
