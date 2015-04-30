@@ -437,6 +437,8 @@ argument_list|)
 argument_list|,
 name|cols
 argument_list|,
+name|rows
+argument_list|,
 name|encodedByteAlign
 argument_list|)
 decl_stmt|;
