@@ -1822,17 +1822,27 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|""
+name|getFullyQualifiedName
+argument_list|()
 operator|+
-name|getDictionary
+literal|"{type: "
+operator|+
+name|getClass
 argument_list|()
 operator|.
-name|getDictionaryObject
+name|getSimpleName
+argument_list|()
+operator|+
+literal|" value: "
+operator|+
+name|getInheritableAttribute
 argument_list|(
 name|COSName
 operator|.
 name|V
 argument_list|)
+operator|+
+literal|"}"
 return|;
 block|}
 comment|/**      * This will get the acroform that this field is part of.      *       * @return The form this field is on.      */
@@ -1921,13 +1931,11 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the fully qualified name of the field, which is a concatenation of the names of all the parents fields.      *       * @return the name of the field      *       * @throws IOException If there is an error generating the fully qualified name.      */
+comment|/**      * Returns the fully qualified name of the field, which is a concatenation of the names of all the parents fields.      *       * @return the name of the field      */
 specifier|public
 name|String
 name|getFullyQualifiedName
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|String
 name|finalName

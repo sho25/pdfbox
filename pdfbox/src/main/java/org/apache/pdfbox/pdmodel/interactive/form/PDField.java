@@ -139,28 +139,6 @@ name|parentNode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return a string representation of this field.      *       * @return A string representation of this field.      */
-annotation|@
-name|Override
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|""
-operator|+
-name|getDictionary
-argument_list|()
-operator|.
-name|getDictionaryObject
-argument_list|(
-name|COSName
-operator|.
-name|V
-argument_list|)
-return|;
-block|}
 comment|/**      * Set the actions of the field.      *       * @param actions The field actions.      */
 specifier|public
 name|void
