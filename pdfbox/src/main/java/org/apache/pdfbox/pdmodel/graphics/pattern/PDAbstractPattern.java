@@ -65,20 +65,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSDictionary
 import|;
 end_import
@@ -290,21 +276,11 @@ operator|=
 name|resourceDictionary
 expr_stmt|;
 block|}
-comment|/**      * This will get the underlying dictionary.      * @return The dictionary for these pattern resources.      */
-specifier|public
-name|COSDictionary
-name|getCOSDictionary
-parameter_list|()
-block|{
-return|return
-name|patternDictionary
-return|;
-block|}
 comment|/**      * Convert this standard java object to a COS object.      * @return The cos object that matches this Java object.      */
 annotation|@
 name|Override
 specifier|public
-name|COSBase
+name|COSDictionary
 name|getCOSObject
 parameter_list|()
 block|{
@@ -471,7 +447,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -562,7 +538,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

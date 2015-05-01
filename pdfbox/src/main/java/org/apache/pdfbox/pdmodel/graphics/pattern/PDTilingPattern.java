@@ -185,7 +185,7 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -238,7 +238,7 @@ name|int
 name|length
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -260,7 +260,7 @@ name|getLength
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -284,7 +284,7 @@ name|int
 name|paintType
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -304,7 +304,7 @@ name|getPaintType
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -326,7 +326,7 @@ name|int
 name|tilingType
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -346,7 +346,7 @@ name|getTilingType
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -368,7 +368,7 @@ name|float
 name|xStep
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFloat
@@ -391,7 +391,7 @@ comment|// ignores invalid values, see PDFBOX-1094-065514-XStep32767.pdf
 name|float
 name|xStep
 init|=
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
@@ -424,7 +424,7 @@ name|float
 name|yStep
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFloat
@@ -447,7 +447,7 @@ comment|// ignores invalid values, see PDFBOX-1094-065514-XStep32767.pdf
 name|float
 name|yStep
 init|=
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
@@ -505,7 +505,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -544,14 +544,7 @@ name|PDResources
 name|resources
 parameter_list|)
 block|{
-if|if
-condition|(
-name|resources
-operator|!=
-literal|null
-condition|)
-block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -563,20 +556,6 @@ argument_list|,
 name|resources
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|getCOSDictionary
-argument_list|()
-operator|.
-name|removeItem
-argument_list|(
-name|COSName
-operator|.
-name|RESOURCES
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * An array of four numbers in the form coordinate system (see      * below), giving the coordinates of the left, bottom, right, and top edges,      * respectively, of the pattern's bounding box.      *      * @return The BBox of the pattern.      */
 annotation|@
@@ -597,7 +576,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -643,7 +622,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -656,7 +635,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
