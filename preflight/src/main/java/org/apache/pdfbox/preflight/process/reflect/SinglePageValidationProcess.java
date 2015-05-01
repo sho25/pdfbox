@@ -741,8 +741,6 @@ parameter_list|,
 name|PDPage
 name|page
 parameter_list|)
-throws|throws
-name|ValidationException
 block|{
 name|PDResources
 name|resources
