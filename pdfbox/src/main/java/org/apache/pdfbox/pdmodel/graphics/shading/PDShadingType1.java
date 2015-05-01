@@ -167,7 +167,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -258,7 +258,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -289,7 +289,7 @@ operator|=
 operator|(
 name|COSArray
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -317,7 +317,7 @@ name|domain
 operator|=
 name|newDomain
 expr_stmt|;
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

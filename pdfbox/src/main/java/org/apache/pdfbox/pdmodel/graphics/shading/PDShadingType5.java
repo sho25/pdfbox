@@ -116,7 +116,7 @@ name|getVerticesPerRow
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -139,7 +139,7 @@ name|int
 name|verticesPerRow
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt

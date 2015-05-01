@@ -336,7 +336,7 @@ name|cosDictionary
 init|=
 name|latticeTriangleShadingType
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|PDRange

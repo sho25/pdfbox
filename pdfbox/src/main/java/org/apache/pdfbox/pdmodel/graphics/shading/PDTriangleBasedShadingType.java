@@ -116,7 +116,7 @@ name|getBitsPerComponent
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -139,7 +139,7 @@ name|int
 name|bitsPerComponent
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -159,7 +159,7 @@ name|getBitsPerCoordinate
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -182,7 +182,7 @@ name|int
 name|bitsPerComponent
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -213,7 +213,7 @@ operator|=
 operator|(
 name|COSArray
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -241,7 +241,7 @@ name|decode
 operator|=
 name|decodeValues
 expr_stmt|;
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

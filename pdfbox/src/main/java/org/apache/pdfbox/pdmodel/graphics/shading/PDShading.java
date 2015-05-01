@@ -313,21 +313,11 @@ operator|=
 name|shadingDictionary
 expr_stmt|;
 block|}
-comment|/**      * This will get the underlying dictionary.      *      * @return the dictionary for this shading      */
-specifier|public
-name|COSDictionary
-name|getCOSDictionary
-parameter_list|()
-block|{
-return|return
-name|dictionary
-return|;
-block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return the cos object that matches this Java object      */
+comment|/**      * This will get the underlying dictionary.      *      * @return the dictionary for this shading.      */
 annotation|@
 name|Override
 specifier|public
-name|COSBase
+name|COSDictionary
 name|getCOSObject
 parameter_list|()
 block|{
@@ -819,27 +809,7 @@ name|function
 operator|=
 name|newFunction
 expr_stmt|;
-if|if
-condition|(
-name|newFunction
-operator|==
-literal|null
-condition|)
-block|{
-name|getCOSDictionary
-argument_list|()
-operator|.
-name|removeItem
-argument_list|(
-name|COSName
-operator|.
-name|FUNCTION
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -851,7 +821,6 @@ argument_list|,
 name|newFunction
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * This will set the functions COSArray for the color conversion.      *      * @param newFunctions the new COSArray containing all functions      */
 specifier|public
@@ -870,27 +839,7 @@ name|function
 operator|=
 literal|null
 expr_stmt|;
-if|if
-condition|(
-name|newFunctions
-operator|==
-literal|null
-condition|)
-block|{
-name|getCOSDictionary
-argument_list|()
-operator|.
-name|removeItem
-argument_list|(
-name|COSName
-operator|.
-name|FUNCTION
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -902,7 +851,6 @@ argument_list|,
 name|newFunctions
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * This will return the function used to convert the color values.      *      * @return the function      * @throws java.io.IOException if we were not able to create the function.      */
 specifier|public
@@ -922,7 +870,7 @@ block|{
 name|COSBase
 name|dictionaryFunctionObject
 init|=
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -973,7 +921,7 @@ block|{
 name|COSBase
 name|functionObject
 init|=
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject

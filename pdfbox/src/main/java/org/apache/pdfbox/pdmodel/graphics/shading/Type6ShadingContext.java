@@ -216,7 +216,7 @@ name|dict
 init|=
 name|coonsShadingType
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|PDRange

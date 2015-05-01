@@ -216,7 +216,7 @@ name|dict
 init|=
 name|tensorShadingType
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|PDRange

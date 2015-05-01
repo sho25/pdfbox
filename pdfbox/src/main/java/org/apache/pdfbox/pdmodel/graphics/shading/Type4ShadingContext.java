@@ -345,7 +345,7 @@ name|dict
 init|=
 name|freeTriangleShadingType
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|PDRange
