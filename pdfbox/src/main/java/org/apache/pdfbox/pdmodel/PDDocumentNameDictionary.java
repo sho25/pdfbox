@@ -85,10 +85,12 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|nameDictionary
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDDocumentCatalog
 name|catalog
 decl_stmt|;
@@ -178,20 +180,12 @@ operator|=
 name|names
 expr_stmt|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|nameDictionary
-return|;
-block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos dictionary for this object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
-name|getCOSDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
