@@ -1869,7 +1869,9 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * This will get the dictionary associated with this field.      *       * @return The dictionary that this class wraps.      */
+comment|/**      * This will get the dictionary associated with this field.      *       * @deprecated  use {@link #getCOSObject()} instead.      * @return the dictionary that this class wraps.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|COSDictionary
 name|getDictionary
@@ -1879,11 +1881,11 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *       * @return The cos object that matches this Java object.      */
+comment|/**      * Convert this standard java object to a COS object.      *       * @return the COS object that matches this Java object.      */
 annotation|@
 name|Override
 specifier|public
-name|COSBase
+name|COSDictionary
 name|getCOSObject
 parameter_list|()
 block|{

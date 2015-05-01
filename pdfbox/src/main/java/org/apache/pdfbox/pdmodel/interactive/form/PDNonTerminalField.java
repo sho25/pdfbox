@@ -129,7 +129,7 @@ init|=
 operator|(
 name|COSInteger
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -169,7 +169,7 @@ parameter_list|()
 block|{
 comment|// There is no need to look up the parent hierarchy within a non terminal field
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -190,7 +190,7 @@ parameter_list|()
 block|{
 comment|// There is no need to look up the parent hierarchy within a non terminal field
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -213,7 +213,7 @@ name|fieldValue
 parameter_list|)
 block|{
 comment|// There is no need to look up the parent hierarchy within a non terminal field
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -236,7 +236,7 @@ parameter_list|()
 block|{
 comment|// There is no need to look up the parent hierarchy within a non terminal field
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -259,7 +259,7 @@ name|defaultValue
 parameter_list|)
 block|{
 comment|// There is no need to look up the parent hierarchy within a non terminal field
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString

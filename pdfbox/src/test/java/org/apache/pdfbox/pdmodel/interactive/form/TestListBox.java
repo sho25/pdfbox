@@ -376,7 +376,7 @@ name|COSArray
 operator|)
 name|choice
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -390,7 +390,7 @@ name|assertNotNull
 argument_list|(
 name|choice
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -553,7 +553,7 @@ name|COSArray
 operator|)
 name|choice
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -607,7 +607,7 @@ name|COSArray
 operator|)
 name|choice
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -650,7 +650,7 @@ name|COSArray
 operator|)
 name|choice
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -677,7 +677,7 @@ name|assertNull
 argument_list|(
 name|choice
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -798,7 +798,7 @@ name|assertNull
 argument_list|(
 name|choice
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem

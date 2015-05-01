@@ -169,7 +169,7 @@ init|=
 operator|(
 name|COSName
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -225,7 +225,7 @@ argument_list|(
 name|onValue
 argument_list|)
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -249,7 +249,7 @@ name|void
 name|unCheck
 parameter_list|()
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -291,7 +291,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -448,7 +448,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -458,7 +458,7 @@ operator|.
 name|V
 argument_list|)
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -485,7 +485,7 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -497,7 +497,7 @@ argument_list|,
 name|nameValue
 argument_list|)
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

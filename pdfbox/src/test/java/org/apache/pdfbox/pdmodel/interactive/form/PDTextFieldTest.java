@@ -173,7 +173,7 @@ argument_list|()
 argument_list|,
 name|textField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -215,7 +215,7 @@ name|assertNull
 argument_list|(
 name|textField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -230,7 +230,7 @@ name|assertNull
 argument_list|(
 name|textField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -257,7 +257,7 @@ name|ANNOT
 argument_list|,
 name|textField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -276,7 +276,7 @@ name|SUB_TYPE
 argument_list|,
 name|textField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -296,7 +296,7 @@ argument_list|()
 argument_list|,
 name|textField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;

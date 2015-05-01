@@ -148,7 +148,7 @@ name|PDFormFieldAdditionalActions
 name|actions
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -180,7 +180,7 @@ init|=
 operator|(
 name|COSInteger
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -238,7 +238,7 @@ block|{
 name|String
 name|fieldType
 init|=
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString

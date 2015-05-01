@@ -120,7 +120,7 @@ name|isEdit
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -142,7 +142,7 @@ name|boolean
 name|edit
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -209,7 +209,7 @@ throw|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -234,7 +234,7 @@ block|}
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem

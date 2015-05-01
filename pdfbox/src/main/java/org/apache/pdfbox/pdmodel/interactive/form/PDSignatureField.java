@@ -187,7 +187,7 @@ argument_list|(
 name|theAcroForm
 argument_list|)
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -373,7 +373,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -386,7 +386,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -431,7 +431,7 @@ block|{
 name|COSBase
 name|dictionary
 init|=
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -475,7 +475,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -526,7 +526,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

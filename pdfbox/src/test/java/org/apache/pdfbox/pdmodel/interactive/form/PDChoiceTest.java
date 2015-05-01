@@ -167,7 +167,7 @@ argument_list|()
 argument_list|,
 name|choiceField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -222,7 +222,7 @@ argument_list|()
 argument_list|,
 name|choiceField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString

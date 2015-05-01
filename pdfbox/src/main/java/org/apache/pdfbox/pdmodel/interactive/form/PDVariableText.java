@@ -256,7 +256,7 @@ init|=
 operator|(
 name|COSString
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -289,7 +289,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -308,7 +308,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -372,7 +372,7 @@ name|int
 name|q
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -460,7 +460,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -479,7 +479,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -507,7 +507,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -525,7 +525,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem

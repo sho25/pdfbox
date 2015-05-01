@@ -307,7 +307,7 @@ name|COSArray
 operator|)
 name|checkBox
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -322,7 +322,7 @@ name|assertNotNull
 argument_list|(
 name|checkBox
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -401,7 +401,7 @@ name|assertNull
 argument_list|(
 name|checkBox
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem

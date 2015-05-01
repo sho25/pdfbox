@@ -479,7 +479,7 @@ name|assertNull
 argument_list|(
 name|field
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -501,7 +501,7 @@ name|assertNotNull
 argument_list|(
 name|field
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -527,7 +527,7 @@ name|assertNotNull
 argument_list|(
 name|field
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -549,7 +549,7 @@ name|assertNull
 argument_list|(
 name|field
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -602,7 +602,7 @@ argument_list|)
 argument_list|,
 name|field
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -651,7 +651,7 @@ name|COSName
 operator|)
 name|field
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -704,7 +704,7 @@ name|COSString
 operator|)
 name|field
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -772,7 +772,7 @@ name|COSString
 operator|)
 name|field
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -865,7 +865,7 @@ name|assertEquals
 argument_list|(
 name|field
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject

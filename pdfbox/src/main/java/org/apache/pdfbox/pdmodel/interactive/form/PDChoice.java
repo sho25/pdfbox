@@ -231,7 +231,7 @@ argument_list|(
 name|theAcroForm
 argument_list|)
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -336,7 +336,7 @@ throw|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -355,7 +355,7 @@ block|}
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -379,7 +379,7 @@ block|{
 name|COSBase
 name|values
 init|=
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -439,7 +439,7 @@ name|displayValues
 argument_list|)
 expr_stmt|;
 block|}
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -459,7 +459,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -642,7 +642,7 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -658,7 +658,7 @@ block|}
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -682,7 +682,7 @@ block|{
 name|COSBase
 name|values
 init|=
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -729,7 +729,7 @@ block|{
 name|COSBase
 name|value
 init|=
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -808,7 +808,7 @@ literal|"Setting the indices is not allowed for choice fields not allowing multi
 argument_list|)
 throw|;
 block|}
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -828,7 +828,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -847,7 +847,7 @@ name|isSort
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -869,7 +869,7 @@ name|boolean
 name|sort
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -891,7 +891,7 @@ name|isMultiSelect
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -913,7 +913,7 @@ name|boolean
 name|multiSelect
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -935,7 +935,7 @@ name|isDoNotSpellCheck
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -957,7 +957,7 @@ name|boolean
 name|doNotSpellCheck
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -979,7 +979,7 @@ name|isCommitOnSelChange
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1001,7 +1001,7 @@ name|boolean
 name|commitOnSelChange
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1023,7 +1023,7 @@ name|isCombo
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1045,7 +1045,7 @@ name|boolean
 name|combo
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1103,7 +1103,7 @@ throw|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -1128,7 +1128,7 @@ block|}
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -1201,7 +1201,7 @@ literal|"The values are not contained in the selectable options."
 argument_list|)
 throw|;
 block|}
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1226,7 +1226,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -1253,7 +1253,7 @@ block|{
 name|COSBase
 name|value
 init|=
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
