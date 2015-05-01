@@ -278,39 +278,12 @@ name|int
 name|getFunctionType
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the COSObject.      *      * {@inheritDoc}      */
+comment|/**      * Returns the stream.      * @return The stream for this object.      */
 annotation|@
 name|Override
 specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-if|if
-condition|(
-name|functionStream
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|functionStream
-operator|.
-name|getCOSObject
-argument_list|()
-return|;
-block|}
-else|else
-block|{
-return|return
-name|functionDictionary
-return|;
-block|}
-block|}
-comment|/**      * Returns the stream.      * @return The stream for this object.      */
-specifier|public
 name|COSDictionary
-name|getDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 if|if
@@ -573,7 +546,7 @@ name|range
 operator|=
 name|rangeValues
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -658,7 +631,7 @@ name|domain
 operator|=
 name|domainValues
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -744,7 +717,7 @@ operator|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -777,7 +750,7 @@ operator|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject

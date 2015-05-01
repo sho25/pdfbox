@@ -524,7 +524,7 @@ call|(
 name|COSArray
 call|)
 argument_list|(
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -559,7 +559,7 @@ call|(
 name|COSArray
 call|)
 argument_list|(
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -594,7 +594,7 @@ call|(
 name|COSArray
 call|)
 argument_list|(
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject

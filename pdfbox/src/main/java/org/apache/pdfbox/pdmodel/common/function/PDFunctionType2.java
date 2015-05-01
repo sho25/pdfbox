@@ -143,7 +143,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -181,7 +181,7 @@ operator|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -194,7 +194,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -232,7 +232,7 @@ operator|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -245,7 +245,7 @@ expr_stmt|;
 block|}
 name|exponent
 operator|=
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
