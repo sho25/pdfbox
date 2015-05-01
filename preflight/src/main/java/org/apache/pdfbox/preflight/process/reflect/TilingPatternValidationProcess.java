@@ -468,7 +468,7 @@ name|dictionary
 init|=
 name|pattern
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|boolean
