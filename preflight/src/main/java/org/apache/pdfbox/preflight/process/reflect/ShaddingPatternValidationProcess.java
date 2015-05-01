@@ -20,6 +20,16 @@ package|;
 end_package
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -64,16 +74,6 @@ operator|.
 name|PreflightConstants
 operator|.
 name|TRANPARENCY_DICTIONARY_KEY_EXTGSTATE
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -318,6 +318,8 @@ name|ShaddingPatternValidationProcess
 extends|extends
 name|AbstractProcess
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
@@ -346,7 +348,6 @@ condition|)
 block|{
 return|return;
 block|}
-elseif|else
 if|if
 condition|(
 operator|!
@@ -535,7 +536,7 @@ name|COSDictionary
 operator|)
 name|shadingRes
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
