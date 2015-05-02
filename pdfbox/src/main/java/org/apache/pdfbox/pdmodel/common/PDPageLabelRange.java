@@ -178,19 +178,10 @@ name|dict
 expr_stmt|;
 block|}
 comment|/**      * Returns the underlying dictionary.      *       * @return the underlying dictionary.      */
-specifier|public
-name|COSDictionary
-name|getCOSDictionary
-parameter_list|()
-block|{
-return|return
-name|root
-return|;
-block|}
 annotation|@
 name|Override
 specifier|public
-name|COSBase
+name|COSDictionary
 name|getCOSObject
 parameter_list|()
 block|{

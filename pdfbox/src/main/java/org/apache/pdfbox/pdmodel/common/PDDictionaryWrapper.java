@@ -94,20 +94,8 @@ comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|dictionary
-return|;
-block|}
-comment|/**      * Gets the COS dictionary.      *       * @return the COS dictionary      */
-specifier|public
 name|COSDictionary
-name|getCOSDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return

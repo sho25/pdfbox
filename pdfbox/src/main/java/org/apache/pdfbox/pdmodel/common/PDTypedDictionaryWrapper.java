@@ -69,7 +69,7 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -105,7 +105,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
