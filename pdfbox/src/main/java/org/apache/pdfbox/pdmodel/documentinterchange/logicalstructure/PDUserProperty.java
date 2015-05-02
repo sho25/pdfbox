@@ -140,7 +140,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -174,7 +174,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -196,7 +196,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -230,7 +230,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -252,7 +252,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getString
@@ -286,7 +286,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -308,7 +308,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getBoolean
@@ -344,7 +344,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setBoolean

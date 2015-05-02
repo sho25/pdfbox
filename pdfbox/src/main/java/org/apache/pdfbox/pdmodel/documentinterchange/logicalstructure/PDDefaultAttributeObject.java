@@ -167,7 +167,7 @@ name|entry
 range|:
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|entrySet
@@ -223,7 +223,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -249,7 +249,7 @@ name|value
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -296,7 +296,7 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

@@ -448,7 +448,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -470,7 +470,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -494,7 +494,7 @@ return|return
 operator|(
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|size
