@@ -138,7 +138,7 @@ name|TRANS
 argument_list|,
 name|transition
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getCOSName
@@ -191,7 +191,7 @@ name|TRANS
 argument_list|,
 name|transition
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getCOSName
