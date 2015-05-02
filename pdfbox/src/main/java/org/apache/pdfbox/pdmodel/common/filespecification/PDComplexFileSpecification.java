@@ -87,6 +87,7 @@ extends|extends
 name|PDFileSpecification
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|fs
 decl_stmt|;
@@ -163,19 +164,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|fs
-return|;
-block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
-name|getCOSDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
@@ -358,6 +351,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will get the file name.      *      * @return The file name.      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getFile
@@ -375,6 +370,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This will set the file name.      *      * @param file The name of the file.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setFile
