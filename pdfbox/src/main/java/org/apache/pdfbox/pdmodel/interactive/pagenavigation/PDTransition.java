@@ -155,7 +155,7 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -172,7 +172,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -209,7 +209,7 @@ name|getStyle
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -234,7 +234,7 @@ name|getDimension
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -261,7 +261,7 @@ name|PDTransitionDimension
 name|dimension
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -284,7 +284,7 @@ name|getMotion
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -311,7 +311,7 @@ name|PDTransitionMotion
 name|motion
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -336,7 +336,7 @@ block|{
 name|COSBase
 name|item
 init|=
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -372,7 +372,7 @@ name|PDTransitionDirection
 name|direction
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -395,7 +395,7 @@ name|getDuration
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
@@ -417,7 +417,7 @@ name|float
 name|duration
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -441,7 +441,7 @@ name|getFlyScale
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
@@ -463,7 +463,7 @@ name|float
 name|scale
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -487,7 +487,7 @@ name|isFlyAreaOpaque
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getBoolean
@@ -509,7 +509,7 @@ name|boolean
 name|opaque
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
