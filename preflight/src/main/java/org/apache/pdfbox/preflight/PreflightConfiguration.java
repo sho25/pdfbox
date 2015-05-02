@@ -459,7 +459,7 @@ name|process
 operator|.
 name|reflect
 operator|.
-name|ShaddingPatternValidationProcess
+name|ShadingPatternValidationProcess
 import|;
 end_import
 
@@ -638,7 +638,7 @@ specifier|public
 specifier|static
 specifier|final
 name|String
-name|SHADDING_PATTERN_PROCESS
+name|SHADING_PATTERN_PROCESS
 init|=
 literal|"shadding-pattern-process"
 decl_stmt|;
@@ -885,9 +885,9 @@ name|configuration
 operator|.
 name|replacePageProcess
 argument_list|(
-name|SHADDING_PATTERN_PROCESS
+name|SHADING_PATTERN_PROCESS
 argument_list|,
-name|ShaddingPatternValidationProcess
+name|ShadingPatternValidationProcess
 operator|.
 name|class
 argument_list|)

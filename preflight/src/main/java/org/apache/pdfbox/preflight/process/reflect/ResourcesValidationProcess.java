@@ -79,7 +79,7 @@ name|preflight
 operator|.
 name|PreflightConfiguration
 operator|.
-name|SHADDING_PATTERN_PROCESS
+name|SHADING_PATTERN_PROCESS
 import|;
 end_import
 
@@ -1308,7 +1308,7 @@ name|context
 argument_list|,
 name|shading
 argument_list|,
-name|SHADDING_PATTERN_PROCESS
+name|SHADING_PATTERN_PROCESS
 argument_list|)
 expr_stmt|;
 block|}

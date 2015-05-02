@@ -314,7 +314,7 @@ end_import
 begin_class
 specifier|public
 class|class
-name|ShaddingPatternValidationProcess
+name|ShadingPatternValidationProcess
 extends|extends
 name|AbstractProcess
 block|{
@@ -380,7 +380,7 @@ block|}
 else|else
 block|{
 name|PDShading
-name|shaddingResource
+name|shadingResource
 init|=
 operator|(
 name|PDShading
@@ -408,7 +408,7 @@ name|context
 argument_list|,
 name|page
 argument_list|,
-name|shaddingResource
+name|shadingResource
 argument_list|)
 expr_stmt|;
 name|checkGraphicState
@@ -417,7 +417,7 @@ name|context
 argument_list|,
 name|page
 argument_list|,
-name|shaddingResource
+name|shadingResource
 argument_list|)
 expr_stmt|;
 block|}
