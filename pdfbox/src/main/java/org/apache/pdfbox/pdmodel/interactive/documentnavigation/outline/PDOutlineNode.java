@@ -121,7 +121,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -184,7 +184,7 @@ name|PDOutlineNode
 name|parent
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -459,7 +459,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -509,7 +509,7 @@ name|PDOutlineNode
 name|outlineNode
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -545,7 +545,7 @@ name|PDOutlineNode
 name|outlineNode
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -565,7 +565,7 @@ name|getOpenCount
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -586,7 +586,7 @@ name|int
 name|openCount
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt

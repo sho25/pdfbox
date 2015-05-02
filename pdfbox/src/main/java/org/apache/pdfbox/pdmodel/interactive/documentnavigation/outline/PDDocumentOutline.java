@@ -66,7 +66,7 @@ specifier|public
 name|PDDocumentOutline
 parameter_list|()
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -97,7 +97,7 @@ argument_list|(
 name|dic
 argument_list|)
 expr_stmt|;
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName

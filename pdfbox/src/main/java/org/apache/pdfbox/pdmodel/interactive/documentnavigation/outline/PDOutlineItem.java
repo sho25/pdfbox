@@ -595,7 +595,7 @@ name|PDOutlineNode
 name|outlineNode
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -631,7 +631,7 @@ name|PDOutlineNode
 name|outlineNode
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -651,7 +651,7 @@ name|getTitle
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getString
@@ -671,7 +671,7 @@ name|String
 name|title
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -697,7 +697,7 @@ name|PDDestination
 operator|.
 name|create
 argument_list|(
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -718,7 +718,7 @@ name|PDDestination
 name|dest
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1013,7 +1013,7 @@ argument_list|(
 operator|(
 name|COSDictionary
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1034,7 +1034,7 @@ name|PDAction
 name|action
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1064,7 +1064,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1103,7 +1103,7 @@ name|PDStructureElement
 name|structureElement
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1128,7 +1128,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1164,7 +1164,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1198,7 +1198,7 @@ name|PDColor
 name|textColor
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1278,7 +1278,7 @@ literal|255f
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1298,7 +1298,7 @@ name|isItalic
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1320,7 +1320,7 @@ name|boolean
 name|italic
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1342,7 +1342,7 @@ name|isBold
 parameter_list|()
 block|{
 return|return
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1364,7 +1364,7 @@ name|boolean
 name|bold
 parameter_list|)
 block|{
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
