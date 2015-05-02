@@ -901,7 +901,7 @@ name|PLACEMENT_INLINE
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the positioning of the element with respect to the enclosing      * reference area and other content (Placement). The value should be one of:      *<ul>      *<li>{@link #PLACEMENT_BLOCK},</li>      *<li>{@link #PLACEMENT_INLINE},</li>      *<li>{@link #PLACEMENT_BEFORE},</li>      *<li>{@link #PLACEMENT_START},</li>      *<li>{@link #PLACEMENT_END}.</li>      *<ul>      *       * @param placement the placement      */
+comment|/**      * Sets the positioning of the element with respect to the enclosing      * reference area and other content (Placement). The value should be one of:      *<ul>      *<li>{@link #PLACEMENT_BLOCK},</li>      *<li>{@link #PLACEMENT_INLINE},</li>      *<li>{@link #PLACEMENT_BEFORE},</li>      *<li>{@link #PLACEMENT_START},</li>      *<li>{@link #PLACEMENT_END}.</li>      *</ul>      *       * @param placement the placement      */
 specifier|public
 name|void
 name|setPlacement
@@ -1608,7 +1608,7 @@ name|COSArray
 operator|)
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1654,7 +1654,7 @@ name|oldValue
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1664,7 +1664,7 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

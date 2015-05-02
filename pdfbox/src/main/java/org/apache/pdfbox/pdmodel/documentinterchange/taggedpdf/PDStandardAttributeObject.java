@@ -196,7 +196,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -219,7 +219,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getString
@@ -245,7 +245,7 @@ name|oldBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -255,7 +255,7 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -270,7 +270,7 @@ name|newBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -303,7 +303,7 @@ name|v
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -404,7 +404,7 @@ name|oldBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -441,7 +441,7 @@ expr_stmt|;
 block|}
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -456,7 +456,7 @@ name|newBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -486,7 +486,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -510,7 +510,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -538,7 +538,7 @@ name|v
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -670,7 +670,7 @@ name|oldBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -680,7 +680,7 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -695,7 +695,7 @@ name|newBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -731,7 +731,7 @@ name|oldBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -769,7 +769,7 @@ expr_stmt|;
 block|}
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -784,7 +784,7 @@ name|newBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -819,7 +819,7 @@ name|value
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -884,7 +884,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -912,7 +912,7 @@ name|oldBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -922,7 +922,7 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -937,7 +937,7 @@ name|newBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -970,7 +970,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
@@ -993,7 +993,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
@@ -1029,7 +1029,7 @@ name|v
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1172,7 +1172,7 @@ name|oldBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1182,7 +1182,7 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFloat
@@ -1197,7 +1197,7 @@ name|newBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1232,7 +1232,7 @@ name|oldBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1242,7 +1242,7 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -1257,7 +1257,7 @@ name|newBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1332,7 +1332,7 @@ name|oldBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1342,7 +1342,7 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1357,7 +1357,7 @@ name|newBase
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1392,7 +1392,7 @@ name|COSArray
 operator|)
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1436,7 +1436,7 @@ name|COSArray
 operator|)
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1514,7 +1514,7 @@ name|oldValue
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1524,7 +1524,7 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1575,7 +1575,7 @@ name|oldValue
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1585,7 +1585,7 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
