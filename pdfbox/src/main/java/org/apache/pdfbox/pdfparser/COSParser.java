@@ -1879,7 +1879,7 @@ name|newObject
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Will parse every object necessary to load a single page from the pdf document. We try our best to order objects      * according to offset in file before reading to minimize seek operations.      *       * @param dict the COSObject from the parent pages.      * @param excludeObjects dictionary object reference entries with these names will not be parsed      *       * @throws IOException if something went wrong      */
+comment|/**      * Will parse every object necessary to load a single page from the pdf document. We try our      * best to order objects according to offset in file before reading to minimize seek operations.      *      * @param dict the COSObject from the parent pages.      * @param excludeObjects dictionary object reference entries with these names will not be parsed      *      * @throws IOException if something went wrong      */
 specifier|protected
 name|void
 name|parseDictObjects
@@ -2322,7 +2322,7 @@ block|}
 block|}
 block|}
 block|}
-comment|// ---- read first COSObject with smallest offset;
+comment|// ---- read first COSObject with smallest offset
 comment|// resulting object will be added to toBeParsedList
 if|if
 condition|(
@@ -2623,6 +2623,66 @@ literal|0
 condition|)
 block|{
 comment|// offset of indirect object in file
+name|parseFileObject
+argument_list|(
+name|offsetOrObjstmObNr
+argument_list|,
+name|objKey
+argument_list|,
+name|objNr
+argument_list|,
+name|objGenNr
+argument_list|,
+name|pdfObject
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// xref value is object nr of object stream containing object to be parsed
+comment|// since our object was not found it means object stream was not parsed so far
+name|parseObjectStream
+argument_list|(
+operator|(
+name|int
+operator|)
+operator|-
+name|offsetOrObjstmObNr
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+name|pdfObject
+operator|.
+name|getObject
+argument_list|()
+return|;
+block|}
+specifier|private
+name|void
+name|parseFileObject
+parameter_list|(
+name|Long
+name|offsetOrObjstmObNr
+parameter_list|,
+specifier|final
+name|COSObjectKey
+name|objKey
+parameter_list|,
+name|long
+name|objNr
+parameter_list|,
+name|int
+name|objGenNr
+parameter_list|,
+specifier|final
+name|COSObject
+name|pdfObject
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 comment|// ---- go to object start
 name|pdfSource
 operator|.
@@ -2960,24 +3020,16 @@ throw|;
 block|}
 block|}
 block|}
-else|else
-block|{
-comment|// xref value is object nr of object stream containing object to
-comment|// be parsed;
-comment|// since our object was not found it means object stream was not
-comment|// parsed so far
-specifier|final
+specifier|private
+name|void
+name|parseObjectStream
+parameter_list|(
 name|int
 name|objstmObjNr
-init|=
-call|(
-name|int
-call|)
-argument_list|(
-operator|-
-name|offsetOrObjstmObNr
-argument_list|)
-decl_stmt|;
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 specifier|final
 name|COSBase
 name|objstmBaseObj
@@ -3023,8 +3075,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// get set of object numbers referenced for this object
-comment|// stream
+comment|// get set of object numbers referenced for this object stream
 specifier|final
 name|Set
 argument_list|<
@@ -3039,8 +3090,7 @@ argument_list|(
 name|objstmObjNr
 argument_list|)
 decl_stmt|;
-comment|// register all objects which are referenced to be contained
-comment|// in object stream
+comment|// register all objects which are referenced to be contained in object stream
 for|for
 control|(
 name|COSObject
@@ -3097,14 +3147,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-block|}
-return|return
-name|pdfObject
-operator|.
-name|getObject
-argument_list|()
-return|;
 block|}
 specifier|private
 name|boolean
@@ -3345,7 +3387,7 @@ index|[
 name|STREAMCOPYBUFLEN
 index|]
 decl_stmt|;
-comment|/**      * This will read a COSStream from the input stream using length attribute within dictionary. If length attribute is      * a indirect reference it is first resolved to get the stream length. This means we copy stream data without      * testing for 'endstream' or 'endobj' and thus it is no problem if these keywords occur within stream. We require      * 'endstream' to be found after stream data is read.      *       * @param dic dictionary that goes with this stream.      *       * @return parsed pdf stream.      *       * @throws IOException if an error occurred reading the stream, like problems with reading length attribute, stream      * does not end with 'endstream' after data read, stream too short etc.      */
+comment|/**      * This will read a COSStream from the input stream using length attribute within dictionary. If      * length attribute is a indirect reference it is first resolved to get the stream length. This      * means we copy stream data without testing for 'endstream' or 'endobj' and thus it is no      * problem if these keywords occur within stream. We require 'endstream' to be found after      * stream data is read.      *      * @param dic dictionary that goes with this stream.      *      * @return parsed pdf stream.      *      * @throws IOException if an error occurred reading the stream, like problems with reading      * length attribute, stream does not end with 'endstream' after data read, stream too short etc.      */
 specifier|protected
 name|COSStream
 name|parseCOSStream
@@ -3996,23 +4038,11 @@ name|nextValue
 argument_list|)
 condition|)
 block|{
-name|nextValue
-operator|=
-name|pdfSource
-operator|.
-name|peek
-argument_list|()
-expr_stmt|;
 comment|// is the next character a digit?
 if|if
 condition|(
-name|nextValue
-operator|>
-literal|47
-operator|&&
-name|nextValue
-operator|<
-literal|58
+name|isDigit
+argument_list|()
 condition|)
 block|{
 try|try
@@ -4553,13 +4583,10 @@ decl_stmt|;
 comment|// is the next char a digit?
 if|if
 condition|(
+name|isDigit
+argument_list|(
 name|genID
-operator|>
-literal|47
-operator|&&
-name|genID
-operator|<
-literal|58
+argument_list|)
 condition|)
 block|{
 name|genID
