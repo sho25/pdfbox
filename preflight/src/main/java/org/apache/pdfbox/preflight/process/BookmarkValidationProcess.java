@@ -374,7 +374,7 @@ name|dict
 init|=
 name|outlineHierarchy
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 if|if
@@ -704,7 +704,7 @@ literal|" on a level is "
 operator|+
 name|inputItem
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -757,7 +757,7 @@ name|toCOSObject
 argument_list|(
 name|currentItem
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -865,7 +865,7 @@ name|toCOSObject
 argument_list|(
 name|currentItem
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -948,7 +948,7 @@ name|dictionary
 init|=
 name|inputItem
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|COSBase
@@ -1082,7 +1082,7 @@ name|isCountEntryPresent
 argument_list|(
 name|inputItem
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 condition|)
