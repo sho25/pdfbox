@@ -1840,7 +1840,7 @@ name|destParentTreeDict
 operator|=
 name|destParentTree
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 expr_stmt|;
 name|destNumbersArray
@@ -1911,7 +1911,7 @@ name|srcParentTreeDict
 operator|=
 name|srcParentTree
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 expr_stmt|;
 name|srcNumbersArray
