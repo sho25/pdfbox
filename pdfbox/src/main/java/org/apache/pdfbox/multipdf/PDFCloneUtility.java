@@ -840,10 +840,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|base
-operator|instanceof
-name|COSObjectable
-operator|&&
 operator|!
 operator|(
 name|base
