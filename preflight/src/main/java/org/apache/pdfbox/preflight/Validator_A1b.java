@@ -298,7 +298,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is a simple main class used to check the validity of a pdf file.  *   * Usage : java net.awl.edoc.pdfa.Validator<file path>  *   * @author gbailleul  *   */
+comment|/**  * This class is a simple main class used to check the validity of a pdf file.  *   * Usage : java net.awl.edoc.pdfa.Validator&lt;file path&gt;  *   * @author gbailleul  *   */
 end_comment
 
 begin_class
@@ -909,8 +909,6 @@ name|Exception
 block|{
 name|ValidationResult
 name|result
-init|=
-literal|null
 decl_stmt|;
 name|PreflightParser
 name|parser
@@ -1214,6 +1212,22 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|File
+index|[]
+name|fileList
+init|=
+name|f
+operator|.
+name|listFiles
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|fileList
+operator|!=
+literal|null
+condition|)
+block|{
 name|files
 operator|.
 name|addAll
@@ -1222,13 +1236,11 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-name|f
-operator|.
-name|listFiles
-argument_list|()
+name|fileList
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|files
