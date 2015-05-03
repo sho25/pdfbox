@@ -1369,7 +1369,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Prepare document for encryption.      *      * @param doc The documeent to encrypt.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Prepare document for encryption.      *      * @param document The documeent to encrypt.      *      * @throws IOException If there is an error accessing data.      */
 annotation|@
 name|Override
 specifier|public
@@ -1377,15 +1377,11 @@ name|void
 name|prepareDocumentForEncryption
 parameter_list|(
 name|PDDocument
-name|doc
+name|document
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|document
-operator|=
-name|doc
-expr_stmt|;
 name|PDEncryption
 name|encryptionDictionary
 init|=
@@ -1574,6 +1570,8 @@ argument_list|,
 name|encryptionDictionary
 argument_list|,
 name|permissionInt
+argument_list|,
+name|document
 argument_list|,
 name|revision
 argument_list|,
@@ -2260,6 +2258,9 @@ name|encryptionDictionary
 parameter_list|,
 name|int
 name|permissionInt
+parameter_list|,
+name|PDDocument
+name|document
 parameter_list|,
 name|int
 name|revision

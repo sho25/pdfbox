@@ -462,11 +462,6 @@ name|byte
 index|[]
 name|encryptionKey
 decl_stmt|;
-comment|/** The document whose security is handled by this security handler.*/
-specifier|protected
-name|PDDocument
-name|document
-decl_stmt|;
 comment|/** The RC4 implementation used for cryptographic functions. */
 specifier|protected
 name|RC4Cipher
