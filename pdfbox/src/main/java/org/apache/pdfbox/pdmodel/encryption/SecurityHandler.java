@@ -467,7 +467,7 @@ name|RC4Cipher
 argument_list|()
 decl_stmt|;
 comment|/** indicates if the Metadata have to be decrypted of not. */
-specifier|protected
+specifier|private
 name|boolean
 name|decryptMetadata
 decl_stmt|;
@@ -497,6 +497,22 @@ name|currentAccessPermission
 init|=
 literal|null
 decl_stmt|;
+comment|/**      * Set wether to decrypt meta data.      *      * @param decryptMetadata true if meta data has to be decrypted.      */
+specifier|protected
+name|void
+name|setDecryptMetadata
+parameter_list|(
+name|boolean
+name|decryptMetadata
+parameter_list|)
+block|{
+name|this
+operator|.
+name|decryptMetadata
+operator|=
+name|decryptMetadata
+expr_stmt|;
+block|}
 comment|/**      * Prepare the document for encryption.      *      * @param doc The document that will be encrypted.      *      * @throws IOException If there is an error with the document.      */
 specifier|public
 specifier|abstract
