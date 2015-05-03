@@ -4029,18 +4029,14 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-comment|// the first character has to be a whitespace
+comment|// the first character has to be a whitespace, and then a digit
 if|if
 condition|(
 name|isWhitespace
 argument_list|(
 name|nextValue
 argument_list|)
-condition|)
-block|{
-comment|// is the next character a digit?
-if|if
-condition|(
+operator|&&
 name|isDigit
 argument_list|()
 condition|)
@@ -4087,7 +4083,6 @@ argument_list|(
 name|startXRefOffset
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// try to find a fixed offset
