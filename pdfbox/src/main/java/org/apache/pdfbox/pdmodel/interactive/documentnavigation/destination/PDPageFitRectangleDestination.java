@@ -35,20 +35,6 @@ name|COSArray
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSBase
-import|;
-end_import
-
 begin_comment
 comment|/**  * This represents a destination to a page at a y location and the width is magnified  * to just fit on the screen.  *  * @author Ben Litchfield  */
 end_comment
