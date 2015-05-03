@@ -1104,18 +1104,24 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
+name|AccessPermission
 name|currentAccessPermission
-operator|=
+init|=
 operator|new
 name|AccessPermission
 argument_list|(
 name|accessBytes
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|currentAccessPermission
 operator|.
 name|setReadOnly
 argument_list|()
+expr_stmt|;
+name|setCurrentAccessPermission
+argument_list|(
+name|currentAccessPermission
+argument_list|)
 expr_stmt|;
 comment|// what we will put in the SHA1 = the seed + each byte contained in the recipients array
 name|byte

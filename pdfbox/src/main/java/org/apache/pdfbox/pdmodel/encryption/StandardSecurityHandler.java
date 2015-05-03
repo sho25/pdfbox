@@ -822,6 +822,9 @@ name|getOwnerEncryptionKey
 argument_list|()
 expr_stmt|;
 block|}
+name|AccessPermission
+name|currentAccessPermission
+decl_stmt|;
 if|if
 condition|(
 name|isOwnerPassword
@@ -855,6 +858,11 @@ name|AccessPermission
 operator|.
 name|getOwnerAccessPermission
 argument_list|()
+expr_stmt|;
+name|setCurrentAccessPermission
+argument_list|(
+name|currentAccessPermission
+argument_list|)
 expr_stmt|;
 name|byte
 index|[]
@@ -964,6 +972,11 @@ operator|new
 name|AccessPermission
 argument_list|(
 name|dicPermissions
+argument_list|)
+expr_stmt|;
+name|setCurrentAccessPermission
+argument_list|(
+name|currentAccessPermission
 argument_list|)
 expr_stmt|;
 name|encryptionKey

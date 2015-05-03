@@ -492,7 +492,7 @@ name|boolean
 name|useAES
 decl_stmt|;
 comment|/**      * The access permission granted to the current user for the document. These      * permissions are computed during decryption and are in read only mode.      */
-specifier|protected
+specifier|private
 name|AccessPermission
 name|currentAccessPermission
 init|=
@@ -2028,6 +2028,22 @@ operator|.
 name|keyLength
 operator|=
 name|keyLen
+expr_stmt|;
+block|}
+comment|/**      * Sets the access permissions.      *       * @param currentAccessPermission The access permissions to be set.      */
+specifier|public
+name|void
+name|setCurrentAccessPermission
+parameter_list|(
+name|AccessPermission
+name|currentAccessPermission
+parameter_list|)
+block|{
+name|this
+operator|.
+name|currentAccessPermission
+operator|=
+name|currentAccessPermission
 expr_stmt|;
 block|}
 comment|/**      * Returns the access permissions that were computed during document decryption.      * The returned object is in read only mode.      *      * @return the access permissions or null if the document was not decrypted.      */
