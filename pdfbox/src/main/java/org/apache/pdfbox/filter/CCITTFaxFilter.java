@@ -21,16 +21,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -389,8 +379,6 @@ decl_stmt|;
 name|byte
 index|[]
 name|decompressed
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
