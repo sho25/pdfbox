@@ -444,11 +444,6 @@ operator|)
 literal|0x54
 block|}
 decl_stmt|;
-comment|/** The value of V field of the Encryption dictionary. */
-specifier|protected
-name|int
-name|version
-decl_stmt|;
 comment|/** The length of the secret key used to encrypt the document. */
 specifier|protected
 name|int

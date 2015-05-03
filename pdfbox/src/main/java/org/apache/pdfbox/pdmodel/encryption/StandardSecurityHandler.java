@@ -561,11 +561,14 @@ return|return
 literal|2
 return|;
 block|}
-comment|/**      * Computes the revision version of the StandardSecurityHandler to      * use regarding the version number and the permissions bits set.      * See PDF Spec 1.6 p98      *      * @return The computed revision number.      */
+comment|/**      * Computes the revision version of the StandardSecurityHandler to      * use regarding the version number and the permissions bits set.      * See PDF Spec 1.6 p98      *       * @param version The version number.      *      * @return The computed revision number.      */
 specifier|private
 name|int
 name|computeRevisionNumber
-parameter_list|()
+parameter_list|(
+name|int
+name|version
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -1404,16 +1407,19 @@ name|PDEncryption
 argument_list|()
 expr_stmt|;
 block|}
+name|int
 name|version
-operator|=
+init|=
 name|computeVersionNumber
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|int
 name|revision
 init|=
 name|computeRevisionNumber
-argument_list|()
+argument_list|(
+name|version
+argument_list|)
 decl_stmt|;
 name|encryptionDictionary
 operator|.
