@@ -811,7 +811,7 @@ operator|.
 name|getValue
 argument_list|()
 index|[
-literal|0
+literal|1
 index|]
 operator|==
 literal|12
