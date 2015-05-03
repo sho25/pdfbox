@@ -50,7 +50,7 @@ name|PDDeviceCMYKTest
 extends|extends
 name|TestCase
 block|{
-specifier|private
+specifier|public
 name|void
 name|testCMYK
 parameter_list|()
