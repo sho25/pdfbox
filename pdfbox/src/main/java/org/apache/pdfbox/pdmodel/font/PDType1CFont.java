@@ -774,6 +774,26 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|getStandard14AFM
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// read from AFM
+return|return
+operator|new
+name|Type1Encoding
+argument_list|(
+name|getStandard14AFM
+argument_list|()
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|Type1Encoding
 operator|.
@@ -785,6 +805,7 @@ name|getEncoding
 argument_list|()
 argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override

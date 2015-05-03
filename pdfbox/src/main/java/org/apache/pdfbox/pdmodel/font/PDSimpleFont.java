@@ -622,6 +622,18 @@ operator|.
 name|INSTANCE
 expr_stmt|;
 block|}
+comment|// normalise the standard 14 name, e.g "Symbol,Italic" -> "Symbol"
+name|String
+name|standard14Name
+init|=
+name|Standard14Fonts
+operator|.
+name|getMappedFontName
+argument_list|(
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
 comment|// TTFs may have null encoding, but if it's standard 14 then we know it's Standard Encoding
 if|if
 condition|(
@@ -635,8 +647,7 @@ name|isStandard14
 argument_list|()
 operator|&&
 operator|!
-name|getName
-argument_list|()
+name|standard14Name
 operator|.
 name|equals
 argument_list|(
@@ -644,8 +655,7 @@ literal|"Symbol"
 argument_list|)
 operator|&&
 operator|!
-name|getName
-argument_list|()
+name|standard14Name
 operator|.
 name|equals
 argument_list|(
@@ -662,7 +672,6 @@ operator|.
 name|INSTANCE
 expr_stmt|;
 block|}
-comment|// todo: what about Symbol and ZapfDingbats?
 comment|// assign the glyph list based on the font
 if|if
 condition|(
@@ -670,8 +679,7 @@ literal|"ZapfDingbats"
 operator|.
 name|equals
 argument_list|(
-name|getName
-argument_list|()
+name|standard14Name
 argument_list|)
 condition|)
 block|{
@@ -685,6 +693,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// StandardEncoding and Symbol are in the AGL
 name|glyphList
 operator|=
 name|GlyphList
@@ -897,17 +906,26 @@ name|isStandard14
 argument_list|()
 condition|)
 block|{
-return|return
+name|String
+name|mappedName
+init|=
+name|Standard14Fonts
+operator|.
+name|getMappedFontName
+argument_list|(
 name|getName
 argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|mappedName
 operator|.
 name|equals
 argument_list|(
 literal|"Symbol"
 argument_list|)
 operator|||
-name|getName
-argument_list|()
+name|mappedName
 operator|.
 name|equals
 argument_list|(
@@ -1311,7 +1329,8 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Returns the glyph width from the AFM if this is a Standard 14 font.      * @param code character code      * @return width in 1/1000 text space      */
+annotation|@
+name|Override
 specifier|protected
 specifier|final
 name|float

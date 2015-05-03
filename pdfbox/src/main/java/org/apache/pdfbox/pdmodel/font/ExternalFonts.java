@@ -819,6 +819,8 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
+literal|"Symbol"
+argument_list|,
 literal|"SymbolMT"
 argument_list|,
 literal|"StandardSymL"

@@ -301,6 +301,24 @@ name|PDStream
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|encoding
+operator|.
+name|Type1Encoding
+import|;
+end_import
+
 begin_comment
 comment|/**  * TrueType font.  *   * @author Ben Litchfield  */
 end_comment
@@ -763,11 +781,32 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|getStandard14AFM
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// read from AFM
+return|return
+operator|new
+name|Type1Encoding
+argument_list|(
+name|getStandard14AFM
+argument_list|()
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 comment|// for symbolic fonts the (3, 0) (Windows, Symbol) cmap is the font's built-in encoding
 comment|// but this is handled by codeToGID
 return|return
 literal|null
 return|;
+block|}
 block|}
 comment|/**      * Creates a new TrueType font for embedding.      */
 specifier|private
