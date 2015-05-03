@@ -1190,18 +1190,13 @@ operator|.
 name|F
 argument_list|)
 decl_stmt|;
-name|PDFileSpecification
-name|retval
-init|=
+return|return
 name|PDFileSpecification
 operator|.
 name|createFS
 argument_list|(
 name|f
 argument_list|)
-decl_stmt|;
-return|return
-name|retval
 return|;
 block|}
 comment|/**      * Set the file specification.      *       * @param f      *            The file specification.      */
