@@ -467,7 +467,11 @@ operator|.
 name|getFontName
 argument_list|()
 operator|+
-literal|": The FontFile3 stream doesn't have the right Subtype"
+literal|": invalid /Subtype /"
+operator|+
+name|st
+operator|+
+literal|" in /FontFile3 stream"
 argument_list|)
 argument_list|)
 expr_stmt|;
