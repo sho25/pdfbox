@@ -345,8 +345,6 @@ argument_list|,
 name|xform
 argument_list|,
 name|matrix
-argument_list|,
-name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|this

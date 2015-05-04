@@ -230,11 +230,6 @@ name|PDShading
 name|shading
 decl_stmt|;
 specifier|protected
-specifier|final
-name|Rectangle
-name|deviceBounds
-decl_stmt|;
-specifier|protected
 name|PDColorSpace
 name|shadingColorSpace
 decl_stmt|;
@@ -265,7 +260,7 @@ specifier|protected
 name|int
 name|rgbBackground
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      * @throws java.io.IOException if there is an error getting the color space      * or doing background color conversion.      */
+comment|/**      * Constructor.      *      * @param shading the shading type to be used      * @param cm the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @throws java.io.IOException if there is an error getting the color space      * or doing background color conversion.      */
 specifier|public
 name|ShadingContext
 parameter_list|(
@@ -280,9 +275,6 @@ name|xform
 parameter_list|,
 name|Matrix
 name|matrix
-parameter_list|,
-name|Rectangle
-name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -292,12 +284,6 @@ operator|.
 name|shading
 operator|=
 name|shading
-expr_stmt|;
-name|this
-operator|.
-name|deviceBounds
-operator|=
-name|deviceBounds
 expr_stmt|;
 name|shadingColorSpace
 operator|=

@@ -139,7 +139,7 @@ name|Type6ShadingContext
 extends|extends
 name|PatchMeshesShadingContext
 block|{
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param dBounds device bounds      * @throws IOException if something went wrong      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      * @throws IOException if something went wrong      */
 name|Type6ShadingContext
 parameter_list|(
 name|PDShadingType6
@@ -155,7 +155,7 @@ name|Matrix
 name|matrix
 parameter_list|,
 name|Rectangle
-name|dBounds
+name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -169,8 +169,6 @@ argument_list|,
 name|xform
 argument_list|,
 name|matrix
-argument_list|,
-name|dBounds
 argument_list|)
 expr_stmt|;
 name|patchList
@@ -183,7 +181,9 @@ name|matrix
 argument_list|)
 expr_stmt|;
 name|createPixelTable
-argument_list|()
+argument_list|(
+name|deviceBounds
+argument_list|)
 expr_stmt|;
 block|}
 comment|// get the patch list which forms the type 6 shading image from data stream

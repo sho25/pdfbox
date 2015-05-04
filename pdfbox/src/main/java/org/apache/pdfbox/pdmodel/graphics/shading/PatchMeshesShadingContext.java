@@ -289,7 +289,7 @@ name|int
 name|bitsPerFlag
 decl_stmt|;
 comment|// bits per flag
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      * @throws IOException if something went wrong      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @throws IOException if something went wrong      */
 specifier|protected
 name|PatchMeshesShadingContext
 parameter_list|(
@@ -304,9 +304,6 @@ name|xform
 parameter_list|,
 name|Matrix
 name|matrix
-parameter_list|,
-name|Rectangle
-name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -320,8 +317,6 @@ argument_list|,
 name|xform
 argument_list|,
 name|matrix
-argument_list|,
-name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|patchMeshesShadingType
@@ -1144,7 +1139,10 @@ argument_list|,
 name|Integer
 argument_list|>
 name|calcPixelTable
-parameter_list|()
+parameter_list|(
+name|Rectangle
+name|deviceBounds
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -1182,6 +1180,8 @@ operator|.
 name|listOfTriangles
 argument_list|,
 name|map
+argument_list|,
+name|deviceBounds
 argument_list|)
 expr_stmt|;
 block|}

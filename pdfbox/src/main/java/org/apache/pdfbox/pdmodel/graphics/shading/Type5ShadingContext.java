@@ -270,8 +270,6 @@ argument_list|,
 name|xform
 argument_list|,
 name|matrix
-argument_list|,
-name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -291,7 +289,9 @@ name|matrix
 argument_list|)
 expr_stmt|;
 name|createPixelTable
-argument_list|()
+argument_list|(
+name|deviceBounds
+argument_list|)
 expr_stmt|;
 block|}
 specifier|private

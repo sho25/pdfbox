@@ -238,9 +238,6 @@ name|xform
 parameter_list|,
 name|Matrix
 name|matrix
-parameter_list|,
-name|Rectangle
-name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -254,8 +251,6 @@ argument_list|,
 name|xform
 argument_list|,
 name|matrix
-argument_list|,
-name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|PDTriangleBasedShadingType
@@ -344,14 +339,19 @@ specifier|protected
 specifier|final
 name|void
 name|createPixelTable
-parameter_list|()
+parameter_list|(
+name|Rectangle
+name|deviceBounds
+parameter_list|)
 throws|throws
 name|IOException
 block|{
 name|pixelTable
 operator|=
 name|calcPixelTable
-argument_list|()
+argument_list|(
+name|deviceBounds
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Calculate every point and its color and store them in a Hash table.      *      * @return a Hash table which contains all the points' positions and colors of one image      */
@@ -363,11 +363,14 @@ argument_list|,
 name|Integer
 argument_list|>
 name|calcPixelTable
-parameter_list|()
+parameter_list|(
+name|Rectangle
+name|deviceBounds
+parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Get the points from the triangles, calculate their color and add  point-color mappings.      */
+comment|/**      * Get the points from the triangles, calculate their color and add point-color mappings.      */
 specifier|protected
 name|void
 name|calcPixelTable
@@ -385,6 +388,9 @@ argument_list|,
 name|Integer
 argument_list|>
 name|map
+parameter_list|,
+name|Rectangle
+name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException

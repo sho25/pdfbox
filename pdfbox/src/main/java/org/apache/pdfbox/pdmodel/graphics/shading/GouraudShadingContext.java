@@ -244,9 +244,6 @@ name|xform
 parameter_list|,
 name|Matrix
 name|matrix
-parameter_list|,
-name|Rectangle
-name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -260,8 +257,6 @@ argument_list|,
 name|xform
 argument_list|,
 name|matrix
-argument_list|,
-name|deviceBounds
 argument_list|)
 expr_stmt|;
 name|triangleList
@@ -532,7 +527,10 @@ argument_list|,
 name|Integer
 argument_list|>
 name|calcPixelTable
-parameter_list|()
+parameter_list|(
+name|Rectangle
+name|deviceBounds
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -560,6 +558,8 @@ argument_list|(
 name|triangleList
 argument_list|,
 name|map
+argument_list|,
+name|deviceBounds
 argument_list|)
 expr_stmt|;
 return|return
