@@ -175,7 +175,6 @@ return|;
 block|}
 annotation|@
 name|Override
-specifier|protected
 name|OpenTypeFont
 name|parse
 parameter_list|(
