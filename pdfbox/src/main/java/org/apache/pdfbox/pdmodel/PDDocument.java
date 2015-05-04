@@ -1544,7 +1544,7 @@ literal|true
 expr_stmt|;
 name|signatureField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setNeedToBeUpdated
@@ -2192,7 +2192,7 @@ control|)
 block|{
 name|sigField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setNeedToBeUpdated
@@ -2221,7 +2221,7 @@ condition|)
 block|{
 name|sigField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setNeedToBeUpdated

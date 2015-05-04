@@ -2539,7 +2539,7 @@ name|cloneForNewDocument
 argument_list|(
 name|srcField
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 argument_list|,
