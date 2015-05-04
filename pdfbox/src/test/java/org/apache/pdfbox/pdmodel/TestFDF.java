@@ -900,7 +900,7 @@ name|assertTrue
 argument_list|(
 name|totalAmt
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
