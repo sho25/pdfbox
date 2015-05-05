@@ -209,7 +209,7 @@ specifier|protected
 name|int
 name|numberOfColorComponents
 decl_stmt|;
-specifier|protected
+specifier|private
 specifier|final
 name|boolean
 name|hasFunction
