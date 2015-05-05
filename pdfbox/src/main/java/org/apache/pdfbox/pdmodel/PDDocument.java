@@ -1464,14 +1464,14 @@ literal|null
 operator|&&
 name|signature
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|equals
 argument_list|(
 name|sigObject
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 condition|)
