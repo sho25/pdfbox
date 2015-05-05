@@ -2604,7 +2604,7 @@ name|INFO
 argument_list|,
 name|info
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -145,20 +145,10 @@ name|dic
 expr_stmt|;
 block|}
 comment|/**      * This will get the underlying dictionary that this object wraps.      *      * @return The underlying info dictionary.      */
-specifier|public
-name|COSDictionary
-name|getDictionary
-parameter_list|()
-block|{
-return|return
-name|info
-return|;
-block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
 annotation|@
 name|Override
 specifier|public
-name|COSBase
+name|COSDictionary
 name|getCOSObject
 parameter_list|()
 block|{

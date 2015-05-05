@@ -1003,14 +1003,14 @@ argument_list|()
 decl_stmt|;
 name|destInfo
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|mergeInto
 argument_list|(
 name|srcInfo
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;
