@@ -21,6 +21,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|Paint
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -44,16 +54,6 @@ operator|.
 name|util
 operator|.
 name|Matrix
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|Paint
 import|;
 end_import
 

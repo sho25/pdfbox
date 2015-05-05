@@ -35,16 +35,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Rectangle
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|geom
 operator|.
 name|AffineTransform
@@ -314,7 +304,7 @@ specifier|private
 name|AffineTransform
 name|rat
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      * @throws java.io.IOException if there is an error getting the color space or doing color conversion.      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @throws java.io.IOException if there is an error getting the color space or doing color conversion.      */
 specifier|public
 name|RadialShadingContext
 parameter_list|(
@@ -329,9 +319,6 @@ name|xform
 parameter_list|,
 name|Matrix
 name|matrix
-parameter_list|,
-name|Rectangle
-name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -918,15 +905,12 @@ name|void
 name|dispose
 parameter_list|()
 block|{
-name|outputColorModel
-operator|=
-literal|null
+name|super
+operator|.
+name|dispose
+argument_list|()
 expr_stmt|;
 name|radialShadingType
-operator|=
-literal|null
-expr_stmt|;
-name|shadingColorSpace
 operator|=
 literal|null
 expr_stmt|;
@@ -939,7 +923,10 @@ name|getColorModel
 parameter_list|()
 block|{
 return|return
-name|outputColorModel
+name|super
+operator|.
+name|getColorModel
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -1166,7 +1153,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|background
+name|getBackground
+argument_list|()
 operator|==
 literal|null
 condition|)
@@ -1346,7 +1334,8 @@ block|}
 elseif|else
 if|if
 condition|(
-name|background
+name|getBackground
+argument_list|()
 operator|!=
 literal|null
 condition|)
@@ -1395,7 +1384,8 @@ else|else
 block|{
 if|if
 condition|(
-name|background
+name|getBackground
+argument_list|()
 operator|==
 literal|null
 condition|)
@@ -1442,7 +1432,8 @@ else|else
 block|{
 if|if
 condition|(
-name|background
+name|getBackground
+argument_list|()
 operator|==
 literal|null
 condition|)
@@ -1467,7 +1458,8 @@ block|{
 comment|// use the given backgound color values
 name|value
 operator|=
-name|rgbBackground
+name|getRgbBackground
+argument_list|()
 expr_stmt|;
 block|}
 else|else

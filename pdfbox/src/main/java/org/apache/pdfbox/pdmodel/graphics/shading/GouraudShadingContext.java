@@ -222,12 +222,19 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|/**      * triangle list.      */
-specifier|protected
+specifier|private
 name|List
 argument_list|<
 name|ShadedTriangle
 argument_list|>
 name|triangleList
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ShadedTriangle
+argument_list|>
+argument_list|()
 decl_stmt|;
 comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @throws IOException if something went wrong      */
 specifier|protected
@@ -258,15 +265,6 @@ name|xform
 argument_list|,
 name|matrix
 argument_list|)
-expr_stmt|;
-name|triangleList
-operator|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ShadedTriangle
-argument_list|>
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Read a vertex from the bit input stream performs interpolations.      *      * @param input bit input stream      * @param maxSrcCoord max value for source coordinate (2^bits-1)      * @param maxSrcColor max value for source color (2^bits-1)      * @param rangeX dest range for X      * @param rangeY dest range for Y      * @param colRangeTab dest range array for colors      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @return a new vertex with the flag and the interpolated values      * @throws IOException if something went wrong      */
@@ -516,6 +514,23 @@ argument_list|,
 name|colorComponentTab
 argument_list|)
 return|;
+block|}
+name|void
+name|setTriangleList
+parameter_list|(
+name|List
+argument_list|<
+name|ShadedTriangle
+argument_list|>
+name|triangleList
+parameter_list|)
+block|{
+name|this
+operator|.
+name|triangleList
+operator|=
+name|triangleList
+expr_stmt|;
 block|}
 annotation|@
 name|Override

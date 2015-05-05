@@ -35,16 +35,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Rectangle
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|geom
 operator|.
 name|AffineTransform
@@ -145,6 +135,24 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|color
+operator|.
+name|PDColorSpace
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|util
 operator|.
 name|Matrix
@@ -192,7 +200,7 @@ name|float
 index|[]
 name|domain
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      */
 name|Type1ShadingContext
 parameter_list|(
 name|PDShadingType1
@@ -206,9 +214,6 @@ name|xform
 parameter_list|,
 name|Matrix
 name|matrix
-parameter_list|,
-name|Rectangle
-name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -338,13 +343,10 @@ name|void
 name|dispose
 parameter_list|()
 block|{
-name|outputColorModel
-operator|=
-literal|null
-expr_stmt|;
-name|shadingColorSpace
-operator|=
-literal|null
+name|super
+operator|.
+name|dispose
+argument_list|()
 expr_stmt|;
 name|type1ShadingType
 operator|=
@@ -359,7 +361,10 @@ name|getColorModel
 parameter_list|()
 block|{
 return|return
-name|outputColorModel
+name|super
+operator|.
+name|getColorModel
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -585,7 +590,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|background
+name|getBackground
+argument_list|()
 operator|==
 literal|null
 condition|)
@@ -605,7 +611,8 @@ condition|)
 block|{
 name|values
 operator|=
-name|background
+name|getBackground
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -640,6 +647,12 @@ expr_stmt|;
 block|}
 block|}
 comment|// convert color values from shading color space to RGB
+name|PDColorSpace
+name|shadingColorSpace
+init|=
+name|getShadingColorSpace
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|shadingColorSpace
