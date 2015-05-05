@@ -1205,7 +1205,7 @@ name|formatDecimal
 operator|.
 name|setMaximumFractionDigits
 argument_list|(
-literal|10
+literal|4
 argument_list|)
 expr_stmt|;
 name|formatDecimal
@@ -1255,7 +1255,7 @@ name|formatDecimal
 operator|.
 name|setMaximumFractionDigits
 argument_list|(
-literal|10
+literal|4
 argument_list|)
 expr_stmt|;
 name|formatDecimal
