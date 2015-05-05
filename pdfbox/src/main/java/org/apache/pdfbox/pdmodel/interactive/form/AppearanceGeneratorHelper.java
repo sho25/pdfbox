@@ -1255,6 +1255,8 @@ name|getDocument
 argument_list|()
 argument_list|,
 name|appearanceStream
+argument_list|,
+name|output
 argument_list|)
 decl_stmt|;
 comment|// Acrobat calculates the left and right padding dependent on the offset of the border edge
