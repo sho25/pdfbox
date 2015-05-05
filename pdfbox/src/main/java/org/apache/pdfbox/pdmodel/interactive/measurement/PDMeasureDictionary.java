@@ -98,6 +98,7 @@ init|=
 literal|"Measure"
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSDictionary
 name|measureDictionary
 decl_stmt|;
@@ -116,7 +117,7 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -144,22 +145,12 @@ operator|=
 name|dictionary
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|measureDictionary
-return|;
-block|}
 comment|/**      * This will return the corresponding dictionary.      *       * @return the measure dictionary      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
-name|getDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
@@ -187,7 +178,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -213,7 +204,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName

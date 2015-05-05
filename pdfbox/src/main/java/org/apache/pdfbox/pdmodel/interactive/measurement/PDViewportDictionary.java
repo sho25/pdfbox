@@ -160,22 +160,12 @@ operator|=
 name|dictionary
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}       */
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|viewportDictionary
-return|;
-block|}
 comment|/**      * This will return the corresponding dictionary.      *       * @return the viewport dictionary      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
-name|getDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
@@ -208,7 +198,7 @@ name|COSArray
 operator|)
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -246,7 +236,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -266,7 +256,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -288,7 +278,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -315,7 +305,7 @@ name|COSDictionary
 operator|)
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -353,7 +343,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

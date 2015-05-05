@@ -133,6 +133,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|bead
 decl_stmt|;
@@ -181,18 +182,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will get the underlying dictionary that this object wraps.      *      * @return The underlying info dictionary.      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
-name|getDictionary
-parameter_list|()
-block|{
-return|return
-name|bead
-return|;
-block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-specifier|public
-name|COSBase
 name|getCOSObject
 parameter_list|()
 block|{
@@ -287,6 +280,7 @@ return|;
 block|}
 comment|/**      * Set the next bead in the thread.      *      * @param next The next bead.      */
 specifier|protected
+specifier|final
 name|void
 name|setNextBead
 parameter_list|(
@@ -328,6 +322,7 @@ return|;
 block|}
 comment|/**      * Set the previous bead in the thread.      *      * @param previous The previous bead.      */
 specifier|protected
+specifier|final
 name|void
 name|setPreviousBead
 parameter_list|(
