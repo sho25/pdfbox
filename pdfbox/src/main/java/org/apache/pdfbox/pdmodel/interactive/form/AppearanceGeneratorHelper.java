@@ -440,12 +440,12 @@ name|COSObjectable
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Constructs a COSAppearance from the given field.      *      * @param theAcroForm the AcroForm that this field is part of.      * @param field the field which you wish to control the appearance of      * @throws IOException       */
+comment|/**      * Constructs a COSAppearance from the given field.      *      * @param acroForm the AcroForm that this field is part of.      * @param field the field which you wish to control the appearance of      * @throws IOException       */
 specifier|public
 name|AppearanceGeneratorHelper
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|,
 name|PDVariableText
 name|field
@@ -453,9 +453,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|this
+operator|.
 name|acroForm
 operator|=
-name|theAcroForm
+name|acroForm
 expr_stmt|;
 name|parent
 operator|=
@@ -631,7 +633,7 @@ return|return
 name|tokens
 return|;
 block|}
-comment|/**      * Tests if the appearance stream already contains content.      *       * @param streamTokens individual tokens within the appearance stream      *      * @return true if it contains any content      */
+comment|/**      * Tests if the appearance stream already contains content.      *       * @param streamTokens individual tokens within the appearance stream      * @return true if it contains any content      */
 specifier|private
 name|boolean
 name|containsMarkedContent
@@ -657,7 +659,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This is the public method for setting the appearance stream.      *      * @param apValue the String value which the appearance should represent      *      * @throws IOException If there is an error creating the stream.      */
+comment|/**      * This is the public method for setting the appearance stream.      *      * @param apValue the String value which the appearance should represent      * @throws IOException If there is an error creating the stream.      */
 specifier|public
 name|void
 name|setAppearanceValue
@@ -949,7 +951,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/*      * Create new content.       */
+comment|/**      * Create new content.       */
 specifier|private
 name|void
 name|createAppearanceContent
@@ -1061,7 +1063,7 @@ name|appearanceStream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * Update existing content.      */
+comment|/**      * Update existing content.      */
 specifier|private
 name|void
 name|updateAppearanceContent
@@ -1217,7 +1219,7 @@ name|appearanceStream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * Generate and insert text content and clipping around it.         */
+comment|/**      * Generate and insert text content and clipping around it.         */
 specifier|private
 name|void
 name|insertGeneratedAppearance
@@ -1622,7 +1624,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*      * To update an existing appearance stream first copy any needed resources from the      * document’s DR dictionary into the stream’s Resources dictionary.      * If the DR and Resources dictionaries contain resources with the same name,      * the one already in the Resources dictionary shall be left intact,      * not replaced with the corresponding value from the DR dictionary.       */
+comment|/**      * To update an existing appearance stream first copy any needed resources from the      * document’s DR dictionary into the stream’s Resources dictionary.      * If the DR and Resources dictionaries contain resources with the same name,      * the one already in the Resources dictionary shall be left intact,      * not replaced with the corresponding value from the DR dictionary.       */
 specifier|private
 name|PDFont
 name|getFontAndUpdateResources
@@ -1635,8 +1637,6 @@ name|IOException
 block|{
 name|PDFont
 name|font
-init|=
-literal|null
 decl_stmt|;
 name|PDResources
 name|streamResources
@@ -1669,7 +1669,9 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Unable to generate field appearance - missing required resources"
+literal|"Unable to generate field appearance - "
+operator|+
+literal|"missing required resources"
 argument_list|)
 throw|;
 block|}
@@ -1801,14 +1803,16 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Unable to generate field appearance - missing required font resources: "
+literal|"Unable to generate field appearance - "
+operator|+
+literal|"missing required font resources: "
 operator|+
 name|cosFontName
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Get the font from the resources.      * @return the retrieved font      * @throws IOException       */
+comment|/**      * Get the font from the resources.      *       * @return the retrieved font      * @throws IOException       */
 specifier|private
 name|PDFont
 name|resolveFont
@@ -1830,8 +1834,6 @@ comment|// in the DA string didn't point to the font resources dictionary entry 
 comment|// is the name of the font itself. So try to resolve that.
 name|PDFont
 name|font
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -2052,11 +2054,9 @@ decl_stmt|;
 comment|// the w should only be used if it is before the first BT.
 if|if
 condition|(
-operator|(
 name|wIndex
 operator|>
 literal|0
-operator|)
 operator|&&
 operator|(
 name|wIndex
@@ -2095,7 +2095,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * My "not so great" method for calculating the fontsize. It does not work superb, but it      * handles ok.      *       * @return the calculated font-size      *      * @throws IOException If there is an error getting the font information.      */
+comment|/**      * My "not so great" method for calculating the fontsize. It does not work superb, but it      * handles ok.      *       * @return the calculated font-size      * @throws IOException If there is an error getting the font information.      */
 specifier|private
 name|float
 name|calculateFontSize
@@ -2219,7 +2219,7 @@ return|return
 name|fontSize
 return|;
 block|}
-comment|/**      * Calculate the vertical start position for the text.      *       * @param paddingEdge the content edge      * @param contentEdge the content edge      * @param pdFont the font to use for formatting      * @param fontSite the font size to use for formating      *      * @return the vertical start position of the text      *      * @throws IOException If there is an error calculating the text position.      */
+comment|/**      * Calculate the vertical start position for the text.      *       * @param paddingEdge the content edge      * @param contentEdge the content edge      * @param pdFont the font to use for formatting      * @param fontSize the font size to use for formating      * @return the vertical start position of the text      * @throws IOException If there is an error calculating the text position.      */
 specifier|private
 name|float
 name|calculateVerticalOffset
@@ -2354,7 +2354,7 @@ return|return
 name|verticalOffset
 return|;
 block|}
-comment|/**      * Calculate the horizontal start position for the text.      *       * @param contentEdge the content edge      * @param pdFont the font to use for formatting      * @param fontSite the font size to use for formating      *      * @return the horizontal start position of the text      *      * @throws IOException If there is an error calculating the text position.      */
+comment|/**      * Calculate the horizontal start position for the text.      *       * @param contentEdge the content edge      * @param pdFont the font to use for formatting      * @param fontSize the font size to use for formating      *      * @return the horizontal start position of the text      *      * @throws IOException If there is an error calculating the text position.      */
 specifier|private
 name|float
 name|calculateHorizontalOffset
@@ -2371,11 +2371,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Acrobat aligns left regardless of the quadding if the text is wider than the remaining width
+comment|// Acrobat aligns left regardless of the quadding if the text is wider than the remaining
+comment|// width
 name|float
 name|stringWidth
 init|=
-operator|(
 name|pdFont
 operator|.
 name|getStringWidth
@@ -2384,7 +2384,6 @@ name|value
 argument_list|)
 operator|/
 name|GLYPH_TO_PDF_SCALE
-operator|)
 operator|*
 name|fontSize
 decl_stmt|;
@@ -2503,7 +2502,7 @@ return|return
 name|leftOffset
 return|;
 block|}
-comment|/**      * Get the capHeight for a font.      * @throws IOException in case the font information can not be retrieved.      */
+comment|/**      * Get the capHeight for a font.      *       * @throws IOException in case the font information can not be retrieved.      */
 specifier|private
 name|float
 name|getCapHeight
@@ -2618,7 +2617,7 @@ return|return
 name|boundingBox
 return|;
 block|}
-comment|/**      * Apply padding to a box.      *       * @param original box      * @return the padded box.      */
+comment|/**      * Apply padding to a box.      *       * @param box box      * @return the padded box.      */
 specifier|private
 name|PDRectangle
 name|applyPadding
