@@ -1304,6 +1304,11 @@ name|lineWidth
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|contents
+operator|.
+name|saveGraphicsState
+argument_list|()
+expr_stmt|;
 comment|// add a clipping path to avoid overlapping with the border
 name|contents
 operator|.
@@ -1604,6 +1609,11 @@ block|}
 name|contents
 operator|.
 name|endText
+argument_list|()
+expr_stmt|;
+name|contents
+operator|.
+name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
 name|contents
