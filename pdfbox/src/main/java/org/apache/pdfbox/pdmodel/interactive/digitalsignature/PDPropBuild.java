@@ -29,20 +29,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSDictionary
 import|;
 end_import
@@ -134,6 +120,8 @@ expr_stmt|;
 comment|// the specification claim to use direct objects
 block|}
 comment|/**      * Convert this standard java object to a COS dictionary.      *      * @return The COS dictionary that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
 name|getCOSObject
