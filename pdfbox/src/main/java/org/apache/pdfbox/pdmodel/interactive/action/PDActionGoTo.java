@@ -186,7 +186,7 @@ name|PDDestination
 operator|.
 name|create
 argument_list|(
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -272,7 +272,7 @@ throw|;
 block|}
 block|}
 block|}
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem

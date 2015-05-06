@@ -187,18 +187,8 @@ comment|/**      * Convert this standard java object to a COS object.      *    
 annotation|@
 name|Override
 specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|action
-return|;
-block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-specifier|public
 name|COSDictionary
-name|getCOSDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
@@ -255,7 +245,9 @@ name|action
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"S"
+name|COSName
+operator|.
+name|S
 argument_list|)
 return|;
 block|}
@@ -272,7 +264,9 @@ name|action
 operator|.
 name|setName
 argument_list|(
-literal|"S"
+name|COSName
+operator|.
+name|S
 argument_list|,
 name|s
 argument_list|)
