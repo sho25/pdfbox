@@ -237,8 +237,8 @@ specifier|private
 name|int
 name|rgbBackground
 decl_stmt|;
-specifier|final
 specifier|private
+specifier|final
 name|PDShading
 name|shading
 decl_stmt|;
