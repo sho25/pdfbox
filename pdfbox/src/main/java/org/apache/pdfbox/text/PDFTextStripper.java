@@ -5085,18 +5085,16 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Internal class that maps strings to lists of {@link TextPosition} arrays.      * Note that the number of entries in that list may differ from the number of characters in the      * string due to normalization.      *      * @author Axel D�rfler      */
+comment|/**      * Internal class that maps strings to lists of {@link TextPosition} arrays.      * Note that the number of entries in that list may differ from the number of characters in the      * string due to normalization.      *      * @author Axel Dörfler      */
 specifier|private
 specifier|static
 specifier|final
 class|class
 name|WordWithTextPositions
 block|{
-specifier|protected
 name|String
 name|text
 decl_stmt|;
-specifier|protected
 name|List
 argument_list|<
 name|TextPosition
