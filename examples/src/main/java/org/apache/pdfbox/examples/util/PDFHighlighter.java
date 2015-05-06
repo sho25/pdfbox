@@ -318,6 +318,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|endPage
@@ -352,7 +354,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|// Traitement des listes � puces (caract�res sp�ciaux)
+comment|// Traitement des listes à puces (caractères spéciaux)
 if|if
 condition|(
 name|page
