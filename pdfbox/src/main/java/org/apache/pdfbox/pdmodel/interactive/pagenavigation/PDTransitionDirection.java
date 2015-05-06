@@ -120,6 +120,7 @@ block|}
 block|}
 block|;
 specifier|private
+specifier|final
 name|int
 name|degrees
 decl_stmt|;
