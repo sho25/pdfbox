@@ -1363,7 +1363,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Matrix shall be concatenated with A to form a matrix AA that maps from the appearance��s
+comment|// Matrix shall be concatenated with A to form a matrix AA that maps from the appearance's
 comment|// coordinate system to the annotation's rectangle in default user space
 name|Matrix
 name|aa
