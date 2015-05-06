@@ -384,7 +384,7 @@ name|valid
 argument_list|(
 name|action
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|,
 name|valid

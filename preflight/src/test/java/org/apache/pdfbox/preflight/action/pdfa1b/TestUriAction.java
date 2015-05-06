@@ -220,7 +220,7 @@ argument_list|()
 decl_stmt|;
 name|action
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setBoolean
