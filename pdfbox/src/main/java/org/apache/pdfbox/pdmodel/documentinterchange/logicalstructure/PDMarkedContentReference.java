@@ -29,20 +29,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSDictionary
 import|;
 end_import
@@ -115,9 +101,12 @@ specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
-name|getCOSDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
@@ -168,20 +157,6 @@ operator|=
 name|dictionary
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|dictionary
-return|;
-block|}
 comment|/**      * Gets the page.      *       * @return the page      */
 specifier|public
 name|PDPage
@@ -196,7 +171,7 @@ name|COSDictionary
 operator|)
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -236,7 +211,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -258,7 +233,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -280,7 +255,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt

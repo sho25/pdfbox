@@ -165,9 +165,11 @@ name|COSDictionary
 name|dictionary
 decl_stmt|;
 comment|/**      * Returns the underlying dictionary.      *       * @return the dictionary      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
-name|getCOSDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
@@ -216,20 +218,6 @@ operator|=
 name|theDictionary
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|dictionary
-return|;
-block|}
 comment|/**      * Gets a higher-level object for the referenced object.      * Currently this method may return a {@link PDAnnotation},      * a {@link PDXObject} or<code>null</code>.      *       * @return a higher-level object for the referenced object      */
 specifier|public
 name|COSObjectable
@@ -241,7 +229,7 @@ name|obj
 init|=
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -366,7 +354,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -390,7 +378,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
