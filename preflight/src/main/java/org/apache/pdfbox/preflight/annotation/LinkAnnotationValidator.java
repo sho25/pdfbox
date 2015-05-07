@@ -331,7 +331,7 @@ name|dict
 init|=
 name|pdLink
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|COSBase

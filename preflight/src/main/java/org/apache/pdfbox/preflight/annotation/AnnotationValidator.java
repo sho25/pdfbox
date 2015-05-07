@@ -571,7 +571,7 @@ name|this
 operator|.
 name|pdAnnot
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
