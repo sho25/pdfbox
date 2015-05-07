@@ -75,6 +75,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|actions
 decl_stmt|;
@@ -109,16 +110,6 @@ name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|actions
-return|;
-block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
-specifier|public
-name|COSDictionary
-name|getCOSDictionary
 parameter_list|()
 block|{
 return|return
