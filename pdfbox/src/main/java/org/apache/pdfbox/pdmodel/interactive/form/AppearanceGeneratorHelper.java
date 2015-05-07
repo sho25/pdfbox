@@ -441,7 +441,6 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructs a COSAppearance from the given field.      *      * @param acroForm the AcroForm that this field is part of.      * @param field the field which you wish to control the appearance of      * @throws IOException       */
-specifier|public
 name|AppearanceGeneratorHelper
 parameter_list|(
 name|PDAcroForm
@@ -1453,8 +1452,6 @@ argument_list|)
 decl_stmt|;
 name|float
 name|leftOffset
-init|=
-literal|0f
 decl_stmt|;
 comment|// show the text
 if|if
@@ -2389,8 +2386,6 @@ name|fontSize
 decl_stmt|;
 name|float
 name|leftOffset
-init|=
-literal|0f
 decl_stmt|;
 name|int
 name|q
