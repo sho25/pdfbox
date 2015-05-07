@@ -1078,7 +1078,7 @@ operator|)
 name|object
 operator|)
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|ContextHelper

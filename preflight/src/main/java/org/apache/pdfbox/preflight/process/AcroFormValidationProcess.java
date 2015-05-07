@@ -560,7 +560,7 @@ operator|)
 name|obj
 operator|)
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|,
 name|ANNOTATIONS_PROCESS
@@ -667,7 +667,7 @@ name|ctx
 argument_list|,
 name|widget
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|,
 name|ANNOTATIONS_PROCESS
@@ -678,7 +678,7 @@ name|act
 init|=
 name|widget
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
