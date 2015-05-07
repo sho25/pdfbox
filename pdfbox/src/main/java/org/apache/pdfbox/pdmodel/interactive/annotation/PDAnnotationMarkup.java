@@ -197,7 +197,7 @@ name|getTitlePopup
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getString
@@ -215,7 +215,7 @@ name|String
 name|t
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -238,7 +238,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -277,7 +277,7 @@ name|PDAnnotationPopup
 name|popup
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -295,7 +295,7 @@ name|getConstantOpacity
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
@@ -315,7 +315,7 @@ name|float
 name|ca
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFloat
@@ -335,7 +335,7 @@ block|{
 name|COSBase
 name|rc
 init|=
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -375,7 +375,7 @@ name|PDTextStream
 name|rc
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -395,7 +395,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDate
@@ -413,7 +413,7 @@ name|Calendar
 name|creationDate
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setDate
@@ -435,7 +435,7 @@ block|{
 name|COSBase
 name|irt
 init|=
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -461,7 +461,7 @@ name|PDAnnotation
 name|irt
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -479,7 +479,7 @@ name|getSubject
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getString
@@ -497,7 +497,7 @@ name|String
 name|subj
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -515,7 +515,7 @@ name|getReplyType
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -535,7 +535,7 @@ name|String
 name|rt
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -553,7 +553,7 @@ name|getIntent
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -571,7 +571,7 @@ name|String
 name|it
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -593,7 +593,7 @@ name|exData
 init|=
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -634,7 +634,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
