@@ -291,7 +291,7 @@ name|assertEquals
 argument_list|(
 name|widget
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|,
 name|textField
