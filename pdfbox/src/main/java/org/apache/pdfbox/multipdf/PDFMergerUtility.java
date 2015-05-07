@@ -1122,7 +1122,7 @@ name|cloneForNewDocument
 argument_list|(
 name|srcAcroForm
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 argument_list|)

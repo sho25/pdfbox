@@ -431,7 +431,7 @@ block|{
 return|return
 name|attributesNode
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -446,7 +446,7 @@ return|return
 name|getAcroForm
 argument_list|()
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject

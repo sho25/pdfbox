@@ -453,7 +453,7 @@ if|if
 condition|(
 name|acroForm
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getBoolean

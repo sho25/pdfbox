@@ -743,7 +743,7 @@ name|acroFormDict
 init|=
 name|acroForm
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|acroForm

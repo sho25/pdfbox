@@ -1125,7 +1125,7 @@ else|else
 block|{
 name|acroForm
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setNeedToBeUpdated
@@ -1228,7 +1228,7 @@ argument_list|()
 decl_stmt|;
 name|acroForm
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setDirect
@@ -1914,7 +1914,7 @@ name|acroFormDict
 init|=
 name|acroForm
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|acroFormDict
@@ -2136,7 +2136,7 @@ name|acroFormDict
 init|=
 name|acroForm
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|acroFormDict

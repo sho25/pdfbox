@@ -328,10 +328,12 @@ operator|<<
 literal|1
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSDictionary
 name|acroForm
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDDocument
 name|document
 decl_stmt|;
@@ -412,9 +414,11 @@ name|document
 return|;
 block|}
 comment|/**      * This will get the dictionary that this form wraps.      *      * @return The dictionary for this form.      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
-name|getDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
@@ -1255,7 +1259,7 @@ init|=
 operator|(
 name|COSString
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -1288,7 +1292,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -1303,7 +1307,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -1322,7 +1326,7 @@ name|isNeedAppearances
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getBoolean
@@ -1351,7 +1355,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setBoolean
@@ -1366,7 +1370,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -1464,17 +1468,6 @@ argument_list|,
 name|drDict
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|acroForm
-return|;
 block|}
 comment|/**      * This will tell if the AcroForm has XFA content.      *      * @return true if the AcroForm is an XFA form      */
 specifier|public
@@ -1591,7 +1584,7 @@ init|=
 operator|(
 name|COSNumber
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1629,7 +1622,7 @@ name|int
 name|q
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -1649,7 +1642,7 @@ name|isSignaturesExist
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1671,7 +1664,7 @@ name|boolean
 name|signaturesExist
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1693,7 +1686,7 @@ name|isAppendOnly
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1715,7 +1708,7 @@ name|boolean
 name|appendOnly
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
