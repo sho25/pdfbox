@@ -29,20 +29,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSDictionary
 import|;
 end_import
@@ -94,6 +80,7 @@ init|=
 literal|"C"
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
@@ -123,18 +110,10 @@ name|dict
 expr_stmt|;
 block|}
 comment|/**      * returns the dictionary.      *      * @return the dictionary      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
-name|getDictionary
-parameter_list|()
-block|{
-return|return
-name|dictionary
-return|;
-block|}
-comment|/**      * returns the dictionary.      *      * @return the dictionary      */
-specifier|public
-name|COSBase
 name|getCOSObject
 parameter_list|()
 block|{
@@ -151,7 +130,7 @@ name|float
 name|i
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFloat
@@ -169,7 +148,7 @@ name|getIntensity
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
@@ -189,7 +168,7 @@ name|String
 name|s
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -207,7 +186,7 @@ name|getStyle
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString

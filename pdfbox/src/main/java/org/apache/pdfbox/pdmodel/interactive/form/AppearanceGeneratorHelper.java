@@ -777,7 +777,7 @@ literal|null
 operator|||
 name|widget
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject

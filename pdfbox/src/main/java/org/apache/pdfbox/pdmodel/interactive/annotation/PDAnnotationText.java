@@ -139,7 +139,7 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -180,7 +180,7 @@ name|boolean
 name|open
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setBoolean
@@ -203,7 +203,7 @@ name|getOpen
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getBoolean
@@ -228,7 +228,7 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -248,7 +248,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -270,7 +270,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getString
@@ -290,7 +290,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -310,7 +310,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getString
@@ -330,7 +330,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString

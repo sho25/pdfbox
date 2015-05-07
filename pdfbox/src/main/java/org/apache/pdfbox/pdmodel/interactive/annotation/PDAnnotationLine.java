@@ -231,7 +231,7 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -304,7 +304,7 @@ argument_list|(
 name|l
 argument_list|)
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -328,7 +328,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -370,7 +370,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -415,7 +415,7 @@ name|LE_NONE
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -456,7 +456,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -512,7 +512,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -557,7 +557,7 @@ name|style
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -598,7 +598,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -636,7 +636,7 @@ name|PDColor
 name|ic
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -676,7 +676,7 @@ name|boolean
 name|cap
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setBoolean
@@ -694,7 +694,7 @@ name|getCaption
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getBoolean
@@ -716,7 +716,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -741,7 +741,7 @@ name|COSDictionary
 operator|)
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -782,7 +782,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
@@ -802,7 +802,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFloat
@@ -822,7 +822,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
@@ -842,7 +842,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFloat
@@ -862,7 +862,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFloat
@@ -882,7 +882,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFloat
@@ -902,7 +902,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getString
@@ -922,7 +922,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -950,7 +950,7 @@ name|COSArray
 operator|)
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -987,7 +987,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1034,7 +1034,7 @@ name|COSArray
 operator|)
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1081,7 +1081,7 @@ name|COSArray
 operator|)
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1118,7 +1118,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1165,7 +1165,7 @@ name|COSArray
 operator|)
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject

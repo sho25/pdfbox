@@ -2161,7 +2161,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|,
 name|newAnnots
@@ -2171,7 +2171,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;

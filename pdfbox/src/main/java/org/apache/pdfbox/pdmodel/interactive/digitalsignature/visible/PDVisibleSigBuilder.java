@@ -2039,7 +2039,7 @@ operator|.
 name|getWidget
 argument_list|()
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|widgetDict

@@ -29,20 +29,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSDictionary
 import|;
 end_import
@@ -89,6 +75,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|dataDictionary
 decl_stmt|;
@@ -134,22 +121,12 @@ operator|=
 name|dictionary
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
-specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|dataDictionary
-return|;
-block|}
 comment|/**      * returns the dictionary.      *      * @return the dictionary      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
-name|getDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
@@ -167,7 +144,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -189,7 +166,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -211,7 +188,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName

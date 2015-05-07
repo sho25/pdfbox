@@ -202,7 +202,7 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -243,7 +243,7 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -263,7 +263,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString

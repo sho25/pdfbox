@@ -164,7 +164,7 @@ name|PDColor
 name|ic
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -204,7 +204,7 @@ name|PDBorderEffectDictionary
 name|be
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -227,7 +227,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -266,7 +266,7 @@ name|PDRectangle
 name|rd
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -289,7 +289,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -328,7 +328,7 @@ name|String
 name|subType
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -350,7 +350,7 @@ name|getSubtype
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -372,7 +372,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -397,7 +397,7 @@ name|COSDictionary
 operator|)
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem

@@ -260,7 +260,6 @@ operator|=
 name|dict
 expr_stmt|;
 block|}
-comment|/**      * returns the dictionary.      * @return the dictionary      */
 specifier|public
 name|COSDictionary
 name|getDictionary
@@ -272,9 +271,11 @@ operator|.
 name|dictionary
 return|;
 block|}
-comment|/**      * {@inheritDoc}      *       */
+comment|/**      * returns the dictionary.      * @return the dictionary      */
+annotation|@
+name|Override
 specifier|public
-name|COSBase
+name|COSDictionary
 name|getCOSObject
 parameter_list|()
 block|{

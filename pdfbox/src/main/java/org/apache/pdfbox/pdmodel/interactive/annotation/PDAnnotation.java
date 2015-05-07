@@ -851,16 +851,6 @@ name|ANNOT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * returns the dictionary.      *       * @return the dictionary      */
-specifier|public
-name|COSDictionary
-name|getDictionary
-parameter_list|()
-block|{
-return|return
-name|dictionary
-return|;
-block|}
 comment|/**      * The annotation rectangle, defining the location of the annotation on the page in default user space units. This      * is usually required and should not return null on valid PDF documents. But where this is a parent form field with      * children, such as radio button collections then the rectangle will be null.      *       * @return The Rect value of this annotation.      */
 specifier|public
 name|PDRectangle
@@ -997,7 +987,7 @@ name|getAnnotationFlags
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -1019,7 +1009,7 @@ name|int
 name|flags
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -1036,13 +1026,12 @@ comment|/**      * Interface method for COSObjectable.      *       * @return Th
 annotation|@
 name|Override
 specifier|public
-name|COSBase
+name|COSDictionary
 name|getCOSObject
 parameter_list|()
 block|{
 return|return
-name|getDictionary
-argument_list|()
+name|dictionary
 return|;
 block|}
 comment|/**      * Returns the annotations appearance state, which selects the applicable appearance stream      * from an appearance subdictionary.      */
@@ -1057,7 +1046,7 @@ init|=
 operator|(
 name|COSName
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1098,7 +1087,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -1111,7 +1100,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1302,7 +1291,7 @@ name|isInvisible
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1324,7 +1313,7 @@ name|boolean
 name|invisible
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1346,7 +1335,7 @@ name|isHidden
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1368,7 +1357,7 @@ name|boolean
 name|hidden
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1390,7 +1379,7 @@ name|isPrinted
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1412,7 +1401,7 @@ name|boolean
 name|printed
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1434,7 +1423,7 @@ name|isNoZoom
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1456,7 +1445,7 @@ name|boolean
 name|noZoom
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1478,7 +1467,7 @@ name|isNoRotate
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1500,7 +1489,7 @@ name|boolean
 name|noRotate
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1522,7 +1511,7 @@ name|isNoView
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1544,7 +1533,7 @@ name|boolean
 name|noView
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1566,7 +1555,7 @@ name|isReadOnly
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1588,7 +1577,7 @@ name|boolean
 name|readOnly
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1610,7 +1599,7 @@ name|isLocked
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1632,7 +1621,7 @@ name|boolean
 name|locked
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1654,7 +1643,7 @@ name|isToggleNoView
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getFlag
@@ -1676,7 +1665,7 @@ name|boolean
 name|toggleNoView
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setFlag
@@ -1736,7 +1725,7 @@ name|getModifiedDate
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getString
@@ -1756,7 +1745,7 @@ name|String
 name|m
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -1776,7 +1765,7 @@ name|getAnnotationName
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getString
@@ -1796,7 +1785,7 @@ name|String
 name|nm
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setString
@@ -1816,7 +1805,7 @@ name|getStructParent
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -1838,7 +1827,7 @@ name|int
 name|structParent
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -1860,7 +1849,7 @@ name|PDColor
 name|c
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1904,7 +1893,7 @@ name|c
 init|=
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -1996,7 +1985,7 @@ block|{
 return|return
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -2018,7 +2007,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -2045,7 +2034,7 @@ name|COSDictionary
 operator|)
 name|this
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject

@@ -179,7 +179,7 @@ argument_list|(
 name|quadPoints
 argument_list|)
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -203,7 +203,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -242,7 +242,7 @@ name|String
 name|subType
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -262,7 +262,7 @@ name|getSubtype
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString

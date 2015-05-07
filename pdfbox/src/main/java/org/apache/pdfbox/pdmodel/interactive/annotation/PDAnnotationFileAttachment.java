@@ -139,7 +139,7 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -184,7 +184,7 @@ name|PDFileSpecification
 operator|.
 name|createFS
 argument_list|(
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -203,7 +203,7 @@ name|PDFileSpecification
 name|file
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -221,7 +221,7 @@ name|getAttachmentName
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -241,7 +241,7 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName

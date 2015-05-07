@@ -85,7 +85,7 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -126,7 +126,7 @@ name|boolean
 name|open
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setBoolean
@@ -144,7 +144,7 @@ name|getOpen
 parameter_list|()
 block|{
 return|return
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getBoolean
@@ -164,7 +164,7 @@ name|PDAnnotationMarkup
 name|annot
 parameter_list|)
 block|{
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -175,7 +175,7 @@ name|PARENT
 argument_list|,
 name|annot
 operator|.
-name|getDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -202,7 +202,7 @@ name|PDAnnotation
 operator|.
 name|createAnnotation
 argument_list|(
-name|getDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
