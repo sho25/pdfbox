@@ -1173,6 +1173,34 @@ block|}
 else|else
 block|{
 comment|// if no value has been produced, there is no way to obtain Unicode for the character.
+name|String
+name|cid
+init|=
+literal|"CID+"
+operator|+
+name|codeToCID
+argument_list|(
+name|code
+argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"No Unicode mapping for "
+operator|+
+name|cid
+operator|+
+literal|" ("
+operator|+
+name|code
+operator|+
+literal|") in font "
+operator|+
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
