@@ -148,7 +148,11 @@ name|font
 operator|=
 operator|new
 name|Type1Font
-argument_list|()
+argument_list|(
+name|segment1
+argument_list|,
+name|segment2
+argument_list|)
 expr_stmt|;
 name|parseASCII
 argument_list|(

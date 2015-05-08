@@ -601,10 +601,40 @@ name|Type1CharString
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// raw data
+specifier|final
+specifier|private
+name|byte
+index|[]
+name|segment1
+decl_stmt|,
+name|segment2
+decl_stmt|;
 comment|/**      * Constructs a new Type1Font, called by Type1Parser.      */
 name|Type1Font
-parameter_list|()
-block|{     }
+parameter_list|(
+name|byte
+index|[]
+name|segment1
+parameter_list|,
+name|byte
+index|[]
+name|segment2
+parameter_list|)
+block|{
+name|this
+operator|.
+name|segment1
+operator|=
+name|segment1
+expr_stmt|;
+name|this
+operator|.
+name|segment2
+operator|=
+name|segment2
+expr_stmt|;
+block|}
 comment|/**      * Returns the /Subrs array as raw bytes.      *      * @return Type 1 char string bytes      */
 specifier|public
 name|List
@@ -1223,6 +1253,28 @@ parameter_list|()
 block|{
 return|return
 name|languageGroup
+return|;
+block|}
+comment|/**      * Returns the ASCII segment.      *      * @return the ASCII segment.      */
+specifier|public
+name|byte
+index|[]
+name|getASCIISegment
+parameter_list|()
+block|{
+return|return
+name|segment1
+return|;
+block|}
+comment|/**      * Returns the binary segment.      *      * @return the binary segment.      */
+specifier|public
+name|byte
+index|[]
+name|getBinarySegment
+parameter_list|()
+block|{
+return|return
+name|segment2
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
