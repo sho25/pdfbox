@@ -152,7 +152,6 @@ name|PDType1Equivalent
 name|font
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param font PDF Type1 font.      */
-specifier|public
 name|Type1Glyph2D
 parameter_list|(
 name|PDType1Equivalent
