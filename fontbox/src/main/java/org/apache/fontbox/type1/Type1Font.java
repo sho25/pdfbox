@@ -602,8 +602,8 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// raw data
-specifier|final
 specifier|private
+specifier|final
 name|byte
 index|[]
 name|segment1
