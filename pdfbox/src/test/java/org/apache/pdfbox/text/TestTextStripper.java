@@ -1302,7 +1302,7 @@ return|return
 name|pageNum
 return|;
 block|}
-comment|/**      * Test whether stripping controlled by outline items works properly. The test file has 4      * outline items at the top level, that point to 0-based pages 0, 2, 3 and 4. We are testing      * text stripping by outlines pointing to 0-based pages 2 and 3, and also text stripping of the      * 0-based page 2. The test makes sure that the output is different to a complete strip, not      * empty, different to each other when different bookmark intervals are used, but identical from      * bookmark intervals to strips with page intervals.      *      * @throws IOException      */
+comment|/**      * Test whether stripping controlled by outline items works properly. The test file has 4      * outline items at the top level, that point to 0-based pages 0, 2, 3 and 4. We are testing      * text stripping by outlines pointing to 0-based pages 2 and 3, and also text stripping of the      * 0-based page 2. The test makes sure that the output is different to a complete strip, not      * empty, different to each other when different bookmark intervals are used, but identical from      * bookmark intervals to strips with page intervals. When fed with orphan bookmarks, stripping      * must be empty.      *      * @throws IOException      */
 specifier|public
 name|void
 name|testStripByOutlineItems
@@ -1700,6 +1700,46 @@ name|equals
 argument_list|(
 name|textp3
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Test with orphan bookmark
+name|PDOutlineItem
+name|oiOrphan
+init|=
+operator|new
+name|PDOutlineItem
+argument_list|()
+decl_stmt|;
+name|stripper
+operator|.
+name|setStartBookmark
+argument_list|(
+name|oiOrphan
+argument_list|)
+expr_stmt|;
+name|stripper
+operator|.
+name|setEndBookmark
+argument_list|(
+name|oiOrphan
+argument_list|)
+expr_stmt|;
+name|String
+name|textOiOrphan
+init|=
+name|stripper
+operator|.
+name|getText
+argument_list|(
+name|doc
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|textOiOrphan
+operator|.
+name|isEmpty
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
