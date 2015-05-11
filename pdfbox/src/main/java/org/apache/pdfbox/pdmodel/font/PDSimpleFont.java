@@ -385,7 +385,6 @@ expr_stmt|;
 block|}
 comment|/**      * Reads the Encoding from the Font dictionary or the embedded or substituted font file.      * Must be called at the end of any subclass constructors.      *      * @throws IOException if the font file could not be read      */
 specifier|protected
-specifier|final
 name|void
 name|readEncoding
 parameter_list|()

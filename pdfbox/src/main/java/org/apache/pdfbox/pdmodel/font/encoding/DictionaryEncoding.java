@@ -45,34 +45,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -148,21 +120,6 @@ name|DictionaryEncoding
 extends|extends
 name|Encoding
 block|{
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|DictionaryEncoding
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 specifier|private
 specifier|final
 name|COSDictionary
@@ -299,7 +256,27 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Creates a new DictionaryEncoding from a PDF.      *      * @param fontEncoding The encoding dictionary.      */
+comment|/**      * Creates a new DictionaryEncoding for a Type 3 font from a PDF.      *      * @param fontEncoding The Type 3 encoding dictionary.      */
+specifier|public
+name|DictionaryEncoding
+parameter_list|(
+name|COSDictionary
+name|fontEncoding
+parameter_list|)
+block|{
+name|encoding
+operator|=
+name|fontEncoding
+expr_stmt|;
+name|baseEncoding
+operator|=
+literal|null
+expr_stmt|;
+name|applyDifferences
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Creates a new DictionaryEncoding from a PDF.      *      * @param fontEncoding The encoding dictionary.      * @param isNonSymbolic True if the font is non-symbolic. False for Type 3 fonts.      * @param builtIn The font's built-in encoding. Null for Type 3 fonts.      */
 specifier|public
 name|DictionaryEncoding
 parameter_list|(
@@ -394,21 +371,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|base
-operator|=
-name|StandardEncoding
-operator|.
-name|INSTANCE
-expr_stmt|;
-name|LOG
-operator|.
-name|warn
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-literal|"Built-in encoding required for symbolic font, using standard encoding"
+literal|"Symbolic fonts must have a built-in "
+operator|+
+literal|"encoding"
 argument_list|)
-expr_stmt|;
-comment|//FIXME, see PDFBOX-2299, happens with Type3 fonts of the isartor test suite
-comment|// throw new IllegalArgumentException("Built-in Encoding required for symbolic font");
+throw|;
 block|}
 block|}
 block|}
@@ -434,6 +405,15 @@ operator|.
 name|names
 argument_list|)
 expr_stmt|;
+name|applyDifferences
+argument_list|()
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|applyDifferences
+parameter_list|()
+block|{
 comment|// now replace with the differences
 name|COSArray
 name|differences
@@ -554,7 +534,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Returns the base encoding.      */
+comment|/**      * Returns the base encoding. Will be null for Type 3 fonts.      */
 specifier|public
 name|Encoding
 name|getBaseEncoding
