@@ -509,6 +509,13 @@ argument_list|(
 name|globalSubrIndex
 argument_list|)
 expr_stmt|;
+name|font
+operator|.
+name|setData
+argument_list|(
+name|bytes
+argument_list|)
+expr_stmt|;
 name|fonts
 operator|.
 name|add

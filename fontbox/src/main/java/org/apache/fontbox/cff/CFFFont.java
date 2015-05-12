@@ -127,6 +127,11 @@ specifier|protected
 name|IndexData
 name|globalSubrIndex
 decl_stmt|;
+specifier|private
+name|byte
+index|[]
+name|data
+decl_stmt|;
 comment|/**      * The name of the font.      *      * @return the name of the font      */
 specifier|public
 name|String
@@ -274,6 +279,33 @@ parameter_list|()
 block|{
 return|return
 name|charStrings
+return|;
+block|}
+comment|/**      * Sets the original data.      *      * @param data the original data.      */
+name|void
+name|setData
+parameter_list|(
+name|byte
+index|[]
+name|data
+parameter_list|)
+block|{
+name|this
+operator|.
+name|data
+operator|=
+name|data
+expr_stmt|;
+block|}
+comment|/**      * Returns the the original data.      *      * @return the dictionary      */
+specifier|public
+name|byte
+index|[]
+name|getData
+parameter_list|()
+block|{
+return|return
+name|data
 return|;
 block|}
 comment|/**      * Returns the number of charstrings in the font.      */
