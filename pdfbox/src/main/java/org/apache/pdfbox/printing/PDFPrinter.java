@@ -871,7 +871,9 @@ block|{
 name|job
 operator|.
 name|print
-argument_list|()
+argument_list|(
+name|attributes
+argument_list|)
 expr_stmt|;
 return|return
 literal|true
