@@ -342,17 +342,8 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|COSBase
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|dictionary
-return|;
-block|}
-specifier|public
 name|COSDictionary
-name|getCOSDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
@@ -377,7 +368,7 @@ operator|=
 operator|(
 name|COSName
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -410,7 +401,7 @@ block|{
 name|COSBase
 name|cosGroup
 init|=
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -472,7 +463,7 @@ operator|=
 operator|(
 name|COSArray
 operator|)
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -505,7 +496,7 @@ block|{
 name|COSBase
 name|cosTF
 init|=
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject

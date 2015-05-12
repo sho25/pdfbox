@@ -669,20 +669,10 @@ block|}
 block|}
 block|}
 comment|/**      * This will get the underlying dictionary that this class acts on.      *      * @return The underlying dictionary for this class.      */
-specifier|public
-name|COSDictionary
-name|getCOSDictionary
-parameter_list|()
-block|{
-return|return
-name|dict
-return|;
-block|}
-comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
 annotation|@
 name|Override
 specifier|public
-name|COSBase
+name|COSDictionary
 name|getCOSObject
 parameter_list|()
 block|{
