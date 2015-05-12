@@ -786,7 +786,7 @@ name|dest
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method will attempt to find the page in this PDF document that this outline points to.      * If the outline does not point to anything then this method will return null.  If the outline      * is an action that is not a GoTo action then this methods will throw the OutlineNotLocationException      *      * @param doc The document to get the page from.      *      * @return The page that this outline will go to when activated or null if it does not point to anything.      * @throws IOException If there is an error when trying to find the page.      */
+comment|/**      * This method will attempt to find the page in this PDF document that this outline points to.      * If the outline does not point to anything then this method will return null. If the outline      * is an action that is not a GoTo action then this method will also return null.      *      * @param doc The document to get the page from.      *      * @return The page that this outline will go to when activated or null if it does not point to      * anything.      * @throws IOException If there is an error when trying to find the page.      */
 specifier|public
 name|PDPage
 name|findDestinationPage
@@ -1022,6 +1022,8 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// Malformed PDF: local destinations must have a page object,
+comment|// not a page number, these are meant for remote destinations.
 name|int
 name|pageNumber
 init|=

@@ -235,7 +235,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the page number for this destination. A page destination can either reference a      * page (for a local destination) or a page number (when doing a remote destination to another      * PDF). If this object is referencing by page number then this method will return that number,      * otherwise -1 will be returned.      *      * @return The page number for this destination.      */
+comment|/**      * This will get the page number for this destination. A page destination can either reference a      * page (for a local destination) or a page number (when doing a remote destination to another      * PDF). If this object is referencing by page number then this method will return that number,      * otherwise -1 will be returned.      *      * @return The zero-based page number for this destination.      */
 specifier|public
 name|int
 name|getPageNumber
