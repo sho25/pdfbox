@@ -1045,8 +1045,6 @@ operator|.
 name|getPage
 argument_list|(
 name|pageNumber
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 block|}
