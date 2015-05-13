@@ -85,22 +85,6 @@ name|COSString
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
-name|PDTextStream
-import|;
-end_import
-
 begin_comment
 comment|/**  * A text field is a box or space for text fill-in data typically entered from a keyboard.  * The text may be restricted to a single line or may be permitted to span multiple lines  *  * @author sug  */
 end_comment
@@ -673,7 +657,7 @@ return|return
 literal|""
 return|;
 block|}
-comment|/**      * Set the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *<p>      * For long text it's more efficient to provide the text content as a      * text stream {@link #setValue(PDTextStream)}      *</p>      * @param value the value      * @throws IOException if there is an error setting the field value      */
+comment|/**      * Set the field's value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @param value the value      * @throws IOException if there is an error setting the field value      */
 annotation|@
 name|Override
 specifier|public
@@ -733,53 +717,7 @@ name|updateFieldAppearances
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Set the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @param textStream the value      * @throws IOException if there is an error setting the field value      */
-specifier|public
-name|void
-name|setValue
-parameter_list|(
-name|PDTextStream
-name|textStream
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|textStream
-operator|!=
-literal|null
-condition|)
-block|{
-name|setInheritableAttribute
-argument_list|(
-name|COSName
-operator|.
-name|V
-argument_list|,
-name|textStream
-operator|.
-name|getCOSObject
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|removeInheritableAttribute
-argument_list|(
-name|COSName
-operator|.
-name|V
-argument_list|)
-expr_stmt|;
-block|}
-comment|// TODO move appearance generation out of fields PD model
-name|updateFieldAppearances
-argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * Get the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @return The value of this entry.      * @throws IOException if the field dictionary entry is not a text type      */
+comment|/**      * Get the field's value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @return The value of this entry.      * @throws IOException if the field dictionary entry is not a text type      */
 annotation|@
 name|Override
 specifier|public
@@ -789,10 +727,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDTextStream
-name|textStream
+name|String
+name|string
 init|=
-name|getAsTextStream
+name|valueToString
 argument_list|(
 name|getInheritableAttribute
 argument_list|(
@@ -804,40 +742,17 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|textStream
+name|string
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|textStream
-operator|.
-name|getAsString
-argument_list|()
+name|string
 return|;
 block|}
 return|return
 literal|""
-return|;
-block|}
-comment|/**      * Get the fields value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @return The value of this entry.      * @throws IOException if the field dictionary entry is not a text type      */
-specifier|public
-name|PDTextStream
-name|getValueAsStream
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|getAsTextStream
-argument_list|(
-name|getInheritableAttribute
-argument_list|(
-name|COSName
-operator|.
-name|V
-argument_list|)
-argument_list|)
 return|;
 block|}
 block|}

@@ -3000,6 +3000,18 @@ argument_list|(
 literal|"JPXDecode"
 argument_list|)
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|JS
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"JS"
+argument_list|)
+decl_stmt|;
 comment|// K
 specifier|public
 specifier|static
