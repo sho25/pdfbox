@@ -318,6 +318,34 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// lookup via charset
+name|int
+name|gid
+init|=
+name|nameToGID
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+comment|// lookup in CharStrings INDEX
+return|return
+name|getType2CharString
+argument_list|(
+name|gid
+argument_list|,
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns the GID for the given PostScript glyph name.      *       * @param name a PostScript glyph name.      * @return GID      */
+specifier|public
+name|int
+name|nameToGID
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
 comment|// some fonts have glyphs beyond their encoding, so we look up by charset SID
 name|int
 name|sid
@@ -329,23 +357,12 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-name|int
-name|gid
-init|=
+return|return
 name|charset
 operator|.
 name|getGIDForSID
 argument_list|(
 name|sid
-argument_list|)
-decl_stmt|;
-comment|// lookup in CharStrings INDEX
-return|return
-name|getType2CharString
-argument_list|(
-name|gid
-argument_list|,
-name|name
 argument_list|)
 return|;
 block|}
