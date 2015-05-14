@@ -1467,15 +1467,15 @@ literal|"First level 2\n"
 operator|+
 literal|"Fist level 3\n"
 operator|+
-literal|"Some content\r\n"
+literal|"Some content\n"
 operator|+
-literal|"Some other content\r\n"
+literal|"Some other content\n"
 operator|+
 literal|"Second at level 1\n"
 operator|+
 literal|"Second level 2\n"
 operator|+
-literal|"Content\r\n"
+literal|"Content\n"
 operator|+
 literal|"Third level 1\n"
 operator|+
@@ -1483,19 +1483,26 @@ literal|"Third level 2\n"
 operator|+
 literal|"Third level 3\n"
 operator|+
-literal|"Content\r\n"
+literal|"Content\n"
 operator|+
 literal|"Fourth level 1\n"
 operator|+
-literal|"Content\r\n"
+literal|"Content\n"
 operator|+
-literal|"Content\r\n"
+literal|"Content\n"
 decl_stmt|;
 name|assertEquals
 argument_list|(
 name|expectedTextFull
 argument_list|,
 name|textFull
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\r"
+argument_list|,
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// this should grab 0-based pages 2 and 3, i.e. 1-based pages 3 and 4
@@ -1549,7 +1556,7 @@ literal|"Second at level 1\n"
 operator|+
 literal|"Second level 2\n"
 operator|+
-literal|"Content\r\n"
+literal|"Content\n"
 operator|+
 literal|"Third level 1\n"
 operator|+
@@ -1557,13 +1564,20 @@ literal|"Third level 2\n"
 operator|+
 literal|"Third level 3\n"
 operator|+
-literal|"Content\r\n"
+literal|"Content\n"
 decl_stmt|;
 name|assertEquals
 argument_list|(
 name|expectedTextoi23
 argument_list|,
 name|textoi23
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\r"
+argument_list|,
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// this should grab 0-based pages 2 and 3, i.e. 1-based pages 3 and 4
@@ -1695,13 +1709,20 @@ literal|"Second at level 1\n"
 operator|+
 literal|"Second level 2\n"
 operator|+
-literal|"Content\r\n"
+literal|"Content\n"
 decl_stmt|;
 name|assertEquals
 argument_list|(
 name|expectedTextoi2
 argument_list|,
 name|textoi2
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\r"
+argument_list|,
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// this should grab 0-based page 2, i.e. 1-based page 3
