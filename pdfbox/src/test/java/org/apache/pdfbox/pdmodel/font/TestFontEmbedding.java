@@ -152,6 +152,21 @@ argument_list|(
 literal|"target/test-output"
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|OUT_DIR
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Embed a TTF as CIDFontType2.      */
 specifier|public
 name|void
