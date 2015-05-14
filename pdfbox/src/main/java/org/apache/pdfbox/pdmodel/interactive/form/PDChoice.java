@@ -23,6 +23,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1354,6 +1364,23 @@ argument_list|(
 name|indices
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+name|void
+name|constructAppearances
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// TODO: implement appearance generation for choices
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"not implemented"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

@@ -376,7 +376,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Create the AcroForms field appearance helper.  *<p>  * A helper class to the {@link AppearanceGenerator} to generate update an AcroForm field appearance.  *</p>  * @author Stephan Gerhard  * @author Ben Litchfield  */
+comment|/**  * Create the AcroForms field appearance helper.  *   * @author Stephan Gerhard  * @author Ben Litchfield  */
 end_comment
 
 begin_class

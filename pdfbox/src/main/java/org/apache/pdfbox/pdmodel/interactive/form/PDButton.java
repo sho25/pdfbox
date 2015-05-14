@@ -572,6 +572,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+name|void
+name|constructAppearances
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// TODO: implement appearance generation for buttons
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"not implemented"
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 

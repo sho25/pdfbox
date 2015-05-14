@@ -1231,7 +1231,7 @@ name|daValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the value of NeedAppearances.      *       * @return the value of NeedAppearances, false if the value isn't set      */
+comment|/**      * True if the viewing application should construct the appearances of all field widgets.      * The default value is false.      *       * @return the value of NeedAppearances, false if the value isn't set      */
 specifier|public
 name|boolean
 name|getNeedAppearances
@@ -1250,7 +1250,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the NeedAppearances value.      *       * @param value the value for NeedAppearances      */
+comment|/**      * Set the NeedAppearances value. If this is false, PDFBox will create appearances for all field      * widget.      *       * @param value the value for NeedAppearances      */
 specifier|public
 name|void
 name|setNeedAppearances

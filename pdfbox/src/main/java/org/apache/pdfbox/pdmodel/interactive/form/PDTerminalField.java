@@ -263,10 +263,11 @@ return|return
 name|fieldType
 return|;
 block|}
-comment|/**      * Update the fields appearance stream.      *       * The fields appearance stream needs to be updated to reflect the new field      * value. This will be done only if the NeedAppearances flag has not been set.      *       * @throws IOException if the appearance couldn't be generated      */
+comment|/**      * Applies a value change to the field. Generates appearances if required and raises events.      *       * @throws IOException if the appearance couldn't be generated      */
 specifier|protected
+specifier|final
 name|void
-name|updateFieldAppearances
+name|applyChange
 parameter_list|()
 throws|throws
 name|IOException
@@ -280,15 +281,20 @@ name|getNeedAppearances
 argument_list|()
 condition|)
 block|{
-name|AppearanceGenerator
-operator|.
-name|generateFieldAppearances
-argument_list|(
-name|this
-argument_list|)
+name|constructAppearances
+argument_list|()
 expr_stmt|;
 block|}
+comment|// if we supported JavaScript we would raise a field changed event here
 block|}
+comment|/**      * Constructs appearance streams and appearance dictionaries for all widget annotations.      * Subclasses should not call this method directly but via {@link #applyChange()}.      *       * @throws IOException if the appearance couldn't be generated      */
+specifier|abstract
+name|void
+name|constructAppearances
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 block|}
 end_class
 
