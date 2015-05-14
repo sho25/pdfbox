@@ -146,7 +146,7 @@ extends|extends
 name|PDButton
 block|{
 comment|/**      * A Ff flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -156,17 +156,17 @@ literal|1
 operator|<<
 literal|14
 decl_stmt|;
-comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+comment|/**      * @see PDField#PDField(PDAcroForm)      *      * @param acroForm The acroform.      */
 specifier|public
 name|PDRadioButton
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|)
 expr_stmt|;
 name|setRadioButton
@@ -175,27 +175,26 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
-specifier|public
+comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parent the parent node of the node      */
 name|PDRadioButton
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|,
 name|COSDictionary
 name|field
 parameter_list|,
-name|PDFieldTreeNode
-name|parentNode
+name|PDNonTerminalField
+name|parent
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|,
 name|field
 argument_list|,
-name|parentNode
+name|parent
 argument_list|)
 expr_stmt|;
 block|}
@@ -208,8 +207,7 @@ name|boolean
 name|radiosInUnison
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -230,8 +228,7 @@ name|isRadiosInUnison
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -431,7 +428,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the field value.      *       * The field value holds a name object which is corresponding to the       * appearance state of the child field being in the on state.      *       * The default value is Off.      *       * @param fieldValue the COSName object to set the field value.      */
 annotation|@
 name|Override
 specifier|public
@@ -574,7 +570,7 @@ name|COSName
 operator|.
 name|AS
 argument_list|,
-name|PDButton
+name|COSName
 operator|.
 name|OFF
 argument_list|)

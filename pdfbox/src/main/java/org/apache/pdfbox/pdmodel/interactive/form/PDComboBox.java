@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A combo box consisting of a drop-down list.  * May be accompanied by an editable text box in which non-predefined values may be entered.  * @author John Hewson  */
+comment|/**  * A combo box consisting of a drop-down list.  * May be accompanied by an editable text box in which non-predefined values may be entered.  *   * @author John Hewson  */
 end_comment
 
 begin_class
@@ -59,7 +59,6 @@ name|PDComboBox
 extends|extends
 name|PDChoice
 block|{
-comment|/**      *  Ff-flag.      */
 specifier|private
 specifier|static
 specifier|final
@@ -70,17 +69,17 @@ literal|1
 operator|<<
 literal|18
 decl_stmt|;
-comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+comment|/**      * @see PDField#PDField(PDAcroForm)      *      * @param acroForm The acroform.      */
 specifier|public
 name|PDComboBox
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|)
 expr_stmt|;
 name|setCombo
@@ -89,8 +88,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
-specifier|public
+comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parent the parent node of the node      */
 name|PDComboBox
 parameter_list|(
 name|PDAcroForm
@@ -99,8 +97,8 @@ parameter_list|,
 name|COSDictionary
 name|field
 parameter_list|,
-name|PDFieldTreeNode
-name|parentNode
+name|PDNonTerminalField
+name|parent
 parameter_list|)
 block|{
 name|super
@@ -109,7 +107,7 @@ name|acroForm
 argument_list|,
 name|field
 argument_list|,
-name|parentNode
+name|parent
 argument_list|)
 expr_stmt|;
 block|}
@@ -120,8 +118,7 @@ name|isEdit
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -142,8 +139,7 @@ name|boolean
 name|edit
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -157,7 +153,6 @@ name|edit
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the field value - the 'V' key.      *       * @param value the value      */
 annotation|@
 name|Override
 specifier|public
@@ -189,9 +184,6 @@ argument_list|()
 operator|.
 name|indexOf
 argument_list|(
-operator|(
-name|String
-operator|)
 name|value
 argument_list|)
 operator|==
@@ -209,8 +201,7 @@ throw|;
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setString
 argument_list|(
@@ -218,9 +209,6 @@ name|COSName
 operator|.
 name|V
 argument_list|,
-operator|(
-name|String
-operator|)
 name|value
 argument_list|)
 expr_stmt|;
@@ -234,8 +222,7 @@ block|}
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(

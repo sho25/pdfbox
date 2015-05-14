@@ -465,7 +465,7 @@ argument_list|)
 expr_stmt|;
 comment|// assert that there is no value, set the field value and
 comment|// ensure it has been set
-name|PDFieldTreeNode
+name|PDField
 name|field
 init|=
 name|form

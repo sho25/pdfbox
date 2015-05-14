@@ -259,7 +259,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDFieldTreeNode
+name|PDField
 import|;
 end_import
 
@@ -840,11 +840,11 @@ operator|.
 name|getKids
 argument_list|()
 decl_stmt|;
-name|PDFieldTreeNode
+name|PDField
 name|firstKid
 init|=
 operator|(
-name|PDFieldTreeNode
+name|PDField
 operator|)
 name|kids
 operator|.
@@ -853,11 +853,11 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|PDFieldTreeNode
+name|PDField
 name|secondKid
 init|=
 operator|(
-name|PDFieldTreeNode
+name|PDField
 operator|)
 name|kids
 operator|.
@@ -886,7 +886,7 @@ argument_list|)
 expr_stmt|;
 comment|//the appearance stream is suppose to be null because there
 comment|//is an F action in the AA dictionary that populates that field.
-name|PDFieldTreeNode
+name|PDField
 name|totalAmt
 init|=
 name|form
@@ -952,7 +952,7 @@ parameter_list|(
 name|PDDocument
 name|doc
 parameter_list|,
-name|PDFieldTreeNode
+name|PDField
 name|field
 parameter_list|,
 name|String
@@ -1031,7 +1031,7 @@ parameter_list|(
 name|PDDocument
 name|doc
 parameter_list|,
-name|PDFieldTreeNode
+name|PDField
 name|field
 parameter_list|,
 name|String

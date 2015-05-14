@@ -97,7 +97,6 @@ name|PDTextField
 extends|extends
 name|PDVariableText
 block|{
-comment|/**      * Ff flags.      */
 specifier|private
 specifier|static
 specifier|final
@@ -168,21 +167,20 @@ literal|1
 operator|<<
 literal|25
 decl_stmt|;
-comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+comment|/**      * @see PDField#PDField(PDAcroForm)      *      * @param acroForm The acroform.      */
 specifier|public
 name|PDTextField
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|)
 expr_stmt|;
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -196,27 +194,26 @@ name|TX
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
-specifier|public
+comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parent the parent node of the node      */
 name|PDTextField
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|,
 name|COSDictionary
 name|field
 parameter_list|,
-name|PDFieldTreeNode
-name|parentNode
+name|PDNonTerminalField
+name|parent
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|,
 name|field
 argument_list|,
-name|parentNode
+name|parent
 argument_list|)
 expr_stmt|;
 block|}
@@ -227,8 +224,7 @@ name|isMultiline
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -249,8 +245,7 @@ name|boolean
 name|multiline
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -271,8 +266,7 @@ name|isPassword
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -293,8 +287,7 @@ name|boolean
 name|password
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -315,8 +308,7 @@ name|isFileSelect
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -337,8 +329,7 @@ name|boolean
 name|fileSelect
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -359,8 +350,7 @@ name|doNotSpellCheck
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -381,8 +371,7 @@ name|boolean
 name|doNotSpellCheck
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -403,8 +392,7 @@ name|doNotScroll
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -425,8 +413,7 @@ name|boolean
 name|doNotScroll
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -447,8 +434,7 @@ name|isComb
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -469,8 +455,7 @@ name|boolean
 name|comb
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -491,8 +476,7 @@ name|isRichText
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -513,8 +497,7 @@ name|boolean
 name|richText
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -535,8 +518,7 @@ name|getMaxLen
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getInt
 argument_list|(
@@ -555,8 +537,7 @@ name|int
 name|maxLen
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setInt
 argument_list|(
@@ -568,7 +549,6 @@ name|maxLen
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the default value for the field.      *       * The value is stored in the field dictionaries "DV" entry.      *      * @param value the default value      */
 annotation|@
 name|Override
 specifier|public
@@ -616,7 +596,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the fields default value.      *       * The value is stored in the field dictionaries "DV" entry.      *       * @return The value of this entry.      */
 annotation|@
 name|Override
 specifier|public
@@ -657,7 +636,6 @@ return|return
 literal|""
 return|;
 block|}
-comment|/**      * Set the field's value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @param value the value      * @throws IOException if there is an error setting the field value      */
 annotation|@
 name|Override
 specifier|public
@@ -717,7 +695,6 @@ name|updateFieldAppearances
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Get the field's value.      *       * The value is stored in the field dictionaries "V" entry.      *       * @return The value of this entry.      * @throws IOException if the field dictionary entry is not a text type      */
 annotation|@
 name|Override
 specifier|public

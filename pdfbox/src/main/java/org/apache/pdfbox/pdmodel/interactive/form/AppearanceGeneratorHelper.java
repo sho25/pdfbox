@@ -700,7 +700,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|PDField
+name|PDTerminalField
 name|field
 init|=
 literal|null
@@ -712,13 +712,13 @@ if|if
 condition|(
 name|next
 operator|instanceof
-name|PDField
+name|PDTerminalField
 condition|)
 block|{
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTerminalField
 operator|)
 name|next
 expr_stmt|;

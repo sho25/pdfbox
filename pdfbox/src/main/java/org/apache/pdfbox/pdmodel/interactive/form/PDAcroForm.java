@@ -342,7 +342,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 name|fieldCache
 decl_stmt|;
@@ -476,7 +476,7 @@ name|FDFField
 operator|)
 name|field
 decl_stmt|;
-name|PDFieldTreeNode
+name|PDField
 name|docField
 init|=
 name|getField
@@ -557,7 +557,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 name|fields
 init|=
@@ -566,7 +566,7 @@ argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 name|fieldIter
 init|=
@@ -583,7 +583,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|PDFieldTreeNode
+name|PDField
 name|docField
 init|=
 name|fieldIter
@@ -637,7 +637,7 @@ specifier|private
 name|void
 name|addFieldAndChildren
 parameter_list|(
-name|PDFieldTreeNode
+name|PDField
 name|docField
 parameter_list|,
 name|List
@@ -723,7 +723,7 @@ block|{
 name|addFieldAndChildren
 argument_list|(
 operator|(
-name|PDFieldTreeNode
+name|PDField
 operator|)
 name|kid
 argument_list|,
@@ -771,11 +771,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will return all of the documents root fields.      *       * A field might have children that are fields (non-terminal field) or does not      * have children which are fields (terminal fields).      *       * The fields within an AcroForm are organized in a tree structure. The documents root fields       * might either be terminal fields, non-terminal fields or a mixture of both. Non-terminal fields      * mark branches which contents can be retrieved using {@link PDFieldTreeNode#getKids()}.      *       * @return A list of the documents root fields.      *       */
+comment|/**      * This will return all of the documents root fields.      *       * A field might have children that are fields (non-terminal field) or does not      * have children which are fields (terminal fields).      *       * The fields within an AcroForm are organized in a tree structure. The documents root fields       * might either be terminal fields, non-terminal fields or a mixture of both. Non-terminal fields      * mark branches which contents can be retrieved using {@link PDField#getKids()}.      *       * @return A list of the documents root fields.      *       */
 specifier|public
 name|List
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 name|getFields
 parameter_list|()
@@ -806,7 +806,7 @@ return|return
 name|Collections
 operator|.
 expr|<
-name|PDFieldTreeNode
+name|PDField
 operator|>
 name|emptyList
 argument_list|()
@@ -814,14 +814,14 @@ return|;
 block|}
 name|List
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 name|pdFields
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -863,12 +863,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|PDFieldTreeNode
+name|PDField
 name|field
 init|=
-name|PDFieldTreeNode
+name|PDField
 operator|.
-name|createField
+name|fromDictionary
 argument_list|(
 name|this
 argument_list|,
@@ -877,13 +877,6 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|field
-operator|!=
-literal|null
-condition|)
-block|{
 name|pdFields
 operator|.
 name|add
@@ -893,12 +886,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 return|return
 operator|new
 name|COSArrayList
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 argument_list|(
 name|pdFields
@@ -914,7 +906,7 @@ name|setFields
 parameter_list|(
 name|List
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 name|fields
 parameter_list|)
@@ -959,13 +951,14 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 argument_list|()
 expr_stmt|;
+comment|// fixme: this code does not cache non-terminal fields or their kids
 name|List
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 name|fields
 init|=
@@ -974,7 +967,7 @@ argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 name|fieldIter
 init|=
@@ -991,7 +984,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|PDFieldTreeNode
+name|PDField
 name|next
 init|=
 name|fieldIter
@@ -1033,18 +1026,18 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * This will get a field by name, possibly using the cache if setCache is true.      *      * @param name The name of the field to get.      *      * @return The field with that name of null if one was not found.      *      * @throws IOException If there is an error getting the field type.      */
+comment|/**      * This will get a field by name, possibly using the cache if setCache is true.      *      * @param fullyQualifiedName The name of the field to get.      * @return The field with that name of null if one was not found.      * @throws IOException If there is an error getting the field type.      */
 specifier|public
-name|PDFieldTreeNode
+name|PDField
 name|getField
 parameter_list|(
 name|String
-name|name
+name|fullyQualifiedName
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDFieldTreeNode
+name|PDField
 name|retval
 init|=
 literal|null
@@ -1062,7 +1055,7 @@ name|fieldCache
 operator|.
 name|get
 argument_list|(
-name|name
+name|fullyQualifiedName
 argument_list|)
 expr_stmt|;
 block|}
@@ -1072,7 +1065,7 @@ name|String
 index|[]
 name|nameSubSection
 init|=
-name|name
+name|fullyQualifiedName
 operator|.
 name|split
 argument_list|(
@@ -1160,7 +1153,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|name
+name|fullyQualifiedName
 argument_list|)
 operator|||
 name|fieldName
@@ -1177,12 +1170,12 @@ index|]
 argument_list|)
 condition|)
 block|{
-name|PDFieldTreeNode
+name|PDField
 name|root
 init|=
-name|PDFieldTreeNode
+name|PDField
 operator|.
-name|createField
+name|fromDictionary
 argument_list|(
 name|this
 argument_list|,
@@ -1200,7 +1193,7 @@ operator|>
 literal|1
 condition|)
 block|{
-name|PDFieldTreeNode
+name|PDField
 name|kid
 init|=
 name|root

@@ -92,7 +92,7 @@ specifier|static
 name|void
 name|generateFieldAppearances
 parameter_list|(
-name|PDField
+name|PDTerminalField
 name|field
 parameter_list|)
 throws|throws
@@ -108,15 +108,6 @@ block|{
 name|AppearanceGeneratorHelper
 name|apHelper
 init|=
-literal|null
-decl_stmt|;
-name|Object
-name|fieldValue
-init|=
-literal|null
-decl_stmt|;
-name|apHelper
-operator|=
 operator|new
 name|AppearanceGeneratorHelper
 argument_list|(
@@ -130,14 +121,15 @@ name|PDVariableText
 operator|)
 name|field
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+name|Object
 name|fieldValue
-operator|=
+init|=
 name|field
 operator|.
 name|getValue
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 comment|// TODO: implement the handling for additional values.
 if|if
 condition|(

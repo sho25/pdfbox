@@ -20,30 +20,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNull
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -109,6 +85,30 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNull
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test for the PDSignatureField class.  *  */
 end_comment
@@ -155,7 +155,7 @@ name|void
 name|createDefaultTextField
 parameter_list|()
 block|{
-name|PDFieldTreeNode
+name|PDField
 name|textField
 init|=
 operator|new

@@ -155,23 +155,9 @@ specifier|abstract
 class|class
 name|PDButton
 extends|extends
-name|PDField
+name|PDTerminalField
 block|{
-comment|/**      * The value for the Off state for PDCheckbox and PDRadioButton.      *       * This shall not be confused with the OFF state as it is used within      * other parts of a PDF.       *       */
-specifier|static
-specifier|final
-name|COSName
-name|OFF
-init|=
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
-literal|"Off"
-argument_list|)
-decl_stmt|;
 comment|/**      * A Ff flag. If set, the field is a set of radio buttons      */
-specifier|public
 specifier|static
 specifier|final
 name|int
@@ -182,7 +168,6 @@ operator|<<
 literal|15
 decl_stmt|;
 comment|/**      * A Ff flag. If set, the field is a pushbutton.      */
-specifier|public
 specifier|static
 specifier|final
 name|int
@@ -193,7 +178,6 @@ operator|<<
 literal|16
 decl_stmt|;
 comment|/**      * A Ff flag. If set, radio buttons individual fields, using the same      * value for the on state will turn on and off in unison.      */
-specifier|public
 specifier|static
 specifier|final
 name|int
@@ -203,21 +187,20 @@ literal|1
 operator|<<
 literal|25
 decl_stmt|;
-comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+comment|/**      * @see PDField#PDField(PDAcroForm)      *      * @param acroForm The acroform.      */
 specifier|public
 name|PDButton
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|)
 expr_stmt|;
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -231,8 +214,7 @@ name|BTN
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
-specifier|public
+comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parent the parent node of the node      */
 name|PDButton
 parameter_list|(
 name|PDAcroForm
@@ -241,8 +223,8 @@ parameter_list|,
 name|COSDictionary
 name|field
 parameter_list|,
-name|PDFieldTreeNode
-name|parentNode
+name|PDNonTerminalField
+name|parent
 parameter_list|)
 block|{
 name|super
@@ -251,7 +233,7 @@ name|acroForm
 argument_list|,
 name|field
 argument_list|,
-name|parentNode
+name|parent
 argument_list|)
 expr_stmt|;
 block|}
@@ -262,8 +244,7 @@ name|isPushButton
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -284,8 +265,7 @@ name|boolean
 name|pushbutton
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -306,8 +286,7 @@ name|isRadioButton
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -328,8 +307,7 @@ name|boolean
 name|radiobutton
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -412,7 +390,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the fields default value.      *       * The field value holds a name object which is corresponding to the       * appearance state representing the corresponding appearance       * from the appearance directory.      *      * The default value is used to represent the initial state of the      * field or to revert when resetting the form.      *       * @param defaultValue the new field value.      */
 annotation|@
 name|Override
 specifier|public
@@ -430,8 +407,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(
@@ -443,8 +419,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(

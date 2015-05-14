@@ -64,17 +64,17 @@ name|PDPushButton
 extends|extends
 name|PDButton
 block|{
-comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+comment|/**      * @see PDField#PDField(PDAcroForm)      *      * @param acroForm The acroform.      */
 specifier|public
 name|PDPushButton
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|)
 expr_stmt|;
 name|setPushButton
@@ -83,31 +83,29 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
-specifier|public
+comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parent the parent node of the node      */
 name|PDPushButton
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|,
 name|COSDictionary
 name|field
 parameter_list|,
-name|PDFieldTreeNode
-name|parentNode
+name|PDNonTerminalField
+name|parent
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|,
 name|field
 argument_list|,
-name|parentNode
+name|parent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the fields default value.      *       * A push button field does not have a field value.      *       * @return This will always return an empty string.      */
 annotation|@
 name|Override
 specifier|public
@@ -120,7 +118,6 @@ return|return
 literal|""
 return|;
 block|}
-comment|/**      * Set the fields default value.      *       * A push button field does not have a field value.      *       * @param defaultValue The field doesn't support setting any value      * @throws IllegalArgumentException when trying to set a value other than null      */
 annotation|@
 name|Override
 specifier|public
@@ -153,7 +150,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Get the fields options.      *       * A push button field does not have option value.      *       * @return This will always return an empty List.      */
 annotation|@
 name|Override
 specifier|public
@@ -174,7 +170,6 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * Set the fields options.      *       * A push button field does not have a option values.      *       * @param values The field doesn't support setting any option value      * @throws IllegalArgumentException when trying to set the a value other than null or an empty list.      */
 annotation|@
 name|Override
 specifier|public
@@ -210,7 +205,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Get the fields value.      *       * A push button field does not have field value.      *       * @return This will always return an empty String.      */
 annotation|@
 name|Override
 specifier|public
@@ -223,7 +217,6 @@ return|return
 literal|""
 return|;
 block|}
-comment|/**      * Set the fields value.      *       * A push button field does not have a field value.      *       * @param fieldValue The field doesn't support setting any field value.      * @throws IllegalArgumentException when trying to set the a value other than null or an empty String.      */
 annotation|@
 name|Override
 specifier|public

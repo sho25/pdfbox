@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A scrollable list box. Contains several text items, one or more of which shall be selected as the field value.  *   * @author John Hewson  */
+comment|/**  * A scrollable list box. Contains several text items, one or more of which shall be selected as the  * field value.  *   * @author John Hewson  */
 end_comment
 
 begin_class
@@ -59,22 +59,21 @@ name|PDListBox
 extends|extends
 name|PDChoice
 block|{
-comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+comment|/**      * @see PDField#PDField(PDAcroForm)      *      * @param acroForm The acroform.      */
 specifier|public
 name|PDListBox
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
-specifier|public
+comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parent the parent node of the node      */
 name|PDListBox
 parameter_list|(
 name|PDAcroForm
@@ -83,8 +82,8 @@ parameter_list|,
 name|COSDictionary
 name|field
 parameter_list|,
-name|PDFieldTreeNode
-name|parentNode
+name|PDNonTerminalField
+name|parent
 parameter_list|)
 block|{
 name|super
@@ -93,7 +92,7 @@ name|acroForm
 argument_list|,
 name|field
 argument_list|,
-name|parentNode
+name|parent
 argument_list|)
 expr_stmt|;
 block|}
@@ -104,8 +103,7 @@ name|getTopIndex
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getInt
 argument_list|(
@@ -133,8 +131,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setInt
 argument_list|(
@@ -148,8 +145,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(

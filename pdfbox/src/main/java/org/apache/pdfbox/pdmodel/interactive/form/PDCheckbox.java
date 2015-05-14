@@ -83,41 +83,40 @@ name|PDCheckbox
 extends|extends
 name|PDButton
 block|{
-comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+comment|/**      * @see PDField#PDField(PDAcroForm)      *      * @param acroForm The acroform.      */
 specifier|public
 name|PDCheckbox
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
-specifier|public
+comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parent the parent node of the node      */
 name|PDCheckbox
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|,
 name|COSDictionary
 name|field
 parameter_list|,
-name|PDFieldTreeNode
-name|parentNode
+name|PDNonTerminalField
+name|parent
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|,
 name|field
 argument_list|,
-name|parentNode
+name|parent
 argument_list|)
 expr_stmt|;
 block|}
@@ -169,8 +168,7 @@ init|=
 operator|(
 name|COSName
 operator|)
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -225,8 +223,7 @@ argument_list|(
 name|onValue
 argument_list|)
 expr_stmt|;
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -249,8 +246,7 @@ name|void
 name|unCheck
 parameter_list|()
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -258,7 +254,7 @@ name|COSName
 operator|.
 name|AS
 argument_list|,
-name|PDButton
+name|COSName
 operator|.
 name|OFF
 argument_list|)
@@ -271,7 +267,7 @@ name|getOffValue
 parameter_list|()
 block|{
 return|return
-name|PDButton
+name|COSName
 operator|.
 name|OFF
 operator|.
@@ -291,8 +287,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -344,7 +339,7 @@ name|key
 operator|.
 name|equals
 argument_list|(
-name|PDButton
+name|COSName
 operator|.
 name|OFF
 argument_list|)
@@ -432,7 +427,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the field value.      *       * The field value holds a name object which is corresponding to the       * appearance state representing the corresponding appearance       * from the appearance directory.      *      * The default value is Off.      *       * @param value the new field value value.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValue
@@ -448,8 +444,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(
@@ -458,8 +453,7 @@ operator|.
 name|V
 argument_list|)
 expr_stmt|;
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -467,7 +461,7 @@ name|COSName
 operator|.
 name|AS
 argument_list|,
-name|PDButton
+name|COSName
 operator|.
 name|OFF
 argument_list|)
@@ -485,8 +479,7 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -497,8 +490,7 @@ argument_list|,
 name|nameValue
 argument_list|)
 expr_stmt|;
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(

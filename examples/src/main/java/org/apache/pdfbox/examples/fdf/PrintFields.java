@@ -133,7 +133,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDFieldTreeNode
+name|PDField
 import|;
 end_import
 
@@ -211,7 +211,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 name|fields
 init|=
@@ -222,7 +222,7 @@ argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 name|fieldsIter
 init|=
@@ -253,7 +253,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|PDFieldTreeNode
+name|PDField
 name|field
 init|=
 name|fieldsIter
@@ -279,7 +279,7 @@ specifier|private
 name|void
 name|processField
 parameter_list|(
-name|PDFieldTreeNode
+name|PDField
 name|field
 parameter_list|,
 name|String
@@ -396,14 +396,14 @@ if|if
 condition|(
 name|pdfObj
 operator|instanceof
-name|PDFieldTreeNode
+name|PDField
 condition|)
 block|{
-name|PDFieldTreeNode
+name|PDField
 name|kid
 init|=
 operator|(
-name|PDFieldTreeNode
+name|PDField
 operator|)
 name|pdfObj
 decl_stmt|;

@@ -95,10 +95,8 @@ specifier|abstract
 class|class
 name|PDVariableText
 extends|extends
-name|PDField
+name|PDTerminalField
 block|{
-comment|/**      * A Q value.      */
-specifier|public
 specifier|static
 specifier|final
 name|int
@@ -106,8 +104,6 @@ name|QUADDING_LEFT
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * A Q value.      */
-specifier|public
 specifier|static
 specifier|final
 name|int
@@ -115,8 +111,6 @@ name|QUADDING_CENTERED
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * A Q value.      */
-specifier|public
 specifier|static
 specifier|final
 name|int
@@ -124,40 +118,39 @@ name|QUADDING_RIGHT
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * @see PDField#PDField(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+comment|/**      * @see PDTerminalField#PDTerminalField(PDAcroForm)      *      * @param acroForm The acroform.      */
 name|PDVariableText
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param theAcroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
-specifier|protected
+comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parent the parent node of the node      */
 name|PDVariableText
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|,
 name|COSDictionary
 name|field
 parameter_list|,
-name|PDFieldTreeNode
-name|parentNode
+name|PDNonTerminalField
+name|parent
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|,
 name|field
 argument_list|,
-name|parentNode
+name|parent
 argument_list|)
 expr_stmt|;
 block|}
@@ -240,8 +233,7 @@ init|=
 operator|(
 name|COSString
 operator|)
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -273,8 +265,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -292,8 +283,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(
@@ -356,8 +346,7 @@ name|int
 name|q
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setInt
 argument_list|(
@@ -421,8 +410,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -440,8 +428,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(

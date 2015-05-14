@@ -359,7 +359,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDFieldTreeNode
+name|PDField
 import|;
 end_import
 
@@ -729,7 +729,7 @@ literal|"unchecked"
 argument_list|)
 name|List
 argument_list|<
-name|PDFieldTreeNode
+name|PDField
 argument_list|>
 name|acroFormFields
 init|=

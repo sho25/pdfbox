@@ -156,7 +156,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A choice field contains several text items, one or more of which shall be selected as the field value.  *   * @author sug  * @author John Hewson  */
+comment|/**  * A choice field contains several text items, one or more of which shall be selected as the field  * value.  *   * @author sug  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -167,8 +167,6 @@ name|PDChoice
 extends|extends
 name|PDVariableText
 block|{
-comment|/**      *  Ff-flags.      */
-specifier|public
 specifier|static
 specifier|final
 name|int
@@ -218,21 +216,20 @@ literal|1
 operator|<<
 literal|26
 decl_stmt|;
-comment|/**      * @see PDFieldTreeNode#PDFieldTreeNode(PDAcroForm)      *      * @param theAcroForm The acroform.      */
+comment|/**      * @see PDField#PDField(PDAcroForm)      *      * @param acroForm The acroform.      */
 specifier|public
 name|PDChoice
 parameter_list|(
 name|PDAcroForm
-name|theAcroForm
+name|acroForm
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|theAcroForm
+name|acroForm
 argument_list|)
 expr_stmt|;
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -246,8 +243,7 @@ name|CH
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parentNode the parent node of the node to be created      */
-specifier|public
+comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parent the parent node of the node      */
 name|PDChoice
 parameter_list|(
 name|PDAcroForm
@@ -256,8 +252,8 @@ parameter_list|,
 name|COSDictionary
 name|field
 parameter_list|,
-name|PDFieldTreeNode
-name|parentNode
+name|PDNonTerminalField
+name|parent
 parameter_list|)
 block|{
 name|super
@@ -266,7 +262,7 @@ name|acroForm
 argument_list|,
 name|field
 argument_list|,
-name|parentNode
+name|parent
 argument_list|)
 expr_stmt|;
 block|}
@@ -316,9 +312,6 @@ argument_list|()
 operator|.
 name|indexOf
 argument_list|(
-operator|(
-name|String
-operator|)
 name|value
 argument_list|)
 operator|==
@@ -336,8 +329,7 @@ throw|;
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setString
 argument_list|(
@@ -345,9 +337,6 @@ name|COSName
 operator|.
 name|DV
 argument_list|,
-operator|(
-name|String
-operator|)
 name|value
 argument_list|)
 expr_stmt|;
@@ -355,8 +344,7 @@ block|}
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(
@@ -379,8 +367,7 @@ block|{
 name|COSBase
 name|values
 init|=
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -439,8 +426,7 @@ name|displayValues
 argument_list|)
 expr_stmt|;
 block|}
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -459,8 +445,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(
@@ -642,8 +627,7 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -658,8 +642,7 @@ block|}
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(
@@ -682,8 +665,7 @@ block|{
 name|COSBase
 name|values
 init|=
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -729,8 +711,7 @@ block|{
 name|COSBase
 name|value
 init|=
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -808,8 +789,7 @@ literal|"Setting the indices is not allowed for choice fields not allowing multi
 argument_list|)
 throw|;
 block|}
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -828,8 +808,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(
@@ -847,8 +826,7 @@ name|isSort
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -869,8 +847,7 @@ name|boolean
 name|sort
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -891,8 +868,7 @@ name|isMultiSelect
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -913,8 +889,7 @@ name|boolean
 name|multiSelect
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -935,8 +910,7 @@ name|isDoNotSpellCheck
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -957,8 +931,7 @@ name|boolean
 name|doNotSpellCheck
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -979,8 +952,7 @@ name|isCommitOnSelChange
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -1001,8 +973,7 @@ name|boolean
 name|commitOnSelChange
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -1023,8 +994,7 @@ name|isCombo
 parameter_list|()
 block|{
 return|return
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getFlag
 argument_list|(
@@ -1045,8 +1015,7 @@ name|boolean
 name|combo
 parameter_list|)
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setFlag
 argument_list|(
@@ -1060,7 +1029,7 @@ name|combo
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      *       */
+comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      */
 specifier|public
 name|void
 name|setValue
@@ -1083,9 +1052,6 @@ argument_list|()
 operator|.
 name|indexOf
 argument_list|(
-operator|(
-name|String
-operator|)
 name|value
 argument_list|)
 operator|==
@@ -1103,8 +1069,7 @@ throw|;
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setString
 argument_list|(
@@ -1112,9 +1077,6 @@ name|COSName
 operator|.
 name|V
 argument_list|,
-operator|(
-name|String
-operator|)
 name|value
 argument_list|)
 expr_stmt|;
@@ -1128,8 +1090,7 @@ block|}
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(
@@ -1201,8 +1162,7 @@ literal|"The values are not contained in the selectable options."
 argument_list|)
 throw|;
 block|}
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|setItem
 argument_list|(
@@ -1226,8 +1186,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|removeItem
 argument_list|(
@@ -1239,7 +1198,6 @@ expr_stmt|;
 block|}
 comment|// TODO create/update appearance
 block|}
-comment|/**      * getValue gets the value of the "V" entry.      *       * @return The value of this entry.      */
 annotation|@
 name|Override
 specifier|public
@@ -1253,8 +1211,7 @@ block|{
 name|COSBase
 name|value
 init|=
-name|getCOSObject
-argument_list|()
+name|dictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
