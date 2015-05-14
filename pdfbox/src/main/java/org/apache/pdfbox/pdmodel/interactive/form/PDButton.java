@@ -522,7 +522,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the options.      *       * @see #getOptions()      * @param values List containing all possible options. Supplying null or an empty list will remove the Opt entry.      */
+comment|/**      * This will set the options.      *       * @see #getOptions()      * @param values List containing all possible options. Supplying null list will remove the Opt entry.      */
 specifier|public
 name|void
 name|setOptions
@@ -534,6 +534,28 @@ argument_list|>
 name|values
 parameter_list|)
 block|{
+name|COSArray
+name|cosValues
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|values
+operator|!=
+literal|null
+condition|)
+block|{
+name|cosValues
+operator|=
+name|COSArrayList
+operator|.
+name|convertStringListToCOSStringCOSArray
+argument_list|(
+name|values
+argument_list|)
+expr_stmt|;
+block|}
 name|dictionary
 operator|.
 name|setItem
@@ -542,12 +564,7 @@ name|COSName
 operator|.
 name|OPT
 argument_list|,
-name|COSArrayList
-operator|.
-name|convertStringListToCOSStringCOSArray
-argument_list|(
-name|values
-argument_list|)
+name|cosValues
 argument_list|)
 expr_stmt|;
 block|}
