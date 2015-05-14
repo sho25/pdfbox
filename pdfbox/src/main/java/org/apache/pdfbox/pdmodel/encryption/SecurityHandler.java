@@ -1782,39 +1782,11 @@ name|COSString
 operator|||
 name|value
 operator|instanceof
-name|COSStream
-operator|||
-name|value
-operator|instanceof
 name|COSArray
 operator|||
 name|value
 operator|instanceof
 name|COSDictionary
-condition|)
-block|{
-comment|// if we are a signature dictionary and contain a Contents entry then
-comment|// we don't decrypt it.
-if|if
-condition|(
-operator|!
-operator|(
-name|entry
-operator|.
-name|getKey
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|COSName
-operator|.
-name|CONTENTS
-argument_list|)
-operator|&&
-name|value
-operator|instanceof
-name|COSString
-operator|)
 condition|)
 block|{
 name|decrypt
@@ -1826,7 +1798,6 @@ argument_list|,
 name|genNum
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
