@@ -189,14 +189,9 @@ name|String
 name|daValue
 parameter_list|)
 block|{
-if|if
-condition|(
-name|daValue
-operator|!=
-literal|null
-condition|)
-block|{
-name|setInheritableAttribute
+name|dictionary
+operator|.
+name|setItem
 argument_list|(
 name|COSName
 operator|.
@@ -209,17 +204,6 @@ name|daValue
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|removeInheritableAttribute
-argument_list|(
-name|COSName
-operator|.
-name|DA
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Get the default style string.      *       * The default style string defines the default style for      * rich text fields.      *       * @return the DS element of the dictionary object      */
 specifier|public
