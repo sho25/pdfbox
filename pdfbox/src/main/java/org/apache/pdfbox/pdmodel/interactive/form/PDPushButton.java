@@ -163,9 +163,6 @@ block|{
 return|return
 name|Collections
 operator|.
-expr|<
-name|String
-operator|>
 name|emptyList
 argument_list|()
 return|;
