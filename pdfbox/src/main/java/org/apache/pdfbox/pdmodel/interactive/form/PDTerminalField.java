@@ -276,7 +276,7 @@ condition|(
 operator|!
 name|acroForm
 operator|.
-name|isNeedAppearances
+name|getNeedAppearances
 argument_list|()
 condition|)
 block|{
