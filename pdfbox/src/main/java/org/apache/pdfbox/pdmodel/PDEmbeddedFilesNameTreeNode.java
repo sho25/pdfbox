@@ -65,22 +65,6 @@ name|pdmodel
 operator|.
 name|common
 operator|.
-name|COSObjectable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
 name|PDNameTreeNode
 import|;
 end_import
@@ -113,6 +97,9 @@ class|class
 name|PDEmbeddedFilesNameTreeNode
 extends|extends
 name|PDNameTreeNode
+argument_list|<
+name|PDComplexFileSpecification
+argument_list|>
 block|{
 comment|/**      * Constructor.      */
 specifier|public
@@ -120,11 +107,7 @@ name|PDEmbeddedFilesNameTreeNode
 parameter_list|()
 block|{
 name|super
-argument_list|(
-name|PDComplexFileSpecification
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Constructor.      *      * @param dic The COS dictionary.      */
@@ -138,16 +121,13 @@ block|{
 name|super
 argument_list|(
 name|dic
-argument_list|,
-name|PDComplexFileSpecification
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
-name|COSObjectable
+name|PDComplexFileSpecification
 name|convertCOSToPD
 parameter_list|(
 name|COSBase
@@ -167,7 +147,8 @@ name|base
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 name|PDNameTreeNode
 name|createChildNode

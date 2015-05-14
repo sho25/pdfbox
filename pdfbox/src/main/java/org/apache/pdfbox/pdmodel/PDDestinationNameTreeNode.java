@@ -79,22 +79,6 @@ name|pdmodel
 operator|.
 name|common
 operator|.
-name|COSObjectable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
 name|PDNameTreeNode
 import|;
 end_import
@@ -149,6 +133,9 @@ class|class
 name|PDDestinationNameTreeNode
 extends|extends
 name|PDNameTreeNode
+argument_list|<
+name|PDPageDestination
+argument_list|>
 block|{
 comment|/**      * Constructor.      */
 specifier|public
@@ -156,11 +143,7 @@ name|PDDestinationNameTreeNode
 parameter_list|()
 block|{
 name|super
-argument_list|(
-name|PDPageDestination
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Constructor.      *      * @param dic The COS dictionary.      */
@@ -174,16 +157,13 @@ block|{
 name|super
 argument_list|(
 name|dic
-argument_list|,
-name|PDPageDestination
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
-name|COSObjectable
+name|PDPageDestination
 name|convertCOSToPD
 parameter_list|(
 name|COSBase
@@ -225,6 +205,9 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+operator|(
+name|PDPageDestination
+operator|)
 name|PDDestination
 operator|.
 name|create
@@ -233,7 +216,8 @@ name|destination
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 name|PDNameTreeNode
 name|createChildNode

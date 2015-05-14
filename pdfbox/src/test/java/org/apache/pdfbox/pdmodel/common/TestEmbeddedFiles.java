@@ -447,6 +447,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|PDNameTreeNode
+argument_list|<
+name|PDComplexFileSpecification
+argument_list|>
 argument_list|>
 name|kids
 init|=
@@ -467,7 +470,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|COSObjectable
+name|PDComplexFileSpecification
 argument_list|>
 name|tmpNames
 init|=
@@ -486,13 +489,6 @@ argument_list|(
 literal|"My first attachment"
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|obj
-operator|instanceof
-name|PDComplexFileSpecification
-condition|)
-block|{
 name|PDComplexFileSpecification
 name|spec
 init|=
@@ -529,7 +525,6 @@ operator|.
 name|getEmbeddedFileUnix
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 name|assertTrue
 argument_list|(

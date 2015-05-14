@@ -79,6 +79,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -176,13 +186,19 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a PDF Name tree.  See the PDF Reference 1.5 section 3.8.5  * for more details.  *  * @author Ben Litchfield  */
+comment|/**  * This class represents a node in a name tree.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
 specifier|public
+specifier|abstract
 class|class
 name|PDNameTreeNode
+parameter_list|<
+name|T
+extends|extends
+name|COSObjectable
+parameter_list|>
 implements|implements
 name|COSObjectable
 block|{
@@ -207,34 +223,13 @@ name|COSDictionary
 name|node
 decl_stmt|;
 specifier|private
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|COSObjectable
-argument_list|>
-name|valueType
-init|=
-literal|null
-decl_stmt|;
-specifier|private
 name|PDNameTreeNode
 name|parent
-init|=
-literal|null
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param valueClass The PD Model type of object that is the value.      */
-specifier|public
+comment|/**      * Constructor.      */
+specifier|protected
 name|PDNameTreeNode
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|COSObjectable
-argument_list|>
-name|valueClass
-parameter_list|)
+parameter_list|()
 block|{
 name|node
 operator|=
@@ -242,34 +237,18 @@ operator|new
 name|COSDictionary
 argument_list|()
 expr_stmt|;
-name|valueType
-operator|=
-name|valueClass
-expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param dict The dictionary that holds the name information.      * @param valueClass The PD Model type of object that is the value.      */
-specifier|public
+comment|/**      * Constructor.      *      * @param dict The dictionary that holds the name information.      */
+specifier|protected
 name|PDNameTreeNode
 parameter_list|(
 name|COSDictionary
 name|dict
-parameter_list|,
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|COSObjectable
-argument_list|>
-name|valueClass
 parameter_list|)
 block|{
 name|node
 operator|=
 name|dict
-expr_stmt|;
-name|valueType
-operator|=
-name|valueClass
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *      * @return The cos object that matches this Java object.      */
@@ -328,6 +307,9 @@ specifier|public
 name|List
 argument_list|<
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|getKids
 parameter_list|()
@@ -335,6 +317,9 @@ block|{
 name|List
 argument_list|<
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|retval
 init|=
@@ -365,6 +350,9 @@ block|{
 name|List
 argument_list|<
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|pdObjects
 init|=
@@ -372,6 +360,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -418,6 +409,9 @@ operator|new
 name|COSArrayList
 argument_list|<
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 argument_list|(
 name|pdObjects
@@ -440,6 +434,9 @@ argument_list|<
 name|?
 extends|extends
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|kids
 parameter_list|)
@@ -569,6 +566,9 @@ block|{
 name|List
 argument_list|<
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|kids
 init|=
@@ -649,7 +649,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|COSObjectable
+name|T
 argument_list|>
 name|names
 init|=
@@ -670,24 +670,38 @@ operator|>
 literal|0
 condition|)
 block|{
-name|Object
-index|[]
-name|keys
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|strings
 init|=
 name|names
 operator|.
 name|keySet
 argument_list|()
+decl_stmt|;
+name|String
+index|[]
+name|keys
+init|=
+name|strings
 operator|.
 name|toArray
+argument_list|(
+operator|new
+name|String
+index|[
+name|strings
+operator|.
+name|size
 argument_list|()
+index|]
+argument_list|)
 decl_stmt|;
 name|String
 name|lowerLimit
 init|=
-operator|(
-name|String
-operator|)
 name|keys
 index|[
 literal|0
@@ -701,9 +715,6 @@ expr_stmt|;
 name|String
 name|upperLimit
 init|=
-operator|(
-name|String
-operator|)
 name|keys
 index|[
 name|keys
@@ -764,9 +775,9 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * The name to retrieve.      *      * @param name The name in the tree.      *      * @return The value of the name in the tree.      *      * @throws IOException If an there is a problem creating the destinations.      */
+comment|/**      * The name to retrieve.      *      * @param name The name in the tree.      * @return The value of the name in the tree.      * @throws IOException If an there is a problem creating the destinations.      */
 specifier|public
-name|Object
+name|T
 name|getValue
 parameter_list|(
 name|String
@@ -775,7 +786,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Object
+name|T
 name|retval
 init|=
 literal|null
@@ -784,7 +795,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|COSObjectable
+name|T
 argument_list|>
 name|names
 init|=
@@ -813,6 +824,9 @@ block|{
 name|List
 argument_list|<
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|kids
 init|=
@@ -849,6 +863,9 @@ operator|++
 control|)
 block|{
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 name|childNode
 init|=
 name|kids
@@ -918,7 +935,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|COSObjectable
+name|T
 argument_list|>
 name|getNames
 parameter_list|()
@@ -951,7 +968,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|COSObjectable
+name|T
 argument_list|>
 name|names
 init|=
@@ -960,7 +977,7 @@ name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
-name|COSObjectable
+name|T
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1042,7 +1059,8 @@ block|}
 block|}
 comment|/**      * Method to convert the COS value in the name tree to the PD Model object. The      * default implementation will simply return the given COSBase object.      * Subclasses should do something specific.      *      * @param base The COS object to convert.      * @return The converted PD Model object.      * @throws IOException If there is an error during creation.      */
 specifier|protected
-name|COSObjectable
+specifier|abstract
+name|T
 name|convertCOSToPD
 parameter_list|(
 name|COSBase
@@ -1050,30 +1068,20 @@ name|base
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-return|return
-name|base
-return|;
-block|}
+function_decl|;
 comment|/**      * Create a child node object.      *      * @param dic The dictionary for the child node object to refer to.      * @return The new child node object.      */
 specifier|protected
+specifier|abstract
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 name|createChildNode
 parameter_list|(
 name|COSDictionary
 name|dic
 parameter_list|)
-block|{
-return|return
-operator|new
-name|PDNameTreeNode
-argument_list|(
-name|dic
-argument_list|,
-name|valueType
-argument_list|)
-return|;
-block|}
+function_decl|;
 comment|/**      * Set the names of for this node.  The keys should be java.lang.String and the      * values must be a COSObjectable.  This method will set the appropriate upper and lower      * limits based on the keys in the map.      *      * @param names map of names to objects, or<code>null</code>      */
 specifier|public
 name|void
@@ -1083,9 +1091,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|?
-extends|extends
-name|COSObjectable
+name|T
 argument_list|>
 name|names
 parameter_list|)

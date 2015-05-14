@@ -65,22 +65,6 @@ name|pdmodel
 operator|.
 name|common
 operator|.
-name|COSObjectable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
 name|PDNameTreeNode
 import|;
 end_import
@@ -131,6 +115,9 @@ class|class
 name|PDJavascriptNameTreeNode
 extends|extends
 name|PDNameTreeNode
+argument_list|<
+name|PDActionJavaScript
+argument_list|>
 block|{
 comment|/**      * Constructor.      */
 specifier|public
@@ -138,11 +125,7 @@ name|PDJavascriptNameTreeNode
 parameter_list|()
 block|{
 name|super
-argument_list|(
-name|PDActionJavaScript
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Constructor.      *      * @param dic The COS dictionary.      */
@@ -156,16 +139,13 @@ block|{
 name|super
 argument_list|(
 name|dic
-argument_list|,
-name|PDActionJavaScript
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
-name|COSObjectable
+name|PDActionJavaScript
 name|convertCOSToPD
 parameter_list|(
 name|COSBase
@@ -195,6 +175,9 @@ argument_list|)
 throw|;
 block|}
 return|return
+operator|(
+name|PDActionJavaScript
+operator|)
 name|PDActionFactory
 operator|.
 name|createAction
@@ -206,7 +189,8 @@ name|base
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 name|PDNameTreeNode
 name|createChildNode
