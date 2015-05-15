@@ -320,6 +320,14 @@ argument_list|(
 name|form
 argument_list|)
 decl_stmt|;
+comment|// appearance construction is not implemented, so turn on NeedAppearances
+name|form
+operator|.
+name|setNeedAppearances
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// test that there are no nulls returned for an empty field
 comment|// only specific methods are tested here
 name|assertNotNull
@@ -500,7 +508,7 @@ try|try
 block|{
 name|choice
 operator|.
-name|setValue
+name|setValues
 argument_list|(
 name|exportValues
 argument_list|)
@@ -539,7 +547,7 @@ expr_stmt|;
 comment|// now this call must suceed
 name|choice
 operator|.
-name|setValue
+name|setValues
 argument_list|(
 name|exportValues
 argument_list|)

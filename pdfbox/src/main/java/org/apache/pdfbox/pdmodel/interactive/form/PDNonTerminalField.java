@@ -630,7 +630,7 @@ name|void
 name|setValue
 parameter_list|(
 name|String
-name|fieldValue
+name|value
 parameter_list|)
 block|{
 comment|// There is no need to look up the parent hierarchy within a non terminal field
@@ -642,7 +642,7 @@ name|COSName
 operator|.
 name|V
 argument_list|,
-name|fieldValue
+name|value
 argument_list|)
 expr_stmt|;
 block|}

@@ -628,7 +628,7 @@ argument_list|()
 decl_stmt|;
 name|pdSignatureField
 operator|.
-name|setSignature
+name|setValue
 argument_list|(
 name|pdSignature
 argument_list|)

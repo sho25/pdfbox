@@ -759,7 +759,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the indices of the selected options - the 'I' key.      *<p>      * This method is preferred over {@link #setValue(List)} for choice fields which      *<ul>      *<li>do support multiple selections</li>      *<li>have export values with the same value</li>      *</ul>      *</p>      *<p>      * Setting the index will set the value too.      *</p>      *      * @param values List containing the indices of all selected options.      */
+comment|/**      * This will set the indices of the selected options - the 'I' key.      *<p>      * This method is preferred over {@link #setValues(List)} for choice fields which      *<ul>      *<li>do support multiple selections</li>      *<li>have export values with the same value</li>      *</ul>      *</p>      *<p>      * Setting the index will set the value too.      *</p>      *      * @param values List containing the indices of all selected options.      */
 specifier|public
 name|void
 name|setSelectedOptionsIndex
@@ -1039,83 +1039,10 @@ name|combo
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * setValue sets the entry "V" to the given value.      *       * @param value the value      */
+comment|/**      * setValues sets the entry "V" to the given values.      *       * @param values the list of values      */
 specifier|public
 name|void
-name|setValue
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-block|{
-if|if
-condition|(
-name|value
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|getOptions
-argument_list|()
-operator|.
-name|indexOf
-argument_list|(
-name|value
-argument_list|)
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"The list box does not contain the given value."
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
-name|dictionary
-operator|.
-name|setString
-argument_list|(
-name|COSName
-operator|.
-name|V
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-comment|// remove I key for single valued choice field
-name|setSelectedOptionsIndex
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|dictionary
-operator|.
-name|removeItem
-argument_list|(
-name|COSName
-operator|.
-name|V
-argument_list|)
-expr_stmt|;
-block|}
-comment|// TODO create/update appearance
-block|}
-comment|/**      * setValue sets the entry "V" to the given value.      *       * @param values the list of values      */
-specifier|public
-name|void
-name|setValue
+name|setValues
 parameter_list|(
 name|List
 argument_list|<
@@ -1123,6 +1050,8 @@ name|String
 argument_list|>
 name|values
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -1206,7 +1135,9 @@ name|V
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO create/update appearance
+name|applyChange
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
