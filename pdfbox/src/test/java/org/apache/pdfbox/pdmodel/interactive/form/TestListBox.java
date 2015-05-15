@@ -508,7 +508,7 @@ try|try
 block|{
 name|choice
 operator|.
-name|setValues
+name|setValue
 argument_list|(
 name|exportValues
 argument_list|)
@@ -547,7 +547,7 @@ expr_stmt|;
 comment|// now this call must suceed
 name|choice
 operator|.
-name|setValues
+name|setValue
 argument_list|(
 name|exportValues
 argument_list|)
