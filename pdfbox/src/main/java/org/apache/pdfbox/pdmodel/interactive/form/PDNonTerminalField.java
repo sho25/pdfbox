@@ -585,7 +585,7 @@ name|kidsArray
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @inheritDoc      *      *<p><b>>Note:</b while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
+comment|/**      * @inheritDoc      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 annotation|@
 name|Override
 specifier|public
@@ -604,7 +604,7 @@ name|FT
 argument_list|)
 return|;
 block|}
-comment|/**      * @inheritDoc      *      *<p><b>>Note:</b while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
+comment|/**      * @inheritDoc      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 annotation|@
 name|Override
 specifier|public
@@ -623,7 +623,7 @@ name|V
 argument_list|)
 return|;
 block|}
-comment|/**      * @inheritDoc      *      *<p><b>>Note:</b while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
+comment|/**      * @inheritDoc      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 annotation|@
 name|Override
 specifier|public
@@ -646,7 +646,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @inheritDoc      *      *<p><b>>Note:</b while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
+comment|/**      * @inheritDoc      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 annotation|@
 name|Override
 specifier|public
@@ -665,7 +665,7 @@ name|DV
 argument_list|)
 return|;
 block|}
-comment|/**      * @inheritDoc      *      *<p><b>>Note:</b while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
+comment|/**      * @inheritDoc      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 annotation|@
 name|Override
 specifier|public
