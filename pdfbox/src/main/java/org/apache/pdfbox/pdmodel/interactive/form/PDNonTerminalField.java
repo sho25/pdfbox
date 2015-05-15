@@ -661,7 +661,7 @@ name|getNameAsString
 argument_list|(
 name|COSName
 operator|.
-name|V
+name|DV
 argument_list|)
 return|;
 block|}
