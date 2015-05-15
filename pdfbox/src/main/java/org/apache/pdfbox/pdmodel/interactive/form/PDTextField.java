@@ -650,7 +650,7 @@ block|{
 name|String
 name|string
 init|=
-name|valueToString
+name|getStringOrStream
 argument_list|(
 name|getInheritableAttribute
 argument_list|(
