@@ -343,24 +343,6 @@ name|PDSignatureField
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|form
-operator|.
-name|PDTerminalField
-import|;
-end_import
-
 begin_comment
 comment|/**  * Structure of PDF document with visible signature.  *   * @author Vakhtang Koroghlishvili  */
 end_comment
@@ -1222,7 +1204,7 @@ return|return
 name|input
 return|;
 block|}
-comment|/**      * Gets Widget Dictionary.      * {@link PDTerminalField}      * @see PDTerminalField#getWidget()      * @return the widget dictionary      */
+comment|/**      * Gets Widget Dictionary.      *       * @return the widget dictionary      */
 specifier|public
 name|COSDictionary
 name|getWidgetDictionary
@@ -1232,7 +1214,7 @@ return|return
 name|widgetDictionary
 return|;
 block|}
-comment|/**      * Sets Widget Dictionary.      * {@link PDTerminalField}      * @see PDTerminalField#getWidget()      * @param widgetDictionary      */
+comment|/**      * Sets Widget Dictionary.      *       * @param widgetDictionary      */
 specifier|public
 name|void
 name|setWidgetDictionary

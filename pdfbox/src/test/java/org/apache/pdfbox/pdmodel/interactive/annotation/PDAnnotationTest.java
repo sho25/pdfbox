@@ -20,18 +20,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -102,6 +90,18 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
 import|;
 end_import
 
@@ -204,8 +204,13 @@ name|annotation
 init|=
 name|textField
 operator|.
-name|getWidget
+name|getWidgets
 argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(

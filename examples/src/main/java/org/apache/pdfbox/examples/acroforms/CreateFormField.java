@@ -346,8 +346,13 @@ name|widget
 init|=
 name|textBox
 operator|.
-name|getWidget
+name|getWidgets
 argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 name|PDRectangle
 name|rect
