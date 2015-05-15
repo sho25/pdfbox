@@ -397,8 +397,7 @@ literal|"Signature fields don't support a string for the value entry."
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Returns the signature contained in this field.      *       * @return A signature dictionary.      */
 specifier|public
 name|PDSignature
 name|getValue
@@ -436,6 +435,21 @@ name|COSDictionary
 operator|)
 name|value
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getValueAsString
+parameter_list|()
+block|{
+return|return
+name|getValue
+argument_list|()
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 comment|/**      *<p>(Optional; PDF 1.5) A seed value dictionary containing information      * that constrains the properties of a signature that is applied to the      * field.</p>      *      * @return the seed value dictionary as PDSeedValue      */
@@ -543,17 +557,6 @@ argument_list|(
 literal|"Signature fields don't support the \"DV\" entry."
 argument_list|)
 throw|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"PDSignatureField"
-return|;
 block|}
 annotation|@
 name|Override

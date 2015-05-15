@@ -538,8 +538,14 @@ name|fdfField
 operator|.
 name|setValue
 argument_list|(
-name|getValue
-argument_list|()
+name|dictionary
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// fixme: the old code which was here assumed that Kids were PDField instances,

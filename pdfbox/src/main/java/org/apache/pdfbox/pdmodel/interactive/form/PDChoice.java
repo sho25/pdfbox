@@ -45,6 +45,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -1139,8 +1149,7 @@ name|applyChange
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Returns the selected values, or an empty string. This list always contains a single item      * unless {@link #isMultiSelect()} is true.      *      * @return A non-null string.      */
 specifier|public
 name|List
 argument_list|<
@@ -1225,6 +1234,26 @@ name|Collections
 operator|.
 name|emptyList
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getValueAsString
+parameter_list|()
+block|{
+return|return
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|getValue
+argument_list|()
+operator|.
+name|toArray
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * Update the 'I' key based on values set.      */

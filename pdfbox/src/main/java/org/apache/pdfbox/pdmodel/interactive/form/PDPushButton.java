@@ -206,10 +206,9 @@ annotation|@
 name|Override
 specifier|public
 name|String
-name|getValue
+name|getValueAsString
 parameter_list|()
 block|{
-comment|// PushButton fields don't support the "V" entry.
 return|return
 literal|""
 return|;

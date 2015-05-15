@@ -465,9 +465,12 @@ argument_list|)
 expr_stmt|;
 comment|// assert that there is no value, set the field value and
 comment|// ensure it has been set
-name|PDField
-name|field
+name|PDTextField
+name|textField
 init|=
+operator|(
+name|PDTextField
+operator|)
 name|form
 operator|.
 name|getField
@@ -477,7 +480,7 @@ argument_list|)
 decl_stmt|;
 name|assertNull
 argument_list|(
-name|field
+name|textField
 operator|.
 name|getCOSObject
 argument_list|()
@@ -490,7 +493,7 @@ name|V
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|field
+name|textField
 operator|.
 name|setValue
 argument_list|(
@@ -499,7 +502,7 @@ argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-name|field
+name|textField
 operator|.
 name|getCOSObject
 argument_list|()
@@ -514,7 +517,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|field
+name|textField
 operator|.
 name|getValue
 argument_list|()
@@ -525,7 +528,7 @@ expr_stmt|;
 comment|// assert when setting to null the key has also been removed
 name|assertNotNull
 argument_list|(
-name|field
+name|textField
 operator|.
 name|getCOSObject
 argument_list|()
@@ -538,7 +541,7 @@ name|V
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|field
+name|textField
 operator|.
 name|setValue
 argument_list|(
@@ -547,7 +550,7 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|field
+name|textField
 operator|.
 name|getCOSObject
 argument_list|()
@@ -561,23 +564,27 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// get the RadioButton with a DV entry
-name|field
-operator|=
+name|PDRadioButton
+name|radio
+init|=
+operator|(
+name|PDRadioButton
+operator|)
 name|form
 operator|.
 name|getField
 argument_list|(
 literal|"RadioButtonGroup-DefaultValue"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|field
+name|radio
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|field
+name|radio
 operator|.
 name|getDefaultValue
 argument_list|()
@@ -591,16 +598,13 @@ name|COSName
 operator|.
 name|getPDFName
 argument_list|(
-operator|(
-name|String
-operator|)
-name|field
+name|radio
 operator|.
 name|getDefaultValue
 argument_list|()
 argument_list|)
 argument_list|,
-name|field
+name|radio
 operator|.
 name|getCOSObject
 argument_list|()
@@ -614,23 +618,27 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// get the Checkbox with a DV entry
-name|field
-operator|=
+name|PDCheckbox
+name|checkBox
+init|=
+operator|(
+name|PDCheckbox
+operator|)
 name|form
 operator|.
 name|getField
 argument_list|(
 literal|"Checkbox-DefaultValue"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|field
+name|checkBox
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|field
+name|checkBox
 operator|.
 name|getDefaultValue
 argument_list|()
@@ -640,7 +648,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|field
+name|checkBox
 operator|.
 name|getDefaultValue
 argument_list|()
@@ -649,7 +657,7 @@ operator|(
 operator|(
 name|COSName
 operator|)
-name|field
+name|checkBox
 operator|.
 name|getCOSObject
 argument_list|()
@@ -667,8 +675,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// get the TextField with a DV entry
-name|field
+name|textField
 operator|=
+operator|(
+name|PDTextField
+operator|)
 name|form
 operator|.
 name|getField
@@ -678,12 +689,12 @@ argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-name|field
+name|textField
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|field
+name|textField
 operator|.
 name|getDefaultValue
 argument_list|()
@@ -693,7 +704,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|field
+name|textField
 operator|.
 name|getDefaultValue
 argument_list|()
@@ -702,7 +713,7 @@ operator|(
 operator|(
 name|COSString
 operator|)
-name|field
+name|textField
 operator|.
 name|getCOSObject
 argument_list|()
@@ -721,12 +732,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-operator|(
-name|PDVariableText
-operator|)
-name|field
-operator|)
+name|textField
 operator|.
 name|getDefaultAppearance
 argument_list|()
@@ -735,8 +741,11 @@ literal|"/Helv 12 Tf 0 g"
 argument_list|)
 expr_stmt|;
 comment|// get a rich text field with a  DV entry
-name|field
+name|textField
 operator|=
+operator|(
+name|PDTextField
+operator|)
 name|form
 operator|.
 name|getField
@@ -746,12 +755,12 @@ argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-name|field
+name|textField
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|field
+name|textField
 operator|.
 name|getDefaultValue
 argument_list|()
@@ -761,7 +770,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|field
+name|textField
 operator|.
 name|getDefaultValue
 argument_list|()
@@ -770,7 +779,7 @@ operator|(
 operator|(
 name|COSString
 operator|)
-name|field
+name|textField
 operator|.
 name|getCOSObject
 argument_list|()
@@ -789,7 +798,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|field
+name|textField
 operator|.
 name|getValue
 argument_list|()
@@ -799,12 +808,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-operator|(
-name|PDVariableText
-operator|)
-name|field
-operator|)
+name|textField
 operator|.
 name|getDefaultAppearance
 argument_list|()
@@ -814,12 +818,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-operator|(
-name|PDVariableText
-operator|)
-name|field
-operator|)
+name|textField
 operator|.
 name|getDefaultStyleString
 argument_list|()
@@ -830,12 +829,7 @@ expr_stmt|;
 comment|// do not test for the full content as this is a rather long xml string
 name|assertEquals
 argument_list|(
-operator|(
-operator|(
-name|PDVariableText
-operator|)
-name|field
-operator|)
+name|textField
 operator|.
 name|getRichTextValue
 argument_list|()
@@ -847,8 +841,11 @@ literal|338
 argument_list|)
 expr_stmt|;
 comment|// get a rich text field with a text stream for the value
-name|field
+name|textField
 operator|=
+operator|(
+name|PDTextField
+operator|)
 name|form
 operator|.
 name|getField
@@ -858,12 +855,12 @@ argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-name|field
+name|textField
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|field
+name|textField
 operator|.
 name|getCOSObject
 argument_list|()
@@ -886,12 +883,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-operator|(
-name|PDTextField
-operator|)
-name|field
-operator|)
+name|textField
 operator|.
 name|getValue
 argument_list|()

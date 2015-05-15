@@ -1108,6 +1108,27 @@ name|cos
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the COS value of this field.      *       * @param value COS value.      */
+specifier|public
+name|void
+name|setValue
+parameter_list|(
+name|COSBase
+name|value
+parameter_list|)
+block|{
+name|field
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * This will get the Ff entry of the cos dictionary.  If it it not present then      * this method will return null.      *      * @return The field flags.      */
 specifier|public
 name|Integer

@@ -374,9 +374,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|String
-name|string
-init|=
+return|return
 name|getStringOrStream
 argument_list|(
 name|getInheritableAttribute
@@ -386,20 +384,6 @@ operator|.
 name|RV
 argument_list|)
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|string
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|string
-return|;
-block|}
-return|return
-literal|""
 return|;
 block|}
 comment|/**      * Set the fields rich text value.      *       *<p>      * Setting the rich text value will not generate the appearance      * for the field.      *<br/>      * You can set {@link PDAcroForm#setNeedAppearances(Boolean)} to      * signal a conforming reader to generate the appearance stream.      *</p>      *       * Providing null as the value will remove the default style string.      *       * @param richTextValue a rich text string      */
@@ -447,7 +431,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get a text as text stream.      *      * Some dictionary entries allow either a text or a text stream.      *      * @param base the potential text or text stream      * @return the text stream      * @throws IOException if the field dictionary entry is not a text type      */
+comment|/**      * Get a text as text stream.      *      * Some dictionary entries allow either a text or a text stream.      *      * @param base the potential text or text stream      * @return the text stream      */
 specifier|protected
 specifier|final
 name|String
@@ -456,8 +440,6 @@ parameter_list|(
 name|COSBase
 name|base
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -467,7 +449,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|null
+literal|""
 return|;
 block|}
 elseif|else
@@ -512,21 +494,9 @@ return|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Unexpected field value of type: "
-operator|+
-name|base
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-throw|;
+return|return
+literal|""
+return|;
 block|}
 block|}
 block|}

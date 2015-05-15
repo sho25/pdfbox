@@ -5704,6 +5704,18 @@ argument_list|(
 literal|"YStep"
 argument_list|)
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|YES
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Yes"
+argument_list|)
+decl_stmt|;
 comment|// fields
 specifier|private
 specifier|final
