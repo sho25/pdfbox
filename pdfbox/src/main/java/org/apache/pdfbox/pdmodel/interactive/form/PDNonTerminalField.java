@@ -585,6 +585,7 @@ name|kidsArray
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @inheritDoc      *      *<p><b>>Note:</b while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 annotation|@
 name|Override
 specifier|public
@@ -592,7 +593,6 @@ name|String
 name|getFieldType
 parameter_list|()
 block|{
-comment|// There is no need to look up the parent hierarchy within a non terminal field
 return|return
 name|dictionary
 operator|.
@@ -604,6 +604,7 @@ name|FT
 argument_list|)
 return|;
 block|}
+comment|/**      * @inheritDoc      *      *<p><b>>Note:</b while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 annotation|@
 name|Override
 specifier|public
@@ -611,7 +612,6 @@ name|Object
 name|getValue
 parameter_list|()
 block|{
-comment|// There is no need to look up the parent hierarchy within a non terminal field
 return|return
 name|dictionary
 operator|.
@@ -623,6 +623,7 @@ name|V
 argument_list|)
 return|;
 block|}
+comment|/**      * @inheritDoc      *      *<p><b>>Note:</b while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 annotation|@
 name|Override
 specifier|public
@@ -633,7 +634,6 @@ name|String
 name|value
 parameter_list|)
 block|{
-comment|// There is no need to look up the parent hierarchy within a non terminal field
 name|dictionary
 operator|.
 name|setString
@@ -646,6 +646,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @inheritDoc      *      *<p><b>>Note:</b while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 annotation|@
 name|Override
 specifier|public
@@ -653,7 +654,6 @@ name|Object
 name|getDefaultValue
 parameter_list|()
 block|{
-comment|// There is no need to look up the parent hierarchy within a non terminal field
 return|return
 name|dictionary
 operator|.
@@ -665,6 +665,7 @@ name|V
 argument_list|)
 return|;
 block|}
+comment|/**      * @inheritDoc      *      *<p><b>>Note:</b while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 annotation|@
 name|Override
 specifier|public
@@ -675,7 +676,6 @@ name|String
 name|defaultValue
 parameter_list|)
 block|{
-comment|// There is no need to look up the parent hierarchy within a non terminal field
 name|dictionary
 operator|.
 name|setString
