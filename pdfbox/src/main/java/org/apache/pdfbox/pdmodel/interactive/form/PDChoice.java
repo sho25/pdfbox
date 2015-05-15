@@ -769,7 +769,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the indices of the selected options - the 'I' key.      *<p>      * This method is preferred over {@link #setValues(List)} for choice fields which      *<ul>      *<li>do support multiple selections</li>      *<li>have export values with the same value</li>      *</ul>      *</p>      *<p>      * Setting the index will set the value too.      *</p>      *      * @param values List containing the indices of all selected options.      */
+comment|/**      * This will set the indices of the selected options - the 'I' key.      *<p>      * This method is preferred over {@link #setValue(List)} for choice fields which      *<ul>      *<li>do support multiple selections</li>      *<li>have export values with the same value</li>      *</ul>      *</p>      *<p>      * Setting the index will set the value too.      *</p>      *      * @param values List containing the indices of all selected options.      */
 specifier|public
 name|void
 name|setSelectedOptionsIndex
@@ -1049,10 +1049,42 @@ name|combo
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * setValues sets the entry "V" to the given values.      *       * @param values the list of values      */
+comment|/**      * Sets the selected value of this field.      *      * @param value The name of the selected item.      * @throws IOException if the value could not be set      */
 specifier|public
 name|void
-name|setValues
+name|setValue
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|dictionary
+operator|.
+name|setString
+argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+comment|// remove I key for single valued choice field
+name|setSelectedOptionsIndex
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+name|applyChange
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Sets the entry "V" to the given values. Requires {@link #isMultiSelect()} to be true.      *       * @param values the list of values      */
+specifier|public
+name|void
+name|setValue
 parameter_list|(
 name|List
 argument_list|<

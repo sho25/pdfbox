@@ -40,18 +40,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|fail
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -213,11 +201,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDField
+name|PDTextField
 name|field
 init|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.
@@ -236,7 +224,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.
@@ -255,7 +243,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.
@@ -274,7 +262,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.
@@ -293,7 +281,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.
@@ -312,7 +300,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.
@@ -331,7 +319,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.
@@ -350,7 +338,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.
@@ -369,7 +357,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.
@@ -388,7 +376,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.
@@ -407,7 +395,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.
@@ -426,7 +414,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|(
-name|PDField
+name|PDTextField
 operator|)
 name|acroForm
 operator|.

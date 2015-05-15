@@ -352,7 +352,7 @@ name|getValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Add a signature dictionary to the signature field.      *       * @param value is the PDSignatureField      */
+comment|/**      * Sets the value of this field to be the given signature.      *       * @param value is the PDSignatureField      */
 specifier|public
 name|void
 name|setValue
@@ -377,25 +377,6 @@ expr_stmt|;
 name|applyChange
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|void
-name|setValue
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-block|{
-comment|// Signature fields don't support the strings for value
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Signature fields don't support a string for the value entry."
-argument_list|)
-throw|;
 block|}
 comment|/**      * Returns the signature contained in this field.      *       * @return A signature dictionary.      */
 specifier|public

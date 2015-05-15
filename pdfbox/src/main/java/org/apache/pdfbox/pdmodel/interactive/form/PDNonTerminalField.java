@@ -657,28 +657,30 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * @inheritDoc      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
-annotation|@
-name|Override
+comment|/**      * Sets the value of this field. This may be of any kind which is valid for this field's      * children.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 specifier|public
 name|void
 name|setValue
 parameter_list|(
-name|String
-name|value
+name|COSBase
+name|object
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|dictionary
 operator|.
-name|setString
+name|setItem
 argument_list|(
 name|COSName
 operator|.
 name|V
 argument_list|,
-name|value
+name|object
 argument_list|)
 expr_stmt|;
+comment|// todo: propagate change event to children?
+comment|// todo: construct appearances of children?
 block|}
 comment|/**      * @inheritDoc      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 annotation|@

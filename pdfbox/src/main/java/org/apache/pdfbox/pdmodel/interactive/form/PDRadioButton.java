@@ -381,8 +381,7 @@ name|getValue
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Sets the selected radio button, given its name.      *       * @param value Name of radio button to select      * @throws IOException if the value could not be set      */
 specifier|public
 name|void
 name|setValue
