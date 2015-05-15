@@ -452,7 +452,7 @@ operator|)
 name|obj
 return|;
 block|}
-comment|/**      * This will get an object from the array.  This will NOT derefernce      * the COS object.      *      * @param index The index into the array to get the object.      *      * @return The object at the requested index.      */
+comment|/**      * This will get an object from the array.  This will NOT dereference      * the COS object.      *      * @param index The index into the array to get the object.      *      * @return The object at the requested index.      */
 specifier|public
 name|COSBase
 name|get
