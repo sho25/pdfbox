@@ -244,14 +244,6 @@ name|assertNotNull
 argument_list|(
 name|checkBox
 operator|.
-name|getDefaultValue
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|checkBox
-operator|.
 name|getOptions
 argument_list|()
 argument_list|)

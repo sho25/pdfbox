@@ -682,18 +682,16 @@ expr_stmt|;
 comment|// todo: propagate change event to children?
 comment|// todo: construct appearances of children?
 block|}
-comment|/**      * @inheritDoc      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
-annotation|@
-name|Override
+comment|/**      * Returns the default value of this field. This may be of any kind which is valid for this field's      * children.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 specifier|public
-name|Object
+name|COSBase
 name|getDefaultValue
 parameter_list|()
 block|{
 return|return
 name|dictionary
 operator|.
-name|getNameAsString
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
@@ -701,26 +699,24 @@ name|DV
 argument_list|)
 return|;
 block|}
-comment|/**      * @inheritDoc      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
-annotation|@
-name|Override
+comment|/**      * Sets the default of this field. This may be of any kind which is valid for this field's      * children.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 specifier|public
 name|void
 name|setDefaultValue
 parameter_list|(
-name|String
-name|defaultValue
+name|COSBase
+name|value
 parameter_list|)
 block|{
 name|dictionary
 operator|.
-name|setString
+name|setItem
 argument_list|(
 name|COSName
 operator|.
 name|V
 argument_list|,
-name|defaultValue
+name|value
 argument_list|)
 expr_stmt|;
 block|}
