@@ -852,18 +852,7 @@ return|return
 name|acroForm
 return|;
 block|}
-comment|/**      * This will get the dictionary associated with this field.      *       * @deprecated  use {@link #getCOSObject()} instead.      * @return the dictionary that this class wraps.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|COSDictionary
-name|getDictionary
-parameter_list|()
-block|{
-return|return
-name|dictionary
-return|;
-block|}
+comment|/**      * This will get the dictionary associated with this field.      *       * @return the dictionary that this class wraps.      */
 annotation|@
 name|Override
 specifier|public
