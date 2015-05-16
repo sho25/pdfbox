@@ -544,7 +544,6 @@ name|retval
 return|;
 block|}
 comment|/**      * This will import a fdf field from a fdf document.      *       * @param fdfField The fdf field to import.      * @throws IOException If there is an error importing the data for this field.      */
-specifier|public
 name|void
 name|importFDF
 parameter_list|(
