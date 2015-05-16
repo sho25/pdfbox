@@ -1125,11 +1125,6 @@ name|PDAppearanceDictionary
 name|getAppearance
 parameter_list|()
 block|{
-name|PDAppearanceDictionary
-name|ap
-init|=
-literal|null
-decl_stmt|;
 name|COSDictionary
 name|apDic
 init|=
@@ -1152,17 +1147,16 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ap
-operator|=
+return|return
 operator|new
 name|PDAppearanceDictionary
 argument_list|(
 name|apDic
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 return|return
-name|ap
+literal|null
 return|;
 block|}
 comment|/**      * This will set the appearance associated with this annotation.      *       * @param appearance The appearance dictionary for this annotation.      */

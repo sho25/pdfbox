@@ -518,11 +518,6 @@ operator|.
 name|AA
 argument_list|)
 decl_stmt|;
-name|PDFormFieldAdditionalActions
-name|retval
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|aa
@@ -530,17 +525,16 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|retval
-operator|=
+return|return
 operator|new
 name|PDFormFieldAdditionalActions
 argument_list|(
 name|aa
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 return|return
-name|retval
+literal|null
 return|;
 block|}
 comment|/**      * This will import a fdf field from a fdf document.      *       * @param fdfField The fdf field to import.      * @throws IOException If there is an error importing the data for this field.      */
