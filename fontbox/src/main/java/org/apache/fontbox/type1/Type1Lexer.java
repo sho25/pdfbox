@@ -103,7 +103,6 @@ init|=
 literal|0
 decl_stmt|;
 comment|/**      * Constructs a new Type1Lexer given a header-less .pfb segment.      * @param bytes Header-less .pfb segment      * @throws IOException      */
-specifier|public
 name|Type1Lexer
 parameter_list|(
 name|byte
