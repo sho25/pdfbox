@@ -151,11 +151,11 @@ index|[]
 name|data
 decl_stmt|;
 specifier|private
+specifier|final
 name|Kind
 name|kind
 decl_stmt|;
 comment|/**      * Constructs a new Token object given its text and kind.      * @param text      * @param type      */
-specifier|public
 name|Token
 parameter_list|(
 name|String
@@ -179,7 +179,6 @@ name|type
 expr_stmt|;
 block|}
 comment|/**      * Constructs a new Token object given its single-character text and kind.      * @param character      * @param type      */
-specifier|public
 name|Token
 parameter_list|(
 name|char
@@ -208,7 +207,6 @@ name|type
 expr_stmt|;
 block|}
 comment|/**      * Constructs a new Token object given its raw data and kind.      * This is for CHARSTRING tokens only.      * @param data      * @param type      */
-specifier|public
 name|Token
 parameter_list|(
 name|byte
@@ -307,6 +305,8 @@ name|data
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
