@@ -155,9 +155,14 @@ end_import
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|ContextHelper
 block|{
+specifier|private
+name|ContextHelper
+parameter_list|()
+block|{     }
 comment|/**      * Check that the element parameter isn't null before calling the      * {@link #callValidation(PreflightContext, Object, String)} method.      *       * @param context      * @param element      * @param processName      * @throws ValidationException      */
 specifier|public
 specifier|static
