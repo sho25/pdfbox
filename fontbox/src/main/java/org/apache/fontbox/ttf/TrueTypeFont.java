@@ -177,6 +177,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|TTFDataStream
 name|data
 decl_stmt|;
@@ -838,7 +839,7 @@ name|getOriginalData
 argument_list|()
 return|;
 block|}
-comment|/**      * Read the given table if necessary. Package-private, used by TTFParser only.      *       * @param table the table to be initialized      */
+comment|/**      * Read the given table if necessary. Package-private, used by TTFParser only.      *       * @param table the table to be initialized      *       * @throws IOException if there was an error reading the table.      */
 name|void
 name|readTable
 parameter_list|(
