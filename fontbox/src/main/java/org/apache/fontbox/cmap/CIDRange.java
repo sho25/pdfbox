@@ -38,7 +38,6 @@ specifier|final
 name|int
 name|cid
 decl_stmt|;
-specifier|public
 name|CIDRange
 parameter_list|(
 name|char
