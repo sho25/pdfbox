@@ -102,7 +102,6 @@ specifier|private
 name|GlyphDescription
 name|glyphDescription
 decl_stmt|;
-specifier|public
 name|GlyphRenderer
 parameter_list|(
 name|GlyphDescription
