@@ -237,9 +237,6 @@ name|getProperty
 parameter_list|()
 block|{
 return|return
-operator|(
-name|ArrayProperty
-operator|)
 name|getArrayProperty
 argument_list|(
 name|PROPERTY
@@ -252,9 +249,6 @@ name|getValueType
 parameter_list|()
 block|{
 return|return
-operator|(
-name|ArrayProperty
-operator|)
 name|getArrayProperty
 argument_list|(
 name|VALUE_TYPE

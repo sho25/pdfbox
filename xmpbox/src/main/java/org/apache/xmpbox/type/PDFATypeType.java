@@ -295,9 +295,6 @@ name|getFields
 parameter_list|()
 block|{
 return|return
-operator|(
-name|ArrayProperty
-operator|)
 name|getArrayProperty
 argument_list|(
 name|FIELD
