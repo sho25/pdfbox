@@ -542,6 +542,10 @@ parameter_list|()
 block|{
 return|return
 name|embedder
+operator|!=
+literal|null
+operator|&&
+name|embedder
 operator|.
 name|needsSubset
 argument_list|()
