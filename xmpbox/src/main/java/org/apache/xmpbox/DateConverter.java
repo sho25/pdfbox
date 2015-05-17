@@ -123,6 +123,7 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|DateConverter
 block|{
@@ -179,7 +180,7 @@ argument_list|)
 block|}
 decl_stmt|;
 comment|/**      * According to check-style, Utility classes should not have a public or default constructor.      */
-specifier|protected
+specifier|private
 name|DateConverter
 parameter_list|()
 block|{     }
