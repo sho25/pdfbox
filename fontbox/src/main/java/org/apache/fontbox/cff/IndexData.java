@@ -35,10 +35,12 @@ class|class
 name|IndexData
 block|{
 specifier|private
+specifier|final
 name|int
 name|count
 decl_stmt|;
 specifier|private
+specifier|final
 name|int
 index|[]
 name|offset

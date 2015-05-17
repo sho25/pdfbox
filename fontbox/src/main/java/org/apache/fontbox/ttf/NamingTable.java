@@ -86,6 +86,7 @@ init|=
 literal|"name"
 decl_stmt|;
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|NameRecord
@@ -100,6 +101,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|Integer
