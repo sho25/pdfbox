@@ -416,14 +416,17 @@ name|params
 return|;
 block|}
 specifier|private
+specifier|final
 name|String
 name|namespace
 decl_stmt|;
 specifier|private
+specifier|final
 name|String
 name|fieldname
 decl_stmt|;
 specifier|private
+specifier|final
 name|String
 name|preferred
 decl_stmt|;
