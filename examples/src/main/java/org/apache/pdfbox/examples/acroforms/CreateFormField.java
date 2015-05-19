@@ -378,7 +378,7 @@ argument_list|(
 operator|(
 name|float
 operator|)
-literal|550
+literal|750
 argument_list|)
 expr_stmt|;
 name|rect
@@ -398,7 +398,7 @@ argument_list|(
 operator|(
 name|float
 operator|)
-literal|560
+literal|800
 argument_list|)
 expr_stmt|;
 name|widget
