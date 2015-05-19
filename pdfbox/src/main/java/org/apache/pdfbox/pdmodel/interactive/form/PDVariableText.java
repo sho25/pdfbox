@@ -113,6 +113,20 @@ name|COSString
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|PDResources
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for fields which use "Variable Text".  * These fields construct an appearance stream dynamically at viewing time.  *  * @author Ben Litchfield  */
 end_comment
@@ -206,6 +220,45 @@ name|defaultAppearance
 operator|.
 name|getString
 argument_list|()
+return|;
+block|}
+comment|/**      * Get the default appearance.      *      * This is an inheritable attribute.      *      * The default appearance contains a set of default graphics and text operators      * to define the field’s text size and color.      *      * @return the DA element of the dictionary object      */
+name|PDAppearanceString
+name|getDefaultAppearanceString
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|COSString
+name|da
+init|=
+operator|(
+name|COSString
+operator|)
+name|getInheritableAttribute
+argument_list|(
+name|COSName
+operator|.
+name|DA
+argument_list|)
+decl_stmt|;
+name|PDResources
+name|dr
+init|=
+name|getAcroForm
+argument_list|()
+operator|.
+name|getDefaultResources
+argument_list|()
+decl_stmt|;
+return|return
+operator|new
+name|PDAppearanceString
+argument_list|(
+name|da
+argument_list|,
+name|dr
+argument_list|)
 return|;
 block|}
 comment|/**      * Set the default appearance.      *       * This will set the local default appearance for the variable text field only not       * affecting a default appearance in the parent hierarchy.      *       * Providing null as the value will remove the local default appearance.      *       * @param daValue a string describing the default appearance      */
