@@ -1023,7 +1023,7 @@ name|os2
 operator|.
 name|getCapHeight
 argument_list|()
-operator|/
+operator|*
 name|scaling
 argument_list|)
 expr_stmt|;
@@ -1035,7 +1035,7 @@ name|os2
 operator|.
 name|getHeight
 argument_list|()
-operator|/
+operator|*
 name|scaling
 argument_list|)
 expr_stmt|;
@@ -1058,7 +1058,7 @@ operator|.
 name|getTypoDescender
 argument_list|()
 operator|)
-operator|/
+operator|*
 name|scaling
 argument_list|)
 expr_stmt|;
@@ -1067,15 +1067,13 @@ name|fd
 operator|.
 name|setXHeight
 argument_list|(
-operator|(
 name|os2
 operator|.
 name|getTypoAscender
 argument_list|()
 operator|/
 literal|2.0f
-operator|)
-operator|/
+operator|*
 name|scaling
 argument_list|)
 expr_stmt|;

@@ -116,7 +116,7 @@ decl_stmt|;
 name|String
 name|filledForm
 init|=
-literal|"target/examples-output/FillFormField.pdf"
+literal|"FillFormField.pdf"
 decl_stmt|;
 comment|// load the document
 name|PDDocument

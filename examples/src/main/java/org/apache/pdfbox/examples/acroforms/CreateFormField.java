@@ -378,7 +378,7 @@ argument_list|(
 operator|(
 name|float
 operator|)
-literal|750
+literal|550
 argument_list|)
 expr_stmt|;
 name|rect
@@ -398,7 +398,7 @@ argument_list|(
 operator|(
 name|float
 operator|)
-literal|800
+literal|560
 argument_list|)
 expr_stmt|;
 name|widget
@@ -423,7 +423,7 @@ name|textBox
 operator|.
 name|setValue
 argument_list|(
-literal|"English русский язык Tiếng Việt"
+literal|"English form contents"
 argument_list|)
 expr_stmt|;
 name|document
