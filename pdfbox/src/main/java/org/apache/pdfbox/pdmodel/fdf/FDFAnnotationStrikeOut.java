@@ -76,7 +76,7 @@ specifier|public
 class|class
 name|FDFAnnotationStrikeOut
 extends|extends
-name|FDFAnnotation
+name|FDFAnnotationTextMarkup
 block|{
 comment|/**      * COS Model value for SubType entry.      */
 specifier|public
