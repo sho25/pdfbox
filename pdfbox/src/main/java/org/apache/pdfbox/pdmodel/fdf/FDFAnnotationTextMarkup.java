@@ -147,7 +147,6 @@ name|coords
 operator|==
 literal|null
 operator|||
-operator|!
 name|coords
 operator|.
 name|isEmpty

@@ -281,7 +281,6 @@ name|vertices
 operator|==
 literal|null
 operator|||
-operator|!
 name|vertices
 operator|.
 name|isEmpty

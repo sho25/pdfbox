@@ -219,7 +219,6 @@ name|startCoords
 operator|==
 literal|null
 operator|||
-operator|!
 name|startCoords
 operator|.
 name|isEmpty
@@ -250,7 +249,6 @@ name|endCoords
 operator|==
 literal|null
 operator|||
-operator|!
 name|endCoords
 operator|.
 name|isEmpty
