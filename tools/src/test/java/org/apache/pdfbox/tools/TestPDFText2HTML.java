@@ -333,12 +333,10 @@ name|assertTrue
 argument_list|(
 name|text
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 literal|"&lt;foo&gt;"
 argument_list|)
-operator|>=
-literal|0
 argument_list|)
 expr_stmt|;
 block|}

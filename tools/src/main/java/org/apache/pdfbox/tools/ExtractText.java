@@ -41,16 +41,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -1076,9 +1066,6 @@ block|}
 name|PDComplexFileSpecification
 name|spec
 init|=
-operator|(
-name|PDComplexFileSpecification
-operator|)
 name|ent
 operator|.
 name|getValue

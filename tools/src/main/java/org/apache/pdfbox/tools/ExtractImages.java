@@ -377,6 +377,7 @@ name|String
 name|prefix
 decl_stmt|;
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|COSStream

@@ -56,6 +56,7 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
+specifier|final
 name|String
 name|desc
 decl_stmt|;
@@ -81,6 +82,8 @@ name|description
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept
@@ -164,6 +167,8 @@ name|acceptable
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescription

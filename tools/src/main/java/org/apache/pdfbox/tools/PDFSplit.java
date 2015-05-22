@@ -754,9 +754,6 @@ block|{
 name|PDDocument
 name|doc
 init|=
-operator|(
-name|PDDocument
-operator|)
 name|documents
 operator|.
 name|get

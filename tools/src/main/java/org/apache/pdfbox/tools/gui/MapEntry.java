@@ -99,6 +99,8 @@ name|val
 expr_stmt|;
 block|}
 comment|/**      * This will output a string representation of this class.      *      * @return A string representation of this class.      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString

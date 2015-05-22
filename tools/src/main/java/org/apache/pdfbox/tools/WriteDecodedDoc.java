@@ -202,15 +202,10 @@ block|{
 name|COSBase
 name|base
 init|=
-operator|(
-operator|(
-name|COSObject
-operator|)
 name|i
 operator|.
 name|next
 argument_list|()
-operator|)
 operator|.
 name|getObject
 argument_list|()
@@ -275,7 +270,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will write a PDF document with completely decoded streams.      *<br />      * see usage() for commandline      *      * @param args command line arguments      */
+comment|/**      * This will write a PDF document with completely decoded streams.      *<br />      * see usage() for commandline      *      * @param args command line arguments      * @throws java.io.IOException if the output could not be written      */
 specifier|public
 specifier|static
 name|void
