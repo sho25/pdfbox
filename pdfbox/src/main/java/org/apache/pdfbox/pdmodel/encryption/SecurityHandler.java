@@ -526,7 +526,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Prepares everything to decrypt the document.      *       * @param encryption  encryption dictionary, can be retrieved via {@link PDDocument#getEncryption()}      * @param documentIDArray  document id which is returned via {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()}      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Prepares everything to decrypt the document.      *      * @param encryption  encryption dictionary, can be retrieved via {@link PDDocument#getEncryption()}      * @param documentIDArray  document id which is returned via {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()}      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|abstract
 name|void
@@ -1742,6 +1742,23 @@ name|getItem
 argument_list|(
 name|COSName
 operator|.
+name|TYPE
+argument_list|)
+argument_list|)
+operator|&&
+operator|!
+name|COSName
+operator|.
+name|SIG
+operator|.
+name|equals
+argument_list|(
+name|dictionary
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
 name|FT
 argument_list|)
 argument_list|)
@@ -2001,7 +2018,7 @@ operator|=
 name|keyLen
 expr_stmt|;
 block|}
-comment|/**      * Sets the access permissions.      *       * @param currentAccessPermission The access permissions to be set.      */
+comment|/**      * Sets the access permissions.      *      * @param currentAccessPermission The access permissions to be set.      */
 specifier|public
 name|void
 name|setCurrentAccessPermission
@@ -2027,7 +2044,7 @@ return|return
 name|currentAccessPermission
 return|;
 block|}
-comment|/**      * True if AES is used for encryption and decryption.      *       * @return true if AEs is used       */
+comment|/**      * True if AES is used for encryption and decryption.      *      * @return true if AEs is used      */
 specifier|public
 name|boolean
 name|isAES
@@ -2037,7 +2054,7 @@ return|return
 name|useAES
 return|;
 block|}
-comment|/**      * Set to true if AES for encryption and decryption should be used.      *       * @param aesValue if true AES will be used       *       */
+comment|/**      * Set to true if AES for encryption and decryption should be used.      *      * @param aesValue if true AES will be used      *      */
 specifier|public
 name|void
 name|setAES
@@ -2051,7 +2068,7 @@ operator|=
 name|aesValue
 expr_stmt|;
 block|}
-comment|/**      * Returns whether a protection policy has been set.      *       * @return true if a protection policy has been set.      */
+comment|/**      * Returns whether a protection policy has been set.      *      * @return true if a protection policy has been set.      */
 specifier|public
 specifier|abstract
 name|boolean
