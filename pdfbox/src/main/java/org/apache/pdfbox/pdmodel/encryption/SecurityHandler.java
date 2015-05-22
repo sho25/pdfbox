@@ -1742,7 +1742,7 @@ name|getItem
 argument_list|(
 name|COSName
 operator|.
-name|TYPE
+name|FT
 argument_list|)
 argument_list|)
 condition|)
