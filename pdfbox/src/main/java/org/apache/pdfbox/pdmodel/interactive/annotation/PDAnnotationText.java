@@ -275,7 +275,9 @@ argument_list|()
 operator|.
 name|getString
 argument_list|(
-literal|"State"
+name|COSName
+operator|.
+name|STATE
 argument_list|)
 return|;
 block|}
@@ -295,7 +297,9 @@ argument_list|()
 operator|.
 name|setString
 argument_list|(
-literal|"State"
+name|COSName
+operator|.
+name|STATE
 argument_list|,
 name|state
 argument_list|)
@@ -315,7 +319,9 @@ argument_list|()
 operator|.
 name|getString
 argument_list|(
-literal|"StateModel"
+name|COSName
+operator|.
+name|STATE_MODEL
 argument_list|)
 return|;
 block|}
@@ -335,7 +341,9 @@ argument_list|()
 operator|.
 name|setString
 argument_list|(
-literal|"StateModel"
+name|COSName
+operator|.
+name|STATE_MODEL
 argument_list|,
 name|stateModel
 argument_list|)

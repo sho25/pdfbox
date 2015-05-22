@@ -184,7 +184,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"QuadPoints"
+name|COSName
+operator|.
+name|QUADPOINTS
 argument_list|,
 name|newQuadPoints
 argument_list|)
@@ -208,7 +210,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"QuadPoints"
+name|COSName
+operator|.
+name|QUADPOINTS
 argument_list|)
 decl_stmt|;
 if|if

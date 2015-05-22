@@ -2008,7 +2008,9 @@ name|annot
 operator|.
 name|setInt
 argument_list|(
-literal|"Page"
+name|COSName
+operator|.
+name|PAGE
 argument_list|,
 name|page
 argument_list|)
@@ -2035,7 +2037,9 @@ name|annot
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"color"
+name|COSName
+operator|.
+name|C
 argument_list|)
 decl_stmt|;
 if|if
@@ -2140,7 +2144,9 @@ name|annot
 operator|.
 name|setItem
 argument_list|(
-literal|"color"
+name|COSName
+operator|.
+name|C
 argument_list|,
 name|color
 argument_list|)
@@ -2159,7 +2165,7 @@ name|getString
 argument_list|(
 name|COSName
 operator|.
-name|DATE
+name|M
 argument_list|)
 return|;
 block|}
@@ -2178,7 +2184,7 @@ name|setString
 argument_list|(
 name|COSName
 operator|.
-name|DATE
+name|M
 argument_list|,
 name|date
 argument_list|)

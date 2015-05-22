@@ -209,7 +209,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"BE"
+name|COSName
+operator|.
+name|BE
 argument_list|,
 name|be
 argument_list|)
@@ -232,7 +234,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"BE"
+name|COSName
+operator|.
+name|BE
 argument_list|)
 decl_stmt|;
 if|if
@@ -271,7 +275,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"RD"
+name|COSName
+operator|.
+name|RD
 argument_list|,
 name|rd
 argument_list|)
@@ -294,7 +300,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"RD"
+name|COSName
+operator|.
+name|RD
 argument_list|)
 decl_stmt|;
 if|if
@@ -377,7 +385,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"BS"
+name|COSName
+operator|.
+name|BS
 argument_list|,
 name|bs
 argument_list|)
