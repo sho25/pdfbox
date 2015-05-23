@@ -1323,7 +1323,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Check that the PDF header match rules of the PDF/A specification. First line (offset 0) must be a comment with      * the PDF version (version 1.0 isn't conform to the PDF/A specification) Second line is a comment with at least 4      * bytes greater than 0x80      */
+comment|/**      * Check that the PDF header match rules of the PDF/A specification. First line (offset 0) must      * be a comment with the PDF version (version 1.0 isn't conform to the PDF/A specification)      * Second line is a comment with at least 4 bytes greater than 0x80      */
 specifier|protected
 name|void
 name|checkPdfHeader
@@ -1409,18 +1409,42 @@ operator|>=
 literal|5
 condition|)
 block|{
+if|if
+condition|(
+name|secondLineAsBytes
+index|[
+literal|0
+index|]
+operator|!=
+literal|'%'
+condition|)
+block|{
+name|addValidationError
+argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_HEADER
+argument_list|,
+literal|"Second line must begin with '%' followed by at least 4 bytes greater than 127"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 for|for
 control|(
 name|int
 name|i
 init|=
-literal|0
+literal|1
 init|;
 name|i
 operator|<
-name|secondLineAsBytes
-operator|.
-name|length
+literal|5
 condition|;
 operator|++
 name|i
@@ -1436,18 +1460,13 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-name|i
-operator|==
-literal|0
-operator|&&
 operator|(
-operator|(
-name|char
-operator|)
 name|b
-operator|!=
-literal|'%'
+operator|&
+literal|0xFF
 operator|)
+operator|<
+literal|0x80
 condition|)
 block|{
 name|addValidationError
@@ -1465,38 +1484,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-elseif|else
-if|if
-condition|(
-name|i
-operator|>
-literal|0
-operator|&&
-operator|(
-operator|(
-name|b
-operator|&
-literal|0xFF
-operator|)
-operator|<
-literal|0x80
-operator|)
-condition|)
-block|{
-name|addValidationError
-argument_list|(
-operator|new
-name|ValidationError
-argument_list|(
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_HEADER
-argument_list|,
-literal|"Second line must begin with '%' followed by at least 4 bytes greater than 127"
-argument_list|)
-argument_list|)
-expr_stmt|;
-break|break;
 block|}
 block|}
 block|}
@@ -1553,7 +1540,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Same method than the {@linkplain PDFParser#parseXrefTable(long)} with additional controls : - EOL mandatory after      * the 'xref' keyword - Cross reference subsection header uses single white space as separator - and so on      */
+comment|/**      * Same method than the {@linkplain PDFParser#parseXrefTable(long)} with additional controls : -      * EOL mandatory after the 'xref' keyword - Cross reference subsection header uses single white      * space as separator - and so on      *      * @param startByteOffset the offset to start at      * @return false on parsing error      * @throws IOException If an IO error occurs.      */
 annotation|@
 name|Override
 specifier|protected
@@ -1742,7 +1729,16 @@ name|ValidationError
 argument_list|(
 name|ERROR_SYNTAX_CROSS_REF
 argument_list|,
-literal|"Cross reference subsection header is invalid"
+literal|"Cross reference subsection header is invalid: '"
+operator|+
+name|line
+operator|+
+literal|"' at position "
+operator|+
+name|pdfSource
+operator|.
+name|getOffset
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2011,26 +2007,11 @@ block|}
 name|skipSpaces
 argument_list|()
 expr_stmt|;
-name|char
-name|c
-init|=
-operator|(
-name|char
-operator|)
-name|pdfSource
-operator|.
-name|peek
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|c
-argument_list|<
-literal|'0'
-operator|||
-name|c
-argument_list|>
-literal|'9'
+operator|!
+name|isDigit
+argument_list|()
 condition|)
 block|{
 break|break;
@@ -2040,7 +2021,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Wraps the {@link PDFParser#parseCOSStream} to check rules on 'stream' and 'endstream' keywords.      * {@link #checkStreamKeyWord()} and {@link #checkEndstreamKeyWord()}      */
+comment|/**      * Wraps the {@link PDFParser#parseCOSStream} to check rules on 'stream' and 'endstream'      * keywords. {@link #checkStreamKeyWord()} and {@link #checkEndstreamKeyWord()}      *      * @param dic dictionary that goes with this stream.      *      * @return parsed pdf stream.      *      * @throws IOException if an error occurred reading the stream, like problems with reading      * length attribute, stream does not end with 'endstream' after data read, stream too short etc.      */
 annotation|@
 name|Override
 specifier|protected
@@ -2073,7 +2054,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * 'stream' must be followed by<CR><LF> or only<LF>      *       * @throws IOException      */
+comment|/**      * 'stream' must be followed by&lt;CR&gt;&lt;LF&gt; or only&lt;LF&gt;      *       * @throws IOException      */
 specifier|protected
 name|void
 name|checkStreamKeyWord
@@ -2451,7 +2432,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Check that the hexa string contains only an even number of Hexadecimal characters. Once it is done, reset the      * offset at the beginning of the string and call {@link PDFParser#parseCOSString()}      */
+comment|/**      * Check that the hexa string contains only an even number of      * Hexadecimal characters. Once it is done, reset the offset at the beginning of the string and      * call {@link PDFParser#parseCOSString()}      *      * @return The parsed PDF string.      *      * @throws IOException If there is an error reading from the stream.      */
 annotation|@
 name|Override
 specifier|protected
@@ -2651,7 +2632,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Call {@link PDFParser#parseDirObject()} check limit range for Float, Integer and number of Dictionary entries.      */
+comment|/**      * Call {@link PDFParser#parseDirObject()} check limit range for Float, Integer and number of      * Dictionary entries.      *      * @return The parsed object.      * @throws java.io.IOException if there is an error during parsing.      */
 annotation|@
 name|Override
 specifier|protected
