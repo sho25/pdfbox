@@ -77,6 +77,34 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSBase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -272,6 +300,29 @@ operator|.
 name|getTitle
 argument_list|()
 decl_stmt|;
+name|COSBase
+name|item
+init|=
+name|dico
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|TITLE
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|item
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// automatically strip trailing Nul values
 if|if
 condition|(
 name|title
@@ -279,7 +330,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// automatically strip trailing Nul values
 name|title
 operator|=
 name|removeTrailingNul
@@ -287,6 +337,7 @@ argument_list|(
 name|title
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|dc
@@ -491,7 +542,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Analyze if Author(s) embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param dc      *            Dublin Core Schema      * @param ve      *            The list of validation errors      */
+comment|/**      * Analyze if Author(s) embedded in Document Information dictionary and in XMP properties are      * synchronized      *      * @param dico Document Information Dictionary      * @param dc Dublin Core Schema      * @param ve The list of validation errors      */
 specifier|protected
 name|void
 name|analyzeAuthorProperty
@@ -517,6 +568,29 @@ operator|.
 name|getAuthor
 argument_list|()
 decl_stmt|;
+name|COSBase
+name|item
+init|=
+name|dico
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|AUTHOR
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|item
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// automatically strip trailing Nul values
 if|if
 condition|(
 name|author
@@ -524,7 +598,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// automatically strip trailing Nul values
 name|author
 operator|=
 name|removeTrailingNul
@@ -532,6 +605,7 @@ argument_list|(
 name|author
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|dc
@@ -673,7 +747,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Analyze if Subject(s) embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param dc      *            Dublin Core Schema      * @param ve      *            The list of validation errors      */
+comment|/**      * Analyze if Subject(s) embedded in Document Information dictionary and in XMP properties are      * synchronized      *      * @param dico Document Information Dictionary      * @param dc Dublin Core Schema      * @param ve The list of validation errors      */
 specifier|protected
 name|void
 name|analyzeSubjectProperty
@@ -699,6 +773,29 @@ operator|.
 name|getSubject
 argument_list|()
 decl_stmt|;
+name|COSBase
+name|item
+init|=
+name|dico
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|SUBJECT
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|item
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// automatically strip trailing Nul values
 if|if
 condition|(
 name|subject
@@ -706,7 +803,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// automatically strip trailing Nul values
 name|subject
 operator|=
 name|removeTrailingNul
@@ -714,6 +810,7 @@ argument_list|(
 name|subject
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|dc
@@ -822,7 +919,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Analyze if Keyword(s) embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param pdf      *            PDF Schema      * @param ve      *            The list of validation errors      */
+comment|/**      * Analyze if Keyword(s) embedded in Document Information dictionary and in XMP properties are      * synchronized      *      * @param dico Document Information Dictionary      * @param pdf PDF Schema      * @param ve The list of validation errors      */
 specifier|protected
 name|void
 name|analyzeKeywordsProperty
@@ -848,6 +945,29 @@ operator|.
 name|getKeywords
 argument_list|()
 decl_stmt|;
+name|COSBase
+name|item
+init|=
+name|dico
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|KEYWORDS
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|item
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// automatically strip trailing Nul values
 if|if
 condition|(
 name|keyword
@@ -855,7 +975,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// automatically strip trailing Nul values
 name|keyword
 operator|=
 name|removeTrailingNul
@@ -863,6 +982,7 @@ argument_list|(
 name|keyword
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|pdf
@@ -939,7 +1059,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Analyze if Producer embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param pdf      *            PDF Schema      * @param ve      *            The list of validation errors      */
+comment|/**      * Analyze if Producer embedded in Document Information dictionary and in XMP properties are      * synchronized      *      * @param dico Document Information Dictionary      * @param pdf PDF Schema      * @param ve The list of validation errors      */
 specifier|protected
 name|void
 name|analyzeProducerProperty
@@ -965,14 +1085,36 @@ operator|.
 name|getProducer
 argument_list|()
 decl_stmt|;
+name|COSBase
+name|item
+init|=
+name|dico
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|PRODUCER
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|producer
+name|item
 operator|!=
 literal|null
 condition|)
 block|{
 comment|// automatically strip trailing Nul values
+if|if
+condition|(
+name|producer
+operator|==
+literal|null
+condition|)
+block|{
 name|producer
 operator|=
 name|removeTrailingNul
@@ -980,6 +1122,7 @@ argument_list|(
 name|producer
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|pdf
@@ -1056,7 +1199,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Analyze if the creator tool embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param xmp      *            XMP Basic Schema      * @param ve      *            The list of validation errors      *       */
+comment|/**      * Analyze if the creator tool embedded in Document Information dictionary and in XMP properties      * are synchronized      *      * @param dico Document Information Dictionary      * @param xmp XMP Basic Schema      * @param ve The list of validation errors      *      */
 specifier|protected
 name|void
 name|analyzeCreatorToolProperty
@@ -1082,14 +1225,36 @@ operator|.
 name|getCreator
 argument_list|()
 decl_stmt|;
+name|COSBase
+name|item
+init|=
+name|dico
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|CREATOR
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|creatorTool
+name|item
 operator|!=
 literal|null
 condition|)
 block|{
 comment|// automatically strip trailing Nul values
+if|if
+condition|(
+name|creatorTool
+operator|==
+literal|null
+condition|)
+block|{
 name|creatorTool
 operator|=
 name|removeTrailingNul
@@ -1097,6 +1262,7 @@ argument_list|(
 name|creatorTool
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|xmp
@@ -1173,7 +1339,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Analyze if the CreationDate embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param xmp      *            XMP Basic Schema      * @param ve      *            The list of validation errors      * @throws ValidationException      */
+comment|/**      * Analyze if the CreationDate embedded in Document Information dictionary and in XMP properties      * are synchronized      *      * @param dico Document Information Dictionary      * @param xmp XMP Basic Schema      * @param ve The list of validation errors      * @throws ValidationException      */
 specifier|protected
 name|void
 name|analyzeCreationDateProperty
@@ -1196,18 +1362,29 @@ block|{
 name|Calendar
 name|creationDate
 init|=
-literal|null
-decl_stmt|;
-name|creationDate
-operator|=
 name|dico
 operator|.
 name|getCreationDate
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+name|COSBase
+name|item
+init|=
+name|dico
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|CREATION_DATE
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|creationDate
+name|item
 operator|!=
 literal|null
 condition|)
@@ -1251,6 +1428,10 @@ else|else
 block|{
 if|if
 condition|(
+name|creationDate
+operator|==
+literal|null
+operator|||
 operator|!
 name|DateConverter
 operator|.
@@ -1336,7 +1517,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Analyze if the ModifyDate embedded in Document Information dictionary and in XMP properties are synchronized      *       * @param dico      *            Document Information Dictionary      * @param xmp      *            XMP Basic Schema      * @param ve      *            The list of validation errors      * @throws ValidationException      */
+comment|/**      * Analyze if the ModifyDate embedded in Document Information dictionary and in XMP properties      * are synchronized      *      * @param dico Document Information Dictionary      * @param xmp XMP Basic Schema      * @param ve The list of validation errors      * @throws ValidationException      */
 specifier|protected
 name|void
 name|analyzeModifyDateProperty
@@ -1358,17 +1539,30 @@ name|ValidationException
 block|{
 name|Calendar
 name|modifyDate
-decl_stmt|;
-name|modifyDate
-operator|=
+init|=
 name|dico
 operator|.
 name|getModificationDate
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+name|COSBase
+name|item
+init|=
+name|dico
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|MOD_DATE
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|modifyDate
+name|item
 operator|!=
 literal|null
 condition|)
@@ -1412,6 +1606,10 @@ else|else
 block|{
 if|if
 condition|(
+name|modifyDate
+operator|==
+literal|null
+operator|||
 operator|!
 name|DateConverter
 operator|.
@@ -1497,7 +1695,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Check if document information entries and XMP information are synchronized      *       * @param document      *            the PDF Document      * @param metadata      *            the XMP MetaData      * @return List of validation errors      * @throws ValidationException      */
+comment|/**      * Check if document information entries and XMP information are synchronized      *      * @param document the PDF Document      * @param metadata the XMP MetaData      * @return List of validation errors      * @throws ValidationException      */
 specifier|public
 name|List
 argument_list|<
@@ -1750,7 +1948,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Return an exception formatted on IOException when accessing on metadata schema      *       * @param target      *            the name of the schema      * @param cause      *            the raised IOException      * @return the generated exception      */
+comment|/**      * Return an exception formatted on IOException when accessing on metadata schema      *      * @param target the name of the schema      * @param cause the raised IOException      * @return the generated exception      */
 specifier|protected
 name|ValidationException
 name|schemaAccessException
@@ -1801,7 +1999,7 @@ name|cause
 argument_list|)
 return|;
 block|}
-comment|/**      * Return a formatted validation error when metadata are not synchronized      *       * @param target      *            the concerned property      * @return the generated validation error      */
+comment|/**      * Return a formatted validation error when metadata are not synchronized      *      * @param target the concerned property      * @return the generated validation error      */
 specifier|protected
 name|ValidationError
 name|unsynchronizedMetaDataError
@@ -1846,7 +2044,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Return a formatted validation error when a specific metadata schema can't be found      *       * @param target      *            the concerned property      * @param schema      *            the XMP schema which can't be found      * @return the generated validation error      */
+comment|/**      * Return a formatted validation error when a specific metadata schema can't be found      *      * @param target the concerned property      * @param schema the XMP schema which can't be found      * @return the generated validation error      */
 specifier|protected
 name|ValidationError
 name|absentSchemaMetaDataError
@@ -1904,7 +2102,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Return a formatted validation error when a specific XMP property can't be found      *       * @param target      *            the concerned property      * @param details      *            comments about the XMP property      * @return the generated validation error      */
+comment|/**      * Return a formatted validation error when a specific XMP property can't be found      *      * @param target the concerned property      * @param details comments about the XMP property      * @return the generated validation error      */
 specifier|protected
 name|ValidationError
 name|absentXMPPropertyError
@@ -1962,7 +2160,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * A given string from the DocumentInformation dictionary may have some trailing Nul values       * which have to be stripped.      *        * @param string to be stripped      * @return the stripped string      */
+comment|/**      * A given string from the DocumentInformation dictionary may have some trailing Nul values      * which have to be stripped.      *      * @param string to be stripped      * @return the stripped string      */
 specifier|private
 name|String
 name|removeTrailingNul
@@ -2013,7 +2211,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * Verify if the date string has time zone information.      *<p>      *<strong>This method doesn't do a complete parsing as      * this is a helper AFTER a date has proven to be valid      *</strong>      *</p>      *       * @param date      * @return the validation result      */
+comment|/**      * Verify if the date string has time zone information.      *<p>      *<strong>This method doesn't do a complete parsing as this is a helper AFTER a date has proven      * to be valid      *</strong>      *</p>      *      * @param date      * @return the validation result      */
 specifier|private
 name|boolean
 name|hasTimeZone
