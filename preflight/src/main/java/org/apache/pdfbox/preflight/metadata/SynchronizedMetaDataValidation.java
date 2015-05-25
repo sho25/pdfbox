@@ -1111,7 +1111,7 @@ comment|// automatically strip trailing Nul values
 if|if
 condition|(
 name|producer
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
@@ -1251,7 +1251,7 @@ comment|// automatically strip trailing Nul values
 if|if
 condition|(
 name|creatorTool
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
