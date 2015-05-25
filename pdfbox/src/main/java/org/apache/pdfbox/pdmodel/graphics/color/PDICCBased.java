@@ -369,6 +369,7 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDStream
 name|stream
 decl_stmt|;
@@ -418,15 +419,19 @@ operator|.
 name|ICCBASED
 argument_list|)
 expr_stmt|;
-name|array
-operator|.
-name|add
-argument_list|(
+name|stream
+operator|=
 operator|new
 name|PDStream
 argument_list|(
 name|doc
 argument_list|)
+expr_stmt|;
+name|array
+operator|.
+name|add
+argument_list|(
+name|stream
 argument_list|)
 expr_stmt|;
 block|}
@@ -683,7 +688,14 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Can't read embedded ICC profile, using alternate color space: "
+literal|"Can't read embedded ICC profile ("
+operator|+
+name|e
+operator|.
+name|getLocalizedMessage
+argument_list|()
+operator|+
+literal|"), using alternate color space: "
 operator|+
 name|alternateColorSpace
 operator|.
