@@ -233,6 +233,7 @@ condition|(
 name|statusObj
 operator|.
 name|isValid
+argument_list|()
 condition|)
 block|{
 name|tree

@@ -31,6 +31,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|swing
@@ -142,6 +152,8 @@ block|{
 specifier|private
 name|TreePath
 name|path
+init|=
+literal|null
 decl_stmt|;
 specifier|private
 name|String
@@ -151,16 +163,21 @@ specifier|private
 name|Object
 name|rootNode
 decl_stmt|;
-specifier|public
-name|boolean
-name|isValid
-init|=
-literal|false
-decl_stmt|;
 specifier|private
 name|TreeStatus
 parameter_list|()
 block|{     }
+specifier|public
+name|boolean
+name|isValid
+parameter_list|()
+block|{
+return|return
+name|path
+operator|!=
+literal|null
+return|;
+block|}
 comment|/**      * Constructor.      *      * @param rootNode the root node of the tree which will be used to construct a treepath from a      * tree status string.      */
 specifier|public
 name|TreeStatus
@@ -210,12 +227,6 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|isValid
-operator|=
-literal|true
-expr_stmt|;
 block|}
 comment|/**      * Set the tree status string and try to generate TreePath. In case of success, the path will be      * available for further uses. In case of failure path will be set to null.      *      * @param pathString String instance.      */
 specifier|public
@@ -239,14 +250,6 @@ argument_list|(
 name|pathString
 argument_list|)
 expr_stmt|;
-name|isValid
-operator|=
-name|this
-operator|.
-name|path
-operator|!=
-literal|null
-expr_stmt|;
 block|}
 comment|/**      * Provides status string for a TreePath instance.      * @param path TreePath instance.      * @return pathString.      */
 specifier|public
@@ -266,7 +269,7 @@ return|return
 name|pathString
 return|;
 block|}
-comment|/**      *Provides TreePath for a given status string. In case of invalid string returns null.      * @param statusString      * @return path.      */
+comment|/**      * Provides TreePath for a given status string. In case of invalid string returns null.      * @param statusString      * @return path.      */
 specifier|public
 name|TreePath
 name|getPathForString
@@ -365,7 +368,7 @@ name|String
 name|pathString
 parameter_list|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -518,7 +521,7 @@ throw|;
 block|}
 comment|/**      * Parses a string and lists all the nodes.      *      * @param path a tree path.      * @return a list of nodes, or null if there is an empty node.      */
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -528,7 +531,7 @@ name|String
 name|path
 parameter_list|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
