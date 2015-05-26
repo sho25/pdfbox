@@ -470,6 +470,8 @@ name|TrailerValidationProcess
 extends|extends
 name|AbstractProcess
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validate
@@ -891,7 +893,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Return true if the ID of the first dictionary is the same as the id of the last dictionary Return false      * otherwise.      *       * @param first the first dictionary for comparison.      * @param last the last dictionary for comparison.      * @return true if the IDs of the first and last dictionary are the same.      */
+comment|/**      * Return true if the ID of the first dictionary is the same as the id of the last dictionary Return false      * otherwise.      *       * @param first the first dictionary for comparison.      * @param last the last dictionary for comparison.      * @param cosDocument the document.      * @return true if the IDs of the first and last dictionary are the same.      */
 specifier|protected
 name|boolean
 name|compareIds
