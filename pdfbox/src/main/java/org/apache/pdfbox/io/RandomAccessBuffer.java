@@ -728,6 +728,10 @@ name|newOffset
 operator|+=
 name|CHUNK_SIZE
 expr_stmt|;
+name|currentBufferPointer
+operator|=
+name|CHUNK_SIZE
+expr_stmt|;
 block|}
 name|remainingBytes2Read
 operator|=
@@ -765,7 +769,7 @@ name|remainingBytes2Read
 argument_list|)
 expr_stmt|;
 name|currentBufferPointer
-operator|+=
+operator|=
 name|remainingBytes2Read
 expr_stmt|;
 block|}
