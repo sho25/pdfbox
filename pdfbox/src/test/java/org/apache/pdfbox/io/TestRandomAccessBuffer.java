@@ -299,6 +299,11 @@ name|read
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|buffer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * This will test the {@link RandomAccessBuffer#read()}       * and {@link RandomAccessBuffer#write(int)} method.      *       * @throws IOException is thrown if something went wrong.      */
 specifier|public
