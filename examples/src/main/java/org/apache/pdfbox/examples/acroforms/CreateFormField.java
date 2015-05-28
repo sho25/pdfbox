@@ -365,9 +365,6 @@ name|rect
 operator|.
 name|setLowerLeftX
 argument_list|(
-operator|(
-name|float
-operator|)
 literal|50
 argument_list|)
 expr_stmt|;
@@ -375,9 +372,6 @@ name|rect
 operator|.
 name|setLowerLeftY
 argument_list|(
-operator|(
-name|float
-operator|)
 literal|750
 argument_list|)
 expr_stmt|;
@@ -385,9 +379,6 @@ name|rect
 operator|.
 name|setUpperRightX
 argument_list|(
-operator|(
-name|float
-operator|)
 literal|250
 argument_list|)
 expr_stmt|;
@@ -395,9 +386,6 @@ name|rect
 operator|.
 name|setUpperRightY
 argument_list|(
-operator|(
-name|float
-operator|)
 literal|800
 argument_list|)
 expr_stmt|;

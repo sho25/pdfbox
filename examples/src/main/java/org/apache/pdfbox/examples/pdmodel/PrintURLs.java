@@ -305,9 +305,6 @@ block|{
 name|PDAnnotation
 name|annot
 init|=
-operator|(
-name|PDAnnotation
-operator|)
 name|annotations
 operator|.
 name|get
@@ -474,9 +471,6 @@ block|{
 name|PDAnnotation
 name|annot
 init|=
-operator|(
-name|PDAnnotation
-operator|)
 name|annotations
 operator|.
 name|get
