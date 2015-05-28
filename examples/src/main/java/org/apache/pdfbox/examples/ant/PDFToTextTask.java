@@ -127,6 +127,7 @@ extends|extends
 name|Task
 block|{
 specifier|private
+specifier|final
 name|List
 name|fileSets
 init|=

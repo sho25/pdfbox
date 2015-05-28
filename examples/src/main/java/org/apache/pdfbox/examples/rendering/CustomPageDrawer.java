@@ -383,7 +383,6 @@ name|MyPDFRenderer
 extends|extends
 name|PDFRenderer
 block|{
-specifier|public
 name|MyPDFRenderer
 parameter_list|(
 name|PDDocument
@@ -425,7 +424,6 @@ name|MyPageDrawer
 extends|extends
 name|PageDrawer
 block|{
-specifier|public
 name|MyPageDrawer
 parameter_list|(
 name|PageDrawerParameters

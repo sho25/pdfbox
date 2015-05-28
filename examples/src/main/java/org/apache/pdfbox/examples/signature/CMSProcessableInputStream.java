@@ -116,7 +116,6 @@ specifier|final
 name|ASN1ObjectIdentifier
 name|contentType
 decl_stmt|;
-specifier|public
 name|CMSProcessableInputStream
 parameter_list|(
 name|InputStream
@@ -140,7 +139,6 @@ name|is
 argument_list|)
 expr_stmt|;
 block|}
-specifier|public
 name|CMSProcessableInputStream
 parameter_list|(
 name|ASN1ObjectIdentifier
