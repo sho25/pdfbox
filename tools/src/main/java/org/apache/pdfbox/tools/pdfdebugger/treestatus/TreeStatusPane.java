@@ -230,10 +230,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|statusObj
-operator|.
-name|isValid
-argument_list|()
+name|path
+operator|!=
+literal|null
 condition|)
 block|{
 name|tree
