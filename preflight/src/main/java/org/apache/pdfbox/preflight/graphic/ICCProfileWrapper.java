@@ -539,7 +539,7 @@ name|getInstance
 argument_list|(
 name|stream
 operator|.
-name|getByteArray
+name|createInputStream
 argument_list|()
 argument_list|)
 decl_stmt|;

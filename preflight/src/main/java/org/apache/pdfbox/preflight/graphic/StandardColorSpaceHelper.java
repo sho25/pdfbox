@@ -932,7 +932,7 @@ operator|.
 name|getPDStream
 argument_list|()
 operator|.
-name|getByteArray
+name|createInputStream
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1006,7 +1006,7 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_INVALID_COLOR_SPACE_ICCBASED
 argument_list|,
-literal|"ICCBase color space is invalid: "
+literal|"ICCBased color space is invalid: "
 operator|+
 name|e
 operator|.
