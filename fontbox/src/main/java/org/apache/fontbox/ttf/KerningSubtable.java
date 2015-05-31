@@ -203,6 +203,7 @@ argument_list|()
 throw|;
 block|}
 block|}
+comment|/**      * Determine if subtable is designated for use in horizontal writing modes and      * contains inline progression kerning pairs (not block progression "cross stream")      * kerning pairs.      *      * @return true if subtable is for horizontal kerning      */
 specifier|public
 name|boolean
 name|isHorizontalKerning
@@ -215,6 +216,7 @@ literal|false
 argument_list|)
 return|;
 block|}
+comment|/**      * Determine if subtable is designated for use in horizontal writing modes, contains      * kerning pairs (as opposed to minimum pairs), and, if CROSS is true, then return      * cross stream designator; otherwise, if CROSS is false, return true if cross stream      * designator is false.      *      * @param cross if true, then return cross stream designator in horizontal modes      * @return true if subtable is for horizontal kerning in horizontal modes      */
 specifier|public
 name|boolean
 name|isHorizontalKerning
@@ -261,6 +263,7 @@ name|crossStream
 return|;
 block|}
 block|}
+comment|/**      * Obtain kerning adjustments for GLYPHS sequence, where the      * Nth returned adjustment is associated with the Nth glyph      * and the succeeding non-zero glyph in the GLYPHS sequence.      *      * Kerning adjustments are returned in font design coordinates.      *      * @param glyphs a (possibly empty) array of glyph identifiers      * @return a (possibly empty) array of kerning adjustments      */
 specifier|public
 name|int
 index|[]
@@ -373,6 +376,7 @@ return|return
 name|kerning
 return|;
 block|}
+comment|/**      * Obtain kerning adjustment for glyph pair {L,R}.      *      * @param l left member of glyph pair      * @param r right member of glyph pair      * @return a (possibly zero) kerning adjustment      */
 specifier|public
 name|int
 name|getKerning
@@ -716,6 +720,7 @@ operator|>>
 name|shift
 return|;
 block|}
+specifier|private
 specifier|abstract
 specifier|static
 class|class
@@ -745,6 +750,7 @@ name|r
 parameter_list|)
 function_decl|;
 block|}
+specifier|private
 specifier|static
 class|class
 name|PairData0Format0
