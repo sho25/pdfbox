@@ -471,7 +471,7 @@ return|;
 block|}
 comment|/**      * Produce the popup menu items depending on the node of a certain TreePath.      * @param nodePath is instance of TreePath of the specified Node.      * @return the JMenuItem list for the node      */
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|JMenuItem
 argument_list|>
@@ -489,7 +489,7 @@ operator|.
 name|getLastPathComponent
 argument_list|()
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|JMenuItem
 argument_list|>
@@ -1163,7 +1163,7 @@ return|return
 name|menuItem
 return|;
 block|}
-comment|/**      * save the stream      * @param bytes byte array of the stream      */
+comment|/**      * Save the stream.      * @param bytes byte array of the stream.      * @throws IOException if there is an error in creation of the file.      */
 specifier|private
 name|void
 name|saveStream
@@ -1172,6 +1172,8 @@ name|byte
 index|[]
 name|bytes
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|FileOpenSaveDialog
 name|saveDialog
@@ -1184,8 +1186,6 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|saveDialog
 operator|.
 name|saveFile
@@ -1193,21 +1193,6 @@ argument_list|(
 name|bytes
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 end_class
