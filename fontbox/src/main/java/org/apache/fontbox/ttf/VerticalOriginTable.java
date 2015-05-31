@@ -205,6 +205,7 @@ argument_list|(
 name|gid
 argument_list|)
 condition|)
+block|{
 return|return
 name|origins
 operator|.
@@ -213,10 +214,13 @@ argument_list|(
 name|gid
 argument_list|)
 return|;
+block|}
 else|else
+block|{
 return|return
 name|defaultVertOriginY
 return|;
+block|}
 block|}
 block|}
 end_class
