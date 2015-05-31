@@ -3648,6 +3648,13 @@ operator|+
 literal|"' "
 operator|+
 name|pdfSource
+operator|+
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getPosition
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -3703,6 +3710,13 @@ operator|+
 literal|"' "
 operator|+
 name|pdfSource
+operator|+
+literal|"' at offset "
+operator|+
+name|pdfSource
+operator|.
+name|getPosition
+argument_list|()
 argument_list|)
 throw|;
 block|}
