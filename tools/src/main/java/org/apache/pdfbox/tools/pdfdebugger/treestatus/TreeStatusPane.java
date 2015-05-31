@@ -242,6 +242,11 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+name|tree
+operator|.
+name|requestFocusInWindow
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
