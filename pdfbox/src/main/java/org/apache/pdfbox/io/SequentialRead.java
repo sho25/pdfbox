@@ -21,6 +21,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -33,14 +43,9 @@ begin_interface
 specifier|public
 interface|interface
 name|SequentialRead
+extends|extends
+name|Closeable
 block|{
-comment|/**      * Release resources that are being held.      *      * @throws IOException If there is an error closing this resource.      */
-name|void
-name|close
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
 comment|/**      * Read a single byte of data.      *      * @return The byte of data that is being read.      *      * @throws IOException If there is an error while reading the data.      */
 name|int
 name|read
