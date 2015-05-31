@@ -49,16 +49,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|PushbackInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -120,6 +110,22 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|Operator
 import|;
 end_import
 
@@ -243,11 +249,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|io
 operator|.
-name|common
-operator|.
-name|PDStream
+name|RandomAccessRead
 import|;
 end_import
 
@@ -259,11 +263,11 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|contentstream
+name|pdmodel
 operator|.
-name|operator
+name|common
 operator|.
-name|Operator
+name|PDStream
 import|;
 end_import
 
@@ -648,9 +652,9 @@ expr_stmt|;
 comment|// put back first bracket
 name|pdfSource
 operator|.
-name|unread
+name|rewind
 argument_list|(
-name|leftBracket
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
@@ -1336,7 +1340,7 @@ name|boolean
 name|hasNoFollowingBinData
 parameter_list|(
 specifier|final
-name|PushbackInputStream
+name|RandomAccessRead
 name|pdfSource
 parameter_list|)
 throws|throws
@@ -1557,12 +1561,8 @@ block|}
 block|}
 name|pdfSource
 operator|.
-name|unread
+name|rewind
 argument_list|(
-name|binCharTestArr
-argument_list|,
-literal|0
-argument_list|,
 name|readBytes
 argument_list|)
 expr_stmt|;

@@ -16,6 +16,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Charsets
+operator|.
+name|ISO_8859_1
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -428,22 +444,6 @@ operator|.
 name|encryption
 operator|.
 name|SecurityHandler
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Charsets
-operator|.
-name|ISO_8859_1
 import|;
 end_import
 
@@ -897,7 +897,7 @@ name|trailerOffset
 operator|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 expr_stmt|;
 comment|// PDFBOX-1739 skip extra xref entries in RegisSTAR documents
@@ -917,7 +917,7 @@ if|if
 condition|(
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 operator|==
 name|trailerOffset
@@ -955,7 +955,7 @@ literal|"Expected trailer object at position: "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 throw|;
@@ -2790,7 +2790,7 @@ condition|)
 block|{
 name|pdfSource
 operator|.
-name|unread
+name|rewind
 argument_list|(
 name|endObjectKey
 operator|.
@@ -2798,13 +2798,8 @@ name|getBytes
 argument_list|(
 name|ISO_8859_1
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|pdfSource
 operator|.
-name|unread
-argument_list|(
-literal|' '
+name|length
 argument_list|)
 expr_stmt|;
 if|if
@@ -3253,7 +3248,7 @@ name|curFileOffset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|parseObjectDynamically
@@ -3459,7 +3454,7 @@ literal|"The stream doesn't provide any stream length, using fallback readUntilE
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3553,16 +3548,18 @@ literal|"stream ends with 'endobj' instead of 'endstream' at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// avoid follow-up warning about missing endobj
 name|pdfSource
 operator|.
-name|unread
+name|rewind
 argument_list|(
 name|ENDOBJ
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
 block|}
@@ -3605,14 +3602,14 @@ literal|"' instead of 'endstream' at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// unread the "extra" bytes
 name|pdfSource
 operator|.
-name|unread
+name|rewind
 argument_list|(
 name|endStream
 operator|.
@@ -3625,6 +3622,8 @@ name|getBytes
 argument_list|(
 name|ISO_8859_1
 argument_list|)
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
 block|}
@@ -3652,7 +3651,7 @@ literal|"' at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 throw|;
@@ -3754,7 +3753,7 @@ literal|"read error at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 operator|+
 literal|": expected "
@@ -3804,7 +3803,7 @@ name|originOffset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|long
@@ -4380,7 +4379,7 @@ name|originOffset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|pdfSource
@@ -4514,7 +4513,7 @@ name|originOffset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|long
@@ -5125,7 +5124,7 @@ name|originOffset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|pdfSource
@@ -5158,7 +5157,7 @@ name|newOffset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|pdfSource
@@ -5240,7 +5239,7 @@ name|originOffset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|pdfSource
@@ -5294,7 +5293,7 @@ name|xrefOffset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -5470,7 +5469,7 @@ name|newOffset
 operator|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 expr_stmt|;
 block|}
@@ -5995,12 +5994,8 @@ expr_stmt|;
 block|}
 name|pdfSource
 operator|.
-name|unread
+name|rewind
 argument_list|(
-name|bytesRead
-argument_list|,
-literal|0
-argument_list|,
 name|numberOfBytes
 argument_list|)
 expr_stmt|;
@@ -6031,7 +6026,7 @@ name|originOffset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 for|for
@@ -6097,7 +6092,7 @@ name|currentOffset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|String
@@ -6461,7 +6456,7 @@ argument_list|)
 expr_stmt|;
 name|pdfSource
 operator|.
-name|unread
+name|rewind
 argument_list|(
 name|headerGarbage
 operator|.
@@ -6469,6 +6464,8 @@ name|getBytes
 argument_list|(
 name|ISO_8859_1
 argument_list|)
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
 block|}
@@ -6636,12 +6633,8 @@ argument_list|)
 decl_stmt|;
 name|pdfSource
 operator|.
-name|unread
+name|rewind
 argument_list|(
-name|b
-argument_list|,
-literal|0
-argument_list|,
 name|b
 operator|.
 name|length

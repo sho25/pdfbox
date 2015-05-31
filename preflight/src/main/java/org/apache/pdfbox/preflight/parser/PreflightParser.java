@@ -585,6 +585,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSObjectKey
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSStream
 import|;
 end_import
@@ -658,20 +672,6 @@ operator|.
 name|pdmodel
 operator|.
 name|PDDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSObjectKey
 import|;
 end_import
 
@@ -1654,7 +1654,7 @@ name|offset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|String
@@ -1737,7 +1737,7 @@ literal|"' at position "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2094,7 +2094,7 @@ literal|"' at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2142,7 +2142,7 @@ literal|"Expected 'EOL' after the stream keyword at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2155,7 +2155,7 @@ name|seek
 argument_list|(
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 operator|-
 literal|7
@@ -2176,7 +2176,7 @@ name|seek
 argument_list|(
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 operator|-
 literal|10
@@ -2200,7 +2200,7 @@ literal|"Expected 'EOL' before the endstream keyword at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 operator|+
 literal|" but found '"
@@ -2243,7 +2243,7 @@ literal|"Expected 'endstream' keyword at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 operator|+
 literal|" but found '"
@@ -2448,7 +2448,7 @@ name|offset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|char
@@ -2539,7 +2539,7 @@ literal|"') at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2576,7 +2576,7 @@ literal|"Hexa string shall contain even number of non white space char at offset
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2622,7 +2622,7 @@ literal|"Hexa string is too long at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2706,7 +2706,7 @@ literal|"  at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2753,7 +2753,7 @@ literal|"  at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2797,7 +2797,7 @@ literal|"Too Many Entries In Dictionary at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3015,7 +3015,7 @@ name|offset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|String
@@ -3270,7 +3270,7 @@ name|endObjectOffset
 init|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 decl_stmt|;
 name|String
@@ -3361,7 +3361,7 @@ name|endObjectOffset
 operator|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 expr_stmt|;
 name|endObjectKey
@@ -3488,7 +3488,7 @@ name|offset
 operator|=
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 expr_stmt|;
 name|pdfSource
@@ -3520,7 +3520,7 @@ literal|"EOL expected before the 'endobj' keyword at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3554,7 +3554,7 @@ literal|"EOL expected after the 'endobj' keyword at offset "
 operator|+
 name|pdfSource
 operator|.
-name|getOffset
+name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3842,6 +3842,34 @@ operator|)
 operator|)
 condition|)
 block|{
+name|long
+name|position
+init|=
+literal|0
+decl_stmt|;
+try|try
+block|{
+name|position
+operator|=
+name|pdfSource
+operator|.
+name|getPosition
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|excpetion
+parameter_list|)
+block|{
+name|position
+operator|=
+name|Long
+operator|.
+name|MIN_VALUE
+expr_stmt|;
+block|}
 name|addValidationError
 argument_list|(
 operator|new
@@ -3851,10 +3879,7 @@ name|ERROR_SYNTAX_TRAILER_EOF
 argument_list|,
 literal|"File contains data after the last %%EOF sequence at offset "
 operator|+
-name|pdfSource
-operator|.
-name|getOffset
-argument_list|()
+name|position
 argument_list|)
 argument_list|)
 expr_stmt|;

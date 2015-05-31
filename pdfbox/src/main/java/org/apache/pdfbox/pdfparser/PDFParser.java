@@ -191,7 +191,7 @@ name|pdfbox
 operator|.
 name|io
 operator|.
-name|PushBackInputStream
+name|RandomAccessBufferedFileInputStream
 import|;
 end_import
 
@@ -205,7 +205,7 @@ name|pdfbox
 operator|.
 name|io
 operator|.
-name|RandomAccessBufferedFileInputStream
+name|RandomAccessFile
 import|;
 end_import
 
@@ -324,11 +324,6 @@ name|PDFParser
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-specifier|private
-specifier|final
-name|RandomAccessBufferedFileInputStream
-name|raStream
 decl_stmt|;
 specifier|private
 name|String
@@ -565,7 +560,7 @@ operator|.
 name|length
 argument_list|()
 expr_stmt|;
-name|raStream
+name|pdfSource
 operator|=
 operator|new
 name|RandomAccessBufferedFileInputStream
@@ -742,6 +737,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|useScratchFiles
+condition|)
+block|{
 name|tempPDFFile
 operator|=
 name|createTmpFile
@@ -756,7 +756,7 @@ operator|.
 name|length
 argument_list|()
 expr_stmt|;
-name|raStream
+name|pdfSource
 operator|=
 operator|new
 name|RandomAccessBufferedFileInputStream
@@ -764,6 +764,24 @@ argument_list|(
 name|tempPDFFile
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|pdfSource
+operator|=
+name|copyInputStream
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+name|fileLen
+operator|=
+name|pdfSource
+operator|.
+name|length
+argument_list|()
+expr_stmt|;
+block|}
 name|password
 operator|=
 name|decryptionPassword
@@ -851,16 +869,6 @@ operator|new
 name|COSDocument
 argument_list|(
 name|useScratchFiles
-argument_list|)
-expr_stmt|;
-name|pdfSource
-operator|=
-operator|new
-name|PushBackInputStream
-argument_list|(
-name|raStream
-argument_list|,
-literal|4096
 argument_list|)
 expr_stmt|;
 block|}
