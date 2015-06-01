@@ -57,26 +57,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|activation
-operator|.
-name|FileDataSource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -104,6 +84,16 @@ operator|.
 name|parser
 operator|.
 name|PreflightParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -223,11 +213,7 @@ init|=
 operator|new
 name|PreflightParser
 argument_list|(
-operator|new
-name|FileDataSource
-argument_list|(
 name|target
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|parser
