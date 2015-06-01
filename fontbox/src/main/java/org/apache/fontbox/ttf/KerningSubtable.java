@@ -146,14 +146,11 @@ specifier|public
 name|KerningSubtable
 parameter_list|()
 block|{     }
-comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @param version The version of the table to be read      * @throws IOException If there is an error reading the data.      */
+comment|/**      * This will read the required data from the stream.      *       * @param data The stream to read the data from.      * @param version The version of the table to be read      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
 name|read
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|,
@@ -172,8 +169,6 @@ condition|)
 block|{
 name|readSubtable0
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
@@ -188,8 +183,6 @@ condition|)
 block|{
 name|readSubtable1
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
@@ -403,9 +396,6 @@ specifier|private
 name|void
 name|readSubtable0
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|)
@@ -575,8 +565,6 @@ condition|)
 block|{
 name|readSubtable0Format0
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
@@ -591,8 +579,6 @@ condition|)
 block|{
 name|readSubtable0Format2
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
@@ -602,9 +588,6 @@ specifier|private
 name|void
 name|readSubtable0Format0
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|)
@@ -629,9 +612,6 @@ specifier|private
 name|void
 name|readSubtable0Format2
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|)
@@ -650,9 +630,6 @@ specifier|private
 name|void
 name|readSubtable1
 parameter_list|(
-name|TrueTypeFont
-name|ttf
-parameter_list|,
 name|TTFDataStream
 name|data
 parameter_list|)

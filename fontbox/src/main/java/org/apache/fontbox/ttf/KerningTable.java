@@ -177,8 +177,6 @@ name|subtable
 operator|.
 name|read
 argument_list|(
-name|ttf
-argument_list|,
 name|data
 argument_list|,
 name|version
