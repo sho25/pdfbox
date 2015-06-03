@@ -240,8 +240,6 @@ comment|/**      * Constructor, creates a new FDF document.      *      * @throw
 specifier|public
 name|FDFDocument
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|document
 operator|=

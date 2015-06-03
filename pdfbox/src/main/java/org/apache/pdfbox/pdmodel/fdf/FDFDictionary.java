@@ -321,8 +321,6 @@ parameter_list|(
 name|Element
 name|fdfXML
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 argument_list|()
@@ -457,6 +455,8 @@ argument_list|(
 literal|"modified"
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|ids
 operator|.
 name|add
@@ -469,6 +469,29 @@ name|original
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error parsing ID entry for attribute 'original' ["
+operator|+
+name|original
+operator|+
+literal|"]. ID entry ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
 name|ids
 operator|.
 name|add
@@ -481,6 +504,27 @@ name|modified
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error parsing ID entry for attribute 'modified' ["
+operator|+
+name|modified
+operator|+
+literal|"]. ID entry ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|setID
 argument_list|(
 name|ids
@@ -572,6 +616,8 @@ literal|"field"
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 name|fieldList
 operator|.
 name|add
@@ -591,6 +637,30 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error parsing field entry ["
+operator|+
+name|currentNode
+operator|.
+name|getNodeValue
+argument_list|()
+operator|+
+literal|"]. Field ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 name|setFields
@@ -686,6 +756,8 @@ operator|.
 name|getNodeName
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|annotationName
@@ -1087,6 +1159,30 @@ operator|+
 name|annotationName
 operator|+
 literal|"'"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error parsing annotation information ["
+operator|+
+name|annot
+operator|.
+name|getNodeValue
+argument_list|()
+operator|+
+literal|"]. Annotation ignored"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
