@@ -106,7 +106,7 @@ literal|"ExData"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       *  @param dictionary Dictionary      */
+comment|/**      * Constructor.      *       * @param dictionary Dictionary      */
 specifier|public
 name|PDExternalDataDictionary
 parameter_list|(
@@ -135,7 +135,7 @@ operator|.
 name|dataDictionary
 return|;
 block|}
-comment|/**      * returns the type of the external data dictionary.      * It must be "ExData", if present      * @return the type of the external data dictionary      */
+comment|/**      * returns the type of the external data dictionary. It must be "ExData", if present      *       * @return the type of the external data dictionary      */
 specifier|public
 name|String
 name|getType
@@ -157,7 +157,7 @@ literal|"ExData"
 argument_list|)
 return|;
 block|}
-comment|/**      * returns the subtype of the external data dictionary.      * @return the subtype of the external data dictionary      */
+comment|/**      * returns the subtype of the external data dictionary.      *       * @return the subtype of the external data dictionary      */
 specifier|public
 name|String
 name|getSubtype
@@ -177,7 +177,7 @@ name|SUBTYPE
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the subtype of the external data dictionary.      * @param subtype the subtype of the external data dictionary      */
+comment|/**      * This will set the subtype of the external data dictionary.      *       * @param subtype the subtype of the external data dictionary      */
 specifier|public
 name|void
 name|setSubtype

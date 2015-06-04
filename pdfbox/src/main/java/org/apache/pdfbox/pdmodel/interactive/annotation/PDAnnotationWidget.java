@@ -156,7 +156,7 @@ name|SUB_TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a PDWidget from a COSDictionary, expected to be      * a correct object definition for a field in PDF.      *      * @param field the PDF object to represent as a field.      */
+comment|/**      * Creates a PDWidget from a COSDictionary, expected to be a correct object definition for a field in PDF.      *      * @param field the PDF object to represent as a field.      */
 specifier|public
 name|PDAnnotationWidget
 parameter_list|(
@@ -182,7 +182,7 @@ name|SUB_TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the highlighting mode. Default value:<code>I</code>      *<dl>      *<dt><code>N</code></dt>      *<dd>(None) No highlighting.</dd>      *<dt><code>I</code></dt>      *<dd>(Invert) Invert the contents of the annotation rectangle.</dd>      *<dt><code>O</code></dt>      *<dd>(Outline) Invert the annotation's border.</dd>      *<dt><code>P</code></dt>      *<dd>(Push) Display the annotation's down appearance, if any. If no      *      down appearance is defined, the contents of the annotation rectangle      *      shall be offset to appear as if it were pushed below the surface of      *      the page</dd>      *<dt><code>T</code></dt>      *<dd>(Toggle) Same as<code>P</code> (which is preferred).</dd>      *</dl>      *       * @return the highlighting mode      */
+comment|/**      * Returns the highlighting mode. Default value:<code>I</code>      *<dl>      *<dt><code>N</code></dt>      *<dd>(None) No highlighting.</dd>      *<dt><code>I</code></dt>      *<dd>(Invert) Invert the contents of the annotation rectangle.</dd>      *<dt><code>O</code></dt>      *<dd>(Outline) Invert the annotation's border.</dd>      *<dt><code>P</code></dt>      *<dd>(Push) Display the annotation's down appearance, if any. If no down appearance is defined, the contents of      * the annotation rectangle shall be offset to appear as if it were pushed below the surface of the page</dd>      *<dt><code>T</code></dt>      *<dd>(Toggle) Same as<code>P</code> (which is preferred).</dd>      *</dl>      *       * @return the highlighting mode      */
 specifier|public
 name|String
 name|getHighlightingMode
@@ -204,7 +204,7 @@ literal|"I"
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the highlighting mode.      *<dl>      *<dt><code>N</code></dt>      *<dd>(None) No highlighting.</dd>      *<dt><code>I</code></dt>      *<dd>(Invert) Invert the contents of the annotation rectangle.</dd>      *<dt><code>O</code></dt>      *<dd>(Outline) Invert the annotation's border.</dd>      *<dt><code>P</code></dt>      *<dd>(Push) Display the annotation's down appearance, if any. If no      *      down appearance is defined, the contents of the annotation rectangle      *      shall be offset to appear as if it were pushed below the surface of      *      the page</dd>      *<dt><code>T</code></dt>      *<dd>(Toggle) Same as<code>P</code> (which is preferred).</dd>      *</dl>      *       * @param highlightingMode the highlighting mode      *  the defined values      */
+comment|/**      * Sets the highlighting mode.      *<dl>      *<dt><code>N</code></dt>      *<dd>(None) No highlighting.</dd>      *<dt><code>I</code></dt>      *<dd>(Invert) Invert the contents of the annotation rectangle.</dd>      *<dt><code>O</code></dt>      *<dd>(Outline) Invert the annotation's border.</dd>      *<dt><code>P</code></dt>      *<dd>(Push) Display the annotation's down appearance, if any. If no down appearance is defined, the contents of      * the annotation rectangle shall be offset to appear as if it were pushed below the surface of the page</dd>      *<dt><code>T</code></dt>      *<dd>(Toggle) Same as<code>P</code> (which is preferred).</dd>      *</dl>      *       * @param highlightingMode the highlighting mode the defined values      */
 specifier|public
 name|void
 name|setHighlightingMode
@@ -385,7 +385,7 @@ name|action
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the annotation action.      * As of PDF 1.6 this is only used for Widget Annotations      * @param action The annotation action.      */
+comment|/**      * Set the annotation action. As of PDF 1.6 this is only used for Widget Annotations      *       * @param action The annotation action.      */
 specifier|public
 name|void
 name|setAction
@@ -409,7 +409,7 @@ name|action
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the additional actions for this field.  This will return null      * if there are no additional actions for this field.      * As of PDF 1.6 this is only used for Widget Annotations.      *      * @return The actions of the field.      */
+comment|/**      * Get the additional actions for this field. This will return null if there are no additional actions for this      * field. As of PDF 1.6 this is only used for Widget Annotations.      *      * @return The actions of the field.      */
 specifier|public
 name|PDAnnotationAdditionalActions
 name|getActions
@@ -478,7 +478,7 @@ name|actions
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the border style dictionary, specifying the width and dash      * pattern used in drawing the line.      *      * @param bs the border style dictionary to set.      *      */
+comment|/**      * This will set the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @param bs the border style dictionary to set.      *      */
 specifier|public
 name|void
 name|setBorderStyle
@@ -500,7 +500,7 @@ name|bs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border style dictionary, specifying the width and      * dash pattern used in drawing the line.      *      * @return the border style dictionary.      */
+comment|/**      * This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @return the border style dictionary.      */
 specifier|public
 name|PDBorderStyleDictionary
 name|getBorderStyle
@@ -547,16 +547,16 @@ return|;
 block|}
 block|}
 comment|// TODO where to get acroForm from?
-comment|//    public PDField getParent() throws IOException
-comment|//    {
-comment|//        COSBase parent = this.getCOSObject().getDictionaryObject(COSName.PARENT);
-comment|//        if (parent instanceof COSDictionary)
-comment|//        {
-comment|//            PDAcroForm acroForm = null;
-comment|//            return PDFieldFactory.createField(acroForm, (COSDictionary) parent);
-comment|//        }
-comment|//        return null;
-comment|//    }
+comment|// public PDField getParent() throws IOException
+comment|// {
+comment|// COSBase parent = this.getCOSObject().getDictionaryObject(COSName.PARENT);
+comment|// if (parent instanceof COSDictionary)
+comment|// {
+comment|// PDAcroForm acroForm = null;
+comment|// return PDFieldFactory.createField(acroForm, (COSDictionary) parent);
+comment|// }
+comment|// return null;
+comment|// }
 block|}
 end_class
 

@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a rubber stamp annotation.  * Introduced in PDF 1.3 specification  *  * @author Paul King  */
+comment|/**  * This is the class that represents a rubber stamp annotation. Introduced in PDF 1.3 specification  *  * @author Paul King  */
 end_comment
 
 begin_class
@@ -58,7 +58,7 @@ name|PDAnnotationRubberStamp
 extends|extends
 name|PDAnnotationMarkup
 block|{
-comment|/*      * The various values of the rubber stamp as defined in      * the PDF 1.6 reference Table 8.28      */
+comment|/*      * The various values of the rubber stamp as defined in the PDF 1.6 reference Table 8.28      */
 comment|/**      * Constant for the name of a rubber stamp.      */
 specifier|public
 specifier|static
@@ -220,7 +220,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a Rubber Stamp annotation from a COSDictionary, expected to be      * a correct object definition.      *      * @param field the PDF objet to represent as a field.      */
+comment|/**      * Creates a Rubber Stamp annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF objet to represent as a field.      */
 specifier|public
 name|PDAnnotationRubberStamp
 parameter_list|(
@@ -234,7 +234,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the name (and hence appearance, AP taking precedence)      * For this annotation.   See the NAME_XXX constants for valid values.      *      * @param name The name of the rubber stamp.      */
+comment|/**      * This will set the name (and hence appearance, AP taking precedence) For this annotation. See the NAME_XXX      * constants for valid values.      *      * @param name The name of the rubber stamp.      */
 specifier|public
 name|void
 name|setName
@@ -256,7 +256,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the name (and hence appearance, AP taking precedence)      * For this annotation.  The default is DRAFT.      *      * @return The name of this rubber stamp, see the NAME_XXX constants.      */
+comment|/**      * This will retrieve the name (and hence appearance, AP taking precedence) For this annotation. The default is      * DRAFT.      *      * @return The name of this rubber stamp, see the NAME_XXX constants.      */
 specifier|public
 name|String
 name|getName

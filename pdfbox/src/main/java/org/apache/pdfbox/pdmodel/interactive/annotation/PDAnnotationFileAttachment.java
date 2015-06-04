@@ -157,7 +157,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a Link annotation from a COSDictionary, expected to be      * a correct object definition.      *      * @param field the PDF objet to represent as a field.      */
+comment|/**      * Creates a Link annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF objet to represent as a field.      */
 specifier|public
 name|PDAnnotationFileAttachment
 parameter_list|(
@@ -214,7 +214,7 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This is the name used to draw the type of attachment.      * See the ATTACHMENT_NAME_XXX constants.      *      * @return The name that describes the visual cue for the attachment.      */
+comment|/**      * This is the name used to draw the type of attachment. See the ATTACHMENT_NAME_XXX constants.      *      * @return The name that describes the visual cue for the attachment.      */
 specifier|public
 name|String
 name|getAttachmentName
@@ -232,7 +232,7 @@ name|ATTACHMENT_NAME_PUSH_PIN
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the name used to draw the attachement icon.      * See the ATTACHMENT_NAME_XXX constants.      *      * @param name The name of the visual icon to draw.      */
+comment|/**      * Set the name used to draw the attachement icon. See the ATTACHMENT_NAME_XXX constants.      *      * @param name The name of the visual icon to draw.      */
 specifier|public
 name|void
 name|setAttachementName

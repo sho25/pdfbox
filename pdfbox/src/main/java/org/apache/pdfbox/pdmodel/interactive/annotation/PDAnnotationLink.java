@@ -241,7 +241,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a Link annotation from a COSDictionary, expected to be      * a correct object definition.      *      * @param field the PDF objet to represent as a field.      */
+comment|/**      * Creates a Link annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF objet to represent as a field.      */
 specifier|public
 name|PDAnnotationLink
 parameter_list|(
@@ -288,7 +288,7 @@ name|action
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the annotation action.      * As of PDF 1.6 this is only used for Widget Annotations      * @param action The annotation action.      * TODO not all annotations have an A entry      */
+comment|/**      * Set the annotation action. As of PDF 1.6 this is only used for Widget Annotations      *       * @param action The annotation action. TODO not all annotations have an A entry      */
 specifier|public
 name|void
 name|setAction
@@ -312,7 +312,7 @@ name|action
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the border style dictionary, specifying the width and dash      * pattern used in drawing the line.      *      * @param bs the border style dictionary to set.      * TODO not all annotations may have a BS entry      *      */
+comment|/**      * This will set the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @param bs the border style dictionary to set. TODO not all annotations may have a BS entry      *      */
 specifier|public
 name|void
 name|setBorderStyle
@@ -336,7 +336,7 @@ name|bs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border style dictionary, specifying the width and      * dash pattern used in drawing the line.      *      * @return the border style dictionary.      */
+comment|/**      * This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @return the border style dictionary.      */
 specifier|public
 name|PDBorderStyleDictionary
 name|getBorderStyle
@@ -382,7 +382,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Get the destination to be displayed when the annotation is activated.  Either      * this or the A should be set but not both.      *      * @return The destination for this annotation.      *      * @throws IOException If there is an error creating the destination.      */
+comment|/**      * Get the destination to be displayed when the annotation is activated. Either this or the A should be set but not      * both.      *      * @return The destination for this annotation.      *      * @throws IOException If there is an error creating the destination.      */
 specifier|public
 name|PDDestination
 name|getDestination
@@ -439,7 +439,7 @@ name|dest
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the highlight mode for when the mouse is depressed.      * See the HIGHLIGHT_MODE_XXX constants.      *      * @return The string representation of the highlight mode.      */
+comment|/**      * Set the highlight mode for when the mouse is depressed. See the HIGHLIGHT_MODE_XXX constants.      *      * @return The string representation of the highlight mode.      */
 specifier|public
 name|String
 name|getHighlightMode
@@ -459,7 +459,7 @@ name|HIGHLIGHT_MODE_INVERT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the highlight mode.  See the HIGHLIGHT_MODE_XXX constants.      *      * @param mode The new highlight mode.      */
+comment|/**      * Set the highlight mode. See the HIGHLIGHT_MODE_XXX constants.      *      * @param mode The new highlight mode.      */
 specifier|public
 name|void
 name|setHighlightMode
@@ -481,7 +481,7 @@ name|mode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the previous URI action, in case it      * needs to be retrieved at later date.      *      * @param pa The previous URI.      */
+comment|/**      * This will set the previous URI action, in case it needs to be retrieved at later date.      *      * @param pa The previous URI.      */
 specifier|public
 name|void
 name|setPreviousURI
@@ -501,7 +501,7 @@ name|pa
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the previous URI action, in case it's      * needed.      *      * @return The previous URI.      */
+comment|/**      * This will set the previous URI action, in case it's needed.      *      * @return The previous URI.      */
 specifier|public
 name|PDActionURI
 name|getPreviousURI
@@ -543,7 +543,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * This will set the set of quadpoints which encompass the areas of this      * annotation which will activate.      *      * @param quadPoints      *            an array representing the set of area covered.      */
+comment|/**      * This will set the set of quadpoints which encompass the areas of this annotation which will activate.      *      * @param quadPoints an array representing the set of area covered.      */
 specifier|public
 name|void
 name|setQuadPoints
@@ -578,7 +578,7 @@ name|newQuadPoints
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the set of quadpoints which encompass the areas of      * this annotation which will activate.      *      * @return An array of floats representing the quad points.      */
+comment|/**      * This will retrieve the set of quadpoints which encompass the areas of this annotation which will activate.      *      * @return An array of floats representing the quad points.      */
 specifier|public
 name|float
 index|[]

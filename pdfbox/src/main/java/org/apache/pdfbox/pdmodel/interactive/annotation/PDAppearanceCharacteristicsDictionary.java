@@ -260,7 +260,7 @@ operator|=
 name|dict
 expr_stmt|;
 block|}
-comment|/**      * returns the dictionary.      * @return the dictionary      */
+comment|/**      * returns the dictionary.      *       * @return the dictionary      */
 annotation|@
 name|Override
 specifier|public
@@ -274,7 +274,7 @@ operator|.
 name|dictionary
 return|;
 block|}
-comment|/**      * This will retrieve the rotation of the annotation widget.      * It must be a multiple of 90. Default is 0       * @return the rotation      */
+comment|/**      * This will retrieve the rotation of the annotation widget. It must be a multiple of 90. Default is 0      *       * @return the rotation      */
 specifier|public
 name|int
 name|getRotation

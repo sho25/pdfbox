@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An entry in an appearance dictionary. May contain either a single appearance stream or an  * appearance subdictionary.  *  * @author John Hewson  */
+comment|/**  * An entry in an appearance dictionary. May contain either a single appearance stream or an appearance subdictionary.  *  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -146,7 +146,7 @@ specifier|private
 name|PDAppearanceEntry
 parameter_list|()
 block|{     }
-comment|/**      * Constructor for reading.      * @param entry      */
+comment|/**      * Constructor for reading.      *       * @param entry      */
 specifier|public
 name|PDAppearanceEntry
 parameter_list|(

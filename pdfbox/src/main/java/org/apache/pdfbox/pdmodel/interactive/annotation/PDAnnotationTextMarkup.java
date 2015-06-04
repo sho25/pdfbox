@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the abstract class that represents a text markup annotation  * Introduced in PDF 1.3 specification, except Squiggly lines in 1.4.  *  * @author Paul King  */
+comment|/**  * This is the abstract class that represents a text markup annotation Introduced in PDF 1.3 specification, except  * Squiggly lines in 1.4.  *  * @author Paul King  */
 end_comment
 
 begin_class
@@ -141,7 +141,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a TextMarkup annotation from a COSDictionary, expected to be a      * correct object definition.      *      * @param field the PDF objet to represent as a field.      */
+comment|/**      * Creates a TextMarkup annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF objet to represent as a field.      */
 specifier|public
 name|PDAnnotationTextMarkup
 parameter_list|(
@@ -155,7 +155,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the set of quadpoints which encompass the areas of this      * annotation.      *      * @param quadPoints      *            an array representing the set of area covered      */
+comment|/**      * This will set the set of quadpoints which encompass the areas of this annotation.      *      * @param quadPoints an array representing the set of area covered      */
 specifier|public
 name|void
 name|setQuadPoints
@@ -192,7 +192,7 @@ name|newQuadPoints
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the set of quadpoints which encompass the areas of      * this annotation.      *      * @return An array of floats representing the quad points.      */
+comment|/**      * This will retrieve the set of quadpoints which encompass the areas of this annotation.      *      * @return An array of floats representing the quad points.      */
 specifier|public
 name|float
 index|[]
@@ -237,7 +237,7 @@ return|;
 comment|// Should never happen as this is a required item
 block|}
 block|}
-comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For      * this annotation. See the SUB_TYPE_XXX constants for valid values.      *      * @param subType The subtype of the annotation      */
+comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For this annotation. See the SUB_TYPE_XXX      * constants for valid values.      *      * @param subType The subtype of the annotation      */
 specifier|public
 name|void
 name|setSubtype
@@ -259,7 +259,7 @@ name|subType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence)      * For this annotation.      *      * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
+comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence) For this annotation.      *      * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
 specifier|public
 name|String
 name|getSubtype

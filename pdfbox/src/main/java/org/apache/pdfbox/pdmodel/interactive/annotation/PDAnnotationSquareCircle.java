@@ -96,7 +96,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a rectangular or eliptical annotation  * Introduced in PDF 1.3 specification .  *  * @author Paul King  */
+comment|/**  * This is the class that represents a rectangular or eliptical annotation Introduced in PDF 1.3 specification .  *  * @author Paul King  */
 end_comment
 
 begin_class
@@ -124,7 +124,7 @@ name|SUB_TYPE_CIRCLE
 init|=
 literal|"Circle"
 decl_stmt|;
-comment|/**      * Creates a Circle or Square annotation of the specified sub type.      *      * @param subType the subtype the annotation represents.          */
+comment|/**      * Creates a Circle or Square annotation of the specified sub type.      *      * @param subType the subtype the annotation represents.      */
 specifier|public
 name|PDAnnotationSquareCircle
 parameter_list|(
@@ -141,7 +141,7 @@ name|subType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a Line annotation from a COSDictionary, expected to be a correct      * object definition.      *      * @param field      *            the PDF objet to represent as a field.      */
+comment|/**      * Creates a Line annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF objet to represent as a field.      */
 specifier|public
 name|PDAnnotationSquareCircle
 parameter_list|(
@@ -155,7 +155,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set interior color of the drawn area      * color is in DeviceRGB colo rspace.      *      * @param ic color in the DeviceRGB color space.      *      */
+comment|/**      * This will set interior color of the drawn area color is in DeviceRGB colo rspace.      *      * @param ic color in the DeviceRGB color space.      *      */
 specifier|public
 name|void
 name|setInteriorColor
@@ -180,7 +180,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the interior color of the drawn area      * color is in DeviceRGB color space.      *      * @return  object representing the color.      */
+comment|/**      * This will retrieve the interior color of the drawn area color is in DeviceRGB color space.      *      * @return object representing the color.      */
 specifier|public
 name|PDColor
 name|getInteriorColor
@@ -195,7 +195,7 @@ name|IC
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the border effect dictionary, specifying effects to be applied      * when drawing the line.      *      * @param be The border effect dictionary to set.      *      */
+comment|/**      * This will set the border effect dictionary, specifying effects to be applied when drawing the line.      *      * @param be The border effect dictionary to set.      *      */
 specifier|public
 name|void
 name|setBorderEffect
@@ -217,7 +217,7 @@ name|be
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border effect dictionary, specifying effects to be      * applied used in drawing the line.      *      * @return The border effect dictionary      */
+comment|/**      * This will retrieve the border effect dictionary, specifying effects to be applied used in drawing the line.      *      * @return The border effect dictionary      */
 specifier|public
 name|PDBorderEffectDictionary
 name|getBorderEffect
@@ -261,7 +261,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * This will set the rectangle difference rectangle. Giving the difference      * between the annotations rectangle and where the drawing occurs.          * (To take account of any effects applied through the BE entry forexample)      *      * @param rd the rectangle difference      *      */
+comment|/**      * This will set the rectangle difference rectangle. Giving the difference between the annotations rectangle and      * where the drawing occurs. (To take account of any effects applied through the BE entry forexample)      *      * @param rd the rectangle difference      *      */
 specifier|public
 name|void
 name|setRectDifference
@@ -283,7 +283,7 @@ name|rd
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the rectangle difference rectangle. Giving the difference      * between the annotations rectangle and where the drawing occurs.          * (To take account of any effects applied through the BE entry forexample)      *      * @return the rectangle difference      */
+comment|/**      * This will get the rectangle difference rectangle. Giving the difference between the annotations rectangle and      * where the drawing occurs. (To take account of any effects applied through the BE entry forexample)      *      * @return the rectangle difference      */
 specifier|public
 name|PDRectangle
 name|getRectDifference
@@ -327,7 +327,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For      * this annotation. See the SUB_TYPE_XXX constants for valid values.      *      * @param subType The subtype of the annotation      */
+comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For this annotation. See the SUB_TYPE_XXX      * constants for valid values.      *      * @param subType The subtype of the annotation      */
 specifier|public
 name|void
 name|setSubtype
@@ -349,7 +349,7 @@ name|subType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence)      * For this annotation.      *      * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
+comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence) For this annotation.      *      * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
 annotation|@
 name|Override
 specifier|public
@@ -369,7 +369,7 @@ name|SUBTYPE
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the border style dictionary, specifying the width and dash      * pattern used in drawing the line.      *      * @param bs the border style dictionary to set.      * TODO not all annotations may have a BS entry      *      */
+comment|/**      * This will set the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @param bs the border style dictionary to set. TODO not all annotations may have a BS entry      *      */
 specifier|public
 name|void
 name|setBorderStyle
@@ -393,7 +393,7 @@ name|bs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border style dictionary, specifying the width and      * dash pattern used in drawing the line.      *      * @return the border style dictionary.      * TODO not all annotations may have a BS entry      */
+comment|/**      * This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @return the border style dictionary. TODO not all annotations may have a BS entry      */
 specifier|public
 name|PDBorderStyleDictionary
 name|getBorderStyle

@@ -60,7 +60,7 @@ name|PDBorderEffectDictionary
 implements|implements
 name|COSObjectable
 block|{
-comment|/*      * The various values of the effect applied to the border as defined in the      * PDF 1.6 reference Table 8.14      */
+comment|/*      * The various values of the effect applied to the border as defined in the PDF 1.6 reference Table 8.14      */
 comment|/**      * Constant for the name for no effect.      */
 specifier|public
 specifier|static
@@ -96,7 +96,7 @@ name|COSDictionary
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param dict      *            a border style dictionary.      */
+comment|/**      * Constructor.      *      * @param dict a border style dictionary.      */
 specifier|public
 name|PDBorderEffectDictionary
 parameter_list|(
@@ -121,7 +121,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * This will set the intensity of the applied effect.      *      * @param i      *            the intensity of the effect values 0 to 2      */
+comment|/**      * This will set the intensity of the applied effect.      *      * @param i the intensity of the effect values 0 to 2      */
 specifier|public
 name|void
 name|setIntensity
@@ -159,7 +159,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the border effect, see the STYLE_* constants for valid values.      *      * @param s      *            the border effect to use      */
+comment|/**      * This will set the border effect, see the STYLE_* constants for valid values.      *      * @param s the border effect to use      */
 specifier|public
 name|void
 name|setStyle
@@ -179,7 +179,7 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border effect, see the STYLE_* constants for valid      * values.      *      * @return the effect of the border      */
+comment|/**      * This will retrieve the border effect, see the STYLE_* constants for valid values.      *      * @return the effect of the border      */
 specifier|public
 name|String
 name|getStyle

@@ -58,7 +58,7 @@ name|PDAnnotationText
 extends|extends
 name|PDAnnotationMarkup
 block|{
-comment|/*      * The various values of the Text as defined in the PDF 1.7 reference Table      * 172      */
+comment|/*      * The various values of the Text as defined in the PDF 1.7 reference Table 172      */
 comment|/**      * Constant for the name of a text annotation.      */
 specifier|public
 specifier|static
@@ -157,7 +157,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a Text annotation from a COSDictionary, expected to be a correct      * object definition.      *      * @param field      *            the PDF object to represent as a field.      */
+comment|/**      * Creates a Text annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF object to represent as a field.      */
 specifier|public
 name|PDAnnotationText
 parameter_list|(
@@ -171,7 +171,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set initial state of the annotation, open or closed.      *      * @param open      *            Boolean value, true = open false = closed      */
+comment|/**      * This will set initial state of the annotation, open or closed.      *      * @param open Boolean value, true = open false = closed      */
 specifier|public
 name|void
 name|setOpen
@@ -196,7 +196,7 @@ name|open
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the initial state of the annotation, open Or closed      * (default closed).      *      * @return The initial state, true = open false = closed      */
+comment|/**      * This will retrieve the initial state of the annotation, open Or closed (default closed).      *      * @return The initial state, true = open false = closed      */
 specifier|public
 name|boolean
 name|getOpen
@@ -219,7 +219,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the name (and hence appearance, AP taking precedence) For      * this annotation. See the NAME_XXX constants for valid values.      *      * @param name      *            The name of the annotation      */
+comment|/**      * This will set the name (and hence appearance, AP taking precedence) For this annotation. See the NAME_XXX      * constants for valid values.      *      * @param name The name of the annotation      */
 specifier|public
 name|void
 name|setName
@@ -241,7 +241,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the name (and hence appearance, AP taking precedence)      * For this annotation. The default is NOTE.      *      * @return The name of this annotation, see the NAME_XXX constants.      */
+comment|/**      * This will retrieve the name (and hence appearance, AP taking precedence) For this annotation. The default is      * NOTE.      *      * @return The name of this annotation, see the NAME_XXX constants.      */
 specifier|public
 name|String
 name|getName
@@ -281,7 +281,7 @@ name|STATE
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the annotation state.      *       * @param state the annotation state       */
+comment|/**      * This will set the annotation state.      *       * @param state the annotation state      */
 specifier|public
 name|void
 name|setState
@@ -325,7 +325,7 @@ name|STATE_MODEL
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the annotation state model.      * Allowed values are "Marked" and "Review"      *       * @param stateModel the annotation state model      */
+comment|/**      * This will set the annotation state model. Allowed values are "Marked" and "Review"      *       * @param stateModel the annotation state model      */
 specifier|public
 name|void
 name|setStateModel

@@ -58,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a popup annotation.  * Introduced in PDF 1.3 specification  *  * @author Paul King  */
+comment|/**  * This is the class that represents a popup annotation. Introduced in PDF 1.3 specification  *  * @author Paul King  */
 end_comment
 
 begin_class
@@ -103,7 +103,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a popup annotation from a COSDictionary, expected to be a correct      * object definition.      *      * @param field      *            the PDF objet to represent as a field.      */
+comment|/**      * Creates a popup annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF objet to represent as a field.      */
 specifier|public
 name|PDAnnotationPopup
 parameter_list|(
@@ -117,7 +117,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set inital state of the annotation, open or closed.      *      * @param open      *            Boolean value, true = open false = closed.      */
+comment|/**      * This will set inital state of the annotation, open or closed.      *      * @param open Boolean value, true = open false = closed.      */
 specifier|public
 name|void
 name|setOpen
@@ -137,7 +137,7 @@ name|open
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the initial state of the annotation, open Or closed      * (default closed).      *      * @return The initial state, true = open false = closed.      */
+comment|/**      * This will retrieve the initial state of the annotation, open Or closed (default closed).      *      * @return The initial state, true = open false = closed.      */
 specifier|public
 name|boolean
 name|getOpen
@@ -155,7 +155,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the markup annotation which this popup relates to.      *      * @param annot      *            the markup annotation.      */
+comment|/**      * This will set the markup annotation which this popup relates to.      *      * @param annot the markup annotation.      */
 specifier|public
 name|void
 name|setParent

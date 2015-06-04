@@ -104,7 +104,7 @@ operator|new
 name|COSDictionary
 argument_list|()
 expr_stmt|;
-comment|//the N entry is required.
+comment|// the N entry is required.
 name|dictionary
 operator|.
 name|setItem
@@ -145,7 +145,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * This will return a list of appearances.  In the case where there is      * only one appearance the map will contain one entry whose key is the string      * "default".      *      * @return A list of key(java.lang.String) value(PDAppearanceStream) pairs      */
+comment|/**      * This will return a list of appearances. In the case where there is only one appearance the map will contain one      * entry whose key is the string "default".      *      * @return A list of key(java.lang.String) value(PDAppearanceStream) pairs      */
 specifier|public
 name|PDAppearanceEntry
 name|getNormalAppearance
@@ -185,7 +185,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * This will set a list of appearances.  If you would like to set the single      * appearance then you should use the key "default", and when the PDF is written      * back to the filesystem then there will only be one stream.      *      * @param entry appearance stream or subdictionary      */
+comment|/**      * This will set a list of appearances. If you would like to set the single appearance then you should use the key      * "default", and when the PDF is written back to the filesystem then there will only be one stream.      *      * @param entry appearance stream or subdictionary      */
 specifier|public
 name|void
 name|setNormalAppearance
@@ -206,7 +206,7 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the normal appearance when there is only one appearance      * to be shown.      *      * @param ap The appearance stream to show.      */
+comment|/**      * This will set the normal appearance when there is only one appearance to be shown.      *      * @param ap The appearance stream to show.      */
 specifier|public
 name|void
 name|setNormalAppearance
@@ -227,7 +227,7 @@ name|ap
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return a list of appearances.  In the case where there is      * only one appearance the map will contain one entry whose key is the string      * "default".  If there is no rollover appearance then the normal appearance      * will be returned.  Which means that this method will never return null.      *      * @return A list of key(java.lang.String) value(PDAppearanceStream) pairs      */
+comment|/**      * This will return a list of appearances. In the case where there is only one appearance the map will contain one      * entry whose key is the string "default". If there is no rollover appearance then the normal appearance will be      * returned. Which means that this method will never return null.      *      * @return A list of key(java.lang.String) value(PDAppearanceStream) pairs      */
 specifier|public
 name|PDAppearanceEntry
 name|getRolloverAppearance
@@ -268,7 +268,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * This will set a list of appearances.  If you would like to set the single      * appearance then you should use the key "default", and when the PDF is written      * back to the filesystem then there will only be one stream.      *      * @param entry appearance stream or subdictionary      */
+comment|/**      * This will set a list of appearances. If you would like to set the single appearance then you should use the key      * "default", and when the PDF is written back to the filesystem then there will only be one stream.      *      * @param entry appearance stream or subdictionary      */
 specifier|public
 name|void
 name|setRolloverAppearance
@@ -289,7 +289,7 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the rollover appearance when there is rollover appearance      * to be shown.      *      * @param ap The appearance stream to show.      */
+comment|/**      * This will set the rollover appearance when there is rollover appearance to be shown.      *      * @param ap The appearance stream to show.      */
 specifier|public
 name|void
 name|setRolloverAppearance
@@ -310,7 +310,7 @@ name|ap
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return a list of appearances.  In the case where there is      * only one appearance the map will contain one entry whose key is the string      * "default".  If there is no rollover appearance then the normal appearance      * will be returned.  Which means that this method will never return null.      *      * @return A list of key(java.lang.String) value(PDAppearanceStream) pairs      */
+comment|/**      * This will return a list of appearances. In the case where there is only one appearance the map will contain one      * entry whose key is the string "default". If there is no rollover appearance then the normal appearance will be      * returned. Which means that this method will never return null.      *      * @return A list of key(java.lang.String) value(PDAppearanceStream) pairs      */
 specifier|public
 name|PDAppearanceEntry
 name|getDownAppearance
@@ -351,7 +351,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * This will set a list of appearances.  If you would like to set the single      * appearance then you should use the key "default", and when the PDF is written      * back to the filesystem then there will only be one stream.      *      * @param entry appearance stream or subdictionary      */
+comment|/**      * This will set a list of appearances. If you would like to set the single appearance then you should use the key      * "default", and when the PDF is written back to the filesystem then there will only be one stream.      *      * @param entry appearance stream or subdictionary      */
 specifier|public
 name|void
 name|setDownAppearance
@@ -372,7 +372,7 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the down appearance when there is down appearance      * to be shown.      *      * @param ap The appearance stream to show.      */
+comment|/**      * This will set the down appearance when there is down appearance to be shown.      *      * @param ap The appearance stream to show.      */
 specifier|public
 name|void
 name|setDownAppearance

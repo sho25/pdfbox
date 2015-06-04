@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a line annotation.  * Introduced in PDF 1.3 specification  *  * @author Paul King  */
+comment|/**  * This is the class that represents a line annotation. Introduced in PDF 1.3 specification  *  * @author Paul King  */
 end_comment
 
 begin_class
@@ -104,7 +104,7 @@ name|PDAnnotationLine
 extends|extends
 name|PDAnnotationMarkup
 block|{
-comment|/*      * The various values for intent (get/setIT, see the PDF 1.6 reference Table      * 8.22      */
+comment|/*      * The various values for intent (get/setIT, see the PDF 1.6 reference Table 8.22      */
 comment|/**      * Constant for annotation intent of Arrow.      */
 specifier|public
 specifier|static
@@ -123,7 +123,7 @@ name|IT_LINE_DIMENSION
 init|=
 literal|"LineDimension"
 decl_stmt|;
-comment|/*      * The various values for line ending styles, see the PDF 1.6 reference      * Table 8.23      */
+comment|/*      * The various values for line ending styles, see the PDF 1.6 reference Table 8.23      */
 comment|/**      * Constant for a square line ending.      */
 specifier|public
 specifier|static
@@ -266,7 +266,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a Line annotation from a COSDictionary, expected to be a correct      * object definition.      *      * @param field      *            the PDF object to represent as a field.      */
+comment|/**      * Creates a Line annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF object to represent as a field.      */
 specifier|public
 name|PDAnnotationLine
 parameter_list|(
@@ -280,7 +280,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set start and end coordinates of the line (or leader line if LL      * entry is set).      *      * @param l      *            array of 4 floats [x1, y1, x2, y2] line start and end points      *            in default user space.      */
+comment|/**      * This will set start and end coordinates of the line (or leader line if LL entry is set).      *      * @param l array of 4 floats [x1, y1, x2, y2] line start and end points in default user space.      */
 specifier|public
 name|void
 name|setLine
@@ -317,7 +317,7 @@ name|newL
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the start and end coordinates of the line (or leader      * line if LL entry is set).      *      * @return array of floats [x1, y1, x2, y2] line start and end points in      *         default user space.      */
+comment|/**      * This will retrieve the start and end coordinates of the line (or leader line if LL entry is set).      *      * @return array of floats [x1, y1, x2, y2] line start and end points in default user space.      */
 specifier|public
 name|float
 index|[]
@@ -347,7 +347,7 @@ name|toFloatArray
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the line ending style for the start point,      * see the LE_ constants for the possible values.      *      * @param style The new style.      */
+comment|/**      * This will set the line ending style for the start point, see the LE_ constants for the possible values.      *      * @param style The new style.      */
 specifier|public
 name|void
 name|setStartPointEndingStyle
@@ -447,7 +447,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will retrieve the line ending style for the start point,      * possible values shown in the LE_ constants section.      *      * @return The ending style for the start point.      */
+comment|/**      * This will retrieve the line ending style for the start point, possible values shown in the LE_ constants section.      *      * @return The ending style for the start point.      */
 specifier|public
 name|String
 name|getStartPointEndingStyle
@@ -495,7 +495,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the line ending style for the end point,      * see the LE_ constants for the possible values.      *      * @param style The new style.      */
+comment|/**      * This will set the line ending style for the end point, see the LE_ constants for the possible values.      *      * @param style The new style.      */
 specifier|public
 name|void
 name|setEndPointEndingStyle
@@ -595,7 +595,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will retrieve the line ending style for the end point,      * possible values shown in the LE_ constants section.      *      * @return The ending style for the end point.      */
+comment|/**      * This will retrieve the line ending style for the end point, possible values shown in the LE_ constants section.      *      * @return The ending style for the end point.      */
 specifier|public
 name|String
 name|getEndPointEndingStyle
@@ -643,7 +643,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set interior color of the line endings defined in the LE      * entry. color is in DeviceRGB color space.      *      * @param ic color in the DeviceRGB color space.      */
+comment|/**      * This will set interior color of the line endings defined in the LE entry. color is in DeviceRGB color space.      *      * @param ic color in the DeviceRGB color space.      */
 specifier|public
 name|void
 name|setInteriorColor
@@ -668,7 +668,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the interior color of the line endings defined in the      * LE entry. color is in DeviceRGB color space.      *      * @return object representing the color.      */
+comment|/**      * This will retrieve the interior color of the line endings defined in the LE entry. color is in DeviceRGB color      * space.      *      * @return object representing the color.      */
 specifier|public
 name|PDColor
 name|getInteriorColor
@@ -683,7 +683,7 @@ name|IC
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set if the contents are shown as a caption to the line.      *      * @param cap      *            Boolean value.      */
+comment|/**      * This will set if the contents are shown as a caption to the line.      *      * @param cap Boolean value.      */
 specifier|public
 name|void
 name|setCaption
@@ -725,7 +725,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the border style dictionary, specifying the width and dash      * pattern used in drawing the line.      *      * @param bs the border style dictionary to set.      *      */
+comment|/**      * This will set the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @param bs the border style dictionary to set.      *      */
 specifier|public
 name|void
 name|setBorderStyle
@@ -749,7 +749,7 @@ name|bs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border style dictionary, specifying the width and      * dash pattern used in drawing the line.      *      * @return the border style dictionary.      */
+comment|/**      * This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @return the border style dictionary.      */
 specifier|public
 name|PDBorderStyleDictionary
 name|getBorderStyle
@@ -947,7 +947,7 @@ name|CP
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the caption positioning.      * Allowed values are: "Inline" and "Top"      *       * @param captionPositioning caption positioning      */
+comment|/**      * This will set the caption positioning. Allowed values are: "Inline" and "Top"      *       * @param captionPositioning caption positioning      */
 specifier|public
 name|void
 name|setCaptionPositioning

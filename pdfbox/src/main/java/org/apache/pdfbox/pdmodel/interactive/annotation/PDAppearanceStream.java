@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An appearance stream is a form XObject, a self-contained content stream that shall be rendered  * inside the annotation rectangle.  *  * @author Ben Litchfield  * @author John Hewson  */
+comment|/**  * An appearance stream is a form XObject, a self-contained content stream that shall be rendered inside the annotation  * rectangle.  *  * @author Ben Litchfield  * @author John Hewson  */
 end_comment
 
 begin_class
@@ -92,7 +92,7 @@ name|PDAppearanceStream
 extends|extends
 name|PDFormXObject
 block|{
-comment|/**      * Creates a Form XObject for reading.      * @param stream The XObject stream      */
+comment|/**      * Creates a Form XObject for reading.      *       * @param stream The XObject stream      */
 specifier|public
 name|PDAppearanceStream
 parameter_list|(
@@ -110,7 +110,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a Form Image XObject for writing, in the given document.      * @param document The current document      */
+comment|/**      * Creates a Form Image XObject for writing, in the given document.      *       * @param document The current document      */
 specifier|public
 name|PDAppearanceStream
 parameter_list|(

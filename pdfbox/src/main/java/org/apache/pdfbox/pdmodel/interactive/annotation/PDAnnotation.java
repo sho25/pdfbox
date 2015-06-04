@@ -1034,7 +1034,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Returns the annotations appearance state, which selects the applicable appearance stream      * from an appearance subdictionary.      */
+comment|/**      * Returns the annotations appearance state, which selects the applicable appearance stream from an appearance      * subdictionary.      */
 specifier|public
 name|COSName
 name|getAppearanceState
@@ -1200,7 +1200,7 @@ name|ap
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the appearance stream for this annotation, if any. The annotation state is taken      * into account, if present.      */
+comment|/**      * Returns the appearance stream for this annotation, if any. The annotation state is taken into account, if      * present.      */
 specifier|public
 name|PDAppearanceStream
 name|getNormalAppearanceStream
@@ -1859,7 +1859,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the color used in drawing various elements. As of PDF      * 1.6 these are :      *<ul>      *<li>Background of icon when closed</li>      *<li>Title bar of popup window</li>      *<li>Border of a link annotation</li></ul>      *      * @return Color object representing the colour      *       */
+comment|/**      * This will retrieve the color used in drawing various elements. As of PDF 1.6 these are :      *<ul>      *<li>Background of icon when closed</li>      *<li>Title bar of popup window</li>      *<li>Border of a link annotation</li>      *</ul>      *      * @return Color object representing the colour      *       */
 specifier|public
 name|PDColor
 name|getColor
