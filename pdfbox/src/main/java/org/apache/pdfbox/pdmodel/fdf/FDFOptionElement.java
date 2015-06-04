@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents an object that can be used in a Field's Opt entry to represent  * an available option and a default appearance string.  *  * @author Ben Litchfield  */
+comment|/**  * This represents an object that can be used in a Field's Opt entry to represent an available option and a default  * appearance string.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -157,7 +157,7 @@ return|return
 name|option
 return|;
 block|}
-comment|/**      * This will get the string of one of the available options.  A required element.      *      * @return An available option.      */
+comment|/**      * This will get the string of one of the available options. A required element.      *      * @return An available option.      */
 specifier|public
 name|String
 name|getOption
@@ -203,7 +203,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the string of default appearance string.  A required element.      *      * @return A default appearance string.      */
+comment|/**      * This will get the string of default appearance string. A required element.      *      * @return A default appearance string.      */
 specifier|public
 name|String
 name|getDefaultAppearanceString

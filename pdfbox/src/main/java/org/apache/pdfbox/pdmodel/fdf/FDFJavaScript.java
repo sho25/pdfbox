@@ -404,7 +404,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the dictionary's "Doc" entry, that is, a map of key value pairs to be added to      * the document's JavaScript name tree.      *       * @return Map of named "JavaScript" dictionaries.      */
+comment|/**      * Returns the dictionary's "Doc" entry, that is, a map of key value pairs to be added to the document's JavaScript      * name tree.      *       * @return Map of named "JavaScript" dictionaries.      */
 specifier|public
 name|Map
 argument_list|<

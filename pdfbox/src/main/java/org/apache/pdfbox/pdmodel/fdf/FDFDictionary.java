@@ -1375,7 +1375,7 @@ return|return
 name|fdf
 return|;
 block|}
-comment|/**      * The source file or target file: the PDF document file that      * this FDF file was exported from or is intended to be imported into.      *      * @return The F entry of the FDF dictionary.      *      * @throws IOException If there is an error creating the file spec.      */
+comment|/**      * The source file or target file: the PDF document file that this FDF file was exported from or is intended to be      * imported into.      *      * @return The F entry of the FDF dictionary.      *      * @throws IOException If there is an error creating the file spec.      */
 specifier|public
 name|PDFileSpecification
 name|getFile
@@ -1461,7 +1461,7 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the list of FDF Fields.  This will return a list of FDFField      * objects.      *      * @return A list of FDF fields.      */
+comment|/**      * This will get the list of FDF Fields. This will return a list of FDFField objects.      *      * @return A list of FDF fields.      */
 specifier|public
 name|List
 argument_list|<
@@ -1569,7 +1569,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of fields.  This should be a list of FDFField objects.      *      * @param fields The list of fields.      */
+comment|/**      * This will set the list of fields. This should be a list of FDFField objects.      *      * @param fields The list of fields.      */
 specifier|public
 name|void
 name|setFields
@@ -1598,7 +1598,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the status string to be displayed as the result of an      * action.      *      * @return The status.      */
+comment|/**      * This will get the status string to be displayed as the result of an action.      *      * @return The status.      */
 specifier|public
 name|String
 name|getStatus
@@ -1636,7 +1636,7 @@ name|status
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the list of FDF Pages.  This will return a list of FDFPage objects.      *      * @return A list of FDF pages.      */
+comment|/**      * This will get the list of FDF Pages. This will return a list of FDFPage objects.      *      * @return A list of FDF pages.      */
 specifier|public
 name|List
 argument_list|<
@@ -1744,7 +1744,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of pages.  This should be a list of FDFPage objects.      *      *      * @param pages The list of pages.      */
+comment|/**      * This will set the list of pages. This should be a list of FDFPage objects.      *      *      * @param pages The list of pages.      */
 specifier|public
 name|void
 name|setPages
@@ -1773,7 +1773,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The encoding to be used for a FDF field.  The default is PDFDocEncoding      * and this method will never return null.      *      * @return The encoding value.      */
+comment|/**      * The encoding to be used for a FDF field. The default is PDFDocEncoding and this method will never return null.      *      * @return The encoding value.      */
 specifier|public
 name|String
 name|getEncoding
@@ -1828,7 +1828,7 @@ name|encoding
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the list of FDF Annotations.  This will return a list of FDFAnnotation objects      * or null if the entry is not set.      *      * @return A list of FDF annotations.      *      * @throws IOException If there is an error creating the annotation list.      */
+comment|/**      * This will get the list of FDF Annotations. This will return a list of FDFAnnotation objects or null if the entry      * is not set.      *      * @return A list of FDF annotations.      *      * @throws IOException If there is an error creating the annotation list.      */
 specifier|public
 name|List
 argument_list|<
@@ -1939,7 +1939,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of annotations.  This should be a list of FDFAnnotation objects.      *      *      * @param annots The list of annotations.      */
+comment|/**      * This will set the list of annotations. This should be a list of FDFAnnotation objects.      *      *      * @param annots The list of annotations.      */
 specifier|public
 name|void
 name|setAnnotations
@@ -2047,7 +2047,7 @@ name|target
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the list of embedded FDF entries, or null if the entry is null.      * This will return a list of PDFileSpecification objects.      *      * @return A list of embedded FDF files.      *      * @throws IOException If there is an error creating the file spec.      */
+comment|/**      * This will get the list of embedded FDF entries, or null if the entry is null. This will return a list of      * PDFileSpecification objects.      *      * @return A list of embedded FDF files.      *      * @throws IOException If there is an error creating the file spec.      */
 specifier|public
 name|List
 argument_list|<
@@ -2155,7 +2155,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of embedded FDFs.  This should be a list of      * PDFileSpecification objects.      *      *      * @param embedded The list of embedded FDFs.      */
+comment|/**      * This will set the list of embedded FDFs. This should be a list of PDFileSpecification objects.      *      *      * @param embedded The list of embedded FDFs.      */
 specifier|public
 name|void
 name|setEmbeddedFDFs

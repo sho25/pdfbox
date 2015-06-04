@@ -284,7 +284,7 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      *  @param element An XFDF element.      *      *  @throws IOException If there is an error extracting information from the element.      */
+comment|/**      * Constructor.      *      * @param element An XFDF element.      *      * @throws IOException If there is an error extracting information from the element.      */
 specifier|public
 name|FDFAnnotationInk
 parameter_list|(
@@ -502,7 +502,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Set the paths making up the freehand "scribble".      *       * The ink annotation is made up of one ore more disjoint paths. Each array entry is an array       * representing a stroked path, being a series of alternating horizontal and vertical coordinates      * in default user space.      *       * @param inklist the List of arrays representing the paths.      */
+comment|/**      * Set the paths making up the freehand "scribble".      *       * The ink annotation is made up of one ore more disjoint paths. Each array entry is an array representing a stroked      * path, being a series of alternating horizontal and vertical coordinates in default user space.      *       * @param inklist the List of arrays representing the paths.      */
 specifier|public
 name|void
 name|setInkList

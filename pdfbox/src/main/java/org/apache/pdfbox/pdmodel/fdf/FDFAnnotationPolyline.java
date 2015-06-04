@@ -242,7 +242,7 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      *  @param element An XFDF element.      *      *  @throws IOException If there is an error extracting information from the element.      */
+comment|/**      * Constructor.      *      * @param element An XFDF element.      *      * @throws IOException If there is an error extracting information from the element.      */
 specifier|public
 name|FDFAnnotationPolyline
 parameter_list|(

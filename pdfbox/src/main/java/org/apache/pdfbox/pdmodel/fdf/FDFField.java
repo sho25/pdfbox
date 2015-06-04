@@ -715,7 +715,7 @@ return|return
 name|field
 return|;
 block|}
-comment|/**      * This will get the list of kids.  This will return a list of FDFField objects.      * This will return null if the underlying list is null.      *      * @return The list of kids.      */
+comment|/**      * This will get the list of kids. This will return a list of FDFField objects. This will return null if the      * underlying list is null.      *      * @return The list of kids.      */
 specifier|public
 name|List
 argument_list|<
@@ -852,7 +852,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the "T" entry in the field dictionary.  A partial field      * name.  Where the fully qualified field name is a concatenation of      * the parent's fully qualified field name and "." as a separator.  For example<br/>      * Address.State<br />      * Address.City<br />      *      * @return The partial field name.      */
+comment|/**      * This will get the "T" entry in the field dictionary. A partial field name. Where the fully qualified field name      * is a concatenation of the parent's fully qualified field name and "." as a separator. For example<br/>      * Address.State<br />      * Address.City<br />      *      * @return The partial field name.      */
 specifier|public
 name|String
 name|getPartialFieldName
@@ -890,7 +890,7 @@ name|partial
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the value for the field.  This will return type will either be<br />      * String : Checkboxes, Radio Button<br />      * java.util.List of strings: Choice Field      * PDTextStream: Textfields      *      * @return The value of the field.      * @throws IOException If there is an error getting the value.      */
+comment|/**      * This will get the value for the field. This will return type will either be<br />      * String : Checkboxes, Radio Button<br />      * java.util.List of strings: Choice Field PDTextStream: Textfields      *      * @return The value of the field.      * @throws IOException If there is an error getting the value.      */
 specifier|public
 name|Object
 name|getValue
@@ -1074,7 +1074,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * You should pass in a string, or a java.util.List of strings to set the      * value.      *      * @param value The value that should populate when imported.      *      * @throws IOException If there is an error setting the value.      */
+comment|/**      * You should pass in a string, or a java.util.List of strings to set the value.      *      * @param value The value that should populate when imported.      *      * @throws IOException If there is an error setting the value.      */
 specifier|public
 name|void
 name|setValue
@@ -1203,7 +1203,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the Ff entry of the cos dictionary.  If it it not present then      * this method will return null.      *      * @return The field flags.      */
+comment|/**      * This will get the Ff entry of the cos dictionary. If it it not present then this method will return null.      *      * @return The field flags.      */
 specifier|public
 name|Integer
 name|getFieldFlags
@@ -1248,7 +1248,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get the field flags that are associated with this field.  The Ff entry      * in the FDF field dictionary.      *      * @param ff The new value for the field flags.      */
+comment|/**      * This will get the field flags that are associated with this field. The Ff entry in the FDF field dictionary.      *      * @param ff The new value for the field flags.      */
 specifier|public
 name|void
 name|setFieldFlags
@@ -1291,7 +1291,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the field flags that are associated with this field.  The Ff entry      * in the FDF field dictionary.      *      * @param ff The new value for the field flags.      */
+comment|/**      * This will get the field flags that are associated with this field. The Ff entry in the FDF field dictionary.      *      * @param ff The new value for the field flags.      */
 specifier|public
 name|void
 name|setFieldFlags
@@ -1312,7 +1312,7 @@ name|ff
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the SetFf entry of the cos dictionary.  If it it not present then      * this method will return null.      *      * @return The field flags.      */
+comment|/**      * This will get the SetFf entry of the cos dictionary. If it it not present then this method will return null.      *      * @return The field flags.      */
 specifier|public
 name|Integer
 name|getSetFieldFlags
@@ -1357,7 +1357,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get the field flags that are associated with this field.  The SetFf entry      * in the FDF field dictionary.      *      * @param ff The new value for the "set field flags".      */
+comment|/**      * This will get the field flags that are associated with this field. The SetFf entry in the FDF field dictionary.      *      * @param ff The new value for the "set field flags".      */
 specifier|public
 name|void
 name|setSetFieldFlags
@@ -1400,7 +1400,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the field flags that are associated with this field.  The SetFf entry      * in the FDF field dictionary.      *      * @param ff The new value for the "set field flags".      */
+comment|/**      * This will get the field flags that are associated with this field. The SetFf entry in the FDF field dictionary.      *      * @param ff The new value for the "set field flags".      */
 specifier|public
 name|void
 name|setSetFieldFlags
@@ -1421,7 +1421,7 @@ name|ff
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the ClrFf entry of the cos dictionary.  If it it not present then      * this method will return null.      *      * @return The field flags.      */
+comment|/**      * This will get the ClrFf entry of the cos dictionary. If it it not present then this method will return null.      *      * @return The field flags.      */
 specifier|public
 name|Integer
 name|getClearFieldFlags
@@ -1466,7 +1466,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get the field flags that are associated with this field.  The ClrFf entry      * in the FDF field dictionary.      *      * @param ff The new value for the "clear field flags".      */
+comment|/**      * This will get the field flags that are associated with this field. The ClrFf entry in the FDF field dictionary.      *      * @param ff The new value for the "clear field flags".      */
 specifier|public
 name|void
 name|setClearFieldFlags
@@ -1509,7 +1509,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the field flags that are associated with this field.  The ClrFf entry      * in the FDF field dictionary.      *      * @param ff The new value for the "clear field flags".      */
+comment|/**      * This will get the field flags that are associated with this field. The ClrFf entry in the FDF field dictionary.      *      * @param ff The new value for the "clear field flags".      */
 specifier|public
 name|void
 name|setClearFieldFlags
@@ -1530,7 +1530,7 @@ name|ff
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the F entry of the cos dictionary.  If it it not present then      * this method will return null.      *      * @return The widget field flags.      */
+comment|/**      * This will get the F entry of the cos dictionary. If it it not present then this method will return null.      *      * @return The widget field flags.      */
 specifier|public
 name|Integer
 name|getWidgetFieldFlags
@@ -1573,7 +1573,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get the widget field flags that are associated with this field.  The F entry      * in the FDF field dictionary.      *      * @param f The new value for the field flags.      */
+comment|/**      * This will get the widget field flags that are associated with this field. The F entry in the FDF field      * dictionary.      *      * @param f The new value for the field flags.      */
 specifier|public
 name|void
 name|setWidgetFieldFlags
@@ -1616,7 +1616,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the field flags that are associated with this field.  The F entry      * in the FDF field dictionary.      *      * @param f The new value for the field flags.      */
+comment|/**      * This will get the field flags that are associated with this field. The F entry in the FDF field dictionary.      *      * @param f The new value for the field flags.      */
 specifier|public
 name|void
 name|setWidgetFieldFlags
@@ -1637,7 +1637,7 @@ name|f
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the SetF entry of the cos dictionary.  If it it not present then      * this method will return null.      *      * @return The field flags.      */
+comment|/**      * This will get the SetF entry of the cos dictionary. If it it not present then this method will return null.      *      * @return The field flags.      */
 specifier|public
 name|Integer
 name|getSetWidgetFieldFlags
@@ -1682,7 +1682,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get the widget field flags that are associated with this field.  The SetF entry      * in the FDF field dictionary.      *      * @param ff The new value for the "set widget field flags".      */
+comment|/**      * This will get the widget field flags that are associated with this field. The SetF entry in the FDF field      * dictionary.      *      * @param ff The new value for the "set widget field flags".      */
 specifier|public
 name|void
 name|setSetWidgetFieldFlags
@@ -1725,7 +1725,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the widget field flags that are associated with this field.  The SetF entry      * in the FDF field dictionary.      *      * @param ff The new value for the "set widget field flags".      */
+comment|/**      * This will get the widget field flags that are associated with this field. The SetF entry in the FDF field      * dictionary.      *      * @param ff The new value for the "set widget field flags".      */
 specifier|public
 name|void
 name|setSetWidgetFieldFlags
@@ -1746,7 +1746,7 @@ name|ff
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the ClrF entry of the cos dictionary.  If it it not present then      * this method will return null.      *      * @return The widget field flags.      */
+comment|/**      * This will get the ClrF entry of the cos dictionary. If it it not present then this method will return null.      *      * @return The widget field flags.      */
 specifier|public
 name|Integer
 name|getClearWidgetFieldFlags
@@ -1791,7 +1791,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get the field flags that are associated with this field.  The ClrF entry      * in the FDF field dictionary.      *      * @param ff The new value for the "clear widget field flags".      */
+comment|/**      * This will get the field flags that are associated with this field. The ClrF entry in the FDF field dictionary.      *      * @param ff The new value for the "clear widget field flags".      */
 specifier|public
 name|void
 name|setClearWidgetFieldFlags
@@ -1834,7 +1834,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the field flags that are associated with this field.  The ClrF entry      * in the FDF field dictionary.      *      * @param ff The new value for the "clear field flags".      */
+comment|/**      * This will get the field flags that are associated with this field. The ClrF entry in the FDF field dictionary.      *      * @param ff The new value for the "clear field flags".      */
 specifier|public
 name|void
 name|setClearWidgetFieldFlags
@@ -1855,7 +1855,7 @@ name|ff
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the appearance dictionary that specifies the appearance of      * a pushbutton field.      *      * @return The AP entry of this dictionary.      */
+comment|/**      * This will get the appearance dictionary that specifies the appearance of a pushbutton field.      *      * @return The AP entry of this dictionary.      */
 specifier|public
 name|PDAppearanceDictionary
 name|getAppearanceDictionary
@@ -2056,7 +2056,7 @@ name|fit
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return a list of options for a choice field.  The value in the      * list will be 1 of 2 types.  java.lang.String or FDFOptionElement.      *      * @return A list of all options.      */
+comment|/**      * This will return a list of options for a choice field. The value in the list will be 1 of 2 types.      * java.lang.String or FDFOptionElement.      *      * @return A list of all options.      */
 specifier|public
 name|List
 argument_list|<
@@ -2200,7 +2200,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the options for the choice field.  The objects in the list      * should either be java.lang.String or FDFOptionElement.      *      * @param options The options to set.      */
+comment|/**      * This will set the options for the choice field. The objects in the list should either be java.lang.String or      * FDFOptionElement.      *      * @param options The options to set.      */
 specifier|public
 name|void
 name|setOptions
@@ -2280,7 +2280,7 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get a list of additional actions that will get executed based      * on events.      *      * @return The AA entry in this field dictionary.      */
+comment|/**      * This will get a list of additional actions that will get executed based on events.      *      * @return The AA entry in this field dictionary.      */
 specifier|public
 name|PDAdditionalActions
 name|getAdditionalActions

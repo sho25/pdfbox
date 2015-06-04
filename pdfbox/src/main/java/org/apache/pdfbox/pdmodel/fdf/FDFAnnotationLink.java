@@ -67,6 +67,10 @@ name|Element
 import|;
 end_import
 
+begin_comment
+comment|/**  * This represents a Polygon FDF annotation.  */
+end_comment
+
 begin_class
 specifier|public
 class|class
@@ -117,7 +121,7 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      *  @param element An XFDF element.      *      *  @throws IOException If there is an error extracting information from the element.      */
+comment|/**      * Constructor.      *      * @param element An XFDF element.      *      * @throws IOException If there is an error extracting information from the element.      */
 specifier|public
 name|FDFAnnotationLink
 parameter_list|(

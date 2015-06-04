@@ -164,7 +164,7 @@ return|return
 name|page
 return|;
 block|}
-comment|/**      * This will get a list of FDFTemplage objects that describe the named pages      * that serve as templates.      *      * @return A list of templates.      */
+comment|/**      * This will get a list of FDFTemplage objects that describe the named pages that serve as templates.      *      * @return A list of templates.      */
 specifier|public
 name|List
 argument_list|<

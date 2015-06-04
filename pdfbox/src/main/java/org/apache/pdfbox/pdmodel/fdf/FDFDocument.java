@@ -222,7 +222,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the in-memory representation of the FDF document.  You need to call  * close() on this object when you are done using it!!  *  * @author Ben Litchfield  */
+comment|/**  * This is the in-memory representation of the FDF document. You need to call close() on this object when you are done  * using it!!  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -254,7 +254,7 @@ argument_list|(
 literal|1.2f
 argument_list|)
 expr_stmt|;
-comment|//First we need a trailer
+comment|// First we need a trailer
 name|document
 operator|.
 name|setTrailer
@@ -264,7 +264,7 @@ name|COSDictionary
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//Next we need the root dictionary.
+comment|// Next we need the root dictionary.
 name|FDFCatalog
 name|catalog
 init|=
@@ -278,7 +278,7 @@ name|catalog
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor that uses an existing document.  The COSDocument that      * is passed in must be valid.      *      * @param doc The COSDocument that this document wraps.      */
+comment|/**      * Constructor that uses an existing document. The COSDocument that is passed in must be valid.      *      * @param doc The COSDocument that this document wraps.      */
 specifier|public
 name|FDFDocument
 parameter_list|(
@@ -409,7 +409,7 @@ return|return
 name|document
 return|;
 block|}
-comment|/**      * This will get the FDF Catalog.  This is guaranteed to not return null.      *      * @return The documents /Root dictionary      */
+comment|/**      * This will get the FDF Catalog. This is guaranteed to not return null.      *      * @return The documents /Root dictionary      */
 specifier|public
 name|FDFCatalog
 name|getCatalog

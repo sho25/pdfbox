@@ -142,7 +142,7 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * This will get the name of the referenced page.  A required parameter.      *      * @return The name of the referenced page.      */
+comment|/**      * This will get the name of the referenced page. A required parameter.      *      * @return The name of the referenced page.      */
 specifier|public
 name|String
 name|getName
@@ -180,7 +180,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the file specification of this reference.  An optional parameter.      *      * @return The F entry for this dictionary.      *      * @throws IOException If there is an error creating the file spec.      */
+comment|/**      * This will get the file specification of this reference. An optional parameter.      *      * @return The F entry for this dictionary.      *      * @throws IOException If there is an error creating the file spec.      */
 specifier|public
 name|PDFileSpecification
 name|getFileSpecification
