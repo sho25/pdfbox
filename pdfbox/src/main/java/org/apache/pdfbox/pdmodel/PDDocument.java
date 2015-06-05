@@ -279,7 +279,35 @@ name|pdfbox
 operator|.
 name|io
 operator|.
+name|RandomAccessBuffer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
 name|RandomAccessBufferedFileInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
+name|RandomAccessRead
 import|;
 end_import
 
@@ -2969,7 +2997,7 @@ return|return
 name|fontsToSubset
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF.      *       * @param file file to be loaded      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -2992,7 +3020,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF.      *       * @param file file to be loaded      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3022,7 +3050,7 @@ name|useScratchFiles
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF.      *       * @param file file to be loaded      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3052,7 +3080,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param password password to be used for decryption      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF.      *       * @param file file to be loaded      * @param password password to be used for decryption      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3085,7 +3113,7 @@ name|useScratchFiles
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param password password to be used for decryption      * @param keyStore key store to be used for decryption when using public key security       * @param alias alias to be used for decryption when using public key security      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF.      *       * @param file file to be loaded      * @param password password to be used for decryption      * @param keyStore key store to be used for decryption when using public key security       * @param alias alias to be used for decryption when using public key security      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3121,7 +3149,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param file file to be loaded      * @param password password to be used for decryption      * @param keyStore key store to be used for decryption when using public key security       * @param alias alias to be used for decryption when using public key security      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF.      *       * @param file file to be loaded      * @param password password to be used for decryption      * @param keyStore key store to be used for decryption when using public key security       * @param alias alias to be used for decryption when using public key security      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3145,13 +3173,22 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|RandomAccessBufferedFileInputStream
+name|raFile
+init|=
+operator|new
+name|RandomAccessBufferedFileInputStream
+argument_list|(
+name|file
+argument_list|)
+decl_stmt|;
 name|PDFParser
 name|parser
 init|=
 operator|new
 name|PDFParser
 argument_list|(
-name|file
+name|raFile
 argument_list|,
 name|password
 argument_list|,
@@ -3185,7 +3222,7 @@ return|return
 name|doc
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. The given input stream is copied to the memory to enable random access to the pdf.      *       * @param input stream that contains the document.      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3212,7 +3249,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. Depending on the parameter useScratchFiles the given input      * stream is either copied to the memory or to a temporary file to enable      * random access to the pdf.      *       * @param input stream that contains the document.      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3242,7 +3279,7 @@ name|useScratchFiles
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. The given input stream is copied to the memory to enable random access to the pdf.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3272,7 +3309,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      * @param keyStore key store to be used for decryption when using public key security       * @param alias alias to be used for decryption when using public key security      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. The given input stream is copied to the memory to enable random access to the pdf.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      * @param keyStore key store to be used for decryption when using public key security       * @param alias alias to be used for decryption when using public key security      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3308,7 +3345,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. Depending on the parameter useScratchFiles the given input      * stream is either copied to the memory or to a temporary file to enable      * random access to the pdf.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3326,13 +3363,43 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|RandomAccessRead
+name|source
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|useScratchFiles
+condition|)
+block|{
+name|source
+operator|=
+operator|new
+name|RandomAccessBufferedFileInputStream
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|source
+operator|=
+operator|new
+name|RandomAccessBuffer
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+block|}
 name|PDFParser
 name|parser
 init|=
 operator|new
 name|PDFParser
 argument_list|(
-name|input
+name|source
 argument_list|,
 name|password
 argument_list|,
@@ -3355,7 +3422,7 @@ name|getPDDocument
 argument_list|()
 return|;
 block|}
-comment|/**      * Parses PDF with non sequential parser.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      * @param keyStore key store to be used for decryption when using public key security       * @param alias alias to be used for decryption when using public key security      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. Depending on the parameter useScratchFiles the given input      * stream is either copied to the memory or to a temporary file to enable      * random access to the pdf.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      * @param keyStore key store to be used for decryption when using public key security       * @param alias alias to be used for decryption when using public key security      * @param useScratchFiles enables the usage of a scratch file if set to true      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3379,13 +3446,43 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|RandomAccessRead
+name|source
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|useScratchFiles
+condition|)
+block|{
+name|source
+operator|=
+operator|new
+name|RandomAccessBufferedFileInputStream
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|source
+operator|=
+operator|new
+name|RandomAccessBuffer
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+block|}
 name|PDFParser
 name|parser
 init|=
 operator|new
 name|PDFParser
 argument_list|(
-name|input
+name|source
 argument_list|,
 name|password
 argument_list|,

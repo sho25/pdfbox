@@ -81,6 +81,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|io
+operator|.
+name|RandomAccessBufferedFileInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdfparser
 operator|.
 name|PDFParser
@@ -183,7 +197,11 @@ init|=
 operator|new
 name|PDFParser
 argument_list|(
+operator|new
+name|RandomAccessBufferedFileInputStream
+argument_list|(
 name|file
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|parser
@@ -216,7 +234,11 @@ init|=
 operator|new
 name|PDFParser
 argument_list|(
+operator|new
+name|RandomAccessBufferedFileInputStream
+argument_list|(
 name|is
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|parser
@@ -295,6 +317,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Closes the visual signature COSDocument, if any.      *      * @throws IOException if the document could not be closed      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
