@@ -91,16 +91,6 @@ name|javax
 operator|.
 name|activation
 operator|.
-name|DataSource
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|activation
-operator|.
 name|FileDataSource
 import|;
 end_import
@@ -455,11 +445,7 @@ name|status
 operator||=
 name|runSimple
 argument_list|(
-operator|new
-name|FileDataSource
-argument_list|(
 name|file2
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -697,19 +683,6 @@ block|}
 block|}
 else|else
 block|{
-comment|// only one file
-name|FileDataSource
-name|fd
-init|=
-operator|new
-name|FileDataSource
-argument_list|(
-name|args
-index|[
-name|posFile
-index|]
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -723,7 +696,14 @@ name|exit
 argument_list|(
 name|runSimple
 argument_list|(
-name|fd
+operator|new
+name|File
+argument_list|(
+name|args
+index|[
+name|posFile
+index|]
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -745,7 +725,14 @@ name|xrp
 operator|.
 name|validate
 argument_list|(
-name|fd
+operator|new
+name|FileDataSource
+argument_list|(
+name|args
+index|[
+name|posFile
+index|]
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Document
@@ -901,8 +888,8 @@ specifier|static
 name|int
 name|runSimple
 parameter_list|(
-name|DataSource
-name|fd
+name|File
+name|file
 parameter_list|)
 throws|throws
 name|Exception
@@ -916,7 +903,7 @@ init|=
 operator|new
 name|PreflightParser
 argument_list|(
-name|fd
+name|file
 argument_list|)
 decl_stmt|;
 try|try
@@ -982,7 +969,7 @@ name|println
 argument_list|(
 literal|"The file "
 operator|+
-name|fd
+name|file
 operator|.
 name|getName
 argument_list|()
@@ -1011,7 +998,7 @@ name|println
 argument_list|(
 literal|"The file "
 operator|+
-name|fd
+name|file
 operator|.
 name|getName
 argument_list|()
