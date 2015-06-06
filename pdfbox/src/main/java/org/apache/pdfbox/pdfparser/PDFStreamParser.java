@@ -397,8 +397,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-try|try
-block|{
 name|Object
 name|token
 decl_stmt|;
@@ -420,15 +418,6 @@ name|add
 argument_list|(
 name|token
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-finally|finally
-block|{
-name|pdfSource
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

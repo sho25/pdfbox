@@ -851,6 +851,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO move file handling outside of the parser
 name|super
 argument_list|(
 operator|new
@@ -887,6 +888,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO move file handling outside of the parser
 name|this
 argument_list|(
 operator|new
@@ -906,6 +908,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO move file handling outside of the parser
 name|super
 argument_list|(
 operator|new
@@ -3637,11 +3640,6 @@ decl_stmt|;
 name|parser
 operator|.
 name|parse
-argument_list|()
-expr_stmt|;
-name|parser
-operator|.
-name|close
 argument_list|()
 expr_stmt|;
 comment|// get set of object numbers referenced for this object stream

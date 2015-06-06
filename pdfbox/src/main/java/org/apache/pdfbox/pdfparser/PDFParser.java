@@ -590,7 +590,7 @@ argument_list|(
 name|getDocument
 argument_list|()
 argument_list|,
-name|this
+name|pdfSource
 argument_list|,
 name|accessPermission
 argument_list|)
@@ -757,13 +757,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|IOUtils
-operator|.
-name|closeQuietly
-argument_list|(
-name|pdfSource
-argument_list|)
-expr_stmt|;
 name|IOUtils
 operator|.
 name|closeQuietly

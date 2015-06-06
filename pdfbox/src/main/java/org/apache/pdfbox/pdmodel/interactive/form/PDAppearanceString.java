@@ -279,11 +279,6 @@ operator|.
 name|getTokens
 argument_list|()
 expr_stmt|;
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|defaultResources

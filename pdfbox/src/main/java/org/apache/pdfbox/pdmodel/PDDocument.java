@@ -734,11 +734,11 @@ specifier|private
 name|Long
 name|documentId
 decl_stmt|;
-comment|// the PDF parser
+comment|// the pdf to be read
 specifier|private
 specifier|final
-name|BaseParser
-name|parser
+name|RandomAccessRead
+name|pdfSource
 decl_stmt|;
 comment|// the File to read incremental data from
 specifier|private
@@ -798,7 +798,7 @@ argument_list|(
 name|useScratchFiles
 argument_list|)
 expr_stmt|;
-name|parser
+name|pdfSource
 operator|=
 literal|null
 expr_stmt|;
@@ -2491,36 +2491,36 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor that uses an existing document. The COSDocument that is passed in must be valid.      *       * @param doc The COSDocument that this document wraps.      * @param usedParser the parser which is used to read the pdf      */
+comment|/**      * Constructor that uses an existing document. The COSDocument that is passed in must be valid.      *       * @param doc The COSDocument that this document wraps.      * @param source the parser which is used to read the pdf      */
 specifier|public
 name|PDDocument
 parameter_list|(
 name|COSDocument
 name|doc
 parameter_list|,
-name|BaseParser
-name|usedParser
+name|RandomAccessRead
+name|source
 parameter_list|)
 block|{
 name|this
 argument_list|(
 name|doc
 argument_list|,
-name|usedParser
+name|source
 argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor that uses an existing document. The COSDocument that is passed in must be valid.      *       * @param doc The COSDocument that this document wraps.      * @param usedParser the parser which is used to read the pdf      * @param permission he access permissions of the pdf      *       */
+comment|/**      * Constructor that uses an existing document. The COSDocument that is passed in must be valid.      *       * @param doc The COSDocument that this document wraps.      * @param source the parser which is used to read the pdf      * @param permission he access permissions of the pdf      *       */
 specifier|public
 name|PDDocument
 parameter_list|(
 name|COSDocument
 name|doc
 parameter_list|,
-name|BaseParser
-name|usedParser
+name|RandomAccessRead
+name|source
 parameter_list|,
 name|AccessPermission
 name|permission
@@ -2530,9 +2530,9 @@ name|document
 operator|=
 name|doc
 expr_stmt|;
-name|parser
+name|pdfSource
 operator|=
-name|usedParser
+name|source
 expr_stmt|;
 name|accessPermission
 operator|=
@@ -3794,12 +3794,12 @@ expr_stmt|;
 comment|// close the source PDF stream, if we read from one
 if|if
 condition|(
-name|parser
+name|pdfSource
 operator|!=
 literal|null
 condition|)
 block|{
-name|parser
+name|pdfSource
 operator|.
 name|close
 argument_list|()

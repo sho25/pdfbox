@@ -1157,8 +1157,6 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|parser
 operator|.
 name|parse
@@ -1250,15 +1248,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}

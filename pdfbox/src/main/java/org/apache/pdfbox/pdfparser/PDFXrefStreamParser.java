@@ -211,8 +211,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-try|try
-block|{
 name|COSArray
 name|xrefFormat
 init|=
@@ -243,7 +241,7 @@ operator|.
 name|INDEX
 argument_list|)
 decl_stmt|;
-comment|/*              * If Index doesn't exist, we will use the default values.              */
+comment|/*          * If Index doesn't exist, we will use the default values.          */
 if|if
 condition|(
 name|indexArray
@@ -294,7 +292,7 @@ name|Long
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/*              * Populates objNums with all object numbers available              */
+comment|/*          * Populates objNums with all object numbers available          */
 name|Iterator
 argument_list|<
 name|COSBase
@@ -383,7 +381,7 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-comment|/*              * Calculating the size of the line in bytes              */
+comment|/*          * Calculating the size of the line in bytes          */
 name|int
 name|w0
 init|=
@@ -460,7 +458,7 @@ name|type
 init|=
 literal|0
 decl_stmt|;
-comment|/*                  * Grabs the number of bytes specified for the first column in                  * the W array and stores it.                  */
+comment|/*              * Grabs the number of bytes specified for the first column in              * the W array and stores it.              */
 for|for
 control|(
 name|int
@@ -509,7 +507,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-comment|/*                  * 3 different types of entries.                  */
+comment|/*              * 3 different types of entries.              */
 switch|switch
 condition|(
 name|type
@@ -518,7 +516,7 @@ block|{
 case|case
 literal|0
 case|:
-comment|/*                          * Skipping free objects                          */
+comment|/*                      * Skipping free objects                      */
 break|break;
 case|case
 literal|1
@@ -641,7 +639,7 @@ break|break;
 case|case
 literal|2
 case|:
-comment|/*                          * object stored in object stream; 2nd argument is object number of object stream;                          * 3rd argument index of object within object stream                          *                           * For sequential PDFParser we do not need this information                          * because                          * These objects are handled by the dereferenceObjects() method                          * since they're only pointing to object numbers                          *                           * However for XRef aware parsers we have to know which objects contain                          * object streams. We will store this information in normal xref mapping                          * table but add object stream number with minus sign in order to                          * distinguish from file offsets                          */
+comment|/*                      * object stored in object stream; 2nd argument is object number of object stream;                      * 3rd argument index of object within object stream                      *                       * For sequential PDFParser we do not need this information                      * because                      * These objects are handled by the dereferenceObjects() method                      * since they're only pointing to object numbers                      *                       * However for XRef aware parsers we have to know which objects contain                      * object streams. We will store this information in normal xref mapping                      * table but add object stream number with minus sign in order to                      * distinguish from file offsets                      */
 name|int
 name|objstmObjNr
 init|=
@@ -712,15 +710,6 @@ break|break;
 default|default:
 break|break;
 block|}
-block|}
-block|}
-finally|finally
-block|{
-name|pdfSource
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}

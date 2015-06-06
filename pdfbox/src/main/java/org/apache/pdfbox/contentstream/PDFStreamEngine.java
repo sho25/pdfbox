@@ -1884,8 +1884,6 @@ name|getContentStream
 argument_list|()
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|Iterator
 argument_list|<
 name|Object
@@ -1977,15 +1975,6 @@ name|token
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Pushes the given stream's resources, returning the previous resources.      */

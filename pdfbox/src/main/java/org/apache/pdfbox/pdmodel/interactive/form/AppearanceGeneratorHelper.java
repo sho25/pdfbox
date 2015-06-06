@@ -556,11 +556,6 @@ operator|.
 name|getTokens
 argument_list|()
 decl_stmt|;
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 return|return
 name|tokens
 return|;

@@ -3065,11 +3065,6 @@ operator|.
 name|parse
 argument_list|()
 expr_stmt|;
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 comment|// get set of object numbers referenced for this object stream
 specifier|final
 name|Set
@@ -6972,11 +6967,6 @@ decl_stmt|;
 name|parser
 operator|.
 name|parse
-argument_list|()
-expr_stmt|;
-name|parser
-operator|.
-name|close
 argument_list|()
 expr_stmt|;
 block|}

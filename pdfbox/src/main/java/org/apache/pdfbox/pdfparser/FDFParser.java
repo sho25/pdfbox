@@ -479,13 +479,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|IOUtils
-operator|.
-name|closeQuietly
-argument_list|(
-name|pdfSource
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|exceptionOccurred
