@@ -545,19 +545,11 @@ operator|.
 name|parse
 argument_list|()
 expr_stmt|;
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|tokens
-init|=
+return|return
 name|parser
 operator|.
 name|getTokens
 argument_list|()
-decl_stmt|;
-return|return
-name|tokens
 return|;
 block|}
 comment|/**      * Constructs and sets new contents for given appearance stream.      */
