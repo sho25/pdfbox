@@ -80,14 +80,21 @@ name|Closeable
 implements|,
 name|Cloneable
 block|{
-comment|// chunk size is 1kb
+comment|// default chunk size is 1kb
 specifier|private
 specifier|static
 specifier|final
 name|int
-name|CHUNK_SIZE
+name|DEFAULT_CHUNK_SIZE
 init|=
 literal|1024
+decl_stmt|;
+comment|// use the default chunk size
+specifier|private
+name|int
+name|chunck_size
+init|=
+name|DEFAULT_CHUNK_SIZE
 decl_stmt|;
 comment|// list containing all chunks
 specifier|private
@@ -152,7 +159,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|CHUNK_SIZE
+name|chunck_size
 index|]
 expr_stmt|;
 name|bufferList
@@ -183,7 +190,68 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/**      * Create a random access buffer of the given input stream by copying the data.      *       * @param input the input stream to be read      * @throws IOException if something went wrong while copyint the data      */
+comment|/**      * Create a random access buffer using the given byte array.      *       * @param input the byte array to be read      */
+specifier|public
+name|RandomAccessBuffer
+parameter_list|(
+name|byte
+index|[]
+name|input
+parameter_list|)
+block|{
+comment|// this is a special case. The given byte array is used as the one
+comment|// and only chunk.
+name|bufferList
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|byte
+index|[]
+argument_list|>
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|chunck_size
+operator|=
+name|input
+operator|.
+name|length
+expr_stmt|;
+name|currentBuffer
+operator|=
+name|input
+expr_stmt|;
+name|bufferList
+operator|.
+name|add
+argument_list|(
+name|currentBuffer
+argument_list|)
+expr_stmt|;
+name|pointer
+operator|=
+literal|0
+expr_stmt|;
+name|currentBufferPointer
+operator|=
+literal|0
+expr_stmt|;
+name|size
+operator|=
+name|chunck_size
+expr_stmt|;
+name|bufferListIndex
+operator|=
+literal|0
+expr_stmt|;
+name|bufferListMaxIndex
+operator|=
+literal|0
+expr_stmt|;
+block|}
+comment|/**      * Create a random access buffer of the given input stream by copying the data.      *       * @param input the input stream to be read      * @throws IOException if something went wrong while copying the data      */
 specifier|public
 name|RandomAccessBuffer
 parameter_list|(
@@ -448,7 +516,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|CHUNK_SIZE
+name|chunck_size
 index|]
 expr_stmt|;
 name|bufferList
@@ -508,14 +576,14 @@ call|)
 argument_list|(
 name|position
 operator|/
-name|CHUNK_SIZE
+name|chunck_size
 argument_list|)
 expr_stmt|;
 name|currentBufferPointer
 operator|=
 name|position
 operator|%
-name|CHUNK_SIZE
+name|chunck_size
 expr_stmt|;
 name|currentBuffer
 operator|=
@@ -575,7 +643,7 @@ if|if
 condition|(
 name|currentBufferPointer
 operator|>=
-name|CHUNK_SIZE
+name|chunck_size
 condition|)
 block|{
 if|if
@@ -682,7 +750,7 @@ decl_stmt|;
 name|long
 name|remainingBytes
 init|=
-name|CHUNK_SIZE
+name|chunck_size
 operator|-
 name|currentBufferPointer
 decl_stmt|;
@@ -698,7 +766,7 @@ argument_list|()
 expr_stmt|;
 name|remainingBytes
 operator|=
-name|CHUNK_SIZE
+name|chunck_size
 expr_stmt|;
 block|}
 if|if
@@ -760,7 +828,7 @@ name|int
 operator|)
 name|remainingBytes2Read
 operator|/
-name|CHUNK_SIZE
+name|chunck_size
 decl_stmt|;
 for|for
 control|(
@@ -792,23 +860,23 @@ name|b
 argument_list|,
 name|newOffset
 argument_list|,
-name|CHUNK_SIZE
+name|chunck_size
 argument_list|)
 expr_stmt|;
 name|newOffset
 operator|+=
-name|CHUNK_SIZE
+name|chunck_size
 expr_stmt|;
 name|currentBufferPointer
 operator|=
-name|CHUNK_SIZE
+name|chunck_size
 expr_stmt|;
 block|}
 name|remainingBytes2Read
 operator|=
 name|remainingBytes2Read
 operator|%
-name|CHUNK_SIZE
+name|chunck_size
 expr_stmt|;
 comment|// are there still some bytes to be read?
 if|if
@@ -916,14 +984,14 @@ if|if
 condition|(
 name|currentBufferPointer
 operator|>=
-name|CHUNK_SIZE
+name|chunck_size
 condition|)
 block|{
 if|if
 condition|(
 name|pointer
 operator|+
-name|CHUNK_SIZE
+name|chunck_size
 operator|>=
 name|Integer
 operator|.
@@ -980,14 +1048,14 @@ if|if
 condition|(
 name|currentBufferPointer
 operator|>=
-name|CHUNK_SIZE
+name|chunck_size
 condition|)
 block|{
 if|if
 condition|(
 name|pointer
 operator|+
-name|CHUNK_SIZE
+name|chunck_size
 operator|>=
 name|Integer
 operator|.
@@ -1040,7 +1108,7 @@ decl_stmt|;
 name|long
 name|remainingBytes
 init|=
-name|CHUNK_SIZE
+name|chunck_size
 operator|-
 name|currentBufferPointer
 decl_stmt|;
@@ -1116,7 +1184,7 @@ name|int
 operator|)
 name|remainingBytes2Write
 operator|/
-name|CHUNK_SIZE
+name|chunck_size
 decl_stmt|;
 for|for
 control|(
@@ -1151,12 +1219,12 @@ name|int
 operator|)
 name|currentBufferPointer
 argument_list|,
-name|CHUNK_SIZE
+name|chunck_size
 argument_list|)
 expr_stmt|;
 name|newOffset
 operator|+=
-name|CHUNK_SIZE
+name|chunck_size
 expr_stmt|;
 block|}
 comment|// are there still some bytes to be written?
@@ -1167,7 +1235,7 @@ operator|*
 operator|(
 name|long
 operator|)
-name|CHUNK_SIZE
+name|chunck_size
 expr_stmt|;
 if|if
 condition|(
@@ -1286,7 +1354,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|CHUNK_SIZE
+name|chunck_size
 index|]
 expr_stmt|;
 name|bufferList
