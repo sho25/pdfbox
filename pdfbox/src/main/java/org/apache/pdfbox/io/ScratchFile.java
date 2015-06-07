@@ -73,20 +73,6 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSStream
-import|;
-end_import
-
 begin_comment
 comment|/**  * A temporary file which can hold multiple buffers of temporary data. A new temporary file is created for each new  * {@link ScratchFile} instance, and is deleted when the {@link ScratchFile} is closed.  *<p>  * Multiple buffers can be creating by calling the {@link #createBuffer()} method.  *<p>  * The file is split into pages, each page containing a pointer to the previous and next pages. This allows for  * multiple, separate streams in the same file.  *  * @author Jesse Long  */
 end_comment
@@ -108,7 +94,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|COSStream
+name|ScratchFile
 operator|.
 name|class
 argument_list|)
