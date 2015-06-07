@@ -284,7 +284,7 @@ specifier|private
 name|boolean
 name|isClosed
 decl_stmt|;
-comment|/**       * Create a random access input stream instance for the file with the given name.      *      * @param the filename of the file to be read      * @exception if the given file can't be found      */
+comment|/**      * Create a random access input stream instance for the file with the given name.      *      * @param filename the filename of the file to be read.      * @throws FileNotFoundException if the given file can't be found.      */
 specifier|public
 name|RandomAccessBufferedFileInputStream
 parameter_list|(
@@ -321,7 +321,7 @@ name|length
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**       * Create a random access input stream instance for the given file.      *      * @param the file to be read      * @exception if the given file can't be found      */
+comment|/**       * Create a random access input stream instance for the given file.      *      * @param file the file to be read.      * @throws FileNotFoundException if the given file can't be found.      */
 specifier|public
 name|RandomAccessBufferedFileInputStream
 parameter_list|(
@@ -349,7 +349,7 @@ name|length
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**       * Create a random access input stream for the given input stream       * by copying the data to a temporary file.      *       * @param the input stream to be read      * @exception if something went wrong while creating the temporary file      */
+comment|/**      * Create a random access input stream for the given input stream by copying the data to a      * temporary file.      *      * @param input the input stream to be read.      * @throws IOException if something went wrong while creating the temporary file.      */
 specifier|public
 name|RandomAccessBufferedFileInputStream
 parameter_list|(
@@ -484,7 +484,7 @@ return|return
 name|fileOffset
 return|;
 block|}
-comment|/**      * Seeks to new position. If new position is outside of current page the new      * page is either taken from cache or read from file and added to cache.      */
+comment|/**      * Seeks to new position. If new position is outside of current page the new page is either      * taken from cache or read from file and added to cache.      *      * @param newOffset the position to seek to.      * @throws java.io.IOException if something went wrong.      */
 annotation|@
 name|Override
 specifier|public
