@@ -284,7 +284,7 @@ specifier|private
 name|boolean
 name|isClosed
 decl_stmt|;
-comment|/**      * Create a random access input stream instance for the file with the given name.      *      * @param filename the filename of the file to be read.      * @throws FileNotFoundException if the given file can't be found.      */
+comment|/**      * Create a random access input stream instance for the file with the given name.      *      * @param filename the filename of the file to be read.      * @throws IOException if something went wrong while accessing the given file.      */
 specifier|public
 name|RandomAccessBufferedFileInputStream
 parameter_list|(
@@ -292,36 +292,19 @@ name|String
 name|filename
 parameter_list|)
 throws|throws
-name|FileNotFoundException
+name|IOException
 block|{
-name|File
-name|file
-init|=
+name|this
+argument_list|(
 operator|new
 name|File
 argument_list|(
 name|filename
 argument_list|)
-decl_stmt|;
-name|raFile
-operator|=
-operator|new
-name|RandomAccessFile
-argument_list|(
-name|file
-argument_list|,
-literal|"r"
 argument_list|)
 expr_stmt|;
-name|fileLength
-operator|=
-name|file
-operator|.
-name|length
-argument_list|()
-expr_stmt|;
 block|}
-comment|/**       * Create a random access input stream instance for the given file.      *      * @param file the file to be read.      * @throws FileNotFoundException if the given file can't be found.      */
+comment|/**       * Create a random access input stream instance for the given file.      *      * @param file the file to be read.      * @throws IOException if something went wrong while accessing the given file.      */
 specifier|public
 name|RandomAccessBufferedFileInputStream
 parameter_list|(
@@ -329,7 +312,7 @@ name|File
 name|file
 parameter_list|)
 throws|throws
-name|FileNotFoundException
+name|IOException
 block|{
 name|raFile
 operator|=
@@ -347,6 +330,11 @@ name|file
 operator|.
 name|length
 argument_list|()
+expr_stmt|;
+name|seek
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Create a random access input stream for the given input stream by copying the data to a      * temporary file.      *      * @param input the input stream to be read.      * @throws IOException if something went wrong while creating the temporary file.      */
@@ -381,6 +369,11 @@ argument_list|(
 name|tempFile
 argument_list|,
 literal|"r"
+argument_list|)
+expr_stmt|;
+name|seek
+argument_list|(
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
