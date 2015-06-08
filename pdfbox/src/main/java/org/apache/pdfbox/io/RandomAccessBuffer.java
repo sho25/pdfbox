@@ -92,7 +92,7 @@ decl_stmt|;
 comment|// use the default chunk size
 specifier|private
 name|int
-name|chunck_size
+name|chunkSize
 init|=
 name|DEFAULT_CHUNK_SIZE
 decl_stmt|;
@@ -159,7 +159,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|chunck_size
+name|chunkSize
 index|]
 expr_stmt|;
 name|bufferList
@@ -213,7 +213,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|chunck_size
+name|chunkSize
 operator|=
 name|input
 operator|.
@@ -240,7 +240,7 @@ literal|0
 expr_stmt|;
 name|size
 operator|=
-name|chunck_size
+name|chunkSize
 expr_stmt|;
 name|bufferListIndex
 operator|=
@@ -516,7 +516,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|chunck_size
+name|chunkSize
 index|]
 expr_stmt|;
 name|bufferList
@@ -576,14 +576,14 @@ call|)
 argument_list|(
 name|position
 operator|/
-name|chunck_size
+name|chunkSize
 argument_list|)
 expr_stmt|;
 name|currentBufferPointer
 operator|=
 name|position
 operator|%
-name|chunck_size
+name|chunkSize
 expr_stmt|;
 name|currentBuffer
 operator|=
@@ -643,7 +643,7 @@ if|if
 condition|(
 name|currentBufferPointer
 operator|>=
-name|chunck_size
+name|chunkSize
 condition|)
 block|{
 if|if
@@ -750,7 +750,7 @@ decl_stmt|;
 name|long
 name|remainingBytes
 init|=
-name|chunck_size
+name|chunkSize
 operator|-
 name|currentBufferPointer
 decl_stmt|;
@@ -766,7 +766,7 @@ argument_list|()
 expr_stmt|;
 name|remainingBytes
 operator|=
-name|chunck_size
+name|chunkSize
 expr_stmt|;
 block|}
 if|if
@@ -828,7 +828,7 @@ name|int
 operator|)
 name|remainingBytes2Read
 operator|/
-name|chunck_size
+name|chunkSize
 decl_stmt|;
 for|for
 control|(
@@ -860,23 +860,23 @@ name|b
 argument_list|,
 name|newOffset
 argument_list|,
-name|chunck_size
+name|chunkSize
 argument_list|)
 expr_stmt|;
 name|newOffset
 operator|+=
-name|chunck_size
+name|chunkSize
 expr_stmt|;
 name|currentBufferPointer
 operator|=
-name|chunck_size
+name|chunkSize
 expr_stmt|;
 block|}
 name|remainingBytes2Read
 operator|=
 name|remainingBytes2Read
 operator|%
-name|chunck_size
+name|chunkSize
 expr_stmt|;
 comment|// are there still some bytes to be read?
 if|if
@@ -984,14 +984,14 @@ if|if
 condition|(
 name|currentBufferPointer
 operator|>=
-name|chunck_size
+name|chunkSize
 condition|)
 block|{
 if|if
 condition|(
 name|pointer
 operator|+
-name|chunck_size
+name|chunkSize
 operator|>=
 name|Integer
 operator|.
@@ -1048,14 +1048,14 @@ if|if
 condition|(
 name|currentBufferPointer
 operator|>=
-name|chunck_size
+name|chunkSize
 condition|)
 block|{
 if|if
 condition|(
 name|pointer
 operator|+
-name|chunck_size
+name|chunkSize
 operator|>=
 name|Integer
 operator|.
@@ -1108,7 +1108,7 @@ decl_stmt|;
 name|long
 name|remainingBytes
 init|=
-name|chunck_size
+name|chunkSize
 operator|-
 name|currentBufferPointer
 decl_stmt|;
@@ -1184,7 +1184,7 @@ name|int
 operator|)
 name|remainingBytes2Write
 operator|/
-name|chunck_size
+name|chunkSize
 decl_stmt|;
 for|for
 control|(
@@ -1219,12 +1219,12 @@ name|int
 operator|)
 name|currentBufferPointer
 argument_list|,
-name|chunck_size
+name|chunkSize
 argument_list|)
 expr_stmt|;
 name|newOffset
 operator|+=
-name|chunck_size
+name|chunkSize
 expr_stmt|;
 block|}
 comment|// are there still some bytes to be written?
@@ -1235,7 +1235,7 @@ operator|*
 operator|(
 name|long
 operator|)
-name|chunck_size
+name|chunkSize
 expr_stmt|;
 if|if
 condition|(
@@ -1354,7 +1354,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|chunck_size
+name|chunkSize
 index|]
 expr_stmt|;
 name|bufferList
