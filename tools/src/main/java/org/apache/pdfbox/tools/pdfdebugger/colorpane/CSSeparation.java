@@ -336,7 +336,9 @@ init|=
 operator|new
 name|Font
 argument_list|(
-literal|"Monospaced"
+name|Font
+operator|.
+name|MONOSPACED
 argument_list|,
 name|Font
 operator|.
@@ -428,7 +430,9 @@ argument_list|(
 operator|new
 name|Font
 argument_list|(
-literal|"Monospaced"
+name|Font
+operator|.
+name|MONOSPACED
 argument_list|,
 name|Font
 operator|.
@@ -454,7 +458,9 @@ argument_list|(
 operator|new
 name|Font
 argument_list|(
-literal|"Monospaced"
+name|Font
+operator|.
+name|MONOSPACED
 argument_list|,
 name|Font
 operator|.
@@ -480,7 +486,9 @@ argument_list|(
 operator|new
 name|Font
 argument_list|(
-literal|"Monospaced"
+name|Font
+operator|.
+name|MONOSPACED
 argument_list|,
 name|Font
 operator|.
