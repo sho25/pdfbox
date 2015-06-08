@@ -323,7 +323,7 @@ specifier|private
 name|AccessPermission
 name|accessPermission
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param input source representing the pdf.      * @throws IOException If something went wrong.      */
+comment|/**      * Constructor.      *       * @param source source representing the pdf.      * @throws IOException If something went wrong.      */
 specifier|public
 name|PDFParser
 parameter_list|(
