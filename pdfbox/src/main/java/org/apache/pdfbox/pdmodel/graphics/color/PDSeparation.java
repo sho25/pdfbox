@@ -300,7 +300,7 @@ name|NULL
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new Separation color space from a PDF color space array.      * @param separation an array containing all separation information      */
+comment|/**      * Creates a new Separation color space from a PDF color space array.      * @param separation an array containing all separation information.      * @throws IOException if the color space or the function could not be created.      */
 specifier|public
 name|PDSeparation
 parameter_list|(
