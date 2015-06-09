@@ -2590,7 +2590,11 @@ init|=
 operator|new
 name|PageWrapper
 argument_list|(
-name|this
+name|getBottomStatusPanel
+argument_list|()
+operator|.
+name|getStatusLabel
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|wrapper

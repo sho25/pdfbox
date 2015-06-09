@@ -47,20 +47,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|tools
-operator|.
-name|PDFReader
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|swing
@@ -125,6 +111,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|swing
+operator|.
+name|JLabel
+import|;
+end_import
+
 begin_comment
 comment|/**  * A class to handle some prettyness around a single PDF page.  * @author Ben Litchfield  */
 end_comment
@@ -152,10 +148,9 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
-name|PDFReader
-name|reader
-init|=
-literal|null
+specifier|final
+name|JLabel
+name|statusLabel
 decl_stmt|;
 specifier|private
 specifier|static
@@ -165,19 +160,21 @@ name|SPACE_AROUND_DOCUMENT
 init|=
 literal|20
 decl_stmt|;
-comment|/**      * Constructor.      * @param aReader The reader application that holds this page.      * @throws IOException If there is an error creating the page drawing objects.      */
+comment|/**      * Constructor.      * @param statusLabel The status label to use for status messages.      * @throws IOException If there is an error creating the page drawing objects.      */
 specifier|public
 name|PageWrapper
 parameter_list|(
-name|PDFReader
-name|aReader
+name|JLabel
+name|statusLabel
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|reader
+name|this
+operator|.
+name|statusLabel
 operator|=
-name|aReader
+name|statusLabel
 expr_stmt|;
 name|pagePanel
 operator|=
@@ -337,13 +334,7 @@ name|MouseEvent
 name|e
 parameter_list|)
 block|{
-name|reader
-operator|.
-name|getBottomStatusPanel
-argument_list|()
-operator|.
-name|getStatusLabel
-argument_list|()
+name|statusLabel
 operator|.
 name|setText
 argument_list|(
