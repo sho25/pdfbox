@@ -21,6 +21,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|awt
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|io
 operator|.
 name|File
@@ -79,20 +89,6 @@ name|FileFilter
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|tools
-operator|.
-name|PDFDebugger
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author Khyrul Bashar  *  * A Customized class that helps to open and save file. It uses JFileChooser to operate.  */
 end_comment
@@ -104,7 +100,7 @@ name|FileOpenSaveDialog
 block|{
 specifier|private
 specifier|final
-name|PDFDebugger
+name|Component
 name|mainUI
 decl_stmt|;
 specifier|private
@@ -190,7 +186,7 @@ comment|/**      * Constructor.      * @param parentUI the main UI (JFrame) on t
 specifier|public
 name|FileOpenSaveDialog
 parameter_list|(
-name|PDFDebugger
+name|Component
 name|parentUI
 parameter_list|,
 name|FileFilter
