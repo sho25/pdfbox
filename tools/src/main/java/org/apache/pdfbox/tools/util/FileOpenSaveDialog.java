@@ -105,6 +105,7 @@ class|class
 name|FileOpenSaveDialog
 block|{
 specifier|private
+specifier|final
 name|PDFDebugger
 name|mainUI
 decl_stmt|;
