@@ -497,6 +497,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|swing
+operator|.
+name|filechooser
+operator|.
+name|FileFilter
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1418,7 +1430,7 @@ name|ActionEvent
 name|evt
 parameter_list|)
 block|{
-name|ExtensionFileFilter
+name|FileFilter
 name|pdfFilter
 init|=
 operator|new

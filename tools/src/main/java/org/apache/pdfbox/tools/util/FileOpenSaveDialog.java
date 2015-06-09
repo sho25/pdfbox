@@ -69,15 +69,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|swing
 operator|.
-name|pdfbox
+name|filechooser
 operator|.
-name|tools
-operator|.
-name|ExtensionFileFilter
+name|FileFilter
 import|;
 end_import
 
@@ -195,7 +193,7 @@ parameter_list|(
 name|PDFDebugger
 name|parentUI
 parameter_list|,
-name|ExtensionFileFilter
+name|FileFilter
 name|fileFilter
 parameter_list|)
 block|{
