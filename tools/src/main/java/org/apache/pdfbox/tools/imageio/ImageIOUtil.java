@@ -984,6 +984,8 @@ parameter_list|,
 name|String
 name|formatName
 parameter_list|)
+throws|throws
+name|IIOInvalidTreeException
 block|{
 name|IIOMetadataNode
 name|root
@@ -1083,8 +1085,6 @@ name|res
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|metadata
 operator|.
 name|mergeTree
@@ -1096,22 +1096,6 @@ argument_list|,
 name|root
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IIOInvalidTreeException
-name|e
-parameter_list|)
-block|{
-comment|// should never happen
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 end_class
