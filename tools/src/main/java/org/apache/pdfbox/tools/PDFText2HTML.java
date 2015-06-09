@@ -225,11 +225,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buf
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|INITIAL_PDF_TO_HTML_BYTES
 argument_list|)
@@ -257,13 +257,19 @@ operator|.
 name|append
 argument_list|(
 literal|"<title>"
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|escape
 argument_list|(
 name|getTitle
 argument_list|()
 argument_list|)
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|"</title>\n"
 argument_list|)
 expr_stmt|;
@@ -642,7 +648,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes the paragraph end "</p>" to the output. Furthermore, it will also clear the font state.      *       * {@inheritDoc}      */
+comment|/**      * Writes the paragraph end "&lt;/p&gt;" to the output. Furthermore, it will also clear the font state.      *       * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|protected
