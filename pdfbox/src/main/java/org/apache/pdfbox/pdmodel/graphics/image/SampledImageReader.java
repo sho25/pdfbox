@@ -1168,12 +1168,7 @@ operator|=
 operator|new
 name|RandomAccessBuffer
 argument_list|(
-operator|(
-operator|(
-name|PDMemoryStream
-operator|)
 name|stream
-operator|)
 operator|.
 name|getByteArray
 argument_list|()
