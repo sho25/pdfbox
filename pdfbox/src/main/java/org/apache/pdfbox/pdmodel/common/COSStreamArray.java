@@ -161,6 +161,20 @@ name|ICOSVisitor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
+name|RandomAccessRead
+import|;
+end_import
+
 begin_comment
 comment|/**  * This will take an array of streams and sequence them together.  *  * @author Ben Litchfield  */
 end_comment
@@ -255,7 +269,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get an object from this streams dictionary.      *      * @param key The key to the object.      *      * @return The dictionary object with the key or null if one does not exist.      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -275,7 +289,7 @@ name|key
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get an object from this streams dictionary and dereference it      * if necessary.      *      * @param key The key to the object.      *      * @return The dictionary object with the key or null if one does not exist.      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -317,7 +331,7 @@ return|return
 name|firstStream
 return|;
 block|}
-comment|/**      * This will get the stream with all of the filters applied.      *      * @return the bytes of the physical (endoced) stream      *      * @throws IOException when encoding/decoding causes an exception      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -335,7 +349,25 @@ literal|"Error: Not allowed to get filtered stream from array of streams."
 argument_list|)
 throw|;
 block|}
-comment|/**      * This will get the logical content stream with none of the filters.      *      * @return the bytes of the logical (decoded) stream      *      * @throws IOException when encoding/decoding causes an exception      */
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|RandomAccessRead
+name|getFilteredRandomAccess
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error: Not allowed to get filtered stream from array of streams."
+argument_list|)
+throw|;
+block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -437,7 +469,26 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException if the output could not be written      */
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|RandomAccessRead
+name|getUnfilteredRandomAccess
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// TODO
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Not yet implemented."
+argument_list|)
+throw|;
+block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -459,7 +510,7 @@ name|visitor
 argument_list|)
 return|;
 block|}
-comment|/**      * This will return the filters to apply to the byte stream      * the method will return.      * - null if no filters are to be applied      * - a COSName if one filter is to be applied      * - a COSArray containing COSNames if multiple filters are to be applied      *      * @return the COSBase object representing the filters      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -474,7 +525,7 @@ name|getFilters
 argument_list|()
 return|;
 block|}
-comment|/**      * This will create a new stream for which filtered byte should be      * written to.  You probably don't want this but want to use the      * createUnfilteredStream, which is used to write raw bytes to.      *      * @return A stream that can be written to.      *      * @throws IOException If there is an error creating the stream.      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -491,7 +542,7 @@ name|createFilteredStream
 argument_list|()
 return|;
 block|}
-comment|/**      * This will create a new stream for which filtered byte should be      * written to.  You probably don't want this but want to use the      * createUnfilteredStream, which is used to write raw bytes to.      *      * @param expectedLength An entry where a length is expected.      *      * @return A stream that can be written to.      *      * @throws IOException If there is an error creating the stream.      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -513,7 +564,7 @@ name|expectedLength
 argument_list|)
 return|;
 block|}
-comment|/**      * set the filters to be applied to the stream.      *      * @param filters The filters to set on this stream.      *      * @throws IOException If there is an error clearing the old filters.      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -536,7 +587,7 @@ name|filters
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will create an output stream that can be written to.      *      * @return An output stream which raw data bytes should be written to.      *      * @throws IOException If there is an error creating the stream.      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
