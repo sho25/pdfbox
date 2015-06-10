@@ -187,7 +187,7 @@ name|super
 argument_list|(
 name|strm
 operator|.
-name|getUnfilteredStream
+name|getUnfilteredRandomAccess
 argument_list|()
 argument_list|)
 expr_stmt|;

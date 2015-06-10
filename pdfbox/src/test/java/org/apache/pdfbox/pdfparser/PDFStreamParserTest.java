@@ -21,16 +21,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -68,6 +58,20 @@ operator|.
 name|operator
 operator|.
 name|Operator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
+name|RandomAccessBuffer
 import|;
 end_import
 
@@ -671,7 +675,7 @@ operator|new
 name|PDFStreamParser
 argument_list|(
 operator|new
-name|ByteArrayInputStream
+name|RandomAccessBuffer
 argument_list|(
 name|s
 operator|.
