@@ -118,7 +118,7 @@ name|PreflightDocument
 extends|extends
 name|PDDocument
 block|{
-specifier|protected
+specifier|private
 name|ValidationResult
 name|result
 init|=
@@ -128,15 +128,15 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
-specifier|protected
+specifier|private
 name|PreflightConfiguration
 name|config
 decl_stmt|;
-specifier|protected
+specifier|private
 name|PreflightContext
 name|context
 decl_stmt|;
-specifier|protected
+specifier|private
 specifier|final
 name|Format
 name|specification
@@ -205,7 +205,7 @@ name|cfg
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a preflight document based on the COSDocument that will use the given configuration bean to process the      * validation. if the configuration is null, a default configuration will be load using the given format.      *       * @param doc      * @param format      * @param cfg      * @throws IOException      */
+comment|/**      * Create a preflight document based on the COSDocument that will use the given configuration bean to process the      * validation. if the configuration is null, a default configuration will be load using the given format.      *       * @param doc      * @param format      * @param config      */
 specifier|public
 name|PreflightDocument
 parameter_list|(
@@ -216,7 +216,7 @@ name|Format
 name|format
 parameter_list|,
 name|PreflightConfiguration
-name|cfg
+name|config
 parameter_list|)
 block|{
 name|super
@@ -234,7 +234,7 @@ name|this
 operator|.
 name|config
 operator|=
-name|cfg
+name|config
 expr_stmt|;
 if|if
 condition|(
@@ -293,7 +293,7 @@ name|void
 name|setResult
 parameter_list|(
 name|ValidationResult
-name|_result
+name|result
 parameter_list|)
 block|{
 if|if
@@ -311,14 +311,14 @@ name|result
 operator|.
 name|mergeResult
 argument_list|(
-name|_result
+name|result
 argument_list|)
 expr_stmt|;
 block|}
 elseif|else
 if|if
 condition|(
-name|_result
+name|result
 operator|!=
 literal|null
 condition|)
@@ -327,7 +327,7 @@ name|this
 operator|.
 name|result
 operator|=
-name|_result
+name|result
 expr_stmt|;
 block|}
 else|else
