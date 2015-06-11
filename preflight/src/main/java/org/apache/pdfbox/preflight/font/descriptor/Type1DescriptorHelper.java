@@ -100,24 +100,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|font
-operator|.
-name|FontValidator
-operator|.
-name|isSubSet
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.

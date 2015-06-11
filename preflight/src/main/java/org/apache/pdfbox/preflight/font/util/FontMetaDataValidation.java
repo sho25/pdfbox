@@ -123,7 +123,9 @@ name|preflight
 operator|.
 name|font
 operator|.
-name|FontValidator
+name|descriptor
+operator|.
+name|FontDescriptorHelper
 import|;
 end_import
 
@@ -316,7 +318,7 @@ name|fontName
 decl_stmt|;
 if|if
 condition|(
-name|FontValidator
+name|FontDescriptorHelper
 operator|.
 name|isSubSet
 argument_list|(
@@ -330,10 +332,7 @@ name|fontName
 operator|.
 name|split
 argument_list|(
-name|FontValidator
-operator|.
-name|getSubSetPatternDelimiter
-argument_list|()
+literal|"\\+"
 argument_list|)
 index|[
 literal|1
@@ -628,7 +627,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * If XMP MetaData are present, they must have followings information :      *<UL>      *<li>dc:rights      *<li>Marked (with the value true)      *<li>Owner      *<li>UsageTerms      *</UL>      *       * @param metadata      *            XMPMetaData of the Font File Stream      * @param fontDesc      *            The FontDescriptor dictionary      * @param ve      *            the list of validation error to update if the validation fails      */
+comment|/**      * If XMP MetaData are present, they must have followings information :      *<UL>      *<li>dc:rights      *<li>Marked (with the value true)      *<li>Owner      *<li>UsageTerms      *</UL>      *       * @param metadata      *            XMPMetaData of the Font File Stream      * @param fontDesc      *            The FontDescriptor dictionary      * @param ve      *            the list of validation error to update if the validation fails      * @return true if the analysis found no problems, false if it did.      */
 specifier|public
 name|boolean
 name|analyseRights
