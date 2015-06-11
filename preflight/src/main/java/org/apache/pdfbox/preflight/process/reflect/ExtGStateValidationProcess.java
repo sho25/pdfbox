@@ -431,7 +431,6 @@ condition|)
 block|{
 return|return;
 block|}
-elseif|else
 if|if
 condition|(
 operator|!
@@ -671,7 +670,14 @@ argument_list|,
 name|egs
 argument_list|)
 expr_stmt|;
-name|checkCA
+name|checkUpperCA
+argument_list|(
+name|context
+argument_list|,
+name|egs
+argument_list|)
+expr_stmt|;
+name|checkLowerCA
 argument_list|(
 name|context
 argument_list|,
@@ -858,10 +864,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This method checks the "CA" and "ca" values of the ExtGState dictionary. They are optional but must be 1.0 if      * they are present.      *       * @param context the preflight context.      * @param egs the graphic state to check      */
+comment|/**      * This method checks the "CA" value of the ExtGState dictionary. It is optional but must be 1.0      * if present.      *      * @param context the preflight context.      * @param egs the graphic state to check      */
 specifier|private
 name|void
-name|checkCA
+name|checkUpperCA
 parameter_list|(
 name|PreflightContext
 name|context
@@ -880,16 +886,14 @@ argument_list|(
 name|TRANSPARENCY_DICTIONARY_KEY_UPPER_CA
 argument_list|)
 decl_stmt|;
-name|COSBase
-name|lCA
-init|=
-name|egs
-operator|.
-name|getItem
-argument_list|(
-name|TRANSPARENCY_DICTIONARY_KEY_LOWER_CA
-argument_list|)
-decl_stmt|;
+if|if
+condition|(
+name|uCA
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// ---- If CA is present only the value 1.0 is authorized
 name|COSDocument
 name|cosDocument
 init|=
@@ -901,14 +905,6 @@ operator|.
 name|getDocument
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|uCA
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// ---- If CA is present only the value 1.0 is authorized
 name|Float
 name|fca
 init|=
@@ -973,6 +969,29 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|/**      * This method checks the "ca" value of the ExtGState dictionary. It is optional but must be 1.0      * if present.      *      * @param context the preflight context.      * @param egs the graphic state to check      */
+specifier|private
+name|void
+name|checkLowerCA
+parameter_list|(
+name|PreflightContext
+name|context
+parameter_list|,
+name|COSDictionary
+name|egs
+parameter_list|)
+block|{
+name|COSBase
+name|lCA
+init|=
+name|egs
+operator|.
+name|getItem
+argument_list|(
+name|TRANSPARENCY_DICTIONARY_KEY_LOWER_CA
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|lCA
@@ -981,6 +1000,17 @@ literal|null
 condition|)
 block|{
 comment|// ---- If ca is present only the value 1.0 is authorized
+name|COSDocument
+name|cosDocument
+init|=
+name|context
+operator|.
+name|getDocument
+argument_list|()
+operator|.
+name|getDocument
+argument_list|()
+decl_stmt|;
 name|Float
 name|fca
 init|=
@@ -1064,7 +1094,9 @@ name|egs
 operator|.
 name|getItem
 argument_list|(
-literal|"TR"
+name|COSName
+operator|.
+name|TR
 argument_list|)
 operator|!=
 literal|null
@@ -1085,7 +1117,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Check the TR2 entry. A valid ExtGState hasn't TR2 entry or a TR2 entry equals to "default".      *       * @param egs the graphic state to check      */
+comment|/**      * Check the TR2 entry. A valid ExtGState hasn't TR2 entry or a TR2 entry equals to "default".      *       * @param context the preflight context      * @param egs the graphic state to check      */
 specifier|protected
 name|void
 name|checkTR2Key
