@@ -403,7 +403,7 @@ specifier|abstract
 class|class
 name|AnnotationValidator
 block|{
-specifier|protected
+specifier|private
 name|AnnotationValidatorFactory
 name|annotFact
 init|=
@@ -415,7 +415,7 @@ name|ctx
 init|=
 literal|null
 decl_stmt|;
-specifier|protected
+specifier|private
 name|COSDocument
 name|cosDocument
 init|=
@@ -927,7 +927,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * This method validates the Popup entry. This entry shall contain an other Annotation. This annotation is validated      * with the right AnnotationValidator.      *      * @throws ValidationException      */
+comment|/**      * This method validates the Popup entry. This entry shall contain an other Annotation. This annotation is validated      * with the right AnnotationValidator.      *      * @return true if the popup entry is valid, false if not.      * @throws ValidationException      */
 specifier|protected
 name|boolean
 name|checkPopup
