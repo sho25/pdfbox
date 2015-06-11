@@ -413,11 +413,11 @@ init|=
 operator|-
 literal|1.0f
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|titleText
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 while|while
@@ -658,6 +658,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// do not escape HTML
 name|super
 operator|.
 name|writeString
@@ -668,7 +669,6 @@ name|clear
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// do not escape HTML
 name|super
 operator|.
 name|writeParagraphEnd
@@ -859,7 +859,8 @@ specifier|static
 class|class
 name|FontState
 block|{
-specifier|protected
+specifier|private
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -873,7 +874,8 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-specifier|protected
+specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|String
