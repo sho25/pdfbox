@@ -269,6 +269,30 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -726,7 +750,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Extract the single CIDFont from the Descendant array. Create a FontValidator for this CODFont and launch its      * validation.      */
+comment|/**      * Extract the single CIDFont from the descendant array. Create a FontValidator for this CIDFont      * and launch its validation.      *      * @throws org.apache.pdfbox.preflight.exception.ValidationException if there is an error      * validating the CIDFont.      */
 specifier|protected
 name|void
 name|processDescendantFont
@@ -1051,7 +1075,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Create the validation object for CIDType2 Font      */
+comment|/**      * Create the validation object for CIDType2 Font      *      * @param fDict a CIDType2 font dictionary.      * @return a CIDType2 tont font validator.      */
 specifier|protected
 name|FontValidator
 argument_list|<
@@ -1278,7 +1302,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Standard information of a stream element will be checked by the StreamValidationProcess.      *       * This method checks mandatory fields of the CMap stream. This method checks too if the CMap stream is damaged      * using the CMapParser of the fontbox api.      *       * @param aCMap      */
+comment|/**      *      *      * This method checks mandatory fields of the CMap stream. This method also checks if the CMap      * stream is damaged using the CMapParser of the fontbox api. The standard information of a      * stream element will be checked by the StreamValidationProcess.      *      * @param aCMap the cmap stream.      */
 specifier|private
 name|void
 name|processCMapAsStream
@@ -1304,9 +1328,21 @@ argument_list|(
 name|sysinfo
 argument_list|)
 expr_stmt|;
+name|InputStream
+name|cmapStream
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
 comment|// extract information from the CMap stream
+name|cmapStream
+operator|=
+name|aCMap
+operator|.
+name|getUnfilteredStream
+argument_list|()
+expr_stmt|;
 name|CMap
 name|fontboxCMap
 init|=
@@ -1316,10 +1352,7 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
-name|aCMap
-operator|.
-name|getUnfilteredStream
-argument_list|()
+name|cmapStream
 argument_list|)
 decl_stmt|;
 name|int
@@ -1338,7 +1371,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/*              * According to the getInt javadoc, -1 is returned if there are no result. In the PDF Reference v1.7 p449,              * we can read that Default value is 0.              */
+comment|/*              * According to the getInt javadoc, -1 is returned if there is no result. In the PDF Reference v1.7 p449,              * we can read that the default value is 0.              */
 name|int
 name|wmode
 init|=
@@ -1521,6 +1554,16 @@ literal|": The CMap type is damaged"
 argument_list|,
 name|e
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|cmapStream
 argument_list|)
 expr_stmt|;
 block|}
