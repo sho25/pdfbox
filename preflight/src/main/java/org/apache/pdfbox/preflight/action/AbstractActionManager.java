@@ -110,14 +110,14 @@ class|class
 name|AbstractActionManager
 block|{
 comment|/**      * ActionManager factory used to create new ActionManager      */
-specifier|protected
+specifier|private
 name|ActionManagerFactory
 name|actionFact
 init|=
 literal|null
 decl_stmt|;
 comment|/**      * Action name in a Additional Action dictionary      */
-specifier|protected
+specifier|private
 name|String
 name|aaKey
 init|=
