@@ -179,7 +179,8 @@ implements|implements
 name|Closeable
 block|{
 comment|/**      * Contains the list of font name embedded in the PDF document.      */
-specifier|protected
+specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|COSBase
@@ -198,14 +199,14 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * The PDFbox object representation of the PDF source.      */
-specifier|protected
+specifier|private
 name|PreflightDocument
 name|document
 init|=
 literal|null
 decl_stmt|;
 comment|/**      * The datasource to load the document from      */
-specifier|protected
+specifier|private
 name|DataSource
 name|source
 init|=
@@ -217,33 +218,33 @@ name|XrefTrailerResolver
 name|xrefTrailerResolver
 decl_stmt|;
 comment|/**      * This wrapper contains the ICCProfile used by the PDF file.      */
-specifier|protected
+specifier|private
 name|ICCProfileWrapper
 name|iccProfileWrapper
 init|=
 literal|null
 decl_stmt|;
 comment|/**      *       */
-specifier|protected
+specifier|private
 name|boolean
 name|iccProfileAlreadySearched
 init|=
 literal|false
 decl_stmt|;
 comment|/**      * MetaData of the current pdf file.      */
-specifier|protected
+specifier|private
 name|XMPMetadata
 name|metadata
 init|=
 literal|null
 decl_stmt|;
-specifier|protected
+specifier|private
 name|PreflightConfiguration
 name|config
 init|=
 literal|null
 decl_stmt|;
-specifier|protected
+specifier|private
 name|PreflightPath
 name|validationPath
 init|=
@@ -251,7 +252,7 @@ operator|new
 name|PreflightPath
 argument_list|()
 decl_stmt|;
-specifier|protected
+specifier|private
 name|Integer
 name|currentPageNumber
 init|=
