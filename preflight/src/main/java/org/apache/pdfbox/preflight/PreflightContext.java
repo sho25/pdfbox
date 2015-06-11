@@ -289,6 +289,12 @@ name|source
 operator|=
 name|source
 expr_stmt|;
+name|this
+operator|.
+name|config
+operator|=
+name|configuration
+expr_stmt|;
 block|}
 comment|/**      * @return the metadata      */
 specifier|public
