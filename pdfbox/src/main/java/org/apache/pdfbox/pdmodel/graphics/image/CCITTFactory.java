@@ -662,17 +662,17 @@ literal|"Not a valid tiff file"
 argument_list|)
 throw|;
 block|}
-comment|// Loop through the tags, some will convert to items in the parms dictionary
-comment|// Other point us to where to find the data stream
-comment|// The only parm which might change as a result of other options is K, so
-comment|// We'll deal with that as a special;
+comment|// Loop through the tags, some will convert to items in the params dictionary
+comment|// Other point us to where to find the data stream.
+comment|// The only param which might change as a result of other TIFF tags is K, so
+comment|// we'll deal with that differently.
+comment|// Default value to detect error
 name|int
 name|k
 init|=
 operator|-
 literal|1000
 decl_stmt|;
-comment|// Default Non CCITT compression
 name|int
 name|dataoffset
 init|=
@@ -1091,9 +1091,6 @@ index|]
 decl_stmt|;
 name|int
 name|amountRead
-init|=
-operator|-
-literal|1
 decl_stmt|;
 while|while
 condition|(
