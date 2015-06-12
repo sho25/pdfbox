@@ -54,9 +54,27 @@ comment|/**      * Indicates if the table is initialized or not.      */
 specifier|protected
 name|boolean
 name|initialized
-init|=
-literal|false
 decl_stmt|;
+comment|/**      * The font which contains this table.      */
+specifier|protected
+specifier|final
+name|TrueTypeFont
+name|font
+decl_stmt|;
+comment|/**      * Constructor.      *       * @param font The font which contains this table.      */
+name|TTFTable
+parameter_list|(
+name|TrueTypeFont
+name|font
+parameter_list|)
+block|{
+name|this
+operator|.
+name|font
+operator|=
+name|font
+expr_stmt|;
+block|}
 comment|/**      * @return Returns the checkSum.      */
 specifier|public
 name|long
@@ -68,7 +86,6 @@ name|checkSum
 return|;
 block|}
 comment|/**      * @param checkSumValue The checkSum to set.      */
-specifier|public
 name|void
 name|setCheckSum
 parameter_list|(
@@ -94,7 +111,6 @@ name|length
 return|;
 block|}
 comment|/**      * @param lengthValue The length to set.      */
-specifier|public
 name|void
 name|setLength
 parameter_list|(
@@ -120,7 +136,6 @@ name|offset
 return|;
 block|}
 comment|/**      * @param offsetValue The offset to set.      */
-specifier|public
 name|void
 name|setOffset
 parameter_list|(
@@ -146,7 +161,6 @@ name|tag
 return|;
 block|}
 comment|/**      * @param tagValue The tag to set.      */
-specifier|public
 name|void
 name|setTag
 parameter_list|(
@@ -172,7 +186,6 @@ name|initialized
 return|;
 block|}
 comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
-specifier|public
 name|void
 name|read
 parameter_list|(

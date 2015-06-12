@@ -105,6 +105,18 @@ specifier|private
 name|int
 name|maxComponentDepth
 decl_stmt|;
+name|MaximumProfileTable
+parameter_list|(
+name|TrueTypeFont
+name|font
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|font
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * @return Returns the maxComponentDepth.      */
 specifier|public
 name|int

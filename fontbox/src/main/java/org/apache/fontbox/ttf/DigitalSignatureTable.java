@@ -35,6 +35,18 @@ name|TAG
 init|=
 literal|"DSIG"
 decl_stmt|;
+name|DigitalSignatureTable
+parameter_list|(
+name|TrueTypeFont
+name|font
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|font
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

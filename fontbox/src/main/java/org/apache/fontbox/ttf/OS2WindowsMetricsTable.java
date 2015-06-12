@@ -342,6 +342,18 @@ name|FSTYPE_BITMAP_ONLY
 init|=
 literal|0x0200
 decl_stmt|;
+name|OS2WindowsMetricsTable
+parameter_list|(
+name|TrueTypeFont
+name|font
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|font
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * @return Returns the achVendId.      */
 specifier|public
 name|String

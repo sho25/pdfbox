@@ -219,6 +219,9 @@ specifier|protected
 name|TTFTable
 name|readTable
 parameter_list|(
+name|TrueTypeFont
+name|font
+parameter_list|,
 name|String
 name|tag
 parameter_list|)
@@ -265,7 +268,9 @@ block|{
 return|return
 operator|new
 name|OTLTable
-argument_list|()
+argument_list|(
+name|font
+argument_list|)
 return|;
 block|}
 elseif|else
@@ -282,7 +287,9 @@ block|{
 return|return
 operator|new
 name|CFFTable
-argument_list|()
+argument_list|(
+name|font
+argument_list|)
 return|;
 block|}
 else|else
@@ -292,6 +299,8 @@ name|super
 operator|.
 name|readTable
 argument_list|(
+name|font
+argument_list|,
 name|tag
 argument_list|)
 return|;

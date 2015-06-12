@@ -103,6 +103,18 @@ name|GlyphData
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|GlyphTable
+parameter_list|(
+name|TrueTypeFont
+name|font
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|font
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
@@ -328,7 +340,6 @@ expr_stmt|;
 block|}
 comment|/**      * Returns all glyphs. This method can be very slow.      */
 specifier|public
-specifier|synchronized
 name|GlyphData
 index|[]
 name|getGlyphs
@@ -343,9 +354,15 @@ operator|==
 literal|null
 condition|)
 block|{
+synchronized|synchronized
+init|(
+name|font
+init|)
+block|{
 name|readAll
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|glyphs
@@ -413,7 +430,7 @@ return|;
 block|}
 synchronized|synchronized
 init|(
-name|this
+name|font
 init|)
 block|{
 comment|// save

@@ -53,8 +53,6 @@ begin_class
 specifier|public
 class|class
 name|KerningSubtable
-extends|extends
-name|TTFTable
 block|{
 comment|// coverage field bit masks and values
 specifier|private
@@ -141,8 +139,6 @@ specifier|private
 name|PairData
 name|pairs
 decl_stmt|;
-comment|/**      * Constructor.      */
-specifier|public
 name|KerningSubtable
 parameter_list|()
 block|{     }

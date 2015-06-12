@@ -77,6 +77,18 @@ specifier|private
 name|CFFFont
 name|cffFont
 decl_stmt|;
+name|CFFTable
+parameter_list|(
+name|TrueTypeFont
+name|font
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|font
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * This will read the required data from the stream.      *      * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws java.io.IOException If there is an error reading the data.      */
 specifier|public
 name|void
