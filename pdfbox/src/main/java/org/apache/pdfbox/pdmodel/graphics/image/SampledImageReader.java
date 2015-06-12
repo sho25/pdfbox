@@ -1008,13 +1008,16 @@ name|x
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|readLen
+init|=
 name|iis
 operator|.
 name|read
 argument_list|(
 name|buff
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1025,6 +1028,10 @@ init|;
 name|r
 operator|<
 name|rowLen
+operator|&&
+name|r
+operator|<
+name|readLen
 condition|;
 name|r
 operator|++
@@ -1096,6 +1103,22 @@ block|{
 break|break;
 block|}
 block|}
+block|}
+if|if
+condition|(
+name|readLen
+operator|!=
+name|rowLen
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"premature EOF, image will be incomplete"
+argument_list|)
+expr_stmt|;
+break|break;
 block|}
 block|}
 comment|// use the color space to convert the image to RGB
