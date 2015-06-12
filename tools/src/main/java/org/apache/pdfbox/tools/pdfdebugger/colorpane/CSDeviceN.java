@@ -188,12 +188,14 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Parses the colorant data from the array and return.      * @return      */
+comment|/**      * Parses the colorant data from the array.      * @return the parsed colorants.      * @throws IOException if the color conversion fails.      */
 specifier|private
 name|DeviceNColorant
 index|[]
 name|getColorantData
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|int
 name|componentCount
@@ -302,8 +304,6 @@ index|]
 operator|=
 literal|0
 expr_stmt|;
-try|try
-block|{
 name|colorant
 operator|.
 name|setMaximum
@@ -334,19 +334,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|()
-throw|;
-block|}
 name|colorants
 index|[
 name|i
