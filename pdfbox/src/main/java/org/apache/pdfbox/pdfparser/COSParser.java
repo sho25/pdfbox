@@ -3761,15 +3761,19 @@ literal|false
 expr_stmt|;
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"The end of the stream is out of range, using workaround to read the stream, "
 operator|+
-literal|"found "
+literal|"stream start position: "
 operator|+
 name|originOffset
 operator|+
-literal|" but expected "
+literal|", length: "
+operator|+
+name|streamLength
+operator|+
+literal|", expected end position: "
 operator|+
 name|expectedEndOfStream
 argument_list|)
@@ -3802,15 +3806,19 @@ literal|false
 expr_stmt|;
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"The end of the stream doesn't point to the correct offset, using workaround to read the stream, "
 operator|+
-literal|"found "
+literal|"stream start position: "
 operator|+
 name|originOffset
 operator|+
-literal|" but expected "
+literal|", length: "
+operator|+
+name|streamLength
+operator|+
+literal|", expected end position: "
 operator|+
 name|expectedEndOfStream
 argument_list|)
