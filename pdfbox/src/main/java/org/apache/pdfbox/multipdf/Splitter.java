@@ -271,7 +271,7 @@ return|return
 name|destinationDocuments
 return|;
 block|}
-comment|/**      * This will tell the splitting algorithm where to split the pages.  The default      * is 1, so every page will become a new document.  If it was two then each document would      * contain 2 pages.  If the source document had 5 pages it would split into      * 3 new documents, 2 documents containing 2 pages and 1 document containing one      * page.      *      * @param split The number of pages each split document should contain.      */
+comment|/**      * This will tell the splitting algorithm where to split the pages.  The default      * is 1, so every page will become a new document.  If it was two then each document would      * contain 2 pages.  If the source document had 5 pages it would split into      * 3 new documents, 2 documents containing 2 pages and 1 document containing one      * page.      *      * @param split The number of pages each split document should contain.      * @throws IllegalArgumentException if the page is smaller than one.      */
 specifier|public
 name|void
 name|setSplitAtPage
@@ -289,9 +289,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IllegalArgumentException
 argument_list|(
-literal|"Error split must be at least one page."
+literal|"Number of pages is smaller than one"
 argument_list|)
 throw|;
 block|}
@@ -300,7 +300,7 @@ operator|=
 name|split
 expr_stmt|;
 block|}
-comment|/**      * This will set the start page.      *      * @param start the start page      */
+comment|/**      * This will set the start page.      *      * @param start the start page      * @throws IllegalArgumentException if the start page is smaller than one.      */
 specifier|public
 name|void
 name|setStartPage
@@ -318,9 +318,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IllegalArgumentException
 argument_list|(
-literal|"Error split must be at least one page."
+literal|"Start page is smaller than one"
 argument_list|)
 throw|;
 block|}
@@ -329,7 +329,7 @@ operator|=
 name|start
 expr_stmt|;
 block|}
-comment|/**      * This will set the end page.      *      * @param end the end page      */
+comment|/**      * This will set the end page.      *      * @param end the end page      * @throws IllegalArgumentException if the end page is smaller than one.      */
 specifier|public
 name|void
 name|setEndPage
@@ -347,9 +347,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IllegalArgumentException
 argument_list|(
-literal|"Error split must be at least one page."
+literal|"End page is smaller than one"
 argument_list|)
 throw|;
 block|}
