@@ -215,21 +215,6 @@ name|PDDocument
 name|doc
 parameter_list|)
 block|{
-name|setDocument
-argument_list|(
-name|doc
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Set the document to display in the tree.      *      * @param doc The document to display in the tree.      */
-specifier|public
-name|void
-name|setDocument
-parameter_list|(
-name|PDDocument
-name|doc
-parameter_list|)
-block|{
 name|document
 operator|=
 name|doc
