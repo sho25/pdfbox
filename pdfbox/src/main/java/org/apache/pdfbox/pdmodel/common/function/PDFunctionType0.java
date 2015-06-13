@@ -270,7 +270,7 @@ name|size
 return|;
 block|}
 comment|/**      * Get all sample values of this function.      *       * @return an array with all samples.      */
-specifier|public
+specifier|private
 name|int
 index|[]
 index|[]
@@ -358,8 +358,7 @@ try|try
 block|{
 comment|// PDF spec 1.7 p.171:
 comment|// Each sample value is represented as a sequence of BitsPerSample bits.
-comment|// Successive values are adjacent in the bit stream;
-comment|// there is no padding at byte boundaries.
+comment|// Successive values are adjacent in the bit stream; there is no padding at byte boundaries.
 name|ImageInputStream
 name|mciis
 init|=
@@ -940,31 +939,37 @@ name|index
 return|;
 block|}
 comment|/**      * Inner class do to an interpolation in the Nth dimension by comparing the      * content size of N-1 dimensional objects. This is done with the help of      * recursive calls. To understand the algorithm without recursion, here is a      *<a      * href="http://harmoniccode.blogspot.de/2011/04/bilinear-color-interpolation.html">bilinear      * interpolation</a> and here's a<a      * href="https://en.wikipedia.org/wiki/Trilinear_interpolation">trilinear      * interpolation</a> (external links).      */
+specifier|private
 class|class
 name|Rinterpol
 block|{
 comment|// coordinate that is to be interpolated
+specifier|private
 specifier|final
 name|float
 index|[]
 name|in
 decl_stmt|;
 comment|// coordinate of the "ceil" point
+specifier|private
 specifier|final
 name|int
 index|[]
 name|inPrev
 decl_stmt|;
 comment|// coordinate of the "floor" point
+specifier|private
 specifier|final
 name|int
 index|[]
 name|inNext
 decl_stmt|;
+specifier|private
 specifier|final
 name|int
 name|numberOfInputValues
 decl_stmt|;
+specifier|private
 specifier|final
 name|int
 name|numberOfOutputValues
@@ -1008,7 +1013,6 @@ name|length
 expr_stmt|;
 block|}
 comment|/**          * Calculate the interpolation.          *          * @return interpolated result sample          */
-specifier|public
 name|float
 index|[]
 name|rinterpolate
@@ -1597,56 +1601,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|// old code for N=1 and N=2, don't delete in case one uses this for optimization
-comment|//
-comment|//        if (numberOfInputValues == 1)
-comment|//        {
-comment|//            int[] sample1 = getSamples()[calcSampleIndex(new int[]
-comment|//            {
-comment|//                inputPrev[0]
-comment|//            })];
-comment|//            int[] sample2 = getSamples()[calcSampleIndex(new int[]
-comment|//            {
-comment|//                inputNext[0]
-comment|//            })];
-comment|//            for (int i = 0; i< numberOfOutputValues; ++i)
-comment|//            {
-comment|//                outputValues[i] = inputPrev[0] == inputNext[0] ? sample1[i] : interpolate(input[0], inputPrev[0], inputNext[0], sample1[i], sample2[i]);
-comment|//            }
-comment|//            //TODO optimize so that sample is collected only when needed
-comment|//        }
-comment|//        if (numberOfInputValues == 2)
-comment|//        {
-comment|//            int[] sample1 = getSamples()[calcSampleIndex(new int[]
-comment|//            {
-comment|//                inputPrev[0], inputPrev[1]
-comment|//            })];
-comment|//            int[] sample2 = getSamples()[calcSampleIndex(new int[]
-comment|//            {
-comment|//                inputPrev[0], inputNext[1]
-comment|//            })];
-comment|//            int[] sample3 = getSamples()[calcSampleIndex(new int[]
-comment|//            {
-comment|//                inputNext[0], inputPrev[1]
-comment|//            })];
-comment|//            int[] sample4 = getSamples()[calcSampleIndex(new int[]
-comment|//            {
-comment|//                inputNext[0], inputNext[1]
-comment|//            })];
-comment|//
-comment|//            for (int i = 0; i< numberOfOutputValues; ++i)
-comment|//            {
-comment|//                // bilinear color interpolation, see e.g.
-comment|//                // http://harmoniccode.blogspot.de/2011/04/bilinear-color-interpolation.html
-comment|//                // interpolate the color at top and bottom edges (x-axis)
-comment|//                // then interpolate the color between these two results (y-axis)
-comment|//                double lowerVal = inputPrev[0] == inputNext[0] ? sample1[i] : interpolate(input[0], inputPrev[0], inputNext[0], sample1[i], sample3[i]);
-comment|//                double upperVal = inputPrev[0] == inputNext[0] ? sample2[i] : interpolate(input[0], inputPrev[0], inputNext[0], sample2[i], sample4[i]);
-comment|//                outputValues[i] = (float) (inputPrev[1] == inputNext[1] ? lowerVal : interpolate(input[1], inputPrev[1], inputNext[1], (float) lowerVal, (float) upperVal));
-comment|//                //TODO optimize so that sample is collected only when needed
-comment|//            }
-comment|//        }
-comment|//
 name|float
 index|[]
 name|outputValues
