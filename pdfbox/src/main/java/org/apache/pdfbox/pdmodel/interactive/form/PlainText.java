@@ -288,6 +288,7 @@ class|class
 name|Paragraph
 block|{
 specifier|private
+specifier|final
 name|String
 name|textContent
 decl_stmt|;
@@ -374,16 +375,6 @@ name|lineWidth
 init|=
 literal|0
 decl_stmt|;
-name|float
-name|wordWidth
-init|=
-literal|0f
-decl_stmt|;
-name|float
-name|whitespaceWidth
-init|=
-literal|0f
-decl_stmt|;
 name|List
 argument_list|<
 name|Line
@@ -413,10 +404,6 @@ operator|.
 name|DONE
 condition|)
 block|{
-name|whitespaceWidth
-operator|=
-literal|0f
-expr_stmt|;
 name|String
 name|word
 init|=
@@ -429,8 +416,9 @@ argument_list|,
 name|end
 argument_list|)
 decl_stmt|;
+name|float
 name|wordWidth
-operator|=
+init|=
 name|font
 operator|.
 name|getStringWidth
@@ -439,7 +427,7 @@ name|word
 argument_list|)
 operator|*
 name|scale
-expr_stmt|;
+decl_stmt|;
 name|lineWidth
 operator|=
 name|lineWidth
@@ -471,8 +459,9 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+name|float
 name|whitespaceWidth
-operator|=
+init|=
 name|font
 operator|.
 name|getStringWidth
@@ -491,7 +480,7 @@ argument_list|)
 argument_list|)
 operator|*
 name|scale
-expr_stmt|;
+decl_stmt|;
 name|lineWidth
 operator|=
 name|lineWidth
@@ -632,6 +621,7 @@ class|class
 name|Line
 block|{
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Word
@@ -861,6 +851,7 @@ name|AttributedString
 name|attributedString
 decl_stmt|;
 specifier|private
+specifier|final
 name|String
 name|textContent
 decl_stmt|;
