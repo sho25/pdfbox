@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an ant task that will allow pdf documents to be converted using an  * and task.  *  * @author Ben Litchfield  */
+comment|/**  * This is an Ant task that will allow pdf documents to be converted using an  * Ant task.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -153,6 +153,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will perform the execution.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
