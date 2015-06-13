@@ -142,7 +142,7 @@ operator|instanceof
 name|COSName
 condition|)
 block|{
-comment|// color components (optional)
+comment|// color components (optional), for the color of an uncoloured tiling pattern
 name|components
 operator|=
 operator|new
@@ -515,7 +515,7 @@ return|return
 name|rgb
 return|;
 block|}
-comment|/**      * Returns this color value as a COS array      * @return the color value as a COS array      */
+comment|/**      * Returns the color component values as a COS array      * @return the color component values as a COS array      */
 specifier|public
 name|COSArray
 name|toCOSArray
@@ -533,13 +533,6 @@ operator|.
 name|setFloatArray
 argument_list|(
 name|components
-argument_list|)
-expr_stmt|;
-name|array
-operator|.
-name|add
-argument_list|(
-name|patternName
 argument_list|)
 expr_stmt|;
 return|return
