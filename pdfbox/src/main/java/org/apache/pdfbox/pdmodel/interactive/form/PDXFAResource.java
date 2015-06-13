@@ -190,6 +190,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSBase
 name|xfa
 decl_stmt|;
@@ -207,6 +208,8 @@ name|xfaBase
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -240,8 +243,6 @@ decl_stmt|;
 name|byte
 index|[]
 name|xfaBytes
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -325,8 +326,6 @@ argument_list|()
 expr_stmt|;
 name|int
 name|nRead
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -408,8 +407,6 @@ argument_list|()
 expr_stmt|;
 name|int
 name|nRead
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -463,19 +460,6 @@ literal|null
 condition|)
 block|{
 name|is
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|baos
-operator|!=
-literal|null
-condition|)
-block|{
-name|baos
 operator|.
 name|close
 argument_list|()
