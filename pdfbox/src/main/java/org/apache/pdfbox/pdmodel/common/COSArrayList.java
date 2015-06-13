@@ -1292,7 +1292,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will convert a list of COSObjectables to an      * array list of COSBase objects.      *      * @param cosObjectableList A list of COSObjectable.      *      * @return A list of COSBase.      */
+comment|/**      * This will convert a list of COSObjectables to an array list of COSBase objects.      *      * @param cosObjectableList A list of COSObjectable.      *      * @return A list of COSBase.      * @throws IllegalArgumentException if an object type is not supported for conversion to a      * COSBase object.      */
 specifier|public
 specifier|static
 name|COSArray
@@ -1511,7 +1511,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IllegalArgumentException
 argument_list|(
 literal|"Error: Don't know how to convert type to COSBase '"
 operator|+
