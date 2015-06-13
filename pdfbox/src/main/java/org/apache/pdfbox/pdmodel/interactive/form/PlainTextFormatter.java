@@ -250,6 +250,7 @@ return|;
 block|}
 block|}
 specifier|private
+specifier|final
 name|AppearanceStyle
 name|appearanceStyle
 decl_stmt|;
@@ -337,7 +338,6 @@ name|verticalOffset
 init|=
 literal|0f
 decl_stmt|;
-specifier|public
 name|Builder
 parameter_list|(
 name|PDPageContentStream
