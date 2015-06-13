@@ -71,7 +71,7 @@ name|PublicKeyProtectionPolicy
 extends|extends
 name|ProtectionPolicy
 block|{
-specifier|public
+specifier|private
 specifier|final
 name|List
 argument_list|<
