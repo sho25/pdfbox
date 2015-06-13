@@ -62,18 +62,18 @@ specifier|public
 class|class
 name|PageExtractor
 block|{
-specifier|protected
+specifier|private
 name|PDDocument
 name|sourceDocument
 decl_stmt|;
 comment|// first page to extract is page 1 (by default)
-specifier|protected
+specifier|private
 name|int
 name|startPage
 init|=
 literal|1
 decl_stmt|;
-specifier|protected
+specifier|private
 name|int
 name|endPage
 init|=
