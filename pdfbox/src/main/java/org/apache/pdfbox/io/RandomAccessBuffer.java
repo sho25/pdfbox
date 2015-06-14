@@ -821,6 +821,8 @@ name|readRemainingBytes
 argument_list|(
 name|b
 argument_list|,
+name|offset
+operator|+
 name|bytesRead
 argument_list|,
 name|length
