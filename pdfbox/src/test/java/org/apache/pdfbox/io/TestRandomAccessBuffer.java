@@ -305,7 +305,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will test the {@link RandomAccessBuffer#read()}       * and {@link RandomAccessBuffer#write(int)} method.      *       * @throws IOException is thrown if something went wrong.      */
+comment|/**      * Test the {@link RandomAccessBuffer#read()}       * and {@link RandomAccessBuffer#write(int)} method.      *       * @throws IOException is thrown if something went wrong.      */
 specifier|public
 name|void
 name|testSimpleReadWrite
@@ -394,7 +394,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will test the {@link RandomAccessBuffer#read(byte[], int, int)}       * and {@link RandomAccessBuffer#write(byte[], int, int)} method.      *       * @throws IOException is thrown if something went wrong.      */
+comment|/**      * Test the {@link RandomAccessBuffer#read(byte[], int, int)}       * and {@link RandomAccessBuffer#write(byte[], int, int)} method.      *       * @throws IOException is thrown if something went wrong.      */
 specifier|public
 name|void
 name|testSimpleArrayReadWrite
@@ -565,7 +565,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will test the {@link RandomAccessBuffer#read(byte[], int, int)}       * and {@link RandomAccessBuffer#write(byte[], int, int)} method using      * a couple of data to create more than one chunk.      *       * @throws IOException is thrown if something went wrong.      */
+comment|/**      * Test the {@link RandomAccessBuffer#read(byte[], int, int)}       * and {@link RandomAccessBuffer#write(byte[], int, int)} method using      * a couple of data to create more than one chunk.      *       * @throws IOException is thrown if something went wrong.      */
 specifier|public
 name|void
 name|testArrayReadWrite
@@ -863,7 +863,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will test if overwriting works.      *       * @throws IOException is thrown if something went wrong.      */
+comment|/**      * Test if overwriting works.      *       * @throws IOException is thrown if something went wrong.      */
 specifier|public
 name|void
 name|testOverwrite
@@ -1119,6 +1119,79 @@ argument_list|(
 literal|25
 argument_list|,
 name|result
+argument_list|)
+expr_stmt|;
+name|buffer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Test if seeking beyond EOF works.      *       * @throws IOException is thrown if something went wrong.      */
+specifier|public
+name|void
+name|testSeekBeyondEOF
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// create a buffer filled with 10 figures from 0 to 9
+name|RandomAccessBuffer
+name|buffer
+init|=
+operator|new
+name|RandomAccessBuffer
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|10
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|buffer
+operator|.
+name|write
+argument_list|(
+name|i
+argument_list|)
+expr_stmt|;
+block|}
+comment|// jump back to the beginning of the buffer
+name|buffer
+operator|.
+name|seek
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// jump beyond EOF
+name|buffer
+operator|.
+name|seek
+argument_list|(
+literal|20
+argument_list|)
+expr_stmt|;
+comment|// try to read
+name|assertEquals
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+name|buffer
+operator|.
+name|read
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|buffer
