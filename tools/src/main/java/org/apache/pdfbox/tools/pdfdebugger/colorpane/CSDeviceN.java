@@ -442,10 +442,9 @@ name|colorSpaceLabel
 operator|.
 name|setAlignmentX
 argument_list|(
-operator|(
-name|float
-operator|)
-literal|0.5
+name|Component
+operator|.
+name|CENTER_ALIGNMENT
 argument_list|)
 expr_stmt|;
 name|colorSpaceLabel
