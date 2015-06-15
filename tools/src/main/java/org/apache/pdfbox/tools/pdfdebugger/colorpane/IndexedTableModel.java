@@ -46,13 +46,13 @@ comment|/**  * @author Khyrul Bashar.  */
 end_comment
 
 begin_comment
-comment|/**  * This the table model for showing DeviceN color space which extends AbstractTableModel.  */
+comment|/**  * This the table model for showing Indexed color space which extends AbstractTableModel.  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|DeviceNTableModel
+name|IndexedTableModel
 extends|extends
 name|AbstractTableModel
 block|{
@@ -61,30 +61,30 @@ specifier|static
 specifier|final
 name|String
 index|[]
-name|COLUMNNAMES
+name|COLUMNSNAMES
 init|=
 operator|new
 name|String
 index|[]
 block|{
-literal|"Colorant"
+literal|"Index"
 block|,
-literal|"Maximum"
+literal|"RGB value"
 block|,
-literal|"Minimum"
+literal|"Color"
 block|}
 decl_stmt|;
 specifier|private
 specifier|final
-name|DeviceNColorant
+name|IndexedColorant
 index|[]
 name|data
 decl_stmt|;
-comment|/**      * Constructor      * @param colorants array of DeviceNColorant      */
+comment|/**      * Constructor      * @param colorants array of IndexedColorant      */
 specifier|public
-name|DeviceNTableModel
+name|IndexedTableModel
 parameter_list|(
-name|DeviceNColorant
+name|IndexedColorant
 index|[]
 name|colorants
 parameter_list|)
@@ -115,7 +115,7 @@ name|getColumnCount
 parameter_list|()
 block|{
 return|return
-name|COLUMNNAMES
+name|COLUMNSNAMES
 operator|.
 name|length
 return|;
@@ -147,7 +147,7 @@ index|[
 name|row
 index|]
 operator|.
-name|getName
+name|getIndex
 argument_list|()
 return|;
 case|case
@@ -159,7 +159,7 @@ index|[
 name|row
 index|]
 operator|.
-name|getMaximum
+name|getRGBValuesString
 argument_list|()
 return|;
 case|case
@@ -171,7 +171,7 @@ index|[
 name|row
 index|]
 operator|.
-name|getMinimum
+name|getColor
 argument_list|()
 return|;
 default|default:
@@ -191,7 +191,7 @@ name|column
 parameter_list|)
 block|{
 return|return
-name|COLUMNNAMES
+name|COLUMNSNAMES
 index|[
 name|column
 index|]
@@ -219,13 +219,18 @@ case|case
 literal|0
 case|:
 return|return
-name|String
+name|Integer
 operator|.
 name|class
 return|;
 case|case
 literal|1
 case|:
+return|return
+name|String
+operator|.
+name|class
+return|;
 case|case
 literal|2
 case|:
