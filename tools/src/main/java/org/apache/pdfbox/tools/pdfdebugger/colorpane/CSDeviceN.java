@@ -337,13 +337,6 @@ index|]
 operator|=
 literal|1
 expr_stmt|;
-name|minimum
-index|[
-name|i
-index|]
-operator|=
-literal|0
-expr_stmt|;
 name|colorant
 operator|.
 name|setMaximum
