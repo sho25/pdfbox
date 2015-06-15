@@ -292,7 +292,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Returns the page number for this destination, regardless of whether this is a page number or      * a reference to a page.      *      * @since Apache PDFBox 1.0.0      * @see org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDOutlineItem      * @return page number, or -1 if the destination type is unknown. The page number is 0-based if      * it was in the dictionary (for remote destinations), and 1-based if it was computed from a      * page reference (for local destinations).      * @deprecated This method has inconsistent behavior (see returns), use {@link #retrieveDestPageNumber()} instead.      */
+comment|/**      * Returns the page number for this destination, regardless of whether this is a page number or      * a reference to a page.      *      * @since Apache PDFBox 1.0.0      * @see org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDOutlineItem      * @return page number, or -1 if the destination type is unknown. The page number is 0-based if      * it was in the dictionary (for remote destinations), and 1-based if it was computed from a      * page reference (for local destinations).      * @deprecated This method has inconsistent behavior (see returns), use {@link #retrievePageNumber()} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -499,6 +499,7 @@ operator|instanceof
 name|COSDictionary
 condition|)
 block|{
+comment|//TODO make this a static utility method of PDPageTree?
 name|COSBase
 name|parent
 init|=
