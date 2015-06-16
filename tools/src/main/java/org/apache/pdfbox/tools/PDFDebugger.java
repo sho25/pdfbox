@@ -2518,6 +2518,8 @@ argument_list|(
 operator|new
 name|PagePane
 argument_list|(
+name|document
+argument_list|,
 name|page
 argument_list|)
 operator|.
