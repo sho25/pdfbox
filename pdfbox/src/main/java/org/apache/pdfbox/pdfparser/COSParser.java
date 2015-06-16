@@ -3774,28 +3774,23 @@ control|)
 block|{
 comment|// reduce compare operations by first test last character we would have to
 comment|// match if current one matches; if it is not a character from keywords
-comment|// we can move behind the test character;
-comment|// this shortcut is inspired by the Boyer-Moore string search algorithm
-comment|// and can reduce parsing time by approx. 20%
-if|if
-condition|(
-operator|(
-name|charMatchCount
-operator|==
-literal|0
-operator|)
-operator|&&
-operator|(
-operator|(
+comment|// we can move behind the test character; this shortcut is inspired by the
+comment|// Boyer-Moore string search algorithm and can reduce parsing time by approx. 20%
 name|quickTestIdx
 operator|=
 name|bIdx
 operator|+
 name|quickTestOffset
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|charMatchCount
+operator|==
+literal|0
+operator|&&
+name|quickTestIdx
 operator|<
 name|maxQuicktestIdx
-operator|)
 condition|)
 block|{
 specifier|final
@@ -3899,12 +3894,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// no match; incrementing match start by 1 would be dumb since we already know matched chars
-comment|// depending on current char read we may already have beginning of a new match:
-comment|// 'e': first char matched;
-comment|// 'n': if we are at match position idx 7 we already read 'e' thus 2 chars matched
-comment|// for each other char we have to start matching first keyword char beginning with next
-comment|// read position
+comment|// no match; incrementing match start by 1 would be dumb since we already know
+comment|// matched chars depending on current char read we may already have beginning
+comment|// of a new match: 'e': first char matched; 'n': if we are at match position
+comment|// idx 7 we already read 'e' thus 2 chars matched for each other char we have
+comment|// to start matching first keyword char beginning with next read position
 name|charMatchCount
 operator|=
 operator|(
@@ -3941,7 +3935,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// for
 name|int
 name|contentBytes
 init|=
