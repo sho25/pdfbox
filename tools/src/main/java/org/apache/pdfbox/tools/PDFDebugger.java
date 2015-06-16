@@ -2420,7 +2420,7 @@ if|if
 condition|(
 name|selectedNode
 operator|instanceof
-name|COSArray
+name|COSObject
 condition|)
 block|{
 name|selectedNode
