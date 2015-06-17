@@ -423,7 +423,7 @@ name|BufferedImage
 name|doInBackground
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|PDFRenderer
 name|renderer
