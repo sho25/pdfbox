@@ -2169,7 +2169,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Show a Panel describing the special color spaces in more detail and interactive way.      * For now only Separation Color space is shown.      * @param csNode the special color space containing node.      */
+comment|/**      * Show a Panel describing color spaces in more detail and interactive way.      * @param csNode the special color space containing node.      */
 specifier|private
 name|void
 name|showColorPane
