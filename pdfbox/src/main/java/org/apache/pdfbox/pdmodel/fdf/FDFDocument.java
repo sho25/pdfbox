@@ -533,10 +533,14 @@ name|parse
 argument_list|()
 expr_stmt|;
 return|return
+operator|new
+name|FDFDocument
+argument_list|(
 name|parser
 operator|.
-name|getFDFDocument
+name|getDocument
 argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * This will load a document from a file.      *      * @param file The name of the file to load.      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
@@ -566,10 +570,14 @@ name|parse
 argument_list|()
 expr_stmt|;
 return|return
+operator|new
+name|FDFDocument
+argument_list|(
 name|parser
 operator|.
-name|getFDFDocument
+name|getDocument
 argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * This will load a document from an input stream.      *      * @param input The stream that contains the document.      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */
@@ -599,10 +607,14 @@ name|parse
 argument_list|()
 expr_stmt|;
 return|return
+operator|new
+name|FDFDocument
+argument_list|(
 name|parser
 operator|.
-name|getFDFDocument
+name|getDocument
 argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * This will load a document from a file.      *      * @param filename The name of the file to load.      *      * @return The document that was loaded.      *      * @throws IOException If there is an error reading from the stream.      */

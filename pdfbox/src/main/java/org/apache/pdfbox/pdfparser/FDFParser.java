@@ -171,22 +171,6 @@ name|RandomAccessFile
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|fdf
-operator|.
-name|FDFDocument
-import|;
-end_import
-
 begin_class
 specifier|public
 class|class
@@ -501,23 +485,6 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-block|}
-comment|/**      * This will get the FDF document that was parsed.  When you are done with      * this document you must call close() on it to release resources.      *      * @return The document at the PD layer.      *      * @throws IOException If there is an error getting the document.      */
-specifier|public
-name|FDFDocument
-name|getFDFDocument
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-operator|new
-name|FDFDocument
-argument_list|(
-name|getDocument
-argument_list|()
-argument_list|)
-return|;
 block|}
 block|}
 end_class
