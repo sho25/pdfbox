@@ -152,7 +152,6 @@ specifier|final
 name|String
 name|value
 decl_stmt|;
-specifier|public
 name|KeyValue
 parameter_list|(
 specifier|final
