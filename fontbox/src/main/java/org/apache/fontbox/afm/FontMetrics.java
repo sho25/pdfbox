@@ -604,7 +604,7 @@ operator|=
 name|afmVersionValue
 expr_stmt|;
 block|}
-comment|/**      * This will set the metricSets attribute.  This value must be 0,1, or 2.      *      * @param metricSetsValue The new metric sets attribute.      */
+comment|/**      * This will set the metricSets attribute.  This value must be 0,1, or 2.      *      * @param metricSetsValue The new metric sets attribute.      * @throws IllegalArgumentException If the metricSets attribute is not 0,1, or 2.      */
 specifier|public
 name|void
 name|setMetricSets
@@ -626,7 +626,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IllegalArgumentException
 argument_list|(
 literal|"The metricSets attribute must be in the "
 operator|+
