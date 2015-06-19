@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is only for the readUntilEndStream methods, to prevent a  * final CR LF or LF (but not a final CR!) from being written to the output,  * unless the beginning of the stream is assumed to be ASCII.  * Only the 3-param write() method is implemented. This solves  * PDFBOX-2079 and PDFBOX-2120 and avoids making readUntilEndStream()   * even more complex than it already is.  *  * @author Tilman Hausherr  */
+comment|/**  * This class is only for the readUntilEndStream method, to prevent a  * final CR LF or LF (but not a final CR!) from being written to the output,  * unless the beginning of the stream is assumed to be ASCII.  * Only the 3-param write() method is implemented. This solves  * PDFBOX-2079 and PDFBOX-2120 and avoids making readUntilEndStream()   * even more complex than it already is.  *  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -205,6 +205,11 @@ condition|(
 name|hasCR
 condition|)
 block|{
+comment|// previous buffer ended with CR
+name|hasCR
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -222,14 +227,9 @@ operator|==
 literal|'\n'
 condition|)
 block|{
-comment|// previous buffer ended with CR
 comment|// actual buffer contains only LF so it will be the last one
 comment|// => we're done
-name|hasCR
-operator|=
-literal|false
-expr_stmt|;
-comment|// to avoid this getting written in the flush
+comment|// reset hasCR done too to avoid CR getting written in the flush
 return|return;
 block|}
 name|super
@@ -238,10 +238,6 @@ name|write
 argument_list|(
 literal|'\r'
 argument_list|)
-expr_stmt|;
-name|hasCR
-operator|=
-literal|false
 expr_stmt|;
 block|}
 if|if
