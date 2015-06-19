@@ -213,6 +213,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSObjectKey
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSStream
 import|;
 end_import
@@ -283,9 +297,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|cos
+name|util
 operator|.
-name|COSObjectKey
+name|Charsets
 import|;
 end_import
 
@@ -2548,17 +2562,16 @@ return|return
 name|po
 return|;
 block|}
-comment|/**      * Determine if a character terminates a PDF name.      *      * @param ch The character      * @return<code>true</code> if the character terminates a PDF name, otherwise<code>false</code>.      */
+comment|/**      * Determine if a character terminates a PDF name.      *      * @param ch The character      * @return true if the character terminates a PDF name, otherwise false.      */
 specifier|protected
 name|boolean
 name|isEndOfName
 parameter_list|(
-name|char
+name|int
 name|ch
 parameter_list|)
 block|{
 return|return
-operator|(
 name|ch
 operator|==
 name|ASCII_SPACE
@@ -2602,10 +2615,9 @@ operator|||
 name|ch
 operator|==
 literal|'('
-operator|)
 return|;
 block|}
-comment|/**      * This will parse a PDF name from the stream.      *      * @return The parsed PDF name.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will parse a PDF name from the stream.      *      * @return The parsed PDF name.      * @throws IOException If there is an error reading from the stream.      */
 specifier|protected
 name|COSName
 name|parseCOSName
@@ -2618,12 +2630,11 @@ argument_list|(
 literal|'/'
 argument_list|)
 expr_stmt|;
-comment|// costruisce il nome
-name|StringBuilder
+name|ByteArrayOutputStream
 name|buffer
 init|=
 operator|new
-name|StringBuilder
+name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
 name|int
@@ -2642,12 +2653,9 @@ operator|-
 literal|1
 condition|)
 block|{
-name|char
+name|int
 name|ch
 init|=
-operator|(
-name|char
-operator|)
 name|c
 decl_stmt|;
 if|if
@@ -2685,7 +2693,6 @@ comment|// spec with respect to the # escape, even though they report
 comment|// PDF versions of 1.2 or later.  The solution here is that we
 comment|// interpret the # as an escape only when it is followed by two
 comment|// valid hex digits.
-comment|//
 if|if
 condition|(
 name|isHexDigit
@@ -2712,11 +2719,8 @@ try|try
 block|{
 name|buffer
 operator|.
-name|append
+name|write
 argument_list|(
-operator|(
-name|char
-operator|)
 name|Integer
 operator|.
 name|parseInt
@@ -2738,7 +2742,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Error: expected hex number, actual='"
+literal|"Error: expected hex digit, actual='"
 operator|+
 name|hex
 operator|+
@@ -2771,7 +2775,7 @@ name|ch1
 expr_stmt|;
 name|buffer
 operator|.
-name|append
+name|write
 argument_list|(
 name|ch
 argument_list|)
@@ -2793,7 +2797,7 @@ else|else
 block|{
 name|buffer
 operator|.
-name|append
+name|write
 argument_list|(
 name|ch
 argument_list|)
@@ -2823,15 +2827,28 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+name|String
+name|string
+init|=
+operator|new
+name|String
+argument_list|(
+name|buffer
+operator|.
+name|toByteArray
+argument_list|()
+argument_list|,
+name|Charsets
+operator|.
+name|UTF_8
+argument_list|)
+decl_stmt|;
 return|return
 name|COSName
 operator|.
 name|getPDFName
 argument_list|(
-name|buffer
-operator|.
-name|toString
-argument_list|()
+name|string
 argument_list|)
 return|;
 block|}
