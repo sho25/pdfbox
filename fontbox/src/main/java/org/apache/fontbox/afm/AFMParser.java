@@ -3908,11 +3908,11 @@ throws|throws
 name|IOException
 block|{
 comment|//First skip the whitespace
-name|StringBuffer
+name|StringBuilder
 name|buf
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|int
@@ -3992,11 +3992,11 @@ throws|throws
 name|IOException
 block|{
 comment|//First skip the whitespace
-name|StringBuffer
+name|StringBuilder
 name|buf
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|int
