@@ -207,7 +207,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Parses a predefined CMap.      *      * @param name CMap name.      * @throws IOException If the CMap could not be parsed.      */
+comment|/**      * Parses a predefined CMap.      *      * @param name CMap name.      * @return The parsed predefined CMap as a java object.      * @throws IOException If the CMap could not be parsed.      */
 specifier|public
 name|CMap
 name|parsePredefined
@@ -1746,11 +1746,6 @@ name|done
 init|=
 literal|false
 decl_stmt|;
-name|String
-name|value
-init|=
-literal|null
-decl_stmt|;
 name|int
 name|arrayIndex
 init|=
@@ -1779,13 +1774,14 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+name|String
 name|value
-operator|=
+init|=
 name|createStringFromBytes
 argument_list|(
 name|tokenBytes
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|result
 operator|.
 name|addCharMapping
@@ -2118,9 +2114,13 @@ name|nextToken
 operator|!=
 literal|null
 operator|&&
-name|nextToken
-operator|!=
+operator|!
 name|MARK_END_OF_ARRAY
+operator|.
+name|equals
+argument_list|(
+name|nextToken
+argument_list|)
 condition|)
 block|{
 name|list
@@ -2195,9 +2195,13 @@ name|key
 operator|instanceof
 name|LiteralName
 operator|&&
-name|key
-operator|!=
+operator|!
 name|MARK_END_OF_DICTIONARY
+operator|.
+name|equals
+argument_list|(
+name|key
+argument_list|)
 condition|)
 block|{
 name|Object
@@ -2679,8 +2683,9 @@ else|else
 block|{
 name|retval
 operator|=
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|value
 argument_list|)
