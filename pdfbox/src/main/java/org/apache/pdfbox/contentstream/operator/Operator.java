@@ -100,7 +100,7 @@ name|Operator
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param aOperator The operator that this object will represent.      */
+comment|/**      * Constructor.      *      * @param aOperator The operator that this object will represent.      * @throws IllegalArgumentException if the operator starts with "/".      */
 specifier|private
 name|Operator
 parameter_list|(
@@ -124,7 +124,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IllegalArgumentException
 argument_list|(
 literal|"Operators are not allowed to start with / '"
 operator|+
