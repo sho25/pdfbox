@@ -130,6 +130,7 @@ comment|/**  * The "Standard 14" PDF fonts, also known as the "base 14" fonts.  
 end_comment
 
 begin_class
+specifier|final
 class|class
 name|Standard14Fonts
 block|{
