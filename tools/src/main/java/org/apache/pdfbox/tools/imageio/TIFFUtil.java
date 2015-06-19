@@ -223,8 +223,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Updates the given ImageIO metadata with Sun's custom TIFF tags.      * {@see https://svn.apache.org/repos/asf/xmlgraphics/commons/tags/commons-1_3_1/src/java/org/      *       apache/xmlgraphics/image/writer/imageio/ImageIOTIFFImageWriter.java}      * {@see http://download.java.net/media/jai-imageio/javadoc/1.0_01/com/sun/media/imageio/      *       plugins/tiff/package-summary.html}      * {@see http://partners.adobe.com/public/developer/tiff/index.html}      * @param image buffered image which will be written      * @param metadata ImageIO metadata      * @param dpi image dots per inch      */
-specifier|public
+comment|/**      * Updates the given ImageIO metadata with Sun's custom TIFF tags.      * {@see https://svn.apache.org/repos/asf/xmlgraphics/commons/tags/commons-1_3_1/src/java/org/      *       apache/xmlgraphics/image/writer/imageio/ImageIOTIFFImageWriter.java}      * {@see http://download.java.net/media/jai-imageio/javadoc/1.0_01/com/sun/media/imageio/      *       plugins/tiff/package-summary.html}      * {@see http://partners.adobe.com/public/developer/tiff/index.html}      * @param image buffered image which will be written      * @param metadata ImageIO metadata      * @param dpi image dots per inch      * @throws IIOInvalidTreeException if something goes wrong      */
 specifier|static
 name|void
 name|updateMetadata
@@ -238,6 +237,8 @@ parameter_list|,
 name|int
 name|dpi
 parameter_list|)
+throws|throws
+name|IIOInvalidTreeException
 block|{
 name|debugLogMetadata
 argument_list|(
@@ -464,8 +465,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
 name|metadata
 operator|.
 name|mergeTree
@@ -475,22 +474,6 @@ argument_list|,
 name|root
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IIOInvalidTreeException
-name|e
-parameter_list|)
-block|{
-comment|// should never happen
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 name|debugLogMetadata
 argument_list|(
 name|metadata
