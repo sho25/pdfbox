@@ -652,7 +652,6 @@ name|GlyphList
 name|glyphList
 decl_stmt|;
 comment|/**      * Constructor.      */
-specifier|public
 name|PDFTextStreamEngine
 parameter_list|()
 throws|throws
