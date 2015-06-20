@@ -347,6 +347,20 @@ name|FilterHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Charsets
+import|;
+end_import
+
 begin_class
 specifier|public
 class|class
@@ -1177,6 +1191,10 @@ operator|new
 name|String
 argument_list|(
 name|buffer2
+argument_list|,
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 if|if
