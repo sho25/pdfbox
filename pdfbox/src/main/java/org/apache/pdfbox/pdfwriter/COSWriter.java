@@ -3253,7 +3253,11 @@ name|x
 argument_list|)
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+name|Charsets
+operator|.
+name|ISO_8859_1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
@@ -3277,7 +3281,11 @@ name|y
 argument_list|)
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+name|Charsets
+operator|.
+name|ISO_8859_1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getStandardOutput
