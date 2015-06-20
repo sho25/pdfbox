@@ -2965,7 +2965,11 @@ init|=
 name|byteRange
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+name|Charsets
+operator|.
+name|ISO_8859_1
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -3190,7 +3194,11 @@ init|=
 name|signature
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+name|Charsets
+operator|.
+name|ISO_8859_1
+argument_list|)
 decl_stmt|;
 name|System
 operator|.
