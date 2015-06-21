@@ -587,7 +587,7 @@ expr_stmt|;
 if|if
 condition|(
 name|pointer
-operator|<=
+operator|<
 name|size
 condition|)
 block|{
@@ -598,7 +598,7 @@ call|(
 name|int
 call|)
 argument_list|(
-name|position
+name|pointer
 operator|/
 name|chunkSize
 argument_list|)
@@ -609,7 +609,7 @@ call|(
 name|int
 call|)
 argument_list|(
-name|position
+name|pointer
 operator|%
 name|chunkSize
 argument_list|)
@@ -648,16 +648,8 @@ name|int
 call|)
 argument_list|(
 name|size
-operator|-
-operator|(
-operator|(
-name|bufferListMaxIndex
-operator|-
-literal|1
-operator|)
-operator|*
+operator|%
 name|chunkSize
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
