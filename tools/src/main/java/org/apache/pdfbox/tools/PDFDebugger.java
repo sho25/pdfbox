@@ -2772,6 +2772,15 @@ name|getSystemLookAndFeelClassName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"apple.laf.useScreenMenuBar"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
 name|PDFDebugger
 name|viewer
 init|=
