@@ -260,7 +260,7 @@ name|COSStream
 operator|)
 name|dictionary
 operator|.
-name|getItem
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
