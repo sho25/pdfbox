@@ -17,6 +17,20 @@ name|gui
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSBase
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is a simple class that will contain an index and a value.  *  * @author Ben Litchfield  */
 end_comment
@@ -31,12 +45,16 @@ name|int
 name|index
 decl_stmt|;
 specifier|private
-name|Object
+name|COSBase
 name|value
+decl_stmt|;
+specifier|private
+name|COSBase
+name|item
 decl_stmt|;
 comment|/**      * This will get the value for this entry.      *      * @return The value for this entry.      */
 specifier|public
-name|Object
+name|COSBase
 name|getValue
 parameter_list|()
 block|{
@@ -44,18 +62,44 @@ return|return
 name|value
 return|;
 block|}
+comment|/**      * This will get the value for this entry.      *      * @return The value for this entry.      */
+specifier|public
+name|COSBase
+name|getItem
+parameter_list|()
+block|{
+return|return
+name|item
+return|;
+block|}
 comment|/**      * This will set the value for this entry.      *      * @param val the new value for this entry.      */
 specifier|public
 name|void
 name|setValue
 parameter_list|(
-name|Object
+name|COSBase
 name|val
 parameter_list|)
 block|{
 name|this
 operator|.
 name|value
+operator|=
+name|val
+expr_stmt|;
+block|}
+comment|/**      * This will set the value for this entry.      *      * @param val the new value for this entry.      */
+specifier|public
+name|void
+name|setItem
+parameter_list|(
+name|COSBase
+name|val
+parameter_list|)
+block|{
+name|this
+operator|.
+name|item
 operator|=
 name|val
 expr_stmt|;
