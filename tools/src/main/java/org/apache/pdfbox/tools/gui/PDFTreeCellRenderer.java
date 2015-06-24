@@ -239,6 +239,7 @@ extends|extends
 name|DefaultTreeCellRenderer
 block|{
 specifier|private
+specifier|static
 specifier|final
 name|ImageIcon
 name|ICON_ARRAY
@@ -253,6 +254,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|ImageIcon
 name|ICON_DICT
@@ -267,6 +269,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|ImageIcon
 name|ICON_HEX
@@ -281,6 +284,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|ImageIcon
 name|ICON_INDIRECT
@@ -295,6 +299,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|ImageIcon
 name|ICON_INTEGER
@@ -309,6 +314,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|ImageIcon
 name|ICON_NAME
@@ -322,8 +328,9 @@ literal|"name"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//private final ImageIcon ICON_NULL = new ImageIcon(getImageUrl("null"));
+comment|//private static final ImageIcon ICON_NULL = new ImageIcon(getImageUrl("null"));
 specifier|private
+specifier|static
 specifier|final
 name|ImageIcon
 name|ICON_REAL
@@ -338,6 +345,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|ImageIcon
 name|ICON_STREAM_DICT
@@ -352,6 +360,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|ImageIcon
 name|ICON_STRING
