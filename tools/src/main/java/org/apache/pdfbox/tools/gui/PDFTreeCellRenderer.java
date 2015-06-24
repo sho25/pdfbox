@@ -322,20 +322,7 @@ literal|"name"
 argument_list|)
 argument_list|)
 decl_stmt|;
-specifier|private
-specifier|final
-name|ImageIcon
-name|ICON_NULL
-init|=
-operator|new
-name|ImageIcon
-argument_list|(
-name|getImageUrl
-argument_list|(
-literal|"null"
-argument_list|)
-argument_list|)
-decl_stmt|;
+comment|//private final ImageIcon ICON_NULL = new ImageIcon(getImageUrl("null"));
 specifier|private
 specifier|final
 name|ImageIcon
@@ -1189,8 +1176,9 @@ name|COSNull
 condition|)
 block|{
 return|return
-name|ICON_NULL
+literal|null
 return|;
+comment|//ICON_NULL;
 block|}
 elseif|else
 if|if
