@@ -99,6 +99,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|imageio
+operator|.
+name|ImageIO
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -166,16 +176,6 @@ operator|.
 name|pdmodel
 operator|.
 name|PDDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|imageio
-operator|.
-name|ImageIO
 import|;
 end_import
 
@@ -1469,6 +1469,29 @@ argument_list|()
 operator|+
 literal|"-diff.png"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Files differ: "
+operator|+
+name|inFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|"\n"
+operator|+
+literal|"              "
+operator|+
+name|outFile
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
