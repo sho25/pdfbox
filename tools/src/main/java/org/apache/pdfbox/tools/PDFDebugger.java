@@ -15,18 +15,6 @@ name|tools
 package|;
 end_package
 
-begin_comment
-comment|//import com.apple.eawt.AppEvent;
-end_comment
-
-begin_comment
-comment|//import com.apple.eawt.Application;
-end_comment
-
-begin_comment
-comment|//import com.apple.eawt.OpenFilesHandler;
-end_comment
-
 begin_import
 import|import
 name|java
@@ -198,6 +186,18 @@ operator|.
 name|io
 operator|.
 name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
 import|;
 end_import
 
@@ -624,6 +624,22 @@ operator|.
 name|gui
 operator|.
 name|MapEntry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|tools
+operator|.
+name|gui
+operator|.
+name|OSXAdapter
 import|;
 end_import
 
@@ -1995,24 +2011,136 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// Mac OS X file open handler
-comment|//        Application.getApplication().setOpenFileHandler(new OpenFilesHandler()
-comment|//        {
-comment|//            @Override
-comment|//            public void openFiles(AppEvent.OpenFilesEvent openFilesEvent)
-comment|//            {
-comment|//                try
-comment|//                {
-comment|//                    readPDFFile(openFilesEvent.getFiles().get(0), "");
-comment|//                }
-comment|//                catch (IOException e)
-comment|//                {
-comment|//                    throw new RuntimeException(e);
-comment|//                }
-comment|//            }
-comment|//        });
+comment|// Mac OS X file open/quit handler
+if|if
+condition|(
+name|IS_MAC_OS
+condition|)
+block|{
+try|try
+block|{
+name|Method
+name|osxOpenFiles
+init|=
+name|getClass
+argument_list|()
+operator|.
+name|getDeclaredMethod
+argument_list|(
+literal|"osxOpenFiles"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|osxOpenFiles
+operator|.
+name|setAccessible
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|OSXAdapter
+operator|.
+name|setFileHandler
+argument_list|(
+name|this
+argument_list|,
+name|osxOpenFiles
+argument_list|)
+expr_stmt|;
+name|Method
+name|osxQuit
+init|=
+name|getClass
+argument_list|()
+operator|.
+name|getDeclaredMethod
+argument_list|(
+literal|"osxQuit"
+argument_list|)
+decl_stmt|;
+name|osxQuit
+operator|.
+name|setAccessible
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|OSXAdapter
+operator|.
+name|setQuitHandler
+argument_list|(
+name|this
+argument_list|,
+name|osxQuit
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchMethodException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 comment|//GEN-END:initComponents
+comment|/**      * This method is called via reflection on Mac OS X.      */
+specifier|private
+name|void
+name|osxOpenFiles
+parameter_list|(
+name|String
+name|filename
+parameter_list|)
+block|{
+try|try
+block|{
+name|readPDFFile
+argument_list|(
+name|filename
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * This method is called via reflection on Mac OS X.      */
+specifier|private
+name|void
+name|osxQuit
+parameter_list|()
+block|{
+name|exitMenuItemActionPerformed
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 specifier|private
 name|void
 name|openMenuItemActionPerformed
@@ -3406,14 +3534,6 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
-specifier|final
-name|PDFDebugger
-name|viewer
-init|=
-operator|new
-name|PDFDebugger
-argument_list|()
-decl_stmt|;
 comment|// handle uncaught exceptions
 name|Thread
 operator|.
@@ -3485,7 +3605,7 @@ name|JOptionPane
 operator|.
 name|showMessageDialog
 argument_list|(
-name|viewer
+literal|null
 argument_list|,
 literal|"Error: "
 operator|+
@@ -3505,6 +3625,14 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+specifier|final
+name|PDFDebugger
+name|viewer
+init|=
+operator|new
+name|PDFDebugger
+argument_list|()
+decl_stmt|;
 comment|// open file, if any
 name|String
 name|filename
