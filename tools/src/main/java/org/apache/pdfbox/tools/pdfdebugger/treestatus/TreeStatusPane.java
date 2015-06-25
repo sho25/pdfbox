@@ -244,6 +244,13 @@ argument_list|)
 expr_stmt|;
 name|tree
 operator|.
+name|scrollPathToVisible
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+name|tree
+operator|.
 name|requestFocusInWindow
 argument_list|()
 expr_stmt|;
