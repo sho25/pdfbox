@@ -880,7 +880,7 @@ return|return
 name|finalKey
 return|;
 block|}
-comment|/**      * Encrypt or decrypt data with RC4.      *      * @param finalKey The final key obtained with via {@link #calcFinalKey()}.      * @param input The data to encrypt.      * @param output The output to write the encrypted data to.      *      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Encrypt or decrypt data with RC4.      *      * @param finalKey The final key obtained with via {@link #calcFinalKey(long, long)}.      * @param input The data to encrypt.      * @param output The output to write the encrypted data to.      *      * @throws IOException If there is an error reading the data.      */
 specifier|protected
 name|void
 name|encryptDataRC4
@@ -915,7 +915,7 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Encrypt or decrypt data with RC4.      *      * @param finalKey The final key obtained with via {@link #calcFinalKey()}.      * @param input The data to encrypt.      * @param output The output to write the encrypted data to.      *      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Encrypt or decrypt data with RC4.      *      * @param finalKey The final key obtained with via {@link #calcFinalKey(long, long)}.      * @param input The data to encrypt.      * @param output The output to write the encrypted data to.      *      * @throws IOException If there is an error reading the data.      */
 specifier|protected
 name|void
 name|encryptDataRC4

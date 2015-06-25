@@ -198,7 +198,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the destination to jump to.      *      * @param d The destination.      *       * @IllegalArgumentException if the destination is not a page dictionary object.      */
+comment|/**      * This will set the destination to jump to.      *      * @param d The destination.      *       * @throws IllegalArgumentException if the destination is not a page dictionary object.      */
 specifier|public
 name|void
 name|setDestination
