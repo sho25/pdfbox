@@ -899,7 +899,12 @@ condition|(
 name|nodeValue
 operator|instanceof
 name|COSNull
+operator|||
+name|nodeValue
+operator|==
+literal|null
 condition|)
+block|)
 block|{
 name|result
 operator|=
@@ -1009,6 +1014,9 @@ return|return
 name|result
 return|;
 block|}
+end_class
+
+begin_function
 specifier|private
 name|ImageIcon
 name|lookupIconWithOverlay
@@ -1148,6 +1156,9 @@ return|return
 name|icon
 return|;
 block|}
+end_function
+
+begin_function
 specifier|private
 name|ImageIcon
 name|lookupIcon
@@ -1313,12 +1324,20 @@ condition|(
 name|nodeValue
 operator|instanceof
 name|COSNull
+operator|||
+name|nodeValue
+operator|==
+literal|null
 condition|)
+block|)
 block|{
 return|return
 name|ICON_NULL
 return|;
 block|}
+end_function
+
+begin_elseif
 elseif|else
 if|if
 condition|(
@@ -1331,6 +1350,9 @@ return|return
 name|ICON_STREAM_DICT
 return|;
 block|}
+end_elseif
+
+begin_elseif
 elseif|else
 if|if
 condition|(
@@ -1343,6 +1365,9 @@ return|return
 name|ICON_DICT
 return|;
 block|}
+end_elseif
+
+begin_elseif
 elseif|else
 if|if
 condition|(
@@ -1355,6 +1380,9 @@ return|return
 name|ICON_ARRAY
 return|;
 block|}
+end_elseif
+
+begin_elseif
 elseif|else
 if|if
 condition|(
@@ -1367,6 +1395,9 @@ return|return
 name|ICON_PDF
 return|;
 block|}
+end_elseif
+
+begin_elseif
 elseif|else
 if|if
 condition|(
@@ -1379,15 +1410,24 @@ return|return
 name|ICON_PAGE
 return|;
 block|}
+end_elseif
+
+begin_else
 else|else
 block|{
 return|return
 literal|null
 return|;
 block|}
-block|}
+end_else
+
+begin_comment
+unit|}
 comment|/**      * An ImageIcon which allows other ImageIcon overlays.      */
-specifier|private
+end_comment
+
+begin_class
+unit|private
 class|class
 name|OverlayIcon
 extends|extends
@@ -1512,8 +1552,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 
