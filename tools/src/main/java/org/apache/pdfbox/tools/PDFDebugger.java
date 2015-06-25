@@ -15,41 +15,17 @@ name|tools
 package|;
 end_package
 
-begin_import
-import|import
-name|com
-operator|.
-name|apple
-operator|.
-name|eawt
-operator|.
-name|AppEvent
-import|;
-end_import
+begin_comment
+comment|//import com.apple.eawt.AppEvent;
+end_comment
 
-begin_import
-import|import
-name|com
-operator|.
-name|apple
-operator|.
-name|eawt
-operator|.
-name|Application
-import|;
-end_import
+begin_comment
+comment|//import com.apple.eawt.Application;
+end_comment
 
-begin_import
-import|import
-name|com
-operator|.
-name|apple
-operator|.
-name|eawt
-operator|.
-name|OpenFilesHandler
-import|;
-end_import
+begin_comment
+comment|//import com.apple.eawt.OpenFilesHandler;
+end_comment
 
 begin_import
 import|import
@@ -2020,65 +1996,21 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// Mac OS X file open handler
-name|Application
-operator|.
-name|getApplication
-argument_list|()
-operator|.
-name|setOpenFileHandler
-argument_list|(
-operator|new
-name|OpenFilesHandler
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|openFiles
-parameter_list|(
-name|AppEvent
-operator|.
-name|OpenFilesEvent
-name|openFilesEvent
-parameter_list|)
-block|{
-try|try
-block|{
-name|readPDFFile
-argument_list|(
-name|openFilesEvent
-operator|.
-name|getFiles
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
-argument_list|)
-expr_stmt|;
+comment|//        Application.getApplication().setOpenFileHandler(new OpenFilesHandler()
+comment|//        {
+comment|//            @Override
+comment|//            public void openFiles(AppEvent.OpenFilesEvent openFilesEvent)
+comment|//            {
+comment|//                try
+comment|//                {
+comment|//                    readPDFFile(openFilesEvent.getFiles().get(0), "");
+comment|//                }
+comment|//                catch (IOException e)
+comment|//                {
+comment|//                    throw new RuntimeException(e);
+comment|//                }
+comment|//            }
+comment|//        });
 block|}
 comment|//GEN-END:initComponents
 specifier|private
