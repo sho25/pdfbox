@@ -25,8 +25,36 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * A 'kern' table in a true type font.  *   * @author Glenn Adams  */
+comment|/**  * A 'kern' table in a true type font.  *  * @author Glenn Adams  */
 end_comment
 
 begin_class
@@ -36,6 +64,21 @@ name|KerningTable
 extends|extends
 name|TTFTable
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|KerningTable
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Tag to identify this table.      */
 specifier|public
 specifier|static
@@ -62,7 +105,7 @@ name|font
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * This will read the required data from the stream.      *      * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
 annotation|@
 name|Override
 specifier|public
@@ -107,25 +150,10 @@ name|readUnsignedShort
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|version
-operator|>
-literal|1
-condition|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Unsupported kerning table version: "
-operator|+
-name|version
-argument_list|)
-throw|;
-block|}
 name|int
 name|numSubtables
+init|=
+literal|0
 decl_stmt|;
 if|if
 condition|(
@@ -142,7 +170,13 @@ name|readUnsignedShort
 argument_list|()
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|version
+operator|==
+literal|1
+condition|)
 block|{
 name|numSubtables
 operator|=
@@ -155,6 +189,25 @@ name|readUnsignedInt
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Skipped kerning table due to an unsupported kerning table version: "
+operator|+
+name|version
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|numSubtables
+operator|>
+literal|0
+condition|)
+block|{
 name|subtables
 operator|=
 operator|new
@@ -202,12 +255,13 @@ operator|=
 name|subtable
 expr_stmt|;
 block|}
+block|}
 name|initialized
 operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * Obtain first subtable that supports non-cross-stream horizontal kerning.      *       * @return first matching subtable or null if none found      */
+comment|/**      * Obtain first subtable that supports non-cross-stream horizontal kerning.      *      * @return first matching subtable or null if none found      */
 specifier|public
 name|KerningSubtable
 name|getHorizontalKerningSubtable
@@ -220,7 +274,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Obtain first subtable that supports horizontal kerning with specificed cross stream.      *       * @param cross true if requesting cross stream horizontal kerning      * @return first matching subtable or null if none found      */
+comment|/**      * Obtain first subtable that supports horizontal kerning with specificed cross stream.      *      * @param cross true if requesting cross stream horizontal kerning      * @return first matching subtable or null if none found      */
 specifier|public
 name|KerningSubtable
 name|getHorizontalKerningSubtable
@@ -228,6 +282,13 @@ parameter_list|(
 name|boolean
 name|cross
 parameter_list|)
+block|{
+if|if
+condition|(
+name|subtables
+operator|!=
+literal|null
+condition|)
 block|{
 for|for
 control|(
@@ -250,6 +311,7 @@ block|{
 return|return
 name|s
 return|;
+block|}
 block|}
 block|}
 return|return
