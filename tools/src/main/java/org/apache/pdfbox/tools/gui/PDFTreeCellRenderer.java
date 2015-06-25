@@ -1414,7 +1414,6 @@ name|ImageIcon
 argument_list|>
 name|overlays
 decl_stmt|;
-specifier|public
 name|OverlayIcon
 parameter_list|(
 name|ImageIcon
@@ -1447,7 +1446,6 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-specifier|public
 name|void
 name|add
 parameter_list|(
