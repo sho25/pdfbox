@@ -73,6 +73,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Vector
 import|;
 end_import
@@ -507,7 +517,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|Vector
+name|List
 argument_list|<
 name|RandomAccessRead
 argument_list|>
