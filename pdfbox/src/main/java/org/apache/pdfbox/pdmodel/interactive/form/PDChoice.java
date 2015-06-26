@@ -1115,7 +1115,7 @@ name|applyChange
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Returns the selected values, or an empty string. This list always contains a single item      * unless {@link #isMultiSelect()} is true.      *      * @return A non-null string.      */
+comment|/**      * Returns the selected values, or an empty List. This list always contains a single item      * unless {@link #isMultiSelect()} is true.      *      * @return A non-null string.      */
 specifier|public
 name|List
 argument_list|<
@@ -1133,7 +1133,7 @@ name|V
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the default values, or an empty string. This list always contains a single item      * unless {@link #isMultiSelect()} is true.      *      * @return A non-null string.      */
+comment|/**      * Returns the default values, or an empty List. This list always contains a single item      * unless {@link #isMultiSelect()} is true.      *      * @return A non-null string.      */
 specifier|public
 name|List
 argument_list|<
@@ -1151,7 +1151,7 @@ name|DV
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the selected values, or an empty string, for the given key.      */
+comment|/**      * Returns the selected values, or an empty List, for the given key.      */
 specifier|private
 name|List
 argument_list|<
