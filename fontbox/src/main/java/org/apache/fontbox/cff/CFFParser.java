@@ -4299,7 +4299,7 @@ parameter_list|(
 name|CFFDataInput
 name|dataInput
 parameter_list|,
-name|EmbeddedEncoding
+name|CFFBuiltInEncoding
 name|encoding
 parameter_list|)
 throws|throws
@@ -4319,7 +4319,7 @@ operator|.
 name|supplement
 operator|=
 operator|new
-name|EmbeddedEncoding
+name|CFFBuiltInEncoding
 operator|.
 name|Supplement
 index|[
@@ -4347,13 +4347,13 @@ name|i
 operator|++
 control|)
 block|{
-name|EmbeddedEncoding
+name|CFFBuiltInEncoding
 operator|.
 name|Supplement
 name|supplement
 init|=
 operator|new
-name|EmbeddedEncoding
+name|CFFBuiltInEncoding
 operator|.
 name|Supplement
 argument_list|()
@@ -6118,11 +6118,11 @@ return|;
 block|}
 block|}
 block|}
-comment|/**      * Inner class representing an embedded CFF encoding.       */
+comment|/**      * Inner class representing a font's built-in CFF encoding.       */
 specifier|abstract
 specifier|static
 class|class
-name|EmbeddedEncoding
+name|CFFBuiltInEncoding
 extends|extends
 name|CFFEncoding
 block|{
@@ -6212,7 +6212,7 @@ specifier|static
 class|class
 name|Format0Encoding
 extends|extends
-name|EmbeddedEncoding
+name|CFFBuiltInEncoding
 block|{
 specifier|private
 name|int
@@ -6279,7 +6279,7 @@ specifier|static
 class|class
 name|Format1Encoding
 extends|extends
-name|EmbeddedEncoding
+name|CFFBuiltInEncoding
 block|{
 specifier|private
 name|int

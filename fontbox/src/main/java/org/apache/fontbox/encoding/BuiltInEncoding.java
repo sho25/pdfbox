@@ -26,19 +26,19 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A font-specific encoding.  *  * @author John Hewson  */
+comment|/**  * A font's built-in encoding. This is a custom encoding embedded in a font.  *  * @author John Hewson  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|CustomEncoding
+name|BuiltInEncoding
 extends|extends
 name|Encoding
 block|{
 comment|/**      * Constructor.      *       * @param codeToName the given code to name mapping      */
 specifier|public
-name|CustomEncoding
+name|BuiltInEncoding
 parameter_list|(
 name|Map
 argument_list|<

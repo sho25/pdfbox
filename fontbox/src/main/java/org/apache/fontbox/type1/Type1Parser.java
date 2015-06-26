@@ -25,7 +25,7 @@ name|fontbox
 operator|.
 name|encoding
 operator|.
-name|CustomEncoding
+name|BuiltInEncoding
 import|;
 end_import
 
@@ -1011,7 +1011,7 @@ operator|.
 name|encoding
 operator|=
 operator|new
-name|CustomEncoding
+name|BuiltInEncoding
 argument_list|(
 name|codeToName
 argument_list|)
