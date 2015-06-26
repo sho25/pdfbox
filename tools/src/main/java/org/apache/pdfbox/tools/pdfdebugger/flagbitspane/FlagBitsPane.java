@@ -195,11 +195,11 @@ class|class
 name|FlagBitsPane
 block|{
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 index|[]
-name|columnNames
+name|COLUMNNAMES
 init|=
 block|{
 literal|"Bit\nPosition"
@@ -404,7 +404,7 @@ name|JTable
 argument_list|(
 name|flagBits
 argument_list|,
-name|columnNames
+name|COLUMNNAMES
 argument_list|)
 decl_stmt|;
 name|JScrollPane
