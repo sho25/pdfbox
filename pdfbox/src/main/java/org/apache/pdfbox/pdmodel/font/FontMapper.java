@@ -246,7 +246,6 @@ comment|/**  * Font mapper, locates non-embedded fonts via a pluggable FontProvi
 end_comment
 
 begin_class
-specifier|public
 specifier|final
 class|class
 name|FontMapper
