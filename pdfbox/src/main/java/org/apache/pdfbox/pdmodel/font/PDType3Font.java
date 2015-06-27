@@ -21,6 +21,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|awt
+operator|.
+name|geom
+operator|.
+name|GeneralPath
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|io
 operator|.
 name|IOException
@@ -62,6 +74,18 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|FontBoxFont
 import|;
 end_import
 
@@ -391,6 +415,43 @@ block|{
 return|return
 literal|false
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|GeneralPath
+name|getPath
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// Type 3 fonts do not use vector paths
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"not supported for Type 3 fonts"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|FontBoxFont
+name|getFontBoxFont
+parameter_list|()
+block|{
+comment|// Type 3 fonts do not use FontBox fonts
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"not supported for Type 3 fonts"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override

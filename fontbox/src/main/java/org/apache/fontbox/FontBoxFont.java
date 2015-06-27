@@ -10,38 +10,8 @@ operator|.
 name|apache
 operator|.
 name|fontbox
-operator|.
-name|ttf
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|encoding
-operator|.
-name|Encoding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|util
-operator|.
-name|BoundingBox
-import|;
-end_import
 
 begin_import
 import|import
@@ -65,14 +35,38 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|util
+operator|.
+name|BoundingBox
+import|;
+end_import
+
 begin_comment
-comment|/**  * A Type 1-equivalent font, i.e. a font which can access glyphs by their PostScript name.  * This is currently a minimal interface and could be expanded if needed.  *  * @author John Hewson  */
+comment|/**  * Common interface for all FontBox fonts.  *  * @author John Hewson  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|Type1Equivalent
+name|FontBoxFont
 block|{
 comment|/**      * The PostScript name of the font.      */
 name|String
@@ -81,7 +75,24 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the Type 1 CharString for the character with the given name.      *      * @return glyph path      * @throws IOException if the path could not be read      */
+comment|/**      * Returns the font's bounding box in PostScript units.      */
+name|BoundingBox
+name|getFontBBox
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Returns the FontMatrix in PostScript units.      */
+name|List
+argument_list|<
+name|Number
+argument_list|>
+name|getFontMatrix
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Returns the path for the character with the given name.      *      * @return glyph path      * @throws IOException if the path could not be read      */
 name|GeneralPath
 name|getPath
 parameter_list|(
@@ -101,27 +112,13 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns true if the font contains the given glyph.      * @param name PostScript glyph name      */
+comment|/**      * Returns true if the font contains the given glyph.      *       * @param name PostScript glyph name      */
 name|boolean
 name|hasGlyph
 parameter_list|(
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Returns the PostScript Encoding vector for the font.      */
-name|Encoding
-name|getEncoding
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Returns the font's bounding box in PostScript units.      */
-name|BoundingBox
-name|getFontBBox
-parameter_list|()
 throws|throws
 name|IOException
 function_decl|;

@@ -17,47 +17,25 @@ name|font
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * External font service provider interface.  *  * @author John Hewson  */
+comment|/**  * Font file format.  *  * @author John Hewson  */
 end_comment
 
-begin_class
+begin_enum
 specifier|public
-specifier|abstract
-class|class
-name|FontProvider
+enum|enum
+name|FontFormat
 block|{
-comment|/**      * Returns a string containing debugging information. This will be written to the log if no      * suitable fonts are found and no fallback fonts are available. May be null.      */
-specifier|public
-specifier|abstract
-name|String
-name|toDebugString
-parameter_list|()
-function_decl|;
-comment|/**      * Returns a list of information about fonts on the system.      */
-specifier|public
-specifier|abstract
-name|List
-argument_list|<
-name|?
-extends|extends
-name|FontInfo
-argument_list|>
-name|getFontInfo
-parameter_list|()
-function_decl|;
+comment|/**      * TrueType font.      */
+name|TTF
+block|,
+comment|/**      * OpenType font.      */
+name|OTF
+block|,
+comment|/**      * Type 1 (binary) font.      */
+name|PFB
 block|}
-end_class
+end_enum
 
 end_unit
 

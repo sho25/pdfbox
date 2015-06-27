@@ -188,6 +188,8 @@ implements|implements
 name|COSObjectable
 implements|,
 name|PDFontLike
+implements|,
+name|PDVectorFont
 block|{
 specifier|protected
 specifier|final

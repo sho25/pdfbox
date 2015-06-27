@@ -19,43 +19,73 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|fontbox
+operator|.
+name|FontBoxFont
 import|;
 end_import
 
 begin_comment
-comment|/**  * External font service provider interface.  *  * @author John Hewson  */
+comment|/**  * Information about a font on the system.  *  * @author John Hewson  */
 end_comment
 
 begin_class
 specifier|public
 specifier|abstract
 class|class
-name|FontProvider
+name|FontInfo
 block|{
-comment|/**      * Returns a string containing debugging information. This will be written to the log if no      * suitable fonts are found and no fallback fonts are available. May be null.      */
+comment|/**      * Returns the PostScript name of the font.      */
 specifier|public
 specifier|abstract
 name|String
-name|toDebugString
+name|getPostScriptName
 parameter_list|()
 function_decl|;
-comment|/**      * Returns a list of information about fonts on the system.      */
+comment|/**      * Returns the font's format.      */
 specifier|public
 specifier|abstract
-name|List
-argument_list|<
-name|?
-extends|extends
-name|FontInfo
-argument_list|>
-name|getFontInfo
+name|FontFormat
+name|getFormat
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the CIDSystemInfo associated with the font, if any.      */
+specifier|public
+specifier|abstract
+name|PDCIDSystemInfo
+name|getCIDSystemInfo
+parameter_list|()
+function_decl|;
+comment|/**      * Returns a new FontBox font instance for the font. Implementors of this method must not      * cache the return value of this method unless doing so via the current {@link FontCache}.      */
+specifier|public
+specifier|abstract
+name|FontBoxFont
+name|getFont
+parameter_list|()
+function_decl|;
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|getPostScriptName
+argument_list|()
+operator|+
+literal|" ("
+operator|+
+name|getFormat
+argument_list|()
+operator|+
+literal|")"
+return|;
+block|}
 block|}
 end_class
 

@@ -41,7 +41,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDType1Equivalent
+name|PDSimpleFont
 import|;
 end_import
 
@@ -52,13 +52,13 @@ name|Type1Container
 extends|extends
 name|FontContainer
 argument_list|<
-name|PDType1Equivalent
+name|PDSimpleFont
 argument_list|>
 block|{
 specifier|public
 name|Type1Container
 parameter_list|(
-name|PDType1Equivalent
+name|PDSimpleFont
 name|font
 parameter_list|)
 block|{
@@ -93,7 +93,10 @@ name|name
 init|=
 name|font
 operator|.
-name|codeToName
+name|getEncoding
+argument_list|()
+operator|.
+name|getName
 argument_list|(
 name|code
 argument_list|)
@@ -101,7 +104,7 @@ decl_stmt|;
 return|return
 name|font
 operator|.
-name|getType1Equivalent
+name|getFontBoxFont
 argument_list|()
 operator|.
 name|hasGlyph

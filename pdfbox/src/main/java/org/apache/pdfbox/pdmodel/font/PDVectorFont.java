@@ -39,41 +39,18 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|ttf
-operator|.
-name|Type1Equivalent
-import|;
-end_import
-
 begin_comment
-comment|/**  * A Type 1-equivalent font in a PDF, i.e. a font which can access glyphs by their PostScript name.  * May be a PFB, CFF, or TTF.  *  * @author John Hewson  */
+comment|/**  * A vector outline font, e.g. not Type 3.  *  * @author John Hewson  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|PDType1Equivalent
-extends|extends
-name|PDFontLike
+name|PDVectorFont
 block|{
-comment|/**      * Returns the name of this font.      */
-annotation|@
-name|Override
-name|String
-name|getName
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the glyph name for the given character code.      *      * @param code character code      * @return PostScript glyph name      */
-name|String
-name|codeToName
+comment|/**      * Returns the glyph path for the given character code.      *      * @param code character code      * @throws java.io.IOException if the font could not be read      */
+name|GeneralPath
+name|getPath
 parameter_list|(
 name|int
 name|code
@@ -81,20 +58,15 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the glyph path for the given character code.      * @param name PostScript glyph name      * @throws java.io.IOException if the font could not be read      */
-name|GeneralPath
-name|getPath
+comment|/**      * Returns true if this font contains a glyph for the given character code.      *      * @param code character code      */
+name|boolean
+name|hasGlyph
 parameter_list|(
-name|String
-name|name
+name|int
+name|code
 parameter_list|)
 throws|throws
 name|IOException
-function_decl|;
-comment|/**      * Returns the embedded or system font for rendering. This font is a Type 1-equivalent, but      * may not be a Type 1 font, it could be a CFF font or TTF font. If there is no suitable font      * then the fallback font will be returned: this method never returns null.      */
-name|Type1Equivalent
-name|getType1Equivalent
-parameter_list|()
 function_decl|;
 block|}
 end_interface

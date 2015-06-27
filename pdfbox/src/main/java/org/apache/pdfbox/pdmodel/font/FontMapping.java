@@ -19,43 +19,82 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|fontbox
+operator|.
+name|FontBoxFont
 import|;
 end_import
 
 begin_comment
-comment|/**  * External font service provider interface.  *  * @author John Hewson  */
+comment|/**  * A font mapping from a PDF font to a FontBox font.  *  * @author John Hewson  */
 end_comment
 
 begin_class
 specifier|public
-specifier|abstract
 class|class
-name|FontProvider
-block|{
-comment|/**      * Returns a string containing debugging information. This will be written to the log if no      * suitable fonts are found and no fallback fonts are available. May be null.      */
-specifier|public
-specifier|abstract
-name|String
-name|toDebugString
-parameter_list|()
-function_decl|;
-comment|/**      * Returns a list of information about fonts on the system.      */
-specifier|public
-specifier|abstract
-name|List
-argument_list|<
-name|?
+name|FontMapping
+parameter_list|<
+name|T
 extends|extends
-name|FontInfo
-argument_list|>
-name|getFontInfo
+name|FontBoxFont
+parameter_list|>
+block|{
+specifier|private
+specifier|final
+name|T
+name|font
+decl_stmt|;
+specifier|private
+specifier|final
+name|boolean
+name|isFallback
+decl_stmt|;
+name|FontMapping
+parameter_list|(
+name|T
+name|font
+parameter_list|,
+name|boolean
+name|isFallback
+parameter_list|)
+block|{
+name|this
+operator|.
+name|font
+operator|=
+name|font
+expr_stmt|;
+name|this
+operator|.
+name|isFallback
+operator|=
+name|isFallback
+expr_stmt|;
+block|}
+comment|/**      * Returns the mapped, FontBox font. This is never null.      */
+specifier|public
+name|T
+name|getFont
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|font
+return|;
+block|}
+comment|/**      * Returns true if the mapped font is a fallback, i.e. a substitute based on basic font style,      * such as bold/italic, rather than font name.      */
+specifier|public
+name|boolean
+name|isFallback
+parameter_list|()
+block|{
+return|return
+name|isFallback
+return|;
+block|}
 block|}
 end_class
 

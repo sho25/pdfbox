@@ -21,6 +21,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|awt
+operator|.
+name|geom
+operator|.
+name|GeneralPath
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|io
 operator|.
 name|IOException
@@ -101,6 +113,18 @@ name|org
 operator|.
 name|apache
 operator|.
+name|fontbox
+operator|.
+name|FontBoxFont
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -134,6 +158,24 @@ operator|.
 name|cos
 operator|.
 name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|encoding
+operator|.
+name|BuiltInEncoding
 import|;
 end_import
 
@@ -536,35 +578,6 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|builtIn
-operator|==
-literal|null
-operator|&&
-operator|!
-name|encodingDict
-operator|.
-name|containsKey
-argument_list|(
-name|COSName
-operator|.
-name|BASE_ENCODING
-argument_list|)
-operator|&&
-name|symbolic
-condition|)
-block|{
-comment|// TTF built-in encoding is handled by PDTrueTypeFont#codeToGID
-name|this
-operator|.
-name|encoding
-operator|=
-literal|null
-expr_stmt|;
-block|}
-else|else
-block|{
 name|this
 operator|.
 name|encoding
@@ -582,7 +595,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 else|else
 block|{
 name|this
@@ -593,14 +605,15 @@ name|readEncodingFromFont
 argument_list|()
 expr_stmt|;
 block|}
-comment|// TTFs may have null encoding, but if it's non-symbolic then we have Standard Encoding
+comment|// TTFs have a built-in encoding, but if the font is non-symbolic then we instead
+comment|// have Standard Encoding
 if|if
 condition|(
 name|this
 operator|.
 name|encoding
-operator|==
-literal|null
+operator|instanceof
+name|BuiltInEncoding
 operator|&&
 name|getSymbolicFlag
 argument_list|()
@@ -633,14 +646,15 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// TTFs may have null encoding, but if it's standard 14 then we know it's Standard Encoding
+comment|// TTFs may have a built-in encoding, but if the font is standard 14 then we know
+comment|// it's Standard Encoding
 if|if
 condition|(
 name|this
 operator|.
 name|encoding
-operator|==
-literal|null
+operator|instanceof
+name|BuiltInEncoding
 operator|&&
 name|isStandard14
 argument_list|()
@@ -1497,6 +1511,25 @@ name|isStandard14
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the path for the character with the given name. For some fonts, GIDs may be used      * instead of names when calling this method.      *      * @return glyph path      * @throws IOException if the path could not be read      */
+specifier|public
+specifier|abstract
+name|GeneralPath
+name|getPath
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Returns the embedded or system font used for rendering. This is never null.      */
+specifier|public
+specifier|abstract
+name|FontBoxFont
+name|getFontBoxFont
+parameter_list|()
+function_decl|;
 annotation|@
 name|Override
 specifier|public

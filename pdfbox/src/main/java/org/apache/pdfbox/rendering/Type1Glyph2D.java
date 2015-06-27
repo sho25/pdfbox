@@ -97,7 +97,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDType1Equivalent
+name|PDSimpleFont
 import|;
 end_import
 
@@ -148,13 +148,13 @@ argument_list|()
 decl_stmt|;
 specifier|private
 specifier|final
-name|PDType1Equivalent
+name|PDSimpleFont
 name|font
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param font PDF Type1 font.      */
 name|Type1Glyph2D
 parameter_list|(
-name|PDType1Equivalent
+name|PDSimpleFont
 name|font
 parameter_list|)
 block|{
@@ -203,7 +203,10 @@ name|name
 init|=
 name|font
 operator|.
-name|codeToName
+name|getEncoding
+argument_list|()
+operator|.
+name|getName
 argument_list|(
 name|code
 argument_list|)

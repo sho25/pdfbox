@@ -9,11 +9,7 @@ name|org
 operator|.
 name|apache
 operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|font
+name|fontbox
 package|;
 end_package
 
@@ -21,43 +17,44 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|List
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|encoding
+operator|.
+name|Encoding
 import|;
 end_import
 
 begin_comment
-comment|/**  * External font service provider interface.  *  * @author John Hewson  */
+comment|/**  * A PostScript font which uses an encoding vector.  *  * @author John Hewson  */
 end_comment
 
-begin_class
+begin_interface
 specifier|public
-specifier|abstract
-class|class
-name|FontProvider
+interface|interface
+name|EncodedFont
 block|{
-comment|/**      * Returns a string containing debugging information. This will be written to the log if no      * suitable fonts are found and no fallback fonts are available. May be null.      */
-specifier|public
-specifier|abstract
-name|String
-name|toDebugString
+comment|/**      * Returns the PostScript Encoding vector for the font.      */
+name|Encoding
+name|getEncoding
 parameter_list|()
-function_decl|;
-comment|/**      * Returns a list of information about fonts on the system.      */
-specifier|public
-specifier|abstract
-name|List
-argument_list|<
-name|?
-extends|extends
-name|FontInfo
-argument_list|>
-name|getFontInfo
-parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 block|}
-end_class
+end_interface
 
 end_unit
 

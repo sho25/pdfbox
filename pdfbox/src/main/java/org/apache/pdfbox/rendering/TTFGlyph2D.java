@@ -107,20 +107,6 @@ name|fontbox
 operator|.
 name|ttf
 operator|.
-name|GlyphData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|ttf
-operator|.
 name|HeaderTable
 import|;
 end_import
@@ -203,8 +189,24 @@ name|PDType0Font
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|PDVectorFont
+import|;
+end_import
+
 begin_comment
-comment|/**  * This class provides a glyph to GeneralPath conversion for TrueType fonts.  */
+comment|/**  * This class provides a glyph to GeneralPath conversion for TrueType and OpenType fonts.  */
 end_comment
 
 begin_class
@@ -238,6 +240,10 @@ specifier|private
 specifier|final
 name|TrueTypeFont
 name|ttf
+decl_stmt|;
+specifier|private
+name|PDVectorFont
+name|vectorFont
 decl_stmt|;
 specifier|private
 name|float
@@ -295,6 +301,10 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|vectorFont
+operator|=
+name|ttfFont
+expr_stmt|;
 block|}
 comment|/**      * Constructor.      *      * @param type0Font Type0 font, with CIDFontType2 descendant      */
 specifier|public
@@ -326,8 +336,12 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|vectorFont
+operator|=
+name|type0Font
+expr_stmt|;
 block|}
-specifier|public
+specifier|private
 name|TTFGlyph2D
 parameter_list|(
 name|TrueTypeFont
@@ -607,17 +621,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|GlyphData
+name|GeneralPath
 name|glyph
 init|=
-name|ttf
+name|vectorFont
 operator|.
-name|getGlyph
-argument_list|()
-operator|.
-name|getGlyph
+name|getPath
 argument_list|(
-name|gid
+name|code
 argument_list|)
 decl_stmt|;
 comment|// Acrobat only draws GID 0 for embedded or "Standard 14" fonts, see PDFBOX-2372
@@ -674,9 +685,6 @@ block|{
 name|glyphPath
 operator|=
 name|glyph
-operator|.
-name|getPath
-argument_list|()
 expr_stmt|;
 if|if
 condition|(

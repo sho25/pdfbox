@@ -14,6 +14,8 @@ operator|.
 name|pdmodel
 operator|.
 name|font
+operator|.
+name|encoding
 package|;
 end_package
 
@@ -23,39 +25,96 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSBase
 import|;
 end_import
 
 begin_comment
-comment|/**  * External font service provider interface.  *  * @author John Hewson  */
+comment|/**  * A font's built-in encoding.  *  * @author John Hewson  */
 end_comment
 
 begin_class
 specifier|public
-specifier|abstract
 class|class
-name|FontProvider
-block|{
-comment|/**      * Returns a string containing debugging information. This will be written to the log if no      * suitable fonts are found and no fallback fonts are available. May be null.      */
-specifier|public
-specifier|abstract
-name|String
-name|toDebugString
-parameter_list|()
-function_decl|;
-comment|/**      * Returns a list of information about fonts on the system.      */
-specifier|public
-specifier|abstract
-name|List
-argument_list|<
-name|?
+name|BuiltInEncoding
 extends|extends
-name|FontInfo
+name|Encoding
+block|{
+comment|/**      * Constructor.      *      * @param codeToName the given code to name mapping      */
+specifier|public
+name|BuiltInEncoding
+parameter_list|(
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|String
 argument_list|>
-name|getFontInfo
+name|codeToName
+parameter_list|)
+block|{
+for|for
+control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|Integer
+argument_list|,
+name|String
+argument_list|>
+name|entry
+range|:
+name|codeToName
+operator|.
+name|entrySet
+argument_list|()
+control|)
+block|{
+name|add
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|COSBase
+name|getCOSObject
 parameter_list|()
-function_decl|;
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Built-in encodings cannot be serialized"
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 
