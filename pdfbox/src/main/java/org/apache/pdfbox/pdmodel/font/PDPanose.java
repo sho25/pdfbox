@@ -42,6 +42,7 @@ name|byte
 index|[]
 name|bytes
 decl_stmt|;
+specifier|public
 name|PDPanose
 parameter_list|(
 name|byte
