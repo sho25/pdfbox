@@ -265,6 +265,19 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// skip empty buffers
+if|if
+condition|(
+name|currentBufferLength
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|nextBuffer
+argument_list|()
+return|;
+block|}
 return|return
 literal|true
 return|;

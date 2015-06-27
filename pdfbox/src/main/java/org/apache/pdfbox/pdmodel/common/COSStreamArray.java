@@ -572,30 +572,14 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|RandomAccessRead
-name|randomAccess
-init|=
-name|stream
-operator|.
-name|getUnfilteredRandomAccess
-argument_list|()
-decl_stmt|;
-comment|// omit empty streams
-if|if
-condition|(
-name|randomAccess
-operator|.
-name|length
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
 name|input
 operator|.
 name|add
 argument_list|(
-name|randomAccess
+name|stream
+operator|.
+name|getUnfilteredRandomAccess
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//handle the case where there is no whitespace in the
@@ -613,7 +597,6 @@ name|inbetweenStreamBytes
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 operator|new
