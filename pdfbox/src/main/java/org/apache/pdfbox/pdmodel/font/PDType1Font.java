@@ -1447,6 +1447,7 @@ comment|// todo: isn't this the y-advance, not the height?
 block|}
 else|else
 block|{
+comment|// todo: should be scaled by font matrix
 return|return
 operator|(
 name|float
