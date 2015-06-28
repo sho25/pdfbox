@@ -189,7 +189,7 @@ name|pdfbox
 operator|.
 name|io
 operator|.
-name|RandomAccessFileInputStream
+name|RandomAccessReadInputStream
 import|;
 end_import
 
@@ -446,7 +446,7 @@ operator|new
 name|BufferedInputStream
 argument_list|(
 operator|new
-name|RandomAccessFileInputStream
+name|RandomAccessReadInputStream
 argument_list|(
 name|getFilteredBuffer
 argument_list|()
@@ -655,7 +655,7 @@ operator|new
 name|BufferedInputStream
 argument_list|(
 operator|new
-name|RandomAccessFileInputStream
+name|RandomAccessReadInputStream
 argument_list|(
 name|getUnfilteredBuffer
 argument_list|()
@@ -1421,7 +1421,7 @@ operator|new
 name|BufferedInputStream
 argument_list|(
 operator|new
-name|RandomAccessFileInputStream
+name|RandomAccessReadInputStream
 argument_list|(
 name|tempBuffer
 argument_list|,
@@ -1725,7 +1725,7 @@ operator|new
 name|BufferedInputStream
 argument_list|(
 operator|new
-name|RandomAccessFileInputStream
+name|RandomAccessReadInputStream
 argument_list|(
 name|tempBuffer
 argument_list|,

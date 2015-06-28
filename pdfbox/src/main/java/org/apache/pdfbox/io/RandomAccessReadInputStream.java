@@ -42,7 +42,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|RandomAccessFileInputStream
+name|RandomAccessReadInputStream
 extends|extends
 name|InputStream
 block|{
@@ -62,7 +62,7 @@ name|endPosition
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param randomAccessRead The file to read the data from.      * @param startPosition The position in the file that this stream starts.      * @param length The length of the input stream.      */
 specifier|public
-name|RandomAccessFileInputStream
+name|RandomAccessReadInputStream
 parameter_list|(
 name|RandomAccessRead
 name|randomAccessRead
