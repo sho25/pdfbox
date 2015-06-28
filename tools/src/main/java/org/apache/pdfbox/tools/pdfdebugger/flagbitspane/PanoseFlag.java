@@ -104,8 +104,8 @@ name|PanoseFlag
 extends|extends
 name|Flag
 block|{
-specifier|final
 specifier|private
+specifier|final
 name|byte
 index|[]
 name|bytes
@@ -820,8 +820,8 @@ name|index
 index|]
 return|;
 block|}
-specifier|final
 specifier|public
+specifier|final
 name|byte
 index|[]
 name|getPanoseBytes

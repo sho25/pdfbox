@@ -57,6 +57,7 @@ name|FieldFlag
 extends|extends
 name|Flag
 block|{
+specifier|private
 specifier|final
 name|COSDictionary
 name|dictionary
