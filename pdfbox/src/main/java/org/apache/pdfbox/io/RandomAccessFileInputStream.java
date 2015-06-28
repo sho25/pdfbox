@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class allows a section of a RandomAccessFile to be accessed as an  * input stream.  *  * @author Ben Litchfield  */
+comment|/**  * This class allows a section of a RandomAccessRead to be accessed as an  * input stream.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -48,8 +48,8 @@ name|InputStream
 block|{
 specifier|private
 specifier|final
-name|RandomAccess
-name|file
+name|RandomAccessRead
+name|input
 decl_stmt|;
 specifier|private
 name|long
@@ -60,12 +60,12 @@ specifier|final
 name|long
 name|endPosition
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param raFile The file to read the data from.      * @param startPosition The position in the file that this stream starts.      * @param length The length of the input stream.      */
+comment|/**      * Constructor.      *      * @param randomAccessRead The file to read the data from.      * @param startPosition The position in the file that this stream starts.      * @param length The length of the input stream.      */
 specifier|public
 name|RandomAccessFileInputStream
 parameter_list|(
-name|RandomAccess
-name|raFile
+name|RandomAccessRead
+name|randomAccessRead
 parameter_list|,
 name|long
 name|startPosition
@@ -74,9 +74,9 @@ name|long
 name|length
 parameter_list|)
 block|{
-name|file
+name|input
 operator|=
-name|raFile
+name|randomAccessRead
 expr_stmt|;
 name|currentPosition
 operator|=
@@ -130,7 +130,7 @@ name|IOException
 block|{
 synchronized|synchronized
 init|(
-name|file
+name|input
 init|)
 block|{
 name|int
@@ -146,7 +146,7 @@ operator|<
 name|endPosition
 condition|)
 block|{
-name|file
+name|input
 operator|.
 name|seek
 argument_list|(
@@ -158,7 +158,7 @@ operator|++
 expr_stmt|;
 name|retval
 operator|=
-name|file
+name|input
 operator|.
 name|read
 argument_list|()
@@ -222,10 +222,10 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|file
+name|input
 init|)
 block|{
-name|file
+name|input
 operator|.
 name|seek
 argument_list|(
@@ -234,7 +234,7 @@ argument_list|)
 expr_stmt|;
 name|amountRead
 operator|=
-name|file
+name|input
 operator|.
 name|read
 argument_list|(
