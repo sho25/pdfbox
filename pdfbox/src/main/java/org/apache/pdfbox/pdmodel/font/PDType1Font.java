@@ -747,6 +747,9 @@ name|FontMapper
 operator|.
 name|getFontBoxFont
 argument_list|(
+name|getBaseFont
+argument_list|()
+argument_list|,
 name|getFontDescriptor
 argument_list|()
 argument_list|)
@@ -1187,6 +1190,9 @@ name|FontMapper
 operator|.
 name|getFontBoxFont
 argument_list|(
+name|getBaseFont
+argument_list|()
+argument_list|,
 name|fd
 argument_list|)
 decl_stmt|;

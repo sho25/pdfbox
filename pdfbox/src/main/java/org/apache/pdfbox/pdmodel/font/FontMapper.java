@@ -269,7 +269,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|LOG
+name|log
 init|=
 name|LogFactory
 operator|.
@@ -404,8 +404,8 @@ decl_stmt|;
 block|}
 comment|/**      * Sets the font service provider.      */
 specifier|public
-specifier|static
 specifier|synchronized
+specifier|static
 name|void
 name|setProvider
 parameter_list|(
@@ -432,8 +432,8 @@ expr_stmt|;
 block|}
 comment|/**      * Returns the font service provider. Defaults to using FileSystemFontProvider.      */
 specifier|public
-specifier|static
 specifier|synchronized
+specifier|static
 name|FontProvider
 name|getProvider
 parameter_list|()
@@ -1364,7 +1364,7 @@ literal|null
 condition|)
 block|{
 comment|// we have to return something here as TTFs aren't strictly required on the system
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1403,19 +1403,40 @@ name|FontBoxFont
 argument_list|>
 name|getFontBoxFont
 parameter_list|(
+name|String
+name|baseFont
+parameter_list|,
 name|PDFontDescriptor
 name|fontDescriptor
 parameter_list|)
 block|{
+comment|// FontName is sometimes missing, see PDFBOX-15
+name|String
+name|fontName
+init|=
+name|fontDescriptor
+operator|.
+name|getFontName
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|fontName
+operator|==
+literal|null
+condition|)
+block|{
+name|fontName
+operator|=
+name|baseFont
+expr_stmt|;
+block|}
 name|FontBoxFont
 name|font
 init|=
 name|findFontBoxFont
 argument_list|(
-name|fontDescriptor
-operator|.
-name|getFontName
-argument_list|()
+name|fontName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1442,7 +1463,7 @@ else|else
 block|{
 comment|// fallback - todo: i.e. fuzzy match
 name|String
-name|fontName
+name|fallbackName
 init|=
 name|getFallbackFontName
 argument_list|(
@@ -1453,7 +1474,7 @@ name|font
 operator|=
 name|findFontBoxFont
 argument_list|(
-name|fontName
+name|fallbackName
 argument_list|)
 expr_stmt|;
 if|if
@@ -1464,13 +1485,13 @@ literal|null
 condition|)
 block|{
 comment|// we have to return something here as TTFs aren't strictly required on the system
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
 literal|"Using last-resort fallback for font '"
 operator|+
-name|fontName
+name|fallbackName
 operator|+
 literal|"'"
 argument_list|)
@@ -1773,7 +1794,7 @@ name|postScriptName
 operator|.
 name|indexOf
 argument_list|(
-literal|'+'
+literal|"+"
 argument_list|)
 operator|+
 literal|1
