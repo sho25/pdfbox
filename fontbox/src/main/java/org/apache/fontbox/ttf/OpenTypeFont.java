@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An OpenType font.  */
+comment|/**  * An OpenType (OTF/TTF) font.  */
 end_comment
 
 begin_class
@@ -48,6 +48,10 @@ name|OpenTypeFont
 extends|extends
 name|TrueTypeFont
 block|{
+specifier|private
+name|boolean
+name|isPostScript
+decl_stmt|;
 comment|/**      * Constructor. Clients should use the OTFParser to create a new OpenTypeFont object.      *      * @param fontData The font data.      */
 name|OpenTypeFont
 parameter_list|(
@@ -61,7 +65,30 @@ name|fontData
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the "cmap" table for this TTF.      *      * @return The "cmap" table.      */
+annotation|@
+name|Override
+name|void
+name|setVersion
+parameter_list|(
+name|float
+name|versionValue
+parameter_list|)
+block|{
+name|isPostScript
+operator|=
+name|versionValue
+operator|!=
+literal|1.0
+expr_stmt|;
+name|super
+operator|.
+name|setVersion
+argument_list|(
+name|versionValue
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the "CFF" table for this OTF.      *      * @return The "CFF" table.      */
 specifier|public
 specifier|synchronized
 name|CFFTable
@@ -70,6 +97,20 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+operator|!
+name|isPostScript
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"TTF fonts do not have a CFF table"
+argument_list|)
+throw|;
+block|}
 name|CFFTable
 name|cff
 init|=
@@ -118,6 +159,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isPostScript
+condition|)
+block|{
 throw|throw
 operator|new
 name|UnsupportedOperationException
@@ -125,6 +171,13 @@ argument_list|(
 literal|"OTF fonts do not have a glyf table"
 argument_list|)
 throw|;
+block|}
+return|return
+name|super
+operator|.
+name|getGlyph
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override

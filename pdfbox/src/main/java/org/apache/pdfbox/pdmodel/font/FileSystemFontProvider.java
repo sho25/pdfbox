@@ -1082,6 +1082,16 @@ condition|(
 name|ttf
 operator|instanceof
 name|OpenTypeFont
+operator|&&
+operator|(
+operator|(
+name|OpenTypeFont
+operator|)
+name|ttf
+operator|)
+operator|.
+name|isPostScript
+argument_list|()
 condition|)
 block|{
 name|format
