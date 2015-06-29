@@ -213,11 +213,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|name
+operator|!
+name|font
 operator|.
-name|equals
+name|hasGlyph
 argument_list|(
-literal|".notdef"
+name|name
 argument_list|)
 condition|)
 block|{

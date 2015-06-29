@@ -1523,6 +1523,18 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns true if the font contains the character with the given name.      *      * @throws IOException if the path could not be read      */
+specifier|public
+specifier|abstract
+name|boolean
+name|hasGlyph
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns the embedded or system font used for rendering. This is never null.      */
 specifier|public
 specifier|abstract
