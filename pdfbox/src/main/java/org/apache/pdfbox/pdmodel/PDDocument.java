@@ -3209,16 +3209,11 @@ operator|.
 name|parse
 argument_list|()
 expr_stmt|;
-name|PDDocument
-name|doc
-init|=
+return|return
 name|parser
 operator|.
 name|getPDDocument
 argument_list|()
-decl_stmt|;
-return|return
-name|doc
 return|;
 block|}
 comment|/**      * Parses a PDF. The given input stream is copied to the memory to enable random access to the pdf.      *       * @param input stream that contains the document.      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
