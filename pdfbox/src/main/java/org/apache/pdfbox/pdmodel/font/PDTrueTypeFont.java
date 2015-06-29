@@ -779,6 +779,9 @@ name|FontMapper
 operator|.
 name|getTrueTypeFont
 argument_list|(
+name|getBaseFont
+argument_list|()
+argument_list|,
 name|getFontDescriptor
 argument_list|()
 argument_list|)
