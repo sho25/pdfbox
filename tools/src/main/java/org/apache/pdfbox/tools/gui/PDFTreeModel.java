@@ -320,7 +320,7 @@ operator|)
 name|parent
 operator|)
 operator|.
-name|getObject
+name|get
 argument_list|(
 name|index
 argument_list|)
