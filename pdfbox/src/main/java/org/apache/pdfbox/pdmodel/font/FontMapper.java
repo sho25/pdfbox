@@ -1410,21 +1410,39 @@ name|PDFontDescriptor
 name|fontDescriptor
 parameter_list|)
 block|{
-comment|// FontName is sometimes missing, see PDFBOX-15
+comment|// FontDescriptor is sometimes missing, see PDFBOX-2573
 name|String
 name|fontName
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|fontDescriptor
+operator|!=
+literal|null
+condition|)
+block|{
+name|fontName
+operator|=
 name|fontDescriptor
 operator|.
 name|getFontName
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+comment|// FontName is sometimes missing, see PDFBOX-15
 if|if
 condition|(
 name|fontName
 operator|==
 literal|null
 condition|)
+block|{
+name|fontName
+operator|=
+name|baseFont
+expr_stmt|;
+block|}
+block|}
+else|else
 block|{
 name|fontName
 operator|=
