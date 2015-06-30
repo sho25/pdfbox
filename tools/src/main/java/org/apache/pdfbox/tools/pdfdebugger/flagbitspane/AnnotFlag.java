@@ -111,7 +111,7 @@ name|getFlagValue
 parameter_list|()
 block|{
 return|return
-literal|"Flag vlaue: "
+literal|"Flag value: "
 operator|+
 name|annotDictionary
 operator|.
