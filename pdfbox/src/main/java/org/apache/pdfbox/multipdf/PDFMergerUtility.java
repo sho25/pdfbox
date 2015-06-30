@@ -718,11 +718,14 @@ name|sourcesList
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Merge the list of source documents, saving the result in the destination      * file.      *      * @throws IOException If there is an error saving the document.      */
+comment|/**      * Merge the list of source documents, saving the result in the destination      * file.      *      * @param useScratchFiles enables the usage of a scratch file if set to true      * @throws IOException If there is an error saving the document.      */
 specifier|public
 name|void
 name|mergeDocuments
-parameter_list|()
+parameter_list|(
+name|boolean
+name|useScratchFiles
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -781,7 +784,9 @@ name|destination
 operator|=
 operator|new
 name|PDDocument
-argument_list|()
+argument_list|(
+name|useScratchFiles
+argument_list|)
 expr_stmt|;
 while|while
 condition|(
@@ -805,6 +810,8 @@ operator|.
 name|load
 argument_list|(
 name|sourceFile
+argument_list|,
+name|useScratchFiles
 argument_list|)
 expr_stmt|;
 name|tobeclosed
