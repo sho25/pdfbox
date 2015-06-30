@@ -175,7 +175,9 @@ expr_stmt|;
 name|merger
 operator|.
 name|mergeDocuments
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will print the usage requirements and exit.      */
