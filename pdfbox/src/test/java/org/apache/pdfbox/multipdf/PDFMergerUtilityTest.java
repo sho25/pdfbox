@@ -174,6 +174,20 @@ argument_list|,
 literal|"PDFBox.GlobalResourceMergeTest.Doc02.decoded.pdf"
 argument_list|,
 literal|"GlobalResourceMergeTestResult.pdf"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// once again, with scratch file
+name|checkMergeIdentical
+argument_list|(
+literal|"PDFBox.GlobalResourceMergeTest.Doc01.decoded.pdf"
+argument_list|,
+literal|"PDFBox.GlobalResourceMergeTest.Doc02.decoded.pdf"
+argument_list|,
+literal|"GlobalResourceMergeTestResult2.pdf"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -191,6 +205,9 @@ name|filename2
 parameter_list|,
 name|String
 name|mergeFilename
+parameter_list|,
+name|boolean
+name|useScratchFiles
 parameter_list|)
 throws|throws
 name|IOException
@@ -400,7 +417,9 @@ expr_stmt|;
 name|pdfMergerUtility
 operator|.
 name|mergeDocuments
-argument_list|()
+argument_list|(
+name|useScratchFiles
+argument_list|)
 expr_stmt|;
 name|PDDocument
 name|mergedDoc
