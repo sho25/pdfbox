@@ -675,6 +675,7 @@ return|;
 block|}
 comment|/**      * Returns the PostScript name of the font.      */
 specifier|public
+specifier|final
 name|String
 name|getBaseFont
 parameter_list|()
@@ -763,6 +764,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|String
 name|getName
 parameter_list|()
@@ -844,6 +846,7 @@ operator|instanceof
 name|EncodedFont
 condition|)
 block|{
+comment|//FIXME dead instanceof
 return|return
 name|Type1Encoding
 operator|.
@@ -894,6 +897,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|Matrix
 name|getFontMatrix
 parameter_list|()
