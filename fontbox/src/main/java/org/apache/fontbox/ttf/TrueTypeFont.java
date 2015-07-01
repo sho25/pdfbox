@@ -298,7 +298,7 @@ return|return
 name|tables
 return|;
 block|}
-comment|/**      * Returns the war bytes of the given table.      */
+comment|/**      * Returns the war bytes of the given table.      * @param table the table to read.      * @throws IOException if there was an error accessing the table.      */
 specifier|public
 specifier|synchronized
 name|byte
@@ -360,7 +360,7 @@ return|return
 name|bytes
 return|;
 block|}
-comment|/**      * This will get the naming table for the true type font.      *       * @return The naming table.      */
+comment|/**      * This will get the naming table for the true type font.      *       * @return The naming table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|NamingTable
@@ -407,7 +407,7 @@ return|return
 name|naming
 return|;
 block|}
-comment|/**      * Get the postscript table for this TTF.      *       * @return The postscript table.      */
+comment|/**      * Get the postscript table for this TTF.      *       * @return The postscript table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|PostScriptTable
@@ -454,7 +454,7 @@ return|return
 name|postscript
 return|;
 block|}
-comment|/**      * Get the OS/2 table for this TTF.      *       * @return The OS/2 table.      */
+comment|/**      * Get the OS/2 table for this TTF.      *       * @return The OS/2 table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|OS2WindowsMetricsTable
@@ -501,7 +501,7 @@ return|return
 name|os2WindowsMetrics
 return|;
 block|}
-comment|/**      * Get the maxp table for this TTF.      *       * @return The maxp table.      */
+comment|/**      * Get the maxp table for this TTF.      *       * @return The maxp table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|MaximumProfileTable
@@ -548,7 +548,7 @@ return|return
 name|maximumProfile
 return|;
 block|}
-comment|/**      * Get the head table for this TTF.      *       * @return The head table.      */
+comment|/**      * Get the head table for this TTF.      *       * @return The head table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|HeaderTable
@@ -595,7 +595,7 @@ return|return
 name|header
 return|;
 block|}
-comment|/**      * Get the hhea table for this TTF.      *       * @return The hhea table.      */
+comment|/**      * Get the hhea table for this TTF.      *       * @return The hhea table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|HorizontalHeaderTable
@@ -642,7 +642,7 @@ return|return
 name|horizontalHeader
 return|;
 block|}
-comment|/**      * Get the hmtx table for this TTF.      *       * @return The hmtx table.      */
+comment|/**      * Get the hmtx table for this TTF.      *       * @return The hmtx table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|HorizontalMetricsTable
@@ -689,7 +689,7 @@ return|return
 name|horizontalMetrics
 return|;
 block|}
-comment|/**      * Get the loca table for this TTF.      *       * @return The loca table.      */
+comment|/**      * Get the loca table for this TTF.      *       * @return The loca table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|IndexToLocationTable
@@ -736,7 +736,7 @@ return|return
 name|indexToLocation
 return|;
 block|}
-comment|/**      * Get the glyf table for this TTF.      *       * @return The glyf table.      */
+comment|/**      * Get the glyf table for this TTF.      *       * @return The glyf table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|GlyphTable
@@ -783,7 +783,7 @@ return|return
 name|glyph
 return|;
 block|}
-comment|/**      * Get the "cmap" table for this TTF.      *       * @return The "cmap" table.      */
+comment|/**      * Get the "cmap" table for this TTF.      *       * @return The "cmap" table.     * @throws IOException if there was an error reading the table.       */
 specifier|public
 specifier|synchronized
 name|CmapTable
@@ -830,7 +830,7 @@ return|return
 name|cmap
 return|;
 block|}
-comment|/**      * Get the vhea table for this TTF.      *       * @return The vhea table.      */
+comment|/**      * Get the vhea table for this TTF.      *       * @return The vhea table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|VerticalHeaderTable
@@ -877,7 +877,7 @@ return|return
 name|verticalHeader
 return|;
 block|}
-comment|/**      * Get the vmtx table for this TTF.      *       * @return The vmtx table.      */
+comment|/**      * Get the vmtx table for this TTF.      *       * @return The vmtx table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|VerticalMetricsTable
@@ -924,7 +924,7 @@ return|return
 name|verticalMetrics
 return|;
 block|}
-comment|/**      * Get the VORG table for this TTF.      *       * @return The VORG table.      */
+comment|/**      * Get the VORG table for this TTF.      *       * @return The VORG table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|VerticalOriginTable
@@ -971,7 +971,7 @@ return|return
 name|verticalOrigin
 return|;
 block|}
-comment|/**      * Get the "kern" table for this TTF.      *       * @return The "kern" table.      */
+comment|/**      * Get the "kern" table for this TTF.      *       * @return The "kern" table.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 specifier|synchronized
 name|KerningTable
@@ -1080,7 +1080,7 @@ name|currentPosition
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the number of glyphs (MaximuProfile.numGlyphs).      *       * @return the number of glyphs      */
+comment|/**      * Returns the number of glyphs (MaximuProfile.numGlyphs).      *       * @return the number of glyphs      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|int
 name|getNumberOfGlyphs
@@ -1130,7 +1130,7 @@ return|return
 name|numberOfGlyphs
 return|;
 block|}
-comment|/**      * Returns the units per EM (Header.unitsPerEm).      *       * @return units per EM      */
+comment|/**      * Returns the units per EM (Header.unitsPerEm).      *       * @return units per EM      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|int
 name|getUnitsPerEm
@@ -1180,7 +1180,7 @@ return|return
 name|unitsPerEm
 return|;
 block|}
-comment|/**      * Returns the width for the given GID.      *       * @param gid the GID      * @return the width      */
+comment|/**      * Returns the width for the given GID.      *       * @param gid the GID      * @return the width      * @throws IOException if there was an error reading the metrics table.      */
 specifier|public
 name|int
 name|getAdvanceWidth
@@ -1221,7 +1221,7 @@ literal|250
 return|;
 block|}
 block|}
-comment|/**      * Returns the height for the given GID.      *       * @param gid the GID      * @return the height      */
+comment|/**      * Returns the height for the given GID.      *       * @param gid the GID      * @return the height      * @throws IOException if there was an error reading the metrics table.      */
 specifier|public
 name|int
 name|getAdvanceHeight
@@ -1548,7 +1548,7 @@ return|return
 name|cmap
 return|;
 block|}
-comment|/**      * Returns the GID for the given PostScript name, if the "post" table is present.      */
+comment|/**      * Returns the GID for the given PostScript name, if the "post" table is present.      * @param name the PostScript name.      */
 specifier|public
 name|int
 name|nameToGID
