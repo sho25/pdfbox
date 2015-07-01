@@ -667,7 +667,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the List of values to set individual radio buttons to the on state.      *       *<p>The On value could be an arbitrary string as long as it is within the limitations of      * a PDF name object. The Off value shall always be 'Off'. If not set or not part of the normal      * appearance keys 'Off' is the default</p>      *      * @returns the value setting the check box to the On state.       *          If an empty string is returned there is no appearance definition.      * @throws IOException if the value could not be set      */
+comment|/**      * Get the List of values to set individual radio buttons to the on state.      *       *<p>The On value could be an arbitrary string as long as it is within the limitations of      * a PDF name object. The Off value shall always be 'Off'. If not set or not part of the normal      * appearance keys 'Off' is the default</p>      *      * @return the value setting the check box to the On state.       *          If an empty string is returned there is no appearance definition.      */
 specifier|public
 name|List
 argument_list|<

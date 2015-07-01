@@ -233,7 +233,7 @@ operator|==
 literal|0
 return|;
 block|}
-comment|/**      * Checks the check box.      */
+comment|/**      * Checks the check box.      *       * @throws IOException if the appearance couldn't be generated.      */
 specifier|public
 name|void
 name|check
@@ -248,7 +248,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Unchecks the check box.      */
+comment|/**      * Unchecks the check box.      *       * @throws IOException if the appearance couldn't be generated.      */
 specifier|public
 name|void
 name|unCheck
@@ -367,7 +367,7 @@ name|getValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the checked value of this field.      *       *<p>To retrive the potential On value use {@link #getOnValue()} or      * {@link #getOnValues()}. The Off value shall always be 'Off'</p>      *      * @param value matching the On or Off state of the checkbox.      * @throws IOException if the value could not be set      */
+comment|/**      * Sets the checked value of this field.      *       *<p>To retrieve the potential On value use {@link #getOnValue()} or      * {@link #getOnValues()}. The Off value shall always be 'Off'.</p>      *      * @param value matching the On or Off state of the checkbox.      * @throws IOException if the appearance couldn't be generated.      * @throws IllegalArgumentException if the value is not a valid option for the checkbox.      */
 specifier|public
 name|void
 name|setValue
@@ -523,7 +523,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the value which sets the check box to the On state.      *       *<p>The On value should be 'Yes' but other values are possible      * so we need to look for that. On the other hand the Off value shall      * always be 'Off'. If not set or not part of the normal appearance keys      * 'Off' is the default</p>      *      * @returns the value setting the check box to the On state.       *          If an empty string is returned there is no appearance definition.      * @throws IOException if the value could not be set      */
+comment|/**      * Get the value which sets the check box to the On state.      *       *<p>The On value should be 'Yes' but other values are possible      * so we need to look for that. On the other hand the Off value shall      * always be 'Off'. If not set or not part of the normal appearance keys      * 'Off' is the default</p>      *      * @return the value setting the check box to the On state.       *          If an empty string is returned there is no appearance definition.      */
 specifier|public
 name|String
 name|getOnValue
@@ -628,7 +628,7 @@ return|return
 name|onValue
 return|;
 block|}
-comment|/**      * Get the values which sets the check box to the On state.      *       *<p>This is a convenience function to provide a similar method to       * {@link PDRadioButton}</p>      *      * @see #getOnValue()      * @returns the value setting the check box to the On state.       *          If an empty List is returned there is no appearance definition.      * @throws IOException if the value could not be set      */
+comment|/**      * Get the values which sets the check box to the On state.      *       *<p>This is a convenience function to provide a similar method to       * {@link PDRadioButton}</p>      *      * @see #getOnValue()      * @return the value setting the check box to the On state.       *          If an empty List is returned there is no appearance definition.      */
 specifier|public
 name|List
 argument_list|<
