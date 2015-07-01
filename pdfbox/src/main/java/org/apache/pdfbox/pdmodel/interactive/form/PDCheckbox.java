@@ -329,7 +329,7 @@ name|getValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the checked value of this field.      *      * @param value matching the On or Off state of the checkbox.      * @throws IOException if the value could not be set      */
+comment|/**      * Sets the checked value of this field.      *       *<p>To retrive the potential On value use {@link #getOnValue()} or      * {@link #getOnValues()}. The Off value shall always be 'Off'</p>      *      * @param value matching the On or Off state of the checkbox.      * @throws IOException if the value could not be set      */
 specifier|public
 name|void
 name|setValue
@@ -421,7 +421,7 @@ name|applyChange
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Sets the default value.      *      * @param value True if checked      */
+comment|/**      * Sets the default value.      *      * @see #setValue(String)      * @param value matching the On or Off state of the checkbox.      */
 specifier|public
 name|void
 name|setDefaultValue
