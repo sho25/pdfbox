@@ -266,12 +266,7 @@ operator|)
 operator|.
 name|setValue
 argument_list|(
-name|value
-operator|.
-name|equals
-argument_list|(
 literal|"Yes"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
