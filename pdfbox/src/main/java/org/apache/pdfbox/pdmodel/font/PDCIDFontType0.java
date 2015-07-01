@@ -657,7 +657,14 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Using fallback for CID-keyed font "
+literal|"Using fallback "
+operator|+
+name|t1Font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" for CID-keyed font "
 operator|+
 name|getBaseFont
 argument_list|()
