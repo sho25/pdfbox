@@ -51,6 +51,18 @@ name|junit
 operator|.
 name|Assert
 operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
 name|assertTrue
 import|;
 end_import
@@ -438,6 +450,11 @@ argument_list|(
 literal|"Checkbox"
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|checkbox
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|checkbox
@@ -717,6 +734,11 @@ argument_list|(
 literal|"RadioButtonGroup"
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|radioButton
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|radioButton
