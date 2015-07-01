@@ -357,7 +357,7 @@ specifier|final
 name|AffineTransform
 name|fontMatrixTransform
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      */
+comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      * @param parent The parent font.      */
 specifier|public
 name|PDCIDFontType0
 parameter_list|(
@@ -701,6 +701,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|Matrix
 name|getFontMatrix
 parameter_list|()
