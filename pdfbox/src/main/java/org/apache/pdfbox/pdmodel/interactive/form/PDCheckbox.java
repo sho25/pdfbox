@@ -364,7 +364,7 @@ name|YES
 else|:
 name|COSName
 operator|.
-name|OFF
+name|Off
 decl_stmt|;
 name|dictionary
 operator|.
@@ -415,7 +415,7 @@ name|YES
 else|:
 name|COSName
 operator|.
-name|OFF
+name|Off
 decl_stmt|;
 name|dictionary
 operator|.

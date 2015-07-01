@@ -514,7 +514,7 @@ name|AS
 argument_list|,
 name|COSName
 operator|.
-name|OFF
+name|Off
 argument_list|)
 expr_stmt|;
 block|}
