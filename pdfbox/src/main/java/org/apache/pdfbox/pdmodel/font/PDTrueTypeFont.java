@@ -829,6 +829,7 @@ expr_stmt|;
 block|}
 comment|/**      * Returns the PostScript name of the font.      */
 specifier|public
+specifier|final
 name|String
 name|getBaseFont
 parameter_list|()
