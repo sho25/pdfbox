@@ -289,7 +289,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -424,8 +424,8 @@ decl_stmt|;
 block|}
 comment|/**      * Sets the font service provider.      */
 specifier|public
-specifier|synchronized
 specifier|static
+specifier|synchronized
 name|void
 name|setProvider
 parameter_list|(
@@ -452,8 +452,8 @@ expr_stmt|;
 block|}
 comment|/**      * Returns the font service provider. Defaults to using FileSystemFontProvider.      */
 specifier|public
-specifier|synchronized
 specifier|static
+specifier|synchronized
 name|FontProvider
 name|getProvider
 parameter_list|()
@@ -1449,7 +1449,7 @@ literal|null
 condition|)
 block|{
 comment|// we have to return something here as TTFs aren't strictly required on the system
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -1549,7 +1549,7 @@ literal|null
 condition|)
 block|{
 comment|// we have to return something here as TTFs aren't strictly required on the system
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -1858,7 +1858,7 @@ name|postScriptName
 operator|.
 name|indexOf
 argument_list|(
-literal|"+"
+literal|'+'
 argument_list|)
 operator|+
 literal|1
