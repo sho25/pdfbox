@@ -3785,6 +3785,7 @@ argument_list|(
 literal|"OE"
 argument_list|)
 decl_stmt|;
+comment|/**      * "OFF", to be used for OCGs, not for Acroform      */
 specifier|public
 specifier|static
 specifier|final
@@ -3795,6 +3796,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"OFF"
+argument_list|)
+decl_stmt|;
+comment|/**      * "Off", to be used for Acroform, not for OCGs      */
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|Off
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Off"
 argument_list|)
 decl_stmt|;
 specifier|public
