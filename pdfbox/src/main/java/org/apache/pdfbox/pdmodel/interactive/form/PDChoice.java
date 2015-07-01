@@ -1015,7 +1015,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the entry "V" to the given values. Requires {@link #isMultiSelect()} to be true.      *       * @param values the list of values      */
+comment|/**      * Sets the entry "V" to the given values. Requires {@link #isMultiSelect()} to be true.      *       * @param values the list of values      * @throws IOException if the appearance couldn't be generated.      */
 specifier|public
 name|void
 name|setValue
