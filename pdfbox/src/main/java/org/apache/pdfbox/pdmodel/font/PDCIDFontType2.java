@@ -750,7 +750,14 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Using fallback for CID-keyed TrueType font "
+literal|"Using fallback font "
+operator|+
+name|ttfFont
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" for CID-keyed TrueType font "
 operator|+
 name|getBaseFont
 argument_list|()
