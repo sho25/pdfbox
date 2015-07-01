@@ -505,19 +505,15 @@ range|:
 name|entries
 control|)
 block|{
-comment|// Specifically looking for the string 'Off' as the off value
-comment|// Can't use COSName.OFF here as this will be 'OFF' in uppercase
-comment|// but for form fields the correct value is 'Off' in mixed case
 if|if
 condition|(
-literal|"Off"
+name|COSName
+operator|.
+name|Off
 operator|.
 name|compareTo
 argument_list|(
 name|entry
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 operator|!=
 literal|0
