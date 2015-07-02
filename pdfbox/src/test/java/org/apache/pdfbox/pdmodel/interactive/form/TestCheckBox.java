@@ -244,7 +244,7 @@ name|assertNotNull
 argument_list|(
 name|checkBox
 operator|.
-name|getOptions
+name|getExportValues
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -286,7 +286,7 @@ argument_list|)
 expr_stmt|;
 name|checkBox
 operator|.
-name|setOptions
+name|setExportValues
 argument_list|(
 name|options
 argument_list|)
@@ -361,7 +361,7 @@ name|retrievedOptions
 init|=
 name|checkBox
 operator|.
-name|getOptions
+name|getExportValues
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -384,7 +384,7 @@ expr_stmt|;
 comment|// assert that the Opt entry is removed
 name|checkBox
 operator|.
-name|setOptions
+name|setExportValues
 argument_list|(
 literal|null
 argument_list|)
@@ -409,7 +409,7 @@ name|assertEquals
 argument_list|(
 name|checkBox
 operator|.
-name|getOptions
+name|getExportValues
 argument_list|()
 argument_list|,
 operator|new

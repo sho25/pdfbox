@@ -260,7 +260,7 @@ name|assertNotNull
 argument_list|(
 name|radioButton
 operator|.
-name|getOptions
+name|getExportValues
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -302,7 +302,7 @@ argument_list|)
 expr_stmt|;
 name|radioButton
 operator|.
-name|setOptions
+name|setExportValues
 argument_list|(
 name|options
 argument_list|)
@@ -377,7 +377,7 @@ name|retrievedOptions
 init|=
 name|radioButton
 operator|.
-name|getOptions
+name|getExportValues
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -400,7 +400,7 @@ expr_stmt|;
 comment|// assert that the Opt entry is removed
 name|radioButton
 operator|.
-name|setOptions
+name|setExportValues
 argument_list|(
 literal|null
 argument_list|)
@@ -425,7 +425,7 @@ name|assertEquals
 argument_list|(
 name|radioButton
 operator|.
-name|getOptions
+name|getExportValues
 argument_list|()
 argument_list|,
 operator|new
