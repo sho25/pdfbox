@@ -454,9 +454,6 @@ block|{
 name|FDFField
 name|fdfField
 init|=
-operator|(
-name|FDFField
-operator|)
 name|field
 decl_stmt|;
 name|PDField
