@@ -456,8 +456,6 @@ parameter_list|)
 block|{
 name|COSArray
 name|cosValues
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
