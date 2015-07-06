@@ -156,6 +156,7 @@ expr_stmt|;
 block|}
 comment|/**      * @param sAction The JavaScript.      */
 specifier|public
+specifier|final
 name|void
 name|setAction
 parameter_list|(
@@ -167,7 +168,9 @@ name|action
 operator|.
 name|setString
 argument_list|(
-literal|"JS"
+name|COSName
+operator|.
+name|JS
 argument_list|,
 name|sAction
 argument_list|)
