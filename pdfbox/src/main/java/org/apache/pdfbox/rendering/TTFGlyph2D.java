@@ -280,7 +280,6 @@ name|boolean
 name|isCIDFont
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param ttfFont TrueType font      */
-specifier|public
 name|TTFGlyph2D
 parameter_list|(
 name|PDTrueTypeFont
@@ -307,7 +306,6 @@ name|ttfFont
 expr_stmt|;
 block|}
 comment|/**      * Constructor.      *      * @param type0Font Type0 font, with CIDFontType2 descendant      */
-specifier|public
 name|TTFGlyph2D
 parameter_list|(
 name|PDType0Font
