@@ -157,7 +157,6 @@ name|String
 name|fontName
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param font Type 0 CIDFont      */
-specifier|public
 name|CIDType0Glyph2D
 parameter_list|(
 name|PDCIDFontType0
