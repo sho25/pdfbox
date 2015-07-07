@@ -444,7 +444,7 @@ name|getValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the selected radio button, given its name.      *       * @param value Name of radio button to select      * @throws IOException if the value could not be set      */
+comment|/**      * Sets the selected radio button, given its name.      *       * @param value Name of radio button to select      * @throws IOException if the value could not be set      * @throws IllegalArgumentException if the value is not a valid option.      */
 specifier|public
 name|void
 name|setValue
@@ -455,55 +455,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|onValues
-init|=
-name|getOnValues
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|COSName
-operator|.
-name|Off
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|compareTo
+name|checkValue
 argument_list|(
 name|value
 argument_list|)
-operator|!=
-literal|0
-operator|&&
-operator|!
-name|onValues
-operator|.
-name|contains
-argument_list|(
-name|value
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-name|value
-operator|+
-literal|" is not a valid option for the radio button "
-operator|+
-name|getFullyQualifiedName
-argument_list|()
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
+expr_stmt|;
 name|dictionary
 operator|.
 name|setName
@@ -593,8 +549,7 @@ name|applyChange
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-comment|/**      * Sets the default value.      *      * @param value Name of radio button to select      * @throws IOException if the value could not be set      */
+comment|/**      * Sets the default value.      *      * @param value Name of radio button to select      * @throws IOException if the value could not be set      * @throws IllegalArgumentException if the value is not a valid option.      */
 specifier|public
 name|void
 name|setDefaultValue
@@ -604,6 +559,34 @@ name|value
 parameter_list|)
 throws|throws
 name|IOException
+block|{
+name|checkValue
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+name|dictionary
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|DV
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Checks value.      *      * @param value Name of radio button to select      * @throws IllegalArgumentException if the value is not a valid option.      */
+specifier|private
+name|void
+name|checkValue
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+throws|throws
+name|IllegalArgumentException
 block|{
 name|List
 argument_list|<
@@ -643,28 +626,29 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
+literal|"value '"
+operator|+
 name|value
 operator|+
-literal|" is not a valid option for the radio button "
+literal|"' is not a valid option for the radio button "
 operator|+
 name|getFullyQualifiedName
 argument_list|()
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
-name|dictionary
-operator|.
-name|setName
-argument_list|(
+operator|+
+literal|", valid values are: "
+operator|+
+name|onValues
+operator|+
+literal|" and "
+operator|+
 name|COSName
 operator|.
-name|DV
-argument_list|,
-name|value
+name|Off
+operator|.
+name|getName
+argument_list|()
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 comment|/**      * Get the List of values to set individual radio buttons to the on state.      *       *<p>The On value could be an arbitrary string as long as it is within the limitations of      * a PDF name object. The Off value shall always be 'Off'. If not set or not part of the normal      * appearance keys 'Off' is the default</p>      *      * @return the value setting the check box to the On state.       *          If an empty string is returned there is no appearance definition.      */
