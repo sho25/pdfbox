@@ -2074,28 +2074,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|gid
-operator|==
-literal|0
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Can't map code "
-operator|+
-name|code
-operator|+
-literal|" in font "
-operator|+
-name|getBaseFont
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|gid
 return|;
