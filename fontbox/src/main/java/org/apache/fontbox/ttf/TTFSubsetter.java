@@ -4625,7 +4625,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Write the subfont to the given output stream.      *      * @param os the stream used for writing      * @throws IOException if something went wrong.      */
+comment|/**      * Write the subfont to the given output stream.      *      * @param os the stream used for writing      * @throws IOException if something went wrong.      * @throws IllegalStateException if the subset is empty.      */
 specifier|public
 name|void
 name|writeToStream
@@ -4636,6 +4636,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|glyphIds
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
+name|uniToGID
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"subset is empty"
+argument_list|)
+throw|;
+block|}
 name|addCompoundReferences
 argument_list|()
 expr_stmt|;
