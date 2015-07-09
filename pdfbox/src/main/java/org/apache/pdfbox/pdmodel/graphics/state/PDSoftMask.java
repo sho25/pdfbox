@@ -429,13 +429,6 @@ name|createXObject
 argument_list|(
 name|cosGroup
 argument_list|,
-name|COSName
-operator|.
-name|G
-operator|.
-name|getName
-argument_list|()
-argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;

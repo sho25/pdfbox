@@ -562,8 +562,6 @@ name|COSStream
 operator|)
 name|i
 argument_list|)
-argument_list|,
-literal|"I"
 argument_list|)
 return|;
 block|}
@@ -609,8 +607,6 @@ name|COSStream
 operator|)
 name|i
 argument_list|)
-argument_list|,
-literal|"RI"
 argument_list|)
 return|;
 block|}
@@ -656,8 +652,6 @@ name|COSStream
 operator|)
 name|i
 argument_list|)
-argument_list|,
-literal|"IX"
 argument_list|)
 return|;
 block|}

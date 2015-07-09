@@ -406,6 +406,10 @@ name|PDResources
 name|pageResources
 decl_stmt|;
 specifier|private
+name|ResourceCache
+name|resourceCache
+decl_stmt|;
+specifier|private
 name|PDRectangle
 name|mediaBox
 decl_stmt|;
@@ -472,6 +476,27 @@ block|{
 name|page
 operator|=
 name|pageDictionary
+expr_stmt|;
+block|}
+comment|/**      * Creates a new instance of PDPage for reading.      *      * @param pageDictionary A page dictionary in a PDF document.      */
+name|PDPage
+parameter_list|(
+name|COSDictionary
+name|pageDictionary
+parameter_list|,
+name|ResourceCache
+name|resourceCache
+parameter_list|)
+block|{
+name|page
+operator|=
+name|pageDictionary
+expr_stmt|;
+name|this
+operator|.
+name|resourceCache
+operator|=
+name|resourceCache
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      *       * @return The cos object that matches this Java object.      */
@@ -600,6 +625,8 @@ operator|new
 name|PDResources
 argument_list|(
 name|resources
+argument_list|,
+name|resourceCache
 argument_list|)
 expr_stmt|;
 block|}
@@ -2078,6 +2105,16 @@ name|page
 operator|.
 name|hashCode
 argument_list|()
+return|;
+block|}
+comment|/**      * Returns the resource cache associated with this page, or null if there is none.      */
+specifier|public
+name|ResourceCache
+name|getResourceCache
+parameter_list|()
+block|{
+return|return
+name|resourceCache
 return|;
 block|}
 block|}

@@ -397,6 +397,7 @@ name|PDColorSpace
 name|colorSpace
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDResources
 name|resources
 decl_stmt|;

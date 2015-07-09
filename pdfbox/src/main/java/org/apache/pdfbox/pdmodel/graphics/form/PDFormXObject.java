@@ -153,6 +153,20 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|ResourceCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|common
 operator|.
 name|PDRectangle
@@ -222,14 +236,14 @@ name|PDXObject
 implements|implements
 name|PDContentStream
 block|{
-comment|// name of XObject in resources, to prevent recursion
-specifier|private
-name|String
-name|name
-decl_stmt|;
 specifier|private
 name|PDGroup
 name|group
+decl_stmt|;
+specifier|private
+specifier|final
+name|ResourceCache
+name|cache
 decl_stmt|;
 comment|/**      * Creates a Form XObject for reading.      * @param stream The XObject stream      */
 specifier|public
@@ -248,16 +262,20 @@ operator|.
 name|FORM
 argument_list|)
 expr_stmt|;
+name|cache
+operator|=
+literal|null
+expr_stmt|;
 block|}
-comment|/**      * Creates a Form XObject for reading.      * @param stream The XObject stream      * @param name The name of the form XObject, to prevent recursion.      */
+comment|/**      * Creates a Form XObject for reading.      * @param stream The XObject stream      */
 specifier|public
 name|PDFormXObject
 parameter_list|(
 name|PDStream
 name|stream
 parameter_list|,
-name|String
-name|name
+name|ResourceCache
+name|cache
 parameter_list|)
 block|{
 name|super
@@ -271,9 +289,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|name
+name|cache
 operator|=
-name|name
+name|cache
 expr_stmt|;
 block|}
 comment|/**      * Creates a Form Image XObject for writing, in the given document.      * @param document The current document      */
@@ -292,6 +310,10 @@ name|COSName
 operator|.
 name|FORM
 argument_list|)
+expr_stmt|;
+name|cache
+operator|=
+literal|null
 expr_stmt|;
 block|}
 comment|/**      * This will get the form type, currently 1 is the only form type.      * @return The form type.      */
@@ -434,6 +456,8 @@ operator|new
 name|PDResources
 argument_list|(
 name|resources
+argument_list|,
+name|cache
 argument_list|)
 return|;
 block|}

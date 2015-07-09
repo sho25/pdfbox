@@ -631,6 +631,8 @@ name|COSName
 operator|.
 name|PAGES
 argument_list|)
+argument_list|,
+name|document
 argument_list|)
 return|;
 block|}

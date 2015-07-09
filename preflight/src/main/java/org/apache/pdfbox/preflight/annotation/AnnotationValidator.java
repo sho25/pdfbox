@@ -890,8 +890,6 @@ argument_list|,
 name|cosDocument
 argument_list|)
 argument_list|)
-argument_list|,
-literal|"N"
 argument_list|)
 argument_list|,
 name|GRAPHIC_PROCESS

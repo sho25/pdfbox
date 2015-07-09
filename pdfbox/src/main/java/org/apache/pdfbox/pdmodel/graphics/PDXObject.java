@@ -190,9 +190,6 @@ parameter_list|(
 name|COSBase
 name|base
 parameter_list|,
-name|String
-name|name
-parameter_list|,
 name|PDResources
 name|resources
 parameter_list|)
@@ -312,7 +309,10 @@ argument_list|(
 name|stream
 argument_list|)
 argument_list|,
-name|name
+name|resources
+operator|.
+name|getResourceCache
+argument_list|()
 argument_list|)
 return|;
 block|}

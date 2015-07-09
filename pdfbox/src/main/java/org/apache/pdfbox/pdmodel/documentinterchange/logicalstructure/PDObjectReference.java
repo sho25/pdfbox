@@ -265,8 +265,6 @@ argument_list|(
 name|obj
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 comment|//<-- TODO: valid?

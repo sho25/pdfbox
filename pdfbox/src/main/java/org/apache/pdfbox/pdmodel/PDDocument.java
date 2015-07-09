@@ -776,6 +776,15 @@ specifier|private
 name|SignatureInterface
 name|signInterface
 decl_stmt|;
+comment|// document-wide cached resources
+specifier|private
+name|ResourceCache
+name|resourceCache
+init|=
+operator|new
+name|DefaultResourceCache
+argument_list|()
+decl_stmt|;
 comment|/**      * Creates an empty PDF document.      * You need to add at least one page for the document to be valid.      */
 specifier|public
 name|PDDocument
@@ -2364,6 +2373,8 @@ operator|.
 name|getCOSObject
 argument_list|()
 argument_list|)
+argument_list|,
+name|resourceCache
 argument_list|)
 decl_stmt|;
 name|InputStream
@@ -4217,6 +4228,32 @@ name|newVersion
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Returns the resource cache associated with this document, or null if there is none.      */
+specifier|public
+name|ResourceCache
+name|getResourceCache
+parameter_list|()
+block|{
+return|return
+name|resourceCache
+return|;
+block|}
+comment|/**      * Sets the resource cache associated with this document.      *       * @param resourceCache A resource cache, or null.      */
+specifier|public
+name|void
+name|setResourceCache
+parameter_list|(
+name|ResourceCache
+name|resourceCache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resourceCache
+operator|=
+name|resourceCache
+expr_stmt|;
 block|}
 block|}
 end_class
