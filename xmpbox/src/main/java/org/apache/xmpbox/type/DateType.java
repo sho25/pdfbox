@@ -108,7 +108,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set property value      *       * @param value      *            the new Calendar element value      * @throws InappropriateTypeException      */
+comment|/**      * Set property value      *      * @param value the new Calendar element value      */
 specifier|private
 name|void
 name|setValueFromCalendar

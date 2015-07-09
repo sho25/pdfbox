@@ -613,7 +613,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * set the autor(s) of the resource      *       * @param properName      *            Value to add      * @throws InappropriateTypeException      */
+comment|/**      * set the autor(s) of the resource      *      * @param properName Value to add      */
 specifier|public
 name|void
 name|addCreator
@@ -999,7 +999,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * set default title      *       * @param value      */
+comment|/**      * set default title      *       * @param value Value to set      */
 specifier|public
 name|void
 name|setTitle
@@ -1016,7 +1016,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * set the title of the document, or the name given to the resource (by language)      *       * @see DublinCoreSchema#setTitle(String)      *       */
+comment|/**      * set the title of the document, or the name given to the resource (by language)      *       * @param lang Language concerned      * @param value Value to set      * @see DublinCoreSchema#setTitle(String)      *       */
 specifier|public
 name|void
 name|addTitle
@@ -1496,7 +1496,7 @@ name|lang
 argument_list|)
 return|;
 block|}
-comment|/**      * Return the default value for Right property      *       * @see DublinCoreSchema#getRights(String)      */
+comment|/**      * Return the default value for Right property      *       * @see DublinCoreSchema#getRights(String)      * @return the default rights value      */
 specifier|public
 name|String
 name|getRights
