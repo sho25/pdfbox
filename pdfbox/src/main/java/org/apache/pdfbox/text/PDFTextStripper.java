@@ -1979,11 +1979,12 @@ name|wordSpacing
 operator|==
 literal|0
 operator|||
-name|wordSpacing
-operator|==
 name|Float
 operator|.
-name|NaN
+name|isNaN
+argument_list|(
+name|wordSpacing
+argument_list|)
 condition|)
 block|{
 name|deltaSpace
