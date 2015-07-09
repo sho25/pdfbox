@@ -31,6 +31,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|ref
+operator|.
+name|SoftReference
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -374,7 +386,10 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
+name|SoftReference
+argument_list|<
 name|BufferedImage
+argument_list|>
 name|cachedImage
 decl_stmt|;
 specifier|private
@@ -946,7 +961,7 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      * The returned images are cached for the lifetime of this XObject.      */
+comment|/**      * {@inheritDoc}      * The returned images are cached via a SoftReference.      */
 annotation|@
 name|Override
 specifier|public
@@ -963,9 +978,25 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
+name|BufferedImage
+name|cached
+init|=
 name|cachedImage
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cached
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|cached
 return|;
+block|}
 block|}
 comment|// get image as RGB
 name|BufferedImage
@@ -1044,7 +1075,14 @@ block|}
 block|}
 name|cachedImage
 operator|=
+operator|new
+name|SoftReference
+argument_list|<
+name|BufferedImage
+argument_list|>
+argument_list|(
 name|image
+argument_list|)
 expr_stmt|;
 return|return
 name|image
