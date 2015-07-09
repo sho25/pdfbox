@@ -602,6 +602,9 @@ name|getCIDSystemInfo
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|FontBoxFont
+name|font
+decl_stmt|;
 if|if
 condition|(
 name|mapping
@@ -630,6 +633,10 @@ name|t1Font
 operator|=
 literal|null
 expr_stmt|;
+name|font
+operator|=
+name|cidFont
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -643,6 +650,10 @@ name|mapping
 operator|.
 name|getTrueTypeFont
 argument_list|()
+expr_stmt|;
+name|font
+operator|=
+name|t1Font
 expr_stmt|;
 block|}
 if|if
@@ -659,7 +670,7 @@ name|warn
 argument_list|(
 literal|"Using fallback "
 operator|+
-name|t1Font
+name|font
 operator|.
 name|getName
 argument_list|()
