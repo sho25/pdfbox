@@ -252,7 +252,7 @@ name|assertNotNull
 argument_list|(
 name|radioButton
 operator|.
-name|getExportValue
+name|getSelectedExportValues
 argument_list|()
 argument_list|)
 expr_stmt|;

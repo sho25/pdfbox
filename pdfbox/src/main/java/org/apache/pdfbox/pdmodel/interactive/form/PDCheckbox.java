@@ -35,16 +35,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -55,7 +45,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|HashSet
 import|;
 end_import
 
@@ -630,7 +620,7 @@ return|;
 block|}
 comment|/**      * Get the values which sets the check box to the On state.      *       *<p>This is a convenience function to provide a similar method to       * {@link PDRadioButton}</p>      *      * @see #getOnValue()      * @return the value setting the check box to the On state.       *          If an empty List is returned there is no appearance definition.      */
 specifier|public
-name|List
+name|Set
 argument_list|<
 name|String
 argument_list|>
@@ -654,20 +644,20 @@ block|{
 return|return
 name|Collections
 operator|.
-name|emptyList
+name|emptySet
 argument_list|()
 return|;
 block|}
 else|else
 block|{
-name|ArrayList
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|onValues
 init|=
 operator|new
-name|ArrayList
+name|HashSet
 argument_list|<
 name|String
 argument_list|>
