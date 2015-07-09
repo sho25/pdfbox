@@ -143,34 +143,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|fontbox
 operator|.
 name|FontBoxFont
@@ -285,21 +257,6 @@ name|FontCache
 argument_list|()
 decl_stmt|;
 comment|// todo: static cache isn't ideal
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|FontMapper
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 specifier|private
 specifier|static
 name|FontProvider
@@ -1449,17 +1406,6 @@ literal|null
 condition|)
 block|{
 comment|// we have to return something here as TTFs aren't strictly required on the system
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Using last-resort fallback for TTF font '"
-operator|+
-name|fontName
-operator|+
-literal|"'"
-argument_list|)
-expr_stmt|;
 name|ttf
 operator|=
 name|lastResortFont
@@ -1549,17 +1495,6 @@ literal|null
 condition|)
 block|{
 comment|// we have to return something here as TTFs aren't strictly required on the system
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Using last-resort fallback for font '"
-operator|+
-name|fallbackName
-operator|+
-literal|"'"
-argument_list|)
-expr_stmt|;
 name|font
 operator|=
 name|lastResortFont
