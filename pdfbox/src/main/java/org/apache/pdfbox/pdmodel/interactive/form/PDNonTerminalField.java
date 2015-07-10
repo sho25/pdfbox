@@ -642,7 +642,9 @@ name|String
 name|getValueAsString
 parameter_list|()
 block|{
-return|return
+name|COSBase
+name|fieldValue
+init|=
 name|dictionary
 operator|.
 name|getDictionaryObject
@@ -651,9 +653,18 @@ name|COSName
 operator|.
 name|V
 argument_list|)
+decl_stmt|;
+return|return
+name|fieldValue
+operator|!=
+literal|null
+condition|?
+name|fieldValue
 operator|.
 name|toString
 argument_list|()
+else|:
+literal|""
 return|;
 block|}
 comment|/**      * Sets the value of this field. This may be of any kind which is valid for this field's      * children.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
