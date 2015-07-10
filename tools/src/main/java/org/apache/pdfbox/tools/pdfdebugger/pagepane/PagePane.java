@@ -218,6 +218,11 @@ specifier|private
 name|JLabel
 name|label
 decl_stmt|;
+specifier|private
+specifier|final
+name|float
+name|scale
+decl_stmt|;
 specifier|public
 name|PagePane
 parameter_list|(
@@ -226,6 +231,9 @@ name|document
 parameter_list|,
 name|COSDictionary
 name|page
+parameter_list|,
+name|float
+name|scale
 parameter_list|)
 block|{
 name|PDPage
@@ -254,6 +262,12 @@ operator|.
 name|document
 operator|=
 name|document
+expr_stmt|;
+name|this
+operator|.
+name|scale
+operator|=
+name|scale
 expr_stmt|;
 name|initUI
 argument_list|()
@@ -450,6 +464,8 @@ operator|.
 name|renderImage
 argument_list|(
 name|pageIndex
+argument_list|,
+name|scale
 argument_list|)
 return|;
 block|}
