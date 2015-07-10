@@ -315,7 +315,7 @@ name|pdfbox
 operator|.
 name|printing
 operator|.
-name|PDFPrinter
+name|PDFPageable
 import|;
 end_import
 
@@ -974,15 +974,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|PDFPrinter
-name|printer
-init|=
-operator|new
-name|PDFPrinter
-argument_list|(
-name|document
-argument_list|)
-decl_stmt|;
 name|PrinterJob
 name|job
 init|=
@@ -995,10 +986,11 @@ name|job
 operator|.
 name|setPageable
 argument_list|(
-name|printer
-operator|.
-name|getPageable
-argument_list|()
+operator|new
+name|PDFPageable
+argument_list|(
+name|document
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
