@@ -1196,48 +1196,6 @@ name|IOException
 block|{
 try|try
 block|{
-comment|// check for 'name' table
-name|NamingTable
-name|nameTable
-init|=
-literal|null
-decl_stmt|;
-comment|// ttf could still be null
-if|if
-condition|(
-name|ttf
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// todo: this is a performance bottleneck, we don't actually need to read this table
-name|nameTable
-operator|=
-name|ttf
-operator|.
-name|getNaming
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|nameTable
-operator|==
-literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Missing 'name' table in font "
-operator|+
-name|file
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 comment|// read PostScript name, if any
 if|if
 condition|(
@@ -1656,6 +1614,21 @@ name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
+name|NamingTable
+name|name
+init|=
+name|ttf
+operator|.
+name|getNaming
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|name
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1664,21 +1637,21 @@ name|format
 operator|+
 literal|": '"
 operator|+
-name|ttf
+name|name
 operator|.
-name|getName
+name|getPostScriptName
 argument_list|()
 operator|+
 literal|"' / '"
 operator|+
-name|nameTable
+name|name
 operator|.
 name|getFontFamily
 argument_list|()
 operator|+
 literal|"' / '"
 operator|+
-name|nameTable
+name|name
 operator|.
 name|getFontSubFamily
 argument_list|()
@@ -1686,6 +1659,7 @@ operator|+
 literal|"'"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 else|else
@@ -1699,7 +1673,6 @@ operator|+
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch
