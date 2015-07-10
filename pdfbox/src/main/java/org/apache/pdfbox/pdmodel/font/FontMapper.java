@@ -2006,6 +2006,13 @@ operator|.
 name|poll
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|bestMatch
+operator|!=
+literal|null
+condition|)
+block|{
 name|FontBoxFont
 name|font
 init|=
@@ -2051,6 +2058,7 @@ argument_list|,
 literal|true
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 block|}
