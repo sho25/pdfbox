@@ -484,32 +484,6 @@ operator|=
 name|familyClassValue
 expr_stmt|;
 block|}
-comment|/**      * @return Returns the familySubClass.      */
-specifier|public
-name|int
-name|getFamilySubClass
-parameter_list|()
-block|{
-return|return
-name|familySubClass
-return|;
-block|}
-comment|/**      * @param familySubClassValue The familySubClass to set.      */
-specifier|public
-name|void
-name|setFamilySubClass
-parameter_list|(
-name|int
-name|familySubClassValue
-parameter_list|)
-block|{
-name|this
-operator|.
-name|familySubClass
-operator|=
-name|familySubClassValue
-expr_stmt|;
-block|}
 comment|/**      * @return Returns the firstCharIndex.      */
 specifier|public
 name|int
@@ -1329,10 +1303,6 @@ name|int
 name|familyClass
 decl_stmt|;
 specifier|private
-name|int
-name|familySubClass
-decl_stmt|;
-specifier|private
 name|byte
 index|[]
 name|panose
@@ -1563,14 +1533,7 @@ name|familyClass
 operator|=
 name|data
 operator|.
-name|readUnsignedByte
-argument_list|()
-expr_stmt|;
-name|familySubClass
-operator|=
-name|data
-operator|.
-name|readUnsignedByte
+name|readSignedShort
 argument_list|()
 expr_stmt|;
 name|panose

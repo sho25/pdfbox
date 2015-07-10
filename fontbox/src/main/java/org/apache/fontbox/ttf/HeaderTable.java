@@ -55,6 +55,24 @@ name|TAG
 init|=
 literal|"head"
 decl_stmt|;
+comment|/**      * Bold macStyle flag.      */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|MAC_STYLE_BOLD
+init|=
+literal|1
+decl_stmt|;
+comment|/**      * Italic macStyle flag.      */
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|MAC_STYLE_ITALIC
+init|=
+literal|2
+decl_stmt|;
 specifier|private
 name|float
 name|version
