@@ -282,7 +282,6 @@ name|FontInfo
 argument_list|>
 name|fontInfoByName
 decl_stmt|;
-comment|/** fallback fonts, used as as a last resort */
 specifier|private
 specifier|static
 specifier|final
