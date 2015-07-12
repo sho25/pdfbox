@@ -77,20 +77,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSStream
 import|;
 end_import
@@ -158,7 +144,7 @@ comment|/**      * Convert this standard java object to a COS object.      *    
 annotation|@
 name|Override
 specifier|public
-name|COSBase
+name|COSStream
 name|getCOSObject
 parameter_list|()
 block|{
@@ -219,6 +205,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// memory streams are not encoded.
 return|return
 name|createInputStream
 argument_list|()

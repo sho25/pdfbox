@@ -618,7 +618,7 @@ comment|/**      * Convert this standard java object to a COS object.      *    
 annotation|@
 name|Override
 specifier|public
-name|COSBase
+name|COSStream
 name|getCOSObject
 parameter_list|()
 block|{
