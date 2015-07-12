@@ -123,6 +123,7 @@ comment|//  tx ty 1     tx ty 1
 block|}
 decl_stmt|;
 specifier|private
+specifier|final
 name|float
 index|[]
 name|single
@@ -2608,7 +2609,10 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
+name|single
+index|[
 literal|0
+index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2619,7 +2623,10 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
+name|single
+index|[
 literal|1
+index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2630,7 +2637,10 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
+name|single
+index|[
 literal|3
+index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2641,7 +2651,10 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
+name|single
+index|[
 literal|4
+index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2652,7 +2665,10 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
+name|single
+index|[
 literal|6
+index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2663,7 +2679,10 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
+name|single
+index|[
 literal|7
+index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
