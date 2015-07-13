@@ -346,7 +346,7 @@ function_decl|;
 comment|/**      * sets the field to be read-only.      *       * @param readonly The new flag for readonly.      */
 specifier|public
 name|void
-name|setReadonly
+name|setReadOnly
 parameter_list|(
 name|boolean
 name|readonly
@@ -369,7 +369,7 @@ block|}
 comment|/**      *       * @return true if the field is readonly      */
 specifier|public
 name|boolean
-name|isReadonly
+name|isReadOnly
 parameter_list|()
 block|{
 return|return
