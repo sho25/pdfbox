@@ -852,15 +852,12 @@ name|AffineTransform
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Creates a new Type 1 font for embedding.      *      * @param doc PDF document to write to      * @param afmIn AFM file stream      * @param pfbIn PFB file stream      * @throws IOException      */
+comment|/**      * Creates a new Type 1 font for embedding.      *      * @param doc PDF document to write to      * @param pfbIn PFB file stream      * @throws IOException      */
 specifier|public
 name|PDType1Font
 parameter_list|(
 name|PDDocument
 name|doc
-parameter_list|,
-name|InputStream
-name|afmIn
 parameter_list|,
 name|InputStream
 name|pfbIn
@@ -877,8 +874,6 @@ argument_list|(
 name|doc
 argument_list|,
 name|dict
-argument_list|,
-name|afmIn
 argument_list|,
 name|pfbIn
 argument_list|,
@@ -928,15 +923,12 @@ name|AffineTransform
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Creates a new Type 1 font for embedding.      *      * @param doc PDF document to write to      * @param afmIn AFM file stream      * @param pfbIn PFB file stream      * @throws IOException      */
+comment|/**      * Creates a new Type 1 font for embedding.      *      * @param doc PDF document to write to      * @param pfbIn PFB file stream      * @throws IOException      */
 specifier|public
 name|PDType1Font
 parameter_list|(
 name|PDDocument
 name|doc
-parameter_list|,
-name|InputStream
-name|afmIn
 parameter_list|,
 name|InputStream
 name|pfbIn
@@ -956,8 +948,6 @@ argument_list|(
 name|doc
 argument_list|,
 name|dict
-argument_list|,
-name|afmIn
 argument_list|,
 name|pfbIn
 argument_list|,

@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a simple document with a Type 1 font (.afm + .pfb).  */
+comment|/**  * Creates a simple document with a Type 1 font (.pfb).  */
 end_comment
 
 begin_class
@@ -156,7 +156,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"<output-file><Message><afm-file>"
+literal|"<output-file><Message><pfb-file>"
 argument_list|)
 expr_stmt|;
 name|System
@@ -184,7 +184,7 @@ literal|1
 index|]
 decl_stmt|;
 name|String
-name|afmPath
+name|pfbPath
 init|=
 name|args
 index|[
@@ -225,20 +225,7 @@ argument_list|,
 operator|new
 name|FileInputStream
 argument_list|(
-name|afmPath
-argument_list|)
-argument_list|,
-operator|new
-name|FileInputStream
-argument_list|(
-name|afmPath
-operator|.
-name|replace
-argument_list|(
-literal|".afm"
-argument_list|,
-literal|".pfb"
-argument_list|)
+name|pfbPath
 argument_list|)
 argument_list|)
 decl_stmt|;
