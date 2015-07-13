@@ -1285,7 +1285,7 @@ literal|"Trying to map multi-byte character using 'cmap', result will be poor"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// a non-embedded font always has a cmap (otherwise ExternalFonts won't load it)
+comment|// a non-embedded font always has a cmap (otherwise FontMapper won't load it)
 return|return
 name|cmap
 operator|.

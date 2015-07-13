@@ -56,7 +56,7 @@ function_decl|;
 comment|/**      * Returns the CIDSystemInfo associated with the font, if any.      */
 specifier|public
 specifier|abstract
-name|PDCIDSystemInfo
+name|CIDSystemInfo
 name|getCIDSystemInfo
 parameter_list|()
 function_decl|;
