@@ -185,24 +185,6 @@ name|GlyphList
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|font
-operator|.
-name|encoding
-operator|.
-name|WinAnsiEncoding
-import|;
-end_import
-
 begin_comment
 comment|/**  * Embedded PDTrueTypeFont builder. Helper class to populate a PDTrueTypeFont from a TTF.  *  * @author John Hewson  * @author Ben Litchfield  */
 end_comment
@@ -219,7 +201,7 @@ specifier|final
 name|Encoding
 name|fontEncoding
 decl_stmt|;
-comment|/**      * Creates a new TrueType font embedder for the given TTF as a PDTrueTypeFont.      *      * @param document parent document      * @param dict font dictionary      * @param ttfStream TTF stream      * @throws IOException if the TTF could not be read      */
+comment|/**      * Creates a new TrueType font embedder for the given TTF as a PDTrueTypeFont.      *      * @param document The parent document      * @param dict Font dictionary      * @param ttfStream TTF stream      * @param encoding The PostScript encoding vector to be used for embedding.      * @throws IOException if the TTF could not be read      */
 name|PDTrueTypeFontEmbedder
 parameter_list|(
 name|PDDocument
@@ -230,6 +212,9 @@ name|dict
 parameter_list|,
 name|InputStream
 name|ttfStream
+parameter_list|,
+name|Encoding
+name|encoding
 parameter_list|)
 throws|throws
 name|IOException
@@ -258,14 +243,6 @@ operator|.
 name|TRUE_TYPE
 argument_list|)
 expr_stmt|;
-comment|// only support WinAnsiEncoding encoding right now
-name|Encoding
-name|encoding
-init|=
-operator|new
-name|WinAnsiEncoding
-argument_list|()
-decl_stmt|;
 name|GlyphList
 name|glyphList
 init|=

@@ -274,7 +274,7 @@ specifier|private
 name|PDCIDFontType2Embedder
 name|embedder
 decl_stmt|;
-comment|/**     * Loads a TTF to be embedded into a document.     *     * @param doc The PDF document that will hold the embedded font.     * @param file A TrueType font.     * @return A Type0 font with a CIDFontType2 descendant.     * @throws IOException If there is an error reading the font file.     */
+comment|/**     * Loads a TTF to be embedded into a document as a Type 0 font.     *     * @param doc The PDF document that will hold the embedded font.     * @param file A TrueType font.     * @return A Type0 font with a CIDFontType2 descendant.     * @throws IOException If there is an error reading the font file.     */
 specifier|public
 specifier|static
 name|PDType0Font
@@ -305,7 +305,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**     * Loads a TTF to be embedded into a document.     *     * @param doc The PDF document that will hold the embedded font.     * @param input A TrueType font.     * @return A Type0 font with a CIDFontType2 descendant.     * @throws IOException If there is an error reading the font stream.     */
+comment|/**     * Loads a TTF to be embedded into a document as a Type 0 font.     *     * @param doc The PDF document that will hold the embedded font.     * @param input A TrueType font.     * @return A Type0 font with a CIDFontType2 descendant.     * @throws IOException If there is an error reading the font stream.     */
 specifier|public
 specifier|static
 name|PDType0Font
@@ -332,7 +332,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Loads a TTF to be embedded into a document.      *      * @param doc The PDF document that will hold the embedded font.      * @param input A TrueType font.      * @param embedSubset True if the font will be subset before embedding      * @return A Type0 font with a CIDFontType2 descendant.      * @throws IOException If there is an error reading the font stream.      */
+comment|/**      * Loads a TTF to be embedded into a document as a Type 0 font.      *      * @param doc The PDF document that will hold the embedded font.      * @param input A TrueType font.      * @param embedSubset True if the font will be subset before embedding      * @return A Type0 font with a CIDFontType2 descendant.      * @throws IOException If there is an error reading the font stream.      */
 specifier|public
 specifier|static
 name|PDType0Font
