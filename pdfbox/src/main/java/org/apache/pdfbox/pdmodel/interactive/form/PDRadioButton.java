@@ -587,7 +587,7 @@ name|applyChange
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Sets the default value.      *      * @param value Name of radio button to select      * @throws IOException if the value could not be set      * @throws IllegalArgumentException if the value is not a valid option.      */
+comment|/**      * Sets the default value.      *      * @param value Name of radio button to select      * @throws IllegalArgumentException if the value is not a valid option.      */
 specifier|public
 name|void
 name|setDefaultValue
@@ -595,8 +595,6 @@ parameter_list|(
 name|String
 name|value
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|checkValue
 argument_list|(
