@@ -373,6 +373,14 @@ block|{
 specifier|private
 specifier|static
 specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
 name|Log
 name|LOG
 init|=
@@ -815,6 +823,7 @@ block|}
 comment|/**      * Represents ignored fonts (i.e. bitmap fonts).      */
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|FSIgnored
 extends|extends
@@ -1199,6 +1208,7 @@ argument_list|(
 name|byteOut
 argument_list|)
 decl_stmt|;
+comment|// write it to the stream
 name|objectOut
 operator|.
 name|writeObject
@@ -1206,7 +1216,6 @@ argument_list|(
 name|fontInfo
 argument_list|)
 expr_stmt|;
-comment|// write it to the stream
 name|prefs
 operator|.
 name|putByteArray
