@@ -428,7 +428,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-literal|"AA"
+name|COSName
+operator|.
+name|AA
 argument_list|)
 decl_stmt|;
 name|PDAnnotationAdditionalActions
@@ -472,7 +474,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"AA"
+name|COSName
+operator|.
+name|AA
 argument_list|,
 name|actions
 argument_list|)
@@ -494,7 +498,9 @@ argument_list|()
 operator|.
 name|setItem
 argument_list|(
-literal|"BS"
+name|COSName
+operator|.
+name|BS
 argument_list|,
 name|bs
 argument_list|)
