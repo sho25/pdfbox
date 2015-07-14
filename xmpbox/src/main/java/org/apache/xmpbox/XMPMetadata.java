@@ -482,7 +482,7 @@ argument_list|>
 name|getAllSchemas
 parameter_list|()
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|XMPSchema
 argument_list|>
