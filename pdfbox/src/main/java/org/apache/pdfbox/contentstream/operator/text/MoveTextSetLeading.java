@@ -202,7 +202,7 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|COSBase
 argument_list|>

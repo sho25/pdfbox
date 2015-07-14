@@ -139,7 +139,7 @@ throws|throws
 name|IOException
 block|{
 comment|//move to start of next text line
-name|ArrayList
+name|List
 argument_list|<
 name|COSBase
 argument_list|>
