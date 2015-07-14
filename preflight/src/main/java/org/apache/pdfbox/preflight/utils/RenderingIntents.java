@@ -132,7 +132,7 @@ name|RENDERING_INTENTS
 decl_stmt|;
 static|static
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
