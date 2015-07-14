@@ -990,6 +990,10 @@ decl_stmt|;
 if|if
 condition|(
 name|cachedInfos
+operator|!=
+literal|null
+operator|&&
+name|cachedInfos
 operator|.
 name|size
 argument_list|()
@@ -1411,7 +1415,9 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-break|break;
+return|return
+literal|null
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -1428,7 +1434,9 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-break|break;
+return|return
+literal|null
+return|;
 block|}
 block|}
 else|else
@@ -1442,12 +1450,7 @@ literal|"New fonts found, font cache will be re-built"
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|ArrayList
-argument_list|<
-name|FSFontInfo
-argument_list|>
-argument_list|()
+literal|null
 return|;
 block|}
 block|}
