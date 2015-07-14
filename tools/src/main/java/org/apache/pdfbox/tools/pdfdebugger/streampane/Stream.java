@@ -384,24 +384,6 @@ condition|)
 block|{
 if|if
 condition|(
-name|sb
-operator|.
-name|length
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", "
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|filters
 operator|instanceof
 name|COSName
@@ -457,6 +439,21 @@ name|i
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|i
+operator|>
+literal|0
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", "
+argument_list|)
+expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
