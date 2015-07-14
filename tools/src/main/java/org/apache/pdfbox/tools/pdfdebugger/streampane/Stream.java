@@ -459,7 +459,7 @@ literal|null
 return|;
 block|}
 specifier|private
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -474,7 +474,7 @@ name|COSStream
 name|stream
 parameter_list|)
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

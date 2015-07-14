@@ -165,8 +165,8 @@ argument_list|(
 name|colorValues
 argument_list|)
 decl_stmt|;
-name|markup
-operator|=
+name|setToolTipText
+argument_list|(
 name|getMarkUp
 argument_list|(
 name|colorHexValue
@@ -188,6 +188,7 @@ name|rgbValues
 index|[
 literal|2
 index|]
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

@@ -37,7 +37,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -52,8 +52,9 @@ name|ColorToolTip
 implements|implements
 name|ToolTip
 block|{
+specifier|private
 name|String
-name|markup
+name|toolTipText
 decl_stmt|;
 comment|/**      * provides the Hex value for a Color instance.      * @param color      * @return      */
 specifier|static
@@ -111,7 +112,7 @@ name|String
 name|rowtext
 parameter_list|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -215,6 +216,21 @@ operator|+
 literal|"</html>"
 return|;
 block|}
+specifier|public
+name|void
+name|setToolTipText
+parameter_list|(
+name|String
+name|toolTip
+parameter_list|)
+block|{
+name|this
+operator|.
+name|toolTipText
+operator|=
+name|toolTip
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -223,7 +239,7 @@ name|getToolTipText
 parameter_list|()
 block|{
 return|return
-name|markup
+name|toolTipText
 return|;
 block|}
 block|}

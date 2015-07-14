@@ -73,7 +73,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -259,12 +259,12 @@ implements|,
 name|ComponentListener
 block|{
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Highlighter
 operator|.
 name|HighlightPainter
-name|painter
+name|PAINTER
 init|=
 operator|new
 name|DefaultHighlighter
@@ -277,11 +277,12 @@ name|yellow
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|Highlighter
 operator|.
 name|HighlightPainter
-name|selectionPainter
+name|SELECTION_PAINTER
 init|=
 operator|new
 name|DefaultHighlighter
@@ -328,7 +329,7 @@ operator|-
 literal|1
 decl_stmt|;
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|Highlighter
 operator|.
@@ -505,7 +506,7 @@ name|SearchEngine
 argument_list|(
 name|textComponent
 argument_list|,
-name|painter
+name|PAINTER
 argument_list|)
 expr_stmt|;
 name|nextAction
@@ -907,7 +908,7 @@ name|changeHighlighter
 argument_list|(
 name|previousIndex
 argument_list|,
-name|painter
+name|PAINTER
 argument_list|)
 expr_stmt|;
 block|}
@@ -915,7 +916,7 @@ name|changeHighlighter
 argument_list|(
 name|presentIndex
 argument_list|,
-name|selectionPainter
+name|SELECTION_PAINTER
 argument_list|)
 expr_stmt|;
 block|}

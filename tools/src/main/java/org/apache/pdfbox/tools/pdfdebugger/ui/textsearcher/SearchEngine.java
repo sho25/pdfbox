@@ -33,6 +33,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|swing
@@ -143,7 +153,7 @@ expr_stmt|;
 block|}
 comment|/**      * Search the word.      * @param searchKey String. Search word.      * @param isCaseSensitive boolean. If search is case sensitive.      * @return ArrayList<Highlighter.Highlight>.      */
 specifier|public
-name|ArrayList
+name|List
 argument_list|<
 name|Highlighter
 operator|.
@@ -158,7 +168,7 @@ name|boolean
 name|isCaseSensitive
 parameter_list|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|Highlighter
 operator|.

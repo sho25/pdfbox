@@ -102,13 +102,14 @@ literal|2
 index|]
 argument_list|)
 decl_stmt|;
-name|markup
-operator|=
+name|setToolTipText
+argument_list|(
 name|getMarkUp
 argument_list|(
 name|colorHexValue
 argument_list|(
 name|color
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
