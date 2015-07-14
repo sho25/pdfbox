@@ -47,6 +47,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -279,7 +289,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|ArrayList
+name|List
 argument_list|<
 name|Long
 argument_list|>
