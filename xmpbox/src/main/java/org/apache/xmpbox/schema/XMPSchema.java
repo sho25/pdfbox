@@ -1559,7 +1559,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|AbstractField
 argument_list|>
@@ -1909,7 +1909,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|AbstractField
 argument_list|>
@@ -2349,7 +2349,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|AbstractField
 argument_list|>
@@ -2750,7 +2750,7 @@ operator|.
 name|iterator
 argument_list|()
 expr_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|AbstractField
 argument_list|>
@@ -2763,7 +2763,7 @@ name|AbstractField
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|AbstractField
 argument_list|>
