@@ -1310,7 +1310,7 @@ argument_list|>
 name|toList
 parameter_list|()
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|COSBase
 argument_list|>
