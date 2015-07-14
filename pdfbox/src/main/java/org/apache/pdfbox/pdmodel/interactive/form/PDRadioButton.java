@@ -301,7 +301,7 @@ init|=
 name|getExportValues
 argument_list|()
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
