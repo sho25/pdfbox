@@ -35,6 +35,16 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Rectangle
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|geom
 operator|.
 name|AffineTransform
@@ -50,18 +60,6 @@ operator|.
 name|geom
 operator|.
 name|NoninvertibleTransformException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|geom
-operator|.
-name|Point2D
 import|;
 end_import
 
@@ -265,6 +263,7 @@ name|float
 name|d1d0
 decl_stmt|;
 specifier|private
+specifier|final
 name|double
 name|denom
 decl_stmt|;
@@ -283,7 +282,7 @@ specifier|private
 name|AffineTransform
 name|rat
 decl_stmt|;
-comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @throws java.io.IOException if there is an error getting the color space or doing color conversion.      */
+comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds the bounds of the area to paint, in device units      * @throws IOException if there is an error getting the color space or doing color conversion.      */
 specifier|public
 name|AxialShadingContext
 parameter_list|(
@@ -298,6 +297,9 @@ name|xform
 parameter_list|,
 name|Matrix
 name|matrix
+parameter_list|,
+name|Rectangle
+name|deviceBounds
 parameter_list|)
 throws|throws
 name|IOException
@@ -506,16 +508,6 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-name|double
-name|longestDistance
-init|=
-name|Math
-operator|.
-name|sqrt
-argument_list|(
-name|denom
-argument_list|)
-decl_stmt|;
 try|try
 block|{
 comment|// get inverse transform to be independent of current user / device space
@@ -557,37 +549,7 @@ name|ex
 argument_list|)
 expr_stmt|;
 block|}
-comment|// transform the distance to actual pixel space
-comment|// use transform, because xform.getScaleX() does not return correct scaling on 90° rotated matrix
-name|Point2D
-name|point
-init|=
-operator|new
-name|Point2D
-operator|.
-name|Double
-argument_list|(
-name|longestDistance
-argument_list|,
-name|longestDistance
-argument_list|)
-decl_stmt|;
-name|matrix
-operator|.
-name|transform
-argument_list|(
-name|point
-argument_list|)
-expr_stmt|;
-name|xform
-operator|.
-name|transform
-argument_list|(
-name|point
-argument_list|,
-name|point
-argument_list|)
-expr_stmt|;
+comment|// get the number of steps
 name|factor
 operator|=
 operator|(
@@ -601,9 +563,9 @@ name|Math
 operator|.
 name|abs
 argument_list|(
-name|point
+name|deviceBounds
 operator|.
-name|getX
+name|getWidth
 argument_list|()
 argument_list|)
 argument_list|,
@@ -611,13 +573,14 @@ name|Math
 operator|.
 name|abs
 argument_list|(
-name|point
+name|deviceBounds
 operator|.
-name|getY
+name|getHeight
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// build the color table for the given number of steps
 name|colorTable
 operator|=
 name|calcColorTable
