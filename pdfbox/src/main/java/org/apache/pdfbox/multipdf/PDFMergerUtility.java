@@ -754,7 +754,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|PDDocument
 argument_list|>
