@@ -3434,7 +3434,7 @@ name|count
 init|=
 literal|1
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|Long
 argument_list|>
