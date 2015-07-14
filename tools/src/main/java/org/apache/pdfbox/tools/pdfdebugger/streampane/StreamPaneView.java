@@ -75,6 +75,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|swing
@@ -158,8 +168,10 @@ decl_stmt|;
 comment|/**      * Constructor.      * @param filterTypes String array that provides a list of key for available stream versions.      * @param initialChoice String instance. Initial choice for showing in the pane.      * @param listener ActionListener that listens for stream version choice changing.      */
 name|StreamPaneView
 parameter_list|(
+name|List
+argument_list|<
 name|String
-index|[]
+argument_list|>
 name|filterTypes
 parameter_list|,
 name|String
@@ -282,8 +294,10 @@ specifier|private
 name|JPanel
 name|createHeaderPanel
 parameter_list|(
+name|List
+argument_list|<
 name|String
-index|[]
+argument_list|>
 name|availableFilters
 parameter_list|,
 name|String
@@ -300,6 +314,9 @@ operator|new
 name|JComboBox
 argument_list|(
 name|availableFilters
+operator|.
+name|toArray
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|filters
