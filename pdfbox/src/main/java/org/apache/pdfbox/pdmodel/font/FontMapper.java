@@ -1628,6 +1628,18 @@ name|String
 name|postScriptName
 parameter_list|)
 block|{
+comment|// handle damaged PDFs, see PDFBOX-2884
+if|if
+condition|(
+name|postScriptName
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|// make sure the font provider is initialized
 if|if
 condition|(

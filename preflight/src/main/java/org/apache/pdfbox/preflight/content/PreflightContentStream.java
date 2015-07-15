@@ -18,70 +18,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_FONTS_ENCODING_ERROR
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_FONTS_UNKNOWN_FONT_REF
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_CONTENT_STREAM_UNSUPPORTED_OP
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -118,6 +54,22 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|Operator
 import|;
 end_import
 
@@ -392,18 +344,66 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
 operator|.
 name|pdfbox
 operator|.
-name|contentstream
+name|preflight
 operator|.
-name|operator
+name|PreflightConstants
 operator|.
-name|Operator
+name|ERROR_FONTS_ENCODING_ERROR
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_FONTS_UNKNOWN_FONT_REF
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_CONTENT_STREAM_INVALID_ARGUMENT
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_CONTENT_STREAM_UNSUPPORTED_OP
 import|;
 end_import
 
@@ -1242,7 +1242,7 @@ block|{
 comment|// Unable to decode the Text without Font
 name|registerError
 argument_list|(
-literal|"Text operator can't be process without Font"
+literal|"Text operator can't be processed without a Font"
 argument_list|,
 name|ERROR_FONTS_UNKNOWN_FONT_REF
 argument_list|)
@@ -1295,18 +1295,41 @@ literal|null
 condition|)
 block|{
 comment|// Font Must be embedded if the RenderingMode isn't 3
+if|if
+condition|(
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 name|registerError
 argument_list|(
+literal|"invalid font dictionary"
+argument_list|,
+name|ERROR_FONTS_UNKNOWN_FONT_REF
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|registerError
+argument_list|(
+literal|"font '"
+operator|+
 name|font
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" is unknown wasn't found by the FontHelperValidator"
+literal|"' is missing"
 argument_list|,
 name|ERROR_FONTS_UNKNOWN_FONT_REF
 argument_list|)
 expr_stmt|;
+block|}
 return|return;
 block|}
 elseif|else
