@@ -292,7 +292,7 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|/**      * An annotation flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -303,7 +303,7 @@ operator|<<
 literal|0
 decl_stmt|;
 comment|/**      * An annotation flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -314,7 +314,7 @@ operator|<<
 literal|1
 decl_stmt|;
 comment|/**      * An annotation flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -325,7 +325,7 @@ operator|<<
 literal|2
 decl_stmt|;
 comment|/**      * An annotation flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -336,7 +336,7 @@ operator|<<
 literal|3
 decl_stmt|;
 comment|/**      * An annotation flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -347,7 +347,7 @@ operator|<<
 literal|4
 decl_stmt|;
 comment|/**      * An annotation flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -358,7 +358,7 @@ operator|<<
 literal|5
 decl_stmt|;
 comment|/**      * An annotation flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -369,7 +369,7 @@ operator|<<
 literal|6
 decl_stmt|;
 comment|/**      * An annotation flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -380,7 +380,7 @@ operator|<<
 literal|7
 decl_stmt|;
 comment|/**      * An annotation flag.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|int

@@ -267,24 +267,6 @@ name|interactive
 operator|.
 name|annotation
 operator|.
-name|PDAnnotation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|annotation
-operator|.
 name|PDBorderEffectDictionary
 import|;
 end_import
@@ -395,6 +377,105 @@ name|FDFAnnotation
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|/**      * An annotation flag.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FLAG_INVISIBLE
+init|=
+literal|1
+operator|<<
+literal|0
+decl_stmt|;
+comment|/**      * An annotation flag.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FLAG_HIDDEN
+init|=
+literal|1
+operator|<<
+literal|1
+decl_stmt|;
+comment|/**      * An annotation flag.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FLAG_PRINTED
+init|=
+literal|1
+operator|<<
+literal|2
+decl_stmt|;
+comment|/**      * An annotation flag.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FLAG_NO_ZOOM
+init|=
+literal|1
+operator|<<
+literal|3
+decl_stmt|;
+comment|/**      * An annotation flag.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FLAG_NO_ROTATE
+init|=
+literal|1
+operator|<<
+literal|4
+decl_stmt|;
+comment|/**      * An annotation flag.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FLAG_NO_VIEW
+init|=
+literal|1
+operator|<<
+literal|5
+decl_stmt|;
+comment|/**      * An annotation flag.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FLAG_READ_ONLY
+init|=
+literal|1
+operator|<<
+literal|6
+decl_stmt|;
+comment|/**      * An annotation flag.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FLAG_LOCKED
+init|=
+literal|1
+operator|<<
+literal|7
+decl_stmt|;
+comment|/**      * An annotation flag.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FLAG_TOGGLE_NO_VIEW
+init|=
+literal|1
+operator|<<
+literal|8
 decl_stmt|;
 comment|/**      * Annotation dictionary.      */
 specifier|protected
@@ -2193,8 +2274,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_INVISIBLE
 argument_list|)
 return|;
@@ -2216,8 +2295,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_INVISIBLE
 argument_list|,
 name|invisible
@@ -2239,8 +2316,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_HIDDEN
 argument_list|)
 return|;
@@ -2262,8 +2337,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_HIDDEN
 argument_list|,
 name|hidden
@@ -2285,8 +2358,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_PRINTED
 argument_list|)
 return|;
@@ -2308,8 +2379,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_PRINTED
 argument_list|,
 name|printed
@@ -2331,8 +2400,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_NO_ZOOM
 argument_list|)
 return|;
@@ -2354,8 +2421,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_NO_ZOOM
 argument_list|,
 name|noZoom
@@ -2377,8 +2442,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_NO_ROTATE
 argument_list|)
 return|;
@@ -2400,8 +2463,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_NO_ROTATE
 argument_list|,
 name|noRotate
@@ -2423,8 +2484,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_NO_VIEW
 argument_list|)
 return|;
@@ -2446,8 +2505,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_NO_VIEW
 argument_list|,
 name|noView
@@ -2469,8 +2526,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_READ_ONLY
 argument_list|)
 return|;
@@ -2492,8 +2547,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_READ_ONLY
 argument_list|,
 name|readOnly
@@ -2515,8 +2568,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_LOCKED
 argument_list|)
 return|;
@@ -2538,8 +2589,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_LOCKED
 argument_list|,
 name|locked
@@ -2561,8 +2610,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_TOGGLE_NO_VIEW
 argument_list|)
 return|;
@@ -2584,8 +2631,6 @@ name|COSName
 operator|.
 name|F
 argument_list|,
-name|PDAnnotation
-operator|.
 name|FLAG_TOGGLE_NO_VIEW
 argument_list|,
 name|toggleNoView

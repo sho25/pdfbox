@@ -1297,11 +1297,9 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|setAnnotationFlags
+name|setNoView
 argument_list|(
-name|PDAnnotationWidget
-operator|.
-name|FLAG_NO_VIEW
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
