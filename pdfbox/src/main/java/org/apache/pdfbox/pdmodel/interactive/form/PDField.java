@@ -812,6 +812,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|retval
+operator|!=
+literal|null
+operator|&&
 name|name
 operator|.
 name|length

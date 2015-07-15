@@ -204,7 +204,18 @@ name|parent
 argument_list|)
 return|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|field
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|KIDS
+argument_list|)
+condition|)
 block|{
 return|return
 operator|new
@@ -216,6 +227,13 @@ name|field
 argument_list|,
 name|parent
 argument_list|)
+return|;
+block|}
+else|else
+block|{
+comment|// an erroneous non-field object, see PDFBOX-2885
+return|return
+literal|null
 return|;
 block|}
 block|}

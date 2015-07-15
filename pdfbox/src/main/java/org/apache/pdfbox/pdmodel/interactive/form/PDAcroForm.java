@@ -700,6 +700,13 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|field
+operator|!=
+literal|null
+condition|)
+block|{
 name|pdFields
 operator|.
 name|add
@@ -707,6 +714,7 @@ argument_list|(
 name|field
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
@@ -990,6 +998,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|root
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
 name|nameSubSection
 operator|.
 name|length
@@ -1035,6 +1050,7 @@ name|retval
 operator|=
 name|root
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

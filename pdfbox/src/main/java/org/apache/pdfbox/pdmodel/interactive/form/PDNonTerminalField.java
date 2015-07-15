@@ -552,6 +552,13 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|field
+operator|!=
+literal|null
+condition|)
+block|{
 name|children
 operator|.
 name|add
@@ -559,6 +566,7 @@ argument_list|(
 name|field
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|children
