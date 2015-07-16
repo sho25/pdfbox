@@ -1538,6 +1538,14 @@ argument_list|(
 name|permission
 argument_list|)
 expr_stmt|;
+comment|// This must have no effect and should only log a warning.
+name|doc
+operator|.
+name|setAllSecurityToBeRemoved
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|doc
 operator|.
 name|protect
