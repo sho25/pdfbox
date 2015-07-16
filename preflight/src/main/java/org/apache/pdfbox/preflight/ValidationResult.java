@@ -840,6 +840,26 @@ operator|=
 literal|"Error on MetaData"
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|errorCode
+operator|.
+name|startsWith
+argument_list|(
+name|PreflightConstants
+operator|.
+name|ERROR_PDF_PROCESSING_MISSING
+argument_list|)
+condition|)
+block|{
+name|this
+operator|.
+name|details
+operator|=
+literal|"A Mandatory element is missing"
+expr_stmt|;
+block|}
 else|else
 block|{
 comment|// default Unkown error
