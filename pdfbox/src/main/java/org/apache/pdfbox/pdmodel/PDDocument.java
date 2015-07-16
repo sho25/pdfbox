@@ -3385,8 +3385,6 @@ name|IOException
 block|{
 name|RandomAccessRead
 name|source
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -3468,8 +3466,6 @@ name|IOException
 block|{
 name|RandomAccessRead
 name|source
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -3934,7 +3930,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Protects the document with the protection policy pp. The document content will be really encrypted when it will      * be saved. This method only marks the document for encryption.      *      * @see org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyProtectionPolicy      *       * @param policy The protection policy.      *       * @throws IOException if there isn't any suitable security handler.      */
+comment|/**      * Protects the document with a protection policy. The document content will be really      * encrypted when it will be saved. This method only marks the document for encryption. It also      * calls {@link setAllSecurityToBeRemoved(false)} if it was set to true previously and logs a      * warning.      *      * @see org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyProtectionPolicy      *      * @param policy The protection policy.      *      * @throws IOException if there isn't any suitable security handler.      */
 specifier|public
 name|void
 name|protect
@@ -3945,6 +3941,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isAllSecurityToBeRemoved
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"do not call setAllSecurityToBeRemoved(true) before calling protect(), "
+operator|+
+literal|"as protect() implies setAllSecurityToBeRemoved(false)"
+argument_list|)
+expr_stmt|;
+name|setAllSecurityToBeRemoved
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
