@@ -974,6 +974,30 @@ literal|null
 return|;
 block|}
 block|}
+comment|/**      * Returns the embedded or substituted font.      */
+specifier|public
+name|FontBoxFont
+name|getFontBoxFont
+parameter_list|()
+block|{
+if|if
+condition|(
+name|cidFont
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|cidFont
+return|;
+block|}
+else|else
+block|{
+return|return
+name|t1Font
+return|;
+block|}
+block|}
 comment|/**      * Returns the Type 2 charstring for the given CID, or null if the substituted font does not      * contain Type 2 charstrings.      *      * @param cid CID      * @throws IOException if the charstring could not be read      */
 specifier|public
 name|Type2CharString
