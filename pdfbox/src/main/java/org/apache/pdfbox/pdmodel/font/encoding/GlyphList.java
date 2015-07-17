@@ -278,6 +278,7 @@ return|return
 name|ZAPF_DINGBATS
 return|;
 block|}
+comment|// read-only mappings, never modified outside GlyphList's constructor
 specifier|private
 specifier|final
 name|Map
@@ -297,6 +298,26 @@ argument_list|,
 name|String
 argument_list|>
 name|unicodeToName
+decl_stmt|;
+comment|// additional read/write cache for uniXXXX names
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|uniNameToUnicodeCache
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
 decl_stmt|;
 comment|/**      * Creates a new GlyphList from a glyph list file.      *      * @param input glyph list in Adobe format      * @throws IOException if the glyph list could not be read      */
 specifier|public
@@ -741,6 +762,27 @@ decl_stmt|;
 if|if
 condition|(
 name|unicode
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|unicode
+return|;
+block|}
+comment|// separate read/write cache for thread safety
+name|unicode
+operator|=
+name|uniNameToUnicodeCache
+operator|.
+name|get
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|unicode
 operator|==
 literal|null
 condition|)
@@ -1005,7 +1047,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|nameToUnicode
+name|uniNameToUnicodeCache
 operator|.
 name|put
 argument_list|(
