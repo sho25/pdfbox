@@ -21,6 +21,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -34,8 +44,43 @@ specifier|public
 interface|interface
 name|RandomAccessRead
 extends|extends
-name|SequentialRead
+name|Closeable
 block|{
+comment|/**      * Read a single byte of data.      *      * @return The byte of data that is being read.      *      * @throws IOException If there is an error while reading the data.      */
+name|int
+name|read
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Read a buffer of data.      *      * @param b The buffer to write the data to.      * @return The number of bytes that were actually read.      * @throws IOException If there was an error while reading the data.      */
+name|int
+name|read
+parameter_list|(
+name|byte
+index|[]
+name|b
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Read a buffer of data.      *      * @param b The buffer to write the data to.      * @param offset Offset into the buffer to start writing.      * @param length The amount of data to attempt to read.      * @return The number of bytes that were actually read.      * @throws IOException If there was an error while reading the data.      */
+name|int
+name|read
+parameter_list|(
+name|byte
+index|[]
+name|b
+parameter_list|,
+name|int
+name|offset
+parameter_list|,
+name|int
+name|length
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns offset of next byte to be returned by a read method.      *       * @return offset of next byte which will be returned with next {@link #read()}      *         (if no more bytes are left it returns a value&gt;= length of source)      *               * @throws IOException       */
 name|long
 name|getPosition

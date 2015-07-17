@@ -21,16 +21,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Closeable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|File
 import|;
 end_import
@@ -56,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface to allow temp PDF data to be stored in a scratch  * file on the disk to reduce memory consumption.  *  * @author Ben Litchfield  */
+comment|/**  * A RandomAccess implementation whcih allows data to be stored in a scratch file on the disk to  * reduce memory consumption.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -65,8 +55,6 @@ class|class
 name|RandomAccessFile
 implements|implements
 name|RandomAccess
-implements|,
-name|Closeable
 block|{
 specifier|private
 specifier|final

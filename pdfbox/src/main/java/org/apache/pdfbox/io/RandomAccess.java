@@ -15,18 +15,8 @@ name|io
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
-comment|/**  * An interface to allow PDF files to be stored completely in memory or  * to use a scratch file on the disk.  *  * @author Ben Litchfield  */
+comment|/**  * An interface to allow data to be stored completely in memory or  * to use a scratch file on the disk.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_interface
@@ -35,52 +25,10 @@ interface|interface
 name|RandomAccess
 extends|extends
 name|RandomAccessRead
+extends|,
+name|RandomAccessWrite
 block|{
-comment|/**      * Write a byte to the stream.      *      * @param b The byte to write.      * @throws IOException If there is an IO error while writing.      */
-name|void
-name|write
-parameter_list|(
-name|int
-name|b
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Write a buffer of data to the stream.      *      * @param b The buffer to get the data from.      * @throws IOException If there is an error while writing the data.      */
-name|void
-name|write
-parameter_list|(
-name|byte
-index|[]
-name|b
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Write a buffer of data to the stream.      *      * @param b The buffer to get the data from.      * @param offset An offset into the buffer to get the data from.      * @param length The length of data to write.      * @throws IOException If there is an error while writing the data.      */
-name|void
-name|write
-parameter_list|(
-name|byte
-index|[]
-name|b
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|int
-name|length
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Clears all data of the buffer.      */
-name|void
-name|clear
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
+comment|// super interface for both read and write
 block|}
 end_interface
 

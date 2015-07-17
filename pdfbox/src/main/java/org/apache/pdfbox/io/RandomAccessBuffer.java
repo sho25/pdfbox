@@ -21,16 +21,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Closeable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -66,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the RandomAccess interface to store a pdf in memory.  * The data will be stored in chunks organized in an ArrayList.  *  */
+comment|/**  * An implementation of the RandomAccess interface to store data in memory.  * The data will be stored in chunks organized in an ArrayList.  */
 end_comment
 
 begin_class
@@ -75,8 +65,6 @@ class|class
 name|RandomAccessBuffer
 implements|implements
 name|RandomAccess
-implements|,
-name|Closeable
 implements|,
 name|Cloneable
 block|{
