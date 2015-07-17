@@ -607,7 +607,7 @@ argument_list|()
 operator|-
 name|deviceBounds
 operator|.
-name|getMinX
+name|getMinY
 argument_list|()
 argument_list|,
 literal|2
