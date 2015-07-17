@@ -1330,21 +1330,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+specifier|abstract
 name|void
 name|constructAppearances
 parameter_list|()
 throws|throws
 name|IOException
-block|{
-comment|// TODO: implement appearance generation for choices
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"not implemented"
-argument_list|)
-throw|;
-block|}
+function_decl|;
 block|}
 end_class
 
