@@ -393,7 +393,6 @@ block|}
 block|}
 comment|/**      * Enlarges the scratch file by a number of pages defined by      * {@link #ENLARGE_PAGE_COUNT}. This will create the scratch      * file if it does not exist already.      *       *<p>Only to be called under synchronization on {@link #freePages}.</p>      */
 specifier|private
-specifier|final
 name|void
 name|enlarge
 parameter_list|()

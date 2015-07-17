@@ -327,7 +327,6 @@ return|;
 block|}
 comment|/**      * Ensures the current page has at least one byte left      * ({@link #positionInPage} in&lt; {@link #pageSize}).      *       *<p>If this is not the case we go to next page (writing      * current one if changed). If current buffer has no more      * pages we add a new one.</p>      *       * @param addNewPageIfNeeded if<code>true</code> it is allowed to add a new page in case      *                           we are currently at end of last buffer page      *       * @return<code>true</code> if we were successful positioning pointer before end of page;      *         we might return<code>false</code> if it is not allowed to add another page      *         and current pointer points at end of last page      *       * @throws IOException      */
 specifier|private
-specifier|final
 name|boolean
 name|ensureAvailableBytesInPage
 parameter_list|(
