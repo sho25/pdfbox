@@ -140,13 +140,13 @@ specifier|final
 name|File
 name|scratchFileDirectory
 decl_stmt|;
+comment|/** scratch file; only to be accessed under synchronization of {@link #ioLock} */
 specifier|private
-specifier|volatile
 name|File
 name|file
 decl_stmt|;
+comment|/** random access to scratch file; only to be accessed under synchronization of {@link #ioLock} */
 specifier|private
-specifier|volatile
 name|java
 operator|.
 name|io
@@ -169,13 +169,6 @@ init|=
 operator|new
 name|BitSet
 argument_list|()
-decl_stmt|;
-comment|/** number of free pages; only to be accessed under synchronization on {@link #freePages} */
-specifier|private
-name|int
-name|freePageCount
-init|=
-literal|0
 decl_stmt|;
 specifier|private
 specifier|final
@@ -309,10 +302,6 @@ argument_list|,
 name|inMemoryMaxPageCount
 argument_list|)
 expr_stmt|;
-name|freePageCount
-operator|=
-name|inMemoryMaxPageCount
-expr_stmt|;
 block|}
 comment|/**      * Returns a new free page, either from free page pool      * or by enlarging scratch file (may be created).      *       * @return index of new page      */
 name|int
@@ -326,17 +315,6 @@ init|(
 name|freePages
 init|)
 block|{
-if|if
-condition|(
-name|freePageCount
-operator|<=
-literal|0
-condition|)
-block|{
-name|enlarge
-argument_list|()
-expr_stmt|;
-block|}
 name|int
 name|idx
 init|=
@@ -354,6 +332,25 @@ operator|<
 literal|0
 condition|)
 block|{
+name|enlarge
+argument_list|()
+expr_stmt|;
+name|idx
+operator|=
+name|freePages
+operator|.
+name|nextSetBit
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|idx
+operator|<
+literal|0
+condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -362,15 +359,13 @@ literal|"Expected free page but did not found one."
 argument_list|)
 throw|;
 block|}
+block|}
 name|freePages
 operator|.
 name|clear
 argument_list|(
 name|idx
 argument_list|)
-expr_stmt|;
-name|freePageCount
-operator|--
 expr_stmt|;
 if|if
 condition|(
@@ -544,10 +539,6 @@ name|pageCount
 operator|+
 name|ENLARGE_PAGE_COUNT
 argument_list|)
-expr_stmt|;
-name|freePageCount
-operator|+=
-name|ENLARGE_PAGE_COUNT
 expr_stmt|;
 block|}
 block|}
@@ -974,9 +965,6 @@ argument_list|(
 name|pageIdx
 argument_list|)
 expr_stmt|;
-name|freePageCount
-operator|++
-expr_stmt|;
 if|if
 condition|(
 name|pageIdx
@@ -1103,10 +1091,6 @@ name|freePages
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-name|freePageCount
-operator|=
-literal|0
 expr_stmt|;
 name|pageCount
 operator|=
