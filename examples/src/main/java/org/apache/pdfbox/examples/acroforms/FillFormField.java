@@ -132,6 +132,9 @@ argument_list|(
 name|formTemplate
 argument_list|)
 argument_list|,
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
 decl_stmt|;

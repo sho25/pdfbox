@@ -262,6 +262,9 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+operator|(
+name|File
+operator|)
 literal|null
 argument_list|,
 name|useScratchFiles
@@ -312,6 +315,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|/**      * Constructor that will use the provide memory handler for storage of the      * PDF streams.      *      * @param scratchFiles memory handler for storage of PDF streams      *       */
+specifier|public
+name|COSDocument
+parameter_list|(
+name|ScratchFile
+name|scratchFile
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scratchFile
+operator|=
+name|scratchFile
+expr_stmt|;
 block|}
 comment|/**      * Constructor. Uses memory to store stream.      */
 specifier|public
