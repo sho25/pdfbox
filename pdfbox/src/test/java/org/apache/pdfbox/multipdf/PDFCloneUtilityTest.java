@@ -468,6 +468,9 @@ operator|+
 name|CLONESRC
 argument_list|)
 argument_list|,
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
 operator|.
@@ -502,6 +505,9 @@ operator|+
 name|CLONEDST
 argument_list|)
 argument_list|,
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
 operator|.

@@ -530,6 +530,9 @@ argument_list|,
 literal|"singletiff.pdf"
 argument_list|)
 argument_list|,
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -849,6 +852,9 @@ argument_list|,
 literal|"multitiff.pdf"
 argument_list|)
 argument_list|,
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;

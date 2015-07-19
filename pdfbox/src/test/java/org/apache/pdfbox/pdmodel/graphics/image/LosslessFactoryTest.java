@@ -773,6 +773,9 @@ name|load
 argument_list|(
 name|pdfFile
 argument_list|,
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -2519,6 +2522,9 @@ name|load
 argument_list|(
 name|pdfFile
 argument_list|,
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;

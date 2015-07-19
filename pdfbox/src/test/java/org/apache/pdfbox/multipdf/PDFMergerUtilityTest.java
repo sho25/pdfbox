@@ -227,6 +227,9 @@ argument_list|,
 name|filename1
 argument_list|)
 argument_list|,
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
 decl_stmt|;
@@ -307,6 +310,9 @@ argument_list|,
 name|filename2
 argument_list|)
 argument_list|,
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
 decl_stmt|;
@@ -436,6 +442,9 @@ argument_list|,
 name|mergeFilename
 argument_list|)
 argument_list|,
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
 decl_stmt|;
