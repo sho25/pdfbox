@@ -343,6 +343,15 @@ block|,
 literal|215
 block|}
 decl_stmt|;
+comment|/**      * The scaling factor for font units to PDF units      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FONTSCALE
+init|=
+literal|1000
+decl_stmt|;
 comment|/**      * Constructs a COSAppearance from the given field.      *      * @param field the field which you wish to control the appearance of      * @throws IOException       */
 name|AppearanceGeneratorHelper
 parameter_list|(
@@ -639,12 +648,7 @@ name|tokens
 operator|.
 name|indexOf
 argument_list|(
-name|Operator
-operator|.
-name|getOperator
-argument_list|(
-literal|"BMC"
-argument_list|)
+name|BMC
 argument_list|)
 decl_stmt|;
 if|if
@@ -712,12 +716,7 @@ name|tokens
 operator|.
 name|indexOf
 argument_list|(
-name|Operator
-operator|.
-name|getOperator
-argument_list|(
-literal|"EMC"
-argument_list|)
+name|EMC
 argument_list|)
 decl_stmt|;
 if|if
@@ -1008,7 +1007,7 @@ name|fontScaleY
 init|=
 name|fontSize
 operator|/
-literal|1000f
+name|FONTSCALE
 decl_stmt|;
 name|float
 name|fontBoundingBoxAtSize
@@ -1519,7 +1518,7 @@ operator|.
 name|getAscent
 argument_list|()
 operator|/
-literal|1000
+name|FONTSCALE
 operator|*
 name|fontSize
 decl_stmt|;
@@ -1604,7 +1603,7 @@ argument_list|(
 name|combString
 argument_list|)
 operator|/
-literal|1000
+name|FONTSCALE
 operator|*
 name|fontSize
 operator|/
@@ -1806,7 +1805,7 @@ argument_list|()
 operator|*
 name|fontSize
 operator|/
-literal|1000
+name|FONTSCALE
 operator|-
 literal|2f
 decl_stmt|;
@@ -1975,7 +1974,7 @@ argument_list|(
 name|value
 argument_list|)
 operator|/
-literal|1000
+name|FONTSCALE
 operator|)
 operator|*
 name|fontSize
@@ -2101,7 +2100,7 @@ operator|.
 name|getAscent
 argument_list|()
 operator|/
-literal|1000
+name|FONTSCALE
 operator|*
 name|fontSize
 expr_stmt|;
@@ -2120,7 +2119,7 @@ operator|.
 name|getHeight
 argument_list|()
 operator|/
-literal|1000
+name|FONTSCALE
 operator|*
 name|fontSize
 expr_stmt|;
@@ -2263,7 +2262,7 @@ block|{
 name|float
 name|yScalingFactor
 init|=
-literal|1000
+name|FONTSCALE
 operator|*
 name|font
 operator|.
@@ -2276,7 +2275,7 @@ decl_stmt|;
 name|float
 name|xScalingFactor
 init|=
-literal|1000
+name|FONTSCALE
 operator|*
 name|font
 operator|.
