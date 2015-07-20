@@ -115,9 +115,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|cos
 operator|.
-name|PDDocumentCatalog
+name|COSStream
 import|;
 end_import
 
@@ -131,57 +131,7 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|common
-operator|.
-name|PDStream
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|DOCUMENT_DICTIONARY_KEY_OUTPUT_INTENTS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|OUTPUT_INTENT_DICTIONARY_KEY_DEST_OUTPUT_PROFILE
+name|PDDocumentCatalog
 import|;
 end_import
 
@@ -258,6 +208,54 @@ operator|.
 name|utils
 operator|.
 name|COSUtils
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|DOCUMENT_DICTIONARY_KEY_OUTPUT_INTENTS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_GRAPHIC_OUTPUT_INTENT_ICC_PROFILE_INVALID
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|OUTPUT_INTENT_DICTIONARY_KEY_DEST_OUTPUT_PROFILE
 import|;
 end_import
 
@@ -503,13 +501,9 @@ condition|)
 block|{
 try|try
 block|{
-name|PDStream
+name|COSStream
 name|stream
 init|=
-name|PDStream
-operator|.
-name|createFromCOS
-argument_list|(
 name|COSUtils
 operator|.
 name|getAsStream
@@ -520,7 +514,6 @@ name|document
 operator|.
 name|getDocument
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -539,7 +532,7 @@ name|getInstance
 argument_list|(
 name|stream
 operator|.
-name|createInputStream
+name|getUnfilteredStream
 argument_list|()
 argument_list|)
 decl_stmt|;

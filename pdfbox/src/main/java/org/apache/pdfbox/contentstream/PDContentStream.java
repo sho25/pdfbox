@@ -17,15 +17,21 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|pdfbox
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|cos
+name|io
 operator|.
-name|COSStream
+name|InputStream
 import|;
 end_import
 
@@ -82,10 +88,12 @@ specifier|public
 interface|interface
 name|PDContentStream
 block|{
-comment|/**      * Returns the underlying COS stream.      */
-name|COSStream
-name|getContentStream
+comment|/**      * Returns this stream's content, if any.      *       * @return An InputStream or null.      * @throws IOException If the stream could not be read      */
+name|InputStream
+name|getContents
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Returns this stream's resources, if any.      */
 name|PDResources

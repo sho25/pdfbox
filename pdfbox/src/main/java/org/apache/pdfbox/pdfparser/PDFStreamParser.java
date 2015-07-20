@@ -93,6 +93,20 @@ name|pdfbox
 operator|.
 name|contentstream
 operator|.
+name|PDContentStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
 name|operator
 operator|.
 name|Operator
@@ -221,6 +235,20 @@ name|pdfbox
 operator|.
 name|io
 operator|.
+name|RandomAccessBuffer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
 name|RandomAccessRead
 import|;
 end_import
@@ -305,7 +333,30 @@ index|[
 name|MAX_BIN_CHAR_TEST_LENGTH
 index|]
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param stream The stream to parse.      *      * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor.      *      * @param contentStream The content stream to parse.      * @throws IOException If there is an error initializing the stream.      */
+specifier|public
+name|PDFStreamParser
+parameter_list|(
+name|PDContentStream
+name|contentStream
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|this
+argument_list|(
+operator|new
+name|RandomAccessBuffer
+argument_list|(
+name|contentStream
+operator|.
+name|getContents
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Constructor.      *      * @param stream The stream to parse.      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFStreamParser
 parameter_list|(
@@ -324,7 +375,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param stream The stream to parse.      *      * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor.      *      * @param stream The stream to parse.      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFStreamParser
 parameter_list|(
@@ -340,7 +391,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param input The random access read to parse.      *      * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor.      *      * @param input The random access read to parse.      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFStreamParser
 parameter_list|(

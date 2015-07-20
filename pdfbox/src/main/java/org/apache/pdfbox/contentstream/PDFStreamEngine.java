@@ -868,10 +868,8 @@ if|if
 condition|(
 name|page
 operator|.
-name|getStream
+name|hasContents
 argument_list|()
-operator|!=
-literal|null
 condition|)
 block|{
 name|isProcessingPage
@@ -1869,9 +1867,6 @@ operator|new
 name|PDFStreamParser
 argument_list|(
 name|contentStream
-operator|.
-name|getContentStream
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|Object

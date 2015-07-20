@@ -245,9 +245,6 @@ operator|new
 name|PDFStreamParser
 argument_list|(
 name|page
-operator|.
-name|getStream
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|parser

@@ -121,22 +121,6 @@ name|PDPage
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|common
-operator|.
-name|PDStream
-import|;
-end_import
-
 begin_comment
 comment|/**  * This will extract text from a specified region in the PDF.  *  * @author Ben Litchfield  */
 end_comment
@@ -433,19 +417,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|PDStream
-name|contentStream
-init|=
-name|page
-operator|.
-name|getStream
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|contentStream
-operator|!=
-literal|null
+name|page
+operator|.
+name|hasContents
+argument_list|()
 condition|)
 block|{
 name|processPage
