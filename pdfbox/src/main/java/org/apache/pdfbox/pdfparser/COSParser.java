@@ -16,22 +16,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Charsets
-operator|.
-name|ISO_8859_1
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -379,6 +363,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|io
+operator|.
+name|RandomAccessRead
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdfparser
 operator|.
 name|XrefTrailerResolver
@@ -400,6 +398,22 @@ operator|.
 name|encryption
 operator|.
 name|SecurityHandler
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Charsets
+operator|.
+name|ISO_8859_1
 import|;
 end_import
 
@@ -608,6 +622,11 @@ index|[
 name|STRMBUFLEN
 index|]
 decl_stmt|;
+specifier|protected
+specifier|final
+name|RandomAccessRead
+name|source
+decl_stmt|;
 comment|/**      * Only parse the PDF file minimally allowing access to basic information.      */
 specifier|public
 specifier|static
@@ -779,8 +798,27 @@ decl_stmt|;
 comment|/**      * Default constructor.      */
 specifier|public
 name|COSParser
-parameter_list|()
-block|{     }
+parameter_list|(
+name|RandomAccessRead
+name|source
+parameter_list|)
+block|{
+name|super
+argument_list|(
+operator|new
+name|RandomAccessSource
+argument_list|(
+name|source
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|source
+operator|=
+name|source
+expr_stmt|;
+block|}
 comment|/**      * Sets how many trailing bytes of PDF file are searched for EOF marker and 'startxref' marker. If not set we use      * default value {@link #DEFAULT_TRAIL_BYTECOUNT}.      *       *<p>We check that new value is at least 16. However for practical use cases this value should not be lower than      * 1000; even 2000 was found to not be enough in some cases where some trailing garbage like HTML snippets followed      * the EOF marker.</p>      *       *<p>      * In case system property {@link #SYSPROP_EOFLOOKUPRANGE} is defined this value will be set on initialization but      * can be overwritten later.      *</p>      *       * @param byteCount number of trailing bytes      */
 specifier|public
 name|void
@@ -814,7 +852,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -877,7 +915,7 @@ literal|0
 condition|)
 block|{
 comment|// seek to xref table
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -891,7 +929,7 @@ expr_stmt|;
 comment|// -- parse xref
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -909,7 +947,7 @@ expr_stmt|;
 comment|// parse the last trailer.
 name|trailerOffset
 operator|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -919,7 +957,7 @@ while|while
 condition|(
 name|isLenient
 operator|&&
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -929,7 +967,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -967,7 +1005,7 @@ name|IOException
 argument_list|(
 literal|"Expected trailer object at position: "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -1055,7 +1093,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -1402,7 +1440,7 @@ name|fileLen
 operator|-
 name|trailByteCount
 expr_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -1426,7 +1464,7 @@ condition|)
 block|{
 name|readBytes
 operator|=
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|(
@@ -1469,7 +1507,7 @@ block|}
 block|}
 finally|finally
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -2698,7 +2736,7 @@ throws|throws
 name|IOException
 block|{
 comment|// ---- go to object start
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -2802,7 +2840,7 @@ name|STREAM_STRING
 argument_list|)
 condition|)
 block|{
-name|pdfSource
+name|source
 operator|.
 name|rewind
 argument_list|(
@@ -3255,7 +3293,7 @@ specifier|final
 name|long
 name|curFileOffset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -3268,7 +3306,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// reset current stream position
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -3461,7 +3499,7 @@ name|warn
 argument_list|(
 literal|"The stream doesn't provide any stream length, using fallback readUntilEnd, at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -3555,14 +3593,14 @@ name|warn
 argument_list|(
 literal|"stream ends with 'endobj' instead of 'endstream' at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// avoid follow-up warning about missing endobj
-name|pdfSource
+name|source
 operator|.
 name|rewind
 argument_list|(
@@ -3609,14 +3647,14 @@ name|endStream
 operator|+
 literal|"' instead of 'endstream' at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// unread the "extra" bytes
-name|pdfSource
+name|source
 operator|.
 name|rewind
 argument_list|(
@@ -3658,7 +3696,7 @@ name|endStream
 operator|+
 literal|"' at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -3725,7 +3763,7 @@ condition|(
 operator|(
 name|bufSize
 operator|=
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|(
@@ -3979,7 +4017,7 @@ name|length
 condition|)
 block|{
 comment|// keyword matched; unread matched keyword (endstream/endobj) and following buffered content
-name|pdfSource
+name|source
 operator|.
 name|rewind
 argument_list|(
@@ -4066,7 +4104,7 @@ specifier|final
 name|int
 name|readBytes
 init|=
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|(
@@ -4091,7 +4129,7 @@ name|IOException
 argument_list|(
 literal|"read error at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -4141,7 +4179,7 @@ decl_stmt|;
 name|long
 name|originOffset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -4186,7 +4224,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4229,7 +4267,7 @@ name|expectedEndOfStream
 argument_list|)
 expr_stmt|;
 block|}
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4263,7 +4301,7 @@ return|return
 name|startXRefOffset
 return|;
 block|}
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4272,7 +4310,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -4359,7 +4397,7 @@ name|startXRefOffset
 return|;
 block|}
 comment|// seek to offset-1
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4371,7 +4409,7 @@ expr_stmt|;
 name|int
 name|nextValue
 init|=
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
@@ -4404,7 +4442,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4423,7 +4461,7 @@ parameter_list|)
 block|{
 comment|// there wasn't an object of a xref stream
 comment|// try to repair the offset
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4725,12 +4763,12 @@ decl_stmt|;
 name|long
 name|originOffset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
 decl_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4763,7 +4801,7 @@ argument_list|)
 condition|)
 block|{
 comment|// everything is ok, return origin object key
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4785,7 +4823,7 @@ comment|// Swallow the exception, obviously there isn't any valid object number
 block|}
 finally|finally
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4859,7 +4897,7 @@ expr_stmt|;
 name|long
 name|originOffset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -4885,7 +4923,7 @@ argument_list|()
 decl_stmt|;
 do|do
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4907,7 +4945,7 @@ name|currentOffset
 operator|-
 literal|1
 decl_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4917,7 +4955,7 @@ expr_stmt|;
 name|int
 name|genID
 init|=
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -4938,7 +4976,7 @@ expr_stmt|;
 name|tempOffset
 operator|--
 expr_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4961,7 +4999,7 @@ name|isSpace
 argument_list|()
 condition|)
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -4985,7 +5023,7 @@ name|isDigit
 argument_list|()
 condition|)
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5004,7 +5042,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
@@ -5013,7 +5051,7 @@ name|byte
 index|[]
 name|objIDBytes
 init|=
-name|pdfSource
+name|source
 operator|.
 name|readFully
 argument_list|(
@@ -5099,14 +5137,14 @@ block|}
 do|while
 condition|(
 operator|!
-name|pdfSource
+name|source
 operator|.
 name|isEOF
 argument_list|()
 condition|)
 do|;
 comment|// reestablish origin position
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5470,12 +5508,12 @@ expr_stmt|;
 name|long
 name|originOffset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
 decl_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5486,7 +5524,7 @@ comment|// search for xref tables
 while|while
 condition|(
 operator|!
-name|pdfSource
+name|source
 operator|.
 name|isEOF
 argument_list|()
@@ -5503,12 +5541,12 @@ block|{
 name|long
 name|newOffset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
 decl_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5532,7 +5570,7 @@ name|newOffset
 argument_list|)
 expr_stmt|;
 block|}
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5542,13 +5580,13 @@ literal|4
 argument_list|)
 expr_stmt|;
 block|}
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
 expr_stmt|;
 block|}
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5585,12 +5623,12 @@ expr_stmt|;
 name|long
 name|originOffset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
 decl_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5615,7 +5653,7 @@ decl_stmt|;
 while|while
 condition|(
 operator|!
-name|pdfSource
+name|source
 operator|.
 name|isEOF
 argument_list|()
@@ -5639,7 +5677,7 @@ decl_stmt|;
 name|long
 name|xrefOffset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -5685,7 +5723,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5722,7 +5760,7 @@ name|currentOffset
 operator|-
 literal|1
 decl_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5732,7 +5770,7 @@ expr_stmt|;
 name|int
 name|genID
 init|=
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -5753,7 +5791,7 @@ expr_stmt|;
 name|tempOffset
 operator|--
 expr_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5771,7 +5809,7 @@ name|length
 init|=
 literal|0
 decl_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5789,7 +5827,7 @@ name|isDigit
 argument_list|()
 condition|)
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5808,14 +5846,14 @@ operator|>
 literal|0
 condition|)
 block|{
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
 expr_stmt|;
 name|newOffset
 operator|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -5847,7 +5885,7 @@ block|{
 name|currentOffset
 operator|++
 expr_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
@@ -5872,7 +5910,7 @@ name|newOffset
 argument_list|)
 expr_stmt|;
 block|}
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -5882,13 +5920,13 @@ literal|5
 argument_list|)
 expr_stmt|;
 block|}
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
 expr_stmt|;
 block|}
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -6002,7 +6040,7 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -6244,7 +6282,7 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -6275,7 +6313,7 @@ decl_stmt|;
 name|int
 name|numberOfBytes
 init|=
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|(
@@ -6296,7 +6334,7 @@ block|{
 name|int
 name|readMore
 init|=
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|(
@@ -6340,7 +6378,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-name|pdfSource
+name|source
 operator|.
 name|rewind
 argument_list|(
@@ -6372,7 +6410,7 @@ decl_stmt|;
 name|long
 name|originOffset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -6387,7 +6425,7 @@ control|)
 block|{
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
@@ -6401,7 +6439,7 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -6422,7 +6460,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -6438,7 +6476,7 @@ comment|//read "trailer"
 name|long
 name|currentOffset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -6487,7 +6525,7 @@ name|length
 argument_list|()
 decl_stmt|;
 comment|// jump back right after "trailer"
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -6660,7 +6698,7 @@ name|headerMarker
 argument_list|)
 condition|)
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -6802,7 +6840,7 @@ operator|+
 literal|3
 argument_list|)
 expr_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|rewind
 argument_list|(
@@ -6901,7 +6939,7 @@ name|headerVersion
 argument_list|)
 expr_stmt|;
 comment|// rewind
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -6925,7 +6963,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -6979,7 +7017,7 @@ argument_list|(
 name|ISO_8859_1
 argument_list|)
 decl_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|rewind
 argument_list|(
@@ -7061,7 +7099,7 @@ control|)
 block|{
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|isEOF
 argument_list|()
@@ -7071,7 +7109,7 @@ argument_list|(
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -7082,7 +7120,7 @@ break|break;
 block|}
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()

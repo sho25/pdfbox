@@ -18,310 +18,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_ARRAY_TOO_LONG
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_CROSS_REF
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_HEXA_STRING_EVEN_NUMBER
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_HEXA_STRING_INVALID
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_HEXA_STRING_TOO_LONG
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_INVALID_OFFSET
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_MISSING_OFFSET
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_NAME_TOO_LONG
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_NUMERIC_RANGE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_OBJ_DELIMITER
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_STREAM_DELIMITER
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_TOO_MANY_ENTRIES
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_TRAILER_EOF
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|MAX_ARRAY_ELEMENTS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|MAX_DICT_ENTRIES
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|MAX_NAME_SIZE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|MAX_NEGATIVE_FLOAT
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|MAX_POSITIVE_FLOAT
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|MAX_STRING_LENGTH
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -802,6 +498,310 @@ operator|.
 name|exception
 operator|.
 name|SyntaxValidationException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_ARRAY_TOO_LONG
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_CROSS_REF
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_HEXA_STRING_EVEN_NUMBER
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_HEXA_STRING_INVALID
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_HEXA_STRING_TOO_LONG
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_INVALID_OFFSET
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_MISSING_OFFSET
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_NAME_TOO_LONG
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_NUMERIC_RANGE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_OBJ_DELIMITER
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_STREAM_DELIMITER
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_TOO_MANY_ENTRIES
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_TRAILER_EOF
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|MAX_ARRAY_ELEMENTS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|MAX_DICT_ENTRIES
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|MAX_NAME_SIZE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|MAX_NEGATIVE_FLOAT
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|MAX_POSITIVE_FLOAT
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|MAX_STRING_LENGTH
 import|;
 end_import
 
@@ -1356,7 +1356,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -1529,7 +1529,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -1580,7 +1580,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -1677,7 +1677,7 @@ decl_stmt|;
 name|long
 name|offset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -1760,15 +1760,15 @@ name|line
 operator|+
 literal|"' at position "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// reset pdfSource cursor to read xref information
-name|pdfSource
+comment|// reset source cursor to read xref information
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -1808,7 +1808,7 @@ control|)
 block|{
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|isEOF
 argument_list|()
@@ -1818,7 +1818,7 @@ argument_list|(
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -1829,7 +1829,7 @@ break|break;
 block|}
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -2117,7 +2117,7 @@ name|streamV
 operator|+
 literal|"' at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -2128,7 +2128,7 @@ block|}
 name|int
 name|nextChar
 init|=
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
@@ -2142,7 +2142,7 @@ name|nextChar
 operator|==
 literal|13
 operator|&&
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -2165,7 +2165,7 @@ name|ERROR_SYNTAX_STREAM_DELIMITER
 argument_list|,
 literal|"Expected 'EOL' after the stream keyword at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -2174,11 +2174,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// set the offset before stream
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -2195,11 +2195,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -2223,14 +2223,14 @@ name|ERROR_SYNTAX_STREAM_DELIMITER
 argument_list|,
 literal|"Expected 'EOL' before the endstream keyword at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
 operator|+
 literal|" but found '"
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
@@ -2266,7 +2266,7 @@ name|ERROR_SYNTAX_STREAM_DELIMITER
 argument_list|,
 literal|"Expected 'endstream' keyword at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -2296,7 +2296,7 @@ decl_stmt|;
 name|int
 name|nextChar
 init|=
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
@@ -2309,13 +2309,13 @@ name|nextChar
 operator|&&
 name|ASCII_LF
 operator|==
-name|pdfSource
+name|source
 operator|.
 name|peek
 argument_list|()
 condition|)
 block|{
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
@@ -2471,7 +2471,7 @@ comment|// offset reminder
 name|long
 name|offset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -2482,7 +2482,7 @@ init|=
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
@@ -2506,7 +2506,7 @@ operator|=
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
@@ -2562,7 +2562,7 @@ name|nextChar
 operator|+
 literal|"') at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -2599,7 +2599,7 @@ name|ERROR_SYNTAX_HEXA_STRING_EVEN_NUMBER
 argument_list|,
 literal|"Hexa string shall contain even number of non white space char at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -2608,7 +2608,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// reset the offset to parse the COSString
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -2645,7 +2645,7 @@ name|ERROR_SYNTAX_HEXA_STRING_TOO_LONG
 argument_list|,
 literal|"Hexa string is too long at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -2729,7 +2729,7 @@ name|real
 operator|+
 literal|"  at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -2776,7 +2776,7 @@ name|numAsLong
 operator|+
 literal|"  at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -2820,7 +2820,7 @@ name|ERROR_SYNTAX_TOO_MANY_ENTRIES
 argument_list|,
 literal|"Too Many Entries In Dictionary at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -3021,7 +3021,7 @@ condition|)
 block|{
 comment|// offset of indirect object in file
 comment|// ---- go to object start
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -3038,7 +3038,7 @@ decl_stmt|;
 name|long
 name|offset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -3141,8 +3141,8 @@ literal|"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// reset pdfSource cursor to read object information
-name|pdfSource
+comment|// reset source cursor to read object information
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -3173,7 +3173,7 @@ control|)
 block|{
 if|if
 condition|(
-name|pdfSource
+name|source
 operator|.
 name|read
 argument_list|()
@@ -3293,7 +3293,7 @@ expr_stmt|;
 name|long
 name|endObjectOffset
 init|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -3314,7 +3314,7 @@ literal|"stream"
 argument_list|)
 condition|)
 block|{
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -3384,7 +3384,7 @@ argument_list|()
 expr_stmt|;
 name|endObjectOffset
 operator|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -3511,12 +3511,12 @@ else|else
 block|{
 name|offset
 operator|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
 expr_stmt|;
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -3543,7 +3543,7 @@ name|ERROR_SYNTAX_OBJ_DELIMITER
 argument_list|,
 literal|"EOL expected before the 'endobj' keyword at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -3551,7 +3551,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|pdfSource
+name|source
 operator|.
 name|seek
 argument_list|(
@@ -3577,7 +3577,7 @@ name|ERROR_SYNTAX_OBJ_DELIMITER
 argument_list|,
 literal|"EOL expected after the 'endobj' keyword at offset "
 operator|+
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()
@@ -3871,7 +3871,7 @@ try|try
 block|{
 name|position
 operator|=
-name|pdfSource
+name|source
 operator|.
 name|getPosition
 argument_list|()

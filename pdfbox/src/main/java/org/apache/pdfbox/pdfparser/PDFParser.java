@@ -488,9 +488,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|pdfSource
-operator|=
+name|super
+argument_list|(
 name|source
+argument_list|)
 expr_stmt|;
 name|fileLen
 operator|=
@@ -539,9 +540,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|pdfSource
-operator|=
+name|super
+argument_list|(
 name|source
+argument_list|)
 expr_stmt|;
 name|fileLen
 operator|=
@@ -727,7 +729,7 @@ argument_list|(
 name|getDocument
 argument_list|()
 argument_list|,
-name|pdfSource
+name|source
 argument_list|,
 name|accessPermission
 argument_list|)

@@ -37,6 +37,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -227,35 +237,7 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSString
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|io
-operator|.
-name|RandomAccessRead
 import|;
 end_import
 
@@ -314,15 +296,6 @@ name|long
 name|GENERATION_NUMBER_THRESHOLD
 init|=
 literal|65535
-decl_stmt|;
-comment|/**      * system property allowing to define size of push back buffer.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PROP_PUSHBACK_SIZE
-init|=
-literal|"org.apache.pdfbox.baseParser.pushBackSize"
 decl_stmt|;
 comment|/**      * Log instance.      */
 specifier|private
@@ -535,8 +508,9 @@ literal|32
 decl_stmt|;
 comment|/**      * This is the stream that will be read from.      */
 specifier|protected
-name|RandomAccessRead
-name|pdfSource
+specifier|final
+name|SequentialSource
+name|seqSource
 decl_stmt|;
 comment|/**      * This is the document that will be parsed.      */
 specifier|protected
@@ -546,39 +520,16 @@ decl_stmt|;
 comment|/**      * Default constructor.      */
 specifier|public
 name|BaseParser
-parameter_list|()
-block|{     }
-comment|/**      * Constructor.      *      * @param stream The COS stream to read the data from.      * @throws IOException If there is an error reading the input stream.      */
-specifier|public
-name|BaseParser
 parameter_list|(
-name|COSStream
-name|stream
-parameter_list|)
-throws|throws
-name|IOException
-block|{
+name|SequentialSource
 name|pdfSource
-operator|=
-name|stream
+parameter_list|)
+block|{
+name|this
 operator|.
-name|getUnfilteredRandomAccess
-argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * Constructor.      *      * @param input The random access read to read the data from.      * @throws IOException If there is an error reading the input stream.      */
-specifier|public
-name|BaseParser
-parameter_list|(
-name|RandomAccessRead
-name|input
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|pdfSource
+name|seqSource
 operator|=
-name|input
+name|pdfSource
 expr_stmt|;
 block|}
 specifier|private
@@ -628,7 +579,7 @@ block|{
 name|long
 name|numOffset
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -656,7 +607,7 @@ block|}
 name|long
 name|genOffset
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -784,7 +735,7 @@ name|key
 operator|+
 literal|" at offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -850,7 +801,7 @@ init|=
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
@@ -933,7 +884,7 @@ block|{
 name|int
 name|c
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -965,7 +916,7 @@ condition|)
 block|{
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -979,7 +930,7 @@ condition|)
 block|{
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -993,7 +944,7 @@ condition|)
 block|{
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1005,35 +956,35 @@ name|c
 operator|==
 name|S
 operator|&&
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
 operator|==
 name|T
 operator|&&
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
 operator|==
 name|R
 operator|&&
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
 operator|==
 name|E
 operator|&&
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
 operator|==
 name|A
 operator|&&
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1050,14 +1001,14 @@ name|c
 operator|==
 name|O
 operator|&&
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
 operator|==
 name|B
 operator|&&
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1081,7 +1032,7 @@ block|}
 block|}
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1099,11 +1050,11 @@ return|return
 literal|true
 return|;
 block|}
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|c
 argument_list|)
 expr_stmt|;
 return|return
@@ -1141,7 +1092,7 @@ operator|(
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
@@ -1169,9 +1120,9 @@ name|DEF
 argument_list|)
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
 name|potentialDEF
 operator|.
@@ -1179,8 +1130,6 @@ name|getBytes
 argument_list|(
 name|ISO_8859_1
 argument_list|)
-operator|.
-name|length
 argument_list|)
 expr_stmt|;
 block|}
@@ -1204,7 +1153,7 @@ name|warn
 argument_list|(
 literal|"Bad Dictionary Declaration "
 operator|+
-name|pdfSource
+name|seqSource
 argument_list|)
 expr_stmt|;
 block|}
@@ -1240,7 +1189,7 @@ comment|//a CRLF or LF but nothing else.
 name|int
 name|whitespace
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1257,7 +1206,7 @@ condition|)
 block|{
 name|whitespace
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1272,7 +1221,7 @@ condition|)
 block|{
 name|whitespace
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1284,11 +1233,11 @@ operator|!=
 name|whitespace
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|whitespace
 argument_list|)
 expr_stmt|;
 comment|//The spec says this is invalid but it happens in the real
@@ -1306,11 +1255,11 @@ block|{
 comment|//we are in an error.
 comment|//but again we will do a lenient parsing and just assume that everything
 comment|//is fine
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|whitespace
 argument_list|)
 expr_stmt|;
 block|}
@@ -1345,7 +1294,7 @@ decl_stmt|;
 name|int
 name|amountRead
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|(
@@ -1435,11 +1384,20 @@ operator|>
 literal|0
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
+name|Arrays
+operator|.
+name|copyOfRange
+argument_list|(
+name|nextThreeBytes
+argument_list|,
+literal|0
+argument_list|,
 name|amountRead
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1461,7 +1419,7 @@ init|=
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1513,7 +1471,7 @@ name|nextChar
 operator|+
 literal|"' "
 operator|+
-name|pdfSource
+name|seqSource
 argument_list|)
 throw|;
 block|}
@@ -1534,7 +1492,7 @@ decl_stmt|;
 name|int
 name|c
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1633,7 +1591,7 @@ init|=
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1758,7 +1716,7 @@ case|:
 comment|//this is a break in the line so ignore it and the newline and continue
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1778,7 +1736,7 @@ condition|)
 block|{
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1830,7 +1788,7 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -1863,7 +1821,7 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -2001,7 +1959,7 @@ else|else
 block|{
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -2016,11 +1974,11 @@ operator|-
 literal|1
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|c
 argument_list|)
 expr_stmt|;
 block|}
@@ -2059,7 +2017,7 @@ block|{
 name|int
 name|c
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -2188,7 +2146,7 @@ do|do
 block|{
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -2274,7 +2232,7 @@ operator|(
 operator|(
 name|i
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
@@ -2442,7 +2400,7 @@ name|warn
 argument_list|(
 literal|"Corrupt object reference at offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -2456,9 +2414,9 @@ init|=
 name|readString
 argument_list|()
 decl_stmt|;
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
 name|isThisTheEnd
 operator|.
@@ -2466,8 +2424,6 @@ name|getBytes
 argument_list|(
 name|ISO_8859_1
 argument_list|)
-operator|.
-name|length
 argument_list|)
 expr_stmt|;
 if|if
@@ -2497,7 +2453,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// read ']'
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -2587,7 +2543,7 @@ decl_stmt|;
 name|int
 name|c
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -2618,7 +2574,7 @@ init|=
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -2629,7 +2585,7 @@ init|=
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -2701,7 +2657,7 @@ throw|;
 block|}
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -2709,11 +2665,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|ch2
 argument_list|)
 expr_stmt|;
 name|c
@@ -2751,7 +2707,7 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -2766,11 +2722,11 @@ operator|-
 literal|1
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|c
 argument_list|)
 expr_stmt|;
 block|}
@@ -2818,7 +2774,7 @@ init|=
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
@@ -2836,7 +2792,7 @@ init|=
 operator|new
 name|String
 argument_list|(
-name|pdfSource
+name|seqSource
 operator|.
 name|readFully
 argument_list|(
@@ -2867,7 +2823,7 @@ name|trueString
 operator|+
 literal|"' at offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -2898,7 +2854,7 @@ init|=
 operator|new
 name|String
 argument_list|(
-name|pdfSource
+name|seqSource
 operator|.
 name|readFully
 argument_list|(
@@ -2929,7 +2885,7 @@ name|falseString
 operator|+
 literal|"' at offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -2958,7 +2914,7 @@ name|c
 operator|+
 literal|"' at offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -2988,7 +2944,7 @@ expr_stmt|;
 name|int
 name|nextByte
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
@@ -3014,7 +2970,7 @@ comment|// pull off first left bracket
 name|int
 name|leftBracket
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3025,16 +2981,16 @@ operator|=
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
 expr_stmt|;
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|leftBracket
 argument_list|)
 expr_stmt|;
 if|if
@@ -3122,7 +3078,7 @@ init|=
 operator|new
 name|String
 argument_list|(
-name|pdfSource
+name|seqSource
 operator|.
 name|readFully
 argument_list|(
@@ -3161,11 +3117,11 @@ name|trueString
 operator|+
 literal|"' "
 operator|+
-name|pdfSource
+name|seqSource
 operator|+
 literal|"' at offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -3184,7 +3140,7 @@ init|=
 operator|new
 name|String
 argument_list|(
-name|pdfSource
+name|seqSource
 operator|.
 name|readFully
 argument_list|(
@@ -3223,11 +3179,11 @@ name|falseString
 operator|+
 literal|"' "
 operator|+
-name|pdfSource
+name|seqSource
 operator|+
 literal|"' at offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -3239,7 +3195,7 @@ block|}
 case|case
 literal|'R'
 case|:
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3297,7 +3253,7 @@ decl_stmt|;
 name|int
 name|ic
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3348,7 +3304,7 @@ argument_list|)
 expr_stmt|;
 name|ic
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3369,11 +3325,11 @@ operator|-
 literal|1
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|ic
 argument_list|)
 expr_stmt|;
 block|}
@@ -3418,7 +3374,7 @@ block|{
 name|int
 name|peek
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
@@ -3452,7 +3408,7 @@ name|peek
 operator|+
 literal|" "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -3477,9 +3433,9 @@ name|badString
 argument_list|)
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
 name|badString
 operator|.
@@ -3487,8 +3443,6 @@ name|getBytes
 argument_list|(
 name|ISO_8859_1
 argument_list|)
-operator|.
-name|length
 argument_list|)
 expr_stmt|;
 block|}
@@ -3520,7 +3474,7 @@ decl_stmt|;
 name|int
 name|c
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3554,7 +3508,7 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3568,11 +3522,11 @@ operator|-
 literal|1
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|c
 argument_list|)
 expr_stmt|;
 block|}
@@ -3605,7 +3559,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Reads given pattern from {@link #pdfSource}. Skipping whitespace at start and end if wanted.      *       * @param expectedString pattern to be skipped      * @param skipSpaces if set to true spaces before and after the string will be skipped      * @throws IOException if pattern could not be read      */
+comment|/**      * Reads given pattern from {@link #seqSource}. Skipping whitespace at start and end if wanted.      *       * @param expectedString pattern to be skipped      * @param skipSpaces if set to true spaces before and after the string will be skipped      * @throws IOException if pattern could not be read      */
 specifier|protected
 specifier|final
 name|void
@@ -3635,7 +3589,7 @@ control|)
 block|{
 if|if
 condition|(
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3661,7 +3615,7 @@ name|c
 operator|+
 literal|"' at offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -3690,7 +3644,7 @@ init|=
 operator|(
 name|char
 operator|)
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3716,7 +3670,7 @@ name|c
 operator|+
 literal|"' at offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -3741,7 +3695,7 @@ expr_stmt|;
 name|int
 name|c
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3812,7 +3766,7 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3826,11 +3780,11 @@ operator|-
 literal|1
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|c
 argument_list|)
 expr_stmt|;
 block|}
@@ -3852,7 +3806,7 @@ block|{
 return|return
 name|isClosing
 argument_list|(
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
@@ -3884,7 +3838,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|pdfSource
+name|seqSource
 operator|.
 name|isEOF
 argument_list|()
@@ -3915,7 +3869,7 @@ condition|(
 operator|(
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3957,14 +3911,14 @@ argument_list|)
 operator|&&
 name|isLF
 argument_list|(
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
 argument_list|)
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -3988,7 +3942,7 @@ block|{
 return|return
 name|isEOL
 argument_list|(
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
@@ -4055,7 +4009,7 @@ block|{
 return|return
 name|isWhitespace
 argument_list|(
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
@@ -4108,7 +4062,7 @@ block|{
 return|return
 name|isSpace
 argument_list|(
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
@@ -4141,7 +4095,7 @@ block|{
 return|return
 name|isDigit
 argument_list|(
-name|pdfSource
+name|seqSource
 operator|.
 name|peek
 argument_list|()
@@ -4179,7 +4133,7 @@ block|{
 name|int
 name|c
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -4207,7 +4161,7 @@ block|{
 comment|// skip past the comment section
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -4228,7 +4182,7 @@ condition|)
 block|{
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -4239,7 +4193,7 @@ else|else
 block|{
 name|c
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -4254,11 +4208,11 @@ operator|-
 literal|1
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|c
 argument_list|)
 expr_stmt|;
 block|}
@@ -4388,9 +4342,9 @@ name|NumberFormatException
 name|e
 parameter_list|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
 name|intBuffer
 operator|.
@@ -4401,8 +4355,6 @@ name|getBytes
 argument_list|(
 name|ISO_8859_1
 argument_list|)
-operator|.
-name|length
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -4411,7 +4363,7 @@ name|IOException
 argument_list|(
 literal|"Error: Expected an integer type at offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -4467,9 +4419,9 @@ name|NumberFormatException
 name|e
 parameter_list|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
 name|longBuffer
 operator|.
@@ -4480,8 +4432,6 @@ name|getBytes
 argument_list|(
 name|ISO_8859_1
 argument_list|)
-operator|.
-name|length
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -4490,7 +4440,7 @@ name|IOException
 argument_list|(
 literal|"Error: Expected a long type at offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()
@@ -4509,7 +4459,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This method is used to read a token by the {@linkplain #readInt()} method      * and the {@linkplain #readLong()} method.      *      * @return the token to parse as integer or long by the calling method.      * @throws IOException throws by the {@link #pdfSource} methods.      */
+comment|/**      * This method is used to read a token by the {@linkplain #readInt()} method      * and the {@linkplain #readLong()} method.      *      * @return the token to parse as integer or long by the calling method.      * @throws IOException throws by the {@link #seqSource} methods.      */
 specifier|protected
 specifier|final
 name|StringBuilder
@@ -4535,7 +4485,7 @@ condition|(
 operator|(
 name|lastByte
 operator|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|()
@@ -4596,11 +4546,11 @@ operator|-
 literal|1
 condition|)
 block|{
-name|pdfSource
+name|seqSource
 operator|.
-name|rewind
+name|unread
 argument_list|(
-literal|1
+name|lastByte
 argument_list|)
 expr_stmt|;
 block|}

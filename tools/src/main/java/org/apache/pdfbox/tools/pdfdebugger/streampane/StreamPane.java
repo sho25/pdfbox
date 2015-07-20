@@ -271,7 +271,7 @@ name|pdfbox
 operator|.
 name|io
 operator|.
-name|RandomAccessBuffer
+name|IOUtils
 import|;
 end_import
 
@@ -932,8 +932,9 @@ operator|=
 operator|new
 name|PDFStreamParser
 argument_list|(
-operator|new
-name|RandomAccessBuffer
+name|IOUtils
+operator|.
+name|toByteArray
 argument_list|(
 name|inputStream
 argument_list|)

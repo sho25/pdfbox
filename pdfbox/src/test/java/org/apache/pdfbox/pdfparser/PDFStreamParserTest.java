@@ -62,20 +62,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|io
-operator|.
-name|RandomAccessBuffer
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -674,14 +660,10 @@ init|=
 operator|new
 name|PDFStreamParser
 argument_list|(
-operator|new
-name|RandomAccessBuffer
-argument_list|(
 name|s
 operator|.
 name|getBytes
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|pdfStreamParser
