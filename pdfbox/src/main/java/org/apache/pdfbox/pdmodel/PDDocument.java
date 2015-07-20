@@ -1396,33 +1396,6 @@ argument_list|(
 name|acroForm
 argument_list|)
 expr_stmt|;
-comment|// set visibility flags
-if|if
-condition|(
-name|options
-operator|.
-name|getVisualSignature
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-name|signatureField
-operator|.
-name|getWidgets
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|setNoView
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 comment|// append the signature object
 name|signatureField
 operator|.
@@ -1448,6 +1421,23 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
+comment|// to conform PDF/A-1 requirement:
+comment|// The /F key's Print flag bit shall be set to 1 and its Hidden, Invisible and NoView flag bits shall be set to 0
+name|signatureField
+operator|.
+name|getWidgets
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|setPrinted
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// Set the AcroForm Fields
 name|List
 argument_list|<

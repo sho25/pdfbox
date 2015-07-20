@@ -606,9 +606,9 @@ name|widget
 operator|.
 name|getRectangle
 argument_list|()
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
 name|widget
 operator|.
 name|getRectangle
