@@ -1078,6 +1078,30 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// Adobe shows the text 'shiftet up' in case the caps don't fit into the clipping area
+if|if
+condition|(
+name|fontCapAtSize
+operator|>
+name|clipRect
+operator|.
+name|getHeight
+argument_list|()
+condition|)
+block|{
+name|y
+operator|=
+name|clipRect
+operator|.
+name|getLowerLeftY
+argument_list|()
+operator|+
+operator|-
+name|fontDescentAtSize
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// calculate the position based on the content rectangle
 name|y
 operator|=
@@ -1155,6 +1179,7 @@ name|fontCapBased
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// show the text
