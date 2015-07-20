@@ -352,6 +352,15 @@ name|FONTSCALE
 init|=
 literal|1000
 decl_stmt|;
+comment|/**      * The default font size used for multiline text      */
+specifier|private
+specifier|static
+specifier|final
+name|float
+name|DEFAULT_FONT_SIZE
+init|=
+literal|12
+decl_stmt|;
 comment|/**      * Constructs a COSAppearance from the given field.      *      * @param field the field which you wish to control the appearance of      * @throws IOException       */
 name|AppearanceGeneratorHelper
 parameter_list|(
@@ -1931,18 +1940,6 @@ name|q
 operator|==
 name|PDVariableText
 operator|.
-name|QUADDING_LEFT
-condition|)
-block|{
-comment|// do nothing because left is default
-block|}
-elseif|else
-if|if
-condition|(
-name|q
-operator|==
-name|PDVariableText
-operator|.
 name|QUADDING_CENTERED
 operator|||
 name|q
@@ -2014,7 +2011,15 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|q
+operator|!=
+name|PDVariableText
+operator|.
+name|QUADDING_LEFT
+condition|)
 block|{
 throw|throw
 operator|new
@@ -2040,6 +2045,14 @@ name|field
 operator|)
 operator|.
 name|getOptionsDisplayValues
+argument_list|()
+decl_stmt|;
+name|int
+name|numOptions
+init|=
+name|options
+operator|.
+name|size
 argument_list|()
 decl_stmt|;
 name|float
@@ -2072,10 +2085,7 @@ name|topIndex
 init|;
 name|i
 operator|<
-name|options
-operator|.
-name|size
-argument_list|()
+name|numOptions
 condition|;
 name|i
 operator|++
@@ -2160,10 +2170,7 @@ operator|-
 name|topIndex
 operator|!=
 operator|(
-name|options
-operator|.
-name|size
-argument_list|()
+name|numOptions
 operator|-
 literal|1
 operator|)
@@ -2254,7 +2261,7 @@ condition|)
 block|{
 comment|// Acrobat defaults to 12 for multiline text with size 0
 return|return
-literal|12f
+name|DEFAULT_FONT_SIZE
 return|;
 block|}
 else|else
