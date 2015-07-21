@@ -201,7 +201,7 @@ name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
-name|COLORSPACE
+name|CS
 argument_list|)
 argument_list|)
 expr_stmt|;
