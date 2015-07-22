@@ -472,13 +472,6 @@ argument_list|(
 literal|"B"
 argument_list|)
 expr_stmt|;
-name|id
-operator|.
-name|setAboutAsSimple
-argument_list|(
-literal|"PDFBox PDF/A sample"
-argument_list|)
-expr_stmt|;
 name|XmpSerializer
 name|serializer
 init|=
