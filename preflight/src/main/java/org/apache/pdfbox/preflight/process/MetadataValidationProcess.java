@@ -1513,6 +1513,40 @@ name|error
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+operator|!
+operator|(
+name|metadataDictionnary
+operator|instanceof
+name|COSStream
+operator|)
+condition|)
+block|{
+comment|// missing Metadata Key in catalog
+name|ValidationError
+name|error
+init|=
+operator|new
+name|ValidationError
+argument_list|(
+name|PreflightConstants
+operator|.
+name|ERROR_METADATA_FORMAT
+argument_list|,
+literal|"Metadata is not a stream"
+argument_list|)
+decl_stmt|;
+throw|throw
+operator|new
+name|XpacketParsingException
+argument_list|(
+literal|"Failed while retrieving xpacket"
+argument_list|,
+name|error
+argument_list|)
+throw|;
+block|}
 name|COSStream
 name|stream
 init|=
