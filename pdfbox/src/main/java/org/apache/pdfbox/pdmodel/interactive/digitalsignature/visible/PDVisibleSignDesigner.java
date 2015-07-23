@@ -201,7 +201,7 @@ specifier|private
 name|float
 name|imageSizeInPercents
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param filename Path of the PDF file      * @param jpegStream JPEG image as a stream      * @param page The page are you going to add visible signature      * @throws IOException      */
+comment|/**      * Constructor.      *      * @param filename Path of the PDF file      * @param jpegStream JPEG image as a stream      * @param page The 1-based page number for which the page size should be calculated.      * @throws IOException      */
 specifier|public
 name|PDVisibleSignDesigner
 parameter_list|(
@@ -231,7 +231,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param documentStream Original PDF document as stream      * @param jpegStream JPEG image as a stream      * @param page The page are you going to add visible signature      * @throws IOException      */
+comment|/**      * Constructor.      *      * @param documentStream Original PDF document as stream      * @param jpegStream JPEG image as a stream      * @param page The 1-based page number for which the page size should be calculated.      * @throws IOException      */
 specifier|public
 name|PDVisibleSignDesigner
 parameter_list|(
@@ -264,7 +264,7 @@ argument_list|(
 name|documentStream
 argument_list|)
 decl_stmt|;
-comment|// calculate height an width of document
+comment|// calculate height and width of document page
 name|calculatePageSize
 argument_list|(
 name|document
@@ -278,7 +278,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param doc - Already created PDDocument of your PDF document      * @param jpegStream      * @param page      * @throws IOException - If we can't read, flush, or can't close stream      */
+comment|/**      * Constructor.      *      * @param doc - Already created PDDocument of your PDF document      * @param jpegStream      * @param page The 1-based page number for which the page size should be calculated.      * @throws IOException - If we can't read, flush, or can't close stream      */
 specifier|public
 name|PDVisibleSignDesigner
 parameter_list|(
@@ -307,7 +307,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Each page of document can be different sizes.      *       * @param document      * @param page      */
+comment|/**      * Each page of document can be different sizes. This method calculates the page size based on      * the page media box.      *       * @param document      * @param page The 1-based page number for which the page size should be calculated.      */
 specifier|private
 name|void
 name|calculatePageSize
