@@ -45,16 +45,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -192,20 +182,6 @@ operator|.
 name|cos
 operator|.
 name|COSStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|io
-operator|.
-name|IOUtils
 import|;
 end_import
 
@@ -1397,6 +1373,7 @@ operator|)
 return|;
 block|}
 comment|/**      * Return the xpacket from the dictionary's stream      */
+specifier|private
 specifier|static
 name|InputStream
 name|getXpacket
