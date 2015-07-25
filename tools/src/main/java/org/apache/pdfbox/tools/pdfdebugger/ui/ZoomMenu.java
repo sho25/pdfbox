@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Khyrul Bashar  */
+comment|/**  * @author Khyrul Bashar  *  * A singleton class that provides zoom menu which can be used to show zoom menu in the menubar.  * To act upon the menu item selection user of the class must add ActionListener which will check for  * the action command and act accordingly.  */
 end_comment
 
 begin_class
@@ -137,6 +137,7 @@ specifier|private
 name|JRadioButtonMenuItem
 name|zoom200Item
 decl_stmt|;
+comment|/**      * Constructor.      */
 specifier|private
 name|ZoomMenu
 parameter_list|()
@@ -147,6 +148,7 @@ name|createZoomMenu
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Provides the ZoomMenu instance.      * @return ZoomMenu instance.      */
 specifier|public
 specifier|static
 name|ZoomMenu
@@ -171,6 +173,7 @@ return|return
 name|instance
 return|;
 block|}
+comment|/**      * Provide the JMenu instance of the ZoomMenu.      * @return JMenu instance.      */
 specifier|public
 name|JMenu
 name|getMenu
@@ -182,6 +185,7 @@ operator|.
 name|menu
 return|;
 block|}
+comment|/**      * Set if the menu should be enabled or disabled.      * @param isEnable boolean instance.      */
 specifier|public
 name|void
 name|setEnableMenu
@@ -198,6 +202,7 @@ name|isEnable
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Add the ActionListener for the menuitems.      * @param listener ActionListener.      * @return the ZoomMenu instance.      */
 specifier|public
 name|ZoomMenu
 name|menuListeners
@@ -242,6 +247,7 @@ return|return
 name|instance
 return|;
 block|}
+comment|/**      * Set the zoom selection.      * @param selection String instance.      */
 specifier|public
 name|void
 name|setZoomSelection
