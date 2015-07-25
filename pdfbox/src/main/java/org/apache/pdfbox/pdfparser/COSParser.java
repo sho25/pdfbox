@@ -3192,12 +3192,6 @@ block|}
 block|}
 block|}
 block|}
-specifier|private
-name|boolean
-name|inGetLength
-init|=
-literal|false
-decl_stmt|;
 comment|/**       * Returns length value referred to or defined in given object.       */
 specifier|private
 name|COSNumber
@@ -3225,28 +3219,11 @@ return|return
 literal|null
 return|;
 block|}
-if|if
-condition|(
-name|inGetLength
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Loop while reading length from "
-operator|+
-name|lengthBaseObj
-argument_list|)
-throw|;
-block|}
 name|COSNumber
 name|retVal
 init|=
 literal|null
 decl_stmt|;
-try|try
-block|{
 name|boolean
 name|isObjectStream
 init|=
@@ -3259,10 +3236,6 @@ argument_list|(
 name|streamType
 argument_list|)
 decl_stmt|;
-name|inGetLength
-operator|=
-literal|true
-expr_stmt|;
 comment|// maybe length was given directly
 if|if
 condition|(
@@ -3414,14 +3387,6 @@ name|getSimpleName
 argument_list|()
 argument_list|)
 throw|;
-block|}
-block|}
-finally|finally
-block|{
-name|inGetLength
-operator|=
-literal|false
-expr_stmt|;
 block|}
 return|return
 name|retVal
