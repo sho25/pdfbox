@@ -2559,13 +2559,19 @@ operator|.
 name|getTrailer
 argument_list|()
 decl_stmt|;
+comment|// use previous startXref value as new PREV value
 name|trailer
 operator|.
-name|removeItem
+name|setLong
 argument_list|(
 name|COSName
 operator|.
 name|PREV
+argument_list|,
+name|doc
+operator|.
+name|getStartXref
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|pdfxRefStream
