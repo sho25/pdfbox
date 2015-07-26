@@ -3224,18 +3224,6 @@ name|retVal
 init|=
 literal|null
 decl_stmt|;
-name|boolean
-name|isObjectStream
-init|=
-name|COSName
-operator|.
-name|OBJ_STM
-operator|.
-name|equals
-argument_list|(
-name|streamType
-argument_list|)
-decl_stmt|;
 comment|// maybe length was given directly
 if|if
 condition|(
@@ -3288,6 +3276,18 @@ name|source
 operator|.
 name|getPosition
 argument_list|()
+decl_stmt|;
+name|boolean
+name|isObjectStream
+init|=
+name|COSName
+operator|.
+name|OBJ_STM
+operator|.
+name|equals
+argument_list|(
+name|streamType
+argument_list|)
 decl_stmt|;
 name|parseObjectDynamically
 argument_list|(
