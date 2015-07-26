@@ -610,6 +610,7 @@ parameter_list|)
 block|{      }
 comment|/**      * Note that PDDocument is not officially thread safe, caution advised.      */
 specifier|private
+specifier|final
 class|class
 name|RenderWorker
 extends|extends
