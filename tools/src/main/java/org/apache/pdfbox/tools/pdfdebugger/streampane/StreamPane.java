@@ -371,7 +371,7 @@ specifier|final
 name|boolean
 name|isContentStream
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param cosStream       COSStream instance.      * @param isContentStream boolean instance. This says if a stream is content stream or not.      * @param resourcesDic    COSDictionary instance that holds the resource dictionary for the stream.      */
+comment|/**      * Constructor.      *      * @param cosStream       COSStream instance.      * @param isContentStream boolean instance. This says if a stream is content stream or not.      * @param isThumb boolean instance. This says if a stream is an thumbnail image or not.      * @param resourcesDic    COSDictionary instance that holds the resource dictionary for the stream.      */
 specifier|public
 name|StreamPane
 parameter_list|(
@@ -380,6 +380,9 @@ name|cosStream
 parameter_list|,
 name|boolean
 name|isContentStream
+parameter_list|,
+name|boolean
+name|isThumb
 parameter_list|,
 name|COSDictionary
 name|resourcesDic
@@ -399,6 +402,8 @@ operator|new
 name|Stream
 argument_list|(
 name|cosStream
+argument_list|,
+name|isThumb
 argument_list|)
 expr_stmt|;
 if|if
@@ -574,10 +579,6 @@ name|stream
 operator|.
 name|isImage
 argument_list|()
-operator|&&
-name|resources
-operator|!=
-literal|null
 condition|)
 block|{
 name|view
