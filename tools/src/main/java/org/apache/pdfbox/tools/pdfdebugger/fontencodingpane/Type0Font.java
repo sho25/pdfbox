@@ -191,6 +191,7 @@ name|Type0Font
 implements|implements
 name|FontPane
 block|{
+specifier|private
 name|FontEncodingView
 name|view
 decl_stmt|;

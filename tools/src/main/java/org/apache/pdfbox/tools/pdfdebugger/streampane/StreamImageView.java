@@ -232,6 +232,7 @@ implements|,
 name|AncestorListener
 block|{
 specifier|private
+specifier|final
 name|BufferedImage
 name|image
 decl_stmt|;
