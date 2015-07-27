@@ -2559,6 +2559,11 @@ operator|.
 name|getTrailer
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|incrementalUpdate
+condition|)
+block|{
 comment|// use previous startXref value as new PREV value
 name|trailer
 operator|.
@@ -2574,6 +2579,19 @@ name|getStartXref
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|trailer
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|PREV
+argument_list|)
+expr_stmt|;
+block|}
 name|pdfxRefStream
 operator|.
 name|addTrailerInfo
