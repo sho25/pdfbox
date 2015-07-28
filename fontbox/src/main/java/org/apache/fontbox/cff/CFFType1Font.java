@@ -392,7 +392,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|// Returns the Type 1 charstring for the given GID, with name for debugging
+comment|// Returns the Type 2 charstring for the given GID, with name for debugging
 specifier|private
 name|Type2CharString
 name|getType2CharString
@@ -427,13 +427,28 @@ name|byte
 index|[]
 name|bytes
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|gid
+operator|<
+name|charStrings
+operator|.
+name|size
+argument_list|()
+condition|)
+block|{
+name|bytes
+operator|=
 name|charStrings
 operator|.
 name|get
 argument_list|(
 name|gid
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|bytes
@@ -441,6 +456,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// .notdef
 name|bytes
 operator|=
 name|charStrings
@@ -450,7 +466,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// .notdef
 block|}
 name|Type2CharStringParser
 name|parser
