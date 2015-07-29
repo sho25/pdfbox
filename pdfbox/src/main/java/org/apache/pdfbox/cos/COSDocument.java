@@ -316,7 +316,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Constructor that will use the provide memory handler for storage of the      * PDF streams.      *      * @param scratchFiles memory handler for storage of PDF streams      *       */
+comment|/**      * Constructor that will use the provide memory handler for storage of the      * PDF streams.      *      * @param scratchFile memory handler for storage of PDF streams      *       */
 specifier|public
 name|COSDocument
 parameter_list|(

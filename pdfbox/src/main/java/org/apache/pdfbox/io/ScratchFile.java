@@ -248,7 +248,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Initializes page handler. If a<code>scratchFileDirectory</code> is supplied,      * then the scratch file will be created in that directory.      *       *<p>Depending on the size of allowed memory usage a number of pages (memorySize/{@link #PAGE_SIZE})      * will be stored in-memory and only additional pages will be written to/read from scratch file.</p>      *       * @param scratchFileDirectory The directory in which to create the scratch file      *                             or<code>null</code> to created it in the default temporary directory.      * @param maxInMemoryByteSize maximum in-memory bytes to use for pages which don't have to be      *                            handled by scratch file      *       * @throws IOException If scratch file directory was given but don't exist.      */
+comment|/**      * Initializes page handler. If a<code>scratchFileDirectory</code> is supplied,      * then the scratch file will be created in that directory.      *       *<p>Depending on the size of allowed memory usage a number of pages (memorySize/{@link #PAGE_SIZE})      * will be stored in-memory and only additional pages will be written to/read from scratch file.</p>      *       * @param memUsageSetting set how memory/temporary files are used for buffering streams etc.       *       * @throws IOException If scratch file directory was given but don't exist.      */
 specifier|public
 name|ScratchFile
 parameter_list|(

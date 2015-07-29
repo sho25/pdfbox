@@ -57,7 +57,7 @@ operator|=
 name|bytes
 expr_stmt|;
 block|}
-comment|/**      * The font family class and subclass ID bytes, given in the sFamilyClass field of the      * “OS/2” table in a TrueType font.      *       * {@see http://www.microsoft.com/typography/otspec/ibmfc.htm}      */
+comment|/**      * The font family class and subclass ID bytes, given in the sFamilyClass field of the      * “OS/2” table in a TrueType font.      *       * @see<a href="http://www.microsoft.com/typography/otspec/ibmfc.htm">http://www.microsoft.com/typography/otspec/ibmfc.htm</a>      */
 specifier|public
 name|int
 name|getFamilyClass
@@ -77,7 +77,7 @@ literal|1
 index|]
 return|;
 block|}
-comment|/**      * Ten bytes for the PANOSE classification number for the font.      *       * {@see http://www.monotype.com/services/pan1}      */
+comment|/**      * Ten bytes for the PANOSE classification number for the font.      *       * @see<a href="http://www.monotype.com/services/pan1">http://www.monotype.com/services/pan1</a>      */
 specifier|public
 name|PDPanoseClassification
 name|getPanose

@@ -325,7 +325,7 @@ index|[
 name|MAX_BIN_CHAR_TEST_LENGTH
 index|]
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param stream The stream to parse.      * @throws IOException If there is an error initializing the stream.      *       * @deprecated Use {@link PDFStreamParser(PDContentStream)} instead.      */
+comment|/**      * Constructor.      *      * @param stream The stream to parse.      * @throws IOException If there is an error initializing the stream.      *       * @deprecated Use {@link PDFStreamParser#PDFStreamParser(PDContentStream)} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -350,7 +350,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param stream The stream to parse.      * @throws IOException If there is an error initializing the stream.      *       * @deprecated Use {@link PDFStreamParser(PDContentStream)} instead.      */
+comment|/**      * Constructor.      *      * @param stream The stream to parse.      * @throws IOException If there is an error initializing the stream.      *       * @deprecated Use {@link PDFStreamParser#PDFStreamParser(PDContentStream)} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
