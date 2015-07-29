@@ -902,7 +902,7 @@ return|return
 name|function
 return|;
 block|}
-comment|/**      * Provide the function(s) of the shading dictionary as array.      *      * @return an array containing the function(s)      * @throws IOException if something went wrong      */
+comment|/**      * Provide the function(s) of the shading dictionary as array.      *      * @return an array containing the function(s).      * @throws IOException if we were unable to create a function.      */
 specifier|private
 name|PDFunction
 index|[]
@@ -959,7 +959,13 @@ name|functionObject
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|functionObject
+operator|instanceof
+name|COSArray
+condition|)
 block|{
 name|COSArray
 name|functionCOSArray
@@ -1018,6 +1024,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"mandatory /Function element must be a dictionary or an array"
+argument_list|)
+throw|;
 block|}
 block|}
 return|return
