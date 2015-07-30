@@ -558,7 +558,7 @@ name|List
 argument_list|<
 name|FileInputStream
 argument_list|>
-name|fileInpuStreams
+name|fileInputStreams
 decl_stmt|;
 specifier|private
 name|String
@@ -588,7 +588,7 @@ name|InputStream
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|fileInpuStreams
+name|fileInputStreams
 operator|=
 operator|new
 name|ArrayList
@@ -694,7 +694,7 @@ argument_list|(
 name|stream
 argument_list|)
 expr_stmt|;
-name|fileInpuStreams
+name|fileInputStreams
 operator|.
 name|add
 argument_list|(
@@ -910,7 +910,7 @@ control|(
 name|FileInputStream
 name|stream
 range|:
-name|fileInpuStreams
+name|fileInputStreams
 control|)
 block|{
 name|stream
