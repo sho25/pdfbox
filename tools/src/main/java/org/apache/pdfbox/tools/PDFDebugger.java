@@ -4979,15 +4979,16 @@ name|documentEntry
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Root/Pages/Kids/[0] is not always the first page, so use the first row instead:
 name|tree
 operator|.
 name|setSelectionPath
 argument_list|(
-name|treeStatus
+name|tree
 operator|.
-name|getPathForString
+name|getPathForRow
 argument_list|(
-literal|"Root/Pages/Kids/[0]"
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
