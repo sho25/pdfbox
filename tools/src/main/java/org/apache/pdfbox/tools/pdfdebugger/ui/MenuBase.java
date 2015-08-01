@@ -76,13 +76,6 @@ name|menu
 init|=
 literal|null
 decl_stmt|;
-comment|//    /**
-comment|//     * Constructor.
-comment|//     */
-comment|//    protected MenuBase()
-comment|//    {
-comment|//        menu = createMenu();
-comment|//    }
 specifier|protected
 name|void
 name|setMenu
