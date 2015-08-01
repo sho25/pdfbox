@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class for images.  *   * @author Tilman Hausherr  */
+comment|/**  *  * @author Tilman Hausherr  *  * Utility class for images.  */
 end_comment
 
 begin_class

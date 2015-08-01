@@ -607,8 +607,10 @@ name|ZoomMenu
 operator|.
 name|getInstance
 argument_list|()
+expr_stmt|;
+name|zoomMenu
 operator|.
-name|menuListeners
+name|addMenuListeners
 argument_list|(
 name|this
 argument_list|)
@@ -635,8 +637,10 @@ name|RotationMenu
 operator|.
 name|getInstance
 argument_list|()
+expr_stmt|;
+name|rotationMenu
 operator|.
-name|menuListeners
+name|addMenuListeners
 argument_list|(
 name|this
 argument_list|)
