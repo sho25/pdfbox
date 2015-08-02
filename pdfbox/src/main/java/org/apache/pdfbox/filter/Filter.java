@@ -184,6 +184,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/**      * Constructor.      */
 specifier|protected
 name|Filter
 parameter_list|()
