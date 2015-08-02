@@ -208,6 +208,9 @@ block|{
 return|return
 name|rowText
 operator|.
+name|trim
+argument_list|()
+operator|.
 name|split
 argument_list|(
 literal|" "
