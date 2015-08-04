@@ -1848,10 +1848,12 @@ name|destination
 argument_list|,
 name|srcMetadata
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 argument_list|,
-literal|false
+name|COSName
+operator|.
+name|FLATE_DECODE
 argument_list|)
 decl_stmt|;
 name|newStream
@@ -1863,11 +1865,6 @@ name|mergeInto
 argument_list|(
 name|srcMetadata
 argument_list|)
-expr_stmt|;
-name|newStream
-operator|.
-name|addCompression
-argument_list|()
 expr_stmt|;
 name|destCatalog
 operator|.

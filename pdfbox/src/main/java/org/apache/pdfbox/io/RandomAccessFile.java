@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A RandomAccess implementation whcih allows data to be stored in a scratch file on the disk to  * reduce memory consumption.  *  * @author Ben Litchfield  */
+comment|/**  * A RandomAccess implementation which allows data to be stored in a scratch file on the disk to  * reduce memory consumption.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -97,7 +97,6 @@ name|mode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -117,7 +116,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -145,7 +143,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -169,7 +166,6 @@ name|position
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -189,7 +185,6 @@ name|getFilePointer
 argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -209,7 +204,6 @@ name|read
 argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -235,7 +229,6 @@ name|b
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -271,7 +264,6 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -324,7 +316,6 @@ return|return
 name|isClosed
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -359,7 +350,6 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -385,7 +375,6 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -409,7 +398,6 @@ name|b
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public

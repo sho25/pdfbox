@@ -560,7 +560,7 @@ argument_list|(
 name|stream
 argument_list|)
 operator|.
-name|getPartiallyFilteredStream
+name|createInputStream
 argument_list|(
 name|filters
 operator|.

@@ -655,7 +655,7 @@ name|write
 argument_list|(
 name|embeddedFile
 operator|.
-name|getByteArray
+name|toByteArray
 argument_list|()
 argument_list|)
 expr_stmt|;

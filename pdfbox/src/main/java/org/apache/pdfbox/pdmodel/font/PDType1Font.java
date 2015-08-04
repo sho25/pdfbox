@@ -1115,7 +1115,7 @@ name|bytes
 init|=
 name|fontFile
 operator|.
-name|getByteArray
+name|toByteArray
 argument_list|()
 decl_stmt|;
 name|length1

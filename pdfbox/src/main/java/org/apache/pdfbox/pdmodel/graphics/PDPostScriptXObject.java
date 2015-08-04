@@ -39,11 +39,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|cos
 operator|.
-name|common
-operator|.
-name|PDStream
+name|COSStream
 import|;
 end_import
 
@@ -62,7 +60,7 @@ comment|/**      * Creates a PostScript XObject.      * @param stream The XObjec
 specifier|public
 name|PDPostScriptXObject
 parameter_list|(
-name|PDStream
+name|COSStream
 name|stream
 parameter_list|)
 block|{

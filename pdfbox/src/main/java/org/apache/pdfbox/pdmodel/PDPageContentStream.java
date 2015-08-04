@@ -763,6 +763,17 @@ name|document
 operator|=
 name|document
 expr_stmt|;
+name|COSName
+name|filter
+init|=
+name|compress
+condition|?
+name|COSName
+operator|.
+name|FLATE_DECODE
+else|:
+literal|null
+decl_stmt|;
 comment|// If request specifies the need to append to the document
 if|if
 condition|(
@@ -850,17 +861,6 @@ name|contentsToAppend
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|compress
-condition|)
-block|{
-name|contentsToAppend
-operator|.
-name|addCompression
-argument_list|()
-expr_stmt|;
-block|}
 comment|// save the initial/unmodified graphics context
 if|if
 condition|(
@@ -882,7 +882,9 @@ operator|=
 name|saveGraphics
 operator|.
 name|createOutputStream
-argument_list|()
+argument_list|(
+name|filter
+argument_list|)
 expr_stmt|;
 comment|// save the initial/unmodified graphics context
 name|saveGraphicsState
@@ -891,17 +893,6 @@ expr_stmt|;
 name|close
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|compress
-condition|)
-block|{
-name|saveGraphics
-operator|.
-name|addCompression
-argument_list|()
-expr_stmt|;
-block|}
 comment|// insert the new stream at the beginning
 name|array
 operator|.
@@ -936,7 +927,9 @@ operator|=
 name|contentsToAppend
 operator|.
 name|createOutputStream
-argument_list|()
+argument_list|(
+name|filter
+argument_list|)
 expr_stmt|;
 comment|// restore the initial/unmodified graphics context
 if|if
@@ -976,17 +969,6 @@ argument_list|(
 name|document
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|compress
-condition|)
-block|{
-name|contents
-operator|.
-name|addCompression
-argument_list|()
-expr_stmt|;
-block|}
 name|sourcePage
 operator|.
 name|setContents
@@ -999,7 +981,9 @@ operator|=
 name|contents
 operator|.
 name|createOutputStream
-argument_list|()
+argument_list|(
+name|filter
+argument_list|)
 expr_stmt|;
 block|}
 comment|// this has to be done here, as the resources will be set to null when resetting the content
@@ -1071,7 +1055,7 @@ name|output
 operator|=
 name|appearance
 operator|.
-name|getPDStream
+name|getStream
 argument_list|()
 operator|.
 name|createOutputStream
@@ -2339,10 +2323,7 @@ name|writeBytes
 argument_list|(
 name|inlineImage
 operator|.
-name|getStream
-argument_list|()
-operator|.
-name|getByteArray
+name|getData
 argument_list|()
 argument_list|)
 expr_stmt|;

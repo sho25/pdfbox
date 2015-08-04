@@ -138,7 +138,7 @@ literal|"XML"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.  Reads all data from the input stream and embeds it into the      * document, this will close the InputStream.      *      * @param doc The document that will hold the stream.      * @param str The stream parameter.      * @param filtered True if the stream already has a filter applied.      * @throws IOException If there is an error creating the stream in the document.      */
+comment|/**      * Constructor.  Reads all data from the input stream and embeds it into the      * document, this will close the InputStream.      *      * @param doc The document that will hold the stream.      * @param str The stream parameter.      * @throws IOException If there is an error creating the stream in the document.      */
 specifier|public
 name|PDMetadata
 parameter_list|(
@@ -147,9 +147,6 @@ name|doc
 parameter_list|,
 name|InputStream
 name|str
-parameter_list|,
-name|boolean
-name|filtered
 parameter_list|)
 throws|throws
 name|IOException
@@ -159,8 +156,6 @@ argument_list|(
 name|doc
 argument_list|,
 name|str
-argument_list|,
-name|filtered
 argument_list|)
 expr_stmt|;
 name|getStream

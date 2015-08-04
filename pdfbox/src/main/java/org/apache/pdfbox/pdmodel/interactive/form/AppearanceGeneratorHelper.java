@@ -2185,7 +2185,7 @@ operator|.
 name|getCOSStream
 argument_list|()
 operator|.
-name|createUnfilteredStream
+name|createOutputStream
 argument_list|()
 decl_stmt|;
 name|out
@@ -2197,7 +2197,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|flush
+name|close
 argument_list|()
 expr_stmt|;
 block|}

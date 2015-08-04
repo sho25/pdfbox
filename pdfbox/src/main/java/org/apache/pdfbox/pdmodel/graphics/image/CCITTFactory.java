@@ -355,7 +355,7 @@ literal|null
 return|;
 block|}
 name|ByteArrayInputStream
-name|filteredByteStream
+name|encodedByteStream
 init|=
 operator|new
 name|ByteArrayInputStream
@@ -374,7 +374,7 @@ name|PDImageXObject
 argument_list|(
 name|document
 argument_list|,
-name|filteredByteStream
+name|encodedByteStream
 argument_list|,
 name|COSName
 operator|.

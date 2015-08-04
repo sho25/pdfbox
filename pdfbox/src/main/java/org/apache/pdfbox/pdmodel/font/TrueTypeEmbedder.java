@@ -458,7 +458,9 @@ name|document
 argument_list|,
 name|ttfStream
 argument_list|,
-literal|false
+name|COSName
+operator|.
+name|FLATE_DECODE
 argument_list|)
 decl_stmt|;
 name|stream
@@ -474,16 +476,11 @@ name|LENGTH1
 argument_list|,
 name|stream
 operator|.
-name|getByteArray
+name|toByteArray
 argument_list|()
 operator|.
 name|length
 argument_list|)
-expr_stmt|;
-name|stream
-operator|.
-name|addCompression
-argument_list|()
 expr_stmt|;
 comment|// as the stream was closed within the PDStream constructor, we have to recreate it
 name|InputStream

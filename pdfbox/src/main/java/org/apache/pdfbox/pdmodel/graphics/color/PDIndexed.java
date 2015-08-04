@@ -976,7 +976,7 @@ operator|)
 name|lookupTable
 argument_list|)
 operator|.
-name|getByteArray
+name|toByteArray
 argument_list|()
 expr_stmt|;
 block|}

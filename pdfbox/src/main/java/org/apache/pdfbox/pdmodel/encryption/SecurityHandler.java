@@ -1633,6 +1633,16 @@ argument_list|(
 name|encrypted
 argument_list|)
 decl_stmt|;
+name|OutputStream
+name|output
+init|=
+name|stream
+operator|.
+name|createRawOutputStream
+argument_list|()
+decl_stmt|;
+try|try
+block|{
 name|encryptData
 argument_list|(
 name|objNum
@@ -1641,15 +1651,21 @@ name|genNum
 argument_list|,
 name|encryptedStream
 argument_list|,
-name|stream
-operator|.
-name|createFilteredStream
-argument_list|()
+name|output
 argument_list|,
 literal|true
 comment|/* decrypt */
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|output
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * This will encrypt a stream, but not the dictionary as the dictionary is      * encrypted by visitFromString() in COSWriter and we don't want to encrypt      * it twice.      *      * @param stream The stream to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error getting the stream data.      */
 specifier|public
@@ -1678,7 +1694,7 @@ name|toByteArray
 argument_list|(
 name|stream
 operator|.
-name|getFilteredStream
+name|createRawInputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1691,6 +1707,16 @@ argument_list|(
 name|rawData
 argument_list|)
 decl_stmt|;
+name|OutputStream
+name|output
+init|=
+name|stream
+operator|.
+name|createRawOutputStream
+argument_list|()
+decl_stmt|;
+try|try
+block|{
 name|encryptData
 argument_list|(
 name|objNum
@@ -1699,15 +1725,21 @@ name|genNum
 argument_list|,
 name|encryptedStream
 argument_list|,
-name|stream
-operator|.
-name|createFilteredStream
-argument_list|()
+name|output
 argument_list|,
 literal|false
 comment|/* encrypt */
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|output
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * This will decrypt a dictionary.      *      * @param dictionary The dictionary to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error creating a new string.      */
 specifier|private

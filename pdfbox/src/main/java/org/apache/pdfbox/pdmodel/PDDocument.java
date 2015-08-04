@@ -21,16 +21,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|BufferedInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|Closeable
 import|;
 end_import
@@ -331,7 +321,7 @@ name|pdfbox
 operator|.
 name|io
 operator|.
-name|RandomAccessReadInputStream
+name|RandomAccessInputStream
 import|;
 end_import
 
@@ -2547,19 +2537,18 @@ init|=
 operator|new
 name|PDStream
 argument_list|(
-name|document
+name|this
 argument_list|,
 name|page
 operator|.
 name|getContents
 argument_list|()
+argument_list|,
+name|COSName
+operator|.
+name|FLATE_DECODE
 argument_list|)
 decl_stmt|;
-name|dest
-operator|.
-name|addCompression
-argument_list|()
-expr_stmt|;
 name|importedPage
 operator|.
 name|setContents
@@ -4078,20 +4067,9 @@ name|InputStream
 name|input
 init|=
 operator|new
-name|BufferedInputStream
-argument_list|(
-operator|new
-name|RandomAccessReadInputStream
+name|RandomAccessInputStream
 argument_list|(
 name|pdfSource
-argument_list|,
-literal|0
-argument_list|,
-name|pdfSource
-operator|.
-name|length
-argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|COSWriter
@@ -4238,7 +4216,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Protects the document with a protection policy. The document content will be really      * encrypted when it will be saved. This method only marks the document for encryption. It also      * sets {@link #setAllSecurityToBeRemoved(boolean)} to false if it was set to true previously and logs a      * warning.      *      * @see org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyProtectionPolicy      *      * @param policy The protection policy.      *      * @throws IOException if there isn't any suitable security handler.      */
+comment|/**      * Protects the document with a protection policy. The document content will be really      * encrypted when it will be saved. This method only marks the document for encryption. It also      * calls {@link #setAllSecurityToBeRemoved(boolean)} with a false argument if it was set to true      * previously and logs a warning.      *      * @see org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy      * @see org.apache.pdfbox.pdmodel.encryption.PublicKeyProtectionPolicy      *      * @param policy The protection policy.      * @throws IOException if there isn't any suitable security handler.      */
 specifier|public
 name|void
 name|protect

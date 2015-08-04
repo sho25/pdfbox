@@ -1274,7 +1274,7 @@ name|data
 init|=
 name|stream
 operator|.
-name|getPartiallyFilteredStream
+name|createInputStream
 argument_list|(
 name|stopFilters
 argument_list|)

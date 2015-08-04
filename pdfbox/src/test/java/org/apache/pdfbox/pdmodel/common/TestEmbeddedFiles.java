@@ -259,9 +259,6 @@ decl_stmt|;
 name|PDComplexFileSpecification
 name|spec
 init|=
-operator|(
-name|PDComplexFileSpecification
-operator|)
 name|embeddedFiles
 operator|.
 name|getNames
@@ -294,9 +291,6 @@ block|}
 comment|//now test for actual attachment
 name|spec
 operator|=
-operator|(
-name|PDComplexFileSpecification
-operator|)
 name|embeddedFiles
 operator|.
 name|getNames
@@ -331,9 +325,6 @@ argument_list|)
 expr_stmt|;
 name|spec
 operator|=
-operator|(
-name|PDComplexFileSpecification
-operator|)
 name|embeddedFiles
 operator|.
 name|getNames
@@ -536,7 +527,7 @@ literal|"non os specific"
 argument_list|,
 name|nonOSFile
 operator|.
-name|getByteArray
+name|toByteArray
 argument_list|()
 argument_list|,
 literal|"ISO-8859-1"
@@ -553,7 +544,7 @@ literal|"mac embedded"
 argument_list|,
 name|macFile
 operator|.
-name|getByteArray
+name|toByteArray
 argument_list|()
 argument_list|,
 literal|"ISO-8859-1"
@@ -570,7 +561,7 @@ literal|"dos embedded"
 argument_list|,
 name|dosFile
 operator|.
-name|getByteArray
+name|toByteArray
 argument_list|()
 argument_list|,
 literal|"ISO-8859-1"
@@ -587,7 +578,7 @@ literal|"unix embedded"
 argument_list|,
 name|unixFile
 operator|.
-name|getByteArray
+name|toByteArray
 argument_list|()
 argument_list|,
 literal|"ISO-8859-1"

@@ -357,15 +357,6 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-name|form
-operator|.
-name|getPDStream
-argument_list|()
-operator|.
-name|addCompression
-argument_list|()
-expr_stmt|;
-comment|// use gzip for data
 comment|// draw the full form
 name|contents
 operator|.

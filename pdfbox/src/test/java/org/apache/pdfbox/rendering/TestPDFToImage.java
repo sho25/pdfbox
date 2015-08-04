@@ -1176,7 +1176,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|IOException
 name|e
 parameter_list|)
 block|{
@@ -1194,10 +1194,11 @@ name|file
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
+throw|throw
+name|e
+throw|;
 block|}
 finally|finally
 block|{

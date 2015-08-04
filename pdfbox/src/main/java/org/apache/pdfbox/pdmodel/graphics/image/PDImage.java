@@ -53,6 +53,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -143,12 +163,37 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns a stream containing this image's data.      * @throws IOException if the      */
+comment|/**      * Returns a stream containing this image's data. Null for inline images.      * @throws IOException if the stream could not be read.      */
 name|PDStream
 name|getStream
 parameter_list|()
 throws|throws
 name|IOException
+function_decl|;
+comment|/**      * Returns an InputStream containing the image data, irrespective of whether this is an      * inline image or an image XObject.      * @return Decoded stream      * @throws IOException if the data could not be read.      */
+name|InputStream
+name|createInputStream
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Returns an InputStream containing the image data, irrespective of whether this is an      * inline image or an image XObject. The given filters will not be decoded.      * @return Decoded stream      * @throws IOException if the data could not be read.      */
+name|InputStream
+name|createInputStream
+parameter_list|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|stopFilters
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Returns true if the image has no data.      */
+name|boolean
+name|isEmpty
+parameter_list|()
 function_decl|;
 comment|/**      * Returns true if the image is a stencil mask.      */
 name|boolean

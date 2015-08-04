@@ -163,6 +163,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSName
 import|;
 end_import
@@ -270,7 +284,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A PDStream represents a stream in a PDF document. Streams are tied to a  * single PDF document.  *   * @author Ben Litchfield  */
+comment|/**  * A PDStream represents a stream in a PDF document. Streams are tied to a single PDF document.  *   * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -281,17 +295,11 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSStream
 name|stream
 decl_stmt|;
-comment|/**      * This will create a new PDStream object.      */
-specifier|protected
-name|PDStream
-parameter_list|()
-block|{
-comment|// should only be called by PDMemoryStream
-block|}
-comment|/**      * This will create a new PDStream object.      *       * @param document      *            The document that the stream will be part of.      */
+comment|/**      * Creates a new PDStream object.      *       * @param document The document that the stream will be part of.      */
 specifier|public
 name|PDStream
 parameter_list|(
@@ -310,7 +318,7 @@ name|createCOSStream
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will create a new PDStream object.      *      * @param document      *            The document that the stream will be part of.      */
+comment|/**      * Creates a new PDStream object.      *      * @param document The document that the stream will be part of.      */
 specifier|public
 name|PDStream
 parameter_list|(
@@ -326,7 +334,7 @@ name|createCOSStream
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param str      *            The stream parameter.      */
+comment|/**      * Creates a PDStream which wraps the given COSStream.      *       * @param str The stream parameter.      */
 specifier|public
 name|PDStream
 parameter_list|(
@@ -339,7 +347,7 @@ operator|=
 name|str
 expr_stmt|;
 block|}
-comment|/**      * Constructor. Reads all data from the input stream and embeds it into the      * document, this will close the InputStream.      *       * @param doc      *            The document that will hold the stream.      * @param input      *            The stream parameter.      * @throws IOException      *             If there is an error creating the stream in the document.      */
+comment|/**      * Constructor. Reads all data from the input stream and embeds it into the document. This      * method closes the InputStream.      *      * @param doc The document that will hold the stream.      * @param input The stream parameter.      * @throws IOException If there is an error creating the stream in the document.      */
 specifier|public
 name|PDStream
 parameter_list|(
@@ -358,34 +366,14 @@ name|doc
 argument_list|,
 name|input
 argument_list|,
-literal|false
+operator|(
+name|COSBase
+operator|)
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor. Reads all data from the input stream and embeds it into the      * document, this will close the InputStream.      *      * @param doc      *            The document that will hold the stream.      * @param input      *            The stream parameter.      * @throws IOException      *             If there is an error creating the stream in the document.      */
-specifier|public
-name|PDStream
-parameter_list|(
-name|COSDocument
-name|doc
-parameter_list|,
-name|InputStream
-name|input
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|this
-argument_list|(
-name|doc
-argument_list|,
-name|input
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Constructor. Reads all data from the input stream and embeds it into the      * document, this will close the InputStream.      *      * @param doc      *            The document that will hold the stream.      * @param input      *            The stream parameter.      * @param filtered      *            True if the stream already has a filter applied.      * @throws IOException      *             If there is an error creating the stream in the document.      */
+comment|/**      * Constructor. Reads all data from the input stream and embeds it into the document with the      * given filter applied. This method closes the InputStream.      *      * @param doc The document that will hold the stream.      * @param input The stream parameter.      * @param filter Filter to apply to the stream.      * @throws IOException If there is an error creating the stream in the document.      */
 specifier|public
 name|PDStream
 parameter_list|(
@@ -395,8 +383,8 @@ parameter_list|,
 name|InputStream
 name|input
 parameter_list|,
-name|boolean
-name|filtered
+name|COSName
+name|filter
 parameter_list|)
 throws|throws
 name|IOException
@@ -404,28 +392,57 @@ block|{
 name|this
 argument_list|(
 name|doc
-operator|.
-name|getDocument
-argument_list|()
 argument_list|,
 name|input
 argument_list|,
-name|filtered
+operator|(
+name|COSBase
+operator|)
+name|filter
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor. Reads all data from the input stream and embeds it into the      * document, this will close the InputStream.      *       * @param doc      *            The document that will hold the stream.      * @param input      *            The stream parameter.      * @param filtered      *            True if the stream already has a filter applied.      * @throws IOException      *             If there is an error creating the stream in the document.      */
+comment|/**      * Constructor. Reads all data from the input stream and embeds it into the document with the      * given filters applied. This method closes the InputStream.      *      * @param doc The document that will hold the stream.      * @param input The stream parameter.      * @param filters Filters to apply to the stream.      * @throws IOException If there is an error creating the stream in the document.      */
 specifier|public
 name|PDStream
 parameter_list|(
-name|COSDocument
+name|PDDocument
 name|doc
 parameter_list|,
 name|InputStream
 name|input
 parameter_list|,
-name|boolean
-name|filtered
+name|COSArray
+name|filters
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|this
+argument_list|(
+name|doc
+argument_list|,
+name|input
+argument_list|,
+operator|(
+name|COSBase
+operator|)
+name|filters
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Constructor. Reads all data from the input stream and embeds it into the document with the      * given filters applied, if any. This method closes the InputStream.      */
+specifier|private
+name|PDStream
+parameter_list|(
+name|PDDocument
+name|doc
+parameter_list|,
+name|InputStream
+name|input
+parameter_list|,
+name|COSBase
+name|filters
 parameter_list|)
 throws|throws
 name|IOException
@@ -441,32 +458,21 @@ name|stream
 operator|=
 name|doc
 operator|.
+name|getDocument
+argument_list|()
+operator|.
 name|createCOSStream
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|filtered
-condition|)
-block|{
 name|output
 operator|=
 name|stream
 operator|.
-name|createFilteredStream
-argument_list|()
+name|createOutputStream
+argument_list|(
+name|filters
+argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|output
-operator|=
-name|stream
-operator|.
-name|createUnfilteredStream
-argument_list|()
-expr_stmt|;
-block|}
 name|IOUtils
 operator|.
 name|copy
@@ -507,7 +513,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * If there are not compression filters on the current stream then this will      * add a compression filter, flate compression for example.      */
+comment|/**      * If there are not compression filters on the current stream then this will      * add a compression filter, flate compression for example.      *       * @deprecated This method is inefficient. To copying an existing InputStream, use      *             {@link PDStream(PDDocument, InputStream, COSName)} instead, with      *             COSName.FLATE_DECODE as the final argument.      *                   *             Otherwise, to write new compressed data, use {@link #createOutputStream(COSName)},      *             with COSName.FLATE_DECODE as the argument.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|addCompression
@@ -528,6 +536,84 @@ name|filters
 operator|==
 literal|null
 condition|)
+block|{
+if|if
+condition|(
+name|stream
+operator|.
+name|getLength
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|OutputStream
+name|out
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|byte
+index|[]
+name|bytes
+init|=
+name|IOUtils
+operator|.
+name|toByteArray
+argument_list|(
+name|stream
+operator|.
+name|createInputStream
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|out
+operator|=
+name|stream
+operator|.
+name|createOutputStream
+argument_list|(
+name|COSName
+operator|.
+name|FLATE_DECODE
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|write
+argument_list|(
+name|bytes
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// not much else we can do here without breaking the existing API, sorry.
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+finally|finally
+block|{
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
 block|{
 name|filters
 operator|=
@@ -554,6 +640,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 comment|/**      * Convert this standard java object to a COS object.      *       * @return The cos object that matches this Java object.      */
 annotation|@
 name|Override
@@ -566,7 +653,7 @@ return|return
 name|stream
 return|;
 block|}
-comment|/**      * This will get a stream that can be written to.      *       * @return An output stream to write data to.      *       * @throws IOException      *             If an IO error occurs during writing.      */
+comment|/**      * This will get a stream that can be written to.      *       * @return An output stream to write data to.      * @throws IOException If an IO error occurs during writing.      */
 specifier|public
 name|OutputStream
 name|createOutputStream
@@ -577,13 +664,33 @@ block|{
 return|return
 name|stream
 operator|.
-name|createUnfilteredStream
+name|createOutputStream
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get a stream that can be read from.      *       * @return An input stream that can be read from.      *       * @throws IOException      *             If an IO error occurs during reading.      */
+comment|/**      * This will get a stream that can be written to, with the given filter.      *      * @return An output stream to write data to.      * @throws IOException If an IO error occurs during writing.      */
 specifier|public
-name|InputStream
+name|OutputStream
+name|createOutputStream
+parameter_list|(
+name|COSName
+name|filter
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|stream
+operator|.
+name|createOutputStream
+argument_list|(
+name|filter
+argument_list|)
+return|;
+block|}
+comment|/**      * This will get a stream that can be read from.      *       * @return An input stream that can be read from.      * @throws IOException If an IO error occurs during reading.      */
+specifier|public
+name|COSInputStream
 name|createInputStream
 parameter_list|()
 throws|throws
@@ -592,14 +699,14 @@ block|{
 return|return
 name|stream
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get a stream with some filters applied but not others. This is      * useful when doing images, ie filters = [flate,dct], we want to remove      * flate but leave dct      *       * @param stopFilters      *            A list of filters to stop decoding at.      * @return A stream with decoded data.      * @throws IOException      *             If there is an error processing the stream.      */
+comment|/**      * This will get a stream with some filters applied but not others. This is      * useful when doing images, ie filters = [flate,dct], we want to remove      * flate but leave dct      *       * @param stopFilters  A list of filters to stop decoding at.      * @return A stream with decoded data.      * @throws IOException If there is an error processing the stream.      */
 specifier|public
 name|InputStream
-name|getPartiallyFilteredStream
+name|createInputStream
 parameter_list|(
 name|List
 argument_list|<
@@ -615,7 +722,7 @@ name|is
 init|=
 name|stream
 operator|.
-name|getFilteredStream
+name|createRawInputStream
 argument_list|()
 decl_stmt|;
 name|ByteArrayOutputStream
@@ -634,11 +741,6 @@ init|=
 name|getFilters
 argument_list|()
 decl_stmt|;
-name|boolean
-name|done
-init|=
-literal|false
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -652,9 +754,6 @@ name|filters
 operator|.
 name|size
 argument_list|()
-operator|&&
-operator|!
-name|done
 condition|;
 name|i
 operator|++
@@ -683,10 +782,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|done
-operator|=
-literal|true
-expr_stmt|;
+break|break;
 block|}
 else|else
 block|{
@@ -864,7 +960,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the filters that are part of this stream.      *       * @param filters      *            The filters that are part of this stream.      */
+comment|/**      * This will set the filters that are part of this stream.      *       * @param filters The filters that are part of this stream.      */
 specifier|public
 name|void
 name|setFilters
@@ -898,7 +994,7 @@ name|obj
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the list of decode parameters. Each entry in the list will refer to      * an entry in the filters list.      *       * @return The list of decode parameters.      *       * @throws IOException      *             if there is an error retrieving the parameters.      */
+comment|/**      * Get the list of decode parameters. Each entry in the list will refer to      * an entry in the filters list.      *       * @return The list of decode parameters.      * @throws IOException if there is an error retrieving the parameters.      */
 specifier|public
 name|List
 argument_list|<
@@ -1081,7 +1177,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of decode parameterss.      *       * @param decodeParams      *            The list of decode parameterss.      */
+comment|/**      * This will set the list of decode parameterss.      *       * @param decodeParams The list of decode parameterss.      */
 specifier|public
 name|void
 name|setDecodeParms
@@ -1110,7 +1206,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the file specification for this stream. This is only      * required for external files.      *       * @return The file specification.      *       * @throws IOException      *             If there is an error creating the file spec.      */
+comment|/**      * This will get the file specification for this stream. This is only      * required for external files.      *       * @return The file specification.      * @throws IOException If there is an error creating the file spec.      */
 specifier|public
 name|PDFileSpecification
 name|getFile
@@ -1139,7 +1235,7 @@ name|f
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the file specification.      *       * @param f      *            The file specification.      */
+comment|/**      * Set the file specification.      *       * @param f The file specification.      */
 specifier|public
 name|void
 name|setFile
@@ -1252,7 +1348,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the filters that are part of this stream.      *       * @param filters      *            The filters that are part of this stream.      */
+comment|/**      * This will set the filters that are part of this stream.      *       * @param filters The filters that are part of this stream.      */
 specifier|public
 name|void
 name|setFileFilters
@@ -1286,7 +1382,7 @@ name|obj
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the list of decode parameters. Each entry in the list will refer to      * an entry in the filters list.      *       * @return The list of decode parameters.      *       * @throws IOException      *             if there is an error retrieving the parameters.      */
+comment|/**      * Get the list of decode parameters. Each entry in the list will refer to      * an entry in the filters list.      *       * @return The list of decode parameters.      * @throws IOException if there is an error retrieving the parameters.      */
 specifier|public
 name|List
 argument_list|<
@@ -1448,7 +1544,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the list of decode params.      *       * @param decodeParams      *            The list of decode params.      */
+comment|/**      * This will set the list of decode params.      *       * @param decodeParams The list of decode params.      */
 specifier|public
 name|void
 name|setFileDecodeParams
@@ -1475,11 +1571,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will copy the stream into a byte array.      *       * @return The byte array of the filteredStream      * @throws IOException      *             When getFilteredStream did not work      */
+comment|/**      * This will copy the stream into a byte array.      *       * @return The byte array of the filteredStream      * @throws IOException When getFilteredStream did not work      */
 specifier|public
 name|byte
 index|[]
-name|getByteArray
+name|toByteArray
 parameter_list|()
 throws|throws
 name|IOException
@@ -1569,32 +1665,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * A convenience method to get this stream as a string.      * The string is returned using ISO-8559-1 encoding.      *       * @return a String representation of this (input) stream using IS0-8559-1 encoding.      *       * @throws IOException      *             if there is an error while converting the stream to a string.      */
-specifier|public
-name|String
-name|getInputStreamAsString
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|byte
-index|[]
-name|bStream
-init|=
-name|getByteArray
-argument_list|()
-decl_stmt|;
-return|return
-operator|new
-name|String
-argument_list|(
-name|bStream
-argument_list|,
-literal|"ISO-8859-1"
-argument_list|)
-return|;
-block|}
-comment|/**      * Get the metadata that is part of the document catalog. This will return      * null if there is no meta data for this object.      *       * @return The metadata for this object.      * @throws IllegalStateException      *             if the value of the metadata entry is different from a stream      *             or null      */
+comment|/**      * Get the metadata that is part of the document catalog. This will return      * null if there is no meta data for this object.      *       * @return The metadata for this object.      * @throws IllegalStateException if the value of the metadata entry is different from a stream      *                               or null      */
 specifier|public
 name|PDMetadata
 name|getMetadata
@@ -1676,7 +1747,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the metadata for this object. This can be null.      *       * @param meta      *            The meta data for this object.      */
+comment|/**      * Set the metadata for this object. This can be null.      *       * @param meta The meta data for this object.      */
 specifier|public
 name|void
 name|setMetadata
@@ -1697,7 +1768,7 @@ name|meta
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the decoded stream length.      *       * @since Apache PDFBox 1.1.0      * @see<a      *      href="https://issues.apache.org/jira/browse/PDFBOX-636">PDFBOX-636</a>      * @return the decoded stream length      */
+comment|/**      * Get the decoded stream length.      *      * @return the decoded stream length      */
 specifier|public
 name|int
 name|getDecodedStreamLength
@@ -1716,7 +1787,7 @@ name|DL
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the decoded stream length.      *       * @since Apache PDFBox 1.1.0      * @see<a      *      href="https://issues.apache.org/jira/browse/PDFBOX-636">PDFBOX-636</a>      * @param decodedStreamLength      *            the decoded stream length      */
+comment|/**      * Set the decoded stream length.      *      * @param decodedStreamLength the decoded stream length      */
 specifier|public
 name|void
 name|setDecodedStreamLength

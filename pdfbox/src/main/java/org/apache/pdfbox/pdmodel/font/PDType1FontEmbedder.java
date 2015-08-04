@@ -403,7 +403,9 @@ operator|.
 name|getInputStream
 argument_list|()
 argument_list|,
-literal|false
+name|COSName
+operator|.
+name|FLATE_DECODE
 argument_list|)
 decl_stmt|;
 name|fontStream
@@ -466,11 +468,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|fontStream
-operator|.
-name|addCompression
-argument_list|()
-expr_stmt|;
 name|fd
 operator|.
 name|setFontFile

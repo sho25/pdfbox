@@ -304,7 +304,7 @@ operator|.
 name|getCOSStream
 argument_list|()
 operator|.
-name|getFilteredLength
+name|getLength
 argument_list|()
 operator|>
 literal|0

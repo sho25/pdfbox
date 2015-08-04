@@ -1249,7 +1249,7 @@ operator|.
 name|getStream
 argument_list|()
 operator|.
-name|getPartiallyFilteredStream
+name|createInputStream
 argument_list|(
 name|JPEG
 argument_list|)
