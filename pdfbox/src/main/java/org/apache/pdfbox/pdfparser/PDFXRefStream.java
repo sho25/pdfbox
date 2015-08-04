@@ -479,7 +479,7 @@ name|wAsArray
 argument_list|)
 expr_stmt|;
 name|OutputStream
-name|stream
+name|outputStream
 init|=
 name|this
 operator|.
@@ -494,10 +494,20 @@ argument_list|)
 decl_stmt|;
 name|writeStreamData
 argument_list|(
-name|stream
+name|outputStream
 argument_list|,
 name|wEntry
 argument_list|)
+expr_stmt|;
+name|outputStream
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
+name|outputStream
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|Set
 argument_list|<
@@ -1537,16 +1547,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|os
-operator|.
-name|flush
-argument_list|()
-expr_stmt|;
-name|os
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * A class representing an object stream reference.       *      */
 class|class
