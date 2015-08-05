@@ -119,9 +119,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
+name|pdmodel
 operator|.
-name|IOUtils
+name|PDDocument
 import|;
 end_import
 
@@ -135,7 +135,9 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|PDDocument
+name|common
+operator|.
+name|PDStream
 import|;
 end_import
 
@@ -263,6 +265,19 @@ name|COSStream
 operator|)
 name|base
 decl_stmt|;
+name|byte
+index|[]
+name|bytes
+init|=
+operator|new
+name|PDStream
+argument_list|(
+name|stream
+argument_list|)
+operator|.
+name|toByteArray
+argument_list|()
+decl_stmt|;
 name|stream
 operator|.
 name|removeItem
@@ -280,16 +295,11 @@ operator|.
 name|createOutputStream
 argument_list|()
 decl_stmt|;
-name|IOUtils
-operator|.
-name|copy
-argument_list|(
-name|stream
-operator|.
-name|createInputStream
-argument_list|()
-argument_list|,
 name|streamOut
+operator|.
+name|write
+argument_list|(
+name|bytes
 argument_list|)
 expr_stmt|;
 name|streamOut
