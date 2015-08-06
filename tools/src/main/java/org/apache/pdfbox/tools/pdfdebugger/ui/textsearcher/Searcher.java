@@ -345,6 +345,10 @@ condition|(
 name|totalMatch
 operator|!=
 literal|0
+operator|&&
+name|currentMatch
+operator|!=
+literal|0
 condition|)
 block|{
 name|currentMatch
@@ -411,6 +415,12 @@ condition|(
 name|totalMatch
 operator|!=
 literal|0
+operator|&&
+name|currentMatch
+operator|!=
+name|totalMatch
+operator|-
+literal|1
 condition|)
 block|{
 name|currentMatch
