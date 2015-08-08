@@ -2392,9 +2392,17 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|document
+operator|!=
+literal|null
+condition|)
+block|{
 name|initTree
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
