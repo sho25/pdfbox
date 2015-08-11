@@ -294,6 +294,10 @@ decl_stmt|;
 if|if
 condition|(
 name|operand
+operator|>=
+literal|0
+operator|&&
+name|operand
 operator|<
 name|subrs
 operator|.
