@@ -138,20 +138,6 @@ argument_list|()
 decl_stmt|;
 specifier|private
 specifier|final
-name|ColorSpace
-name|colorSpaceRGB
-init|=
-name|ColorSpace
-operator|.
-name|getInstance
-argument_list|(
-name|ColorSpace
-operator|.
-name|CS_sRGB
-argument_list|)
-decl_stmt|;
-specifier|private
-specifier|final
 name|PDColor
 name|initialColor
 init|=
@@ -173,13 +159,60 @@ name|this
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|volatile
+name|ColorSpace
+name|awtColorSpace
+decl_stmt|;
+specifier|private
 name|PDDeviceRGB
 parameter_list|()
+block|{     }
+comment|/**      * Lazy setting of the AWT color space due to JDK race condition.      */
+specifier|private
+name|void
+name|init
+parameter_list|()
 block|{
+comment|// no need to synchronize this check as it is atomic
+if|if
+condition|(
+name|awtColorSpace
+operator|!=
+literal|null
+condition|)
+block|{
+return|return;
+block|}
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+comment|// we might have been waiting for another thread, so check again
+if|if
+condition|(
+name|awtColorSpace
+operator|!=
+literal|null
+condition|)
+block|{
+return|return;
+block|}
+name|awtColorSpace
+operator|=
+name|ColorSpace
+operator|.
+name|getInstance
+argument_list|(
+name|ColorSpace
+operator|.
+name|CS_sRGB
+argument_list|)
+expr_stmt|;
 comment|// there is a JVM bug which results in a CMMException which appears to be a race
 comment|// condition caused by lazy initialization of the color transform, so we perform
-comment|// an initial color conversion while we're still in a static context, see PDFBOX-2184
-name|colorSpaceRGB
+comment|// an initial color conversion while we're still synchronized, see PDFBOX-2184
+name|awtColorSpace
 operator|.
 name|toRGB
 argument_list|(
@@ -192,9 +225,12 @@ block|,
 literal|0
 block|,
 literal|0
+block|,
+literal|0
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -277,8 +313,11 @@ index|[]
 name|value
 parameter_list|)
 block|{
+name|init
+argument_list|()
+expr_stmt|;
 return|return
-name|colorSpaceRGB
+name|awtColorSpace
 operator|.
 name|toRGB
 argument_list|(
@@ -298,13 +337,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|init
+argument_list|()
+expr_stmt|;
 name|ColorModel
 name|colorModel
 init|=
 operator|new
 name|ComponentColorModel
 argument_list|(
-name|colorSpaceRGB
+name|awtColorSpace
 argument_list|,
 literal|false
 argument_list|,
