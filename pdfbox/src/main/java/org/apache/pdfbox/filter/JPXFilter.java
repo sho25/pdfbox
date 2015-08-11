@@ -384,6 +384,27 @@ argument_list|()
 decl_stmt|;
 comment|// "If the image stream uses the JPXDecode filter, this entry is optional
 comment|// and shall be ignored if present"
+comment|//
+comment|// note that indexed color spaces make the BPC logic tricky, see PDFBOX-2204
+name|int
+name|bpc
+init|=
+name|image
+operator|.
+name|getColorModel
+argument_list|()
+operator|.
+name|getPixelSize
+argument_list|()
+operator|/
+name|image
+operator|.
+name|getRaster
+argument_list|()
+operator|.
+name|getNumBands
+argument_list|()
+decl_stmt|;
 name|parameters
 operator|.
 name|setInt
@@ -392,15 +413,7 @@ name|COSName
 operator|.
 name|BITS_PER_COMPONENT
 argument_list|,
-name|image
-operator|.
-name|getColorModel
-argument_list|()
-operator|.
-name|getComponentSize
-argument_list|(
-literal|0
-argument_list|)
+name|bpc
 argument_list|)
 expr_stmt|;
 comment|// "Decode shall be ignored, except in the case where the image is treated as a mask"
