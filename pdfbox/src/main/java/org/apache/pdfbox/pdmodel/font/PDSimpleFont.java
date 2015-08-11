@@ -792,7 +792,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// unless we can prove that the font is symbolic, we assume that it is not
+comment|// unless we can prove that the font is non-symbolic, we assume that it is not
 name|isSymbolic
 operator|=
 literal|true
