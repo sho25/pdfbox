@@ -488,12 +488,23 @@ name|String
 name|getValueAsString
 parameter_list|()
 block|{
-return|return
+name|PDSignature
+name|signature
+init|=
 name|getValue
 argument_list|()
+decl_stmt|;
+return|return
+name|signature
+operator|!=
+literal|null
+condition|?
+name|signature
 operator|.
 name|toString
 argument_list|()
+else|:
+literal|""
 return|;
 block|}
 comment|/**      *<p>(Optional; PDF 1.5) A seed value dictionary containing information      * that constrains the properties of a signature that is applied to the      * field.</p>      *      * @return the seed value dictionary as PDSeedValue      */
