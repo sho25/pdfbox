@@ -2224,6 +2224,33 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|//TODO PDFBOX-2934
+if|if
+condition|(
+name|COSName
+operator|.
+name|ALPHA
+operator|.
+name|equals
+argument_list|(
+name|softMask
+operator|.
+name|getSubType
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"alpha smask not implemented yet, is ignored"
+argument_list|)
+expr_stmt|;
+return|return
+name|parentPaint
+return|;
+block|}
 return|return
 operator|new
 name|SoftMaskPaint
