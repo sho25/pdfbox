@@ -206,6 +206,8 @@ name|fs
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
@@ -233,7 +235,7 @@ name|font
 init|=
 name|fontSetting
 operator|.
-name|get
+name|getObject
 argument_list|(
 literal|0
 argument_list|)
