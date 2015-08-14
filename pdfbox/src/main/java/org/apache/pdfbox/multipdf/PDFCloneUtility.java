@@ -525,7 +525,12 @@ init|=
 name|stream
 operator|.
 name|createOutputStream
+argument_list|(
+name|originalStream
+operator|.
+name|getFilters
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|IOUtils
 operator|.
@@ -942,7 +947,12 @@ init|=
 name|stream
 operator|.
 name|createOutputStream
+argument_list|(
+name|originalStream
+operator|.
+name|getFilters
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|IOUtils
 operator|.
