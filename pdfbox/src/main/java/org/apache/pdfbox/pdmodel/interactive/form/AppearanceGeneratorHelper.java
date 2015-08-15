@@ -306,7 +306,7 @@ name|field
 decl_stmt|;
 specifier|private
 specifier|final
-name|PDAppearanceString
+name|PDDefaultAppearanceString
 name|defaultAppearance
 decl_stmt|;
 specifier|private

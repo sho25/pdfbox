@@ -179,7 +179,7 @@ end_comment
 
 begin_class
 class|class
-name|PDAppearanceString
+name|PDDefaultAppearanceString
 block|{
 specifier|private
 specifier|final
@@ -195,7 +195,7 @@ name|PDResources
 name|defaultResources
 decl_stmt|;
 comment|/**      * Constructor for reading an existing DA string.      *       * @param defaultResources DR entry      * @param defaultAppearance DA entry      * @throws IOException If the DA could not be parsed      */
-name|PDAppearanceString
+name|PDDefaultAppearanceString
 parameter_list|(
 name|COSString
 name|defaultAppearance

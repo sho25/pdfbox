@@ -223,7 +223,7 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Get the default appearance.      *      * This is an inheritable attribute.      *      * The default appearance contains a set of default graphics and text operators      * to define the field’s text size and color.      *      * @return the DA element of the dictionary object      */
-name|PDAppearanceString
+name|PDDefaultAppearanceString
 name|getDefaultAppearanceString
 parameter_list|()
 throws|throws
@@ -253,7 +253,7 @@ argument_list|()
 decl_stmt|;
 return|return
 operator|new
-name|PDAppearanceString
+name|PDDefaultAppearanceString
 argument_list|(
 name|da
 argument_list|,
