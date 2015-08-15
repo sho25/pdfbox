@@ -375,7 +375,7 @@ name|createRawInputStream
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a new InputStream which reads the decoded stream data.      *       * @return InputStream containing decoded stream data.      * @throws IOException If the stream could not be read.      */
+comment|/**      * Returns a new InputStream which reads the encoded PDF stream data. Experts only!      *       * @return InputStream containing raw, encoded PDF stream data.      * @throws IOException If the stream could not be read.      */
 specifier|public
 name|InputStream
 name|createRawInputStream
@@ -422,7 +422,7 @@ name|createInputStream
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a new InputStream which reads the encoded PDF stream data. Experts only!      *       * @return InputStream containing raw, encoded PDF stream data.      * @throws IOException If the stream could not be read.      */
+comment|/**      * Returns a new InputStream which reads the decoded stream data.      *       * @return InputStream containing decoded stream data.      * @throws IOException If the stream could not be read.      */
 specifier|public
 name|COSInputStream
 name|createInputStream
