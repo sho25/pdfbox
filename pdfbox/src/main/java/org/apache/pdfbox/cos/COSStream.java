@@ -360,7 +360,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * This will get the stream with all of the filters applied.      *      * @return the bytes of the physical (encoded) stream      * @throws IOException when encoding causes an exception      * @deprecated Use {@link #createInputStream()} instead.      */
+comment|/**      * This will get the stream with all of the filters applied.      *      * @return the bytes of the physical (encoded) stream      * @throws IOException when encoding causes an exception      * @deprecated Use {@link #createRawInputStream()} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -407,7 +407,7 @@ name|randomAccess
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the logical content stream with none of the filters.      *      * @return the bytes of the logical (decoded) stream      * @throws IOException when decoding causes an exception      * @deprecated Use {@link #createRawInputStream()} instead.      */
+comment|/**      * This will get the logical content stream with none of the filters.      *      * @return the bytes of the logical (decoded) stream      * @throws IOException when decoding causes an exception      * @deprecated Use {@link #createInputStream()} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
