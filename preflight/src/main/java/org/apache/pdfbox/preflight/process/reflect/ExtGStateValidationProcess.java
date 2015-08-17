@@ -1177,8 +1177,18 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|//TODO find way to use addFontError from ResourcesValidationProcess
-comment|//addFontError((COSDictionary)fontDict, context);
+name|addFontError
+argument_list|(
+operator|(
+name|COSDictionary
+operator|)
+name|fontDict
+argument_list|,
+name|context
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
