@@ -822,6 +822,8 @@ operator|)
 name|font
 argument_list|,
 name|context
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -861,6 +863,9 @@ name|dictionary
 parameter_list|,
 name|PreflightContext
 name|context
+parameter_list|,
+name|IOException
+name|e
 parameter_list|)
 block|{
 name|COSName
@@ -982,6 +987,13 @@ argument_list|,
 literal|"The FontFile can't be read for "
 operator|+
 name|fontName
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1013,6 +1025,13 @@ argument_list|,
 literal|"The FontFile can't be read for "
 operator|+
 name|fontName
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1044,6 +1063,13 @@ argument_list|,
 literal|"The FontFile can't be read for "
 operator|+
 name|fontName
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1075,6 +1101,13 @@ argument_list|,
 literal|"The FontFile can't be read for "
 operator|+
 name|fontName
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1106,6 +1139,13 @@ argument_list|,
 literal|"The FontFile can't be read for "
 operator|+
 name|fontName
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1137,6 +1177,13 @@ argument_list|,
 literal|"Unexpected CIDFontType0 descendant font for "
 operator|+
 name|fontName
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1168,6 +1215,13 @@ argument_list|,
 literal|"Unexpected CIDFontType2 descendant font for "
 operator|+
 name|fontName
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
