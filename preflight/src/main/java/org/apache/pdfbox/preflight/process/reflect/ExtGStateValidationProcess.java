@@ -956,6 +956,15 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|base
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
+if|if
+condition|(
 operator|!
 operator|(
 name|base
