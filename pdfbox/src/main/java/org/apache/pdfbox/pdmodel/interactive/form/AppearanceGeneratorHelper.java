@@ -401,6 +401,15 @@ name|DEFAULT_FONT_SIZE
 init|=
 literal|12
 decl_stmt|;
+comment|/**      * The default padding applied by Acrobat to the fields bbox.      */
+specifier|private
+specifier|static
+specifier|final
+name|float
+name|DEFAULT_PADDING
+init|=
+literal|0.5f
+decl_stmt|;
 comment|/**      * Constructs a COSAppearance from the given field.      *      * @param field the field which you wish to control the appearance of      * @throws IOException       */
 name|AppearanceGeneratorHelper
 parameter_list|(
@@ -777,7 +786,7 @@ name|Math
 operator|.
 name|max
 argument_list|(
-literal|0.5f
+name|DEFAULT_PADDING
 argument_list|,
 name|lineWidth
 operator|/

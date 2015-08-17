@@ -181,6 +181,15 @@ begin_class
 class|class
 name|PDDefaultAppearanceString
 block|{
+comment|/**      * The default font size used by Acrobat.      */
+specifier|private
+specifier|static
+specifier|final
+name|float
+name|DEFAULT_FONT_SIZE
+init|=
+literal|12
+decl_stmt|;
 specifier|private
 specifier|final
 name|List
@@ -327,9 +336,8 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|// default font size is 12 in Acrobat
 return|return
-literal|12
+name|DEFAULT_FONT_SIZE
 return|;
 block|}
 comment|/**      * w in an appearance stream represents the lineWidth.      *      * @return the linewidth      */
