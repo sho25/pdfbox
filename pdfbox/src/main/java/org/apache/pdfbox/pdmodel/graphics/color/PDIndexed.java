@@ -232,10 +232,6 @@ name|this
 argument_list|)
 decl_stmt|;
 specifier|private
-name|COSArray
-name|array
-decl_stmt|;
-specifier|private
 name|PDColorSpace
 name|baseColorSpace
 init|=
