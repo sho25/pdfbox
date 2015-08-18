@@ -1758,6 +1758,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|dictionary
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|CF
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// PDFBOX-2936: avoid orphan /CF dictionaries found in US govt "I-" files
+return|return;
+block|}
 comment|// skip dictionary containing the signature
 if|if
 condition|(
