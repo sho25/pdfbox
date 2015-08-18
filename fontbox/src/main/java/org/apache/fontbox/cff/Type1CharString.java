@@ -1185,7 +1185,7 @@ operator|.
 name|size
 argument_list|()
 operator|>=
-literal|6
+literal|5
 condition|)
 block|{
 name|seac
