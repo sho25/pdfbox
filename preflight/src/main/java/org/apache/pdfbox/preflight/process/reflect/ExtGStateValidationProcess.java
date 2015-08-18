@@ -1179,9 +1179,6 @@ parameter_list|)
 block|{
 name|addFontError
 argument_list|(
-operator|(
-name|COSDictionary
-operator|)
 name|fontDict
 argument_list|,
 name|context
