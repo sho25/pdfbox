@@ -401,7 +401,7 @@ specifier|private
 name|ExtractImages
 parameter_list|()
 block|{     }
-comment|/**      * Entry point for the application.      *      * @param args The command-line arguments.      * @throws Exception If there is an error decrypting the document.      */
+comment|/**      * Entry point for the application.      *      * @param args The command-line arguments.      * @throws IOException if there is an error reading the file or extracting the images.      */
 specifier|public
 specifier|static
 name|void
@@ -412,7 +412,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 comment|// suppress the Dock icon on OS X
 name|System
@@ -448,7 +448,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 if|if
 condition|(

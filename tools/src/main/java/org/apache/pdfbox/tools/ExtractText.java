@@ -317,7 +317,7 @@ parameter_list|()
 block|{
 comment|//static class
 block|}
-comment|/**      * Infamous main method.      *      * @param args Command line arguments, should be one and a reference to a file.      *      * @throws Exception If there is an error parsing the document.      */
+comment|/**      * Infamous main method.      *      * @param args Command line arguments, should be one and a reference to a file.      *      * @throws IOException if there is an error reading the document or extracting the text.      */
 specifier|public
 specifier|static
 name|void
@@ -355,7 +355,7 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Starts the text extraction.      *        * @param args the commandline arguments.      *       * @throws Exception if something went wrong.      */
+comment|/**      * Starts the text extraction.      *        * @param args the commandline arguments.      * @throws IOException if there is an error reading the document or extracting the text.      */
 specifier|public
 name|void
 name|startExtraction
@@ -365,7 +365,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|boolean
 name|toConsole

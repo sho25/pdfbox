@@ -23,6 +23,18 @@ name|awt
 operator|.
 name|print
 operator|.
+name|PrinterException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|print
+operator|.
 name|PrinterJob
 import|;
 end_import
@@ -34,6 +46,16 @@ operator|.
 name|io
 operator|.
 name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -115,7 +137,7 @@ parameter_list|()
 block|{
 comment|// static class
 block|}
-comment|/**      * Infamous main method.      *       * @param args Command line arguments, should be one and a reference to a file.      *       * @throws Exception If there is an error parsing the document.      */
+comment|/**      * Infamous main method.      *       * @param args Command line arguments, should be one and a reference to a file.      * @throws PrinterException if the specified service cannot support the Pageable and Printable interfaces.      * @throws IOException if there is an error parsing the file.      *       * @throws Exception If there is an error parsing the document.      */
 specifier|public
 specifier|static
 name|void
@@ -126,7 +148,9 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|PrinterException
+throws|,
+name|IOException
 block|{
 comment|// suppress the Dock icon on OS X
 name|System

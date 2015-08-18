@@ -17,6 +17,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -42,7 +52,7 @@ specifier|private
 name|PDFMerger
 parameter_list|()
 block|{     }
-comment|/**      * Infamous main method.      *      * @param args Command line arguments, should be at least 3.      *      * @throws Exception If there is an error parsing the document.      */
+comment|/**      * Infamous main method.      *      * @param args Command line arguments, should be at least 3.      *      * @throws IOException If there is an error parsing the document.      */
 specifier|public
 specifier|static
 name|void
@@ -53,7 +63,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 comment|// suppress the Dock icon on OS X
 name|System
@@ -89,7 +99,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|int
 name|firstFileArgPos

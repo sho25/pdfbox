@@ -97,7 +97,7 @@ specifier|public
 name|ExportXFDF
 parameter_list|()
 block|{     }
-comment|/**      * This will import an fdf document and write out another pdf.      *<br />      * see usage() for commandline      *      * @param args command line arguments      *      * @throws Exception If there is an error importing the FDF document.      */
+comment|/**      * This will import an fdf document and write out another pdf.      *<br />      * see usage() for commandline      *      * @param args command line arguments      * @throws IOException in case the file can not be read or the data can not be exported.      *      * @throws Exception If there is an error importing the FDF document.      */
 specifier|public
 specifier|static
 name|void
@@ -108,7 +108,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 comment|// suppress the Dock icon on OS X
 name|System
@@ -144,7 +144,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|PDDocument
 name|pdf
