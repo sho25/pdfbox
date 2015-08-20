@@ -149,15 +149,38 @@ argument_list|(
 name|numberOfContours
 argument_list|)
 expr_stmt|;
-comment|// The last end point index reveals the total number of points
-name|pointCount
-operator|=
+name|int
+name|lastEndPt
+init|=
 name|endPtsOfContours
 index|[
 name|numberOfContours
 operator|-
 literal|1
 index|]
+decl_stmt|;
+if|if
+condition|(
+name|numberOfContours
+operator|==
+literal|1
+operator|&&
+name|lastEndPt
+operator|==
+literal|65535
+condition|)
+block|{
+comment|// PDFBOX-2939: assume an empty glyph
+name|pointCount
+operator|=
+literal|0
+expr_stmt|;
+return|return;
+block|}
+comment|// The last end point index reveals the total number of points
+name|pointCount
+operator|=
+name|lastEndPt
 operator|+
 literal|1
 expr_stmt|;
