@@ -214,6 +214,7 @@ comment|/**  * @author Khyrul Bashar  *  * A class that provides the COSStream i
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|Stream
 block|{
