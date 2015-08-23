@@ -572,19 +572,33 @@ name|void
 name|usage
 parameter_list|()
 block|{
+name|String
+name|message
+init|=
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar WriteDecodedDoc [options]<inputfile> [outputfile]\n"
+operator|+
+literal|"\nOptions:\n"
+operator|+
+literal|"  -password<password> : Password to decrypt the document\n"
+operator|+
+literal|"<inputfile>          : The PDF document to be decompressed\n"
+operator|+
+literal|"  [outputfile]         : The filename for the decompressed pdf\n"
+decl_stmt|;
 name|System
 operator|.
 name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java -jar pdfbox-app-x.y.z.jar WriteDecodedDoc [OPTIONS]<input-file> [output-file]\n"
-operator|+
-literal|"  -password<password>      Password to decrypt the document\n"
-operator|+
-literal|"<input-file>              The PDF document to be decompressed\n"
-operator|+
-literal|"  [output-file]             The filename for the decompressed pdf\n"
+name|message
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|exit
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 block|}

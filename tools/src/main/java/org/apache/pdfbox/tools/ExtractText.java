@@ -1308,35 +1308,42 @@ name|void
 name|usage
 parameter_list|()
 block|{
+name|String
+name|message
+init|=
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar ExtractText [options]<inputfile> [output-text-file]\n"
+operator|+
+literal|"\nOptions:\n"
+operator|+
+literal|"  -password<password>        : Password to decrypt document\n"
+operator|+
+literal|"  -encoding<output encoding> : UTF-8 (default) or ISO-8859-1, UTF-16BE, UTF-16LE, etc.\n"
+operator|+
+literal|"  -console                     : Send text to console instead of file\n"
+operator|+
+literal|"  -html                        : Output in HTML format instead of raw text\n"
+operator|+
+literal|"  -sort                        : Sort the text before writing\n"
+operator|+
+literal|"  -ignoreBeads                 : Disables the separation by beads\n"
+operator|+
+literal|"  -debug                       : Enables debug output about the time consumption of every stage\n"
+operator|+
+literal|"  -startPage<number>          : The first page to start extraction(1 based)\n"
+operator|+
+literal|"  -endPage<number>            : The last page to extract(inclusive)\n"
+operator|+
+literal|"<inputfile>                  : The PDF document to use\n"
+operator|+
+literal|"  [output-text-file]           : The file to write the text to"
+decl_stmt|;
 name|System
 operator|.
 name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java -jar pdfbox-app-x.y.z.jar ExtractText [OPTIONS]<PDF file> [Text File]\n"
-operator|+
-literal|"  -password<password>        Password to decrypt document\n"
-operator|+
-literal|"  -encoding<output encoding> UTF-8 (default) or ISO-8859-1, UTF-16BE, UTF-16LE, etc.\n"
-operator|+
-literal|"  -console                     Send text to console instead of file\n"
-operator|+
-literal|"  -html                        Output in HTML format instead of raw text\n"
-operator|+
-literal|"  -sort                        Sort the text before writing\n"
-operator|+
-literal|"  -ignoreBeads                 Disables the separation by beads\n"
-operator|+
-literal|"  -debug                       Enables debug output about the time consumption of every stage\n"
-operator|+
-literal|"  -startPage<number>          The first page to start extraction(1 based)\n"
-operator|+
-literal|"  -endPage<number>            The last page to extract(inclusive)\n"
-operator|+
-literal|"<PDF file>                   The PDF document to use\n"
-operator|+
-literal|"  [Text File]                  The file to write the text to\n"
+name|message
 argument_list|)
 expr_stmt|;
 name|System

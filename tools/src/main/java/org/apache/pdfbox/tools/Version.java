@@ -132,7 +132,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: "
+literal|"Usage: "
 operator|+
 name|Version
 operator|.
@@ -140,6 +140,13 @@ name|class
 operator|.
 name|getName
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|exit
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 block|}

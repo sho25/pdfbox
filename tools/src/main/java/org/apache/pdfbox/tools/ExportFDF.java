@@ -326,22 +326,29 @@ name|void
 name|usage
 parameter_list|()
 block|{
+name|String
+name|message
+init|=
+literal|"Usage: org.apache.pdfbox.ExportFDF<inputfile> [output-fdf-file]\n"
+operator|+
+literal|"\nOptions:\n"
+operator|+
+literal|"  [output-fdf-file] : Default is pdf name, test.pdf->test.fdf"
+decl_stmt|;
 name|System
 operator|.
 name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: org.apache.pdfbox.ExortFDF<pdf-file> [output-fdf-file]"
+name|message
 argument_list|)
 expr_stmt|;
 name|System
 operator|.
-name|err
-operator|.
-name|println
+name|exit
 argument_list|(
-literal|"    [output-fdf-file] - Default is pdf name, test.pdf->test.fdf"
+literal|1
 argument_list|)
 expr_stmt|;
 block|}

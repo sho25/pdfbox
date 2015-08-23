@@ -557,51 +557,32 @@ name|void
 name|usage
 parameter_list|()
 block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"usage: java -jar pdfbox-app-x.y.z.jar Decrypt "
+name|String
+name|message
+init|=
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar Decrypt [options]<inputfile> [outputfile]\n"
 operator|+
-literal|"[options]<inputfile> [outputfile]"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"-alias      The alias of the key in the certificate file "
+literal|"\nOptions:\n"
 operator|+
-literal|"(mandatory if several keys are available)"
-argument_list|)
-expr_stmt|;
+literal|"  -alias    : The alias of the key in the certificate file (mandatory if several keys are available\n"
+operator|+
+literal|"  -password : The password to open the certificate and extract the private key from it.\n"
+operator|+
+literal|"  -keyStore : The KeyStore that holds the certificate."
+decl_stmt|;
 name|System
 operator|.
 name|err
 operator|.
 name|println
 argument_list|(
-literal|"-password   The password to open the certificate and extract the private key from it."
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"-keyStore   The KeyStore that holds the certificate."
+name|message
 argument_list|)
 expr_stmt|;
 name|System
 operator|.
 name|exit
 argument_list|(
-operator|-
 literal|1
 argument_list|)
 expr_stmt|;

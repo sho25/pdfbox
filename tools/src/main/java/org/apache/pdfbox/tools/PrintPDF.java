@@ -486,17 +486,24 @@ name|void
 name|usage
 parameter_list|()
 block|{
+name|String
+name|message
+init|=
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar PrintPDF [options]<inputfile>\n"
+operator|+
+literal|"\nOptions:\n"
+operator|+
+literal|"  -password<password> : Password to decrypt document\n"
+operator|+
+literal|"  -silentPrint          : Print without prompting for printer info\n"
+decl_stmt|;
 name|System
 operator|.
 name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java -jar pdfbox-app-x.y.z.jar PrintPDF [OPTIONS]<PDF file>\n"
-operator|+
-literal|"  -password<password>        Password to decrypt document\n"
-operator|+
-literal|"  -silentPrint                 Print without prompting for printer info\n"
+name|message
 argument_list|)
 expr_stmt|;
 name|System

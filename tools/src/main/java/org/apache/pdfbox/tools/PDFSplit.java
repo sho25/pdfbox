@@ -858,25 +858,32 @@ name|void
 name|usage
 parameter_list|()
 block|{
+name|String
+name|message
+init|=
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFSplit [options]<inputfile>\n"
+operator|+
+literal|"\nOptions:\n"
+operator|+
+literal|"  -password<password>  : Password to decrypt document\n"
+operator|+
+literal|"  -split<integer>   : split after this many pages (default 1, if startPage and endPage are unset)\n"
+operator|+
+literal|"  -startPage<integer>   : start page\n"
+operator|+
+literal|"  -endPage<integer>   : end page\n"
+operator|+
+literal|"  -outputPrefix<prefix> : Filename prefix for splitted files\n"
+operator|+
+literal|"<inputfile>            : The PDF document to use\n"
+decl_stmt|;
 name|System
 operator|.
 name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFSplit [OPTIONS]<PDF file>\n"
-operator|+
-literal|"  -password<password>  Password to decrypt document\n"
-operator|+
-literal|"  -split<integer>   split after this many pages (default 1, if startPage and endPage are unset)\n"
-operator|+
-literal|"  -startPage<integer>   start page\n"
-operator|+
-literal|"  -endPage<integer>   end page\n"
-operator|+
-literal|"  -outputPrefix<output prefix>  Filename prefix for image files\n"
-operator|+
-literal|"<PDF file>             The PDF document to use\n"
+name|message
 argument_list|)
 expr_stmt|;
 name|System

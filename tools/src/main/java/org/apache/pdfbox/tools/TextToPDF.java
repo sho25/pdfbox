@@ -1150,22 +1150,14 @@ init|=
 name|getStandard14Names
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"usage: jar -jar pdfbox-app-x.y.z.jar TextToPDF [options]<output-file><text-file>"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"    -standardFont<name>    default:"
+name|String
+name|message
+init|=
+literal|"Usage: jar -jar pdfbox-app-x.y.z.jar TextToPDF [options]<outputfile><textfile>\n"
+operator|+
+literal|"\nOptions:\n"
+operator|+
+literal|"  -standardFont<name> : "
 operator|+
 name|PDType1Font
 operator|.
@@ -1173,8 +1165,9 @@ name|HELVETICA
 operator|.
 name|getBaseFont
 argument_list|()
-argument_list|)
-expr_stmt|;
+operator|+
+literal|" (default)\n"
+decl_stmt|;
 for|for
 control|(
 name|String
@@ -1183,26 +1176,24 @@ range|:
 name|std14
 control|)
 block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"                                    "
+name|message
+operator|=
+name|message
+operator|+
+literal|"                         "
 operator|+
 name|std14String
-argument_list|)
+operator|+
+literal|"\n"
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"    -ttf<ttf file>         The TTF font to use."
-argument_list|)
+name|message
+operator|=
+name|message
+operator|+
+literal|"  -ttf<ttf file>      : The TTF font to use.\n"
+operator|+
+literal|"  -fontSize<fontSize> : default:10"
 expr_stmt|;
 name|System
 operator|.
@@ -1210,7 +1201,14 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"    -fontSize<fontSize>    default:10"
+name|message
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|exit
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 block|}

@@ -673,23 +673,30 @@ name|void
 name|usage
 parameter_list|()
 block|{
+name|String
+name|message
+init|=
+literal|"Usage: java org.apache.pdfbox.tools.ExtractImages [options]<inputfile>\n"
+operator|+
+literal|"\nOptions:\n"
+operator|+
+literal|"  -password<password>   : Password to decrypt document\n"
+operator|+
+literal|"  -prefix<image-prefix> : Image prefix(default to pdf name)\n"
+operator|+
+literal|"  -directJPEG            : Forces the direct extraction of JPEG images "
+operator|+
+literal|"regardless of colorspace\n"
+operator|+
+literal|"<inputfile>            : The PDF document to use\n"
+decl_stmt|;
 name|System
 operator|.
 name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.tools.ExtractImages [OPTIONS]<PDF file>\n"
-operator|+
-literal|"  -password<password>        Password to decrypt document\n"
-operator|+
-literal|"  -prefix<image-prefix>      Image prefix(default to pdf name)\n"
-operator|+
-literal|"  -directJPEG                  Forces the direct extraction of JPEG images "
-operator|+
-literal|"regardless of colorspace\n"
-operator|+
-literal|"<PDF file>                   The PDF document to use\n"
+name|message
 argument_list|)
 expr_stmt|;
 name|System

@@ -5942,17 +5942,31 @@ name|void
 name|usage
 parameter_list|()
 block|{
+name|String
+name|message
+init|=
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFDebugger [options]<inputfile>\n"
+operator|+
+literal|"\nOptons:\n"
+operator|+
+literal|"  -password<password> : Password to decrypt the document\n"
+operator|+
+literal|"<inputfile>          : The PDF document to be loaded\n"
+decl_stmt|;
 name|System
 operator|.
 name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java -jar pdfbox-app-x.y.z.jar PDFDebugger [OPTIONS]<input-file>\n"
-operator|+
-literal|"  -password<password>      Password to decrypt the document\n"
-operator|+
-literal|"<input-file>              The PDF document to be loaded\n"
+name|message
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|exit
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 block|}

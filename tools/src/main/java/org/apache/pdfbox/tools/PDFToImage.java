@@ -1239,40 +1239,47 @@ name|void
 name|usage
 parameter_list|()
 block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFToImage [OPTIONS]<PDF file>\n"
+name|String
+name|message
+init|=
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFToImage [options]<inputfile>\n"
 operator|+
-literal|"  -password<password>          Password to decrypt document\n"
+literal|"\nOptions:\n"
 operator|+
-literal|"  -format<string>               Image format: "
+literal|"  -password<password>            : Password to decrypt document\n"
+operator|+
+literal|"  -format<string>                 : Image format: "
 operator|+
 name|getImageFormats
 argument_list|()
 operator|+
 literal|"\n"
 operator|+
-literal|"  -prefix<string>               Filename prefix for image files\n"
+literal|"  -prefix<string>                 : Filename prefix for image files\n"
 operator|+
-literal|"  -page<number>                 The only page to extract (1-based)\n"
+literal|"  -page<number>                   : The only page to extract (1-based)\n"
 operator|+
-literal|"  -startPage<number>            The first page to start extraction (1-based)\n"
+literal|"  -startPage<int>                 : The first page to start extraction (1-based)\n"
 operator|+
-literal|"  -endPage<number>              The last page to extract(inclusive)\n"
+literal|"  -endPage<int>                   : The last page to extract(inclusive)\n"
 operator|+
-literal|"  -color<string>                The color depth (valid: bilevel, indexed, gray, rgb, rgba)\n"
+literal|"  -color<int>                     : The color depth (valid: bilevel, indexed, gray, rgb, rgba)\n"
 operator|+
-literal|"  -dpi<number>                  The DPI of the output image\n"
+literal|"  -dpi<int>                       : The DPI of the output image\n"
 operator|+
-literal|"  -cropbox<number><number><number><number> The page area to export\n"
+literal|"  -cropbox<int><int><int><int> : The page area to export\n"
 operator|+
-literal|"  -time                          Prints timing information to stdout\n"
+literal|"  -time                            : Prints timing information to stdout\n"
 operator|+
-literal|"<PDF file>                     The PDF document to use\n"
+literal|"<inputfile>                      : The PDF document to use\n"
+decl_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+name|message
 argument_list|)
 expr_stmt|;
 name|System

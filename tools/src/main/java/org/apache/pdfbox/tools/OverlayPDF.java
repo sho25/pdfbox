@@ -770,96 +770,39 @@ name|void
 name|usage
 parameter_list|()
 block|{
-name|StringBuilder
+name|String
 name|message
 init|=
-operator|new
-name|StringBuilder
-argument_list|()
-decl_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"usage: java -jar pdfbox-app-x.y.z.jar OverlayPDF<input.pdf> [OPTIONS]<output.pdf>\n"
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"<input.pdf>                                        input file\n"
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"<defaultOverlay.pdf>                               default overlay file\n"
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"  -odd<oddPageOverlay.pdf>                          overlay file used for odd pages\n"
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"  -even<evenPageOverlay.pdf>                        overlay file used for even pages\n"
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"  -first<firstPageOverlay.pdf>                      overlay file used for the first page\n"
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"  -last<lastPageOverlay.pdf>                        overlay file used for the last page\n"
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"  -useAllPages<allPagesOverlay.pdf>                 overlay file used for overlay, all pages"
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar OverlayPDF<inputfile> [options]<outputfile>\n"
+operator|+
+literal|"\nOptions:\n"
+operator|+
+literal|"<inputfile>                                  : input file\n"
+operator|+
+literal|"<defaultOverlay.pdf>                         : default overlay file\n"
+operator|+
+literal|"  -odd<oddPageOverlay.pdf>                    : overlay file used for odd pages\n"
+operator|+
+literal|"  -even<evenPageOverlay.pdf>                  : overlay file used for even pages\n"
+operator|+
+literal|"  -first<firstPageOverlay.pdf>                : overlay file used for the first page\n"
+operator|+
+literal|"  -last<lastPageOverlay.pdf>                  : overlay file used for the last page\n"
+operator|+
+literal|"  -useAllPages<allPagesOverlay.pdf>           : overlay file used for overlay, all pages"
 operator|+
 literal|" are used by simply repeating them\n"
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"  -page<pageNumber><specificPageOverlay.pdf>       overlay file used for "
+operator|+
+literal|"  -page<pageNumber><specificPageOverlay.pdf> : overlay file used for "
 operator|+
 literal|"the given page number, may occur more than once\n"
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"  -position foreground|background                    where to put the overlay "
+operator|+
+literal|"  -position foreground|background              : where to put the overlay "
 operator|+
 literal|"file: foreground or background\n"
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-literal|"<output.pdf>                                       output file\n"
-argument_list|)
-expr_stmt|;
+operator|+
+literal|"<outputfile>                                 : output file"
+decl_stmt|;
 name|System
 operator|.
 name|err
@@ -867,9 +810,6 @@ operator|.
 name|println
 argument_list|(
 name|message
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|System

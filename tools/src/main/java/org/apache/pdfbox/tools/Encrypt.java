@@ -892,134 +892,48 @@ name|void
 name|usage
 parameter_list|()
 block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"usage: java -jar pdfbox-app-x.y.z.jar Encrypt [options]<inputfile> [outputfile]"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -O<password>                            "
+name|String
+name|message
+init|=
+literal|"Usage: java -jar pdfbox-app-x.y.z.jar Encrypt [options]<inputfile> [outputfile]\n"
 operator|+
-literal|"Set the owner password(ignored if cert is set)"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -U<password>                            "
+literal|"\nOptions:\n"
 operator|+
-literal|"Set the user password(ignored if cert is set)"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -certFile<path to cert>                 Path to X.509 certificate"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -canAssemble<true|false>                Set the assemble permission"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -canExtractContent<true|false>          Set the extraction permission"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -canExtractForAccessibility<true|false> Set the extraction permission"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -canFillInForm<true|false>              Set the fill in form permission"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -canModify<true|false>                  Set the modify permission"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -canModifyAnnotations<true|false>       Set the modify annots permission"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -canPrint<true|false>                   Set the print permission"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -canPrintDegraded<true|false>           Set the print degraded permission"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"   -keyLength<length>                      The length of the key in bits (valid values: 40, 128 or 256, default is 40)"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
+literal|"  -O<password>                            : Set the owner password (ignored if cert is set)\n"
+operator|+
+literal|"  -U<password>                            : Set the user password (ignored if cert is set)\n"
+operator|+
+literal|"  -certFile<path to cert>                 : Path to X.509 certificate\n"
+operator|+
+literal|"  -canAssemble<true|false>                : Set the assemble permission\n"
+operator|+
+literal|"  -canExtractContent<true|false>          : Set the extraction permission\n"
+operator|+
+literal|"  -canExtractForAccessibility<true|false> : Set the extraction permission\n"
+operator|+
+literal|"  -canFillInForm<true|false>              : Set the fill in form permission\n"
+operator|+
+literal|"  -canModify<true|false>                  : Set the modify permission\n"
+operator|+
+literal|"  -canModifyAnnotations<true|false>       : Set the modify annots permission\n"
+operator|+
+literal|"  -canPrint<true|false>                   : Set the print permission\n"
+operator|+
+literal|"  -canPrintDegraded<true|false>           : Set the print degraded permission\n"
+operator|+
+literal|"  -keyLength<length>                      : The length of the key in bits "
+operator|+
+literal|"(valid values: 40, 128 or 256, default is 40)\n"
+operator|+
 literal|"\nNote: By default all permissions are set to true!"
+decl_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+name|message
 argument_list|)
 expr_stmt|;
 name|System

@@ -325,6 +325,13 @@ argument_list|(
 literal|"usage: org.apache.pdfbox.tools.ImportXFDF<pdf-file><fdf-file><output-file>"
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Close the document.      *      * @param doc The doc to close.      *      * @throws IOException If there is an error closing the document.      */
 specifier|public

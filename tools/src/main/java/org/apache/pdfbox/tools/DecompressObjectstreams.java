@@ -409,19 +409,26 @@ name|void
 name|usage
 parameter_list|()
 block|{
+name|String
+name|message
+init|=
+literal|"Usage: java -cp pdfbox-app-x.y.z.jar "
+operator|+
+literal|"org.apache.pdfbox.tools.DecompressObjectstreams<inputfile> [<outputfile>]\n"
+operator|+
+literal|"\nOptions:\n"
+operator|+
+literal|"<inputfile>  : The PDF document to decompress\n"
+operator|+
+literal|"<outputfile> : The output filename (default is to replace .pdf with .unc.pdf)"
+decl_stmt|;
 name|System
 operator|.
 name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java -cp pdfbox-app-x.y.z.jar "
-operator|+
-literal|"org.apache.pdfbox.tools.DecompressObjectstreams<input PDF File> [<Output PDF File>]\n"
-operator|+
-literal|"<input PDF File>       The PDF document to decompress\n"
-operator|+
-literal|"<output PDF File>      The output filename (default is to replace .pdf with .unc.pdf)"
+name|message
 argument_list|)
 expr_stmt|;
 name|System

@@ -392,12 +392,9 @@ name|void
 name|showMessageAndExit
 parameter_list|()
 block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
+name|String
+name|message
+init|=
 literal|"PDFBox version: \""
 operator|+
 name|Version
@@ -406,150 +403,46 @@ name|getVersion
 argument_list|()
 operator|+
 literal|"\""
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"\nUsage: java pdfbox-app-x.y.z.jar<command><args..>"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
+operator|+
+literal|"\nUsage: java pdfbox-app-x.y.z.jar<command><args..>\n"
+operator|+
 literal|"\nPossible commands are:\n"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  ConvertColorspace"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  Decrypt"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  Encrypt"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  ExtractText"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  ExtractImages"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  OverlayPDF"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  PrintPDF"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  PDFDebugger"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  PDFMerger"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  PDFReader"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  PDFSplit"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  PDFToImage"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"  TextToPDF"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
+operator|+
+literal|"  ConvertColorspace\n"
+operator|+
+literal|"  Decrypt\n"
+operator|+
+literal|"  Encrypt\n"
+operator|+
+literal|"  ExtractText\n"
+operator|+
+literal|"  ExtractImages\n"
+operator|+
+literal|"  OverlayPDF\n"
+operator|+
+literal|"  PrintPDF\n"
+operator|+
+literal|"  PDFDebugger\n"
+operator|+
+literal|"  PDFMerger\n"
+operator|+
+literal|"  PDFReader\n"
+operator|+
+literal|"  PDFSplit\n"
+operator|+
+literal|"  PDFToImage\n"
+operator|+
+literal|"  TextToPDF\n"
+operator|+
 literal|"  WriteDecodedDoc"
+decl_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+name|message
 argument_list|)
 expr_stmt|;
 name|System
