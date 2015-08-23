@@ -21,9 +21,14 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|PDFBox
 block|{
+specifier|private
+name|PDFBox
+parameter_list|()
+block|{     }
 comment|/**      * Main method.      *       * @param args command line arguments      */
 specifier|public
 specifier|static

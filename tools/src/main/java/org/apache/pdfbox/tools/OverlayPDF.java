@@ -99,6 +99,7 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|OverlayPDF
 block|{
@@ -174,6 +175,10 @@ name|USEALLPAGES
 init|=
 literal|"-useAllPages"
 decl_stmt|;
+specifier|private
+name|OverlayPDF
+parameter_list|()
+block|{     }
 comment|/**      * This will overlay a document and write out the results.      *      * @param args command line arguments      * @throws Exception if something went wrong      */
 specifier|public
 specifier|static

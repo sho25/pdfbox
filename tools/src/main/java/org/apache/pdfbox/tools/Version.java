@@ -20,6 +20,7 @@ comment|/**  * A simple command line utility to get the version of PDFBox.  *  *
 end_comment
 
 begin_class
+specifier|final
 class|class
 name|Version
 block|{

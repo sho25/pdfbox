@@ -115,9 +115,15 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|DecompressObjectstreams
 block|{
+comment|/**      * private constructor.      */
+specifier|private
+name|DecompressObjectstreams
+parameter_list|()
+block|{     }
 comment|/**      * This is a very simple program, so everything is in the main method.      * @param args arguments to the program      */
 specifier|public
 specifier|static
