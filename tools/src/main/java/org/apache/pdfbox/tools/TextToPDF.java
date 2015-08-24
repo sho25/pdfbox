@@ -656,11 +656,11 @@ operator|.
 name|length
 condition|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|nextLineToDraw
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|float
