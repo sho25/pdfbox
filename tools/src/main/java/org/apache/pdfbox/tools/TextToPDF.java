@@ -184,19 +184,55 @@ specifier|public
 class|class
 name|TextToPDF
 block|{
+comment|/**      * The scaling factor for font units to PDF units      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FONTSCALE
+init|=
+literal|1000
+decl_stmt|;
+comment|/**      * The default font      */
+specifier|private
+specifier|static
+specifier|final
+name|PDType1Font
+name|DEFAULT_FONT
+init|=
+name|PDType1Font
+operator|.
+name|HELVETICA
+decl_stmt|;
+comment|/**      * The default font size      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_FONT_SIZE
+init|=
+literal|10
+decl_stmt|;
+comment|/**      * The line height as a factor of the font size      */
+specifier|private
+specifier|static
+specifier|final
+name|float
+name|LINE_HEIGHT_FACTOR
+init|=
+literal|1.05f
+decl_stmt|;
 specifier|private
 name|int
 name|fontSize
 init|=
-literal|10
+name|DEFAULT_FONT_SIZE
 decl_stmt|;
 specifier|private
 name|PDFont
 name|font
 init|=
-name|PDType1Font
-operator|.
-name|HELVETICA
+name|DEFAULT_FONT
 decl_stmt|;
 specifier|private
 specifier|static
@@ -507,16 +543,16 @@ operator|.
 name|getHeight
 argument_list|()
 operator|/
-literal|1000
+name|FONTSCALE
 decl_stmt|;
-comment|//calculate font height and increase by 5 percent.
+comment|//calculate font height and increase by a factor.
 name|height
 operator|=
 name|height
 operator|*
 name|fontSize
 operator|*
-literal|1.05f
+name|LINE_HEIGHT_FACTOR
 expr_stmt|;
 name|BufferedReader
 name|data
@@ -686,7 +722,7 @@ argument_list|(
 name|lineWithNextWord
 argument_list|)
 operator|/
-literal|1000
+name|FONTSCALE
 operator|)
 operator|*
 name|fontSize
@@ -1150,24 +1186,41 @@ init|=
 name|getStandard14Names
 argument_list|()
 decl_stmt|;
-name|String
+name|StringBuilder
 name|message
 init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
+name|message
+operator|.
+name|append
+argument_list|(
 literal|"Usage: jar -jar pdfbox-app-x.y.z.jar TextToPDF [options]<outputfile><textfile>\n"
-operator|+
+argument_list|)
+expr_stmt|;
+name|message
+operator|.
+name|append
+argument_list|(
 literal|"\nOptions:\n"
-operator|+
+argument_list|)
+expr_stmt|;
+name|message
+operator|.
+name|append
+argument_list|(
 literal|"  -standardFont<name> : "
 operator|+
-name|PDType1Font
-operator|.
-name|HELVETICA
+name|DEFAULT_FONT
 operator|.
 name|getBaseFont
 argument_list|()
 operator|+
 literal|" (default)\n"
-decl_stmt|;
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -1177,23 +1230,32 @@ name|std14
 control|)
 block|{
 name|message
-operator|=
-name|message
-operator|+
+operator|.
+name|append
+argument_list|(
 literal|"                         "
 operator|+
 name|std14String
 operator|+
 literal|"\n"
+argument_list|)
 expr_stmt|;
 block|}
 name|message
-operator|=
-name|message
-operator|+
+operator|.
+name|append
+argument_list|(
 literal|"  -ttf<ttf file>      : The TTF font to use.\n"
+argument_list|)
+expr_stmt|;
+name|message
+operator|.
+name|append
+argument_list|(
+literal|"  -fontSize<fontSize> : default: "
 operator|+
-literal|"  -fontSize<fontSize> : default:10"
+name|DEFAULT_FONT_SIZE
+argument_list|)
 expr_stmt|;
 name|System
 operator|.
@@ -1202,6 +1264,9 @@ operator|.
 name|println
 argument_list|(
 name|message
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|System
