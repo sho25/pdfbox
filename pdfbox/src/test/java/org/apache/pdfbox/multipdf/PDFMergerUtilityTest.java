@@ -191,6 +191,38 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|// see PDFBOX-2893
+specifier|public
+name|void
+name|testPDFMergerUtility2
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|checkMergeIdentical
+argument_list|(
+literal|"PDFBox.GlobalResourceMergeTest.Doc01.pdf"
+argument_list|,
+literal|"PDFBox.GlobalResourceMergeTest.Doc02.pdf"
+argument_list|,
+literal|"GlobalResourceMergeTestResult.pdf"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// once again, with scratch file
+name|checkMergeIdentical
+argument_list|(
+literal|"PDFBox.GlobalResourceMergeTest.Doc01.pdf"
+argument_list|,
+literal|"PDFBox.GlobalResourceMergeTest.Doc02.pdf"
+argument_list|,
+literal|"GlobalResourceMergeTestResult2.pdf"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 comment|// checks that the result file of a merge has the same rendering as the two
 comment|// source files
 specifier|private

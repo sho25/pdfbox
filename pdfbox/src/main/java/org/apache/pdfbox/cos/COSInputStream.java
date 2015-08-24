@@ -264,6 +264,7 @@ literal|null
 condition|)
 block|{
 comment|// scratch file
+specifier|final
 name|RandomAccess
 name|buffer
 init|=
@@ -311,11 +312,23 @@ name|RandomAccessInputStream
 argument_list|(
 name|buffer
 argument_list|)
-expr_stmt|;
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+block|{
 name|buffer
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+block|}
+block|}
 expr_stmt|;
 block|}
 else|else
