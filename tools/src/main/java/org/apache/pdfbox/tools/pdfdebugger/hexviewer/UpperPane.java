@@ -303,7 +303,7 @@ name|g
 operator|.
 name|drawString
 argument_list|(
-literal|"Dump"
+literal|"Text"
 argument_list|,
 name|x
 argument_list|,
