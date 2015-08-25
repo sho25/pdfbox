@@ -313,10 +313,6 @@ name|ADDRESS_PANE_WIDTH
 operator|+
 name|ASCII_PANE_WIDTH
 decl_stmt|;
-specifier|static
-name|int
-name|TOTAL_HEIGHT
-decl_stmt|;
 comment|/**      * Constructor.      * @param bytes takes a byte array.      */
 specifier|public
 name|HexView
@@ -456,19 +452,6 @@ argument_list|(
 name|bytes
 argument_list|)
 decl_stmt|;
-name|TOTAL_HEIGHT
-operator|=
-name|CHAR_HEIGHT
-operator|*
-operator|(
-name|model
-operator|.
-name|totalLine
-argument_list|()
-operator|+
-literal|1
-operator|)
-expr_stmt|;
 return|return
 operator|new
 name|HexEditor

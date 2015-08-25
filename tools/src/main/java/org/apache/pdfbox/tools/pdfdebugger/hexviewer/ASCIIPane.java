@@ -141,7 +141,16 @@ name|ASCII_PANE_WIDTH
 argument_list|,
 name|HexView
 operator|.
-name|TOTAL_HEIGHT
+name|CHAR_HEIGHT
+operator|*
+operator|(
+name|model
+operator|.
+name|totalLine
+argument_list|()
+operator|+
+literal|1
+operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;

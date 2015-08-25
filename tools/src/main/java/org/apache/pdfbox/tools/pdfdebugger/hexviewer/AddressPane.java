@@ -139,7 +139,9 @@ name|ADDRESS_PANE_WIDTH
 argument_list|,
 name|HexView
 operator|.
-name|TOTAL_HEIGHT
+name|CHAR_HEIGHT
+operator|*
+name|totalLine
 argument_list|)
 argument_list|)
 expr_stmt|;

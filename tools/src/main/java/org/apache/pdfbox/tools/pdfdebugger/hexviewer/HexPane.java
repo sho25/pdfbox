@@ -225,7 +225,6 @@ name|HexModel
 name|model
 decl_stmt|;
 specifier|private
-specifier|static
 name|int
 name|selectedIndex
 init|=
@@ -329,7 +328,16 @@ name|HEX_PANE_WIDTH
 argument_list|,
 name|HexView
 operator|.
-name|TOTAL_HEIGHT
+name|CHAR_HEIGHT
+operator|*
+operator|(
+name|model
+operator|.
+name|totalLine
+argument_list|()
+operator|+
+literal|1
+operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1076,9 +1084,7 @@ operator|.
 name|CHAR_WIDTH
 operator|)
 decl_stmt|;
-name|int
-name|index
-init|=
+return|return
 operator|(
 name|lineNumber
 operator|-
@@ -1088,9 +1094,6 @@ operator|*
 literal|16
 operator|+
 name|elementNumber
-decl_stmt|;
-return|return
-name|index
 return|;
 block|}
 comment|/**      * Returns the starting point in the view for any index.      * @param index int.      * @return Point instance.      */
@@ -1319,7 +1322,7 @@ name|HexChangedEvent
 argument_list|(
 name|value
 argument_list|,
-name|selectedIndex
+name|index
 argument_list|)
 argument_list|)
 expr_stmt|;

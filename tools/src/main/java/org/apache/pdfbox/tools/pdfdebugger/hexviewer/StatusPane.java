@@ -70,9 +70,10 @@ extends|extends
 name|JPanel
 block|{
 specifier|private
+specifier|static
 specifier|final
 name|int
-name|height
+name|HEIGHT
 init|=
 literal|20
 decl_stmt|;
@@ -146,7 +147,7 @@ name|Dimension
 argument_list|(
 literal|100
 argument_list|,
-name|height
+name|HEIGHT
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -167,7 +168,7 @@ name|Dimension
 argument_list|(
 literal|100
 argument_list|,
-name|height
+name|HEIGHT
 argument_list|)
 argument_list|)
 expr_stmt|;
