@@ -131,7 +131,11 @@ name|HexView
 operator|.
 name|CHAR_HEIGHT
 operator|*
+operator|(
 name|totalLine
+operator|+
+literal|1
+operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
