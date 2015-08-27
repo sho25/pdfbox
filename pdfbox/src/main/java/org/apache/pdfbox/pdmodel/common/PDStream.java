@@ -741,6 +741,13 @@ init|=
 name|getFilters
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|filters
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|int
@@ -771,6 +778,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|(
+name|stopFilters
+operator|!=
+literal|null
+operator|)
+operator|&&
 name|stopFilters
 operator|.
 name|contains
@@ -834,6 +847,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
