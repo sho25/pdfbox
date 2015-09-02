@@ -1639,7 +1639,7 @@ name|format
 argument_list|(
 literal|"Can't encode U+%04X in font %s. "
 operator|+
-literal|"Type 1 fonts only supports 8-bit code points"
+literal|"Type 1 fonts only support 8-bit code points"
 argument_list|,
 name|unicode
 argument_list|,
