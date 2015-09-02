@@ -203,20 +203,12 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-specifier|protected
-specifier|final
+specifier|private
 name|Set
 argument_list|<
 name|String
 argument_list|>
 name|names
-init|=
-operator|new
-name|HashSet
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
 decl_stmt|;
 comment|/**      * Returns an unmodifiable view of the Code2Name mapping.      *       * @return the Code2Name map      */
 specifier|public
@@ -259,13 +251,6 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-name|names
-operator|.
-name|add
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Determines if the encoding has a mapping for the given name value.      *       * @param name PostScript glyph name      */
 specifier|public
@@ -276,6 +261,35 @@ name|String
 name|name
 parameter_list|)
 block|{
+comment|// we have to wait until all add() calls are done before building the name cache
+comment|// otherwise /Differences won't be accounted for
+if|if
+condition|(
+name|names
+operator|==
+literal|null
+condition|)
+block|{
+name|names
+operator|=
+operator|new
+name|HashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+expr_stmt|;
+name|names
+operator|.
+name|addAll
+argument_list|(
+name|codeToName
+operator|.
+name|values
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|names
 operator|.
