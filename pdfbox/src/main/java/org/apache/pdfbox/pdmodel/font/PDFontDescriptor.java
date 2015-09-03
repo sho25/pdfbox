@@ -1931,10 +1931,6 @@ decl_stmt|;
 if|if
 condition|(
 name|cidSet
-operator|!=
-literal|null
-operator|&&
-name|cidSet
 operator|instanceof
 name|COSStream
 condition|)
