@@ -92,7 +92,7 @@ name|glyphDescription
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * This will read the required data from the stream.      *       * @param glyphTable The glyph table this glyph belongs to.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * This will read the required data from the stream.      *       * @param glyphTable The glyph table this glyph belongs to.      * @param data The stream to read the data from.      * @param leftSideBearing The left side bearing for this glyph.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|void
 name|initData
@@ -102,6 +102,9 @@ name|glyphTable
 parameter_list|,
 name|TTFDataStream
 name|data
+parameter_list|,
+name|int
+name|leftSideBearing
 parameter_list|)
 throws|throws
 name|IOException
@@ -163,6 +166,18 @@ literal|0
 condition|)
 block|{
 comment|// create a simple glyph
+name|short
+name|x0
+init|=
+call|(
+name|short
+call|)
+argument_list|(
+name|leftSideBearing
+operator|-
+name|xMin
+argument_list|)
+decl_stmt|;
 name|glyphDescription
 operator|=
 operator|new
@@ -171,6 +186,8 @@ argument_list|(
 name|numberOfContours
 argument_list|,
 name|data
+argument_list|,
+name|x0
 argument_list|)
 expr_stmt|;
 block|}

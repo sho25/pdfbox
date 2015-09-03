@@ -105,7 +105,7 @@ specifier|final
 name|int
 name|pointCount
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param numberOfContours number of contours      * @param bais the stream to be read      * @throws IOException is thrown if something went wrong      */
+comment|/**      * Constructor.      *       * @param numberOfContours number of contours      * @param bais the stream to be read      * @param x0 the initial X-position      * @throws IOException is thrown if something went wrong      */
 specifier|public
 name|GlyfSimpleDescript
 parameter_list|(
@@ -114,6 +114,9 @@ name|numberOfContours
 parameter_list|,
 name|TTFDataStream
 name|bais
+parameter_list|,
+name|short
+name|x0
 parameter_list|)
 throws|throws
 name|IOException
@@ -235,6 +238,8 @@ argument_list|(
 name|pointCount
 argument_list|,
 name|bais
+argument_list|,
+name|x0
 argument_list|)
 expr_stmt|;
 block|}
@@ -344,6 +349,9 @@ name|count
 parameter_list|,
 name|TTFDataStream
 name|bais
+parameter_list|,
+name|short
+name|x0
 parameter_list|)
 throws|throws
 name|IOException
@@ -351,7 +359,7 @@ block|{
 name|short
 name|x
 init|=
-literal|0
+name|x0
 decl_stmt|;
 name|short
 name|y
