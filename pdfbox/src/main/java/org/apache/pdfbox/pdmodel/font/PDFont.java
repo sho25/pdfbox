@@ -397,7 +397,7 @@ decl_stmt|;
 specifier|private
 name|List
 argument_list|<
-name|Integer
+name|Float
 argument_list|>
 name|widths
 decl_stmt|;
@@ -1498,7 +1498,7 @@ specifier|protected
 specifier|final
 name|List
 argument_list|<
-name|Integer
+name|Float
 argument_list|>
 name|getWidths
 parameter_list|()
@@ -1536,7 +1536,7 @@ name|widths
 operator|=
 name|COSArrayList
 operator|.
-name|convertIntegerCOSArrayToList
+name|convertFloatCOSArrayToList
 argument_list|(
 name|array
 argument_list|)
