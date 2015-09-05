@@ -978,7 +978,7 @@ name|COSNumber
 operator|)
 name|floatArray
 operator|.
-name|get
+name|getObject
 argument_list|(
 name|i
 argument_list|)
