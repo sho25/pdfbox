@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This encapsulates the "dictionary of names and corresponding destinations" for the /Dest entry in  * the document catalog.  *  * @author Tilman Hausherr  */
+comment|/**  * This encapsulates the "dictionary of names and corresponding destinations" for the /Dests entry  * in the document catalog.  *  * @author Tilman Hausherr  */
 end_comment
 
 begin_class
