@@ -583,7 +583,7 @@ name|COSName
 operator|)
 name|array
 operator|.
-name|get
+name|getObject
 argument_list|(
 literal|0
 argument_list|)
@@ -866,7 +866,7 @@ name|int
 name|getNumberOfComponents
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the default decode array for this color space.      * @return the default decode array      */
+comment|/**      * Returns the default decode array for this color space.      * @param bitsPerComponent the number of bits per component.      * @return the default decode array      */
 specifier|public
 specifier|abstract
 name|float
