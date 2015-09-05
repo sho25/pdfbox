@@ -960,8 +960,8 @@ return|return
 name|page
 return|;
 block|}
-comment|//if we have a named destination we need to lookup the PDPageDestination
-specifier|private
+comment|/**      * Find the page destination from a named destination.      * @param namedDest the named destination.      * @param doc the document.      * @return a PDPageDestination object or null if not found.      * @throws IOException if there is an error creating the PDPageDestination object.      */
+specifier|public
 name|PDPageDestination
 name|findNamedDestinationPage
 parameter_list|(
