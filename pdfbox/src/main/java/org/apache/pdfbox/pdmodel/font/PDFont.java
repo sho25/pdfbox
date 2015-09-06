@@ -938,9 +938,6 @@ name|code
 operator|-
 name|firstChar
 argument_list|)
-operator|.
-name|floatValue
-argument_list|()
 return|;
 block|}
 name|PDFontDescriptor
