@@ -438,8 +438,6 @@ control|(
 name|PDAnnotationWidget
 name|widget
 range|:
-name|this
-operator|.
 name|getWidgets
 argument_list|()
 control|)
