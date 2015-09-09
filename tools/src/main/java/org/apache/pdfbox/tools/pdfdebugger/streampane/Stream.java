@@ -395,13 +395,6 @@ decl_stmt|;
 if|if
 condition|(
 name|filters
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|filters
 operator|instanceof
 name|COSName
 condition|)
@@ -491,7 +484,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
