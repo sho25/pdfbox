@@ -100,6 +100,7 @@ init|=
 literal|0
 decl_stmt|;
 specifier|private
+specifier|final
 name|FontEncodingView
 name|view
 decl_stmt|;
@@ -349,6 +350,8 @@ name|getSimpleName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|JPanel
 name|getPanel
