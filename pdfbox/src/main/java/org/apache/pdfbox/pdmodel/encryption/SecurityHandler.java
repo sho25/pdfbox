@@ -1620,7 +1620,7 @@ name|toByteArray
 argument_list|(
 name|stream
 operator|.
-name|getFilteredStream
+name|createRawInputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
