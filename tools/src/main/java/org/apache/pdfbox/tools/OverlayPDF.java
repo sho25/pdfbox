@@ -19,6 +19,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -179,7 +189,7 @@ specifier|private
 name|OverlayPDF
 parameter_list|()
 block|{     }
-comment|/**      * This will overlay a document and write out the results.      *      * @param args command line arguments      * @throws Exception if something went wrong      */
+comment|/**      * This will overlay a document and write out the results.      *      * @param args command line arguments      * @throws IOException if something went wrong      */
 specifier|public
 specifier|static
 name|void
@@ -191,7 +201,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 comment|// suppress the Dock icon on OS X
 name|System
@@ -741,7 +751,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|IOException
 name|e
 parameter_list|)
 block|{

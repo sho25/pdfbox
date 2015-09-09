@@ -41,7 +41,29 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|cert
+operator|.
+name|CertificateException
 import|;
 end_import
 
@@ -161,7 +183,7 @@ specifier|private
 name|Encrypt
 parameter_list|()
 block|{     }
-comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws Exception If there is an error decrypting the document.      */
+comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws IOException If there is an error decrypting the document.      * @throws CertificateException If there is an error with a certificate.      */
 specifier|public
 specifier|static
 name|void
@@ -172,7 +194,9 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|CertificateException
 block|{
 comment|// suppress the Dock icon on OS X
 name|System
@@ -208,7 +232,9 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|CertificateException
 block|{
 if|if
 condition|(
