@@ -117,6 +117,7 @@ init|=
 literal|"Hex view"
 decl_stmt|;
 specifier|private
+specifier|final
 name|JTabbedPane
 name|tabbedPane
 decl_stmt|;
