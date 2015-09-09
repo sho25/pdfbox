@@ -190,7 +190,7 @@ name|InputStreamSource
 argument_list|(
 name|stream
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 argument_list|)
 argument_list|)
