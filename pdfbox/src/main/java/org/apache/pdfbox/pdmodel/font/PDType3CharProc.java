@@ -233,7 +233,7 @@ block|{
 return|return
 name|charStream
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 return|;
 block|}

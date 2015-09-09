@@ -751,7 +751,7 @@ operator|)
 name|base
 operator|)
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 expr_stmt|;
 return|return

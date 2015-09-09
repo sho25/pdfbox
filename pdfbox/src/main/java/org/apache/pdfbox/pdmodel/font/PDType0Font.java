@@ -362,7 +362,7 @@ name|embedSubset
 argument_list|)
 return|;
 block|}
-comment|/**      * Constructor for reading a Type0 font from a PDF file.      *       * @param fontDictionary The font dictionary according to the PDF specification.      */
+comment|/**      * Constructor for reading a Type0 font from a PDF file.      *       * @param fontDictionary The font dictionary according to the PDF specification.      * @throws IOException if the descendant font is missing.      */
 specifier|public
 name|PDType0Font
 parameter_list|(
