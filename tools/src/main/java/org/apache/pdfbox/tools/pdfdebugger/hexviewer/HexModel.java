@@ -66,7 +66,6 @@ argument_list|>
 name|modelChangeListeners
 decl_stmt|;
 comment|/**      * Constructor      * @param bytes Byte array.      */
-specifier|public
 name|HexModel
 parameter_list|(
 name|byte
