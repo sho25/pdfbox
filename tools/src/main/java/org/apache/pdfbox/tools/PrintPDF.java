@@ -138,7 +138,7 @@ parameter_list|()
 block|{
 comment|// static class
 block|}
-comment|/**      * Infamous main method.      *       * @param args Command line arguments, should be one and a reference to a file.      * @throws PrinterException if the specified service cannot support the Pageable and Printable interfaces.      * @throws IOException if there is an error parsing the file.      *       * @throws Exception If there is an error parsing the document.      */
+comment|/**      * Infamous main method.      *       * @param args Command line arguments, should be one and a reference to a file.      * @throws PrinterException if the specified service cannot support the Pageable and Printable interfaces.      * @throws IOException if there is an error parsing the file.      */
 specifier|public
 specifier|static
 name|void

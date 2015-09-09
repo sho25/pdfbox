@@ -2337,7 +2337,7 @@ name|dispose
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Entry point.      * @param args the command line arguments      * @throws Exception If anything goes wrong.      */
+comment|/**      * Entry point.      * @param args the command line arguments      * @throws IOException If anything goes wrong.      */
 specifier|public
 specifier|static
 name|void
@@ -2348,7 +2348,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|PDFReader
 name|viewer

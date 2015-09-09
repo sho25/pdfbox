@@ -162,7 +162,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 comment|// suppress the Dock icon on OS X
 name|System
