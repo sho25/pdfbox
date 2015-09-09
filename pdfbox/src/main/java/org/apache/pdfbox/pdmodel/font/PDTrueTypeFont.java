@@ -286,6 +286,24 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|UniUtil
+operator|.
+name|getUniNameOfCodePoint
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -1497,12 +1515,8 @@ comment|// try unicode name
 name|String
 name|uniName
 init|=
-name|String
-operator|.
-name|format
+name|getUniNameOfCodePoint
 argument_list|(
-literal|"uni%04X"
-argument_list|,
 name|unicode
 argument_list|)
 decl_stmt|;

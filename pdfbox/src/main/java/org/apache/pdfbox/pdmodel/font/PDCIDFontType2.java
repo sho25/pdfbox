@@ -395,7 +395,7 @@ specifier|private
 name|Matrix
 name|fontMatrix
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      */
+comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      * @param parent The parent font.      * @throws IOException      */
 specifier|public
 name|PDCIDFontType2
 parameter_list|(
@@ -1155,7 +1155,9 @@ name|code
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the GID for the given character code.      *      * @param code character code      * @return GID      */
+comment|/**      * Returns the GID for the given character code.      *      * @param code character code      * @return GID      * @throws IOException      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|codeToGID
