@@ -262,7 +262,7 @@ argument_list|>
 argument_list|>
 name|filters
 decl_stmt|;
-comment|/**      * Constructor.      * @param cosStream COSStream instance.      * @param isThumb boolean instance says if the stream is thumbnail image.      */
+comment|/**      * Constructor.      *      * @param cosStream COSStream instance.      * @param isThumb boolean instance says if the stream is thumbnail image.      */
 name|Stream
 parameter_list|(
 name|COSStream
@@ -303,7 +303,7 @@ name|cosStream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Return if this is stream is an Image XObject.      * @return true if this an image and false otherwise.      */
+comment|/**      * Return if this is stream is an Image XObject.      *      * @return true if this an image and false otherwise.      */
 specifier|public
 name|boolean
 name|isImage
@@ -385,7 +385,7 @@ name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|COSBase
-name|filters
+name|base
 init|=
 name|stream
 operator|.
@@ -394,7 +394,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|filters
+name|base
 operator|instanceof
 name|COSName
 condition|)
@@ -407,7 +407,7 @@ operator|(
 operator|(
 name|COSName
 operator|)
-name|filters
+name|base
 operator|)
 operator|.
 name|getName
@@ -418,7 +418,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|filters
+name|base
 operator|instanceof
 name|COSArray
 condition|)
@@ -429,7 +429,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|filters
+name|base
 decl_stmt|;
 for|for
 control|(
@@ -581,7 +581,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Provide the image for stream. The stream must be image XObject.      * @param resources PDResources for the XObject.      * @return A BufferedImage.      */
+comment|/**      * Provide the image for stream. The stream must be image XObject.      *      * @param resources PDResources for the XObject.      * @return A BufferedImage.      */
 specifier|public
 name|BufferedImage
 name|getImage
