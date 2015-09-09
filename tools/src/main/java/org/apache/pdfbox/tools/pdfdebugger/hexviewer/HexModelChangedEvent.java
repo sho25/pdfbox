@@ -27,15 +27,15 @@ begin_class
 class|class
 name|HexModelChangedEvent
 block|{
-specifier|public
 specifier|static
+specifier|final
 name|int
 name|BULK_CHANGE
 init|=
 literal|1
 decl_stmt|;
-specifier|public
 specifier|static
+specifier|final
 name|int
 name|SINGLE_CHANGE
 init|=
@@ -51,7 +51,7 @@ specifier|final
 name|int
 name|changeType
 decl_stmt|;
-comment|/**      * Constructor.      * @param startIndex int. From where changes start.      * @param changeType int. Change type if it is only a single change or a bulk change      *                   by pasting or deleting.Though later features are not yet implemented.      */
+comment|/**      * Constructor.      *      * @param startIndex int. From where changes start.      * @param changeType int. Change type if it is only a single change or a bulk change by pasting      * or deleting. Though later features are not yet implemented.      */
 name|HexModelChangedEvent
 parameter_list|(
 name|int
@@ -74,7 +74,6 @@ operator|=
 name|changeType
 expr_stmt|;
 block|}
-specifier|public
 name|int
 name|getStartIndex
 parameter_list|()
@@ -83,7 +82,6 @@ return|return
 name|startIndex
 return|;
 block|}
-specifier|public
 name|int
 name|getChangeType
 parameter_list|()
