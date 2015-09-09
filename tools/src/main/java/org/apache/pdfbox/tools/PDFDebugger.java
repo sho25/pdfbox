@@ -1258,7 +1258,7 @@ specifier|private
 name|JMenuItem
 name|deleteMenuItem
 decl_stmt|;
-comment|// edit> find meu
+comment|// edit> find menu
 specifier|private
 name|JMenu
 name|findMenu
