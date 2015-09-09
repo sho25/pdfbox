@@ -208,7 +208,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-specifier|protected
 name|ICC_ColorSpace
 name|getICCColorSpace
 parameter_list|()
@@ -245,7 +244,6 @@ name|iccProfile
 argument_list|)
 return|;
 block|}
-specifier|protected
 name|ICC_Profile
 name|getICCProfile
 parameter_list|()

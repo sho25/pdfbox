@@ -43,7 +43,6 @@ extends|extends
 name|ColorToolTip
 block|{
 comment|/**      * Constructor.      * @param rowText String instance.      */
-specifier|public
 name|RGToolTip
 parameter_list|(
 name|String
