@@ -90,6 +90,7 @@ extends|extends
 name|JComponent
 block|{
 specifier|private
+specifier|final
 name|int
 name|totalLine
 decl_stmt|;
