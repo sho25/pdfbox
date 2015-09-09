@@ -455,7 +455,7 @@ name|MemoryCacheImageInputStream
 argument_list|(
 name|cosStream
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
