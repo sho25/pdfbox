@@ -790,7 +790,7 @@ name|toByteArray
 argument_list|(
 name|cosStream
 operator|.
-name|getFilteredStream
+name|createRawInputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1002,7 +1002,7 @@ name|toByteArray
 argument_list|(
 name|cosStream
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
