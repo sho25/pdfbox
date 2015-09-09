@@ -838,7 +838,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * This will get a field by name, possibly using the cache if setCache is true.      *      * @param fullyQualifiedName The name of the field to get.      * @return The field with that name of null if one was not found.      * @throws IOException If there is an error getting the field type.      */
+comment|/**      * This will get a field by name, possibly using the cache if setCache is true.      *      * @param fullyQualifiedName The name of the field to get.      * @return The field with that name of null if one was not found.      */
 specifier|public
 name|PDField
 name|getField
@@ -846,8 +846,6 @@ parameter_list|(
 name|String
 name|fullyQualifiedName
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|PDField
 name|retval
@@ -899,6 +897,13 @@ operator|.
 name|FIELDS
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|fields
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|int
@@ -1050,6 +1055,7 @@ name|retval
 operator|=
 name|root
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
