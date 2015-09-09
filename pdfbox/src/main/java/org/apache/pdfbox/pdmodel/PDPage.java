@@ -716,7 +716,7 @@ operator|)
 name|base
 operator|)
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 return|;
 block|}
@@ -809,7 +809,7 @@ name|add
 argument_list|(
 name|stream
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 argument_list|)
 expr_stmt|;

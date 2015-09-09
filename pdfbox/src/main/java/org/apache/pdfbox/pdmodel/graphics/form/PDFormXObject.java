@@ -477,7 +477,7 @@ return|return
 name|getCOSStream
 argument_list|()
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 return|;
 block|}
