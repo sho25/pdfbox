@@ -1340,7 +1340,7 @@ name|cmapStream
 operator|=
 name|aCMap
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 expr_stmt|;
 name|CMap

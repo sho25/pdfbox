@@ -1533,7 +1533,7 @@ decl_stmt|;
 return|return
 name|stream
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 return|;
 block|}
