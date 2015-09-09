@@ -313,7 +313,7 @@ return|return
 name|isImage
 return|;
 block|}
-comment|/**      * Return the available filter list. Only "Unfiltered" is returned if there is no filter and in case of      * XObject image type stream "Image" is also included in the list.      * @return An array of String.      */
+comment|/**      * Return the available filter list. Only "Unfiltered" is returned if there is no filter and in      * case of XObject image type stream "Image" is also included in the list.      *      * @return An array of String.      */
 specifier|public
 name|List
 argument_list|<
