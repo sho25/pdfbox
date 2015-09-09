@@ -529,7 +529,7 @@ block|{
 return|return
 name|stream
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 return|;
 block|}
@@ -548,7 +548,7 @@ block|{
 return|return
 name|stream
 operator|.
-name|getFilteredStream
+name|createRawInputStream
 argument_list|()
 return|;
 block|}
