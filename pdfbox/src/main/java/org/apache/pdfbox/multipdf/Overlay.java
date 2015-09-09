@@ -1248,7 +1248,7 @@ name|in
 init|=
 name|contentStream
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 decl_stmt|;
 name|byte
