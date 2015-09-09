@@ -843,6 +843,7 @@ name|HexView
 name|hexView
 decl_stmt|;
 specifier|private
+specifier|final
 name|JTabbedPane
 name|tabbedPane
 decl_stmt|;
@@ -1127,7 +1128,7 @@ name|actionListener
 argument_list|)
 expr_stmt|;
 name|JPanel
-name|panel
+name|headerPanel
 init|=
 operator|new
 name|JPanel
@@ -1137,7 +1138,7 @@ name|FlowLayout
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|panel
+name|headerPanel
 operator|.
 name|add
 argument_list|(
@@ -1145,7 +1146,7 @@ name|filters
 argument_list|)
 expr_stmt|;
 return|return
-name|panel
+name|headerPanel
 return|;
 block|}
 annotation|@
