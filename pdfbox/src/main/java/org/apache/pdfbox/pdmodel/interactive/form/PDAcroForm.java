@@ -759,7 +759,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will tell this form to cache the fields into a Map structure      * for fast access via the getField method.  The default is false.  You would      * want this to be false if you were changing the COSDictionary behind the scenes,      * otherwise setting this to true is acceptable.      *      * @param cache A boolean telling if we should cache the fields.      * @throws IOException If there is an error while caching the fields.      */
+comment|/**      * This will tell this form to cache the fields into a Map structure      * for fast access via the getField method.  The default is false.  You would      * want this to be false if you were changing the COSDictionary behind the scenes,      * otherwise setting this to true is acceptable.      *      * @param cache A boolean telling if we should cache the fields.      */
 specifier|public
 name|void
 name|setCacheFields
@@ -767,8 +767,6 @@ parameter_list|(
 name|boolean
 name|cache
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
