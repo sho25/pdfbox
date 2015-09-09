@@ -321,7 +321,7 @@ operator|)
 name|cosObj
 operator|)
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 expr_stmt|;
 name|int
@@ -402,7 +402,7 @@ name|getCOSObject
 argument_list|()
 operator|)
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 expr_stmt|;
 name|int

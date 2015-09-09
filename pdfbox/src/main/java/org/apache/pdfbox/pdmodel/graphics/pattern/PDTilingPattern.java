@@ -496,7 +496,7 @@ name|getCOSObject
 argument_list|()
 operator|)
 operator|.
-name|getUnfilteredStream
+name|createInputStream
 argument_list|()
 return|;
 block|}
