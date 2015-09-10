@@ -157,7 +157,7 @@ block|}
 end_interface
 
 begin_comment
-comment|/**  * @author Khyrul Bashar  * A class that shows the glyph table or CIDToGID map depending on the font type. PDSimple and  * PDType0Font are supported.  */
+comment|/**  * @author Khyrul Bashar  *  * A class that shows the glyph table or CIDToGID map depending on the font type. PDSimple and  * PDType0Font are supported.  */
 end_comment
 
 begin_class
@@ -276,6 +276,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Return a pane to display details of a font.      *       * @return a pane for font information, or null if that font type is not supported.      */
 specifier|public
 name|JPanel
 name|getPane
