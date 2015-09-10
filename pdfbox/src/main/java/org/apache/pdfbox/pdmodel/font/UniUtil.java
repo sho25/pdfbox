@@ -32,6 +32,7 @@ comment|/**  * Utility class for Unicode fallback.  *  * @author Philip Helger  
 end_comment
 
 begin_class
+specifier|final
 class|class
 name|UniUtil
 block|{
