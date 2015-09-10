@@ -5232,6 +5232,20 @@ name|position
 init|=
 literal|null
 decl_stmt|;
+comment|/**          * Constructs a PositionWrapper around the specified TextPosition object.          *          * @param position the text position.          */
+name|PositionWrapper
+parameter_list|(
+name|TextPosition
+name|position
+parameter_list|)
+block|{
+name|this
+operator|.
+name|position
+operator|=
+name|position
+expr_stmt|;
+block|}
 comment|/**          * Returns the underlying TextPosition object.          * @return the text position          */
 specifier|public
 name|TextPosition
@@ -5350,21 +5364,6 @@ operator|.
 name|isHangingIndent
 operator|=
 literal|true
-expr_stmt|;
-block|}
-comment|/**          * Constructs a PositionWrapper around the specified TextPosition object.          * @param position the text position          */
-specifier|public
-name|PositionWrapper
-parameter_list|(
-name|TextPosition
-name|position
-parameter_list|)
-block|{
-name|this
-operator|.
-name|position
-operator|=
-name|position
 expr_stmt|;
 block|}
 block|}
