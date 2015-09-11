@@ -197,6 +197,8 @@ operator|+=
 name|HexView
 operator|.
 name|ADDRESS_PANE_WIDTH
+operator|+
+literal|2
 expr_stmt|;
 for|for
 control|(
