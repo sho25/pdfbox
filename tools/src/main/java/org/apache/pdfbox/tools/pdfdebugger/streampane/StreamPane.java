@@ -870,7 +870,7 @@ specifier|final
 name|boolean
 name|isContentStream
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param cosStream COSStream instance.      * @param isContentStream boolean instance. This says if a stream is content stream or not.      * @param isThumb This says if a stream is an thumbnail image or not.      * @param resourcesDic COSDictionary instance that holds the resource dictionary for the stream.      */
+comment|/**      * Constructor.      *      * @param cosStream COSStream instance.      * @param isContentStream boolean instance. This says if a stream is content stream or not.      * @param isThumb This says if a stream is an thumbnail image or not.      * @param resourcesDic COSDictionary instance that holds the resource dictionary for the stream.      * @throws IOException if there is an I/O error during internal data transfer.      */
 specifier|public
 name|StreamPane
 parameter_list|(
