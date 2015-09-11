@@ -78,7 +78,7 @@ specifier|final
 name|PDAcroForm
 name|acroForm
 decl_stmt|;
-comment|/**      * Constructor for reading.      *      * @param root A page tree root.      */
+comment|/**      * Constructor for reading.      *      * @param acroForm the AcroForm containing the fields.      */
 specifier|public
 name|PDFieldTree
 parameter_list|(
@@ -108,7 +108,7 @@ operator|=
 name|acroForm
 expr_stmt|;
 block|}
-comment|/**      * Returns an iterator which walks all pages in the tree, in order.      */
+comment|/**      * Returns an iterator which walks all fields in the tree, in order.      */
 annotation|@
 name|Override
 specifier|public
@@ -127,7 +127,7 @@ name|acroForm
 argument_list|)
 return|;
 block|}
-comment|/**      * Iterator which walks all pages in the tree, in order.      */
+comment|/**      * Iterator which walks all fields in the tree, in order.      */
 specifier|private
 specifier|final
 class|class
