@@ -828,22 +828,13 @@ name|PDField
 argument_list|>
 argument_list|()
 expr_stmt|;
-comment|// fixme: this code does not cache non-terminal fields or their kids
-name|List
-argument_list|<
-name|PDField
-argument_list|>
-name|fields
-init|=
-name|getFields
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|PDField
 name|field
 range|:
-name|fields
+name|getFieldTree
+argument_list|()
 control|)
 block|{
 name|fieldCache
