@@ -167,9 +167,31 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|GregorianCalendar
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|TransformerException
 import|;
 end_import
 
@@ -188,7 +210,7 @@ parameter_list|()
 block|{
 comment|//utility class
 block|}
-comment|/**      * This will print the documents data.      *      * @param args The command line arguments.      *      * @throws Exception If there is an error parsing the document.      */
+comment|/**      * This will print the documents data.      *      * @param args The command line arguments.      *      * @throws IOException If there is an error parsing the document.      * @throws TransformerException      */
 specifier|public
 specifier|static
 name|void
@@ -199,7 +221,9 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|TransformerException
 block|{
 if|if
 condition|(

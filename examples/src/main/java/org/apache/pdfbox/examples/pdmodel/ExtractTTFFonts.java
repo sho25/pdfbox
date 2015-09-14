@@ -306,7 +306,7 @@ specifier|private
 name|ExtractTTFFonts
 parameter_list|()
 block|{     }
-comment|/**      * This is the entry point for the application.      *       * @param args The command-line arguments.      *       * @throws Exception If there is an error decrypting the document.      */
+comment|/**      * This is the entry point for the application.      *       * @param args The command-line arguments.      *       * @throws IOException If there is an error decrypting the document.      */
 specifier|public
 specifier|static
 name|void
@@ -317,7 +317,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|ExtractTTFFonts
 name|extractor
@@ -343,7 +343,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 if|if
 condition|(

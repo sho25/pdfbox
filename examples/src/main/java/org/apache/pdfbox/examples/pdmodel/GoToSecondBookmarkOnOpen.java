@@ -145,7 +145,7 @@ parameter_list|()
 block|{
 comment|//utility class
 block|}
-comment|/**      * This will print the documents data.      *      * @param args The command line arguments.      *      * @throws Exception If there is an error parsing the document.      */
+comment|/**      * This will print the documents data.      *      * @param args The command line arguments.      *      * @throws IOException If there is an error parsing the document.      */
 specifier|public
 specifier|static
 name|void
@@ -156,7 +156,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 if|if
 condition|(
