@@ -93,9 +93,14 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|ImageToPDF
 block|{
+specifier|private
+name|ImageToPDF
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void
