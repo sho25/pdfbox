@@ -31,6 +31,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -153,7 +163,7 @@ parameter_list|()
 block|{
 comment|//utility class
 block|}
-comment|/**      * This will read in a document and replace all of the urls with      * http://pdfbox.apache.org.      *<br />      * see usage() for commandline      *      * @param args Command line arguments.      *      * @throws Exception If there is an error during the process.      */
+comment|/**      * This will read in a document and replace all of the urls with      * http://pdfbox.apache.org.      *<br />      * see usage() for commandline      *      * @param args Command line arguments.      *      * @throws IOException If there is an error during the process.      */
 specifier|public
 specifier|static
 name|void
@@ -164,7 +174,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|PDDocument
 name|doc

@@ -962,7 +962,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This creates an instance of RubberStampWithImage.      *      * @param args The command line arguments.      *      * @throws Exception If there is an error parsing the document.      */
+comment|/**      * This creates an instance of RubberStampWithImage.      *      * @param args The command line arguments.      *      * @throws IOException If there is an error parsing the document.      */
 specifier|public
 specifier|static
 name|void
@@ -973,7 +973,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|RubberStampWithImage
 name|rubberStamp
