@@ -131,6 +131,20 @@ specifier|public
 name|RandomAccessBuffer
 parameter_list|()
 block|{
+name|this
+argument_list|(
+name|DEFAULT_CHUNK_SIZE
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Default constructor.      */
+specifier|private
+name|RandomAccessBuffer
+parameter_list|(
+name|int
+name|definedChunkSize
+parameter_list|)
+block|{
 comment|// starting with one chunk
 name|bufferList
 operator|=
@@ -141,6 +155,10 @@ name|byte
 index|[]
 argument_list|>
 argument_list|()
+expr_stmt|;
+name|chunkSize
+operator|=
+name|definedChunkSize
 expr_stmt|;
 name|currentBuffer
 operator|=
@@ -312,7 +330,9 @@ name|copy
 init|=
 operator|new
 name|RandomAccessBuffer
-argument_list|()
+argument_list|(
+name|chunkSize
+argument_list|)
 decl_stmt|;
 name|copy
 operator|.
