@@ -93,9 +93,14 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|FillFormField
 block|{
+specifier|private
+name|FillFormField
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void
