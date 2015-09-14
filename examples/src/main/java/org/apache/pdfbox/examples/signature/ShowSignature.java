@@ -176,7 +176,7 @@ specifier|private
 name|ShowSignature
 parameter_list|()
 block|{     }
-comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws Exception If there is an error reading the file.      */
+comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws IOException If there is an error reading the file.      * @throws CertificateException      */
 specifier|public
 specifier|static
 name|void

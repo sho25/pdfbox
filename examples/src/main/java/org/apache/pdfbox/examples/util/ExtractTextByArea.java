@@ -79,6 +79,16 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an example on how to extract text from a specific area on the PDF document.  *  * Usage: java org.apache.pdfbox.examples.util.ExtractTextByArea&lt;input-pdf&gt;  *  * @author Ben Litchfield  */
 end_comment
@@ -94,7 +104,7 @@ parameter_list|()
 block|{
 comment|//utility class and should not be constructed.
 block|}
-comment|/**      * This will print the documents text in a certain area.      *      * @param args The command line arguments.      *      * @throws Exception If there is an error parsing the document.      */
+comment|/**      * This will print the documents text in a certain area.      *      * @param args The command line arguments.      *      * @throws IOException If there is an error parsing the document.      */
 specifier|public
 specifier|static
 name|void
@@ -105,7 +115,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 if|if
 condition|(

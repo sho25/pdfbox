@@ -143,6 +143,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -175,7 +185,7 @@ parameter_list|()
 block|{
 comment|//example class should not be instantiated
 block|}
-comment|/**      * This will remove all text from a PDF document.      *      * @param args The command line arguments.      *      * @throws Exception If there is an error parsing the document.      */
+comment|/**      * This will remove all text from a PDF document.      *      * @param args The command line arguments.      *      * @throws IOException If there is an error parsing the document.      */
 specifier|public
 specifier|static
 name|void
@@ -186,7 +196,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 if|if
 condition|(
