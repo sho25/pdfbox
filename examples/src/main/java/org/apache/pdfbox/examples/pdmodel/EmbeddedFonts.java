@@ -117,9 +117,14 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|EmbeddedFonts
 block|{
+specifier|private
+name|EmbeddedFonts
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void

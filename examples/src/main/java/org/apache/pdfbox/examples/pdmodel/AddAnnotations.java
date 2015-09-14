@@ -295,6 +295,7 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|AddAnnotations
 block|{
@@ -305,6 +306,10 @@ name|INCH
 init|=
 literal|72
 decl_stmt|;
+specifier|private
+name|AddAnnotations
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void

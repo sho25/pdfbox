@@ -61,9 +61,14 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|CreateBlankPDF
 block|{
+specifier|private
+name|CreateBlankPDF
+parameter_list|()
+block|{             }
 specifier|public
 specifier|static
 name|void
