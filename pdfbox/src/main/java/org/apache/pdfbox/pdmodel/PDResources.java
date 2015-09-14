@@ -548,7 +548,7 @@ name|getIndirect
 argument_list|(
 name|COSName
 operator|.
-name|FONT
+name|COLORSPACE
 argument_list|,
 name|name
 argument_list|)
@@ -694,7 +694,7 @@ name|getIndirect
 argument_list|(
 name|COSName
 operator|.
-name|FONT
+name|EXT_G_STATE
 argument_list|,
 name|name
 argument_list|)
@@ -808,7 +808,7 @@ name|getIndirect
 argument_list|(
 name|COSName
 operator|.
-name|FONT
+name|SHADING
 argument_list|,
 name|name
 argument_list|)
@@ -923,7 +923,7 @@ name|getIndirect
 argument_list|(
 name|COSName
 operator|.
-name|FONT
+name|PATTERN
 argument_list|,
 name|name
 argument_list|)
@@ -1036,7 +1036,7 @@ name|getIndirect
 argument_list|(
 name|COSName
 operator|.
-name|FONT
+name|PROPERTIES
 argument_list|,
 name|name
 argument_list|)
@@ -1151,7 +1151,7 @@ name|getIndirect
 argument_list|(
 name|COSName
 operator|.
-name|FONT
+name|XOBJECT
 argument_list|,
 name|name
 argument_list|)
