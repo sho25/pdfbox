@@ -513,7 +513,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * If there are not compression filters on the current stream then this will      * add a compression filter, flate compression for example.      *       * @deprecated This method is inefficient. To copying an existing InputStream, use      *             {@link PDStream(PDDocument, InputStream, COSName)} instead, with      *             COSName.FLATE_DECODE as the final argument.      *                   *             Otherwise, to write new compressed data, use {@link #createOutputStream(COSName)},      *             with COSName.FLATE_DECODE as the argument.      */
+comment|/**      * If there are not compression filters on the current stream then this will      * add a compression filter, flate compression for example.      *       * @deprecated This method is inefficient. To copying an existing InputStream, use      *             {@link #PDStream(PDDocument, InputStream, COSName)} instead, with      *             COSName.FLATE_DECODE as the final argument.      *                   *             Otherwise, to write new compressed data, use {@link #createOutputStream(COSName)},      *             with COSName.FLATE_DECODE as the argument.      */
 annotation|@
 name|Deprecated
 specifier|public
