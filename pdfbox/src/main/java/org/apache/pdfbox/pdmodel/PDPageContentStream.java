@@ -1467,7 +1467,7 @@ literal|"TL"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Move to the start of the next line of text. Requires the leading to have been set.      *      * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * Move to the start of the next line of text. Requires the leading (see {@link #setLeading})      * to have been set.      *      * @throws IOException If there is an error writing to the stream.      */
 specifier|public
 name|void
 name|newLine
