@@ -183,9 +183,14 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|Printing
 block|{
+specifier|private
+name|Printing
+parameter_list|()
+block|{     }
 comment|/**      * Entry point.      */
 specifier|public
 specifier|static
