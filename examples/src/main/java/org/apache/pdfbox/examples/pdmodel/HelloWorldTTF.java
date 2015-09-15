@@ -117,9 +117,14 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|HelloWorldTTF
 block|{
+specifier|private
+name|HelloWorldTTF
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void

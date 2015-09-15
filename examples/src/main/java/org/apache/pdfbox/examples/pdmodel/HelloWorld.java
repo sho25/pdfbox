@@ -107,9 +107,14 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|HelloWorld
 block|{
+specifier|private
+name|HelloWorld
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void
