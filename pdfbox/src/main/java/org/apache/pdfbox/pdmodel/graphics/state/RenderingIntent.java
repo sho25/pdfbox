@@ -120,13 +120,11 @@ return|return
 name|PERCEPTUAL
 return|;
 block|}
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-name|value
-argument_list|)
-throw|;
+comment|// "If a conforming reader does not recognize the specified name,
+comment|// it shall use the RelativeColorimetric intent by default."
+return|return
+name|RELATIVE_COLORIMETRIC
+return|;
 block|}
 specifier|private
 specifier|final
