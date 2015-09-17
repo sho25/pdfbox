@@ -33,6 +33,20 @@ name|COSDictionary
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
 begin_comment
 comment|/**  * This represents a URI action that can be executed in a PDF document.  *  * @author Ben Litchfield  * @author Panagiotis Toumasis  */
 end_comment
@@ -95,7 +109,9 @@ name|action
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"S"
+name|COSName
+operator|.
+name|S
 argument_list|)
 return|;
 block|}
@@ -112,7 +128,9 @@ name|action
 operator|.
 name|setName
 argument_list|(
-literal|"S"
+name|COSName
+operator|.
+name|S
 argument_list|,
 name|s
 argument_list|)
@@ -129,7 +147,9 @@ name|action
 operator|.
 name|getString
 argument_list|(
-literal|"URI"
+name|COSName
+operator|.
+name|URI
 argument_list|)
 return|;
 block|}
@@ -146,7 +166,9 @@ name|action
 operator|.
 name|setString
 argument_list|(
-literal|"URI"
+name|COSName
+operator|.
+name|URI
 argument_list|,
 name|uri
 argument_list|)
