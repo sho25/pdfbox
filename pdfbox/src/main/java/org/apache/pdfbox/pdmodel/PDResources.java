@@ -581,9 +581,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
-name|cached
-return|;
+comment|// cache disabled due to resource dependency, see PDFBOX-2370
+comment|//return cached
 block|}
 block|}
 comment|// get the instance
@@ -1184,9 +1183,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
-name|cached
-return|;
+comment|// cache disabled due to resource dependency, see PDFBOX-2370
+comment|//return cached
 block|}
 block|}
 comment|// get the instance
