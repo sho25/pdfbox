@@ -625,7 +625,7 @@ operator|)
 name|value
 operator|)
 operator|.
-name|getString
+name|toTextString
 argument_list|()
 argument_list|)
 operator|+
@@ -2406,7 +2406,7 @@ operator|)
 name|rv
 operator|)
 operator|.
-name|getString
+name|toTextString
 argument_list|()
 return|;
 block|}

@@ -3204,7 +3204,7 @@ operator|)
 name|base
 operator|)
 operator|.
-name|getString
+name|toTextString
 argument_list|()
 return|;
 block|}
