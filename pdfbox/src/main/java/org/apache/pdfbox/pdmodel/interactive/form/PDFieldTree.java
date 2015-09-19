@@ -59,6 +59,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|NoSuchElementException
+import|;
+end_import
+
 begin_comment
 comment|/**  * The field tree.  */
 end_comment
@@ -129,6 +139,7 @@ return|;
 block|}
 comment|/**      * Iterator which walks all fields in the tree, in order.      */
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|FieldIterator
@@ -208,6 +219,19 @@ name|PDField
 name|next
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|hasNext
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchElementException
+argument_list|()
+throw|;
+block|}
 return|return
 name|queue
 operator|.
