@@ -2171,7 +2171,7 @@ argument_list|()
 decl_stmt|;
 name|apsStream
 operator|.
-name|createUnfilteredStream
+name|createOutputStream
 argument_list|()
 operator|.
 name|close
