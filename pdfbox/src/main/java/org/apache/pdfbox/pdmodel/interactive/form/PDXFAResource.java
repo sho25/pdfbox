@@ -189,6 +189,15 @@ name|PDXFAResource
 implements|implements
 name|COSObjectable
 block|{
+comment|/**      * The default buffer size      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|BUFFER_SIZE
+init|=
+literal|1024
+decl_stmt|;
 specifier|private
 specifier|final
 name|COSBase
@@ -262,7 +271,7 @@ operator|=
 operator|new
 name|byte
 index|[
-literal|1024
+name|BUFFER_SIZE
 index|]
 expr_stmt|;
 name|COSArray
@@ -387,7 +396,7 @@ operator|=
 operator|new
 name|byte
 index|[
-literal|1024
+name|BUFFER_SIZE
 index|]
 expr_stmt|;
 name|is
@@ -508,9 +517,7 @@ operator|.
 name|newDocumentBuilder
 argument_list|()
 decl_stmt|;
-name|Document
-name|xfaDocument
-init|=
+return|return
 name|builder
 operator|.
 name|parse
@@ -524,9 +531,6 @@ name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|xfaDocument
 return|;
 block|}
 block|}

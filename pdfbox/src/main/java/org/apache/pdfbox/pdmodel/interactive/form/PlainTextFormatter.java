@@ -233,6 +233,15 @@ name|LEFT
 return|;
 block|}
 block|}
+comment|/**      * The scaling factor for font units to PDF units      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FONTSCALE
+init|=
+literal|1000
+decl_stmt|;
 specifier|private
 specifier|final
 name|AppearanceStyle
@@ -634,7 +643,7 @@ operator|.
 name|getFontSize
 argument_list|()
 operator|/
-literal|1000f
+name|FONTSCALE
 decl_stmt|;
 if|if
 condition|(
