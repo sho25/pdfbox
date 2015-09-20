@@ -57,10 +57,6 @@ class|class
 name|PDFieldFactory
 block|{
 specifier|private
-name|PDFieldFactory
-parameter_list|()
-block|{     }
-specifier|private
 specifier|static
 specifier|final
 name|String
@@ -92,6 +88,10 @@ name|FIELD_TYPE_SIGNATURE
 init|=
 literal|"Sig"
 decl_stmt|;
+specifier|private
+name|PDFieldFactory
+parameter_list|()
+block|{     }
 comment|/**      * Creates a COSField subclass from the given field.      *      * @param form the form that the field is part of      * @param field the dictionary representing a field element      * @param parent the parent node of the node to be created       * @return the corresponding PDField instance      */
 specifier|static
 name|PDField
