@@ -239,7 +239,8 @@ name|boolean
 name|radiosInUnison
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -260,7 +261,8 @@ name|isRadiosInUnison
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -498,7 +500,8 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setName
 argument_list|(
@@ -601,7 +604,8 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setName
 argument_list|(

@@ -138,7 +138,8 @@ name|isEdit
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -159,7 +160,8 @@ name|boolean
 name|edit
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(

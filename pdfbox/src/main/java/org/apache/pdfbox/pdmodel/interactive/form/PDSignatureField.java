@@ -171,7 +171,8 @@ argument_list|(
 name|acroForm
 argument_list|)
 expr_stmt|;
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -270,7 +271,8 @@ control|(
 name|PDField
 name|field
 range|:
-name|acroForm
+name|getAcroForm
+argument_list|()
 operator|.
 name|getFields
 argument_list|()
@@ -363,7 +365,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -389,7 +392,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -410,7 +414,8 @@ block|{
 name|COSBase
 name|value
 init|=
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -450,7 +455,8 @@ block|{
 name|COSBase
 name|value
 init|=
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -519,7 +525,8 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -569,7 +576,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(

@@ -152,7 +152,8 @@ argument_list|(
 name|acroForm
 argument_list|)
 expr_stmt|;
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -196,7 +197,8 @@ name|isMultiline
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -217,7 +219,8 @@ name|boolean
 name|multiline
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -238,7 +241,8 @@ name|isPassword
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -259,7 +263,8 @@ name|boolean
 name|password
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -280,7 +285,8 @@ name|isFileSelect
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -301,7 +307,8 @@ name|boolean
 name|fileSelect
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -322,7 +329,8 @@ name|doNotSpellCheck
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -343,7 +351,8 @@ name|boolean
 name|doNotSpellCheck
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -364,7 +373,8 @@ name|doNotScroll
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -385,7 +395,8 @@ name|boolean
 name|doNotScroll
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -406,7 +417,8 @@ name|isComb
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -427,7 +439,8 @@ name|boolean
 name|comb
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -448,7 +461,8 @@ name|isRichText
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -469,7 +483,8 @@ name|boolean
 name|richText
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -490,7 +505,8 @@ name|getMaxLen
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getInt
 argument_list|(
@@ -509,7 +525,8 @@ name|int
 name|maxLen
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setInt
 argument_list|(
@@ -532,7 +549,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setString
 argument_list|(
@@ -558,7 +576,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setString
 argument_list|(

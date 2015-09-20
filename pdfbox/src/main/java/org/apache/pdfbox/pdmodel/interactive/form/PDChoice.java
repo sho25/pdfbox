@@ -249,7 +249,8 @@ argument_list|(
 name|acroForm
 argument_list|)
 expr_stmt|;
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -298,7 +299,8 @@ block|{
 name|COSBase
 name|values
 init|=
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -357,7 +359,8 @@ name|displayValues
 argument_list|)
 expr_stmt|;
 block|}
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -376,7 +379,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|removeItem
 argument_list|(
@@ -558,7 +562,8 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -573,7 +578,8 @@ block|}
 block|}
 else|else
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|removeItem
 argument_list|(
@@ -596,7 +602,8 @@ block|{
 name|COSBase
 name|values
 init|=
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -642,7 +649,8 @@ block|{
 name|COSBase
 name|value
 init|=
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -720,7 +728,8 @@ literal|"Setting the indices is not allowed for choice fields not allowing multi
 argument_list|)
 throw|;
 block|}
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -739,7 +748,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|removeItem
 argument_list|(
@@ -757,7 +767,8 @@ name|isSort
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -778,7 +789,8 @@ name|boolean
 name|sort
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -799,7 +811,8 @@ name|isMultiSelect
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -820,7 +833,8 @@ name|boolean
 name|multiSelect
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -841,7 +855,8 @@ name|isDoNotSpellCheck
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -862,7 +877,8 @@ name|boolean
 name|doNotSpellCheck
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -883,7 +899,8 @@ name|isCommitOnSelChange
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -904,7 +921,8 @@ name|boolean
 name|commitOnSelChange
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -925,7 +943,8 @@ name|isCombo
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -946,7 +965,8 @@ name|boolean
 name|combo
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -971,7 +991,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setString
 argument_list|(
@@ -1003,7 +1024,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setString
 argument_list|(
@@ -1077,7 +1099,8 @@ literal|"The values are not contained in the selectable options."
 argument_list|)
 throw|;
 block|}
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -1101,7 +1124,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|removeItem
 argument_list|(
@@ -1166,7 +1190,8 @@ block|{
 name|COSBase
 name|value
 init|=
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(

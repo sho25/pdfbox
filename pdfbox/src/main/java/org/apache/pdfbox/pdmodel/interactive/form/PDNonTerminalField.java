@@ -233,7 +233,8 @@ init|=
 operator|(
 name|COSInteger
 operator|)
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -503,7 +504,8 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -537,7 +539,8 @@ name|PDField
 operator|.
 name|fromDictionary
 argument_list|(
-name|acroForm
+name|getAcroForm
+argument_list|()
 argument_list|,
 operator|(
 name|COSDictionary
@@ -594,7 +597,8 @@ argument_list|(
 name|children
 argument_list|)
 decl_stmt|;
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -615,7 +619,8 @@ name|getFieldType
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getNameAsString
 argument_list|(
@@ -632,7 +637,8 @@ name|getValue
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -653,7 +659,8 @@ block|{
 name|COSBase
 name|fieldValue
 init|=
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -686,7 +693,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -707,7 +715,8 @@ name|getDefaultValue
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -726,7 +735,8 @@ name|COSBase
 name|value
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(

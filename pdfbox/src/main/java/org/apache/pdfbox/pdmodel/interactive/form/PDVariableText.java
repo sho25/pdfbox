@@ -270,7 +270,8 @@ name|String
 name|daValue
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setString
 argument_list|(
@@ -294,7 +295,8 @@ init|=
 operator|(
 name|COSString
 operator|)
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -326,7 +328,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -344,7 +347,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|removeItem
 argument_list|(
@@ -407,7 +411,8 @@ name|int
 name|q
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setInt
 argument_list|(
@@ -455,7 +460,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -473,7 +479,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|removeItem
 argument_list|(

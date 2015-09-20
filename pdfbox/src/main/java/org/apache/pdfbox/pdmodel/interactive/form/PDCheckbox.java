@@ -422,7 +422,8 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -506,7 +507,8 @@ throw|;
 block|}
 else|else
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setName
 argument_list|(

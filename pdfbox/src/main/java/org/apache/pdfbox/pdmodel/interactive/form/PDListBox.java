@@ -113,7 +113,8 @@ name|getTopIndex
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getInt
 argument_list|(
@@ -141,7 +142,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setInt
 argument_list|(
@@ -155,7 +157,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|removeItem
 argument_list|(

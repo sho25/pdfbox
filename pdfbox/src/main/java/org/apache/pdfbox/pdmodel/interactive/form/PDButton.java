@@ -236,7 +236,8 @@ argument_list|(
 name|acroForm
 argument_list|)
 expr_stmt|;
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -280,7 +281,8 @@ name|isPushButton
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -301,7 +303,8 @@ name|boolean
 name|pushbutton
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -322,7 +325,8 @@ name|isRadioButton
 parameter_list|()
 block|{
 return|return
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|getFlag
 argument_list|(
@@ -343,7 +347,8 @@ name|boolean
 name|radiobutton
 parameter_list|)
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setFlag
 argument_list|(
@@ -479,7 +484,8 @@ argument_list|(
 name|values
 argument_list|)
 expr_stmt|;
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|setItem
 argument_list|(
@@ -493,7 +499,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|dictionary
+name|getCOSObject
+argument_list|()
 operator|.
 name|removeItem
 argument_list|(
