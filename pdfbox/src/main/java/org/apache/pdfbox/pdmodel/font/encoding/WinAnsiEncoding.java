@@ -1439,6 +1439,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// From the PDF specification:
+comment|// In WinAnsiEncoding, all unused codes greater than 40 map to the bullet character.
 for|for
 control|(
 name|int
