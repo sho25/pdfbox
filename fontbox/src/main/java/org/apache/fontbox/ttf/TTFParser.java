@@ -186,13 +186,13 @@ return|return
 name|ttf
 return|;
 block|}
-comment|/**      * Parse a file and get a true type font.      *      * @param ttfData The TTF data to parse.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Parse an input stream and return a TrueType font.      *      * @param inputStream The TTF data stream to parse from. It will be closed before returning.      * @return A TrueType font.      * @throws IOException If there is an error parsing the TrueType font.      */
 specifier|public
 name|TrueTypeFont
 name|parse
 parameter_list|(
 name|InputStream
-name|ttfData
+name|inputStream
 parameter_list|)
 throws|throws
 name|IOException
@@ -203,7 +203,7 @@ argument_list|(
 operator|new
 name|MemoryTTFDataStream
 argument_list|(
-name|ttfData
+name|inputStream
 argument_list|)
 argument_list|)
 return|;
