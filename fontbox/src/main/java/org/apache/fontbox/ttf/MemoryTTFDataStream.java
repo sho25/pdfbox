@@ -88,7 +88,7 @@ name|currentPosition
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * Constructor from a stream.       * @param is The stream of read from.      * @throws IOException If an error occurs while reading from the stream.      */
+comment|/**      * Constructor from a stream.       * @param is The stream to read from. It will be closed by this method.      * @throws IOException If an error occurs while reading from the stream.      */
 name|MemoryTTFDataStream
 parameter_list|(
 name|InputStream
