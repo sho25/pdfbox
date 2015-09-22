@@ -620,7 +620,7 @@ for|for
 control|(
 name|Object
 index|[]
-name|encodingEntry
+name|charsetEntry
 range|:
 name|CFF_EXPERT_SUBSET_CHARSET_TABLE
 control|)
@@ -635,12 +635,12 @@ argument_list|,
 operator|(
 name|Integer
 operator|)
-name|encodingEntry
+name|charsetEntry
 index|[
 name|CHAR_CODE
 index|]
 argument_list|,
-name|encodingEntry
+name|charsetEntry
 index|[
 name|CHAR_NAME
 index|]
