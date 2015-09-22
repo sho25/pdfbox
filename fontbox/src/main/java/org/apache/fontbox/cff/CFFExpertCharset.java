@@ -43,7 +43,7 @@ name|CHAR_NAME
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * Table of octal character codes and their corresponding names.      */
+comment|/**      * Table of character codes and their corresponding names.      */
 specifier|public
 specifier|static
 specifier|final
