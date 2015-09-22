@@ -115,7 +115,7 @@ operator|=
 name|parseOnDemand
 expr_stmt|;
 block|}
-comment|/**      * Parse a file and get a true type font.      *      * @param ttfFile The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Parse a file and return a TrueType font.      *      * @param ttfFile The TrueType font filename.      * @return A TrueType font.      * @throws IOException If there is an error parsing the TrueType font.      */
 specifier|public
 name|TrueTypeFont
 name|parse
@@ -137,7 +137,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Parse a file and get a true type font.      *      * @param ttfFile The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Parse a file and return a TrueType font.      *      * @param ttfFile The TrueType font file.      * @return A TrueType font.      * @throws IOException If there is an error parsing the TrueType font.      */
 specifier|public
 name|TrueTypeFont
 name|parse
@@ -208,13 +208,13 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Parse a file and get a true type font.      *      * @param ttfData The TTF data to parse.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Parse an input stream and return a TrueType font that is to be embedded.      *      * @param inputStream The TTF data stream to parse from. It will be closed before returning.      * @return A TrueType font.      * @throws IOException If there is an error parsing the TrueType font.      */
 specifier|public
 name|TrueTypeFont
 name|parseEmbedded
 parameter_list|(
 name|InputStream
-name|ttfData
+name|inputStream
 parameter_list|)
 throws|throws
 name|IOException
@@ -231,12 +231,12 @@ argument_list|(
 operator|new
 name|MemoryTTFDataStream
 argument_list|(
-name|ttfData
+name|inputStream
 argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Parse a file and get a true type font.      *      * @param raf The TTF file.      * @return A true type font.      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Parse a file and get a true type font.      *      * @param raf The TTF file.      * @return A TrueType font.      * @throws IOException If there is an error parsing the TrueType font.      */
 name|TrueTypeFont
 name|parse
 parameter_list|(
@@ -363,7 +363,7 @@ name|raf
 argument_list|)
 return|;
 block|}
-comment|/**      * Parse all tables and check if all needed tables are present.      *      * @param font the TrueTypeFont instance holding the parsed data.      * @param raf the data stream of the to be parsed ttf font      * @throws IOException If there is an error parsing the true type font.      */
+comment|/**      * Parse all tables and check if all needed tables are present.      *      * @param font the TrueTypeFont instance holding the parsed data.      * @param raf the data stream of the to be parsed ttf font      * @throws IOException If there is an error parsing the TrueType font.      */
 specifier|private
 name|void
 name|parseTables
