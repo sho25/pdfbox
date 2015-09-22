@@ -148,9 +148,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
-name|parse
-argument_list|(
+name|RAFDataStream
+name|raf
+init|=
 operator|new
 name|RAFDataStream
 argument_list|(
@@ -158,8 +158,32 @@ name|ttfFile
 argument_list|,
 literal|"r"
 argument_list|)
+decl_stmt|;
+try|try
+block|{
+return|return
+name|parse
+argument_list|(
+name|raf
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|// close only on error (file is still being accessed later)
+name|raf
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+throw|throw
+name|ex
+throw|;
+block|}
 block|}
 comment|/**      * Parse an input stream and return a TrueType font.      *      * @param inputStream The TTF data stream to parse from. It will be closed before returning.      * @return A TrueType font.      * @throws IOException If there is an error parsing the TrueType font.      */
 specifier|public
