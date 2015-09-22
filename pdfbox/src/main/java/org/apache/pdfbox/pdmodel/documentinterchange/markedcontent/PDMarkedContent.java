@@ -267,7 +267,8 @@ argument_list|()
 operator|==
 literal|null
 condition|?
-literal|null
+operator|-
+literal|1
 else|:
 name|this
 operator|.
