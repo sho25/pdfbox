@@ -451,6 +451,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|line
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|line
 operator|.
