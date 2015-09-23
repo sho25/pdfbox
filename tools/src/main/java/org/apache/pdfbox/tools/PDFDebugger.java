@@ -5145,13 +5145,6 @@ name|Throwable
 name|throwable
 parameter_list|)
 block|{
-name|StringBuilder
-name|sb
-init|=
-operator|new
-name|StringBuilder
-argument_list|()
-decl_stmt|;
 operator|new
 name|ErrorDialog
 argument_list|(
