@@ -1330,13 +1330,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|LOG
-operator|.
-name|warn
+throw|throw
+operator|new
+name|UnsupportedOperationException
 argument_list|(
-literal|"DCTFilter#encode is not implemented yet, skipping this stream."
+literal|"DCTFilter encoding not implemented, use the JPEGFactory methods instead"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 end_class
