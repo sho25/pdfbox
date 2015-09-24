@@ -298,7 +298,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will take a pdf document and strip out all of the text and ignore the  * formatting and such.  Please note; it is up to clients of this class to verify that  * a specific user has the correct permissions to extract text from the PDF document.  *   * The basic flow of this process is that we get a document and use a series of   * processXXX() functions that work on smaller and smaller chunks of the page.    * Eventually, we fully process each page and then print it.   *  * @author Ben Litchfield  */
+comment|/**  * This class will take a pdf document and strip out all of the text and ignore the formatting and such. Please note; it  * is up to clients of this class to verify that a specific user has the correct permissions to extract text from the  * PDF document.  *   * The basic flow of this process is that we get a document and use a series of processXXX() functions that work on  * smaller and smaller chunks of the page. Eventually, we fully process each page and then print it.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -330,8 +330,8 @@ name|useCustomQuickSort
 decl_stmt|;
 comment|// enable the ability to set the default indent/drop thresholds
 comment|// with -D system properties:
-comment|//    pdftextstripper.indent
-comment|//    pdftextstripper.drop
+comment|// pdftextstripper.indent
+comment|// pdftextstripper.drop
 static|static
 block|{
 name|String
@@ -713,7 +713,7 @@ name|pageArticles
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * The charactersByArticle is used to extract text by article divisions.  For example      * a PDF that has two columns like a newspaper, we want to extract the first column and      * then the second column.  In this example the PDF would have 2 beads(or articles), one for      * each column.  The size of the charactersByArticle would be 5, because not all text on the      * screen will fall into one of the articles.  The five divisions are shown below      *      * Text before first article      * first article text      * text between first article and second article      * second article text      * text after second article      *      * Most PDFs won't have any beads, so charactersByArticle will contain a single entry.      */
+comment|/**      * The charactersByArticle is used to extract text by article divisions. For example a PDF that has two columns like      * a newspaper, we want to extract the first column and then the second column. In this example the PDF would have 2      * beads(or articles), one for each column. The size of the charactersByArticle would be 5, because not all text on      * the screen will fall into one of the articles. The five divisions are shown below      *      * Text before first article first article text text between first article and second article second article text      * text after second article      *      * Most PDFs won't have any beads, so charactersByArticle will contain a single entry.      */
 specifier|protected
 name|Vector
 argument_list|<
@@ -788,7 +788,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{     }
-comment|/**      * This will return the text of a document.  See writeText.<br />      * NOTE: The document must not be encrypted when coming into this method.      *      * @param doc The document to get the text from.      * @return The text of the PDF document.      * @throws IOException if the doc state is invalid or it is encrypted.      */
+comment|/**      * This will return the text of a document. See writeText.<br />      * NOTE: The document must not be encrypted when coming into this method.      *      * @param doc The document to get the text from.      * @return The text of the PDF document.      * @throws IOException if the doc state is invalid or it is encrypted.      */
 specifier|public
 name|String
 name|getText
@@ -1066,7 +1066,7 @@ argument_list|()
 condition|)
 block|{
 comment|// this is a special case where both the start and end bookmark
-comment|// are the same but point to nothing.  In this case
+comment|// are the same but point to nothing. In this case
 comment|// we will not extract any text.
 name|startBookmarkPageNumber
 operator|=
@@ -1104,7 +1104,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This method is available for subclasses of this class. It will be called before processing      * of the document start.      *      * @param document The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
+comment|/**      * This method is available for subclasses of this class. It will be called before processing of the document start.      *      * @param document The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
 specifier|protected
 name|void
 name|startDocument
@@ -1117,7 +1117,7 @@ name|IOException
 block|{
 comment|// no default implementation, but available for subclasses
 block|}
-comment|/**      * This method is available for subclasses of this class. It will be called after processing      * of the document finishes.      *      * @param document The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
+comment|/**      * This method is available for subclasses of this class. It will be called after processing of the document      * finishes.      *      * @param document The PDF document that is being processed.      * @throws IOException If an IO error occurs.      */
 specifier|protected
 name|void
 name|endDocument
@@ -1299,7 +1299,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Start a new article, which is typically defined as a column      * on a single page (also referred to as a bead).  This assumes      * that the primary direction of text is left to right.        * Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * Start a new article, which is typically defined as a column on a single page (also referred to as a bead). This      * assumes that the primary direction of text is left to right. Default implementation is to do nothing. Subclasses      * may provide additional information.      *      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
 name|startArticle
@@ -1313,7 +1313,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Start a new article, which is typically defined as a column      * on a single page (also referred to as a bead).        * Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @param isLTR true if primary direction of text is left to right.      * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * Start a new article, which is typically defined as a column on a single page (also referred to as a bead).      * Default implementation is to do nothing. Subclasses may provide additional information.      *      * @param isLTR true if primary direction of text is left to right.      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
 name|startArticle
@@ -1333,7 +1333,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * End an article.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * End an article. Default implementation is to do nothing. Subclasses may provide additional information.      *      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
 name|endArticle
@@ -1350,7 +1350,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Start a new page.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @param page The page we are about to process.      *      * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * Start a new page. Default implementation is to do nothing. Subclasses may provide additional information.      *      * @param page The page we are about to process.      *      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
 name|startPage
@@ -1363,7 +1363,7 @@ name|IOException
 block|{
 comment|// default is to do nothing
 block|}
-comment|/**      * End a page.  Default implementation is to do nothing.  Subclasses      * may provide additional information.      *      * @param page The page we are about to process.      *      * @throws IOException If there is any error writing to the stream.      */
+comment|/**      * End a page. Default implementation is to do nothing. Subclasses may provide additional information.      *      * @param page The page we are about to process.      *      * @throws IOException If there is any error writing to the stream.      */
 specifier|protected
 name|void
 name|endPage
@@ -1435,7 +1435,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * This will print the text of the processed page to "output".      * It will estimate, based on the coordinates of the text, where      * newlines and word spacings should be placed. The text will be      * sorted only if that feature was enabled.       *      * @throws IOException If there is an error writing the text.      */
+comment|/**      * This will print the text of the processed page to "output". It will estimate, based on the coordinates of the      * text, where newlines and word spacings should be placed. The text will be sorted only if that feature was      * enabled.      *      * @throws IOException If there is an error writing the text.      */
 specifier|protected
 name|void
 name|writePage
@@ -1572,7 +1572,7 @@ comment|// Arabic and Hebrew text is right to left and is typically stored
 comment|// in its logical format, which means that the rightmost character is
 comment|// stored first, followed by the second character from the right etc.
 comment|// However, PDF stores the text in presentation form, which is left to
-comment|// right.  We need to do some normalization to convert the PDF data to
+comment|// right. We need to do some normalization to convert the PDF data to
 comment|// the proper logical output format.
 comment|//
 comment|// Note that if we did not sort the text, then the output of reversing the
@@ -2110,13 +2110,13 @@ literal|false
 expr_stmt|;
 block|}
 comment|// RDD - Here we determine whether this text object is on the current
-comment|// line.  We use the lastBaselineFontSize to handle the superscript
+comment|// line. We use the lastBaselineFontSize to handle the superscript
 comment|// case, and the size of the current font to handle the subscript case.
 comment|// Text must overlap with the last rendered baseline text by at least
 comment|// a small amount in order to be considered as being on the same line.
 comment|// XXX BC: In theory, this check should really check if the next char is in
 comment|// full range seen in this line. This is what I tried to do with minYTopForLine,
-comment|// but this caused a lot of regression test failures.  So, I'm leaving it be for
+comment|// but this caused a lot of regression test failures. So, I'm leaving it be for
 comment|// now
 if|if
 condition|(
@@ -2244,7 +2244,7 @@ name|positionY
 expr_stmt|;
 block|}
 comment|// RDD - endX is what PDF considers to be the x coordinate of the
-comment|// end position of the text.  We use it in computing our metrics below.
+comment|// end position of the text. We use it in computing our metrics below.
 name|endOfLastTextX
 operator|=
 name|positionX
@@ -2271,7 +2271,7 @@ block|{
 name|writeParagraphStart
 argument_list|()
 expr_stmt|;
-comment|//not sure this is correct for RTL?
+comment|// not sure this is correct for RTL?
 block|}
 name|line
 operator|.
@@ -2431,7 +2431,7 @@ operator|-
 name|height2
 return|;
 block|}
-comment|/**      * Write the line separator value to the output stream.      * @throws IOException If there is a problem writing out the lineseparator to the document.      */
+comment|/**      * Write the line separator value to the output stream.      *       * @throws IOException If there is a problem writing out the lineseparator to the document.      */
 specifier|protected
 name|void
 name|writeLineSeparator
@@ -2448,7 +2448,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write the word separator value to the output stream.      * @throws IOException If there is a problem writing out the wordseparator to the document.      */
+comment|/**      * Write the word separator value to the output stream.      *       * @throws IOException If there is a problem writing out the wordseparator to the document.      */
 specifier|protected
 name|void
 name|writeWordSeparator
@@ -2487,7 +2487,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write a Java string to the output stream. The default implementation will ignore the      *<code>textPositions</code> and just calls {@link #writeString(String)}.      *      * @param text The text to write to the stream.      * @param textPositions The TextPositions belonging to the text.      * @throws IOException If there is an error when writing the text.      */
+comment|/**      * Write a Java string to the output stream. The default implementation will ignore the<code>textPositions</code>      * and just calls {@link #writeString(String)}.      *      * @param text The text to write to the stream.      * @param textPositions The TextPositions belonging to the text.      * @throws IOException If there is an error when writing the text.      */
 specifier|protected
 name|void
 name|writeString
@@ -2558,7 +2558,7 @@ operator|-
 name|variance
 return|;
 block|}
-comment|/**      * This will process a TextPosition object and add the text to the list of characters on a page.      * It takes care of overlapping text.      *      * @param text The text to process.      */
+comment|/**      * This will process a TextPosition object and add the text to the list of characters on a page. It takes care of      * overlapping text.      *      * @param text The text to process.      */
 annotation|@
 name|Override
 specifier|protected
@@ -2657,13 +2657,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// RDD - Here we compute the value that represents the end of the rendered
-comment|// text.  This value is used to determine whether subsequent text rendered
+comment|// text. This value is used to determine whether subsequent text rendered
 comment|// on the same line overwrites the current text.
 comment|//
 comment|// We subtract any positive padding to handle cases where extreme amounts
 comment|// of padding are applied, then backed off (not sure why this is done, but there
 comment|// are cases where the padding is on the order of 10x the character width, and
-comment|// the TJ just backs up to compensate after each character).  Also, we subtract
+comment|// the TJ just backs up to compensate after each character). Also, we subtract
 comment|// an amount to allow for kerning (a percentage of the width of the last
 comment|// character).
 name|boolean
@@ -3116,8 +3116,8 @@ name|articleDivisionIndex
 argument_list|)
 decl_stmt|;
 comment|// In the wild, some PDF encoded documents put diacritics (accents on
-comment|// top of characters) into a separate Tj element.  When displaying them
-comment|// graphically, the two chunks get overlayed.  With text output though,
+comment|// top of characters) into a separate Tj element. When displaying them
+comment|// graphically, the two chunks get overlayed. With text output though,
 comment|// we need to do the overlay. This code recombines the diacritic with
 comment|// its associated character if the two are consecutive.
 if|if
@@ -3238,7 +3238,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * This is the page that the text extraction will start on.  The pages start      * at page 1.  For example in a 5 page PDF document, if the start page is 1      * then all pages will be extracted.  If the start page is 4 then pages 4 and 5      * will be extracted.  The default value is 1.      *      * @return Value of property startPage.      */
+comment|/**      * This is the page that the text extraction will start on. The pages start at page 1. For example in a 5 page PDF      * document, if the start page is 1 then all pages will be extracted. If the start page is 4 then pages 4 and 5 will      * be extracted. The default value is 1.      *      * @return Value of property startPage.      */
 specifier|public
 name|int
 name|getStartPage
@@ -3262,7 +3262,7 @@ operator|=
 name|startPageValue
 expr_stmt|;
 block|}
-comment|/**      * This will get the last page that will be extracted.  This is inclusive,      * for example if a 5 page PDF an endPage value of 5 would extract the      * entire document, an end page of 2 would extract pages 1 and 2.  This defaults      * to Integer.MAX_VALUE such that all pages of the pdf will be extracted.      *      * @return Value of property endPage.      */
+comment|/**      * This will get the last page that will be extracted. This is inclusive, for example if a 5 page PDF an endPage      * value of 5 would extract the entire document, an end page of 2 would extract pages 1 and 2. This defaults to      * Integer.MAX_VALUE such that all pages of the pdf will be extracted.      *      * @return Value of property endPage.      */
 specifier|public
 name|int
 name|getEndPage
@@ -3286,7 +3286,7 @@ operator|=
 name|endPageValue
 expr_stmt|;
 block|}
-comment|/**      * Set the desired line separator for output text.  The line.separator      * system property is used if the line separator preference is not set      * explicitly using this method.      *      * @param separator The desired line separator string.      */
+comment|/**      * Set the desired line separator for output text. The line.separator system property is used if the line separator      * preference is not set explicitly using this method.      *      * @param separator The desired line separator string.      */
 specifier|public
 name|void
 name|setLineSeparator
@@ -3320,7 +3320,7 @@ return|return
 name|wordSeparator
 return|;
 block|}
-comment|/**      * Set the desired word separator for output text.  The PDFBox text extraction      * algorithm will output a space character if there is enough space between      * two words.  By default a space character is used.  If you need and accurate      * count of characters that are found in a PDF document then you might want to      * set the word separator to the empty string.      *      * @param separator The desired page separator string.      */
+comment|/**      * Set the desired word separator for output text. The PDFBox text extraction algorithm will output a space      * character if there is enough space between two words. By default a space character is used. If you need and      * accurate count of characters that are found in a PDF document then you might want to set the word separator to      * the empty string.      *      * @param separator The desired page separator string.      */
 specifier|public
 name|void
 name|setWordSeparator
@@ -3364,7 +3364,7 @@ return|return
 name|output
 return|;
 block|}
-comment|/**      * Character strings are grouped by articles.  It is quite common that there      * will only be a single article.  This returns a List that contains List objects,      * the inner lists will contain TextPosition objects.      *      * @return A double List of TextPositions for all text strings on the page.      */
+comment|/**      * Character strings are grouped by articles. It is quite common that there will only be a single article. This      * returns a List that contains List objects, the inner lists will contain TextPosition objects.      *      * @return A double List of TextPositions for all text strings on the page.      */
 specifier|protected
 name|List
 argument_list|<
@@ -3380,7 +3380,7 @@ return|return
 name|charactersByArticle
 return|;
 block|}
-comment|/**      * By default the text stripper will attempt to remove text that overlapps each other.      * Word paints the same character several times in order to make it look bold.  By setting      * this to false all text will be extracted, which means that certain sections will be      * duplicated, but better performance will be noticed.      *      * @param suppressDuplicateOverlappingTextValue The suppressDuplicateOverlappingText to set.      */
+comment|/**      * By default the text stripper will attempt to remove text that overlapps each other. Word paints the same      * character several times in order to make it look bold. By setting this to false all text will be extracted, which      * means that certain sections will be duplicated, but better performance will be noticed.      *      * @param suppressDuplicateOverlappingTextValue The suppressDuplicateOverlappingText to set.      */
 specifier|public
 name|void
 name|setSuppressDuplicateOverlappingText
@@ -3404,7 +3404,7 @@ return|return
 name|shouldSeparateByBeads
 return|;
 block|}
-comment|/**      * Set if the text stripper should group the text output by a list of beads.      * The default value is true!      *      * @param aShouldSeparateByBeads The new grouping of beads.      */
+comment|/**      * Set if the text stripper should group the text output by a list of beads. The default value is true!      *      * @param aShouldSeparateByBeads The new grouping of beads.      */
 specifier|public
 name|void
 name|setShouldSeparateByBeads
@@ -3442,7 +3442,7 @@ operator|=
 name|aEndBookmark
 expr_stmt|;
 block|}
-comment|/**      * Get the bookmark where text extraction should start, inclusive.  Default is null.      *      * @return The starting bookmark.      */
+comment|/**      * Get the bookmark where text extraction should start, inclusive. Default is null.      *      * @return The starting bookmark.      */
 specifier|public
 name|PDOutlineItem
 name|getStartBookmark
@@ -3466,7 +3466,7 @@ operator|=
 name|aStartBookmark
 expr_stmt|;
 block|}
-comment|/**      * This will tell if the text stripper should add some more text formatting.      * @return true if some more text formatting will be added      */
+comment|/**      * This will tell if the text stripper should add some more text formatting.      *       * @return true if some more text formatting will be added      */
 specifier|public
 name|boolean
 name|getAddMoreFormatting
@@ -3476,7 +3476,7 @@ return|return
 name|addMoreFormatting
 return|;
 block|}
-comment|/**      * There will some additional text formatting be added if addMoreFormatting      * is set to true. Default is false.       * @param newAddMoreFormatting Tell PDFBox to add some more text formatting      */
+comment|/**      * There will some additional text formatting be added if addMoreFormatting is set to true. Default is false.      *       * @param newAddMoreFormatting Tell PDFBox to add some more text formatting      */
 specifier|public
 name|void
 name|setAddMoreFormatting
@@ -3490,7 +3490,7 @@ operator|=
 name|newAddMoreFormatting
 expr_stmt|;
 block|}
-comment|/**      * This will tell if the text stripper should sort the text tokens      * before writing to the stream.      *      * @return true If the text tokens will be sorted before being written.      */
+comment|/**      * This will tell if the text stripper should sort the text tokens before writing to the stream.      *      * @return true If the text tokens will be sorted before being written.      */
 specifier|public
 name|boolean
 name|getSortByPosition
@@ -3500,7 +3500,7 @@ return|return
 name|sortByPosition
 return|;
 block|}
-comment|/**      * The order of the text tokens in a PDF file may not be in the same      * as they appear visually on the screen.  For example, a PDF writer may      * write out all text by font, so all bold or larger text, then make a second      * pass and write out the normal text.<br/>      * The default is to<b>not</b> sort by position.<br/>      *<br/>      * A PDF writer could choose to write each character in a different order.  By      * default PDFBox does<b>not</b> sort the text tokens before processing them due to      * performance reasons.      *      * @param newSortByPosition Tell PDFBox to sort the text positions.      */
+comment|/**      * The order of the text tokens in a PDF file may not be in the same as they appear visually on the screen. For      * example, a PDF writer may write out all text by font, so all bold or larger text, then make a second pass and      * write out the normal text.<br/>      * The default is to<b>not</b> sort by position.<br/>      *<br/>      * A PDF writer could choose to write each character in a different order. By default PDFBox does<b>not</b> sort      * the text tokens before processing them due to performance reasons.      *      * @param newSortByPosition Tell PDFBox to sort the text positions.      */
 specifier|public
 name|void
 name|setSortByPosition
@@ -3514,7 +3514,7 @@ operator|=
 name|newSortByPosition
 expr_stmt|;
 block|}
-comment|/**      * Get the current space width-based tolerance value that is being used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.       *       * @return The current tolerance / scaling factor      */
+comment|/**      * Get the current space width-based tolerance value that is being used to estimate where spaces in text should be      * added. Note that the default value for this has been determined from trial and error.      *       * @return The current tolerance / scaling factor      */
 specifier|public
 name|float
 name|getSpacingTolerance
@@ -3524,7 +3524,7 @@ return|return
 name|spacingTolerance
 return|;
 block|}
-comment|/**      * Set the space width-based tolerance value that is used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.      * Setting this value larger will reduce the number of spaces added.       *       * @param spacingToleranceValue tolerance / scaling factor to use      */
+comment|/**      * Set the space width-based tolerance value that is used to estimate where spaces in text should be added. Note      * that the default value for this has been determined from trial and error. Setting this value larger will reduce      * the number of spaces added.      *       * @param spacingToleranceValue tolerance / scaling factor to use      */
 specifier|public
 name|void
 name|setSpacingTolerance
@@ -3538,7 +3538,7 @@ operator|=
 name|spacingToleranceValue
 expr_stmt|;
 block|}
-comment|/**      * Get the current character width-based tolerance value that is being used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.      *       * @return The current tolerance / scaling factor      */
+comment|/**      * Get the current character width-based tolerance value that is being used to estimate where spaces in text should      * be added. Note that the default value for this has been determined from trial and error.      *       * @return The current tolerance / scaling factor      */
 specifier|public
 name|float
 name|getAverageCharTolerance
@@ -3548,7 +3548,7 @@ return|return
 name|averageCharTolerance
 return|;
 block|}
-comment|/**      * Set the character width-based tolerance value that is used      * to estimate where spaces in text should be added.  Note that the      * default value for this has been determined from trial and error.      * Setting this value larger will reduce the number of spaces added.       *       * @param averageCharToleranceValue average tolerance / scaling factor to use      */
+comment|/**      * Set the character width-based tolerance value that is used to estimate where spaces in text should be added. Note      * that the default value for this has been determined from trial and error. Setting this value larger will reduce      * the number of spaces added.      *       * @param averageCharToleranceValue average tolerance / scaling factor to use      */
 specifier|public
 name|void
 name|setAverageCharTolerance
@@ -3562,7 +3562,7 @@ operator|=
 name|averageCharToleranceValue
 expr_stmt|;
 block|}
-comment|/**      * returns the multiple of whitespace character widths      * for the current text which the current      * line start can be indented from the previous line start      * beyond which the current line start is considered      * to be a paragraph start.      * @return the number of whitespace character widths to use      * when detecting paragraph indents.      */
+comment|/**      * returns the multiple of whitespace character widths for the current text which the current line start can be      * indented from the previous line start beyond which the current line start is considered to be a paragraph start.      *       * @return the number of whitespace character widths to use when detecting paragraph indents.      */
 specifier|public
 name|float
 name|getIndentThreshold
@@ -3572,7 +3572,7 @@ return|return
 name|indentThreshold
 return|;
 block|}
-comment|/**      * sets the multiple of whitespace character widths      * for the current text which the current      * line start can be indented from the previous line start      * beyond which the current line start is considered      * to be a paragraph start.  The default value is 2.0.      *      * @param indentThresholdValue the number of whitespace character widths to use      * when detecting paragraph indents.      */
+comment|/**      * sets the multiple of whitespace character widths for the current text which the current line start can be      * indented from the previous line start beyond which the current line start is considered to be a paragraph start.      * The default value is 2.0.      *      * @param indentThresholdValue the number of whitespace character widths to use when detecting paragraph indents.      */
 specifier|public
 name|void
 name|setIndentThreshold
@@ -3586,7 +3586,7 @@ operator|=
 name|indentThresholdValue
 expr_stmt|;
 block|}
-comment|/**      * the minimum whitespace, as a multiple      * of the max height of the current characters      * beyond which the current line start is considered      * to be a paragraph start.      * @return the character height multiple for      * max allowed whitespace between lines in      * the same paragraph.      */
+comment|/**      * the minimum whitespace, as a multiple of the max height of the current characters beyond which the current line      * start is considered to be a paragraph start.      *       * @return the character height multiple for max allowed whitespace between lines in the same paragraph.      */
 specifier|public
 name|float
 name|getDropThreshold
@@ -3596,7 +3596,7 @@ return|return
 name|dropThreshold
 return|;
 block|}
-comment|/**      * sets the minimum whitespace, as a multiple      * of the max height of the current characters      * beyond which the current line start is considered      * to be a paragraph start.  The default value is 2.5.      *      * @param dropThresholdValue the character height multiple for      * max allowed whitespace between lines in      * the same paragraph.      */
+comment|/**      * sets the minimum whitespace, as a multiple of the max height of the current characters beyond which the current      * line start is considered to be a paragraph start. The default value is 2.5.      *      * @param dropThresholdValue the character height multiple for max allowed whitespace between lines in the same      * paragraph.      */
 specifier|public
 name|void
 name|setDropThreshold
@@ -3610,7 +3610,7 @@ operator|=
 name|dropThresholdValue
 expr_stmt|;
 block|}
-comment|/**      * Returns the string which will be used at the beginning of a paragraph.      * @return the paragraph start string      */
+comment|/**      * Returns the string which will be used at the beginning of a paragraph.      *       * @return the paragraph start string      */
 specifier|public
 name|String
 name|getParagraphStart
@@ -3620,7 +3620,7 @@ return|return
 name|paragraphStart
 return|;
 block|}
-comment|/**      * Sets the string which will be used at the beginning of a paragraph.      * @param s the paragraph start string      */
+comment|/**      * Sets the string which will be used at the beginning of a paragraph.      *       * @param s the paragraph start string      */
 specifier|public
 name|void
 name|setParagraphStart
@@ -3634,7 +3634,7 @@ operator|=
 name|s
 expr_stmt|;
 block|}
-comment|/**      * Returns the string which will be used at the end of a paragraph.      * @return the paragraph end string      */
+comment|/**      * Returns the string which will be used at the end of a paragraph.      *       * @return the paragraph end string      */
 specifier|public
 name|String
 name|getParagraphEnd
@@ -3644,7 +3644,7 @@ return|return
 name|paragraphEnd
 return|;
 block|}
-comment|/**      * Sets the string which will be used at the end of a paragraph.      * @param s the paragraph end string      */
+comment|/**      * Sets the string which will be used at the end of a paragraph.      *       * @param s the paragraph end string      */
 specifier|public
 name|void
 name|setParagraphEnd
@@ -3658,7 +3658,7 @@ operator|=
 name|s
 expr_stmt|;
 block|}
-comment|/**      * Returns the string which will be used at the beginning of a page.      * @return the page start string      */
+comment|/**      * Returns the string which will be used at the beginning of a page.      *       * @return the page start string      */
 specifier|public
 name|String
 name|getPageStart
@@ -3668,7 +3668,7 @@ return|return
 name|pageStart
 return|;
 block|}
-comment|/**      * Sets the string which will be used at the beginning of a page.      * @param pageStartValue the page start string      */
+comment|/**      * Sets the string which will be used at the beginning of a page.      *       * @param pageStartValue the page start string      */
 specifier|public
 name|void
 name|setPageStart
@@ -3682,7 +3682,7 @@ operator|=
 name|pageStartValue
 expr_stmt|;
 block|}
-comment|/**      * Returns the string which will be used at the end of a page.      * @return the page end string      */
+comment|/**      * Returns the string which will be used at the end of a page.      *       * @return the page end string      */
 specifier|public
 name|String
 name|getPageEnd
@@ -3692,7 +3692,7 @@ return|return
 name|pageEnd
 return|;
 block|}
-comment|/**      * Sets the string which will be used at the end of a page.      * @param pageEndValue the page end string      */
+comment|/**      * Sets the string which will be used at the end of a page.      *       * @param pageEndValue the page end string      */
 specifier|public
 name|void
 name|setPageEnd
@@ -3706,7 +3706,7 @@ operator|=
 name|pageEndValue
 expr_stmt|;
 block|}
-comment|/**      * Returns the string which will be used at the beginning of an article.      * @return the article start string      */
+comment|/**      * Returns the string which will be used at the beginning of an article.      *       * @return the article start string      */
 specifier|public
 name|String
 name|getArticleStart
@@ -3716,7 +3716,7 @@ return|return
 name|articleStart
 return|;
 block|}
-comment|/**      * Sets the string which will be used at the beginning of an article.      * @param articleStartValue the article start string      */
+comment|/**      * Sets the string which will be used at the beginning of an article.      *       * @param articleStartValue the article start string      */
 specifier|public
 name|void
 name|setArticleStart
@@ -3730,7 +3730,7 @@ operator|=
 name|articleStartValue
 expr_stmt|;
 block|}
-comment|/**      * Returns the string which will be used at the end of an article.      * @return the article end string      */
+comment|/**      * Returns the string which will be used at the end of an article.      *       * @return the article end string      */
 specifier|public
 name|String
 name|getArticleEnd
@@ -3740,7 +3740,7 @@ return|return
 name|articleEnd
 return|;
 block|}
-comment|/**      * Sets the string which will be used at the end of an article.      * @param articleEndValue the article end string      */
+comment|/**      * Sets the string which will be used at the end of an article.      *       * @param articleEndValue the article end string      */
 specifier|public
 name|void
 name|setArticleEnd
@@ -3754,7 +3754,7 @@ operator|=
 name|articleEndValue
 expr_stmt|;
 block|}
-comment|/**      * handles the line separator for a new line given      * the specified current and previous TextPositions.      * @param current the current text position      * @param lastPosition the previous text position      * @param lastLineStartPosition the last text position that followed a line separator.      * @param maxHeightForLine max height for positions since lastLineStartPosition      * @return start position of the last line      * @throws IOException if something went wrong      */
+comment|/**      * handles the line separator for a new line given the specified current and previous TextPositions.      *       * @param current the current text position      * @param lastPosition the previous text position      * @param lastLineStartPosition the last text position that followed a line separator.      * @param maxHeightForLine max height for positions since lastLineStartPosition      * @return start position of the last line      * @throws IOException if something went wrong      */
 specifier|private
 name|PositionWrapper
 name|handleLineSeparation
@@ -3834,7 +3834,7 @@ return|return
 name|lastLineStartPosition
 return|;
 block|}
-comment|/**      * tests the relationship between the last text position, the current text      * position and the last text position that followed a line separator to      * decide if the gap represents a paragraph separation. This should      *<i>only</i> be called for consecutive text positions that first pass the      * line separation test.      *<p>      * This base implementation tests to see if the lastLineStartPosition is      * null OR if the current vertical position has dropped below the last text      * vertical position by at least 2.5 times the current text height OR if the      * current horizontal position is indented by at least 2 times the current      * width of a space character.</p>      *<p>      * This also attempts to identify text that is indented under a hanging indent.</p>      *<p>      * This method sets the isParagraphStart and isHangingIndent flags on the current      * position object.</p>      *      * @param position the current text position.  This may have its isParagraphStart      * or isHangingIndent flags set upon return.      * @param lastPosition the previous text position (should not be null).      * @param lastLineStartPosition the last text position that followed a line separator, or null.      * @param maxHeightForLine max height for text positions since lasLineStartPosition.      */
+comment|/**      * tests the relationship between the last text position, the current text position and the last text position that      * followed a line separator to decide if the gap represents a paragraph separation. This should<i>only</i> be      * called for consecutive text positions that first pass the line separation test.      *<p>      * This base implementation tests to see if the lastLineStartPosition is null OR if the current vertical position      * has dropped below the last text vertical position by at least 2.5 times the current text height OR if the current      * horizontal position is indented by at least 2 times the current width of a space character.      *</p>      *<p>      * This also attempts to identify text that is indented under a hanging indent.      *</p>      *<p>      * This method sets the isParagraphStart and isHangingIndent flags on the current position object.      *</p>      *      * @param position the current text position. This may have its isParagraphStart or isHangingIndent flags set upon      * return.      * @param lastPosition the previous text position (should not be null).      * @param lastLineStartPosition the last text position that followed a line separator, or null.      * @param maxHeightForLine max height for text positions since lasLineStartPosition.      */
 specifier|private
 name|void
 name|isParagraphSeparation
@@ -4153,7 +4153,7 @@ operator|/
 literal|1000f
 return|;
 block|}
-comment|/**      * writes the paragraph separator string to the output.      * @throws IOException if something went wrong      */
+comment|/**      * writes the paragraph separator string to the output.      *       * @throws IOException if something went wrong      */
 specifier|protected
 name|void
 name|writeParagraphSeparator
@@ -4168,7 +4168,7 @@ name|writeParagraphStart
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Write something (if defined) at the start of a paragraph.      * @throws IOException if something went wrong      */
+comment|/**      * Write something (if defined) at the start of a paragraph.      *       * @throws IOException if something went wrong      */
 specifier|protected
 name|void
 name|writeParagraphStart
@@ -4202,7 +4202,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * Write something (if defined) at the end of a paragraph.      * @throws IOException if something went wrong      */
+comment|/**      * Write something (if defined) at the end of a paragraph.      *       * @throws IOException if something went wrong      */
 specifier|protected
 name|void
 name|writeParagraphEnd
@@ -4233,7 +4233,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/**      * Write something (if defined) at the start of a page.      * @throws IOException if something went wrong      */
+comment|/**      * Write something (if defined) at the start of a page.      *       * @throws IOException if something went wrong      */
 specifier|protected
 name|void
 name|writePageStart
@@ -4250,7 +4250,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write something (if defined) at the end of a page.      * @throws IOException if something went wrong      */
+comment|/**      * Write something (if defined) at the end of a page.      *       * @throws IOException if something went wrong      */
 specifier|protected
 name|void
 name|writePageEnd
@@ -4267,7 +4267,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * returns the list item Pattern object that matches      * the text at the specified PositionWrapper or null      * if the text does not match such a pattern.  The list      * of Patterns tested against is given by the      * {@link #getListItemPatterns()} method.  To add to      * the list, simply override that method (if sub-classing)      * or explicitly supply your own list using      * {@link #setListItemPatterns(List)}.      * @param pw position      * @return the matching pattern      */
+comment|/**      * returns the list item Pattern object that matches the text at the specified PositionWrapper or null if the text      * does not match such a pattern. The list of Patterns tested against is given by the {@link #getListItemPatterns()}      * method. To add to the list, simply override that method (if sub-classing) or explicitly supply your own list      * using {@link #setListItemPatterns(List)}.      *       * @param pw position      * @return the matching pattern      */
 specifier|private
 name|Pattern
 name|matchListItemPattern
@@ -4302,7 +4302,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * a list of regular expressions that match commonly used      * list item formats, i.e. bullets, numbers, letters,      * Roman numerals, etc. Not meant to be      * comprehensive.      */
+comment|/**      * a list of regular expressions that match commonly used list item formats, i.e. bullets, numbers, letters, Roman      * numerals, etc. Not meant to be comprehensive.      */
 specifier|private
 specifier|static
 specifier|final
@@ -4330,7 +4330,7 @@ block|,
 literal|"[IVXL]+\\."
 block|,
 literal|"[ivxl]+\\."
-block|,     }
+block|, }
 decl_stmt|;
 specifier|private
 name|List
@@ -4341,7 +4341,7 @@ name|listOfPatterns
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * use to supply a different set of regular expression      * patterns for matching list item starts.      *      * @param patterns list of patterns      */
+comment|/**      * use to supply a different set of regular expression patterns for matching list item starts.      *      * @param patterns list of patterns      */
 specifier|protected
 name|void
 name|setListItemPatterns
@@ -4358,7 +4358,7 @@ operator|=
 name|patterns
 expr_stmt|;
 block|}
-comment|/**      * returns a list of regular expression Patterns representing      * different common list item formats.  For example      * numbered items of form:      *<ol>      *<li>some text</li>      *<li>more text</li>      *</ol>      * or      *<ul>      *<li>some text</li>      *<li>more text</li>      *</ul>      * etc., all begin with some character pattern. The pattern "\\d+\." (matches "1.", "2.", ...)      * or "\[\\d+\]" (matches "[1]", "[2]", ...).      *<p>      * This method returns a list of such regular expression Patterns.      * @return a list of Pattern objects.      */
+comment|/**      * returns a list of regular expression Patterns representing different common list item formats. For example      * numbered items of form:      *<ol>      *<li>some text</li>      *<li>more text</li>      *</ol>      * or      *<ul>      *<li>some text</li>      *<li>more text</li>      *</ul>      * etc., all begin with some character pattern. The pattern "\\d+\." (matches "1.", "2.", ...) or "\[\\d+\]"      * (matches "[1]", "[2]", ...).      *<p>      * This method returns a list of such regular expression Patterns.      *       * @return a list of Pattern objects.      */
 specifier|protected
 name|List
 argument_list|<
@@ -4414,7 +4414,7 @@ return|return
 name|listOfPatterns
 return|;
 block|}
-comment|/**      * iterates over the specified list of Patterns until      * it finds one that matches the specified string.  Then      * returns the Pattern.      *<p>      * Order of the supplied list of patterns is important as      * most common patterns should come first.  Patterns      * should be strict in general, and all will be      * used with case sensitivity on.      *</p>      * @param string the string to be searched       * @param patterns list of patterns      * @return matching pattern      */
+comment|/**      * iterates over the specified list of Patterns until it finds one that matches the specified string. Then returns      * the Pattern.      *<p>      * Order of the supplied list of patterns is important as most common patterns should come first. Patterns should be      * strict in general, and all will be used with case sensitivity on.      *</p>      *       * @param string the string to be searched      * @param patterns list of patterns      * @return matching pattern      */
 specifier|protected
 specifier|static
 name|Pattern
@@ -4460,7 +4460,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Write a list of string containing a whole line of a document.      * @param line a list with the words of the given line      * @param isRtlDominant determines if rtl or ltl is dominant      * @throws IOException if something went wrong      */
+comment|/**      * Write a list of string containing a whole line of a document.      *       * @param line a list with the words of the given line      * @param isRtlDominant determines if rtl or ltl is dominant      * @throws IOException if something went wrong      */
 specifier|private
 name|void
 name|writeLine
@@ -4538,7 +4538,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Normalize the given list of TextPositions.      * @param line list of TextPositions      * @param isRtlDominant determines if rtl or ltl is dominant       * @param hasRtl determines if lines contains rtl formatted text(parts)      * @return a list of strings, one string for every word      */
+comment|/**      * Normalize the given list of TextPositions.      *       * @param line list of TextPositions      * @param isRtlDominant determines if rtl or ltl is dominant      * @param hasRtl determines if lines contains rtl formatted text(parts)      * @return a list of strings, one string for every word      */
 specifier|private
 name|List
 argument_list|<
@@ -4698,7 +4698,7 @@ return|return
 name|normalized
 return|;
 block|}
-comment|/**      * Used within {@link #normalize(List, boolean, boolean)} to create a single      * {@link WordWithTextPositions} entry.      */
+comment|/**      * Used within {@link #normalize(List, boolean, boolean)} to create a single {@link WordWithTextPositions} entry.      */
 specifier|private
 name|WordWithTextPositions
 name|createWord
@@ -4726,7 +4726,7 @@ name|wordPositions
 argument_list|)
 return|;
 block|}
-comment|/**      * Normalize certain Unicode characters. For example, convert the      * single "fi" ligature to "f" and "i". Also normalises Arabic and Hebrew presentation forms.      *      * @param word Word to normalize      * @return Normalized word      */
+comment|/**      * Normalize certain Unicode characters. For example, convert the single "fi" ligature to "f" and "i". Also      * normalises Arabic and Hebrew presentation forms.      *      * @param word Word to normalize      * @return Normalized word      */
 specifier|private
 name|String
 name|normalizeWord
@@ -4958,7 +4958,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Used within {@link #normalize(List, boolean, boolean)} to handle a {@link TextPosition}.      * @return The StringBuilder that must be used when calling this method.      */
+comment|/**      * Used within {@link #normalize(List, boolean, boolean)} to handle a {@link TextPosition}.      *       * @return The StringBuilder that must be used when calling this method.      */
 specifier|private
 name|StringBuilder
 name|normalizeAdd
@@ -5130,7 +5130,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Internal class that maps strings to lists of {@link TextPosition} arrays.      * Note that the number of entries in that list may differ from the number of characters in the      * string due to normalization.      *      * @author Axel Dörfler      */
+comment|/**      * Internal class that maps strings to lists of {@link TextPosition} arrays. Note that the number of entries in that      * list may differ from the number of characters in the string due to normalization.      *      * @author Axel Dörfler      */
 specifier|private
 specifier|static
 specifier|final
@@ -5189,7 +5189,7 @@ name|textPositions
 return|;
 block|}
 block|}
-comment|/**      * wrapper of TextPosition that adds flags to track      * status as linestart and paragraph start positions.      *<p>      * This is implemented as a wrapper since the TextPosition      * class doesn't provide complete access to its      * state fields to subclasses.  Also, conceptually TextPosition is      * immutable while these flags need to be set post-creation so      * it makes sense to put these flags in this separate class.      *</p>      * @author m.martinez@ll.mit.edu      */
+comment|/**      * wrapper of TextPosition that adds flags to track status as linestart and paragraph start positions.      *<p>      * This is implemented as a wrapper since the TextPosition class doesn't provide complete access to its state fields      * to subclasses. Also, conceptually TextPosition is immutable while these flags need to be set post-creation so it      * makes sense to put these flags in this separate class.      *</p>      *       * @author m.martinez@ll.mit.edu      */
 specifier|private
 specifier|static
 specifier|final
@@ -5246,7 +5246,7 @@ operator|=
 name|position
 expr_stmt|;
 block|}
-comment|/**          * Returns the underlying TextPosition object.          * @return the text position          */
+comment|/**          * Returns the underlying TextPosition object.          *           * @return the text position          */
 specifier|public
 name|TextPosition
 name|getTextPosition
