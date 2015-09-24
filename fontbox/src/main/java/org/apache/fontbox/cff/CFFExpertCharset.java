@@ -44,7 +44,7 @@ init|=
 literal|1
 decl_stmt|;
 comment|/**      * Table of character codes and their corresponding names.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|Object
