@@ -61,7 +61,7 @@ init|=
 literal|1
 decl_stmt|;
 comment|/**      * Table of octal character codes and their corresponding names      * on top of {@link MacRomanEncoding}.      */
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|Object
