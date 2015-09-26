@@ -291,6 +291,23 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|acroForm
+operator|.
+name|setDefaultAppearance
+argument_list|(
+literal|"/Helv 0 Tf 0 g"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|acroForm
+operator|.
+name|getDefaultAppearance
+argument_list|()
+argument_list|,
+literal|"/Helv 0 Tf 0 g"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|After
