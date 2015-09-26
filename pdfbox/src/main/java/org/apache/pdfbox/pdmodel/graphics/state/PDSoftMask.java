@@ -181,6 +181,24 @@ name|PDFormXObject
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|form
+operator|.
+name|PDTransparencyGroup
+import|;
+end_import
+
 begin_comment
 comment|/**  * Soft mask.  *  * @author Kühn& Weyh Software, GmbH  */
 end_comment
@@ -304,7 +322,7 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
-name|PDFormXObject
+name|PDTransparencyGroup
 name|group
 init|=
 literal|null
@@ -421,7 +439,7 @@ block|{
 name|group
 operator|=
 operator|(
-name|PDFormXObject
+name|PDTransparencyGroup
 operator|)
 name|PDXObject
 operator|.
