@@ -92,14 +92,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Transparency group.  *   * @author Kühn& Weyh Software, GmbH  */
+comment|/**  * Transparency group attributes.  *   * @author Kühn& Weyh Software, GmbH  */
 end_comment
 
 begin_class
 specifier|public
 specifier|final
 class|class
-name|PDGroup
+name|PDTransparencyGroupAttributes
 implements|implements
 name|COSObjectable
 block|{
@@ -109,16 +109,12 @@ name|COSDictionary
 name|dictionary
 decl_stmt|;
 specifier|private
-name|COSName
-name|subType
-decl_stmt|;
-specifier|private
 name|PDColorSpace
 name|colorSpace
 decl_stmt|;
 comment|/**      * Creates a group object from a given dictionary      * @param dic {@link COSDictionary} object      */
 specifier|public
-name|PDGroup
+name|PDTransparencyGroupAttributes
 parameter_list|(
 name|COSDictionary
 name|dic
@@ -138,39 +134,6 @@ parameter_list|()
 block|{
 return|return
 name|dictionary
-return|;
-block|}
-comment|/**      * Returns the groups's subtype, should be "Transparency".      */
-specifier|public
-name|COSName
-name|getSubType
-parameter_list|()
-block|{
-if|if
-condition|(
-name|subType
-operator|==
-literal|null
-condition|)
-block|{
-name|subType
-operator|=
-operator|(
-name|COSName
-operator|)
-name|getCOSObject
-argument_list|()
-operator|.
-name|getDictionaryObject
-argument_list|(
-name|COSName
-operator|.
-name|S
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|subType
 return|;
 block|}
 comment|/**      * Returns the blending color space      * @return color space      * @throws IOException      */

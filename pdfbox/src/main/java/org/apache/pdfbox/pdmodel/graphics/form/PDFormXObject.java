@@ -257,7 +257,7 @@ implements|implements
 name|PDContentStream
 block|{
 specifier|private
-name|PDGroup
+name|PDTransparencyGroupAttributes
 name|group
 decl_stmt|;
 specifier|private
@@ -400,9 +400,9 @@ name|formType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the group attributes dictionary (Group XObject).      *      * @return the group attributes dictionary      */
+comment|/**      * Returns the group attributes dictionary.      *      * @return the group attributes dictionary      */
 specifier|public
-name|PDGroup
+name|PDTransparencyGroupAttributes
 name|getGroup
 parameter_list|()
 block|{
@@ -439,7 +439,7 @@ block|{
 name|group
 operator|=
 operator|new
-name|PDGroup
+name|PDTransparencyGroupAttributes
 argument_list|(
 name|dic
 argument_list|)
