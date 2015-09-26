@@ -56,6 +56,18 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -258,6 +270,25 @@ name|getField
 argument_list|(
 literal|"foo"
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+specifier|public
+name|void
+name|testAcroFormProperties
+parameter_list|()
+block|{
+name|assertTrue
+argument_list|(
+name|acroForm
+operator|.
+name|getDefaultAppearance
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
