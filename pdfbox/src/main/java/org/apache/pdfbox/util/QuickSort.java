@@ -36,11 +36,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * see http://de.wikipedia.org/wiki/Quicksort.  *   * @author UWe Pachler  */
+comment|/**  * see http://de.wikipedia.org/wiki/Quicksort.  *   * @author Uwe Pachler  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|QuickSort
 block|{
@@ -57,7 +58,7 @@ name|?
 extends|extends
 name|Comparable
 argument_list|>
-name|objComp
+name|OBJCOMP
 init|=
 operator|new
 name|Comparator
@@ -66,6 +67,8 @@ name|Comparable
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare
@@ -169,7 +172,7 @@ argument_list|<
 name|T
 argument_list|>
 operator|)
-name|objComp
+name|OBJCOMP
 argument_list|)
 expr_stmt|;
 block|}
