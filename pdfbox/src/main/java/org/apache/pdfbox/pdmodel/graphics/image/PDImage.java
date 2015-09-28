@@ -111,22 +111,6 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|common
-operator|.
-name|PDStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
 name|graphics
 operator|.
 name|color
@@ -160,13 +144,6 @@ parameter_list|(
 name|Paint
 name|paint
 parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Returns a stream containing this image's data. Null for inline images.      * @throws IOException if the stream could not be read.      */
-name|PDStream
-name|getStream
-parameter_list|()
 throws|throws
 name|IOException
 function_decl|;

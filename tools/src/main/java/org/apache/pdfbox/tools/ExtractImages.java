@@ -1254,9 +1254,6 @@ name|data
 init|=
 name|pdImage
 operator|.
-name|getStream
-argument_list|()
-operator|.
 name|createInputStream
 argument_list|(
 name|JPEG
