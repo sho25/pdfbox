@@ -101,6 +101,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|filter
@@ -222,6 +250,21 @@ name|boolean
 name|isWriting
 decl_stmt|;
 comment|// true if there's an open OutputStream
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|COSStream
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Creates a new stream with an empty dictionary.      */
 specifier|public
 name|COSStream
@@ -249,15 +292,6 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|randomAccess
-operator|=
-name|createRandomAccess
-argument_list|(
-name|scratchFile
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
 name|scratchFile
 operator|=
 name|scratchFile
@@ -272,40 +306,6 @@ name|getMainMemoryOnlyInstance
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Creates a buffer for writing stream data, either in-memory or on-disk.      */
-specifier|private
-name|RandomAccess
-name|createRandomAccess
-parameter_list|(
-name|ScratchFile
-name|scratchFile
-parameter_list|)
-block|{
-try|try
-block|{
-return|return
-name|scratchFile
-operator|.
-name|createBuffer
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// user can't recover from this exception anyway
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
 comment|/**      * Throws if the random access backing store has been closed. Helpful for catching cases where      * a user tries to use a COSStream which has outlived its COSDocument.      */
 specifier|private
 name|void
@@ -316,6 +316,12 @@ name|IOException
 block|{
 if|if
 condition|(
+operator|(
+name|randomAccess
+operator|!=
+literal|null
+operator|)
+operator|&&
 name|randomAccess
 operator|.
 name|isClosed
@@ -348,6 +354,52 @@ name|createRawInputStream
 argument_list|()
 return|;
 block|}
+comment|/**      * Ensures {@link #randomAccess} is not<code>null</code> by creating a      * buffer from {@link #scratchFile} if needed.      *       * @param forInputStream  if<code>true</code> and {@link #randomAccess} is<code>null</code>      *                        a debug message is logged - input stream should be retrieved after      *                        data being written to stream      * @throws IOException      */
+specifier|private
+name|void
+name|ensureRandomAccessExists
+parameter_list|(
+name|boolean
+name|forInputStream
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|randomAccess
+operator|==
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|forInputStream
+operator|&&
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+comment|// no data written to stream - maybe this should be an exception
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Create InputStream called without data being written before to stream."
+argument_list|)
+expr_stmt|;
+block|}
+name|randomAccess
+operator|=
+name|scratchFile
+operator|.
+name|createBuffer
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Returns a new InputStream which reads the encoded PDF stream data. Experts only!      *       * @return InputStream containing raw, encoded PDF stream data.      * @throws IOException If the stream could not be read.      */
 specifier|public
 name|InputStream
@@ -372,6 +424,11 @@ literal|"Cannot read while there is an open stream writer"
 argument_list|)
 throw|;
 block|}
+name|ensureRandomAccessExists
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|RandomAccessInputStream
@@ -419,6 +476,11 @@ literal|"Cannot read while there is an open stream writer"
 argument_list|)
 throw|;
 block|}
+name|ensureRandomAccessExists
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|InputStream
 name|input
 init|=
@@ -521,12 +583,12 @@ expr_stmt|;
 block|}
 name|randomAccess
 operator|=
-name|createRandomAccess
-argument_list|(
 name|scratchFile
-argument_list|)
+operator|.
+name|createBuffer
+argument_list|()
 expr_stmt|;
-comment|// discards old data
+comment|// discards old data - TODO: close existing buffer?
 name|OutputStream
 name|randomOut
 init|=
@@ -641,12 +703,12 @@ throw|;
 block|}
 name|randomAccess
 operator|=
-name|createRandomAccess
-argument_list|(
 name|scratchFile
-argument_list|)
+operator|.
+name|createBuffer
+argument_list|()
 expr_stmt|;
-comment|// discards old data
+comment|// discards old data - TODO: close existing buffer?
 name|OutputStream
 name|out
 init|=
@@ -1016,11 +1078,19 @@ throws|throws
 name|IOException
 block|{
 comment|// marks the scratch file pages as free
+if|if
+condition|(
+name|randomAccess
+operator|!=
+literal|null
+condition|)
+block|{
 name|randomAccess
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
