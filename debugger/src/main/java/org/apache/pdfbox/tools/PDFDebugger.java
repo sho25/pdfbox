@@ -1194,9 +1194,9 @@ specifier|private
 specifier|static
 specifier|final
 name|String
-name|VIEWPAGES
+name|VIEW_STRUCTURE
 init|=
-literal|"-viewpages"
+literal|"-viewstructure"
 decl_stmt|;
 specifier|private
 specifier|static
@@ -5403,7 +5403,7 @@ decl_stmt|;
 name|boolean
 name|viewPages
 init|=
-literal|false
+literal|true
 decl_stmt|;
 for|for
 control|(
@@ -5469,13 +5469,13 @@ index|]
 operator|.
 name|equals
 argument_list|(
-name|VIEWPAGES
+name|VIEW_STRUCTURE
 argument_list|)
 condition|)
 block|{
 name|viewPages
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 block|}
 else|else
@@ -6120,7 +6120,7 @@ literal|"\nOptions:\n"
 operator|+
 literal|"  -password<password> : Password to decrypt the document\n"
 operator|+
-literal|"  -viewpages           : activate the page mode on startup\n"
+literal|"  -viewstructure       : activate structure mode on startup\n"
 operator|+
 literal|"<inputfile>          : The PDF document to be loaded\n"
 decl_stmt|;
