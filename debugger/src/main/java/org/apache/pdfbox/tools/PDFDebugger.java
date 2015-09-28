@@ -6116,7 +6116,7 @@ name|message
 init|=
 literal|"Usage: java -jar pdfbox-app-x.y.z.jar PDFDebugger [options]<inputfile>\n"
 operator|+
-literal|"\nOptons:\n"
+literal|"\nOptions:\n"
 operator|+
 literal|"  -password<password> : Password to decrypt the document\n"
 operator|+
