@@ -32,6 +32,10 @@ specifier|static
 name|FontMapper
 name|instance
 decl_stmt|;
+specifier|private
+name|FontMappers
+parameter_list|()
+block|{     }
 comment|// lazy thread safe singleton
 specifier|private
 specifier|static
