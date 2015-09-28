@@ -418,14 +418,14 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Getter for an instance using only unrestricted main memory for buffering      * (same as<code>new ScratchFile(MemoryUsageSetting.setupMainMemoryOnly())</code>).      *       * @return instance configured to only use main memory with no size restriction      *       * @throws IOException      */
+comment|/**      * Getter for an instance using only unrestricted main memory for buffering      * (same as<code>new ScratchFile(MemoryUsageSetting.setupMainMemoryOnly())</code>).      *       * @return instance configured to only use main memory with no size restriction      */
 specifier|public
 specifier|static
 name|ScratchFile
 name|getMainMemoryOnlyInstance
 parameter_list|()
-throws|throws
-name|IOException
+block|{
+try|try
 block|{
 return|return
 operator|new
@@ -437,6 +437,30 @@ name|setupMainMemoryOnly
 argument_list|()
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{
+comment|// cannot happen for main memory setup
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Unexpected exception occurred creating main memory scratch file instance: "
+operator|+
+name|ioe
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
 block|}
 comment|/**      * Returns a new free page, either from free page pool      * or by enlarging scratch file (may be created).      *       * @return index of new page      */
 name|int

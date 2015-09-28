@@ -339,9 +339,7 @@ name|document
 operator|=
 operator|new
 name|COSDocument
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * The initial parse will first parse only the trailer, the xrefstart and all xref tables to have a pointer (offset)      * to all the pdf's objects. It can handle linearized pdfs, which will have an xref at the end pointing to an xref      * at the beginning of the file. Last the root object is parsed.      *       * @throws IOException If something went wrong.      */
