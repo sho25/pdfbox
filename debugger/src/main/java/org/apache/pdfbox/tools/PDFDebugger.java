@@ -6120,6 +6120,8 @@ literal|"\nOptons:\n"
 operator|+
 literal|"  -password<password> : Password to decrypt the document\n"
 operator|+
+literal|"  -viewpages           : activate the page mode on startup\n"
+operator|+
 literal|"<inputfile>          : The PDF document to be loaded\n"
 decl_stmt|;
 name|System
