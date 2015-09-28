@@ -286,24 +286,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|font
-operator|.
-name|UniUtil
-operator|.
-name|getUniNameOfCodePoint
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -426,6 +408,24 @@ operator|.
 name|encoding
 operator|.
 name|WinAnsiEncoding
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|UniUtil
+operator|.
+name|getUniNameOfCodePoint
 import|;
 end_import
 
@@ -901,7 +901,10 @@ name|TrueTypeFont
 argument_list|>
 name|mapping
 init|=
-name|FontMapper
+name|FontMappers
+operator|.
+name|instance
+argument_list|()
 operator|.
 name|getTrueTypeFont
 argument_list|(

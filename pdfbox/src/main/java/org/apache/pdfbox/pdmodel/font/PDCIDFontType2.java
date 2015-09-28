@@ -695,7 +695,10 @@ comment|// find font or substitute
 name|CIDFontMapping
 name|mapping
 init|=
-name|FontMapper
+name|FontMappers
+operator|.
+name|instance
+argument_list|()
 operator|.
 name|getCIDFont
 argument_list|(

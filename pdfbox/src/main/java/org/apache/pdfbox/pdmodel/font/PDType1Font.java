@@ -149,7 +149,7 @@ name|apache
 operator|.
 name|fontbox
 operator|.
-name|FontBoxFont
+name|EncodedFont
 import|;
 end_import
 
@@ -161,7 +161,7 @@ name|apache
 operator|.
 name|fontbox
 operator|.
-name|EncodedFont
+name|FontBoxFont
 import|;
 end_import
 
@@ -280,24 +280,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|font
-operator|.
-name|UniUtil
-operator|.
-name|getUniNameOfCodePoint
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -380,6 +362,24 @@ operator|.
 name|util
 operator|.
 name|Matrix
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|UniUtil
+operator|.
+name|getUniNameOfCodePoint
 import|;
 end_import
 
@@ -790,7 +790,10 @@ name|FontBoxFont
 argument_list|>
 name|mapping
 init|=
-name|FontMapper
+name|FontMappers
+operator|.
+name|instance
+argument_list|()
 operator|.
 name|getFontBoxFont
 argument_list|(
@@ -1322,7 +1325,10 @@ name|FontBoxFont
 argument_list|>
 name|mapping
 init|=
-name|FontMapper
+name|FontMappers
+operator|.
+name|instance
+argument_list|()
 operator|.
 name|getFontBoxFont
 argument_list|(

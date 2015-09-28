@@ -593,7 +593,10 @@ name|FontBoxFont
 argument_list|>
 name|mapping
 init|=
-name|FontMapper
+name|FontMappers
+operator|.
+name|instance
+argument_list|()
 operator|.
 name|getFontBoxFont
 argument_list|(

@@ -262,6 +262,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -276,20 +290,6 @@ operator|.
 name|UniUtil
 operator|.
 name|getUniNameOfCodePoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Matrix
 import|;
 end_import
 
@@ -606,7 +606,10 @@ comment|// find font or substitute
 name|CIDFontMapping
 name|mapping
 init|=
-name|FontMapper
+name|FontMappers
+operator|.
+name|instance
+argument_list|()
 operator|.
 name|getCIDFont
 argument_list|(
