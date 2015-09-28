@@ -65,6 +65,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|io
+operator|.
+name|MemoryUsageSetting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -175,7 +189,10 @@ literal|"PDFBox.GlobalResourceMergeTest.Doc02.decoded.pdf"
 argument_list|,
 literal|"GlobalResourceMergeTestResult.pdf"
 argument_list|,
-literal|false
+name|MemoryUsageSetting
+operator|.
+name|setupMainMemoryOnly
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// once again, with scratch file
@@ -187,7 +204,10 @@ literal|"PDFBox.GlobalResourceMergeTest.Doc02.decoded.pdf"
 argument_list|,
 literal|"GlobalResourceMergeTestResult2.pdf"
 argument_list|,
-literal|true
+name|MemoryUsageSetting
+operator|.
+name|setupTempFileOnly
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -207,7 +227,10 @@ literal|"multitiff.pdf"
 argument_list|,
 literal|"JpegMultiMergeTestResult.pdf"
 argument_list|,
-literal|false
+name|MemoryUsageSetting
+operator|.
+name|setupMainMemoryOnly
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// once again, with scratch file
@@ -219,7 +242,10 @@ literal|"multitiff.pdf"
 argument_list|,
 literal|"JpegMultiMergeTestResult.pdf"
 argument_list|,
-literal|true
+name|MemoryUsageSetting
+operator|.
+name|setupTempFileOnly
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -239,7 +265,10 @@ literal|"PDFBox.GlobalResourceMergeTest.Doc02.pdf"
 argument_list|,
 literal|"GlobalResourceMergeTestResult.pdf"
 argument_list|,
-literal|false
+name|MemoryUsageSetting
+operator|.
+name|setupMainMemoryOnly
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// once again, with scratch file
@@ -251,7 +280,10 @@ literal|"PDFBox.GlobalResourceMergeTest.Doc02.pdf"
 argument_list|,
 literal|"GlobalResourceMergeTestResult2.pdf"
 argument_list|,
-literal|true
+name|MemoryUsageSetting
+operator|.
+name|setupTempFileOnly
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -270,8 +302,8 @@ parameter_list|,
 name|String
 name|mergeFilename
 parameter_list|,
-name|boolean
-name|useScratchFiles
+name|MemoryUsageSetting
+name|memUsageSetting
 parameter_list|)
 throws|throws
 name|IOException
@@ -488,7 +520,7 @@ name|pdfMergerUtility
 operator|.
 name|mergeDocuments
 argument_list|(
-name|useScratchFiles
+name|memUsageSetting
 argument_list|)
 expr_stmt|;
 name|PDDocument

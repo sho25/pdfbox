@@ -418,6 +418,26 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Getter for an instance using only unrestricted main memory for buffering      * (same as<code>new ScratchFile(MemoryUsageSetting.setupMainMemoryOnly())</code>).      *       * @return instance configured to only use main memory with no size restriction      *       * @throws IOException      */
+specifier|public
+specifier|static
+name|ScratchFile
+name|getMainMemoryOnlyInstance
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|ScratchFile
+argument_list|(
+name|MemoryUsageSetting
+operator|.
+name|setupMainMemoryOnly
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a new free page, either from free page pool      * or by enlarging scratch file (may be created).      *       * @return index of new page      */
 name|int
 name|getNewPage
