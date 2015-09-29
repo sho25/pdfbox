@@ -169,6 +169,24 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
+name|color
+operator|.
+name|PDPattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
 name|form
 operator|.
 name|PDFormXObject
@@ -581,8 +599,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// cache disabled due to resource dependency, see PDFBOX-2370
-comment|//return cached
+return|return
+name|cached
+return|;
 block|}
 block|}
 comment|// get the instance
@@ -634,11 +653,19 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we can't cache PDPattern, because it holds page resources, see PDFBOX-2370
 if|if
 condition|(
 name|cache
 operator|!=
 literal|null
+operator|&&
+operator|!
+operator|(
+name|colorSpace
+operator|instanceof
+name|PDPattern
+operator|)
 condition|)
 block|{
 name|cache
@@ -1183,8 +1210,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// cache disabled due to resource dependency, see PDFBOX-2370
-comment|//return cached
+return|return
+name|cached
+return|;
 block|}
 block|}
 comment|// get the instance
@@ -1257,11 +1285,19 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we can't cache PDImageXObject, because it holds page resources, see PDFBOX-2370
 if|if
 condition|(
 name|cache
 operator|!=
 literal|null
+operator|&&
+operator|!
+operator|(
+name|xobject
+operator|instanceof
+name|PDImageXObject
+operator|)
 condition|)
 block|{
 name|cache
