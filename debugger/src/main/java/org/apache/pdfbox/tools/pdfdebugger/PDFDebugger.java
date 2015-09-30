@@ -12,6 +12,8 @@ operator|.
 name|pdfbox
 operator|.
 name|tools
+operator|.
+name|pdfdebugger
 package|;
 end_package
 

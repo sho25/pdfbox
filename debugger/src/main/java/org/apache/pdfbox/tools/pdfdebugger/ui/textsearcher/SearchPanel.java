@@ -231,6 +231,8 @@ name|pdfbox
 operator|.
 name|tools
 operator|.
+name|pdfdebugger
+operator|.
 name|PDFDebugger
 import|;
 end_import
