@@ -187,7 +187,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|debugger
+name|tools
+operator|.
+name|pdfdebugger
 operator|.
 name|ui
 operator|.
