@@ -471,7 +471,7 @@ block|{
 name|String
 name|fullName
 init|=
-literal|"/org/apache/pdfbox/tools/pdfdebugger/"
+literal|"/org/apache/pdfbox/debugger/"
 operator|+
 name|name
 operator|+
