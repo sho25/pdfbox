@@ -3274,6 +3274,8 @@ name|memUsageSetting
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|parser
 operator|.
 name|parse
@@ -3285,6 +3287,24 @@ operator|.
 name|getPDDocument
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|raFile
+argument_list|)
+expr_stmt|;
+throw|throw
+name|ioe
+throw|;
+block|}
 block|}
 comment|/**      * Parses a PDF. The given input stream is copied to the memory to enable random access to the pdf.      * Unrestricted main memory will be used for buffering PDF streams.      *       * @param input stream that contains the document.      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
 specifier|public
