@@ -1154,8 +1154,13 @@ operator|.
 name|delete
 argument_list|()
 decl_stmt|;
-comment|//TODO uncomment after bug is fixed!
-comment|//assertTrue("delete bad file failed after failed load()", deleted);
+name|assertTrue
+argument_list|(
+literal|"delete bad file failed after failed load()"
+argument_list|,
+name|deleted
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Test whether a good file can be deleted after load() and close() succeed.      *      * @throws java.io.FileNotFoundException      */
 specifier|public
