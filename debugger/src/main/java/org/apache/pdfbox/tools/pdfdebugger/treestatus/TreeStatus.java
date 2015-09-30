@@ -117,7 +117,9 @@ name|pdfbox
 operator|.
 name|tools
 operator|.
-name|gui
+name|pdfdebugger
+operator|.
+name|ui
 operator|.
 name|ArrayEntry
 import|;
@@ -133,7 +135,9 @@ name|pdfbox
 operator|.
 name|tools
 operator|.
-name|gui
+name|pdfdebugger
+operator|.
+name|ui
 operator|.
 name|MapEntry
 import|;
@@ -149,7 +153,9 @@ name|pdfbox
 operator|.
 name|tools
 operator|.
-name|gui
+name|pdfdebugger
+operator|.
+name|ui
 operator|.
 name|PageEntry
 import|;
