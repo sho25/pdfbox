@@ -1660,171 +1660,13 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-comment|// Before we can display the text, we need to do some normalizing.
-comment|// Arabic and Hebrew text is right to left and is typically stored
-comment|// in its logical format, which means that the rightmost character is
-comment|// stored first, followed by the second character from the right etc.
-comment|// However, PDF stores the text in presentation form, which is left to
-comment|// right. We need to do some normalization to convert the PDF data to
-comment|// the proper logical output format.
-comment|//
-comment|// Note that if we did not sort the text, then the output of reversing the
-comment|// text is undefined and can sometimes produce worse output then not trying
-comment|// to reverse the order. Sorting should be done for these languages.
-comment|// First step is to determine if we have any right to left text, and
-comment|// if so, is it dominant.
-name|int
-name|ltrCount
-init|=
-literal|0
-decl_stmt|;
-name|int
-name|rtlCount
-init|=
-literal|0
-decl_stmt|;
-while|while
-condition|(
-name|textIter
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
-name|TextPosition
-name|position
-init|=
-name|textIter
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-name|String
-name|stringValue
-init|=
-name|position
-operator|.
-name|getUnicode
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|int
-name|a
-init|=
-literal|0
-init|;
-name|a
-operator|<
-name|stringValue
-operator|.
-name|length
-argument_list|()
-condition|;
-name|a
-operator|++
-control|)
-block|{
-name|byte
-name|dir
-init|=
-name|Character
-operator|.
-name|getDirectionality
-argument_list|(
-name|stringValue
-operator|.
-name|charAt
-argument_list|(
-name|a
-argument_list|)
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|dir
-operator|==
-name|Character
-operator|.
-name|DIRECTIONALITY_LEFT_TO_RIGHT
-operator|||
-name|dir
-operator|==
-name|Character
-operator|.
-name|DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING
-operator|||
-name|dir
-operator|==
-name|Character
-operator|.
-name|DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE
-condition|)
-block|{
-name|ltrCount
-operator|++
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|dir
-operator|==
-name|Character
-operator|.
-name|DIRECTIONALITY_RIGHT_TO_LEFT
-operator|||
-name|dir
-operator|==
-name|Character
-operator|.
-name|DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC
-operator|||
-name|dir
-operator|==
-name|Character
-operator|.
-name|DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING
-operator|||
-name|dir
-operator|==
-name|Character
-operator|.
-name|DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE
-condition|)
-block|{
-name|rtlCount
-operator|++
-expr_stmt|;
-block|}
-block|}
-block|}
-comment|// choose the dominant direction
-name|boolean
-name|isRtlDominant
-init|=
-name|rtlCount
-operator|>
-name|ltrCount
-decl_stmt|;
 name|startArticle
-argument_list|(
-operator|!
-name|isRtlDominant
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|startOfArticle
 operator|=
 literal|true
 expr_stmt|;
-comment|// we will later use this to skip reordering
-name|boolean
-name|hasRtl
-init|=
-name|rtlCount
-operator|>
-literal|0
-decl_stmt|;
 comment|// Now cycle through to print the text.
 comment|// We queue up a line at a time before we print so that we can convert
 comment|// the line from presentation form to logical form (if needed).
@@ -2231,13 +2073,7 @@ argument_list|(
 name|normalize
 argument_list|(
 name|line
-argument_list|,
-name|isRtlDominant
-argument_list|,
-name|hasRtl
 argument_list|)
-argument_list|,
-name|isRtlDominant
 argument_list|)
 expr_stmt|;
 name|line
@@ -2455,13 +2291,7 @@ argument_list|(
 name|normalize
 argument_list|(
 name|line
-argument_list|,
-name|isRtlDominant
-argument_list|,
-name|hasRtl
 argument_list|)
-argument_list|,
-name|isRtlDominant
 argument_list|)
 expr_stmt|;
 name|writeParagraphEnd
@@ -4553,7 +4383,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Write a list of string containing a whole line of a document.      *       * @param line a list with the words of the given line      * @param isRtlDominant determines if rtl or ltl is dominant      * @throws IOException if something went wrong      */
+comment|/**      * Write a list of string containing a whole line of a document.      *       * @param line a list with the words of the given line      * @throws IOException if something went wrong      */
 specifier|private
 name|void
 name|writeLine
@@ -4563,9 +4393,6 @@ argument_list|<
 name|WordWithTextPositions
 argument_list|>
 name|line
-parameter_list|,
-name|boolean
-name|isRtlDominant
 parameter_list|)
 throws|throws
 name|IOException
@@ -4631,7 +4458,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Normalize the given list of TextPositions.      *       * @param line list of TextPositions      * @param isRtlDominant determines if rtl or ltl is dominant      * @param hasRtl determines if lines contains rtl formatted text(parts)      * @return a list of strings, one string for every word      */
+comment|/**      * Normalize the given list of TextPositions.      *       * @param line list of TextPositions      * @return a list of strings, one string for every word      */
 specifier|private
 name|List
 argument_list|<
@@ -4644,12 +4471,6 @@ argument_list|<
 name|LineItem
 argument_list|>
 name|line
-parameter_list|,
-name|boolean
-name|isRtlDominant
-parameter_list|,
-name|boolean
-name|hasRtl
 parameter_list|)
 block|{
 name|List
