@@ -1417,6 +1417,8 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
+try|try
+block|{
 if|if
 condition|(
 operator|(
@@ -1442,6 +1444,15 @@ block|}
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|super
+operator|.
+name|finalize
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
