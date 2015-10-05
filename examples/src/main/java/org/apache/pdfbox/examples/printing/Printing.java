@@ -581,6 +581,7 @@ operator|new
 name|Book
 argument_list|()
 decl_stmt|;
+comment|// append all pages
 name|book
 operator|.
 name|append
@@ -592,6 +593,11 @@ name|document
 argument_list|)
 argument_list|,
 name|pageFormat
+argument_list|,
+name|document
+operator|.
+name|getNumberOfPages
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|job
