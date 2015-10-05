@@ -2470,9 +2470,10 @@ init|=
 operator|new
 name|QName
 argument_list|(
-name|XmpConstants
+name|element
 operator|.
-name|LIST_NAME
+name|getLocalName
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|AbstractField
