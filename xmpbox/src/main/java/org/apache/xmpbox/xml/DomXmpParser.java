@@ -2467,11 +2467,12 @@ block|{
 name|QName
 name|propertyQName
 init|=
-name|DomHelper
-operator|.
-name|getQName
+operator|new
+name|QName
 argument_list|(
-name|property
+name|XmpConstants
+operator|.
+name|LIST_NAME
 argument_list|)
 decl_stmt|;
 name|AbstractField
