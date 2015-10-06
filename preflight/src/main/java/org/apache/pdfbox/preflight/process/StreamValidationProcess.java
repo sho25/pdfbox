@@ -142,22 +142,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|IOUtils
-operator|.
-name|closeQuietly
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -423,7 +407,7 @@ name|COSObject
 operator|)
 name|o
 decl_stmt|;
-comment|/*              * If this object represents a Stream, the Dictionary must contain the Length key              */
+comment|// If this object represents a Stream, the Dictionary must contain the Length key
 name|COSBase
 name|cBase
 init|=
@@ -975,11 +959,6 @@ operator|<
 literal|0
 condition|)
 block|{
-name|closeQuietly
-argument_list|(
-name|ra
-argument_list|)
-expr_stmt|;
 name|addValidationError
 argument_list|(
 name|context
@@ -1110,19 +1089,12 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|closeQuietly
-argument_list|(
-name|ra
-argument_list|)
-expr_stmt|;
 return|return;
 block|}
 else|else
 block|{
 name|nbBytesToRead
-operator|=
-name|nbBytesToRead
-operator|-
+operator|-=
 name|cr
 expr_stmt|;
 block|}
@@ -1388,13 +1360,6 @@ throw|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|ra
-operator|!=
-literal|null
-condition|)
-block|{
 name|IOUtils
 operator|.
 name|closeQuietly
@@ -1402,7 +1367,6 @@ argument_list|(
 name|ra
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Check dictionary entries. Only the Length entry is mandatory. In a PDF/A file, F, FFilter and FDecodeParms are      * forbidden      *       * @param context the preflight context.      * @param streamObj the stream to check.      */
