@@ -360,7 +360,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param source input representing the pdf.      * @param useScratchFiles use a file based buffer for temporary storage.      *       * @throws IOException If something went wrong.      */
+comment|/**      * Constructor.      *       * @param source input representing the pdf.      * @param scratchFile use a {@link ScratchFile} for temporary storage.      *       * @throws IOException If something went wrong.      */
 specifier|public
 name|PDFParser
 parameter_list|(
@@ -409,7 +409,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param source input representing the pdf.      * @param decryptionPassword password to be used for decryption.      * @param useScratchFiles use a file based buffer for temporary storage.      *      * @throws IOException If something went wrong.      */
+comment|/**      * Constructor.      *       * @param source input representing the pdf.      * @param decryptionPassword password to be used for decryption.      * @param scratchFile use a {@link ScratchFile} for temporary storage.      *      * @throws IOException If something went wrong.      */
 specifier|public
 name|PDFParser
 parameter_list|(
