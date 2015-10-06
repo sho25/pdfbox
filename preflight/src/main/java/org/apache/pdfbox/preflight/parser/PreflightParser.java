@@ -842,6 +842,7 @@ specifier|protected
 name|PreflightContext
 name|ctx
 decl_stmt|;
+comment|/**      * Constructor.      *      * @param file      * @throws IOException if there is a reading error.      */
 specifier|public
 name|PreflightParser
 parameter_list|(
@@ -879,6 +880,7 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructor.      *      * @param filename      * @throws IOException if there is a reading error.      */
 specifier|public
 name|PreflightParser
 parameter_list|(
@@ -899,11 +901,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructor. This one is slower than the file and the filename constructors, because      * a temporary file will be created.      *      * @param dataSource the datasource      * @throws IOException if there is a reading error.      */
 specifier|public
 name|PreflightParser
 parameter_list|(
 name|DataSource
-name|input
+name|dataSource
 parameter_list|)
 throws|throws
 name|IOException
@@ -914,7 +917,7 @@ argument_list|(
 operator|new
 name|RandomAccessBufferedFileInputStream
 argument_list|(
-name|input
+name|dataSource
 operator|.
 name|getInputStream
 argument_list|()
@@ -932,7 +935,7 @@ name|this
 operator|.
 name|originalDocument
 operator|=
-name|input
+name|dataSource
 expr_stmt|;
 block|}
 comment|/**      * Create an instance of ValidationResult with a ValidationError(UNKNOWN_ERROR)      *       * @return the ValidationError instance.      */
@@ -953,17 +956,12 @@ operator|.
 name|ERROR_UNKOWN_ERROR
 argument_list|)
 decl_stmt|;
-name|ValidationResult
-name|result
-init|=
+return|return
 operator|new
 name|ValidationResult
 argument_list|(
 name|error
 argument_list|)
-decl_stmt|;
-return|return
-name|result
 return|;
 block|}
 comment|/**      * Add the error to the ValidationResult. If the validationResult is null, an instance is created using the      * isWarning boolean of the ValidationError to know if the ValidationResult must be flagged as Valid.      *       * @param error      */
@@ -3864,8 +3862,6 @@ condition|)
 block|{
 name|long
 name|position
-init|=
-literal|0
 decl_stmt|;
 try|try
 block|{
