@@ -327,7 +327,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a random access input stream for the given input stream by copying the data to a      * temporary file.      *      * @param input the input stream to be read.      * @throws IOException if something went wrong while creating the temporary file.      */
+comment|/**      * Create a random access input stream for the given input stream by copying the data to a      * temporary file.      *      * @param input the input stream to be read. It will be closed by this method.      * @throws IOException if something went wrong while creating the temporary file.      */
 specifier|public
 name|RandomAccessBufferedFileInputStream
 parameter_list|(
