@@ -205,7 +205,7 @@ name|document
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * The datasource to load the document from      */
+comment|/**      * The datasource to load the document from. Needed by StreamValidationProcess.      */
 specifier|private
 name|DataSource
 name|source
