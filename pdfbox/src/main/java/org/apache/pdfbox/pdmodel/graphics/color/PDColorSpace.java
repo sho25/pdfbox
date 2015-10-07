@@ -244,7 +244,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a color space given a name or array.      * @param colorSpace the color space COS object      * @param resources the current resources.      * @return a new color space      * @throws MissingResourceException if the color space is missing in the resources dictionary      * @throws IOException if the color space is unknown or cannot be created      */
+comment|/**      * Creates a color space given a name or array. Abbreviated device color names are not supported      * here, please replace them first.      *      * @param colorSpace the color space COS object      * @param resources the current resources.      * @return a new color space      * @throws MissingResourceException if the color space is missing in the resources dictionary      * @throws IOException if the color space is unknown or cannot be created      */
 specifier|public
 specifier|static
 name|PDColorSpace
@@ -632,12 +632,6 @@ operator|==
 name|COSName
 operator|.
 name|INDEXED
-operator|||
-name|name
-operator|==
-name|COSName
-operator|.
-name|I
 condition|)
 block|{
 return|return
