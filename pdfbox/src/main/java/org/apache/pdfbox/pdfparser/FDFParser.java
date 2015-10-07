@@ -422,7 +422,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * This will parse the stream and populate the COSDocument object.  This will close      * the stream when it is done parsing.      *      * @throws IOException If there is an error reading from the stream or corrupt data      * is found.      */
+comment|/**      * This will parse the stream and populate the COSDocument object.      *      * @throws IOException If there is an error reading from the stream or corrupt data      * is found.      */
 specifier|public
 name|void
 name|parse
