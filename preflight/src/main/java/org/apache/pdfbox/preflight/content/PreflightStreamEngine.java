@@ -1940,7 +1940,7 @@ block|}
 comment|/**      * Throw a ContentStreamException if the LZW filter is used in a InlinedImage.      *       * @param operator the InlinedImage object (BI to EI)      * @throws ContentStreamException      */
 specifier|protected
 name|void
-name|validateImageFilter
+name|validateInlineImageFilter
 parameter_list|(
 name|Operator
 name|operator
@@ -2001,7 +2001,7 @@ block|}
 comment|/**      * This method validates if the ColorSpace used by the InlinedImage is consistent with      * the color space defined in OutputIntent dictionaries.      *       * @param operator the InlinedImage object (BI to EI)      * @throws ContentStreamException      */
 specifier|protected
 name|void
-name|validateImageColorSpace
+name|validateInlineImageColorSpace
 parameter_list|(
 name|Operator
 name|operator

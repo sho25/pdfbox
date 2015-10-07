@@ -280,6 +280,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * This is used to handle an operation.      *       * @param operator      *            The operation to perform.      * @param operands      *            The list of arguments.      *       * @throws IOException      *             If there is an error processing the operation.      */
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|processOperator
@@ -339,12 +341,12 @@ name|getResources
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|validateImageFilter
+name|validateInlineImageFilter
 argument_list|(
 name|operator
 argument_list|)
 expr_stmt|;
-name|validateImageColorSpace
+name|validateInlineImageColorSpace
 argument_list|(
 name|operator
 argument_list|)

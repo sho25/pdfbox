@@ -695,12 +695,12 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|validateImageFilter
+name|validateInlineImageFilter
 argument_list|(
 name|operator
 argument_list|)
 expr_stmt|;
-name|validateImageColorSpace
+name|validateInlineImageColorSpace
 argument_list|(
 name|operator
 argument_list|)
