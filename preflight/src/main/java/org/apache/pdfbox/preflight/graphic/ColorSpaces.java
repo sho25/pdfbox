@@ -18,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This enum makes ColorSpaces validation easier. Labels represent ColorSpace names as defined in the  * "PDF Reference 1.4". Enum entries with the "_SHORT" suffix are used to represent color spaces (DeviceGray, DeviceRGB,  * DeviceCMYK and Indexed) using the InlinedImage notation.  */
+comment|/**  * This enum makes ColorSpaces validation easier. Labels represent ColorSpace names as defined in the  * "PDF Reference 1.4".  */
 end_comment
 
 begin_enum
@@ -51,7 +51,7 @@ argument_list|(
 literal|"Indexed"
 argument_list|)
 block|,
-name|Indexed_SHORT
+name|I
 argument_list|(
 literal|"I"
 argument_list|)
@@ -71,7 +71,7 @@ argument_list|(
 literal|"DeviceRGB"
 argument_list|)
 block|,
-name|DeviceRGB_SHORT
+name|RGB
 argument_list|(
 literal|"RGB"
 argument_list|)
@@ -81,7 +81,7 @@ argument_list|(
 literal|"DeviceGray"
 argument_list|)
 block|,
-name|DeviceGray_SHORT
+name|G
 argument_list|(
 literal|"G"
 argument_list|)
@@ -91,7 +91,7 @@ argument_list|(
 literal|"DeviceCMYK"
 argument_list|)
 block|,
-name|DeviceCMYK_SHORT
+name|CMYK
 argument_list|(
 literal|"CMYK"
 argument_list|)

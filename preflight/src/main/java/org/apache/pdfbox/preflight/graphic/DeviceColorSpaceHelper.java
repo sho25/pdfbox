@@ -227,7 +227,7 @@ case|case
 name|Indexed
 case|:
 case|case
-name|Indexed_SHORT
+name|I
 case|:
 case|case
 name|Pattern

@@ -579,7 +579,7 @@ case|case
 name|DeviceRGB
 case|:
 case|case
-name|DeviceRGB_SHORT
+name|RGB
 case|:
 name|processRGBColorSpace
 argument_list|(
@@ -591,7 +591,7 @@ case|case
 name|DeviceCMYK
 case|:
 case|case
-name|DeviceCMYK_SHORT
+name|CMYK
 case|:
 name|processCYMKColorSpace
 argument_list|(
@@ -618,7 +618,7 @@ case|case
 name|DeviceGray
 case|:
 case|case
-name|DeviceGray_SHORT
+name|G
 case|:
 name|processGrayColorSpace
 argument_list|(
@@ -648,7 +648,7 @@ case|case
 name|Indexed
 case|:
 case|case
-name|Indexed_SHORT
+name|I
 case|:
 name|processIndexedColorSpace
 argument_list|(
@@ -1315,7 +1315,7 @@ name|cs
 operator|==
 name|ColorSpaces
 operator|.
-name|Indexed_SHORT
+name|I
 condition|)
 block|{
 name|context
@@ -1440,7 +1440,7 @@ case|case
 name|Indexed
 case|:
 case|case
-name|Indexed_SHORT
+name|I
 case|:
 name|context
 operator|.
