@@ -570,6 +570,10 @@ argument_list|(
 name|COSName
 operator|.
 name|CS
+argument_list|,
+name|COSName
+operator|.
+name|COLORSPACE
 argument_list|)
 decl_stmt|;
 if|if
