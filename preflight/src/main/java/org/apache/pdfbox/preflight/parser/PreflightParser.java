@@ -842,7 +842,7 @@ argument_list|)
 decl_stmt|;
 specifier|protected
 name|DataSource
-name|originalDocument
+name|dataSource
 decl_stmt|;
 specifier|protected
 name|ValidationResult
@@ -885,7 +885,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|originalDocument
+name|dataSource
 operator|=
 operator|new
 name|FileDataSource
@@ -947,7 +947,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|originalDocument
+name|dataSource
 operator|=
 name|dataSource
 expr_stmt|;
@@ -1227,7 +1227,7 @@ name|PreflightContext
 argument_list|(
 name|this
 operator|.
-name|originalDocument
+name|dataSource
 argument_list|)
 expr_stmt|;
 name|ctx
