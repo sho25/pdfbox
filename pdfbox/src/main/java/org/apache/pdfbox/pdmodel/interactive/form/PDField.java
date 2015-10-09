@@ -371,6 +371,18 @@ name|String
 name|getValueAsString
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the value of the field.      *      * @param value the new field value.      *       * @throws IOException if the value could not be set      */
+specifier|public
+specifier|abstract
+name|void
+name|setValue
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns the widget annotations associated with this field.      *       * For {@link PDNonTerminalField} the list will be empty as non terminal fields      * have no visual representation in the form.      *       * @return A non-null string.      */
 specifier|public
 specifier|abstract

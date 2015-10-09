@@ -736,6 +736,32 @@ expr_stmt|;
 comment|// todo: propagate change event to children?
 comment|// todo: construct appearances of children?
 block|}
+comment|/**      * Sets the plain text value of this field.      *       * @param value Plain text      * @throws IOException if the value could not be set      */
+specifier|public
+name|void
+name|setValue
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|getCOSObject
+argument_list|()
+operator|.
+name|setString
+argument_list|(
+name|COSName
+operator|.
+name|V
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+comment|// todo: propagate change event to children?
+comment|// todo: construct appearances of children?
+block|}
 comment|/**      * Returns the default value of this field. This may be of any kind which is valid for this field's      * children.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 specifier|public
 name|COSBase

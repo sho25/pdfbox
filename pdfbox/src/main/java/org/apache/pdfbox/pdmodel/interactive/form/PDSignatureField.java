@@ -381,6 +381,29 @@ name|applyChange
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Sets the value of this field.      *       *<b>This will throw an UnsupportedOperationException if used as the signature fields      * value can't be set using a String</>      *       * @param value the plain text value.      *       * @throws UnsupportedOperationException in all cases!      */
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setValue
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+throws|throws
+name|UnsupportedOperationException
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Signature fields don't support setting the value as String "
+operator|+
+literal|"- use setValue(PDSignature value) instead"
+argument_list|)
+throw|;
+block|}
 comment|/**      * Sets the default value of this field to be the given signature.      *      * @param value is the PDSignatureField      */
 specifier|public
 name|void
