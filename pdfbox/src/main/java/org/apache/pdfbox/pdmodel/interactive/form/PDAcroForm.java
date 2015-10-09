@@ -724,12 +724,7 @@ control|(
 name|PDAnnotationWidget
 name|widget
 range|:
-operator|(
-operator|(
-name|PDTerminalField
-operator|)
 name|field
-operator|)
 operator|.
 name|getWidgets
 argument_list|()

@@ -563,6 +563,8 @@ name|fdfField
 return|;
 block|}
 comment|/**      * Returns the widget annotations associated with this field.      *       * @return The list of widget annotations.      */
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

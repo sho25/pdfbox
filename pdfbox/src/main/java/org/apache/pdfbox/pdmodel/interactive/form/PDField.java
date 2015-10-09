@@ -31,6 +31,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -132,6 +142,24 @@ operator|.
 name|action
 operator|.
 name|PDFormFieldAdditionalActions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|annotation
+operator|.
+name|PDAnnotationWidget
 import|;
 end_import
 
@@ -336,11 +364,21 @@ name|String
 name|getFieldType
 parameter_list|()
 function_decl|;
-comment|/**      * Returns a string representation of the "V" entry, or an empty string.      *       * @return A non-null string.      */
+comment|/**      * Returns a string representation of the "V" entry, or an empty string.      *       * @return The list of widget annotations.      */
 specifier|public
 specifier|abstract
 name|String
 name|getValueAsString
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the widget annotations associated with this field.      *       * For {@link PDNonTerminalField} the list will be empty as non terminal fields      * have no visual representation in the form.      *       * @return A non-null string.      */
+specifier|public
+specifier|abstract
+name|List
+argument_list|<
+name|PDAnnotationWidget
+argument_list|>
+name|getWidgets
 parameter_list|()
 function_decl|;
 comment|/**      * sets the field to be read-only.      *       * @param readonly The new flag for readonly.      */
