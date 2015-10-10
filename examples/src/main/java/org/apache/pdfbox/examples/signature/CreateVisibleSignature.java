@@ -485,8 +485,8 @@ literal|"Could not find alias"
 argument_list|)
 throw|;
 block|}
-name|privateKey
-operator|=
+name|setPrivateKey
+argument_list|(
 operator|(
 name|PrivateKey
 operator|)
@@ -498,9 +498,10 @@ name|alias
 argument_list|,
 name|pin
 argument_list|)
+argument_list|)
 expr_stmt|;
-name|certificate
-operator|=
+name|setCertificate
+argument_list|(
 name|keystore
 operator|.
 name|getCertificateChain
@@ -510,6 +511,7 @@ argument_list|)
 index|[
 literal|0
 index|]
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sign pdf file and create new file that ends with "_signed.pdf".      *      * @param inputFile The source pdf document file.      * @param signedFile The file to be signed.      * @throws IOException      */

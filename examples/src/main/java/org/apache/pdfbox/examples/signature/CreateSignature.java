@@ -487,8 +487,8 @@ literal|"Keystore is empty"
 argument_list|)
 throw|;
 block|}
-name|privateKey
-operator|=
+name|setPrivateKey
+argument_list|(
 operator|(
 name|PrivateKey
 operator|)
@@ -499,6 +499,7 @@ argument_list|(
 name|alias
 argument_list|,
 name|password
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Certificate
@@ -512,12 +513,13 @@ argument_list|(
 name|alias
 argument_list|)
 decl_stmt|;
-name|certificate
-operator|=
+name|setCertificate
+argument_list|(
 name|certificateChain
 index|[
 literal|0
 index|]
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Signs the given PDF file. Alters the original file on disk.      * @param file the PDF file to sign      * @throws IOException if the file could not be read or written      */
@@ -654,11 +656,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|this
-operator|.
+name|setTsaClient
+argument_list|(
 name|tsaClient
-operator|=
-name|tsaClient
+argument_list|)
 expr_stmt|;
 comment|// create signature dictionary
 name|PDSignature
@@ -865,7 +866,8 @@ name|byte
 index|[]
 name|token
 init|=
-name|tsaClient
+name|getTsaClient
+argument_list|()
 operator|.
 name|getTimeStampToken
 argument_list|(
