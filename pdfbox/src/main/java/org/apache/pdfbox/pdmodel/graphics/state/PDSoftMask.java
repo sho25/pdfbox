@@ -403,7 +403,7 @@ return|;
 block|}
 comment|/**      * Returns the G entry of the soft mask object      *       * @return form containing the transparency group      * @throws IOException      */
 specifier|public
-name|PDFormXObject
+name|PDTransparencyGroup
 name|getGroup
 parameter_list|()
 throws|throws
@@ -489,7 +489,7 @@ return|return
 name|backdropColor
 return|;
 block|}
-comment|/**      * Returns the transfer function.      */
+comment|/**      * Returns the transfer function.      * @throws IOException If we are unable to create the PDFunction object.      */
 specifier|public
 name|PDFunction
 name|getTransferFunction
