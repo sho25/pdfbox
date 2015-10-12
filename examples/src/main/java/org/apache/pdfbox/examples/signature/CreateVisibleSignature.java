@@ -287,8 +287,9 @@ name|PDVisibleSignDesigner
 name|visibleSignDesigner
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDVisibleSigProperties
-name|signatureProperties
+name|visibleSignatureProperties
 init|=
 operator|new
 name|PDVisibleSigProperties
@@ -379,7 +380,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|signatureProperties
+name|visibleSignatureProperties
 operator|.
 name|signerName
 argument_list|(
@@ -633,11 +634,11 @@ expr_stmt|;
 comment|// register signature dictionary and sign interface
 if|if
 condition|(
-name|signatureProperties
+name|visibleSignatureProperties
 operator|!=
 literal|null
 operator|&&
-name|signatureProperties
+name|visibleSignatureProperties
 operator|.
 name|isVisualSignEnabled
 argument_list|()
@@ -653,7 +654,7 @@ name|options
 operator|.
 name|setVisualSignature
 argument_list|(
-name|signatureProperties
+name|visibleSignatureProperties
 argument_list|)
 expr_stmt|;
 name|doc
