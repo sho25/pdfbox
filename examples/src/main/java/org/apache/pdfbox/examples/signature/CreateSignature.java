@@ -780,12 +780,6 @@ control|(
 name|SignerInformation
 name|signer
 range|:
-operator|(
-name|Collection
-argument_list|<
-name|SignerInformation
-argument_list|>
-operator|)
 name|signerStore
 operator|.
 name|getSigners
