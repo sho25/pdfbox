@@ -961,7 +961,7 @@ specifier|protected
 name|void
 name|processSoftMask
 parameter_list|(
-name|PDFormXObject
+name|PDTransparencyGroup
 name|group
 parameter_list|)
 throws|throws
@@ -993,7 +993,7 @@ specifier|protected
 name|void
 name|processTransparencyGroup
 parameter_list|(
-name|PDFormXObject
+name|PDTransparencyGroup
 name|group
 parameter_list|)
 throws|throws
