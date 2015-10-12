@@ -203,12 +203,14 @@ extends|extends
 name|PDFTextStreamEngine
 block|{
 specifier|private
+specifier|final
 name|boolean
 name|suppressDuplicateOverlappingText
 init|=
 literal|true
 decl_stmt|;
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|PDMarkedContent
@@ -223,6 +225,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Stack
 argument_list|<
 name|PDMarkedContent
@@ -237,6 +240,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -613,9 +617,6 @@ block|{
 name|TextPosition
 name|character
 init|=
-operator|(
-name|TextPosition
-operator|)
 name|sameTextCharacter
 decl_stmt|;
 name|String
@@ -736,9 +737,6 @@ comment|/* test if we overlap the previous entry.                    * Note that
 name|TextPosition
 name|previousTextPosition
 init|=
-operator|(
-name|TextPosition
-operator|)
 name|textList
 operator|.
 name|get
