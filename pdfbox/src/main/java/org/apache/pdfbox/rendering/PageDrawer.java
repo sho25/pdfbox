@@ -4032,7 +4032,7 @@ comment|/**          * Creates a buffered image for a transparency group result.
 specifier|private
 name|TransparencyGroup
 parameter_list|(
-name|PDFormXObject
+name|PDTransparencyGroup
 name|form
 parameter_list|,
 name|boolean
