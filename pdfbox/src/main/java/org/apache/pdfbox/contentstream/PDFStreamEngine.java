@@ -1073,7 +1073,7 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Processes a Type 3 character stream.      *      * @param charProc Type 3 character procedure      * @param textRenderingMatrix the Text Rendering Matrix      */
+comment|/**      * Processes a Type 3 character stream.      *      * @param charProc Type 3 character procedure      * @param textRenderingMatrix the Text Rendering Matrix      * @throws IOException if there is an error reading or parsing the character content stream.      */
 specifier|protected
 name|void
 name|processType3Stream
@@ -1194,7 +1194,7 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process the given annotation with the specified appearance stream.      *      * @param annotation The annotation containing the appearance stream to process.      * @param appearance The appearance stream to process.      */
+comment|/**      * Process the given annotation with the specified appearance stream.      *      * @param annotation The annotation containing the appearance stream to process.      * @param appearance The appearance stream to process.      * @throws IOException If there is an error reading or parsing the appearance content stream.      */
 specifier|protected
 name|void
 name|processAnnotation
@@ -1415,7 +1415,7 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process the given tiling pattern.      *      * @param tilingPattern the tiling pattern      * @param color color to use, if this is an uncoloured pattern, otherwise null.      * @param colorSpace color space to use, if this is an uncoloured pattern, otherwise null.      */
+comment|/**      * Process the given tiling pattern.      *      * @param tilingPattern the tiling pattern      * @param color color to use, if this is an uncoloured pattern, otherwise null.      * @param colorSpace color space to use, if this is an uncoloured pattern, otherwise null.      * @throws IOException if there is an error reading or parsing the tiling pattern content stream.      */
 specifier|protected
 specifier|final
 name|void
@@ -1448,7 +1448,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process the given tiling pattern. Allows the pattern matrix to be overridden for custom      * rendering.      *      * @param tilingPattern the tiling pattern      * @param color color to use, if this is an uncoloured pattern, otherwise null.      * @param colorSpace color space to use, if this is an uncoloured pattern, otherwise null.      * @param patternMatrix the pattern matrix, may be overridden for custom rendering.      */
+comment|/**      * Process the given tiling pattern. Allows the pattern matrix to be overridden for custom      * rendering.      *      * @param tilingPattern the tiling pattern      * @param color color to use, if this is an uncoloured pattern, otherwise null.      * @param colorSpace color space to use, if this is an uncoloured pattern, otherwise null.      * @param patternMatrix the pattern matrix, may be overridden for custom rendering.      * @throws IOException if there is an error reading or parsing the tiling pattern content stream.      */
 specifier|protected
 specifier|final
 name|void
@@ -1854,7 +1854,7 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Processes the operators of the given content stream.      */
+comment|/**      * Processes the operators of the given content stream.      *      * @param contentStream to content stream to parse.      * @throws IOException if there is an error reading or parsing the content stream.      */
 specifier|private
 name|void
 name|processStreamOperators
