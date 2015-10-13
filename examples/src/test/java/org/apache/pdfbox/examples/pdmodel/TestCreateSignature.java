@@ -678,7 +678,14 @@ expr_stmt|;
 name|String
 name|tsaUrl
 init|=
-literal|"https://tsa.safecreative.org/"
+literal|"http://localhost:"
+operator|+
+name|mockServer
+operator|.
+name|getServerPort
+argument_list|()
+operator|+
+literal|"/"
 decl_stmt|;
 name|MockHttpServer
 operator|.
