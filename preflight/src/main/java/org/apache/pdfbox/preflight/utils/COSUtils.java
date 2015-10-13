@@ -340,7 +340,7 @@ name|COSDictionary
 operator|)
 return|;
 block|}
-comment|/**      * return true if the elt is a COSString or a reference to a COSString      *       * @param elt the object to check.      * @param doc the document.      * @return true if the object is a COSString or a reference to it.      */
+comment|/**      * return true if the elt is a COSString or a COSName or a reference to it.      *       * @param elt the object to check.      * @param doc the document.      * @return true if the object is a COSString or a COSName or a reference to it.      */
 specifier|public
 specifier|static
 name|boolean
@@ -880,7 +880,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Return the COSBase object as COSString if the COSBase object is an instance of COSString or a reference to a      * COSString object. In other cases, this method returns null;      *       * @param cbase the object to get.      * @param cDoc the document.      * @return the object as COSString if the object is a COSString or a reference to it. Returns null otherwise.      */
+comment|/**      * Return the COSBase object as String if the COSBase object is an instance of COSString or      * COSName or a reference to it.      *      * @param cbase the object to get.      * @param cDoc the document.      * @return the object as String if the object is a COSString or COSName or reference to it.      * Returns null otherwise.      */
 specifier|public
 specifier|static
 name|String
