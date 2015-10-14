@@ -1224,11 +1224,6 @@ name|textRenderingMatrix
 operator|.
 name|getScalingFactorX
 argument_list|()
-operator|*
-name|ctm
-operator|.
-name|getScalingFactorX
-argument_list|()
 decl_stmt|;
 comment|// use our additional glyph list for Unicode mapping
 name|unicode
