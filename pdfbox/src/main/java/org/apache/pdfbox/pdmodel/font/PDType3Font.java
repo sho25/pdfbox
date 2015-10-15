@@ -55,34 +55,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|fontbox
 operator|.
 name|FontBoxFont
@@ -282,21 +254,6 @@ name|PDType3Font
 extends|extends
 name|PDSimpleFont
 block|{
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|PDType3Font
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 specifier|private
 name|PDResources
 name|resources
@@ -618,22 +575,6 @@ return|;
 block|}
 else|else
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"No width for glyph "
-operator|+
-name|code
-operator|+
-literal|" in font "
-operator|+
-name|getName
-argument_list|()
-operator|+
-literal|", using width from font"
-argument_list|)
-expr_stmt|;
 return|return
 name|getWidthFromFont
 argument_list|(
@@ -670,17 +611,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"No CharProc for glyph "
-operator|+
-name|code
-operator|+
-literal|" found, returning 0"
-argument_list|)
-expr_stmt|;
 return|return
 literal|0
 return|;
