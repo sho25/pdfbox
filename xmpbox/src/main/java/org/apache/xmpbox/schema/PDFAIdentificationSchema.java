@@ -403,7 +403,7 @@ name|amd
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the PDF/A conformance level      *       * @param value      *            The conformance level value to set      * @throws BadFieldValueException      *             If Conformance Value not 'A' or 'B'      */
+comment|/**      * Set the PDF/A conformance level      *       * @param value      *            The conformance level value to set      * @throws BadFieldValueException      *             If Conformance Value not 'A', 'B' or 'U' (PDF/A-2 and PDF/A-3)      */
 specifier|public
 name|void
 name|setConformance
@@ -429,6 +429,13 @@ name|equals
 argument_list|(
 literal|"B"
 argument_list|)
+operator|||
+name|value
+operator|.
+name|equals
+argument_list|(
+literal|"U"
+argument_list|)
 condition|)
 block|{
 name|TextType
@@ -453,12 +460,12 @@ throw|throw
 operator|new
 name|BadFieldValueException
 argument_list|(
-literal|"The property given not seems to be a PDF/A conformance level (must be A or B)"
+literal|"The property given not seems to be a PDF/A conformance level (must be A, B or U)"
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Set the PDF/A conformance level      *       * @param conf      *            The conformance level property to set      * @throws BadFieldValueException      *             If Conformance Value not 'A' or 'B'      */
+comment|/**      * Set the PDF/A conformance level      *       * @param conf      *            The conformance level property to set      * @throws BadFieldValueException      *             If Conformance Value not 'A', 'B' or 'U' (PDF/A-2 and PDF/A-3)      */
 specifier|public
 name|void
 name|setConformanceProperty
@@ -492,6 +499,13 @@ name|equals
 argument_list|(
 literal|"B"
 argument_list|)
+operator|||
+name|value
+operator|.
+name|equals
+argument_list|(
+literal|"U"
+argument_list|)
 condition|)
 block|{
 name|addProperty
@@ -506,7 +520,7 @@ throw|throw
 operator|new
 name|BadFieldValueException
 argument_list|(
-literal|"The property given not seems to be a PDF/A conformance level (must be A or B)"
+literal|"The property given not seems to be a PDF/A conformance level (must be A, B or U)"
 argument_list|)
 throw|;
 block|}
