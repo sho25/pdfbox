@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to get some x/y coordinates of text.  *  * Usage: java org.apache.pdfbox.examples.util.PrintTextLocations&lt;input-pdf&gt;  *  * @author Ben Litchfield  */
+comment|/**  * This is an example on how to get some x/y coordinates of text.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
