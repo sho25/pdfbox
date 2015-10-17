@@ -914,7 +914,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java org.apache.pdfbox.examples.pdmodel.CreateGradientShadingPDF<outputfile.pdf>"
+literal|"usage: java o"
+operator|+
+name|CreateGradientShadingPDF
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"<outputfile.pdf>"
 argument_list|)
 expr_stmt|;
 block|}

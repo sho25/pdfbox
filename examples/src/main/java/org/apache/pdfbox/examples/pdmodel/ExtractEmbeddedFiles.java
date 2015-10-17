@@ -238,7 +238,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to extract all embedded files from a PDF document.  *<p>  * Usage: java org.apache.pdfbox.examples.pdmodel.ExtractEmbeddedFiles&lt;input-pdf&gt;  *  */
+comment|/**  * This is an example on how to extract all embedded files from a PDF document.  *  */
 end_comment
 
 begin_class
