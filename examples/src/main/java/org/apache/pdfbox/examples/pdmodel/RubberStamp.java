@@ -318,7 +318,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.pdmodel.RubberStamp<input-pdf><output-pdf>"
+literal|"Usage: java "
+operator|+
+name|RubberStamp
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"<input-pdf><output-pdf>"
 argument_list|)
 expr_stmt|;
 block|}

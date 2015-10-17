@@ -130,7 +130,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to an action to go to the second page when the PDF is opened.  *  * Usage: java org.apache.pdfbox.examples.pdmodel.GoToSecondPageOnOpen&lt;input-pdf&gt;&lt;output-pdf&gt;  *  * @author Ben Litchfield  */
+comment|/**  * This is an example on how to an action to go to the second page when the PDF is opened.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -350,7 +350,14 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.pdmodel.GoToSecondBookmarkOnOpen"
+literal|"Usage: java "
+operator|+
+name|GoToSecondBookmarkOnOpen
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|"<input-pdf><output-pdf>"
 argument_list|)

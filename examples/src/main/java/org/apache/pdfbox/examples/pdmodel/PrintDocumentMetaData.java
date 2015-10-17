@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to get a documents metadata information.  *  * Usage: java org.apache.pdfbox.examples.pdmodel.PrintDocumentMetaData&lt;input-pdf&gt;  *  * @author Ben Litchfield  *   */
+comment|/**  * This is an example on how to get a documents metadata information.  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class
@@ -221,7 +221,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.pdmodel.PrintDocumentMetaData<input-pdf>"
+literal|"Usage: java "
+operator|+
+name|PrintDocumentMetaData
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"<input-pdf>"
 argument_list|)
 expr_stmt|;
 block|}

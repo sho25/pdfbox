@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to access the bookmarks that are part of a pdf document.  *  * Usage: java org.apache.pdfbox.examples.pdmodel.PrintBookmarks&lt;input-pdf&gt;  *  * @author Ben Litchfield  *   */
+comment|/**  * This is an example on how to access the bookmarks that are part of a pdf document.  *  * @author Ben Litchfield  *   */
 end_comment
 
 begin_class
@@ -250,7 +250,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.pdmodel.PrintBookmarks<input-pdf>"
+literal|"Usage: java "
+operator|+
+name|PrintBookmarks
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"<input-pdf>"
 argument_list|)
 expr_stmt|;
 block|}

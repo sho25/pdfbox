@@ -203,7 +203,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.pdmodel.RemoveFirstPage<input-pdf><output-pdf>"
+literal|"Usage: java "
+operator|+
+name|RemoveFirstPage
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"<input-pdf><output-pdf>"
 argument_list|)
 expr_stmt|;
 block|}
