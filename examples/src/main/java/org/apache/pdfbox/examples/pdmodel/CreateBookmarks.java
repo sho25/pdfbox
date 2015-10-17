@@ -126,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to add bookmarks to a PDF document.  It simply  * adds 1 bookmark for every page.  *  * Usage: java org.apache.pdfbox.examples.pdmodel.CreateBookmarks&lt;input-pdf&gt;&lt;output-pdf&gt;  *  * @author Ben Litchfield  */
+comment|/**  * This is an example on how to add bookmarks to a PDF document.  It simply  * adds 1 bookmark for every page.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -371,7 +371,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.pdmodel.CreateBookmarks<input-pdf><output-pdf>"
+literal|"Usage: java "
+operator|+
+name|CreateBookmarks
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"<input-pdf><output-pdf>"
 argument_list|)
 expr_stmt|;
 block|}
