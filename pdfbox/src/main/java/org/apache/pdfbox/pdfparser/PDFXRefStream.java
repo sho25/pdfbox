@@ -530,8 +530,8 @@ range|:
 name|keySet
 control|)
 block|{
-comment|// "Other cross-reference stream entries not listed in Table 17 may be indirect;
-comment|// in fact, some (such as Root in Table 15) shall be indirect."
+comment|// "Other cross-reference stream entries not listed in Table 17 may be indirect; in fact,
+comment|// some (such as Root in Table 15) shall be indirect."
 if|if
 condition|(
 name|COSName
