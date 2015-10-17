@@ -164,7 +164,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will read a document from the filesystem, decrypt it and do something with the signature.  * usage: java org.apache.pdfbox.examples.signature.ShowSignature&lt;password&gt;&lt;inputfile&gt;  *  * @author Ben Litchfield  */
+comment|/**  * This will read a document from the filesystem, decrypt it and do something with the signature.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -734,7 +734,14 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java org.apache.pdfbox.examples.signature.ShowSignature "
+literal|"usage: java "
+operator|+
+name|ShowSignature
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|"<password><inputfile>"
 argument_list|)
