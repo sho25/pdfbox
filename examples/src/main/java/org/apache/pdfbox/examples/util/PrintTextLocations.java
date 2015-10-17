@@ -363,7 +363,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.pdmodel.PrintTextLocations<input-pdf>"
+literal|"Usage: java "
+operator|+
+name|PrintTextLocations
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"<input-pdf>"
 argument_list|)
 expr_stmt|;
 block|}

@@ -306,7 +306,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to get the x/y coordinates of image locations.  *  * Usage: java org.apache.pdfbox.examples.util.PrintImageLocations&lt;input-pdf&gt;  *  * @author Ben Litchfield  */
+comment|/**  * This is an example on how to get the x/y coordinates of image locations.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -789,7 +789,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.pdmodel.PrintImageLocations<input-pdf>"
+literal|"Usage: java "
+operator|+
+name|PrintImageLocations
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"<input-pdf>"
 argument_list|)
 expr_stmt|;
 block|}

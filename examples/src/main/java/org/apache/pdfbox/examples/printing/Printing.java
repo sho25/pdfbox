@@ -221,7 +221,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java org.apache.pdfbox.examples.printing.Printing<input>"
+literal|"usage: java "
+operator|+
+name|Printing
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"<input>"
 argument_list|)
 expr_stmt|;
 name|System

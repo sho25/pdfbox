@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to extract text from a specific area on the PDF document.  *  * Usage: java org.apache.pdfbox.examples.util.ExtractTextByArea&lt;input-pdf&gt;  *  * @author Ben Litchfield  */
+comment|/**  * This is an example on how to extract text from a specific area on the PDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -268,7 +268,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.util.ExtractTextByArea<input-pdf>"
+literal|"Usage: java "
+operator|+
+name|ExtractTextByArea
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"<input-pdf>"
 argument_list|)
 expr_stmt|;
 block|}

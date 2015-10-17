@@ -170,7 +170,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an example on how to remove all text from PDF document.  *  * Usage: java org.apache.pdfbox.examples.util.RemoveAllText&lt;input-pdf&gt;&lt;output-pdf&gt;  *  * @author Ben Litchfield  */
+comment|/**  * This is an example on how to remove all text from PDF document.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -473,7 +473,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.examples.pdmodel.RemoveAllText<input-pdf><output-pdf>"
+literal|"Usage: java "
+operator|+
+name|RemoveAllText
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"<input-pdf><output-pdf>"
 argument_list|)
 expr_stmt|;
 block|}
