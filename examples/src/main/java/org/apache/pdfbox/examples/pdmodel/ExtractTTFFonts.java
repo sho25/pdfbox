@@ -1040,7 +1040,16 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Usage: java org.apache.pdfbox.ExtractTTFFonts [OPTIONS]<PDF file>\n"
+literal|"Usage: java "
+operator|+
+name|ExtractTTFFonts
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" [OPTIONS]<PDF file>\n"
 operator|+
 literal|"  -password<password>        Password to decrypt document\n"
 operator|+
