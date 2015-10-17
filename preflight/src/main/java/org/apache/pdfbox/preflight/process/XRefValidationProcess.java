@@ -18,22 +18,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ERROR_SYNTAX_INDIRECT_OBJ_RANGE
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -58,6 +42,38 @@ operator|.
 name|preflight
 operator|.
 name|PreflightConstants
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_INDIRECT_OBJ_RANGE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
+name|ERROR_SYNTAX_TRAILER
 import|;
 end_import
 
@@ -137,6 +153,28 @@ operator|.
 name|getDocument
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|document
+operator|.
+name|isXRefStream
+argument_list|()
+condition|)
+block|{
+name|addValidationError
+argument_list|(
+name|ctx
+argument_list|,
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_SYNTAX_TRAILER
+argument_list|,
+literal|"/XRef cross reference streams are not allowed"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|document
