@@ -93,6 +93,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|fontbox
+operator|.
+name|ttf
+operator|.
+name|TrueTypeFont
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -214,7 +228,7 @@ name|Integer
 argument_list|>
 name|gidToUni
 decl_stmt|;
-comment|/**      * Creates a new TrueType font embedder for the given TTF as a PDCIDFontType2.      *      * @param document parent document      * @param dict font dictionary      * @param ttfStream TTF stream      * @param parent parent Type 0 font      * @throws IOException if the TTF could not be read      */
+comment|/**      * Creates a new TrueType font embedder for the given TTF as a PDCIDFontType2.      *      * @param document parent document      * @param dict font dictionary      * @param ttf True Type Font      * @param parent parent Type 0 font      * @throws IOException if the TTF could not be read      */
 name|PDCIDFontType2Embedder
 parameter_list|(
 name|PDDocument
@@ -223,8 +237,8 @@ parameter_list|,
 name|COSDictionary
 name|dict
 parameter_list|,
-name|InputStream
-name|ttfStream
+name|TrueTypeFont
+name|ttf
 parameter_list|,
 name|boolean
 name|embedSubset
@@ -241,7 +255,7 @@ name|document
 argument_list|,
 name|dict
 argument_list|,
-name|ttfStream
+name|ttf
 argument_list|,
 name|embedSubset
 argument_list|)
@@ -2052,13 +2066,14 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|PDFontFactory
-operator|.
-name|createDescendantFont
+operator|new
+name|PDCIDFontType2
 argument_list|(
 name|cidFont
 argument_list|,
 name|parent
+argument_list|,
+name|ttf
 argument_list|)
 return|;
 block|}
