@@ -308,7 +308,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Extracts the images from a PDF file.  *  *<p>usage: java org.apache.pdfbox.tools.ExtractImages&lt;pdffile&gt;&lt;password&gt; [imageprefix]  *  * @author Ben Litchfield  */
+comment|/**  * Extracts the images from a PDF file.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -676,7 +676,16 @@ block|{
 name|String
 name|message
 init|=
-literal|"Usage: java org.apache.pdfbox.tools.ExtractImages [options]<inputfile>\n"
+literal|"Usage: java "
+operator|+
+name|ExtractImages
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" [options]<inputfile>\n"
 operator|+
 literal|"\nOptions:\n"
 operator|+
