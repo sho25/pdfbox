@@ -13,7 +13,9 @@ name|pdfbox
 operator|.
 name|examples
 operator|.
-name|acroforms
+name|interactive
+operator|.
+name|form
 package|;
 end_package
 
