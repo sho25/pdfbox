@@ -118,12 +118,7 @@ block|{
 name|String
 name|formTemplate
 init|=
-literal|"src/main/resources/org/apache/pdfbox/examples/acroforms/FillFormField.pdf"
-decl_stmt|;
-name|String
-name|filledForm
-init|=
-literal|"FillFormField.pdf"
+literal|"src/main/resources/org/apache/pdfbox/examples/interactive/form/FillFormField.pdf"
 decl_stmt|;
 comment|// load the document
 name|PDDocument
@@ -138,11 +133,6 @@ name|File
 argument_list|(
 name|formTemplate
 argument_list|)
-argument_list|,
-operator|(
-name|String
-operator|)
-literal|null
 argument_list|)
 decl_stmt|;
 comment|// get the document catalog
@@ -213,7 +203,7 @@ name|pdfDocument
 operator|.
 name|save
 argument_list|(
-name|filledForm
+literal|"target/FillFormField.pdf"
 argument_list|)
 expr_stmt|;
 name|pdfDocument
