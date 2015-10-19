@@ -164,9 +164,46 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|static
+name|String
+name|tagSetClassName
+init|=
+literal|"com.sun.media.imageio.plugins.tiff.BaselineTIFFTagSet"
+decl_stmt|;
+specifier|private
 name|TIFFUtil
 parameter_list|()
 block|{     }
+static|static
+block|{
+try|try
+block|{
+name|String
+name|alternateClassName
+init|=
+literal|"com.github.jaiimageio.plugins.tiff.BaselineTIFFTagSet"
+decl_stmt|;
+name|Class
+operator|.
+name|forName
+argument_list|(
+name|alternateClassName
+argument_list|)
+expr_stmt|;
+name|tagSetClassName
+operator|=
+name|alternateClassName
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ClassNotFoundException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
 comment|/**      * Sets the ImageIO parameter compression type based on the given image.      * @param image buffered image used to decide compression type      * @param param ImageIO write parameter to update      */
 specifier|public
 specifier|static
@@ -316,7 +353,7 @@ name|setAttribute
 argument_list|(
 literal|"tagSets"
 argument_list|,
-literal|"com.sun.media.imageio.plugins.tiff.BaselineTIFFTagSet"
+name|tagSetClassName
 argument_list|)
 expr_stmt|;
 name|root
