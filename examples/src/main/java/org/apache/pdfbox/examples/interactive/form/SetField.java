@@ -194,7 +194,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This example will take a PDF document and set a FDF field in it.  *  * @author Ben Litchfield  *  */
+comment|/**  * This example will take a PDF document and set a form field in it.  *  * @author Ben Litchfield  *  */
 end_comment
 
 begin_class
@@ -490,7 +490,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: org.apache.pdfbox.examples.fdf.SetField<pdf-file><field-name><field-value>"
+literal|"usage: org.apache.pdfbox.examples.interactive.form.SetField<pdf-file><field-name><field-value>"
 argument_list|)
 expr_stmt|;
 block|}

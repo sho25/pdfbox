@@ -500,7 +500,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: org.apache.pdfbox.examples.fdf.PrintFields<pdf-file>"
+literal|"usage: org.apache.pdfbox.examples.interactive.form.PrintFields<pdf-file>"
 argument_list|)
 expr_stmt|;
 block|}
