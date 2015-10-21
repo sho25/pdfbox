@@ -1216,8 +1216,6 @@ name|spaceWidthDisplay
 init|=
 name|spaceWidthText
 operator|*
-name|fontSizeText
-operator|*
 name|horizontalScalingText
 operator|*
 name|textRenderingMatrix
