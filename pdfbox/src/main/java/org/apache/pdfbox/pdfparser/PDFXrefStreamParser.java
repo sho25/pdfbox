@@ -495,10 +495,28 @@ argument_list|)
 expr_stmt|;
 name|int
 name|type
-init|=
-literal|0
 decl_stmt|;
-comment|/*              * Grabs the number of bytes specified for the first column in              * the W array and stores it.              */
+if|if
+condition|(
+name|w0
+operator|==
+literal|0
+condition|)
+block|{
+comment|// "If the first element is zero,
+comment|// the type field shall not be present, and shall default to type 1"
+name|type
+operator|=
+literal|1
+expr_stmt|;
+block|}
+else|else
+block|{
+name|type
+operator|=
+literal|0
+expr_stmt|;
+comment|/*                  * Grabs the number of bytes specified for the first column in                  * the W array and stores it.                  */
 for|for
 control|(
 name|int
@@ -537,6 +555,7 @@ operator|*
 literal|8
 operator|)
 expr_stmt|;
+block|}
 block|}
 comment|//Need to remember the current objID
 name|Long
