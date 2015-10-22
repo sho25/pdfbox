@@ -1086,18 +1086,6 @@ comment|// units, and we want to save the data in display units. The variable na
 comment|// Text or Disp to represent if the values are in text or disp units (no glyph units are
 comment|// saved).
 name|float
-name|fontSizeText
-init|=
-name|getGraphicsState
-argument_list|()
-operator|.
-name|getTextState
-argument_list|()
-operator|.
-name|getFontSize
-argument_list|()
-decl_stmt|;
-name|float
 name|horizontalScalingText
 init|=
 name|getGraphicsState
@@ -1111,7 +1099,6 @@ argument_list|()
 operator|/
 literal|100f
 decl_stmt|;
-comment|//Matrix ctm = getGraphicsState().getCurrentTransformationMatrix();
 name|float
 name|glyphSpaceToTextSpaceFactor
 init|=
