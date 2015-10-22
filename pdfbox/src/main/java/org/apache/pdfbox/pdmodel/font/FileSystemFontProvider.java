@@ -1218,6 +1218,16 @@ name|endsWith
 argument_list|(
 literal|".ttc"
 argument_list|)
+operator|||
+name|path
+operator|.
+name|toLowerCase
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|".otc"
+argument_list|)
 condition|)
 block|{
 comment|// remove .ttc files from older versions
