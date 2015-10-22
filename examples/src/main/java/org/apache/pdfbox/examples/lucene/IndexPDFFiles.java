@@ -729,9 +729,12 @@ if|if
 condition|(
 name|path
 operator|.
+name|toLowerCase
+argument_list|()
+operator|.
 name|endsWith
 argument_list|(
-literal|".PDF"
+literal|".pdf"
 argument_list|)
 condition|)
 block|{
