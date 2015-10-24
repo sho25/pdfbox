@@ -340,7 +340,7 @@ name|glyphList
 operator|=
 name|GlyphList
 operator|.
-name|getZapfDingbats
+name|getAdobeGlyphList
 argument_list|()
 expr_stmt|;
 block|}
