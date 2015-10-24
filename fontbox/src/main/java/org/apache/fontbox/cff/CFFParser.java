@@ -3404,6 +3404,25 @@ argument_list|(
 literal|"Private"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|privateEntry
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Private dictionary entry missing for font "
+operator|+
+name|font
+operator|.
+name|fontName
+argument_list|)
+throw|;
+block|}
 name|int
 name|privateOffset
 init|=
