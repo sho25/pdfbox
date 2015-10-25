@@ -1584,7 +1584,7 @@ name|MISSING_WIDTH
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the missing width for the font.      *      * @return The missing width value.      */
+comment|/**      * This will get the missing width for the font from the /MissingWidth dictionary entry.      *      * @return The missing width value, or 0 if there is no such dictionary entry.      */
 specifier|public
 name|float
 name|getMissingWidth
