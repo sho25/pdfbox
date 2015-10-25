@@ -953,13 +953,26 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
+comment|// get entry from /MissingWidth entry
+name|float
+name|missingWidth
+init|=
 name|fd
 operator|.
 name|getMissingWidth
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|missingWidth
+operator|!=
+literal|0
+condition|)
+block|{
+return|return
+name|missingWidth
 return|;
-comment|// default is 0
+block|}
 block|}
 block|}
 comment|// standard 14 font widths are specified by an AFM
