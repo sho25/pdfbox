@@ -951,28 +951,20 @@ condition|(
 name|fd
 operator|!=
 literal|null
+operator|&&
+name|fd
+operator|.
+name|hasMissingWidth
+argument_list|()
 condition|)
 block|{
 comment|// get entry from /MissingWidth entry
-name|float
-name|missingWidth
-init|=
+return|return
 name|fd
 operator|.
 name|getMissingWidth
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|missingWidth
-operator|!=
-literal|0
-condition|)
-block|{
-return|return
-name|missingWidth
 return|;
-block|}
 block|}
 block|}
 comment|// standard 14 font widths are specified by an AFM
