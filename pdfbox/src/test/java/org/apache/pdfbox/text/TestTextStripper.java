@@ -1022,6 +1022,12 @@ literal|".txt"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// delete possible leftover
+name|diffFile
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
 name|OutputStream
 name|os
 init|=
