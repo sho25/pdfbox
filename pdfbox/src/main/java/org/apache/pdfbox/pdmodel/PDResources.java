@@ -562,13 +562,36 @@ return|return
 name|font
 return|;
 block|}
-comment|/**      * Returns the color space resource with the given name, or null if none exists.      *       * @param name Name of the color space resource.      * @throws java.io.IOException if something went wrong.      */
+comment|/**      * Returns the color space resource with the given name, or null if none exists.      *       * @param name Name of the color space resource.      * @return a new color space.      * @throws IOException if something went wrong.      */
 specifier|public
 name|PDColorSpace
 name|getColorSpace
 parameter_list|(
 name|COSName
 name|name
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|getColorSpace
+argument_list|(
+name|name
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns the color space resource with the given name, or null if none exists. This method is      * for PDFBox internal use only, others should use {@link getColorSpace(COSName)}.      *      * @param name Name of the color space resource.      * @param wasDefault if current color space was used by a default color space. This parameter is      * to      * @return a new color space.      * @throws IOException if something went wrong.      */
+specifier|public
+name|PDColorSpace
+name|getColorSpace
+parameter_list|(
+name|COSName
+name|name
+parameter_list|,
+name|boolean
+name|wasDefault
 parameter_list|)
 throws|throws
 name|IOException
@@ -650,6 +673,8 @@ argument_list|(
 name|object
 argument_list|,
 name|this
+argument_list|,
+name|wasDefault
 argument_list|)
 expr_stmt|;
 block|}
@@ -664,6 +689,8 @@ argument_list|(
 name|name
 argument_list|,
 name|this
+argument_list|,
+name|wasDefault
 argument_list|)
 expr_stmt|;
 block|}
