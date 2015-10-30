@@ -311,6 +311,47 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * PDFBOX-3068: test that indirect /Title element of /Info entry can be found.      *       * @throws Exception       */
+specifier|public
+name|void
+name|testPDFBox3068
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|PDDocument
+name|doc
+init|=
+name|PDDocument
+operator|.
+name|load
+argument_list|(
+name|TestPDDocumentInformation
+operator|.
+name|class
+operator|.
+name|getResourceAsStream
+argument_list|(
+literal|"PDFBOX-3068.pdf"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|PDDocumentInformation
+name|documentInformation
+init|=
+name|doc
+operator|.
+name|getDocumentInformation
+argument_list|()
+decl_stmt|;
+comment|//TODO uncomment after solving PDFBOX-3068
+comment|//assertEquals("Title", documentInformation.getTitle());
+name|doc
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 
