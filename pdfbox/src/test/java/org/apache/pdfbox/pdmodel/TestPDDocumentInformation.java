@@ -344,8 +344,16 @@ operator|.
 name|getDocumentInformation
 argument_list|()
 decl_stmt|;
-comment|//TODO uncomment after solving PDFBOX-3068
-comment|//assertEquals("Title", documentInformation.getTitle());
+name|assertEquals
+argument_list|(
+literal|"Title"
+argument_list|,
+name|documentInformation
+operator|.
+name|getTitle
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|doc
 operator|.
 name|close
