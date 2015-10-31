@@ -1099,12 +1099,8 @@ operator|instanceof
 name|PDType3Font
 condition|)
 block|{
-comment|// This will typically be 1000 but in the case of a type3 font
-comment|// this might be a different number
 name|glyphSpaceToTextSpaceFactor
 operator|=
-literal|1f
-operator|/
 name|font
 operator|.
 name|getFontMatrix
