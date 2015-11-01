@@ -996,12 +996,12 @@ argument_list|()
 argument_list|,
 name|rect
 operator|.
-name|getWidth
+name|getUpperRightX
 argument_list|()
 argument_list|,
 name|rect
 operator|.
-name|getHeight
+name|getUpperRightY
 argument_list|()
 argument_list|)
 return|;
