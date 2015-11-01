@@ -867,7 +867,6 @@ operator|instanceof
 name|EncodedFont
 condition|)
 block|{
-comment|//FIXME dead instanceof
 return|return
 name|Type1Encoding
 operator|.
