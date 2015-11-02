@@ -2099,14 +2099,6 @@ name|PDRectangle
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Clear AcroForm / Set DefaultRessource
-name|acroForm
-operator|.
-name|setDefaultResources
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
 comment|// Set empty Appearance-Dictionary
 name|PDAppearanceDictionary
 name|ap
