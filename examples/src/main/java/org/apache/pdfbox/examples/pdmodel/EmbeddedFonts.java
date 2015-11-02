@@ -261,6 +261,19 @@ argument_list|)
 expr_stmt|;
 name|stream
 operator|.
+name|newLine
+argument_list|()
+expr_stmt|;
+comment|// ligature
+name|stream
+operator|.
+name|showText
+argument_list|(
+literal|"Ligatures: \uFB01lm \uFB02ood"
+argument_list|)
+expr_stmt|;
+name|stream
+operator|.
 name|endText
 argument_list|()
 expr_stmt|;
