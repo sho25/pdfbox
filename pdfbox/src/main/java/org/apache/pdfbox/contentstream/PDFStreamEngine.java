@@ -1378,9 +1378,9 @@ name|Matrix
 operator|.
 name|concatenate
 argument_list|(
-name|matrix
-argument_list|,
 name|a
+argument_list|,
+name|matrix
 argument_list|)
 decl_stmt|;
 comment|// make matrix AA the CTM
