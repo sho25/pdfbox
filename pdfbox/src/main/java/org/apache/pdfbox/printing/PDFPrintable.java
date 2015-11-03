@@ -350,21 +350,6 @@ name|dpi
 operator|=
 name|dpi
 expr_stmt|;
-if|if
-condition|(
-name|dpi
-operator|<=
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"DPI must be greater than zero"
-argument_list|)
-throw|;
-block|}
 block|}
 annotation|@
 name|Override
