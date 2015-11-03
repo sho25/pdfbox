@@ -1889,9 +1889,10 @@ operator|.
 name|createInputStream
 argument_list|()
 argument_list|,
+operator|(
 name|COSName
-operator|.
-name|FLATE_DECODE
+operator|)
+literal|null
 argument_list|)
 decl_stmt|;
 name|newStream
