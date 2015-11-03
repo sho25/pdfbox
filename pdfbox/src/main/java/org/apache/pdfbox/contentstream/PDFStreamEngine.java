@@ -1371,6 +1371,9 @@ argument_list|)
 expr_stmt|;
 comment|// Matrix shall be concatenated with A to form a matrix AA that maps from the appearance's
 comment|// coordinate system to the annotation's rectangle in default user space
+comment|//
+comment|// HOWEVER only the opposite order works for rotated pages with
+comment|// filled fields / annotations that have a matrix in the appearance stream, see PDFBOX-3083
 name|Matrix
 name|aa
 init|=
