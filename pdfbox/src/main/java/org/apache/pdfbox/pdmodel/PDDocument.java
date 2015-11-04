@@ -1444,8 +1444,6 @@ block|{
 name|prepareNonVisibleSignature
 argument_list|(
 name|signatureField
-argument_list|,
-name|acroForm
 argument_list|)
 expr_stmt|;
 block|}
@@ -2074,9 +2072,6 @@ name|prepareNonVisibleSignature
 parameter_list|(
 name|PDSignatureField
 name|signatureField
-parameter_list|,
-name|PDAcroForm
-name|acroForm
 parameter_list|)
 throws|throws
 name|IOException
