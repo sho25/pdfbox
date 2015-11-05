@@ -63,6 +63,30 @@ specifier|private
 name|int
 name|numGlyphs
 decl_stmt|;
+specifier|private
+name|int
+name|cached
+init|=
+literal|0
+decl_stmt|;
+comment|/**      * Don't even bother to cache huge fonts.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|MAX_CACHE_SIZE
+init|=
+literal|5000
+decl_stmt|;
+comment|/**      * Don't cache more glyphs than this.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|MAX_CACHED_GLYPHS
+init|=
+literal|100
+decl_stmt|;
 name|GlyphTable
 parameter_list|(
 name|TrueTypeFont
@@ -103,6 +127,14 @@ operator|.
 name|getNumberOfGlyphs
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|numGlyphs
+operator|<
+name|MAX_CACHE_SIZE
+condition|)
+block|{
+comment|// don't cache the huge fonts to save memory
 name|glyphs
 operator|=
 operator|new
@@ -111,7 +143,12 @@ index|[
 name|numGlyphs
 index|]
 expr_stmt|;
-comment|// we don't actually read the table yet because it can contain tens of thousands of glyphs
+name|cached
+operator|=
+literal|0
+expr_stmt|;
+block|}
+comment|// we don't actually read the complete table here because it can contain tens of thousands of glyphs
 name|this
 operator|.
 name|data
@@ -406,6 +443,10 @@ block|}
 if|if
 condition|(
 name|glyphs
+operator|!=
+literal|null
+operator|&&
+name|glyphs
 index|[
 name|gid
 index|]
@@ -554,6 +595,17 @@ argument_list|(
 name|currentPosition
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|glyphs
+operator|!=
+literal|null
+operator|&&
+name|cached
+operator|<
+name|MAX_CACHED_GLYPHS
+condition|)
+block|{
 name|glyphs
 index|[
 name|gid
@@ -561,6 +613,10 @@ index|]
 operator|=
 name|glyph
 expr_stmt|;
+operator|++
+name|cached
+expr_stmt|;
+block|}
 return|return
 name|glyph
 return|;
