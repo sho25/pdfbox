@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A cache for system fonts. This allows PDFBox to manage caching for a {@link FontProvider}.  * PDFBox is free to purge this cache at will.  *  * @author John Hewson  */
+comment|/**  * An in-memory cache for system fonts. This allows PDFBox to manage caching for a {@link FontProvider}.  * PDFBox is free to purge this cache at will.  *  * @author John Hewson  */
 end_comment
 
 begin_class

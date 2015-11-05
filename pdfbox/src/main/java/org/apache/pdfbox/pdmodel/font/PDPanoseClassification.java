@@ -178,6 +178,16 @@ literal|9
 index|]
 return|;
 block|}
+specifier|public
+name|byte
+index|[]
+name|getBytes
+parameter_list|()
+block|{
+return|return
+name|bytes
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public
