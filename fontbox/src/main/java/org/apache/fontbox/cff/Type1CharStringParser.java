@@ -273,12 +273,9 @@ name|CALLSUBR
 condition|)
 block|{
 comment|// callsubr command
-name|Integer
-name|operand
+name|Object
+name|obj
 init|=
-operator|(
-name|Integer
-operator|)
 name|sequence
 operator|.
 name|remove
@@ -290,6 +287,43 @@ argument_list|()
 operator|-
 literal|1
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|obj
+operator|instanceof
+name|Integer
+operator|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Parameter "
+operator|+
+name|obj
+operator|+
+literal|" for CALLSUBR is ignored, integer expected in glyph '"
+operator|+
+name|glyphName
+operator|+
+literal|"' of font "
+operator|+
+name|fontName
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+name|Integer
+name|operand
+init|=
+operator|(
+name|Integer
+operator|)
+name|obj
 decl_stmt|;
 if|if
 condition|(
