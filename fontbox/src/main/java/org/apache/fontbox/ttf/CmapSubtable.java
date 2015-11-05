@@ -2177,6 +2177,32 @@ operator|%
 literal|65536
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|p
+operator|>=
+name|numGlyphs
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"glyphId "
+operator|+
+name|p
+operator|+
+literal|" for charcode "
+operator|+
+name|charCode
+operator|+
+literal|" ignored, numGlyphs is "
+operator|+
+name|numGlyphs
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|glyphIdToCharacterCode
 index|[
 name|p
