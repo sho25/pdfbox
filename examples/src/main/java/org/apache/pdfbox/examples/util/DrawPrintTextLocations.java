@@ -792,12 +792,7 @@ name|xadvance
 argument_list|,
 name|bbox
 operator|.
-name|getUpperRightY
-argument_list|()
-operator|-
-name|bbox
-operator|.
-name|getLowerLeftY
+name|getHeight
 argument_list|()
 argument_list|)
 expr_stmt|;
