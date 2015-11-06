@@ -290,10 +290,12 @@ decl_stmt|;
 name|PDRectangle
 name|mediaBox
 init|=
-name|page
+name|PDFPrintable
 operator|.
-name|getMediaBox
-argument_list|()
+name|getRotatedMediaBox
+argument_list|(
+name|page
+argument_list|)
 decl_stmt|;
 name|PDRectangle
 name|cropBox
