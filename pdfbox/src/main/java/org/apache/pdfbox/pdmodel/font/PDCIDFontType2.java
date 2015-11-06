@@ -1333,8 +1333,13 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Acrobat is willing to use the CID as a GID, even when the font isn't embedded
+comment|// see PDFBOX-2599
 return|return
-literal|0
+name|codeToCID
+argument_list|(
+name|code
+argument_list|)
 return|;
 block|}
 elseif|else
