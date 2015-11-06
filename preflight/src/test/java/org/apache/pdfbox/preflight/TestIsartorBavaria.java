@@ -16,42 +16,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -315,6 +279,42 @@ name|Parameters
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
 begin_class
 annotation|@
 name|RunWith
@@ -325,7 +325,7 @@ name|class
 argument_list|)
 specifier|public
 class|class
-name|TestIsartor
+name|TestIsartorBavaria
 block|{
 specifier|private
 specifier|static
@@ -948,7 +948,7 @@ name|File
 name|file
 decl_stmt|;
 specifier|public
-name|TestIsartor
+name|TestIsartorBavaria
 parameter_list|(
 name|File
 name|path
@@ -1138,7 +1138,7 @@ name|message
 operator|.
 name|append
 argument_list|(
-literal|" : Isartor file should be valid, but has error"
+literal|" : PDF/A file should be valid, but has error"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1228,7 +1228,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" : Isartor file should be invalid (expected "
+literal|" : PDF/A file should be invalid (expected "
 operator|+
 name|this
 operator|.
