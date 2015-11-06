@@ -875,6 +875,7 @@ comment|// b) Obtain the ROS from the font's CIDSystemInfo
 comment|// c) Construct a second CMap name by concatenating the ROS in the format "R-O-UCS2"
 comment|// d) Obtain the CMap with the constructed name
 comment|// e) Map the CID according to the CMap from step d), producing a Unicode value
+comment|// todo: not sure how to interpret the PDF spec here, do we always override? or only when Identity-H/V?
 name|String
 name|strName
 init|=
@@ -882,30 +883,35 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|name
-operator|==
-literal|null
-operator|&&
 name|isDescendantCJK
 condition|)
 block|{
 name|strName
 operator|=
-name|cMap
+name|descendantFont
+operator|.
+name|getCIDSystemInfo
+argument_list|()
 operator|.
 name|getRegistry
 argument_list|()
 operator|+
 literal|"-"
 operator|+
-name|cMap
+name|descendantFont
+operator|.
+name|getCIDSystemInfo
+argument_list|()
 operator|.
 name|getOrdering
 argument_list|()
 operator|+
 literal|"-"
 operator|+
-name|cMap
+name|descendantFont
+operator|.
+name|getCIDSystemInfo
+argument_list|()
 operator|.
 name|getSupplement
 argument_list|()
