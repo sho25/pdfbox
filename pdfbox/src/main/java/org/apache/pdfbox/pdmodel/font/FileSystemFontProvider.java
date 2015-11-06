@@ -2081,9 +2081,7 @@ name|FSFontInfo
 argument_list|(
 name|fontFile
 argument_list|,
-name|FontFormat
-operator|.
-name|OTF
+name|format
 argument_list|,
 name|postScriptName
 argument_list|,
