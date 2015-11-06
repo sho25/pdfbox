@@ -466,15 +466,6 @@ init|(
 name|font
 init|)
 block|{
-comment|// save
-name|long
-name|currentPosition
-init|=
-name|data
-operator|.
-name|getCurrentPosition
-argument_list|()
-decl_stmt|;
 comment|// read a single glyph
 name|long
 index|[]
@@ -511,6 +502,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// save
+name|long
+name|currentPosition
+init|=
+name|data
+operator|.
+name|getCurrentPosition
+argument_list|()
+decl_stmt|;
 name|data
 operator|.
 name|seek
@@ -586,7 +586,6 @@ name|resolve
 argument_list|()
 expr_stmt|;
 block|}
-block|}
 comment|// restore
 name|data
 operator|.
@@ -599,6 +598,13 @@ if|if
 condition|(
 name|glyphs
 operator|!=
+literal|null
+operator|&&
+name|glyphs
+index|[
+name|gid
+index|]
+operator|==
 literal|null
 operator|&&
 name|cached
@@ -616,6 +622,7 @@ expr_stmt|;
 operator|++
 name|cached
 expr_stmt|;
+block|}
 block|}
 return|return
 name|glyph
