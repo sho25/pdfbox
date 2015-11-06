@@ -232,6 +232,11 @@ specifier|final
 name|float
 name|dpi
 decl_stmt|;
+specifier|private
+specifier|final
+name|boolean
+name|center
+decl_stmt|;
 comment|/**      * Creates a new PDFPrintable.      *      * @param document the document to print      */
 specifier|public
 name|PDFPrintable
@@ -317,6 +322,40 @@ name|dpi
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|document
+argument_list|,
+name|scaling
+argument_list|,
+name|showPageBorder
+argument_list|,
+name|dpi
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates a new PDFPrintable with the given page scaling and with optional page borders shown.      * The image will be rasterized at the given DPI before being sent to the printer.      *      * @param document the document to print      * @param scaling page scaling policy      * @param showPageBorder true if page borders are to be printed      * @param dpi if non-zero then the image will be rasterized at the given DPI      * @param center true if the content is to be centered on the page (otherwise top-left).      */
+specifier|public
+name|PDFPrintable
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|,
+name|Scaling
+name|scaling
+parameter_list|,
+name|boolean
+name|showPageBorder
+parameter_list|,
+name|float
+name|dpi
+parameter_list|,
+name|boolean
+name|center
+parameter_list|)
+block|{
+name|this
 operator|.
 name|document
 operator|=
@@ -349,6 +388,12 @@ operator|.
 name|dpi
 operator|=
 name|dpi
+expr_stmt|;
+name|this
+operator|.
+name|center
+operator|=
+name|center
 expr_stmt|;
 block|}
 annotation|@
@@ -517,6 +562,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// center on page
+if|if
+condition|(
+name|center
+condition|)
+block|{
 name|graphics2D
 operator|.
 name|translate
@@ -548,6 +598,7 @@ operator|/
 literal|2
 argument_list|)
 expr_stmt|;
+block|}
 comment|// rasterize to bitmap (optional)
 name|Graphics2D
 name|printerGraphics
