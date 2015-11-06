@@ -833,30 +833,15 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// if the font is composite and uses a predefined cmap (excluding Identity-H/V) then
-comment|// or if its decendant font uses Adobe-GB1/CNS1/Japan1/Korea1
-if|if
-condition|(
-name|isCMapPredefined
-condition|)
-block|{
-comment|// a) Map the character code to a CID using the font's CMap
-comment|// b) Obtain the ROS from the font's CIDSystemInfo
-comment|// c) Construct a second CMap name by concatenating the ROS in the format "R-O-UCS2"
-comment|// d) Obtain the CMap with the constructed name
-comment|// e) Map the CID according to the CMap from step d), producing a Unicode value
-name|String
-name|cMapName
-init|=
-literal|null
-decl_stmt|;
-comment|// get the encoding CMap
-name|COSBase
-name|encoding
+comment|// if the font is composite and uses a predefined cmap (excluding Identity-H/V)
+comment|// or whose descendant CIDFont uses the Adobe-GB1, Adobe-CNS1, Adobe-Japan1, or
+comment|// Adobe-Korea1 character collection:
+name|COSName
+name|name
 init|=
 name|dict
 operator|.
-name|getDictionaryObject
+name|getCOSName
 argument_list|(
 name|COSName
 operator|.
@@ -865,67 +850,87 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|encoding
-operator|instanceof
+name|isCMapPredefined
+operator|&&
+operator|!
+operator|(
+name|name
+operator|==
 name|COSName
+operator|.
+name|IDENTITY_H
+operator|||
+name|name
+operator|==
+name|COSName
+operator|.
+name|IDENTITY_V
+operator|)
+operator|||
+name|isDescendantCJK
 condition|)
 block|{
-name|cMapName
+comment|// a) Map the character code to a CID using the font's CMap
+comment|// b) Obtain the ROS from the font's CIDSystemInfo
+comment|// c) Construct a second CMap name by concatenating the ROS in the format "R-O-UCS2"
+comment|// d) Obtain the CMap with the constructed name
+comment|// e) Map the CID according to the CMap from step d), producing a Unicode value
+name|String
+name|strName
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|name
+operator|==
+literal|null
+operator|&&
+name|isDescendantCJK
+condition|)
+block|{
+name|strName
 operator|=
-operator|(
-operator|(
-name|COSName
-operator|)
-name|encoding
-operator|)
+name|cMap
+operator|.
+name|getRegistry
+argument_list|()
+operator|+
+literal|"-"
+operator|+
+name|cMap
+operator|.
+name|getOrdering
+argument_list|()
+operator|+
+literal|"-"
+operator|+
+name|cMap
+operator|.
+name|getSupplement
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|name
+operator|!=
+literal|null
+condition|)
+block|{
+name|strName
+operator|=
+name|name
 operator|.
 name|getName
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-literal|"Identity-H"
-operator|.
-name|equals
-argument_list|(
-name|cMapName
-argument_list|)
-operator|||
-literal|"Identity-V"
-operator|.
-name|equals
-argument_list|(
-name|cMapName
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-name|isDescendantCJK
-condition|)
-block|{
-name|cMapName
-operator|=
-name|getCJKCMap
-argument_list|(
-name|descendantFont
-operator|.
-name|getCIDSystemInfo
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// we can't map Identity-H or Identity-V to Unicode
-return|return;
-block|}
-block|}
 comment|// try to find the corresponding Unicode (UC2) CMap
 if|if
 condition|(
-name|cMapName
+name|strName
 operator|!=
 literal|null
 condition|)
@@ -937,7 +942,7 @@ name|CMapManager
 operator|.
 name|getPredefinedCMap
 argument_list|(
-name|cMapName
+name|strName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1413,7 +1418,11 @@ return|;
 block|}
 if|if
 condition|(
+operator|(
 name|isCMapPredefined
+operator|||
+name|isDescendantCJK
+operator|)
 operator|&&
 name|cMapUCS2
 operator|!=
