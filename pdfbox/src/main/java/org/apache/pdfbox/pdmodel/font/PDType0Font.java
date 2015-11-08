@@ -61,6 +61,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -291,6 +311,21 @@ decl_stmt|;
 specifier|private
 name|PDCIDFontType2Embedder
 name|embedder
+decl_stmt|;
+specifier|private
+specifier|final
+name|Set
+argument_list|<
+name|Integer
+argument_list|>
+name|noUnicode
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|Integer
+argument_list|>
+argument_list|()
 decl_stmt|;
 comment|/**     * Loads a TTF to be embedded into a document as a Type 0 font.     *     * @param doc The PDF document that will hold the embedded font.     * @param file A TrueType font.     * @return A Type0 font with a CIDFontType2 descendant.     * @throws IOException If there is an error reading the font file.     */
 specifier|public
@@ -1458,6 +1493,22 @@ return|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isWarnEnabled
+argument_list|()
+operator|&&
+operator|!
+name|noUnicode
+operator|.
+name|contains
+argument_list|(
+name|code
+argument_list|)
+condition|)
+block|{
 comment|// if no value has been produced, there is no way to obtain Unicode for the character.
 name|String
 name|cid
@@ -1487,6 +1538,15 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// we keep track of which warnings have been issued, so we don't log multiple times
+name|noUnicode
+operator|.
+name|add
+argument_list|(
+name|code
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 literal|null
 return|;
