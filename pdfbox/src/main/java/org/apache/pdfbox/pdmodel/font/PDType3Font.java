@@ -1099,6 +1099,15 @@ operator|.
 name|getGlyphBBox
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|glyphBBox
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|rect
 operator|.
 name|setLowerLeftX
