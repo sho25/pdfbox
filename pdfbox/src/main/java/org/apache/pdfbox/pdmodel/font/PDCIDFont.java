@@ -1533,6 +1533,13 @@ condition|(
 name|average
 operator|<=
 literal|0
+operator|||
+name|Float
+operator|.
+name|isNaN
+argument_list|(
+name|average
+argument_list|)
 condition|)
 block|{
 name|average
