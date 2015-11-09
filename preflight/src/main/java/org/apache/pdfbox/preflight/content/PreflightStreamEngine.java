@@ -2197,7 +2197,11 @@ condition|)
 block|{
 name|registerError
 argument_list|(
-literal|"The ColorSpace is unknown"
+literal|"The ColorSpace "
+operator|+
+name|colorSpace
+operator|+
+literal|" is unknown"
 argument_list|,
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|)
@@ -3106,7 +3110,23 @@ else|else
 block|{
 name|registerError
 argument_list|(
-literal|"The operand doesn't have the expected type"
+literal|"The operand "
+operator|+
+name|arguments
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|+
+literal|" for colorSpace operator "
+operator|+
+name|operator
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" doesn't have the expected type"
 argument_list|,
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|)
@@ -3221,7 +3241,11 @@ condition|)
 block|{
 name|registerError
 argument_list|(
-literal|"The ColorSpace is unknown"
+literal|"The ColorSpace "
+operator|+
+name|colorSpaceName
+operator|+
+literal|" is unknown"
 argument_list|,
 name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
 argument_list|)
