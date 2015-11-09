@@ -589,6 +589,26 @@ name|startsWith
 argument_list|(
 name|PreflightConstants
 operator|.
+name|ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY
+argument_list|)
+condition|)
+block|{
+name|this
+operator|.
+name|details
+operator|=
+literal|"Unexpected value for key in Graphic object definition"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|errorCode
+operator|.
+name|startsWith
+argument_list|(
+name|PreflightConstants
+operator|.
 name|ERROR_GRAPHIC_UNEXPECTED_KEY
 argument_list|)
 condition|)
