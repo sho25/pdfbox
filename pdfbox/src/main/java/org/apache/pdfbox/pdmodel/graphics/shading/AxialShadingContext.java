@@ -379,10 +379,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|shading
-operator|.
-name|getExtend
-argument_list|()
+name|extendValues
 operator|!=
 literal|null
 condition|)
@@ -406,7 +403,7 @@ name|COSBoolean
 operator|)
 name|extendValues
 operator|.
-name|get
+name|getObject
 argument_list|(
 literal|0
 argument_list|)
@@ -426,7 +423,7 @@ name|COSBoolean
 operator|)
 name|extendValues
 operator|.
-name|get
+name|getObject
 argument_list|(
 literal|1
 argument_list|)
