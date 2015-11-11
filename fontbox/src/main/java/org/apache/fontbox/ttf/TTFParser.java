@@ -320,6 +320,14 @@ argument_list|,
 name|raf
 argument_list|)
 decl_stmt|;
+comment|// skip tables with zero length
+if|if
+condition|(
+name|table
+operator|!=
+literal|null
+condition|)
+block|{
 name|font
 operator|.
 name|addTable
@@ -327,6 +335,7 @@ argument_list|(
 name|table
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// parse tables if wanted
 if|if
@@ -1011,6 +1020,21 @@ name|readUnsignedInt
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// skip tables with zero length
+if|if
+condition|(
+name|table
+operator|.
+name|getLength
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 return|return
 name|table
 return|;
