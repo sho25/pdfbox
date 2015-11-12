@@ -1138,7 +1138,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// explicit mask
+comment|// explicit mask - to be applied only if /ImageMask true
 name|PDImageXObject
 name|mask
 init|=
@@ -1150,6 +1150,11 @@ condition|(
 name|mask
 operator|!=
 literal|null
+operator|&&
+name|mask
+operator|.
+name|isStencil
+argument_list|()
 condition|)
 block|{
 name|image
