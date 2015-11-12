@@ -338,7 +338,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/test-output/AlignmentTests.pdf"
+literal|"src/test/resources/org/apache/pdfbox/pdmodel/interactive/form/AlignmentTests.pdf"
 argument_list|)
 argument_list|)
 decl_stmt|;
