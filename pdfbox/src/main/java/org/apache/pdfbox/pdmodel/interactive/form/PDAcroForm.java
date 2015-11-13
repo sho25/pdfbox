@@ -95,6 +95,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -391,6 +419,21 @@ name|PDAcroForm
 implements|implements
 name|COSObjectable
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDAcroForm
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
@@ -697,6 +740,23 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// for dynamic XFA forms there is no flatten as this would mean to do a rendering
+comment|// from the XFA content into a static PDF.
+if|if
+condition|(
+name|xfaIsDynamic
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Flatten for a dynamix XFA form is not supported"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|List
 argument_list|<
 name|PDField
@@ -752,7 +812,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// construct the appearances if set
+comment|// for dynamic XFA forms there is no flatten as this would mean to do a rendering
+comment|// from the XFA content into a static PDF.
+if|if
+condition|(
+name|xfaIsDynamic
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Flatten for a dynamix XFA form is not supported"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+comment|// refresh the appearances if set
 if|if
 condition|(
 name|refreshAppearances
@@ -1000,6 +1077,16 @@ name|PDField
 operator|>
 name|emptyList
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// remove XFA for hybrid forms
+name|dictionary
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|XFA
 argument_list|)
 expr_stmt|;
 block|}
