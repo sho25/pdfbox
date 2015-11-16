@@ -960,7 +960,7 @@ name|AffineTransform
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Creates a new Type 1 font for embedding.      *      * @param doc PDF document to write to      * @param pfbIn PFB file stream      * @throws IOException      */
+comment|/**      * Creates a new Type 1 font for embedding.      *      * @param doc PDF document to write to      * @param pfbIn PFB file stream      * @param encoding      * @throws IOException      */
 specifier|public
 name|PDType1Font
 parameter_list|(
@@ -1033,7 +1033,7 @@ name|AffineTransform
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Creates a Type 1 font from a Font dictionary in a PDF.      *       * @param fontDictionary font dictionary      */
+comment|/**      * Creates a Type 1 font from a Font dictionary in a PDF.      *       * @param fontDictionary font dictionary.      * @throws IOException if there was an error initializing the font.      * @throws IllegalArgumentException if /FontFile3 was used.      */
 specifier|public
 name|PDType1Font
 parameter_list|(
@@ -1437,6 +1437,30 @@ operator|-
 literal|4
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|offset
+operator|<=
+literal|0
+operator|||
+name|offset
+operator|>
+name|bytes
+operator|.
+name|length
+operator|-
+literal|4
+condition|)
+block|{
+name|offset
+operator|=
+name|bytes
+operator|.
+name|length
+operator|-
+literal|4
+expr_stmt|;
+block|}
 while|while
 condition|(
 name|offset
@@ -1541,16 +1565,29 @@ operator|>
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isWarnEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignored invalid Length1 for Type 1 font "
+literal|"Ignored invalid Length1 "
+operator|+
+name|length1
+operator|+
+literal|" for Type 1 font "
 operator|+
 name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|offset
 return|;
