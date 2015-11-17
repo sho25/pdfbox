@@ -1835,7 +1835,7 @@ name|array
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get a list of PDThreadBead objects, which are article threads in the document.      * This will return an empty list of there are no thread beads.      *       * @return A list of article threads on this page.      */
+comment|/**      * This will get a list of PDThreadBead objects, which are article threads in the document.      * This will return an empty list if there are no thread beads.      *       * @return A list of article threads on this page.      */
 specifier|public
 name|List
 argument_list|<
