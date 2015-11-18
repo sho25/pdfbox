@@ -46,7 +46,7 @@ index|[]
 name|offset
 decl_stmt|;
 specifier|private
-name|int
+name|byte
 index|[]
 name|data
 decl_stmt|;
@@ -131,9 +131,6 @@ index|[
 name|i
 index|]
 operator|=
-operator|(
-name|byte
-operator|)
 name|data
 index|[
 name|offset
@@ -248,7 +245,7 @@ block|{
 name|data
 operator|=
 operator|new
-name|int
+name|byte
 index|[
 name|dataSize
 index|]
@@ -262,7 +259,7 @@ parameter_list|(
 name|int
 name|index
 parameter_list|,
-name|int
+name|byte
 name|value
 parameter_list|)
 block|{

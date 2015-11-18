@@ -794,6 +794,9 @@ name|setData
 argument_list|(
 name|i
 argument_list|,
+operator|(
+name|byte
+operator|)
 name|input
 operator|.
 name|readCard8
