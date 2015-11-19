@@ -82,11 +82,6 @@ name|long
 index|[]
 name|fontOffsets
 decl_stmt|;
-specifier|private
-specifier|final
-name|float
-name|version
-decl_stmt|;
 comment|/**      * Creates a new TrueTypeCollection from a .ttc file.      *      * @param file The TTC file.      * @throws IOException If the font could not be parsed.      */
 specifier|public
 name|TrueTypeCollection
@@ -172,13 +167,14 @@ literal|"Missing TTC header"
 argument_list|)
 throw|;
 block|}
+name|float
 name|version
-operator|=
+init|=
 name|stream
 operator|.
 name|read32Fixed
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|numFonts
 operator|=
 operator|(
@@ -354,9 +350,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|OpenTypeFont
-name|otf
-init|=
+return|return
 name|parser
 operator|.
 name|parse
@@ -367,9 +361,6 @@ argument_list|(
 name|stream
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|otf
 return|;
 block|}
 else|else
@@ -395,9 +386,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|TrueTypeFont
-name|ttf
-init|=
+return|return
 name|parser
 operator|.
 name|parse
@@ -408,9 +397,6 @@ argument_list|(
 name|stream
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|ttf
 return|;
 block|}
 block|}
@@ -472,11 +458,9 @@ return|;
 block|}
 comment|/**      * Implement the callback method to call {@link TrueTypeCollection#processAllFonts()}.      */
 specifier|public
-specifier|static
 interface|interface
 name|TrueTypeFontProcessor
 block|{
-specifier|public
 name|void
 name|process
 parameter_list|(
