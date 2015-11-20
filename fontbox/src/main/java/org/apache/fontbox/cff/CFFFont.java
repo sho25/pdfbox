@@ -294,6 +294,7 @@ expr_stmt|;
 block|}
 comment|/**      * Returns the character strings dictionary. For expert users only.      *      * @return the dictionary      */
 specifier|public
+specifier|final
 name|List
 argument_list|<
 name|byte
