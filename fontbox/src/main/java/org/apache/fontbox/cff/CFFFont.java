@@ -41,6 +41,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|LinkedHashMap
 import|;
 end_import
@@ -304,7 +314,12 @@ name|getCharStringBytes
 parameter_list|()
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|charStrings
+argument_list|)
 return|;
 block|}
 comment|/**      * Sets the original data.      *      * @param data the original data.      */
