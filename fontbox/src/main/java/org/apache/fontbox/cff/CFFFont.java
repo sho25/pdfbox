@@ -292,7 +292,8 @@ operator|=
 name|charset
 expr_stmt|;
 block|}
-comment|/**      * Returns the character strings dictionary.      *      * @return the dictionary      */
+comment|/**      * Returns the character strings dictionary. For expert users only.      *      * @return the dictionary      */
+specifier|public
 name|List
 argument_list|<
 name|byte
