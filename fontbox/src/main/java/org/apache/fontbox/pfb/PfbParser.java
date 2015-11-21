@@ -398,6 +398,23 @@ index|]
 operator|=
 name|size
 expr_stmt|;
+if|if
+condition|(
+name|pointer
+operator|>=
+name|pfbdata
+operator|.
+name|length
+condition|)
+block|{
+throw|throw
+operator|new
+name|EOFException
+argument_list|(
+literal|"attempted to read past EOF"
+argument_list|)
+throw|;
+block|}
 name|int
 name|got
 init|=
