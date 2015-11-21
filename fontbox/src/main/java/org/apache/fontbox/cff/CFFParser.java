@@ -2247,8 +2247,7 @@ expr_stmt|;
 comment|// charstrings dict
 name|font
 operator|.
-name|getCharStringBytes
-argument_list|()
+name|charStrings
 operator|.
 name|add
 argument_list|(
@@ -2292,8 +2291,7 @@ argument_list|)
 decl_stmt|;
 name|font
 operator|.
-name|getCharStringBytes
-argument_list|()
+name|charStrings
 operator|.
 name|add
 argument_list|(
