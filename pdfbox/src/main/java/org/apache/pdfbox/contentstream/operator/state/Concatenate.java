@@ -178,6 +178,21 @@ name|arguments
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+operator|!
+name|checkArrayTypesClass
+argument_list|(
+name|arguments
+argument_list|,
+name|COSNumber
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 comment|// concatenate matrix to current transformation matrix
 name|COSNumber
 name|a
