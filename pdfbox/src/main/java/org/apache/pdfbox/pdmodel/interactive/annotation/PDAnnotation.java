@@ -31,6 +31,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Calendar
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1730,7 +1740,7 @@ name|M
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the date and time the annotation was modified.      *       * @param m the date and time the annotation was created.      */
+comment|/**      * This will set the date and time the annotation was modified.      *      * @param m the date and time the annotation was created. Date values used in a PDF shall      * conform to a standard date format, which closely follows that of the international standard      * ASN.1 (Abstract Syntax Notation One), defined in ISO/IEC 8824. A date shall be a text string      * of the form (D:YYYYMMDDHHmmSSOHH'mm). Alternatively, use      * {@link #setModifiedDate(java.util.Calendar)}      */
 specifier|public
 name|void
 name|setModifiedDate
@@ -1749,6 +1759,28 @@ operator|.
 name|M
 argument_list|,
 name|m
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This will set the date and time the annotation was modified.      *      * @param c the date and time the annotation was created.      */
+specifier|public
+name|void
+name|setModifiedDate
+parameter_list|(
+name|Calendar
+name|c
+parameter_list|)
+block|{
+name|getCOSObject
+argument_list|()
+operator|.
+name|setDate
+argument_list|(
+name|COSName
+operator|.
+name|M
+argument_list|,
+name|c
 argument_list|)
 expr_stmt|;
 block|}
