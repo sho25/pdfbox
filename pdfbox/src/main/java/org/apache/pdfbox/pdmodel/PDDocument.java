@@ -3886,15 +3886,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|InputStream
-name|input
-init|=
-operator|new
-name|RandomAccessInputStream
-argument_list|(
-name|pdfSource
-argument_list|)
-decl_stmt|;
 name|COSWriter
 name|writer
 init|=
@@ -3909,7 +3900,7 @@ name|COSWriter
 argument_list|(
 name|output
 argument_list|,
-name|input
+name|pdfSource
 argument_list|)
 expr_stmt|;
 name|writer
