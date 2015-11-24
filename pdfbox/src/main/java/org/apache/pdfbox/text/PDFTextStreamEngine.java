@@ -1035,10 +1035,10 @@ name|bbox
 operator|.
 name|getLowerLeftY
 argument_list|()
-operator|<=
+operator|<
 name|Short
 operator|.
-name|MAX_VALUE
+name|MIN_VALUE
 condition|)
 block|{
 comment|// PDFBOX-2158 and PDFBOX-3130
