@@ -5596,6 +5596,24 @@ literal|false
 expr_stmt|;
 break|break;
 block|}
+comment|// PDFBOX-3107 EOL markers within a string are troublesome
+if|if
+condition|(
+name|b
+operator|==
+literal|0x0d
+operator|||
+name|b
+operator|==
+literal|0x0a
+condition|)
+block|{
+name|isASCII
+operator|=
+literal|false
+expr_stmt|;
+break|break;
+block|}
 block|}
 if|if
 condition|(
