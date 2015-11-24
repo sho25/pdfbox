@@ -162,6 +162,19 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|context
+operator|.
+name|getTextMatrix
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// ignore: outside of BT...ET
+return|return;
+block|}
 name|COSArray
 name|array
 init|=
