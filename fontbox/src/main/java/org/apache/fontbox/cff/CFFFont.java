@@ -158,7 +158,11 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|protected
-name|IndexData
+name|List
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|globalSubrIndex
 decl_stmt|;
 specifier|private
@@ -362,11 +366,15 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the global subroutine index data.      *       * @param globalSubrIndexValue the IndexData object containing the global subroutines      */
+comment|/**      * Sets the global subroutine index data.      *       * @param globalSubrIndexValue an list containing the global subroutines      */
 name|void
 name|setGlobalSubrIndex
 parameter_list|(
-name|IndexData
+name|List
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|globalSubrIndexValue
 parameter_list|)
 block|{
@@ -375,9 +383,13 @@ operator|=
 name|globalSubrIndexValue
 expr_stmt|;
 block|}
-comment|/**      * Returns the global subroutine index data.      *       * @return the dictionary      */
+comment|/**      * Returns the list containing the global subroutine .      *       * @return the dictionary      */
 specifier|public
-name|IndexData
+name|List
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|getGlobalSubrIndex
 parameter_list|()
 block|{

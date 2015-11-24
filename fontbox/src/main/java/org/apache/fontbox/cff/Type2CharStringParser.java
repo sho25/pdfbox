@@ -138,7 +138,7 @@ argument_list|)
 expr_stmt|;
 comment|// for debugging only
 block|}
-comment|/**      * The given byte array will be parsed and converted to a Type2 sequence.      * @param bytes the given mapping as byte array      * @param globalSubrIndex index containing all global subroutines      * @param localSubrIndex index containing all local subroutines      *       * @return the Type2 sequence      * @throws IOException if an error occurs during reading      */
+comment|/**      * The given byte array will be parsed and converted to a Type2 sequence.      * @param bytes the given mapping as byte array      * @param globalSubrIndex list containing all global subroutines      * @param localSubrIndex list containing all local subroutines      *       * @return the Type2 sequence      * @throws IOException if an error occurs during reading      */
 specifier|public
 name|List
 argument_list|<
@@ -150,10 +150,18 @@ name|byte
 index|[]
 name|bytes
 parameter_list|,
-name|IndexData
+name|List
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|globalSubrIndex
 parameter_list|,
-name|IndexData
+name|List
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|localSubrIndex
 parameter_list|)
 throws|throws
@@ -183,10 +191,18 @@ name|byte
 index|[]
 name|bytes
 parameter_list|,
-name|IndexData
+name|List
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|globalSubrIndex
 parameter_list|,
-name|IndexData
+name|List
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|localSubrIndex
 parameter_list|,
 name|boolean
@@ -236,7 +252,7 @@ literal|null
 operator|&&
 name|localSubrIndex
 operator|.
-name|getCount
+name|size
 argument_list|()
 operator|>
 literal|0
@@ -250,7 +266,7 @@ literal|null
 operator|&&
 name|globalSubrIndex
 operator|.
-name|getCount
+name|size
 argument_list|()
 operator|>
 literal|0
@@ -310,7 +326,7 @@ name|nSubrs
 init|=
 name|localSubrIndex
 operator|.
-name|getCount
+name|size
 argument_list|()
 decl_stmt|;
 if|if
@@ -358,7 +374,7 @@ name|subrNumber
 operator|<
 name|localSubrIndex
 operator|.
-name|getCount
+name|size
 argument_list|()
 condition|)
 block|{
@@ -368,7 +384,7 @@ name|subrBytes
 init|=
 name|localSubrIndex
 operator|.
-name|getBytes
+name|get
 argument_list|(
 name|subrNumber
 argument_list|)
@@ -480,7 +496,7 @@ name|nSubrs
 init|=
 name|globalSubrIndex
 operator|.
-name|getCount
+name|size
 argument_list|()
 decl_stmt|;
 if|if
@@ -528,7 +544,7 @@ name|subrNumber
 operator|<
 name|globalSubrIndex
 operator|.
-name|getCount
+name|size
 argument_list|()
 condition|)
 block|{
@@ -538,7 +554,7 @@ name|subrBytes
 init|=
 name|globalSubrIndex
 operator|.
-name|getBytes
+name|get
 argument_list|(
 name|subrNumber
 argument_list|)
