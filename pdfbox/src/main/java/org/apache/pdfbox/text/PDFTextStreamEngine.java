@@ -1047,12 +1047,15 @@ name|bbox
 operator|.
 name|setLowerLeftY
 argument_list|(
+operator|-
+operator|(
 name|bbox
 operator|.
 name|getLowerLeftY
 argument_list|()
 operator|+
 literal|65536
+operator|)
 argument_list|)
 expr_stmt|;
 block|}
