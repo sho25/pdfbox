@@ -1441,6 +1441,8 @@ operator|new
 name|PrintStream
 argument_list|(
 name|diffFile
+argument_list|,
+name|ENCODING
 argument_list|)
 decl_stmt|;
 for|for
@@ -1448,12 +1450,6 @@ control|(
 name|Object
 name|delta
 range|:
-operator|(
-name|List
-argument_list|<
-name|ChangeDelta
-argument_list|>
-operator|)
 name|patch
 operator|.
 name|getDeltas
