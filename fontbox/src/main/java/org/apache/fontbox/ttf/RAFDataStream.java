@@ -97,6 +97,13 @@ name|ttfFile
 init|=
 literal|null
 decl_stmt|;
+specifier|private
+specifier|final
+name|int
+name|BUFFERSIZE
+init|=
+literal|16384
+decl_stmt|;
 comment|/**      * Constructor.      *       * @param name The raf file.      * @param mode The mode to open the RAF.      *       * @throws FileNotFoundException If there is a problem creating the RAF.      *       * @see RandomAccessFile#RandomAccessFile( String, String )      */
 name|RAFDataStream
 parameter_list|(
@@ -107,7 +114,7 @@ name|String
 name|mode
 parameter_list|)
 throws|throws
-name|FileNotFoundException
+name|IOException
 block|{
 name|this
 argument_list|(
@@ -131,16 +138,18 @@ name|String
 name|mode
 parameter_list|)
 throws|throws
-name|FileNotFoundException
+name|IOException
 block|{
 name|raf
 operator|=
 operator|new
-name|RandomAccessFile
+name|BufferedRandomAccessFile
 argument_list|(
 name|file
 argument_list|,
 name|mode
+argument_list|,
+name|BUFFERSIZE
 argument_list|)
 expr_stmt|;
 name|ttfFile
@@ -149,6 +158,8 @@ name|file
 expr_stmt|;
 block|}
 comment|/**      * Read an signed short.      *       * @return An signed short.      * @throws IOException If there is an error reading the data.      */
+annotation|@
+name|Override
 specifier|public
 name|short
 name|readSignedShort
@@ -164,6 +175,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Get the current position in the stream.      * @return The current position in the stream.      * @throws IOException If an error occurs while reading the stream.      */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|getCurrentPosition
@@ -179,6 +192,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Close the underlying resources.      *       * @throws IOException If there is an error closing the resources.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -197,6 +212,8 @@ literal|null
 expr_stmt|;
 block|}
 comment|/**      * Read an unsigned byte.      * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -212,6 +229,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Read an unsigned short.      *       * @return An unsigned short.      * @throws IOException If there is an error reading the data.      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|readUnsignedShort
@@ -227,6 +246,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Read an unsigned byte.      * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|readLong
@@ -242,6 +263,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Seek into the datasource.      *       * @param pos The position to seek to.      * @throws IOException If there is an error seeking to that position.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|seek
@@ -261,6 +284,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @see java.io.InputStream#read( byte[], int, int )      *       * @param b The buffer to write to.      * @param off The offset into the buffer.      * @param len The length into the buffer.      *       * @return The number of bytes read.      *       * @throws IOException If there is an error reading from the stream.      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -292,6 +317,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|InputStream
 name|getOriginalData
