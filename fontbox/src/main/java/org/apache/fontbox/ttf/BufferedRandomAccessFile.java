@@ -31,6 +31,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -58,26 +68,27 @@ name|RandomAccessFile
 block|{
 comment|/**      * Uses a byte instead of a char buffer for efficiency reasons.      */
 specifier|private
+specifier|final
 name|byte
 name|buffer
 index|[]
 decl_stmt|;
 specifier|private
 name|int
-name|buf_end
+name|bufend
 init|=
 literal|0
 decl_stmt|;
 specifier|private
 name|int
-name|buf_pos
+name|bufpos
 init|=
 literal|0
 decl_stmt|;
 comment|/**      * The position inside the actual file.      */
 specifier|private
 name|long
-name|real_pos
+name|realpos
 init|=
 literal|0
 decl_stmt|;
@@ -85,9 +96,9 @@ comment|/**      * Buffer size.      */
 specifier|private
 specifier|final
 name|int
-name|BUF_SIZE
+name|BUFSIZE
 decl_stmt|;
-comment|/**      * Creates a new instance of the BufferedRandomAccessFile.      *      * @param filename The path of the file to open.      * @param mode Specifies the mode to use ("r", "rw", etc.) See the BufferedLineReader      * documentation for more information.      * @param bufsize The buffer size (in bytes) to use.      * @throws IOException      */
+comment|/**      * Creates a new instance of the BufferedRandomAccessFile.      *      * @param filename The path of the file to open.      * @param mode Specifies the mode to use ("r", "rw", etc.) See the BufferedLineReader      * documentation for more information.      * @param bufsize The buffer size (in bytes) to use.      * @throws FileNotFoundException If the mode is "r" but the given string does not denote an      * existing regular file, or if the mode begins with "rw" but the given string does not denote      * an existing, writable regular file and a new regular file of that name cannot be created, or      * if some other error occurs while opening or creating the file.      */
 specifier|public
 name|BufferedRandomAccessFile
 parameter_list|(
@@ -101,7 +112,7 @@ name|int
 name|bufsize
 parameter_list|)
 throws|throws
-name|IOException
+name|FileNotFoundException
 block|{
 name|super
 argument_list|(
@@ -110,10 +121,7 @@ argument_list|,
 name|mode
 argument_list|)
 expr_stmt|;
-name|invalidate
-argument_list|()
-expr_stmt|;
-name|BUF_SIZE
+name|BUFSIZE
 operator|=
 name|bufsize
 expr_stmt|;
@@ -122,10 +130,11 @@ operator|=
 operator|new
 name|byte
 index|[
-name|BUF_SIZE
+name|BUFSIZE
 index|]
 expr_stmt|;
 block|}
+comment|/**      * Creates a new instance of the BufferedRandomAccessFile.      *      * @param file The file to open.      * @param mode Specifies the mode to use ("r", "rw", etc.) See the BufferedLineReader      * documentation for more information.      * @param bufsize The buffer size (in bytes) to use.      * @throws FileNotFoundException If the mode is "r" but the given file path does not denote an      * existing regular file, or if the mode begins with "rw" but the given file path does not denote      * an existing, writable regular file and a new regular file of that name cannot be created, or      * if some other error occurs while opening or creating the file.      */
 specifier|public
 name|BufferedRandomAccessFile
 parameter_list|(
@@ -139,22 +148,29 @@ name|int
 name|bufsize
 parameter_list|)
 throws|throws
-name|IOException
+name|FileNotFoundException
 block|{
-name|this
+name|super
 argument_list|(
 name|file
-operator|.
-name|getAbsolutePath
-argument_list|()
 argument_list|,
 name|mode
-argument_list|,
-name|bufsize
 argument_list|)
 expr_stmt|;
+name|BUFSIZE
+operator|=
+name|bufsize
+expr_stmt|;
+name|buffer
+operator|=
+operator|new
+name|byte
+index|[
+name|BUFSIZE
+index|]
+expr_stmt|;
 block|}
-comment|/**      * Reads one byte form the current position      *      * @return The read byte or -1 in case the end was reached.      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -167,13 +183,10 @@ name|IOException
 block|{
 if|if
 condition|(
-name|buf_pos
+name|bufpos
 operator|>=
-name|buf_end
-condition|)
-block|{
-if|if
-condition|(
+name|bufend
+operator|&&
 name|fillBuffer
 argument_list|()
 operator|<
@@ -185,10 +198,9 @@ operator|-
 literal|1
 return|;
 block|}
-block|}
 if|if
 condition|(
-name|buf_end
+name|bufend
 operator|==
 literal|0
 condition|)
@@ -198,14 +210,12 @@ operator|-
 literal|1
 return|;
 block|}
-else|else
-block|{
 comment|// FIX to handle unsigned bytes
 return|return
 operator|(
 name|buffer
 index|[
-name|buf_pos
+name|bufpos
 operator|++
 index|]
 operator|+
@@ -216,8 +226,7 @@ literal|0xFF
 return|;
 comment|// End of fix
 block|}
-block|}
-comment|/**      * Reads the next BUF_SIZE bytes into the internal buffer.      *      * @return      * @throws IOException      */
+comment|/**      * Reads the next BUFSIZE bytes into the internal buffer.      *      * @return The total number of bytes read into the buffer, or -1 if there is no more data      * because the end of the file has been reached.      * @throws IOException If the first byte cannot be read for any reason other than end of file,      * or if the random access file has been closed, or if some other I/O error occurs.      */
 specifier|private
 name|int
 name|fillBuffer
@@ -236,7 +245,7 @@ name|buffer
 argument_list|,
 literal|0
 argument_list|,
-name|BUF_SIZE
+name|BUFSIZE
 argument_list|)
 decl_stmt|;
 if|if
@@ -246,15 +255,15 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|real_pos
+name|realpos
 operator|+=
 name|n
 expr_stmt|;
-name|buf_end
+name|bufend
 operator|=
 name|n
 expr_stmt|;
-name|buf_pos
+name|bufpos
 operator|=
 literal|0
 expr_stmt|;
@@ -263,7 +272,7 @@ return|return
 name|n
 return|;
 block|}
-comment|/**      * Clears the local buffer.      *      * @throws IOException      */
+comment|/**      * Clears the local buffer.      *      * @throws IOException If an I/O error occurs.      */
 specifier|private
 name|void
 name|invalidate
@@ -271,15 +280,15 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|buf_end
+name|bufend
 operator|=
 literal|0
 expr_stmt|;
-name|buf_pos
+name|bufpos
 operator|=
 literal|0
 expr_stmt|;
-name|real_pos
+name|realpos
 operator|=
 name|super
 operator|.
@@ -287,7 +296,7 @@ name|getFilePointer
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Reads the set number of bytes into the passed buffer.      *      * @param b The buffer to read the bytes into.      * @param off Byte offset within the file to start reading from      * @param len Number of bytes to read into the buffer.      * @return Number of bytes read.      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -310,9 +319,9 @@ block|{
 name|int
 name|leftover
 init|=
-name|buf_end
+name|bufend
 operator|-
-name|buf_pos
+name|bufpos
 decl_stmt|;
 if|if
 condition|(
@@ -327,7 +336,7 @@ name|arraycopy
 argument_list|(
 name|buffer
 argument_list|,
-name|buf_pos
+name|bufpos
 argument_list|,
 name|b
 argument_list|,
@@ -336,7 +345,7 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-name|buf_pos
+name|bufpos
 operator|+=
 name|len
 expr_stmt|;
@@ -399,7 +408,7 @@ return|return
 name|len
 return|;
 block|}
-comment|/**      * Returns the current position of the pointer in the file.      *      * @return The byte position of the pointer in the file.      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -409,22 +418,15 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|long
-name|l
-init|=
-name|real_pos
-decl_stmt|;
 return|return
-operator|(
-name|l
+name|realpos
 operator|-
-name|buf_end
+name|bufend
 operator|+
-name|buf_pos
-operator|)
+name|bufpos
 return|;
 block|}
-comment|/**      * Moves the internal pointer to the passed (byte) position in the file.      *      * @param pos The byte position to move to.      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -444,7 +446,7 @@ call|(
 name|int
 call|)
 argument_list|(
-name|real_pos
+name|realpos
 operator|-
 name|pos
 argument_list|)
@@ -457,12 +459,12 @@ literal|0
 operator|&&
 name|n
 operator|<=
-name|buf_end
+name|bufend
 condition|)
 block|{
-name|buf_pos
+name|bufpos
 operator|=
-name|buf_end
+name|bufend
 operator|-
 name|n
 expr_stmt|;

@@ -41,16 +41,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -98,13 +88,14 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|int
 name|BUFFERSIZE
 init|=
 literal|16384
 decl_stmt|;
-comment|/**      * Constructor.      *       * @param name The raf file.      * @param mode The mode to open the RAF.      *       * @throws FileNotFoundException If there is a problem creating the RAF.      *       * @see RandomAccessFile#RandomAccessFile( String, String )      */
+comment|/**      * Constructor.      *       * @param name The raf file.      * @param mode The mode to open the RAF.      *       * @throws IOException If there is a problem creating the RAF.      *       * @see RandomAccessFile#RandomAccessFile( String, String )      */
 name|RAFDataStream
 parameter_list|(
 name|String
@@ -128,7 +119,7 @@ name|mode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *       * @param file The raf file.      * @param mode The mode to open the RAF.      *       * @throws FileNotFoundException If there is a problem creating the RAF.      *       * @see RandomAccessFile#RandomAccessFile( File, String )      */
+comment|/**      * Constructor.      *       * @param file The raf file.      * @param mode The mode to open the RAF.      *       * @throws IOException If there is a problem creating the RAF.      *       * @see RandomAccessFile#RandomAccessFile( File, String )      */
 name|RAFDataStream
 parameter_list|(
 name|File
