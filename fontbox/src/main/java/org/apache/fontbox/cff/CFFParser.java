@@ -945,7 +945,7 @@ name|input
 operator|.
 name|getPosition
 argument_list|()
-operator|<=
+operator|<
 name|endPosition
 condition|)
 block|{
