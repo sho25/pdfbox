@@ -83,7 +83,7 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|pdfbox
 operator|.
 name|io
 operator|.
@@ -131,7 +131,7 @@ argument_list|()
 expr_stmt|;
 name|IOUtils
 operator|.
-name|copyLarge
+name|copy
 argument_list|(
 name|is
 argument_list|,
