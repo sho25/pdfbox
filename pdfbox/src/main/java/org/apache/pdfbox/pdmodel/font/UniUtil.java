@@ -80,7 +80,7 @@ case|case
 literal|1
 case|:
 return|return
-literal|"uni0"
+literal|"uni000"
 operator|+
 name|hex
 return|;
@@ -96,7 +96,7 @@ case|case
 literal|3
 case|:
 return|return
-literal|"uni000"
+literal|"uni0"
 operator|+
 name|hex
 return|;
