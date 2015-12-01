@@ -121,6 +121,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|AccessControlException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -900,6 +910,8 @@ name|cache
 operator|=
 name|cache
 expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|LOG
@@ -1054,6 +1066,23 @@ name|size
 argument_list|()
 operator|+
 literal|" fonts"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|AccessControlException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Error accessing the file system"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
