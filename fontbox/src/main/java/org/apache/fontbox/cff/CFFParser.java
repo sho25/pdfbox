@@ -173,12 +173,61 @@ name|stringIndex
 init|=
 literal|null
 decl_stmt|;
+specifier|private
+name|ByteSource
+name|source
+decl_stmt|;
 comment|// for debugging only
 specifier|private
 name|String
 name|debugFontName
 decl_stmt|;
-comment|/**      * Parsing CFF Font using a byte array as input.      * @param bytes the given byte array      * @return the parsed CFF fonts      * @throws IOException If there is an error reading from the stream      */
+comment|/**      * Source from which bytes may be read in the future.      */
+specifier|public
+interface|interface
+name|ByteSource
+block|{
+comment|/**          * Returns the source bytes. May be called more than once.          */
+name|byte
+index|[]
+name|getBytes
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+block|}
+comment|/**      * Parse CFF font using byte array, also passing in a byte source for future use.      *       * @param bytes source bytes      * @param source source to re-read bytes from in the future      * @return the parsed CFF fonts      * @throws IOException If there is an error reading from the stream      */
+specifier|public
+name|List
+argument_list|<
+name|CFFFont
+argument_list|>
+name|parse
+parameter_list|(
+name|byte
+index|[]
+name|bytes
+parameter_list|,
+name|ByteSource
+name|source
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|this
+operator|.
+name|source
+operator|=
+name|source
+expr_stmt|;
+return|return
+name|parse
+argument_list|(
+name|bytes
+argument_list|)
+return|;
+block|}
+comment|/**      * Parse CFF font using a byte array as input.      *       * @param bytes the given byte array      * @return the parsed CFF fonts      * @throws IOException If there is an error reading from the stream      */
 specifier|public
 name|List
 argument_list|<
@@ -531,6 +580,13 @@ operator|.
 name|setGlobalSubrIndex
 argument_list|(
 name|globalSubrIndex
+argument_list|)
+expr_stmt|;
+name|font
+operator|.
+name|setData
+argument_list|(
+name|source
 argument_list|)
 expr_stmt|;
 name|fonts

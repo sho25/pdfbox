@@ -166,9 +166,10 @@ argument_list|>
 name|globalSubrIndex
 decl_stmt|;
 specifier|private
-name|byte
-index|[]
-name|data
+name|CFFParser
+operator|.
+name|ByteSource
+name|source
 decl_stmt|;
 comment|/**      * The name of the font.      *      * @return the name of the font      */
 specifier|public
@@ -324,6 +325,40 @@ name|unmodifiableList
 argument_list|(
 name|charStrings
 argument_list|)
+return|;
+block|}
+comment|/**      * Sets a byte source to re-read the CFF data in the future.      */
+specifier|final
+name|void
+name|setData
+parameter_list|(
+name|CFFParser
+operator|.
+name|ByteSource
+name|source
+parameter_list|)
+block|{
+name|this
+operator|.
+name|source
+operator|=
+name|source
+expr_stmt|;
+block|}
+comment|/**      * Returns the CFF data.      */
+specifier|public
+name|byte
+index|[]
+name|getData
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|source
+operator|.
+name|getBytes
+argument_list|()
 return|;
 block|}
 comment|/**      * Returns the number of charstrings in the font.      */
