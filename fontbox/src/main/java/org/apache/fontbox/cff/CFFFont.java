@@ -326,33 +326,6 @@ name|charStrings
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the original data.      *      * @param data the original data.      */
-name|void
-name|setData
-parameter_list|(
-name|byte
-index|[]
-name|data
-parameter_list|)
-block|{
-name|this
-operator|.
-name|data
-operator|=
-name|data
-expr_stmt|;
-block|}
-comment|/**      * Returns the the original data.      *      * @return the dictionary      */
-specifier|public
-name|byte
-index|[]
-name|getData
-parameter_list|()
-block|{
-return|return
-name|data
-return|;
-block|}
 comment|/**      * Returns the number of charstrings in the font.      */
 specifier|public
 name|int
