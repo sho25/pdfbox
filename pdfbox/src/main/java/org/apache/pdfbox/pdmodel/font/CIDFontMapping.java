@@ -63,6 +63,7 @@ specifier|final
 name|FontBoxFont
 name|ttf
 decl_stmt|;
+specifier|public
 name|CIDFontMapping
 parameter_list|(
 name|OpenTypeFont

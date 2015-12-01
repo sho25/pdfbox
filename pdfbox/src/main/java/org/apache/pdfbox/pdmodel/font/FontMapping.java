@@ -53,6 +53,7 @@ specifier|final
 name|boolean
 name|isFallback
 decl_stmt|;
+specifier|public
 name|FontMapping
 parameter_list|(
 name|T
