@@ -1418,9 +1418,25 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|isStrict
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"The TrueType font does not contain a 'cmap' table"
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 return|return
 literal|null
 return|;
+block|}
 block|}
 name|CmapSubtable
 name|cmap
