@@ -1031,14 +1031,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|PDPageTree
-name|pagesTree
-init|=
-name|document
-operator|.
-name|getPages
-argument_list|()
-decl_stmt|;
 name|PDPage
 name|startBookmarkPage
 init|=
@@ -1064,7 +1056,7 @@ condition|)
 block|{
 name|startBookmarkPageNumber
 operator|=
-name|pagesTree
+name|pages
 operator|.
 name|indexOf
 argument_list|(
@@ -1108,7 +1100,7 @@ condition|)
 block|{
 name|endBookmarkPageNumber
 operator|=
-name|pagesTree
+name|pages
 operator|.
 name|indexOf
 argument_list|(
