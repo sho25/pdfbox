@@ -570,6 +570,11 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|boolean
+name|isFirstParagraph
+init|=
+literal|true
+decl_stmt|;
 for|for
 control|(
 name|Paragraph
@@ -612,7 +617,13 @@ decl_stmt|;
 name|processLines
 argument_list|(
 name|lines
+argument_list|,
+name|isFirstParagraph
 argument_list|)
+expr_stmt|;
+name|isFirstParagraph
+operator|=
+literal|false
 expr_stmt|;
 block|}
 else|else
@@ -726,6 +737,9 @@ argument_list|<
 name|Line
 argument_list|>
 name|lines
+parameter_list|,
+name|boolean
+name|isFirstParagraph
 parameter_list|)
 throws|throws
 name|IOException
@@ -850,6 +864,8 @@ name|line
 argument_list|)
 operator|==
 literal|0
+operator|&&
+name|isFirstParagraph
 condition|)
 block|{
 name|contents
@@ -861,11 +877,7 @@ argument_list|,
 name|verticalOffset
 argument_list|)
 expr_stmt|;
-comment|// reset the initial verticalOffset
-name|verticalOffset
-operator|=
-literal|0f
-expr_stmt|;
+comment|// reset the initial horizontalOffset
 name|horizontalOffset
 operator|=
 literal|0f
