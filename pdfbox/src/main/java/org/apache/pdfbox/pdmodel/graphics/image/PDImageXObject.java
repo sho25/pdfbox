@@ -2006,8 +2006,13 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|createInputStream
+name|getStream
 argument_list|()
+operator|.
+name|createInputStream
+argument_list|(
+name|stopFilters
+argument_list|)
 return|;
 block|}
 annotation|@
