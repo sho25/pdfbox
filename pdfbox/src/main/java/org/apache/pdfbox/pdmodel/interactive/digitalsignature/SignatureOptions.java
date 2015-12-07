@@ -154,7 +154,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/**      * Set the page number.      *       * @param pageNo the page number      */
+comment|/**      * Set the 0-based page number.      *       * @param pageNo the page number      */
 specifier|public
 name|void
 name|setPage
@@ -170,7 +170,7 @@ operator|=
 name|pageNo
 expr_stmt|;
 block|}
-comment|/**      * Get the page number.      *       * @return the page number      */
+comment|/**      * Get the 0-based page number.      *       * @return the page number      */
 specifier|public
 name|int
 name|getPage
