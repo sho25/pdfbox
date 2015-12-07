@@ -234,7 +234,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * gets our preferred size      * @return the signature's preferred size.      */
+comment|/**      * Gets the preferred signature size in bytes.      *      * @return the signature's preferred size. A return value of 0 means to use default.      */
 specifier|public
 name|int
 name|getPreferredSize
@@ -244,7 +244,7 @@ return|return
 name|preferredSize
 return|;
 block|}
-comment|/**      * sets our preferred size      * @param preferredSize      * @return the visible signature properties.      */
+comment|/**      * Sets the preferred signature size in bytes.      *      * @param preferredSize The preferred signature size in bytes, or 0 to use default.      * @return the visible signature properties.      */
 specifier|public
 name|PDVisibleSigProperties
 name|preferredSize
