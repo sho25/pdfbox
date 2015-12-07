@@ -657,6 +657,18 @@ argument_list|(
 name|visibleSignatureProperties
 argument_list|)
 expr_stmt|;
+name|options
+operator|.
+name|setPage
+argument_list|(
+name|visibleSignatureProperties
+operator|.
+name|getPage
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
 name|doc
 operator|.
 name|addSignature
@@ -875,6 +887,12 @@ operator|+
 literal|"_signed.pdf"
 argument_list|)
 decl_stmt|;
+comment|// page is 1-based here
+name|int
+name|page
+init|=
+literal|1
+decl_stmt|;
 name|signing
 operator|.
 name|setVisibleSignatureProperties
@@ -893,7 +911,7 @@ literal|50
 argument_list|,
 name|image
 argument_list|,
-literal|1
+name|page
 argument_list|)
 expr_stmt|;
 name|signing
@@ -908,7 +926,7 @@ literal|"Security"
 argument_list|,
 literal|0
 argument_list|,
-literal|1
+name|page
 argument_list|,
 literal|true
 argument_list|)
