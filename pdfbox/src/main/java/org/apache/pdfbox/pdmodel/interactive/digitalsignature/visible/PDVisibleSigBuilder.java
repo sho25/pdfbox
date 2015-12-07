@@ -524,7 +524,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"PDF Strucure has been Created"
+literal|"PDF Structure has been created"
 argument_list|)
 expr_stmt|;
 block|}
@@ -568,7 +568,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Acro form page has been created"
+literal|"AcroForm has been created"
 argument_list|)
 expr_stmt|;
 block|}
@@ -936,7 +936,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"rectangle of signature has been created"
+literal|"Signature rectangle has been created"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1232,7 +1232,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Holder form Stream has been created"
+literal|"Holder form stream has been created"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1403,7 +1403,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"PDF appereance Dictionary has been created"
+literal|"PDF appearence Dictionary has been created"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1867,7 +1867,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"inserted ProcSet to PDF"
+literal|"Inserted ProcSet to PDF"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2114,7 +2114,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"WidgetDictionary has been crated"
+literal|"WidgetDictionary has been created"
 argument_list|)
 expr_stmt|;
 block|}
