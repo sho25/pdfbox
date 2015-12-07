@@ -1043,7 +1043,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a signature to the document.      *       * @param sigObject is the PDSignatureField model      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
+comment|/**      * This will add a signature to the document. If the 0-based page number in the options      * parameter is smaller than 0 or larger than max, the nearest valid page number will be used      * (i.e. 0 or max) and no exception will be thrown.      *      * @param sigObject is the PDSignatureField model      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignature
