@@ -548,7 +548,7 @@ name|innerFormResource
 argument_list|,
 name|pdfStructure
 operator|.
-name|getInnterFormStream
+name|getInnerFormStream
 argument_list|()
 argument_list|,
 name|formater

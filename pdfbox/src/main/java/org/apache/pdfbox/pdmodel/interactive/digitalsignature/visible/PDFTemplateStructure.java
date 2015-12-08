@@ -856,7 +856,7 @@ block|}
 comment|/**      * Gets Inner form Stream.      * @return the inner form stream      */
 specifier|public
 name|PDStream
-name|getInnterFormStream
+name|getInnerFormStream
 parameter_list|()
 block|{
 return|return

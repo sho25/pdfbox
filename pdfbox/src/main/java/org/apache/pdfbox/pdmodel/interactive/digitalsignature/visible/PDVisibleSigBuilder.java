@@ -1571,7 +1571,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Alerady inserted inner form  inside holder form"
+literal|"Already inserted inner form inside holder form"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1962,7 +1962,7 @@ name|appendRawCommands
 argument_list|(
 name|pdfStructure
 operator|.
-name|getInnterFormStream
+name|getInnerFormStream
 argument_list|()
 operator|.
 name|createOutputStream
