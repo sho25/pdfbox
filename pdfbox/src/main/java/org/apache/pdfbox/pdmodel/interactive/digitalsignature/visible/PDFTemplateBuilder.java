@@ -345,7 +345,7 @@ name|IOException
 function_decl|;
 comment|/**      *       * @param params      */
 name|void
-name|createFormaterRectangle
+name|createFormatterRectangle
 parameter_list|(
 name|byte
 index|[]

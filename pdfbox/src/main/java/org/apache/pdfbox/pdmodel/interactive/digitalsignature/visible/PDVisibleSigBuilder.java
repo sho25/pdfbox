@@ -1133,7 +1133,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|createFormaterRectangle
+name|createFormatterRectangle
 parameter_list|(
 name|byte
 index|[]
@@ -1141,13 +1141,13 @@ name|params
 parameter_list|)
 block|{
 name|PDRectangle
-name|formrect
+name|formatterRectangle
 init|=
 operator|new
 name|PDRectangle
 argument_list|()
 decl_stmt|;
-name|formrect
+name|formatterRectangle
 operator|.
 name|setUpperRightX
 argument_list|(
@@ -1157,7 +1157,7 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
-name|formrect
+name|formatterRectangle
 operator|.
 name|setUpperRightY
 argument_list|(
@@ -1167,7 +1167,7 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
-name|formrect
+name|formatterRectangle
 operator|.
 name|setLowerLeftX
 argument_list|(
@@ -1177,7 +1177,7 @@ literal|2
 index|]
 argument_list|)
 expr_stmt|;
-name|formrect
+name|formatterRectangle
 operator|.
 name|setLowerLeftY
 argument_list|(
@@ -1189,16 +1189,16 @@ argument_list|)
 expr_stmt|;
 name|pdfStructure
 operator|.
-name|setFormaterRectangle
+name|setFormatterRectangle
 argument_list|(
-name|formrect
+name|formatterRectangle
 argument_list|)
 expr_stmt|;
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Formater rectangle has been created"
+literal|"Formatter rectangle has been created"
 argument_list|)
 expr_stmt|;
 block|}

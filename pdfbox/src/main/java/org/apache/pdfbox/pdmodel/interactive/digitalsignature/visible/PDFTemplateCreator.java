@@ -438,20 +438,20 @@ argument_list|)
 expr_stmt|;
 name|pdfBuilder
 operator|.
-name|createFormaterRectangle
+name|createFormatterRectangle
 argument_list|(
 name|properties
 operator|.
-name|getFormaterRectangleParams
+name|getFormatterRectangleParams
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|PDRectangle
-name|formater
+name|formatter
 init|=
 name|pdfStructure
 operator|.
-name|getFormaterRectangle
+name|getFormatterRectangle
 argument_list|()
 decl_stmt|;
 name|pdfBuilder
@@ -503,7 +503,7 @@ name|holderFormResources
 argument_list|,
 name|holderFormStream
 argument_list|,
-name|formater
+name|formatter
 argument_list|)
 expr_stmt|;
 comment|// that is /AP entry the appearance dictionary.
@@ -551,7 +551,7 @@ operator|.
 name|getInnerFormStream
 argument_list|()
 argument_list|,
-name|formater
+name|formatter
 argument_list|)
 expr_stmt|;
 name|PDFormXObject
@@ -611,7 +611,7 @@ name|innerFormResource
 argument_list|,
 name|imageFormStream
 argument_list|,
-name|formater
+name|formatter
 argument_list|,
 name|transform
 argument_list|,

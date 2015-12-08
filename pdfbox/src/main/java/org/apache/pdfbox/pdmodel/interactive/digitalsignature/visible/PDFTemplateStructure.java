@@ -394,7 +394,7 @@ name|image
 decl_stmt|;
 specifier|private
 name|PDRectangle
-name|formaterRectangle
+name|formatterRectangle
 decl_stmt|;
 specifier|private
 name|PDStream
@@ -726,27 +726,27 @@ block|}
 comment|/**      * Gets formatter rectangle      * @return the formatter rectangle      */
 specifier|public
 name|PDRectangle
-name|getFormaterRectangle
+name|getFormatterRectangle
 parameter_list|()
 block|{
 return|return
-name|formaterRectangle
+name|formatterRectangle
 return|;
 block|}
-comment|/**      * Sets formatter rectangle      * @param formaterRectangle      */
+comment|/**      * Sets formatter rectangle      * @param formatterRectangle      */
 specifier|public
 name|void
-name|setFormaterRectangle
+name|setFormatterRectangle
 parameter_list|(
 name|PDRectangle
-name|formaterRectangle
+name|formatterRectangle
 parameter_list|)
 block|{
 name|this
 operator|.
-name|formaterRectangle
+name|formatterRectangle
 operator|=
-name|formaterRectangle
+name|formatterRectangle
 expr_stmt|;
 block|}
 comment|/**      * Sets HolderFormStream      * @return the holder form stream      */
