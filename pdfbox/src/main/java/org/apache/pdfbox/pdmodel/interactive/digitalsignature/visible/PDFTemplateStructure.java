@@ -378,7 +378,7 @@ name|acroFormDictionary
 decl_stmt|;
 specifier|private
 name|PDRectangle
-name|singatureRectangle
+name|signatureRectangle
 decl_stmt|;
 specifier|private
 name|AffineTransform
@@ -622,27 +622,27 @@ block|}
 comment|/**      * Gets SignatureRectangle      * @return the rectangle for the signature      */
 specifier|public
 name|PDRectangle
-name|getSingatureRectangle
+name|getSignatureRectangle
 parameter_list|()
 block|{
 return|return
-name|singatureRectangle
+name|signatureRectangle
 return|;
 block|}
-comment|/**      * Sets SignatureRectangle      * @param singatureRectangle      */
+comment|/**      * Sets SignatureRectangle      * @param signatureRectangle      */
 specifier|public
 name|void
 name|setSignatureRectangle
 parameter_list|(
 name|PDRectangle
-name|singatureRectangle
+name|signatureRectangle
 parameter_list|)
 block|{
 name|this
 operator|.
-name|singatureRectangle
+name|signatureRectangle
 operator|=
-name|singatureRectangle
+name|signatureRectangle
 expr_stmt|;
 block|}
 comment|/**      * Gets AffineTransform      * @return the AffineTransform      */

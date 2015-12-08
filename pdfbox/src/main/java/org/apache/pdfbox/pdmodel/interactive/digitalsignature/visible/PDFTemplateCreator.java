@@ -366,7 +366,7 @@ operator|.
 name|getAcroForm
 argument_list|()
 decl_stmt|;
-comment|// AcroForm contains singature fields
+comment|// AcroForm contains signature fields
 name|pdfBuilder
 operator|.
 name|createSignatureField

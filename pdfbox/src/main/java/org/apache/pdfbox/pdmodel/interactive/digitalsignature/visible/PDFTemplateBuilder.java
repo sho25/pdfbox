@@ -312,7 +312,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Creates SingatureRectangle.      *       * @param signatureField      * @param properties      * @throws IOException      */
+comment|/**      * Creates SignatureRectangle.      *       * @param signatureField      * @param properties      * @throws IOException      */
 name|void
 name|createSignatureRectangle
 parameter_list|(
