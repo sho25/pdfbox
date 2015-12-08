@@ -1539,7 +1539,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|insertInnerFormToHolerResources
+name|insertInnerFormToHolderResources
 parameter_list|(
 name|PDFormXObject
 name|innerForm

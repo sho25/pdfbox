@@ -565,7 +565,7 @@ decl_stmt|;
 comment|// inner form must be in the holder form as we wrote
 name|pdfBuilder
 operator|.
-name|insertInnerFormToHolerResources
+name|insertInnerFormToHolderResources
 argument_list|(
 name|innerForm
 argument_list|,

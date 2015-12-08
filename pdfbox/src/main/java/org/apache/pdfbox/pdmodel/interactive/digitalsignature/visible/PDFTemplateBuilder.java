@@ -421,7 +421,7 @@ parameter_list|)
 function_decl|;
 comment|/**      *       * @param innerForm      * @param holderFormResources      */
 name|void
-name|insertInnerFormToHolerResources
+name|insertInnerFormToHolderResources
 parameter_list|(
 name|PDFormXObject
 name|innerForm
