@@ -251,7 +251,7 @@ name|graphics
 operator|.
 name|image
 operator|.
-name|JPEGFactory
+name|LosslessFactory
 import|;
 end_import
 
@@ -1111,7 +1111,7 @@ name|pdfStructure
 operator|.
 name|setImage
 argument_list|(
-name|JPEGFactory
+name|LosslessFactory
 operator|.
 name|createFromImage
 argument_list|(
