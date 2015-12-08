@@ -1403,7 +1403,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"PDF appearence Dictionary has been created"
+literal|"PDF appearance dictionary has been created"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1437,7 +1437,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Stream of another form (inner form - it would be inside holder form) "
+literal|"Stream of another form (inner form - it will be inside holder form) "
 operator|+
 literal|"has been created"
 argument_list|)
@@ -1468,7 +1468,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Resources of another form (inner form - it would be inside holder form)"
+literal|"Resources of another form (inner form - it will be inside holder form)"
 operator|+
 literal|"have been created"
 argument_list|)
@@ -1531,7 +1531,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Another form (inner form - it would be inside holder form) have been created"
+literal|"Another form (inner form - it will be inside holder form) has been created"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1549,7 +1549,7 @@ name|holderFormResources
 parameter_list|)
 block|{
 name|COSName
-name|name
+name|innerFormName
 init|=
 name|holderFormResources
 operator|.
@@ -1564,14 +1564,14 @@ name|pdfStructure
 operator|.
 name|setInnerFormName
 argument_list|(
-name|name
+name|innerFormName
 argument_list|)
 expr_stmt|;
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Already inserted inner form inside holder form"
+literal|"Now inserted inner form inside holder form"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1605,7 +1605,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Created image form Stream"
+literal|"Created image form stream"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1634,7 +1634,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Created image form Resources"
+literal|"Created image form resources"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1988,7 +1988,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Injected apereance stream to pdf"
+literal|"Injected appearance stream to pdf"
 argument_list|)
 expr_stmt|;
 block|}
