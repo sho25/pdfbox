@@ -244,7 +244,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// set visible singature image Input stream
+comment|// set visible signature image Input stream
 name|readImageStream
 argument_list|(
 name|imageStream
@@ -304,7 +304,111 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Each page of document can be different sizes. This method calculates the page size based on      * the page media box.      *       * @param document      * @param page The 1-based page number for which the page size should be calculated.      */
+comment|/**      * Constructor.      *      * @param filename Path of the PDF file      * @param image      * @param page The 1-based page number for which the page size should be calculated.      * @throws IOException      */
+specifier|public
+name|PDVisibleSignDesigner
+parameter_list|(
+name|String
+name|filename
+parameter_list|,
+name|BufferedImage
+name|image
+parameter_list|,
+name|int
+name|page
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|this
+argument_list|(
+operator|new
+name|FileInputStream
+argument_list|(
+name|filename
+argument_list|)
+argument_list|,
+name|image
+argument_list|,
+name|page
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Constructor.      *      * @param documentStream Original PDF document as stream      * @param image      * @param page The 1-based page number for which the page size should be calculated.      * @throws IOException      */
+specifier|public
+name|PDVisibleSignDesigner
+parameter_list|(
+name|InputStream
+name|documentStream
+parameter_list|,
+name|BufferedImage
+name|image
+parameter_list|,
+name|int
+name|page
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// set visible signature image
+name|setImage
+argument_list|(
+name|image
+argument_list|)
+expr_stmt|;
+comment|// create PD document
+name|PDDocument
+name|document
+init|=
+name|PDDocument
+operator|.
+name|load
+argument_list|(
+name|documentStream
+argument_list|)
+decl_stmt|;
+comment|// calculate height and width of document page
+name|calculatePageSize
+argument_list|(
+name|document
+argument_list|,
+name|page
+argument_list|)
+expr_stmt|;
+name|document
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Constructor.      *      * @param document Already created PDDocument of your PDF document.      * @param image      * @param page The 1-based page number for which the page size should be calculated.      */
+specifier|public
+name|PDVisibleSignDesigner
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|,
+name|BufferedImage
+name|image
+parameter_list|,
+name|int
+name|page
+parameter_list|)
+block|{
+name|setImage
+argument_list|(
+name|image
+argument_list|)
+expr_stmt|;
+name|calculatePageSize
+argument_list|(
+name|document
+argument_list|,
+name|page
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Each page of document can be different sizes. This method calculates the page size based on      * the page media box.      *       * @param document      * @param page The 1-based page number for which the page size should be calculated.      * @throws IllegalArgumentException if the page argument is lower than 0.      */
 specifier|private
 name|void
 name|calculatePageSize
@@ -677,7 +781,7 @@ return|return
 name|image
 return|;
 block|}
-comment|/**      * Read the image stream of the signature and set height and width.      *       * @param stream stream of your visible signature image      * @throws IOException If we can't read, flush, or close stream of image      */
+comment|/**      * Read the image stream of the signature and set height and width.      *      * @param stream stream of your visible signature image      * @throws IOException If we can't read, flush, or close stream of image      */
 specifier|private
 name|void
 name|readImageStream
@@ -695,14 +799,31 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|image
-operator|=
+name|setImage
+argument_list|(
 name|ImageIO
 operator|.
 name|read
 argument_list|(
 name|stream
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set image and its height and width.      *      * @param image      */
+specifier|private
+name|void
+name|setImage
+parameter_list|(
+name|BufferedImage
+name|image
+parameter_list|)
+block|{
+name|this
+operator|.
+name|image
+operator|=
+name|image
 expr_stmt|;
 name|imageHeight
 operator|=
