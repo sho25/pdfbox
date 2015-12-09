@@ -138,11 +138,19 @@ name|visualSignature
 decl_stmt|;
 specifier|private
 name|int
-name|preferedSignatureSize
+name|preferredSignatureSize
 decl_stmt|;
 specifier|private
 name|int
 name|pageNo
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_SIGNATURE_SIZE
+init|=
+literal|0x2500
 decl_stmt|;
 comment|/**      * Creates the default signature options.      */
 specifier|public
@@ -284,20 +292,20 @@ return|return
 name|visualSignature
 return|;
 block|}
-comment|/**      * Get the preferred size of the signature.      *       * @return the preferred size      */
+comment|/**      * Get the preferred size of the signature.      *       * @return the preferred size of the signature in bytes.      */
 specifier|public
 name|int
-name|getPreferedSignatureSize
+name|getPreferredSignatureSize
 parameter_list|()
 block|{
 return|return
-name|preferedSignatureSize
+name|preferredSignatureSize
 return|;
 block|}
-comment|/**      * Set the preferred size of the signature.      *       * @param size the size of the signature      */
+comment|/**      * Set the preferred size of the signature.      *       * @param size the size of the signature in bytes. Only values above 0 will be considered.      */
 specifier|public
 name|void
-name|setPreferedSignatureSize
+name|setPreferredSignatureSize
 parameter_list|(
 name|int
 name|size
@@ -310,7 +318,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|preferedSignatureSize
+name|preferredSignatureSize
 operator|=
 name|size
 expr_stmt|;

@@ -1064,16 +1064,16 @@ comment|// Reserve content
 comment|// We need to reserve some space for the signature. Some signatures including
 comment|// big certificate chain and we need enough space to store it.
 name|int
-name|preferedSignatureSize
+name|preferredSignatureSize
 init|=
 name|options
 operator|.
-name|getPreferedSignatureSize
+name|getPreferredSignatureSize
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|preferedSignatureSize
+name|preferredSignatureSize
 operator|>
 literal|0
 condition|)
@@ -1085,7 +1085,7 @@ argument_list|(
 operator|new
 name|byte
 index|[
-name|preferedSignatureSize
+name|preferredSignatureSize
 index|]
 argument_list|)
 expr_stmt|;
@@ -1099,7 +1099,9 @@ argument_list|(
 operator|new
 name|byte
 index|[
-literal|0x2500
+name|SignatureOptions
+operator|.
+name|DEFAULT_SIGNATURE_SIZE
 index|]
 argument_list|)
 expr_stmt|;
