@@ -562,9 +562,11 @@ block|{
 comment|// ignore and use default
 block|}
 block|}
+block|}
+static|static
+block|{
 comment|// check if we need to use the custom quicksort algorithm as a
-comment|// workaround to the transitivity issue of TextPositionComparator:
-comment|// https://issues.apache.org/jira/browse/PDFBOX-1512
+comment|// workaround to the PDFBOX-1512 transitivity issue of TextPositionComparator:
 name|boolean
 name|is16orLess
 init|=
@@ -650,6 +652,15 @@ name|x
 parameter_list|)
 block|{
 comment|// when run in an applet ignore and use default
+comment|// assume 1.7 or higher so that quicksort is used
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|nfe
+parameter_list|)
+block|{
+comment|// should never happen, but if it does,
 comment|// assume 1.7 or higher so that quicksort is used
 block|}
 name|useCustomQuickSort
