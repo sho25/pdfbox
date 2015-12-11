@@ -1017,7 +1017,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a signature.      *       * @param sigObject is the PDSignatureField model      * @param signatureInterface is a interface which provides signing capabilities      * @throws IOException if there is an error creating required fields      */
+comment|/**      * Add a signature.      *       * @param sigObject is the PDSignatureField model      * @param signatureInterface is an interface which provides signing capabilities      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignature
@@ -1043,7 +1043,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a signature to the document. If the 0-based page number in the options      * parameter is smaller than 0 or larger than max, the nearest valid page number will be used      * (i.e. 0 or max) and no exception will be thrown.      *      * @param sigObject is the PDSignatureField model      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
+comment|/**      * This will add a signature to the document. If the 0-based page number in the options      * parameter is smaller than 0 or larger than max, the nearest valid page number will be used      * (i.e. 0 or max) and no exception will be thrown.      *      * @param sigObject is the PDSignatureField model      * @param signatureInterface is an interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignature
@@ -1808,7 +1808,7 @@ expr_stmt|;
 block|}
 comment|// Search for signature field
 name|COSBase
-name|ft
+name|fieldType
 init|=
 name|cosBaseDict
 operator|.
@@ -1841,19 +1841,22 @@ name|SIG
 operator|.
 name|equals
 argument_list|(
-name|ft
+name|fieldType
 argument_list|)
 operator|&&
 name|apDict
-operator|!=
-literal|null
+operator|instanceof
+name|COSDictionary
 condition|)
 block|{
 name|assignAppearanceDictionary
 argument_list|(
 name|signatureField
 argument_list|,
-name|cosBaseDict
+operator|(
+name|COSDictionary
+operator|)
+name|apDict
 argument_list|)
 expr_stmt|;
 name|assignAcroFormDefaultResource
@@ -1894,17 +1897,17 @@ name|PDSignatureField
 name|signatureField
 parameter_list|,
 name|COSDictionary
-name|cosBaseDict
+name|annotDict
 parameter_list|)
 block|{
-comment|// Read and set the Rectangle for visual signature
+comment|// Read and set the rectangle for visual signature
 name|COSArray
-name|rectAry
+name|rectArray
 init|=
 operator|(
 name|COSArray
 operator|)
-name|cosBaseDict
+name|annotDict
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -1919,7 +1922,7 @@ init|=
 operator|new
 name|PDRectangle
 argument_list|(
-name|rectAry
+name|rectArray
 argument_list|)
 decl_stmt|;
 name|signatureField
@@ -1946,7 +1949,7 @@ name|PDSignatureField
 name|signatureField
 parameter_list|,
 name|COSDictionary
-name|dict
+name|apDict
 parameter_list|)
 block|{
 comment|// read and set Appearance Dictionary
@@ -1956,23 +1959,10 @@ init|=
 operator|new
 name|PDAppearanceDictionary
 argument_list|(
-operator|(
-name|COSDictionary
-operator|)
-name|dict
-operator|.
-name|getDictionaryObject
-argument_list|(
-name|COSName
-operator|.
-name|AP
-argument_list|)
+name|apDict
 argument_list|)
 decl_stmt|;
-name|ap
-operator|.
-name|getCOSObject
-argument_list|()
+name|apDict
 operator|.
 name|setDirect
 argument_list|(
@@ -2006,13 +1996,10 @@ name|COSDictionary
 name|dict
 parameter_list|)
 block|{
-comment|// read and set AcroForm DefaultResource
-name|COSDictionary
-name|dr
+comment|// read and set AcroForm default resource dictionary /DR if available
+name|COSBase
+name|base
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|dict
 operator|.
 name|getDictionaryObject
@@ -2024,11 +2011,19 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|dr
-operator|!=
-literal|null
+name|base
+operator|instanceof
+name|COSDictionary
 condition|)
 block|{
+name|COSDictionary
+name|dr
+init|=
+operator|(
+name|COSDictionary
+operator|)
+name|base
+decl_stmt|;
 name|dr
 operator|.
 name|setDirect
@@ -2043,15 +2038,10 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|COSDictionary
-name|acroFormDict
-init|=
 name|acroForm
 operator|.
 name|getCOSObject
 argument_list|()
-decl_stmt|;
-name|acroFormDict
 operator|.
 name|setItem
 argument_list|(
@@ -2074,6 +2064,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// "Signature fields that are not intended to be visible shall
+comment|// have an annotation rectangle that has zero height and width."
 comment|// Set rectangle for non-visual signature to rectangle array [ 0 0 0 0 ]
 name|signatureField
 operator|.
