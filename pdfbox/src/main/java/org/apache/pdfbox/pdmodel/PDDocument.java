@@ -3946,7 +3946,7 @@ name|pageIndex
 argument_list|)
 return|;
 block|}
-comment|// todo: new!
+comment|/**      * Returns the page tree.      *       * @return the page tree      */
 specifier|public
 name|PDPageTree
 name|getPages
