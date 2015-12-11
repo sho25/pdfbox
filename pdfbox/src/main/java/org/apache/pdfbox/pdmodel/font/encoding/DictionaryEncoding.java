@@ -574,6 +574,22 @@ return|return
 name|encoding
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getEncodingName
+parameter_list|()
+block|{
+return|return
+name|baseEncoding
+operator|.
+name|getEncodingName
+argument_list|()
+operator|+
+literal|" with differences"
+return|;
+block|}
 block|}
 end_class
 

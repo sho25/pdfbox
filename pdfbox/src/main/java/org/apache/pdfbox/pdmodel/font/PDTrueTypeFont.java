@@ -1501,8 +1501,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|getEncoding
-argument_list|()
+name|encoding
 operator|!=
 literal|null
 condition|)
@@ -1510,8 +1509,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|getEncoding
-argument_list|()
+name|encoding
 operator|.
 name|contains
 argument_list|(
@@ -1533,9 +1531,14 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"U+%04X is not available in this font's Encoding"
+literal|"U+%04X is not available in this font's encoding: %s"
 argument_list|,
 name|unicode
+argument_list|,
+name|encoding
+operator|.
+name|getEncodingName
+argument_list|()
 argument_list|)
 argument_list|)
 throw|;
@@ -1559,7 +1562,9 @@ name|Integer
 argument_list|>
 name|inverted
 init|=
-name|getInvertedEncoding
+name|encoding
+operator|.
+name|getNameToCodeMap
 argument_list|()
 decl_stmt|;
 if|if

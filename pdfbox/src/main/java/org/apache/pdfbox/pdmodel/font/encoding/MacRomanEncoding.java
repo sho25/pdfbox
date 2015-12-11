@@ -1392,6 +1392,17 @@ operator|.
 name|MAC_ROMAN_ENCODING
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getEncodingName
+parameter_list|()
+block|{
+return|return
+literal|"MacRomanEncoding"
+return|;
+block|}
 block|}
 end_class
 

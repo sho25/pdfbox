@@ -115,6 +115,17 @@ literal|"Built-in encodings cannot be serialized"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getEncodingName
+parameter_list|()
+block|{
+return|return
+literal|"built-in (TTF)"
+return|;
+block|}
 block|}
 end_class
 

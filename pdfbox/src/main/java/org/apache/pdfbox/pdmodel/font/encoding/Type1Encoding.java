@@ -209,6 +209,17 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getEncodingName
+parameter_list|()
+block|{
+return|return
+literal|"built-in (Type 1)"
+return|;
+block|}
 block|}
 end_class
 

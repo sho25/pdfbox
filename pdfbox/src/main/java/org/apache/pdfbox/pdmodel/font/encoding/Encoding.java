@@ -203,6 +203,25 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|protected
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
+name|inverted
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
+argument_list|()
+decl_stmt|;
 specifier|private
 name|Set
 argument_list|<
@@ -210,7 +229,7 @@ name|String
 argument_list|>
 name|names
 decl_stmt|;
-comment|/**      * Returns an unmodifiable view of the Code2Name mapping.      *       * @return the Code2Name map      */
+comment|/**      * Returns an unmodifiable view of the code -> name mapping.      *       * @return the code -> name map      */
 specifier|public
 name|Map
 argument_list|<
@@ -227,6 +246,26 @@ operator|.
 name|unmodifiableMap
 argument_list|(
 name|codeToName
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns an unmodifiable view of the name -> code mapping. More than one name may map to      * the same code.      *      * @return the name -> code map      */
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
+name|getNameToCodeMap
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
+name|inverted
 argument_list|)
 return|;
 block|}
@@ -249,6 +288,15 @@ argument_list|(
 name|code
 argument_list|,
 name|name
+argument_list|)
+expr_stmt|;
+name|inverted
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+name|code
 argument_list|)
 expr_stmt|;
 block|}
@@ -351,6 +399,13 @@ return|return
 literal|".notdef"
 return|;
 block|}
+comment|/**      * Returns the name of this encoding.      */
+specifier|public
+specifier|abstract
+name|String
+name|getEncodingName
+parameter_list|()
+function_decl|;
 block|}
 end_class
 
