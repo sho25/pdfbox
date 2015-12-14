@@ -96,6 +96,8 @@ name|Iterable
 argument_list|<
 name|COSBase
 argument_list|>
+implements|,
+name|COSUpdateInfo
 block|{
 specifier|private
 specifier|final
@@ -111,6 +113,10 @@ argument_list|<
 name|COSBase
 argument_list|>
 argument_list|()
+decl_stmt|;
+specifier|private
+name|boolean
+name|needToBeUpdated
 decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
@@ -1196,6 +1202,32 @@ argument_list|(
 name|this
 argument_list|)
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isNeedToBeUpdated
+parameter_list|()
+block|{
+return|return
+name|needToBeUpdated
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setNeedToBeUpdated
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+block|{
+name|needToBeUpdated
+operator|=
+name|flag
+expr_stmt|;
 block|}
 comment|/**      * This will take an COSArray of numbers and convert it to a float[].      *      * @return This COSArray as an array of float numbers.      */
 specifier|public
