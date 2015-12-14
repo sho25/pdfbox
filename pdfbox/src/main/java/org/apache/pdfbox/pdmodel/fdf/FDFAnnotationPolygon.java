@@ -383,7 +383,7 @@ name|vertices
 operator|.
 name|split
 argument_list|(
-literal|","
+literal|",|;"
 argument_list|)
 decl_stmt|;
 name|float
@@ -534,6 +534,7 @@ block|}
 block|}
 comment|/**      * This will set interior color of the drawn area.      *      * @param color The interior color of the drawn area.      */
 specifier|public
+specifier|final
 name|void
 name|setInteriorColor
 parameter_list|(
