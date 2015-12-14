@@ -1258,22 +1258,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|// For invisible signatures, the annotation has a rectangle array with values [ 0 0 0 0 ]. This annotation is
-comment|// usually attached to the viewed page when the signature is created. Despite not having an appearance, the
-comment|// annotation AP and N dictionaries may be present in some versions of Acrobat. If present, N references the
-comment|// DSBlankXObj (blank) XObject.
-comment|// Create Annotation / Field for signature
-name|List
-argument_list|<
-name|PDAnnotation
-argument_list|>
-name|annotations
-init|=
-name|page
-operator|.
-name|getAnnotations
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|PDField
@@ -1360,7 +1344,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// to conform PDF/A-1 requirement:
-comment|// The /F key's Print flag bit shall be set to 1 and its Hidden, Invisible and NoView flag bits shall be set to 0
+comment|// The /F key's Print flag bit shall be set to 1 and
+comment|// its Hidden, Invisible and NoView flag bits shall be set to 0
 name|signatureField
 operator|.
 name|getWidgets
@@ -1444,9 +1429,8 @@ argument_list|(
 name|signatureField
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
-else|else
-block|{
 name|prepareVisibleSignature
 argument_list|(
 name|signatureField
@@ -1456,7 +1440,18 @@ argument_list|,
 name|visualSignature
 argument_list|)
 expr_stmt|;
-block|}
+comment|// Create Annotation / Field for signature
+name|List
+argument_list|<
+name|PDAnnotation
+argument_list|>
+name|annotations
+init|=
+name|page
+operator|.
+name|getAnnotations
+argument_list|()
+decl_stmt|;
 comment|// Get the annotations of the page and append the signature-annotation to it
 comment|// take care that page and acroforms do not share the same array (if so, we don't need to add it twice)
 if|if
@@ -2082,110 +2077,6 @@ argument_list|(
 operator|new
 name|PDRectangle
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// Set empty Appearance-Dictionary
-name|PDAppearanceDictionary
-name|ap
-init|=
-operator|new
-name|PDAppearanceDictionary
-argument_list|()
-decl_stmt|;
-comment|// Create empty visual appearance stream
-name|COSStream
-name|apsStream
-init|=
-name|getDocument
-argument_list|()
-operator|.
-name|createCOSStream
-argument_list|()
-decl_stmt|;
-name|apsStream
-operator|.
-name|createOutputStream
-argument_list|()
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|PDAppearanceStream
-name|aps
-init|=
-operator|new
-name|PDAppearanceStream
-argument_list|(
-name|apsStream
-argument_list|)
-decl_stmt|;
-name|COSDictionary
-name|cosObject
-init|=
-operator|(
-name|COSDictionary
-operator|)
-name|aps
-operator|.
-name|getCOSObject
-argument_list|()
-decl_stmt|;
-name|cosObject
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|SUBTYPE
-argument_list|,
-name|COSName
-operator|.
-name|FORM
-argument_list|)
-expr_stmt|;
-name|cosObject
-operator|.
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|BBOX
-argument_list|,
-operator|new
-name|PDRectangle
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|ap
-operator|.
-name|setNormalAppearance
-argument_list|(
-name|aps
-argument_list|)
-expr_stmt|;
-name|ap
-operator|.
-name|getCOSObject
-argument_list|()
-operator|.
-name|setDirect
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|signatureField
-operator|.
-name|getWidgets
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|setAppearance
-argument_list|(
-name|ap
 argument_list|)
 expr_stmt|;
 block|}
