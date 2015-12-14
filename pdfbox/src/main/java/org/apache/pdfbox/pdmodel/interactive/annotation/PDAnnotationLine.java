@@ -726,6 +726,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This will set the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @param bs the border style dictionary to set.      *      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setBorderStyle
@@ -750,6 +752,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @return the border style dictionary.      */
+annotation|@
+name|Override
 specifier|public
 name|PDBorderStyleDictionary
 name|getBorderStyle
@@ -766,7 +770,7 @@ operator|.
 name|getCOSObject
 argument_list|()
 operator|.
-name|getItem
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
