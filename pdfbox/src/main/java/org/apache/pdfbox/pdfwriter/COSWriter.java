@@ -3939,6 +3939,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|incrementalUpdate
+operator|||
 name|subValue
 operator|instanceof
 name|COSDictionary
@@ -4172,6 +4174,12 @@ name|COSDictionary
 operator|)
 name|value
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|incrementalUpdate
+condition|)
+block|{
 comment|// write all XObjects as direct objects, this will save some size
 name|COSBase
 name|item
@@ -4226,6 +4234,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 if|if
 condition|(
 name|dict
@@ -4279,6 +4288,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|incrementalUpdate
+operator|||
 name|subValue
 operator|instanceof
 name|COSDictionary
