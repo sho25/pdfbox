@@ -486,6 +486,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|setInkList
+argument_list|(
+name|inklist
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
