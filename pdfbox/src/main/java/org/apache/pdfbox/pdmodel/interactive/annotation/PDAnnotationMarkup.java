@@ -763,7 +763,7 @@ operator|.
 name|getCOSObject
 argument_list|()
 operator|.
-name|getItem
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
