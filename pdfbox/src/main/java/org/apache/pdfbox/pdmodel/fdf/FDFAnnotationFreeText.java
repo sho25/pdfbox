@@ -547,6 +547,19 @@ argument_list|(
 literal|"callout"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|callout
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|callout
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|String
 index|[]
 name|calloutValues
@@ -608,6 +621,7 @@ argument_list|(
 name|values
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * This will set the coordinates of the callout line.      *      * @param callout An array of four or six numbers specifying a callout line attached to the free      * text annotation. Six numbers [ x1 y1 x2 y2 x3 y3 ] represent the starting, knee point, and      * ending coordinates of the line in default user space, Four numbers [ x1 y1 x2 y2 ] represent      * the starting and ending coordinates of the line.      */
 specifier|public
