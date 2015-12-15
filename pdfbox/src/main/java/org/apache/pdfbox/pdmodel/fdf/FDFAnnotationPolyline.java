@@ -288,8 +288,6 @@ name|element
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|NumberFormatException
 block|{
 name|XPath
 name|xpath
@@ -344,7 +342,7 @@ name|vertices
 operator|.
 name|split
 argument_list|(
-literal|","
+literal|",|;"
 argument_list|)
 decl_stmt|;
 name|float
@@ -420,8 +418,6 @@ parameter_list|(
 name|Element
 name|element
 parameter_list|)
-throws|throws
-name|NumberFormatException
 block|{
 name|String
 name|startStyle

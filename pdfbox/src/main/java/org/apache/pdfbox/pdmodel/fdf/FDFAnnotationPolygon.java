@@ -327,8 +327,6 @@ name|element
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|NumberFormatException
 block|{
 name|XPath
 name|xpath

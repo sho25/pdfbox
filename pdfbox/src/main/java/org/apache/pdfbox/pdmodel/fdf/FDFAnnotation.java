@@ -2066,6 +2066,7 @@ return|;
 block|}
 comment|/**      * This will set the page.      *      * @param page The page number.      */
 specifier|public
+specifier|final
 name|void
 name|setPage
 parameter_list|(
@@ -2165,6 +2166,7 @@ return|;
 block|}
 comment|/**      * Set the annotation color.      *      * @param c The annotation color.      */
 specifier|public
+specifier|final
 name|void
 name|setColor
 parameter_list|(
@@ -2240,6 +2242,7 @@ return|;
 block|}
 comment|/**      * The annotation modification date.      *      * @param date The date to store in the FDF annotation.      */
 specifier|public
+specifier|final
 name|void
 name|setDate
 parameter_list|(
@@ -2280,6 +2283,7 @@ return|;
 block|}
 comment|/**      * Set the invisible flag.      *      * @param invisible The new invisible flag.      */
 specifier|public
+specifier|final
 name|void
 name|setInvisible
 parameter_list|(
@@ -2322,6 +2326,7 @@ return|;
 block|}
 comment|/**      * Set the hidden flag.      *      * @param hidden The new hidden flag.      */
 specifier|public
+specifier|final
 name|void
 name|setHidden
 parameter_list|(
@@ -2364,6 +2369,7 @@ return|;
 block|}
 comment|/**      * Set the printed flag.      *      * @param printed The new printed flag.      */
 specifier|public
+specifier|final
 name|void
 name|setPrinted
 parameter_list|(
@@ -2406,6 +2412,7 @@ return|;
 block|}
 comment|/**      * Set the noZoom flag.      *      * @param noZoom The new noZoom flag.      */
 specifier|public
+specifier|final
 name|void
 name|setNoZoom
 parameter_list|(
@@ -2448,6 +2455,7 @@ return|;
 block|}
 comment|/**      * Set the noRotate flag.      *      * @param noRotate The new noRotate flag.      */
 specifier|public
+specifier|final
 name|void
 name|setNoRotate
 parameter_list|(
@@ -2490,6 +2498,7 @@ return|;
 block|}
 comment|/**      * Set the noView flag.      *      * @param noView The new noView flag.      */
 specifier|public
+specifier|final
 name|void
 name|setNoView
 parameter_list|(
@@ -2532,6 +2541,7 @@ return|;
 block|}
 comment|/**      * Set the readOnly flag.      *      * @param readOnly The new readOnly flag.      */
 specifier|public
+specifier|final
 name|void
 name|setReadOnly
 parameter_list|(
@@ -2574,6 +2584,7 @@ return|;
 block|}
 comment|/**      * Set the locked flag.      *      * @param locked The new locked flag.      */
 specifier|public
+specifier|final
 name|void
 name|setLocked
 parameter_list|(
@@ -2616,6 +2627,7 @@ return|;
 block|}
 comment|/**      * Set the toggleNoView flag.      *      * @param toggleNoView The new toggleNoView flag.      */
 specifier|public
+specifier|final
 name|void
 name|setToggleNoView
 parameter_list|(
@@ -2639,6 +2651,7 @@ expr_stmt|;
 block|}
 comment|/**      * Set a unique name for an annotation.      *      * @param name The unique annotation name.      */
 specifier|public
+specifier|final
 name|void
 name|setName
 parameter_list|(
@@ -2677,6 +2690,7 @@ return|;
 block|}
 comment|/**      * Set the rectangle associated with this annotation.      *      * @param rectangle The annotation rectangle.      */
 specifier|public
+specifier|final
 name|void
 name|setRectangle
 parameter_list|(
@@ -2744,6 +2758,7 @@ return|;
 block|}
 comment|/**      * Set the contents, or a description, for an annotation.      *      * @param contents The annotation contents, or a description.      */
 specifier|public
+specifier|final
 name|void
 name|setContents
 parameter_list|(
@@ -2782,6 +2797,7 @@ return|;
 block|}
 comment|/**      * Set a unique title for an annotation.      *      * @param title The annotation title.      */
 specifier|public
+specifier|final
 name|void
 name|setTitle
 parameter_list|(
@@ -2839,6 +2855,7 @@ return|;
 block|}
 comment|/**      * Set the creation date.      *      * @param date The date the annotation was created.      */
 specifier|public
+specifier|final
 name|void
 name|setCreationDate
 parameter_list|(
@@ -2860,6 +2877,7 @@ expr_stmt|;
 block|}
 comment|/**      * Set the annotation opacity.      *      * @param opacity The new opacity value.      */
 specifier|public
+specifier|final
 name|void
 name|setOpacity
 parameter_list|(
@@ -2900,6 +2918,7 @@ return|;
 block|}
 comment|/**      * A short description of the annotation.      *      * @param subject The annotation subject.      */
 specifier|public
+specifier|final
 name|void
 name|setSubject
 parameter_list|(
@@ -2938,6 +2957,7 @@ return|;
 block|}
 comment|/**      * The intent of the annotation.      *       * @param intent The annotation's intent.      */
 specifier|public
+specifier|final
 name|void
 name|setIntent
 parameter_list|(
@@ -2947,7 +2967,7 @@ parameter_list|)
 block|{
 name|annot
 operator|.
-name|setString
+name|setName
 argument_list|(
 name|COSName
 operator|.
@@ -2966,7 +2986,7 @@ block|{
 return|return
 name|annot
 operator|.
-name|getString
+name|getNameAsString
 argument_list|(
 name|COSName
 operator|.
@@ -2996,6 +3016,7 @@ return|;
 block|}
 comment|/**      * This will set the rich text stream which is displayed in the popup window.      *      * @param rc the rich text stream.      */
 specifier|public
+specifier|final
 name|void
 name|setRichContents
 parameter_list|(
@@ -3021,6 +3042,7 @@ expr_stmt|;
 block|}
 comment|/**      * This will set the border style dictionary, specifying the width and dash pattern used in drawing the annotation.      *      * @param bs the border style dictionary to set.      *      */
 specifier|public
+specifier|final
 name|void
 name|setBorderStyle
 parameter_list|(
@@ -3085,6 +3107,7 @@ block|}
 block|}
 comment|/**      * This will set the border effect dictionary, describing the effect applied to the border described by the BS      * entry.      *      * @param be the border effect dictionary to set.      *      */
 specifier|public
+specifier|final
 name|void
 name|setBorderEffect
 parameter_list|(
