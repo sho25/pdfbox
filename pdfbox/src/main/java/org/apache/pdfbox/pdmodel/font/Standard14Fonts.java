@@ -558,7 +558,9 @@ init|=
 name|parser
 operator|.
 name|parse
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 name|STANDARD14_AFM_MAP
 operator|.
