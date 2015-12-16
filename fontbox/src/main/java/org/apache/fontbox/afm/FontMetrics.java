@@ -31,7 +31,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Collections
 import|;
 end_import
 
@@ -41,7 +41,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|HashMap
 import|;
 end_import
 
@@ -469,36 +469,14 @@ name|characterCount
 init|=
 literal|0
 decl_stmt|;
-name|Iterator
-argument_list|<
-name|CharMetric
-argument_list|>
-name|iter
-init|=
-name|charMetricsMap
-operator|.
-name|values
-argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|iter
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
+for|for
+control|(
 name|CharMetric
 name|metric
-init|=
-name|iter
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
+range|:
+name|charMetrics
+control|)
+block|{
 if|if
 condition|(
 name|metric
@@ -567,7 +545,12 @@ name|getComments
 parameter_list|()
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|comments
+argument_list|)
 return|;
 block|}
 comment|/**      * This will get the version of the AFM document.      *      * @return The version of the document.      */
@@ -1239,7 +1222,12 @@ name|getCharMetrics
 parameter_list|()
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|charMetrics
+argument_list|)
 return|;
 block|}
 comment|/** Setter for property charMetrics.      * @param charMetricsValue New value of property charMetrics.      */
@@ -1298,7 +1286,12 @@ name|getTrackKern
 parameter_list|()
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|trackKern
+argument_list|)
 return|;
 block|}
 comment|/** Setter for property trackKern.      * @param trackKernValue New value of property trackKern.      */
@@ -1345,7 +1338,12 @@ name|getComposites
 parameter_list|()
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|composites
+argument_list|)
 return|;
 block|}
 comment|/** Setter for property composites.      * @param compositesList New value of property composites.      */
@@ -1392,7 +1390,12 @@ name|getKernPairs
 parameter_list|()
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|kernPairs
+argument_list|)
 return|;
 block|}
 comment|/**      * This will add a kern pair.      *      * @param kernPair The kern pair to add.      */
@@ -1439,7 +1442,12 @@ name|getKernPairs0
 parameter_list|()
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|kernPairs0
+argument_list|)
 return|;
 block|}
 comment|/**      * This will add a kern pair.      *      * @param kernPair The kern pair to add.      */
@@ -1486,7 +1494,12 @@ name|getKernPairs1
 parameter_list|()
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|kernPairs1
+argument_list|)
 return|;
 block|}
 comment|/**      * This will add a kern pair.      *      * @param kernPair The kern pair to add.      */
