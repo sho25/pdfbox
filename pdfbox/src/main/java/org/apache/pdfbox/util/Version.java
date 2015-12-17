@@ -61,7 +61,7 @@ specifier|final
 name|String
 name|PDFBOX_VERSION_PROPERTIES
 init|=
-literal|"org/apache/pdfbox/resources/pdfbox.properties"
+literal|"org/apache/pdfbox/resources/version.properties"
 decl_stmt|;
 specifier|private
 name|Version
