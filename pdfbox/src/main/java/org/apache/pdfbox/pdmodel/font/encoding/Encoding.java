@@ -201,7 +201,9 @@ name|Integer
 argument_list|,
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+literal|250
+argument_list|)
 decl_stmt|;
 specifier|protected
 specifier|final
@@ -220,7 +222,9 @@ name|String
 argument_list|,
 name|Integer
 argument_list|>
-argument_list|()
+argument_list|(
+literal|250
+argument_list|)
 decl_stmt|;
 specifier|private
 name|Set
@@ -325,7 +329,12 @@ name|HashSet
 argument_list|<
 name|String
 argument_list|>
+argument_list|(
+name|codeToName
+operator|.
+name|size
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|names
 operator|.
