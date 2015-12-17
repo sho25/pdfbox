@@ -1420,6 +1420,16 @@ operator|.
 name|getAnnotations
 argument_list|()
 decl_stmt|;
+comment|// Make /Annots a direct object to avoid problem if it is an existing indirect object:
+comment|// it would not be updated in incremental save, and if we'd set the /Annots array "to be updated"
+comment|// while keeping it indirect, Adobe Reader would claim that the document had been modified.
+name|page
+operator|.
+name|setAnnotations
+argument_list|(
+name|annotations
+argument_list|)
+expr_stmt|;
 comment|// Get the annotations of the page and append the signature-annotation to it
 comment|// take care that page and acroforms do not share the same array (if so, we don't need to add it twice)
 if|if
