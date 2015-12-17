@@ -142,6 +142,8 @@ init|=
 name|load
 argument_list|(
 literal|"glyphlist.txt"
+argument_list|,
+literal|4281
 argument_list|)
 decl_stmt|;
 comment|// Zapf Dingbats has its own glyph list
@@ -154,6 +156,8 @@ init|=
 name|load
 argument_list|(
 literal|"zapfdingbats.txt"
+argument_list|,
+literal|201
 argument_list|)
 decl_stmt|;
 comment|/**      * Loads a glyph list from disk.      */
@@ -164,6 +168,9 @@ name|load
 parameter_list|(
 name|String
 name|filename
+parameter_list|,
+name|int
+name|numberOfEntries
 parameter_list|)
 block|{
 name|ClassLoader
@@ -195,6 +202,8 @@ name|path
 operator|+
 name|filename
 argument_list|)
+argument_list|,
+name|numberOfEntries
 argument_list|)
 return|;
 block|}
@@ -319,12 +328,15 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Creates a new GlyphList from a glyph list file.      *      * @param input glyph list in Adobe format      * @throws IOException if the glyph list could not be read      */
+comment|/**      * Creates a new GlyphList from a glyph list file.      *      * @param numberOfEntries number of expected values used to preallocate the correct amount of memory      * @param input glyph list in Adobe format      * @throws IOException if the glyph list could not be read      */
 specifier|public
 name|GlyphList
 parameter_list|(
 name|InputStream
 name|input
+parameter_list|,
+name|int
+name|numberOfEntries
 parameter_list|)
 throws|throws
 name|IOException
@@ -338,7 +350,9 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+name|numberOfEntries
+argument_list|)
 expr_stmt|;
 name|unicodeToName
 operator|=
@@ -349,7 +363,9 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+name|numberOfEntries
+argument_list|)
 expr_stmt|;
 name|loadList
 argument_list|(
