@@ -2093,7 +2093,7 @@ name|i
 operator|*
 literal|2
 operator|+
-literal|1
+literal|2
 argument_list|)
 decl_stmt|;
 name|int
