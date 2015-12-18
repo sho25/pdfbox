@@ -72,7 +72,9 @@ name|Integer
 argument_list|,
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+literal|250
+argument_list|)
 decl_stmt|;
 comment|/**      * This is a mapping from a character name to a character code.      */
 specifier|protected
@@ -91,7 +93,9 @@ name|String
 argument_list|,
 name|Integer
 argument_list|>
-argument_list|()
+argument_list|(
+literal|250
+argument_list|)
 decl_stmt|;
 comment|/**      * This will add a character encoding.      *      * @param code The character code that matches the character.      * @param name The name of the character.      */
 specifier|protected

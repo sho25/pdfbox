@@ -78,7 +78,9 @@ name|Integer
 argument_list|,
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+literal|250
+argument_list|)
 decl_stmt|;
 comment|/**      * Package-private constructor for subclasses.      */
 name|CFFEncoding

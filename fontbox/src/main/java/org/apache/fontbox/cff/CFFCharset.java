@@ -67,7 +67,9 @@ name|Integer
 argument_list|,
 name|Integer
 argument_list|>
-argument_list|()
+argument_list|(
+literal|250
+argument_list|)
 decl_stmt|;
 specifier|private
 specifier|final
@@ -86,7 +88,9 @@ name|Integer
 argument_list|,
 name|Integer
 argument_list|>
-argument_list|()
+argument_list|(
+literal|250
+argument_list|)
 decl_stmt|;
 specifier|private
 specifier|final
@@ -105,7 +109,9 @@ name|String
 argument_list|,
 name|Integer
 argument_list|>
-argument_list|()
+argument_list|(
+literal|250
+argument_list|)
 decl_stmt|;
 comment|// inverse
 specifier|private
@@ -144,7 +150,9 @@ name|Integer
 argument_list|,
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+literal|250
+argument_list|)
 decl_stmt|;
 comment|/**      * Package-private constructor for use by subclasses.      *      * @param isCIDFont true if the parent font is a CIDFont      */
 name|CFFCharset

@@ -565,7 +565,9 @@ name|Key
 argument_list|,
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+literal|26
+argument_list|)
 decl_stmt|;
 name|map
 operator|.
@@ -962,7 +964,9 @@ name|Key
 argument_list|,
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+literal|48
+argument_list|)
 decl_stmt|;
 name|map
 operator|.

@@ -486,7 +486,9 @@ name|Key
 argument_list|,
 name|CFFOperator
 argument_list|>
-argument_list|()
+argument_list|(
+literal|52
+argument_list|)
 decl_stmt|;
 specifier|private
 specifier|static
@@ -505,7 +507,9 @@ name|String
 argument_list|,
 name|CFFOperator
 argument_list|>
-argument_list|()
+argument_list|(
+literal|52
+argument_list|)
 decl_stmt|;
 static|static
 block|{
