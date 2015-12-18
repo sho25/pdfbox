@@ -1150,7 +1150,11 @@ name|Integer
 argument_list|,
 name|Integer
 argument_list|>
-argument_list|()
+argument_list|(
+name|cid2gid
+operator|.
+name|length
+argument_list|)
 decl_stmt|;
 for|for
 control|(

@@ -693,7 +693,9 @@ name|String
 argument_list|,
 name|OperatorProcessor
 argument_list|>
-argument_list|()
+argument_list|(
+literal|80
+argument_list|)
 decl_stmt|;
 specifier|private
 name|Matrix

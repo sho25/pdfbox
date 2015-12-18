@@ -515,7 +515,9 @@ name|String
 argument_list|,
 name|Integer
 argument_list|>
-argument_list|()
+argument_list|(
+literal|250
+argument_list|)
 decl_stmt|;
 static|static
 block|{
