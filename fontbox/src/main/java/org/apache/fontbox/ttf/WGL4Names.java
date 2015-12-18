@@ -606,7 +606,9 @@ name|String
 argument_list|,
 name|Integer
 argument_list|>
-argument_list|()
+argument_list|(
+name|NUMBER_OF_MAC_GLYPHS
+argument_list|)
 expr_stmt|;
 for|for
 control|(
