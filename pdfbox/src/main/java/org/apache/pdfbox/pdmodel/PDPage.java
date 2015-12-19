@@ -638,7 +638,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|streams
+name|array
 operator|.
 name|size
 argument_list|()
