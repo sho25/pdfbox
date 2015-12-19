@@ -334,11 +334,7 @@ init|=
 operator|new
 name|PfbParser
 argument_list|(
-operator|new
-name|ByteArrayInputStream
-argument_list|(
 name|pfbBytes
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|type1
@@ -347,11 +343,7 @@ name|Type1Font
 operator|.
 name|createWithPFB
 argument_list|(
-operator|new
-name|ByteArrayInputStream
-argument_list|(
 name|pfbBytes
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
