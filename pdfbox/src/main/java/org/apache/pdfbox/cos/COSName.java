@@ -121,7 +121,7 @@ literal|8192
 argument_list|)
 decl_stmt|;
 comment|// all common COSName values are stored in this HashMap
-comment|// hey are already defined as static constants and don't need to be synchronized
+comment|// they are already defined as static constants and don't need to be synchronized
 specifier|private
 specifier|static
 name|Map
