@@ -712,11 +712,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// todo: expensive
 return|return
-name|glyphPath
-operator|!=
-literal|null
-condition|?
 operator|(
 name|GeneralPath
 operator|)
@@ -724,10 +721,7 @@ name|glyphPath
 operator|.
 name|clone
 argument_list|()
-else|:
-literal|null
 return|;
-comment|// todo: expensive
 block|}
 annotation|@
 name|Override
