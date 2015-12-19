@@ -1307,10 +1307,7 @@ condition|(
 name|postScriptNames
 operator|==
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|getPostScript
 argument_list|()
 operator|!=
@@ -1393,7 +1390,6 @@ name|Integer
 argument_list|>
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
