@@ -139,7 +139,9 @@ name|String
 argument_list|,
 name|COSName
 argument_list|>
-argument_list|()
+argument_list|(
+literal|768
+argument_list|)
 decl_stmt|;
 comment|//
 comment|// IMPORTANT: this list is *alphabetized* and does not need any JavaDoc
