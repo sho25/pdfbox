@@ -79,6 +79,20 @@ name|BoundingBox
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|util
+operator|.
+name|Charsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class is used to parse AFM(Adobe Font Metrics) documents.  *  * @see<A href="http://partners.adobe.com/asn/developer/type/">AFM Documentation</A>  *  * @author Ben Litchfield  *   */
 end_comment
@@ -2533,7 +2547,9 @@ name|String
 argument_list|(
 name|data
 argument_list|,
-literal|"ISO-8859-1"
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 return|;
 block|}

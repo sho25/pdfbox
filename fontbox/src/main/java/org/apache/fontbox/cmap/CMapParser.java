@@ -115,6 +115,20 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|util
+operator|.
+name|Charsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * Parses a CMap stream.  *  * @author Ben Litchfield  */
 end_comment
@@ -3114,7 +3128,9 @@ name|String
 argument_list|(
 name|bytes
 argument_list|,
-literal|"ISO-8859-1"
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 expr_stmt|;
 block|}
@@ -3127,7 +3143,9 @@ name|String
 argument_list|(
 name|bytes
 argument_list|,
-literal|"UTF-16BE"
+name|Charsets
+operator|.
+name|UTF_16BE
 argument_list|)
 expr_stmt|;
 block|}

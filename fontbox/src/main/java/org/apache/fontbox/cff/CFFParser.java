@@ -95,6 +95,20 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|util
+operator|.
+name|Charsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class represents a parser for a CFF font.   * @author Villu Ruusmann  */
 end_comment
@@ -629,7 +643,9 @@ name|String
 argument_list|(
 name|b
 argument_list|,
-literal|"ISO-8859-1"
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 return|;
 block|}
@@ -1053,7 +1069,9 @@ argument_list|(
 name|length
 argument_list|)
 argument_list|,
-literal|"ISO-8859-1"
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
