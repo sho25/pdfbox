@@ -33,9 +33,14 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|Charsets
 block|{
+specifier|private
+name|Charsets
+parameter_list|()
+block|{}
 comment|/**      * ISO-8859-1 Charset      */
 specifier|public
 specifier|static
