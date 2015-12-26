@@ -75,6 +75,11 @@ name|sequence
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 specifier|private
 specifier|final
 name|String
@@ -138,7 +143,7 @@ argument_list|)
 expr_stmt|;
 comment|// for debugging only
 block|}
-comment|/**      * The given byte array will be parsed and converted to a Type2 sequence.      * @param bytes the given mapping as byte array      * @param globalSubrIndex list containing all global subroutines      * @param localSubrIndex list containing all local subroutines      *       * @return the Type2 sequence      * @throws IOException if an error occurs during reading      */
+comment|/**      * The given byte array will be parsed and converted to a Type2 sequence.      * @param bytes the given mapping as byte array      * @param globalSubrIndex array containing all global subroutines      * @param localSubrIndex array containing all local subroutines      *       * @return the Type2 sequence      * @throws IOException if an error occurs during reading      */
 specifier|public
 name|List
 argument_list|<
@@ -150,18 +155,14 @@ name|byte
 index|[]
 name|bytes
 parameter_list|,
-name|List
-argument_list|<
 name|byte
 index|[]
-argument_list|>
+index|[]
 name|globalSubrIndex
 parameter_list|,
-name|List
-argument_list|<
 name|byte
 index|[]
-argument_list|>
+index|[]
 name|localSubrIndex
 parameter_list|)
 throws|throws
@@ -191,18 +192,14 @@ name|byte
 index|[]
 name|bytes
 parameter_list|,
-name|List
-argument_list|<
 name|byte
 index|[]
-argument_list|>
+index|[]
 name|globalSubrIndex
 parameter_list|,
-name|List
-argument_list|<
 name|byte
 index|[]
-argument_list|>
+index|[]
 name|localSubrIndex
 parameter_list|,
 name|boolean
@@ -252,8 +249,7 @@ literal|null
 operator|&&
 name|localSubrIndex
 operator|.
-name|size
-argument_list|()
+name|length
 operator|>
 literal|0
 decl_stmt|;
@@ -266,8 +262,7 @@ literal|null
 operator|&&
 name|globalSubrIndex
 operator|.
-name|size
-argument_list|()
+name|length
 operator|>
 literal|0
 decl_stmt|;
@@ -326,8 +321,7 @@ name|nSubrs
 init|=
 name|localSubrIndex
 operator|.
-name|size
-argument_list|()
+name|length
 decl_stmt|;
 if|if
 condition|(
@@ -374,8 +368,7 @@ name|subrNumber
 operator|<
 name|localSubrIndex
 operator|.
-name|size
-argument_list|()
+name|length
 condition|)
 block|{
 name|byte
@@ -383,11 +376,9 @@ index|[]
 name|subrBytes
 init|=
 name|localSubrIndex
-operator|.
-name|get
-argument_list|(
+index|[
 name|subrNumber
-argument_list|)
+index|]
 decl_stmt|;
 name|parse
 argument_list|(
@@ -496,8 +487,7 @@ name|nSubrs
 init|=
 name|globalSubrIndex
 operator|.
-name|size
-argument_list|()
+name|length
 decl_stmt|;
 if|if
 condition|(
@@ -544,8 +534,7 @@ name|subrNumber
 operator|<
 name|globalSubrIndex
 operator|.
-name|size
-argument_list|()
+name|length
 condition|)
 block|{
 name|byte
@@ -553,11 +542,9 @@ index|[]
 name|subrBytes
 init|=
 name|globalSubrIndex
-operator|.
-name|get
-argument_list|(
+index|[
 name|subrNumber
-argument_list|)
+index|]
 decl_stmt|;
 name|parse
 argument_list|(

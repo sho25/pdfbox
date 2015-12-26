@@ -542,11 +542,9 @@ return|;
 block|}
 comment|/**      * Returns the LocalSubrIndex for the given GID.      *      * @param gid GID      */
 specifier|private
-name|List
-argument_list|<
 name|byte
 index|[]
-argument_list|>
+index|[]
 name|getLocalSubrIndex
 parameter_list|(
 name|int
@@ -574,13 +572,7 @@ literal|1
 condition|)
 block|{
 return|return
-operator|new
-name|ArrayList
-argument_list|<
-name|byte
-index|[]
-argument_list|>
-argument_list|()
+literal|null
 return|;
 block|}
 name|Map
@@ -602,11 +594,9 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|(
-name|List
-argument_list|<
 name|byte
 index|[]
-argument_list|>
+index|[]
 operator|)
 name|privDict
 operator|.
@@ -661,11 +651,9 @@ index|[]
 name|bytes
 init|=
 name|charStrings
-operator|.
-name|get
-argument_list|(
+index|[
 name|gid
-argument_list|)
+index|]
 decl_stmt|;
 if|if
 condition|(
@@ -677,11 +665,9 @@ block|{
 name|bytes
 operator|=
 name|charStrings
-operator|.
-name|get
-argument_list|(
+index|[
 literal|0
-argument_list|)
+index|]
 expr_stmt|;
 comment|// .notdef
 block|}
