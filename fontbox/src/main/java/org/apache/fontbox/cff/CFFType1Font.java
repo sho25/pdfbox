@@ -365,6 +365,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns the Type 1 charstring for the given GID.      *      * @param gid GID      * @throws IOException if the charstring could not be read      */
+annotation|@
+name|Override
 specifier|public
 name|Type2CharString
 name|getType2CharString
