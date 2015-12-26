@@ -617,6 +617,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns the Type 2 charstring for the given CID.      *      * @param cid CID      * @throws IOException if the charstring could not be read      */
+annotation|@
+name|Override
 specifier|public
 name|CIDKeyedType2CharString
 name|getType2CharString
