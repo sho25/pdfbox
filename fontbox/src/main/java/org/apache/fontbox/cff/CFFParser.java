@@ -5593,6 +5593,7 @@ class|class
 name|DictData
 block|{
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
