@@ -172,6 +172,8 @@ name|ByteSource
 name|source
 decl_stmt|;
 comment|/**      * The name of the font.      *      * @return the name of the font      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
@@ -240,6 +242,8 @@ name|topDict
 return|;
 block|}
 comment|/**      * Returns the FontMatrix.      */
+annotation|@
+name|Override
 specifier|public
 specifier|abstract
 name|List
@@ -250,6 +254,8 @@ name|getFontMatrix
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the FontBBox.      */
+annotation|@
+name|Override
 specifier|public
 name|BoundingBox
 name|getFontBBox
@@ -402,7 +408,12 @@ name|getGlobalSubrIndex
 parameter_list|()
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|globalSubrIndex
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns the Type 2 charstring for the given CID.      *      * @param cidOrGid CID for CIFFont, or GID for Type 1 font      * @throws IOException if the charstring could not be read      */
