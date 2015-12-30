@@ -1130,7 +1130,16 @@ block|}
 comment|// transformPoint from glyph space -> text space
 name|float
 name|height
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|font
+operator|instanceof
+name|PDType3Font
+condition|)
+block|{
+name|height
+operator|=
 name|font
 operator|.
 name|getFontMatrix
@@ -1144,7 +1153,17 @@ name|glyphHeight
 argument_list|)
 operator|.
 name|y
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|height
+operator|=
+name|glyphHeight
+operator|/
+literal|1000
+expr_stmt|;
+block|}
 comment|// (modified) combined displacement, this is calculated *without* taking the character
 comment|// spacing and word spacing into account, due to legacy code in TextStripper
 name|float
