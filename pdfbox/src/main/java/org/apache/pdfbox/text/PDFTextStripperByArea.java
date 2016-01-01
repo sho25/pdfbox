@@ -238,6 +238,7 @@ comment|/**      * This method does nothing in this derived class, because beads
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|void
 name|setShouldSeparateByBeads
 parameter_list|(
