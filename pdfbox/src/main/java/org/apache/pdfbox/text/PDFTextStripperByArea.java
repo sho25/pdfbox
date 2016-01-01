@@ -275,6 +275,30 @@ name|rect
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Delete a region to group text by. If the region does not exist, this method does nothing.      *      * @param regionName The name of the region to delete.      */
+specifier|public
+name|void
+name|removeRegion
+parameter_list|(
+name|String
+name|regionName
+parameter_list|)
+block|{
+name|regions
+operator|.
+name|remove
+argument_list|(
+name|regionName
+argument_list|)
+expr_stmt|;
+name|regionArea
+operator|.
+name|remove
+argument_list|(
+name|regionName
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Get the list of regions that have been setup.      *      * @return A list of java.lang.String objects to identify the region names.      */
 specifier|public
 name|List
