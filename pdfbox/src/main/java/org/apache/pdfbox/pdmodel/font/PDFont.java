@@ -1417,11 +1417,23 @@ name|startsWith
 argument_list|(
 literal|"Identity-"
 argument_list|)
+operator|&&
+name|dict
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|TO_UNICODE
+argument_list|)
+operator|instanceof
+name|COSName
 condition|)
 block|{
 comment|// handle the undocumented case of using Identity-H/V as a ToUnicode CMap, this
-comment|// isn't  actually valid as the Identity-x CMaps are code->CID maps, not
+comment|// isn't actually valid as the Identity-x CMaps are code->CID maps, not
 comment|// code->Unicode maps. See sample_fonts_solidconvertor.pdf for an example.
+comment|// PDFBOX-3123: do this only if the /ToUnicode entry is a name
 return|return
 operator|new
 name|String
