@@ -5444,7 +5444,7 @@ condition|)
 block|{
 name|newOffset
 operator|=
-name|differenceStream
+name|newOffsetStream
 expr_stmt|;
 name|bfSearchXRefStreamsOffsets
 operator|.
@@ -5458,7 +5458,7 @@ else|else
 block|{
 name|newOffset
 operator|=
-name|differenceTable
+name|newOffsetTable
 expr_stmt|;
 name|bfSearchXRefTablesOffsets
 operator|.
