@@ -99,16 +99,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Vector
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -172,7 +162,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Vector
+name|ArrayList
 argument_list|<
 name|List
 argument_list|<
@@ -187,7 +177,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|Vector
+name|ArrayList
 argument_list|<
 name|List
 argument_list|<
@@ -390,7 +380,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|Vector
+name|ArrayList
 argument_list|<
 name|List
 argument_list|<
@@ -400,7 +390,7 @@ argument_list|>
 name|regionCharactersByArticle
 init|=
 operator|new
-name|Vector
+name|ArrayList
 argument_list|<
 name|List
 argument_list|<
