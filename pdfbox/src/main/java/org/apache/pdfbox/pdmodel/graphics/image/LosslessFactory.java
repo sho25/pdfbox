@@ -626,10 +626,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// this implementation makes the assumption that the raster uses
-comment|// SinglePixelPackedSampleModel, i.e. the values can be used 1:1 for
+comment|// this implementation makes the assumption that the raster values can be used 1:1 for
 comment|// the stream.
-comment|// Sadly the type of the databuffer is TYPE_INT and not TYPE_BYTE.
+comment|// Sadly the type of the databuffer is usually TYPE_INT and not TYPE_BYTE so we can't just
+comment|// save it directly
 if|if
 condition|(
 operator|!
@@ -686,16 +686,10 @@ literal|0
 argument_list|,
 name|alphaRaster
 operator|.
-name|getSampleModel
-argument_list|()
-operator|.
 name|getWidth
 argument_list|()
 argument_list|,
 name|alphaRaster
-operator|.
-name|getSampleModel
-argument_list|()
 operator|.
 name|getHeight
 argument_list|()
@@ -746,9 +740,6 @@ name|int
 name|width
 init|=
 name|alphaRaster
-operator|.
-name|getSampleModel
-argument_list|()
 operator|.
 name|getWidth
 argument_list|()
