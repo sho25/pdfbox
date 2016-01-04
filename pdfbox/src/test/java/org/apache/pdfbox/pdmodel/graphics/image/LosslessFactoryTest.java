@@ -1286,6 +1286,44 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// extra for PDFBOX-3181: check for exception due to different sizes of
+comment|// alphaRaster.getSampleModel().getWidth()
+comment|// and
+comment|// alphaRaster.getWidth()
+comment|// happens with image returned by BufferedImage.getSubimage()
+name|argbImage
+operator|=
+name|argbImage
+operator|.
+name|getSubimage
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+name|argbImage
+operator|.
+name|getWidth
+argument_list|()
+operator|-
+literal|2
+argument_list|,
+name|argbImage
+operator|.
+name|getHeight
+argument_list|()
+operator|-
+literal|2
+argument_list|)
+expr_stmt|;
+name|w
+operator|-=
+literal|2
+expr_stmt|;
+name|h
+operator|-=
+literal|2
+expr_stmt|;
 name|PDImageXObject
 name|ximage
 init|=
