@@ -825,7 +825,7 @@ name|beadRectangles
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * The charactersByArticle is used to extract text by article divisions. For example a PDF that has two columns like      * a newspaper, we want to extract the first column and then the second column. In this example the PDF would have 2      * beads(or articles), one for each column. The size of the charactersByArticle would be 5, because not all text on      * the screen will fall into one of the articles. The five divisions are shown below      *      * Text before first article first article text text between first article and second article second article text      * text after second article      *      * Most PDFs won't have any beads, so charactersByArticle will contain a single entry.      */
+comment|/**      * The charactersByArticle is used to extract text by article divisions. For example a PDF that has two columns like      * a newspaper, we want to extract the first column and then the second column. In this example the PDF would have 2      * beads(or articles), one for each column. The size of the charactersByArticle would be 5, because not all text on      * the screen will fall into one of the articles. The five divisions are shown below      *      * Text before first article      * first article text      * text between first article and second article      * second article text      * text after second article      *      * Most PDFs won't have any beads, so charactersByArticle will contain a single entry.      */
 specifier|protected
 name|ArrayList
 argument_list|<
