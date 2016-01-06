@@ -116,7 +116,7 @@ name|length
 index|]
 argument_list|)
 argument_list|,
-name|input
+name|expected
 argument_list|)
 decl_stmt|;
 name|assertTrue
