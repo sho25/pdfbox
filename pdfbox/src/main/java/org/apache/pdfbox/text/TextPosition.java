@@ -158,7 +158,7 @@ argument_list|>
 name|createDiacritics
 parameter_list|()
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
