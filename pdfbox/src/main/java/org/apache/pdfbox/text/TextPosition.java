@@ -2063,7 +2063,7 @@ name|String
 name|str
 parameter_list|)
 block|{
-comment|// Unicode contains special combining forms of the diagetWidthDirAdj()critic characters which we want to use
+comment|// Unicode contains special combining forms of the diacritic characters which we want to use
 name|int
 name|codePoint
 init|=
