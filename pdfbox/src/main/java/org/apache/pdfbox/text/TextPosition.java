@@ -173,7 +173,9 @@ name|Integer
 argument_list|,
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+literal|31
+argument_list|)
 decl_stmt|;
 name|map
 operator|.
@@ -546,6 +548,13 @@ specifier|private
 name|String
 name|unicode
 decl_stmt|;
+specifier|private
+name|float
+name|direction
+init|=
+operator|-
+literal|1
+decl_stmt|;
 comment|/**      * Constructor.      *      * @param pageRotation rotation of the page that the text is located in      * @param pageWidth rotation of the page that the text is located in      * @param pageHeight rotation of the page that the text is located in      * @param textMatrix TextMatrix for start of text (in display units)      * @param endX x coordinate of the end position      * @param endY y coordinate of the end position      * @param maxHeight Maximum height of text (in display units)      * @param individualWidth The width of the given character/string. (in text units)      * @param spaceWidth The width of the space character. (in display units)      * @param unicode The string of Unicode characters to be displayed.      * @param charCodes An array of the internal PDF character codes for the glyphs in this text.      * @param font The current font for this text position.      * @param fontSize The new font size.      * @param fontSizeInPt The font size in pt units.      */
 specifier|public
 name|TextPosition
@@ -770,6 +779,13 @@ name|float
 name|getDir
 parameter_list|()
 block|{
+if|if
+condition|(
+name|direction
+operator|<
+literal|0
+condition|)
+block|{
 name|float
 name|a
 init|=
@@ -833,9 +849,10 @@ operator|>
 literal|0
 condition|)
 block|{
-return|return
+name|direction
+operator|=
 literal|0
-return|;
+expr_stmt|;
 block|}
 comment|// -12 0   right to left (upside down)
 comment|// 0 -12
@@ -879,9 +896,10 @@ operator|<
 literal|0
 condition|)
 block|{
-return|return
+name|direction
+operator|=
 literal|180
-return|;
+expr_stmt|;
 block|}
 comment|// 0  12    up
 comment|// -12 0
@@ -920,9 +938,10 @@ operator|<
 name|b
 condition|)
 block|{
-return|return
+name|direction
+operator|=
 literal|90
-return|;
+expr_stmt|;
 block|}
 comment|// 0  -12   down
 comment|// 12 0
@@ -961,12 +980,21 @@ name|b
 argument_list|)
 condition|)
 block|{
-return|return
+name|direction
+operator|=
 literal|270
-return|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|direction
+operator|=
+literal|0
+expr_stmt|;
+block|}
 block|}
 return|return
-literal|0
+name|direction
 return|;
 block|}
 comment|/**      * Return the X starting coordinate of the text, adjusted by the given rotation amount.      * The rotation adjusts where the 0,0 location is relative to the text.      *      * @param rotation Rotation to apply (0, 90, 180, or 270).  0 will perform no adjustments.      * @return X coordinate      */
@@ -1392,13 +1420,17 @@ name|getXDirAdj
 argument_list|()
 decl_stmt|;
 name|double
-name|thisXend
+name|thisWidth
 init|=
-name|getXDirAdj
-argument_list|()
-operator|+
 name|getWidthDirAdj
 argument_list|()
+decl_stmt|;
+name|double
+name|thisXend
+init|=
+name|thisXstart
+operator|+
+name|thisWidth
 decl_stmt|;
 name|double
 name|tp2Xstart
@@ -1411,10 +1443,7 @@ decl_stmt|;
 name|double
 name|tp2Xend
 init|=
-name|tp2
-operator|.
-name|getXDirAdj
-argument_list|()
+name|tp2Xstart
 operator|+
 name|tp2
 operator|.
@@ -1439,28 +1468,34 @@ return|;
 block|}
 comment|// no Y overlap at all so return as soon as possible. Note: 0.0 is in the upper left and
 comment|// y-coordinate is top of TextPosition
-if|if
-condition|(
+name|double
+name|thisYstart
+init|=
+name|getYDirAdj
+argument_list|()
+decl_stmt|;
+name|double
+name|tp2Ystart
+init|=
 name|tp2
 operator|.
 name|getYDirAdj
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|tp2Ystart
 operator|+
 name|tp2
 operator|.
 name|getHeightDir
 argument_list|()
 operator|<
-name|getYDirAdj
-argument_list|()
+name|thisYstart
 operator|||
-name|tp2
-operator|.
-name|getYDirAdj
-argument_list|()
+name|tp2Ystart
 operator|>
-name|getYDirAdj
-argument_list|()
+name|thisYstart
 operator|+
 name|getHeightDir
 argument_list|()
@@ -1497,8 +1532,7 @@ name|overlapPercent
 init|=
 name|overlap
 operator|/
-name|getWidthDirAdj
-argument_list|()
+name|thisWidth
 decl_stmt|;
 return|return
 name|overlapPercent
@@ -1530,8 +1564,7 @@ name|overlapPercent
 init|=
 name|overlap
 operator|/
-name|getWidthDirAdj
-argument_list|()
+name|thisWidth
 decl_stmt|;
 return|return
 name|overlapPercent
@@ -2030,7 +2063,7 @@ name|String
 name|str
 parameter_list|)
 block|{
-comment|// Unicode contains special combining forms of the diacritic characters which we want to use
+comment|// Unicode contains special combining forms of the diagetWidthDirAdj()critic characters which we want to use
 name|int
 name|codePoint
 init|=
