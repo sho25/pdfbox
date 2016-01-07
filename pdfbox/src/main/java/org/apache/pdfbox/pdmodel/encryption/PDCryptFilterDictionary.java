@@ -19,16 +19,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -167,13 +157,11 @@ name|cfm
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the crypt filter method.       * Allowed values are: NONE, V2, AESV2, AESV3      *      * @return the name of the crypt filter method.      *      * @throws IOException If there is an error accessing the data.      */
+comment|/**      * This will return the crypt filter method.       * Allowed values are: NONE, V2, AESV2, AESV3      *      * @return the name of the crypt filter method.      */
 specifier|public
 name|COSName
 name|getCryptFilterMethod
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|(
