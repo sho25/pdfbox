@@ -5221,6 +5221,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|incrementalUpdate
+condition|)
+block|{
 name|SecurityHandler
 name|securityHandler
 init|=
@@ -5258,6 +5264,7 @@ argument_list|(
 name|pdDocument
 argument_list|)
 expr_stmt|;
+block|}
 name|willEncrypt
 operator|=
 literal|true
