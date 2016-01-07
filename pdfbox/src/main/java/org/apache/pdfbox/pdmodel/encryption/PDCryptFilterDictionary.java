@@ -146,7 +146,7 @@ literal|40
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the crypt filter method.       * Allowed values are: NONE, V2, AESV2, AESV3      *      * @param cfm name of the crypt filter method.      *      * @throws IOException If there is an error setting the data.      */
+comment|/**      * This will set the crypt filter method.       * Allowed values are: NONE, V2, AESV2, AESV3      *      * @param cfm name of the crypt filter method.      *      */
 specifier|public
 name|void
 name|setCryptFilterMethod
@@ -154,8 +154,6 @@ parameter_list|(
 name|COSName
 name|cfm
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|cryptFilterDictionary
 operator|.
