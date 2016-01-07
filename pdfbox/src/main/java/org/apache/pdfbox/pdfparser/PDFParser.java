@@ -334,6 +334,12 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
+name|PDEncryption
+name|encryption
+init|=
+literal|null
+decl_stmt|;
+specifier|private
 name|AccessPermission
 name|accessPermission
 decl_stmt|;
@@ -607,7 +613,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-return|return
+name|PDDocument
+name|doc
+init|=
 operator|new
 name|PDDocument
 argument_list|(
@@ -618,6 +626,16 @@ name|source
 argument_list|,
 name|accessPermission
 argument_list|)
+decl_stmt|;
+name|doc
+operator|.
+name|setEncryptionDictionary
+argument_list|(
+name|encryption
+argument_list|)
+expr_stmt|;
+return|return
+name|doc
 return|;
 block|}
 comment|/**      * The initial parse will first parse only the trailer, the xrefstart and all xref tables to have a pointer (offset)      * to all the pdf's objects. It can handle linearized pdfs, which will have an xref at the end pointing to an xref      * at the beginning of the file. Last the root object is parsed.      *       * @throws IOException If something went wrong.      */
@@ -967,9 +985,8 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|PDEncryption
 name|encryption
-init|=
+operator|=
 operator|new
 name|PDEncryption
 argument_list|(
@@ -978,7 +995,7 @@ operator|.
 name|getEncryptionDictionary
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|DecryptionMaterial
 name|decryptionMaterial
 decl_stmt|;
