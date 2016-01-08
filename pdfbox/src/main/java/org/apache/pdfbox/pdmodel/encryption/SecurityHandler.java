@@ -444,7 +444,7 @@ operator|)
 literal|0x54
 block|}
 decl_stmt|;
-comment|/** The length of the secret key used to encrypt the document. */
+comment|/** The length in bits of the secret key used to encrypt the document. */
 specifier|protected
 name|int
 name|keyLength
