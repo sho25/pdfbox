@@ -1756,9 +1756,11 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"U+%04X is not available in this font's encoding: %s"
+literal|"U+%04X ('%s') is not available in this font's encoding: %s"
 argument_list|,
 name|unicode
+argument_list|,
+name|name
 argument_list|,
 name|encoding
 operator|.
