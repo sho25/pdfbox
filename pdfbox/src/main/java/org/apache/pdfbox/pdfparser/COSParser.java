@@ -4566,22 +4566,13 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|int
-name|nextValue
-init|=
-name|source
-operator|.
-name|read
+comment|// skip whitespaces
+name|skipSpaces
 argument_list|()
-decl_stmt|;
-comment|// the first character has to be a whitespace, and then a digit
+expr_stmt|;
+comment|// next value has to be a digit
 if|if
 condition|(
-name|isWhitespace
-argument_list|(
-name|nextValue
-argument_list|)
-operator|&&
 name|isDigit
 argument_list|()
 condition|)
