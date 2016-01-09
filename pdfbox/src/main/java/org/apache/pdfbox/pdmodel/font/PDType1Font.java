@@ -1699,33 +1699,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|unicode
-operator|>
-literal|0xff
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-name|String
-operator|.
-name|format
-argument_list|(
-literal|"Can't encode U+%04X in font %s. "
-operator|+
-literal|"Type 1 fonts only support 8-bit code points"
-argument_list|,
-name|unicode
-argument_list|,
-name|getName
-argument_list|()
-argument_list|)
-argument_list|)
-throw|;
-block|}
 name|String
 name|name
 init|=
