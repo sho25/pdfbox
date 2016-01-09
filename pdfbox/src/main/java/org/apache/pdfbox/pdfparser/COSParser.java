@@ -4566,11 +4566,26 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// skip whitespaces
+name|int
+name|nextValue
+init|=
+name|source
+operator|.
+name|read
+argument_list|()
+decl_stmt|;
+comment|// the first character has to be whitespace(s), and then a digit
+if|if
+condition|(
+name|isWhitespace
+argument_list|(
+name|nextValue
+argument_list|)
+condition|)
+block|{
 name|skipSpaces
 argument_list|()
 expr_stmt|;
-comment|// next value has to be a digit
 if|if
 condition|(
 name|isDigit
@@ -4619,6 +4634,7 @@ argument_list|(
 name|startXRefOffset
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// try to find a fixed offset
@@ -4712,7 +4728,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Can't find the object axref table/stream at offset "
+literal|"Can't find the object xref table/stream at offset "
 operator|+
 name|objectOffset
 argument_list|)
