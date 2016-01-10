@@ -141,6 +141,15 @@ operator|.
 name|getAcroForm
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|acroForm
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|acroForm
 operator|.
 name|setCacheFields
@@ -153,6 +162,14 @@ operator|.
 name|importFDF
 argument_list|(
 name|fdfDocument
+argument_list|)
+expr_stmt|;
+comment|//TODO this can be removed when we create appearance streams
+name|acroForm
+operator|.
+name|setNeedAppearances
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
