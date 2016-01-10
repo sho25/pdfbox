@@ -286,13 +286,6 @@ literal|2
 index|]
 argument_list|)
 expr_stmt|;
-name|fdf
-operator|.
-name|save
-argument_list|(
-literal|"tmp/outputXFDFtoPDF.fdf"
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 finally|finally
