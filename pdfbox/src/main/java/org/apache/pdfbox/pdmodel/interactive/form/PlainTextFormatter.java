@@ -877,11 +877,6 @@ argument_list|,
 name|verticalOffset
 argument_list|)
 expr_stmt|;
-comment|// reset the initial horizontalOffset
-name|horizontalOffset
-operator|=
-literal|0f
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -910,8 +905,8 @@ argument_list|)
 expr_stmt|;
 block|}
 name|lastPos
-operator|=
-name|startOffset
+operator|+=
+name|offset
 expr_stmt|;
 name|List
 argument_list|<
