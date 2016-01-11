@@ -6205,6 +6205,12 @@ name|int
 name|gid
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isCIDFont
+argument_list|()
+condition|)
+block|{
 for|for
 control|(
 name|RangeMapping
@@ -6233,6 +6239,7 @@ argument_list|)
 return|;
 block|}
 block|}
+block|}
 return|return
 name|super
 operator|.
@@ -6251,6 +6258,12 @@ parameter_list|(
 name|int
 name|cid
 parameter_list|)
+block|{
+if|if
+condition|(
+name|isCIDFont
+argument_list|()
+condition|)
 block|{
 for|for
 control|(
@@ -6278,6 +6291,7 @@ argument_list|(
 name|cid
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 return|return

@@ -168,6 +168,16 @@ operator|=
 name|isCIDFont
 expr_stmt|;
 block|}
+comment|/**      * Indicates if the charset belongs to a CID font.      *       * @return true for CID fonts      */
+specifier|public
+name|boolean
+name|isCIDFont
+parameter_list|()
+block|{
+return|return
+name|isCIDFont
+return|;
+block|}
 comment|/**      * Adds a new GID/SID/name combination to the charset.      *      * @param gid GID      * @param sid SID      */
 specifier|public
 name|void
