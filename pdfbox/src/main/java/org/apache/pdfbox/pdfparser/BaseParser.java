@@ -297,6 +297,23 @@ name|GENERATION_NUMBER_THRESHOLD
 init|=
 literal|65535
 decl_stmt|;
+specifier|static
+specifier|final
+name|int
+name|MAX_LENGTH_LONG
+init|=
+name|Long
+operator|.
+name|toString
+argument_list|(
+name|Long
+operator|.
+name|MAX_VALUE
+argument_list|)
+operator|.
+name|length
+argument_list|()
+decl_stmt|;
 comment|/**      * Log instance.      */
 specifier|private
 specifier|static
@@ -843,7 +860,12 @@ literal|"Invalid dictionary, found: '"
 operator|+
 name|c
 operator|+
-literal|"' but expected: '/'"
+literal|"' but expected: '/' at offset "
+operator|+
+name|seqSource
+operator|.
+name|getPosition
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -1159,6 +1181,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// label this item as direct, to avoid signature problems.
 name|value
 operator|.
 name|setDirect
@@ -4537,6 +4560,33 @@ operator|)
 name|lastByte
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|buffer
+operator|.
+name|length
+argument_list|()
+operator|>
+name|MAX_LENGTH_LONG
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Number '"
+operator|+
+name|buffer
+operator|+
+literal|"' is getting too long, stop reading at offset "
+operator|+
+name|seqSource
+operator|.
+name|getPosition
+argument_list|()
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
