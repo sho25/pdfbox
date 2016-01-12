@@ -255,7 +255,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the action to be performed when this annotation is to be activated.      *      * @return The action to be performed when this annotation is activated.      *      * TODO not all annotations have an A entry      */
+comment|/**      * Get the action to be performed when this annotation is to be activated. Either this or the      * destination entry should be set, but not both.      *      * @return The action to be performed when this annotation is activated.      */
 specifier|public
 name|PDAction
 name|getAction
@@ -288,7 +288,7 @@ name|action
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the annotation action. As of PDF 1.6 this is only used for Widget Annotations      *       * @param action The annotation action. TODO not all annotations have an A entry      */
+comment|/**      * Set the annotation action. Either this or the destination entry should be set, but not both.      *      * @param action The annotation action.      *      */
 specifier|public
 name|void
 name|setAction
@@ -312,7 +312,7 @@ name|action
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @param bs the border style dictionary to set. TODO not all annotations may have a BS entry      *      */
+comment|/**      * This will set the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @param bs the border style dictionary to set.       *       */
 specifier|public
 name|void
 name|setBorderStyle
@@ -336,7 +336,7 @@ name|bs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @return the border style dictionary.      */
+comment|/**      * This will retrieve the border style dictionary, specifying the width and dash pattern used in      * drawing the line.      *      * @return the border style dictionary.      */
 specifier|public
 name|PDBorderStyleDictionary
 name|getBorderStyle
@@ -375,14 +375,11 @@ name|bs
 argument_list|)
 return|;
 block|}
-else|else
-block|{
 return|return
 literal|null
 return|;
 block|}
-block|}
-comment|/**      * Get the destination to be displayed when the annotation is activated. Either this or the A should be set but not      * both.      *      * @return The destination for this annotation.      *      * @throws IOException If there is an error creating the destination.      */
+comment|/**      * Get the destination to be displayed when the annotation is activated. Either this or the      * action entry should be set, but not both.      *      * @return The destination for this annotation.      *      * @throws IOException If there is an error creating the destination.      */
 specifier|public
 name|PDDestination
 name|getDestination
@@ -403,21 +400,16 @@ operator|.
 name|DEST
 argument_list|)
 decl_stmt|;
-name|PDDestination
-name|retval
-init|=
+return|return
 name|PDDestination
 operator|.
 name|create
 argument_list|(
 name|base
 argument_list|)
-decl_stmt|;
-return|return
-name|retval
 return|;
 block|}
-comment|/**      * The new destination value.      *      * @param dest The updated destination.      */
+comment|/**      * The new destination value. Either this or the action entry should be set, but not both.      *      * @param dest The updated destination.      */
 specifier|public
 name|void
 name|setDestination
@@ -536,12 +528,9 @@ name|pa
 argument_list|)
 return|;
 block|}
-else|else
-block|{
 return|return
 literal|null
 return|;
-block|}
 block|}
 comment|/**      * This will set the set of quadpoints which encompass the areas of this annotation which will activate.      *      * @param quadPoints an array representing the set of area covered.      */
 specifier|public
@@ -613,13 +602,10 @@ name|toFloatArray
 argument_list|()
 return|;
 block|}
-else|else
-block|{
+comment|// Should never happen as this is a required item
 return|return
 literal|null
 return|;
-comment|// Should never happen as this is a required item
-block|}
 block|}
 block|}
 end_class
