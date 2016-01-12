@@ -2045,6 +2045,20 @@ argument_list|(
 literal|"Enter an URL"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|urlString
+operator|==
+literal|null
+operator|||
+name|urlString
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 try|try
 block|{
 name|readPDFurl
