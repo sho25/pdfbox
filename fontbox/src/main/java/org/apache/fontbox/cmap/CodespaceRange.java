@@ -253,7 +253,7 @@ condition|(
 name|value
 operator|>=
 name|startInt
-operator|||
+operator|&&
 name|value
 operator|<=
 name|endInt
