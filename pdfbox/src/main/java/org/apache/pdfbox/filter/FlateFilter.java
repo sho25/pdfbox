@@ -437,8 +437,12 @@ decl_stmt|;
 comment|// skip zlib header
 name|in
 operator|.
-name|skip
+name|read
 argument_list|(
+name|buf
+argument_list|,
+literal|0
+argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
