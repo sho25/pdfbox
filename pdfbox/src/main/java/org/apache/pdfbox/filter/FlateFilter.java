@@ -434,6 +434,14 @@ index|[
 literal|2048
 index|]
 decl_stmt|;
+comment|// skip zlib header
+name|in
+operator|.
+name|skip
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
 name|int
 name|read
 init|=
@@ -451,12 +459,15 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// use nowrap mode to bypass zlib-header and checksum to avoid a DataFormatException
 name|Inflater
 name|inflater
 init|=
 operator|new
 name|Inflater
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 name|inflater
 operator|.
@@ -476,7 +487,7 @@ init|=
 operator|new
 name|byte
 index|[
-literal|32
+literal|1024
 index|]
 decl_stmt|;
 name|boolean
