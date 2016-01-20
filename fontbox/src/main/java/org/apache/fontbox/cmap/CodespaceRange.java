@@ -258,9 +258,11 @@ name|value
 operator|<=
 name|endInt
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 block|}
 return|return
 literal|false
