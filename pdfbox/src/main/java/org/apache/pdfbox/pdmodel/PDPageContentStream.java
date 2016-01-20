@@ -1251,17 +1251,6 @@ name|font
 operator|.
 name|willBeSubset
 argument_list|()
-operator|&&
-operator|!
-name|document
-operator|.
-name|getFontsToSubset
-argument_list|()
-operator|.
-name|contains
-argument_list|(
-name|font
-argument_list|)
 condition|)
 block|{
 name|document
