@@ -3429,7 +3429,7 @@ literal|"' peekInt="
 operator|+
 name|peek
 operator|+
-literal|" "
+literal|" at offset "
 operator|+
 name|seqSource
 operator|.
