@@ -1019,7 +1019,7 @@ block|}
 comment|/**      * Set the structure element for this node.      *      * @param structureElement The new structure element for this node.      */
 specifier|public
 name|void
-name|setStructuredElement
+name|setStructureElement
 parameter_list|(
 name|PDStructureElement
 name|structureElement
