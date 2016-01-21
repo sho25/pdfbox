@@ -1716,7 +1716,7 @@ call|)
 argument_list|(
 name|fontSize
 operator|*
-name|textRenderingMatrix
+name|textMatrix
 operator|.
 name|getScalingFactorX
 argument_list|()
