@@ -17,16 +17,6 @@ name|font
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a 10-byte PANOSE classification.  *  * @link http://www.monotype.com/services/pan2  * @author John Hewson  */
 end_comment
@@ -35,8 +25,6 @@ begin_class
 specifier|public
 class|class
 name|PDPanoseClassification
-implements|implements
-name|Serializable
 block|{
 specifier|private
 specifier|final

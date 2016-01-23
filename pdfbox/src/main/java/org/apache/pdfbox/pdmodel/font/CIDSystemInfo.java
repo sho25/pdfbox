@@ -17,16 +17,6 @@ name|font
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a CIDSystemInfo for the FontMapper API.  *  * @author John Hewson  */
 end_comment
@@ -36,8 +26,6 @@ specifier|public
 specifier|final
 class|class
 name|CIDSystemInfo
-implements|implements
-name|Serializable
 block|{
 specifier|private
 specifier|final
