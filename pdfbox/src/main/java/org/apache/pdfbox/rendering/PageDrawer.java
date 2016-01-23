@@ -2526,7 +2526,7 @@ operator|++
 name|i
 control|)
 block|{
-comment|// minimum line dash width avoids JVM crash, see PDFBOX-2373
+comment|// minimum line dash width avoids JVM crash, see PDFBOX-2373, PDFBOX-2929, PDFBOX-3204
 name|float
 name|w
 init|=
@@ -2556,7 +2556,7 @@ name|max
 argument_list|(
 name|w
 argument_list|,
-literal|0.016f
+literal|0.035f
 argument_list|)
 expr_stmt|;
 block|}
