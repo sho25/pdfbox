@@ -6301,6 +6301,16 @@ name|containsKey
 argument_list|(
 name|COSName
 operator|.
+name|MOD_DATE
+argument_list|)
+operator|&&
+operator|(
+name|dictionary
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
 name|TITLE
 argument_list|)
 operator|||
@@ -6357,6 +6367,7 @@ name|COSName
 operator|.
 name|CREATION_DATE
 argument_list|)
+operator|)
 condition|)
 block|{
 name|trailer
