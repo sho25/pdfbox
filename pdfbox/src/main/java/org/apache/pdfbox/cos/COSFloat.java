@@ -269,9 +269,8 @@ operator|=
 name|Float
 operator|.
 name|MAX_VALUE
-expr_stmt|;
-name|floatValue
-operator|*=
+operator|*
+operator|(
 name|floatValue
 operator|==
 name|Float
@@ -282,6 +281,7 @@ literal|1
 else|:
 operator|-
 literal|1
+operator|)
 expr_stmt|;
 name|valueReplaced
 operator|=
