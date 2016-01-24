@@ -260,8 +260,6 @@ name|e
 parameter_list|)
 block|{
 comment|// might be a huge number, see PDFBOX-3116
-try|try
-block|{
 return|return
 operator|new
 name|COSFloat
@@ -269,25 +267,6 @@ argument_list|(
 name|number
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|e2
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Not a number: "
-operator|+
-name|number
-argument_list|,
-name|e2
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 else|else
