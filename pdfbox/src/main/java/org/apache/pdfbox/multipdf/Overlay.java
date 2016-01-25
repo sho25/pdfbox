@@ -375,12 +375,6 @@ literal|null
 decl_stmt|;
 specifier|private
 name|String
-name|outputFilename
-init|=
-literal|null
-decl_stmt|;
-specifier|private
-name|String
 name|defaultOverlayFilename
 init|=
 literal|null
@@ -463,9 +457,9 @@ name|useAllOverlayPages
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * This will add overlays to a documents.      *       * @param specificPageOverlayFile map of overlay files for specific pages      * @throws IOException if something went wrong      */
+comment|/**      * This will add overlays to a documents.      *       * @param specificPageOverlayFile map of overlay files for specific pages      *       * @return the resulting pdf, which has to be saved and closed be the caller      *        * @throws IOException if something went wrong      */
 specifier|public
-name|void
+name|PDDocument
 name|overlay
 parameter_list|(
 name|Map
@@ -546,29 +540,12 @@ argument_list|(
 name|inputPDFDocument
 argument_list|)
 expr_stmt|;
+return|return
 name|inputPDFDocument
-operator|.
-name|save
-argument_list|(
-name|outputFilename
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|inputPDFDocument
-operator|!=
-literal|null
-condition|)
-block|{
-name|inputPDFDocument
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|defaultOverlay
@@ -2316,30 +2293,6 @@ parameter_list|()
 block|{
 return|return
 name|inputFileName
-return|;
-block|}
-comment|/**      * Sets the output file.      *       * @param outputFile the output file      */
-specifier|public
-name|void
-name|setOutputFile
-parameter_list|(
-name|String
-name|outputFile
-parameter_list|)
-block|{
-name|outputFilename
-operator|=
-name|outputFile
-expr_stmt|;
-block|}
-comment|/**      * Returns the output file.      *       * @return the output file      */
-specifier|public
-name|String
-name|getOutputFile
-parameter_list|()
-block|{
-return|return
-name|outputFilename
 return|;
 block|}
 comment|/**      * Sets the default overlay file.      *       * @param defaultOverlayFile the default overlay file      */
