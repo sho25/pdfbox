@@ -365,7 +365,7 @@ name|getFormType
 parameter_list|()
 block|{
 return|return
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -387,7 +387,7 @@ name|int
 name|formType
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -419,7 +419,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -459,7 +459,7 @@ return|return
 operator|new
 name|PDStream
 argument_list|(
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 argument_list|)
 return|;
@@ -474,7 +474,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|createInputStream
@@ -495,7 +495,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -535,7 +535,7 @@ name|PDResources
 name|resources
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -567,7 +567,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -613,7 +613,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|removeItem
@@ -626,7 +626,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -657,7 +657,7 @@ init|=
 operator|(
 name|COSArray
 operator|)
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -748,7 +748,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -768,7 +768,7 @@ name|getStructParents
 parameter_list|()
 block|{
 return|return
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -790,7 +790,7 @@ name|int
 name|structParent
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
