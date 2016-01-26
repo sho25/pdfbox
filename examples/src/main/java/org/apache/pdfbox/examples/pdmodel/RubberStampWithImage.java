@@ -642,7 +642,7 @@ name|PDAppearanceStream
 argument_list|(
 name|form
 operator|.
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 argument_list|)
 decl_stmt|;
