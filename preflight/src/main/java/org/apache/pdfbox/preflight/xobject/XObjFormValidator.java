@@ -388,7 +388,7 @@ name|context
 argument_list|,
 name|xobj
 operator|.
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;
