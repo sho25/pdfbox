@@ -1849,7 +1849,7 @@ argument_list|)
 decl_stmt|;
 name|newStream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|mergeInto
