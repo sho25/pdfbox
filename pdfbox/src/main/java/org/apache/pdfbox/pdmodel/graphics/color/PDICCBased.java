@@ -892,7 +892,7 @@ name|numberOfComponents
 operator|=
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -1029,7 +1029,7 @@ name|alternate
 init|=
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1212,7 +1212,7 @@ name|COSArray
 operator|)
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1268,7 +1268,7 @@ name|COSStream
 operator|)
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1380,7 +1380,7 @@ name|n
 expr_stmt|;
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -1426,7 +1426,7 @@ expr_stmt|;
 block|}
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1459,7 +1459,7 @@ name|COSArray
 operator|)
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1484,7 +1484,7 @@ argument_list|()
 expr_stmt|;
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1587,7 +1587,7 @@ parameter_list|)
 block|{
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
