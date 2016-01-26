@@ -116,7 +116,7 @@ argument_list|)
 decl_stmt|;
 name|strm
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -141,7 +141,7 @@ name|getType
 parameter_list|()
 block|{
 return|return
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -159,7 +159,7 @@ name|getNumberOfObjects
 parameter_list|()
 block|{
 return|return
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -181,7 +181,7 @@ name|int
 name|n
 parameter_list|)
 block|{
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -201,7 +201,7 @@ name|getFirstByteOffset
 parameter_list|()
 block|{
 return|return
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -223,7 +223,7 @@ name|int
 name|n
 parameter_list|)
 block|{
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -253,7 +253,7 @@ init|=
 operator|(
 name|COSStream
 operator|)
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -292,7 +292,7 @@ name|PDObjectStream
 name|stream
 parameter_list|)
 block|{
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
