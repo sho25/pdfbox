@@ -227,7 +227,7 @@ specifier|final
 name|PDStream
 name|stream
 decl_stmt|;
-comment|/**      * Creates a new XObject instance of the appropriate type for the COS stream.      *      * @param base The stream which is wrapped by this XObject.      * @return A new XObject instance.      * @throws java.io.IOException if there is an error creating the XObject.      */
+comment|/**      * Creates a new XObject instance of the appropriate type for the COS stream.      *      * @param base The stream which is wrapped by this XObject.      * @param resources      * @return A new XObject instance.      * @throws java.io.IOException if there is an error creating the XObject.      */
 specifier|public
 specifier|static
 name|PDXObject
@@ -454,7 +454,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Creates a new XObject from the given stream and subtype.      * @param stream The stream to read.      */
+comment|/**      * Creates a new XObject from the given stream and subtype.      * @param stream The stream to read.      * @param subtype      */
 specifier|protected
 name|PDXObject
 parameter_list|(
@@ -507,7 +507,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new XObject from the given stream and subtype.      * @param stream The stream to read.      */
+comment|/**      * Creates a new XObject from the given stream and subtype.      * @param stream The stream to read.      * @param subtype      */
 specifier|protected
 name|PDXObject
 parameter_list|(
@@ -623,7 +623,7 @@ annotation|@
 name|Override
 specifier|public
 specifier|final
-name|COSBase
+name|COSStream
 name|getCOSObject
 parameter_list|()
 block|{
