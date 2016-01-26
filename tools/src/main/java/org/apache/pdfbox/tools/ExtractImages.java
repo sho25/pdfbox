@@ -908,7 +908,7 @@ name|contains
 argument_list|(
 name|xobject
 operator|.
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 argument_list|)
 condition|)
@@ -922,7 +922,7 @@ name|add
 argument_list|(
 name|xobject
 operator|.
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;
