@@ -1046,7 +1046,7 @@ literal|0
 argument_list|,
 name|saveGraphics
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;
