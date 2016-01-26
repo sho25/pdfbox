@@ -273,7 +273,7 @@ name|cosStream
 init|=
 name|ximage
 operator|.
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|assertNotNull
@@ -317,7 +317,7 @@ name|assertTrue
 argument_list|(
 name|ximage
 operator|.
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getLength
