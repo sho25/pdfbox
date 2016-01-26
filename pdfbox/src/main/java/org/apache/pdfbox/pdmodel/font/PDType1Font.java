@@ -1118,7 +1118,7 @@ name|stream
 init|=
 name|fontFile
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|int
