@@ -410,7 +410,7 @@ name|dict
 init|=
 name|pdImage
 operator|.
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 name|dict

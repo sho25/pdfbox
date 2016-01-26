@@ -972,7 +972,7 @@ argument_list|)
 decl_stmt|;
 name|pdImage
 operator|.
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
