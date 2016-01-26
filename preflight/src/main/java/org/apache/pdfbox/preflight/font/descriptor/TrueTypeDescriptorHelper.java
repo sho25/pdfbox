@@ -287,7 +287,7 @@ literal|null
 else|:
 name|fontFile
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|)
 decl_stmt|;

@@ -420,7 +420,7 @@ name|stream
 init|=
 name|ff2
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 if|if

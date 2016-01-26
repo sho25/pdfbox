@@ -361,7 +361,7 @@ name|stream
 init|=
 name|ff3
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 if|if

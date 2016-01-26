@@ -392,7 +392,7 @@ name|stream
 init|=
 name|ff1
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 decl_stmt|;
 if|if
