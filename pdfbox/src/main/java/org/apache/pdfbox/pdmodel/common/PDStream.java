@@ -854,7 +854,9 @@ return|return
 name|is
 return|;
 block|}
-comment|/**      * Get the cos stream associated with this object.      *      * @return The cos object that matches this Java object.      */
+comment|/**      * Get the cos stream associated with this object.      *      * @return The cos object that matches this Java object.      *       * @deprecated use {@link #getCOSObject() }      */
+annotation|@
+name|Deprecated
 specifier|public
 name|COSStream
 name|getStream
