@@ -239,7 +239,7 @@ argument_list|)
 expr_stmt|;
 name|functionStream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -296,7 +296,7 @@ block|{
 return|return
 name|functionStream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 return|;
 block|}
