@@ -564,7 +564,7 @@ operator|.
 name|IMAGE
 argument_list|)
 expr_stmt|;
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1235,7 +1235,7 @@ parameter_list|)
 block|{
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|addAll
@@ -1265,7 +1265,7 @@ init|=
 operator|(
 name|COSStream
 operator|)
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -1303,7 +1303,7 @@ name|PDMetadata
 name|meta
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -1323,7 +1323,7 @@ name|getStructParent
 parameter_list|()
 block|{
 return|return
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -1345,7 +1345,7 @@ name|int
 name|key
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -1969,7 +1969,7 @@ return|return
 name|image2
 return|;
 block|}
-comment|/**      * Returns the Mask Image XObject associated with this image, or null if there is none.      * @return Mask Image XObject      */
+comment|/**      * Returns the Mask Image XObject associated with this image, or null if there is none.      * @return Mask Image XObject      * @throws java.io.IOException      */
 specifier|public
 name|PDImageXObject
 name|getMask
@@ -1980,7 +1980,7 @@ block|{
 name|COSBase
 name|mask
 init|=
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -2010,7 +2010,7 @@ init|=
 operator|(
 name|COSStream
 operator|)
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -2056,7 +2056,7 @@ block|{
 name|COSBase
 name|mask
 init|=
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -2084,7 +2084,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Returns the Soft Mask Image XObject associated with this image, or null if there is none.      * @return the SMask Image XObject, or null.      */
+comment|/**      * Returns the Soft Mask Image XObject associated with this image, or null if there is none.      * @return the SMask Image XObject, or null.      * @throws java.io.IOException      */
 specifier|public
 name|PDImageXObject
 name|getSoftMask
@@ -2098,7 +2098,7 @@ init|=
 operator|(
 name|COSStream
 operator|)
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -2154,7 +2154,7 @@ block|}
 else|else
 block|{
 return|return
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -2180,7 +2180,7 @@ name|int
 name|bpc
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -2212,7 +2212,7 @@ block|{
 name|COSBase
 name|cosBase
 init|=
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -2328,7 +2328,7 @@ return|return
 name|getStream
 argument_list|()
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getLength
@@ -2347,7 +2347,7 @@ name|PDColorSpace
 name|cs
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -2377,7 +2377,7 @@ name|getHeight
 parameter_list|()
 block|{
 return|return
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -2398,7 +2398,7 @@ name|int
 name|h
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -2419,7 +2419,7 @@ name|getWidth
 parameter_list|()
 block|{
 return|return
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getInt
@@ -2440,7 +2440,7 @@ name|int
 name|w
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -2461,7 +2461,7 @@ name|getInterpolate
 parameter_list|()
 block|{
 return|return
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getBoolean
@@ -2484,7 +2484,7 @@ name|boolean
 name|value
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setBoolean
@@ -2507,7 +2507,7 @@ name|COSArray
 name|decode
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -2530,7 +2530,7 @@ block|{
 name|COSBase
 name|decode
 init|=
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -2566,7 +2566,7 @@ name|isStencil
 parameter_list|()
 block|{
 return|return
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getBoolean
@@ -2589,7 +2589,7 @@ name|boolean
 name|isStencil
 parameter_list|)
 block|{
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setBoolean
