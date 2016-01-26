@@ -145,7 +145,7 @@ argument_list|(
 name|document
 argument_list|)
 expr_stmt|;
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -192,7 +192,7 @@ argument_list|,
 name|str
 argument_list|)
 expr_stmt|;
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -230,7 +230,7 @@ argument_list|,
 name|filter
 argument_list|)
 expr_stmt|;
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -252,7 +252,7 @@ name|String
 name|mimeType
 parameter_list|)
 block|{
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -272,7 +272,7 @@ name|getSubtype
 parameter_list|()
 block|{
 return|return
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getNameAsString
@@ -290,7 +290,7 @@ name|getSize
 parameter_list|()
 block|{
 return|return
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getEmbeddedInt
@@ -310,7 +310,7 @@ name|int
 name|size
 parameter_list|)
 block|{
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setEmbeddedInt
@@ -332,7 +332,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getEmbeddedDate
@@ -352,7 +352,7 @@ name|Calendar
 name|creation
 parameter_list|)
 block|{
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setEmbeddedDate
@@ -374,7 +374,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getEmbeddedDate
@@ -394,7 +394,7 @@ name|Calendar
 name|mod
 parameter_list|)
 block|{
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setEmbeddedDate
@@ -414,7 +414,7 @@ name|getCheckSum
 parameter_list|()
 block|{
 return|return
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getEmbeddedString
@@ -434,7 +434,7 @@ name|String
 name|checksum
 parameter_list|)
 block|{
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setEmbeddedString
@@ -464,7 +464,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -512,7 +512,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -539,7 +539,7 @@ operator|new
 name|COSDictionary
 argument_list|()
 expr_stmt|;
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -589,7 +589,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -637,7 +637,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -664,7 +664,7 @@ operator|new
 name|COSDictionary
 argument_list|()
 expr_stmt|;
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -714,7 +714,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -762,7 +762,7 @@ init|=
 operator|(
 name|COSDictionary
 operator|)
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|getDictionaryObject
@@ -789,7 +789,7 @@ operator|new
 name|COSDictionary
 argument_list|()
 expr_stmt|;
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
