@@ -761,7 +761,7 @@ argument_list|()
 argument_list|,
 name|form
 operator|.
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 argument_list|,
 name|PAGE_TO_FORM_FILTER
