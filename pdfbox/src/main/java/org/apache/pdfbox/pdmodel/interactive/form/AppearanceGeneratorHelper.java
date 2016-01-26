@@ -2488,7 +2488,7 @@ name|out
 init|=
 name|appearanceStream
 operator|.
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|createOutputStream
