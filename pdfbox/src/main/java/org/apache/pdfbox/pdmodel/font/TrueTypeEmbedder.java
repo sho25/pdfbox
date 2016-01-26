@@ -531,7 +531,7 @@ argument_list|)
 decl_stmt|;
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
