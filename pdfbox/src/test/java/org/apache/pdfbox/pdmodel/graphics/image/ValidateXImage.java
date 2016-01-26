@@ -176,6 +176,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|PDPageContentStream
+operator|.
+name|AppendMode
+import|;
+end_import
+
+begin_import
 import|import static
 name|junit
 operator|.
@@ -600,7 +616,9 @@ name|document
 argument_list|,
 name|page
 argument_list|,
-literal|true
+name|AppendMode
+operator|.
+name|APPEND
 argument_list|,
 literal|false
 argument_list|)

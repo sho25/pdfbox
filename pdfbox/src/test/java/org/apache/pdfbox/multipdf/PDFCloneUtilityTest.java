@@ -97,6 +97,22 @@ name|PDPageContentStream
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|PDPageContentStream
+operator|.
+name|AppendMode
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test suite for PDFCloneUtility, see PDFBOX-2052.  *  * @author Cornelis Hoeflake  * @author Tilman Hausherr  */
 end_comment
@@ -151,7 +167,9 @@ name|srcDoc
 argument_list|,
 name|pdPage
 argument_list|,
-literal|true
+name|AppendMode
+operator|.
+name|APPEND
 argument_list|,
 literal|true
 argument_list|)
@@ -166,7 +184,9 @@ name|srcDoc
 argument_list|,
 name|pdPage
 argument_list|,
-literal|true
+name|AppendMode
+operator|.
+name|APPEND
 argument_list|,
 literal|true
 argument_list|)
@@ -265,7 +285,9 @@ name|srcDoc
 argument_list|,
 name|pdPage
 argument_list|,
-literal|true
+name|AppendMode
+operator|.
+name|APPEND
 argument_list|,
 literal|false
 argument_list|)
@@ -312,7 +334,9 @@ name|srcDoc
 argument_list|,
 name|pdPage
 argument_list|,
-literal|true
+name|AppendMode
+operator|.
+name|APPEND
 argument_list|,
 literal|false
 argument_list|)
@@ -359,7 +383,9 @@ name|srcDoc
 argument_list|,
 name|pdPage
 argument_list|,
-literal|true
+name|AppendMode
+operator|.
+name|APPEND
 argument_list|,
 literal|false
 argument_list|)

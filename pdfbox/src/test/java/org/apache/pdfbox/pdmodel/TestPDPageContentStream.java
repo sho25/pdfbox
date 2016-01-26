@@ -79,6 +79,22 @@ name|PDFStreamParser
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|PDPageContentStream
+operator|.
+name|AppendMode
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Yegor Kozlov  */
 end_comment
@@ -128,7 +144,9 @@ name|doc
 argument_list|,
 name|page
 argument_list|,
-literal|false
+name|AppendMode
+operator|.
+name|OVERWRITE
 argument_list|,
 literal|true
 argument_list|)
@@ -311,7 +329,9 @@ name|doc
 argument_list|,
 name|page
 argument_list|,
-literal|false
+name|AppendMode
+operator|.
+name|OVERWRITE
 argument_list|,
 literal|false
 argument_list|)
