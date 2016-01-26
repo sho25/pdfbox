@@ -113,7 +113,7 @@ argument_list|(
 name|document
 argument_list|)
 expr_stmt|;
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -125,7 +125,7 @@ argument_list|,
 literal|"Metadata"
 argument_list|)
 expr_stmt|;
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -158,7 +158,7 @@ argument_list|,
 name|str
 argument_list|)
 expr_stmt|;
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -170,7 +170,7 @@ argument_list|,
 literal|"Metadata"
 argument_list|)
 expr_stmt|;
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
