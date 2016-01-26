@@ -583,7 +583,7 @@ argument_list|)
 expr_stmt|;
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -602,7 +602,7 @@ argument_list|)
 expr_stmt|;
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -634,7 +634,9 @@ name|getCOSObject
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the stream.      * @return The stream for this object.      */
+comment|/**      * Returns the stream.      * @return The stream for this object.      * @deprecated use {@link #getCOSObject() }      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|final
 name|COSStream
@@ -644,7 +646,7 @@ block|{
 return|return
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 return|;
 block|}
