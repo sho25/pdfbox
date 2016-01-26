@@ -795,7 +795,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will flatten the specified form fields.      *       *<p>Flattening a form field will take the current appearance and make that part      * of the pages content stream. All form fields and annotations associated are removed.</p>      *       * @param refreshAppearances if set to true the appearances for the form field widgets will be updated      * @throws IOException       */
+comment|/**      * This will flatten the specified form fields.      *       *<p>Flattening a form field will take the current appearance and make that part      * of the pages content stream. All form fields and annotations associated are removed.</p>      *       * @param fields      * @param refreshAppearances if set to true the appearances for the form field widgets will be updated      * @throws IOException       */
 specifier|public
 name|void
 name|flatten
@@ -944,7 +944,7 @@ operator|.
 name|getNormalAppearanceStream
 argument_list|()
 operator|.
-name|getCOSStream
+name|getCOSObject
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1127,7 +1127,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Refreshes the appearance streams and appearance dictionaries for       * the widget annotations of the specified fields.      *       * @throws IOException      */
+comment|/**      * Refreshes the appearance streams and appearance dictionaries for       * the widget annotations of the specified fields.      *       * @param fields      * @throws IOException      */
 specifier|public
 name|void
 name|refreshAppearances
