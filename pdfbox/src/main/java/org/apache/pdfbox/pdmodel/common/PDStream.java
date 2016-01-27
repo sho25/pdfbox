@@ -641,7 +641,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Convert this standard java object to a COS object.      *       * @return The cos object that matches this Java object.      */
+comment|/**      * Get the cos stream associated with this object.      *      * @return The cos object that matches this Java object.      *      */
 annotation|@
 name|Override
 specifier|public
