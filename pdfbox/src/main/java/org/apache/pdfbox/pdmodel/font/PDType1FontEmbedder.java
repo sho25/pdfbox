@@ -392,7 +392,7 @@ argument_list|)
 decl_stmt|;
 name|fontStream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
@@ -427,7 +427,7 @@ control|)
 block|{
 name|fontStream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setInt
