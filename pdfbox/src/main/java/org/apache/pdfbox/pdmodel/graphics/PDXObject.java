@@ -527,7 +527,7 @@ expr_stmt|;
 comment|// could be used for writing:
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
@@ -546,7 +546,7 @@ argument_list|)
 expr_stmt|;
 name|stream
 operator|.
-name|getStream
+name|getCOSObject
 argument_list|()
 operator|.
 name|setName
