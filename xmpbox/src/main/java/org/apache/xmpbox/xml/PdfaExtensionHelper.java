@@ -1036,6 +1036,27 @@ decl_stmt|;
 if|if
 condition|(
 name|pt
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|XmpParsingException
+argument_list|(
+name|ErrorType
+operator|.
+name|NoValueType
+argument_list|,
+literal|"Unknown property value type : "
+operator|+
+name|ptype
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|pt
 operator|.
 name|type
 argument_list|()
