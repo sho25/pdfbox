@@ -858,7 +858,7 @@ name|resetContext
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a new PDPage content stream.      *      * @param document The document the page is part of.      * @param sourcePage The page to write the contents to.      * @param appendContent Indicates whether content will be overwritten, appended or prepended.      * @param compress Tell if the content stream should compress the page contents.      * @param resetContext Tell if the graphic context should be reset. This is only relevant      *                     in non-overwrite modes.      * @throws IOException If there is an error writing to the page contents.      */
+comment|/**      * Create a new PDPage content stream.      *      * @param document The document the page is part of.      * @param sourcePage The page to write the contents to.      * @param appendContent Indicates whether content will be overwritten, appended or prepended.      * @param compress Tell if the content stream should compress the page contents.      * @param resetContext Tell if the graphic context should be reset. This is only relevant      *                     when the appendContent parameter is set to {@link AppendMode#APPEND}.      * @throws IOException If there is an error writing to the page contents.      */
 specifier|public
 name|PDPageContentStream
 parameter_list|(
