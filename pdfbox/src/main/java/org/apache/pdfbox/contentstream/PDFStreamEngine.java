@@ -1721,7 +1721,7 @@ name|getNormalAppearanceStream
 argument_list|()
 return|;
 block|}
-comment|/**      * Process a child stream of the given page. Cannot be used with #processPage(PDPage).      *      * @param contentStream the child content stream      * @throws IOException if there is an exception while processing the stream      */
+comment|/**      * Process a child stream of the given page. Cannot be used with {@link #processPage(PDPage)}.      *      * @param contentStream the child content stream      * @param page      * @throws IOException if there is an exception while processing the stream      */
 specifier|protected
 name|void
 name|processChildStream
