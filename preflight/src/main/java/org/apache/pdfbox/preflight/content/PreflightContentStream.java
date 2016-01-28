@@ -428,9 +428,7 @@ try|try
 block|{
 if|if
 condition|(
-name|this
-operator|.
-name|processeedPage
+name|processedPage
 operator|.
 name|hasContents
 argument_list|()
@@ -438,9 +436,7 @@ condition|)
 block|{
 name|processPage
 argument_list|(
-name|this
-operator|.
-name|processeedPage
+name|processedPage
 argument_list|)
 expr_stmt|;
 block|}
@@ -509,11 +505,12 @@ block|{
 comment|// workaround for preflight not finding widget annotation parent PDPage
 if|if
 condition|(
-name|processeedPage
+name|processedPage
 operator|==
 literal|null
 condition|)
 block|{
+comment|// dummy page, resource lookup may fail
 name|processChildStream
 argument_list|(
 name|form
@@ -523,7 +520,6 @@ name|PDPage
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// dummy page, resource lookup may fail
 block|}
 else|else
 block|{
@@ -531,7 +527,7 @@ name|processChildStream
 argument_list|(
 name|form
 argument_list|,
-name|processeedPage
+name|processedPage
 argument_list|)
 expr_stmt|;
 block|}
@@ -601,7 +597,7 @@ name|processChildStream
 argument_list|(
 name|pattern
 argument_list|,
-name|processeedPage
+name|processedPage
 argument_list|)
 expr_stmt|;
 block|}
