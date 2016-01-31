@@ -3263,6 +3263,11 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isLenient
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -3278,6 +3283,13 @@ argument_list|)
 expr_stmt|;
 comment|// the error is handled in parseDictObjects
 return|return;
+block|}
+else|else
+block|{
+throw|throw
+name|exception
+throw|;
+block|}
 block|}
 comment|// get set of object numbers referenced for this object stream
 specifier|final
