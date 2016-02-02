@@ -71,6 +71,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSBase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -363,7 +377,12 @@ literal|0
 decl_stmt|;
 comment|//black generation
 comment|//undercolor removal
-comment|//transfer
+specifier|private
+name|COSBase
+name|transfer
+init|=
+literal|null
+decl_stmt|;
 comment|//halftone
 specifier|private
 name|double
@@ -1136,6 +1155,32 @@ operator|)
 name|nonStrokingAlphaConstant
 argument_list|)
 return|;
+block|}
+comment|/**      * This will get the transfer function.      *      * @return The transfer function. According to the PDF specification, this is either a single      * function (which applies to all process colorants) or an array of four functions (which apply      * to the process colorants individually). The name Identity may be used to represent the      * identity function, and the name Default denotes the transfer function that was in effect at      * the start of the page.      */
+specifier|public
+name|COSBase
+name|getTransfer
+parameter_list|()
+block|{
+return|return
+name|transfer
+return|;
+block|}
+comment|/**      * This will set the transfer function.      *      * @param transfer The transfer function. According to the PDF specification, this is either a      * single function (which applies to all process colorants) or an array of four functions (which      * apply to the process colorants individually). The name Identity may be used to represent the      * identity function, and the name Default denotes the transfer function that was in effect at      * the start of the page.      */
+specifier|public
+name|void
+name|setTransfer
+parameter_list|(
+name|COSBase
+name|transfer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transfer
+operator|=
+name|transfer
+expr_stmt|;
 block|}
 block|}
 end_class
