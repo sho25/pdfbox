@@ -2678,6 +2678,7 @@ literal|true
 return|;
 block|}
 else|else
+block|{
 return|return
 name|cidSystemInfo
 operator|.
@@ -2705,6 +2706,7 @@ operator|)
 operator|==
 name|KOREAN_JOHAB
 return|;
+block|}
 block|}
 block|}
 comment|/**      * A potential match for a font substitution.      */

@@ -1573,6 +1573,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// Will be cached by underlying font
 return|return
 name|descendantFont
 operator|.

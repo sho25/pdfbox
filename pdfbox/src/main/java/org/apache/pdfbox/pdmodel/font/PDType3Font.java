@@ -995,14 +995,25 @@ block|{
 if|if
 condition|(
 name|fontBBox
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+name|fontBBox
+operator|=
+name|generateBoundingBox
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|fontBBox
 return|;
 block|}
+specifier|private
+name|BoundingBox
+name|generateBoundingBox
+parameter_list|()
+block|{
 name|PDRectangle
 name|rect
 init|=
@@ -1200,8 +1211,7 @@ block|}
 block|}
 block|}
 block|}
-name|fontBBox
-operator|=
+return|return
 operator|new
 name|BoundingBox
 argument_list|(
@@ -1225,9 +1235,6 @@ operator|.
 name|getUpperRightY
 argument_list|()
 argument_list|)
-expr_stmt|;
-return|return
-name|fontBBox
 return|;
 block|}
 comment|/**      * Returns the dictionary containing all streams to be used to render the glyphs.      *       * @return the dictionary containing all glyph streams.      */
