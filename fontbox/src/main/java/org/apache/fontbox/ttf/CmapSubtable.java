@@ -1373,6 +1373,16 @@ operator|.
 name|readUnsignedShort
 argument_list|()
 decl_stmt|;
+comment|// skip emtpy tables
+if|if
+condition|(
+name|entryCount
+operator|==
+literal|0
+condition|)
+block|{
+return|return;
+block|}
 name|Map
 argument_list|<
 name|Integer
