@@ -852,7 +852,9 @@ name|refreshAppearances
 condition|)
 block|{
 name|refreshAppearances
-argument_list|()
+argument_list|(
+name|fields
+argument_list|)
 expr_stmt|;
 block|}
 comment|// indicates if the original content stream
