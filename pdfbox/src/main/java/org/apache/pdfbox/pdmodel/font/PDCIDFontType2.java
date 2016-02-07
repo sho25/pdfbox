@@ -1298,11 +1298,15 @@ comment|// The conforming reader shall select glyphs by translating characters f
 comment|// encoding specified by the predefined CMap to one of the encodings in the TrueType
 comment|// font's 'cmap' table. The means by which this is accomplished are implementation-
 comment|// dependent.
+comment|// omit the CID2GID mapping if the embedded font is replaced by an external font
 if|if
 condition|(
 name|cid2gid
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|isDamaged
 condition|)
 block|{
 comment|// Acrobat allows non-embedded GIDs - todo: can we find a test PDF for this?
