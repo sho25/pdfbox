@@ -29,6 +29,34 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSBase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSDictionary
 import|;
 end_import
@@ -75,6 +103,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
@@ -89,6 +118,7 @@ operator|new
 name|COSDictionary
 argument_list|()
 expr_stmt|;
+comment|// the specification claim to use direct objects
 name|dictionary
 operator|.
 name|setDirect
@@ -96,7 +126,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// the specification claim to use direct objects
 block|}
 comment|/**      * Constructor.      *      * @param dict The signature dictionary.      */
 specifier|public
@@ -110,6 +139,7 @@ name|dictionary
 operator|=
 name|dict
 expr_stmt|;
+comment|// the specification claim to use direct objects
 name|dictionary
 operator|.
 name|setDirect
@@ -117,9 +147,10 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// the specification claim to use direct objects
 block|}
 comment|/**      * Convert this standard java object to a COS dictionary.      *      * @return The COS dictionary that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
 name|getCOSObject
@@ -138,7 +169,7 @@ block|{
 return|return
 name|dictionary
 operator|.
-name|getString
+name|getNameAsString
 argument_list|(
 name|COSName
 operator|.
@@ -167,7 +198,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The build date of the software module.      *      * @return the build date of the software module      */
+comment|/**      * The build date of the software module. This string is normally produced by the compiler that      * is used to compile the software, for example using the Date and Time preprocessor flags. As      * such, this not likely to be in PDF Date format.      *      * @return the build date of the software module      */
 specifier|public
 name|String
 name|getDate
@@ -184,7 +215,7 @@ name|DATE
 argument_list|)
 return|;
 block|}
-comment|/**      * The build date of the software module. This string is normally produced by the      * compiler under C++.      *      * @param date is the build date of the software module      */
+comment|/**      * The build date of the software module. This string is normally produced by the compiler.      *      * @param date is the build date of the software module      */
 specifier|public
 name|void
 name|setDate
@@ -204,6 +235,40 @@ argument_list|,
 name|date
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * A text string indicating the version of the application implementation, as described by the      *<code>Name</code> attribute in this dictionary. When set by Adobe Acrobat, this entry is in      * the format: major.minor.micro (for example 7.0.7).      *<p>      * NOTE: Version value is specific for build data dictionary when used as the<code>App</code>      * dictionary in a build properties dictionary.      *</p>      *      * @param applicationVersion the application implementation version      */
+specifier|public
+name|void
+name|setVersion
+parameter_list|(
+name|String
+name|applicationVersion
+parameter_list|)
+block|{
+name|dictionary
+operator|.
+name|setString
+argument_list|(
+literal|"REx"
+argument_list|,
+name|applicationVersion
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * A text string indicating the version of the application implementation, as described by the      *<code>/Name</code> attribute in this dictionary. When set by Adobe Acrobat, this entry is in      * the format: major.minor.micro (for example 7.0.7).      *      * @return the application implementation version      */
+specifier|public
+name|String
+name|getVersion
+parameter_list|()
+block|{
+return|return
+name|dictionary
+operator|.
+name|getString
+argument_list|(
+literal|"REx"
+argument_list|)
+return|;
 block|}
 comment|/**      * The software module revision number, corresponding to the Date attribute.      *      * @return the revision of the software module      */
 specifier|public
@@ -243,7 +308,7 @@ name|revision
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The software module revision number, used to determinate the minimum version      * of software that is required in order to process this signature.      *      * @return the revision of the software module      */
+comment|/**      * The software module revision number, used to determinate the minimum version of software that      * is required in order to process this signature.      *<p>      * NOTE: this entry is deprecated for PDF v1.7      *</p>      *      * @return the revision of the software module      */
 specifier|public
 name|long
 name|getMinimumRevision
@@ -260,7 +325,7 @@ name|V
 argument_list|)
 return|;
 block|}
-comment|/**      * The software module revision number, used to determinate the minimum version      * of software that is required in order to process this signature.      *      * @param revision is the software module revision number      */
+comment|/**      * The software module revision number, used to determinate the minimum version of software that      * is required in order to process this signature.      *<p>      * NOTE: this entry is deprecated for PDF v1.7      *</p>      *      * @param revision is the software module revision number      */
 specifier|public
 name|void
 name|setMinimumRevision
@@ -321,12 +386,47 @@ name|preRelease
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Indicates the operation system. The format isn't specified yet.      *      * @return a the operation system id or name.      */
+comment|/**      * Indicates the operating system. The string format isn't specified yet. In its PDF Signature      * Build Dictionary Specifications Adobe differently specifies the value type to store operating      * system string:<ul>      *<li>Specification for PDF v1.5 specifies type as string;</li>      *<li>Specification for PDF v1.7 specifies type as array and provided example for      *<code>/PropBuild</code> dictionary indicate it as array of names.</li>      *</ul>      * This method supports both types to retrieve the value.      *      * @return the operating system id or name.      */
 specifier|public
 name|String
 name|getOS
 parameter_list|()
 block|{
+specifier|final
+name|COSBase
+name|cosBase
+init|=
+name|dictionary
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|OS
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|cosBase
+operator|instanceof
+name|COSArray
+condition|)
+block|{
+return|return
+operator|(
+operator|(
+name|COSArray
+operator|)
+name|cosBase
+operator|)
+operator|.
+name|getName
+argument_list|(
+literal|0
+argument_list|)
+return|;
+block|}
+comment|// PDF v1.5 style
 return|return
 name|dictionary
 operator|.
@@ -338,7 +438,7 @@ name|OS
 argument_list|)
 return|;
 block|}
-comment|/**      * Indicates the operation system. The format isn't specified yet.      *      * @param os is a string with the system id or name.      */
+comment|/**      * Indicates the operating system. The string format isn't specified yet. Value will be stored      * as first item of the array, as specified in PDF Signature Build Dictionary Specification for      * PDF v1.7.      *      * @param os is a string with the system id or name.      */
 specifier|public
 name|void
 name|setOS
@@ -347,17 +447,92 @@ name|String
 name|os
 parameter_list|)
 block|{
+if|if
+condition|(
+name|os
+operator|==
+literal|null
+condition|)
+block|{
 name|dictionary
 operator|.
-name|setString
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|OS
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|COSBase
+name|osArray
+init|=
+name|dictionary
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|OS
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|osArray
+operator|instanceof
+name|COSArray
+operator|)
+condition|)
+block|{
+name|osArray
+operator|=
+operator|new
+name|COSArray
+argument_list|()
+expr_stmt|;
+name|osArray
+operator|.
+name|setDirect
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|dictionary
+operator|.
+name|setItem
 argument_list|(
 name|COSName
 operator|.
 name|OS
 argument_list|,
-name|os
+name|osArray
 argument_list|)
 expr_stmt|;
+block|}
+operator|(
+operator|(
+name|COSArray
+operator|)
+name|osArray
+operator|)
+operator|.
+name|add
+argument_list|(
+literal|0
+argument_list|,
+name|COSName
+operator|.
+name|getPDFName
+argument_list|(
+name|os
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * If there is a LegalPDF dictionary in the catalog      * of the PDF file and the NonEmbeddedFonts attribute in this dictionary      * has a non zero value, and the viewing application has a preference      * set to suppress the display of this warning then the value of this      * attribute will be set to true.      *      * @return true if NonEFontNoWarn is set to true      */
 specifier|public
