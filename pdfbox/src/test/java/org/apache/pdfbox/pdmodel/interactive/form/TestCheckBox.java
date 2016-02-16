@@ -229,11 +229,11 @@ argument_list|(
 name|doc
 argument_list|)
 decl_stmt|;
-name|PDCheckbox
+name|PDCheckBox
 name|checkBox
 init|=
 operator|new
-name|PDCheckbox
+name|PDCheckBox
 argument_list|(
 name|form
 argument_list|)

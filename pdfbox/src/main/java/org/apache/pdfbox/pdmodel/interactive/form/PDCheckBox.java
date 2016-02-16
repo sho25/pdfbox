@@ -129,13 +129,13 @@ begin_class
 specifier|public
 specifier|final
 class|class
-name|PDCheckbox
+name|PDCheckBox
 extends|extends
 name|PDButton
 block|{
 comment|/**      * @see PDField#PDField(PDAcroForm)      *      * @param acroForm The acroform.      */
 specifier|public
-name|PDCheckbox
+name|PDCheckBox
 parameter_list|(
 name|PDAcroForm
 name|acroForm
@@ -148,7 +148,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Constructor.      *       * @param acroForm The form that this field is part of.      * @param field the PDF object to represent as a field.      * @param parent the parent node of the node      */
-name|PDCheckbox
+name|PDCheckBox
 parameter_list|(
 name|PDAcroForm
 name|acroForm

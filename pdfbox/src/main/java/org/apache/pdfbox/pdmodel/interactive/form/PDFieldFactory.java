@@ -393,7 +393,7 @@ else|else
 block|{
 return|return
 operator|new
-name|PDCheckbox
+name|PDCheckBox
 argument_list|(
 name|form
 argument_list|,
