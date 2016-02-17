@@ -389,6 +389,13 @@ argument_list|(
 name|rect
 argument_list|)
 expr_stmt|;
+name|widget
+operator|.
+name|setPage
+argument_list|(
+name|page
+argument_list|)
+expr_stmt|;
 comment|// Add the annotation to the page
 name|page
 operator|.
