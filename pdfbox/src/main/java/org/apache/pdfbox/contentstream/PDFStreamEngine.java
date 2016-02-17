@@ -1255,6 +1255,10 @@ comment|// zero-sized rectangles are not valid
 if|if
 condition|(
 name|rect
+operator|!=
+literal|null
+operator|&&
+name|rect
 operator|.
 name|getWidth
 argument_list|()
@@ -1267,6 +1271,10 @@ name|getHeight
 argument_list|()
 operator|>
 literal|0
+operator|&&
+name|bbox
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// transformed appearance box  fixme: may be an arbitrary shape
