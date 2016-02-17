@@ -99,7 +99,7 @@ name|interactive
 operator|.
 name|form
 operator|.
-name|PDCheckbox
+name|PDCheckBox
 import|;
 end_import
 
@@ -256,7 +256,7 @@ if|if
 condition|(
 name|field
 operator|instanceof
-name|PDCheckbox
+name|PDCheckBox
 condition|)
 block|{
 name|field
