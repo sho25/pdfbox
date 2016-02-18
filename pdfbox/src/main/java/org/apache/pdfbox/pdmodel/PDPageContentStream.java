@@ -2913,7 +2913,7 @@ name|setElementAt
 argument_list|(
 name|colorSpace
 argument_list|,
-name|nonStrokingColorSpaceStack
+name|strokingColorSpaceStack
 operator|.
 name|size
 argument_list|()
@@ -3120,7 +3120,7 @@ operator|.
 name|getColorSpace
 argument_list|()
 argument_list|,
-name|nonStrokingColorSpaceStack
+name|strokingColorSpaceStack
 operator|.
 name|size
 argument_list|()
