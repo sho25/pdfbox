@@ -749,6 +749,13 @@ name|out
 operator|.
 name|write
 argument_list|(
+literal|'>'
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|write
+argument_list|(
 name|NEWLINE
 argument_list|)
 expr_stmt|;
