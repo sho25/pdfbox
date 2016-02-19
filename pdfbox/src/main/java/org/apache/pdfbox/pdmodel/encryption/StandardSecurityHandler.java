@@ -1188,6 +1188,7 @@ name|documentIDBytes
 return|;
 block|}
 comment|// Algorithm 13: validate permissions ("Perms" field). Relaxed to accomodate buggy encoders
+comment|// https://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/adobe_supplement_iso32000.pdf
 specifier|private
 name|void
 name|validatePerms
@@ -1206,6 +1207,8 @@ name|IOException
 block|{
 try|try
 block|{
+comment|// "Decrypt the 16-byte Perms string using AES-256 in ECB mode with an
+comment|// initialization vector of zero and the file encryption key as the key."
 name|Cipher
 name|cipher
 init|=
@@ -1247,6 +1250,7 @@ name|getPerms
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// "Verify that bytes 9-11 of the result are the characters ‘a’, ‘d’, ‘b’."
 if|if
 condition|(
 name|perms
@@ -1279,6 +1283,8 @@ literal|"Verification of permissions failed (constant)"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// "Bytes 0-3 of the decrypted Perms entry, treated as a little-endian integer,
+comment|// are the user permissions. They should match the value in the P key."
 name|int
 name|permsP
 init|=
@@ -1335,11 +1341,25 @@ name|warn
 argument_list|(
 literal|"Verification of permissions failed ("
 operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"%08X"
+argument_list|,
 name|permsP
+argument_list|)
 operator|+
 literal|" != "
 operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"%08X"
+argument_list|,
 name|dicPermissions
+argument_list|)
 operator|+
 literal|")"
 argument_list|)
