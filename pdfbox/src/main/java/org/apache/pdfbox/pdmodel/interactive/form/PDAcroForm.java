@@ -1634,6 +1634,11 @@ operator|new
 name|PDResources
 argument_list|(
 name|dr
+argument_list|,
+name|document
+operator|.
+name|getResourceCache
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
