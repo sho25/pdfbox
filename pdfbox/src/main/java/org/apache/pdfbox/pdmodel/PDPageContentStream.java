@@ -5210,7 +5210,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Fills the path using the nonzero winding rule.      *      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
+comment|/**      * Fills the path using the nonzero winding number rule.      *      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
 specifier|public
 name|void
 name|fill
@@ -5254,13 +5254,121 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Error: fill is not allowed within a text block."
+literal|"Error: fillEvenOdd is not allowed within a text block."
 argument_list|)
 throw|;
 block|}
 name|writeOperator
 argument_list|(
 literal|"f*"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Fill and then stroke the path, using the nonzero winding number rule to determine the region      * to fill. This shall produce the same result as constructing two identical path objects,      * painting the first with {@link #fill() } and the second with {@link #stroke() }.      *      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
+specifier|public
+name|void
+name|fillAndStroke
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Error: fillAndStroke is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
+name|writeOperator
+argument_list|(
+literal|"B"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Fill and then stroke the path, using the even-odd rule to determine the region to      * fill. This shall produce the same result as constructing two identical path objects, painting      * the first with {@link #fillEvenOdd() } and the second with {@link #stroke() }.      *      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
+specifier|public
+name|void
+name|fillAndStrokeEvenOdd
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Error: fillAndStrokeEvenOdd is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
+name|writeOperator
+argument_list|(
+literal|"B*"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Close, fill, and then stroke the path, using the nonzero winding number rule to determine the      * region to fill. This shall have the same effect as the sequence {@link #closePath() }      * and then {@link #fillAndStroke() }.      *      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
+specifier|public
+name|void
+name|closeAndFillAndStroke
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Error: closeAndFillAndStroke is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
+name|writeOperator
+argument_list|(
+literal|"b"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Close, fill, and then stroke the path, using the even-odd rule to determine the region to      * fill. This shall have the same effect as the sequence {@link #closePath() }      * and then {@link #fillAndStrokeEvenOdd() }.      *      * @throws IOException If the content stream could not be written      * @throws IllegalStateException If the method was called within a text block.      */
+specifier|public
+name|void
+name|closeAndFillAndStrokeEvenOdd
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Error: closeAndFillAndStrokeEvenOdd is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
+name|writeOperator
+argument_list|(
+literal|"b*"
 argument_list|)
 expr_stmt|;
 block|}
