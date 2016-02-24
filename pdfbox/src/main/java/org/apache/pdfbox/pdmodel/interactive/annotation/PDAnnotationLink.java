@@ -345,8 +345,6 @@ block|{
 name|COSBase
 name|bs
 init|=
-name|this
-operator|.
 name|getCOSObject
 argument_list|()
 operator|.
