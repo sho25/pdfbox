@@ -493,7 +493,7 @@ name|creationDate
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the annotation to which this one is "In Reply To" the actual relationship is specified by the      * RT entry.      *      * @return the other annotation.      * @throws IOException if there is an error with the annotation.      */
+comment|/**      * This will retrieve the annotation to which this one is "In Reply To" the actual relationship      * is specified by the RT entry.      *      * @return the other annotation or null if there is none.      * @throws IOException if there is an error creating the other annotation.      */
 specifier|public
 name|PDAnnotation
 name|getInReplyTo
@@ -502,7 +502,7 @@ throws|throws
 name|IOException
 block|{
 name|COSBase
-name|irt
+name|base
 init|=
 name|getCOSObject
 argument_list|()
@@ -512,13 +512,24 @@ argument_list|(
 literal|"IRT"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|base
+operator|instanceof
+name|COSDictionary
+condition|)
+block|{
 return|return
 name|PDAnnotation
 operator|.
 name|createAnnotation
 argument_list|(
-name|irt
+name|base
 argument_list|)
+return|;
+block|}
+return|return
+literal|null
 return|;
 block|}
 comment|/**      * This will set the annotation to which this one is "In Reply To" the actual relationship is specified by the RT      * entry.      *      * @param irt the annotation this one is "In Reply To".      */
