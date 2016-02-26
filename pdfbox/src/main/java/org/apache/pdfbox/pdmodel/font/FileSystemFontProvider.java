@@ -1317,6 +1317,9 @@ argument_list|(
 name|fontInfo
 operator|.
 name|postScriptName
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|writer
@@ -1781,6 +1784,28 @@ argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|parts
+operator|.
+name|length
+operator|<
+literal|10
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Incorrect line '"
+operator|+
+name|line
+operator|+
+literal|"' in font disk cache is skipped"
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|String
 name|postScriptName
 decl_stmt|;
