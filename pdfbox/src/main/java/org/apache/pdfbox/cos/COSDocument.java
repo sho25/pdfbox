@@ -206,6 +206,22 @@ name|Long
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/**      * List containing all streams which are created when creating a new pdf.       */
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|COSStream
+argument_list|>
+name|streams
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|COSStream
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|/**      * Document trailer dictionary.      */
 specifier|private
 name|COSDictionary
@@ -277,12 +293,27 @@ name|COSStream
 name|createCOSStream
 parameter_list|()
 block|{
-return|return
+name|COSStream
+name|stream
+init|=
 operator|new
 name|COSStream
 argument_list|(
 name|scratchFile
 argument_list|)
+decl_stmt|;
+comment|// collect all COSStreams so that they can be closed when closing the COSDocument.
+comment|// This is limited to newly created pdfs as all COSStreams of an existing pdf are
+comment|// collected within the map objectPool
+name|streams
+operator|.
+name|add
+argument_list|(
+name|stream
+argument_list|)
+expr_stmt|;
+return|return
+name|stream
 return|;
 block|}
 comment|/**      * Creates a new COSStream using the current configuration for scratch files.      * Not for public use. Only COSParser should call this method.      *      * @param dictionary the corresponding dictionary      * @return the new COSStream      */
@@ -1069,6 +1100,28 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+block|}
+if|if
+condition|(
+name|streams
+operator|!=
+literal|null
+condition|)
+block|{
+for|for
+control|(
+name|COSStream
+name|stream
+range|:
+name|streams
+control|)
+block|{
+name|stream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 if|if
