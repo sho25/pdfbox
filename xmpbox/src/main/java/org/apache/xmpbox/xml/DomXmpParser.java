@@ -3601,6 +3601,10 @@ literal|"Cannot understand PI data part : '"
 operator|+
 name|token
 operator|+
+literal|"' in '"
+operator|+
+name|data
+operator|+
 literal|"'"
 argument_list|)
 throw|;
@@ -3651,6 +3655,10 @@ literal|"Cannot understand PI data part : '"
 operator|+
 name|token
 operator|+
+literal|"' in '"
+operator|+
+name|data
+operator|+
 literal|"'"
 argument_list|)
 throw|;
@@ -3667,6 +3675,40 @@ argument_list|,
 name|pos
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|token
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+operator|<
+name|pos
+operator|+
+literal|2
+condition|)
+block|{
+throw|throw
+operator|new
+name|XmpParsingException
+argument_list|(
+name|ErrorType
+operator|.
+name|XpacketBadStart
+argument_list|,
+literal|"Cannot understand PI data part : '"
+operator|+
+name|token
+operator|+
+literal|"' in '"
+operator|+
+name|data
+operator|+
+literal|"'"
+argument_list|)
+throw|;
+block|}
 name|String
 name|value
 init|=
