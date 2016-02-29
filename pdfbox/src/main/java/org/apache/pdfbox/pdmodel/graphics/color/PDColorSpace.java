@@ -270,7 +270,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a color space given a name or array. Abbreviated device color names are not supported      * here, please replace them first. This method is for PDFBox internal use only, others should      * use {@link create(COSBase, PDResources)}.      *      * @param colorSpace the color space COS object      * @param resources the current resources.      * @param wasDefault if current color space was used by a default color space.      * @return a new color space.      * @throws MissingResourceException if the color space is missing in the resources dictionary      * @throws IOException if the color space is unknown or cannot be created.      */
+comment|/**      * Creates a color space given a name or array. Abbreviated device color names are not supported      * here, please replace them first. This method is for PDFBox internal use only, others should      * use {@link #create(COSBase, PDResources)}.      *      * @param colorSpace the color space COS object      * @param resources the current resources.      * @param wasDefault if current color space was used by a default color space.      * @return a new color space.      * @throws MissingResourceException if the color space is missing in the resources dictionary      * @throws IOException if the color space is unknown or cannot be created.      */
 specifier|public
 specifier|static
 name|PDColorSpace

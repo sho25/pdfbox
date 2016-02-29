@@ -582,7 +582,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the color space resource with the given name, or null if none exists. This method is      * for PDFBox internal use only, others should use {@link getColorSpace(COSName)}.      *      * @param name Name of the color space resource.      * @param wasDefault if current color space was used by a default color space. This parameter is      * to      * @return a new color space.      * @throws IOException if something went wrong.      */
+comment|/**      * Returns the color space resource with the given name, or null if none exists. This method is      * for PDFBox internal use only, others should use {@link #getColorSpace(COSName)}.      *      * @param name Name of the color space resource.      * @param wasDefault if current color space was used by a default color space. This parameter is      * to      * @return a new color space.      * @throws IOException if something went wrong.      */
 specifier|public
 name|PDColorSpace
 name|getColorSpace
