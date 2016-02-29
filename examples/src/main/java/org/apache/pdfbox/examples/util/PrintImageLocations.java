@@ -623,13 +623,14 @@ operator|.
 name|getScalingFactorY
 argument_list|()
 decl_stmt|;
+comment|// position in user space units. 1 unit = 1/72 inch at 72 dpi
 name|System
 operator|.
 name|out
 operator|.
 name|println
 argument_list|(
-literal|"position = "
+literal|"position in PDF = "
 operator|+
 name|ctmNew
 operator|.
@@ -642,45 +643,47 @@ name|ctmNew
 operator|.
 name|getTranslateY
 argument_list|()
+operator|+
+literal|" in user space units"
 argument_list|)
 expr_stmt|;
-comment|// size in pixel
+comment|// raw size in pixels
 name|System
 operator|.
 name|out
 operator|.
 name|println
 argument_list|(
-literal|"size = "
+literal|"raw image size  = "
 operator|+
 name|imageWidth
 operator|+
-literal|"px, "
+literal|", "
 operator|+
 name|imageHeight
 operator|+
-literal|"px"
+literal|" in pixels"
 argument_list|)
 expr_stmt|;
-comment|// size in page units
+comment|// displayed size in user space units
 name|System
 operator|.
 name|out
 operator|.
 name|println
 argument_list|(
-literal|"size = "
+literal|"displayed size  = "
 operator|+
 name|imageXScale
 operator|+
-literal|"pu, "
+literal|", "
 operator|+
 name|imageYScale
 operator|+
-literal|"pu"
+literal|" in user space units"
 argument_list|)
 expr_stmt|;
-comment|// size in inches
+comment|// displayed size in inches at 72 dpi rendering
 name|imageXScale
 operator|/=
 literal|72
@@ -695,18 +698,18 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"size = "
+literal|"displayed size  = "
 operator|+
 name|imageXScale
 operator|+
-literal|"in, "
+literal|", "
 operator|+
 name|imageYScale
 operator|+
-literal|"in"
+literal|" in inches at 72 dpi rendering"
 argument_list|)
 expr_stmt|;
-comment|// size in millimeter
+comment|// displayed size in millimeters at 72 dpi rendering
 name|imageXScale
 operator|*=
 literal|25.4
@@ -721,15 +724,15 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"size = "
+literal|"displayed size  = "
 operator|+
 name|imageXScale
 operator|+
-literal|"mm, "
+literal|", "
 operator|+
 name|imageYScale
 operator|+
-literal|"mm"
+literal|" in millimeters at 72 dpi rendering"
 argument_list|)
 expr_stmt|;
 name|System
