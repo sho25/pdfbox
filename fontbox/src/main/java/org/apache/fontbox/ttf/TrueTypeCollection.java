@@ -435,7 +435,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Implement the callback method to call {@link TrueTypeCollection#processAllFonts()}.      */
+comment|/**      * Implement the callback method to call {@link TrueTypeCollection#processAllFonts(TrueTypeFontProcessor)}.      */
 specifier|public
 interface|interface
 name|TrueTypeFontProcessor
