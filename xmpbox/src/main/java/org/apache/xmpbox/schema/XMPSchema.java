@@ -3830,7 +3830,7 @@ name|AbstractSimpleProperty
 name|instanciateSimple
 parameter_list|(
 name|String
-name|param
+name|propertyName
 parameter_list|,
 name|Object
 name|value
@@ -3858,7 +3858,7 @@ argument_list|,
 name|getPrefix
 argument_list|()
 argument_list|,
-name|param
+name|propertyName
 argument_list|,
 name|value
 argument_list|)

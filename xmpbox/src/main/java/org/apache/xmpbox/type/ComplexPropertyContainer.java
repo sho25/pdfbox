@@ -187,7 +187,7 @@ return|return
 name|properties
 return|;
 block|}
-comment|/**      * Return all properties with this specified localName      *       * @param localName      *            the local name wanted      * @return All properties with local name which match with localName given      */
+comment|/**      * Return all properties with this specified localName.      *       * @param localName      *            the local name wanted      * @return All properties with local name which match with localName given, or null if there are none.      */
 specifier|public
 name|List
 argument_list|<
@@ -281,7 +281,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Check if two property are similar      *       * @param prop1      *            First property      * @param prop2      *            Second property      * @return True if these properties are equals      */
+comment|/**      * Check if two properties are equal.      *       * @param prop1      *            First property      * @param prop2      *            Second property      * @return True if these properties are equal.      */
 specifier|public
 name|boolean
 name|isSameProperty
