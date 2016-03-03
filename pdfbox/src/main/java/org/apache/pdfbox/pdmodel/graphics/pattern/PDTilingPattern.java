@@ -487,6 +487,19 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|COSDictionary
+name|dict
+init|=
+name|getCOSObject
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|dict
+operator|instanceof
+name|COSStream
+condition|)
+block|{
 return|return
 operator|(
 operator|(
@@ -498,6 +511,10 @@ operator|)
 operator|.
 name|createInputStream
 argument_list|()
+return|;
+block|}
+return|return
+literal|null
 return|;
 block|}
 comment|/**      * This will get the resources for this pattern.      * This will return null if no resources are available at this level.      * @return The resources for this pattern.      */
