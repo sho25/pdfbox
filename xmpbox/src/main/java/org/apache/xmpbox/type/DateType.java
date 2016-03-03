@@ -213,6 +213,21 @@ name|value
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Value null is not allowed for the Date type"
+argument_list|)
+throw|;
+block|}
 throw|throw
 operator|new
 name|IllegalArgumentException
