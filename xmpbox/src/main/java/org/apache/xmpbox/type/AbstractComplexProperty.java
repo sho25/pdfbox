@@ -185,6 +185,33 @@ name|AbstractField
 name|obj
 parameter_list|)
 block|{
+comment|// https://www.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/cs6/XMPSpecificationPart1.pdf
+comment|// "Each property name in an XMP packet shall be unique within that packet"
+comment|// "Multiple values are represented using an XMP array value"
+comment|// "The nested elementâ€™s element content shall consist of zero or more rdf:li elements,
+comment|// one for each item in the array"
+comment|// thus delete existing elements of a property, except for arrays ("li")
+if|if
+condition|(
+operator|!
+operator|(
+name|this
+operator|instanceof
+name|ArrayProperty
+operator|)
+condition|)
+block|{
+name|container
+operator|.
+name|removePropertiesByName
+argument_list|(
+name|obj
+operator|.
+name|getPropertyName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|container
 operator|.
 name|addProperty
