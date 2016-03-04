@@ -148,18 +148,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -607,6 +595,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Test whether the bug reported in PDFBOX-3257 and PDFBOX-3258 has been fixed: setting      * CreateDate twice must not insert two elements, and fixing this must not interfere with the      * handling of lists.      *      * @throws IOException      * @throws XmpParsingException       */
 annotation|@
 name|Test
 specifier|public
@@ -771,8 +760,20 @@ operator|.
 name|getCreateDate
 argument_list|()
 decl_stmt|;
-comment|// activate when bug is fixed
-comment|//assertFalse("CreateDate has not been set", createDate1.equals(createDate2));
+name|Assert
+operator|.
+name|assertFalse
+argument_list|(
+literal|"CreateDate has not been set"
+argument_list|,
+name|createDate1
+operator|.
+name|equals
+argument_list|(
+name|createDate2
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// check that bugfix does not interfere with lists of properties with same name
 name|DublinCoreSchema
 name|dublinCoreSchema
