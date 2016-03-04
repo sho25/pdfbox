@@ -188,7 +188,7 @@ block|{
 comment|// https://www.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/cs6/XMPSpecificationPart1.pdf
 comment|// "Each property name in an XMP packet shall be unique within that packet"
 comment|// "Multiple values are represented using an XMP array value"
-comment|// "The nested elementâ€™s element content shall consist of zero or more rdf:li elements,
+comment|// "The nested element's element content shall consist of zero or more rdf:li elements,
 comment|// one for each item in the array"
 comment|// thus delete existing elements of a property, except for arrays ("li")
 if|if
