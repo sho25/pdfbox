@@ -4563,7 +4563,7 @@ name|ErrorType
 operator|.
 name|InvalidType
 argument_list|,
-literal|"Failed to retreive property definition"
+literal|"Failed to retrieve property definition"
 argument_list|,
 name|e
 argument_list|)
