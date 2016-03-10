@@ -737,6 +737,25 @@ name|sourcesList
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Merge the list of source documents, saving the result in the destination file.      *      * @throws IOException If there is an error saving the document.      * @deprecated use {@link #mergeDocuments(org.apache.pdfbox.io.MemoryUsageSetting) }      */
+annotation|@
+name|Deprecated
+specifier|public
+name|void
+name|mergeDocuments
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|mergeDocuments
+argument_list|(
+name|MemoryUsageSetting
+operator|.
+name|setupMainMemoryOnly
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Merge the list of source documents, saving the result in the destination      * file.      *      * @param memUsageSetting defines how memory is used for buffering PDF streams;      *                        in case of<code>null</code> unrestricted main memory is used       *       * @throws IOException If there is an error saving the document.      */
 specifier|public
 name|void
