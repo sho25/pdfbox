@@ -479,6 +479,24 @@ operator|.
 name|onCurve
 condition|)
 block|{
+if|if
+condition|(
+name|j
+operator|==
+name|clen
+operator|-
+literal|1
+condition|)
+block|{
+comment|// PDFBOX-3268 avoid weird corners at end of path
+name|path
+operator|.
+name|closePath
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 name|lineTo
 argument_list|(
 name|path
@@ -486,6 +504,7 @@ argument_list|,
 name|pnow
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
