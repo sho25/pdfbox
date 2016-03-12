@@ -473,8 +473,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-try|try
-block|{
 name|loadPDFs
 argument_list|()
 expr_stmt|;
@@ -544,7 +542,13 @@ return|return
 name|inputPDFDocument
 return|;
 block|}
-finally|finally
+comment|/**      * Close all input pdfs which were used for the overlay.      *       * @throws IOException if something went wrong      */
+specifier|public
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -624,6 +628,13 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|specificPageOverlay
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Map

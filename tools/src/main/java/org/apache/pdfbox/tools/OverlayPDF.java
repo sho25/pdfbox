@@ -776,6 +776,13 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// close the input files AFTER saving the resulting file as some
+comment|// streams are shared among the input and the output files
+name|overlayer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
