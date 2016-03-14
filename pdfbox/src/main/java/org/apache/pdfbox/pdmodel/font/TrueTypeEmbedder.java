@@ -1405,6 +1405,11 @@ argument_list|,
 name|gidToCid
 argument_list|)
 expr_stmt|;
+name|ttf
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Returns true if the font needs to be subset.      */
 specifier|public
