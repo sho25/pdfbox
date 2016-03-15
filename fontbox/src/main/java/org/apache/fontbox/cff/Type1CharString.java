@@ -1345,11 +1345,19 @@ decl_stmt|;
 name|int
 name|result
 init|=
+name|Math
+operator|.
+name|round
+argument_list|(
 name|a
 operator|/
+operator|(
+name|float
+operator|)
 name|b
+argument_list|)
 decl_stmt|;
-comment|// TODO loss of precision, should be float
+comment|// TODO loss of precision, result should be float
 name|List
 argument_list|<
 name|Integer
