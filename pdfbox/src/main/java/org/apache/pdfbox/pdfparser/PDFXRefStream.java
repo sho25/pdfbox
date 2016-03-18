@@ -569,6 +569,21 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// this one too, because it has already been written in COSWriter.doWriteBody()
+if|if
+condition|(
+name|COSName
+operator|.
+name|ENCRYPT
+operator|.
+name|equals
+argument_list|(
+name|cosName
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|COSBase
 name|dictionaryObject
 init|=
