@@ -563,6 +563,20 @@ operator|.
 name|createInputStream
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|ttf
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// close the replaced true type font
+name|ttf
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 name|ttf
 operator|=
 operator|new
