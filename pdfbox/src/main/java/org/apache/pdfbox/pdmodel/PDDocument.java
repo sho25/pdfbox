@@ -2341,10 +2341,7 @@ name|PDStream
 argument_list|(
 name|this
 argument_list|,
-name|page
-operator|.
-name|getContents
-argument_list|()
+name|in
 argument_list|,
 name|COSName
 operator|.
