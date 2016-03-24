@@ -136,6 +136,7 @@ name|PDRectangle
 implements|implements
 name|COSObjectable
 block|{
+comment|/** user space units per inch */
 specifier|private
 specifier|static
 specifier|final
@@ -144,11 +145,12 @@ name|POINTS_PER_INCH
 init|=
 literal|72
 decl_stmt|;
+comment|/** user space units per millimeter */
 specifier|private
 specifier|static
 specifier|final
 name|float
-name|MM_PER_INCH
+name|POINTS_PER_MM
 init|=
 literal|1
 operator|/
@@ -210,11 +212,11 @@ name|PDRectangle
 argument_list|(
 literal|841
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|,
 literal|1189
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|)
 decl_stmt|;
 comment|/** A rectangle the size of A1 Paper. */
@@ -229,11 +231,11 @@ name|PDRectangle
 argument_list|(
 literal|594
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|,
 literal|841
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|)
 decl_stmt|;
 comment|/**  A rectangle the size of A2 Paper. */
@@ -248,11 +250,11 @@ name|PDRectangle
 argument_list|(
 literal|420
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|,
 literal|594
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|)
 decl_stmt|;
 comment|/** A rectangle the size of A3 Paper.  */
@@ -267,11 +269,11 @@ name|PDRectangle
 argument_list|(
 literal|297
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|,
 literal|420
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|)
 decl_stmt|;
 comment|/**  A rectangle the size of A4 Paper. */
@@ -286,11 +288,11 @@ name|PDRectangle
 argument_list|(
 literal|210
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|,
 literal|297
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|)
 decl_stmt|;
 comment|/** A rectangle the size of A5 Paper. */
@@ -305,11 +307,11 @@ name|PDRectangle
 argument_list|(
 literal|148
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|,
 literal|210
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|)
 decl_stmt|;
 comment|/**  A rectangle the size of A6 Paper. */
@@ -324,11 +326,11 @@ name|PDRectangle
 argument_list|(
 literal|105
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|,
 literal|148
 operator|*
-name|MM_PER_INCH
+name|POINTS_PER_MM
 argument_list|)
 decl_stmt|;
 specifier|private
