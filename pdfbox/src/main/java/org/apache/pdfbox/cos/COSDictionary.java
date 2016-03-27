@@ -243,7 +243,7 @@ specifier|final
 name|boolean
 name|DO_DEBUG_INSTANCE_COUNT
 init|=
-literal|true
+literal|false
 decl_stmt|;
 specifier|private
 specifier|static
