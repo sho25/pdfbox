@@ -3291,21 +3291,6 @@ name|exception
 throw|;
 block|}
 block|}
-comment|// get set of object numbers referenced for this object stream
-specifier|final
-name|Set
-argument_list|<
-name|Long
-argument_list|>
-name|refObjNrs
-init|=
-name|xrefTrailerResolver
-operator|.
-name|getContainedObjectNumbers
-argument_list|(
-name|objstmObjNr
-argument_list|)
-decl_stmt|;
 comment|// register all objects which are referenced to be contained in object stream
 for|for
 control|(
@@ -3329,14 +3314,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|refObjNrs
+name|xrefTrailerResolver
 operator|.
-name|contains
+name|getXrefTable
+argument_list|()
+operator|.
+name|containsKey
 argument_list|(
 name|stmObjKey
-operator|.
-name|getNumber
-argument_list|()
 argument_list|)
 condition|)
 block|{
