@@ -155,7 +155,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Retrieve an individual field and set it's value.
+comment|// Retrieve an individual field and set its value.
 name|PDTextField
 name|field
 init|=
