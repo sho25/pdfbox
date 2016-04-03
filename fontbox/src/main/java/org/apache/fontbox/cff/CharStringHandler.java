@@ -133,7 +133,7 @@ operator|.
 name|push
 argument_list|(
 operator|(
-name|Integer
+name|Number
 operator|)
 name|obj
 argument_list|)
