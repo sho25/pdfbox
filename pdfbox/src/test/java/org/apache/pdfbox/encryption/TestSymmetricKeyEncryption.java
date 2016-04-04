@@ -948,7 +948,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Protect a document with a key and try to reopen it with that key and      * compare.      *      * @throws Exception If there is an unexpected error during the test.      */
+comment|/**      * Protect a document with a key and try to reopen it with that key and compare.      *      * @throws Exception If there is an unexpected error during the test.      */
 specifier|public
 name|void
 name|testProtection
@@ -976,6 +976,8 @@ name|testSymmEncrForKeySize
 argument_list|(
 literal|40
 argument_list|,
+literal|false
+argument_list|,
 name|sizePriorToEncryption
 argument_list|,
 name|inputFileAsByteArray
@@ -991,6 +993,25 @@ name|testSymmEncrForKeySize
 argument_list|(
 literal|128
 argument_list|,
+literal|false
+argument_list|,
+name|sizePriorToEncryption
+argument_list|,
+name|inputFileAsByteArray
+argument_list|,
+name|USERPASSWORD
+argument_list|,
+name|OWNERPASSWORD
+argument_list|,
+name|permission
+argument_list|)
+expr_stmt|;
+name|testSymmEncrForKeySize
+argument_list|(
+literal|128
+argument_list|,
+literal|true
+argument_list|,
 name|sizePriorToEncryption
 argument_list|,
 name|inputFileAsByteArray
@@ -1005,6 +1026,8 @@ expr_stmt|;
 name|testSymmEncrForKeySize
 argument_list|(
 literal|256
+argument_list|,
+literal|true
 argument_list|,
 name|sizePriorToEncryption
 argument_list|,
@@ -1065,6 +1088,8 @@ name|testSymmEncrForKeySizeInner
 argument_list|(
 literal|40
 argument_list|,
+literal|false
+argument_list|,
 name|sizeOfFileWithEmbeddedFile
 argument_list|,
 name|inputFileWithEmbeddedFileAsByteArray
@@ -1080,6 +1105,25 @@ name|testSymmEncrForKeySizeInner
 argument_list|(
 literal|128
 argument_list|,
+literal|false
+argument_list|,
+name|sizeOfFileWithEmbeddedFile
+argument_list|,
+name|inputFileWithEmbeddedFileAsByteArray
+argument_list|,
+name|extractedEmbeddedFile
+argument_list|,
+name|USERPASSWORD
+argument_list|,
+name|OWNERPASSWORD
+argument_list|)
+expr_stmt|;
+name|testSymmEncrForKeySizeInner
+argument_list|(
+literal|128
+argument_list|,
+literal|true
+argument_list|,
 name|sizeOfFileWithEmbeddedFile
 argument_list|,
 name|inputFileWithEmbeddedFileAsByteArray
@@ -1094,6 +1138,8 @@ expr_stmt|;
 name|testSymmEncrForKeySizeInner
 argument_list|(
 literal|256
+argument_list|,
+literal|true
 argument_list|,
 name|sizeOfFileWithEmbeddedFile
 argument_list|,
@@ -1113,6 +1159,9 @@ name|testSymmEncrForKeySize
 parameter_list|(
 name|int
 name|keyLength
+parameter_list|,
+name|boolean
+name|preferAES
 parameter_list|,
 name|int
 name|sizePriorToEncr
@@ -1268,6 +1317,8 @@ name|encrypt
 argument_list|(
 name|keyLength
 argument_list|,
+name|preferAES
+argument_list|,
 name|sizePriorToEncr
 argument_list|,
 name|document
@@ -1407,7 +1458,17 @@ name|prefix
 operator|+
 name|keyLength
 operator|+
-literal|"-bit-decrypted.pdf"
+literal|"-bit-"
+operator|+
+operator|(
+name|preferAES
+condition|?
+literal|"AES"
+else|:
+literal|"RC4"
+operator|)
+operator|+
+literal|"-decrypted.pdf"
 argument_list|)
 decl_stmt|;
 name|encryptedDoc
@@ -1438,6 +1499,9 @@ name|encrypt
 parameter_list|(
 name|int
 name|keyLength
+parameter_list|,
+name|boolean
+name|preferAES
 parameter_list|,
 name|int
 name|sizePriorToEncr
@@ -1489,6 +1553,13 @@ argument_list|)
 expr_stmt|;
 name|spp
 operator|.
+name|setPreferAES
+argument_list|(
+name|preferAES
+argument_list|)
+expr_stmt|;
+name|spp
+operator|.
 name|setPermissions
 argument_list|(
 name|permission
@@ -1521,7 +1592,17 @@ name|prefix
 operator|+
 name|keyLength
 operator|+
-literal|"-bit-encrypted.pdf"
+literal|"-bit-"
+operator|+
+operator|(
+name|preferAES
+condition|?
+literal|"AES"
+else|:
+literal|"RC4"
+operator|)
+operator|+
+literal|"-encrypted.pdf"
 argument_list|)
 decl_stmt|;
 name|doc
@@ -1550,7 +1631,17 @@ name|assertTrue
 argument_list|(
 name|keyLength
 operator|+
-literal|"-bit encrypted pdf should not have same size as plain one"
+literal|"-bit "
+operator|+
+operator|(
+name|preferAES
+condition|?
+literal|"AES"
+else|:
+literal|"RC4"
+operator|)
+operator|+
+literal|" encrypted pdf should not have same size as plain one"
 argument_list|,
 name|sizeEncrypted
 operator|!=
@@ -1864,6 +1955,9 @@ parameter_list|(
 name|int
 name|keyLength
 parameter_list|,
+name|boolean
+name|preferAES
+parameter_list|,
 name|int
 name|sizePriorToEncr
 parameter_list|,
@@ -1904,6 +1998,8 @@ name|encrypt
 argument_list|(
 name|keyLength
 argument_list|,
+name|preferAES
+argument_list|,
 name|sizePriorToEncr
 argument_list|,
 name|document
@@ -1929,7 +2025,17 @@ literal|"DecryptedContainsEmbedded-"
 operator|+
 name|keyLength
 operator|+
-literal|"-bit.pdf"
+literal|"-bit-"
+operator|+
+operator|(
+name|preferAES
+condition|?
+literal|"AES"
+else|:
+literal|"RC4"
+operator|)
+operator|+
+literal|".pdf"
 argument_list|)
 decl_stmt|;
 name|encryptedDoc
@@ -1961,7 +2067,17 @@ literal|"decryptedInnerFile-"
 operator|+
 name|keyLength
 operator|+
-literal|"-bit.pdf"
+literal|"-bit-"
+operator|+
+operator|(
+name|preferAES
+condition|?
+literal|"AES"
+else|:
+literal|"RC4"
+operator|)
+operator|+
+literal|".pdf"
 argument_list|)
 decl_stmt|;
 name|Assert
@@ -1970,7 +2086,17 @@ name|assertEquals
 argument_list|(
 name|keyLength
 operator|+
-literal|"-bit decrypted inner attachment pdf should have same size as plain one"
+literal|"-bit "
+operator|+
+operator|(
+name|preferAES
+condition|?
+literal|"AES"
+else|:
+literal|"RC4"
+operator|)
+operator|+
+literal|" decrypted inner attachment pdf should have same size as plain one"
 argument_list|,
 name|embeddedFilePriorToEncryption
 operator|.

@@ -545,7 +545,23 @@ return|return
 name|DEFAULT_VERSION
 return|;
 block|}
-comment|//TODO return 4 if keyLength is 128 to enable AES128 functionality
+elseif|else
+if|if
+condition|(
+name|keyLength
+operator|==
+literal|128
+operator|&&
+name|policy
+operator|.
+name|isPreferAES
+argument_list|()
+condition|)
+block|{
+return|return
+literal|4
+return|;
+block|}
 elseif|else
 if|if
 condition|(

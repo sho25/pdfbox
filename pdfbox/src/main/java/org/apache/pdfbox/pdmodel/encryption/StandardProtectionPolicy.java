@@ -45,6 +45,12 @@ name|userPassword
 init|=
 literal|""
 decl_stmt|;
+specifier|private
+name|boolean
+name|preferAES
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Creates an new instance of the standard protection policy      * in order to protect a PDF document with passwords.      *      * @param ownerPassword The owner's password.      * @param userPassword The users's password.      * @param permissions The access permissions given to the user.      */
 specifier|public
 name|StandardProtectionPolicy
@@ -154,6 +160,34 @@ operator|.
 name|userPassword
 operator|=
 name|userPassword
+expr_stmt|;
+block|}
+comment|/**      * Tell whether AES encryption is preferred when several encryption methods are available for      * the chosen key length. The default is false. This setting is only relevant if the key length      * is 128 bits.      *      * @return      */
+specifier|public
+name|boolean
+name|isPreferAES
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|preferAES
+return|;
+block|}
+comment|/**      * Set whether AES encryption is preferred when several encryption methods are available for the      * chosen key length. The default is false. This setting is only relevant if the key length is      * 128 bits.      *      * @param preferAES      */
+specifier|public
+name|void
+name|setPreferAES
+parameter_list|(
+name|boolean
+name|preferAES
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preferAES
+operator|=
+name|preferAES
 expr_stmt|;
 block|}
 block|}
