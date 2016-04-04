@@ -5935,6 +5935,14 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|ZoomMenu
+operator|.
+name|getInstance
+argument_list|()
+operator|.
+name|resetZoom
+argument_list|()
+expr_stmt|;
 name|tree
 operator|.
 name|setModel
