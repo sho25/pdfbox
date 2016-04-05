@@ -2541,6 +2541,14 @@ operator|||
 name|ch
 operator|==
 literal|'('
+operator|||
+name|ch
+operator|==
+literal|0
+operator|||
+name|ch
+operator|==
+literal|'\f'
 return|;
 block|}
 comment|/**      * This will parse a PDF name from the stream.      *      * @return The parsed PDF name.      * @throws IOException If there is an error reading from the stream.      */
