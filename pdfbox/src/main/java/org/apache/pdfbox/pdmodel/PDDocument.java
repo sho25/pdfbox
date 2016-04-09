@@ -3721,7 +3721,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Save the PDF as an incremental update. This is only possible if the PDF was loaded from a file.      *      * @param output stream to write      * @throws IOException if the output could not be written      * @throws IllegalStateException if the document was not loaded from a file.      */
+comment|/**      * Save the PDF as an incremental update. This is only possible if the PDF was loaded from a      * file or a stream, not if the document was created in PDFBox itself.      *      * @param output stream to write      * @throws IOException if the output could not be written      * @throws IllegalStateException if the document was not loaded from a file or a stream.      */
 specifier|public
 name|void
 name|saveIncremental
@@ -3739,6 +3739,21 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|pdfSource
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"document was not loaded from a file or a stream"
+argument_list|)
+throw|;
+block|}
 name|writer
 operator|=
 operator|new
