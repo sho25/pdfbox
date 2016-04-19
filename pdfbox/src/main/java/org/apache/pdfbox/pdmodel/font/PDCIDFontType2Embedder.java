@@ -1400,9 +1400,13 @@ argument_list|(
 name|cid
 argument_list|)
 decl_stmt|;
-name|float
+name|long
 name|width
 init|=
+name|Math
+operator|.
+name|round
+argument_list|(
 name|ttf
 operator|.
 name|getHorizontalMetrics
@@ -1414,7 +1418,18 @@ name|gid
 argument_list|)
 operator|*
 name|scaling
+argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|width
+operator|==
+literal|1000
+condition|)
+block|{
+comment|// skip default width
+continue|continue;
+block|}
 comment|// c [w1 w2 ... wn]
 if|if
 condition|(
@@ -1460,12 +1475,7 @@ name|COSInteger
 operator|.
 name|get
 argument_list|(
-name|Math
-operator|.
-name|round
-argument_list|(
 name|width
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
