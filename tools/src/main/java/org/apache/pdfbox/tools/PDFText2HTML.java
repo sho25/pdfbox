@@ -153,12 +153,6 @@ init|=
 literal|8192
 decl_stmt|;
 specifier|private
-name|boolean
-name|onFirstPage
-init|=
-literal|true
-decl_stmt|;
-specifier|private
 specifier|final
 name|FontState
 name|fontState
@@ -217,11 +211,23 @@ name|LINE_SEPARATOR
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write the header to the output document. Now also writes the tag defining      * the character encoding.      *      * @throws IOException      *             If there is a problem writing out the header to the document.      */
+comment|/**      * Write the header to the output document. Now also writes the tag defining      * the character encoding.      *      * @throws IOException      *             If there is a problem writing out the header to the document.      * @deprecated deprecated, use {@link #startDocument(PDDocument)}      */
 specifier|protected
 name|void
 name|writeHeader
 parameter_list|()
+throws|throws
+name|IOException
+block|{     }
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|startDocument
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -277,7 +283,7 @@ name|buf
 operator|.
 name|append
 argument_list|(
-literal|"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=\"UTF-16\">\n"
+literal|"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=\"UTF-8\">\n"
 argument_list|)
 expr_stmt|;
 name|buf
@@ -303,35 +309,6 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|writePage
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|onFirstPage
-condition|)
-block|{
-name|writeHeader
-argument_list|()
-expr_stmt|;
-name|onFirstPage
-operator|=
-literal|false
-expr_stmt|;
-block|}
-name|super
-operator|.
-name|writePage
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */

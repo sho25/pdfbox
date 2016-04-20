@@ -295,7 +295,6 @@ name|DEBUG
 init|=
 literal|"-debug"
 decl_stmt|;
-comment|// jjb - added simple HTML output
 specifier|private
 specifier|static
 specifier|final
@@ -303,6 +302,14 @@ name|String
 name|HTML
 init|=
 literal|"-html"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|STD_ENCODING
+init|=
+literal|"UTF-8"
 decl_stmt|;
 comment|/*      * debug flag      */
 specifier|private
@@ -396,7 +403,7 @@ decl_stmt|;
 name|String
 name|encoding
 init|=
-literal|"UTF-8"
+name|STD_ENCODING
 decl_stmt|;
 name|String
 name|pdfFile
@@ -874,6 +881,33 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|toHTML
+operator|&&
+operator|!
+name|STD_ENCODING
+operator|.
+name|equals
+argument_list|(
+name|encoding
+argument_list|)
+condition|)
+block|{
+name|encoding
+operator|=
+name|STD_ENCODING
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"The encoding parameter is ignored when writing html output."
+argument_list|)
+expr_stmt|;
+block|}
 name|output
 operator|=
 operator|new
