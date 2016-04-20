@@ -609,6 +609,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|ctx
+operator|.
+name|getDocument
+argument_list|()
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
