@@ -21,16 +21,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|File
 import|;
 end_import
@@ -623,9 +613,8 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
-name|byte
-index|[]
-name|destinationXmpMetadata
+name|PDMetadata
+name|destinationMetadata
 init|=
 literal|null
 decl_stmt|;
@@ -725,30 +714,28 @@ operator|=
 name|info
 expr_stmt|;
 block|}
-comment|/**      * Set the destination XMP metadata that is to be set in {@link #mergeDocuments(org.apache.pdfbox.io.MemoryUsageSetting)      * }. The default is null, which means that it is ignored.      *      * @return The destination XMP metadata.      */
+comment|/**      * Set the destination metadata that is to be set in {@link #mergeDocuments(org.apache.pdfbox.io.MemoryUsageSetting)      * }. The default is null, which means that it is ignored.      *      * @return The destination metadata.      */
 specifier|public
-name|byte
-index|[]
-name|getDestinationXmpMetadata
+name|PDMetadata
+name|getDestinationMetadata
 parameter_list|()
 block|{
 return|return
-name|destinationXmpMetadata
+name|destinationMetadata
 return|;
 block|}
-comment|/**      * Set the destination XMP metadata that is to be set in {@link #mergeDocuments(org.apache.pdfbox.io.MemoryUsageSetting)      * }. The default is null, which means that it is ignored.      *      * @param xmp The destination XMP metadata.      */
+comment|/**      * Set the destination metadata that is to be set in {@link #mergeDocuments(org.apache.pdfbox.io.MemoryUsageSetting)      * }. The default is null, which means that it is ignored.      *      * @param meta The destination metadata.      */
 specifier|public
 name|void
-name|setXMPMetadata
+name|setDestinationMetadata
 parameter_list|(
-name|byte
-index|[]
-name|xmp
+name|PDMetadata
+name|meta
 parameter_list|)
 block|{
-name|destinationXmpMetadata
+name|destinationMetadata
 operator|=
-name|xmp
+name|meta
 expr_stmt|;
 block|}
 comment|/**      * Add a source file to the list of files to merge.      *      * @param source Full path and file name of source document.      *       * @throws FileNotFoundException If the file doesn't exist      */
@@ -1016,26 +1003,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|destinationXmpMetadata
+name|destinationMetadata
 operator|!=
 literal|null
 condition|)
 block|{
-name|PDMetadata
-name|meta
-init|=
-operator|new
-name|PDMetadata
-argument_list|(
-name|destination
-argument_list|,
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-name|destinationXmpMetadata
-argument_list|)
-argument_list|)
-decl_stmt|;
 name|destination
 operator|.
 name|getDocumentCatalog
@@ -1043,7 +1015,7 @@ argument_list|()
 operator|.
 name|setMetadata
 argument_list|(
-name|meta
+name|destinationMetadata
 argument_list|)
 expr_stmt|;
 block|}
