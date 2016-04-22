@@ -383,7 +383,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the widget annotations associated with this field.      *       * For {@link PDNonTerminalField} the list will be empty as non terminal fields      * have no visual representation in the form.      *       * @return A non-null string.      */
+comment|/**      * Returns the widget annotations associated with this field.      *       * For {@link PDNonTerminalField} the list will be empty as non terminal fields      * have no visual representation in the form.      *       * @return a List of {@link PDAnnotationWidget} annotations.      */
 specifier|public
 specifier|abstract
 name|List
