@@ -3582,6 +3582,15 @@ argument_list|(
 name|key
 argument_list|)
 operator|||
+name|COSName
+operator|.
+name|SIG_FLAGS
+operator|.
+name|equals
+argument_list|(
+name|key
+argument_list|)
+operator|||
 operator|(
 name|COSName
 operator|.
