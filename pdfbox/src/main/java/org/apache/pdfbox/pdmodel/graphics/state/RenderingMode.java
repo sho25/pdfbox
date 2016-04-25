@@ -173,7 +173,7 @@ name|FILL_STROKE
 operator|||
 name|this
 operator|==
-name|STROKE
+name|STROKE_CLIP
 operator|||
 name|this
 operator|==
