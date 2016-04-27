@@ -208,6 +208,7 @@ comment|/**  * Utility class used to clone PDF objects. It keeps track of object
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|PDFCloneUtility
 block|{
@@ -236,6 +237,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * Creates a new instance for the given target document.      * @param dest the destination PDF document that will receive the clones      */
+specifier|public
 name|PDFCloneUtility
 parameter_list|(
 name|PDDocument
