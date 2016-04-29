@@ -122,7 +122,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO description needed  */
+comment|/**  * This contains the visual signature as a COSDocument, its preferred size and the page.  */
 end_comment
 
 begin_class
