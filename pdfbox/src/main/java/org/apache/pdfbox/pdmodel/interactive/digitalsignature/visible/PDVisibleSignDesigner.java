@@ -39,6 +39,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|FileInputStream
 import|;
 end_import
@@ -214,15 +224,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|this
+comment|// set visible signature image Input stream
+name|readImageStream
 argument_list|(
-operator|new
-name|FileInputStream
+name|imageStream
+argument_list|)
+expr_stmt|;
+comment|// calculate height and width of document page
+name|calculatePageSizeFromFile
 argument_list|(
 name|filename
-argument_list|)
-argument_list|,
-name|imageStream
 argument_list|,
 name|page
 argument_list|)
@@ -250,29 +261,13 @@ argument_list|(
 name|imageStream
 argument_list|)
 expr_stmt|;
-comment|// create PD document
-name|PDDocument
-name|document
-init|=
-name|PDDocument
-operator|.
-name|load
+comment|// calculate height and width of document page
+name|calculatePageSizeFromStream
 argument_list|(
 name|documentStream
-argument_list|)
-decl_stmt|;
-comment|// calculate height and width of document page
-name|calculatePageSize
-argument_list|(
-name|document
 argument_list|,
 name|page
 argument_list|)
-expr_stmt|;
-name|document
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Constructor.      *      * @param document Already created PDDocument of your PDF document.      * @param imageStream Image as a stream.      * @param page The 1-based page number for which the page size should be calculated.      * @throws IOException If we can't read, flush, or can't close stream.      */
@@ -320,15 +315,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|this
+comment|// set visible signature image
+name|setImage
 argument_list|(
-operator|new
-name|FileInputStream
+name|image
+argument_list|)
+expr_stmt|;
+comment|// calculate height and width of document page
+name|calculatePageSizeFromFile
 argument_list|(
 name|filename
-argument_list|)
-argument_list|,
-name|image
 argument_list|,
 name|page
 argument_list|)
@@ -356,29 +352,13 @@ argument_list|(
 name|image
 argument_list|)
 expr_stmt|;
-comment|// create PD document
-name|PDDocument
-name|document
-init|=
-name|PDDocument
-operator|.
-name|load
+comment|// calculate height and width of document page
+name|calculatePageSizeFromStream
 argument_list|(
 name|documentStream
-argument_list|)
-decl_stmt|;
-comment|// calculate height and width of document page
-name|calculatePageSize
-argument_list|(
-name|document
 argument_list|,
 name|page
 argument_list|)
-expr_stmt|;
-name|document
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Constructor.      *      * @param document Already created PDDocument of your PDF document.      * @param image      * @param page The 1-based page number for which the page size should be calculated.      */
@@ -406,6 +386,86 @@ name|document
 argument_list|,
 name|page
 argument_list|)
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|calculatePageSizeFromFile
+parameter_list|(
+name|String
+name|filename
+parameter_list|,
+name|int
+name|page
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// create PD document
+name|PDDocument
+name|document
+init|=
+name|PDDocument
+operator|.
+name|load
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|filename
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// calculate height and width of document page
+name|calculatePageSize
+argument_list|(
+name|document
+argument_list|,
+name|page
+argument_list|)
+expr_stmt|;
+name|document
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|calculatePageSizeFromStream
+parameter_list|(
+name|InputStream
+name|documentStream
+parameter_list|,
+name|int
+name|page
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// create PD document
+name|PDDocument
+name|document
+init|=
+name|PDDocument
+operator|.
+name|load
+argument_list|(
+name|documentStream
+argument_list|)
+decl_stmt|;
+comment|// calculate height and width of document page
+name|calculatePageSize
+argument_list|(
+name|document
+argument_list|,
+name|page
+argument_list|)
+expr_stmt|;
+name|document
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Each page of document can be different sizes. This method calculates the page size based on      * the page media box.      *       * @param document      * @param page The 1-based page number for which the page size should be calculated.      * @throws IllegalArgumentException if the page argument is lower than 0.      */
