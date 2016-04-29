@@ -419,22 +419,6 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|common
-operator|.
-name|PDStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
 name|encryption
 operator|.
 name|AccessPermission
@@ -1111,26 +1095,12 @@ name|signInterface
 operator|=
 name|signatureInterface
 expr_stmt|;
-comment|//
-comment|// Create SignatureForm for signature
-comment|// and appending it to the document
-comment|//
-comment|// Get the first page
-name|PDDocumentCatalog
-name|catalog
-init|=
-name|getDocumentCatalog
-argument_list|()
-decl_stmt|;
+comment|// Create SignatureForm for signature and append it to the document
+comment|// Get the first valid page
 name|int
 name|pageCount
 init|=
-name|catalog
-operator|.
-name|getPages
-argument_list|()
-operator|.
-name|getCount
+name|getNumberOfPages
 argument_list|()
 decl_stmt|;
 if|if
@@ -1175,17 +1145,18 @@ decl_stmt|;
 name|PDPage
 name|page
 init|=
-name|catalog
-operator|.
-name|getPages
-argument_list|()
-operator|.
-name|get
+name|getPage
 argument_list|(
 name|startIndex
 argument_list|)
 decl_stmt|;
 comment|// Get the AcroForm from the Root-Dictionary and append the annotation
+name|PDDocumentCatalog
+name|catalog
+init|=
+name|getDocumentCatalog
+argument_list|()
+decl_stmt|;
 name|PDAcroForm
 name|acroForm
 init|=
