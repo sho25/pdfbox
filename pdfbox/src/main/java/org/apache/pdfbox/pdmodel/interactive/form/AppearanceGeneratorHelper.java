@@ -319,6 +319,20 @@ name|PDBorderStyleDictionary
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
 begin_comment
 comment|/**  * Create the AcroForms field appearance helper.  *   * @author Stephan Gerhard  * @author Ben Litchfield  */
 end_comment
@@ -1102,6 +1116,22 @@ argument_list|,
 name|output
 argument_list|)
 decl_stmt|;
+comment|// Set an identity transformation in case there is no Matrix entry
+name|Matrix
+name|matrix
+init|=
+name|appearanceStream
+operator|.
+name|getMatrix
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|matrix
+operator|==
+literal|null
+condition|)
+block|{
 name|appearanceStream
 operator|.
 name|setMatrix
@@ -1111,6 +1141,7 @@ name|AffineTransform
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|appearanceStream
 operator|.
 name|setFormType
