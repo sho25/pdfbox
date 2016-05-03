@@ -355,7 +355,6 @@ literal|"size is not set in xrefstream"
 argument_list|)
 throw|;
 block|}
-comment|// add one for object number 0
 name|stream
 operator|.
 name|setLong
@@ -364,12 +363,7 @@ name|COSName
 operator|.
 name|SIZE
 argument_list|,
-name|streamData
-operator|.
 name|size
-argument_list|()
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 name|List
