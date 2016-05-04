@@ -1324,19 +1324,6 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|signatureField
-operator|.
-name|getCOSObject
-argument_list|()
-operator|.
-name|setNeedToBeUpdated
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 comment|// to conform PDF/A-1 requirement:
 comment|// The /F key's Print flag bit shall be set to 1 and
 comment|// its Hidden, Invisible and NoView flag bits shall be set to 0
