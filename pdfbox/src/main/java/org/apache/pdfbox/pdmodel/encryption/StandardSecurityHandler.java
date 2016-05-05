@@ -1002,6 +1002,11 @@ argument_list|(
 name|dicPermissions
 argument_list|)
 expr_stmt|;
+name|currentAccessPermission
+operator|.
+name|setReadOnly
+argument_list|()
+expr_stmt|;
 name|setCurrentAccessPermission
 argument_list|(
 name|currentAccessPermission
