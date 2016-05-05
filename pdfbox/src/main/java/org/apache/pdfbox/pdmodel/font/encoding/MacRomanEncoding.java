@@ -1325,13 +1325,6 @@ literal|060
 block|,
 literal|"zero"
 block|}
-block|,
-comment|// adding an additional mapping as defined in Appendix D of the pdf spec
-block|{
-literal|0312
-block|,
-literal|"space"
-block|}
 block|}
 decl_stmt|;
 comment|/**      * Singleton instance of this class.      *      * @since Apache PDFBox 1.3.0      */
@@ -1379,6 +1372,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// adding an additional mapping as defined in Appendix D of the pdf spec
+comment|// don't add the reverse mapping as we have to preserve the origin mapping for the given glyph name
+name|codeToName
+operator|.
+name|put
+argument_list|(
+literal|0312
+argument_list|,
+literal|"space"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

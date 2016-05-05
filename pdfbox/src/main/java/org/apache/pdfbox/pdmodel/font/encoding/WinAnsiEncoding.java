@@ -1379,19 +1379,6 @@ literal|060
 block|,
 literal|"zero"
 block|}
-block|,
-comment|// adding some additional mappings as defined in Appendix D of the pdf spec
-block|{
-literal|0240
-block|,
-literal|"space"
-block|}
-block|,
-block|{
-literal|0255
-block|,
-literal|"hyphen"
-block|}
 block|}
 decl_stmt|;
 comment|/**      * Singleton instance of this class.      *       * @since Apache PDFBox 1.3.0      */
@@ -1439,6 +1426,26 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// adding some additional mappings as defined in Appendix D of the pdf spec
+comment|// don't add the reverse mapping as we have to preserve the origin mapping for the given glyph names
+name|codeToName
+operator|.
+name|put
+argument_list|(
+literal|0240
+argument_list|,
+literal|"space"
+argument_list|)
+expr_stmt|;
+name|codeToName
+operator|.
+name|put
+argument_list|(
+literal|0255
+argument_list|,
+literal|"hyphen"
+argument_list|)
+expr_stmt|;
 comment|// From the PDF specification:
 comment|// In WinAnsiEncoding, all unused codes greater than 40 map to the bullet character.
 for|for
