@@ -5861,6 +5861,13 @@ argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
+name|printMenuItem
+operator|.
+name|setEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|initTree
 argument_list|()
 expr_stmt|;
