@@ -414,6 +414,20 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|boolean
+name|isPostScript
+init|=
+name|font
+operator|.
+name|tables
+operator|.
+name|containsKey
+argument_list|(
+name|CFFTable
+operator|.
+name|TAG
+argument_list|)
+decl_stmt|;
 name|HeaderTable
 name|head
 init|=
@@ -510,6 +524,12 @@ literal|"post is mandatory"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+operator|!
+name|isPostScript
+condition|)
+block|{
 name|IndexToLocationTable
 name|loc
 init|=
@@ -533,7 +553,6 @@ literal|"loca is mandatory"
 argument_list|)
 throw|;
 block|}
-comment|// check other mandatory tables
 if|if
 condition|(
 name|font
@@ -551,6 +570,7 @@ argument_list|(
 literal|"glyf is mandatory"
 argument_list|)
 throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -591,7 +611,6 @@ literal|"hmtx is mandatory"
 argument_list|)
 throw|;
 block|}
-comment|// check others mandatory tables
 if|if
 condition|(
 operator|!
