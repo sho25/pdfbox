@@ -76,10 +76,16 @@ parameter_list|)
 block|{
 name|isPostScript
 operator|=
+name|Float
+operator|.
+name|floatToIntBits
+argument_list|(
 name|versionValue
-operator|!=
-literal|1.0
+argument_list|)
+operator|==
+literal|0x469EA8A9
 expr_stmt|;
+comment|// OTTO
 name|super
 operator|.
 name|setVersion
