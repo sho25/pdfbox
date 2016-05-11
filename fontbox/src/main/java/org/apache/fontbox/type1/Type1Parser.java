@@ -2138,13 +2138,22 @@ name|decrypted
 argument_list|)
 expr_stmt|;
 comment|// find /Private dict
-while|while
-condition|(
-operator|!
+name|Token
+name|peekToken
+init|=
 name|lexer
 operator|.
 name|peekToken
 argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|peekToken
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|peekToken
 operator|.
 name|getText
 argument_list|()
@@ -2160,6 +2169,28 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
+name|peekToken
+operator|=
+name|lexer
+operator|.
+name|peekToken
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|peekToken
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"/Private token not found"
+argument_list|)
+throw|;
 block|}
 comment|// Private dict
 name|read
