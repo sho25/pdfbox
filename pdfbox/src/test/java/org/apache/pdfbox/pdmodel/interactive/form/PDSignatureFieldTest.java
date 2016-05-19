@@ -344,12 +344,7 @@ argument_list|(
 literal|"SignatureField"
 argument_list|)
 expr_stmt|;
-operator|(
-operator|(
-name|PDField
-operator|)
 name|sigField
-operator|)
 operator|.
 name|setValue
 argument_list|(
