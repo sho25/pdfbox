@@ -1393,13 +1393,12 @@ name|width
 expr_stmt|;
 block|}
 block|}
-name|float
 name|averageWidth
-init|=
+operator|=
 name|totalWidths
 operator|/
 name|characterCount
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|averageWidth
