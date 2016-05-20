@@ -776,20 +776,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-operator|!
-name|getAcroForm
-argument_list|()
-operator|.
-name|getNeedAppearances
-argument_list|()
-condition|)
-block|{
 name|constructAppearances
 argument_list|()
 expr_stmt|;
-block|}
 comment|// if we supported JavaScript we would raise a field changed event here
 block|}
 comment|/**      * Constructs appearance streams and appearance dictionaries for all widget annotations.      * Subclasses should not call this method directly but via {@link #applyChange()}.      *       * @throws IOException if the appearance couldn't be generated      */
