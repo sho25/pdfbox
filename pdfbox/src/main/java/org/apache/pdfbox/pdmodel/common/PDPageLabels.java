@@ -1407,7 +1407,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**          * A..Z, AA..ZZ, AAA..ZZZ ... labeling as described in PDF32000-1:2008,          * Table 159, Page 375.          */
+comment|/**          * a..z, aa..zz, aaa..zzz ... labeling as described in PDF32000-1:2008,          * Table 159, Page 375.          */
 specifier|private
 specifier|static
 name|String
@@ -1462,7 +1462,9 @@ literal|26
 argument_list|)
 operator|)
 operator|+
-literal|64
+literal|'a'
+operator|-
+literal|1
 decl_stmt|;
 for|for
 control|(
