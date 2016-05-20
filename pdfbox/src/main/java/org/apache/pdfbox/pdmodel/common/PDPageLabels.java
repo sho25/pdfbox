@@ -1359,9 +1359,7 @@ index|]
 argument_list|)
 expr_stmt|;
 name|pageIndex
-operator|=
-name|pageIndex
-operator|/
+operator|/=
 literal|10
 expr_stmt|;
 name|power
