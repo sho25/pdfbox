@@ -388,7 +388,7 @@ name|appearanceEntry
 init|=
 name|appearanceDictionary
 operator|.
-name|getDownAppearance
+name|getRolloverAppearance
 argument_list|()
 decl_stmt|;
 if|if
