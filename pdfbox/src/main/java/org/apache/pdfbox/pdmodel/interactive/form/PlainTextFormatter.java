@@ -49,7 +49,11 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|PDPageContentStream
+name|interactive
+operator|.
+name|annotation
+operator|.
+name|PDAppearanceContentStream
 import|;
 end_import
 
@@ -259,7 +263,7 @@ name|width
 decl_stmt|;
 specifier|private
 specifier|final
-name|PDPageContentStream
+name|PDAppearanceContentStream
 name|contents
 decl_stmt|;
 specifier|private
@@ -286,7 +290,7 @@ name|Builder
 block|{
 comment|// required parameters
 specifier|private
-name|PDPageContentStream
+name|PDAppearanceContentStream
 name|contents
 decl_stmt|;
 comment|// optional parameters
@@ -333,7 +337,7 @@ literal|0f
 decl_stmt|;
 name|Builder
 parameter_list|(
-name|PDPageContentStream
+name|PDAppearanceContentStream
 name|contents
 parameter_list|)
 block|{
