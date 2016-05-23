@@ -1090,8 +1090,6 @@ operator|.
 name|load
 argument_list|(
 name|is
-argument_list|,
-literal|""
 argument_list|)
 expr_stmt|;
 comment|// create a writer where to append the text content.
