@@ -312,7 +312,25 @@ argument_list|)
 decl_stmt|;
 name|contentStream
 operator|.
-name|setLineWidthOnDemand
+name|setBorderLine
+argument_list|(
+name|lineWidth
+argument_list|,
+operator|(
+operator|(
+name|PDAnnotationSquareCircle
+operator|)
+name|getAnnotation
+argument_list|()
+operator|)
+operator|.
+name|getBorderStyle
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// the differences rectangle
+comment|// TODO: this only works for border effect solid. Cloudy needs a different approach.
+name|setRectDifference
 argument_list|(
 name|lineWidth
 argument_list|)
@@ -327,6 +345,8 @@ argument_list|(
 name|bbox
 argument_list|,
 name|lineWidth
+operator|/
+literal|2
 argument_list|)
 decl_stmt|;
 name|contentStream
@@ -354,26 +374,15 @@ name|getHeight
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
+name|contentStream
+operator|.
+name|closePath
+argument_list|(
+name|lineWidth
+argument_list|,
 name|hasBackground
-condition|)
-block|{
-name|contentStream
-operator|.
-name|stroke
-argument_list|()
+argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|contentStream
-operator|.
-name|fillAndStroke
-argument_list|()
-expr_stmt|;
-block|}
 name|contentStream
 operator|.
 name|close
@@ -417,7 +426,6 @@ comment|// specific
 comment|// so we will leave that to be implemented by individual handlers.
 comment|// If at the end all annotations support the BS entry this can be handled
 comment|// here and removed from the individual handlers.
-specifier|public
 name|float
 name|getLineWidth
 parameter_list|()
