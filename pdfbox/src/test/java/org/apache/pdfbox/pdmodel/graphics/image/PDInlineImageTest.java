@@ -1173,11 +1173,6 @@ operator|.
 name|load
 argument_list|(
 name|pdfFile
-argument_list|,
-operator|(
-name|String
-operator|)
-literal|null
 argument_list|)
 expr_stmt|;
 operator|new
