@@ -236,7 +236,7 @@ name|getRectangle
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the annotations appearance dictionary.      *       *<p>This will get the annotations appearance dictionary. If this is      * not existent an empty appearance dictionary will be created.      *       * @return the annotations appearance dictionary      */
+comment|/**      * Get the annotations appearance dictionary.      *       *<p>      * This will get the annotations appearance dictionary. If this is not      * existent an empty appearance dictionary will be created.      *       * @return the annotations appearance dictionary      */
 name|PDAppearanceDictionary
 name|getAppearance
 parameter_list|()
@@ -274,7 +274,7 @@ return|return
 name|appearanceDictionary
 return|;
 block|}
-comment|/**      * Get the annotations normal appearance.      *       *<p>This will get the annotations normal appearance. If this is      * not existent an empty appearance entry will be created.      *       * @return the appearance entry representing the normal appearance.      */
+comment|/**      * Get the annotations normal appearance.      *       *<p>      * This will get the annotations normal appearance. If this is not existent      * an empty appearance entry will be created.      *       * @return the appearance entry representing the normal appearance.      */
 name|PDAppearanceEntry
 name|getNormalAppearance
 parameter_list|()
@@ -323,7 +323,7 @@ return|return
 name|appearanceEntry
 return|;
 block|}
-comment|/**      * Get the annotations down appearance.      *       *<p>This will get the annotations down appearance. If this is      * not existent an empty appearance entry will be created.      *       * @return the appearance entry representing the down appearance.      */
+comment|/**      * Get the annotations down appearance.      *       *<p>      * This will get the annotations down appearance. If this is not existent an      * empty appearance entry will be created.      *       * @return the appearance entry representing the down appearance.      */
 name|PDAppearanceEntry
 name|getDownAppearance
 parameter_list|()
@@ -372,7 +372,7 @@ return|return
 name|appearanceEntry
 return|;
 block|}
-comment|/**      * Get the annotations rollover appearance.      *       *<p>This will get the annotations rollover appearance. If this is      * not existent an empty appearance entry will be created.      *       * @return the appearance entry representing the rollover appearance.      */
+comment|/**      * Get the annotations rollover appearance.      *       *<p>      * This will get the annotations rollover appearance. If this is not      * existent an empty appearance entry will be created.      *       * @return the appearance entry representing the rollover appearance.      */
 name|PDAppearanceEntry
 name|getRolloverAppearance
 parameter_list|()
@@ -419,6 +419,55 @@ expr_stmt|;
 block|}
 return|return
 name|appearanceEntry
+return|;
+block|}
+comment|/**      * Get a padded rectangle.      *       *<p>Creates a new rectangle with padding applied to each side.      * .      * @param rectangle the rectangle.      * @param padding the padding to apply.      * @return the padded rectangle.      */
+name|PDRectangle
+name|getPaddedRectangle
+parameter_list|(
+name|PDRectangle
+name|rectangle
+parameter_list|,
+name|float
+name|padding
+parameter_list|)
+block|{
+return|return
+operator|new
+name|PDRectangle
+argument_list|(
+name|rectangle
+operator|.
+name|getLowerLeftX
+argument_list|()
+operator|+
+name|padding
+argument_list|,
+name|rectangle
+operator|.
+name|getLowerLeftY
+argument_list|()
+operator|+
+name|padding
+argument_list|,
+name|rectangle
+operator|.
+name|getWidth
+argument_list|()
+operator|-
+literal|2
+operator|*
+name|padding
+argument_list|,
+name|rectangle
+operator|.
+name|getHeight
+argument_list|()
+operator|-
+literal|2
+operator|*
+name|padding
+argument_list|)
 return|;
 block|}
 block|}

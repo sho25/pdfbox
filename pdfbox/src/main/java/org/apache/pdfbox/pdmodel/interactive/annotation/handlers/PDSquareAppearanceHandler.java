@@ -285,85 +285,95 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|setStrokingColor
+name|setStrokingColorOnDemand
 argument_list|(
 name|getColor
 argument_list|()
-operator|.
-name|getComponents
-argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Acrobat doesn't write a line width command
-comment|// for a line width of 1 as this is default.
-comment|// Will do the same.
-if|if
-condition|(
-operator|!
-operator|(
-name|Math
-operator|.
-name|abs
-argument_list|(
-name|lineWidth
-operator|-
-literal|1
-argument_list|)
-operator|<
-literal|1e-6
-operator|)
-condition|)
-block|{
+name|boolean
+name|hasBackground
+init|=
 name|contentStream
 operator|.
-name|setLineWidth
+name|setNonStrokingColorOnDemand
+argument_list|(
+operator|(
+operator|(
+name|PDAnnotationSquareCircle
+operator|)
+name|getAnnotation
+argument_list|()
+operator|)
+operator|.
+name|getInteriorColor
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|contentStream
+operator|.
+name|setLineWidthOnDemand
 argument_list|(
 name|lineWidth
 argument_list|)
 expr_stmt|;
-block|}
+comment|// Acrobat applies a padding to each side of the bbox so the line is completely within
+comment|// the bbox.
+name|PDRectangle
+name|borderEdge
+init|=
+name|getPaddedRectangle
+argument_list|(
+name|bbox
+argument_list|,
+name|lineWidth
+argument_list|)
+decl_stmt|;
 name|contentStream
 operator|.
 name|addRect
 argument_list|(
-name|bbox
+name|borderEdge
 operator|.
 name|getLowerLeftX
 argument_list|()
-operator|+
-name|lineWidth
 argument_list|,
-name|bbox
+name|borderEdge
 operator|.
 name|getLowerLeftY
 argument_list|()
-operator|+
-name|lineWidth
 argument_list|,
-name|bbox
+name|borderEdge
 operator|.
 name|getWidth
 argument_list|()
-operator|-
-literal|2
-operator|*
-name|lineWidth
 argument_list|,
-name|bbox
+name|borderEdge
 operator|.
 name|getHeight
 argument_list|()
-operator|-
-literal|2
-operator|*
-name|lineWidth
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|hasBackground
+condition|)
+block|{
 name|contentStream
 operator|.
 name|stroke
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|contentStream
+operator|.
+name|fillAndStroke
+argument_list|()
+expr_stmt|;
+block|}
 name|contentStream
 operator|.
 name|close
@@ -401,11 +411,12 @@ parameter_list|()
 block|{
 comment|// TODO to be implemented
 block|}
-comment|/**      * Get the line with of the border.      *       * Get the width of the line used to draw a border around      * the annotation. This may either be specified by the annotation      * dictionaries Border setting or by the W entry in the BS border      * style dictionary. If both are missing the default width is 1.      *       * @return the line width      */
-comment|// TODO: according to the PDF spec the use of the BS entry is annotation specific
-comment|//       so we will leave that to be implemented by individual handlers.
-comment|//       If at the end all annotations support the BS entry this can be handled
-comment|//       here and removed from the individual handlers.
+comment|/**      * Get the line with of the border.      *       * Get the width of the line used to draw a border around the annotation.      * This may either be specified by the annotation dictionaries Border      * setting or by the W entry in the BS border style dictionary. If both are      * missing the default width is 1.      *       * @return the line width      */
+comment|// TODO: according to the PDF spec the use of the BS entry is annotation
+comment|// specific
+comment|// so we will leave that to be implemented by individual handlers.
+comment|// If at the end all annotations support the BS entry this can be handled
+comment|// here and removed from the individual handlers.
 specifier|public
 name|float
 name|getLineWidth
