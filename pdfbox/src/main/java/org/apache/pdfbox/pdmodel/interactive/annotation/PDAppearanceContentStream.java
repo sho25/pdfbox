@@ -607,7 +607,7 @@ block|}
 comment|/**      * Close a path.      *       *<p>Dependent on the lineWidth and whether or not there is a background      * to be generated there are different commands to be used for closing a path.      *       * @param lineWidth the line width of the path.      * @param hasBackground shall there be a background color.      * @throws IOException if an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
-name|closePath
+name|drawShape
 parameter_list|(
 name|float
 name|lineWidth
