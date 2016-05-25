@@ -520,8 +520,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Important:
-comment|// can't use PDBorderStyleDictionary.getDashStyle() as
+comment|// Can't use PDBorderStyleDictionary.getDashStyle() as
 comment|// this will return a default dash style if non is existing
 if|if
 condition|(
