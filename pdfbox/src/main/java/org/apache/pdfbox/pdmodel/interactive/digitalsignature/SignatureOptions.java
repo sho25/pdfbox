@@ -95,6 +95,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|io
+operator|.
+name|RandomAccessRead
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdfparser
 operator|.
 name|PDFParser
@@ -144,6 +158,14 @@ specifier|private
 name|int
 name|pageNo
 decl_stmt|;
+comment|// the pdf to be read
+comment|// this is done analog to PDDocument
+specifier|private
+name|RandomAccessRead
+name|pdfSource
+init|=
+literal|null
+decl_stmt|;
 specifier|public
 specifier|static
 specifier|final
@@ -162,7 +184,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/**      * Set the 0-based page number.      *       * @param pageNo the page number      */
+comment|/**      * Set the 0-based page number.      *      * @param pageNo the page number      */
 specifier|public
 name|void
 name|setPage
@@ -178,7 +200,7 @@ operator|=
 name|pageNo
 expr_stmt|;
 block|}
-comment|/**      * Get the 0-based page number.      *       * @return the page number      */
+comment|/**      * Get the 0-based page number.      *      * @return the page number      */
 specifier|public
 name|int
 name|getPage
@@ -188,7 +210,7 @@ return|return
 name|pageNo
 return|;
 block|}
-comment|/**      * Reads the visual signature from the given file.      *        * @param file the file containing the visual signature      * @throws IOException when something went wrong during parsing       */
+comment|/**      * Reads the visual signature from the given file.      *      * @param file the file containing the visual signature      * @throws IOException when something went wrong during parsing      */
 specifier|public
 name|void
 name|setVisualSignature
@@ -199,17 +221,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|pdfSource
+operator|=
+operator|new
+name|RandomAccessBufferedFileInputStream
+argument_list|(
+name|file
+argument_list|)
+expr_stmt|;
 name|PDFParser
 name|parser
 init|=
 operator|new
 name|PDFParser
 argument_list|(
-operator|new
-name|RandomAccessBufferedFileInputStream
-argument_list|(
-name|file
-argument_list|)
+name|pdfSource
 argument_list|)
 decl_stmt|;
 name|parser
@@ -225,7 +251,7 @@ name|getDocument
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Reads the visual signature from the given input stream.      *        * @param is the input stream containing the visual signature      * @throws IOException when something went wrong during parsing       */
+comment|/**      * Reads the visual signature from the given input stream.      *      * @param is the input stream containing the visual signature      * @throws IOException when something went wrong during parsing      */
 specifier|public
 name|void
 name|setVisualSignature
@@ -236,17 +262,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|pdfSource
+operator|=
+operator|new
+name|RandomAccessBufferedFileInputStream
+argument_list|(
+name|is
+argument_list|)
+expr_stmt|;
 name|PDFParser
 name|parser
 init|=
 operator|new
 name|PDFParser
 argument_list|(
-operator|new
-name|RandomAccessBufferedFileInputStream
-argument_list|(
-name|is
-argument_list|)
+name|pdfSource
 argument_list|)
 decl_stmt|;
 name|parser
@@ -262,7 +292,7 @@ name|getDocument
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Reads the visual signature from the given visual signature properties      *        * @param visSignatureProperties the<code>PDVisibleSigProperties</code> object containing the visual signature      *       * @throws IOException when something went wrong during parsing      */
+comment|/**      * Reads the visual signature from the given visual signature properties      *      * @param visSignatureProperties the<code>PDVisibleSigProperties</code> object containing the      * visual signature      *      * @throws IOException when something went wrong during parsing      */
 specifier|public
 name|void
 name|setVisualSignature
@@ -282,7 +312,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the visual signature.      *       * @return the visual signature      */
+comment|/**      * Get the visual signature.      *      * @return the visual signature      */
 specifier|public
 name|COSDocument
 name|getVisualSignature
@@ -292,7 +322,7 @@ return|return
 name|visualSignature
 return|;
 block|}
-comment|/**      * Get the preferred size of the signature.      *       * @return the preferred size of the signature in bytes.      */
+comment|/**      * Get the preferred size of the signature.      *      * @return the preferred size of the signature in bytes.      */
 specifier|public
 name|int
 name|getPreferredSignatureSize
@@ -302,7 +332,7 @@ return|return
 name|preferredSignatureSize
 return|;
 block|}
-comment|/**      * Set the preferred size of the signature.      *       * @param size the size of the signature in bytes. Only values above 0 will be considered.      */
+comment|/**      * Set the preferred size of the signature.      *      * @param size the size of the signature in bytes. Only values above 0 will be considered.      */
 specifier|public
 name|void
 name|setPreferredSignatureSize
@@ -342,6 +372,19 @@ literal|null
 condition|)
 block|{
 name|visualSignature
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|pdfSource
+operator|!=
+literal|null
+condition|)
+block|{
+name|pdfSource
 operator|.
 name|close
 argument_list|()
