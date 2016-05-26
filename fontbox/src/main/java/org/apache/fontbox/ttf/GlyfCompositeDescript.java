@@ -143,6 +143,13 @@ name|resolved
 init|=
 literal|false
 decl_stmt|;
+specifier|private
+name|int
+name|pointCount
+init|=
+operator|-
+literal|1
+decl_stmt|;
 comment|/**      * Constructor.      *       * @param bais the stream to be read      * @param glyphTable the Glyphtable containing all glyphs      * @throws IOException is thrown if something went wrong      */
 specifier|public
 name|GlyfCompositeDescript
@@ -719,6 +726,13 @@ literal|"getPointCount called on unresolved GlyfCompositeDescript"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|pointCount
+operator|<
+literal|0
+condition|)
+block|{
 name|GlyfCompositeComp
 name|c
 init|=
@@ -766,11 +780,15 @@ operator|+
 literal|") is null, returning 0"
 argument_list|)
 expr_stmt|;
-return|return
+name|pointCount
+operator|=
 literal|0
-return|;
+expr_stmt|;
 block|}
-return|return
+else|else
+block|{
+name|pointCount
+operator|=
 name|c
 operator|.
 name|getFirstIndex
@@ -780,6 +798,11 @@ name|gd
 operator|.
 name|getPointCount
 argument_list|()
+expr_stmt|;
+block|}
+block|}
+return|return
+name|pointCount
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
