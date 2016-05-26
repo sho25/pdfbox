@@ -295,17 +295,6 @@ return|return
 name|annotation
 return|;
 block|}
-comment|/**      * Get the line width of the border.      *       * Get the width of the line used to draw a border around the annotation.      * This may either be specified by the annotation dictionaries Border      * setting or by the W entry in the BS border style dictionary. If both are      * missing the default width is 1.      *       * @return the line width      */
-comment|// TODO: according to the PDF spec the use of the BS entry is annotation
-comment|// specific
-comment|// so we will leave that to be implemented by individual handlers.
-comment|// If at the end all annotations support the BS entry this can be handled
-comment|// here and removed from the individual handlers.
-specifier|abstract
-name|float
-name|getLineWidth
-parameter_list|()
-function_decl|;
 name|PDColor
 name|getColor
 parameter_list|()
