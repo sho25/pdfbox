@@ -563,16 +563,6 @@ name|IOException
 block|{
 name|graphics
 operator|.
-name|scale
-argument_list|(
-name|scaleX
-argument_list|,
-name|scaleY
-argument_list|)
-expr_stmt|;
-comment|// TODO should we be passing the scale to PageDrawer rather than messing with Graphics?
-name|graphics
-operator|.
 name|clearRect
 argument_list|(
 literal|0
@@ -584,6 +574,16 @@ argument_list|,
 name|height
 argument_list|)
 expr_stmt|;
+name|graphics
+operator|.
+name|scale
+argument_list|(
+name|scaleX
+argument_list|,
+name|scaleY
+argument_list|)
+expr_stmt|;
+comment|// TODO should we be passing the scale to PageDrawer rather than messing with Graphics?
 name|PDRectangle
 name|cropBox
 init|=
