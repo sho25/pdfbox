@@ -2751,7 +2751,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// fixme: non-terminal fields are ignored, could have descendant signatures
 for|for
 control|(
 name|PDField
@@ -2759,7 +2758,7 @@ name|field
 range|:
 name|acroForm
 operator|.
-name|getFields
+name|getFieldTree
 argument_list|()
 control|)
 block|{
