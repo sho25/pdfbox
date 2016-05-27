@@ -115,24 +115,6 @@ name|PDColor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|annotation
-operator|.
-name|PDAppearanceStream
-import|;
-end_import
-
 begin_comment
 comment|/**  * Provides the ability to write to a page content stream.  *  * @author Ben Litchfield  */
 end_comment
@@ -149,7 +131,6 @@ name|Closeable
 block|{
 comment|/**      * This is to choose what to do with the stream: overwrite, append or      * prepend.      */
 specifier|public
-specifier|static
 enum|enum
 name|AppendMode
 block|{
