@@ -157,6 +157,7 @@ expr_stmt|;
 block|}
 comment|/**      * This will set the set of quadpoints which encompass the areas of this annotation.      *      * @param quadPoints an array representing the set of area covered      */
 specifier|public
+specifier|final
 name|void
 name|setQuadPoints
 parameter_list|(
@@ -239,6 +240,7 @@ block|}
 block|}
 comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For this annotation. See the SUB_TYPE_XXX      * constants for valid values.      *      * @param subType The subtype of the annotation      */
 specifier|public
+specifier|final
 name|void
 name|setSubtype
 parameter_list|(
@@ -260,6 +262,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence) For this annotation.      *      * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getSubtype
