@@ -523,14 +523,22 @@ comment|// if the embedded profile is sRGB then we can use Java's built-in profi
 comment|// results in a large performance gain as it's our native color space, see PDFBOX-2587
 name|ICC_Profile
 name|profile
-init|=
+decl_stmt|;
+synchronized|synchronized
+init|(
+name|LOG
+init|)
+block|{
+name|profile
+operator|=
 name|ICC_Profile
 operator|.
 name|getInstance
 argument_list|(
 name|input
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|is_sRGB
