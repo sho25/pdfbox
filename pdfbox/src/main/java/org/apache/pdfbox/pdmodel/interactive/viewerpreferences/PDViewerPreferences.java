@@ -112,7 +112,6 @@ literal|"UseOC"
 decl_stmt|;
 comment|/**      * Enumeration containing all valid values for NonFullScreenPageMode.      */
 specifier|public
-specifier|static
 enum|enum
 name|NON_FULL_SCREEN_PAGE_MODE
 block|{
@@ -148,7 +147,6 @@ literal|"R2L"
 decl_stmt|;
 comment|/**      * Enumeration containing all valid values for ReadingDirection.      */
 specifier|public
-specifier|static
 enum|enum
 name|READING_DIRECTION
 block|{
@@ -205,7 +203,6 @@ literal|"ArtBox"
 decl_stmt|;
 comment|/**      * Enumeration containing all valid values for boundaries.      */
 specifier|public
-specifier|static
 enum|enum
 name|BOUNDARY
 block|{
@@ -226,7 +223,6 @@ name|ArtBox
 block|}
 comment|/**      * Enumeration containing all valid values for duplex.      */
 specifier|public
-specifier|static
 enum|enum
 name|DUPLEX
 block|{
@@ -241,7 +237,6 @@ name|DuplexFlipLongEdge
 block|}
 comment|/**      * Enumeration containing all valid values for printscaling.      */
 specifier|public
-specifier|static
 enum|enum
 name|PRINT_SCALING
 block|{
