@@ -353,6 +353,11 @@ name|Rectangle2D
 name|getBounds
 parameter_list|()
 block|{
+synchronized|synchronized
+init|(
+name|fontName
+init|)
+block|{
 if|if
 condition|(
 name|path
@@ -363,6 +368,7 @@ block|{
 name|render
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|path
@@ -377,6 +383,11 @@ name|int
 name|getWidth
 parameter_list|()
 block|{
+synchronized|synchronized
+init|(
+name|fontName
+init|)
+block|{
 if|if
 condition|(
 name|path
@@ -387,6 +398,7 @@ block|{
 name|render
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|width
@@ -398,6 +410,11 @@ name|GeneralPath
 name|getPath
 parameter_list|()
 block|{
+synchronized|synchronized
+init|(
+name|fontName
+init|)
+block|{
 if|if
 condition|(
 name|path
@@ -408,6 +425,7 @@ block|{
 name|render
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|path
