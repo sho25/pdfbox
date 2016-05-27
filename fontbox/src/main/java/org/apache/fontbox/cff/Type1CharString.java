@@ -355,7 +355,7 @@ parameter_list|()
 block|{
 synchronized|synchronized
 init|(
-name|fontName
+name|LOG
 init|)
 block|{
 if|if
@@ -385,7 +385,7 @@ parameter_list|()
 block|{
 synchronized|synchronized
 init|(
-name|fontName
+name|LOG
 init|)
 block|{
 if|if
@@ -412,7 +412,7 @@ parameter_list|()
 block|{
 synchronized|synchronized
 init|(
-name|fontName
+name|LOG
 init|)
 block|{
 if|if
