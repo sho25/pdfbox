@@ -513,7 +513,6 @@ name|Closeable
 block|{
 comment|/**      * This is to choose what to do with the stream: overwrite, append or prepend.      */
 specifier|public
-specifier|static
 enum|enum
 name|AppendMode
 block|{
