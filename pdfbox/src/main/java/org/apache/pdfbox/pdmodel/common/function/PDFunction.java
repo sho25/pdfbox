@@ -474,7 +474,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will get the number of output parameters that      * have a range specified.  A range for output parameters      * is optional so this may return zero for a function      * that does have output parameters, this will simply return the      * number that have the rnage specified.      *      * @return The number of input parameters that have a range      * specified.      */
+comment|/**      * This will get the number of output parameters that      * have a range specified.  A range for output parameters      * is optional so this may return zero for a function      * that does have output parameters, this will simply return the      * number that have the range specified.      *      * @return The number of output parameters that have a range      * specified.      */
 specifier|public
 name|int
 name|getNumberOfOutputParameters
@@ -645,6 +645,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @deprecated Replaced by {@link #eval(float[] input)}      */
+annotation|@
+name|Deprecated
 specifier|public
 name|COSArray
 name|eval
