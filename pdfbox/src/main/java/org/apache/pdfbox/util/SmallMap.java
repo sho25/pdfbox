@@ -142,7 +142,6 @@ expr_stmt|;
 block|}
 comment|/**      * Returns index of key within map-array or<code>-1</code>      * if key is not found (or key is<code>null</code>).      */
 specifier|private
-specifier|final
 name|int
 name|findKey
 parameter_list|(
@@ -210,7 +209,6 @@ return|;
 block|}
 comment|/**      * Returns index of value within map-array or<code>-1</code>      * if value is not found (or value is<code>null</code>).      */
 specifier|private
-specifier|final
 name|int
 name|findValue
 parameter_list|(
@@ -699,6 +697,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|void
 name|putAll
 parameter_list|(
@@ -1227,7 +1226,6 @@ specifier|final
 name|int
 name|keyIdx
 decl_stmt|;
-specifier|public
 name|SmallMapEntry
 parameter_list|(
 name|int
