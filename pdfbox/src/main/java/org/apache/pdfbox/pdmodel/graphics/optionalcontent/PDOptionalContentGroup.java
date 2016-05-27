@@ -172,6 +172,7 @@ return|;
 block|}
 comment|/**      * Sets the name of the optional content group.      * @param name the name      */
 specifier|public
+specifier|final
 name|void
 name|setName
 parameter_list|(
