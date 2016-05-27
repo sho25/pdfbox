@@ -505,6 +505,7 @@ argument_list|()
 expr_stmt|;
 block|}
 specifier|public
+specifier|final
 name|void
 name|buildFontFile2
 parameter_list|(
