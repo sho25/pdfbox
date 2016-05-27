@@ -24,7 +24,6 @@ class|class
 name|Token
 block|{
 comment|/**      * All different types of tokens.        *      */
-specifier|static
 enum|enum
 name|Kind
 block|{
