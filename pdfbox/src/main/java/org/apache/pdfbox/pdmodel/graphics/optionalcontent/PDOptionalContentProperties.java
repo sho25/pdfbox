@@ -128,7 +128,6 @@ name|COSObjectable
 block|{
 comment|/**      * Enumeration for the BaseState dictionary entry on the "D" dictionary.      */
 specifier|public
-specifier|static
 enum|enum
 name|BaseState
 block|{
