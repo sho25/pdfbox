@@ -825,6 +825,7 @@ return|;
 block|}
 comment|/**      * This will set the list of kids.      *      * @param kids A list of FDFField objects.      */
 specifier|public
+specifier|final
 name|void
 name|setKids
 parameter_list|(

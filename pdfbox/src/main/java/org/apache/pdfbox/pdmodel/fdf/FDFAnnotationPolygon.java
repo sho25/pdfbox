@@ -452,6 +452,7 @@ block|}
 block|}
 comment|/**      * This will set the coordinates of the the vertices.      *      * @param vertices array of floats [x1, y1, x2, y2, ...] vertex coordinates in default user space.      */
 specifier|public
+specifier|final
 name|void
 name|setVertices
 parameter_list|(

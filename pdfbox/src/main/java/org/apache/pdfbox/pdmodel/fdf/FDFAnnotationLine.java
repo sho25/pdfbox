@@ -702,6 +702,7 @@ block|}
 block|}
 comment|/**      * This will set start and end coordinates of the line (or leader line if LL entry is set).      *      * @param line array of 4 floats [x1, y1, x2, y2] line start and end points in default user space.      */
 specifier|public
+specifier|final
 name|void
 name|setLine
 parameter_list|(
@@ -782,6 +783,7 @@ block|}
 block|}
 comment|/**      * This will set the line ending style for the start point, see the LE_ constants for the possible values.      *      * @param style The new style.      */
 specifier|public
+specifier|final
 name|void
 name|setStartPointEndingStyle
 parameter_list|(
@@ -933,6 +935,7 @@ return|;
 block|}
 comment|/**      * This will set the line ending style for the end point, see the LE_ constants for the possible values.      *      * @param style The new style.      */
 specifier|public
+specifier|final
 name|void
 name|setEndPointEndingStyle
 parameter_list|(
@@ -1084,6 +1087,7 @@ return|;
 block|}
 comment|/**      * This will set interior color of the line endings defined in the LE entry.      *      * @param color The interior color of the line endings.      */
 specifier|public
+specifier|final
 name|void
 name|setInteriorColor
 parameter_list|(
@@ -1220,6 +1224,7 @@ return|;
 block|}
 comment|/**      * This will set if the contents are shown as a caption to the line.      *      * @param cap Boolean value.      */
 specifier|public
+specifier|final
 name|void
 name|setCaption
 parameter_list|(
@@ -1277,6 +1282,7 @@ return|;
 block|}
 comment|/**      * This will set the length of the leader line.      *       * @param leaderLength length of the leader line      */
 specifier|public
+specifier|final
 name|void
 name|setLeaderLength
 parameter_list|(
@@ -1315,6 +1321,7 @@ return|;
 block|}
 comment|/**      * This will set the length of the leader line extensions.      *       * @param leaderExtend length of the leader line extensions      */
 specifier|public
+specifier|final
 name|void
 name|setLeaderExtend
 parameter_list|(
@@ -1353,6 +1360,7 @@ return|;
 block|}
 comment|/**      * This will set the length of the leader line offset.      *       * @param leaderOffset length of the leader line offset      */
 specifier|public
+specifier|final
 name|void
 name|setLeaderOffset
 parameter_list|(
@@ -1391,6 +1399,7 @@ return|;
 block|}
 comment|/**      * This will set the caption positioning. Allowed values are: "Inline" and "Top"      *       * @param captionStyle caption positioning      */
 specifier|public
+specifier|final
 name|void
 name|setCaptionStyle
 parameter_list|(
@@ -1412,6 +1421,7 @@ expr_stmt|;
 block|}
 comment|/**      * This will set the horizontal offset of the caption.      *       * @param offset the horizontal offset of the caption      */
 specifier|public
+specifier|final
 name|void
 name|setCaptionHorizontalOffset
 parameter_list|(
@@ -1540,6 +1550,7 @@ return|;
 block|}
 comment|/**      * This will set the vertical offset of the caption.      *       * @param offset vertical offset of the caption      */
 specifier|public
+specifier|final
 name|void
 name|setCaptionVerticalOffset
 parameter_list|(

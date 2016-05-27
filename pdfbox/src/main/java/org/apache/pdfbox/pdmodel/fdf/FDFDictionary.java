@@ -1401,6 +1401,7 @@ return|;
 block|}
 comment|/**      * This will set the file specification.      *      * @param fs The file specification.      */
 specifier|public
+specifier|final
 name|void
 name|setFile
 parameter_list|(
@@ -1442,6 +1443,7 @@ return|;
 block|}
 comment|/**      * This will set the FDF id.      *      * @param id The new id for the FDF.      */
 specifier|public
+specifier|final
 name|void
 name|setID
 parameter_list|(
@@ -1571,6 +1573,7 @@ return|;
 block|}
 comment|/**      * This will set the list of fields. This should be a list of FDFField objects.      *      * @param fields The list of fields.      */
 specifier|public
+specifier|final
 name|void
 name|setFields
 parameter_list|(
@@ -1941,6 +1944,7 @@ return|;
 block|}
 comment|/**      * This will set the list of annotations. This should be a list of FDFAnnotation objects.      *      *      * @param annots The list of annotations.      */
 specifier|public
+specifier|final
 name|void
 name|setAnnotations
 parameter_list|(

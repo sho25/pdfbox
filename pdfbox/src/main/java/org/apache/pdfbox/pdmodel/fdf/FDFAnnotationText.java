@@ -270,6 +270,7 @@ block|}
 block|}
 comment|/**      * This will set the icon (and hence appearance, AP taking precedence) For this annotation. See the      * PDAnnotationText.NAME_XXX constants for valid values.      *      * @param icon The name of the annotation      */
 specifier|public
+specifier|final
 name|void
 name|setIcon
 parameter_list|(
@@ -329,6 +330,7 @@ return|;
 block|}
 comment|/**      * This will set the annotation state.      *       * @param state the annotation state      */
 specifier|public
+specifier|final
 name|void
 name|setState
 parameter_list|(
@@ -367,6 +369,7 @@ return|;
 block|}
 comment|/**      * This will set the annotation state model. Allowed values are "Marked" and "Review"      *       * @param stateModel the annotation state model      */
 specifier|public
+specifier|final
 name|void
 name|setStateModel
 parameter_list|(

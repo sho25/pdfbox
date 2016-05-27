@@ -151,7 +151,7 @@ operator|=
 name|cat
 expr_stmt|;
 block|}
-comment|/**      * This will create an FDF catalog from an XFDF XML document.      *      * @param element The XML document that contains the XFDF data.      * @throws IOException If there is an error reading from the dom.      */
+comment|/**      * This will create an FDF catalog from an XFDF XML document.      *      * @param element The XML document that contains the XFDF data.      */
 specifier|public
 name|FDFCatalog
 parameter_list|(
@@ -312,6 +312,7 @@ return|;
 block|}
 comment|/**      * This will set the FDF document.      *      * @param fdf The new FDF dictionary.      */
 specifier|public
+specifier|final
 name|void
 name|setFDF
 parameter_list|(

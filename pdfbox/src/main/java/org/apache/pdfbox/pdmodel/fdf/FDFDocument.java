@@ -236,7 +236,7 @@ specifier|private
 name|COSDocument
 name|document
 decl_stmt|;
-comment|/**      * Constructor, creates a new FDF document.      *      * @throws IOException If there is an error creating this document.      */
+comment|/**      * Constructor, creates a new FDF document.      *      */
 specifier|public
 name|FDFDocument
 parameter_list|()
@@ -479,6 +479,7 @@ return|;
 block|}
 comment|/**      * This will set the FDF catalog for this FDF document.      *      * @param cat The FDF catalog.      */
 specifier|public
+specifier|final
 name|void
 name|setCatalog
 parameter_list|(
