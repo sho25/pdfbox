@@ -33,7 +33,6 @@ name|Parser
 block|{
 comment|/** Used to indicate the parsers current state. */
 specifier|private
-specifier|static
 enum|enum
 name|State
 block|{
