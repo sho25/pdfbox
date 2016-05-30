@@ -278,12 +278,9 @@ name|key
 parameter_list|)
 block|{
 return|return
-name|map
+name|actuals
 operator|.
-name|keySet
-argument_list|()
-operator|.
-name|contains
+name|containsKey
 argument_list|(
 name|key
 argument_list|)
