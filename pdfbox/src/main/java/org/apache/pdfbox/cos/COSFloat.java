@@ -136,25 +136,27 @@ if|if
 condition|(
 name|aFloat
 operator|.
-name|startsWith
+name|matches
 argument_list|(
-literal|"0.00000-"
+literal|"^0\\.0+\\-\\d+"
 argument_list|)
 condition|)
 block|{
 comment|// PDFBOX-2990 has 0.00000-33917698
-comment|// Let's wait what other floats will be coming before doing a more general workaround.
+comment|// PDFBOX-3369 has 0.00-35095424
 try|try
 block|{
 name|valueAsString
 operator|=
-literal|"-0.00000"
+literal|"-"
 operator|+
-name|aFloat
+name|valueAsString
 operator|.
-name|substring
+name|replaceFirst
 argument_list|(
-literal|8
+literal|"\\-"
+argument_list|,
+literal|""
 argument_list|)
 expr_stmt|;
 name|value
