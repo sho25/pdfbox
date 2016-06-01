@@ -166,21 +166,6 @@ name|PREPEND
 return|;
 block|}
 block|}
-comment|// number format
-specifier|private
-specifier|final
-name|NumberFormat
-name|formatDecimal
-init|=
-name|NumberFormat
-operator|.
-name|getNumberInstance
-argument_list|(
-name|Locale
-operator|.
-name|US
-argument_list|)
-decl_stmt|;
 comment|/**      * Create a new appearance stream.      *      * @param doc      *            The document the page is part of.      * @param appearance      *            The appearance stream to write to.      * @throws IOException      *             If there is an error writing to the page contents.      */
 specifier|public
 name|PDAppearanceContentStream
@@ -231,20 +216,6 @@ name|appearance
 operator|.
 name|getResources
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|formatDecimal
-operator|.
-name|setMaximumFractionDigits
-argument_list|(
-literal|4
-argument_list|)
-expr_stmt|;
-name|formatDecimal
-operator|.
-name|setGroupingUsed
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
