@@ -493,28 +493,6 @@ name|NoSuchProviderException
 throws|,
 name|SignatureException
 block|{
-name|args
-operator|=
-operator|new
-name|String
-index|[]
-block|{
-literal|""
-block|,
-literal|"C:\\Users\\Tilman Hausherr\\Documents\\Java\\PDFBoxPageImageExtraction\\annotations2_signed.pdf"
-block|}
-expr_stmt|;
-name|args
-operator|=
-operator|new
-name|String
-index|[]
-block|{
-literal|""
-block|,
-literal|"C:\\Users\\Tilman Hausherr\\Documents\\Java\\PDFBox reactor\\pdfbox\\src\\test\\resources\\input\\rendering\\PDFBOX-1452.pdf"
-block|}
-expr_stmt|;
 if|if
 condition|(
 name|args
