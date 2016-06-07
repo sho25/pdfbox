@@ -115,7 +115,31 @@ name|security
 operator|.
 name|cert
 operator|.
+name|Certificate
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|cert
+operator|.
 name|CertificateException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|cert
+operator|.
+name|X509Certificate
 import|;
 end_import
 
@@ -421,7 +445,7 @@ name|buildSignature
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Initialize the signature creator with a keystore (pkcs12) and pin that      * should be used for the signature.      *      * @param keystore is a pkcs12 keystore.      * @param pin is the pin for the keystore / private key      */
+comment|/**      * Initialize the signature creator with a keystore (pkcs12) and pin that      * should be used for the signature.      *      * @param keystore is a pkcs12 keystore.      * @param pin is the pin for the keystore / private key      * @throws KeyStoreException if the keystore has not been initialized (loaded)      * @throws NoSuchAlgorithmException if the algorithm for recovering the key cannot be found      * @throws UnrecoverableKeyException if the given password is wrong      * @throws CertificateException if the certificate is not valid as signing time      */
 specifier|public
 name|CreateVisibleSignature
 parameter_list|(
@@ -440,6 +464,8 @@ throws|,
 name|NoSuchAlgorithmException
 throws|,
 name|IOException
+throws|,
+name|CertificateException
 block|{
 comment|// grabs the first alias from the keystore and get the private key. An
 comment|// alternative method or constructor could be used for setting a specific
@@ -501,8 +527,9 @@ name|pin
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|setCertificate
-argument_list|(
+name|Certificate
+name|cert
+init|=
 name|keystore
 operator|.
 name|getCertificateChain
@@ -512,8 +539,31 @@ argument_list|)
 index|[
 literal|0
 index|]
+decl_stmt|;
+name|setCertificate
+argument_list|(
+name|cert
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cert
+operator|instanceof
+name|X509Certificate
+condition|)
+block|{
+comment|// avoid expired certificate
+operator|(
+operator|(
+name|X509Certificate
+operator|)
+name|cert
+operator|)
+operator|.
+name|checkValidity
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Sign pdf file and create new file that ends with "_signed.pdf".      *      * @param inputFile The source pdf document file.      * @param signedFile The file to be signed.      * @throws IOException      */
 specifier|public

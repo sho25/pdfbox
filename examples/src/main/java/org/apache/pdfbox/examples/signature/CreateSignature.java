@@ -173,6 +173,30 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|cert
+operator|.
+name|CertificateException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|cert
+operator|.
+name|X509Certificate
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -416,7 +440,7 @@ name|CreateSignature
 extends|extends
 name|CreateSignatureBase
 block|{
-comment|/**      * Initialize the signature creator with a keystore and certficate password.      * @param keystore the keystore containing the signing certificate      * @param password the password for recovering the key      * @throws KeyStoreException if the keystore has not been initialized (loaded)      * @throws NoSuchAlgorithmException if the algorithm for recovering the key cannot be found      * @throws UnrecoverableKeyException if the given password is wrong      */
+comment|/**      * Initialize the signature creator with a keystore and certficate password.      * @param keystore the pkcs12 keystore containing the signing certificate      * @param password the password for recovering the key      * @throws KeyStoreException if the keystore has not been initialized (loaded)      * @throws NoSuchAlgorithmException if the algorithm for recovering the key cannot be found      * @throws UnrecoverableKeyException if the given password is wrong      * @throws CertificateException if the certificate is not valid as signing time      */
 specifier|public
 name|CreateSignature
 parameter_list|(
@@ -433,6 +457,8 @@ throws|,
 name|UnrecoverableKeyException
 throws|,
 name|NoSuchAlgorithmException
+throws|,
+name|CertificateException
 block|{
 comment|// grabs the first alias from the keystore and get the private key. An
 comment|// TODO alternative method or constructor could be used for setting a specific
@@ -493,8 +519,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|Certificate
-index|[]
-name|certificateChain
+name|cert
 init|=
 name|keystore
 operator|.
@@ -502,15 +527,34 @@ name|getCertificateChain
 argument_list|(
 name|alias
 argument_list|)
-decl_stmt|;
-name|setCertificate
-argument_list|(
-name|certificateChain
 index|[
 literal|0
 index|]
+decl_stmt|;
+name|setCertificate
+argument_list|(
+name|cert
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cert
+operator|instanceof
+name|X509Certificate
+condition|)
+block|{
+comment|// avoid expired certificate
+operator|(
+operator|(
+name|X509Certificate
+operator|)
+name|cert
+operator|)
+operator|.
+name|checkValidity
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Signs the given PDF file. Alters the original file on disk.      * @param file the PDF file to sign      * @throws IOException if the file could not be read or written      */
 specifier|public
