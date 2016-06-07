@@ -377,6 +377,20 @@ name|org
 operator|.
 name|bouncycastle
 operator|.
+name|cms
+operator|.
+name|jcajce
+operator|.
+name|JcaSimpleSignerInfoVerifierBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
 name|operator
 operator|.
 name|OperatorCreationException
@@ -1373,15 +1387,46 @@ argument_list|,
 name|certFromSignedData
 argument_list|)
 expr_stmt|;
-comment|// code below doesn't work - maybe because the signature can indeed not be verified?
-comment|//                if (signerInformation.verify(new JcaSimpleSignerInfoVerifierBuilder().build(certFromSignedData)))
-comment|//                {
-comment|//                    System.out.println("Signature verified");
-comment|//                }
-comment|//                else
-comment|//                {
-comment|//                    System.out.println("Signature verification failed");
-comment|//                }
+comment|// CMSVerifierCertificateNotValidException means that the keystore wasn't valid at signing time
+if|if
+condition|(
+name|signerInformation
+operator|.
+name|verify
+argument_list|(
+operator|new
+name|JcaSimpleSignerInfoVerifierBuilder
+argument_list|()
+operator|.
+name|build
+argument_list|(
+name|certFromSignedData
+argument_list|)
+argument_list|)
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Signature verified"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Signature verification failed"
+argument_list|)
+expr_stmt|;
+block|}
 break|break;
 block|}
 block|}
