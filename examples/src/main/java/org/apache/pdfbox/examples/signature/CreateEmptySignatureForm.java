@@ -372,6 +372,16 @@ argument_list|(
 name|widget
 argument_list|)
 expr_stmt|;
+name|acroForm
+operator|.
+name|getFields
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|signatureField
+argument_list|)
+expr_stmt|;
 name|document
 operator|.
 name|save
