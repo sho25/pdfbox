@@ -185,7 +185,9 @@ return|return;
 block|}
 synchronized|synchronized
 init|(
-name|this
+name|PDDeviceRGB
+operator|.
+name|class
 init|)
 block|{
 comment|// we might have been waiting for another thread, so check again
