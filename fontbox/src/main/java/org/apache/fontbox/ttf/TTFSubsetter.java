@@ -1219,7 +1219,8 @@ name|getMetricDataFormat
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// is there a GID>= numberOfHMetrics ? Then keep the last entry of original hmtx table
+comment|// is there a GID>= numberOfHMetrics ? Then keep the last entry of original hmtx table,
+comment|// (add if it isn't in our set of GIDs), see also in buildHmtxTable()
 name|int
 name|hmetrics
 init|=
@@ -1249,6 +1250,19 @@ name|h
 operator|.
 name|getNumberOfHMetrics
 argument_list|()
+operator|&&
+operator|!
+name|glyphIds
+operator|.
+name|contains
+argument_list|(
+name|h
+operator|.
+name|getNumberOfHMetrics
+argument_list|()
+operator|-
+literal|1
+argument_list|)
 condition|)
 block|{
 operator|++
@@ -4464,6 +4478,17 @@ name|getOriginalData
 argument_list|()
 decl_stmt|;
 comment|// is there a GID>= numberOfHMetrics ? Then keep the last entry of original hmtx table
+comment|// add it if it isn't in the set
+name|int
+name|lastgid
+init|=
+name|h
+operator|.
+name|getNumberOfHMetrics
+argument_list|()
+operator|-
+literal|1
+decl_stmt|;
 name|SortedSet
 argument_list|<
 name|Integer
@@ -4478,14 +4503,19 @@ name|glyphIds
 operator|.
 name|last
 argument_list|()
-operator|>=
-name|h
+operator|>
+name|lastgid
+operator|&&
+operator|!
+name|glyphIds
 operator|.
-name|getNumberOfHMetrics
-argument_list|()
+name|contains
+argument_list|(
+name|lastgid
+argument_list|)
 condition|)
 block|{
-comment|// Create a deep copy of the glyph set that has the last entry
+comment|// Create a deep copy of the glyph set and add the last entry
 name|gidSet
 operator|=
 operator|new
@@ -4501,15 +4531,7 @@ name|gidSet
 operator|.
 name|add
 argument_list|(
-name|ttf
-operator|.
-name|getHorizontalHeader
-argument_list|()
-operator|.
-name|getNumberOfHMetrics
-argument_list|()
-operator|-
-literal|1
+name|lastgid
 argument_list|)
 expr_stmt|;
 block|}
