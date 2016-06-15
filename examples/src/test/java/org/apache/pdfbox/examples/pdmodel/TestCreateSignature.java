@@ -932,7 +932,7 @@ argument_list|)
 decl_stmt|;
 name|signing
 operator|.
-name|setVisibleSignatureProperties
+name|setvisibleSignDesigner
 argument_list|(
 name|inPath
 argument_list|,
@@ -950,7 +950,7 @@ argument_list|)
 expr_stmt|;
 name|signing
 operator|.
-name|setSignatureProperties
+name|setVisibleSignatureProperties
 argument_list|(
 literal|"name"
 argument_list|,
@@ -987,6 +987,8 @@ name|inPath
 argument_list|)
 argument_list|,
 name|destFile
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|checkSignature
