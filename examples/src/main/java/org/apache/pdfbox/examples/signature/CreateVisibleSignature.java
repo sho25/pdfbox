@@ -657,6 +657,7 @@ operator|new
 name|PDSignature
 argument_list|()
 decl_stmt|;
+comment|// default filter
 name|signature
 operator|.
 name|setFilter
@@ -666,7 +667,6 @@ operator|.
 name|FILTER_ADOBE_PPKLITE
 argument_list|)
 expr_stmt|;
-comment|// default filter
 comment|// subfilter for basic and PAdES Part 2 signatures
 name|signature
 operator|.
@@ -677,27 +677,44 @@ operator|.
 name|SUBFILTER_ADBE_PKCS7_DETACHED
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|visibleSignatureProperties
+operator|!=
+literal|null
+condition|)
+block|{
 name|signature
 operator|.
 name|setName
 argument_list|(
-literal|"signer name"
+name|visibleSignatureProperties
+operator|.
+name|getSignerName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|signature
 operator|.
 name|setLocation
 argument_list|(
-literal|"signer location"
+name|visibleSignatureProperties
+operator|.
+name|getSignerLocation
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|signature
 operator|.
 name|setReason
 argument_list|(
-literal|"reason for signature"
+name|visibleSignatureProperties
+operator|.
+name|getSignatureReason
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// the signing date, needed for valid signature
 name|signature
 operator|.
@@ -733,6 +750,9 @@ operator|.
 name|setVisualSignature
 argument_list|(
 name|visibleSignatureProperties
+operator|.
+name|getVisibleSignature
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|signatureOptions
