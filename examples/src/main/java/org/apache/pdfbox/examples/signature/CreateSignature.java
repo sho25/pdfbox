@@ -245,24 +245,6 @@ name|PDSignature
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|digitalsignature
-operator|.
-name|SignatureOptions
-import|;
-end_import
-
 begin_comment
 comment|/**  * An example for singing a PDF with bouncy castle.  * A keystore can be created with the java keytool, for example:  *  * {@code keytool -genkeypair -storepass 123456 -storetype pkcs12 -alias test -validity 365  *        -v -keyalg RSA -keystore keystore.p12 }  *  * @author Thomas Chojecki  * @author Vakhtang Koroghlishvili  * @author John Hewson  */
 end_comment
@@ -589,21 +571,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// register signature dictionary and sign interface
-name|SignatureOptions
-name|signatureOptions
-init|=
-operator|new
-name|SignatureOptions
-argument_list|()
-decl_stmt|;
-name|signatureOptions
-operator|.
-name|setPage
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-comment|// 0-based
 name|document
 operator|.
 name|addSignature
@@ -611,8 +578,6 @@ argument_list|(
 name|signature
 argument_list|,
 name|this
-argument_list|,
-name|signatureOptions
 argument_list|)
 expr_stmt|;
 comment|// write incremental (only for signing purpose)
