@@ -708,18 +708,18 @@ argument_list|(
 literal|"ZapfDingbats"
 argument_list|)
 decl_stmt|;
+comment|/**      * embedded font.      */
 specifier|private
 specifier|final
 name|Type1Font
 name|type1font
 decl_stmt|;
-comment|// embedded font
+comment|/**      * embedded or system font for rendering.      */
 specifier|private
 specifier|final
 name|FontBoxFont
 name|genericFont
 decl_stmt|;
-comment|// embedded or system font for rendering
 specifier|private
 specifier|final
 name|boolean
@@ -742,6 +742,28 @@ decl_stmt|;
 specifier|private
 name|BoundingBox
 name|fontBBox
+decl_stmt|;
+comment|/**      * to improve encoding speed.      */
+specifier|final
+specifier|private
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|byte
+index|[]
+argument_list|>
+name|codeToBytesMap
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|Integer
+argument_list|,
+name|byte
+index|[]
+argument_list|>
+argument_list|()
 decl_stmt|;
 comment|/**      * Creates a Type 1 standard 14 font for embedding.      *      * @param baseFont One of the standard 14 PostScript names      */
 specifier|private
@@ -1703,6 +1725,28 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|byte
+index|[]
+name|bytes
+init|=
+name|codeToBytesMap
+operator|.
+name|get
+argument_list|(
+name|unicode
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|bytes
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|bytes
+return|;
+block|}
 name|String
 name|name
 init|=
@@ -1814,7 +1858,8 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-return|return
+name|bytes
+operator|=
 operator|new
 name|byte
 index|[]
@@ -1824,6 +1869,18 @@ name|byte
 operator|)
 name|code
 block|}
+expr_stmt|;
+name|codeToBytesMap
+operator|.
+name|put
+argument_list|(
+name|code
+argument_list|,
+name|bytes
+argument_list|)
+expr_stmt|;
+return|return
+name|bytes
 return|;
 block|}
 annotation|@
