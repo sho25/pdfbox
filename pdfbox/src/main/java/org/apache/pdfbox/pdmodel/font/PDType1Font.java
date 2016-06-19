@@ -744,8 +744,8 @@ name|BoundingBox
 name|fontBBox
 decl_stmt|;
 comment|/**      * to improve encoding speed.      */
-specifier|final
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|Integer
