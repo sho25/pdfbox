@@ -396,6 +396,14 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
+comment|// make sure the annotation is visible on screen and paper
+name|widget
+operator|.
+name|setPrinted
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// Add the annotation to the page
 name|page
 operator|.
