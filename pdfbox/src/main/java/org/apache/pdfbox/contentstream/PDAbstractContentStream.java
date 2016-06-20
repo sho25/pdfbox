@@ -4028,7 +4028,7 @@ literal|'\n'
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a double to the content stream.      */
+comment|/**      * Writes a double number to the content stream.      * @param data      * @throws java.io.IOException      */
 specifier|protected
 name|void
 name|writeOperand
@@ -4057,7 +4057,7 @@ literal|' '
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a real real to the content stream.      */
+comment|/**      * Writes a real number to the content stream.      * @param real      * @throws java.io.IOException      */
 specifier|protected
 name|void
 name|writeOperand
@@ -4086,7 +4086,7 @@ literal|' '
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a real number to the content stream.      */
+comment|/**      * Writes an integer number to the content stream.      * @param integer      * @throws java.io.IOException      */
 specifier|protected
 name|void
 name|writeOperand
@@ -4115,7 +4115,7 @@ literal|' '
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a COSName to the content stream.      */
+comment|/**      * Writes a COSName to the content stream.      * @param name      * @throws java.io.IOException      */
 specifier|protected
 name|void
 name|writeOperand
@@ -4141,7 +4141,7 @@ literal|' '
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a string to the content stream as ASCII.      */
+comment|/**      * Writes a string to the content stream as ASCII.      * @param text      * @throws java.io.IOException      */
 specifier|protected
 name|void
 name|writeOperator
@@ -4174,7 +4174,7 @@ literal|'\n'
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a string to the content stream as ASCII.      */
+comment|/**      * Writes a string to the content stream as ASCII.      * @param text      * @throws java.io.IOException      */
 specifier|protected
 name|void
 name|write
@@ -4200,7 +4200,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a byte[] to the content stream.      */
+comment|/**      * Writes a byte[] to the content stream.      * @param data      * @throws java.io.IOException      */
 specifier|protected
 name|void
 name|write
@@ -4220,7 +4220,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a string to the content stream as ASCII.      */
+comment|/**      * Writes a newline to the content stream as ASCII.      * @throws java.io.IOException      */
 specifier|protected
 name|void
 name|writeLine
@@ -4236,7 +4236,7 @@ literal|'\n'
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes binary data to the content stream.      */
+comment|/**      * Writes binary data to the content stream.      * @param data      * @throws java.io.IOException      */
 specifier|protected
 name|void
 name|writeBytes
