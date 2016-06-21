@@ -178,6 +178,10 @@ specifier|public
 class|class
 name|DetermineTextFitsField
 block|{
+specifier|private
+name|DetermineTextFitsField
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void
