@@ -351,7 +351,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * Writes the given byte array as hex value to the given output stream.      * @param b the byte array to be written      * @param output the output stream to be written to      * @throws IOException exception if anything went wrong      */
+comment|/**       * Writes the given byte array as hex value to the given output stream.      * @param bytes the byte array to be written      * @param output the output stream to be written to      * @throws IOException exception if anything went wrong      */
 specifier|public
 specifier|static
 name|void
