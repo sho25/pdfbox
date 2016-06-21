@@ -481,7 +481,7 @@ name|createInputStream
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the resources at this page and not look up the hierarchy.      * This attribute is inheritable, and findResources() should probably used.      * This will return null if no resources are available at this level.      * @return The resources at this level in the hierarchy.      */
+comment|/**      * This will get the resources for this Form XObject.      * This will return null if no resources are available.      *       * @return The resources for this Form XObject.      */
 annotation|@
 name|Override
 specifier|public
