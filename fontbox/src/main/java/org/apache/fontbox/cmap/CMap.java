@@ -279,7 +279,7 @@ name|code
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a character code from a string in the content stream.      *<p>>See "CMap Mapping" and "Handling Undefined Characters" in PDF32000 for more details.      *      * @param in string stream      * @return character code      * @throws IOException if there was an error reading the stream or CMap      */
+comment|/**      * Reads a character code from a string in the content stream.      *<p>See "CMap Mapping" and "Handling Undefined Characters" in PDF32000 for more details.      *      * @param in string stream      * @return character code      * @throws IOException if there was an error reading the stream or CMap      */
 specifier|public
 name|int
 name|readCode
