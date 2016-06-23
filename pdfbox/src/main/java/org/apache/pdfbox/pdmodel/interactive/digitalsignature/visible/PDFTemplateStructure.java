@@ -603,7 +603,7 @@ return|return
 name|acroFormDictionary
 return|;
 block|}
-comment|/**      * Acroform have its Dictionary, so we here set      * the Dictionary  which is in this location:      *<b> AcroForm/DR<b>      * @param acroFormDictionary      */
+comment|/**      * Acroform have its Dictionary, so we here set      * the Dictionary  which is in this location:      *<b> AcroForm/DR</b>      * @param acroFormDictionary      */
 specifier|public
 name|void
 name|setAcroFormDictionary
