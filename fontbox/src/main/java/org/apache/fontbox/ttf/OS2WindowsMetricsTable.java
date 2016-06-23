@@ -306,7 +306,7 @@ name|FSTYPE_RESTRICTED
 init|=
 literal|0x0001
 decl_stmt|;
-comment|/**      * Preview& Print embedding: the font may be embedded, and temporarily loaded on the      * remote system. No edits can be applied to the document.      */
+comment|/**      * Preview and Print embedding: the font may be embedded, and temporarily loaded on the      * remote system. No edits can be applied to the document.      */
 specifier|public
 specifier|static
 specifier|final
