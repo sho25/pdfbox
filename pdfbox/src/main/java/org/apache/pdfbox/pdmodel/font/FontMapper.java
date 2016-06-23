@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Font mapper, locates non-embedded fonts. If you implement this then you're responsible for  * caching the fonts. SoftReference<FontBoxFont> is recommended.  *  * @author John Hewson  */
+comment|/**  * Font mapper, locates non-embedded fonts. If you implement this then you're responsible for  * caching the fonts. SoftReference&lt;FontBoxFont&gt; is recommended.  *  * @author John Hewson  */
 end_comment
 
 begin_interface
