@@ -454,7 +454,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the map of new -> old GIDs.      */
+comment|/**      * Returns the map of new -&gt; old GIDs.      */
 specifier|public
 name|Map
 argument_list|<
