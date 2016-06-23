@@ -253,7 +253,7 @@ name|codeToName
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an unmodifiable view of the name -> code mapping. More than one name may map to      * the same code.      *      * @return the name -> code map      */
+comment|/**      * Returns an unmodifiable view of the name -&gt; code mapping. More than one name may map to      * the same code.      *      * @return the name -&gt; code map      */
 specifier|public
 name|Map
 argument_list|<
