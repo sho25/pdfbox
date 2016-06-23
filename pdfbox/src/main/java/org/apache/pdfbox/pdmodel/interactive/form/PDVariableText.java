@@ -444,7 +444,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the fields rich text value.      *       *<p>      * Setting the rich text value will not generate the appearance      * for the field.      *<br/>      * You can set {@link PDAcroForm#setNeedAppearances(Boolean)} to      * signal a conforming reader to generate the appearance stream.      *</p>      *       * Providing null as the value will remove the default style string.      *       * @param richTextValue a rich text string      */
+comment|/**      * Set the fields rich text value.      *       *<p>      * Setting the rich text value will not generate the appearance      * for the field.      *<br>      * You can set {@link PDAcroForm#setNeedAppearances(Boolean)} to      * signal a conforming reader to generate the appearance stream.      *</p>      *       * Providing null as the value will remove the default style string.      *       * @param richTextValue a rich text string      */
 specifier|public
 name|void
 name|setRichTextValue

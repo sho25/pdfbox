@@ -471,7 +471,7 @@ literal|40
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the R entry of the encryption dictionary.<br /><br />      * See PDF Reference 1.4 Table 3.14.<br /><br/>      *      *<b>Note: This value is used to decrypt the pdf document.  If you change this when      * the document is encrypted then decryption will fail!.</b>      *      * @param revision The new encryption version.      */
+comment|/**      * This will set the R entry of the encryption dictionary.<br><br>      * See PDF Reference 1.4 Table 3.14.<br><br>      *      *<b>Note: This value is used to decrypt the pdf document.  If you change this when      * the document is encrypted then decryption will fail!.</b>      *      * @param revision The new encryption version.      */
 specifier|public
 name|void
 name|setRevision
@@ -492,7 +492,7 @@ name|revision
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the R entry of the encryption dictionary.<br /><br />      * See PDF Reference 1.4 Table 3.14.      *      * @return The encryption revision to use.      */
+comment|/**      * This will return the R entry of the encryption dictionary.<br><br>      * See PDF Reference 1.4 Table 3.14.      *      * @return The encryption revision to use.      */
 specifier|public
 name|int
 name|getRevision
