@@ -391,7 +391,7 @@ name|subfilter
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the V entry of the encryption dictionary.<br /><br />      * See PDF Reference 1.4 Table 3.13.<br /><br/>      *<b>Note: This value is used to decrypt the pdf document.  If you change this when      * the document is encrypted then decryption will fail!.</b>      *      * @param version The new encryption version.      */
+comment|/**      * This will set the V entry of the encryption dictionary.<br><br>      * See PDF Reference 1.4 Table 3.13.<br><br>      *<b>Note: This value is used to decrypt the pdf document.  If you change this when      * the document is encrypted then decryption will fail!.</b>      *      * @param version The new encryption version.      */
 specifier|public
 name|void
 name|setVersion
@@ -412,7 +412,7 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the V entry of the encryption dictionary.<br /><br />      * See PDF Reference 1.4 Table 3.13.      *      * @return The encryption version to use.      */
+comment|/**      * This will return the V entry of the encryption dictionary.<br><br>      * See PDF Reference 1.4 Table 3.13.      *      * @return The encryption version to use.      */
 specifier|public
 name|int
 name|getVersion

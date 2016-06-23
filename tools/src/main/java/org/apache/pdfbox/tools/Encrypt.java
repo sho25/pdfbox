@@ -170,7 +170,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will read a document from the filesystem, encrypt it and and then write  * the results to the filesystem.<br/><br/>  *  * @author  Ben Litchfield  */
+comment|/**  * This will read a document from the filesystem, encrypt it and and then write  * the results to the filesystem.  *  * @author  Ben Litchfield  */
 end_comment
 
 begin_class

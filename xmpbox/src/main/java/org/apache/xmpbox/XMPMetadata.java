@@ -553,7 +553,7 @@ return|return
 name|xpacketEndData
 return|;
 block|}
-comment|/**      * Get the XMPSchema for the specified namespace.      *       * Return the schema corresponding to this nsURI<br/>      * BE CAREFUL: typically, Metadata should contain one schema for each type.      * This method returns the first schema encountered      * corresponding to this NSURI.<br/>      * Return null if unknown      *       * @param nsURI The namespace URI corresponding to the schema wanted      * @return The matching XMP schema representation      */
+comment|/**      * Get the XMPSchema for the specified namespace.      *       * Return the schema corresponding to this nsURI<br>      * BE CAREFUL: typically, Metadata should contain one schema for each type.      * This method returns the first schema encountered      * corresponding to this NSURI.<br>      * Return null if unknown      *       * @param nsURI The namespace URI corresponding to the schema wanted      * @return The matching XMP schema representation      */
 specifier|public
 name|XMPSchema
 name|getSchema
@@ -613,7 +613,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**       * Get the XMPSchema for the specified Class.      *       * Return the schema corresponding to this Class<br/>      * BE CAREFUL: typically, Metadata should contain one schema for each type.      * This method returns the first schema encountered      * corresponding to this Class.<br/>      * Return null if unknown      *       * @param clz The Class corresponding to the schema wanted      * @return The matching XMP schema representation      */
+comment|/**       * Get the XMPSchema for the specified Class.      *       * Return the schema corresponding to this Class<br>      * BE CAREFUL: typically, Metadata should contain one schema for each type.      * This method returns the first schema encountered      * corresponding to this Class.<br>      * Return null if unknown      *       * @param clz The Class corresponding to the schema wanted      * @return The matching XMP schema representation      */
 specifier|public
 name|XMPSchema
 name|getSchema

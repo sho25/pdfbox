@@ -3649,7 +3649,7 @@ return|return
 name|sortByPosition
 return|;
 block|}
-comment|/**      * The order of the text tokens in a PDF file may not be in the same as they appear visually on the screen. For      * example, a PDF writer may write out all text by font, so all bold or larger text, then make a second pass and      * write out the normal text.<br/>      * The default is to<b>not</b> sort by position.<br/>      *<br/>      * A PDF writer could choose to write each character in a different order. By default PDFBox does<b>not</b> sort      * the text tokens before processing them due to performance reasons.      *      * @param newSortByPosition Tell PDFBox to sort the text positions.      */
+comment|/**      * The order of the text tokens in a PDF file may not be in the same as they appear visually on the screen. For      * example, a PDF writer may write out all text by font, so all bold or larger text, then make a second pass and      * write out the normal text.<br>      * The default is to<b>not</b> sort by position.<br>      *<br>      * A PDF writer could choose to write each character in a different order. By default PDFBox does<b>not</b> sort      * the text tokens before processing them due to performance reasons.      *      * @param newSortByPosition Tell PDFBox to sort the text positions.      */
 specifier|public
 name|void
 name|setSortByPosition

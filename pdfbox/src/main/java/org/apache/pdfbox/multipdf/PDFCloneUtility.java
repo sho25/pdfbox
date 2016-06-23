@@ -714,7 +714,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**        * Merges two objects of the same type by deep-cloning its members.        *<br/>        * Base and target must be instances of the same class.        * @param base the base object to be cloned        * @param target the merge target        * @throws IOException if an I/O error occurs        */
+comment|/**        * Merges two objects of the same type by deep-cloning its members.        *<br>        * Base and target must be instances of the same class.        * @param base the base object to be cloned        * @param target the merge target        * @throws IOException if an I/O error occurs        */
 specifier|public
 name|void
 name|cloneMerge

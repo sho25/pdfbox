@@ -287,7 +287,7 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the option values "Opt".      *       *<p>      * For a choice field the options array can either be an array      * of text strings or an array of a two-element arrays.<br/>      * The method always only returns either the text strings or,      * in case of two-element arrays, an array of the first element of       * the two-element arrays      *</p>         *<p>      * Use {@link #getOptionsExportValues()} and {@link #getOptionsDisplayValues()}      * to get the entries of two-element arrays.      *</p>      *       * @return List containing the export values.      */
+comment|/**      * This will get the option values "Opt".      *       *<p>      * For a choice field the options array can either be an array      * of text strings or an array of a two-element arrays.<br>      * The method always only returns either the text strings or,      * in case of two-element arrays, an array of the first element of       * the two-element arrays      *</p>         *<p>      * Use {@link #getOptionsExportValues()} and {@link #getOptionsDisplayValues()}      * to get the entries of two-element arrays.      *</p>      *       * @return List containing the export values.      */
 specifier|public
 name|List
 argument_list|<
@@ -590,7 +590,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the display values from the options.      *       *<p>      * For options with an array of text strings the display value and export value      * are the same.<br/>      * For options with an array of two-element arrays the display value is the       * second entry in the two-element array.      *</p>      *       * @return List containing all the display values.      */
+comment|/**      * This will get the display values from the options.      *       *<p>      * For options with an array of text strings the display value and export value      * are the same.<br>      * For options with an array of two-element arrays the display value is the       * second entry in the two-element array.      *</p>      *       * @return List containing all the display values.      */
 specifier|public
 name|List
 argument_list|<
@@ -623,7 +623,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the export values from the options.      *       *<p>      * For options with an array of text strings the display value and export value      * are the same.<br/>      * For options with an array of two-element arrays the export value is the       * first entry in the two-element array.      *</p>      *      * @return List containing all export values.      */
+comment|/**      * This will get the export values from the options.      *       *<p>      * For options with an array of text strings the display value and export value      * are the same.<br>      * For options with an array of two-element arrays the export value is the       * first entry in the two-element array.      *</p>      *      * @return List containing all export values.      */
 specifier|public
 name|List
 argument_list|<

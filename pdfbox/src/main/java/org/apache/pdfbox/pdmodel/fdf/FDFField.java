@@ -853,7 +853,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the "T" entry in the field dictionary. A partial field name. Where the fully qualified field name      * is a concatenation of the parent's fully qualified field name and "." as a separator. For example<br/>      * Address.State<br />      * Address.City<br />      *      * @return The partial field name.      */
+comment|/**      * This will get the "T" entry in the field dictionary. A partial field name. Where the fully qualified field name      * is a concatenation of the parent's fully qualified field name and "." as a separator. For example<br>      * Address.State<br>      * Address.City<br>      *      * @return The partial field name.      */
 specifier|public
 name|String
 name|getPartialFieldName
