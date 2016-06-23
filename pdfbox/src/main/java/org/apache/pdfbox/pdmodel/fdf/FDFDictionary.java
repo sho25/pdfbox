@@ -314,7 +314,7 @@ operator|=
 name|fdfDictionary
 expr_stmt|;
 block|}
-comment|/**      * This will create an FDF dictionary from an XFDF XML document.      *      * @param fdfXML The XML document that contains the XFDF data.      * @throws IOException If there is an error reading from the dom.      */
+comment|/**      * This will create an FDF dictionary from an XFDF XML document.      *      * @param fdfXML The XML document that contains the XFDF data.      */
 specifier|public
 name|FDFDictionary
 parameter_list|(
