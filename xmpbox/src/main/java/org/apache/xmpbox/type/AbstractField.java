@@ -68,7 +68,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Astract Object representation of a XMP 'field' (-> Properties and specific Schemas)  *   * @author a183132  *   */
+comment|/**  * Astract Object representation of a XMP 'field' (-&gt; Properties and specific Schemas)  *   * @author a183132  *   */
 end_comment
 
 begin_class
