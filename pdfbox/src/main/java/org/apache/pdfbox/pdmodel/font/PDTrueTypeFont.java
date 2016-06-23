@@ -1771,7 +1771,7 @@ block|}
 return|;
 block|}
 block|}
-comment|/**      * Inverts the font's code -> GID mapping. Any duplicate (GID -> code) mappings will be lost.      */
+comment|/**      * Inverts the font's code -&gt; GID mapping. Any duplicate (GID -&gt; code) mappings will be lost.      */
 specifier|protected
 name|Map
 argument_list|<
