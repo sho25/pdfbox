@@ -233,7 +233,7 @@ name|String
 argument_list|>
 name|names
 decl_stmt|;
-comment|/**      * Returns an unmodifiable view of the code -> name mapping.      *       * @return the code -> name map      */
+comment|/**      * Returns an unmodifiable view of the code -&gt; name mapping.      *       * @return the code -&gt; name map      */
 specifier|public
 name|Map
 argument_list|<
