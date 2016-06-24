@@ -266,7 +266,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will load a PDF document and add a single image on it.      *<br />      * see usage() for commandline      *      * @param args Command line arguments.      */
+comment|/**      * This will load a PDF document and add a single image on it.      *<br>      * see usage() for commandline      *      * @param args Command line arguments.      */
 specifier|public
 specifier|static
 name|void

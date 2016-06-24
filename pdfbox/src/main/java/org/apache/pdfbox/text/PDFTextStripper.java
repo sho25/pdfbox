@@ -900,7 +900,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{     }
-comment|/**      * This will return the text of a document. See writeText.<br />      * NOTE: The document must not be encrypted when coming into this method.      *      * @param doc The document to get the text from.      * @return The text of the PDF document.      * @throws IOException if the doc state is invalid or it is encrypted.      */
+comment|/**      * This will return the text of a document. See writeText.<br>      * NOTE: The document must not be encrypted when coming into this method.      *      * @param doc The document to get the text from.      * @return The text of the PDF document.      * @throws IOException if the doc state is invalid or it is encrypted.      */
 specifier|public
 name|String
 name|getText

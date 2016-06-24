@@ -891,7 +891,7 @@ name|partial
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the value for the field. This will return type will either be<br />      * String : Checkboxes, Radio Button<br />      * java.util.List of strings: Choice Field PDTextStream: Textfields      *      * @return The value of the field.      * @throws IOException If there is an error getting the value.      */
+comment|/**      * This will get the value for the field. This will return type will either be<br>      * String : Checkboxes, Radio Button<br>      * java.util.List of strings: Choice Field PDTextStream: Textfields      *      * @return The value of the field.      * @throws IOException If there is an error getting the value.      */
 specifier|public
 name|Object
 name|getValue

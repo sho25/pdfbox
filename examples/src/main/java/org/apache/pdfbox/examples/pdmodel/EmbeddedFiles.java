@@ -523,7 +523,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will create a hello world PDF document with an embedded file.      *<br />      * see usage() for commandline      *      * @param args Command line arguments.      */
+comment|/**      * This will create a hello world PDF document with an embedded file.      *<br>      * see usage() for commandline      *      * @param args Command line arguments.      */
 specifier|public
 specifier|static
 name|void

@@ -307,7 +307,7 @@ name|scale
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This is guaranteed to never return null.<br />      *      * To quote the PDF Spec "An array of two numbers between 0.0 and 1.0 indicating the fraction of leftover space to      * allocate at the left and bottom of the icon. A value of [0.0 0.0] positions the icon at the bottom-left corner of      * the annotation rectangle; a value of [0.5 0.5] centers it within the rectangle. This entry is used only if the      * icon is scaled proportionally. Default value: [0.5 0.5]."      *      * @return The fractional space to allocate.      */
+comment|/**      * This is guaranteed to never return null.<br>      *      * To quote the PDF Spec "An array of two numbers between 0.0 and 1.0 indicating the fraction of leftover space to      * allocate at the left and bottom of the icon. A value of [0.0 0.0] positions the icon at the bottom-left corner of      * the annotation rectangle; a value of [0.5 0.5] centers it within the rectangle. This entry is used only if the      * icon is scaled proportionally. Default value: [0.5 0.5]."      *      * @return The fractional space to allocate.      */
 specifier|public
 name|PDRange
 name|getFractionalSpaceToAllocate

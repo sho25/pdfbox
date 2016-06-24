@@ -173,7 +173,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will import an fdf document and write out another pdf.      *<br />      * see usage() for commandline      *      * @param args command line arguments      *      * @throws IOException If there is an error importing the FDF document.      */
+comment|/**      * This will import an fdf document and write out another pdf.      *<br>      * see usage() for commandline      *      * @param args command line arguments      *      * @throws IOException If there is an error importing the FDF document.      */
 specifier|public
 specifier|static
 name|void

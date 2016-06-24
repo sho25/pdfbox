@@ -164,7 +164,7 @@ parameter_list|()
 block|{
 comment|//utility class
 block|}
-comment|/**      * This will read in a document and replace all of the urls with      * http://pdfbox.apache.org.      *<br />      * see usage() for commandline      *      * @param args Command line arguments.      *      * @throws IOException If there is an error during the process.      */
+comment|/**      * This will read in a document and replace all of the urls with      * http://pdfbox.apache.org.      *<br>      * see usage() for commandline      *      * @param args Command line arguments.      *      * @throws IOException If there is an error during the process.      */
 specifier|public
 specifier|static
 name|void

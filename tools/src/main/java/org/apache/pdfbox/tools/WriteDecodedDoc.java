@@ -339,7 +339,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will write a PDF document with completely decoded streams.      *<br />      * see usage() for commandline      *      * @param args command line arguments      * @throws java.io.IOException if the output could not be written      */
+comment|/**      * This will write a PDF document with completely decoded streams.      *<br>      * see usage() for commandline      *      * @param args command line arguments      * @throws java.io.IOException if the output could not be written      */
 specifier|public
 specifier|static
 name|void

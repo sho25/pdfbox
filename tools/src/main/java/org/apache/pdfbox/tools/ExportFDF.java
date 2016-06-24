@@ -97,7 +97,7 @@ specifier|public
 name|ExportFDF
 parameter_list|()
 block|{     }
-comment|/**      * This will import an fdf document and write out another pdf.      *<br />      * see usage() for commandline      *      * @param args command line arguments      *      * @throws IOException in case the file can not be read or the data can not be exported.      */
+comment|/**      * This will import an fdf document and write out another pdf.      *<br>      * see usage() for commandline      *      * @param args command line arguments      *      * @throws IOException in case the file can not be read or the data can not be exported.      */
 specifier|public
 specifier|static
 name|void

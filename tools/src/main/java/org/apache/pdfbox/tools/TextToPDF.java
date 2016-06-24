@@ -930,7 +930,7 @@ name|io
 throw|;
 block|}
 block|}
-comment|/**      * This will create a PDF document with some text in it.      *<br />      * see usage() for commandline      *      * @param args Command line arguments.      *      * @throws IOException If there is an error with the PDF.      */
+comment|/**      * This will create a PDF document with some text in it.      *<br>      * see usage() for commandline      *      * @param args Command line arguments.      *      * @throws IOException If there is an error with the PDF.      */
 specifier|public
 specifier|static
 name|void

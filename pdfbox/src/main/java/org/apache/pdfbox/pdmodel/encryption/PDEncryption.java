@@ -452,7 +452,7 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return the Length entry of the encryption dictionary.<br /><br />      * The length in<b>bits</b> for the encryption algorithm.  This will return a multiple of 8.      *      * @return The length in bits for the encryption algorithm      */
+comment|/**      * This will return the Length entry of the encryption dictionary.<br><br>      * The length in<b>bits</b> for the encryption algorithm.  This will return a multiple of 8.      *      * @return The length in bits for the encryption algorithm      */
 specifier|public
 name|int
 name|getLength
