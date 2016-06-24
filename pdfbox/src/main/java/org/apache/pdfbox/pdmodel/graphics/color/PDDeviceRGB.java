@@ -248,7 +248,7 @@ name|getName
 argument_list|()
 return|;
 block|}
-comment|/**      * @inheritDoc      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
