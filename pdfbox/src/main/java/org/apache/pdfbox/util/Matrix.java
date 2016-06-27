@@ -1166,7 +1166,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * This method multiplies this Matrix with the specified other Matrix, storing the product in the specified      * result Matrix. By reusing Matrix instances like this, multiplication chains can be executed without having      * to create many temporary Matrix objects.      *<p/>      * It is allowed to have (other == this) or (result == this) or indeed (other == result) but if this is done,      * the backing float[] matrix values may be copied in order to ensure a correct product.      *      * @param other the second operand Matrix in the multiplication      * @param result the Matrix instance into which the result should be stored. If result is null, a new Matrix      *               instance is created.      * @return the product of the two matrices.      */
+comment|/**      * This method multiplies this Matrix with the specified other Matrix, storing the product in the specified      * result Matrix. By reusing Matrix instances like this, multiplication chains can be executed without having      * to create many temporary Matrix objects.      *<p>      * It is allowed to have (other == this) or (result == this) or indeed (other == result) but if this is done,      * the backing float[] matrix values may be copied in order to ensure a correct product.      *      * @param other the second operand Matrix in the multiplication      * @param result the Matrix instance into which the result should be stored. If result is null, a new Matrix      *               instance is created.      * @return the product of the two matrices.      */
 specifier|public
 name|Matrix
 name|multiply
@@ -1857,7 +1857,7 @@ name|f
 argument_list|)
 return|;
 block|}
-comment|/**      * Transforms the given point by this matrix.      *      * @param vector @2D vector      */
+comment|/**      * Transforms the given point by this matrix.      *      * @param vector 2D vector      */
 specifier|public
 name|Vector
 name|transform
