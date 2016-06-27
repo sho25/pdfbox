@@ -136,7 +136,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT composite for blend modes.  *   * @author Kühn& Weyh Software, GmbH  */
+comment|/**  * AWT composite for blend modes.  *   * @author Kühn&amp; Weyh Software GmbH  */
 end_comment
 
 begin_class

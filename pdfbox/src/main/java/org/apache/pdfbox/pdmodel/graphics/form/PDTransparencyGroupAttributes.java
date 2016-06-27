@@ -92,7 +92,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Transparency group attributes.  *   * @author Kühn& Weyh Software, GmbH  */
+comment|/**  * Transparency group attributes.  *   * @author Kühn&amp; Weyh Software GmbH  */
 end_comment
 
 begin_class

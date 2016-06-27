@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Blend mode.  *  * @author Kühn& Weyh Software, GmbH  */
+comment|/**  * Blend mode.  *  * @author Kühn&amp; Weyh Software GmbH  */
 end_comment
 
 begin_class

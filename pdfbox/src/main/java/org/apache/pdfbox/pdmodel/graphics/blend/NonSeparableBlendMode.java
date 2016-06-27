@@ -20,7 +20,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Non-separable blend mode (supports blend function).  *  * @author Kühn& Weyh Software, GmbH  */
+comment|/**  * Non-separable blend mode (supports blend function).  *  * @author Kühn&amp; Weyh Software GmbH  */
 end_comment
 
 begin_class

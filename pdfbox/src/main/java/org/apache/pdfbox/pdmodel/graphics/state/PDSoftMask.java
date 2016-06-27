@@ -182,7 +182,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Soft mask.  *  * @author Kühn& Weyh Software, GmbH  */
+comment|/**  * Soft mask.  *  * @author Kühn&amp; Weyh Software GmbH  */
 end_comment
 
 begin_class

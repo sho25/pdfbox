@@ -208,7 +208,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AWT Paint that adds a soft mask to the alpha channel of the existing parent paint. If the parent  * paint does not have an alpha channel, a new raster is created.  *   * @author Kühn& Weyh Software, GmbH  */
+comment|/**  * AWT Paint that adds a soft mask to the alpha channel of the existing parent paint. If the parent  * paint does not have an alpha channel, a new raster is created.  *   * @author Kühn&amp; Weyh Software GmbH  */
 end_comment
 
 begin_class
