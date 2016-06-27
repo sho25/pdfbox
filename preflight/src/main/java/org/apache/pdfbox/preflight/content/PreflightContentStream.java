@@ -768,7 +768,7 @@ name|ERROR_SYNTAX_CONTENT_STREAM_UNSUPPORTED_OP
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Process Text Validation. According to the operator one of the both method will be called.      * (validStringDefinition(PDFOperator operator, List<?> arguments) / validStringArray(PDFOperator operator, List<?>      * arguments))      *       * @param operator      * @param arguments      * @throws IOException      */
+comment|/**      * Process Text Validation. Depending on the operator parameter, this will either call      *<code>validateStringDefinition</code> or<code>validateStringArray</code>.      *      * @param operator      * @param arguments      * @throws IOException      */
 specifier|protected
 name|void
 name|checkShowTextOperators
