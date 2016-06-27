@@ -688,7 +688,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * This will set the indices of the selected options - the 'I' key.      *<p>      * This method is preferred over {@link #setValue(List)} for choice fields which      *<ul>      *<li>do support multiple selections</li>      *<li>have export values with the same value</li>      *</ul>      *</p>      *<p>      * Setting the index will set the value too.      *</p>      *      * @param values List containing the indices of all selected options.      */
+comment|/**      * This will set the indices of the selected options - the 'I' key.      *<p>      * This method is preferred over {@link #setValue(List)} for choice fields which      *<ul>      *<li>do support multiple selections</li>      *<li>have export values with the same value</li>      *</ul>      *</p>      *<p>      * Setting the index will set the value too.      *      * @param values List containing the indices of all selected options.      */
 specifier|public
 name|void
 name|setSelectedOptionsIndex
