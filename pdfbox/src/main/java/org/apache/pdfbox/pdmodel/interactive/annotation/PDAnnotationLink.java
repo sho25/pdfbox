@@ -650,7 +650,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param circleAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param customAppearanceHandler      */
 specifier|public
 name|void
 name|setCustomAppearanceHandler
