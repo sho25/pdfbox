@@ -2797,7 +2797,7 @@ return|return
 name|findMenu
 return|;
 block|}
-comment|/**      * Returns the Edit> Find> Find menu item.      */
+comment|/**      * Returns the Edit&gt; Find&gt; Find menu item.      */
 specifier|public
 name|JMenuItem
 name|getFindMenuItem
@@ -2807,7 +2807,7 @@ return|return
 name|findMenuItem
 return|;
 block|}
-comment|/**      * Returns the Edit> Find> Find Next menu item.      */
+comment|/**      * Returns the Edit&gt; Find&gt; Find Next menu item.      */
 specifier|public
 name|JMenuItem
 name|getFindNextMenuItem
@@ -2817,7 +2817,7 @@ return|return
 name|findNextMenuItem
 return|;
 block|}
-comment|/**      * Returns the Edit> Find> Find Previous menu item.      */
+comment|/**      * Returns the Edit&gt; Find&gt; Find Previous menu item.      */
 specifier|public
 name|JMenuItem
 name|getFindPreviousMenuItem
