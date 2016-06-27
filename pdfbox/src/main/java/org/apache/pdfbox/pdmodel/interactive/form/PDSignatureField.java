@@ -381,7 +381,7 @@ name|applyChange
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Sets the value of this field.      *       *<b>This will throw an UnsupportedOperationException if used as the signature fields      * value can't be set using a String</>      *       * @param value the plain text value.      *       * @throws UnsupportedOperationException in all cases!      */
+comment|/**      * Sets the value of this field.      *       *<b>This will throw an UnsupportedOperationException if used as the signature fields      * value can't be set using a String</b>      *       * @param value the plain text value.      *       * @throws UnsupportedOperationException in all cases!      */
 annotation|@
 name|Override
 specifier|public
