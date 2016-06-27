@@ -18,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a 10-byte PANOSE classification.  *  * @link http://www.monotype.com/services/pan2  * @author John Hewson  */
+comment|/**  * Represents a 10-byte<a href="http://monotype.de/services/pan2">PANOSE classification</a>.  *  * @author John Hewson  */
 end_comment
 
 begin_class
