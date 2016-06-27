@@ -252,7 +252,7 @@ parameter_list|)
 block|{
 comment|//required for interface
 block|}
-comment|/**      * Returns the child of<code>parent</code> at index<code>index</code> in the parent's child      * array.<code>parent</code> must be a node previously obtained from this data source. This      * should not return<code>null</code> if<code>index</code> is a valid index for      *<code>parent</code> (that is<code>index&gt;= 0&&      * index&lt; getChildCount(parent</code>)).      *      * @param parent a node in the tree, obtained from this data source      * @param index The index into the parent object to location the child object.      * @return the child of<code>parent</code> at index<code>index</code>      * @throws IllegalArgumentException if an unknown unknown COS type is passed as parent      * parameter.      */
+comment|/**      * Returns the child of<code>parent</code> at index<code>index</code> in the parent's child      * array.<code>parent</code> must be a node previously obtained from this data source. This      * should not return<code>null</code> if<code>index</code> is a valid index for      *<code>parent</code> (that is<code>index&gt;= 0&amp;&amp;      * index&lt; getChildCount(parent</code>)).      *      * @param parent a node in the tree, obtained from this data source      * @param index The index into the parent object to location the child object.      * @return the child of<code>parent</code> at index<code>index</code>      * @throws IllegalArgumentException if an unknown unknown COS type is passed as parent      * parameter.      */
 annotation|@
 name|Override
 specifier|public
