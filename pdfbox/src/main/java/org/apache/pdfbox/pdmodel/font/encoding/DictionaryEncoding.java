@@ -45,6 +45,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -121,6 +149,21 @@ extends|extends
 name|Encoding
 block|{
 specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|DictionaryEncoding
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+specifier|private
 specifier|final
 name|COSDictionary
 name|encoding
@@ -149,7 +192,7 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Creates a new DictionaryEncoding for embedding.      */
+comment|/**      * Creates a new DictionaryEncoding for embedding.      *      * @param baseEncoding      * @param differences      */
 specifier|public
 name|DictionaryEncoding
 parameter_list|(
@@ -245,16 +288,25 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|LOG
+operator|.
+name|error
 argument_list|(
 literal|"Invalid encoding: "
 operator|+
 name|baseEncoding
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
+if|if
+condition|(
+name|this
+operator|.
+name|baseEncoding
+operator|!=
+literal|null
+condition|)
+block|{
 name|codeToName
 operator|.
 name|putAll
@@ -277,6 +329,7 @@ operator|.
 name|inverted
 argument_list|)
 expr_stmt|;
+block|}
 name|applyDifferences
 argument_list|()
 expr_stmt|;
@@ -357,7 +410,6 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-comment|// may be null
 block|}
 if|if
 condition|(
@@ -396,15 +448,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|LOG
+operator|.
+name|error
 argument_list|(
-literal|"Symbolic fonts must have a built-in "
-operator|+
-literal|"encoding"
+literal|"Symbolic fonts must have a built-in encoding"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -412,6 +462,13 @@ name|baseEncoding
 operator|=
 name|base
 expr_stmt|;
+if|if
+condition|(
+name|baseEncoding
+operator|!=
+literal|null
+condition|)
+block|{
 name|codeToName
 operator|.
 name|putAll
@@ -430,6 +487,7 @@ operator|.
 name|inverted
 argument_list|)
 expr_stmt|;
+block|}
 name|applyDifferences
 argument_list|()
 expr_stmt|;
@@ -440,12 +498,9 @@ name|applyDifferences
 parameter_list|()
 block|{
 comment|// now replace with the differences
-name|COSArray
-name|differences
+name|COSBase
+name|base
 init|=
-operator|(
-name|COSArray
-operator|)
 name|encoding
 operator|.
 name|getDictionaryObject
@@ -454,6 +509,26 @@ name|COSName
 operator|.
 name|DIFFERENCES
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|base
+operator|instanceof
+name|COSArray
+operator|)
+condition|)
+block|{
+return|return;
+block|}
+name|COSArray
+name|diffArray
+init|=
+operator|(
+name|COSArray
+operator|)
+name|base
 decl_stmt|;
 name|int
 name|currentIndex
@@ -468,13 +543,9 @@ name|i
 init|=
 literal|0
 init|;
-name|differences
-operator|!=
-literal|null
-operator|&&
 name|i
 operator|<
-name|differences
+name|diffArray
 operator|.
 name|size
 argument_list|()
@@ -486,7 +557,7 @@ block|{
 name|COSBase
 name|next
 init|=
-name|differences
+name|diffArray
 operator|.
 name|getObject
 argument_list|(
@@ -559,7 +630,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Returns the base encoding. Will be null for Type 3 fonts.      */
+comment|/**      * Returns the base encoding. Will be null for Type 3 fonts or if the encoding is missing or invalid.      */
 specifier|public
 name|Encoding
 name|getBaseEncoding

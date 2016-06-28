@@ -1259,6 +1259,17 @@ operator|.
 name|getBaseEncoding
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|baseEncoding
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 for|for
 control|(
 name|Map
