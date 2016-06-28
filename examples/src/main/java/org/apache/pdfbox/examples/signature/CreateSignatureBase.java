@@ -678,7 +678,7 @@ return|return
 name|newSigner
 return|;
 block|}
-comment|/**      * SignatureInterface implementation.      *      * This method will be called from inside of the pdfbox and create the PKCS #7 signature.      * The given InputStream contains the bytes that are given by the byte range.      *      * This method is for internal use only.<-- TODO this method should be private      *      * Use your favorite cryptographic library to implement PKCS #7 signature creation.      */
+comment|/**      * SignatureInterface implementation.      *      * This method will be called from inside of the pdfbox and create the PKCS #7 signature.      * The given InputStream contains the bytes that are given by the byte range.      *      * This method is for internal use only.      *      * Use your favorite cryptographic library to implement PKCS #7 signature creation.      */
 annotation|@
 name|Override
 specifier|public
@@ -692,6 +692,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//TODO this method should be private
 try|try
 block|{
 name|List
