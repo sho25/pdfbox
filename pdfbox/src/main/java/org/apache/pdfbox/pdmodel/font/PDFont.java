@@ -99,6 +99,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -441,15 +453,6 @@ argument_list|,
 name|Float
 argument_list|>
 name|codeToWidthMap
-init|=
-operator|new
-name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Float
-argument_list|>
-argument_list|()
 decl_stmt|;
 comment|/**      * Constructor for embedding.      */
 name|PDFont
@@ -485,6 +488,17 @@ expr_stmt|;
 name|afmStandard14
 operator|=
 literal|null
+expr_stmt|;
+name|codeToWidthMap
+operator|=
+operator|new
+name|HashMap
+argument_list|<
+name|Integer
+argument_list|,
+name|Float
+argument_list|>
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Constructor for Standard 14.      */
@@ -552,6 +566,18 @@ argument_list|(
 name|afmStandard14
 argument_list|)
 expr_stmt|;
+comment|// standard 14 fonts may be accessed concurrently, as they are singletons
+name|codeToWidthMap
+operator|=
+operator|new
+name|ConcurrentHashMap
+argument_list|<
+name|Integer
+argument_list|,
+name|Float
+argument_list|>
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Constructor.      *      * @param fontDictionary Font dictionary.      */
 specifier|protected
@@ -566,6 +592,17 @@ block|{
 name|dict
 operator|=
 name|fontDictionary
+expr_stmt|;
+name|codeToWidthMap
+operator|=
+operator|new
+name|HashMap
+argument_list|<
+name|Integer
+argument_list|,
+name|Float
+argument_list|>
+argument_list|()
 expr_stmt|;
 comment|// standard 14 fonts use an AFM
 name|afmStandard14

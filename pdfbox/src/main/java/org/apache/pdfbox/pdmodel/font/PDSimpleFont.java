@@ -314,16 +314,6 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// for logging
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
-name|invertedEncoding
-decl_stmt|;
-comment|// for writing
 comment|/**      * Constructor for embedding.      */
 name|PDSimpleFont
 parameter_list|()
@@ -343,14 +333,6 @@ name|super
 argument_list|(
 name|baseFont
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|encoding
-operator|=
-name|WinAnsiEncoding
-operator|.
-name|INSTANCE
 expr_stmt|;
 comment|// assign the glyph list based on the font
 if|if
