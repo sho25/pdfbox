@@ -1593,6 +1593,13 @@ comment|// look up in 'post' table
 name|readPostScriptNames
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|postScriptNames
+operator|!=
+literal|null
+condition|)
+block|{
 name|Integer
 name|gid
 init|=
@@ -1625,6 +1632,7 @@ block|{
 return|return
 name|gid
 return|;
+block|}
 block|}
 comment|// look up in 'cmap'
 name|int
