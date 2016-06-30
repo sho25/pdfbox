@@ -1080,7 +1080,7 @@ name|currentPosition
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the number of glyphs (MaximuProfile.numGlyphs).      *       * @return the number of glyphs      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Returns the number of glyphs (MaximumProfile.numGlyphs).      *       * @return the number of glyphs      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|int
 name|getNumberOfGlyphs
