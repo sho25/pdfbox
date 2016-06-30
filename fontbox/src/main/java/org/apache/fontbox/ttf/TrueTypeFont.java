@@ -298,7 +298,7 @@ return|return
 name|tables
 return|;
 block|}
-comment|/**      * Returns the war bytes of the given table.      * @param table the table to read.      * @throws IOException if there was an error accessing the table.      */
+comment|/**      * Returns the raw bytes of the given table.      * @param table the table to read.      * @throws IOException if there was an error accessing the table.      */
 specifier|public
 specifier|synchronized
 name|byte
