@@ -1456,11 +1456,30 @@ name|StyledDocument
 name|doInBackground
 parameter_list|()
 block|{
+comment|// default encoding to use when reading text base content
+name|String
+name|encoding
+init|=
+literal|"ISO-8859-1"
+decl_stmt|;
 synchronized|synchronized
 init|(
 name|stream
 init|)
 block|{
+if|if
+condition|(
+name|stream
+operator|.
+name|isXmlMetadata
+argument_list|()
+condition|)
+block|{
+name|encoding
+operator|=
+literal|"UTF-8"
+expr_stmt|;
+block|}
 name|InputStream
 name|inputStream
 init|=
@@ -1513,6 +1532,8 @@ name|getStream
 argument_list|(
 name|filterKey
 argument_list|)
+argument_list|,
+name|encoding
 argument_list|)
 return|;
 block|}
@@ -1520,6 +1541,8 @@ return|return
 name|getDocument
 argument_list|(
 name|inputStream
+argument_list|,
+name|encoding
 argument_list|)
 return|;
 block|}
@@ -1575,6 +1598,9 @@ name|getStringOfStream
 parameter_list|(
 name|InputStream
 name|ioStream
+parameter_list|,
+name|String
+name|encoding
 parameter_list|)
 block|{
 name|ByteArrayOutputStream
@@ -1654,7 +1680,7 @@ name|byteArray
 operator|.
 name|toString
 argument_list|(
-literal|"ISO-8859-1"
+name|encoding
 argument_list|)
 return|;
 block|}
@@ -1680,6 +1706,9 @@ name|getDocument
 parameter_list|(
 name|InputStream
 name|inputStream
+parameter_list|,
+name|String
+name|encoding
 parameter_list|)
 block|{
 name|StyledDocument
@@ -1702,6 +1731,8 @@ init|=
 name|getStringOfStream
 argument_list|(
 name|inputStream
+argument_list|,
+name|encoding
 argument_list|)
 decl_stmt|;
 try|try
