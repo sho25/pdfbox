@@ -555,7 +555,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param pageRotation rotation of the page that the text is located in      * @param pageWidth rotation of the page that the text is located in      * @param pageHeight rotation of the page that the text is located in      * @param textMatrix TextMatrix for start of text (in display units)      * @param endX x coordinate of the end position      * @param endY y coordinate of the end position      * @param maxHeight Maximum height of text (in display units)      * @param individualWidth The width of the given character/string. (in text units)      * @param spaceWidth The width of the space character. (in display units)      * @param unicode The string of Unicode characters to be displayed.      * @param charCodes An array of the internal PDF character codes for the glyphs in this text.      * @param font The current font for this text position.      * @param fontSize The new font size.      * @param fontSizeInPt The font size in pt units.      */
+comment|/**      * Constructor.      *      * @param pageRotation rotation of the page that the text is located in      * @param pageWidth rotation of the page that the text is located in      * @param pageHeight rotation of the page that the text is located in      * @param textMatrix text rendering matrix for start of text (in display units)      * @param endX x coordinate of the end position      * @param endY y coordinate of the end position      * @param maxHeight Maximum height of text (in display units)      * @param individualWidth The width of the given character/string. (in text units)      * @param spaceWidth The width of the space character. (in display units)      * @param unicode The string of Unicode characters to be displayed.      * @param charCodes An array of the internal PDF character codes for the glyphs in this text.      * @param font The current font for this text position.      * @param fontSize The new font size.      * @param fontSizeInPt The font size in pt units.      */
 specifier|public
 name|TextPosition
 parameter_list|(
@@ -763,7 +763,7 @@ return|return
 name|charCodes
 return|;
 block|}
-comment|/**      * Return the text matrix stored in this object.      *      * @return The Matrix containing the starting text position      */
+comment|/**      * The matrix containing the starting text position and scaling. Despite the name, it is not the      * text matrix set by the "Tm" operator, it is really the effective text rendering matrix (which      * is dependent on the current transformation matrix, the text matrix, the font size and the      * page cropbox).      *      * @return The Matrix containing the starting text position      */
 specifier|public
 name|Matrix
 name|getTextMatrix
@@ -1327,7 +1327,7 @@ return|return
 name|maxHeight
 return|;
 block|}
-comment|/**      * This will get the font size that this object is suppose to be drawn at.      *      * @return The font size.      */
+comment|/**      * This will get the font size that has been set with the "Tf" operator (Set text font and      * size). When the text is rendered, it may appear bigger or smaller depending on the current      * transformation matrix and the text matrix.      *      * @return The font size.      */
 specifier|public
 name|float
 name|getFontSize
@@ -1337,7 +1337,7 @@ return|return
 name|fontSize
 return|;
 block|}
-comment|/**      * This will get the font size in pt. To get this size we have to multiply the pdf-fontsize      * and the scaling from the textmatrix      *      * @return The font size in pt.      */
+comment|/**      * This will get the font size in pt. To get this size we have to multiply the font size from      * {@link #getFontSize() getFontSize()} with the text matrix (set by the "Tm" operator)      * horizontal scaling factor and truncate the result to integer. The actual rendering may appear      * bigger or smaller depending on the current transformation matrix (set by the "cm" operator).      * To get the size in rendering, use      * {@link #getTextMatrix() getTextMatrix()}.{@link Matrix#getScalingFactorX() getScalingFactorX()}.      *      * @return The font size in pt.      */
 specifier|public
 name|float
 name|getFontSizeInPt
