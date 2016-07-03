@@ -1380,7 +1380,7 @@ name|getScalingFactorX
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the Y scaling factor. This is dependent on the current transformation matrix      * (set by the "cm" operator), the text matrix (set by the "Tm" operator) and the font size (set      * by the "Tf" operator).      *      * @return The X scaling factor.      */
+comment|/**      * This will get the Y scaling factor. This is dependent on the current transformation matrix      * (set by the "cm" operator), the text matrix (set by the "Tm" operator) and the font size (set      * by the "Tf" operator).      *      * @return The Y scaling factor.      */
 specifier|public
 name|float
 name|getYScale
