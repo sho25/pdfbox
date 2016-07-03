@@ -1337,7 +1337,7 @@ return|return
 name|fontSize
 return|;
 block|}
-comment|/**      * This will get the font size in pt. To get this size we have to multiply the font size from      * {@link #getFontSize() getFontSize()} with the text matrix (set by the "Tm" operator)      * horizontal scaling factor and truncate the result to integer. The actual rendering may appear      * bigger or smaller depending on the current transformation matrix (set by the "cm" operator).      * To get the size in rendering, use      * {@link #getTextMatrix() getTextMatrix()}.{@link Matrix#getScalingFactorX() getScalingFactorX()}.      *      * @return The font size in pt.      */
+comment|/**      * This will get the font size in pt. To get this size we have to multiply the font size from      * {@link #getFontSize() getFontSize()} with the text matrix (set by the "Tm" operator)      * horizontal scaling factor and truncate the result to integer. The actual rendering may appear      * bigger or smaller depending on the current transformation matrix (set by the "cm" operator).      * To get the size in rendering, use {@link #getXScale() getXScale()}.      *      * @return The font size in pt.      */
 specifier|public
 name|float
 name|getFontSizeInPt
