@@ -617,7 +617,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Return true if the C field is present in the Annotation dictionary and if the RGB profile is used in the      * DestOutputProfile of the OutputIntent dictionary.      *       * @return true if the C field is present and the RGB profile is used.      */
+comment|/**      * Return true if the C field is present in the Annotation dictionary and if the RGB profile is used in the      * DestOutputProfile of the OutputIntent dictionary.      *       * @return true if the C field is present and the RGB profile is used.      * @throws org.apache.pdfbox.preflight.exception.ValidationException      */
 specifier|protected
 name|boolean
 name|checkColors
@@ -662,7 +662,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Search the RGB Profile in OutputIntents dictionaries      *       * @return true if a rgb profile is found, false otherwise.      */
+comment|/**      * Search the RGB Profile in OutputIntents dictionaries      *       * @return true if a rgb profile is found, false otherwise.      * @throws org.apache.pdfbox.preflight.exception.ValidationException      */
 specifier|protected
 name|boolean
 name|searchRGBProfile
@@ -698,7 +698,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * This method checks the AP entry of the Annotation Dictionary. If the AP key is missing, this method returns true.      * If the AP key exists, only the N entry is authorized and must be a Stream which define the appearance of the      * annotation. (Currently, only the type of the N entry is checked because of the Appearance stream is a Form      * XObject, so it will be checked by the Graphics Helper)      *       * If the AP content isn't valid, this method return false and updates the errors list.      *       * @return the validation state of the AP content.      */
+comment|/**      * This method checks the AP entry of the Annotation Dictionary. If the AP key is missing, this method returns true.      * If the AP key exists, only the N entry is authorized and must be a Stream which define the appearance of the      * annotation. (Currently, only the type of the N entry is checked because of the Appearance stream is a Form      * XObject, so it will be checked by the Graphics Helper)      *       * If the AP content isn't valid, this method return false and updates the errors list.      *       * @return the validation state of the AP content.      * @throws org.apache.pdfbox.preflight.exception.ValidationException      */
 specifier|protected
 name|boolean
 name|checkAP
@@ -809,7 +809,6 @@ return|;
 block|}
 else|else
 block|{
-comment|// the N entry must be a Stream (Dictionaries are forbidden)
 name|COSBase
 name|apn
 init|=
@@ -822,6 +821,188 @@ operator|.
 name|N
 argument_list|)
 decl_stmt|;
+name|COSBase
+name|subtype
+init|=
+name|annotDictionary
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|SUBTYPE
+argument_list|)
+decl_stmt|;
+name|COSBase
+name|ft
+init|=
+name|annotDictionary
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|FT
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|COSName
+operator|.
+name|WIDGET
+operator|.
+name|equals
+argument_list|(
+name|subtype
+argument_list|)
+operator|&&
+name|COSName
+operator|.
+name|BTN
+operator|.
+name|equals
+argument_list|(
+name|ft
+argument_list|)
+condition|)
+block|{
+comment|// TECHNICAL CORRIGENDUM 2 for ISO 19005-1:2005 (PDF/A-1)
+comment|// added a clause for Widget Annotations:
+comment|// the value of the N key shall be an appearance subdictionary
+if|if
+condition|(
+name|COSUtils
+operator|.
+name|isStream
+argument_list|(
+name|apn
+argument_list|,
+name|cosDocument
+argument_list|)
+condition|)
+block|{
+name|ctx
+operator|.
+name|addValidationError
+argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_ANNOT_INVALID_AP_CONTENT
+argument_list|,
+literal|"The N Appearance of a Btn widget must not be a stream, but an appearance subdictionary"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// But validate it anyway, for isartor-6-3-4-t01-fail-f.pdf
+comment|// Appearance stream is a XObjectForm, check it.
+name|ContextHelper
+operator|.
+name|validateElement
+argument_list|(
+name|ctx
+argument_list|,
+operator|new
+name|PDFormXObject
+argument_list|(
+name|COSUtils
+operator|.
+name|getAsStream
+argument_list|(
+name|apn
+argument_list|,
+name|cosDocument
+argument_list|)
+argument_list|)
+argument_list|,
+name|GRAPHIC_PROCESS
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+operator|!
+name|COSUtils
+operator|.
+name|isDictionary
+argument_list|(
+name|apn
+argument_list|,
+name|cosDocument
+argument_list|)
+condition|)
+block|{
+name|ctx
+operator|.
+name|addValidationError
+argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_ANNOT_INVALID_AP_CONTENT
+argument_list|,
+literal|"The N Appearance must be an appearance subdictionary"
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+name|COSDictionary
+name|apnDict
+init|=
+name|COSUtils
+operator|.
+name|getAsDictionary
+argument_list|(
+name|apn
+argument_list|,
+name|cosDocument
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|COSBase
+name|val
+range|:
+name|apnDict
+operator|.
+name|getValues
+argument_list|()
+control|)
+block|{
+comment|// Appearance stream is a XObjectForm, check it.
+name|ContextHelper
+operator|.
+name|validateElement
+argument_list|(
+name|ctx
+argument_list|,
+operator|new
+name|PDFormXObject
+argument_list|(
+name|COSUtils
+operator|.
+name|getAsStream
+argument_list|(
+name|val
+argument_list|,
+name|cosDocument
+argument_list|)
+argument_list|)
+argument_list|,
+name|GRAPHIC_PROCESS
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// the N entry must be a stream (Dictionaries are forbidden)
 if|if
 condition|(
 operator|!
@@ -877,7 +1058,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// else ok, nothing to check,this field is optional
+block|}
+comment|// else ok, nothing to check, this field is optional
 return|return
 literal|true
 return|;
