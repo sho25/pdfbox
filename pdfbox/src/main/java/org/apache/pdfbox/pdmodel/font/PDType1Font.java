@@ -411,6 +411,24 @@ name|WinAnsiEncoding
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|font
+operator|.
+name|encoding
+operator|.
+name|ZapfDingbatsEncoding
+import|;
+end_import
+
 begin_comment
 comment|/**  * A PostScript Type 1 Font.  *  * @author Ben Litchfield  */
 end_comment
@@ -804,6 +822,25 @@ argument_list|,
 name|baseFont
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+literal|"ZapfDingbats"
+operator|.
+name|equals
+argument_list|(
+name|baseFont
+argument_list|)
+condition|)
+block|{
+name|encoding
+operator|=
+name|ZapfDingbatsEncoding
+operator|.
+name|INSTANCE
+expr_stmt|;
+block|}
+else|else
+block|{
 name|encoding
 operator|=
 name|WinAnsiEncoding
@@ -823,6 +860,7 @@ operator|.
 name|WIN_ANSI_ENCODING
 argument_list|)
 expr_stmt|;
+block|}
 comment|// standard 14 fonts may be accessed concurrently, as they are singletons
 name|codeToBytesMap
 operator|=
