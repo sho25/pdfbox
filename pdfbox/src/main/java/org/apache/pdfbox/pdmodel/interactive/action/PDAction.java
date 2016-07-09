@@ -234,7 +234,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the type of action that the actions dictionary describes.      * If present, must be Action for an action dictionary.      *      * @return The S entry of actions dictionary.      */
+comment|/**      * This will get the type of action that the actions dictionary describes.      *      * @return The S entry of actions dictionary.      */
 specifier|public
 name|String
 name|getSubType
@@ -251,7 +251,7 @@ name|S
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the type of action that the actions dictionary describes.      * If present, must be Action for an action dictionary.      *      * @param s The new type of action.      */
+comment|/**      * This will set the type of action that the actions dictionary describes.      *      * @param s The new type of action.      */
 specifier|public
 name|void
 name|setSubType
