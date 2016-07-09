@@ -98,44 +98,6 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the type of action that the actions dictionary describes.      * It must be URI for a URI action.      *      * @return The S entry of the specific URI action dictionary.      */
-specifier|public
-name|String
-name|getS
-parameter_list|()
-block|{
-return|return
-name|action
-operator|.
-name|getNameAsString
-argument_list|(
-name|COSName
-operator|.
-name|S
-argument_list|)
-return|;
-block|}
-comment|/**      * This will set the type of action that the actions dictionary describes.      * It must be URI for a URI action.      *      * @param s The URI action.      */
-specifier|public
-name|void
-name|setS
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-block|{
-name|action
-operator|.
-name|setName
-argument_list|(
-name|COSName
-operator|.
-name|S
-argument_list|,
-name|s
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * This will get the uniform resource identifier to resolve, encoded in      * 7-bit ASCII.      *      * @return The URI entry of the specific URI action dictionary.      */
 specifier|public
 name|String

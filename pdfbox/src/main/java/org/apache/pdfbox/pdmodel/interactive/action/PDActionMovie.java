@@ -33,20 +33,6 @@ name|COSDictionary
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSName
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author Timur Kamalov  */
 end_comment
@@ -95,44 +81,6 @@ block|{
 name|super
 argument_list|(
 name|a
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * This will get the type of action that the actions dictionary describes. It must be Movie for      * a Movie action.      *      * @return The S entry of the specific Movie action dictionary.      */
-specifier|public
-name|String
-name|getS
-parameter_list|()
-block|{
-return|return
-name|action
-operator|.
-name|getNameAsString
-argument_list|(
-name|COSName
-operator|.
-name|S
-argument_list|)
-return|;
-block|}
-comment|/**      * This will set the type of action that the actions dictionary describes. It must be Movie for      * a Movie action.      *      * @param s The Movie action.      */
-specifier|public
-name|void
-name|setS
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-block|{
-name|action
-operator|.
-name|setName
-argument_list|(
-name|COSName
-operator|.
-name|S
-argument_list|,
-name|s
 argument_list|)
 expr_stmt|;
 block|}

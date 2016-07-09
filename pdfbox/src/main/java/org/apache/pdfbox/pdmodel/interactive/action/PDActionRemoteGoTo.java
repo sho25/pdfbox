@@ -140,44 +140,6 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the type of action that the actions dictionary describes.      * It must be GoToR for a remote go-to action.      *      * @return The S entry of the specific remote go-to action dictionary.      */
-specifier|public
-name|String
-name|getS
-parameter_list|()
-block|{
-return|return
-name|action
-operator|.
-name|getNameAsString
-argument_list|(
-name|COSName
-operator|.
-name|S
-argument_list|)
-return|;
-block|}
-comment|/**      * This will set the type of action that the actions dictionary describes.      * It must be GoToR for a remote go-to action.      *      * @param s The remote go-to action.      */
-specifier|public
-name|void
-name|setS
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-block|{
-name|action
-operator|.
-name|setName
-argument_list|(
-name|COSName
-operator|.
-name|S
-argument_list|,
-name|s
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * This will get the file in which the destination is located.      *      * @return The F entry of the specific remote go-to action dictionary.      *      * @throws IOException If there is an error creating the file spec.      */
 specifier|public
 name|PDFileSpecification
