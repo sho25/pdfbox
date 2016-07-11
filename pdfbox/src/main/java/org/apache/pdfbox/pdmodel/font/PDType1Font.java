@@ -1866,11 +1866,19 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"U+%04X ('%s') is not available in this font's encoding: %s"
+literal|"U+%04X ('%s') is not available in this font %s (generic: %s) encoding: %s"
 argument_list|,
 name|unicode
 argument_list|,
 name|name
+argument_list|,
+name|getName
+argument_list|()
+argument_list|,
+name|genericFont
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|encoding
 operator|.
@@ -1927,10 +1935,15 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"No glyph for U+%04X in font %s"
+literal|"No glyph for U+%04X in font %s (generic: %s)"
 argument_list|,
 name|unicode
 argument_list|,
+name|getName
+argument_list|()
+argument_list|,
+name|genericFont
+operator|.
 name|getName
 argument_list|()
 argument_list|)
