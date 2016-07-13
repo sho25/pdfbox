@@ -553,24 +553,6 @@ literal|"loca is mandatory"
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|font
-operator|.
-name|getGlyph
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"glyf is mandatory"
-argument_list|)
-throw|;
-block|}
 block|}
 if|if
 condition|(

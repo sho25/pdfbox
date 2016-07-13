@@ -2469,6 +2469,28 @@ operator|.
 name|getGlyph
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|g
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"source font "
+operator|+
+name|ttf
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" must have a glyf table"
+argument_list|)
+throw|;
+block|}
 name|long
 index|[]
 name|offsets
@@ -2879,6 +2901,28 @@ operator|.
 name|getGlyph
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|g
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"source font "
+operator|+
+name|ttf
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" must have a glyf table"
+argument_list|)
+throw|;
+block|}
 name|long
 index|[]
 name|offsets
