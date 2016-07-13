@@ -1021,7 +1021,7 @@ name|readUnsignedInt
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// skip tables with zero length
+comment|// skip tables with zero length (except glyf)
 if|if
 condition|(
 name|table
@@ -1030,6 +1030,16 @@ name|getLength
 argument_list|()
 operator|==
 literal|0
+operator|&&
+operator|!
+name|tag
+operator|.
+name|equals
+argument_list|(
+name|GlyphTable
+operator|.
+name|TAG
+argument_list|)
 condition|)
 block|{
 return|return
