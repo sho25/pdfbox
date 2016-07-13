@@ -2536,6 +2536,11 @@ argument_list|,
 name|propertyQName
 argument_list|,
 name|element
+argument_list|,
+name|type
+operator|.
+name|type
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -2724,6 +2729,9 @@ name|descriptor
 parameter_list|,
 name|Element
 name|liElement
+parameter_list|,
+name|Types
+name|type
 parameter_list|)
 throws|throws
 name|XmpParsingException
@@ -2787,7 +2795,7 @@ return|;
 block|}
 else|else
 block|{
-comment|// no child, so consider as simple text
+comment|// no child
 name|String
 name|text
 init|=
@@ -2828,9 +2836,7 @@ argument_list|()
 argument_list|,
 name|text
 argument_list|,
-name|Types
-operator|.
-name|Text
+name|type
 argument_list|)
 decl_stmt|;
 name|loadAttributes
@@ -3311,6 +3317,11 @@ argument_list|,
 name|descriptor
 argument_list|,
 name|element2
+argument_list|,
+name|type
+operator|.
+name|type
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
