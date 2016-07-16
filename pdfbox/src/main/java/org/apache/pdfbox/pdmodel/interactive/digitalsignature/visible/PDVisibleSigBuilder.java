@@ -430,6 +430,25 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/**      * Constructor.      */
+specifier|public
+name|PDVisibleSigBuilder
+parameter_list|()
+block|{
+name|pdfStructure
+operator|=
+operator|new
+name|PDFTemplateStructure
+argument_list|()
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"PDF Structure has been created"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -507,24 +526,6 @@ operator|.
 name|setTemplate
 argument_list|(
 name|template
-argument_list|)
-expr_stmt|;
-block|}
-specifier|public
-name|PDVisibleSigBuilder
-parameter_list|()
-block|{
-name|pdfStructure
-operator|=
-operator|new
-name|PDFTemplateStructure
-argument_list|()
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"PDF Structure has been created"
 argument_list|)
 expr_stmt|;
 block|}
