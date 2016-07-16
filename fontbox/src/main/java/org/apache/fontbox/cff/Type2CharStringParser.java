@@ -479,8 +479,6 @@ decl_stmt|;
 comment|//get subrbias
 name|int
 name|bias
-init|=
-literal|0
 decl_stmt|;
 name|int
 name|nSubrs
@@ -1066,14 +1064,9 @@ decl_stmt|;
 name|int
 name|length
 init|=
-call|(
-name|int
-call|)
-argument_list|(
 name|hintCount
 operator|/
 literal|8
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -1146,11 +1139,18 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
 name|object
 operator|instanceof
 name|Number
+operator|)
 condition|)
 block|{
+return|return
+name|numbers
+return|;
+block|}
 name|numbers
 operator|.
 name|add
@@ -1163,11 +1163,6 @@ operator|)
 name|object
 argument_list|)
 expr_stmt|;
-continue|continue;
-block|}
-return|return
-name|numbers
-return|;
 block|}
 return|return
 name|numbers
