@@ -469,8 +469,7 @@ operator|.
 name|PARSE_TYPE
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|parseType
 operator|!=
 literal|null
@@ -486,16 +485,6 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|)
-condition|)
-block|{
-comment|// parseType resourc
-return|return
-literal|true
-return|;
-block|}
-comment|// else
-return|return
-literal|false
 return|;
 block|}
 block|}
