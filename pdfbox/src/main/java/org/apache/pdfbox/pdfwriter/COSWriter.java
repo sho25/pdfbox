@@ -5728,6 +5728,7 @@ argument_list|(
 name|b
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 block|}
 name|output
