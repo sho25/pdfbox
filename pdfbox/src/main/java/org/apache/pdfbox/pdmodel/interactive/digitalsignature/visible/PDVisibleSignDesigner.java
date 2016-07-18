@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for visible signature design.  * Uses use param() instead of setParam()  *  * @author Vakhtang Koroghlishvili  */
+comment|/**  * Builder for visible signature design.  * Setters use param() instead of setParam() to allow chaining.  *  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -532,40 +532,9 @@ operator|.
 name|getWidth
 argument_list|()
 expr_stmt|;
-name|float
-name|x
-init|=
-name|pageWidth
-decl_stmt|;
-name|float
-name|y
-init|=
-literal|0
-decl_stmt|;
-name|pageWidth
-operator|+=
-name|y
-expr_stmt|;
-name|float
-name|tPercent
-init|=
-operator|(
-literal|100
-operator|*
-name|y
-operator|/
-operator|(
-name|x
-operator|+
-name|y
-operator|)
-operator|)
-decl_stmt|;
 name|imageSizeInPercents
 operator|=
 literal|100
-operator|-
-name|tPercent
 expr_stmt|;
 block|}
 comment|/**      * Set the image for the signature.      *       * @param path of image location      * @return image Stream      * @throws IOException      */
