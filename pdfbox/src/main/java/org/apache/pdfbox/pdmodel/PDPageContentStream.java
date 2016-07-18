@@ -995,7 +995,7 @@ expr_stmt|;
 comment|// configure NumberFormat
 name|setMaximumFractionDigits
 argument_list|(
-literal|10
+literal|5
 argument_list|)
 expr_stmt|;
 block|}
@@ -1067,6 +1067,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Set the font and font size to draw text with.      *      * @param font The font to use.      * @param fontSize The font size to draw the text.      * @throws IOException If there is an error writing the font information.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setFont
@@ -1174,6 +1176,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Shows the given text at the location specified by the current text matrix.      *      * @param text The Unicode text to show.      * @throws IOException If an io exception occurs.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|showText
@@ -1855,6 +1859,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * q operator. Saves the current graphics state.      * @throws IOException If an error occurs while writing to the stream.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|saveGraphicsState
@@ -1929,6 +1935,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Q operator. Restores the current graphics state.      * @throws IOException If an error occurs while writing to the stream.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|restoreGraphicsState
