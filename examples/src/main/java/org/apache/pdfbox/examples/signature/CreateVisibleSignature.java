@@ -312,7 +312,7 @@ name|int
 name|zoomPercent
 parameter_list|,
 name|FileInputStream
-name|image
+name|imageStream
 parameter_list|,
 name|int
 name|page
@@ -327,7 +327,7 @@ name|PDVisibleSignDesigner
 argument_list|(
 name|filename
 argument_list|,
-name|image
+name|imageStream
 argument_list|,
 name|page
 argument_list|)
@@ -901,7 +901,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|FileInputStream
-name|image
+name|imageStream
 init|=
 operator|new
 name|FileInputStream
@@ -975,10 +975,15 @@ argument_list|,
 operator|-
 literal|50
 argument_list|,
-name|image
+name|imageStream
 argument_list|,
 name|page
 argument_list|)
+expr_stmt|;
+name|imageStream
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|signing
 operator|.

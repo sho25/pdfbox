@@ -533,7 +533,7 @@ literal|0
 index|]
 expr_stmt|;
 block|}
-comment|/**      * Signs a PDF using the "adbe.pkcs7.detached" SubFilter with the SHA-256 digest.      *      * @throws IOException      * @throws GeneralSecurityException      */
+comment|/**      * Signs a PDF using the "adbe.pkcs7.detached" SubFilter with the SHA-256 digest.      *      * @throws IOException      * @throws GeneralSecurityException      * @throws CMSException      * @throws OperatorCreationException      */
 specifier|public
 name|void
 name|testDetachedSHA256
@@ -622,7 +622,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Signs a PDF using the "adbe.pkcs7.detached" SubFilter with the SHA-256 digest and a signed      * timestamp from a Time Stamping Authority (TSA) server.      *      * This is not a complete test because we don't have the ability to return a valid response, so      * we return a cached response which is well-formed, but does not match the timestamp or nonce      * in the request. This allows us to test the basic TSA mechanism and test the nonce, which is a      * good start.      *      * @throws IOException      * @throws GeneralSecurityException      */
+comment|/**      * Signs a PDF using the "adbe.pkcs7.detached" SubFilter with the SHA-256 digest and a signed      * timestamp from a Time Stamping Authority (TSA) server.      *      * This is not a complete test because we don't have the ability to return a valid response, so      * we return a cached response which is well-formed, but does not match the timestamp or nonce      * in the request. This allows us to test the basic TSA mechanism and test the nonce, which is a      * good start.      *      * @throws IOException      * @throws GeneralSecurityException      * @throws CMSException      * @throws OperatorCreationException      */
 specifier|public
 name|void
 name|testDetachedSHA256WithTSA
@@ -858,7 +858,7 @@ block|}
 comment|// TODO verify the signed PDF file
 comment|// TODO create a file signed with TSA
 block|}
-comment|/**      * Test creating visual signature.      *      * @throws IOException      * @throws GeneralSecurityException      */
+comment|/**      * Test creating visual signature.      *      * @throws IOException      * @throws CMSException      * @throws OperatorCreationException      * @throws GeneralSecurityException      */
 specifier|public
 name|void
 name|testCreateVisibleSignature
@@ -990,6 +990,11 @@ name|destFile
 argument_list|,
 literal|null
 argument_list|)
+expr_stmt|;
+name|fis
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|checkSignature
 argument_list|(
