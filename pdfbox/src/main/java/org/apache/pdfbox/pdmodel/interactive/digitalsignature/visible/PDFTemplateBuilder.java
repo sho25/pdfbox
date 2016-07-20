@@ -283,7 +283,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Creates PDSignatureField.      *       * @param pdSignatureField      * @param page      * @param signatureName      * @throws IOException      */
+comment|/**      * Creates the signature with the given name and assign it to the signature field parameter and      * assign the page parameter to the widget.      *      * @param pdSignatureField      * @param page      * @param signerName the name of the person or authority signing the document. According to the      * PDF specification, this value should be used only when it is not possible to extract the name      * from the signature.      * @throws IOException      */
 name|void
 name|createSignature
 parameter_list|(
@@ -294,7 +294,7 @@ name|PDPage
 name|page
 parameter_list|,
 name|String
-name|signatureName
+name|signerName
 parameter_list|)
 throws|throws
 name|IOException
@@ -491,7 +491,7 @@ name|COSArray
 name|procSet
 parameter_list|)
 function_decl|;
-comment|/**      * injects appearance streams      *       * @param holderFormStream      * @param innterFormStream      * @param imageFormStream      * @param imageObjectName      * @param imageName      * @param innerFormName      * @param properties      * @throws IOException      */
+comment|/**      * injects appearance streams      *       * @param holderFormStream      * @param innerFormStream      * @param imageFormStream      * @param imageObjectName      * @param imageName      * @param innerFormName      * @param properties      * @throws IOException      */
 name|void
 name|injectAppearanceStreams
 parameter_list|(
@@ -499,7 +499,7 @@ name|PDStream
 name|holderFormStream
 parameter_list|,
 name|PDStream
-name|innterFormStream
+name|innerFormStream
 parameter_list|,
 name|PDStream
 name|imageFormStream
