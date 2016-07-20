@@ -400,7 +400,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of PDFTemplateBuilder.  * @see PDFTemplateBuilder  * @author Vakhtang Koroghlishvili  */
+comment|/**  * Implementation of {@link PDFTemplateBuilder}.  *  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -1390,7 +1390,7 @@ name|template
 parameter_list|)
 block|{
 name|PDStream
-name|innterFormStream
+name|innerFormStream
 init|=
 operator|new
 name|PDStream
@@ -1400,9 +1400,9 @@ argument_list|)
 decl_stmt|;
 name|pdfStructure
 operator|.
-name|setInnterFormStream
+name|setInnerFormStream
 argument_list|(
-name|innterFormStream
+name|innerFormStream
 argument_list|)
 expr_stmt|;
 name|log
@@ -1875,10 +1875,10 @@ name|IOException
 block|{
 comment|// 100 means that document width is 100% via the rectangle. if rectangle
 comment|// is 500px, images 100% is 500px.
-comment|// String imgFormComment = "q "+imageWidthSize+ " 0 0 50 0 0 cm /" +
+comment|// String imgFormContent = "q "+imageWidthSize+ " 0 0 50 0 0 cm /" +
 comment|// imageName + " Do Q\n" + builder.toString();
 name|String
-name|imgFormComment
+name|imgFormContent
 init|=
 literal|"q "
 operator|+
@@ -1894,7 +1894,7 @@ operator|+
 literal|" Do Q\n"
 decl_stmt|;
 name|String
-name|holderFormComment
+name|holderFormContent
 init|=
 literal|"q 1 0 0 1 0 0 cm /"
 operator|+
@@ -1903,10 +1903,10 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" Do Q \n"
+literal|" Do Q\n"
 decl_stmt|;
 name|String
-name|innerFormComment
+name|innerFormContent
 init|=
 literal|"q 1 0 0 1 0 0 cm /"
 operator|+
@@ -1927,7 +1927,7 @@ operator|.
 name|createOutputStream
 argument_list|()
 argument_list|,
-name|holderFormComment
+name|holderFormContent
 argument_list|)
 expr_stmt|;
 name|appendRawCommands
@@ -1940,7 +1940,7 @@ operator|.
 name|createOutputStream
 argument_list|()
 argument_list|,
-name|innerFormComment
+name|innerFormContent
 argument_list|)
 expr_stmt|;
 name|appendRawCommands
@@ -1953,7 +1953,7 @@ operator|.
 name|createOutputStream
 argument_list|()
 argument_list|,
-name|imgFormComment
+name|imgFormContent
 argument_list|)
 expr_stmt|;
 name|log
