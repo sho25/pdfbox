@@ -39,6 +39,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|BufferedInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|File
 import|;
 end_import
@@ -91,6 +101,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|io
+operator|.
+name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDDocument
@@ -128,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for visible signature design.  * Setters use param() instead of setParam() to allow chaining.  *  * @author Vakhtang Koroghlishvili  */
+comment|/**  * Class for visible signature design properties. Setters use param() instead of setParam() to allow  * chaining.  *  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -537,7 +561,7 @@ operator|=
 literal|100
 expr_stmt|;
 block|}
-comment|/**      * Set the image for the signature.      *       * @param path of image location      * @return image Stream      * @throws IOException      */
+comment|/**      * Set the image for the signature.      *      * @param path Path of the image file.      * @return Visible Signature Configuration Object      * @throws IOException      */
 specifier|public
 name|PDVisibleSignDesigner
 name|signatureImage
@@ -549,19 +573,40 @@ throws|throws
 name|IOException
 block|{
 name|InputStream
-name|fin
+name|in
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|in
+operator|=
+operator|new
+name|BufferedInputStream
+argument_list|(
 operator|new
 name|FileInputStream
 argument_list|(
 name|path
 argument_list|)
-decl_stmt|;
-name|readImageStream
-argument_list|(
-name|fin
 argument_list|)
 expr_stmt|;
+name|readImageStream
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|this
 return|;
