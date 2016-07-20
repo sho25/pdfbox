@@ -400,7 +400,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of {@link PDFTemplateBuilder}.  *  * @author Vakhtang Koroghlishvili  */
+comment|/**  * Implementation of {@link PDFTemplateBuilder}. This builds the signature PDF but doesn't keep the  * elements, these are kept in its PDF template structure.  *  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -430,7 +430,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Constructor.      */
+comment|/**      * Constructor, creates PDF template structure.      */
 specifier|public
 name|PDVisibleSigBuilder
 parameter_list|()
@@ -495,6 +495,7 @@ literal|"PDF page has been created"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a PDDocument and adds the page parameter to it and keeps this as a template in the      * PDF template Structure.      *      * @param page      * @throws IOException      */
 annotation|@
 name|Override
 specifier|public
@@ -633,7 +634,7 @@ name|PDPage
 name|page
 parameter_list|,
 name|String
-name|signatureName
+name|signerName
 parameter_list|)
 throws|throws
 name|IOException
@@ -686,7 +687,7 @@ name|pdSignature
 operator|.
 name|setName
 argument_list|(
-name|signatureName
+name|signerName
 argument_list|)
 expr_stmt|;
 name|pdfStructure
@@ -1400,7 +1401,7 @@ argument_list|)
 decl_stmt|;
 name|pdfStructure
 operator|.
-name|setInnerFormStream
+name|setInnterFormStream
 argument_list|(
 name|innerFormStream
 argument_list|)
