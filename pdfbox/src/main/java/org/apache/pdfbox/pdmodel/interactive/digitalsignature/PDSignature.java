@@ -291,6 +291,8 @@ name|dict
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS dictionary.      *      * @return The COS dictionary that matches this Java object.      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
 name|getCOSObject
@@ -363,7 +365,7 @@ name|subfilter
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the name.      * @param name the name to be used      */
+comment|/**      * Sets the name of the person or authority signing the document. According to the PDF      * specification, this value should be used only when it is not possible to extract the name      * from the signature.      *      * @param name the name to be used      */
 specifier|public
 name|void
 name|setName
@@ -384,7 +386,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the location.      * @param location the location to be used      */
+comment|/**      * Sets the CPU host name or physical location of the signing.      *      * @param location the location to be used      */
 specifier|public
 name|void
 name|setLocation
@@ -405,7 +407,7 @@ name|location
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the reason.      *      * @param reason the reason to be used      */
+comment|/**      * Sets the reason for the signing, such as (I agree...).      *      * @param reason the reason to be used      */
 specifier|public
 name|void
 name|setReason
@@ -426,7 +428,7 @@ name|reason
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the contact info.      *      * @param contactInfo the contact info to be used      */
+comment|/**      * Sets the contact info provided by the signer to enable a recipient to contact the signer to      * verify the signature, e.g. a phone number.      *      * @param contactInfo the contact info to be used      */
 specifier|public
 name|void
 name|setContactInfo
@@ -502,7 +504,7 @@ name|SUB_FILTER
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the name.      *      * @return the name      */
+comment|/**      * Returns the name of the person or authority signing the document. According to the PDF      * specification, this value should be used only when it is not possible to extract the name      * from the signature.      *      * @return the name      */
 specifier|public
 name|String
 name|getName
@@ -519,7 +521,7 @@ name|NAME
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the location.      *      * @return the location      */
+comment|/**      * Returns the CPU host name or physical location of the signing.      *      * @return the location      */
 specifier|public
 name|String
 name|getLocation
@@ -536,7 +538,7 @@ name|LOCATION
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the reason.      *      * @return the reason      */
+comment|/**      * Returns the reason for the signing, such as (I agree...).      *      * @return the reason      */
 specifier|public
 name|String
 name|getReason
@@ -553,7 +555,7 @@ name|REASON
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the contact info.      *      * @return teh contact info      */
+comment|/**      * Returns the contact info provided by the signer to enable a recipient to contact the signer      * to verify the signature, e.g. a phone number.      *      * @return the contact info      */
 specifier|public
 name|String
 name|getContactInfo
