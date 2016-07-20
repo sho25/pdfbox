@@ -742,7 +742,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Return the string of characters stored in this object.      *      * @return The string on the screen.      */
+comment|/**      * Return the string of characters stored in this object. The length can be different than the      * CharacterCodes length e.g. if ligatures are used ("fi", "fl", "ffl") where one glyph      * represents several unicode characters.      *      * @return The string on the screen.      */
 specifier|public
 name|String
 name|getUnicode
@@ -1393,7 +1393,7 @@ name|getScalingFactorY
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the widths of each individual character.      *      * @return An array that is the same length as the length of the string.      */
+comment|/**      * Get the widths of each individual character.      *      * @return An array that has the same length as the CharacterCodes array.      */
 specifier|public
 name|float
 index|[]
