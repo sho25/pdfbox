@@ -423,6 +423,10 @@ name|getSignatureField
 argument_list|()
 decl_stmt|;
 comment|// create signature
+comment|//TODO
+comment|// The line below has no effect with the CreateVisibleSignature example.
+comment|// The signature field is needed as a "holder" for the /AP tree,
+comment|// but the /P and /V PDSignatureField entries are ignored by PDDocument.addSignature
 name|pdfBuilder
 operator|.
 name|createSignature

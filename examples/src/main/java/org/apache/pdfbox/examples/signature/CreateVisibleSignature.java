@@ -348,11 +348,6 @@ name|zoom
 argument_list|(
 name|zoomPercent
 argument_list|)
-operator|.
-name|signatureFieldName
-argument_list|(
-literal|"signature"
-argument_list|)
 expr_stmt|;
 block|}
 specifier|public
