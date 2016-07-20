@@ -234,7 +234,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Using that class, we build pdf template.  * @author Vakhtang Koroghlishvili  */
+comment|/**  * Class to build PDF template.  *  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -242,6 +242,8 @@ specifier|public
 class|class
 name|PDFTemplateCreator
 block|{
+specifier|private
+specifier|final
 name|PDFTemplateBuilder
 name|pdfBuilder
 decl_stmt|;
@@ -260,20 +262,20 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * sets PDFBuilder      *       * @param bookBuilder      */
+comment|/**      * Constructor.      *       * @param templateBuilder      */
 specifier|public
 name|PDFTemplateCreator
 parameter_list|(
 name|PDFTemplateBuilder
-name|bookBuilder
+name|templateBuilder
 parameter_list|)
 block|{
 name|pdfBuilder
 operator|=
-name|bookBuilder
+name|templateBuilder
 expr_stmt|;
 block|}
-comment|/**      * that method returns object of PDFStructure      *       * @return PDFStructure      */
+comment|/**      * Returns the PDFTemplateStructure object.      *       * @return      */
 specifier|public
 name|PDFTemplateStructure
 name|getPdfStructure
@@ -286,7 +288,7 @@ name|getStructure
 argument_list|()
 return|;
 block|}
-comment|/**      * this method builds pdf  step by step, and finally it returns stream of visible signature      * @param properties      * @return InputStream      * @throws IOException      */
+comment|/**      * Build a PDF with a visible signature step by step, and return it as a stream.      *      * @param properties      * @return InputStream      * @throws IOException      */
 specifier|public
 name|InputStream
 name|buildPDF
