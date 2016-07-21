@@ -148,7 +148,7 @@ operator|=
 name|file
 expr_stmt|;
 block|}
-comment|/**      * Read an signed short.      *       * @return An signed short.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read a signed short.      *       * @return An signed short.      * @throws IOException If there is an error reading the data.      * @see RandomAccessFile#readShort()      */
 annotation|@
 name|Override
 specifier|public
@@ -202,7 +202,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Read an unsigned byte.      * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read an unsigned byte.      * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      * @see RandomAccessFile#read()      */
 annotation|@
 name|Override
 specifier|public
@@ -219,7 +219,7 @@ name|read
 argument_list|()
 return|;
 block|}
-comment|/**      * Read an unsigned short.      *       * @return An unsigned short.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read an unsigned short.      *       * @return An unsigned short.      * @throws IOException If there is an error reading the data.      * @see RandomAccessFile#readUnsignedShort()      */
 annotation|@
 name|Override
 specifier|public
@@ -236,7 +236,7 @@ name|readUnsignedShort
 argument_list|()
 return|;
 block|}
-comment|/**      * Read an unsigned byte.      * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read a signed 64-bit integer.      *       * @return eight bytes interpreted as a long.      * @throws IOException If there is an error reading the data.      * @see RandomAccessFile#readLong()          */
 annotation|@
 name|Override
 specifier|public
