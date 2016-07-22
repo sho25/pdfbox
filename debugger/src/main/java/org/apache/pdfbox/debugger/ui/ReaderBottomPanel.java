@@ -115,7 +115,7 @@ name|Dimension
 argument_list|(
 literal|1000
 argument_list|,
-literal|20
+literal|24
 argument_list|)
 argument_list|)
 expr_stmt|;
