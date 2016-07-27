@@ -189,7 +189,7 @@ decl_stmt|;
 specifier|private
 specifier|final
 name|Lock
-name|m_aRWLock
+name|lock
 init|=
 operator|new
 name|ReentrantLock
@@ -220,7 +220,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|m_aRWLock
+name|lock
 operator|.
 name|lock
 argument_list|()
@@ -272,7 +272,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|m_aRWLock
+name|lock
 operator|.
 name|unlock
 argument_list|()
