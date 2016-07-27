@@ -1013,8 +1013,6 @@ name|value
 block|}
 decl_stmt|;
 comment|// type
-try|try
-block|{
 name|Class
 argument_list|<
 name|?
@@ -1035,6 +1033,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|Constructor
 argument_list|<
 name|?
@@ -1069,7 +1069,16 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Failed to instanciate property"
+literal|"Failed to instanciate "
+operator|+
+name|clz
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|" property with value "
+operator|+
+name|value
 argument_list|,
 name|e
 argument_list|)
@@ -1085,7 +1094,16 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Failed to instanciate property"
+literal|"Failed to instanciate "
+operator|+
+name|clz
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|" property with value "
+operator|+
+name|value
 argument_list|,
 name|e
 argument_list|)
@@ -1101,7 +1119,16 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Failed to instanciate property"
+literal|"Failed to instanciate "
+operator|+
+name|clz
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|" property with value "
+operator|+
+name|value
 argument_list|,
 name|e
 argument_list|)
@@ -1117,7 +1144,16 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Failed to instanciate property"
+literal|"Failed to instanciate "
+operator|+
+name|clz
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|" property with value "
+operator|+
+name|value
 argument_list|,
 name|e
 argument_list|)
@@ -1133,7 +1169,16 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Failed to instanciate property"
+literal|"Failed to instanciate "
+operator|+
+name|clz
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|" property with value "
+operator|+
+name|value
 argument_list|,
 name|e
 argument_list|)
@@ -1149,7 +1194,16 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Failed to instanciate property"
+literal|"Failed to instanciate "
+operator|+
+name|clz
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|" property with value "
+operator|+
+name|value
 argument_list|,
 name|e
 argument_list|)
@@ -1165,7 +1219,16 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Failed to instanciate property"
+literal|"Failed to instanciate "
+operator|+
+name|clz
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|" property with value "
+operator|+
+name|value
 argument_list|,
 name|e
 argument_list|)

@@ -135,6 +135,23 @@ literal|"2015-12-08T12:07-05:00"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+name|DateConverter
+operator|.
+name|toCalendar
+argument_list|(
+literal|"2011-11-20T10:09:00Z"
+argument_list|)
+argument_list|,
+name|DateConverter
+operator|.
+name|toCalendar
+argument_list|(
+literal|"2011-11-20T10:09Z"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Test some time zone offsets
 name|jaxbCal
 operator|=
