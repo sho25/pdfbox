@@ -1366,9 +1366,6 @@ name|parseXrefStream
 argument_list|(
 name|xrefStream
 argument_list|,
-operator|(
-name|int
-operator|)
 name|objByteOffset
 argument_list|,
 name|isStandalone
@@ -2937,6 +2934,10 @@ operator|+
 literal|":"
 operator|+
 name|readObjGen
+operator|+
+literal|" at offset "
+operator|+
+name|offsetOrObjstmObNr
 argument_list|)
 throw|;
 block|}
@@ -4616,7 +4617,7 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-comment|// the first character has to be whitespace(s), and then a digit
+comment|// the first character has to be a whitespace, and then a digit
 if|if
 condition|(
 name|isWhitespace
@@ -7614,12 +7615,12 @@ condition|)
 block|{
 try|try
 block|{
-name|int
+name|long
 name|currOffset
 init|=
-name|Integer
+name|Long
 operator|.
-name|parseInt
+name|parseLong
 argument_list|(
 name|splitString
 index|[
