@@ -1755,6 +1755,18 @@ operator|)
 name|nextToken
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|tokenBytes
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+comment|// PDFBOX-3450: ignore<>
+continue|continue;
+block|}
 name|boolean
 name|done
 init|=
