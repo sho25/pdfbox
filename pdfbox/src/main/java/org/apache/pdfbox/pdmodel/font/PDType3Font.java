@@ -557,7 +557,9 @@ operator|<=
 name|lastChar
 condition|)
 block|{
-return|return
+name|Float
+name|w
+init|=
 name|getWidths
 argument_list|()
 operator|.
@@ -567,6 +569,15 @@ name|code
 operator|-
 name|firstChar
 argument_list|)
+decl_stmt|;
+return|return
+name|w
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
+name|w
 return|;
 block|}
 else|else
