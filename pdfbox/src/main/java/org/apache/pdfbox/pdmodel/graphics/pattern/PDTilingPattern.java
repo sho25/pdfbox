@@ -395,7 +395,7 @@ argument_list|)
 decl_stmt|;
 return|return
 name|xStep
-operator|==
+operator|>=
 name|Short
 operator|.
 name|MAX_VALUE
@@ -451,7 +451,7 @@ argument_list|)
 decl_stmt|;
 return|return
 name|yStep
-operator|==
+operator|>=
 name|Short
 operator|.
 name|MAX_VALUE
