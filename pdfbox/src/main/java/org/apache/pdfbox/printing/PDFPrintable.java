@@ -544,6 +544,25 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+comment|// only stretch to fit when enabled
+if|if
+condition|(
+name|scale
+operator|<
+literal|1
+operator|&&
+name|scaling
+operator|==
+name|Scaling
+operator|.
+name|STRETCH_TO_FIT
+condition|)
+block|{
+name|scale
+operator|=
+literal|1
+expr_stmt|;
+block|}
 block|}
 comment|// set the graphics origin to the origin of the imageable area (i.e the margins)
 name|graphics2D
@@ -636,6 +655,8 @@ argument_list|(
 name|imageableWidth
 operator|*
 name|dpiScale
+operator|/
+name|scale
 argument_list|)
 argument_list|,
 call|(
@@ -645,6 +666,8 @@ argument_list|(
 name|imageableHeight
 operator|*
 name|dpiScale
+operator|/
+name|scale
 argument_list|)
 argument_list|,
 name|BufferedImage
