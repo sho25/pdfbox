@@ -1559,7 +1559,18 @@ literal|"The TrueType font does not contain a Unicode cmap"
 argument_list|)
 throw|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|cmapTable
+operator|.
+name|getCmaps
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+condition|)
 block|{
 comment|// fallback to the first cmap (may not be Unicode, so may produce poor results)
 name|cmap
