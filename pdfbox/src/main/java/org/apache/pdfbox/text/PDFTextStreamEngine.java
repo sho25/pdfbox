@@ -1194,9 +1194,15 @@ name|capHeight
 operator|!=
 literal|0
 operator|&&
+operator|(
 name|capHeight
 operator|<
 name|glyphHeight
+operator|||
+name|glyphHeight
+operator|==
+literal|0
+operator|)
 condition|)
 block|{
 name|glyphHeight
