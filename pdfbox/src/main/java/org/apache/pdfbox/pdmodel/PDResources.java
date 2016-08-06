@@ -29,9 +29,41 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|ref
+operator|.
+name|SoftReference
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -353,6 +385,33 @@ specifier|final
 name|ResourceCache
 name|cache
 decl_stmt|;
+comment|// PDFBOX-3442 cache fonts that are not indirect objects, as these aren't cached in ResourceCache
+comment|// and this would result in huge memory footprint in text extraction
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|COSName
+argument_list|,
+name|SoftReference
+argument_list|<
+name|PDFont
+argument_list|>
+argument_list|>
+name|directFontCache
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|COSName
+argument_list|,
+name|SoftReference
+argument_list|<
+name|PDFont
+argument_list|>
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|/**      * Constructor for embedding.      */
 specifier|public
 name|PDResources
@@ -448,7 +507,7 @@ return|return
 name|resources
 return|;
 block|}
-comment|/**      * Returns the font resource with the given name, or null if none exists.      *      * @param name Name of the font resource.      * @throws java.io.IOException if something went wrong.      */
+comment|/**      * Returns the font resource with the given name, or null if none exists.      *      * @param name Name of the font resource.      * @throws IOException if something went wrong.      */
 specifier|public
 name|PDFont
 name|getFont
@@ -504,6 +563,55 @@ name|cached
 return|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|indirect
+operator|==
+literal|null
+condition|)
+block|{
+name|SoftReference
+argument_list|<
+name|PDFont
+argument_list|>
+name|ref
+init|=
+name|directFontCache
+operator|.
+name|get
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|ref
+operator|!=
+literal|null
+condition|)
+block|{
+name|PDFont
+name|cached
+init|=
+name|ref
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cached
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|cached
+return|;
+block|}
+block|}
+block|}
 name|PDFont
 name|font
 init|=
@@ -546,6 +654,10 @@ condition|(
 name|cache
 operator|!=
 literal|null
+operator|&&
+name|indirect
+operator|!=
+literal|null
 condition|)
 block|{
 name|cache
@@ -555,6 +667,31 @@ argument_list|(
 name|indirect
 argument_list|,
 name|font
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|indirect
+operator|==
+literal|null
+condition|)
+block|{
+name|directFontCache
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+operator|new
+name|SoftReference
+argument_list|<
+name|PDFont
+argument_list|>
+argument_list|(
+name|font
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -857,7 +994,7 @@ return|return
 name|extGState
 return|;
 block|}
-comment|/**      * Returns the shading resource with the given name, or null if none exists.      *      * @param name Name of the shading resource.      * @throws java.io.IOException if something went wrong.      */
+comment|/**      * Returns the shading resource with the given name, or null if none exists.      *      * @param name Name of the shading resource.      * @throws IOException if something went wrong.      */
 specifier|public
 name|PDShading
 name|getShading
@@ -972,7 +1109,7 @@ return|return
 name|shading
 return|;
 block|}
-comment|/**      * Returns the pattern resource with the given name, or null if none exists.      *       * @param name Name of the pattern resource.      * @throws java.io.IOException if something went wrong.      */
+comment|/**      * Returns the pattern resource with the given name, or null if none exists.      *       * @param name Name of the pattern resource.      * @throws IOException if something went wrong.      */
 specifier|public
 name|PDAbstractPattern
 name|getPattern
@@ -1294,7 +1431,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the XObject resource with the given name, or null if none exists.      *       * @param name Name of the XObject resource.      * @throws java.io.IOException if something went wrong.      */
+comment|/**      * Returns the XObject resource with the given name, or null if none exists.      *       * @param name Name of the XObject resource.      * @throws IOException if something went wrong.      */
 specifier|public
 name|PDXObject
 name|getXObject
