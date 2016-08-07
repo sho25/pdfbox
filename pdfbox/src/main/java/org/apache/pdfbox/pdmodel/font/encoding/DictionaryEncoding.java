@@ -45,6 +45,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -120,6 +148,21 @@ name|DictionaryEncoding
 extends|extends
 name|Encoding
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|DictionaryEncoding
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 specifier|final
 name|COSDictionary
@@ -324,8 +367,9 @@ name|base
 init|=
 literal|null
 decl_stmt|;
-if|if
-condition|(
+name|boolean
+name|hasBaseEncoding
+init|=
 name|encoding
 operator|.
 name|containsKey
@@ -334,6 +378,10 @@ name|COSName
 operator|.
 name|BASE_ENCODING
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|hasBaseEncoding
 condition|)
 block|{
 name|COSName
@@ -357,7 +405,7 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-comment|// may be null
+comment|// null when the name is invalid
 block|}
 if|if
 condition|(
@@ -396,6 +444,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// triggering this error indicates a bug in PDFBox. Every font should always have
+comment|// a built-in encoding, if not, we parsed it incorrectly.
 throw|throw
 operator|new
 name|IllegalArgumentException
