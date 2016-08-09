@@ -402,7 +402,7 @@ name|offset
 argument_list|)
 return|;
 block|}
-comment|/*      * Constrain a timezone offset to the range  [-11:59 thru +11:59].      * by adding or subtracting multiples of a full day.      */
+comment|/*      * Constrain a timezone offset to the range  [-11:59 thru +12:00].      * by adding or subtracting multiples of a full day.      */
 specifier|private
 specifier|static
 name|int
@@ -428,6 +428,17 @@ operator|)
 operator|%
 name|DAY
 expr_stmt|;
+if|if
+condition|(
+name|proposedOffset
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|HALF_DAY
+return|;
+block|}
 comment|// 0<= proposedOffset< DAY
 name|proposedOffset
 operator|=

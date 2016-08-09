@@ -2300,6 +2300,28 @@ argument_list|,
 literal|"2073 12 25:08"
 argument_list|)
 expr_stmt|;
+comment|// PDFBOX-3315 GMT+12
+name|checkParse
+argument_list|(
+literal|2016
+argument_list|,
+literal|4
+argument_list|,
+literal|11
+argument_list|,
+literal|16
+argument_list|,
+literal|01
+argument_list|,
+literal|15
+argument_list|,
+literal|12
+argument_list|,
+literal|0
+argument_list|,
+literal|"D:20160411160115+12'00'"
+argument_list|)
+expr_stmt|;
 block|}
 specifier|private
 specifier|static
@@ -3104,6 +3126,7 @@ name|void
 name|testParseTZ
 parameter_list|()
 block|{
+comment|// 1st parameter is what to expect
 name|checkParseTZ
 argument_list|(
 literal|0
@@ -3378,6 +3401,33 @@ argument_list|,
 literal|"Z"
 argument_list|)
 expr_stmt|;
+comment|// PDFBOX-3315
+name|checkParseTZ
+argument_list|(
+literal|12
+operator|*
+name|HRS
+operator|+
+literal|0
+operator|*
+name|MINS
+argument_list|,
+literal|"+12:00"
+argument_list|)
+expr_stmt|;
+name|checkParseTZ
+argument_list|(
+literal|12
+operator|*
+name|HRS
+operator|+
+literal|0
+operator|*
+name|MINS
+argument_list|,
+literal|"-12:00"
+argument_list|)
+expr_stmt|;
 block|}
 specifier|private
 specifier|static
@@ -3442,6 +3492,7 @@ name|void
 name|testFormatTZoffset
 parameter_list|()
 block|{
+comment|// 2nd parameter is what to expect
 name|checkFormatOffset
 argument_list|(
 operator|-
@@ -3507,14 +3558,14 @@ argument_list|(
 operator|-
 literal|12
 argument_list|,
-literal|"+00:00"
+literal|"+12:00"
 argument_list|)
 expr_stmt|;
 name|checkFormatOffset
 argument_list|(
 literal|12
 argument_list|,
-literal|"+00:00"
+literal|"+12:00"
 argument_list|)
 expr_stmt|;
 name|checkFormatOffset
