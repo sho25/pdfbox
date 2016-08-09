@@ -1320,8 +1320,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
-argument_list|()
+name|IOException
+argument_list|(
+literal|"invalid DICT data b0 byte: "
+operator|+
+name|b0
+argument_list|)
 throw|;
 block|}
 block|}
