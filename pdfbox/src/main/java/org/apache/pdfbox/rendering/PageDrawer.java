@@ -1626,7 +1626,7 @@ name|cache
 argument_list|)
 expr_stmt|;
 block|}
-comment|// cache glyph path if is not already cache
+comment|// cache glyph path if is not already cached
 name|GeneralPath
 name|path
 init|=
