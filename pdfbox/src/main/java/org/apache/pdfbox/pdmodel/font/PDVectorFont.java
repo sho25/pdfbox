@@ -58,6 +58,16 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns the normalized glyph path for the given character code. The resulting path is      * normalized to  the PostScript 1000 unit square, and fallback glyphs are returned      * where appropriate, e.g. for missing glyphs.      *        * @param code character code      * @throws java.io.IOException if the font could not be read      */
+name|GeneralPath
+name|getNormalizedPath
+parameter_list|(
+name|int
+name|code
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns true if this font contains a glyph for the given character code.      *      * @param code character code      */
 name|boolean
 name|hasGlyph
