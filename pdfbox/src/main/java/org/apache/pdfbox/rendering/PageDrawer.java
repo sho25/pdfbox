@@ -1677,7 +1677,7 @@ name|at
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Render the font using the Glyph2D interface.      *       * @param path the Glyph2D implementation provided a GeneralPath for each glyph      * @param font the font      * @param code character code      * @param displacement the glyph's displacement (advance)      * @param at the transformation      * @throws IOException if something went wrong      */
+comment|/**      * Renders a glyph.      *       * @param path the GeneralPath for the glyph      * @param font the font      * @param code character code      * @param displacement the glyph's displacement (advance)      * @param at the transformation      * @throws IOException if something went wrong      */
 specifier|private
 name|void
 name|drawGlyph
