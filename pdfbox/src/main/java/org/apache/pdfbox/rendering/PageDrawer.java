@@ -819,26 +819,6 @@ specifier|final
 name|PDFRenderer
 name|renderer
 decl_stmt|;
-comment|// glyph caches
-specifier|private
-specifier|final
-name|Map
-argument_list|<
-name|PDFont
-argument_list|,
-name|GlyphCache
-argument_list|>
-name|glyphCaches
-init|=
-operator|new
-name|HashMap
-argument_list|<
-name|PDFont
-argument_list|,
-name|GlyphCache
-argument_list|>
-argument_list|()
-decl_stmt|;
 comment|// the graphics device to draw to, xform is the initial transform of the device (i.e. DPI)
 specifier|private
 name|Graphics2D
@@ -878,6 +858,26 @@ comment|// buffered clipping area for text being drawn
 specifier|private
 name|Area
 name|textClippingArea
+decl_stmt|;
+comment|// glyph caches
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|PDFont
+argument_list|,
+name|GlyphCache
+argument_list|>
+name|glyphCaches
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|PDFont
+argument_list|,
+name|GlyphCache
+argument_list|>
+argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param parameters Parameters for page drawing.      * @throws IOException If there is an error loading properties from the file.      */
 specifier|public
@@ -1626,7 +1626,7 @@ name|cache
 argument_list|)
 expr_stmt|;
 block|}
-comment|// cache glyph path if is not already cached
+comment|// cache glyph path if is not already cache
 name|GeneralPath
 name|path
 init|=
