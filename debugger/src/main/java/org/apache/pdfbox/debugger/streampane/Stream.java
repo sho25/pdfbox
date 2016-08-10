@@ -220,9 +220,9 @@ specifier|public
 specifier|static
 specifier|final
 name|String
-name|UNFILTERED
+name|DECODED
 init|=
-literal|"Unfiltered"
+literal|"Decoded (Plain Text)"
 decl_stmt|;
 specifier|public
 specifier|static
@@ -509,7 +509,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-literal|"Filtered ("
+literal|"Encoded ("
 operator|+
 name|sb
 operator|.
@@ -532,7 +532,7 @@ try|try
 block|{
 if|if
 condition|(
-name|UNFILTERED
+name|DECODED
 operator|.
 name|equals
 argument_list|(
@@ -730,7 +730,7 @@ name|filterList
 operator|.
 name|put
 argument_list|(
-name|UNFILTERED
+name|DECODED
 argument_list|,
 literal|null
 argument_list|)

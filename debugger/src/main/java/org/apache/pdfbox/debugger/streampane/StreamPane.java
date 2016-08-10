@@ -1027,7 +1027,7 @@ argument_list|()
 argument_list|,
 name|Stream
 operator|.
-name|UNFILTERED
+name|DECODED
 argument_list|,
 name|this
 argument_list|)
@@ -1037,7 +1037,7 @@ name|requestStreamText
 argument_list|(
 name|Stream
 operator|.
-name|UNFILTERED
+name|DECODED
 argument_list|)
 expr_stmt|;
 block|}
@@ -1496,7 +1496,7 @@ name|isContentStream
 operator|&&
 name|Stream
 operator|.
-name|UNFILTERED
+name|DECODED
 operator|.
 name|equals
 argument_list|(
