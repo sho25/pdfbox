@@ -1403,6 +1403,11 @@ decl_stmt|;
 specifier|public
 specifier|static
 name|JCheckBoxMenuItem
+name|showTextStripperBeads
+decl_stmt|;
+specifier|public
+specifier|static
+name|JCheckBoxMenuItem
 name|showFontBBox
 decl_stmt|;
 specifier|public
@@ -3058,7 +3063,7 @@ operator|=
 operator|new
 name|JCheckBoxMenuItem
 argument_list|(
-literal|"Show TextStripper Bounds"
+literal|"Show TextStripper TextPositions"
 argument_list|)
 expr_stmt|;
 name|showTextStripper
@@ -3073,6 +3078,28 @@ operator|.
 name|add
 argument_list|(
 name|showTextStripper
+argument_list|)
+expr_stmt|;
+name|showTextStripperBeads
+operator|=
+operator|new
+name|JCheckBoxMenuItem
+argument_list|(
+literal|"Show TextStripper Beads"
+argument_list|)
+expr_stmt|;
+name|showTextStripperBeads
+operator|.
+name|setEnabled
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|viewMenu
+operator|.
+name|add
+argument_list|(
+name|showTextStripperBeads
 argument_list|)
 expr_stmt|;
 name|showFontBBox

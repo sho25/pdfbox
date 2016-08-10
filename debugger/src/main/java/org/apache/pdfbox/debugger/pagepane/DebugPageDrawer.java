@@ -489,18 +489,11 @@ name|graphics
 operator|.
 name|setColor
 argument_list|(
-operator|new
 name|Color
-argument_list|(
-literal|88
-argument_list|,
-literal|152
-argument_list|,
-literal|82
-argument_list|)
+operator|.
+name|cyan
 argument_list|)
 expr_stmt|;
-comment|// green
 name|graphics
 operator|.
 name|setStroke
@@ -508,7 +501,7 @@ argument_list|(
 operator|new
 name|BasicStroke
 argument_list|(
-literal|1f
+literal|.5f
 argument_list|)
 argument_list|)
 expr_stmt|;
