@@ -374,7 +374,7 @@ specifier|public
 class|class
 name|PDFTextStripper
 extends|extends
-name|PDFTextStreamEngine
+name|LegacyPDFStreamEngine
 block|{
 specifier|private
 specifier|static

@@ -218,7 +218,7 @@ specifier|public
 class|class
 name|PDFMarkedContentExtractor
 extends|extends
-name|PDFTextStreamEngine
+name|LegacyPDFStreamEngine
 block|{
 specifier|private
 specifier|final

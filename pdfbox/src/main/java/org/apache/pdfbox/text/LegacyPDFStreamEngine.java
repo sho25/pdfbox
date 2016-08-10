@@ -722,12 +722,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PDFStreamEngine subclass for advanced processing of text via TextPosition.  *  * @see org.apache.pdfbox.text.TextPosition  * @author Ben Litchfield  * @author John Hewson  */
+comment|/**  * LEGACY text calculations which are known to be incorrect but are depended on by PDFTextStripper.  *   * This class exists only so that we don't break the code of users who have their own subclasses  * of PDFTextStripper. It replaces the good implementation of showGlyph in PDFStreamEngine, with  * a bad implementation which is backwards compatible.  *   * DO NOT USE THIS CODE UNLESS YOU ARE WORKING WITH PDFTextStripper.  * THIS CODE IS DELIBERATELY INCORRECT, USE PDFStreamEngine INSTEAD.  */
 end_comment
 
 begin_class
 class|class
-name|PDFTextStreamEngine
+name|LegacyPDFStreamEngine
 extends|extends
 name|PDFStreamEngine
 block|{
@@ -741,7 +741,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|PDFTextStreamEngine
+name|LegacyPDFStreamEngine
 operator|.
 name|class
 argument_list|)
@@ -764,7 +764,7 @@ name|GlyphList
 name|glyphList
 decl_stmt|;
 comment|/**      * Constructor.      */
-name|PDFTextStreamEngine
+name|LegacyPDFStreamEngine
 parameter_list|()
 throws|throws
 name|IOException
@@ -1071,6 +1071,9 @@ block|{
 comment|//
 comment|// legacy calculations which were previously in PDFStreamEngine
 comment|//
+comment|//  DO NOT USE THIS CODE UNLESS YOU ARE WORKING WITH PDFTextStripper.
+comment|//  THIS CODE IS DELIBERATELY INCORRECT
+comment|//
 name|PDGraphicsState
 name|state
 init|=
@@ -1371,6 +1374,12 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|//
+comment|// legacy calculations which were previously in PDFStreamEngine
+comment|//
+comment|//  DO NOT USE THIS CODE UNLESS YOU ARE WORKING WITH PDFTextStripper.
+comment|//  THIS CODE IS DELIBERATELY INCORRECT
+comment|//
 comment|// (modified) combined displacement, this is calculated *without* taking the character
 comment|// spacing and word spacing into account, due to legacy code in TextStripper
 name|float
