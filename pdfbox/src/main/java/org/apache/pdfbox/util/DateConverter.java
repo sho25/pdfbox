@@ -402,7 +402,7 @@ name|offset
 argument_list|)
 return|;
 block|}
-comment|/*      * Constrain a timezone offset to the range  [-11:59 thru +12:00].      * by adding or subtracting multiples of a full day.      */
+comment|/*      * Constrain a timezone offset to the range [-14:00 thru +14:00].      * by adding or subtracting multiples of a full day.      */
 specifier|private
 specifier|static
 name|int
@@ -412,6 +412,32 @@ name|long
 name|proposedOffset
 parameter_list|)
 block|{
+if|if
+condition|(
+name|proposedOffset
+operator|<=
+literal|14
+operator|*
+name|MILLIS_PER_HOUR
+operator|&&
+name|proposedOffset
+operator|>=
+operator|-
+literal|14
+operator|*
+name|MILLIS_PER_HOUR
+condition|)
+block|{
+comment|// https://www.w3.org/TR/xmlschema-2/#dateTime-timezones
+comment|// Timezones between 14:00 and -14:00 are valid
+return|return
+operator|(
+name|int
+operator|)
+name|proposedOffset
+return|;
+block|}
+comment|// Constrain a timezone offset to the range  [-11:59 thru +12:00].
 name|proposedOffset
 operator|=
 operator|(
