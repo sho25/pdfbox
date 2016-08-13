@@ -1554,6 +1554,7 @@ operator|.
 name|generateKey
 argument_list|()
 decl_stmt|;
+comment|// create the 20 bytes seed
 name|System
 operator|.
 name|arraycopy
@@ -1572,7 +1573,6 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
-comment|// create the 20 bytes seed
 name|byte
 index|[]
 index|[]
@@ -1953,6 +1953,7 @@ operator|>>>
 literal|24
 argument_list|)
 decl_stmt|;
+comment|// put this seed in the pkcs7 input
 name|System
 operator|.
 name|arraycopy
@@ -1968,7 +1969,6 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
-comment|// put this seed in the pkcs7 input
 name|pkcs7input
 index|[
 literal|20
@@ -2015,7 +2015,7 @@ name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
 name|DEROutputStream
-name|k
+name|derOS
 init|=
 operator|new
 name|DEROutputStream
@@ -2023,7 +2023,7 @@ argument_list|(
 name|baos
 argument_list|)
 decl_stmt|;
-name|k
+name|derOS
 operator|.
 name|writeObject
 argument_list|(
@@ -2114,12 +2114,16 @@ name|NoSuchAlgorithmException
 name|e
 parameter_list|)
 block|{
-comment|// should never happen, if this happens throw IOException instead
+comment|// happens when using the command line app .jar file
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
-literal|"Could not find a suitable javax.crypto provider"
+literal|"Could not find a suitable javax.crypto provider for algorithm "
+operator|+
+name|algorithm
+operator|+
+literal|"; possible reason: using an unsigned .jar file"
 argument_list|,
 name|e
 argument_list|)
