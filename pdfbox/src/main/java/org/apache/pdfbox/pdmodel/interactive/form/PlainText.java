@@ -173,6 +173,22 @@ range|:
 name|parts
 control|)
 block|{
+comment|// Acrobat prints a space for an empty paragraph
+if|if
+condition|(
+name|part
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|part
+operator|=
+literal|" "
+expr_stmt|;
+block|}
 name|paragraphs
 operator|.
 name|add
