@@ -152,7 +152,7 @@ name|textValue
 operator|.
 name|split
 argument_list|(
-literal|"\\n"
+literal|"\\r\\n|\\n|\\r|\\u2028|\\u2029"
 argument_list|)
 argument_list|)
 decl_stmt|;
