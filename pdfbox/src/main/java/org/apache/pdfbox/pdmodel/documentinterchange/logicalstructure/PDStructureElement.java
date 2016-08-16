@@ -444,7 +444,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the attributes together with their revision numbers (A).      *       * @return the attributes      */
+comment|/**      * Returns the attributes together with their revision numbers (A).      *       * @return the attributes as a list, never null.      */
 specifier|public
 name|Revisions
 argument_list|<
@@ -1261,7 +1261,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the class names together with their revision numbers (C).      *       * @return the class names      */
+comment|/**      * Returns the class names together with their revision numbers (C).      *       * @return the class names as a list, never null.      */
 specifier|public
 name|Revisions
 argument_list|<
