@@ -2555,7 +2555,7 @@ name|y3
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * add a line to the current path.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while adding the line.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #moveTo} followed by {@link #lineTo}.      */
+comment|/**      * add a line to the current path.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while adding the line.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #moveTo moveto(xStart,yStart)} followed by      * {@link #lineTo lineTo(xEnd,yEnd)}.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -2606,7 +2606,7 @@ name|yEnd
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw a line on the page using the current non stroking color and the current line width.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while drawing on the screen.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #moveTo} followed by {@link #lineTo} followed by {@link #stroke}.      */
+comment|/**      * Draw a line on the page using the current non stroking color and the current line width.      *      * @param xStart The start x coordinate.      * @param yStart The start y coordinate.      * @param xEnd The end x coordinate.      * @param yEnd The end y coordinate.      * @throws IOException If there is an error while drawing on the screen.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #moveTo moveto(xStart,yStart)} followed by      * {@link #lineTo lineTo(xEnd,yEnd)} followed by {@link #stroke stroke()}.      */
 annotation|@
 name|Deprecated
 specifier|public
