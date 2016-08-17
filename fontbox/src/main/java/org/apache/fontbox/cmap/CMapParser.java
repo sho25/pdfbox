@@ -2698,8 +2698,9 @@ condition|)
 block|{
 name|retval
 operator|=
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|value
 argument_list|)

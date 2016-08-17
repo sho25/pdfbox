@@ -655,8 +655,9 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|162
 argument_list|)
@@ -671,8 +672,9 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|216
 argument_list|)
@@ -720,8 +722,9 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|162
 argument_list|)
@@ -736,8 +739,9 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|216
 argument_list|)
