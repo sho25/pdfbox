@@ -243,22 +243,8 @@ name|PDVisibleSignDesigner
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
-name|jce
-operator|.
-name|provider
-operator|.
-name|BouncyCastleProvider
-import|;
-end_import
-
 begin_comment
-comment|/**  * This is an example for visual signing a pdf with bouncy castle.   * @see CreateSignature  * @author Vakhtang Koroghlishvili  */
+comment|/**  * This is an example for visual signing a pdf.   * @see CreateSignature  * @author Vakhtang Koroghlishvili  */
 end_comment
 
 begin_class
@@ -268,16 +254,6 @@ name|CreateVisibleSignature
 extends|extends
 name|CreateSignatureBase
 block|{
-specifier|private
-specifier|static
-specifier|final
-name|BouncyCastleProvider
-name|BCPROVIDER
-init|=
-operator|new
-name|BouncyCastleProvider
-argument_list|()
-decl_stmt|;
 specifier|private
 name|SignatureOptions
 name|signatureOptions
@@ -798,8 +774,6 @@ operator|.
 name|getInstance
 argument_list|(
 literal|"PKCS12"
-argument_list|,
-name|BCPROVIDER
 argument_list|)
 decl_stmt|;
 name|char
