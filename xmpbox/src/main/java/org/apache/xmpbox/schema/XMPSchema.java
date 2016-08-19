@@ -1886,11 +1886,6 @@ name|AbstractField
 name|fieldValue
 parameter_list|)
 block|{
-name|String
-name|qualifiedArrayName
-init|=
-name|arrayName
-decl_stmt|;
 name|ArrayProperty
 name|array
 init|=
@@ -1899,7 +1894,7 @@ name|ArrayProperty
 operator|)
 name|getAbstractProperty
 argument_list|(
-name|qualifiedArrayName
+name|arrayName
 argument_list|)
 decl_stmt|;
 if|if
@@ -2044,11 +2039,6 @@ name|String
 name|seqValue
 parameter_list|)
 block|{
-name|String
-name|qualifiedSeqName
-init|=
-name|simpleSeqName
-decl_stmt|;
 name|ArrayProperty
 name|seq
 init|=
@@ -2057,7 +2047,7 @@ name|ArrayProperty
 operator|)
 name|getAbstractProperty
 argument_list|(
-name|qualifiedSeqName
+name|simpleSeqName
 argument_list|)
 decl_stmt|;
 name|TextType
@@ -2205,11 +2195,6 @@ name|AbstractField
 name|seqValue
 parameter_list|)
 block|{
-name|String
-name|qualifiedSeqName
-init|=
-name|seqName
-decl_stmt|;
 name|ArrayProperty
 name|seq
 init|=
@@ -2218,7 +2203,7 @@ name|ArrayProperty
 operator|)
 name|getAbstractProperty
 argument_list|(
-name|qualifiedSeqName
+name|seqName
 argument_list|)
 decl_stmt|;
 if|if
@@ -2326,11 +2311,6 @@ name|Calendar
 name|date
 parameter_list|)
 block|{
-name|String
-name|qualifiedSeqName
-init|=
-name|seqName
-decl_stmt|;
 name|ArrayProperty
 name|seq
 init|=
@@ -2339,7 +2319,7 @@ name|ArrayProperty
 operator|)
 name|getAbstractProperty
 argument_list|(
-name|qualifiedSeqName
+name|seqName
 argument_list|)
 decl_stmt|;
 if|if
@@ -2532,11 +2512,6 @@ name|String
 name|seqName
 parameter_list|)
 block|{
-name|String
-name|qualifiedSeqName
-init|=
-name|seqName
-decl_stmt|;
 name|List
 argument_list|<
 name|Calendar
@@ -2553,7 +2528,7 @@ name|ArrayProperty
 operator|)
 name|getAbstractProperty
 argument_list|(
-name|qualifiedSeqName
+name|seqName
 argument_list|)
 decl_stmt|;
 if|if
@@ -2887,11 +2862,6 @@ name|String
 name|value
 parameter_list|)
 block|{
-name|String
-name|qualifiedName
-init|=
-name|name
-decl_stmt|;
 if|if
 condition|(
 name|language
@@ -2916,7 +2886,7 @@ name|property
 init|=
 name|getAbstractProperty
 argument_list|(
-name|qualifiedName
+name|name
 argument_list|)
 decl_stmt|;
 name|ArrayProperty
