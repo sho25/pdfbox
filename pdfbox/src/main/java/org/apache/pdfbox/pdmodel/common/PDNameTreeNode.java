@@ -224,6 +224,9 @@ name|node
 decl_stmt|;
 specifier|private
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 name|parent
 decl_stmt|;
 comment|/**      * Constructor.      */
@@ -266,6 +269,9 @@ block|}
 comment|/**      * Returns the parent node.      *       * @return parent node      */
 specifier|public
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 name|getParent
 parameter_list|()
 block|{
@@ -279,6 +285,9 @@ name|void
 name|setParent
 parameter_list|(
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 name|parentNode
 parameter_list|)
 block|{
@@ -458,6 +467,9 @@ block|{
 for|for
 control|(
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 name|kidsNode
 range|:
 name|kids
@@ -590,6 +602,9 @@ literal|0
 condition|)
 block|{
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 name|firstKid
 init|=
 name|kids
@@ -600,6 +615,9 @@ literal|0
 argument_list|)
 decl_stmt|;
 name|PDNameTreeNode
+argument_list|<
+name|T
+argument_list|>
 name|lastKid
 init|=
 name|kids

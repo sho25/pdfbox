@@ -385,6 +385,9 @@ block|}
 comment|/**      * Returns the ID tree.      *       * @return the ID tree      */
 specifier|public
 name|PDNameTreeNode
+argument_list|<
+name|PDStructureElement
+argument_list|>
 name|getIDTree
 parameter_list|()
 block|{
@@ -431,6 +434,9 @@ name|void
 name|setIDTree
 parameter_list|(
 name|PDNameTreeNode
+argument_list|<
+name|PDStructureElement
+argument_list|>
 name|idTree
 parameter_list|)
 block|{

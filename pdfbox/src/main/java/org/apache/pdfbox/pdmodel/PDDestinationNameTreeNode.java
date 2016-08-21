@@ -220,6 +220,9 @@ annotation|@
 name|Override
 specifier|protected
 name|PDNameTreeNode
+argument_list|<
+name|PDPageDestination
+argument_list|>
 name|createChildNode
 parameter_list|(
 name|COSDictionary
