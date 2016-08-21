@@ -1337,6 +1337,8 @@ specifier|public
 name|List
 argument_list|<
 name|?
+extends|extends
+name|COSBase
 argument_list|>
 name|toList
 parameter_list|()
