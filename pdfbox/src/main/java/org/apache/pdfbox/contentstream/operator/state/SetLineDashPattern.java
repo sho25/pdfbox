@@ -325,7 +325,7 @@ else|else
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"dash array has non number element "
 operator|+
@@ -357,7 +357,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"dash lengths all zero, ignored"
 argument_list|)
