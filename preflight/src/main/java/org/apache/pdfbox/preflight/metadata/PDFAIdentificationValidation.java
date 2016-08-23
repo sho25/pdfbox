@@ -405,6 +405,16 @@ name|id
 operator|.
 name|getPart
 argument_list|()
+operator|==
+literal|null
+condition|?
+operator|-
+literal|1
+else|:
+name|id
+operator|.
+name|getPart
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

@@ -525,7 +525,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Give the PDFAVersionId (as an integer)      *       * @return Part value (Integer)      */
+comment|/**      * Give the PDFAVersionId (as an integer)      *       * @return Part value (Integer) or null if it is missing      */
 specifier|public
 name|Integer
 name|getPart
