@@ -606,6 +606,13 @@ argument_list|)
 expr_stmt|;
 name|dbFactory
 operator|.
+name|setIgnoringComments
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|dbFactory
+operator|.
 name|setNamespaceAware
 argument_list|(
 literal|true
