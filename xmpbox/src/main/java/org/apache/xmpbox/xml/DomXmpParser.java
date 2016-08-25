@@ -4294,12 +4294,31 @@ name|Node
 name|root
 parameter_list|)
 block|{
-if|if
-condition|(
+comment|// will hold the nodes which are to be deleted
+name|List
+argument_list|<
+name|Node
+argument_list|>
+name|forDeletion
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Node
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|NodeList
+name|nl
+init|=
 name|root
 operator|.
 name|getChildNodes
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|nl
 operator|.
 name|getLength
 argument_list|()
@@ -4310,14 +4329,6 @@ block|{
 comment|// There is only one node so we do not remove it
 return|return;
 block|}
-name|NodeList
-name|nl
-init|=
-name|root
-operator|.
-name|getChildNodes
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -4353,10 +4364,10 @@ operator|instanceof
 name|Comment
 condition|)
 block|{
-comment|// remove the comment
-name|root
+comment|// comments to be deleted
+name|forDeletion
 operator|.
-name|removeChild
+name|add
 argument_list|(
 name|node
 argument_list|)
@@ -4384,9 +4395,11 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|root
+comment|// TODO: verify why this is necessary
+comment|// empty text nodes to be deleted
+name|forDeletion
 operator|.
-name|removeChild
+name|add
 argument_list|(
 name|node
 argument_list|)
@@ -4409,6 +4422,23 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// else do nothing
+block|}
+comment|// now remove the child nodes
+for|for
+control|(
+name|Node
+name|node
+range|:
+name|forDeletion
+control|)
+block|{
+name|root
+operator|.
+name|removeChild
+argument_list|(
+name|node
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 specifier|private
