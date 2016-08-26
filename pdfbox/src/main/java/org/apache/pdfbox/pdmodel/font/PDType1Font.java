@@ -1262,7 +1262,7 @@ operator|.
 name|LENGTH2
 argument_list|)
 decl_stmt|;
-comment|// repair Length1 if necessary
+comment|// repair Length1 and Length2 if necessary
 name|byte
 index|[]
 name|bytes
@@ -1279,6 +1279,17 @@ argument_list|(
 name|bytes
 argument_list|,
 name|length1
+argument_list|)
+expr_stmt|;
+name|length2
+operator|=
+name|repairLength2
+argument_list|(
+name|bytes
+argument_list|,
+name|length1
+argument_list|,
+name|length2
 argument_list|)
 expr_stmt|;
 if|if
@@ -1711,6 +1722,65 @@ return|;
 block|}
 return|return
 name|length1
+return|;
+block|}
+comment|/**      * Some Type 1 fonts have an invalid Length2, see PDFBOX-3475. A negative /Length2 brings an      * IllegalArgumentException in Arrays.copyOfRange(), a huge value eats up memory because of      * padding.      *      * @param bytes Type 1 stream bytes      * @param length1 Length1 from the Type 1 stream      * @param length2 Length2 from the Type 1 stream      * @return repaired Length2 value      */
+specifier|private
+name|int
+name|repairLength2
+parameter_list|(
+name|byte
+index|[]
+name|bytes
+parameter_list|,
+name|int
+name|length1
+parameter_list|,
+name|int
+name|length2
+parameter_list|)
+block|{
+comment|// repair Length2 if necessary
+if|if
+condition|(
+name|length2
+argument_list|<
+literal|0
+operator|||
+name|length2
+argument_list|>
+name|bytes
+operator|.
+name|length
+operator|-
+name|length1
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Ignored invalid Length2 "
+operator|+
+name|length2
+operator|+
+literal|" for Type 1 font "
+operator|+
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|length2
+operator|=
+name|bytes
+operator|.
+name|length
+operator|-
+name|length1
+expr_stmt|;
+block|}
+return|return
+name|length2
 return|;
 block|}
 comment|/**      * Returns the PostScript name of the font.      */
