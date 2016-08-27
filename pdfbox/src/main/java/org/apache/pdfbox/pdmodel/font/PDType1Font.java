@@ -1770,14 +1770,13 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|length2
-operator|=
+return|return
 name|bytes
 operator|.
 name|length
 operator|-
 name|length1
-expr_stmt|;
+return|;
 block|}
 return|return
 name|length2
