@@ -163,7 +163,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Creates a blend composite      *      * @param blendMode Desired blend mode      * @param constantAlpha Constant alpha, must be in the inclusive range      * [0.0...1.0] or it will be clipped.      */
+comment|/**      * Creates a blend composite      *      * @param blendMode Desired blend mode      * @param constantAlpha Constant alpha, must be in the inclusive range      * [0.0...1.0] or it will be clipped.      * @return a blend composite.      */
 specifier|public
 specifier|static
 name|Composite
@@ -175,15 +175,6 @@ parameter_list|,
 name|float
 name|constantAlpha
 parameter_list|)
-block|{
-if|if
-condition|(
-name|blendMode
-operator|==
-name|BlendMode
-operator|.
-name|NORMAL
-condition|)
 block|{
 if|if
 condition|(
@@ -228,6 +219,15 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|blendMode
+operator|==
+name|BlendMode
+operator|.
+name|NORMAL
+condition|)
+block|{
 return|return
 name|AlphaComposite
 operator|.
