@@ -150,6 +150,13 @@ name|asList
 argument_list|(
 name|textValue
 operator|.
+name|replaceAll
+argument_list|(
+literal|"\t"
+argument_list|,
+literal|" "
+argument_list|)
+operator|.
 name|split
 argument_list|(
 literal|"\\r\\n|\\n|\\r|\\u2028|\\u2029"

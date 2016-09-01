@@ -264,13 +264,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 specifier|public
 name|void
 name|characterTAB
