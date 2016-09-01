@@ -610,6 +610,28 @@ operator|.
 name|getRectangle
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|rect
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"widget of field "
+operator|+
+name|field
+operator|.
+name|getFullyQualifiedName
+argument_list|()
+operator|+
+literal|" has no rectangle"
+argument_list|)
+throw|;
+block|}
 comment|// Calculate the entries for the bounding box and the transformation matrix
 comment|// settings for the appearance stream
 name|int
