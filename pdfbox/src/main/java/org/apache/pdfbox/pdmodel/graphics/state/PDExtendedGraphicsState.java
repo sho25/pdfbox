@@ -1418,7 +1418,7 @@ name|alpha
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the alpha source flag.      *      * @return The alpha source flag.      */
+comment|/**      * This will get the alpha source flag (“alpha is shape”), that specifies whether the current      * soft mask and alpha constant shall be interpreted as shape values (true) or opacity values      * (false).      *      * @return The alpha source flag.      */
 specifier|public
 name|boolean
 name|getAlphaSourceFlag
@@ -1437,7 +1437,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the alpha source flag.      *      * @param alpha The alpha source flag.      */
+comment|/**      * This will get the alpha source flag (“alpha is shape”), that specifies whether the current      * soft mask and alpha constant shall be interpreted as shape values (true) or opacity values      * (false).      *      * @param alpha The alpha source flag.      */
 specifier|public
 name|void
 name|setAlphaSourceFlag
