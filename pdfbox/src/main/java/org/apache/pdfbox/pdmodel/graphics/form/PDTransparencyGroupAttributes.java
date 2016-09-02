@@ -112,6 +112,31 @@ specifier|private
 name|PDColorSpace
 name|colorSpace
 decl_stmt|;
+comment|/**      * Creates a group object with /Transparency subtype entry.      */
+specifier|public
+name|PDTransparencyGroupAttributes
+parameter_list|()
+block|{
+name|dictionary
+operator|=
+operator|new
+name|COSDictionary
+argument_list|()
+expr_stmt|;
+name|dictionary
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|S
+argument_list|,
+name|COSName
+operator|.
+name|TRANSPARENCY
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Creates a group object from a given dictionary      * @param dic {@link COSDictionary} object      */
 specifier|public
 name|PDTransparencyGroupAttributes
