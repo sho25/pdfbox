@@ -562,7 +562,7 @@ return|return
 name|fdfField
 return|;
 block|}
-comment|/**      * Returns the widget annotations associated with this field.      *       * @return The list of widget annotations.      */
+comment|/**      * Returns the widget annotations associated with this field.      *      * @return The list of widget annotations. Be aware that this list is<i>not</i> backed by the      * actual widget collection of the field, so adding or deleting has no effect on the PDF      * document until you call {@link #setWidgets(java.util.List) setWidgets()} with the modified      * list.      */
 annotation|@
 name|Override
 specifier|public

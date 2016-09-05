@@ -504,7 +504,7 @@ return|return
 name|fdfField
 return|;
 block|}
-comment|/**      * Returns this field's children. These may be either terminal or non-terminal fields.      *       * @return he list of child fields.      */
+comment|/**      * Returns this field's children. These may be either terminal or non-terminal fields.      *      * @return the list of child fields. Be aware that this list is<i>not</i> backed by the      * children of the field, so adding or deleting has no effect on the PDF document until you call      * {@link #setChildren(java.util.List) setChildren()} with the modified list.      */
 specifier|public
 name|List
 argument_list|<
@@ -513,6 +513,7 @@ argument_list|>
 name|getChildren
 parameter_list|()
 block|{
+comment|//TODO: why not return a COSArrayList like in PDPage.getAnnotations() ?
 name|List
 argument_list|<
 name|PDField
@@ -710,7 +711,7 @@ else|:
 literal|""
 return|;
 block|}
-comment|/**      * Sets the value of this field. This may be of any kind which is valid for this field's      * children.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
+comment|/**      * Sets the value of this field. This may be of any kind which is valid for this field's      * children.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      * @param object      * @throws java.io.IOException      */
 specifier|public
 name|void
 name|setValue
@@ -737,6 +738,8 @@ comment|// todo: propagate change event to children?
 comment|// todo: construct appearances of children?
 block|}
 comment|/**      * Sets the plain text value of this field.      *       * @param value Plain text      * @throws IOException if the value could not be set      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValue
@@ -780,7 +783,7 @@ name|DV
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the default of this field. This may be of any kind which is valid for this field's      * children.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
+comment|/**      * Sets the default of this field. This may be of any kind which is valid for this field's      * children.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      * @param value      */
 specifier|public
 name|void
 name|setDefaultValue
@@ -812,6 +815,7 @@ argument_list|>
 name|getWidgets
 parameter_list|()
 block|{
+comment|//TODO shouldn't we return a non modifiable list?
 return|return
 name|Collections
 operator|.

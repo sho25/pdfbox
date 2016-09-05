@@ -383,7 +383,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the widget annotations associated with this field.      *       * For {@link PDNonTerminalField} the list will be empty as non terminal fields      * have no visual representation in the form.      *       * @return a List of {@link PDAnnotationWidget} annotations.      */
+comment|/**      * Returns the widget annotations associated with this field.      *       * For {@link PDNonTerminalField} the list will be empty as non terminal fields      * have no visual representation in the form.      *       * @return a List of {@link PDAnnotationWidget} annotations. Be aware that this list is      *<i>not</i> backed by the actual widget collection of the field, so adding or deleting has no      * effect on the PDF document until you call {@link #setWidgets(java.util.List) setWidgets()}      * with the modified list.      */
 specifier|public
 specifier|abstract
 name|List
