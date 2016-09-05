@@ -317,6 +317,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|,
 literal|"D:"
 operator|+
 literal|"%1$4tY%1$2tm%1$2td"
@@ -378,6 +382,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|,
 literal|"%1$4tY"
 comment|// yyyy
 operator|+
@@ -1322,6 +1330,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|,
 literal|"GMT+%02d:%02d"
 argument_list|,
 name|hh
@@ -1351,6 +1363,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|,
 literal|"GMT-%02d:%02d"
 argument_list|,
 name|hh

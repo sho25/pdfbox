@@ -487,6 +487,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|,
 literal|"D:%04d%02d%02d%02d%02d%02d%+03d'%02d'"
 argument_list|,
 name|yr
@@ -513,6 +517,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|,
 literal|"%04d-%02d-%02d"
 operator|+
 literal|"T%02d:%02d:%02d%+03d:%02d"
@@ -2399,6 +2407,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|,
 literal|"D:%04d%02d%02d%02d%02d%02d%+03d'%02d'"
 argument_list|,
 name|yr
@@ -2425,6 +2437,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|,
 literal|"%04d-%02d-%02d"
 operator|+
 literal|"T%02d:%02d:%02d%+03d:%02d"
