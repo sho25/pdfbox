@@ -2226,7 +2226,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will return a list of the Annotations for this page.      *       * @return List of the PDAnnotation objects, never null.      * @throws IOException If there is an error while creating the annotation list.      */
+comment|/**      * This will return a list of the annotations for this page.      *      * @return List of the PDAnnotation objects, never null. The returned list is backed by the      * annotations COSArray, so any adding or deleting in this list will change the document too.      *       * @throws IOException If there is an error while creating the annotation list.      */
 specifier|public
 name|List
 argument_list|<
