@@ -419,7 +419,7 @@ specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
-comment|/**      * Create the correct annotation from the base COS object.      *       * @param base The COS object that is the annotation.      * @return The correctly typed annotation object.      * @throws IOException If there is an error while creating the annotation.      */
+comment|/**      * Create the correct annotation from the base COS object.      *      * @param base The COS object that is the annotation.      * @return The correctly typed annotation object.      *      * @throws IOException If the annotation type is unknown.      */
 specifier|public
 specifier|static
 name|PDAnnotation
