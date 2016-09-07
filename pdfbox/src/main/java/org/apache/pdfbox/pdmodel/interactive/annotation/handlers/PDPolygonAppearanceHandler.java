@@ -246,7 +246,6 @@ init|=
 name|getNormalAppearanceAsContentStream
 argument_list|()
 decl_stmt|;
-empty_stmt|;
 name|contentStream
 operator|.
 name|setStrokingColorOnDemand

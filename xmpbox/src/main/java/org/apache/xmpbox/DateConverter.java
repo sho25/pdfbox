@@ -194,7 +194,6 @@ specifier|private
 name|DateConverter
 parameter_list|()
 block|{     }
-empty_stmt|;
 comment|/**      * This will convert a string to a calendar.      *       * @param date      *            The string representation of the calendar.      *       * @return The calendar that this string represents.      *       * @throws IOException      *             If the date string is not in the correct format.      */
 specifier|public
 specifier|static

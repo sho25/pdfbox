@@ -253,7 +253,7 @@ name|TABLE
 block|,
 comment|/**          * XRef stream type.          */
 name|STREAM
-block|;     }
+block|}
 specifier|private
 specifier|final
 name|Map

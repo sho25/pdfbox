@@ -33,7 +33,7 @@ name|I
 block|,
 comment|/**      * Outward from the center of the page      */
 name|O
-block|; }
+block|}
 end_enum
 
 end_unit

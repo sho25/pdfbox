@@ -33,7 +33,7 @@ name|H
 block|,
 comment|/**      * Vertical      */
 name|V
-block|;  }
+block|}
 end_enum
 
 end_unit

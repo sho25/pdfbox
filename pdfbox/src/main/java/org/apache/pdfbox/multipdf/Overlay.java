@@ -295,7 +295,6 @@ name|FOREGROUND
 block|,
 name|BACKGROUND
 block|}
-empty_stmt|;
 specifier|private
 name|LayoutPage
 name|defaultOverlayPage

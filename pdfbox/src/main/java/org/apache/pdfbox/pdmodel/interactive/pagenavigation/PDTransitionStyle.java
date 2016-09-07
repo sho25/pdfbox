@@ -51,7 +51,7 @@ block|,
 name|Uncover
 block|,
 name|Fade
-block|; }
+block|}
 end_enum
 
 end_unit

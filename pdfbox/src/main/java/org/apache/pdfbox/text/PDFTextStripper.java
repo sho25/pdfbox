@@ -5193,7 +5193,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-empty_stmt|;
 comment|/**      * This method parses the bidi file provided as inputstream.      *       * @param inputStream - The bidi file as inputstream      * @throws IOException if any line could not be read by the LineNumberReader      */
 specifier|private
 specifier|static
