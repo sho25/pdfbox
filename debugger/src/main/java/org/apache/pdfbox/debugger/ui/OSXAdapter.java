@@ -322,12 +322,7 @@ operator|new
 name|Object
 index|[]
 block|{
-name|Boolean
-operator|.
-name|valueOf
-argument_list|(
 name|enablePrefsMenu
-argument_list|)
 block|}
 argument_list|)
 expr_stmt|;
@@ -738,9 +733,6 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
-operator|.
-name|booleanValue
-argument_list|()
 return|;
 block|}
 comment|// InvocationHandler implementation
