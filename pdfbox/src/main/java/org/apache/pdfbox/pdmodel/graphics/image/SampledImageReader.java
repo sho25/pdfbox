@@ -596,6 +596,25 @@ argument_list|(
 name|pdImage
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|width
+operator|<=
+literal|0
+operator|||
+name|height
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"image weight and height must be positive"
+argument_list|)
+throw|;
+block|}
 comment|//
 comment|// An AWT raster must use 8/16/32 bits per component. Images with< 8bpc
 comment|// will be unpacked into a byte-backed raster. Images with 16bpc will be reduced
