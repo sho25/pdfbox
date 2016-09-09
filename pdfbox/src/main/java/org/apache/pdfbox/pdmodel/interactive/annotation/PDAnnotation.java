@@ -919,7 +919,7 @@ literal|4
 operator|&&
 name|rectArray
 operator|.
-name|get
+name|getObject
 argument_list|(
 literal|0
 argument_list|)
@@ -928,7 +928,7 @@ name|COSNumber
 operator|&&
 name|rectArray
 operator|.
-name|get
+name|getObject
 argument_list|(
 literal|1
 argument_list|)
@@ -937,7 +937,7 @@ name|COSNumber
 operator|&&
 name|rectArray
 operator|.
-name|get
+name|getObject
 argument_list|(
 literal|2
 argument_list|)
@@ -946,7 +946,7 @@ name|COSNumber
 operator|&&
 name|rectArray
 operator|.
-name|get
+name|getObject
 argument_list|(
 literal|3
 argument_list|)
