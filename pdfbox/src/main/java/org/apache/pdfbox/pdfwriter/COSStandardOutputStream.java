@@ -129,7 +129,7 @@ parameter_list|(
 name|OutputStream
 name|out
 parameter_list|,
-name|int
+name|long
 name|position
 parameter_list|)
 block|{
