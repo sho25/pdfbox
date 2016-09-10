@@ -3135,7 +3135,7 @@ expr_stmt|;
 block|}
 comment|// else signature should created externally and set via writeSignature()
 block|}
-comment|/**      * Return the stream of PDF data to be signed. Clients should use this method only to create      * signatures externally. {@link #write(PDDocument)} method should have been called prior. The      * created signature should be set using {@link #writeExternalSignature(byte[])}.      *<p>      * When {@link SignatureInterface} instance is used, COSWriter obtains and writes the signature      * itsef.      *</p>      * Note that caller must close the obtained stream.      *      * @return data stream to be signed      * @throws IllegalStateException if PDF is not prepared for external signing      * @throws IOException if input data is closed      */
+comment|/**      * Return the stream of PDF data to be signed. Clients should use this method only to create      * signatures externally. {@link #write(PDDocument)} method should have been called prior. The      * created signature should be set using {@link #writeExternalSignature(byte[])}.      *<p>      * When {@link SignatureInterface} instance is used, COSWriter obtains and writes the signature      * itsef.      *</p>      *      * @return data stream to be signed      * @throws IllegalStateException if PDF is not prepared for external signing      * @throws IOException if input data is closed      */
 specifier|public
 name|InputStream
 name|getDataToSign
