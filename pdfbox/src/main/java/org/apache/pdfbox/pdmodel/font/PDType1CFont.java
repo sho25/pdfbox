@@ -983,6 +983,11 @@ decl_stmt|;
 if|if
 condition|(
 name|bbox
+operator|!=
+literal|null
+operator|&&
+operator|(
+name|bbox
 operator|.
 name|getLowerLeftX
 argument_list|()
@@ -1009,6 +1014,7 @@ name|getUpperRightY
 argument_list|()
 operator|!=
 literal|0
+operator|)
 condition|)
 block|{
 return|return
