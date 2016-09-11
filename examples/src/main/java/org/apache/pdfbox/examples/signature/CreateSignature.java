@@ -230,14 +230,6 @@ name|CreateSignature
 extends|extends
 name|CreateSignatureBase
 block|{
-specifier|private
-name|boolean
-name|externalSignature
-decl_stmt|;
-specifier|private
-name|ExternalSigningSupport
-name|externalSigning
-decl_stmt|;
 comment|/**      * Initialize the signature creator with a keystore and certficate password.      *      * @param keystore the pkcs12 keystore containing the signing certificate      * @param pin the password for recovering the key      * @throws KeyStoreException if the keystore has not been initialized (loaded)      * @throws NoSuchAlgorithmException if the algorithm for recovering the key cannot be found      * @throws UnrecoverableKeyException if the given password is wrong      * @throws CertificateException if the certificate is not valid as signing time      * @throws IOException if no certificate could be found      */
 specifier|public
 name|CreateSignature
@@ -468,7 +460,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|externalSignature
+name|isExternalSigning
+argument_list|()
 condition|)
 block|{
 name|System
@@ -487,15 +480,16 @@ argument_list|(
 name|signature
 argument_list|)
 expr_stmt|;
+name|ExternalSigningSupport
 name|externalSigning
-operator|=
+init|=
 name|document
 operator|.
 name|saveIncrementalForExternalSigning
 argument_list|(
 name|output
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// invoke external signature service
 name|byte
 index|[]
@@ -761,7 +755,7 @@ argument_list|)
 decl_stmt|;
 name|signing
 operator|.
-name|setExternalSignature
+name|setExternalSigning
 argument_list|(
 name|externalSig
 argument_list|)
@@ -864,21 +858,6 @@ literal|"  -tsa<url>    sign timestamp using the given TSA server\n"
 operator|+
 literal|"  -e            sign using external signature creation scenario"
 argument_list|)
-expr_stmt|;
-block|}
-specifier|public
-name|void
-name|setExternalSignature
-parameter_list|(
-name|boolean
-name|externalSignature
-parameter_list|)
-block|{
-name|this
-operator|.
-name|externalSignature
-operator|=
-name|externalSignature
 expr_stmt|;
 block|}
 block|}

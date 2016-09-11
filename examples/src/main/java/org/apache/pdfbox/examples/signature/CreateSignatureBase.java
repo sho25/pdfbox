@@ -493,6 +493,10 @@ specifier|private
 name|TSAClient
 name|tsaClient
 decl_stmt|;
+specifier|private
+name|boolean
+name|externalSigning
+decl_stmt|;
 comment|/**      * Initialize the signature creator with a keystore (pkcs12) and pin that should be used for the      * signature.      *      * @param keystore is a pkcs12 keystore.      * @param pin is the pin for the keystore / private key      * @throws KeyStoreException if the keystore has not been initialized (loaded)      * @throws NoSuchAlgorithmException if the algorithm for recovering the key cannot be found      * @throws UnrecoverableKeyException if the given password is wrong      * @throws CertificateException if the certificate is not valid as signing time      * @throws IOException if no certificate could be found      */
 specifier|public
 name|CreateSignatureBase
@@ -1131,6 +1135,31 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+comment|/**      * Set if external signing scenario should be used.      * If {@code false}, SignatureInterface would be used for signing.      *<p>      *     Default: {@code false}      *</p>      * @param externalSigning {@code true} if external signing should be performed      */
+specifier|public
+name|void
+name|setExternalSigning
+parameter_list|(
+name|boolean
+name|externalSigning
+parameter_list|)
+block|{
+name|this
+operator|.
+name|externalSigning
+operator|=
+name|externalSigning
+expr_stmt|;
+block|}
+specifier|public
+name|boolean
+name|isExternalSigning
+parameter_list|()
+block|{
+return|return
+name|externalSigning
+return|;
 block|}
 block|}
 end_class

@@ -181,7 +181,43 @@ name|interactive
 operator|.
 name|digitalsignature
 operator|.
+name|ExternalSigningSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|digitalsignature
+operator|.
 name|PDSignature
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|digitalsignature
+operator|.
+name|SignatureInterface
 import|;
 end_import
 
@@ -273,7 +309,7 @@ argument_list|()
 decl_stmt|;
 specifier|public
 name|void
-name|setvisibleSignDesigner
+name|setVisibleSignDesigner
 parameter_list|(
 name|String
 name|filename
@@ -563,6 +599,17 @@ name|getInstance
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// do not set SignatureInterface instance, if external signing used
+name|SignatureInterface
+name|signatureInterface
+init|=
+name|isExternalSigning
+argument_list|()
+condition|?
+literal|null
+else|:
+name|this
+decl_stmt|;
 comment|// register signature dictionary and sign interface
 if|if
 condition|(
@@ -610,7 +657,7 @@ name|addSignature
 argument_list|(
 name|signature
 argument_list|,
-name|this
+name|signatureInterface
 argument_list|,
 name|signatureOptions
 argument_list|)
@@ -624,10 +671,64 @@ name|addSignature
 argument_list|(
 name|signature
 argument_list|,
-name|this
+name|signatureInterface
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|isExternalSigning
+argument_list|()
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Signing externally "
+operator|+
+name|signedFile
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|ExternalSigningSupport
+name|externalSigning
+init|=
+name|doc
+operator|.
+name|saveIncrementalForExternalSigning
+argument_list|(
+name|fos
+argument_list|)
+decl_stmt|;
+comment|// invoke external signature service
+name|byte
+index|[]
+name|cmsSignature
+init|=
+name|sign
+argument_list|(
+name|externalSigning
+operator|.
+name|getContent
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// set signature bytes received from the service
+name|externalSigning
+operator|.
+name|setSignature
+argument_list|(
+name|cmsSignature
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// write incremental (only for signing purpose)
 name|doc
 operator|.
@@ -636,6 +737,7 @@ argument_list|(
 name|fos
 argument_list|)
 expr_stmt|;
+block|}
 name|doc
 operator|.
 name|close
@@ -651,7 +753,7 @@ name|signatureOptions
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Arguments are      * [0] key store      * [1] pin      * [2] document that will be signed      * [3] image of visible signature      * @param args      * @throws java.security.KeyStoreException      * @throws java.security.cert.CertificateException      * @throws java.io.IOException      * @throws java.security.NoSuchAlgorithmException      * @throws java.security.UnrecoverableKeyException      */
+comment|/**      * Arguments are      * [0] key store      * [1] pin      * [2] document that will be signed      * [3] image of visible signature      *      * @param args      * @throws java.security.KeyStoreException      * @throws java.security.cert.CertificateException      * @throws java.io.IOException      * @throws java.security.NoSuchAlgorithmException      * @throws java.security.UnrecoverableKeyException      */
 specifier|public
 specifier|static
 name|void
@@ -699,6 +801,11 @@ name|tsaUrl
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|externalSig
+init|=
+literal|false
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -744,6 +851,13 @@ block|{
 name|usage
 argument_list|()
 expr_stmt|;
+name|System
+operator|.
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
 name|tsaUrl
 operator|=
@@ -751,6 +865,24 @@ name|args
 index|[
 name|i
 index|]
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+literal|"-e"
+argument_list|)
+condition|)
+block|{
+name|externalSig
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
@@ -930,7 +1062,7 @@ literal|1
 decl_stmt|;
 name|signing
 operator|.
-name|setvisibleSignDesigner
+name|setVisibleSignDesigner
 argument_list|(
 name|args
 index|[
@@ -973,6 +1105,13 @@ argument_list|)
 expr_stmt|;
 name|signing
 operator|.
+name|setExternalSigning
+argument_list|(
+name|externalSig
+argument_list|)
+expr_stmt|;
+name|signing
+operator|.
 name|signPDF
 argument_list|(
 name|documentFile
@@ -1011,7 +1150,9 @@ literal|""
 operator|+
 literal|"options:\n"
 operator|+
-literal|"  -tsa<url>    sign timestamp using the given TSA server"
+literal|"  -tsa<url>    sign timestamp using the given TSA server\n"
+operator|+
+literal|"  -e            sign using external signature creation scenario"
 argument_list|)
 expr_stmt|;
 block|}
