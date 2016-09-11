@@ -733,12 +733,7 @@ comment|// The widget validation will be done by the widget annotation, a widget
 name|PDAnnotationWidget
 name|widget
 init|=
-operator|(
-operator|(
-name|PDTerminalField
-operator|)
 name|field
-operator|)
 operator|.
 name|getWidgets
 argument_list|()
@@ -817,12 +812,7 @@ name|exploreWidgets
 argument_list|(
 name|ctx
 argument_list|,
-operator|(
-operator|(
-name|PDTerminalField
-operator|)
 name|field
-operator|)
 operator|.
 name|getWidgets
 argument_list|()

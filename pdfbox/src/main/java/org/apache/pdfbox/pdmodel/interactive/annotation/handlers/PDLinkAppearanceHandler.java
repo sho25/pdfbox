@@ -211,13 +211,8 @@ name|contentStream
 operator|.
 name|setNonStrokingColorOnDemand
 argument_list|(
-operator|(
-operator|(
-name|PDAnnotationLink
-operator|)
 name|getAnnotation
 argument_list|()
-operator|)
 operator|.
 name|getColor
 argument_list|()

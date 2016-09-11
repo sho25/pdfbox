@@ -988,9 +988,6 @@ name|document
 operator|.
 name|getPage
 argument_list|(
-operator|(
-name|int
-operator|)
 name|pageRef
 argument_list|)
 expr_stmt|;

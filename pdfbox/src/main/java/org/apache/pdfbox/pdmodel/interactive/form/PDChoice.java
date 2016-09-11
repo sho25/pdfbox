@@ -681,9 +681,6 @@ block|}
 return|return
 name|Collections
 operator|.
-expr|<
-name|Integer
-operator|>
 name|emptyList
 argument_list|()
 return|;

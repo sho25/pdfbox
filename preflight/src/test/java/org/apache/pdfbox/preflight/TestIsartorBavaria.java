@@ -585,9 +585,6 @@ operator|new
 name|Object
 index|[]
 block|{
-operator|(
-name|File
-operator|)
 name|pdfFile
 block|,
 name|errorSet
@@ -766,9 +763,6 @@ operator|new
 name|Object
 index|[]
 block|{
-operator|(
-name|File
-operator|)
 name|pdfFile
 block|,
 name|errorSet

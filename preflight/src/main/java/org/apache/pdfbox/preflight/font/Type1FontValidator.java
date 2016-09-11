@@ -287,9 +287,6 @@ argument_list|,
 operator|new
 name|Type1Container
 argument_list|(
-operator|(
-name|PDSimpleFont
-operator|)
 name|font
 argument_list|)
 argument_list|)

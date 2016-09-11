@@ -119,9 +119,6 @@ name|BLEND_MODES
 operator|.
 name|get
 argument_list|(
-operator|(
-name|COSName
-operator|)
 name|cosBlendMode
 argument_list|)
 expr_stmt|;

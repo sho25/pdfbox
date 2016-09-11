@@ -368,12 +368,7 @@ operator|.
 name|isSymbolic
 argument_list|()
 operator|&&
-operator|(
-operator|(
-name|COSDictionary
-operator|)
 name|fontDictionary
-operator|)
 operator|.
 name|getItem
 argument_list|(
