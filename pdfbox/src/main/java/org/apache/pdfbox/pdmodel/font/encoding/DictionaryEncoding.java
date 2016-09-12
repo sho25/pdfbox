@@ -549,7 +549,7 @@ name|COSName
 operator|)
 name|next
 decl_stmt|;
-name|add
+name|overwrite
 argument_list|(
 name|currentIndex
 argument_list|,
