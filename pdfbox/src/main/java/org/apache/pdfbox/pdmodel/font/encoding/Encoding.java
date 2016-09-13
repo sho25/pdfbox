@@ -292,7 +292,7 @@ name|inverted
 argument_list|)
 return|;
 block|}
-comment|/**      * This will add a character encoding. An already existing mapping is preservered when creating the reverse mapping.      *       * @see {@link #overwrite(int, String)}      *       * @param code character code      * @param name PostScript glyph name      */
+comment|/**      * This will add a character encoding. An already existing mapping is preservered when creating the reverse mapping.      *       * @see #overwrite(int, String)      *       * @param code character code      * @param name PostScript glyph name      */
 specifier|protected
 name|void
 name|add
@@ -335,7 +335,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will add a character encoding. An already existing mapping is overwritten when creating the reverse mapping.      *       * @see {@link Encoding#add(int, String)}      *      * @param code character code      * @param name PostScript glyph name      */
+comment|/**      * This will add a character encoding. An already existing mapping is overwritten when creating the reverse mapping.      *       * @see Encoding#add(int, String)      *      * @param code character code      * @param name PostScript glyph name      */
 specifier|protected
 name|void
 name|overwrite
