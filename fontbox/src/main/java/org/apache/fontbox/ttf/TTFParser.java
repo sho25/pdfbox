@@ -417,6 +417,9 @@ block|}
 name|boolean
 name|isPostScript
 init|=
+name|allowCFF
+argument_list|()
+operator|&&
 name|font
 operator|.
 name|tables
@@ -632,6 +635,15 @@ literal|"cmap is mandatory"
 argument_list|)
 throw|;
 block|}
+block|}
+specifier|protected
+name|boolean
+name|allowCFF
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 specifier|private
 name|TTFTable

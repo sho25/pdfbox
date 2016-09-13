@@ -1898,27 +1898,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|ttf
-operator|.
-name|getGlyph
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"glyf table is missing in font "
-operator|+
-name|getName
-argument_list|()
-argument_list|)
-throw|;
-block|}
 name|int
 name|gid
 init|=

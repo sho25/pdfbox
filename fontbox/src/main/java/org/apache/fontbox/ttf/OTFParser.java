@@ -306,6 +306,17 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|allowCFF
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 
