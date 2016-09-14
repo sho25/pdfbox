@@ -1543,12 +1543,18 @@ operator|.
 name|append
 argument_list|(
 literal|"  -standardFont<name> : "
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|DEFAULT_FONT
 operator|.
 name|getBaseFont
 argument_list|()
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|" (default)\n"
 argument_list|)
 expr_stmt|;
@@ -1565,9 +1571,15 @@ operator|.
 name|append
 argument_list|(
 literal|"                         "
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|std14String
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
