@@ -649,7 +649,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates the display with the top-level exception message followed by a pane (that toggles)      * for detailed stack traces.      *      * @param t a non-null exception      */
+comment|/**      * Creates the display with the top-level exception message followed by a pane (that toggles)      * for detailed stack traces.      */
 specifier|final
 name|JComponent
 name|createContent

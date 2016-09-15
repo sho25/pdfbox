@@ -652,7 +652,7 @@ return|return
 name|encode
 return|;
 block|}
-comment|/**      * Get the encode for the input parameter.      *      * @param paramNum The function parameter number.      *      * @return The encode parameter range or null if none is set.      */
+comment|/**      * Get the encode for the input parameter.      *      * @param n The function parameter number.      *      * @return The encode parameter range or null if none is set.      */
 specifier|private
 name|PDRange
 name|getEncodeForParameter

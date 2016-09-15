@@ -1370,7 +1370,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Returns a COSBase as a COSObject or null if null or COSNull. To avoid      * trouble, this method is to be called only after having called      * {@link #checkIndirectObjects()}.      *      * @param base should be null, COSNull or a COSObject.      * @return null if the parameter is COSNull or null; or else a COSObject.      * @throws IllegalArgumentException if the parameter is not null, COSNull or      * a COSObject.      */
+comment|/**      * Returns a COSBase as a COSObject or null if null or COSNull. To avoid      * trouble, this method is to be called only after having called      * {@link #checkIndirectObjects(PreflightContext, COSDictionary)}.      *      * @param base should be null, COSNull or a COSObject.      * @return null if the parameter is COSNull or null; or else a COSObject.      * @throws IllegalArgumentException if the parameter is not null, COSNull or      * a COSObject.      */
 specifier|private
 name|COSObject
 name|toCOSObject

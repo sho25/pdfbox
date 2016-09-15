@@ -5381,7 +5381,7 @@ literal|true
 condition|)
 do|;
 block|}
-comment|/**      * Used within {@link #normalize(List, boolean, boolean)} to create a single {@link WordWithTextPositions} entry.      */
+comment|/**      * Used within {@link #normalize(List)} to create a single {@link WordWithTextPositions} entry.      */
 specifier|private
 name|WordWithTextPositions
 name|createWord
@@ -5647,7 +5647,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Used within {@link #normalize(List, boolean, boolean)} to handle a {@link TextPosition}.      *       * @return The StringBuilder that must be used when calling this method.      */
+comment|/**      * Used within {@link #normalize(List)} to handle a {@link TextPosition}.      *       * @return The StringBuilder that must be used when calling this method.      */
 specifier|private
 name|StringBuilder
 name|normalizeAdd

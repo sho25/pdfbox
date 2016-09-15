@@ -283,7 +283,7 @@ literal|"nsSchem"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check if Bag (Unordered Array) management is ok      *       * @throws InappropriateTypeException      */
+comment|/**      * Check if Bag (Unordered Array) management is ok      *       * @throws IllegalArgumentException      */
 annotation|@
 name|Test
 specifier|public
@@ -576,7 +576,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check if Seq (Ordered Array) management is ok      *       * @throws InappropriateTypeException      * @throws IOException      */
+comment|/**      * Check if Seq (Ordered Array) management is ok      *       * @throws IllegalArgumentException      * @throws java.io.IOException      */
 annotation|@
 name|Test
 specifier|public
@@ -1556,7 +1556,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test All common simple properties management in XMPSchema      *       * @throws InappropriateTypeException      * @throws BadFieldValueException      */
+comment|/**      * Test All common simple properties management in XMPSchema      *       * @throws IllegalArgumentException      * @throws BadFieldValueException      */
 annotation|@
 name|Test
 specifier|public
@@ -2321,7 +2321,7 @@ name|frVal
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * check if merging is ok      *       * @throws InappropriateTypeException      * @throws IOException      */
+comment|/**      * check if merging is ok      *       * @throws IllegalArgumentException      * @throws java.io.IOException      */
 annotation|@
 name|Test
 specifier|public

@@ -646,7 +646,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Tests writePDF() - this method takes an {@link OutputStream} and writes this object to it.      */
+comment|/**      * Tests writePDF() - this method takes an {@link java.io.OutputStream} and writes this object to it.      */
 specifier|public
 name|void
 name|testWritePDF

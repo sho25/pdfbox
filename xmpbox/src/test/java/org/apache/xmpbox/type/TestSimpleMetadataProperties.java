@@ -107,7 +107,7 @@ name|createXMPMetadata
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Check the detection of a bad type      *       * @throws InappropriateTypeException      */
+comment|/**      * Check the detection of a bad type      *       * @throws IllegalArgumentException      */
 annotation|@
 name|Test
 argument_list|(
@@ -137,7 +137,7 @@ literal|"Not a Boolean"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check the detection of a bad type      *       * @throws InappropriateTypeException      */
+comment|/**      * Check the detection of a bad type      *       * @throws IllegalArgumentException      */
 annotation|@
 name|Test
 argument_list|(
@@ -167,7 +167,7 @@ literal|"Bad Date"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check the detection of a bad type      *       * @throws InappropriateTypeException      */
+comment|/**      * Check the detection of a bad type      *       * @throws IllegalArgumentException      */
 annotation|@
 name|Test
 argument_list|(
@@ -197,7 +197,7 @@ literal|"Not an int"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check the detection of a bad type      *       * @throws InappropriateTypeException      */
+comment|/**      * Check the detection of a bad type      *       * @throws IllegalArgumentException      */
 annotation|@
 name|Test
 argument_list|(
@@ -229,7 +229,7 @@ literal|"Not a real"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check the detection of a bad type      *       * @throws InappropriateTypeException      */
+comment|/**      * Check the detection of a bad type      *       * @throws IllegalArgumentException      */
 annotation|@
 name|Test
 argument_list|(
@@ -828,7 +828,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Throw InappropriateType Exception      *       * @throws InappropriateTypeException      */
+comment|/**      * Throw IllegalArgumentException      *       * @throws IllegalArgumentException      */
 annotation|@
 name|Test
 argument_list|(

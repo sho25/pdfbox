@@ -51,7 +51,7 @@ name|TensorPatch
 extends|extends
 name|Patch
 block|{
-comment|/**      * Constructor of a patch for type 7 shading.      *      * @param points 16 control points      * @param color 4 corner colors      */
+comment|/**      * Constructor of a patch for type 7 shading.      *      * @param tcp 16 control points      * @param color 4 corner colors      */
 specifier|protected
 name|TensorPatch
 parameter_list|(
