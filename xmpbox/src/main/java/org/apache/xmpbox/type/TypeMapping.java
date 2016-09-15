@@ -798,19 +798,11 @@ name|propertyTypeClass
 operator|.
 name|getConstructor
 argument_list|(
-operator|new
-name|Class
-argument_list|<
-name|?
-argument_list|>
-index|[]
-block|{
 name|XMPMetadata
 operator|.
 name|class
-block|}
-block|)
-empty_stmt|;
+argument_list|)
+decl_stmt|;
 name|AbstractStructuredType
 name|tmp
 init|=
@@ -941,9 +933,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-end_class
-
-begin_function
 specifier|public
 name|AbstractStructuredType
 name|instanciateDefinedType
@@ -969,9 +958,6 @@ name|propertyName
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|AbstractSimpleProperty
 name|instanciateSimpleProperty
@@ -1235,9 +1221,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-end_function
-
-begin_function
 specifier|public
 name|AbstractSimpleProperty
 name|instanciateSimpleField
@@ -1302,13 +1285,7 @@ name|type
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Check if a namespace used reference a complex basic types (like Thumbnails)      *       * @param namespace      *            The namespace URI to check      * @return True if namespace URI is a reference for a complex basic type      */
-end_comment
-
-begin_function
 specifier|public
 name|boolean
 name|isStructuredTypeNamespace
@@ -1326,9 +1303,6 @@ name|namespace
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|boolean
 name|isDefinedTypeNamespace
@@ -1346,9 +1320,6 @@ name|namespace
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|boolean
 name|isDefinedType
@@ -1368,9 +1339,6 @@ name|name
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|private
 name|void
 name|addNameSpace
@@ -1425,9 +1393,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|void
 name|addNewNameSpace
@@ -1466,9 +1431,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|PropertiesDescription
 name|getStructuredPropMapping
@@ -1486,13 +1448,7 @@ name|type
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Return the specialized schema class representation if it's known (create and add it to metadata). In other cases,      * return null      *       * @param metadata      *            Metadata to link the new schema      * @param namespace      *            The namespace URI      * @param prefix The namespace prefix      * @return Schema representation      * @throws XmpSchemaException      *             When Instancing specified Object Schema failed      */
-end_comment
-
-begin_function
 specifier|public
 name|XMPSchema
 name|getAssociatedSchemaObject
@@ -1568,9 +1524,6 @@ literal|null
 return|;
 block|}
 block|}
-end_function
-
-begin_function
 specifier|public
 name|XMPSchemaFactory
 name|getSchemaFactory
@@ -1588,13 +1541,7 @@ name|namespace
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Say if a specific namespace is known      *       * @param namespace      *            The namespace URI checked      * @return True if namespace URI is known      */
-end_comment
-
-begin_function
 specifier|public
 name|boolean
 name|isDefinedSchema
@@ -1612,9 +1559,6 @@ name|namespace
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|boolean
 name|isDefinedNamespace
@@ -1640,13 +1584,7 @@ name|namespace
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Give type of specified property in specified schema (given by its namespaceURI)      *       * @param name      *            the property Qualified Name      * @return Property type declared for namespace specified, null if unknown      * @throws org.apache.xmpbox.type.BadFieldValueException if the name was not found.      */
-end_comment
-
-begin_function
 specifier|public
 name|PropertyType
 name|getSpecifiedPropertyType
@@ -1774,9 +1712,6 @@ block|}
 block|}
 block|}
 block|}
-end_function
-
-begin_function
 specifier|public
 name|PropertiesDescription
 name|initializePropMapping
@@ -1892,9 +1827,6 @@ return|return
 name|propMap
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|BooleanType
 name|createBoolean
@@ -1928,9 +1860,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|DateType
 name|createDate
@@ -1964,9 +1893,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|IntegerType
 name|createInteger
@@ -2000,9 +1926,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|RealType
 name|createReal
@@ -2036,9 +1959,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|TextType
 name|createText
@@ -2072,9 +1992,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|ProperNameType
 name|createProperName
@@ -2108,9 +2025,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|URIType
 name|createURI
@@ -2144,9 +2058,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|URLType
 name|createURL
@@ -2180,9 +2091,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|RenditionClassType
 name|createRenditionClass
@@ -2216,9 +2124,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|PartType
 name|createPart
@@ -2252,9 +2157,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|MIMEType
 name|createMIMEType
@@ -2288,9 +2190,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|LocaleType
 name|createLocale
@@ -2324,9 +2223,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|GUIDType
 name|createGUID
@@ -2360,9 +2256,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|ChoiceType
 name|createChoice
@@ -2396,9 +2289,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|AgentNameType
 name|createAgentName
@@ -2432,9 +2322,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|XPathType
 name|createXPath
@@ -2468,9 +2355,6 @@ name|value
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 name|ArrayProperty
 name|createArrayProperty
@@ -2504,9 +2388,6 @@ name|type
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|public
 specifier|static
 name|PropertyType
@@ -2567,8 +2448,8 @@ block|}
 block|}
 return|;
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 
