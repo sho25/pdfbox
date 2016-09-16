@@ -664,15 +664,13 @@ index|[
 name|numSrcComponents
 index|]
 decl_stmt|;
+comment|// PDFBOX-3501 let getNormalizedComponents allocate to avoid
+comment|// ArrayIndexOutOfBoundsException for bitonal target
 name|float
 index|[]
 name|dstComponents
 init|=
-operator|new
-name|float
-index|[
-name|numDstComponents
-index|]
+literal|null
 decl_stmt|;
 name|float
 index|[]
