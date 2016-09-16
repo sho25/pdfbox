@@ -138,12 +138,13 @@ name|aFloat
 operator|.
 name|matches
 argument_list|(
-literal|"^0\\.0+\\-\\d+"
+literal|"^0\\.0*\\-\\d+"
 argument_list|)
 condition|)
 block|{
 comment|// PDFBOX-2990 has 0.00000-33917698
 comment|// PDFBOX-3369 has 0.00-35095424
+comment|// PDFBOX-3500 has 0.-262
 try|try
 block|{
 name|valueAsString
