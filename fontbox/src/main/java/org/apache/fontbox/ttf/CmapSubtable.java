@@ -2594,6 +2594,7 @@ return|;
 block|}
 comment|/**      *       * Class used to manage CMap - Format 2.      *       */
 specifier|private
+specifier|static
 class|class
 name|SubHeader
 block|{

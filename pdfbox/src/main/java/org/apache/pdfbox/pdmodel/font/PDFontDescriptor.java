@@ -623,8 +623,7 @@ operator|=
 name|flags
 operator|&
 operator|(
-literal|0xFFFFFFFF
-operator|^
+operator|~
 name|bit
 operator|)
 expr_stmt|;

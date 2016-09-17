@@ -198,6 +198,7 @@ name|XrefTrailerResolver
 block|{
 comment|/**      * A class which represents a xref/trailer object.      */
 specifier|private
+specifier|static
 class|class
 name|XrefTrailerObj
 block|{

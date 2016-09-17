@@ -3273,6 +3273,7 @@ return|;
 block|}
 comment|/**      * Internal class.      */
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|LiteralName
@@ -3296,6 +3297,7 @@ block|}
 block|}
 comment|/**      * Internal class.      */
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|Operator

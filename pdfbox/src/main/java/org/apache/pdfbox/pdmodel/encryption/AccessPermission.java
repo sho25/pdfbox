@@ -32,8 +32,7 @@ specifier|final
 name|int
 name|DEFAULT_PERMISSIONS
 init|=
-literal|0xFFFFFFFF
-operator|^
+operator|~
 literal|3
 decl_stmt|;
 comment|//bits 0& 1 need to be zero
@@ -267,8 +266,7 @@ operator|=
 name|permissions
 operator|&
 operator|(
-literal|0xFFFFFFFF
-operator|^
+operator|~
 operator|(
 literal|1
 operator|<<

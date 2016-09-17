@@ -2683,6 +2683,7 @@ block|}
 block|}
 comment|/**      * A potential match for a font substitution.      */
 specifier|private
+specifier|static
 class|class
 name|FontMatch
 implements|implements

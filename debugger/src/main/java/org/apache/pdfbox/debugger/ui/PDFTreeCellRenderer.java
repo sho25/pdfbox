@@ -1639,6 +1639,7 @@ block|}
 block|}
 comment|/**      * An ImageIcon which allows other ImageIcon overlays.      */
 specifier|private
+specifier|static
 class|class
 name|OverlayIcon
 extends|extends

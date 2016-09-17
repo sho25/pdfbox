@@ -4669,6 +4669,7 @@ throw|;
 block|}
 block|}
 specifier|protected
+specifier|static
 class|class
 name|NamespaceFinder
 block|{

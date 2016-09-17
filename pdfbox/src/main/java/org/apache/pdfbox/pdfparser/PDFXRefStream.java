@@ -1636,6 +1636,7 @@ block|}
 block|}
 block|}
 comment|/**      * A class representing an object stream reference.       *      */
+specifier|static
 class|class
 name|ObjectStreamReference
 block|{
@@ -1647,6 +1648,7 @@ name|offset
 decl_stmt|;
 block|}
 comment|/**      * A class representing a normal reference.       *      */
+specifier|static
 class|class
 name|NormalReference
 block|{
@@ -1658,6 +1660,7 @@ name|offset
 decl_stmt|;
 block|}
 comment|/**      * A class representing a free reference.       *      */
+specifier|static
 class|class
 name|FreeReference
 block|{
