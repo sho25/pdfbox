@@ -764,11 +764,9 @@ name|shift
 return|;
 block|}
 specifier|private
-specifier|static
 interface|interface
 name|PairData
 block|{
-specifier|abstract
 name|void
 name|read
 parameter_list|(
@@ -778,7 +776,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-specifier|abstract
 name|int
 name|getKerning
 parameter_list|(
