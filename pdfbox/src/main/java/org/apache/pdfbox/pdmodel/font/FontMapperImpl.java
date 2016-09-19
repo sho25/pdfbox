@@ -1731,6 +1731,32 @@ name|getFont
 argument_list|()
 return|;
 block|}
+comment|// try appending "-Regular", works for Wingdings on windows
+name|info
+operator|=
+name|getFont
+argument_list|(
+name|format
+argument_list|,
+name|postScriptName
+operator|+
+literal|"-Regular"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|info
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|info
+operator|.
+name|getFont
+argument_list|()
+return|;
+block|}
 comment|// no matches
 return|return
 literal|null
