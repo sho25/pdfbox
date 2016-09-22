@@ -509,6 +509,21 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// PDFBOX-3506 check before adding to the map, to avoid entries from the table being
+comment|// overwritten by obsolete entries in hybrid files (/XRefStm entry)
+if|if
+condition|(
+operator|!
+name|curXrefTrailerObj
+operator|.
+name|xrefTable
+operator|.
+name|containsKey
+argument_list|(
+name|objKey
+argument_list|)
+condition|)
+block|{
 name|curXrefTrailerObj
 operator|.
 name|xrefTable
@@ -520,6 +535,7 @@ argument_list|,
 name|offset
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Adds trailer information for current XRef object.      *      * @param trailer the current document trailer dictionary      */
 specifier|public
