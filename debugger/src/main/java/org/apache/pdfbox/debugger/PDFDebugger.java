@@ -1474,6 +1474,18 @@ name|getSystemLookAndFeelClassName
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"apple.laf.useScreenMenuBar"
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
 name|System
 operator|.
 name|setProperty
@@ -1483,6 +1495,7 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// handle uncaught exceptions
 name|Thread
 operator|.
@@ -1854,7 +1867,7 @@ argument_list|)
 expr_stmt|;
 name|setTitle
 argument_list|(
-literal|"PDFBox Debugger"
+literal|"Apache PDFBox Debugger"
 argument_list|)
 expr_stmt|;
 name|addWindowListener
