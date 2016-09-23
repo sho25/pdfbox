@@ -839,7 +839,15 @@ argument_list|)
 return|;
 block|}
 return|return
-literal|null
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+operator|new
+name|byte
+index|[
+literal|0
+index|]
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns true if this page has contents.      */
