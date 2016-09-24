@@ -955,6 +955,10 @@ argument_list|()
 operator|<=
 name|i
 operator|&&
+name|gd
+operator|!=
+literal|null
+operator|&&
 name|i
 operator|<
 operator|(
@@ -1016,6 +1020,10 @@ name|getFirstContour
 argument_list|()
 operator|<=
 name|i
+operator|&&
+name|gd
+operator|!=
+literal|null
 operator|&&
 name|i
 operator|<
