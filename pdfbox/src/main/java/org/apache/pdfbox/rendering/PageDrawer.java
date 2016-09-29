@@ -1024,6 +1024,14 @@ name|pageSize
 operator|=
 name|pageSize
 expr_stmt|;
+name|pageRotation
+operator|=
+name|getPage
+argument_list|()
+operator|.
+name|getRotation
+argument_list|()
+expr_stmt|;
 name|setRenderingHints
 argument_list|()
 expr_stmt|;
