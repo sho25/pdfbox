@@ -5193,11 +5193,7 @@ argument_list|)
 decl_stmt|;
 switch|switch
 condition|(
-name|getPage
-argument_list|()
-operator|.
-name|getRotation
-argument_list|()
+name|pageRotation
 condition|)
 block|{
 case|case
