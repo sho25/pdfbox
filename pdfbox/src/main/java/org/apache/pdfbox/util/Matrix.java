@@ -2494,7 +2494,7 @@ literal|0
 index|]
 return|;
 block|}
-comment|/**      * Returns the y-shear element of this matrix.      *      * @see #getScalingFactorY()      */
+comment|/**      * Returns the y-shear element of this matrix.      */
 specifier|public
 name|float
 name|getShearY
@@ -2520,7 +2520,7 @@ literal|3
 index|]
 return|;
 block|}
-comment|/**      * Returns the y-scaling element of this matrix.      */
+comment|/**      * Returns the y-scaling element of this matrix.      *      * @see #getScalingFactorY()      */
 specifier|public
 name|float
 name|getScaleY
