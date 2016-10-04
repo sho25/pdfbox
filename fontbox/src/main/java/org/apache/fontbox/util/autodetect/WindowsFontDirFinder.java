@@ -253,6 +253,14 @@ parameter_list|)
 block|{
 comment|// should continue if this fails
 block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|e
+parameter_list|)
+block|{
+comment|// should continue if this fails
+block|}
 block|}
 name|File
 name|osFontsDir
@@ -427,6 +435,8 @@ operator|+
 literal|"FONTS"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|osFontsDir
@@ -448,6 +458,15 @@ name|osFontsDir
 argument_list|)
 expr_stmt|;
 break|break;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|e
+parameter_list|)
+block|{
+comment|// should continue if this fails
 block|}
 block|}
 comment|// look for type 1 font folder
@@ -482,6 +501,8 @@ operator|+
 literal|"PSFONTS"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|psFontsDir
@@ -503,6 +524,15 @@ name|psFontsDir
 argument_list|)
 expr_stmt|;
 break|break;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|e
+parameter_list|)
+block|{
+comment|// should continue if this fails
 block|}
 block|}
 block|}
