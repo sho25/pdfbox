@@ -363,28 +363,18 @@ name|h
 argument_list|)
 decl_stmt|;
 comment|// buffer
-name|BufferedImage
-name|image
+name|WritableRaster
+name|output
 init|=
-operator|new
-name|BufferedImage
+name|getColorModel
+argument_list|()
+operator|.
+name|createCompatibleWritableRaster
 argument_list|(
 name|w
 argument_list|,
 name|h
-argument_list|,
-name|BufferedImage
-operator|.
-name|TYPE_INT_ARGB
 argument_list|)
-decl_stmt|;
-name|WritableRaster
-name|output
-init|=
-name|image
-operator|.
-name|getRaster
-argument_list|()
 decl_stmt|;
 comment|// the soft mask has its own bbox
 name|x1
@@ -485,6 +475,18 @@ condition|(
 name|x1
 operator|+
 name|x
+operator|>=
+literal|0
+operator|&&
+name|y1
+operator|+
+name|y
+operator|>=
+literal|0
+operator|&&
+name|x1
+operator|+
+name|x
 operator|<
 name|mask
 operator|.
@@ -500,8 +502,6 @@ operator|.
 name|getHeight
 argument_list|()
 condition|)
-block|{
-try|try
 block|{
 name|mask
 operator|.
@@ -521,16 +521,7 @@ argument_list|,
 name|gray
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ArrayIndexOutOfBoundsException
-name|e
-parameter_list|)
-block|{
-comment|//TODO bounds check not yet correct
-block|}
-block|}
+comment|// multiply alpha
 name|rgba
 index|[
 literal|3
@@ -555,7 +546,7 @@ literal|255f
 operator|)
 argument_list|)
 expr_stmt|;
-comment|// multiply alpha
+block|}
 name|output
 operator|.
 name|setPixel
