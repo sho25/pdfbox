@@ -460,6 +460,21 @@ name|PDSimpleFont
 implements|implements
 name|PDVectorFont
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDType1Font
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// todo: replace with enum? or getters?
 specifier|public
 specifier|static
@@ -627,21 +642,6 @@ operator|new
 name|PDType1Font
 argument_list|(
 literal|"ZapfDingbats"
-argument_list|)
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|PDType1Font
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 comment|// alternative names for glyphs which are commonly encountered
