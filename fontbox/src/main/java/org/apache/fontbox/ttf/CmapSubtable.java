@@ -2587,6 +2587,18 @@ argument_list|(
 name|gid
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|code
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|// ambiguous mapping, use the first mapping
 if|if
 condition|(
@@ -2632,7 +2644,7 @@ name|code
 return|;
 block|}
 specifier|private
-name|Integer
+name|int
 name|getCharCode
 parameter_list|(
 name|int
@@ -2653,33 +2665,15 @@ name|length
 condition|)
 block|{
 return|return
-literal|null
+operator|-
+literal|1
 return|;
 block|}
-comment|// workaround for the fact that glyphIdToCharacterCode doesn't distinguish between
-comment|// missing character codes and code 0.
-name|int
-name|code
-init|=
+return|return
 name|glyphIdToCharacterCode
 index|[
 name|gid
 index|]
-decl_stmt|;
-if|if
-condition|(
-name|code
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-return|return
-name|code
 return|;
 block|}
 comment|/**      * Fills the given map with gid to unicode mappings.      *       * @param gidToUni the map to put the mappings into      * @param maxGid the maximum gid value      *       */
@@ -2714,8 +2708,7 @@ name|gid
 operator|++
 control|)
 block|{
-comment|// skip composite glyph components that have no code point
-name|Integer
+name|int
 name|codePoint
 init|=
 name|getCharCode
@@ -2723,32 +2716,17 @@ argument_list|(
 name|gid
 argument_list|)
 decl_stmt|;
+comment|// skip composite glyph components that have no code point
 if|if
 condition|(
 name|codePoint
-operator|!=
-literal|null
+operator|==
+operator|-
+literal|1
 condition|)
 block|{
-if|if
-condition|(
-name|codePoint
-operator|>
-literal|0
-condition|)
-block|{
-name|gidToUni
-operator|.
-name|put
-argument_list|(
-name|gid
-argument_list|,
-name|codePoint
-argument_list|)
-expr_stmt|;
-comment|// CID = GID
+continue|continue;
 block|}
-elseif|else
 if|if
 condition|(
 name|codePoint
@@ -2791,6 +2769,18 @@ expr_stmt|;
 comment|// CID = GID
 block|}
 block|}
+else|else
+block|{
+name|gidToUni
+operator|.
+name|put
+argument_list|(
+name|gid
+argument_list|,
+name|codePoint
+argument_list|)
+expr_stmt|;
+comment|// CID = GID
 block|}
 block|}
 block|}
