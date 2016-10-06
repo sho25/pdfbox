@@ -83,6 +83,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -238,16 +248,6 @@ specifier|final
 name|COSDictionary
 name|cidFont
 decl_stmt|;
-specifier|private
-specifier|final
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Integer
-argument_list|>
-name|gidToUni
-decl_stmt|;
 comment|/**      * Creates a new TrueType font embedder for the given TTF as a PDCIDFontType2.      *      * @param document parent document      * @param dict font dictionary      * @param ttf True Type Font      * @param parent parent Type 0 font      * @throws IOException if the TTF could not be read      */
 name|PDCIDFontType2Embedder
 parameter_list|(
@@ -344,7 +344,9 @@ comment|// descendant CIDFont
 name|cidFont
 operator|=
 name|createCIDFont
-argument_list|()
+argument_list|(
+name|embedSubset
+argument_list|)
 expr_stmt|;
 name|COSArray
 name|descendantFonts
@@ -371,47 +373,19 @@ argument_list|,
 name|descendantFonts
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|embedSubset
+condition|)
+block|{
 comment|// build GID -> Unicode map
-name|gidToUni
-operator|=
-operator|new
-name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Integer
-argument_list|>
-argument_list|(
-name|ttf
-operator|.
-name|getMaximumProfile
-argument_list|()
-operator|.
-name|getNumGlyphs
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|cmap
-operator|.
-name|createGID2UnicodeMapping
-argument_list|(
-name|gidToUni
-argument_list|,
-name|ttf
-operator|.
-name|getMaximumProfile
-argument_list|()
-operator|.
-name|getNumGlyphs
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// ToUnicode CMap
 name|buildToUnicodeCMap
 argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Rebuild a font subset.      */
 annotation|@
@@ -504,6 +478,12 @@ name|newGID
 argument_list|)
 expr_stmt|;
 block|}
+comment|// build unicode mapping before subsetting as the subsetted font won't have a cmap
+name|buildToUnicodeCMap
+argument_list|(
+name|gidToCid
+argument_list|)
+expr_stmt|;
 comment|// rebuild the relevant part of the font
 name|buildFontFile2
 argument_list|(
@@ -633,12 +613,15 @@ name|gid
 expr_stmt|;
 block|}
 comment|// skip composite glyph components that have no code point
+name|List
+argument_list|<
 name|Integer
-name|codePoint
+argument_list|>
+name|codes
 init|=
-name|gidToUni
+name|cmap
 operator|.
-name|get
+name|getCharCodes
 argument_list|(
 name|cid
 argument_list|)
@@ -646,11 +629,22 @@ decl_stmt|;
 comment|// old GID -> Unicode
 if|if
 condition|(
-name|codePoint
+name|codes
 operator|!=
 literal|null
 condition|)
 block|{
+comment|// use the first entry even for ambiguous mappings
+name|int
+name|codePoint
+init|=
+name|codes
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|codePoint
@@ -831,7 +825,10 @@ block|}
 specifier|private
 name|COSDictionary
 name|createCIDFont
-parameter_list|()
+parameter_list|(
+name|boolean
+name|embedSubset
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -924,11 +921,20 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// W - widths
+if|if
+condition|(
+operator|!
+name|embedSubset
+condition|)
+block|{
+comment|// subsetted fonts have a reduced amount of widths
+comment|// and will be created after subsetting
 name|buildWidths
 argument_list|(
 name|cidFont
 argument_list|)
 expr_stmt|;
+block|}
 comment|// CIDToGIDMap
 name|cidFont
 operator|.
