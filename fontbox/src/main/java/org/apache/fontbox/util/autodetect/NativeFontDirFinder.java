@@ -108,6 +108,8 @@ argument_list|(
 name|searchableDirectorie
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|fontDir
@@ -128,6 +130,15 @@ argument_list|(
 name|fontDir
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|e
+parameter_list|)
+block|{
+comment|// should continue if this fails
 block|}
 block|}
 block|}
