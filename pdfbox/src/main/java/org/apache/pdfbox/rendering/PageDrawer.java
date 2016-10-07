@@ -807,6 +807,14 @@ specifier|private
 name|int
 name|pageRotation
 decl_stmt|;
+comment|// whether image of a transparency group must be flipped
+comment|// needed when in a tiling pattern
+specifier|private
+name|boolean
+name|flipTG
+init|=
+literal|false
+decl_stmt|;
 comment|// clipping winding rule used for the clipping path
 specifier|private
 name|int
@@ -1147,6 +1155,15 @@ name|lastClip
 operator|=
 literal|null
 expr_stmt|;
+name|boolean
+name|oldFlipTG
+init|=
+name|flipTG
+decl_stmt|;
+name|flipTG
+operator|=
+literal|true
+expr_stmt|;
 name|setRenderingHints
 argument_list|()
 expr_stmt|;
@@ -1160,6 +1177,10 @@ name|colorSpace
 argument_list|,
 name|patternMatrix
 argument_list|)
+expr_stmt|;
+name|flipTG
+operator|=
+name|oldFlipTG
 expr_stmt|;
 name|graphics
 operator|=
@@ -5261,6 +5282,37 @@ operator|*
 name|yScale
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|flipTG
+condition|)
+block|{
+name|graphics
+operator|.
+name|translate
+argument_list|(
+literal|0
+argument_list|,
+name|group
+operator|.
+name|getImage
+argument_list|()
+operator|.
+name|getHeight
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|graphics
+operator|.
+name|scale
+argument_list|(
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 name|PDSoftMask
 name|softMask
 init|=
@@ -5780,6 +5832,15 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+name|boolean
+name|oldFlipTG
+init|=
+name|flipTG
+decl_stmt|;
+name|flipTG
+operator|=
+literal|false
+expr_stmt|;
 comment|// apply device transform (DPI)
 comment|// the initial translation is ignored, because we're not writing into the initial graphics device
 name|g
@@ -5917,6 +5978,10 @@ block|}
 block|}
 finally|finally
 block|{
+name|flipTG
+operator|=
+name|oldFlipTG
+expr_stmt|;
 name|lastClip
 operator|=
 name|lastClipOriginal
