@@ -344,9 +344,7 @@ comment|// descendant CIDFont
 name|cidFont
 operator|=
 name|createCIDFont
-argument_list|(
-name|embedSubset
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|COSArray
 name|descendantFonts
@@ -508,11 +506,6 @@ expr_stmt|;
 name|buildCIDSet
 argument_list|(
 name|cidToGid
-argument_list|)
-expr_stmt|;
-name|buildToUnicodeCMap
-argument_list|(
-name|gidToCid
 argument_list|)
 expr_stmt|;
 block|}
@@ -825,10 +818,7 @@ block|}
 specifier|private
 name|COSDictionary
 name|createCIDFont
-parameter_list|(
-name|boolean
-name|embedSubset
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -921,20 +911,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// W - widths
-if|if
-condition|(
-operator|!
-name|embedSubset
-condition|)
-block|{
-comment|// subsetted fonts have a reduced amount of widths
-comment|// and will be created after subsetting
 name|buildWidths
 argument_list|(
 name|cidFont
 argument_list|)
 expr_stmt|;
-block|}
 comment|// CIDToGIDMap
 name|cidFont
 operator|.
