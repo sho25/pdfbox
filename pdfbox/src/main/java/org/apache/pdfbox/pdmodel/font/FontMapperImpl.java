@@ -728,12 +728,6 @@ name|FontProvider
 name|fontProvider
 parameter_list|)
 block|{
-name|this
-operator|.
-name|fontProvider
-operator|=
-name|fontProvider
-expr_stmt|;
 name|fontInfoByName
 operator|=
 name|createFontInfoByName
@@ -743,6 +737,12 @@ operator|.
 name|getFontInfo
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|fontProvider
+operator|=
+name|fontProvider
 expr_stmt|;
 block|}
 comment|/**      * Returns the font service provider. Defaults to using FileSystemFontProvider.      */
