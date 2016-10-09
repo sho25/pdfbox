@@ -550,7 +550,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Prepares everything to decrypt the document.      *      * @param encryption  encryption dictionary, can be retrieved via {@link PDDocument#getEncryption()}      * @param documentIDArray  document id which is returned via {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()}      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Prepares everything to decrypt the document.      *      * @param encryption  encryption dictionary, can be retrieved via {@link PDDocument#getEncryption()}      * @param documentIDArray  document id which is returned via {@link org.apache.pdfbox.cos.COSDocument#getDocumentID()}      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException If there is an error accessing data.      */
 specifier|public
 specifier|abstract
 name|void
@@ -566,6 +566,8 @@ name|DecryptionMaterial
 name|decryptionMaterial
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 function_decl|;
 comment|/**      * Encrypt or decrypt a set of data.      *      * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      * @param decrypt true to decrypt the data, false to encrypt it.      *      * @throws IOException If there is an error reading the data.      */

@@ -657,7 +657,7 @@ return|return
 literal|4
 return|;
 block|}
-comment|/**      * Prepares everything to decrypt the document.      *      * Only if decryption of single objects is needed this should be called.      *      * @param encryption  encryption dictionary      * @param documentIDArray  document id      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Prepares everything to decrypt the document.      *      * Only if decryption of single objects is needed this should be called.      *      * @param encryption  encryption dictionary      * @param documentIDArray  document id      * @param decryptionMaterial Information used to decrypt the document.      *      * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException If there is an error accessing data.      */
 annotation|@
 name|Override
 specifier|public
@@ -674,6 +674,8 @@ name|DecryptionMaterial
 name|decryptionMaterial
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 if|if
