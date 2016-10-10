@@ -2016,6 +2016,13 @@ condition|(
 name|softMask
 operator|==
 literal|null
+operator|||
+name|softMask
+operator|.
+name|getGroup
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 return|return
