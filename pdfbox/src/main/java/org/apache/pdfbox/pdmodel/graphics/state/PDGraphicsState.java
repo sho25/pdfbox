@@ -370,6 +370,12 @@ init|=
 literal|false
 decl_stmt|;
 specifier|private
+name|boolean
+name|nonStrokingOverprint
+init|=
+literal|false
+decl_stmt|;
+specifier|private
 name|double
 name|overprintMode
 init|=
@@ -684,7 +690,7 @@ operator|=
 name|blendMode
 expr_stmt|;
 block|}
-comment|/**      /**      * get the value of the overprint property.      *      * @return The value of the overprint parameter.      */
+comment|/**      * get the value of the overprint property.      *      * @return The value of the overprint parameter.      */
 specifier|public
 name|boolean
 name|isOverprint
@@ -704,6 +710,30 @@ name|value
 parameter_list|)
 block|{
 name|overprint
+operator|=
+name|value
+expr_stmt|;
+block|}
+comment|/**      * get the value of the non stroking overprint property.      *      * @return The value of the non stroking overprint parameter.      */
+specifier|public
+name|boolean
+name|isNonStrokingOverprint
+parameter_list|()
+block|{
+return|return
+name|nonStrokingOverprint
+return|;
+block|}
+comment|/**      * set the value of the non stroking overprint property.      *      * @param value The value of the non stroking overprint parameter.      */
+specifier|public
+name|void
+name|setNonStrokingOverprint
+parameter_list|(
+name|boolean
+name|value
+parameter_list|)
+block|{
+name|nonStrokingOverprint
 operator|=
 name|value
 expr_stmt|;
