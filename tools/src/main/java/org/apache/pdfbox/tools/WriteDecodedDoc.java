@@ -148,6 +148,14 @@ name|PASSWORD
 init|=
 literal|"-password"
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SKIPIMAGES
+init|=
+literal|"-skipImages"
+decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
 name|WriteDecodedDoc
@@ -157,7 +165,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will perform the document reading, decoding and writing.      *      * @param in The filename used for input.      * @param out The filename used for output.      * @param password The password to open the document.      *      * @throws IOException if the output could not be written      */
+comment|/**      * This will perform the document reading, decoding and writing.      *      * @param in The filename used for input.      * @param out The filename used for output.      * @param password The password to open the document.      * @param skipImages Whether to skip decoding images.      *      * @throws IOException if the output could not be written      */
 specifier|public
 name|void
 name|doIt
@@ -170,6 +178,9 @@ name|out
 parameter_list|,
 name|String
 name|password
+parameter_list|,
+name|boolean
+name|skipImages
 parameter_list|)
 throws|throws
 name|IOException
@@ -240,6 +251,45 @@ name|COSStream
 operator|)
 name|base
 decl_stmt|;
+if|if
+condition|(
+name|skipImages
+operator|&&
+name|COSName
+operator|.
+name|XOBJECT
+operator|.
+name|equals
+argument_list|(
+name|stream
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|)
+argument_list|)
+operator|&&
+name|COSName
+operator|.
+name|IMAGE
+operator|.
+name|equals
+argument_list|(
+name|stream
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|SUBTYPE
+argument_list|)
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|byte
 index|[]
 name|bytes
@@ -359,6 +409,11 @@ name|outputFile
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|skipImages
+init|=
+literal|false
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -411,6 +466,25 @@ name|args
 index|[
 name|i
 index|]
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|SKIPIMAGES
+argument_list|)
+condition|)
+block|{
+name|skipImages
+operator|=
+literal|true
 expr_stmt|;
 block|}
 else|else
@@ -479,6 +553,8 @@ argument_list|,
 name|outputFile
 argument_list|,
 name|password
+argument_list|,
+name|skipImages
 argument_list|)
 expr_stmt|;
 block|}
@@ -555,6 +631,8 @@ operator|+
 literal|"\nOptions:\n"
 operator|+
 literal|"  -password<password> : Password to decrypt the document\n"
+operator|+
+literal|"  skipImages           : Don't uncompress images\n"
 operator|+
 literal|"<inputfile>          : The PDF document to be decompressed\n"
 operator|+
