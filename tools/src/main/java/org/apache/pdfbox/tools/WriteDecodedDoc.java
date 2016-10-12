@@ -632,7 +632,7 @@ literal|"\nOptions:\n"
 operator|+
 literal|"  -password<password> : Password to decrypt the document\n"
 operator|+
-literal|"  skipImages           : Don't uncompress images\n"
+literal|"  -skipImages          : Don't uncompress images\n"
 operator|+
 literal|"<inputfile>          : The PDF document to be decompressed\n"
 operator|+
