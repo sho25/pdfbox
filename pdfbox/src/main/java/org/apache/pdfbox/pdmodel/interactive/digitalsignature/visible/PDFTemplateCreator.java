@@ -435,10 +435,7 @@ name|pdSignatureField
 argument_list|,
 name|page
 argument_list|,
-name|properties
-operator|.
-name|getSignatureFieldName
-argument_list|()
+literal|""
 argument_list|)
 expr_stmt|;
 comment|// that is /AcroForm/DR entry

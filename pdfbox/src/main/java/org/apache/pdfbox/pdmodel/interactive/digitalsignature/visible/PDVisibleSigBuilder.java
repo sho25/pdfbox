@@ -683,6 +683,15 @@ argument_list|(
 name|widget
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|signerName
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|pdSignature
 operator|.
 name|setName
@@ -690,6 +699,7 @@ argument_list|(
 name|signerName
 argument_list|)
 expr_stmt|;
+block|}
 name|pdfStructure
 operator|.
 name|setPdSignature
