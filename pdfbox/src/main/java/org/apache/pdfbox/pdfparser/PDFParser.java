@@ -257,6 +257,22 @@ name|pdmodel
 operator|.
 name|encryption
 operator|.
+name|InvalidPasswordException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|encryption
+operator|.
 name|PDEncryption
 import|;
 end_import
@@ -638,12 +654,14 @@ return|return
 name|doc
 return|;
 block|}
-comment|/**      * The initial parse will first parse only the trailer, the xrefstart and all xref tables to have a pointer (offset)      * to all the pdf's objects. It can handle linearized pdfs, which will have an xref at the end pointing to an xref      * at the beginning of the file. Last the root object is parsed.      *       * @throws IOException If something went wrong.      */
+comment|/**      * The initial parse will first parse only the trailer, the xrefstart and all xref tables to have a pointer (offset)      * to all the pdf's objects. It can handle linearized pdfs, which will have an xref at the end pointing to an xref      * at the beginning of the file. Last the root object is parsed.      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException If something went wrong.      */
 specifier|protected
 name|void
 name|initialParse
 parameter_list|()
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 name|COSDictionary
@@ -842,12 +860,14 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * This will parse the stream and populate the COSDocument object.  This will close      * the keystore stream when it is done parsing.      *      * @throws IOException If there is an error reading from the stream or corrupt data      * is found.      */
+comment|/**      * This will parse the stream and populate the COSDocument object.  This will close      * the keystore stream when it is done parsing.      *      * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException If there is an error reading from the stream or corrupt data      * is found.      */
 specifier|public
 name|void
 name|parse
 parameter_list|()
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 comment|// set to false if all is processed
@@ -925,12 +945,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Prepare for decryption.      *       * @throws IOException if something went wrong      */
+comment|/**      * Prepare for decryption.      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException if something went wrong      */
 specifier|private
 name|void
 name|prepareDecryption
 parameter_list|()
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 name|COSBase
