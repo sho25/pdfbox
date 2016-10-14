@@ -85,6 +85,24 @@ name|PDColorSpace
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|color
+operator|.
+name|PDPattern
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Khyrul Bashar  *  A class that provide tooltip for SCN and scn.  */
 end_comment
@@ -174,6 +192,20 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|colorSpace
+operator|instanceof
+name|PDPattern
+condition|)
+block|{
+name|setToolTipText
+argument_list|(
+literal|"<html>Pattern</html>"
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
 if|if
 condition|(
