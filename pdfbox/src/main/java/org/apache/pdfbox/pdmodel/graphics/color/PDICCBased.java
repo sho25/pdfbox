@@ -221,16 +221,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Color
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|color
 operator|.
 name|CMMException
@@ -645,19 +635,15 @@ argument_list|)
 expr_stmt|;
 comment|// create a color in order to trigger a ProfileDataException
 comment|// or CMMException due to invalid profiles, see PDFBOX-1295 and PDFBOX-1740
-operator|new
-name|Color
-argument_list|(
 name|awtColorSpace
-argument_list|,
+operator|.
+name|fromRGB
+argument_list|(
 operator|new
 name|float
 index|[
-name|getNumberOfComponents
-argument_list|()
+literal|3
 index|]
-argument_list|,
-literal|1f
 argument_list|)
 expr_stmt|;
 block|}
