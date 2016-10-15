@@ -439,6 +439,22 @@ name|pdmodel
 operator|.
 name|encryption
 operator|.
+name|InvalidPasswordException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|encryption
+operator|.
 name|PDEncryption
 import|;
 end_import
@@ -3245,7 +3261,7 @@ return|return
 name|fontsToSubset
 return|;
 block|}
-comment|/**      * Parses a PDF. Unrestricted main memory will be used for buffering PDF streams.      *       * @param file file to be loaded      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. Unrestricted main memory will be used for buffering PDF streams.      *       * @param file file to be loaded      *       * @return loaded document      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3255,6 +3271,8 @@ name|File
 name|file
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 return|return
@@ -3271,7 +3289,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses a PDF.      *       * @param file file to be loaded      * @param memUsageSetting defines how memory is used for buffering PDF streams       *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF.      *       * @param file file to be loaded      * @param memUsageSetting defines how memory is used for buffering PDF streams       *       * @return loaded document      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3284,6 +3302,8 @@ name|MemoryUsageSetting
 name|memUsageSetting
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 return|return
@@ -3301,7 +3321,7 @@ name|memUsageSetting
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses a PDF. Unrestricted main memory will be used for buffering PDF streams.      *       * @param file file to be loaded      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. Unrestricted main memory will be used for buffering PDF streams.      *       * @param file file to be loaded      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3314,6 +3334,8 @@ name|String
 name|password
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 return|return
@@ -3334,7 +3356,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses a PDF.      *       * @param file file to be loaded      * @param password password to be used for decryption      * @param memUsageSetting defines how memory is used for buffering PDF streams       *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF.      *       * @param file file to be loaded      * @param password password to be used for decryption      * @param memUsageSetting defines how memory is used for buffering PDF streams       *       * @return loaded document      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3350,6 +3372,8 @@ name|MemoryUsageSetting
 name|memUsageSetting
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 return|return
@@ -3517,7 +3541,7 @@ name|ioe
 throw|;
 block|}
 block|}
-comment|/**      * Parses a PDF. The given input stream is copied to the memory to enable random access to the pdf.      * Unrestricted main memory will be used for buffering PDF streams.      *       * @param input stream that contains the document.      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. The given input stream is copied to the memory to enable random access to the pdf.      * Unrestricted main memory will be used for buffering PDF streams.      *       * @param input stream that contains the document.      *       * @return loaded document      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3527,6 +3551,8 @@ name|InputStream
 name|input
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 return|return
@@ -3547,7 +3573,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses a PDF. Depending on the memory settings parameter the given input      * stream is either copied to main memory or to a temporary file to enable      * random access to the pdf.      *       * @param input stream that contains the document.      * @param memUsageSetting defines how memory is used for buffering input stream and PDF streams       *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. Depending on the memory settings parameter the given input      * stream is either copied to main memory or to a temporary file to enable      * random access to the pdf.      *       * @param input stream that contains the document.      * @param memUsageSetting defines how memory is used for buffering input stream and PDF streams       *       * @return loaded document      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3560,6 +3586,8 @@ name|MemoryUsageSetting
 name|memUsageSetting
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 return|return
@@ -3577,7 +3605,7 @@ name|memUsageSetting
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses a PDF. The given input stream is copied to the memory to enable random access to the pdf.      * Unrestricted main memory will be used for buffering PDF streams.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. The given input stream is copied to the memory to enable random access to the pdf.      * Unrestricted main memory will be used for buffering PDF streams.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3590,6 +3618,8 @@ name|String
 name|password
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 return|return
@@ -3649,7 +3679,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses a PDF. Depending on the memory settings parameter the given input      * stream is either copied to main memory or to a temporary file to enable      * random access to the pdf.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      * @param memUsageSetting defines how memory is used for buffering input stream and PDF streams       *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. Depending on the memory settings parameter the given input      * stream is either copied to main memory or to a temporary file to enable      * random access to the pdf.      *       * @param input stream that contains the document.      * @param password password to be used for decryption      * @param memUsageSetting defines how memory is used for buffering input stream and PDF streams       *       * @return loaded document      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3665,6 +3695,8 @@ name|MemoryUsageSetting
 name|memUsageSetting
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 return|return
@@ -3774,7 +3806,7 @@ name|ioe
 throw|;
 block|}
 block|}
-comment|/**      * Parses a PDF. Unrestricted main memory will be used for buffering PDF streams.      *       * @param input byte array that contains the document.      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. Unrestricted main memory will be used for buffering PDF streams.      *       * @param input byte array that contains the document.      *       * @return loaded document      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3785,6 +3817,8 @@ index|[]
 name|input
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 return|return
@@ -3796,7 +3830,7 @@ literal|""
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses a PDF. Unrestricted main memory will be used for buffering PDF streams.      *       * @param input byte array that contains the document.      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws IOException in case of a file reading or parsing error      */
+comment|/**      * Parses a PDF. Unrestricted main memory will be used for buffering PDF streams.      *       * @param input byte array that contains the document.      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException in case of a file reading or parsing error      */
 specifier|public
 specifier|static
 name|PDDocument
@@ -3810,6 +3844,8 @@ name|String
 name|password
 parameter_list|)
 throws|throws
+name|InvalidPasswordException
+throws|,
 name|IOException
 block|{
 return|return
