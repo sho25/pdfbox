@@ -321,7 +321,7 @@ name|transferFunction
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Creates a new soft mask.      */
+comment|/**      * Creates a new soft mask.      *      * @param dictionary The soft mask dictionary.      */
 specifier|public
 name|PDSoftMask
 parameter_list|(
@@ -329,9 +329,6 @@ name|COSDictionary
 name|dictionary
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|dictionary
@@ -418,11 +415,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|group
-operator|=
-operator|(
-name|PDTransparencyGroup
-operator|)
+name|PDXObject
+name|x
+init|=
 name|PDXObject
 operator|.
 name|createXObject
@@ -431,7 +426,22 @@ name|cosGroup
 argument_list|,
 literal|null
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|x
+operator|instanceof
+name|PDTransparencyGroup
+condition|)
+block|{
+name|group
+operator|=
+operator|(
+name|PDTransparencyGroup
+operator|)
+name|x
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
