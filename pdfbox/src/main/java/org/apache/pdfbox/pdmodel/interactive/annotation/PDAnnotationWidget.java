@@ -115,6 +115,24 @@ name|PDAction
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|form
+operator|.
+name|PDTerminalField
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is the class that represents a widget.  *  * @author Ben Litchfield  */
 end_comment
@@ -560,6 +578,54 @@ comment|// return PDFieldFactory.createField(acroForm, (COSDictionary) parent);
 comment|// }
 comment|// return null;
 comment|// }
+comment|/**      * Set the parent field of a widget annotation. This is only required if this widget annotation      * is one of multiple children in a field, and not to be set otherwise. You will usually not      * need this, because in most cases, fields have only one widget and share a common dictionary.      * A usage can be found in the CreateMultiWidgetsForm example.      *      * @param field the parent field.      * @throws IllegalArgumentException if setParent() was called for a field that shares a      * dictionary with its only widget.      */
+specifier|public
+name|void
+name|setParent
+parameter_list|(
+name|PDTerminalField
+name|field
+parameter_list|)
+block|{
+if|if
+condition|(
+name|this
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|field
+operator|.
+name|getCOSObject
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"setParent() is not to be called for a field that shares a dictionary with its only widget"
+argument_list|)
+throw|;
+block|}
+name|this
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|PARENT
+argument_list|,
+name|field
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
