@@ -420,6 +420,20 @@ operator|.
 name|trailer
 return|;
 block|}
+comment|/**      * Returns the count of trailers.      *      * @return the count of trailers.      */
+specifier|public
+specifier|final
+name|int
+name|getTrailerCount
+parameter_list|()
+block|{
+return|return
+name|bytePosToXrefMap
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 comment|/**      * Signals that a new XRef object (table or stream) starts.      * @param startBytePos the offset to start at      * @param type the type of the Xref object      */
 specifier|public
 name|void

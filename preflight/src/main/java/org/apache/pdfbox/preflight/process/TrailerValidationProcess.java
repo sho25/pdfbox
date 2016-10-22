@@ -498,11 +498,23 @@ argument_list|(
 name|pdfDoc
 argument_list|)
 decl_stmt|;
+comment|// linearized files have two trailers, everything else is not a linearized file
+comment|// so don't make the checks for linearized files
 if|if
 condition|(
 name|linearizedDict
 operator|!=
 literal|null
+operator|&&
+name|ctx
+operator|.
+name|getXrefTrailerResolver
+argument_list|()
+operator|.
+name|getTrailerCount
+argument_list|()
+operator|==
+literal|2
 condition|)
 block|{
 comment|// it is a linearized PDF, check the linearized dictionary
