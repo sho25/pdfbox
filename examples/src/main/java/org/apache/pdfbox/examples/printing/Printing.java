@@ -273,6 +273,11 @@ comment|//printWithAttributes(document);
 comment|//printWithDialog(document);
 comment|//printWithDialogAndAttributes(document);
 comment|//printWithPaper(document);
+name|document
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Prints the document at its actual size. This is the recommended way to print.      */
 specifier|private
