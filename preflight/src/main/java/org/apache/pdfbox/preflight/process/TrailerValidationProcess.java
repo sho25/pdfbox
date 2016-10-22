@@ -499,7 +499,7 @@ name|pdfDoc
 argument_list|)
 decl_stmt|;
 comment|// linearized files have two trailers, everything else is not a linearized file
-comment|// so don't make the checks for linearized files
+comment|// so don't make the checks for updated linearized files
 if|if
 condition|(
 name|linearizedDict
