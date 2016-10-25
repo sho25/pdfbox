@@ -605,7 +605,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|error
+name|info
 argument_list|(
 literal|"OpenType Layout tables used in font "
 operator|+
