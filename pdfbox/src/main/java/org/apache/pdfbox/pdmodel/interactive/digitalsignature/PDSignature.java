@@ -754,7 +754,7 @@ operator|+
 literal|1
 decl_stmt|;
 name|int
-name|end
+name|len
 init|=
 name|byteRange
 index|[
@@ -777,7 +777,7 @@ index|[]
 block|{
 name|begin
 block|,
-name|end
+name|len
 block|}
 argument_list|)
 argument_list|)
@@ -819,7 +819,7 @@ operator|+
 literal|1
 decl_stmt|;
 name|int
-name|end
+name|len
 init|=
 name|byteRange
 index|[
@@ -842,7 +842,7 @@ index|[]
 block|{
 name|begin
 block|,
-name|end
+name|len
 block|}
 argument_list|)
 argument_list|)
