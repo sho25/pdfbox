@@ -1241,6 +1241,15 @@ argument_list|(
 name|xrefTrailerResolver
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|.
+name|setFileLen
+argument_list|(
+name|this
+operator|.
+name|fileLen
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

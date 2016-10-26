@@ -515,6 +515,20 @@ name|getTrailerCount
 argument_list|()
 operator|==
 literal|2
+operator|&&
+name|ctx
+operator|.
+name|getFileLen
+argument_list|()
+operator|==
+name|linearizedDict
+operator|.
+name|getLong
+argument_list|(
+name|COSName
+operator|.
+name|L
+argument_list|)
 condition|)
 block|{
 comment|// it is a linearized PDF, check the linearized dictionary
