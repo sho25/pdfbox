@@ -55,6 +55,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -156,6 +184,21 @@ name|PDSignatureField
 extends|extends
 name|PDTerminalField
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDSignatureField
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * @see PDTerminalField#PDTerminalField(PDAcroForm)      *      * @param acroForm The acroForm for this field.      * @throws IOException If there is an error while resolving partial name for the signature field      *         or getting the widget object.      */
 specifier|public
 name|PDSignatureField
@@ -685,13 +728,13 @@ block|{
 return|return;
 block|}
 comment|// TODO: implement appearance generation for signatures
-throw|throw
-operator|new
-name|UnsupportedOperationException
+name|LOG
+operator|.
+name|warn
 argument_list|(
-literal|"not implemented"
+literal|"Appearance generation for signature fields not yet implemented - you need to generate/update that manually"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 block|}
