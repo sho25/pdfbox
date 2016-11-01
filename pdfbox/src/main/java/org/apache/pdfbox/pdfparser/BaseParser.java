@@ -2880,7 +2880,7 @@ argument_list|()
 argument_list|,
 name|Charsets
 operator|.
-name|ISO_8859_1
+name|WINDOWS_1252
 argument_list|)
 expr_stmt|;
 block|}

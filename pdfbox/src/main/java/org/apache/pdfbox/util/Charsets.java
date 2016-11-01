@@ -97,6 +97,20 @@ argument_list|(
 literal|"ISO-8859-1"
 argument_list|)
 decl_stmt|;
+comment|/*** Windows-1252 charset */
+specifier|public
+specifier|static
+specifier|final
+name|Charset
+name|WINDOWS_1252
+init|=
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"Windows-1252"
+argument_list|)
+decl_stmt|;
 comment|/*** UTF-8 charset */
 specifier|public
 specifier|static
