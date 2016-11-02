@@ -25,6 +25,16 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Color
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|color
 operator|.
 name|ColorSpace
@@ -633,7 +643,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-comment|// create a color in order to trigger a ProfileDataException
+comment|// do things that trigger a ProfileDataException
 comment|// or CMMException due to invalid profiles, see PDFBOX-1295 and PDFBOX-1740
 name|awtColorSpace
 operator|.
@@ -644,6 +654,22 @@ name|float
 index|[
 literal|3
 index|]
+argument_list|)
+expr_stmt|;
+comment|// this one triggers an exception for PDFBOX-3549 with KCMS
+operator|new
+name|Color
+argument_list|(
+name|awtColorSpace
+argument_list|,
+operator|new
+name|float
+index|[
+name|getNumberOfComponents
+argument_list|()
+index|]
+argument_list|,
+literal|1f
 argument_list|)
 expr_stmt|;
 block|}
