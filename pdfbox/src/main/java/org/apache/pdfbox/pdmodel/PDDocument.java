@@ -1501,6 +1501,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO This "overwrites" the settings of the original signature field which might not be intended by the user
+comment|// better make it configurable (not all users need/want PDF/A but their own setting):
 comment|// to conform PDF/A-1 requirement:
 comment|// The /F key's Print flag bit shall be set to 1 and
 comment|// its Hidden, Invisible and NoView flag bits shall be set to 0
@@ -2161,6 +2163,40 @@ argument_list|(
 name|rectArray
 argument_list|)
 decl_stmt|;
+name|PDRectangle
+name|existingRectangle
+init|=
+name|signatureField
+operator|.
+name|getWidgets
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getRectangle
+argument_list|()
+decl_stmt|;
+comment|//in case of an existing field keep the original rect
+if|if
+condition|(
+name|existingRectangle
+operator|==
+literal|null
+operator|||
+name|existingRectangle
+operator|.
+name|getCOSArray
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|!=
+literal|4
+condition|)
+block|{
 name|signatureField
 operator|.
 name|getWidgets
@@ -2176,6 +2212,7 @@ argument_list|(
 name|rect
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|private
 name|void
