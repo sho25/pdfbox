@@ -207,7 +207,7 @@ name|args
 operator|.
 name|length
 argument_list|>
-literal|5
+literal|8
 condition|)
 block|{
 name|usage
