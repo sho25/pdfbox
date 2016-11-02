@@ -1071,6 +1071,19 @@ operator|!=
 name|streamOffset
 condition|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"/XRefStm offset "
+operator|+
+name|streamOffset
+operator|+
+literal|" is incorrect, corrected to "
+operator|+
+name|fixedOffset
+argument_list|)
+expr_stmt|;
 name|streamOffset
 operator|=
 operator|(
@@ -1107,6 +1120,8 @@ expr_stmt|;
 name|skipSpaces
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|parseXrefObjStream
 argument_list|(
 name|prev
@@ -1114,6 +1129,37 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+if|if
+condition|(
+name|isLenient
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Failed to parse /XRefStm at offset "
+operator|+
+name|streamOffset
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+block|}
 block|}
 else|else
 block|{
