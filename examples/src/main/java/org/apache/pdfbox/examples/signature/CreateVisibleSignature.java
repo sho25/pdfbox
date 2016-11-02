@@ -835,6 +835,10 @@ argument_list|(
 name|cmsSignature
 argument_list|)
 expr_stmt|;
+comment|// if you want to add the signature in a separate step, then set an empty byte array
+comment|// and call signature.getByteRange() and remember the offset signature.getByteRange()[1]+1.
+comment|// you can write the ascii hex signature at a later time even if you don't have the
+comment|// PDDocument object anymore, with classic java file random access methods.
 block|}
 else|else
 block|{
