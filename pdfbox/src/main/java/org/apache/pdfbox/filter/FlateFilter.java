@@ -617,6 +617,11 @@ name|read
 argument_list|)
 expr_stmt|;
 block|}
+name|inflater
+operator|.
+name|end
+argument_list|()
+expr_stmt|;
 block|}
 name|out
 operator|.
