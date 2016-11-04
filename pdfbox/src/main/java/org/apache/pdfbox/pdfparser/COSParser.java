@@ -7401,6 +7401,18 @@ operator|<
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|isLenient
+condition|)
+block|{
+name|headerVersion
+operator|=
+literal|1.7f
+expr_stmt|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -7410,6 +7422,7 @@ operator|+
 name|header
 argument_list|)
 throw|;
+block|}
 block|}
 name|document
 operator|.
