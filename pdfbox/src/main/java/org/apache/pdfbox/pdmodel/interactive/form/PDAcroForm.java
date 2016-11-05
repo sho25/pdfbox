@@ -1603,12 +1603,10 @@ operator|.
 name|getFullyQualifiedName
 argument_list|()
 operator|.
-name|compareTo
+name|equals
 argument_list|(
 name|fullyQualifiedName
 argument_list|)
-operator|==
-literal|0
 condition|)
 block|{
 return|return
