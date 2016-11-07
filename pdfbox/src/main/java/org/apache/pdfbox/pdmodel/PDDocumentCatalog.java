@@ -907,6 +907,9 @@ name|void
 name|setThreads
 parameter_list|(
 name|List
+argument_list|<
+name|PDThread
+argument_list|>
 name|threads
 parameter_list|)
 block|{

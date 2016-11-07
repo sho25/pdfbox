@@ -778,6 +778,10 @@ name|void
 name|checkIndexBounds
 parameter_list|(
 name|List
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|codeTable
 parameter_list|,
 name|long

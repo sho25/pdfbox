@@ -1413,12 +1413,15 @@ name|n
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the list of alternateColorSpace color spaces.      * This should be a list of PDColorSpace objects.      * @param list the list of color space objects      */
+comment|/**      * Sets the list of alternateColorSpace color spaces.      *      * @param list the list of color space objects      */
 specifier|public
 name|void
 name|setAlternateColorSpaces
 parameter_list|(
 name|List
+argument_list|<
+name|PDColorSpace
+argument_list|>
 name|list
 parameter_list|)
 block|{

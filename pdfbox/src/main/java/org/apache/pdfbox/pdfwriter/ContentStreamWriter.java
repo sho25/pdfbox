@@ -335,6 +335,9 @@ name|void
 name|writeTokens
 parameter_list|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|tokens
 parameter_list|)
 throws|throws

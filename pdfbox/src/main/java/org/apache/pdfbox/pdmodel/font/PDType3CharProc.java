@@ -760,6 +760,9 @@ name|Operator
 name|operator
 parameter_list|,
 name|List
+argument_list|<
+name|COSBase
+argument_list|>
 name|arguments
 parameter_list|)
 throws|throws
