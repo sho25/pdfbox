@@ -796,11 +796,11 @@ literal|'.'
 case|:
 block|{
 comment|/* We will be filling buf with the rest of the number.  Only                  * allow 1 "." and "-" and "+" at start of number. */
-name|StringBuffer
+name|StringBuilder
 name|buf
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|buf
@@ -1501,11 +1501,11 @@ argument_list|()
 expr_stmt|;
 comment|//average string size is around 2 and the normal string buffer size is
 comment|//about 16 so lets save some space.
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|4
 argument_list|)

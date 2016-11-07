@@ -1829,11 +1829,11 @@ case|case
 literal|'7'
 case|:
 block|{
-name|StringBuffer
+name|StringBuilder
 name|octal
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|octal

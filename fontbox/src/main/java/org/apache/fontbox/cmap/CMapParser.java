@@ -1972,11 +1972,11 @@ case|:
 block|{
 comment|// header operations, for now return the entire line
 comment|// may need to smarter in the future
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|buffer
@@ -2009,11 +2009,11 @@ case|case
 literal|'('
 case|:
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|int
@@ -2486,11 +2486,11 @@ case|case
 literal|'/'
 case|:
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|int
@@ -2602,11 +2602,11 @@ case|case
 literal|'9'
 case|:
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|buffer
@@ -2722,11 +2722,11 @@ break|break;
 block|}
 default|default:
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|buffer
@@ -2837,7 +2837,7 @@ parameter_list|(
 name|InputStream
 name|is
 parameter_list|,
-name|StringBuffer
+name|StringBuilder
 name|buf
 parameter_list|)
 throws|throws
