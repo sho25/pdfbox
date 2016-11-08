@@ -462,12 +462,12 @@ specifier|private
 name|PDColorSpace
 name|colorSpace
 decl_stmt|;
+comment|/**      * current resource dictionary (has color spaces)      */
 specifier|private
 specifier|final
 name|PDResources
 name|resources
 decl_stmt|;
-comment|// current resource dictionary (has color spaces)
 comment|/**      * Creates a thumbnail Image XObject from the given COSBase and name.      * @param cosStream the COS stream      * @return an XObject      * @throws IOException if there is an error creating the XObject.      */
 specifier|public
 specifier|static
@@ -500,7 +500,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an Image XObject in the given document.      * @param document the current document      * @throws java.io.IOException if there is an error creating the XObject.      */
+comment|/**      * Creates an Image XObject in the given document. This constructor is for internal PDFBox use      * and is not for PDF generation. Users who want to create images should look at {@link #createFromFileByExtension(File, PDDocument)      * }.      *      * @param document the current document      * @throws java.io.IOException if there is an error creating the XObject.      */
 specifier|public
 name|PDImageXObject
 parameter_list|(
@@ -522,7 +522,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates an Image XObject in the given document using the given filtered stream.      * @param document the current document      * @param encodedStream an encoded stream of image data      * @param cosFilter the filter or a COSArray of filters      * @param width the image width      * @param height the image height      * @param bitsPerComponent the bits per component      * @param initColorSpace the color space      * @throws IOException if there is an error creating the XObject.      */
+comment|/**      * Creates an Image XObject in the given document using the given filtered stream. This      * constructor is for internal PDFBox use and is not for PDF generation. Users who want to      * create images should look at {@link #createFromFileByExtension(File, PDDocument) }.      *      * @param document the current document      * @param encodedStream an encoded stream of image data      * @param cosFilter the filter or a COSArray of filters      * @param width the image width      * @param height the image height      * @param bitsPerComponent the bits per component      * @param initColorSpace the color space      * @throws IOException if there is an error creating the XObject.      */
 specifier|public
 name|PDImageXObject
 parameter_list|(
@@ -675,7 +675,7 @@ return|return
 name|stream
 return|;
 block|}
-comment|/**      * Creates an Image XObject with the given stream as its contents and current color spaces.      * @param stream the XObject stream to read      * @param resources the current resources      * @throws java.io.IOException if there is an error creating the XObject.      */
+comment|/**      * Creates an Image XObject with the given stream as its contents and current color spaces. This      * constructor is for internal PDFBox use and is not for PDF generation. Users who want to      * create images should look at {@link #createFromFileByExtension(File, PDDocument) }.      *      * @param stream the XObject stream to read      * @param resources the current resources      * @throws java.io.IOException if there is an error creating the XObject.      */
 specifier|public
 name|PDImageXObject
 parameter_list|(
