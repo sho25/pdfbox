@@ -635,7 +635,7 @@ name|getFontMatrix
 argument_list|()
 return|;
 block|}
-comment|/**      * todo.      *       * @return      * @throws IOException      */
+comment|/**      * Get the width from a type3 charproc stream.      *      * @return the glyph width.      * @throws IOException if the stream could not be read, or did not have d0 or d1 as first      * operator, or if their first argument was not a number.      */
 specifier|public
 name|float
 name|getWidth
@@ -791,7 +791,7 @@ literal|"d1"
 argument_list|)
 condition|)
 block|{
-name|Object
+name|COSBase
 name|obj
 init|=
 name|arguments
@@ -805,26 +805,6 @@ if|if
 condition|(
 name|obj
 operator|instanceof
-name|Number
-condition|)
-block|{
-return|return
-operator|(
-operator|(
-name|Number
-operator|)
-name|obj
-operator|)
-operator|.
-name|floatValue
-argument_list|()
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|obj
-operator|instanceof
 name|COSNumber
 condition|)
 block|{
@@ -840,8 +820,6 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-else|else
-block|{
 throw|throw
 operator|new
 name|IOException
@@ -857,7 +835,6 @@ name|getName
 argument_list|()
 argument_list|)
 throw|;
-block|}
 block|}
 else|else
 block|{
