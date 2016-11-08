@@ -171,6 +171,20 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSBase
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class is used to parse a glyph of a Type3 font program. If the glyph is parsed without error, the width of the  * glyph is accessible through the getWidth method.  */
 end_comment
@@ -290,6 +304,9 @@ name|Operator
 name|operator
 parameter_list|,
 name|List
+argument_list|<
+name|COSBase
+argument_list|>
 name|operands
 parameter_list|)
 throws|throws
@@ -518,6 +535,9 @@ name|void
 name|checkType3FirstOperator
 parameter_list|(
 name|List
+argument_list|<
+name|COSBase
+argument_list|>
 name|arguments
 parameter_list|)
 throws|throws
@@ -537,7 +557,7 @@ literal|"Type3 CharProc : First operator must be d0 or d1"
 argument_list|)
 throw|;
 block|}
-name|Object
+name|COSBase
 name|obj
 init|=
 name|arguments
@@ -547,27 +567,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|obj
-operator|instanceof
-name|Number
-condition|)
-block|{
-name|width
-operator|=
-operator|(
-operator|(
-name|Number
-operator|)
-name|obj
-operator|)
-operator|.
-name|intValue
-argument_list|()
-expr_stmt|;
-block|}
-elseif|else
 if|if
 condition|(
 name|obj
