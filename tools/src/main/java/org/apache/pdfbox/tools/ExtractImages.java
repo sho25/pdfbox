@@ -1136,7 +1136,52 @@ throws|throws
 name|IOException
 block|{          }
 block|}
-comment|/**      * Writes the image to a file with the filename + an appropriate suffix, like "Image.jpg".      * The suffix is automatically set by the      * @param filename the filename      * @throws IOException When somethings wrong with the corresponding file.      */
+specifier|private
+name|boolean
+name|hasMasks
+parameter_list|(
+name|PDImage
+name|pdImage
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|pdImage
+operator|instanceof
+name|PDImageXObject
+condition|)
+block|{
+name|PDImageXObject
+name|ximg
+init|=
+operator|(
+name|PDImageXObject
+operator|)
+name|pdImage
+decl_stmt|;
+return|return
+name|ximg
+operator|.
+name|getMask
+argument_list|()
+operator|!=
+literal|null
+operator|||
+name|ximg
+operator|.
+name|getSoftMask
+argument_list|()
+operator|!=
+literal|null
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Writes the image to a file with the filename prefix + an appropriate suffix, like "Image.jpg".      * The suffix is automatically set depending on the image compression in the PDF.      * @param pdImage the image.      * @param prefix the filename prefix.      * @param directJPEG if true, force saving JPEG streams as they are in the PDF file.       * @throws IOException When something is wrong with the corresponding file.      */
 specifier|private
 name|void
 name|write2file
@@ -1232,6 +1277,13 @@ if|if
 condition|(
 name|directJPEG
 operator|||
+operator|!
+name|hasMasks
+argument_list|(
+name|pdImage
+argument_list|)
+operator|&&
+operator|(
 name|PDDeviceGray
 operator|.
 name|INSTANCE
@@ -1255,9 +1307,10 @@ name|equals
 argument_list|(
 name|colorSpaceName
 argument_list|)
+operator|)
 condition|)
 block|{
-comment|// RGB or Gray colorspace: get and write the unmodifiedJPEG stream
+comment|// RGB or Gray colorspace: get and write the unmodified JPEG stream
 name|InputStream
 name|data
 init|=
