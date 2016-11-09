@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Pattern dictionary from a page's resources.  */
+comment|/**  * This class wraps a pattern dictionary. Patterns can be found in resource dictionaries.  */
 end_comment
 
 begin_class
@@ -157,14 +157,14 @@ name|TYPE_SHADING_PATTERN
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * Create the correct PD Model pattern based on the COS base pattern.      * @param resourceDictionary the COS pattern dictionary      * @return the newly created pattern resources object      * @throws IOException If we are unable to create the PDPattern object.      */
+comment|/**      * Create the correct PD Model pattern based on the COS base pattern.      * @param dictionary the COS pattern dictionary      * @return the newly created pattern object      * @throws IOException If we are unable to create the PDPattern object.      */
 specifier|public
 specifier|static
 name|PDAbstractPattern
 name|create
 parameter_list|(
 name|COSDictionary
-name|resourceDictionary
+name|dictionary
 parameter_list|)
 throws|throws
 name|IOException
@@ -175,7 +175,7 @@ decl_stmt|;
 name|int
 name|patternType
 init|=
-name|resourceDictionary
+name|dictionary
 operator|.
 name|getInt
 argument_list|(
@@ -199,7 +199,7 @@ operator|=
 operator|new
 name|PDTilingPattern
 argument_list|(
-name|resourceDictionary
+name|dictionary
 argument_list|)
 expr_stmt|;
 break|break;
@@ -211,7 +211,7 @@ operator|=
 operator|new
 name|PDShadingPattern
 argument_list|(
-name|resourceDictionary
+name|dictionary
 argument_list|)
 expr_stmt|;
 break|break;
@@ -263,20 +263,20 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new Pattern dictionary from the given COS dictionary.      * @param resourceDictionary The COSDictionary for this pattern resource.      */
+comment|/**      * Creates a new Pattern dictionary from the given COS dictionary.      * @param dictionary The COSDictionary for this pattern.      */
 specifier|public
 name|PDAbstractPattern
 parameter_list|(
 name|COSDictionary
-name|resourceDictionary
+name|dictionary
 parameter_list|)
 block|{
 name|patternDictionary
 operator|=
-name|resourceDictionary
+name|dictionary
 expr_stmt|;
 block|}
-comment|/**      * This will get the underlying dictionary.      * @return The dictionary for these pattern resources.      */
+comment|/**      * This will get the underlying dictionary.      * @return The dictionary for this pattern.      */
 annotation|@
 name|Override
 specifier|public
