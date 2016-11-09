@@ -247,17 +247,17 @@ name|TYPE_TILING_PATTERN
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new tiling pattern from the given COS dictionary.      * @param resourceDictionary The COSDictionary for this pattern resource.      */
+comment|/**      * Creates a new tiling pattern from the given COS dictionary.      * @param dictionary The COSDictionary for this pattern.      */
 specifier|public
 name|PDTilingPattern
 parameter_list|(
 name|COSDictionary
-name|resourceDictionary
+name|dictionary
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|resourceDictionary
+name|dictionary
 argument_list|)
 expr_stmt|;
 block|}
