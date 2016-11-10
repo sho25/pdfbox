@@ -209,7 +209,7 @@ name|TILING_CONSTANT_SPACING
 init|=
 literal|1
 decl_stmt|;
-comment|/**  tiling type 2 = no distortion. */
+comment|/** tiling type 2 = no distortion. */
 specifier|public
 specifier|static
 specifier|final
@@ -232,6 +232,30 @@ specifier|public
 name|PDTilingPattern
 parameter_list|()
 block|{
+name|super
+argument_list|(
+operator|new
+name|COSStream
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|getCOSObject
+argument_list|()
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|,
+name|COSName
+operator|.
+name|PATTERN
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|getCOSObject
 argument_list|()
 operator|.
@@ -244,6 +268,14 @@ argument_list|,
 name|PDAbstractPattern
 operator|.
 name|TYPE_TILING_PATTERN
+argument_list|)
+expr_stmt|;
+comment|// Resources required per PDF specification; when missing, pattern is not displayed in Adobe Reader
+name|setResources
+argument_list|(
+operator|new
+name|PDResources
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -579,6 +611,7 @@ return|;
 block|}
 comment|/**      * This will set the resources for this pattern.      * @param resources The new resources for this pattern.      */
 specifier|public
+specifier|final
 name|void
 name|setResources
 parameter_list|(
