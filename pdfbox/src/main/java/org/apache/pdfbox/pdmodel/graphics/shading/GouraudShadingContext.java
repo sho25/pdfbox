@@ -505,6 +505,34 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+comment|// "Each set of vertex data shall occupy a whole number of bytes.
+comment|// If the total number of bits required is not divisible by 8, the last data byte
+comment|// for each vertex is padded at the end with extra bits, which shall be ignored."
+name|int
+name|bitOffset
+init|=
+name|input
+operator|.
+name|getBitOffset
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|bitOffset
+operator|!=
+literal|0
+condition|)
+block|{
+name|input
+operator|.
+name|readBits
+argument_list|(
+literal|8
+operator|-
+name|bitOffset
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|Vertex
