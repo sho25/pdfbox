@@ -186,6 +186,9 @@ argument_list|<
 name|COSBase
 argument_list|,
 name|FontContainer
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|fontContainers
 init|=
@@ -195,6 +198,9 @@ argument_list|<
 name|COSBase
 argument_list|,
 name|FontContainer
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -414,6 +420,9 @@ name|COSBase
 name|cBase
 parameter_list|,
 name|FontContainer
+argument_list|<
+name|?
+argument_list|>
 name|fc
 parameter_list|)
 block|{
@@ -432,6 +441,9 @@ block|}
 comment|/**      * Return the FontContainer identified by the COSBase. If the given object is missing from the      * {@link #fontContainers} map, the null value is returned.      *       * @param cBase the COSBase for the font container      * @return the font container.      */
 specifier|public
 name|FontContainer
+argument_list|<
+name|?
+argument_list|>
 name|getFontContainer
 parameter_list|(
 name|COSBase

@@ -2162,6 +2162,9 @@ name|xObjFont
 argument_list|)
 decl_stmt|;
 name|FontContainer
+argument_list|<
+name|?
+argument_list|>
 name|aContainer
 init|=
 name|this

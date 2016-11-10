@@ -495,6 +495,9 @@ name|peek
 argument_list|()
 decl_stmt|;
 name|FontContainer
+argument_list|<
+name|?
+argument_list|>
 name|fontContainer
 init|=
 name|context
@@ -520,6 +523,11 @@ argument_list|<
 name|?
 extends|extends
 name|FontContainer
+argument_list|<
+name|?
+extends|extends
+name|PDFont
+argument_list|>
 argument_list|>
 name|validator
 init|=
@@ -553,6 +561,11 @@ argument_list|<
 name|?
 extends|extends
 name|FontContainer
+argument_list|<
+name|?
+extends|extends
+name|PDFont
+argument_list|>
 argument_list|>
 name|getFontValidator
 parameter_list|(

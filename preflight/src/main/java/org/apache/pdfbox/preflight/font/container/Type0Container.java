@@ -77,9 +77,15 @@ class|class
 name|Type0Container
 extends|extends
 name|FontContainer
+argument_list|<
+name|PDFont
+argument_list|>
 block|{
 specifier|private
 name|FontContainer
+argument_list|<
+name|?
+argument_list|>
 name|delegateFontContainer
 decl_stmt|;
 specifier|public
@@ -100,6 +106,9 @@ name|void
 name|setDelegateFontContainer
 parameter_list|(
 name|FontContainer
+argument_list|<
+name|?
+argument_list|>
 name|delegateFontContainer
 parameter_list|)
 block|{
