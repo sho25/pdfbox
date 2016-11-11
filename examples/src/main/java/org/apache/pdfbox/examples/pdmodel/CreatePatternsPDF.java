@@ -236,6 +236,10 @@ specifier|public
 class|class
 name|CreatePatternsPDF
 block|{
+specifier|private
+name|CreatePatternsPDF
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void
