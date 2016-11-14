@@ -969,17 +969,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// clear the current soft mask (this mask) to avoid recursion
 name|saveGraphicsState
 argument_list|()
-expr_stmt|;
-name|getGraphicsState
-argument_list|()
-operator|.
-name|setSoftMask
-argument_list|(
-literal|null
-argument_list|)
 expr_stmt|;
 name|processTransparencyGroup
 argument_list|(
@@ -1048,6 +1039,15 @@ name|group
 operator|.
 name|getMatrix
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// clear the current soft mask (this mask) to avoid recursion / unwanted effects
+name|getGraphicsState
+argument_list|()
+operator|.
+name|setSoftMask
+argument_list|(
+literal|null
 argument_list|)
 expr_stmt|;
 comment|// clip to bounding box
