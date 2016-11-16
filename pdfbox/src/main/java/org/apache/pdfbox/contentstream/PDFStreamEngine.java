@@ -1411,6 +1411,14 @@ argument_list|(
 name|bbox
 argument_list|)
 expr_stmt|;
+comment|// needed for patterns in appearance streams, e.g. PDFBOX-2182
+name|initialMatrix
+operator|=
+name|aa
+operator|.
+name|clone
+argument_list|()
+expr_stmt|;
 name|processStreamOperators
 argument_list|(
 name|appearance
