@@ -932,7 +932,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"usage: java o"
+literal|"usage: java "
 operator|+
 name|CreateGradientShadingPDF
 operator|.
