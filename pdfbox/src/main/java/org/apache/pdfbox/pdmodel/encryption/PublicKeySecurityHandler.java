@@ -930,11 +930,6 @@ name|JceKeyTransEnvelopedRecipient
 argument_list|(
 name|privateKey
 argument_list|)
-operator|.
-name|setProvider
-argument_list|(
-literal|"BC"
-argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
