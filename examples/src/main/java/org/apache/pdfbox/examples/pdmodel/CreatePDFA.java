@@ -557,7 +557,7 @@ name|class
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"/org/apache/pdfbox/resources/pdfa/sRGB Color Space Profile.icm"
+literal|"/org/apache/pdfbox/resources/pdfa/sRGB.icc"
 argument_list|)
 decl_stmt|;
 name|PDOutputIntent
