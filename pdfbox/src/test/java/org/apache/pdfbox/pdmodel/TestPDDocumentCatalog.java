@@ -510,7 +510,7 @@ name|class
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"sRGB Color Space Profile.icm"
+literal|"sRGB.icc"
 argument_list|)
 expr_stmt|;
 comment|// create output intent
