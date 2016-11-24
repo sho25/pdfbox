@@ -161,7 +161,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Returns the blending color space      * @return color space      * @throws IOException      */
+comment|/**      * Returns the group color space or null if it isn't defined.      *      * @return the group color space.      * @throws IOException      */
 specifier|public
 name|PDColorSpace
 name|getColorSpace
@@ -174,6 +174,16 @@ condition|(
 name|colorSpace
 operator|==
 literal|null
+operator|&&
+name|getCOSObject
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|CS
+argument_list|)
 condition|)
 block|{
 name|colorSpace
