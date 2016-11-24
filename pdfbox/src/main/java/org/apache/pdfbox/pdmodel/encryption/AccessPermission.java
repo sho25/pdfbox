@@ -502,7 +502,7 @@ name|PRINT_BIT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if the user can print.      * This method will have no effect if the object is in read only mode      *      * @param allowPrinting A boolean determining if the user can print.      */
+comment|/**      * Set if the user can print.      *<p>      * This method will have no effect if the object is in read only mode.      *      * @param allowPrinting A boolean determining if the user can print.      */
 specifier|public
 name|void
 name|setCanPrint
@@ -539,7 +539,7 @@ name|MODIFICATION_BIT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if the user can modify the document.      * This method will have no effect if the object is in read only mode      *      * @param allowModifications A boolean determining if the user can modify the document.      */
+comment|/**      * Set if the user can modify the document.      *<p>      * This method will have no effect if the object is in read only mode.      *      * @param allowModifications A boolean determining if the user can modify the document.      */
 specifier|public
 name|void
 name|setCanModify
@@ -576,7 +576,7 @@ name|EXTRACT_BIT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if the user can extract content from the document.      * This method will have no effect if the object is in read only mode      *      * @param allowExtraction A boolean determining if the user can extract content      *                        from the document.      */
+comment|/**      * Set if the user can extract content from the document.      *<p>      * This method will have no effect if the object is in read only mode.      *      * @param allowExtraction A boolean determining if the user can extract content      *                        from the document.      */
 specifier|public
 name|void
 name|setCanExtractContent
@@ -600,7 +600,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will tell if the user can add/modify text annotations, fill in interactive forms fields.      *      * @return true If supplied with the user password they are allowed to modify annotations.      */
+comment|/**      * This will tell if the user can add or modify text annotations and fill in interactive forms      * fields and, if {@link #canModify() canModify()} returns true, create or modify interactive      * form fields (including signature fields). Note that if      * {@link #canFillInForm() canFillInForm()} returns true, it is still possible to fill in      * interactive forms (including signature fields) even if this method here returns false.      *      * @return true If supplied with the user password they are allowed to modify annotations.      */
 specifier|public
 name|boolean
 name|canModifyAnnotations
@@ -613,7 +613,7 @@ name|MODIFY_ANNOTATIONS_BIT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if the user can modify annotations.      * This method will have no effect if the object is in read only mode      *      * @param allowAnnotationModification A boolean determining if the user can modify annotations.      */
+comment|/**      * Set if the user can add or modify text annotations and fill in interactive forms fields and,      * if {@link #canModify() canModify()} returns true, create or modify interactive form fields      * (including signature fields). Note that if {@link #canFillInForm() canFillInForm()} returns      * true, it is still possible to fill in interactive forms (including signature fields) even the      * parameter here is false.      *<p>      * This method will have no effect if the object is in read only mode.      *      * @param allowAnnotationModification A boolean determining the new setting.      */
 specifier|public
 name|void
 name|setCanModifyAnnotations
@@ -637,7 +637,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will tell if the user can fill in interactive forms.      *      * @return true If supplied with the user password they are allowed to fill in form fields.      */
+comment|/**      * This will tell if the user can fill in interactive form fields (including signature fields)      * even if {@link #canModifyAnnotations() canModifyAnnotations()} returns false.      *      * @return true If supplied with the user password they are allowed to fill in form fields.      */
 specifier|public
 name|boolean
 name|canFillInForm
@@ -650,7 +650,7 @@ name|FILL_IN_FORM_BIT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if the user can fill in interactive forms.      * This method will have no effect if the object is in read only mode      *      * @param allowFillingInForm A boolean determining if the user can fill in interactive forms.      */
+comment|/**      * Set if the user can fill in interactive form fields (including signature fields) even if      * {@link #canModifyAnnotations() canModifyAnnotations()} returns false. Therefore, if you want      * to prevent a user from filling in interactive form fields, you need to call      * {@link #setCanModifyAnnotations(boolean) setCanModifyAnnotations(false)} as well.      *<p>      * This method will have no effect if the object is in read only mode.      *      * @param allowFillingInForm A boolean determining if the user can fill in interactive forms.      */
 specifier|public
 name|void
 name|setCanFillInForm
@@ -687,7 +687,7 @@ name|EXTRACT_FOR_ACCESSIBILITY_BIT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if the user can extract content from the document for accessibility purposes.      * This method will have no effect if the object is in read only mode      *      * @param allowExtraction A boolean determining if the user can extract content      *                        from the document.      */
+comment|/**      * Set if the user can extract content from the document for accessibility purposes.      *<p>      * This method will have no effect if the object is in read only mode.      *      * @param allowExtraction A boolean determining if the user can extract content      *                        from the document.      */
 specifier|public
 name|void
 name|setCanExtractForAccessibility
@@ -724,7 +724,7 @@ name|ASSEMBLE_DOCUMENT_BIT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if the user can insert/rotate/delete pages.      * This method will have no effect if the object is in read only mode      *      * @param allowAssembly A boolean determining if the user can assemble the document.      */
+comment|/**      * Set if the user can insert/rotate/delete pages.      *<p>      * This method will have no effect if the object is in read only mode.      *      * @param allowAssembly A boolean determining if the user can assemble the document.      */
 specifier|public
 name|void
 name|setCanAssembleDocument
@@ -761,7 +761,7 @@ name|DEGRADED_PRINT_BIT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if the user can print the document in a degraded format.      * This method will have no effect if the object is in read only mode      *      * @param allowAssembly A boolean determining if the user can print the      *        document in a degraded format.      */
+comment|/**      * Set if the user can print the document in a degraded format.      *<p>      * This method will have no effect if the object is in read only mode.      *      * @param allowAssembly A boolean determining if the user can print the      *        document in a degraded format.      */
 specifier|public
 name|void
 name|setCanPrintDegraded
