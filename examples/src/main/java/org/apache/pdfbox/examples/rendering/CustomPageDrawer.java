@@ -825,7 +825,7 @@ comment|// 35% alpha
 name|getGraphicsState
 argument_list|()
 operator|.
-name|setNonStrokeAlphaConstants
+name|setNonStrokeAlphaConstant
 argument_list|(
 literal|0.35
 argument_list|)

@@ -1083,7 +1083,7 @@ expr_stmt|;
 name|getGraphicsState
 argument_list|()
 operator|.
-name|setNonStrokeAlphaConstants
+name|setNonStrokeAlphaConstant
 argument_list|(
 literal|1
 argument_list|)

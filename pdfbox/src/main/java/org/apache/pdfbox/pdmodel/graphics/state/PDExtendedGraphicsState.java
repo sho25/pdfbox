@@ -612,7 +612,7 @@ condition|)
 block|{
 name|gs
 operator|.
-name|setNonStrokeAlphaConstants
+name|setNonStrokeAlphaConstant
 argument_list|(
 name|getNonStrokingAlphaConstant
 argument_list|()
