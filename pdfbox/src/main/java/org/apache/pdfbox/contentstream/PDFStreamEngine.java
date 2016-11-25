@@ -651,6 +651,24 @@ name|OperatorProcessor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|blend
+operator|.
+name|BlendMode
+import|;
+end_import
+
 begin_comment
 comment|/**  * Processes a PDF content stream and executes certain operations.  * Provides a callback interface for clients that want to do things with the stream.  *   * @author Ben Litchfield  */
 end_comment
@@ -958,7 +976,7 @@ name|form
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Processes a soft mask transparency group stream.      */
+comment|/**      * Processes a soft mask transparency group stream.      * @param group      * @throws IOException      */
 specifier|protected
 name|void
 name|processSoftMask
@@ -981,7 +999,7 @@ name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Processes a transparency group stream.      */
+comment|/**      * Processes a transparency group stream.      * @param group      * @throws IOException      */
 specifier|protected
 name|void
 name|processTransparencyGroup
@@ -1041,7 +1059,35 @@ name|getMatrix
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// clear the current soft mask (this mask) to avoid recursion / unwanted effects
+comment|// Before execution of the transparency group XObject’s content stream,
+comment|// the current blend mode in the graphics state shall be initialized to Normal,
+comment|// the current stroking and nonstroking alpha constants to 1.0, and the current soft mask to None.
+name|getGraphicsState
+argument_list|()
+operator|.
+name|setBlendMode
+argument_list|(
+name|BlendMode
+operator|.
+name|NORMAL
+argument_list|)
+expr_stmt|;
+name|getGraphicsState
+argument_list|()
+operator|.
+name|setAlphaConstant
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|getGraphicsState
+argument_list|()
+operator|.
+name|setNonStrokeAlphaConstants
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|getGraphicsState
 argument_list|()
 operator|.
