@@ -566,7 +566,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Get the value of the stroke alpha constants property.      *      * @return The value of the stroke alpha constants parameter.      */
+comment|/**      * Get the value of the stroke alpha constant property.      *      * @return The value of the stroke alpha constant parameter.      */
 specifier|public
 name|double
 name|getAlphaConstant
@@ -576,7 +576,7 @@ return|return
 name|alphaConstant
 return|;
 block|}
-comment|/**      * set the value of the stroke alpha constants property.      *      * @param value The value of the stroke alpha constants parameter.      */
+comment|/**      * set the value of the stroke alpha constant property.      *      * @param value The value of the stroke alpha constant parameter.      */
 specifier|public
 name|void
 name|setAlphaConstant
@@ -590,7 +590,9 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Get the value of the non-stroke alpha constants property.      *      * @return The value of the non-stroke alpha constants parameter.      */
+comment|/**      * Get the value of the non-stroke alpha constant property.      *      * @return The value of the non-stroke alpha constant parameter.      * @deprecated use {@link #getNonStrokeAlphaConstant() }      */
+annotation|@
+name|Deprecated
 specifier|public
 name|double
 name|getNonStrokeAlphaConstants
@@ -600,10 +602,36 @@ return|return
 name|nonStrokingAlphaConstant
 return|;
 block|}
-comment|/**      * set the value of the non-stroke alpha constants property.      *      * @param value The value of the non-stroke alpha constants parameter.      */
+comment|/**      * set the value of the non-stroke alpha constant property.      *      * @param value The value of the non-stroke alpha constant parameter.      * @deprecated use {@link #setNonStrokeAlphaConstant(double) }      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setNonStrokeAlphaConstants
+parameter_list|(
+name|double
+name|value
+parameter_list|)
+block|{
+name|nonStrokingAlphaConstant
+operator|=
+name|value
+expr_stmt|;
+block|}
+comment|/**      * Get the value of the non-stroke alpha constant property.      *      * @return The value of the non-stroke alpha constant parameter.      */
+specifier|public
+name|double
+name|getNonStrokeAlphaConstant
+parameter_list|()
+block|{
+return|return
+name|nonStrokingAlphaConstant
+return|;
+block|}
+comment|/**      * set the value of the non-stroke alpha constant property.      *      * @param value The value of the non-stroke alpha constant parameter.      */
+specifier|public
+name|void
+name|setNonStrokeAlphaConstant
 parameter_list|(
 name|double
 name|value
