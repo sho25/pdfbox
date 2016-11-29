@@ -61,6 +61,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|RandomAccessFile
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|URL
@@ -329,6 +339,20 @@ name|PDSignatureField
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Hex
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an example for visual signing a pdf.   * @see CreateSignature  * @author Vakhtang Koroghlishvili  */
 end_comment
@@ -357,6 +381,37 @@ operator|new
 name|PDVisibleSigProperties
 argument_list|()
 decl_stmt|;
+specifier|private
+name|boolean
+name|lateExternalSigning
+init|=
+literal|false
+decl_stmt|;
+specifier|public
+name|boolean
+name|isLateExternalSigning
+parameter_list|()
+block|{
+return|return
+name|lateExternalSigning
+return|;
+block|}
+comment|/**      * Set late external signing. Enable this if you want to activate the demo code where the      * signature is kept and added in an extra step without using PDFBox methods. This is disabled      * by default.      *      * @param lateExternalSigning      */
+specifier|public
+name|void
+name|setLateExternalSigning
+parameter_list|(
+name|boolean
+name|lateExternalSigning
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lateExternalSigning
+operator|=
+name|lateExternalSigning
+expr_stmt|;
+block|}
 specifier|public
 name|void
 name|setVisibleSignDesigner
@@ -825,7 +880,87 @@ name|getContent
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// set signature bytes received from the service
+comment|// Explanation of late external signing (off by default):
+comment|// If you want to add the signature in a separate step, then set an empty byte array
+comment|// and call signature.getByteRange() and remember the offset signature.getByteRange()[1]+1.
+comment|// you can write the ascii hex signature at a later time even if you don't have this
+comment|// PDDocument object anymore, with classic java file random access methods.
+comment|// If you can't remember the offset value from ByteRange because your context has changed,
+comment|// then open the file with PDFBox, find the field with findExistingSignature() or
+comment|// PODDocument.getLastSignatureDictionary() and get the ByteRange from there.
+comment|// Close the file and then write the signature as explained earlier in this comment.
+if|if
+condition|(
+name|isLateExternalSigning
+argument_list|()
+condition|)
+block|{
+comment|// this saves the file with a 0 signature
+name|externalSigning
+operator|.
+name|setSignature
+argument_list|(
+operator|new
+name|byte
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+comment|// remember the offset (add 1 because of "<")
+name|int
+name|offset
+init|=
+name|signature
+operator|.
+name|getByteRange
+argument_list|()
+index|[
+literal|1
+index|]
+operator|+
+literal|1
+decl_stmt|;
+comment|// now write the signature at the correct offset without any PDFBox methods
+name|RandomAccessFile
+name|raf
+init|=
+operator|new
+name|RandomAccessFile
+argument_list|(
+name|signedFile
+argument_list|,
+literal|"rw"
+argument_list|)
+decl_stmt|;
+name|raf
+operator|.
+name|seek
+argument_list|(
+name|offset
+argument_list|)
+expr_stmt|;
+name|raf
+operator|.
+name|write
+argument_list|(
+name|Hex
+operator|.
+name|getBytes
+argument_list|(
+name|cmsSignature
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|raf
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// set signature bytes received from the service and save the file
 name|externalSigning
 operator|.
 name|setSignature
@@ -833,10 +968,7 @@ argument_list|(
 name|cmsSignature
 argument_list|)
 expr_stmt|;
-comment|// if you want to add the signature in a separate step, then set an empty byte array
-comment|// and call signature.getByteRange() and remember the offset signature.getByteRange()[1]+1.
-comment|// you can write the ascii hex signature at a later time even if you don't have the
-comment|// PDDocument object anymore, with classic java file random access methods.
+block|}
 block|}
 else|else
 block|{
@@ -1028,6 +1160,8 @@ name|tsaUrl
 init|=
 literal|null
 decl_stmt|;
+comment|// External signing is needed if you are using an external signing service, e.g. to sign
+comment|// several files at once.
 name|boolean
 name|externalSig
 init|=
