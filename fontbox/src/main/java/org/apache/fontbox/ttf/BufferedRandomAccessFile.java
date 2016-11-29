@@ -411,6 +411,13 @@ block|}
 block|}
 return|return
 name|leftover
+operator|>
+literal|0
+condition|?
+name|leftover
+else|:
+operator|-
+literal|1
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
