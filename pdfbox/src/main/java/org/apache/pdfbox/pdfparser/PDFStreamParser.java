@@ -815,6 +815,27 @@ operator|.
 name|read
 argument_list|()
 expr_stmt|;
+comment|// Ignore double negative (this is consistent with Adobe Reader)
+if|if
+condition|(
+name|c
+operator|==
+literal|'-'
+operator|&&
+name|seqSource
+operator|.
+name|peek
+argument_list|()
+operator|==
+name|c
+condition|)
+block|{
+name|seqSource
+operator|.
+name|read
+argument_list|()
+expr_stmt|;
+block|}
 name|boolean
 name|dotNotRead
 init|=
