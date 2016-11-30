@@ -645,6 +645,7 @@ argument_list|)
 expr_stmt|;
 comment|// do things that trigger a ProfileDataException
 comment|// or CMMException due to invalid profiles, see PDFBOX-1295 and PDFBOX-1740
+comment|// or ArrayIndexOutOfBoundsException, see PDFBOX-3610
 name|awtColorSpace
 operator|.
 name|fromRGB
@@ -692,6 +693,10 @@ operator|||
 name|e
 operator|instanceof
 name|IllegalArgumentException
+operator|||
+name|e
+operator|instanceof
+name|ArrayIndexOutOfBoundsException
 condition|)
 block|{
 comment|// fall back to alternateColorSpace color space
