@@ -1167,26 +1167,10 @@ argument_list|)
 decl_stmt|;
 name|int
 name|val
-init|=
-name|readlong
-argument_list|(
-name|endianess
-argument_list|,
-name|reader
-argument_list|)
 decl_stmt|;
-comment|// See note
-comment|// Note, we treated that value as a long. The value always occupies 4 bytes
-comment|// But it might only use the first byte or two. Depending on endianess we might
-comment|// need to correct.
-comment|// Note we ignore all other types, they are of little interest for PDFs/CCITT Fax
-if|if
-condition|(
-name|endianess
-operator|==
-literal|'M'
-condition|)
-block|{
+comment|// Note that when the type is shorter than 4 bytes, the rest can be garbage
+comment|// and must be ignored. E.g. short (2 bytes) from "01 00 38 32" (little endian)
+comment|// is 1, not 842530817 (seen in a real-life TIFF image).
 switch|switch
 condition|(
 name|type
@@ -1195,41 +1179,66 @@ block|{
 case|case
 literal|1
 case|:
-block|{
+comment|// byte value
 name|val
 operator|=
-name|val
-operator|>>
-literal|24
+name|reader
+operator|.
+name|read
+argument_list|()
+expr_stmt|;
+name|reader
+operator|.
+name|read
+argument_list|()
+expr_stmt|;
+name|reader
+operator|.
+name|read
+argument_list|()
+expr_stmt|;
+name|reader
+operator|.
+name|read
+argument_list|()
 expr_stmt|;
 break|break;
-comment|// byte value
-block|}
 case|case
 literal|3
 case|:
-block|{
+comment|// short value
 name|val
 operator|=
-name|val
-operator|>>
-literal|16
+name|readshort
+argument_list|(
+name|endianess
+argument_list|,
+name|reader
+argument_list|)
+expr_stmt|;
+name|reader
+operator|.
+name|read
+argument_list|()
+expr_stmt|;
+name|reader
+operator|.
+name|read
+argument_list|()
 expr_stmt|;
 break|break;
-comment|// short value
-block|}
-case|case
-literal|4
-case|:
-block|{
-break|break;
-comment|// long value
-block|}
 default|default:
-block|{
-comment|// do nothing
-block|}
-block|}
+comment|// long and other types
+name|val
+operator|=
+name|readlong
+argument_list|(
+name|endianess
+argument_list|,
+name|reader
+argument_list|)
+expr_stmt|;
+break|break;
 block|}
 switch|switch
 condition|(
