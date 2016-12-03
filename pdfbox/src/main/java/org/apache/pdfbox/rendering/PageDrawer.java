@@ -5981,6 +5981,9 @@ name|graphics
 operator|=
 name|g
 expr_stmt|;
+name|setRenderingHints
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 if|if
