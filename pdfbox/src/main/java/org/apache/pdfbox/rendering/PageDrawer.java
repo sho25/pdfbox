@@ -6165,7 +6165,7 @@ argument_list|()
 operator|*
 name|m
 operator|.
-name|getScalingFactorX
+name|getScalingFactorY
 argument_list|()
 argument_list|,
 name|width
