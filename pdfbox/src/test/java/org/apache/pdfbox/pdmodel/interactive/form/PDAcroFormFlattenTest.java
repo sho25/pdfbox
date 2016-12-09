@@ -400,6 +400,33 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* 	 * PDFBOX-3262 Hidden fields 	 */
+comment|// @Test
+specifier|public
+name|void
+name|testFlattenPDFBOX3262
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|sourceUrl
+init|=
+literal|"https://issues.apache.org/jira/secure/attachment/12792007/hidden_fields.pdf"
+decl_stmt|;
+name|String
+name|targetFileName
+init|=
+literal|"hidden_fields.pdf"
+decl_stmt|;
+name|flattenAndCompare
+argument_list|(
+name|sourceUrl
+argument_list|,
+name|targetFileName
+argument_list|)
+expr_stmt|;
+block|}
 comment|/* 	 * PDFBOX-3396 Signed Document 1. 	 */
 comment|// @Test
 specifier|public
