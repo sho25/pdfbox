@@ -782,7 +782,7 @@ return|return
 name|fdf
 return|;
 block|}
-comment|/**      * This will flatten all form fields.      *       *<p>Flattening a form field will take the current appearance and make that part      * of the pages content stream. All form fields and annotations associated are removed.</p>      *       *<p>The appearances for the form fields widgets will<strong>not</strong> be generated<p>      *       * @throws IOException       */
+comment|/**      * This will flatten all form fields.      *       *<p>Flattening a form field will take the current appearance and make that part      * of the pages content stream. All form fields and annotations associated are removed.</p>      *       *<p>Invisible and hidden fields will be skipped and will not become part of the      * page content stream</p>      *       *<p>The appearances for the form fields widgets will<strong>not</strong> be generated<p>      *       * @throws IOException       */
 specifier|public
 name|void
 name|flatten
@@ -845,7 +845,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will flatten the specified form fields.      *       *<p>Flattening a form field will take the current appearance and make that part      * of the pages content stream. All form fields and annotations associated are removed.</p>      *       * @param fields      * @param refreshAppearances if set to true the appearances for the form field widgets will be updated      * @throws IOException       */
+comment|/**      * This will flatten the specified form fields.      *       *<p>Flattening a form field will take the current appearance and make that part      * of the pages content stream. All form fields and annotations associated are removed.</p>      *       *<p>Invisible and hidden fields will be skipped and will not become part of the      * page content stream</p>      *       * @param fields      * @param refreshAppearances if set to true the appearances for the form field widgets will be updated      * @throws IOException       */
 specifier|public
 name|void
 name|flatten
