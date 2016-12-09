@@ -372,6 +372,29 @@ name|fontfile
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// A PDF/A file needs to have the font embedded if the font is used for text rendering
+comment|// in rendering modes other than text rendering mode 3
+comment|// This requirement includes the PDF standard fonts, so don't use their static PDFType1Font classes such as
+comment|// PDFType1Font.HELVETICA.
+if|if
+condition|(
+operator|!
+name|font
+operator|.
+name|isEmbedded
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"PDF/A compliance requires that all fonts used for"
+operator|+
+literal|" text rendering in rendering modes other than rendering mode 3 are embedded."
+argument_list|)
+throw|;
+block|}
 comment|// create a page with the message
 name|PDPageContentStream
 name|contents
