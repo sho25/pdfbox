@@ -419,11 +419,14 @@ name|targetFileName
 init|=
 literal|"hidden_fields.pdf"
 decl_stmt|;
+name|assertTrue
+argument_list|(
 name|flattenAndCompare
 argument_list|(
 name|sourceUrl
 argument_list|,
 name|targetFileName
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -592,7 +595,7 @@ block|}
 comment|/* 	 * Flatten and compare with generated image samples. 	 */
 specifier|private
 specifier|static
-name|void
+name|boolean
 name|flattenAndCompare
 parameter_list|(
 name|String
@@ -749,6 +752,9 @@ argument_list|(
 name|inputFile
 argument_list|)
 expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 else|else
 block|{
@@ -769,6 +775,9 @@ name|delete
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+literal|true
+return|;
 block|}
 comment|/* 	 * Generate the sample images to which the PDF will be compared after flatten. 	 */
 specifier|private
