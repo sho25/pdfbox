@@ -373,9 +373,14 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// A PDF/A file needs to have the font embedded if the font is used for text rendering
-comment|// in rendering modes other than text rendering mode 3
+comment|// in rendering modes other than text rendering mode 3.
+comment|//
 comment|// This requirement includes the PDF standard fonts, so don't use their static PDFType1Font classes such as
 comment|// PDFType1Font.HELVETICA.
+comment|//
+comment|// As there are many different font licenses it is up to the developer to check if the license terms for the
+comment|// font loaded allows embedding in the PDF.
+comment|//
 if|if
 condition|(
 operator|!
