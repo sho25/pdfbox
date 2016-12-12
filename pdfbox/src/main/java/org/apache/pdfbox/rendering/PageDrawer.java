@@ -1146,6 +1146,16 @@ operator|new
 name|GeneralPath
 argument_list|()
 expr_stmt|;
+name|int
+name|oldClipWindingRule
+init|=
+name|clipWindingRule
+decl_stmt|;
+name|clipWindingRule
+operator|=
+operator|-
+literal|1
+expr_stmt|;
 name|Area
 name|oldLastClip
 init|=
@@ -1193,6 +1203,10 @@ expr_stmt|;
 name|lastClip
 operator|=
 name|oldLastClip
+expr_stmt|;
+name|clipWindingRule
+operator|=
+name|oldClipWindingRule
 expr_stmt|;
 block|}
 comment|/**      * Returns an AWT paint for the given PDColor.      */
