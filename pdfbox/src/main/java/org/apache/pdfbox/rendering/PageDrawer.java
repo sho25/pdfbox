@@ -2055,6 +2055,11 @@ name|getGroup
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|softMask
+operator|.
+name|getInitialTransformationMatrix
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|BufferedImage
@@ -5188,6 +5193,12 @@ argument_list|(
 name|form
 argument_list|,
 literal|false
+argument_list|,
+name|getGraphicsState
+argument_list|()
+operator|.
+name|getCurrentTransformationMatrix
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|graphics
@@ -5586,6 +5597,9 @@ name|form
 parameter_list|,
 name|boolean
 name|isSoftMask
+parameter_list|,
+name|Matrix
+name|ctm
 parameter_list|)
 throws|throws
 name|IOException
@@ -5601,15 +5615,6 @@ init|=
 name|lastClip
 decl_stmt|;
 comment|// get the CTM x Form Matrix transform
-name|Matrix
-name|ctm
-init|=
-name|getGraphicsState
-argument_list|()
-operator|.
-name|getCurrentTransformationMatrix
-argument_list|()
-decl_stmt|;
 name|Matrix
 name|transform
 init|=
