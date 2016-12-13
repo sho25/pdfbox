@@ -4114,6 +4114,26 @@ argument_list|(
 name|shadingName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|shading
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"shading "
+operator|+
+name|shadingName
+operator|+
+literal|" does not exist in resources dictionary"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|Matrix
 name|ctm
 init|=
