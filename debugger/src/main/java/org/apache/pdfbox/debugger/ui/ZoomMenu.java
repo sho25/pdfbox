@@ -145,6 +145,8 @@ block|,
 literal|200
 block|,
 literal|400
+block|,
+literal|1000
 block|}
 decl_stmt|;
 specifier|private
