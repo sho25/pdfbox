@@ -181,6 +181,20 @@ name|PDTransparencyGroup
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Matrix
+import|;
+end_import
+
 begin_comment
 comment|/**  * Soft mask.  *  * @author Kühn&amp; Weyh Software GmbH  */
 end_comment
@@ -320,6 +334,11 @@ name|PDFunction
 name|transferFunction
 init|=
 literal|null
+decl_stmt|;
+comment|/**      * To allow a soft mask to know the CTM at the time of activation of the ExtGState.      */
+specifier|private
+name|Matrix
+name|ctm
 decl_stmt|;
 comment|/**      * Creates a new soft mask.      *      * @param dictionary The soft mask dictionary.      */
 specifier|public
@@ -529,6 +548,31 @@ block|}
 block|}
 return|return
 name|transferFunction
+return|;
+block|}
+comment|/**      * Set the CTM that is valid at the time the ExtGState was activated.      *      * @param ctm      */
+name|void
+name|setInitialTransformationMatrix
+parameter_list|(
+name|Matrix
+name|ctm
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ctm
+operator|=
+name|ctm
+expr_stmt|;
+block|}
+comment|/**      * Returns the CTM at the time the ExtGState was activated.      *      * @return      */
+specifier|public
+name|Matrix
+name|getInitialTransformationMatrix
+parameter_list|()
+block|{
+return|return
+name|ctm
 return|;
 block|}
 block|}
