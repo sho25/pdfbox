@@ -5448,7 +5448,6 @@ argument_list|,
 name|softMask
 argument_list|)
 expr_stmt|;
-comment|// todo: PDFBOX-994 problem here?
 name|graphics
 operator|.
 name|setPaint
@@ -5853,6 +5852,37 @@ name|maxY
 operator|-
 name|minY
 expr_stmt|;
+comment|// FIXME - color space
+if|if
+condition|(
+name|form
+operator|.
+name|getGroup
+argument_list|()
+operator|.
+name|getColorSpace
+argument_list|()
+operator|instanceof
+name|PDDeviceGray
+condition|)
+block|{
+name|image
+operator|=
+operator|new
+name|BufferedImage
+argument_list|(
+name|width
+argument_list|,
+name|height
+argument_list|,
+name|BufferedImage
+operator|.
+name|TYPE_BYTE_GRAY
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|image
 operator|=
 operator|new
@@ -5867,7 +5897,7 @@ operator|.
 name|TYPE_INT_ARGB
 argument_list|)
 expr_stmt|;
-comment|// FIXME - color space
+block|}
 name|Graphics2D
 name|g
 init|=
