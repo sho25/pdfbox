@@ -540,13 +540,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|getWidths
 argument_list|()
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|>
-literal|0
 operator|&&
 name|code
 operator|>=
@@ -691,7 +690,7 @@ comment|// the following values are all more or less accurate at least all are a
 comment|// values. Maybe we'll find another way to get those value for every single glyph
 comment|// in the future if needed
 name|PDRectangle
-name|fontBBox
+name|bbox
 init|=
 name|desc
 operator|.
@@ -705,14 +704,14 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|fontBBox
+name|bbox
 operator|!=
 literal|null
 condition|)
 block|{
 name|retval
 operator|=
-name|fontBBox
+name|bbox
 operator|.
 name|getHeight
 argument_list|()
@@ -913,7 +912,7 @@ literal|null
 condition|)
 block|{
 name|COSDictionary
-name|resources
+name|resourcesDict
 init|=
 operator|(
 name|COSDictionary
@@ -929,7 +928,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|resources
+name|resourcesDict
 operator|!=
 literal|null
 condition|)
@@ -941,7 +940,7 @@ operator|=
 operator|new
 name|PDResources
 argument_list|(
-name|resources
+name|resourcesDict
 argument_list|)
 expr_stmt|;
 block|}
