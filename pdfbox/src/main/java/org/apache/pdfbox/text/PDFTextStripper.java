@@ -1883,17 +1883,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|Iterator
-argument_list|<
-name|TextPosition
-argument_list|>
-name|textIter
-init|=
-name|textList
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
 name|startArticle
 argument_list|()
 expr_stmt|;
@@ -1917,14 +1906,17 @@ name|LineItem
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|Iterator
+argument_list|<
+name|TextPosition
+argument_list|>
 name|textIter
-operator|=
+init|=
 name|textList
 operator|.
 name|iterator
 argument_list|()
-expr_stmt|;
-comment|// start from the beginning again
+decl_stmt|;
 comment|// PDF files don't always store spaces. We will need to guess where we should add
 comment|// spaces based on the distances between TextPositions. Historically, this was done
 comment|// based on the size of the space character provided by the font. In general, this
