@@ -3917,14 +3917,9 @@ name|pow
 argument_list|(
 literal|2
 argument_list|,
-name|Math
-operator|.
-name|floor
-argument_list|(
 name|log2
 argument_list|(
 name|segCount
-argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
