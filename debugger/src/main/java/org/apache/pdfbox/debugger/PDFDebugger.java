@@ -1440,6 +1440,10 @@ specifier|public
 specifier|static
 name|Properties
 name|configuration
+init|=
+operator|new
+name|Properties
+argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
@@ -1802,12 +1806,6 @@ name|file
 argument_list|)
 decl_stmt|;
 name|configuration
-operator|=
-operator|new
-name|Properties
-argument_list|()
-expr_stmt|;
-name|configuration
 operator|.
 name|load
 argument_list|(
@@ -1834,15 +1832,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-else|else
-block|{
-name|configuration
-operator|=
-operator|new
-name|Properties
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|/**      * This method is called from within the constructor to initialize the form.      */
