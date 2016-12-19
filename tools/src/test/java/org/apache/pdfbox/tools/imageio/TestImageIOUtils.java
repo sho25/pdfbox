@@ -546,6 +546,22 @@ operator|=
 literal|"JPEG2000"
 expr_stmt|;
 block|}
+if|if
+condition|(
+literal|"jb2"
+operator|.
+name|equals
+argument_list|(
+name|suffix
+argument_list|)
+condition|)
+block|{
+comment|// jbig2 usually not available
+name|suffix
+operator|=
+literal|"PNG"
+expr_stmt|;
+block|}
 name|boolean
 name|writeOK
 init|=
