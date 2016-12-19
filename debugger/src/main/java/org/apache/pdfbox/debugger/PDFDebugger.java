@@ -4359,7 +4359,6 @@ operator|)
 name|obj
 decl_stmt|;
 return|return
-operator|(
 name|COSName
 operator|.
 name|ENCRYPT
@@ -4378,7 +4377,6 @@ name|getValue
 argument_list|()
 operator|instanceof
 name|COSDictionary
-operator|)
 return|;
 block|}
 return|return
