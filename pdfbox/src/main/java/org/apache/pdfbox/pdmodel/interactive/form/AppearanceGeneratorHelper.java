@@ -1080,6 +1080,10 @@ condition|(
 name|lineWidth
 operator|>
 literal|0
+operator|&&
+name|borderColour
+operator|!=
+literal|null
 condition|)
 block|{
 if|if
