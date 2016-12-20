@@ -708,7 +708,9 @@ name|INSTANCE
 expr_stmt|;
 break|break;
 default|default:
-break|break;
+return|return
+literal|null
+return|;
 block|}
 return|return
 operator|new
