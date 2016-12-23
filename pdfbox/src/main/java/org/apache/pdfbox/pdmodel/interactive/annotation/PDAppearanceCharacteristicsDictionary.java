@@ -661,8 +661,6 @@ condition|)
 block|{
 name|PDColorSpace
 name|colorSpace
-init|=
-literal|null
 decl_stmt|;
 switch|switch
 condition|(
