@@ -541,9 +541,22 @@ operator|.
 name|error
 argument_list|(
 name|ex
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|", matrix: "
+operator|+
+name|matrix
 argument_list|,
 name|ex
 argument_list|)
+expr_stmt|;
+name|rat
+operator|=
+operator|new
+name|AffineTransform
+argument_list|()
 expr_stmt|;
 block|}
 comment|// shading space -> device space
