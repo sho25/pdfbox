@@ -5202,6 +5202,17 @@ operator|.
 name|TYPE
 argument_list|)
 argument_list|)
+operator|||
+name|stream
+operator|.
+name|getInt
+argument_list|(
+name|COSName
+operator|.
+name|PATTERN_TYPE
+argument_list|)
+operator|==
+literal|1
 condition|)
 block|{
 if|if
