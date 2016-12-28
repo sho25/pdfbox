@@ -3284,7 +3284,6 @@ argument_list|()
 condition|)
 block|{
 comment|// fill the image with paint
-comment|//TODO why no soft mask?
 name|BufferedImage
 name|image
 init|=
@@ -5756,20 +5755,18 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Shape
-name|deviceClip
+name|Rectangle2D
+name|bounds
 init|=
 name|dpiTransform
 operator|.
 name|createTransformedShape
 argument_list|(
 name|clip
+operator|.
+name|getBounds2D
+argument_list|()
 argument_list|)
-decl_stmt|;
-name|Rectangle2D
-name|bounds
-init|=
-name|deviceClip
 operator|.
 name|getBounds2D
 argument_list|()
