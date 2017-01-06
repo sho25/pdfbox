@@ -223,7 +223,7 @@ name|PDColorSpace
 implements|implements
 name|COSObjectable
 block|{
-comment|/**      * Creates a color space space given a name or array.      * @param colorSpace the color space COS object      * @return a new color space      * @throws IOException if the color space is unknown or cannot be created      */
+comment|/**      * Creates a color space given a name or array.      * @param colorSpace the color space COS object      * @return a new color space      * @throws IOException if the color space is unknown or cannot be created      */
 specifier|public
 specifier|static
 name|PDColorSpace
