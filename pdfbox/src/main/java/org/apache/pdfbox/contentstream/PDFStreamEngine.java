@@ -1064,6 +1064,23 @@ init|=
 name|saveGraphicsStack
 argument_list|()
 decl_stmt|;
+name|Matrix
+name|parentMatrix
+init|=
+name|initialMatrix
+decl_stmt|;
+comment|// the stream's initial matrix includes the parent CTM, e.g. this allows a scaled form
+name|initialMatrix
+operator|=
+name|getGraphicsState
+argument_list|()
+operator|.
+name|getCurrentTransformationMatrix
+argument_list|()
+operator|.
+name|clone
+argument_list|()
+expr_stmt|;
 comment|// transform the CTM using the stream's matrix
 name|getGraphicsState
 argument_list|()
@@ -1129,6 +1146,10 @@ name|processStreamOperators
 argument_list|(
 name|group
 argument_list|)
+expr_stmt|;
+name|initialMatrix
+operator|=
+name|parentMatrix
 expr_stmt|;
 name|restoreGraphicsStack
 argument_list|(
