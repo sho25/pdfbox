@@ -322,6 +322,11 @@ operator|.
 name|getBBox
 argument_list|()
 expr_stmt|;
+comment|// all bbox handling will be removed in further commit
+name|bboxRect
+operator|=
+literal|null
+expr_stmt|;
 if|if
 condition|(
 name|bboxRect
