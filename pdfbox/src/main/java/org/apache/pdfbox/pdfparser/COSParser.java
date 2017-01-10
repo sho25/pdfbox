@@ -5219,13 +5219,6 @@ operator|.
 name|getPosition
 argument_list|()
 decl_stmt|;
-name|source
-operator|.
-name|seek
-argument_list|(
-name|offset
-argument_list|)
-expr_stmt|;
 name|String
 name|objectString
 init|=
@@ -5238,6 +5231,13 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|source
+operator|.
+name|seek
+argument_list|(
+name|offset
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|isString
