@@ -1696,7 +1696,7 @@ name|transform
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Draw an xobject(form or image) using the given {@link AffineTransform} to position      * the xobject.      *      * @param xobject The xobject to draw.      * @param transform the transformation matrix      * @throws IOException If there is an error writing to the stream.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #drawImage} or {@link #drawForm} instead.      */
+comment|/**      * Draw an xobject(form or image) using the given {@link AffineTransform} to position      * the xobject.      *      * @param xobject The xobject to draw.      * @param transform the transformation matrix      * @throws IOException If there is an error writing to the stream.      * @throws IllegalStateException If the method was called within a text block.      * @deprecated Use {@link #drawImage(PDImageXObject, Matrix) drawImage(PDImageXObject, Matrix)}      * or {@link #drawForm(PDFormXObject) drawForm(PDFormXObject)} with      * {@link #transform(Matrix) transform(Matrix)} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
