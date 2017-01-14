@@ -57,6 +57,18 @@ name|lang
 operator|.
 name|reflect
 operator|.
+name|InvocationTargetException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
 name|Method
 import|;
 end_import
@@ -626,8 +638,20 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|ReflectiveOperationException
-name|ex
+name|NoSuchMethodException
+name|e
+parameter_list|)
+block|{         }
+catch|catch
+parameter_list|(
+name|IllegalAccessException
+name|e
+parameter_list|)
+block|{         }
+catch|catch
+parameter_list|(
+name|InvocationTargetException
+name|e
 parameter_list|)
 block|{         }
 return|return
