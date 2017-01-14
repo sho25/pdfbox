@@ -2281,6 +2281,11 @@ argument_list|,
 name|tpgBounds
 argument_list|,
 name|backdropColor
+argument_list|,
+name|softMask
+operator|.
+name|getTransferFunction
+argument_list|()
 argument_list|)
 return|;
 block|}
