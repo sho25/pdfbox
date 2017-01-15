@@ -544,8 +544,8 @@ name|getColorModel
 argument_list|()
 decl_stmt|;
 name|float
-name|input
 index|[]
+name|input
 init|=
 literal|null
 decl_stmt|;

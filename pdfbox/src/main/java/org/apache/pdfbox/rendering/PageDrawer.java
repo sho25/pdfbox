@@ -4391,8 +4391,8 @@ expr_stmt|;
 block|}
 comment|// apply the transfer function to each color, but keep alpha
 name|float
-name|input
 index|[]
+name|input
 init|=
 operator|new
 name|float
