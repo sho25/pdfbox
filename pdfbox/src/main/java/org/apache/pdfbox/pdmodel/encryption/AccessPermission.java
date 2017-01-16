@@ -761,13 +761,13 @@ name|DEGRADED_PRINT_BIT
 argument_list|)
 return|;
 block|}
-comment|/**      * Set if the user can print the document in a degraded format.      *<p>      * This method will have no effect if the object is in read only mode.      *      * @param allowAssembly A boolean determining if the user can print the      *        document in a degraded format.      */
+comment|/**      * Set if the user can print the document in a degraded format.      *<p>      * This method will have no effect if the object is in read only mode.      *      * @param canPrintDegraded A boolean determining if the user can print the      *        document in a degraded format.      */
 specifier|public
 name|void
 name|setCanPrintDegraded
 parameter_list|(
 name|boolean
-name|allowAssembly
+name|canPrintDegraded
 parameter_list|)
 block|{
 if|if
@@ -780,7 +780,7 @@ name|setPermissionBit
 argument_list|(
 name|DEGRADED_PRINT_BIT
 argument_list|,
-name|allowAssembly
+name|canPrintDegraded
 argument_list|)
 expr_stmt|;
 block|}
