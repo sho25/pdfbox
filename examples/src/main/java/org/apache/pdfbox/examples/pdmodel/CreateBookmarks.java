@@ -81,6 +81,26 @@ name|documentnavigation
 operator|.
 name|destination
 operator|.
+name|PDPageDestination
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|documentnavigation
+operator|.
+name|destination
+operator|.
 name|PDPageFitWidthDestination
 import|;
 end_import
@@ -274,13 +294,15 @@ block|{
 name|pageNum
 operator|++
 expr_stmt|;
-name|PDPageFitWidthDestination
+name|PDPageDestination
 name|dest
 init|=
 operator|new
 name|PDPageFitWidthDestination
 argument_list|()
 decl_stmt|;
+comment|// If you want to have several bookmarks pointing to different areas
+comment|// on the same page, have a look at the other classes derived from PDPageDestination.
 name|dest
 operator|.
 name|setPage
