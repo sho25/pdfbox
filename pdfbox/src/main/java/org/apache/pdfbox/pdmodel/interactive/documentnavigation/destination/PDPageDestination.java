@@ -216,7 +216,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the page for this destination.      *      * @param page The page for the destination.      */
+comment|/**      * Set the page for a local destination. For an external destination, call {@link #setPageNumber(int) setPageNumber(int pageNumber)}.      *      * @param page The page for a local destination.      */
 specifier|public
 name|void
 name|setPage
@@ -583,7 +583,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the page number for this destination.      *      * @param pageNumber The page for the destination.      */
+comment|/**      * Set the page number for a remote destination. For an internal destination, call       * {@link #setPage(PDPage) setPage(PDPage page)}.      *      * @param pageNumber The page for a remote destination.      */
 specifier|public
 name|void
 name|setPageNumber
