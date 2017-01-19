@@ -702,6 +702,10 @@ operator|&&
 name|colorKey
 operator|==
 literal|null
+operator|&&
+name|numComponents
+operator|==
+literal|1
 condition|)
 block|{
 return|return
