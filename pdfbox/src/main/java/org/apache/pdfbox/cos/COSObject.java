@@ -54,15 +54,13 @@ specifier|private
 name|boolean
 name|needToBeUpdated
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param object The object that this encapsulates.      *      * @throws IOException If there is an error with the object passed in.      */
+comment|/**      * Constructor.      *      * @param object The object that this encapsulates.      *      */
 specifier|public
 name|COSObject
 parameter_list|(
 name|COSBase
 name|object
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|setObject
 argument_list|(
@@ -160,7 +158,7 @@ return|return
 name|baseObject
 return|;
 block|}
-comment|/**      * This will set the object that this object encapsulates.      *      * @param object The new object to encapsulate.      *      * @throws IOException If there is an error setting the updated object.      */
+comment|/**      * This will set the object that this object encapsulates.      *      * @param object The new object to encapsulate.      */
 specifier|public
 specifier|final
 name|void
@@ -169,8 +167,6 @@ parameter_list|(
 name|COSBase
 name|object
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|baseObject
 operator|=
