@@ -297,7 +297,6 @@ literal|null
 decl_stmt|;
 comment|/**      * Only for memory debugging purposes (especially PDFBOX-3284): holds weak      * references to all instances and prints after each 10,000th instance a      * statistic across all instances showing how many instances we have per      * dictionary size (item count).      * This is to show that there can be a large number of COSDictionary instances      * but each having only few items, thus using a {@link LinkedHashMap} is a      * waste of memory resources.      *       *<p>This method should be removed if further testing of COSDictionary uses      * is not needed anymore.</p>      */
 specifier|private
-specifier|final
 name|void
 name|debugInstanceCount
 parameter_list|()
