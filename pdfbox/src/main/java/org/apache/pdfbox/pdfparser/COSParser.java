@@ -1196,7 +1196,7 @@ name|prev
 operator|=
 name|trailer
 operator|.
-name|getInt
+name|getLong
 argument_list|(
 name|COSName
 operator|.
@@ -4564,6 +4564,9 @@ argument_list|(
 name|startXRefOffset
 argument_list|)
 expr_stmt|;
+name|skipSpaces
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|source
@@ -5826,11 +5829,10 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-name|long
+name|Long
 name|currentDifference
 init|=
-operator|-
-literal|1
+literal|null
 decl_stmt|;
 name|int
 name|currentOffsetIndex
@@ -5879,8 +5881,7 @@ if|if
 condition|(
 name|currentDifference
 operator|==
-operator|-
-literal|1
+literal|null
 operator|||
 operator|(
 name|Math
