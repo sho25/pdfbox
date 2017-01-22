@@ -1880,7 +1880,7 @@ name|structParent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border array. If none is available, it will return the default, which      * is [0 0 1].      *      * @return the border array.      */
+comment|/**      * This will retrieve the border array. If none is available or if it doesn't have at least      * three elements, it will return the default, which is [0 0 1].      *      * @return the border array.      */
 specifier|public
 name|COSArray
 name|getBorder
@@ -1910,6 +1910,18 @@ name|base
 operator|instanceof
 name|COSArray
 operator|)
+operator|||
+operator|(
+operator|(
+name|COSArray
+operator|)
+name|base
+operator|)
+operator|.
+name|size
+argument_list|()
+operator|<
+literal|3
 condition|)
 block|{
 name|border
