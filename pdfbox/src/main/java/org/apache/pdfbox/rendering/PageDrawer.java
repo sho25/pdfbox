@@ -3905,14 +3905,15 @@ operator|instanceof
 name|PDPattern
 condition|)
 block|{
-comment|// the earlier code for stencils (see "else") doesn't work with patterns because the
+comment|// The earlier code for stencils (see "else") doesn't work with patterns because the
 comment|// CTM is not taken into consideration.
 comment|// this code is based on the fact that it is easily possible to draw the mask and
 comment|// the paint at the correct place with the existing code, but not in one step.
-comment|// so what we do is to draw both in separate images, then combine the two and draw
+comment|// Thus what we do is to draw both in separate images, then combine the two and draw
 comment|// the result.
-comment|//TODO: take device scale into consideration, so that some patterns can get better
-comment|// at higher resolutions.
+comment|// Note that the device scale is not used. In theory, some patterns can get better
+comment|// at higher resolutions but the stencil would become more and more "blocky".
+comment|// If anybody wants to do this, have a look at the code in showTransparencyGroup().
 comment|// draw the paint
 name|Paint
 name|paint
@@ -4165,18 +4166,19 @@ operator|.
 name|dispose
 argument_list|()
 expr_stmt|;
+comment|// apply the mask
 specifier|final
-name|float
+name|int
 index|[]
 name|transparent
 init|=
 operator|new
-name|float
+name|int
 index|[
 literal|4
 index|]
 decl_stmt|;
-name|float
+name|int
 index|[]
 name|alphaPixel
 init|=
@@ -4287,6 +4289,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// draw the image
 name|setClip
 argument_list|()
 expr_stmt|;
