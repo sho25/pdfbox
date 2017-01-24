@@ -438,6 +438,17 @@ name|getY
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|path
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|setSelectionPath
 argument_list|(
 name|path
