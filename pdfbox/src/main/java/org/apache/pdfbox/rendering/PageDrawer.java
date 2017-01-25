@@ -2302,12 +2302,10 @@ argument_list|)
 return|;
 block|}
 comment|// this adjusts the rectangle to the rotated image to put the soft mask at the correct position
-comment|//TODO:
-comment|// 1. check whether this works properly with cropbox
-comment|// after all transparency problems have been solved:
-comment|// 2. shouldn't this be done in transparencyGroup.getBounds() ?
-comment|// 3. change transparencyGroup.getBounds() to getOrigin(), because size isn't used in SoftMask
-comment|// 4. Is it possible to create the softmask and transparency group in the correct rotation?
+comment|//TODO after all transparency problems have been solved:
+comment|// 1. shouldn't this be done in transparencyGroup.getBounds() ?
+comment|// 2. change transparencyGroup.getBounds() to getOrigin(), because size isn't used in SoftMask
+comment|// 3. Is it possible to create the softmask and transparency group in the correct rotation?
 comment|//    (needs rendering identity testing before committing!)
 specifier|private
 name|void
@@ -2317,6 +2315,15 @@ name|Rectangle2D
 name|r
 parameter_list|)
 block|{
+name|Matrix
+name|m
+init|=
+operator|new
+name|Matrix
+argument_list|(
+name|xform
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|pageRotation
@@ -2333,11 +2340,7 @@ operator|.
 name|getHeight
 argument_list|()
 operator|*
-operator|new
-name|Matrix
-argument_list|(
-name|xform
-argument_list|)
+name|m
 operator|.
 name|getScalingFactorY
 argument_list|()
@@ -2380,9 +2383,24 @@ name|r
 operator|.
 name|setRect
 argument_list|(
+name|pageSize
+operator|.
+name|getWidth
+argument_list|()
+operator|*
+name|m
+operator|.
+name|getScalingFactorX
+argument_list|()
+operator|-
 name|r
 operator|.
 name|getX
+argument_list|()
+operator|-
+name|r
+operator|.
+name|getWidth
 argument_list|()
 argument_list|,
 name|pageSize
@@ -2390,11 +2408,7 @@ operator|.
 name|getHeight
 argument_list|()
 operator|*
-operator|new
-name|Matrix
-argument_list|(
-name|xform
-argument_list|)
+name|m
 operator|.
 name|getScalingFactorY
 argument_list|()
@@ -2437,9 +2451,24 @@ operator|.
 name|getY
 argument_list|()
 argument_list|,
+name|pageSize
+operator|.
+name|getWidth
+argument_list|()
+operator|*
+name|m
+operator|.
+name|getScalingFactorX
+argument_list|()
+operator|-
 name|r
 operator|.
 name|getX
+argument_list|()
+operator|-
+name|r
+operator|.
+name|getWidth
 argument_list|()
 argument_list|,
 name|r
