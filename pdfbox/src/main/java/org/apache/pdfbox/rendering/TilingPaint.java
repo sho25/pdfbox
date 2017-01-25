@@ -1046,6 +1046,7 @@ name|yStep
 operator|*
 name|yScale
 decl_stmt|;
+specifier|final
 name|int
 name|MAX
 init|=
