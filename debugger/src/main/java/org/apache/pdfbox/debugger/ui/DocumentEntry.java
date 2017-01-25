@@ -45,6 +45,20 @@ name|PDPage
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|debugger
+operator|.
+name|PDFDebugger
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an abstract view of a document in the tree view.  *  * @author John Hewson  */
 end_comment
@@ -123,6 +137,18 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+name|String
+name|pageLabel
+init|=
+name|PDFDebugger
+operator|.
+name|getPageLabel
+argument_list|(
+name|doc
+argument_list|,
+name|index
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|PageEntry
@@ -135,6 +161,8 @@ argument_list|,
 name|index
 operator|+
 literal|1
+argument_list|,
+name|pageLabel
 argument_list|)
 return|;
 block|}

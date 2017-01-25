@@ -502,6 +502,33 @@ operator|+
 literal|1
 operator|)
 decl_stmt|;
+comment|// append PDF page label, if available
+name|String
+name|lbl
+init|=
+name|PDFDebugger
+operator|.
+name|getPageLabel
+argument_list|(
+name|document
+argument_list|,
+name|pageIndex
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|lbl
+operator|!=
+literal|null
+condition|)
+block|{
+name|pageLabelText
+operator|+=
+literal|" - "
+operator|+
+name|lbl
+expr_stmt|;
+block|}
 name|JLabel
 name|pageLabel
 init|=

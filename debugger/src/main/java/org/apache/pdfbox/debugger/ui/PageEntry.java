@@ -78,6 +78,11 @@ specifier|final
 name|int
 name|pageNum
 decl_stmt|;
+specifier|private
+specifier|final
+name|String
+name|pageLabel
+decl_stmt|;
 specifier|public
 name|PageEntry
 parameter_list|(
@@ -86,6 +91,9 @@ name|page
 parameter_list|,
 name|int
 name|pageNum
+parameter_list|,
+name|String
+name|pageLabel
 parameter_list|)
 block|{
 name|dict
@@ -97,6 +105,12 @@ operator|.
 name|pageNum
 operator|=
 name|pageNum
+expr_stmt|;
+name|this
+operator|.
+name|pageLabel
+operator|=
+name|pageLabel
 expr_stmt|;
 block|}
 specifier|public
@@ -128,6 +142,18 @@ return|return
 literal|"Page: "
 operator|+
 name|pageNum
+operator|+
+operator|(
+name|pageLabel
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+literal|" - "
+operator|+
+name|pageLabel
+operator|)
 return|;
 block|}
 specifier|public
