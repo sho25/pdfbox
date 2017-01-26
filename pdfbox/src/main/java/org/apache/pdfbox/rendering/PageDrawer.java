@@ -7497,6 +7497,7 @@ operator|.
 name|length
 decl_stmt|;
 comment|/**              * Color Model usesd for raw GRAY + ALPHA              */
+specifier|static
 specifier|final
 name|ColorModel
 name|CM_GRAY_ALPHA
