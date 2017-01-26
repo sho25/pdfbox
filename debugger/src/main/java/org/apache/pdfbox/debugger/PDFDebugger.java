@@ -6896,8 +6896,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Convenience method to get the page label if available.      *       * @param document      * @param pageIndex 0-based page number.      * @return a page label or null if not available.      */
-specifier|static
 specifier|public
+specifier|static
 name|String
 name|getPageLabel
 parameter_list|(
