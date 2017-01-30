@@ -2989,21 +2989,32 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|byteRangeLength
-operator|-
 name|byteRange
 operator|.
 name|length
 argument_list|()
-operator|<
-literal|0
+operator|>
+name|byteRangeLength
 condition|)
 block|{
 throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Can't write new ByteRange, not enough space"
+literal|"Can't write new byteRange '"
+operator|+
+name|byteRange
+operator|+
+literal|"' not enough space: byteRange.length(): "
+operator|+
+name|byteRange
+operator|.
+name|length
+argument_list|()
+operator|+
+literal|", byteRangeLength: "
+operator|+
+name|byteRangeLength
 argument_list|)
 throw|;
 block|}
