@@ -3887,6 +3887,41 @@ literal|"d"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the miter limit.      *      * @param miterLimit the new miter limit.      * @throws IOException If the content stream could not be written.      */
+specifier|public
+name|void
+name|setMiterLimit
+parameter_list|(
+name|float
+name|miterLimit
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Error: setMiterLimit is not allowed within a text block."
+argument_list|)
+throw|;
+block|}
+name|writeOperand
+argument_list|(
+name|miterLimit
+argument_list|)
+expr_stmt|;
+name|writeOperator
+argument_list|(
+literal|"M"
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Begin a marked content sequence.      *      * @param tag the tag      * @throws IOException If the content stream could not be written      */
 specifier|public
 name|void
