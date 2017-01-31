@@ -212,7 +212,7 @@ decl_stmt|;
 specifier|private
 name|byte
 index|[]
-name|AffineTransformParams
+name|affineTransformParams
 init|=
 block|{
 literal|1
@@ -920,7 +920,7 @@ name|getWidth
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      *       * @return Affine Transform parameters of for PDF Matrix      */
+comment|/**      *       * @return Affine Transform parameters for PDF Matrix      */
 specifier|public
 name|byte
 index|[]
@@ -928,7 +928,7 @@ name|getAffineTransformParams
 parameter_list|()
 block|{
 return|return
-name|AffineTransformParams
+name|affineTransformParams
 return|;
 block|}
 comment|/**      *       * @param affineTransformParams      * @return Visible Signature Configuration Object      */
@@ -941,7 +941,9 @@ index|[]
 name|affineTransformParams
 parameter_list|)
 block|{
-name|AffineTransformParams
+name|this
+operator|.
+name|affineTransformParams
 operator|=
 name|affineTransformParams
 expr_stmt|;
