@@ -289,7 +289,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|logger
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -337,7 +337,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|logger
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -754,7 +754,7 @@ name|getVisualSignature
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|logger
+name|LOG
 operator|.
 name|info
 argument_list|(
