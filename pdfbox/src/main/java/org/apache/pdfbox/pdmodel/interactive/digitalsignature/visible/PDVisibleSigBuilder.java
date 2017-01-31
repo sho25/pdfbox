@@ -419,7 +419,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -441,7 +441,7 @@ operator|new
 name|PDFTemplateStructure
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -487,7 +487,7 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -566,7 +566,7 @@ argument_list|(
 name|theAcroForm
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -613,7 +613,7 @@ argument_list|(
 name|sf
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -707,7 +707,7 @@ argument_list|(
 name|pdSignature
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -803,7 +803,7 @@ argument_list|(
 name|acroFormDict
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -915,7 +915,7 @@ argument_list|(
 name|rect
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -978,7 +978,7 @@ argument_list|(
 name|transform
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1067,7 +1067,7 @@ argument_list|(
 name|procSetArr
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1104,7 +1104,7 @@ name|image
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1177,7 +1177,7 @@ argument_list|(
 name|formatterRectangle
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1211,7 +1211,7 @@ argument_list|(
 name|holderForm
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1240,7 +1240,7 @@ argument_list|(
 name|holderFormResources
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1301,7 +1301,7 @@ argument_list|(
 name|holderForm
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1382,7 +1382,7 @@ argument_list|(
 name|appearance
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1416,7 +1416,7 @@ argument_list|(
 name|innerFormStream
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1447,7 +1447,7 @@ argument_list|(
 name|innerFormResources
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1510,7 +1510,7 @@ argument_list|(
 name|innerForm
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1550,7 +1550,7 @@ argument_list|(
 name|innerFormName
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1584,7 +1584,7 @@ argument_list|(
 name|imageFormStream
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1613,7 +1613,7 @@ argument_list|(
 name|imageFormResources
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1740,7 +1740,7 @@ argument_list|(
 name|imageName
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1846,7 +1846,7 @@ argument_list|,
 name|procSet
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1967,7 +1967,7 @@ argument_list|,
 name|imgFormContent
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -2026,7 +2026,7 @@ name|getDocument
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -2093,7 +2093,7 @@ argument_list|(
 name|widgetDict
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
