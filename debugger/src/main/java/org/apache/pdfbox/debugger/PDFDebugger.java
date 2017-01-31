@@ -6384,6 +6384,14 @@ argument_list|(
 name|urlString
 argument_list|)
 decl_stmt|;
+name|LogDialog
+operator|.
+name|instance
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|document
 operator|=
 name|PDDocument
