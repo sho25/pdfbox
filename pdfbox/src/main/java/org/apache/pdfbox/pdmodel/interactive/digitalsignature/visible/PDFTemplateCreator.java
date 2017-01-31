@@ -455,7 +455,7 @@ name|createAffineTransform
 argument_list|(
 name|properties
 operator|.
-name|getAffineTransformParams
+name|getTransform
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -238,13 +238,23 @@ specifier|public
 interface|interface
 name|PDFTemplateBuilder
 block|{
-comment|/**      * In order to create Affine Transform, using parameters.      * @param params      */
+comment|/**      * In order to create Affine Transform, using parameters.      * @param params      * @deprecated use {@link #createAffineTransform(java.awt.geom.AffineTransform) }      */
+annotation|@
+name|Deprecated
 name|void
 name|createAffineTransform
 parameter_list|(
 name|byte
 index|[]
 name|params
+parameter_list|)
+function_decl|;
+comment|/**      * In order to create Affine Transform, using parameters.      * @param affineTransform      */
+name|void
+name|createAffineTransform
+parameter_list|(
+name|AffineTransform
+name|affineTransform
 parameter_list|)
 function_decl|;
 comment|/**      * Creates specified size page.      *       * @param properties      */
