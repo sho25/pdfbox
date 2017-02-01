@@ -923,6 +923,7 @@ literal|"Signature rectangle has been created"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc }      *      * @deprecated use {@link #createAffineTransform(java.awt.geom.AffineTransform) }      */
 annotation|@
 name|Override
 annotation|@
