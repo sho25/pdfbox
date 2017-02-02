@@ -902,7 +902,6 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
-specifier|public
 name|WritePDFTester
 parameter_list|()
 block|{
