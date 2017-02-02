@@ -568,10 +568,6 @@ parameter_list|(
 name|PDAnnotation
 name|annot
 parameter_list|)
-throws|throws
-name|SecurityException
-throws|,
-name|IllegalArgumentException
 block|{
 comment|// use reflection to catch all annotation types that have getAction()
 comment|// If you can't use reflection, then check for classes
