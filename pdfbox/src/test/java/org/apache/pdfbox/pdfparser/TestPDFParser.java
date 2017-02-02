@@ -198,6 +198,7 @@ literal|"src/test/resources/input/yaddatest.pdf"
 decl_stmt|;
 specifier|private
 specifier|static
+specifier|final
 name|File
 name|tmpDirectory
 init|=
