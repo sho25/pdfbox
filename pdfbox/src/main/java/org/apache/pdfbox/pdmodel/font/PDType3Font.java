@@ -1302,11 +1302,11 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|name
+literal|".notdef"
 operator|.
 name|equals
 argument_list|(
-literal|".notdef"
+name|name
 argument_list|)
 condition|)
 block|{

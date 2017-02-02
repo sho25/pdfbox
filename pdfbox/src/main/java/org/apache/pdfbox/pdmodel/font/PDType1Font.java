@@ -2000,11 +2000,11 @@ throw|;
 block|}
 if|if
 condition|(
-name|name
+literal|".notdef"
 operator|.
 name|equals
 argument_list|(
-literal|".notdef"
+name|name
 argument_list|)
 condition|)
 block|{
@@ -2080,11 +2080,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|nameInFont
+literal|".notdef"
 operator|.
 name|equals
 argument_list|(
-literal|".notdef"
+name|nameInFont
 argument_list|)
 operator|||
 operator|!

@@ -837,11 +837,11 @@ control|)
 block|{
 if|if
 condition|(
-name|name
+literal|".notdef"
 operator|.
 name|equals
 argument_list|(
-literal|".notdef"
+name|name
 argument_list|)
 condition|)
 block|{
@@ -1183,11 +1183,11 @@ decl_stmt|;
 comment|// the Adobe AFMs don't include .notdef, but Acrobat uses 250, test with PDFBOX-2334
 if|if
 condition|(
-name|nameInAFM
+literal|".notdef"
 operator|.
 name|equals
 argument_list|(
-literal|".notdef"
+name|nameInAFM
 argument_list|)
 condition|)
 block|{

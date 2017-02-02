@@ -2246,7 +2246,7 @@ operator|!=
 literal|0
 return|;
 block|}
-comment|/**      * Returns the GID for the given character code.      *      * @param code character code      * @return GID (glyph index)      */
+comment|/**      * Returns the GID for the given character code.      *      * @param code character code      * @return GID (glyph index)      * @throws java.io.IOException      */
 specifier|public
 name|int
 name|codeToGID
@@ -2285,11 +2285,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|name
+literal|".notdef"
 operator|.
 name|equals
 argument_list|(
-literal|".notdef"
+name|name
 argument_list|)
 condition|)
 block|{
