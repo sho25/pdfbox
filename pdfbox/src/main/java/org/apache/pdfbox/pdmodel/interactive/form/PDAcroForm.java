@@ -2461,8 +2461,7 @@ operator|.
 name|getResources
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|resources
 operator|!=
 literal|null
@@ -2477,14 +2476,6 @@ argument_list|()
 operator|.
 name|hasNext
 argument_list|()
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
 return|;
 block|}
 block|}
