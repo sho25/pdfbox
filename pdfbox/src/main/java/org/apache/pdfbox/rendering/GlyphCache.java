@@ -181,7 +181,6 @@ name|GeneralPath
 argument_list|>
 argument_list|()
 decl_stmt|;
-specifier|public
 name|GlyphCache
 parameter_list|(
 name|PDVectorFont
