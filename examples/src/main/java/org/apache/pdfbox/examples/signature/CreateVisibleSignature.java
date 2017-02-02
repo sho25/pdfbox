@@ -465,6 +465,9 @@ name|zoom
 argument_list|(
 name|zoomPercent
 argument_list|)
+operator|.
+name|adjustForRotation
+argument_list|()
 expr_stmt|;
 block|}
 specifier|public
