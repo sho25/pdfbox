@@ -414,6 +414,64 @@ expr_stmt|;
 comment|// remove "return" command
 block|}
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"CALLSUBR is ignored, operand: "
+operator|+
+name|operand
+operator|+
+literal|", subrs.size(): "
+operator|+
+name|subrs
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" in glyph '"
+operator|+
+name|glyphName
+operator|+
+literal|"' of font "
+operator|+
+name|fontName
+argument_list|)
+expr_stmt|;
+comment|// remove all parameters (there can be more than one)
+while|while
+condition|(
+name|sequence
+operator|.
+name|get
+argument_list|(
+name|sequence
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+operator|instanceof
+name|Integer
+condition|)
+block|{
+name|sequence
+operator|.
+name|remove
+argument_list|(
+name|sequence
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 elseif|else
 if|if
