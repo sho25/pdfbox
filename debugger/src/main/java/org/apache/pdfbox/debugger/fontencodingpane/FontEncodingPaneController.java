@@ -343,6 +343,8 @@ operator|(
 name|PDType3Font
 operator|)
 name|font
+argument_list|,
+name|resources
 argument_list|)
 expr_stmt|;
 block|}
