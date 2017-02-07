@@ -3566,6 +3566,10 @@ decl_stmt|;
 if|if
 condition|(
 name|token
+operator|==
+literal|null
+operator|||
+name|token
 operator|.
 name|getKind
 argument_list|()
@@ -3617,6 +3621,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|token
+operator|==
+literal|null
+operator|||
 operator|!
 name|token
 operator|.
