@@ -3884,39 +3884,6 @@ return|return
 literal|true
 return|;
 block|}
-name|byte
-name|by
-init|=
-name|bytes
-index|[
-literal|0
-index|]
-decl_stmt|;
-comment|// The first ciphertext byte must not be an ASCII white space
-comment|// character code (blank, tab, carriage return or line feed).
-if|if
-condition|(
-name|by
-operator|!=
-literal|0x0a
-operator|&&
-name|by
-operator|!=
-literal|0x0d
-operator|&&
-name|by
-operator|!=
-literal|0x20
-operator|&&
-name|by
-operator|!=
-literal|'\t'
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|// "At least one of the first 4 ciphertext bytes must not be one of
 comment|// the ASCII hexadecimal character codes (a code for 0-9, A-F, or a-f)."
 for|for
@@ -3934,13 +3901,14 @@ operator|++
 name|i
 control|)
 block|{
+name|byte
 name|by
-operator|=
+init|=
 name|bytes
 index|[
 name|i
 index|]
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|by
