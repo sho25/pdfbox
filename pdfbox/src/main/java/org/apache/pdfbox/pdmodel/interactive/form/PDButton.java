@@ -1179,6 +1179,29 @@ literal|"The number of options doesn't match the number of widgets"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|value
+operator|.
+name|equals
+argument_list|(
+name|COSName
+operator|.
+name|Off
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|updateByValue
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// the value is the index of the matching option
 name|int
 name|optionsIndex
@@ -1291,6 +1314,7 @@ operator|.
 name|Off
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
