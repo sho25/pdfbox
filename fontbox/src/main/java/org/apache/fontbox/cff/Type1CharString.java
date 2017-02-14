@@ -188,6 +188,7 @@ name|Type1CharStringReader
 name|font
 decl_stmt|;
 specifier|private
+specifier|final
 name|String
 name|fontName
 decl_stmt|,
@@ -228,6 +229,7 @@ init|=
 literal|false
 decl_stmt|;
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Point
@@ -256,7 +258,7 @@ specifier|protected
 name|int
 name|commandCount
 decl_stmt|;
-comment|/**      * Constructs a new Type1CharString object.      * @param font Parent Type 1 CharString font      * @param sequence Type 1 char string sequence      */
+comment|/**      * Constructs a new Type1CharString object.      *      * @param font Parent Type 1 CharString font.      * @param fontName Name of the font.      * @param glyphName Name of the glyph.      * @param sequence Type 1 char string sequence      */
 specifier|public
 name|Type1CharString
 parameter_list|(
@@ -290,7 +292,7 @@ operator|=
 name|sequence
 expr_stmt|;
 block|}
-comment|/**      * Constructor for use in subclasses.      * @param font Parent Type 1 CharString font      */
+comment|/**      * Constructor for use in subclasses.      *      * @param font Parent Type 1 CharString font.      * @param fontName Name of the font.      * @param glyphName Name of the glyph.      */
 specifier|protected
 name|Type1CharString
 parameter_list|(
