@@ -1331,7 +1331,35 @@ operator|=
 name|oldClipWindingRule
 expr_stmt|;
 block|}
-comment|/**      * Returns an AWT paint for the given PDColor.      */
+specifier|private
+name|float
+name|clampColor
+parameter_list|(
+name|float
+name|color
+parameter_list|)
+block|{
+return|return
+operator|(
+name|color
+operator|<
+literal|0
+condition|?
+literal|0
+else|:
+operator|(
+name|color
+operator|>
+literal|1
+condition|?
+literal|1
+else|:
+name|color
+operator|)
+operator|)
+return|;
+block|}
+comment|/**      * Returns an AWT paint for the given PDColor.      *       * @param color The color to get a paint for. This can be an actual color or a pattern.      * @throws IOException      */
 specifier|protected
 name|Paint
 name|getPaint
