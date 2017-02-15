@@ -1803,6 +1803,10 @@ condition|(
 name|toUnicode
 operator|!=
 literal|null
+operator|&&
+name|toUnicodeCMap
+operator|!=
+literal|null
 condition|)
 block|{
 name|int
