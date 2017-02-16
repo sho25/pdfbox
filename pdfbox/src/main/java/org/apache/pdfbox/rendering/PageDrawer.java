@@ -983,6 +983,17 @@ name|GlyphCache
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|private
+specifier|final
+name|TilingPaintFactory
+name|tilingPaintFactory
+init|=
+operator|new
+name|TilingPaintFactory
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
 comment|/**      * Constructor.      *      * @param parameters Parameters for page drawing.      * @throws IOException If there is an error loading properties from the file.      */
 specifier|public
 name|PageDrawer
@@ -1481,12 +1492,15 @@ condition|)
 block|{
 comment|// colored tiling pattern
 return|return
-operator|new
-name|TilingPaint
+name|tilingPaintFactory
+operator|.
+name|create
 argument_list|(
-name|this
-argument_list|,
 name|tilingPattern
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|,
 name|xform
 argument_list|)
@@ -1496,11 +1510,10 @@ else|else
 block|{
 comment|// uncolored tiling pattern
 return|return
-operator|new
-name|TilingPaint
+name|tilingPaintFactory
+operator|.
+name|create
 argument_list|(
-name|this
-argument_list|,
 name|tilingPattern
 argument_list|,
 name|patternSpace
