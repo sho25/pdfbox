@@ -24,10 +24,6 @@ specifier|public
 class|class
 name|NumberFormatUtil
 block|{
-specifier|private
-name|NumberFormatUtil
-parameter_list|()
-block|{     }
 comment|/**      * Maximum number of fraction digits supported by the format methods      */
 specifier|private
 specifier|static
@@ -149,6 +145,10 @@ literal|10
 expr_stmt|;
 block|}
 block|}
+specifier|private
+name|NumberFormatUtil
+parameter_list|()
+block|{     }
 comment|/**      * Fast variant to format a floating point value to a ASCII-string. The format will fail if the      * value is greater than {@link Long#MAX_VALUE}, smaller or equal to {@link Long#MIN_VALUE}, is      * {@link Float#NaN}, infinite or the number of requested fraction digits is greater than      * {@link #MAX_FRACTION_DIGITS}.      *       * When the number contains more fractional digits than {@code maxFractionDigits} the value will      * be rounded. Rounding is done to the nearest possible value, with the tie breaking rule of       * rounding away from zero.      *       * @param value The float value to format      * @param maxFractionDigits The maximum number of fraction digits used      * @param asciiBuffer The output buffer to write the formatted value to      *      * @return The number of bytes used in the buffer or {@code -1} if formatting failed      */
 specifier|public
 specifier|static
