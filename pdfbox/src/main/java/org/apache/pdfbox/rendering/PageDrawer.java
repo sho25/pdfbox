@@ -1351,7 +1351,6 @@ name|color
 parameter_list|)
 block|{
 return|return
-operator|(
 name|color
 operator|<
 literal|0
@@ -1366,7 +1365,6 @@ condition|?
 literal|1
 else|:
 name|color
-operator|)
 operator|)
 return|;
 block|}
