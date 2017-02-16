@@ -24,6 +24,10 @@ specifier|public
 class|class
 name|NumberFormatUtil
 block|{
+specifier|private
+name|NumberFormatUtil
+parameter_list|()
+block|{     }
 comment|/**      * Maximum number of fraction digits supported by the format methods      */
 specifier|private
 specifier|static
