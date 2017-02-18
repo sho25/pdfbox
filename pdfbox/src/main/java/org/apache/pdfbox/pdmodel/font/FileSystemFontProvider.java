@@ -3173,19 +3173,11 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|ttf
-operator|!=
-literal|null
-condition|)
-block|{
 name|ttf
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Adds a Type 1 font to the file cache. To reduce memory, the parsed font is not cached.      */
