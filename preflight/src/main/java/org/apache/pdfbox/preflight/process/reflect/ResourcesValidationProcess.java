@@ -644,13 +644,6 @@ argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|mapOfFonts
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
 name|Entry
@@ -681,7 +674,6 @@ argument_list|,
 name|FONT_PROCESS
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * This will get the map of fonts. This will never return null.      *      * @return The map of fonts.      */
