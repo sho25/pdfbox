@@ -165,19 +165,11 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|is
-operator|!=
-literal|null
-condition|)
-block|{
 name|is
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Read an unsigned byte.      * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      */
