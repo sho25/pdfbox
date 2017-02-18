@@ -1102,13 +1102,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|streams
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
 name|COSStream
@@ -1122,7 +1115,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
