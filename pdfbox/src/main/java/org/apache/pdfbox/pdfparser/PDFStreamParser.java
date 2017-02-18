@@ -999,6 +999,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//final token will be the image data, maybe??
+if|if
+condition|(
+name|nextToken
+operator|instanceof
+name|Operator
+condition|)
+block|{
 name|Operator
 name|imageData
 init|=
@@ -1009,6 +1016,13 @@ name|nextToken
 decl_stmt|;
 if|if
 condition|(
+name|imageData
+operator|.
+name|getImageData
+argument_list|()
+operator|==
+literal|null
+operator|||
 name|imageData
 operator|.
 name|getImageData
@@ -1042,6 +1056,7 @@ name|getImageData
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 break|break;
 block|}

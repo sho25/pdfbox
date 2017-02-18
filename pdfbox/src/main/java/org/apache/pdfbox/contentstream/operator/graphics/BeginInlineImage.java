@@ -141,6 +141,13 @@ name|operator
 operator|.
 name|getImageData
 argument_list|()
+operator|==
+literal|null
+operator|||
+name|operator
+operator|.
+name|getImageData
+argument_list|()
 operator|.
 name|length
 operator|==
