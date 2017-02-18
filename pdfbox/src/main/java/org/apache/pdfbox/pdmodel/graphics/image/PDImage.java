@@ -154,7 +154,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns an InputStream containing the image data, irrespective of whether this is an      * inline image or an image XObject. The given filters will not be decoded.      * @return Decoded stream      * @throws IOException if the data could not be read.      */
+comment|/**      * Returns an InputStream containing the image data, irrespective of whether this is an      * inline image or an image XObject. The given filters will not be decoded.      * @param stopFilters A list of filters to stop decoding at.      * @return Decoded stream      * @throws IOException if the data could not be read.      */
 name|InputStream
 name|createInputStream
 parameter_list|(
