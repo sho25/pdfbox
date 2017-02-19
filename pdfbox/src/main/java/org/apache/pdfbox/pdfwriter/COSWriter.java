@@ -4245,6 +4245,7 @@ name|incrementalUpdate
 condition|)
 block|{
 comment|// write all XObjects as direct objects, this will save some size
+comment|// PDFBOX-3684: but avoid dictionary that references itself
 name|COSBase
 name|item
 init|=
@@ -4262,6 +4263,19 @@ condition|(
 name|item
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|COSName
+operator|.
+name|XOBJECT
+operator|.
+name|equals
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
 condition|)
 block|{
 name|item
@@ -4288,6 +4302,19 @@ condition|(
 name|item
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|COSName
+operator|.
+name|RESOURCES
+operator|.
+name|equals
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
 condition|)
 block|{
 name|item
