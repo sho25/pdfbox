@@ -257,6 +257,20 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSNumber
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSObject
 import|;
 end_import
@@ -775,7 +789,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * avoid concurrency issues with PDDeviceRGB      */
+comment|/**      * avoid concurrency issues with PDDeviceRGB and deadlock in COSNumber/COSInteger      */
 static|static
 block|{
 name|PDDeviceRGB
@@ -798,6 +812,32 @@ literal|1
 block|}
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+comment|//TODO remove this and deprecated COSNumber statics in 3.0
+name|COSNumber
+operator|.
+name|get
+argument_list|(
+literal|"0"
+argument_list|)
+expr_stmt|;
+name|COSNumber
+operator|.
+name|get
+argument_list|(
+literal|"1"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|//
+block|}
 block|}
 specifier|private
 specifier|final
