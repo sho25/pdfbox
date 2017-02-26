@@ -889,7 +889,7 @@ argument_list|)
 return|;
 block|}
 specifier|private
-name|Integer
+name|Number
 name|readNumber
 parameter_list|(
 name|int
@@ -1021,23 +1021,21 @@ operator|.
 name|readShort
 argument_list|()
 decl_stmt|;
-comment|// The lower bytes are representing the digits after
-comment|// the decimal point and aren't needed in this context
+comment|// The lower bytes are representing the digits after the decimal point
+name|double
+name|fraction
+init|=
 name|input
 operator|.
-name|readUnsignedByte
+name|readUnsignedShort
 argument_list|()
-expr_stmt|;
-name|input
-operator|.
-name|readUnsignedByte
-argument_list|()
-expr_stmt|;
+operator|/
+literal|65535d
+decl_stmt|;
 return|return
-operator|(
-name|int
-operator|)
 name|value
+operator|+
+name|fraction
 return|;
 block|}
 else|else
