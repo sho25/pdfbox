@@ -165,7 +165,7 @@ name|graphics
 operator|.
 name|color
 operator|.
-name|PDDeviceColorSpace
+name|PDPattern
 import|;
 end_import
 
@@ -207,9 +207,12 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
 name|colorSpace
 operator|instanceof
-name|PDDeviceColorSpace
+name|PDPattern
+operator|)
 operator|&&
 name|arguments
 operator|.
