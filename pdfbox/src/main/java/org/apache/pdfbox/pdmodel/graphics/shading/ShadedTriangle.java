@@ -1206,13 +1206,14 @@ index|[
 name|numberOfColorComponents
 index|]
 decl_stmt|;
-if|if
+switch|switch
 condition|(
 name|degree
-operator|==
-literal|1
 condition|)
 block|{
+case|case
+literal|1
+case|:
 for|for
 control|(
 name|int
@@ -1263,15 +1264,10 @@ operator|/
 literal|3.0f
 expr_stmt|;
 block|}
-block|}
-elseif|else
-if|if
-condition|(
-name|degree
-operator|==
+break|break;
+case|case
 literal|2
-condition|)
-block|{
+case|:
 comment|// linear interpolation
 name|Point
 name|tp
@@ -1314,9 +1310,7 @@ argument_list|(
 name|tp
 argument_list|)
 return|;
-block|}
-else|else
-block|{
+default|default:
 name|float
 name|aw
 init|=
@@ -1444,6 +1438,7 @@ operator|*
 name|cw
 expr_stmt|;
 block|}
+break|break;
 block|}
 return|return
 name|pCol
