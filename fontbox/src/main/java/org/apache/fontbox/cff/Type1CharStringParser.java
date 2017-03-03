@@ -546,13 +546,14 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
-if|if
+switch|switch
 condition|(
 name|othersubrNum
-operator|==
-literal|0
 condition|)
 block|{
+case|case
+literal|0
+case|:
 name|results
 operator|.
 name|push
@@ -606,15 +607,10 @@ name|CALLOTHERSUBR
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|othersubrNum
-operator|==
+break|break;
+case|case
 literal|1
-condition|)
-block|{
+case|:
 comment|// begin flex
 name|sequence
 operator|.
@@ -636,15 +632,10 @@ name|CALLOTHERSUBR
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|othersubrNum
-operator|==
+break|break;
+case|case
 literal|3
-condition|)
-block|{
+case|:
 comment|// allows hint replacement
 name|results
 operator|.
@@ -656,9 +647,8 @@ name|sequence
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
+break|break;
+default|default:
 comment|// all remaining othersubrs use this fallback mechanism
 for|for
 control|(
@@ -686,6 +676,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+break|break;
 block|}
 comment|// pop must follow immediately
 while|while
