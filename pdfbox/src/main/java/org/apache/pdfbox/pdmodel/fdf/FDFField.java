@@ -1124,9 +1124,8 @@ condition|)
 block|{
 name|cos
 operator|=
-name|COSName
-operator|.
-name|getPDFName
+operator|new
+name|COSString
 argument_list|(
 operator|(
 name|String
