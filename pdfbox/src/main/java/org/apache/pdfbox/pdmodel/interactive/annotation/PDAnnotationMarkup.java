@@ -197,11 +197,7 @@ comment|/**      * Constructor.      */
 specifier|public
 name|PDAnnotationMarkup
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Constructor.      *      * @param dict The annotations dictionary.      */
 specifier|public
 name|PDAnnotationMarkup

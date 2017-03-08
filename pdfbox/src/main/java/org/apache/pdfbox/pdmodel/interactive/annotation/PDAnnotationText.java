@@ -136,9 +136,6 @@ specifier|public
 name|PDAnnotationText
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|getCOSObject
 argument_list|()
 operator|.

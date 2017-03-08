@@ -122,9 +122,6 @@ name|String
 name|subType
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|setSubtype
 argument_list|(
 name|subType
