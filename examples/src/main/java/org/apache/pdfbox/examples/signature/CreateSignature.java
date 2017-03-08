@@ -399,6 +399,29 @@ argument_list|(
 name|tsaClient
 argument_list|)
 expr_stmt|;
+name|int
+name|accessPermissions
+init|=
+name|getMDPPermission
+argument_list|(
+name|document
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|accessPermissions
+operator|==
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"No changes to the document are permitted due to DocMDP transform parameters dictionary"
+argument_list|)
+throw|;
+block|}
 comment|// create signature dictionary
 name|PDSignature
 name|signature
@@ -458,6 +481,24 @@ name|getInstance
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Optional: certify
+if|if
+condition|(
+name|accessPermissions
+operator|==
+literal|0
+condition|)
+block|{
+name|setMDPPermission
+argument_list|(
+name|document
+argument_list|,
+name|signature
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|isExternalSigning

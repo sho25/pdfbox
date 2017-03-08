@@ -661,6 +661,32 @@ argument_list|(
 name|inputFile
 argument_list|)
 decl_stmt|;
+name|int
+name|accessPermissions
+init|=
+name|getMDPPermission
+argument_list|(
+name|doc
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|accessPermissions
+operator|==
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"No changes to the document are permitted due to DocMDP transform parameters dictionary"
+argument_list|)
+throw|;
+block|}
+comment|// Note that PDFBox has a bug that visual signing on certified files with permission 2
+comment|// doesn't work properly, see PDFBOX-3699. As long as this issue is open, you may want to
+comment|// be careful with such files.
 name|PDSignature
 name|signature
 decl_stmt|;
@@ -687,6 +713,24 @@ operator|=
 operator|new
 name|PDSignature
 argument_list|()
+expr_stmt|;
+block|}
+comment|// Optional: certify
+if|if
+condition|(
+name|accessPermissions
+operator|==
+literal|0
+condition|)
+block|{
+name|setMDPPermission
+argument_list|(
+name|doc
+argument_list|,
+name|signature
+argument_list|,
+literal|2
+argument_list|)
 expr_stmt|;
 block|}
 comment|// default filter
