@@ -233,7 +233,7 @@ name|int
 index|[
 name|columns
 operator|+
-literal|1
+literal|2
 index|]
 expr_stmt|;
 name|this
@@ -245,7 +245,7 @@ name|int
 index|[
 name|columns
 operator|+
-literal|1
+literal|2
 index|]
 expr_stmt|;
 switch|switch
@@ -639,15 +639,6 @@ name|index
 operator|+=
 name|runLength
 expr_stmt|;
-if|if
-condition|(
-name|changesCurrentRowCount
-operator|<
-name|changesCurrentRow
-operator|.
-name|length
-condition|)
-block|{
 name|changesCurrentRow
 index|[
 name|changesCurrentRowCount
@@ -656,7 +647,6 @@ index|]
 operator|=
 name|index
 expr_stmt|;
-block|}
 break|break;
 case|case
 name|VALUE_PASSMODE
