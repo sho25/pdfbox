@@ -636,7 +636,7 @@ name|getPosition
 argument_list|()
 decl_stmt|;
 name|COSBase
-name|number
+name|value
 init|=
 name|parseDirObject
 argument_list|()
@@ -644,17 +644,26 @@ decl_stmt|;
 name|skipSpaces
 argument_list|()
 expr_stmt|;
+comment|// proceed if the given object is a number and the following is a number as well
 if|if
 condition|(
+operator|!
+operator|(
+name|value
+operator|instanceof
+name|COSNumber
+operator|)
+operator|||
 operator|!
 name|isDigit
 argument_list|()
 condition|)
 block|{
 return|return
-name|number
+name|value
 return|;
 block|}
+comment|// read the remaining information of the object number
 name|long
 name|genOffset
 init|=
@@ -681,7 +690,7 @@ if|if
 condition|(
 operator|!
 operator|(
-name|number
+name|value
 operator|instanceof
 name|COSInteger
 operator|)
@@ -693,7 +702,7 @@ name|IOException
 argument_list|(
 literal|"expected number, actual="
 operator|+
-name|number
+name|value
 operator|+
 literal|" at offset "
 operator|+
@@ -717,7 +726,7 @@ name|IOException
 argument_list|(
 literal|"expected number, actual="
 operator|+
-name|number
+name|value
 operator|+
 literal|" at offset "
 operator|+
@@ -735,7 +744,7 @@ operator|(
 operator|(
 name|COSInteger
 operator|)
-name|number
+name|value
 operator|)
 operator|.
 name|longValue
@@ -752,6 +761,7 @@ name|intValue
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// dereference the object
 return|return
 name|getObjectFromPool
 argument_list|(
