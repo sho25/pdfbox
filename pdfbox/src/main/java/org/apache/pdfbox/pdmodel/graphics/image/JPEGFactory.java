@@ -418,6 +418,36 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+return|return
+name|createFromByteArray
+argument_list|(
+name|document
+argument_list|,
+name|IOUtils
+operator|.
+name|toByteArray
+argument_list|(
+name|stream
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new JPEG Image XObject from a byte array containing JPEG data.      *      * @param document the document where the image will be created      * @param byteArray bytes of JPEG image      * @return a new Image XObject      *      * @throws IOException if the input stream cannot be read      */
+specifier|public
+specifier|static
+name|PDImageXObject
+name|createFromByteArray
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|,
+name|byte
+index|[]
+name|byteArray
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 comment|// copy stream
 name|ByteArrayInputStream
 name|byteStream
@@ -425,12 +455,7 @@ init|=
 operator|new
 name|ByteArrayInputStream
 argument_list|(
-name|IOUtils
-operator|.
-name|toByteArray
-argument_list|(
-name|stream
-argument_list|)
+name|byteArray
 argument_list|)
 decl_stmt|;
 comment|// read image
