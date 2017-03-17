@@ -690,7 +690,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 block|}
 elseif|else
 if|if
@@ -773,13 +772,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|fieldValue
-operator|!=
-literal|null
-condition|)
+else|else
 block|{
 throw|throw
 operator|new
