@@ -1653,11 +1653,25 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Could not write to font cache"
 argument_list|,
 name|e
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Installed fonts information will have to be reloaded for each start"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"You can assign a directory to the 'pdfbox.fontcache' property"
 argument_list|)
 expr_stmt|;
 block|}
