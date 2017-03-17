@@ -201,9 +201,6 @@ specifier|public
 name|FDFAnnotationFreeText
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|annot
 operator|.
 name|setName
