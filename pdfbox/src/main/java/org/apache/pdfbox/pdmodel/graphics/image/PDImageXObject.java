@@ -1311,9 +1311,7 @@ name|JPEG
 argument_list|)
 condition|)
 block|{
-name|PDImageXObject
-name|imageXObject
-init|=
+return|return
 name|JPEGFactory
 operator|.
 name|createFromByteArray
@@ -1322,9 +1320,6 @@ name|document
 argument_list|,
 name|byteArray
 argument_list|)
-decl_stmt|;
-return|return
-name|imageXObject
 return|;
 block|}
 if|if
