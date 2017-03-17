@@ -911,8 +911,6 @@ comment|// indicates if the original content stream
 comment|// has been wrapped in a q...Q pair.
 name|boolean
 name|isContentStreamWrapped
-init|=
-literal|false
 decl_stmt|;
 comment|// the content stream to write to
 name|PDPageContentStream
