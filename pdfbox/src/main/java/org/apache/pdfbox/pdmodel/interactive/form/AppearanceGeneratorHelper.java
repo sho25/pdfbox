@@ -673,6 +673,10 @@ decl_stmt|;
 if|if
 condition|(
 name|appearance
+operator|!=
+literal|null
+operator|&&
+name|appearance
 operator|.
 name|isStream
 argument_list|()
