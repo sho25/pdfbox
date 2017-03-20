@@ -2993,6 +2993,7 @@ name|i
 control|)
 block|{
 comment|// minimum line dash width avoids JVM crash, see PDFBOX-2373, PDFBOX-2929, PDFBOX-3204
+comment|// also avoid 0 in array like "[ 0 1000 ] 0 d", see PDFBOX-3724
 name|float
 name|w
 init|=
@@ -3004,13 +3005,6 @@ name|i
 index|]
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|w
-operator|!=
-literal|0
-condition|)
-block|{
 name|dashArray
 index|[
 name|i
@@ -3025,7 +3019,6 @@ argument_list|,
 literal|0.035f
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|phaseStart
 operator|=
