@@ -435,7 +435,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new ICC color space using the PDF array.      *      * @param iccArray the ICC stream object      * @throws java.io.IOException if there is an error reading the ICC profile.      */
+comment|/**      * Creates a new ICC color space using the PDF array.      *      * @param iccArray the ICC stream object      * @throws IOException if there is an error reading the ICC profile or if the parameter      * is invalid.      */
 specifier|public
 name|PDICCBased
 parameter_list|(
@@ -445,6 +445,47 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|iccArray
+operator|.
+name|size
+argument_list|()
+operator|<
+literal|2
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"ICCBased colorspace array must have two elements"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+operator|!
+operator|(
+name|iccArray
+operator|.
+name|getObject
+argument_list|(
+literal|1
+argument_list|)
+operator|instanceof
+name|COSStream
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"ICCBased colorspace array must have a stream as second element"
+argument_list|)
+throw|;
+block|}
 name|array
 operator|=
 name|iccArray
