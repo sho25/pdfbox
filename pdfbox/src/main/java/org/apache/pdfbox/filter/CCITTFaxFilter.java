@@ -209,17 +209,10 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|// ensure that rows doesn't contain implausible data, see PDFBOX-771
+comment|// PDFBOX-771, PDFBOX-3727: rows in DecodeParms sometimes contains an incorrect value
 name|rows
 operator|=
-name|Math
-operator|.
-name|min
-argument_list|(
-name|rows
-argument_list|,
 name|height
-argument_list|)
 expr_stmt|;
 block|}
 else|else
