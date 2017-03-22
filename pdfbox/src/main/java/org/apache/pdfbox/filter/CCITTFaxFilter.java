@@ -444,7 +444,7 @@ operator|.
 name|getParameters
 argument_list|()
 operator|.
-name|setName
+name|setItem
 argument_list|(
 name|COSName
 operator|.
@@ -453,9 +453,6 @@ argument_list|,
 name|COSName
 operator|.
 name|DEVICEGRAY
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
