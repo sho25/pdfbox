@@ -232,6 +232,8 @@ name|getHival
 argument_list|(
 name|array
 argument_list|)
+operator|+
+literal|1
 expr_stmt|;
 name|initUI
 argument_list|(
