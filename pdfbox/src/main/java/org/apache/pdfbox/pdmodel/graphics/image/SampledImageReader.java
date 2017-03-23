@@ -611,7 +611,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"image weight and height must be positive"
+literal|"image width and height must be positive"
 argument_list|)
 throw|;
 block|}
