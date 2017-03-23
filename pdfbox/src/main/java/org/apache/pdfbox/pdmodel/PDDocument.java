@@ -4136,7 +4136,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will save the document to an output stream.      *       * @param output The stream to write to.      *      * @throws IOException if the output could not be written      */
+comment|/**      * This will save the document to an output stream.      *       * @param output The stream to write to. It is recommended to wrap it in a      * {@link java.io.BufferedOutputStream}, unless it is already buffered.      *      * @throws IOException if the output could not be written      */
 specifier|public
 name|void
 name|save
