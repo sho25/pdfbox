@@ -201,6 +201,8 @@ operator|.
 name|APPEND
 argument_list|,
 literal|true
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// contentStream.drawImage(ximage, 20, 20 );
