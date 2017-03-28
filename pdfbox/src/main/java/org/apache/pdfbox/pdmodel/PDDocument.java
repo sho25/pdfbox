@@ -892,9 +892,7 @@ name|fontsToSubset
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|PDFont
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Signature interface
@@ -3235,9 +3233,7 @@ name|fields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDSignatureField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|PDAcroForm
@@ -3310,9 +3306,7 @@ name|signatures
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDSignature
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -4184,6 +4178,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 comment|// save PDF
+try|try
+init|(
 name|COSWriter
 name|writer
 init|=
@@ -4192,8 +4188,7 @@ name|COSWriter
 argument_list|(
 name|output
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|writer
 operator|.
@@ -4201,14 +4196,6 @@ name|write
 argument_list|(
 name|this
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|writer
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}
