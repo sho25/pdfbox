@@ -2082,6 +2082,11 @@ operator|.
 name|getInstance
 argument_list|(
 name|algorithm
+argument_list|,
+name|SecurityProvider
+operator|.
+name|getProvider
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|keygen
@@ -2091,6 +2096,11 @@ operator|.
 name|getInstance
 argument_list|(
 name|algorithm
+argument_list|,
+name|SecurityProvider
+operator|.
+name|getProvider
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|cipher
@@ -2100,6 +2110,11 @@ operator|.
 name|getInstance
 argument_list|(
 name|algorithm
+argument_list|,
+name|SecurityProvider
+operator|.
+name|getProvider
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2411,6 +2426,11 @@ name|getAlgorithm
 argument_list|()
 operator|.
 name|getId
+argument_list|()
+argument_list|,
+name|SecurityProvider
+operator|.
+name|getProvider
 argument_list|()
 argument_list|)
 expr_stmt|;

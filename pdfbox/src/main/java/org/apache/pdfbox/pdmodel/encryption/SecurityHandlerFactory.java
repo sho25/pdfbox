@@ -71,20 +71,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
-name|jce
-operator|.
-name|provider
-operator|.
-name|BouncyCastleProvider
-import|;
-end_import
-
 begin_comment
 comment|/**  * Manages security handlers for the application.  * It follows the singleton pattern.  * To be usable, security managers must be registered in it.  * Security managers are retrieved by the application when necessary.  *  * @author Benoit Guillon  * @author John Hewson  */
 end_comment
@@ -106,18 +92,6 @@ operator|new
 name|SecurityHandlerFactory
 argument_list|()
 decl_stmt|;
-static|static
-block|{
-name|Security
-operator|.
-name|addProvider
-argument_list|(
-operator|new
-name|BouncyCastleProvider
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 specifier|private
 specifier|final
 name|Map
