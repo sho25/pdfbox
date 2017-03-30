@@ -1102,11 +1102,7 @@ name|objectKeys
 init|=
 operator|new
 name|Hashtable
-argument_list|<
-name|COSBase
-argument_list|,
-name|COSObjectKey
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -1121,11 +1117,7 @@ name|keyObject
 init|=
 operator|new
 name|Hashtable
-argument_list|<
-name|COSObjectKey
-argument_list|,
-name|COSBase
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// the list of x ref entries to be made so far
@@ -1139,9 +1131,7 @@ name|xRefEntries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|COSWriterXRefEntry
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -1154,9 +1144,7 @@ name|objectsToWriteSet
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|COSBase
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|//A list of objects to write.
@@ -1170,9 +1158,7 @@ name|objectsToWrite
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|COSBase
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|//a list of objects already written
@@ -1186,9 +1172,7 @@ name|writtenObjects
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|COSBase
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|//An 'actual' is any COSBase that is not a COSObject.
@@ -1207,9 +1191,7 @@ name|actualsAdded
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|COSBase
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -3575,9 +3557,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
