@@ -346,6 +346,7 @@ argument_list|,
 literal|"dict"
 argument_list|)
 expr_stmt|;
+comment|// found in some TeX fonts
 name|readMaybe
 argument_list|(
 name|Token
@@ -355,7 +356,7 @@ argument_list|,
 literal|"dup"
 argument_list|)
 expr_stmt|;
-comment|// found in some TeX fonts
+comment|// if present, the "currentdict" is not required
 name|read
 argument_list|(
 name|Token
@@ -381,12 +382,17 @@ operator|++
 control|)
 block|{
 comment|// premature end
-if|if
-condition|(
+name|Token
+name|token
+init|=
 name|lexer
 operator|.
 name|peekToken
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|token
 operator|.
 name|getKind
 argument_list|()
@@ -395,10 +401,8 @@ name|Token
 operator|.
 name|NAME
 operator|&&
-name|lexer
-operator|.
-name|peekToken
-argument_list|()
+operator|(
+name|token
 operator|.
 name|getText
 argument_list|()
@@ -407,6 +411,17 @@ name|equals
 argument_list|(
 literal|"currentdict"
 argument_list|)
+operator|||
+name|token
+operator|.
+name|getText
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"end"
+argument_list|)
+operator|)
 condition|)
 block|{
 break|break;
@@ -463,7 +478,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-name|read
+name|readMaybe
 argument_list|(
 name|Token
 operator|.
@@ -2040,6 +2055,9 @@ literal|"Private"
 argument_list|)
 condition|)
 block|{
+comment|// for a more thorough validation, the presence of "begin" before Private
+comment|// determines how code before and following charstrings should look
+comment|// it is not currently checked anyway
 name|lexer
 operator|.
 name|nextToken
@@ -2100,6 +2118,8 @@ argument_list|,
 literal|"dict"
 argument_list|)
 expr_stmt|;
+comment|// actually could also be "/Private 10 dict def Private begin"
+comment|// instead of the "dup"
 name|readMaybe
 argument_list|(
 name|Token
@@ -2219,7 +2239,8 @@ operator|.
 name|START_PROC
 argument_list|)
 expr_stmt|;
-name|read
+comment|// the access restrictions are not mandatory
+name|readMaybe
 argument_list|(
 name|Token
 operator|.
@@ -2244,7 +2265,7 @@ operator|.
 name|END_PROC
 argument_list|)
 expr_stmt|;
-name|read
+name|readMaybe
 argument_list|(
 name|Token
 operator|.
@@ -2273,7 +2294,7 @@ operator|.
 name|START_PROC
 argument_list|)
 expr_stmt|;
-name|read
+name|readMaybe
 argument_list|(
 name|Token
 operator|.
@@ -2296,7 +2317,7 @@ operator|.
 name|END_PROC
 argument_list|)
 expr_stmt|;
-name|read
+name|readMaybe
 argument_list|(
 name|Token
 operator|.
@@ -2954,6 +2975,8 @@ argument_list|,
 literal|"dict"
 argument_list|)
 expr_stmt|;
+comment|// could actually be a sequence ending in "CharStrings begin", too
+comment|// instead of the "dup begin"
 name|read
 argument_list|(
 name|Token
@@ -3085,6 +3108,9 @@ argument_list|,
 literal|"end"
 argument_list|)
 expr_stmt|;
+comment|// since checking ends here, this does not matter ....
+comment|// more thorough checking would see whether there is "begin" before /Private
+comment|// and expect a "def" somewhere, otherwise a "put"
 block|}
 comment|/**      * Reads the sequence "noaccess def" or equivalent.      */
 specifier|private
