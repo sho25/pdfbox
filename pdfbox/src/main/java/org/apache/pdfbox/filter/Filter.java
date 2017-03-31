@@ -425,6 +425,10 @@ expr_stmt|;
 if|if
 condition|(
 name|reader
+operator|!=
+literal|null
+operator|&&
+name|reader
 operator|.
 name|canReadRaster
 argument_list|()

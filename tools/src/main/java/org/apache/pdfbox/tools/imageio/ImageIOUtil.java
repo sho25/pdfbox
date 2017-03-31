@@ -551,6 +551,15 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|writer
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|param
 operator|=
 name|writer

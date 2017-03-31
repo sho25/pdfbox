@@ -1068,6 +1068,15 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|writer
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 comment|// PDFBOX-3566: avoid CLibJPEGImageWriter, which is not a JPEGImageWriteParam
 if|if
 condition|(
