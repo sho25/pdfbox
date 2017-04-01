@@ -554,12 +554,10 @@ expr_stmt|;
 if|if
 condition|(
 name|writer
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-continue|continue;
-block|}
 name|param
 operator|=
 name|writer
@@ -601,6 +599,7 @@ argument_list|()
 condition|)
 block|{
 break|break;
+block|}
 block|}
 block|}
 if|if
