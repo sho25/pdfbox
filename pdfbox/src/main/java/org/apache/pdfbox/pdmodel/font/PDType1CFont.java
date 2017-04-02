@@ -1081,6 +1081,10 @@ name|IOException
 block|{
 if|if
 condition|(
+operator|!
+name|isEmbedded
+argument_list|()
+operator|&&
 name|getStandard14AFM
 argument_list|()
 operator|!=
