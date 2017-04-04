@@ -364,7 +364,7 @@ name|size
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Closes the visual signature COSDocument, if any.      *      * @throws IOException if the document could not be closed      */
+comment|/**      * Closes the visual signature COSDocument, if any. Do not call this before you're saved your      * signed PDF document, or saving will fail because COSStream objects held both by the      * COSDocument and by the signed document would no longer be available.      *      * @throws IOException if the document could not be closed      */
 annotation|@
 name|Override
 specifier|public

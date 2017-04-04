@@ -1033,8 +1033,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// do not close options before saving, because some COSStream objects within options
+comment|// Do not close signatureOptions before saving, because some COSStream objects within
 comment|// are transferred to the signed document.
+comment|// Do not allow signatureOptions get out of scope before saving, because then the COSDocument
+comment|// in signature options might by closed by gc, which would close COSStream objects prematurely.
+comment|// See https://issues.apache.org/jira/browse/PDFBOX-3743
 name|IOUtils
 operator|.
 name|closeQuietly
