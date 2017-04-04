@@ -736,6 +736,11 @@ argument_list|(
 name|operator
 argument_list|)
 expr_stmt|;
+name|validateDefaultColorSpace
+argument_list|(
+name|operator
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
