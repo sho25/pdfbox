@@ -2783,6 +2783,7 @@ block|}
 comment|// fills
 if|if
 condition|(
+operator|(
 literal|"f"
 operator|.
 name|equals
@@ -2831,10 +2832,8 @@ name|equals
 argument_list|(
 name|op
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
+operator|)
+operator|&&
 name|getGraphicsState
 argument_list|()
 operator|.
@@ -2852,10 +2851,10 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-block|}
 comment|// strokes
 if|if
 condition|(
+operator|(
 literal|"B"
 operator|.
 name|equals
@@ -2897,10 +2896,8 @@ name|equals
 argument_list|(
 name|op
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
+operator|)
+operator|&&
 name|getGraphicsState
 argument_list|()
 operator|.
@@ -2918,14 +2915,10 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-block|}
 if|if
 condition|(
 name|v
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|!
 name|validColorSpaceDestOutputProfile
 argument_list|(
@@ -2936,6 +2929,7 @@ operator|.
 name|ALL
 argument_list|)
 condition|)
+block|{
 name|registerError
 argument_list|(
 literal|"/DeviceGray default for operator \""
