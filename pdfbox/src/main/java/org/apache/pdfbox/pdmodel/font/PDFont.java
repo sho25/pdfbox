@@ -1100,11 +1100,6 @@ condition|(
 name|fd
 operator|!=
 literal|null
-operator|&&
-name|fd
-operator|.
-name|hasMissingWidth
-argument_list|()
 condition|)
 block|{
 comment|// get entry from /MissingWidth entry
@@ -1839,6 +1834,22 @@ block|{
 name|fontWidthOfSpace
 operator|=
 name|getWidth
+argument_list|(
+literal|32
+argument_list|)
+expr_stmt|;
+block|}
+comment|// try to get it from the font itself
+if|if
+condition|(
+name|fontWidthOfSpace
+operator|<=
+literal|0
+condition|)
+block|{
+name|fontWidthOfSpace
+operator|=
+name|getWidthFromFont
 argument_list|(
 literal|32
 argument_list|)
