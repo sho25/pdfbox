@@ -496,15 +496,16 @@ operator|!=
 literal|0
 condition|)
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
+name|LOG
+operator|.
+name|info
 argument_list|(
 literal|"Unsupported kerning sub-table version: "
 operator|+
 name|version
 argument_list|)
-throw|;
+expr_stmt|;
+return|return;
 block|}
 name|int
 name|length
@@ -684,13 +685,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
+name|LOG
+operator|.
+name|info
 argument_list|(
-literal|"Kerning table version 0 format 2 not yet supported."
+literal|"Kerning subtable format 2 not yet supported."
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 specifier|private
 name|void
@@ -702,13 +703,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
+name|LOG
+operator|.
+name|info
 argument_list|(
-literal|"Kerning table version 1 formats not yet supported."
+literal|"Kerning subtable format 1 not yet supported."
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 specifier|private
 specifier|static
