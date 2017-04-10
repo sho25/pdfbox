@@ -493,11 +493,7 @@ name|codeToWidthMap
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Float
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -571,11 +567,7 @@ name|codeToWidthMap
 operator|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Float
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -597,11 +589,7 @@ name|codeToWidthMap
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Float
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// standard 14 fonts use an AFM
@@ -756,7 +744,7 @@ return|return
 name|fontDescriptor
 return|;
 block|}
-comment|/**      * Sets the font descriptor when embedding a font.      */
+comment|/**      * Sets the font descriptor when embedding a font.      *      * @param fontDescriptor      */
 specifier|protected
 specifier|final
 name|void
@@ -773,7 +761,7 @@ operator|=
 name|fontDescriptor
 expr_stmt|;
 block|}
-comment|/**      /**      * Reads a CMap given a COS Stream or Name. May return null if a predefined CMap does not exist.      *      * @param base COSName or COSStream      */
+comment|/**      * Reads a CMap given a COS Stream or Name. May return null if a predefined CMap does not exist.      *      * @param base COSName or COSStream      * @throws IOException      */
 specifier|protected
 specifier|final
 name|CMap
@@ -903,7 +891,7 @@ literal|"Horizontal fonts have no position vector"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Returns the displacement vector (w0, w1) in text space, for the given character.      * For horizontal text only the x component is used, for vertical text only the y component.      *      * @param code character code      * @return displacement vector      */
+comment|/**      * Returns the displacement vector (w0, w1) in text space, for the given character.      * For horizontal text only the x component is used, for vertical text only the y component.      *      * @param code character code      * @return displacement vector      * @throws IOException      */
 specifier|public
 name|Vector
 name|getDisplacement
@@ -1549,7 +1537,7 @@ name|code
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the Unicode character sequence which corresponds to the given character code.      *      * @param code character code      * @return Unicode character(s)      */
+comment|/**      * Returns the Unicode character sequence which corresponds to the given character code.      *      * @param code character code      * @return Unicode character(s)      * @throws IOException      */
 specifier|public
 name|String
 name|toUnicode
