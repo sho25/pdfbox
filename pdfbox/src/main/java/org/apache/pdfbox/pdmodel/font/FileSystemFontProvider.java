@@ -419,9 +419,7 @@ name|fontInfoList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FSFontInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -923,9 +921,7 @@ name|files
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|FontFileFinder
@@ -1709,9 +1705,7 @@ name|pending
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1741,9 +1735,7 @@ name|results
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FSFontInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|File
@@ -2305,21 +2297,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|TrueTypeCollection
 name|ttc
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|ttc
-operator|=
 operator|new
 name|TrueTypeCollection
 argument_list|(
 name|ttcFile
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 name|ttc
 operator|.
 name|processAllFonts
@@ -2355,28 +2344,12 @@ block|}
 catch|catch
 parameter_list|(
 name|NullPointerException
-name|e
-parameter_list|)
-comment|// TTF parser is buggy
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Could not load font file: "
-operator|+
-name|ttcFile
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|IOException
 name|e
 parameter_list|)
 block|{
+comment|// TTF parser is buggy
 name|LOG
 operator|.
 name|error
@@ -2388,22 +2361,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|ttc
-operator|!=
-literal|null
-condition|)
-block|{
-name|ttc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Adds an OTF or TTF font to the file cache. To reduce memory, the parsed font is not cached.      */
@@ -2496,28 +2453,12 @@ block|}
 catch|catch
 parameter_list|(
 name|NullPointerException
-name|e
-parameter_list|)
-comment|// TTF parser is buggy
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Could not load font file: "
-operator|+
-name|ttfFile
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|IOException
 name|e
 parameter_list|)
 block|{
+comment|// TTF parser is buggy
 name|LOG
 operator|.
 name|error
@@ -3205,6 +3146,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|InputStream
 name|input
 init|=
@@ -3213,8 +3156,7 @@ name|FileInputStream
 argument_list|(
 name|pfbFile
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|Type1Font
 name|type1
@@ -3376,14 +3318,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-name|input
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 specifier|private
 name|TrueTypeFont
@@ -3437,28 +3371,12 @@ block|}
 catch|catch
 parameter_list|(
 name|NullPointerException
-name|e
-parameter_list|)
-comment|// TTF parser is buggy
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Could not load font file: "
-operator|+
-name|file
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|IOException
 name|e
 parameter_list|)
 block|{
+comment|// TTF parser is buggy
 name|LOG
 operator|.
 name|error

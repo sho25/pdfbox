@@ -88,14 +88,7 @@ name|cache
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|FontInfo
-argument_list|,
-name|SoftReference
-argument_list|<
-name|FontBoxFont
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Adds the given FontBox font to the cache.      */
@@ -118,9 +111,7 @@ name|info
 argument_list|,
 operator|new
 name|SoftReference
-argument_list|<
-name|FontBoxFont
-argument_list|>
+argument_list|<>
 argument_list|(
 name|font
 argument_list|)

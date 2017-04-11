@@ -271,14 +271,7 @@ name|substitutes
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|FontMapperImpl
@@ -809,11 +802,7 @@ name|map
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|FontInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -873,9 +862,7 @@ name|names
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// built-in PostScript name
@@ -920,9 +907,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|substitutes
 operator|.
@@ -1329,9 +1314,7 @@ block|{
 return|return
 operator|new
 name|FontMapping
-argument_list|<
-name|TrueTypeFont
-argument_list|>
+argument_list|<>
 argument_list|(
 name|ttf
 argument_list|,
@@ -1380,9 +1363,7 @@ block|}
 return|return
 operator|new
 name|FontMapping
-argument_list|<
-name|TrueTypeFont
-argument_list|>
+argument_list|<>
 argument_list|(
 name|ttf
 argument_list|,
@@ -1426,9 +1407,7 @@ block|{
 return|return
 operator|new
 name|FontMapping
-argument_list|<
-name|FontBoxFont
-argument_list|>
+argument_list|<>
 argument_list|(
 name|font
 argument_list|,
@@ -1470,9 +1449,7 @@ block|}
 return|return
 operator|new
 name|FontMapping
-argument_list|<
-name|FontBoxFont
-argument_list|>
+argument_list|<>
 argument_list|(
 name|font
 argument_list|,
@@ -2092,9 +2069,7 @@ name|queue
 init|=
 operator|new
 name|PriorityQueue
-argument_list|<
-name|FontMatch
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|20
 argument_list|)
