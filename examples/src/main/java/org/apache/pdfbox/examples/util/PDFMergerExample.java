@@ -478,21 +478,7 @@ block|}
 catch|catch
 parameter_list|(
 name|BadFieldValueException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"PDF merge problem"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|TransformerException
 name|e
 parameter_list|)
