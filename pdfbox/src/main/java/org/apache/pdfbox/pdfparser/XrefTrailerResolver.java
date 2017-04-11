@@ -224,11 +224,7 @@ name|xrefTable
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|COSObjectKey
-argument_list|,
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**          *  Default constructor.          */
@@ -278,11 +274,7 @@ name|bytePosToXrefMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Long
-argument_list|,
-name|XrefTrailerObj
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -351,9 +343,7 @@ name|sortedOffset
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|offsets
 argument_list|)
@@ -410,9 +400,7 @@ name|sortedOffset
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|offsets
 argument_list|)
@@ -664,9 +652,7 @@ name|xrefSeqBytePos
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -951,9 +937,7 @@ name|refObjNrs
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final

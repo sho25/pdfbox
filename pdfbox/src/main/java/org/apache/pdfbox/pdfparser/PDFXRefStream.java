@@ -301,20 +301,14 @@ name|streamData
 operator|=
 operator|new
 name|TreeMap
-argument_list|<
-name|Long
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|objectNumbers
 operator|=
 operator|new
 name|TreeSet
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -460,6 +454,8 @@ argument_list|,
 name|wAsArray
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|OutputStream
 name|outputStream
 init|=
@@ -473,7 +469,8 @@ name|COSName
 operator|.
 name|FLATE_DECODE
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|writeStreamData
 argument_list|(
 name|outputStream
@@ -486,11 +483,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-name|outputStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|Set
 argument_list|<
 name|COSName
@@ -1166,9 +1159,7 @@ name|linkedList
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Long
@@ -1189,9 +1180,7 @@ name|objNumbers
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// add object number 0 to the set
