@@ -67,6 +67,20 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|fontbox
+operator|.
+name|util
+operator|.
+name|Charsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * FontFinder for native Windows platforms. This class is based on a class provided by Apache FOP. see  * org.apache.fop.fonts.autodetect.WindowsFontDirFinder  */
 end_comment
@@ -132,6 +146,8 @@ literal|"cmd.exe /c echo %windir%"
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+init|(
 name|BufferedReader
 name|bufferedReader
 init|=
@@ -145,25 +161,21 @@ name|process
 operator|.
 name|getInputStream
 argument_list|()
+argument_list|,
+name|Charsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
-decl_stmt|;
-name|String
-name|winDir
-init|=
+init|)
+block|{
+return|return
 name|bufferedReader
 operator|.
 name|readLine
 argument_list|()
-decl_stmt|;
-name|bufferedReader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-return|return
-name|winDir
 return|;
+block|}
 block|}
 comment|/**      * {@inheritDoc}      *       * @return a list of detected font files      */
 annotation|@
@@ -188,9 +200,7 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String
@@ -248,13 +258,7 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// should continue if this fails
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|SecurityException
 name|e
 parameter_list|)
