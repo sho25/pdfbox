@@ -206,9 +206,7 @@ name|subrs
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 return|;
@@ -541,9 +539,7 @@ name|results
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 switch|switch

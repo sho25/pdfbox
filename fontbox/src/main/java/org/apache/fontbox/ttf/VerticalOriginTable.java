@@ -138,11 +138,7 @@ name|origins
 operator|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numVertOriginYMetrics
 argument_list|)

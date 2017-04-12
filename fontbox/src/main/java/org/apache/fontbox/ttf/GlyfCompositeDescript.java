@@ -130,9 +130,7 @@ name|components
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|GlyfCompositeComp
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -147,11 +145,7 @@ name|descriptions
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|GlyphDescription
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private

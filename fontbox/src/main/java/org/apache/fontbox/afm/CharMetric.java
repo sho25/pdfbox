@@ -123,9 +123,7 @@ name|ligatures
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Ligature
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Getter for property boundingBox.      * @return Value of property boundingBox.      */

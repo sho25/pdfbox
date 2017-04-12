@@ -130,11 +130,7 @@ name|privateDict
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -153,11 +149,7 @@ name|charStringCache
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Type2CharString
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private

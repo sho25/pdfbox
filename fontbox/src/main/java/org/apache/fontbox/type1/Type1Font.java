@@ -370,9 +370,7 @@ name|fontMatrix
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -383,9 +381,7 @@ name|fontBBox
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -446,9 +442,7 @@ name|blueValues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -459,9 +453,7 @@ name|otherBlues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -472,9 +464,7 @@ name|familyBlues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -485,9 +475,7 @@ name|familyOtherBlues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|float
@@ -506,9 +494,7 @@ name|stdHW
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -519,9 +505,7 @@ name|stdVW
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -532,9 +516,7 @@ name|stemSnapH
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -545,9 +527,7 @@ name|stemSnapV
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -567,10 +547,7 @@ name|subrs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -585,12 +562,7 @@ name|charstrings
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// private caches
@@ -606,11 +578,7 @@ name|charStringCache
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Type1CharString
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// raw data

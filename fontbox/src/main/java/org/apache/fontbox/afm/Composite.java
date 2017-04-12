@@ -57,9 +57,7 @@ name|parts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CompositePart
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Getter for property name.      * @return Value of property name.      */

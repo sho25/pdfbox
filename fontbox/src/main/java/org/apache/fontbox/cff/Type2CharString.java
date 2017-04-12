@@ -212,9 +212,7 @@ name|type1Sequence
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|pathCount
@@ -2282,12 +2280,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|List
-argument_list|<
-name|E
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

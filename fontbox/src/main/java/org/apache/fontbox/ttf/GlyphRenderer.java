@@ -350,9 +350,7 @@ name|contour
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Point
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

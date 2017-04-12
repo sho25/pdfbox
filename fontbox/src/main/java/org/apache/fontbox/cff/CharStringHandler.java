@@ -68,9 +68,7 @@ name|stack
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

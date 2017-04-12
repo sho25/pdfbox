@@ -240,11 +240,7 @@ name|flexPoints
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Point2D
-operator|.
-name|Float
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|protected
@@ -1413,9 +1409,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numbers
 argument_list|)

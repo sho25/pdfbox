@@ -601,11 +601,7 @@ name|MAC_GLYPH_NAMES_INDICES
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|NUMBER_OF_MAC_GLYPHS
 argument_list|)

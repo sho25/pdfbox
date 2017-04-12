@@ -186,9 +186,7 @@ name|comments
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -229,9 +227,7 @@ name|charMetrics
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CharMetric
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -245,11 +241,7 @@ name|charMetricsMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|CharMetric
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -261,9 +253,7 @@ name|trackKern
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TrackKern
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -275,9 +265,7 @@ name|composites
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Composite
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -289,9 +277,7 @@ name|kernPairs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|KernPair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -303,9 +289,7 @@ name|kernPairs0
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|KernPair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -317,9 +301,7 @@ name|kernPairs1
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|KernPair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      */
@@ -1233,11 +1215,7 @@ name|charMetricsMap
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|CharMetric
-argument_list|>
+argument_list|<>
 argument_list|(
 name|charMetrics
 operator|.

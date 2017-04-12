@@ -479,13 +479,7 @@ name|keyMap
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|CFFOperator
-operator|.
-name|Key
-argument_list|,
-name|CFFOperator
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|52
 argument_list|)
@@ -502,11 +496,7 @@ name|nameMap
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|CFFOperator
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|52
 argument_list|)

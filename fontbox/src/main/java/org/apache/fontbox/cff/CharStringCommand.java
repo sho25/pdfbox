@@ -560,11 +560,7 @@ name|map
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|Key
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|26
 argument_list|)
@@ -959,11 +955,7 @@ name|map
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|Key
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|48
 argument_list|)
