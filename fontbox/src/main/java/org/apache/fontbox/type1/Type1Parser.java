@@ -1578,7 +1578,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * Reads a simple value. This is either a number, a string,      * a name, a literal name, an array, a procedure, or a charstring.      * This method does not support reading nested dictionaries.      */
+comment|/**      * Reads a simple value. This is either a number, a string,      * a name, a literal name, an array, a procedure, or a charstring.      * This method does not support reading nested dictionaries unless they're empty.      */
 specifier|private
 name|List
 argument_list|<
@@ -1718,6 +1718,31 @@ name|readProc
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|.
+name|getKind
+argument_list|()
+operator|==
+name|Token
+operator|.
+name|START_DICT
+condition|)
+block|{
+comment|// skip "/GlyphNames2HostCode<<>> def"
+name|read
+argument_list|(
+name|Token
+operator|.
+name|END_DICT
+argument_list|)
+expr_stmt|;
+return|return
+name|value
+return|;
 block|}
 comment|// postscript wrapper (not in the Type 1 spec)
 if|if

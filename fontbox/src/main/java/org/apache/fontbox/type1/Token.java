@@ -47,6 +47,10 @@ name|START_PROC
 block|,
 name|END_PROC
 block|,
+name|START_DICT
+block|,
+name|END_DICT
+block|,
 name|CHARSTRING
 block|}
 comment|// exposed statically for convenience
@@ -139,6 +143,24 @@ init|=
 name|Kind
 operator|.
 name|CHARSTRING
+decl_stmt|;
+specifier|static
+specifier|final
+name|Kind
+name|START_DICT
+init|=
+name|Kind
+operator|.
+name|START_DICT
+decl_stmt|;
+specifier|static
+specifier|final
+name|Kind
+name|END_DICT
+init|=
+name|Kind
+operator|.
+name|END_DICT
 decl_stmt|;
 specifier|private
 name|String
