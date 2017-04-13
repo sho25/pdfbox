@@ -390,9 +390,7 @@ name|kids
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FDFField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -762,9 +760,7 @@ name|actuals
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FDFField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -809,9 +805,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|FDFField
-argument_list|>
+argument_list|<>
 argument_list|(
 name|actuals
 argument_list|,
@@ -2130,9 +2124,7 @@ name|objects
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2213,9 +2205,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|objects
 argument_list|,

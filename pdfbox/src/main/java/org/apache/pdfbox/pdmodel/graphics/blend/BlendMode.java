@@ -799,11 +799,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|COSName
-argument_list|,
-name|BlendMode
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|13
 argument_list|)

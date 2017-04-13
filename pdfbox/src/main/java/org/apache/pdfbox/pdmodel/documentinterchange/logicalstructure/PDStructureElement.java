@@ -461,9 +461,7 @@ name|attributes
 init|=
 operator|new
 name|Revisions
-argument_list|<
-name|PDAttributeObject
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|COSBase
@@ -1285,9 +1283,7 @@ name|classNames
 init|=
 operator|new
 name|Revisions
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|COSBase

@@ -225,11 +225,7 @@ name|verticalDisplacementY
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Float
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// w1y
@@ -245,11 +241,7 @@ name|positionVectors
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Vector
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// v
@@ -307,11 +299,7 @@ name|widths
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Float
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|COSArray

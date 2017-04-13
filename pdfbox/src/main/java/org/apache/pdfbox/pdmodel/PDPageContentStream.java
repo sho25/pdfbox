@@ -518,9 +518,7 @@ name|fontStack
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|PDFont
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -533,9 +531,7 @@ name|nonStrokingColorSpaceStack
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|PDColorSpace
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -548,9 +544,7 @@ name|strokingColorSpaceStack
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|PDColorSpace
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Create a new PDPage content stream.      *      * @param document The document the page is part of.      * @param sourcePage The page to write the contents to.      * @throws IOException If there is an error writing to the page contents.      */

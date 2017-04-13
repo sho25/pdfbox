@@ -237,9 +237,7 @@ name|objectNumbers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numberOfObjects
 argument_list|)
@@ -248,9 +246,7 @@ name|streamObjects
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|COSObject
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numberOfObjects
 argument_list|)

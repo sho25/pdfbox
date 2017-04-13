@@ -564,11 +564,7 @@ operator|.
 name|util
 operator|.
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Operator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Creates a new Operators object with the default set of operators.      */

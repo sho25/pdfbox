@@ -1674,9 +1674,7 @@ name|cachedImage
 operator|=
 operator|new
 name|SoftReference
-argument_list|<
-name|BufferedImage
-argument_list|>
+argument_list|<>
 argument_list|(
 name|image
 argument_list|)

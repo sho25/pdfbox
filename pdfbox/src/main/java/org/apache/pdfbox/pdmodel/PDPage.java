@@ -562,9 +562,7 @@ name|streams
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDStream
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|COSBase
@@ -767,9 +765,7 @@ name|inputStreams
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InputStream
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1902,9 +1898,7 @@ name|pdObjects
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDThreadBead
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1971,9 +1965,7 @@ block|}
 return|return
 operator|new
 name|COSArrayList
-argument_list|<
-name|PDThreadBead
-argument_list|>
+argument_list|<>
 argument_list|(
 name|pdObjects
 argument_list|,
@@ -2289,9 +2281,7 @@ block|{
 return|return
 operator|new
 name|COSArrayList
-argument_list|<
-name|PDAnnotation
-argument_list|>
+argument_list|<>
 argument_list|(
 name|page
 argument_list|,
@@ -2311,9 +2301,7 @@ name|actuals
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDAnnotation
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2370,9 +2358,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|PDAnnotation
-argument_list|>
+argument_list|<>
 argument_list|(
 name|actuals
 argument_list|,

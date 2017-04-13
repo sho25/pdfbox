@@ -93,11 +93,7 @@ name|operators
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Operator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param aOperator The operator that this object will represent.      * @throws IllegalArgumentException if the operator starts with "/".      */

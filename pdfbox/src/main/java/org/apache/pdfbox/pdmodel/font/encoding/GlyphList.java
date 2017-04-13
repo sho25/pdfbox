@@ -321,11 +321,7 @@ name|uniNameToUnicodeCache
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Creates a new GlyphList from a glyph list file.      *      * @param numberOfEntries number of expected values used to preallocate the correct amount of memory      * @param input glyph list in Adobe format      * @throws IOException if the glyph list could not be read      */
@@ -345,11 +341,7 @@ name|nameToUnicode
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numberOfEntries
 argument_list|)
@@ -358,11 +350,7 @@ name|unicodeToName
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numberOfEntries
 argument_list|)
@@ -390,11 +378,7 @@ name|nameToUnicode
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|glyphList
 operator|.
@@ -405,11 +389,7 @@ name|unicodeToName
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|glyphList
 operator|.

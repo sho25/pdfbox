@@ -275,11 +275,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|COSName
-argument_list|,
-name|PDAppearanceStream
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -332,11 +328,7 @@ block|}
 return|return
 operator|new
 name|COSDictionaryMap
-argument_list|<
-name|COSName
-argument_list|,
-name|PDAppearanceStream
-argument_list|>
+argument_list|<>
 argument_list|(
 name|map
 argument_list|,

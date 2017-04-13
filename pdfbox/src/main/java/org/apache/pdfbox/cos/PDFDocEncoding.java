@@ -94,11 +94,7 @@ name|UNI_TO_CODE
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|Character
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|256
 argument_list|)

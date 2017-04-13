@@ -845,9 +845,7 @@ name|pdObjects
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDThread
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -891,9 +889,7 @@ block|}
 return|return
 operator|new
 name|COSArrayList
-argument_list|<
-name|PDThread
-argument_list|>
+argument_list|<>
 argument_list|(
 name|pdObjects
 argument_list|,
@@ -1450,9 +1446,7 @@ name|retval
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDOutputIntent
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|COSArray

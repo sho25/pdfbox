@@ -125,11 +125,7 @@ name|nameMap
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|COSName
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|8192
 argument_list|)
@@ -148,11 +144,7 @@ name|commonNameMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|COSName
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|768
 argument_list|)

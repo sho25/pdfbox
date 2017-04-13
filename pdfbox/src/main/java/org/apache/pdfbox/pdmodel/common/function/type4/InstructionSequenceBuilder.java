@@ -88,9 +88,7 @@ name|seqStack
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|InstructionSequence
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private

@@ -706,11 +706,7 @@ name|operators
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|OperatorProcessor
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|80
 argument_list|)
@@ -732,9 +728,7 @@ name|graphicsStack
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|PDGraphicsState
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -1981,9 +1975,7 @@ name|arguments
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|COSBase
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|PDFStreamParser
@@ -2055,9 +2047,7 @@ name|arguments
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|COSBase
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -3274,9 +3264,7 @@ name|graphicsStack
 operator|=
 operator|new
 name|Stack
-argument_list|<
-name|PDGraphicsState
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|graphicsStack

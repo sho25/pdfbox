@@ -129,9 +129,7 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|stack
 operator|.
@@ -462,9 +460,7 @@ name|rolled
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|LinkedList
@@ -475,9 +471,7 @@ name|moved
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

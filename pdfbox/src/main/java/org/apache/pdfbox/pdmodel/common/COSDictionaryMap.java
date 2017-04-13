@@ -734,11 +734,7 @@ name|actualMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -908,11 +904,7 @@ name|retval
 operator|=
 operator|new
 name|COSDictionaryMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|actualMap
 argument_list|,

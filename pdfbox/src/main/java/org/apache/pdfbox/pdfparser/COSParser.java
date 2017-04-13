@@ -1977,9 +1977,7 @@ name|toBeParsedList
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|COSBase
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// offset ordered object map
@@ -1997,14 +1995,7 @@ name|objToBeParsed
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|Long
-argument_list|,
-name|List
-argument_list|<
-name|COSObject
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// in case of compressed objects offset points to stmObj
@@ -2017,9 +2008,7 @@ name|parsedObjects
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -2031,9 +2020,7 @@ name|addedObjects
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|addExcludedToList
@@ -2330,9 +2317,7 @@ name|stmObjects
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|COSObject
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|objToBeParsed
@@ -4878,9 +4863,7 @@ name|objStreams
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|COSObjectKey
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all object streams
@@ -5295,11 +5278,7 @@ name|bfSearchCOSObjectKeyOffsets
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|COSObjectKey
-argument_list|,
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|long
@@ -5976,9 +5955,7 @@ name|bfSearchXRefTablesOffsets
 operator|=
 operator|new
 name|Vector
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|long
@@ -6091,9 +6068,7 @@ name|bfSearchXRefStreamsOffsets
 operator|=
 operator|new
 name|Vector
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|long

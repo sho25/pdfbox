@@ -219,11 +219,7 @@ name|labels
 operator|=
 operator|new
 name|TreeMap
-argument_list|<
-name|Integer
-argument_list|,
-name|PDPageLabelRange
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this
@@ -595,11 +591,7 @@ name|labelMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|doc
 operator|.

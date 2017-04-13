@@ -471,9 +471,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|COSDictionary
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|COSArray
@@ -566,9 +564,7 @@ name|queue
 init|=
 operator|new
 name|ArrayDeque
-argument_list|<
-name|COSDictionary
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private

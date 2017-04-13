@@ -281,9 +281,7 @@ name|patchList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Patch
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param deviceBounds device bounds      * @param controlPoints number of control points, 12 for type 6 shading and 16 for type 7 shading      * @throws IOException if something went wrong      */
@@ -448,9 +446,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Patch
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|long
@@ -1224,11 +1220,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Point
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

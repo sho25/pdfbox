@@ -619,9 +619,7 @@ name|filters
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|COSName
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|filters
@@ -929,9 +927,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|COSName
-argument_list|>
+argument_list|<>
 argument_list|(
 name|name
 argument_list|,
@@ -1131,9 +1127,7 @@ name|actuals
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1179,9 +1173,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|actuals
 argument_list|,
@@ -1320,9 +1312,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|name
 operator|.
@@ -1498,9 +1488,7 @@ name|actuals
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1546,9 +1534,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|actuals
 argument_list|,

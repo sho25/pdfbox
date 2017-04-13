@@ -731,9 +731,7 @@ name|fdfFields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FDFField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -831,9 +829,7 @@ name|fields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -940,9 +936,7 @@ name|annotations
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDAnnotation
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1420,9 +1414,7 @@ name|pdFields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1497,9 +1489,7 @@ block|}
 return|return
 operator|new
 name|COSArrayList
-argument_list|<
-name|PDField
-argument_list|>
+argument_list|<>
 argument_list|(
 name|pdFields
 argument_list|,
@@ -1588,11 +1578,7 @@ name|fieldCache
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|PDField
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

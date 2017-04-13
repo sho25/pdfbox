@@ -55,9 +55,7 @@ name|stack
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Creates a new execution context.      * @param operatorSet the operator set      */

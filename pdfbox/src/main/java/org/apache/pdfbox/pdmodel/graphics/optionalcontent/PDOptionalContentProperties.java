@@ -615,9 +615,7 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-argument_list|<
-name|PDOptionalContentGroup
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|COSArray

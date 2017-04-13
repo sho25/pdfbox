@@ -303,9 +303,7 @@ name|sigNames
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// fixme: this ignores non-terminal fields, so will miss any descendant signatures

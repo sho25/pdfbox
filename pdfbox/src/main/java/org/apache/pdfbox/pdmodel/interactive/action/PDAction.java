@@ -325,9 +325,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|PDAction
-argument_list|>
+argument_list|<>
 argument_list|(
 name|pdAction
 argument_list|,
@@ -365,9 +363,7 @@ name|actions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDAction
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -413,9 +409,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|PDAction
-argument_list|>
+argument_list|<>
 argument_list|(
 name|actions
 argument_list|,

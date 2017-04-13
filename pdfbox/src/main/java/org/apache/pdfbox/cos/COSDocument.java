@@ -179,11 +179,7 @@ name|objectPool
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|COSObjectKey
-argument_list|,
-name|COSObject
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Maps object and generation id to object byte offsets.      */
@@ -199,11 +195,7 @@ name|xrefTable
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|COSObjectKey
-argument_list|,
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * List containing all streams which are created when creating a new pdf.       */
@@ -217,9 +209,7 @@ name|streams
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|COSStream
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Document trailer dictionary.      */
@@ -552,9 +542,7 @@ name|retval
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|COSObject
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -976,9 +964,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|COSObject
-argument_list|>
+argument_list|<>
 argument_list|(
 name|objectPool
 operator|.

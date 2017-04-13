@@ -229,11 +229,7 @@ name|clonedVersion
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Object
-argument_list|,
-name|COSBase
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Creates a new instance for the given target document.      * @param dest the destination PDF document that will receive the clones      */

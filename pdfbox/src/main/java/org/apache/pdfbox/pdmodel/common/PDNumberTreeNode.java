@@ -337,9 +337,7 @@ name|pdObjects
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDNumberTreeNode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -383,9 +381,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|PDNumberTreeNode
-argument_list|>
+argument_list|<>
 argument_list|(
 name|pdObjects
 argument_list|,
@@ -718,11 +714,7 @@ name|indices
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|COSObjectable
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -956,9 +948,7 @@ name|keys
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numbers
 operator|.

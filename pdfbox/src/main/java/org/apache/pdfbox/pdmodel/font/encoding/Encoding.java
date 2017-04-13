@@ -215,11 +215,7 @@ name|codeToName
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|250
 argument_list|)
@@ -236,11 +232,7 @@ name|inverted
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|250
 argument_list|)
@@ -446,9 +438,7 @@ name|tmpSet
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|codeToName
 operator|.

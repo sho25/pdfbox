@@ -167,9 +167,7 @@ name|paragraphs
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Paragraph
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -223,9 +221,7 @@ name|paragraphs
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Paragraph
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -406,9 +402,7 @@ name|textLines
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Line
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Line
@@ -653,9 +647,7 @@ name|words
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Word
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private

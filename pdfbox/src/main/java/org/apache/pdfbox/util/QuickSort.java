@@ -219,9 +219,7 @@ name|stack
 init|=
 operator|new
 name|ArrayDeque
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|stack

@@ -469,9 +469,7 @@ name|fdfChildren
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FDFField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -522,9 +520,7 @@ name|children
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|COSArray

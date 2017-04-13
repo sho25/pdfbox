@@ -164,11 +164,7 @@ name|weakCache
 init|=
 operator|new
 name|WeakHashMap
-argument_list|<
-name|TilingPaintParameter
-argument_list|,
-name|TilingPaint
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|TilingPaintFactory

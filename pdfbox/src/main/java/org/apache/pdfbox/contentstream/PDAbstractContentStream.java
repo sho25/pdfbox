@@ -586,9 +586,7 @@ name|fontStack
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|PDFont
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -601,9 +599,7 @@ name|nonStrokingColorSpaceStack
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|PDColorSpace
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -616,9 +612,7 @@ name|strokingColorSpaceStack
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|PDColorSpace
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// number format

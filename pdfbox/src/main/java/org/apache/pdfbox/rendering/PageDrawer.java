@@ -976,11 +976,7 @@ name|glyphCaches
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|PDFont
-argument_list|,
-name|GlyphCache
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private

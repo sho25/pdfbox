@@ -71,14 +71,7 @@ name|children
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Byte
-argument_list|,
-name|ByteTrieNode
-argument_list|<
-name|T
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -139,9 +132,7 @@ name|root
 init|=
 operator|new
 name|ByteTrieNode
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -303,9 +294,7 @@ name|child
 operator|=
 operator|new
 name|ByteTrieNode
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|node

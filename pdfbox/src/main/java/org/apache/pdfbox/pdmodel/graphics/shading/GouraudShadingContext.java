@@ -231,9 +231,7 @@ name|triangleList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShadedTriangle
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructor creates an instance to be used for fill operations.      *      * @param shading the shading type to be used      * @param colorModel the color model to be used      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @throws IOException if something went wrong      */
@@ -587,11 +585,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Point
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|super

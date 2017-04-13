@@ -76,9 +76,7 @@ name|root
 operator|=
 operator|new
 name|ByteTrie
-argument_list|<
-name|FileType
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|root

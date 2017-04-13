@@ -237,9 +237,7 @@ name|markedContents
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDMarkedContent
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -252,9 +250,7 @@ name|currentMarkedContents
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|PDMarkedContent
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -272,14 +268,7 @@ name|characterListMapping
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|TextPosition
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Instantiate a new PDFTextStripper object.      */
@@ -581,9 +570,7 @@ name|sameTextCharacters
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TextPosition
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this
@@ -734,9 +721,7 @@ name|textList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TextPosition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/* In the wild, some PDF encoded documents put diacritics (accents on              * top of characters) into a separate Tj element.  When displaying them              * graphically, the two chunks get overlayed.  With text output though,              * we need to do the overlay. This code recombines the diacritic with              * its associated character if the two are consecutive.              */

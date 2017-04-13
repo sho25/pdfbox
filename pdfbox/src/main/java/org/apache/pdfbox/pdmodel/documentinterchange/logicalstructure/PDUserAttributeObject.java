@@ -163,9 +163,7 @@ name|properties
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDUserProperty
-argument_list|>
+argument_list|<>
 argument_list|(
 name|p
 operator|.

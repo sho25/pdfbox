@@ -223,11 +223,7 @@ name|items
 init|=
 operator|new
 name|SmallMap
-argument_list|<
-name|COSName
-argument_list|,
-name|COSBase
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      */
@@ -317,9 +313,7 @@ name|add
 argument_list|(
 operator|new
 name|WeakReference
-argument_list|<
-name|COSDictionary
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|)
