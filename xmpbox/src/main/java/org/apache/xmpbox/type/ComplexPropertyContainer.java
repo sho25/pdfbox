@@ -71,9 +71,7 @@ name|properties
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AbstractField
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -223,9 +221,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AbstractField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

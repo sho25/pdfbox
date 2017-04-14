@@ -257,10 +257,7 @@ name|data
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|data
@@ -330,11 +327,7 @@ name|desc
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)

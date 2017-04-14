@@ -1567,9 +1567,7 @@ name|toDelete
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AbstractField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1884,9 +1882,7 @@ name|toDelete
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AbstractField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2281,9 +2277,7 @@ name|toDelete
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AbstractField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2453,9 +2447,7 @@ name|retval
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Calendar
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -2644,9 +2636,7 @@ name|reordered
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AbstractField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -2657,9 +2647,7 @@ name|toDelete
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AbstractField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|reordered
@@ -3209,9 +3197,7 @@ name|retval
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|ArrayProperty
@@ -3660,9 +3646,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|AbstractField
-argument_list|>
+argument_list|<>
 argument_list|(
 name|array
 operator|.

@@ -1658,9 +1658,7 @@ name|thumbs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ThumbnailType
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
