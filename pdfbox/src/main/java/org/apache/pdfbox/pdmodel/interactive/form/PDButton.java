@@ -1101,8 +1101,6 @@ parameter_list|(
 name|String
 name|value
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|getCOSObject
 argument_list|()
@@ -1198,8 +1196,6 @@ parameter_list|(
 name|String
 name|value
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|List
 argument_list|<
