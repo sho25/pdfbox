@@ -693,9 +693,7 @@ name|widgets
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PDAnnotationWidget
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|widgets

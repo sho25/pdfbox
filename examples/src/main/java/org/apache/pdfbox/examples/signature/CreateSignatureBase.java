@@ -813,9 +813,7 @@ name|newSigners
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SignerInformation
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1014,9 +1012,7 @@ name|certList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Certificate
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|certList

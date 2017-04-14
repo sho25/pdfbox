@@ -126,9 +126,7 @@ name|fileSets
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FileSet
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Adds a set of files (nested fileset attribute).      *      * @param set Another fileset to add.      */
