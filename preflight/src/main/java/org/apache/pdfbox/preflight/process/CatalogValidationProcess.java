@@ -435,9 +435,7 @@ name|listICC
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|public
@@ -1213,11 +1211,7 @@ name|tmpDestOutputProfile
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|COSObjectKey
-argument_list|,
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

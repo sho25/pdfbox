@@ -172,9 +172,7 @@ name|errorBuffer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ValidationError
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Boolean used to known if the font is embedded.      */
@@ -196,11 +194,7 @@ name|codeToDetail
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|GlyphDetail
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private

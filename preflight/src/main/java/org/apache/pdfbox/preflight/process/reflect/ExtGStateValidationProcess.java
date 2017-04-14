@@ -707,9 +707,7 @@ name|listOfExtGState
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|COSDictionary
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|0
 argument_list|)

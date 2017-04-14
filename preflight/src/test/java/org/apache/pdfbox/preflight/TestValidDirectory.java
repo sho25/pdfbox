@@ -415,10 +415,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|0
 argument_list|)
@@ -444,10 +441,7 @@ name|data
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 name|files
 operator|.

@@ -370,9 +370,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ValidationError
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|0
 argument_list|)

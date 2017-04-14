@@ -946,11 +946,7 @@ name|xrefTable
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|COSObjectKey
-argument_list|,
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)

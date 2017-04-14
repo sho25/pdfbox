@@ -73,9 +73,7 @@ name|lErrors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ValidationError
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Object representation of the XMPMetaData contained by the pdf file This attribute can be null if the Validation      * fails.      */

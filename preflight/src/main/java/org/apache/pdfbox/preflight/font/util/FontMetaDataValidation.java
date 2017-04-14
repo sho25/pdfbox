@@ -258,9 +258,7 @@ name|ve
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ValidationError
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|analyseFontName

@@ -194,14 +194,7 @@ name|fontContainers
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|COSBase
-argument_list|,
-name|FontContainer
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * The PDFbox object representation of the PDF source.      */

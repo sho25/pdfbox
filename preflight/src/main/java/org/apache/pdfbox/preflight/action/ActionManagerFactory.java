@@ -566,9 +566,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AbstractActionManager
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|0
 argument_list|)
@@ -583,11 +581,7 @@ name|alreadyCreated
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|COSObjectKey
-argument_list|,
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|COSBase
@@ -983,9 +977,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AbstractActionManager
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|0
 argument_list|)
@@ -1000,11 +992,7 @@ name|alreadyCreated
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|COSObjectKey
-argument_list|,
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|COSBase

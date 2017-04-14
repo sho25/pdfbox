@@ -690,16 +690,7 @@ name|processes
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|ValidationProcess
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// TODO use annotation to mark these validation processes as inner page validation and factorize the access method
@@ -720,16 +711,7 @@ name|innerProcesses
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|ValidationProcess
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Define the AnnotationFactory used by ValidationProcess      */
