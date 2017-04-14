@@ -191,9 +191,7 @@ name|filePaths
 operator|=
 operator|new
 name|ArrayDeque
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -314,9 +312,7 @@ name|files
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -417,9 +413,7 @@ name|pieces
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -677,9 +671,7 @@ name|history
 init|=
 operator|new
 name|ArrayDeque
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

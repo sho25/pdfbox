@@ -254,13 +254,7 @@ name|RENDERING_HINTS
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|RenderingHints
-operator|.
-name|Key
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 static|static

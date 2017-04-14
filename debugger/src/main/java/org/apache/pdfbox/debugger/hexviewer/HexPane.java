@@ -265,9 +265,7 @@ name|hexChangeListeners
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|HexChangeListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -280,9 +278,7 @@ name|selectionChangeListeners
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SelectionChangeListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      * @param model HexModel instance.      */

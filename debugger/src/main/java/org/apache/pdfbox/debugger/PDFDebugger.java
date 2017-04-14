@@ -1205,9 +1205,7 @@ name|SPECIALCOLORSPACES
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|COSName
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -1238,9 +1236,7 @@ name|OTHERCOLORSPACES
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|COSName
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
