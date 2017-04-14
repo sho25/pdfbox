@@ -827,9 +827,7 @@ name|stateList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -842,9 +840,7 @@ name|stateSet
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**          * Pushes new {@link TextPosition TextPositions} into the font state. The state is only          * preserved correctly for each letter if the number of letters in<code>text</code> matches          * the number of {@link TextPosition} objects. Otherwise, it's done once for the complete          * array (just by looking at its first entry).          *          * @return A string that contains the text including tag changes caused by its font state.          */
