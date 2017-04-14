@@ -189,6 +189,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Iterator
@@ -896,6 +906,8 @@ throw|;
 block|}
 block|}
 comment|//System.out.println("  " + inFile + (bSort ? " (sorted)" : ""));
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
@@ -905,8 +917,7 @@ name|load
 argument_list|(
 name|inFile
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|File
 name|outFile
@@ -1028,6 +1039,8 @@ operator|.
 name|delete
 argument_list|()
 expr_stmt|;
+try|try
+init|(
 name|OutputStream
 name|os
 init|=
@@ -1036,8 +1049,7 @@ name|FileOutputStream
 argument_list|(
 name|outFile
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|os
 operator|.
@@ -1060,6 +1072,8 @@ argument_list|(
 literal|0xBF
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|Writer
 name|writer
 init|=
@@ -1074,8 +1088,7 @@ argument_list|,
 name|ENCODING
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 comment|//Allows for sorted tests
 name|stripper
@@ -1094,24 +1107,8 @@ argument_list|,
 name|writer
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
 comment|// close the written file before reading it again
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|os
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1181,6 +1178,8 @@ name|localFail
 init|=
 literal|false
 decl_stmt|;
+try|try
+init|(
 name|LineNumberReader
 name|expectedReader
 init|=
@@ -1199,10 +1198,10 @@ argument_list|,
 name|ENCODING
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|;
 name|LineNumberReader
 name|actualReader
-init|=
+operator|=
 operator|new
 name|LineNumberReader
 argument_list|(
@@ -1218,7 +1217,8 @@ argument_list|,
 name|ENCODING
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 while|while
 condition|(
 literal|true
@@ -1374,16 +1374,7 @@ block|{
 break|break;
 block|}
 block|}
-name|expectedReader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|actualReader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -1434,6 +1425,8 @@ argument_list|,
 name|revised
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PrintStream
 name|diffPS
 init|=
@@ -1444,7 +1437,8 @@ name|diffFile
 argument_list|,
 name|ENCODING
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 for|for
 control|(
 name|Object
@@ -1604,20 +1598,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|diffPS
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
-finally|finally
-block|{
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|// Helper method for get the file content
@@ -1646,11 +1628,11 @@ argument_list|()
 decl_stmt|;
 name|String
 name|line
-init|=
-literal|""
 decl_stmt|;
 try|try
 block|{
+try|try
+init|(
 name|BufferedReader
 name|in
 init|=
@@ -1669,7 +1651,8 @@ argument_list|,
 name|ENCODING
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 while|while
 condition|(
 operator|(
@@ -1692,11 +1675,7 @@ name|line
 argument_list|)
 expr_stmt|;
 block|}
-name|in
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1776,13 +1755,15 @@ return|return
 name|pageNum
 return|;
 block|}
-comment|/**      * Test whether stripping controlled by outline items works properly. The test file has 4      * outline items at the top level, that point to 0-based pages 0, 2, 3 and 4. We are testing      * text stripping by outlines pointing to 0-based pages 2 and 3, and also text stripping of the      * 0-based page 2. The test makes sure that the output is different to a complete strip, not      * empty, different to each other when different bookmark intervals are used, but identical from      * bookmark intervals to strips with page intervals. When fed with orphan bookmarks, stripping      * must be empty.      *      * @throws IOException      */
+comment|/**      * Test whether stripping controlled by outline items works properly. The test file has 4      * outline items at the top level, that point to 0-based pages 0, 2, 3 and 4. We are testing      * text stripping by outlines pointing to 0-based pages 2 and 3, and also text stripping of the      * 0-based page 2. The test makes sure that the output is different to a complete strip, not      * empty, different to each other when different bookmark intervals are used, but identical from      * bookmark intervals to strips with page intervals. When fed with orphan bookmarks, stripping      * must be empty.      *      * @throws IOException      * @throws URISyntaxException      */
 specifier|public
 name|void
 name|testStripByOutlineItems
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|URISyntaxException
 block|{
 name|PDDocument
 name|doc
@@ -1791,13 +1772,20 @@ name|PDDocument
 operator|.
 name|load
 argument_list|(
+operator|new
+name|File
+argument_list|(
 name|TestPDPageTree
 operator|.
 name|class
 operator|.
-name|getResourceAsStream
+name|getResource
 argument_list|(
 literal|"with_outline.pdf"
+argument_list|)
+operator|.
+name|toURI
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
