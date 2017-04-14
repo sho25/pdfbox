@@ -200,7 +200,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" 12 Tf 0.019 0.305 0.627 rg 0g"
+literal|" 12 Tf 0.019 0.305 0.627 rg"
 argument_list|)
 decl_stmt|;
 name|PDDefaultAppearanceString
@@ -330,7 +330,7 @@ init|=
 operator|new
 name|COSString
 argument_list|(
-literal|"/Helvetica 12 Tf 0.019 0.305 0.627 rg 0g"
+literal|"/Helvetica 12 Tf 0.019 0.305 0.627 rg"
 argument_list|)
 decl_stmt|;
 operator|new
@@ -364,7 +364,7 @@ init|=
 operator|new
 name|COSString
 argument_list|(
-literal|"/Helvetica 12 Tf 0.305 0.627 rg 0g"
+literal|"/Helvetica 12 Tf 0.305 0.627 rg"
 argument_list|)
 decl_stmt|;
 operator|new
