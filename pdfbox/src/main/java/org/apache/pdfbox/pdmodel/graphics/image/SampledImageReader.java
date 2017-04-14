@@ -800,21 +800,17 @@ name|getData
 argument_list|()
 decl_stmt|;
 comment|// read bit stream
+try|try
+init|(
 name|InputStream
 name|iis
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-comment|// create stream
-name|iis
-operator|=
 name|pdImage
 operator|.
 name|createInputStream
 argument_list|()
-expr_stmt|;
+init|)
+block|{
 specifier|final
 name|boolean
 name|isIndexed
@@ -1040,35 +1036,14 @@ break|break;
 block|}
 block|}
 comment|// use the color space to convert the image to RGB
-name|BufferedImage
-name|rgbImage
-init|=
+return|return
 name|colorSpace
 operator|.
 name|toRGBImage
 argument_list|(
 name|raster
 argument_list|)
-decl_stmt|;
-return|return
-name|rgbImage
 return|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|iis
-operator|!=
-literal|null
-condition|)
-block|{
-name|iis
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|// faster, 8-bit non-decoded, non-colormasked image conversion
@@ -1086,6 +1061,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|InputStream
 name|input
 init|=
@@ -1093,8 +1070,7 @@ name|pdImage
 operator|.
 name|createInputStream
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 comment|// get the raster's underlying byte buffer
 name|byte
@@ -1229,16 +1205,6 @@ name|raster
 argument_list|)
 return|;
 block|}
-finally|finally
-block|{
-name|IOUtils
-operator|.
-name|closeQuietly
-argument_list|(
-name|input
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// slower, general-purpose image conversion from any image format
 specifier|private
@@ -1314,16 +1280,11 @@ name|pdImage
 argument_list|)
 decl_stmt|;
 comment|// read bit stream
+try|try
+init|(
 name|ImageInputStream
 name|iis
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-comment|// create stream
-name|iis
-operator|=
 operator|new
 name|MemoryCacheImageInputStream
 argument_list|(
@@ -1332,7 +1293,8 @@ operator|.
 name|createInputStream
 argument_list|()
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 specifier|final
 name|float
 name|sampleMax
@@ -1762,22 +1724,6 @@ block|{
 return|return
 name|rgbImage
 return|;
-block|}
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|iis
-operator|!=
-literal|null
-condition|)
-block|{
-name|iis
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}
