@@ -165,7 +165,7 @@ name|get
 argument_list|(
 name|cosBlendModeArray
 operator|.
-name|get
+name|getObject
 argument_list|(
 name|i
 argument_list|)
@@ -974,6 +974,7 @@ name|EXCLUSION
 argument_list|)
 expr_stmt|;
 comment|// TODO - non-separable blending modes
+comment|// hue saturation color luminosity
 return|return
 name|map
 return|;
