@@ -133,6 +133,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -4270,7 +4280,7 @@ argument_list|>
 name|names
 init|=
 operator|new
-name|TreeMap
+name|LinkedHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
