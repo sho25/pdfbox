@@ -4757,7 +4757,7 @@ operator|+
 name|count
 return|;
 block|}
-comment|/**      * Write the subfont to the given output stream.      *      * @param os the stream used for writing      * @throws IOException if something went wrong.      * @throws IllegalStateException if the subset is empty.      */
+comment|/**      * Write the subfont to the given output stream.      *      * @param os the stream used for writing. It will be closed by this method.      * @throws IOException if something went wrong.      * @throws IllegalStateException if the subset is empty.      */
 specifier|public
 name|void
 name|writeToStream
