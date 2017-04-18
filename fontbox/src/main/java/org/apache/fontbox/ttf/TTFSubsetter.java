@@ -414,7 +414,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the prefix to add to the font's PostScript name.      */
+comment|/**      * Sets the prefix to add to the font's PostScript name.      *      * @param prefix      */
 specifier|public
 name|void
 name|setPrefix
@@ -2889,6 +2889,8 @@ operator|.
 name|getOffsets
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|InputStream
 name|is
 init|=
@@ -2896,8 +2898,7 @@ name|ttf
 operator|.
 name|getOriginalData
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 name|is
 operator|.
@@ -3396,14 +3397,6 @@ operator|++
 index|]
 operator|=
 name|newOffset
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|is
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -4799,6 +4792,8 @@ block|}
 name|addCompoundReferences
 argument_list|()
 expr_stmt|;
+try|try
+init|(
 name|DataOutputStream
 name|out
 init|=
@@ -4807,8 +4802,7 @@ name|DataOutputStream
 argument_list|(
 name|os
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|long
 index|[]
@@ -5296,14 +5290,6 @@ name|bytes
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|out
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 specifier|private

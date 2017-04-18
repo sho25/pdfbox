@@ -101,16 +101,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -277,6 +267,8 @@ argument_list|(
 name|baos
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|TrueTypeFont
 name|subset
 init|=
@@ -297,7 +289,8 @@ name|toByteArray
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertEquals
 argument_list|(
 literal|1
@@ -333,11 +326,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|subset
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**      * Test of PDFBOX-2854: empty subset with selected tables.      *       * @throws java.io.IOException      */
 annotation|@
@@ -478,6 +467,8 @@ argument_list|(
 name|baos
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|TrueTypeFont
 name|subset
 init|=
@@ -498,7 +489,8 @@ name|toByteArray
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertEquals
 argument_list|(
 literal|1
@@ -534,11 +526,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|subset
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**      * Test of PDFBOX-2854: subset with one glyph.      *       * @throws java.io.IOException      */
 annotation|@
@@ -602,6 +590,8 @@ argument_list|(
 name|baos
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|TrueTypeFont
 name|subset
 init|=
@@ -622,7 +612,8 @@ name|toByteArray
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertEquals
 argument_list|(
 literal|2
@@ -756,11 +747,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|subset
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**      * Test of PDFBOX-3319: check that widths and left side bearings in partially monospaced font      * are kept.      *      * @throws java.io.IOException      */
 annotation|@
@@ -1040,6 +1027,8 @@ argument_list|(
 name|baos
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|TrueTypeFont
 name|subset
 init|=
@@ -1060,7 +1049,8 @@ name|toByteArray
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertEquals
 argument_list|(
 literal|6
@@ -1147,11 +1137,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|subset
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**      * Test of PDFBOX-3379: check that left side bearings in partially monospaced font are kept.      *       * @throws java.io.IOException      */
 annotation|@
@@ -1272,6 +1258,8 @@ argument_list|(
 name|baos
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|TrueTypeFont
 name|subset
 init|=
@@ -1290,7 +1278,8 @@ name|toByteArray
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertEquals
 argument_list|(
 literal|4
@@ -1433,11 +1422,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|subset
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**      * Test of PDFBOX-3757: check that postcript names that are not part of WGL4Names don't get      * shuffled in buildPostTable().      *      * @throws java.io.IOException      */
 annotation|@
