@@ -647,6 +647,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|DeflaterOutputStream
 name|out
 init|=
@@ -655,7 +657,8 @@ name|DeflaterOutputStream
 argument_list|(
 name|encoded
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|int
 name|amountRead
 decl_stmt|;
@@ -732,11 +735,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|out
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|encoded
 operator|.
 name|flush
