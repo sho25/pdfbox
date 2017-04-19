@@ -1585,6 +1585,13 @@ condition|(
 name|destOutline
 operator|==
 literal|null
+operator|||
+name|destOutline
+operator|.
+name|getFirstChild
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 name|PDDocumentOutline
