@@ -3833,6 +3833,8 @@ operator|instanceof
 name|COSStream
 condition|)
 block|{
+try|try
+init|(
 name|InputStream
 name|stream
 init|=
@@ -3845,7 +3847,8 @@ operator|)
 operator|.
 name|createRawInputStream
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|byte
 index|[]
 name|b
@@ -3879,11 +3882,7 @@ argument_list|(
 literal|"}"
 argument_list|)
 expr_stmt|;
-name|stream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 return|return
 name|sb
