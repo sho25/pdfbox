@@ -393,12 +393,6 @@ decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
-name|boolean
-name|useCustomQuickSort
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
 name|Log
 name|LOG
 init|=
@@ -552,112 +546,6 @@ block|{
 comment|// ignore and use default
 block|}
 block|}
-block|}
-static|static
-block|{
-comment|// check if we need to use the custom quicksort algorithm as a
-comment|// workaround to the PDFBOX-1512 transitivity issue of TextPositionComparator:
-name|boolean
-name|is16orLess
-init|=
-literal|false
-decl_stmt|;
-try|try
-block|{
-name|String
-name|version
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.specification.version"
-argument_list|)
-decl_stmt|;
-name|StringTokenizer
-name|st
-init|=
-operator|new
-name|StringTokenizer
-argument_list|(
-name|version
-argument_list|,
-literal|"."
-argument_list|)
-decl_stmt|;
-name|int
-name|majorVersion
-init|=
-name|Integer
-operator|.
-name|parseInt
-argument_list|(
-name|st
-operator|.
-name|nextToken
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|int
-name|minorVersion
-init|=
-literal|0
-decl_stmt|;
-if|if
-condition|(
-name|st
-operator|.
-name|hasMoreTokens
-argument_list|()
-condition|)
-block|{
-name|minorVersion
-operator|=
-name|Integer
-operator|.
-name|parseInt
-argument_list|(
-name|st
-operator|.
-name|nextToken
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|is16orLess
-operator|=
-name|majorVersion
-operator|==
-literal|1
-operator|&&
-name|minorVersion
-operator|<=
-literal|6
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SecurityException
-name|x
-parameter_list|)
-block|{
-comment|// when run in an applet ignore and use default
-comment|// assume 1.7 or higher so that quicksort is used
-block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|nfe
-parameter_list|)
-block|{
-comment|// should never happen, but if it does,
-comment|// assume 1.7 or higher so that quicksort is used
-block|}
-name|useCustomQuickSort
-operator|=
-operator|!
-name|is16orLess
-expr_stmt|;
 block|}
 comment|/**      * The platform's line separator.      */
 specifier|protected
@@ -1836,11 +1724,6 @@ decl_stmt|;
 comment|// because the TextPositionComparator is not transitive, but
 comment|// JDK7+ enforces transitivity on comparators, we need to use
 comment|// a custom quicksort implementation (which is slower, unfortunately).
-if|if
-condition|(
-name|useCustomQuickSort
-condition|)
-block|{
 name|QuickSort
 operator|.
 name|sort
@@ -1850,19 +1733,6 @@ argument_list|,
 name|comparator
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|Collections
-operator|.
-name|sort
-argument_list|(
-name|textList
-argument_list|,
-name|comparator
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 name|startArticle
 argument_list|()
