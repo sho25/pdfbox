@@ -117,7 +117,8 @@ argument_list|,
 literal|".dat"
 argument_list|)
 decl_stmt|;
-specifier|final
+try|try
+init|(
 name|OutputStream
 name|outputStream
 init|=
@@ -130,7 +131,8 @@ argument_list|(
 name|file
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 specifier|final
 name|String
 name|content
@@ -154,11 +156,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-name|outputStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 specifier|final
 name|byte
 index|[]
