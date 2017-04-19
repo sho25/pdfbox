@@ -889,7 +889,8 @@ name|inputPattern
 init|=
 literal|null
 decl_stmt|;
-specifier|final
+try|try
+init|(
 name|MemoryCacheImageOutputStream
 name|out
 init|=
@@ -898,7 +899,8 @@ name|MemoryCacheImageOutputStream
 argument_list|(
 name|encoded
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|out
 operator|.
 name|writeBits
@@ -1166,11 +1168,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-name|out
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**      * Find the longest matching pattern in the code table.      *      * @param codeTable The LZW code table.      * @param pattern The pattern to be searched for.      * @return The index of the longest matching pattern or -1 if nothing is      * found.      */
 specifier|private
