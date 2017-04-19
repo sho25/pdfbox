@@ -445,6 +445,8 @@ name|COSStream
 operator|)
 name|cosDictionary
 decl_stmt|;
+try|try
+init|(
 name|ImageInputStream
 name|mciis
 init|=
@@ -456,8 +458,7 @@ operator|.
 name|createInputStream
 argument_list|()
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|boolean
 name|eof
@@ -516,14 +517,6 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-block|}
-finally|finally
-block|{
-name|mciis
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 name|int
 name|sz
