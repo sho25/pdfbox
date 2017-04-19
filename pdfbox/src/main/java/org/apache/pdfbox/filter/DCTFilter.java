@@ -551,16 +551,7 @@ block|}
 catch|catch
 parameter_list|(
 name|NoSuchFieldException
-name|e1
-parameter_list|)
-block|{
-comment|// error from non-Sun JPEG decoder
-throw|throw
-name|e
-throw|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|IllegalAccessException
 name|e1
 parameter_list|)
