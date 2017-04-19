@@ -1378,6 +1378,8 @@ init|=
 name|parseCOSDictionary
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|COSStream
 name|xrefStream
 init|=
@@ -1385,7 +1387,8 @@ name|parseCOSStream
 argument_list|(
 name|dict
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|parseXrefStream
 argument_list|(
 name|xrefStream
@@ -1395,11 +1398,7 @@ argument_list|,
 name|isStandalone
 argument_list|)
 expr_stmt|;
-name|xrefStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 return|return
 name|dict
 operator|.
@@ -3666,6 +3665,8 @@ throw|;
 block|}
 block|}
 comment|// get output stream to copy data to
+try|try
+init|(
 name|OutputStream
 name|out
 init|=
@@ -3673,8 +3674,7 @@ name|stream
 operator|.
 name|createRawOutputStream
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 if|if
 condition|(
@@ -3711,14 +3711,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|out
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 name|String
 name|endStream
