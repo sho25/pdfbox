@@ -111,16 +111,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -4923,6 +4913,7 @@ return|;
 block|}
 specifier|private
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|Character
