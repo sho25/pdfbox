@@ -294,22 +294,19 @@ argument_list|,
 literal|"a suitable JAI I/O image filter is not installed"
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|ImageInputStream
 name|iis
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|iis
-operator|=
 name|ImageIO
 operator|.
 name|createImageInputStream
 argument_list|(
 name|encoded
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 comment|// skip one LF if there
 if|if
 condition|(
@@ -661,19 +658,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|iis
-operator|!=
-literal|null
-condition|)
-block|{
-name|iis
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 name|reader
 operator|.
 name|dispose
