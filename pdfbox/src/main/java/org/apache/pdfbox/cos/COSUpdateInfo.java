@@ -20,12 +20,12 @@ specifier|public
 interface|interface
 name|COSUpdateInfo
 block|{
-comment|/**      * Get the update state for the COSWriter.      *       * @return the update state.      */
+comment|/**      * Get the update state for the COSWriter. This indicates whether an object is to be written      * when there is an incremental save.      *      * @return the update state.      */
 name|boolean
 name|isNeedToBeUpdated
 parameter_list|()
 function_decl|;
-comment|/**      * Set the update state of the dictionary for the COSWriter.      *       * @param flag the update state.      */
+comment|/**      * Set the update state of the dictionary for the COSWriter. This indicates whether an object is      * to be written when there is an incremental save.      *      * @param flag the update state.      */
 name|void
 name|setNeedToBeUpdated
 parameter_list|(
