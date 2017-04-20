@@ -395,6 +395,8 @@ operator|*
 name|height
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|MemoryCacheImageOutputStream
 name|mcios
 init|=
@@ -403,7 +405,8 @@ name|MemoryCacheImageOutputStream
 argument_list|(
 name|bos
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 for|for
 control|(
 name|int
@@ -489,11 +492,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-name|mcios
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|imageData
 operator|=
 name|bos
@@ -805,6 +804,8 @@ name|bpc
 operator|=
 literal|1
 expr_stmt|;
+try|try
+init|(
 name|MemoryCacheImageOutputStream
 name|mcios
 init|=
@@ -813,7 +814,8 @@ name|MemoryCacheImageOutputStream
 argument_list|(
 name|bos
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|int
 name|width
 init|=
@@ -879,11 +881,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-name|mcios
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -982,6 +980,8 @@ name|bpc
 operator|=
 literal|1
 expr_stmt|;
+try|try
+init|(
 name|MemoryCacheImageOutputStream
 name|mcios
 init|=
@@ -990,7 +990,8 @@ name|MemoryCacheImageOutputStream
 argument_list|(
 name|bos
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 for|for
 control|(
 name|int
@@ -1081,11 +1082,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-name|mcios
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 else|else
 block|{

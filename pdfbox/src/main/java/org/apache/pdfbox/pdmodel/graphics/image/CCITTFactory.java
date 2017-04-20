@@ -323,6 +323,8 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|MemoryCacheImageOutputStream
 name|mcios
 init|=
@@ -331,7 +333,8 @@ name|MemoryCacheImageOutputStream
 argument_list|(
 name|bos
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 for|for
 control|(
 name|int
@@ -416,11 +419,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-name|mcios
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 return|return
 name|prepareImageXObject
 argument_list|(
