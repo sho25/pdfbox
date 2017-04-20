@@ -396,6 +396,7 @@ class|class
 name|ShowSignature
 block|{
 specifier|private
+specifier|static
 specifier|final
 name|SimpleDateFormat
 name|SDF
