@@ -6245,13 +6245,9 @@ block|{
 name|int
 name|current
 init|=
-operator|(
 name|b
-operator|+
-literal|256
-operator|)
-operator|%
-literal|256
+operator|&
+literal|0xFF
 decl_stmt|;
 comment|// be more restrictive than the PDF spec, "Name Objects", see PDFBOX-2073
 if|if
