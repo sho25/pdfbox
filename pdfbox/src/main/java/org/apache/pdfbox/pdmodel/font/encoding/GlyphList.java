@@ -412,6 +412,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|BufferedReader
 name|in
 init|=
@@ -426,8 +428,7 @@ argument_list|,
 literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 while|while
 condition|(
@@ -638,14 +639,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-finally|finally
-block|{
-name|in
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Returns the name for the given Unicode code point.      *      * @param codePoint Unicode code point      * @return PostScript glyph name, or ".notdef"      */
