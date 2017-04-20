@@ -396,8 +396,9 @@ class|class
 name|ShowSignature
 block|{
 specifier|private
+specifier|final
 name|SimpleDateFormat
-name|sdf
+name|SDF
 init|=
 operator|new
 name|SimpleDateFormat
@@ -499,15 +500,11 @@ index|[
 literal|1
 index|]
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|document
-operator|=
 name|PDDocument
 operator|.
 name|load
@@ -520,7 +517,8 @@ argument_list|)
 argument_list|,
 name|password
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 for|for
 control|(
 name|PDSignature
@@ -622,7 +620,7 @@ name|println
 argument_list|(
 literal|"Modified: "
 operator|+
-name|sdf
+name|SDF
 operator|.
 name|format
 argument_list|(
@@ -651,16 +649,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
+switch|switch
 condition|(
 name|subFilter
-operator|.
-name|equals
-argument_list|(
-literal|"adbe.pkcs7.detached"
-argument_list|)
 condition|)
 block|{
+case|case
+literal|"adbe.pkcs7.detached"
+case|:
 name|verifyPKCS7
 argument_list|(
 name|buf
@@ -671,17 +667,10 @@ name|sig
 argument_list|)
 expr_stmt|;
 comment|//TODO check certificate chain, revocation lists, timestamp...
-block|}
-elseif|else
-if|if
-condition|(
-name|subFilter
-operator|.
-name|equals
-argument_list|(
+break|break;
+case|case
 literal|"adbe.pkcs7.sha1"
-argument_list|)
-condition|)
+case|:
 block|{
 comment|// example: PDFBOX-1452.pdf
 name|COSString
@@ -779,17 +768,11 @@ name|sig
 argument_list|)
 expr_stmt|;
 comment|//TODO check certificate chain, revocation lists, timestamp...
+break|break;
 block|}
-elseif|else
-if|if
-condition|(
-name|subFilter
-operator|.
-name|equals
-argument_list|(
+case|case
 literal|"adbe.x509.rsa_sha1"
-argument_list|)
-condition|)
+case|:
 block|{
 comment|// example: PDFBOX-2693.pdf
 name|COSString
@@ -865,9 +848,9 @@ name|certs
 argument_list|)
 expr_stmt|;
 comment|//TODO verify signature
+break|break;
 block|}
-else|else
-block|{
+default|default:
 name|System
 operator|.
 name|err
@@ -879,6 +862,7 @@ operator|+
 name|subFilter
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 block|}
 else|else
@@ -896,19 +880,7 @@ block|}
 catch|catch
 parameter_list|(
 name|CMSException
-name|ex
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-name|ex
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|OperatorCreationException
 name|ex
 parameter_list|)
@@ -920,22 +892,6 @@ argument_list|(
 name|ex
 argument_list|)
 throw|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|document
-operator|!=
-literal|null
-condition|)
-block|{
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
