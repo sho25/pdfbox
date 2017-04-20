@@ -359,6 +359,8 @@ block|{
 comment|// PDF spec 1.7 p.171:
 comment|// Each sample value is represented as a sequence of BitsPerSample bits.
 comment|// Successive values are adjacent in the bit stream; there is no padding at byte boundaries.
+try|try
+init|(
 name|ImageInputStream
 name|mciis
 init|=
@@ -371,7 +373,8 @@ operator|.
 name|createInputStream
 argument_list|()
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 for|for
 control|(
 name|int
@@ -426,11 +429,7 @@ name|index
 operator|++
 expr_stmt|;
 block|}
-name|mciis
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
