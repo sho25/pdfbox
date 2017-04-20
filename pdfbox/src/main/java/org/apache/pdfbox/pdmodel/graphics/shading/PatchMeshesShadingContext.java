@@ -491,6 +491,8 @@ name|COSStream
 operator|)
 name|dict
 decl_stmt|;
+try|try
+init|(
 name|ImageInputStream
 name|mciis
 init|=
@@ -502,8 +504,7 @@ operator|.
 name|createInputStream
 argument_list|()
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|Point2D
 index|[]
@@ -739,14 +740,6 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-block|}
-finally|finally
-block|{
-name|mciis
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 return|return
 name|list
