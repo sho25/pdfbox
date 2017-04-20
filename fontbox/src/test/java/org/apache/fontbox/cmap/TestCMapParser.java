@@ -350,7 +350,7 @@ return|return
 name|code
 return|;
 block|}
-comment|/**      * Tets the parser against a valid, but poorly formated CMap file.      * @throws IOException If something went wrong      */
+comment|/**      * Test the parser against a valid, but poorly formatted CMap file.      * @throws IOException If something went wrong      */
 specifier|public
 name|void
 name|testParserWithPoorWhitespace
