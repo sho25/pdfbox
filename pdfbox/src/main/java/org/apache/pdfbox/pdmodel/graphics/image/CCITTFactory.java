@@ -486,6 +486,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|RandomAccess
 name|raf
 init|=
@@ -494,8 +496,7 @@ name|RandomAccessBuffer
 argument_list|(
 name|byteArray
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 return|return
 name|createFromRandomAccessImpl
@@ -507,14 +508,6 @@ argument_list|,
 name|number
 argument_list|)
 return|;
-block|}
-finally|finally
-block|{
-name|raf
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 specifier|private
@@ -776,6 +769,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|RandomAccessFile
 name|raf
 init|=
@@ -786,8 +781,7 @@ name|file
 argument_list|,
 literal|"r"
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 return|return
 name|createFromRandomAccessImpl
@@ -799,14 +793,6 @@ argument_list|,
 name|number
 argument_list|)
 return|;
-block|}
-finally|finally
-block|{
-name|raf
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Creates a new CCITT Fax compressed image XObject from a TIFF file.      *       * @param document the document to create the image as part of.      * @param reader the random access TIFF file which contains a suitable CCITT      * compressed image      * @param number TIFF image number, starting from 0      * @return a new Image XObject, or null if no such page      * @throws IOException if there is an error reading the TIFF data.      */
