@@ -337,13 +337,9 @@ literal|8
 expr_stmt|;
 name|code
 operator||=
-operator|(
 name|b
-operator|+
-literal|256
-operator|)
-operator|%
-literal|256
+operator|&
+literal|0xFF
 expr_stmt|;
 block|}
 return|return

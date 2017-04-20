@@ -428,11 +428,9 @@ name|data
 index|[
 name|i
 index|]
-operator|+
-literal|256
+operator|&
+literal|0xFF
 operator|)
-operator|%
-literal|256
 expr_stmt|;
 block|}
 return|return
