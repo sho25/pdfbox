@@ -1031,7 +1031,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" is not valid, error(s) :"
+literal|" is not a valid PDF/A-1b file, error(s) :"
 argument_list|)
 expr_stmt|;
 for|for
