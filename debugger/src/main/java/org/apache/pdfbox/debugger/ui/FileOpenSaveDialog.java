@@ -210,7 +210,7 @@ name|fileFilter
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Saves data into a file after the user is prompted to choose the destination.      *      * @param bytes byte array to be saved in a file.      * @return true if the file is saved successfully or false if failed.      * @throws IOException if there is an error in creation of the file.      */
+comment|/**      * Saves data into a file after the user is prompted to choose the destination.      *      * @param bytes byte array to be saved in a file.      * @param extension file extension.      * @return true if the file is saved successfully or false if failed.      * @throws IOException if there is an error in creation of the file.      */
 specifier|public
 name|boolean
 name|saveFile
@@ -277,21 +277,18 @@ operator|+
 name|extension
 expr_stmt|;
 block|}
+try|try
+init|(
 name|FileOutputStream
 name|outputStream
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|outputStream
-operator|=
 operator|new
 name|FileOutputStream
 argument_list|(
 name|filename
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 name|outputStream
 operator|.
 name|write
@@ -299,22 +296,6 @@ argument_list|(
 name|bytes
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|outputStream
-operator|!=
-literal|null
-condition|)
-block|{
-name|outputStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 return|return
 literal|true

@@ -862,6 +862,8 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+try|try
+init|(
 name|PDPageContentStream
 name|cs
 init|=
@@ -872,7 +874,8 @@ name|doc
 argument_list|,
 name|page
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|cs
 operator|.
 name|transform
@@ -984,11 +987,7 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|cs
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|addPage
