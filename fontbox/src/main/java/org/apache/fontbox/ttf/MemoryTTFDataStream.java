@@ -98,7 +98,7 @@ throws|throws
 name|IOException
 block|{
 try|try
-block|{
+init|(
 name|ByteArrayOutputStream
 name|output
 init|=
@@ -110,7 +110,8 @@ operator|.
 name|available
 argument_list|()
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|byte
 index|[]
 name|buffer
@@ -123,8 +124,6 @@ index|]
 decl_stmt|;
 name|int
 name|amountRead
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -173,6 +172,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Read an unsigned byte.      * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|readLong
@@ -283,6 +284,8 @@ operator|)
 return|;
 block|}
 comment|/**      * Read an unsigned byte.      * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -326,6 +329,8 @@ literal|256
 return|;
 block|}
 comment|/**      * Read an unsigned short.      *       * @return An unsigned short.      * @throws IOException If there is an error reading the data.      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|readUnsignedShort
@@ -381,6 +386,8 @@ operator|)
 return|;
 block|}
 comment|/**      * Read an signed short.      *       * @return An signed short.      * @throws IOException If there is an error reading the data.      */
+annotation|@
+name|Override
 specifier|public
 name|short
 name|readSignedShort
@@ -441,6 +448,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Close the underlying resources.      *       * @throws IOException If there is an error closing the resources.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -449,6 +458,8 @@ throws|throws
 name|IOException
 block|{     }
 comment|/**      * Seek into the datasource.      *       * @param pos The position to seek to.      * @throws IOException If there is an error seeking to that position.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|seek
@@ -468,6 +479,8 @@ name|pos
 expr_stmt|;
 block|}
 comment|/**      * @see java.io.InputStream#read( byte[], int, int )      *       * @param b The buffer to write to.      * @param off The offset into the buffer.      * @param len The length into the buffer.      *       * @return The number of bytes read, or -1 at the end of the stream      *       * @throws IOException If there is an error reading from the stream.      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -542,6 +555,8 @@ return|;
 block|}
 block|}
 comment|/**      * Get the current position in the stream.      * @return The current position in the stream.      * @throws IOException If an error occurs while reading the stream.      */
+annotation|@
+name|Override
 specifier|public
 name|long
 name|getCurrentPosition
@@ -554,6 +569,8 @@ name|currentPosition
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|InputStream
 name|getOriginalData
