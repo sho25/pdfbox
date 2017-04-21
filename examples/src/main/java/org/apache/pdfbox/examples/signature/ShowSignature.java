@@ -396,10 +396,9 @@ class|class
 name|ShowSignature
 block|{
 specifier|private
-specifier|static
 specifier|final
 name|SimpleDateFormat
-name|SDF
+name|sdf
 init|=
 operator|new
 name|SimpleDateFormat
@@ -621,7 +620,7 @@ name|println
 argument_list|(
 literal|"Modified: "
 operator|+
-name|SDF
+name|sdf
 operator|.
 name|format
 argument_list|(
