@@ -319,6 +319,13 @@ operator|==
 literal|null
 condition|)
 block|{
+name|addCommand
+argument_list|(
+name|numbers
+argument_list|,
+name|command
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
