@@ -1004,6 +1004,10 @@ specifier|final
 name|FileFilter
 name|fileFilter
 decl_stmt|;
+specifier|final
+name|String
+name|format
+decl_stmt|;
 if|if
 condition|(
 name|extension
@@ -1079,24 +1083,6 @@ literal|null
 expr_stmt|;
 break|break;
 block|}
-block|}
-else|else
-block|{
-name|fileFilter
-operator|=
-literal|null
-expr_stmt|;
-block|}
-name|String
-name|format
-decl_stmt|;
-if|if
-condition|(
-name|extension
-operator|!=
-literal|null
-condition|)
-block|{
 name|format
 operator|=
 literal|" "
@@ -1109,6 +1095,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|fileFilter
+operator|=
+literal|null
+expr_stmt|;
 name|format
 operator|=
 literal|""
