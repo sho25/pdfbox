@@ -99,6 +99,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -1580,7 +1590,10 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
 block|}
 comment|/**      * Sets the current absolute point without performing a moveto.      * Used only with results from callothersubr      */

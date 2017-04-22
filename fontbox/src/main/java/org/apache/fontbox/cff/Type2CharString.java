@@ -327,7 +327,10 @@ name|command
 argument_list|)
 expr_stmt|;
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
 block|}
 switch|switch
@@ -1358,7 +1361,10 @@ expr_stmt|;
 break|break;
 block|}
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
 block|}
 specifier|private

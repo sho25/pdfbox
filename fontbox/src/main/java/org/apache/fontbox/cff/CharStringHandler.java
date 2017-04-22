@@ -108,13 +108,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 comment|// this is basically returning the new stack
-if|if
-condition|(
-name|results
-operator|!=
-literal|null
-condition|)
-block|{
 name|stack
 operator|.
 name|addAll
@@ -122,7 +115,6 @@ argument_list|(
 name|results
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -142,7 +134,7 @@ return|return
 name|stack
 return|;
 block|}
-comment|/**      * Handler for CharStringCommands.      *      * @param numbers a list of numbers      * @param command the CharStringCommand      */
+comment|/**      * Handler for CharStringCommands.      *      * @param numbers a list of numbers      * @param command the CharStringCommand      * @return a list of commands. This can be empty but never be null.      */
 specifier|public
 specifier|abstract
 name|List
