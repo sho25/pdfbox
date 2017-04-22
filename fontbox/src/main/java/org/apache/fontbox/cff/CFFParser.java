@@ -236,16 +236,14 @@ name|input
 argument_list|)
 decl_stmt|;
 comment|// try to determine which kind of font we have
-if|if
+switch|switch
 condition|(
-name|TAG_OTTO
-operator|.
-name|equals
-argument_list|(
 name|firstTag
-argument_list|)
 condition|)
 block|{
+case|case
+name|TAG_OTTO
+case|:
 comment|// this is OpenType font containing CFF data
 comment|// so find CFF tag
 name|short
@@ -424,18 +422,10 @@ literal|"CFF tag not found in this OpenType font."
 argument_list|)
 throw|;
 block|}
-block|}
-elseif|else
-if|if
-condition|(
+break|break;
+case|case
 name|TAG_TTCF
-operator|.
-name|equals
-argument_list|(
-name|firstTag
-argument_list|)
-condition|)
-block|{
+case|:
 throw|throw
 operator|new
 name|IOException
@@ -443,18 +433,9 @@ argument_list|(
 literal|"True Type Collection fonts are not supported."
 argument_list|)
 throw|;
-block|}
-elseif|else
-if|if
-condition|(
+case|case
 name|TAG_TTFONLY
-operator|.
-name|equals
-argument_list|(
-name|firstTag
-argument_list|)
-condition|)
-block|{
+case|:
 throw|throw
 operator|new
 name|IOException
@@ -462,9 +443,7 @@ argument_list|(
 literal|"OpenType fonts containing a true type font are not supported."
 argument_list|)
 throw|;
-block|}
-else|else
-block|{
+default|default:
 name|input
 operator|.
 name|setPosition
@@ -472,6 +451,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 annotation|@
 name|SuppressWarnings
