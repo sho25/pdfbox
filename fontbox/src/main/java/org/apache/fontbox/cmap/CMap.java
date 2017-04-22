@@ -385,7 +385,7 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * Returns an int for the given byte array      */
-specifier|private
+specifier|static
 name|int
 name|toInt
 parameter_list|(
