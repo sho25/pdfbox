@@ -434,6 +434,8 @@ operator|.
 name|createCOSStream
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|OutputStream
 name|saveStream
 init|=
@@ -441,7 +443,8 @@ name|saveGraphicsStateStream
 operator|.
 name|createOutputStream
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|saveStream
 operator|.
 name|write
@@ -454,11 +457,7 @@ literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|saveStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|COSStream
 name|restoreGraphicsStateStream
 init|=
@@ -471,6 +470,8 @@ operator|.
 name|createCOSStream
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|OutputStream
 name|restoreStream
 init|=
@@ -478,7 +479,8 @@ name|restoreGraphicsStateStream
 operator|.
 name|createOutputStream
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|restoreStream
 operator|.
 name|write
@@ -491,11 +493,7 @@ literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|restoreStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 comment|//Wrap the existing page's content in a save/restore pair (q/Q) to have a controlled
 comment|//environment to add additional content.
 name|COSDictionary
@@ -1197,6 +1195,8 @@ argument_list|(
 name|layer
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|contentStream
 init|=
@@ -1214,7 +1214,8 @@ argument_list|,
 operator|!
 name|DEBUG
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|contentStream
 operator|.
 name|beginMarkedContent
@@ -1259,11 +1260,7 @@ operator|.
 name|endMarkedContent
 argument_list|()
 expr_stmt|;
-name|contentStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 return|return
 name|layer
 return|;

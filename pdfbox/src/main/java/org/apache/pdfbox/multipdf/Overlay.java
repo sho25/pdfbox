@@ -1196,6 +1196,8 @@ operator|new
 name|COSStream
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|OutputStream
 name|out
 init|=
@@ -1207,7 +1209,8 @@ name|COSName
 operator|.
 name|FLATE_DECODE
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 for|for
 control|(
 name|COSStream
@@ -1271,11 +1274,7 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
-name|out
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 return|return
 name|concatStream
 return|;
@@ -2204,6 +2203,8 @@ operator|new
 name|COSStream
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|OutputStream
 name|out
 init|=
@@ -2215,7 +2216,8 @@ name|COSName
 operator|.
 name|FLATE_DECODE
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|out
 operator|.
 name|write
@@ -2228,11 +2230,7 @@ literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 return|return
 name|stream
 return|;

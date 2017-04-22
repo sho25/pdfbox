@@ -527,6 +527,8 @@ operator|.
 name|createCOSStream
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|OutputStream
 name|output
 init|=
@@ -534,15 +536,9 @@ name|stream
 operator|.
 name|createRawOutputStream
 argument_list|()
-decl_stmt|;
-name|InputStream
-name|input
-init|=
-name|originalStream
-operator|.
-name|createRawInputStream
-argument_list|()
-decl_stmt|;
+init|;                    InputStream input = originalStream.createRawInputStream()
+block|)
+block|{
 name|IOUtils
 operator|.
 name|copy
@@ -552,16 +548,7 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
-name|input
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|output
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|clonedVersion
 operator|.
 name|put
@@ -700,17 +687,23 @@ block|}
 name|clonedVersion
 operator|.
 name|put
-argument_list|(
+parameter_list|(
 name|base
-argument_list|,
+parameter_list|,
 name|retval
-argument_list|)
-expr_stmt|;
+parameter_list|)
+constructor_decl|;
 return|return
 name|retval
 return|;
 block|}
+end_class
+
+begin_comment
 comment|/**        * Merges two objects of the same type by deep-cloning its members.        *<br>        * Base and target must be instances of the same class.        * @param base the base object to be cloned        * @param target the merge target        * @throws IOException if an I/O error occurs        */
+end_comment
+
+begin_function
 specifier|public
 name|void
 name|cloneMerge
@@ -954,6 +947,8 @@ operator|.
 name|createCOSStream
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|OutputStream
 name|output
 init|=
@@ -966,7 +961,8 @@ operator|.
 name|getFilters
 argument_list|()
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|IOUtils
 operator|.
 name|copy
@@ -979,11 +975,7 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
-name|output
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|clonedVersion
 operator|.
 name|put
@@ -1171,8 +1163,8 @@ name|retval
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
