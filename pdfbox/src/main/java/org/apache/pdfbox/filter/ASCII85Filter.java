@@ -208,6 +208,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|ASCII85OutputStream
 name|os
 init|=
@@ -216,7 +218,8 @@ name|ASCII85OutputStream
 argument_list|(
 name|encoded
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|byte
 index|[]
 name|buffer
@@ -263,11 +266,7 @@ name|amountRead
 argument_list|)
 expr_stmt|;
 block|}
-name|os
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|encoded
 operator|.
 name|flush
