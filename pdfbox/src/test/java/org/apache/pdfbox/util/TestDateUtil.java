@@ -3347,8 +3347,22 @@ argument_list|,
 literal|"America/Chicago"
 argument_list|)
 expr_stmt|;
-comment|// disable this while hoping for correct JDK6, see PDFBOX-2460
-comment|//        checkParseTZ(+(4*HRS+0*MINS), "Europe/Moscow");
+name|checkParseTZ
+argument_list|(
+operator|+
+operator|(
+literal|3
+operator|*
+name|HRS
+operator|+
+literal|0
+operator|*
+name|MINS
+operator|)
+argument_list|,
+literal|"Europe/Moscow"
+argument_list|)
+expr_stmt|;
 name|checkParseTZ
 argument_list|(
 operator|+
