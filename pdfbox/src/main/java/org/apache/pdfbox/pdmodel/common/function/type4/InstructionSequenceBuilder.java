@@ -363,26 +363,11 @@ name|String
 name|token
 parameter_list|)
 block|{
-comment|//TODO Beginning with JDK7 Integer.parseInt accepts leading +'s
 return|return
 name|Integer
 operator|.
 name|parseInt
 argument_list|(
-name|token
-operator|.
-name|startsWith
-argument_list|(
-literal|"+"
-argument_list|)
-condition|?
-name|token
-operator|.
-name|substring
-argument_list|(
-literal|1
-argument_list|)
-else|:
 name|token
 argument_list|)
 return|;
