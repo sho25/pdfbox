@@ -196,14 +196,15 @@ index|[
 literal|2
 index|]
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 name|PDPage
 name|page
@@ -235,6 +236,8 @@ name|ttfPath
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|contents
 init|=
@@ -245,7 +248,8 @@ name|doc
 argument_list|,
 name|page
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|contents
 operator|.
 name|beginText
@@ -281,11 +285,7 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|contents
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|save
@@ -303,14 +303,6 @@ name|pdfPath
 operator|+
 literal|" created!"
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

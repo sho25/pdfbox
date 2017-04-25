@@ -139,16 +139,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// the document
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|doc
-operator|=
 name|PDDocument
 operator|.
 name|load
@@ -159,7 +154,8 @@ argument_list|(
 name|inputFile
 argument_list|)
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 comment|//we will add the image to the first page.
 name|PDPage
 name|page
@@ -186,6 +182,8 @@ argument_list|,
 name|doc
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|contentStream
 init|=
@@ -204,7 +202,8 @@ literal|true
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// contentStream.drawImage(ximage, 20, 20 );
 comment|// better method inspired by http://stackoverflow.com/a/22318681/535646
 comment|// reduce this value if the image is too large
@@ -238,11 +237,7 @@ operator|*
 name|scale
 argument_list|)
 expr_stmt|;
-name|contentStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|save
@@ -250,22 +245,6 @@ argument_list|(
 name|outputFile
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|doc
-operator|!=
-literal|null
-condition|)
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * This will load a PDF document and add a single image on it.      *<br>      * see usage() for commandline      *      * @param args Command line arguments.      */

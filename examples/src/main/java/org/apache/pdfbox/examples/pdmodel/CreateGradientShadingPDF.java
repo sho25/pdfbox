@@ -754,6 +754,8 @@ argument_list|)
 expr_stmt|;
 comment|// invoke shading from content stream
 comment|// compress parameter is set to false so that you can see the stream in a text editor
+try|try
+init|(
 name|PDPageContentStream
 name|contentStream
 init|=
@@ -770,7 +772,8 @@ name|APPEND
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|contentStream
 operator|.
 name|shadingFill
@@ -785,11 +788,7 @@ argument_list|(
 name|radialShading
 argument_list|)
 expr_stmt|;
-name|contentStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|document
 operator|.
 name|save

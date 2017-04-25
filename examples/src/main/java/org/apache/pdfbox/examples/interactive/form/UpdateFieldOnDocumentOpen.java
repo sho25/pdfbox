@@ -98,6 +98,8 @@ throws|throws
 name|IOException
 block|{
 comment|// Load the PDF document created by SimpleForm.java
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
@@ -111,7 +113,8 @@ argument_list|(
 literal|"target/SimpleForm.pdf"
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// Note that the JavaScript will depend on the reader application.
 comment|// The classes and methods available to Adobe Reader and Adobe Acrobat
 comment|// are documented in the Acrobat SDK.
@@ -157,11 +160,7 @@ argument_list|(
 literal|"target/UpdateFieldOnDocumentOpen.pdf"
 argument_list|)
 expr_stmt|;
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class

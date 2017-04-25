@@ -244,20 +244,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 comment|// the document
 name|PDDocument
 name|doc
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|doc
-operator|=
 operator|new
 name|PDDocument
 argument_list|()
-expr_stmt|;
+init|)
+block|{
 name|PDPage
 name|page
 init|=
@@ -279,6 +276,8 @@ name|PDType1Font
 operator|.
 name|HELVETICA_BOLD
 decl_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|contentStream
 init|=
@@ -289,7 +288,8 @@ name|doc
 argument_list|,
 name|page
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|contentStream
 operator|.
 name|beginText
@@ -325,11 +325,7 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|contentStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 comment|//embedded files are stored in a named tree
 name|PDEmbeddedFilesNameTreeNode
 name|efTree
@@ -503,22 +499,6 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|doc
-operator|!=
-literal|null
-condition|)
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * This will create a hello world PDF document with an embedded file.      *<br>      * see usage() for commandline      *      * @param args Command line arguments.      */

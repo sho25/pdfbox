@@ -192,16 +192,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// the document
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|doc
-operator|=
 name|PDDocument
 operator|.
 name|load
@@ -212,7 +207,8 @@ argument_list|(
 name|file
 argument_list|)
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 name|PDFont
 name|font
 init|=
@@ -343,6 +339,8 @@ operator|/
 literal|2f
 decl_stmt|;
 comment|// append the content to the existing stream
+try|try
+init|(
 name|PDPageContentStream
 name|contentStream
 init|=
@@ -361,7 +359,8 @@ literal|true
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|contentStream
 operator|.
 name|beginText
@@ -445,11 +444,7 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|contentStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 name|doc
 operator|.
@@ -458,22 +453,6 @@ argument_list|(
 name|outfile
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|doc
-operator|!=
-literal|null
-condition|)
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * This will create a hello world PDF document.      *<br>      * see usage() for commandline      *      * @param args Command line arguments.      */

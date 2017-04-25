@@ -124,14 +124,15 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 comment|// a valid PDF document requires at least one page
 name|PDPage
@@ -154,14 +155,6 @@ name|save
 argument_list|(
 name|filename
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

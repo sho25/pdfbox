@@ -180,19 +180,16 @@ throws|throws
 name|IOException
 block|{
 comment|// the document
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|doc
-operator|=
 operator|new
 name|PDDocument
 argument_list|()
-expr_stmt|;
+init|)
+block|{
 comment|// Page 1
 name|PDFont
 name|font
@@ -771,22 +768,6 @@ argument_list|(
 name|outfile
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|doc
-operator|!=
-literal|null
-condition|)
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * This will create a PDF document with some examples how to use a text matrix.      *       * @param args Command line arguments.      */

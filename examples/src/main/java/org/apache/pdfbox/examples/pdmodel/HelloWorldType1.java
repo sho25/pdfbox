@@ -196,14 +196,15 @@ index|[
 literal|2
 index|]
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 name|PDPage
 name|page
@@ -302,14 +303,6 @@ name|file
 operator|+
 literal|" created!"
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

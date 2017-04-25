@@ -282,13 +282,16 @@ throws|throws
 name|IOException
 block|{
 comment|// Create a new document with an empty page.
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|PDPage
 name|page
 init|=
@@ -568,11 +571,7 @@ argument_list|(
 literal|"target/SimpleForm.pdf"
 argument_list|)
 expr_stmt|;
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class

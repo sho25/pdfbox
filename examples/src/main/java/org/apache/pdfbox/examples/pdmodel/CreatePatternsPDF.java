@@ -253,13 +253,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|PDPage
 name|page
 init|=
@@ -283,6 +286,9 @@ name|PDResources
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Colored pattern, i.e. the pattern content stream will set its own color(s)
+try|try
+init|(
 name|PDPageContentStream
 name|pcs
 init|=
@@ -293,7 +299,8 @@ name|doc
 argument_list|,
 name|page
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// Colored pattern, i.e. the pattern content stream will set its own color(s)
 name|PDColorSpace
 name|patternCS1
@@ -381,6 +388,8 @@ decl_stmt|;
 comment|//TODO
 comment|// there's no way to create something like a PDPageContentStream,
 comment|// so we'll do it the hard way
+try|try
+init|(
 name|OutputStream
 name|os1
 init|=
@@ -391,7 +400,8 @@ argument_list|()
 operator|.
 name|createOutputStream
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 comment|// Set color, draw diagonal line + 2 more diagonals so that corners look good
 name|os1
 operator|.
@@ -407,11 +417,7 @@ name|US_ASCII
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|os1
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|PDColor
 name|patternColor1
 init|=
@@ -518,6 +524,8 @@ argument_list|(
 name|tilingPattern2
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|OutputStream
 name|os2
 init|=
@@ -528,7 +536,8 @@ argument_list|()
 operator|.
 name|createOutputStream
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 comment|// draw a cross
 name|os2
 operator|.
@@ -544,11 +553,7 @@ name|US_ASCII
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|os2
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 comment|// Uncolored pattern colorspace needs to know the colorspace
 comment|// for the color values that will be passed when painting the fill
 name|PDColorSpace
@@ -659,11 +664,7 @@ operator|.
 name|fill
 argument_list|()
 expr_stmt|;
-name|pcs
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|save
@@ -671,11 +672,7 @@ argument_list|(
 literal|"patterns.pdf"
 argument_list|)
 expr_stmt|;
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class

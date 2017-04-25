@@ -757,7 +757,13 @@ name|OperatorCreationException
 throws|,
 name|GeneralSecurityException
 block|{
+name|byte
+index|[]
+name|content
+decl_stmt|;
 comment|// mock TSA response content
+try|try
+init|(
 name|InputStream
 name|input
 init|=
@@ -768,23 +774,18 @@ name|inDir
 operator|+
 literal|"tsa_response.asn1"
 argument_list|)
-decl_stmt|;
-name|byte
-index|[]
+init|)
+block|{
 name|content
-init|=
+operator|=
 name|IOUtils
 operator|.
 name|toByteArray
 argument_list|(
 name|input
 argument_list|)
-decl_stmt|;
-name|input
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
+block|}
 comment|// mock TSA server (RFC 3161)
 name|MockHttpServer
 name|mockServer
@@ -1042,6 +1043,11 @@ name|inDir
 operator|+
 literal|"sign_me.pdf"
 decl_stmt|;
+name|File
+name|destFile
+decl_stmt|;
+try|try
+init|(
 name|FileInputStream
 name|fis
 init|=
@@ -1050,7 +1056,8 @@ name|FileInputStream
 argument_list|(
 name|jpegPath
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|CreateVisibleSignature
 name|signing
 init|=
@@ -1107,9 +1114,8 @@ argument_list|(
 name|externallySign
 argument_list|)
 expr_stmt|;
-name|File
 name|destFile
-init|=
+operator|=
 operator|new
 name|File
 argument_list|(
@@ -1120,7 +1126,7 @@ argument_list|(
 literal|"signed{0}_visible.pdf"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|signing
 operator|.
 name|signPDF
@@ -1136,11 +1142,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|fis
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|checkSignature
 argument_list|(
 name|destFile
@@ -1189,6 +1191,8 @@ name|OperatorCreationException
 throws|,
 name|GeneralSecurityException
 block|{
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
@@ -1198,7 +1202,8 @@ name|load
 argument_list|(
 name|file
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|List
 argument_list|<
 name|PDSignature
@@ -1255,6 +1260,12 @@ operator|.
 name|CONTENTS
 argument_list|)
 decl_stmt|;
+name|byte
+index|[]
+name|buf
+decl_stmt|;
+try|try
+init|(
 name|FileInputStream
 name|fis
 init|=
@@ -1263,23 +1274,18 @@ name|FileInputStream
 argument_list|(
 name|file
 argument_list|)
-decl_stmt|;
-name|byte
-index|[]
+init|)
+block|{
 name|buf
-init|=
+operator|=
 name|sig
 operator|.
 name|getSignedContent
 argument_list|(
 name|fis
 argument_list|)
-decl_stmt|;
-name|fis
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
+block|}
 comment|// inspiration:
 comment|// http://stackoverflow.com/a/26702631/535646
 comment|// http://stackoverflow.com/a/9261365/535646
@@ -1411,11 +1417,7 @@ expr_stmt|;
 block|}
 break|break;
 block|}
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class

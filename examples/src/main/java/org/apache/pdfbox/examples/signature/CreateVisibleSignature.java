@@ -650,7 +650,8 @@ argument_list|(
 name|signedFile
 argument_list|)
 decl_stmt|;
-comment|// load document
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
@@ -660,7 +661,8 @@ name|load
 argument_list|(
 name|inputFile
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|int
 name|accessPermissions
 init|=
@@ -969,6 +971,8 @@ operator|+
 literal|1
 decl_stmt|;
 comment|// now write the signature at the correct offset without any PDFBox methods
+try|try
+init|(
 name|RandomAccessFile
 name|raf
 init|=
@@ -979,7 +983,8 @@ name|signedFile
 argument_list|,
 literal|"rw"
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|raf
 operator|.
 name|seek
@@ -999,11 +1004,7 @@ name|cmsSignature
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|raf
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1028,11 +1029,7 @@ name|fos
 argument_list|)
 expr_stmt|;
 block|}
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 comment|// Do not close signatureOptions before saving, because some COSStream objects within
 comment|// are transferred to the signed document.
 comment|// Do not allow signatureOptions get out of scope before saving, because then the COSDocument
@@ -1412,6 +1409,14 @@ name|clone
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|File
+name|signedDocumentFile
+decl_stmt|;
+name|int
+name|page
+decl_stmt|;
+try|try
+init|(
 name|FileInputStream
 name|imageStream
 init|=
@@ -1423,7 +1428,8 @@ index|[
 literal|3
 index|]
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|String
 name|name
 init|=
@@ -1449,9 +1455,8 @@ literal|'.'
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|File
 name|signedDocumentFile
-init|=
+operator|=
 operator|new
 name|File
 argument_list|(
@@ -1464,13 +1469,12 @@ name|substring
 operator|+
 literal|"_signed.pdf"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// page is 1-based here
-name|int
 name|page
-init|=
+operator|=
 literal|1
-decl_stmt|;
+expr_stmt|;
 name|signing
 operator|.
 name|setVisibleSignDesigner
@@ -1492,11 +1496,7 @@ argument_list|,
 name|page
 argument_list|)
 expr_stmt|;
-name|imageStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|signing
 operator|.
 name|setVisibleSignatureProperties

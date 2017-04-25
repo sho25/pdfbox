@@ -415,14 +415,15 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 name|PDPage
 name|page1
@@ -635,6 +636,8 @@ name|PDType1Font
 operator|.
 name|HELVETICA_BOLD
 decl_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|contents
 init|=
@@ -645,7 +648,8 @@ name|document
 argument_list|,
 name|page1
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|contents
 operator|.
 name|beginText
@@ -727,11 +731,7 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|contents
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 comment|// Now add the markup annotation, a highlight to PDFBox text
 name|PDAnnotationTextMarkup
 name|txtMark
@@ -1625,14 +1625,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 specifier|private
 specifier|static
@@ -1656,6 +1648,8 @@ name|fontSize
 init|=
 literal|10
 decl_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|contents
 init|=
@@ -1674,7 +1668,8 @@ name|PREPEND
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|float
 name|pageWidth
 init|=
@@ -1763,11 +1758,7 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|contents
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class

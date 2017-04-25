@@ -314,6 +314,8 @@ operator|.
 name|parse
 argument_list|()
 expr_stmt|;
+try|try
+init|(
 name|PreflightDocument
 name|preflightDocument
 init|=
@@ -321,7 +323,8 @@ name|preflightParser
 operator|.
 name|getPreflightDocument
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|preflightDocument
 operator|.
 name|validate
@@ -376,11 +379,7 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|preflightDocument
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 comment|// check the XMP metadata
 name|PDDocument
 name|document

@@ -195,7 +195,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Load the PDF document created by SimpleForm.java
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
@@ -209,7 +210,8 @@ argument_list|(
 literal|"target/SimpleForm.pdf"
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|PDAcroForm
 name|acroForm
 init|=
@@ -333,10 +335,6 @@ decl_stmt|;
 name|PDResources
 name|resources
 init|=
-literal|null
-decl_stmt|;
-name|resources
-operator|=
 name|widget
 operator|.
 name|getNormalAppearanceStream
@@ -344,7 +342,7 @@ argument_list|()
 operator|.
 name|getResources
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|resources
@@ -431,11 +429,7 @@ name|willNotFitWidth
 operator|>
 name|widthOfField
 assert|;
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class

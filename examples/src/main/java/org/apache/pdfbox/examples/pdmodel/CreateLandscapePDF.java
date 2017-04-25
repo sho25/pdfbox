@@ -179,20 +179,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// the document
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|doc
-operator|=
 operator|new
 name|PDDocument
 argument_list|()
-expr_stmt|;
+init|)
+block|{
 name|PDFont
 name|font
 init|=
@@ -270,6 +266,8 @@ name|startY
 init|=
 literal|100
 decl_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|contentStream
 init|=
@@ -286,7 +284,8 @@ name|OVERWRITE
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// add the rotation using the current transformation matrix
 comment|// including a translation of pageWidth to use the lower left corner as 0,0 reference
 name|contentStream
@@ -526,11 +525,7 @@ operator|.
 name|stroke
 argument_list|()
 expr_stmt|;
-name|contentStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|save
@@ -538,22 +533,6 @@ argument_list|(
 name|outfile
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|doc
-operator|!=
-literal|null
-condition|)
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * This will create a PDF document with a landscape orientation and some text surrounded by a box.      *       * @param args Command line arguments.      */

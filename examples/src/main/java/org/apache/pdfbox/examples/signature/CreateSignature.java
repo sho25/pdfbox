@@ -353,6 +353,8 @@ name|outFile
 argument_list|)
 decl_stmt|;
 comment|// sign
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
@@ -362,7 +364,8 @@ name|load
 argument_list|(
 name|inFile
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|signDetached
 argument_list|(
 name|doc
@@ -372,11 +375,7 @@ argument_list|,
 name|tsaClient
 argument_list|)
 expr_stmt|;
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 specifier|public
 name|void

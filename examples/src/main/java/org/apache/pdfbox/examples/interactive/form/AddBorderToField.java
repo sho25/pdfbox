@@ -202,6 +202,8 @@ throws|throws
 name|IOException
 block|{
 comment|// Load the PDF document created by SimpleForm.java
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
@@ -215,7 +217,8 @@ argument_list|(
 literal|"target/SimpleForm.pdf"
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|PDAcroForm
 name|acroForm
 init|=
@@ -309,11 +312,7 @@ argument_list|(
 literal|"target/AddBorderToField.pdf"
 argument_list|)
 expr_stmt|;
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class

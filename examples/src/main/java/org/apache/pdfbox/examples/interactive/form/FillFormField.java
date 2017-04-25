@@ -120,7 +120,8 @@ name|formTemplate
 init|=
 literal|"src/main/resources/org/apache/pdfbox/examples/interactive/form/FillFormField.pdf"
 decl_stmt|;
-comment|// load the document
+try|try
+init|(
 name|PDDocument
 name|pdfDocument
 init|=
@@ -134,7 +135,8 @@ argument_list|(
 name|formTemplate
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// get the document catalog
 name|PDAcroForm
 name|acroForm
@@ -206,11 +208,7 @@ argument_list|(
 literal|"target/FillFormField.pdf"
 argument_list|)
 expr_stmt|;
-name|pdfDocument
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class

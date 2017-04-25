@@ -332,14 +332,15 @@ index|[
 literal|2
 index|]
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 name|PDPage
 name|page
@@ -401,6 +402,8 @@ argument_list|)
 throw|;
 block|}
 comment|// create a page with the message
+try|try
+init|(
 name|PDPageContentStream
 name|contents
 init|=
@@ -411,7 +414,8 @@ name|doc
 argument_list|,
 name|page
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|contents
 operator|.
 name|beginText
@@ -452,11 +456,7 @@ operator|.
 name|saveGraphicsState
 argument_list|()
 expr_stmt|;
-name|contents
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 comment|// add XMP metadata
 name|XMPMetadata
 name|xmp
@@ -643,14 +643,6 @@ name|save
 argument_list|(
 name|file
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

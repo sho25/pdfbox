@@ -249,6 +249,8 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
@@ -262,7 +264,8 @@ argument_list|(
 name|filename
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// choose your printing method:
 name|print
 argument_list|(
@@ -273,11 +276,7 @@ comment|//printWithAttributes(document);
 comment|//printWithDialog(document);
 comment|//printWithDialogAndAttributes(document);
 comment|//printWithPaper(document);
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**      * Prints the document at its actual size. This is the recommended way to print.      */
 specifier|private

@@ -325,6 +325,8 @@ argument_list|,
 literal|"custom-render-demo.pdf"
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
@@ -334,7 +336,8 @@ name|load
 argument_list|(
 name|file
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|PDFRenderer
 name|renderer
 init|=
@@ -369,11 +372,7 @@ literal|"custom-render.png"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**      * Example PDFRenderer subclass, uses MyPageDrawer for custom rendering.      */
 specifier|private
