@@ -197,20 +197,6 @@ name|FSDirectory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-
 begin_comment
 comment|/**  * Index all pdf files under a directory.  *<p>  * This is a command-line application demonstrating simple Lucene indexing. Run it with no command-line arguments for  * usage information.  *<p>  * It's based on a demo provided by the lucene project.  */
 end_comment
