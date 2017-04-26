@@ -49,30 +49,6 @@ name|Provider
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Logger
-import|;
-end_import
-
 begin_comment
 comment|/**  * Singleton which provides a security provider.  *   */
 end_comment
