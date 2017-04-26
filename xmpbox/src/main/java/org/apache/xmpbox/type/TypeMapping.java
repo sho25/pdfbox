@@ -776,7 +776,7 @@ name|construct
 init|=
 name|propertyTypeClass
 operator|.
-name|getConstructor
+name|getDeclaredConstructor
 argument_list|(
 name|XMPMetadata
 operator|.
@@ -806,17 +806,11 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|InvocationTargetException
+name|ReflectiveOperationException
 decl||
 name|IllegalArgumentException
 decl||
-name|InstantiationException
-decl||
-name|IllegalAccessException
-decl||
 name|SecurityException
-decl||
-name|NoSuchMethodException
 name|e
 parameter_list|)
 block|{
@@ -931,7 +925,7 @@ name|cons
 init|=
 name|clz
 operator|.
-name|getConstructor
+name|getDeclaredConstructor
 argument_list|(
 name|SIMPLEPROPERTYCONSTPARAMS
 argument_list|)

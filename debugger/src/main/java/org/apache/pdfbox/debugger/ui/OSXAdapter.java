@@ -488,7 +488,7 @@ name|macOSXApplication
 operator|=
 name|applicationClass
 operator|.
-name|getConstructor
+name|getDeclaredConstructor
 argument_list|(
 operator|(
 name|Class

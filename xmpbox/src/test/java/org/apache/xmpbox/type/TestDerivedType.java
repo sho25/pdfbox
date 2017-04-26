@@ -452,7 +452,7 @@ name|constructor
 operator|=
 name|clz
 operator|.
-name|getConstructor
+name|getDeclaredConstructor
 argument_list|(
 name|XMPMetadata
 operator|.
