@@ -327,7 +327,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|ReflectiveOperationException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -335,7 +335,7 @@ throw|throw
 operator|new
 name|XmpSchemaException
 argument_list|(
-literal|"Cannot Instanciate specified Object Schema"
+literal|"Cannot instanciate specified object schema"
 argument_list|,
 name|e
 argument_list|)

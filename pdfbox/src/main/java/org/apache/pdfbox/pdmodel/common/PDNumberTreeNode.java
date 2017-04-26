@@ -828,7 +828,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|ReflectiveOperationException
+name|Throwable
 name|t
 parameter_list|)
 block|{
