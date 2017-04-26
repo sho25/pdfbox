@@ -17,18 +17,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Constructor
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -302,28 +290,16 @@ name|metadata
 block|}
 expr_stmt|;
 block|}
-name|Constructor
-argument_list|<
-name|?
-extends|extends
-name|XMPSchema
-argument_list|>
-name|schemaConstructor
-decl_stmt|;
 try|try
 block|{
-name|schemaConstructor
+name|schema
 operator|=
 name|schemaClass
 operator|.
-name|getConstructor
+name|getDeclaredConstructor
 argument_list|(
 name|argsClass
 argument_list|)
-expr_stmt|;
-name|schema
-operator|=
-name|schemaConstructor
 operator|.
 name|newInstance
 argument_list|(
@@ -351,7 +327,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|ReflectiveOperationException
 name|e
 parameter_list|)
 block|{
@@ -359,7 +335,7 @@ throw|throw
 operator|new
 name|XmpSchemaException
 argument_list|(
-literal|"Cannot instanciate specified object schema"
+literal|"Cannot Instanciate specified Object Schema"
 argument_list|,
 name|e
 argument_list|)

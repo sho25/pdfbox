@@ -320,7 +320,7 @@ name|constructor
 init|=
 name|clazz
 operator|.
-name|getConstructor
+name|getDeclaredConstructor
 argument_list|(
 name|PreflightContext
 operator|.
@@ -352,7 +352,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|ReflectiveOperationException
 name|e
 parameter_list|)
 block|{
