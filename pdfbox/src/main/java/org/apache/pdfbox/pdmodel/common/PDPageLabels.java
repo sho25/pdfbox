@@ -105,6 +105,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|SortedSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|TreeSet
 import|;
 end_import
@@ -713,7 +723,7 @@ return|;
 block|}
 comment|/**      * Get an ordered set of page indices having a page label range.      *      * @return set of page indices.      */
 specifier|public
-name|TreeSet
+name|SortedSet
 argument_list|<
 name|Integer
 argument_list|>
