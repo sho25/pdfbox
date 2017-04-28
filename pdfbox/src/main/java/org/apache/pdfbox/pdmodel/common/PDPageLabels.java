@@ -101,6 +101,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeSet
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -699,6 +709,26 @@ argument_list|)
 expr_stmt|;
 return|return
 name|map
+return|;
+block|}
+comment|/**      * Get an ordered set of page indices having a page label range.      *      * @return set of page indices.      */
+specifier|public
+name|TreeSet
+argument_list|<
+name|Integer
+argument_list|>
+name|getPageIndices
+parameter_list|()
+block|{
+return|return
+operator|new
+name|TreeSet
+argument_list|(
+name|labels
+operator|.
+name|keySet
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * Internal interface for the control flow support.      *       * @author Igor Podolskiy      */
