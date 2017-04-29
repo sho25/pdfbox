@@ -105,7 +105,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|SortedSet
+name|NavigableSet
 import|;
 end_import
 
@@ -723,7 +723,7 @@ return|;
 block|}
 comment|/**      * Get an ordered set of page indices having a page label range.      *      * @return set of page indices.      */
 specifier|public
-name|SortedSet
+name|NavigableSet
 argument_list|<
 name|Integer
 argument_list|>
