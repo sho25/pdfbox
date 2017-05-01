@@ -667,7 +667,7 @@ annotation|@
 name|Test
 specifier|public
 name|void
-name|testBooleaninOpenAction
+name|handleBooleanInOpenAction
 parameter_list|()
 throws|throws
 name|IOException
