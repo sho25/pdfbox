@@ -6512,16 +6512,6 @@ name|trailer
 argument_list|)
 expr_stmt|;
 comment|// search for the different parts of the trailer dictionary
-name|boolean
-name|catalogFound
-init|=
-literal|false
-decl_stmt|;
-name|boolean
-name|infoFound
-init|=
-literal|false
-decl_stmt|;
 for|for
 control|(
 name|Entry
@@ -6619,10 +6609,6 @@ name|getKey
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|catalogFound
-operator|=
-literal|true
 expr_stmt|;
 block|}
 comment|// info dictionary
@@ -6723,22 +6709,8 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|infoFound
-operator|=
-literal|true
-expr_stmt|;
 block|}
 comment|// TODO encryption dictionary
-block|}
-if|if
-condition|(
-name|catalogFound
-operator|&&
-name|infoFound
-condition|)
-block|{
-comment|// all objects found, stop searching
-break|break;
 block|}
 block|}
 catch|catch
