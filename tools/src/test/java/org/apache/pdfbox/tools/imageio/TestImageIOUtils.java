@@ -1873,6 +1873,8 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|ImageInputStream
 name|iis
 init|=
@@ -1886,7 +1888,8 @@ argument_list|(
 name|filename
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertNotNull
 argument_list|(
 literal|"No ImageInputStream created for file "
@@ -2119,11 +2122,7 @@ argument_list|,
 name|actualResolution
 argument_list|)
 expr_stmt|;
-name|iis
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|reader
 operator|.
 name|dispose
@@ -2149,6 +2148,8 @@ block|{
 comment|// BMP format explained here:
 comment|// http://www.javaworld.com/article/2077561/learn-java/java-tip-60--saving-bitmap-files-in-java.html
 comment|// we skip 38 bytes and then read two 4 byte-integers and reverse the bytes
+try|try
+init|(
 name|DataInputStream
 name|dis
 init|=
@@ -2165,7 +2166,8 @@ name|filename
 argument_list|)
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|int
 name|skipped
 init|=
@@ -2267,11 +2269,7 @@ argument_list|,
 name|actualResolution
 argument_list|)
 expr_stmt|;
-name|dis
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**      * checks whether the compression of a TIFF file is as expected.      *      * @param filename Filename      * @param expectedCompression expected TIFF compression      *      * @throws IOException if something goes wrong      */
 name|void
@@ -2307,6 +2305,8 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|ImageInputStream
 name|iis
 init|=
@@ -2320,7 +2320,8 @@ argument_list|(
 name|filename
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|reader
 operator|.
 name|setInput
@@ -2411,11 +2412,7 @@ argument_list|,
 name|actualCompression
 argument_list|)
 expr_stmt|;
-name|iis
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|reader
 operator|.
 name|dispose

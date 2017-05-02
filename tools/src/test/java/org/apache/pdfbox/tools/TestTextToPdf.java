@@ -121,6 +121,11 @@ operator|new
 name|TextToPDF
 argument_list|()
 decl_stmt|;
+name|PDDocument
+name|pdfDoc
+decl_stmt|;
+try|try
+init|(
 name|StringReader
 name|reader
 init|=
@@ -129,22 +134,18 @@ name|StringReader
 argument_list|(
 literal|""
 argument_list|)
-decl_stmt|;
-name|PDDocument
+init|)
+block|{
 name|pdfDoc
-init|=
+operator|=
 name|pdfCreator
 operator|.
 name|createPDFFromText
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
-name|reader
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
+block|}
 comment|// In order for the PDF document to be openable by Adobe Reader, it needs
 comment|// to have some pages in it. So we'll check that.
 name|int

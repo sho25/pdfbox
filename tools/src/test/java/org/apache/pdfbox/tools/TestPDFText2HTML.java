@@ -201,6 +201,8 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|contentStream
 init|=
@@ -211,7 +213,8 @@ name|doc
 argument_list|,
 name|page
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|contentStream
 operator|.
 name|beginText
@@ -247,11 +250,7 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|contentStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 return|return
 name|doc
 return|;
