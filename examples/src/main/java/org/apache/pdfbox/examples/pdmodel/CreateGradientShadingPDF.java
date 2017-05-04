@@ -977,7 +977,7 @@ name|INSTANCE
 argument_list|)
 expr_stmt|;
 comment|// Function is not required for type 4 shadings and not really useful,
-comment|// because if a function would be used, each edge "color" of a triangle would be one value,
+comment|// because if a function would be used, each corner "color" of a triangle would be one value,
 comment|// which would then transformed into n color components by the function so it is
 comment|// difficult to get 3 "extremes".
 comment|// fill the vertex stream
