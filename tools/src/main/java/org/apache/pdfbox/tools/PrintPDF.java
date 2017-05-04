@@ -173,6 +173,22 @@ name|ORIENTATION
 init|=
 literal|"-orientation"
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|BORDER
+init|=
+literal|"-border"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DPI
+init|=
+literal|"-dpi"
+decl_stmt|;
 comment|/**      * private constructor.      */
 specifier|private
 name|PrintPDF
@@ -231,6 +247,16 @@ init|=
 name|Orientation
 operator|.
 name|AUTO
+decl_stmt|;
+name|boolean
+name|showPageBorder
+init|=
+literal|false
+decl_stmt|;
+name|int
+name|dpi
+init|=
+literal|0
 decl_stmt|;
 name|Map
 argument_list|<
@@ -408,6 +434,46 @@ argument_list|()
 expr_stmt|;
 block|}
 break|break;
+case|case
+name|BORDER
+case|:
+name|showPageBorder
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+case|case
+name|DPI
+case|:
+name|i
+operator|++
+expr_stmt|;
+if|if
+condition|(
+name|i
+operator|>=
+name|args
+operator|.
+name|length
+condition|)
+block|{
+name|usage
+argument_list|()
+expr_stmt|;
+block|}
+name|dpi
+operator|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|args
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+break|break;
 default|default:
 name|pdfFile
 operator|=
@@ -555,6 +621,10 @@ argument_list|(
 name|document
 argument_list|,
 name|orientation
+argument_list|,
+name|showPageBorder
+argument_list|,
+name|dpi
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -594,7 +664,15 @@ literal|"  -password<password>                : Password to decrypt document\n"
 operator|+
 literal|"  -printerName<name>                  : Print to specific printer\n"
 operator|+
-literal|"  -orientation auto|portrait|landscape : Print using orientation (default: auto)\n"
+literal|"  -orientation auto|portrait|landscape : Print using orientation\n"
+operator|+
+literal|"                                           (default: auto)\n"
+operator|+
+literal|"  -border                              : Print with border\n"
+operator|+
+literal|"  -dpi                                 : Render into intermediate image with\n"
+operator|+
+literal|"                                           specific dpi and then print\n"
 operator|+
 literal|"  -silentPrint                         : Print without printer dialog box\n"
 decl_stmt|;
