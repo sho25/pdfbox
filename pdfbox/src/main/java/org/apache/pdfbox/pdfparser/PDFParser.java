@@ -743,6 +743,10 @@ name|isLenient
 argument_list|()
 operator|&&
 name|trailer
+operator|!=
+literal|null
+operator|&&
+name|trailer
 operator|.
 name|getItem
 argument_list|(
