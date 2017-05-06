@@ -735,6 +735,73 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
+name|PDAcroForm
+name|acroForm
+init|=
+name|doc
+operator|.
+name|getDocumentCatalog
+argument_list|()
+operator|.
+name|getAcroForm
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|acroForm
+operator|!=
+literal|null
+operator|&&
+name|acroForm
+operator|.
+name|getNeedAppearances
+argument_list|()
+condition|)
+block|{
+comment|// PDFBOX-3738 NeedAppearances true results in visible signature becoming invisible
+comment|// with Adobe Reader
+if|if
+condition|(
+name|acroForm
+operator|.
+name|getFields
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// we can safely delete it if there are no fields
+name|acroForm
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|NEED_APPEARANCES
+argument_list|)
+expr_stmt|;
+comment|// note that if you've set MDP permissions, the removal of this item
+comment|// may result in Adobe Reader claiming that the document has been changed.
+comment|// and/or that field content won't be displayed properly.
+comment|// ==> decide what you prefer and adjust your code accordingly.
+block|}
+else|else
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"/NeedAppearances is set, signature may be ignored by Adobe Reader"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// default filter
 name|signature
 operator|.
