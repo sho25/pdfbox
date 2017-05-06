@@ -1762,7 +1762,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the default resources for the acro form.      *      * @return The default resources.      */
+comment|/**      * This will get the default resources for the AcroForm.      *      * @return The default resources or null if their is none.      */
 specifier|public
 name|PDResources
 name|getDefaultResources
@@ -1773,12 +1773,9 @@ name|retval
 init|=
 literal|null
 decl_stmt|;
-name|COSDictionary
-name|dr
+name|COSBase
+name|base
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|dictionary
 operator|.
 name|getDictionaryObject
@@ -1790,9 +1787,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|dr
-operator|!=
-literal|null
+name|base
+operator|instanceof
+name|COSDictionary
 condition|)
 block|{
 name|retval
@@ -1800,7 +1797,10 @@ operator|=
 operator|new
 name|PDResources
 argument_list|(
-name|dr
+operator|(
+name|COSDictionary
+operator|)
+name|base
 argument_list|,
 name|document
 operator|.
