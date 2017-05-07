@@ -5280,6 +5280,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|(
 literal|0xFB00
 operator|<=
 name|c
@@ -5287,7 +5288,9 @@ operator|&&
 name|c
 operator|<=
 literal|0xFDFF
+operator|)
 operator|||
+operator|(
 literal|0xFE70
 operator|<=
 name|c
@@ -5295,6 +5298,7 @@ operator|&&
 name|c
 operator|<=
 literal|0xFEFF
+operator|)
 condition|)
 block|{
 if|if
