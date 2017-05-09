@@ -1474,7 +1474,7 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// usually, the operator here is Q, sometimes EMC (PDFBOX-2376).
+comment|// usually, the operator here is Q, sometimes EMC (PDFBOX-2376), S (PDFBOX-3784).
 name|String
 name|s
 init|=
@@ -1502,6 +1502,14 @@ argument_list|)
 operator|&&
 operator|!
 literal|"EMC"
+operator|.
+name|equals
+argument_list|(
+name|s
+argument_list|)
+operator|&&
+operator|!
+literal|"S"
 operator|.
 name|equals
 argument_list|(
