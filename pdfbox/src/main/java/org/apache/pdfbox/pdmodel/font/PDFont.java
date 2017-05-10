@@ -991,12 +991,14 @@ if|if
 condition|(
 name|dict
 operator|.
-name|containsKey
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
 name|WIDTHS
 argument_list|)
+operator|!=
+literal|null
 operator|||
 name|dict
 operator|.
