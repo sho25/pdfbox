@@ -4758,18 +4758,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|boolean
-name|valid
-init|=
-literal|true
-decl_stmt|;
 if|if
 condition|(
 name|xrefOffset
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+return|return
+literal|true
+return|;
+block|}
 for|for
 control|(
 name|Entry
@@ -4827,19 +4826,20 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Stop checking xref offsets as at least one couldn't be dereferenced"
+literal|"Stop checking xref offsets as at least one ("
+operator|+
+name|objectKey
+operator|+
+literal|") couldn't be dereferenced"
 argument_list|)
 expr_stmt|;
-name|valid
-operator|=
+return|return
 literal|false
-expr_stmt|;
-break|break;
-block|}
+return|;
 block|}
 block|}
 return|return
-name|valid
+literal|true
 return|;
 block|}
 comment|/**      * Check if the given object can be found at the given offset.      *       * @param objectKey the object we are looking for      * @param offset the offset where to look      * @return returns true if the given object can be dereferenced at the given offset      * @throws IOException if something went wrong      */
