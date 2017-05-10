@@ -6233,7 +6233,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|// no xref stream found -> use the found objects to rebuild the trailer resolver
+comment|// use the found objects to rebuild the trailer resolver
 name|xrefTrailerResolver
 operator|.
 name|nextXrefObj
