@@ -23,6 +23,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -191,6 +201,16 @@ return|return
 name|getValue
 argument_list|()
 return|;
+block|}
+annotation|@
+name|Override
+name|void
+name|constructAppearances
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// TODO: add appearance handler to generate/update appearance
 block|}
 block|}
 end_class
