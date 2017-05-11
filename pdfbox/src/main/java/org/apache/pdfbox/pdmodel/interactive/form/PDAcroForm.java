@@ -381,6 +381,22 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|font
+operator|.
+name|PDType1Font
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|graphics
 operator|.
 name|PDXObject
@@ -588,6 +604,101 @@ name|dictionary
 operator|=
 name|form
 expr_stmt|;
+name|verifyOrCreateDefaults
+argument_list|()
+expr_stmt|;
+block|}
+comment|/*      * Verify that there are default entries for required       * properties.      *       * If these are missing create default entries similar to      * Adobe Reader / Adobe Acrobat      *        */
+specifier|private
+name|void
+name|verifyOrCreateDefaults
+parameter_list|()
+block|{
+comment|// TODO: the handling of the missing properties is suitable
+comment|// if there are no entries at all. It might be necessary to enhance that
+comment|// if only parts are missing
+specifier|final
+name|String
+name|AdobeDefaultAppearanceString
+init|=
+literal|"/Helv 0 Tf 0 g "
+decl_stmt|;
+comment|// DA entry is required
+if|if
+condition|(
+name|getDefaultAppearance
+argument_list|()
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|setDefaultAppearance
+argument_list|(
+name|AdobeDefaultAppearanceString
+argument_list|)
+expr_stmt|;
+block|}
+comment|// DR entry is required
+if|if
+condition|(
+name|getDefaultResources
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Adobe Acrobat uses Helvetica as a default font and
+comment|// stores that under the name '/Helv' in the resources dictionary
+comment|// Zapf Dingbats is included per default for check boxes and
+comment|// radio buttons as /ZaDb.
+name|PDResources
+name|resources
+init|=
+operator|new
+name|PDResources
+argument_list|()
+decl_stmt|;
+name|resources
+operator|.
+name|put
+argument_list|(
+name|COSName
+operator|.
+name|getPDFName
+argument_list|(
+literal|"Helv"
+argument_list|)
+argument_list|,
+name|PDType1Font
+operator|.
+name|HELVETICA
+argument_list|)
+expr_stmt|;
+name|resources
+operator|.
+name|put
+argument_list|(
+name|COSName
+operator|.
+name|getPDFName
+argument_list|(
+literal|"ZaDb"
+argument_list|)
+argument_list|,
+name|PDType1Font
+operator|.
+name|ZAPF_DINGBATS
+argument_list|)
+expr_stmt|;
+name|setDefaultResources
+argument_list|(
+name|resources
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * This will get the document associated with this form.      *      * @return The PDF document.      */
 name|PDDocument
