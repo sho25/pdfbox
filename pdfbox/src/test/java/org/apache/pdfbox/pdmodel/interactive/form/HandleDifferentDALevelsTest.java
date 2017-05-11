@@ -466,7 +466,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// TODO: enable the test after issue 3687 has been fixed
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|checkDifferentLayout
