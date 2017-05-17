@@ -356,7 +356,7 @@ name|pushbutton
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Determines if radio button bit is set.      *       * @return true if type of button field is a push button.      */
+comment|/**      * Determines if radio button bit is set.      *       * @return true if type of button field is a radio button.      */
 specifier|public
 name|boolean
 name|isRadioButton
