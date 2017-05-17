@@ -432,7 +432,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// create PD document
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
@@ -446,7 +447,8 @@ argument_list|(
 name|filename
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// calculate height and width of document page
 name|calculatePageSize
 argument_list|(
@@ -455,11 +457,7 @@ argument_list|,
 name|page
 argument_list|)
 expr_stmt|;
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 specifier|private
 name|void
@@ -474,7 +472,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// create PD document
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
@@ -484,7 +483,8 @@ name|load
 argument_list|(
 name|documentStream
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// calculate height and width of document page
 name|calculatePageSize
 argument_list|(
@@ -493,11 +493,7 @@ argument_list|,
 name|page
 argument_list|)
 expr_stmt|;
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**      * Each page of document can be different sizes. This method calculates the page size based on      * the page media box.      *       * @param document      * @param page The 1-based page number for which the page size should be calculated.      * @throws IllegalArgumentException if the page argument is lower than 0.      */
 specifier|private
