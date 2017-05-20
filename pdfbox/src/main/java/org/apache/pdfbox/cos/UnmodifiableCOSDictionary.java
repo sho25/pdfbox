@@ -615,23 +615,6 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
-specifier|public
-name|void
-name|mergeInto
-parameter_list|(
-name|COSDictionary
-name|dic
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
 block|}
 end_class
 
