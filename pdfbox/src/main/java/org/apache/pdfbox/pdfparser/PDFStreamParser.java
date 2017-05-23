@@ -1602,7 +1602,12 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"ignoring 'EI' assumed to be in the middle of inline image"
+literal|"ignoring 'EI' assumed to be in the middle of inline image at stream offset "
+operator|+
+name|pdfSource
+operator|.
+name|getPosition
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
