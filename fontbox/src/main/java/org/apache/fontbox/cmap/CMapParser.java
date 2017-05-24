@@ -1590,6 +1590,10 @@ block|}
 if|if
 condition|(
 name|tokenBytes
+operator|==
+literal|null
+operator|||
+name|tokenBytes
 operator|.
 name|length
 operator|==
@@ -1597,6 +1601,7 @@ literal|0
 condition|)
 block|{
 comment|// PDFBOX-3450: ignore<>
+comment|// PDFBOX-3807: ignore null
 continue|continue;
 block|}
 name|boolean
