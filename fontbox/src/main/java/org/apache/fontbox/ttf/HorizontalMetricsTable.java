@@ -77,6 +77,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will read the required data from the stream.      *       * @param ttf The font that is being read.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|read
@@ -174,14 +176,6 @@ operator|+=
 literal|4
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|bytesRead
-operator|<
-name|getLength
-argument_list|()
-condition|)
-block|{
 name|int
 name|numberNonHorizontal
 init|=
@@ -202,6 +196,8 @@ operator|=
 name|numGlyphs
 expr_stmt|;
 block|}
+comment|// make sure that table is never null and correct size, even with bad fonts that have no
+comment|// "leftSideBearing" table although they should
 name|nonHorizontalLeftSideBearing
 operator|=
 operator|new
@@ -210,6 +206,14 @@ index|[
 name|numberNonHorizontal
 index|]
 expr_stmt|;
+if|if
+condition|(
+name|bytesRead
+operator|<
+name|getLength
+argument_list|()
+condition|)
+block|{
 for|for
 control|(
 name|int
