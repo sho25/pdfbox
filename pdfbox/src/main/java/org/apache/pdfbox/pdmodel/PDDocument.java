@@ -785,7 +785,7 @@ implements|implements
 name|Closeable
 block|{
 comment|/**      * For signing: large reserve byte range used as placeholder in the saved PDF until actual the      * length of the PDF is known. You'll need to assign this yourself (with {@link PDSignature#setByteRange(int[])} ) only if you call       * {@link #saveIncrementalForExternalSigning(java.io.OutputStream) saveIncrementalForExternalSigning()} twice.      */
-specifier|public
+specifier|protected
 specifier|static
 specifier|final
 name|int
