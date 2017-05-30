@@ -1644,6 +1644,15 @@ argument_list|(
 name|signature
 argument_list|)
 expr_stmt|;
+name|int
+index|[]
+name|reserveByteRange
+init|=
+name|signature
+operator|.
+name|getByteRange
+argument_list|()
+decl_stmt|;
 name|String
 name|digestString
 init|=
@@ -1706,9 +1715,7 @@ argument_list|()
 operator|.
 name|setByteRange
 argument_list|(
-name|PDDocument
-operator|.
-name|RESERVE_BYTE_RANGE
+name|reserveByteRange
 argument_list|)
 expr_stmt|;
 name|Assert

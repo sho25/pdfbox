@@ -784,8 +784,8 @@ name|PDDocument
 implements|implements
 name|Closeable
 block|{
-comment|/**      * For signing: large reserve byte range used as placeholder in the saved PDF until actual the      * length of the PDF is known. You'll need to assign this yourself (with {@link PDSignature#setByteRange(int[])} ) only if you call       * {@link #saveIncrementalForExternalSigning(java.io.OutputStream) saveIncrementalForExternalSigning()} twice.      */
-specifier|public
+comment|/**      * For signing: large reserve byte range used as placeholder in the saved PDF until the actual      * length of the PDF is known. You'll need to fetch (with      * {@link PDSignature#getByteRange()} ) and reassign this yourself (with      * {@link PDSignature#setByteRange(int[])} ) only if you call      * {@link #saveIncrementalForExternalSigning(java.io.OutputStream) saveIncrementalForExternalSigning()}      * twice.      */
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -4429,7 +4429,7 @@ name|IllegalStateException
 argument_list|(
 literal|"signature reserve byte range has been changed "
 operator|+
-literal|"after addSignature(), please call setByteRange(RESERVE_BYTE_RANGE)"
+literal|"after addSignature(), please set the byte range that existed after addSignature()"
 argument_list|)
 throw|;
 block|}
