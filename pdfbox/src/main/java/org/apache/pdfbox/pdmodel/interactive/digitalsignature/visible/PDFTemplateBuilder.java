@@ -478,6 +478,19 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Creates the background layer form (n0).      *      * @param innerFormResource      * @param formatter      * @throws IOException      */
+name|void
+name|createBackgroundLayerForm
+parameter_list|(
+name|PDResources
+name|innerFormResource
+parameter_list|,
+name|PDRectangle
+name|formatter
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Inject procSetArray      *       * @param innerForm      * @param page      * @param innerFormResources      * @param imageFormResources      * @param holderFormResources      * @param procSet      */
 name|void
 name|injectProcSetArray

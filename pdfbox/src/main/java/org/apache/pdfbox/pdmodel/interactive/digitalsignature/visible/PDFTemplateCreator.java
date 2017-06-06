@@ -662,6 +662,15 @@ name|getImage
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|pdfBuilder
+operator|.
+name|createBackgroundLayerForm
+argument_list|(
+name|innerFormResource
+argument_list|,
+name|formatter
+argument_list|)
+expr_stmt|;
 comment|// now inject procSetArray
 name|pdfBuilder
 operator|.
