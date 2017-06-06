@@ -794,6 +794,8 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|COSWriter
 name|writer
 init|=
@@ -802,7 +804,8 @@ name|COSWriter
 argument_list|(
 name|baos
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|writer
 operator|.
 name|write
@@ -810,11 +813,7 @@ argument_list|(
 name|visualSignature
 argument_list|)
 expr_stmt|;
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 return|return
 operator|new
 name|ByteArrayInputStream
