@@ -613,7 +613,7 @@ argument_list|,
 name|holderFormResources
 argument_list|)
 expr_stmt|;
-comment|//  Image form is in this structure: /AcroForm/DR/FRM0/Resources/XObject/n0
+comment|//  Image form is in this structure: /AcroForm/DR/FRM/Resources/XObject/n2
 name|pdfBuilder
 operator|.
 name|createImageFormStream
