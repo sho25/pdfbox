@@ -684,7 +684,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|COSName
-name|imgFormName
+name|imageFormName
 init|=
 name|pdfStructure
 operator|.
@@ -692,7 +692,7 @@ name|getImageFormName
 argument_list|()
 decl_stmt|;
 name|COSName
-name|imgName
+name|imageName
 init|=
 name|pdfStructure
 operator|.
@@ -718,9 +718,9 @@ name|imageFormStream
 argument_list|,
 name|imageFormStream
 argument_list|,
-name|imgFormName
+name|imageFormName
 argument_list|,
-name|imgName
+name|imageName
 argument_list|,
 name|innerFormName
 argument_list|,

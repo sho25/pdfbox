@@ -1906,7 +1906,7 @@ name|PDStream
 name|imageFormStream
 parameter_list|,
 name|COSName
-name|imageObjectName
+name|imageFormName
 parameter_list|,
 name|COSName
 name|imageName
@@ -1957,7 +1957,7 @@ name|innerFormContent
 init|=
 literal|"q 1 0 0 1 0 0 cm /"
 operator|+
-name|imageObjectName
+name|imageFormName
 operator|.
 name|getName
 argument_list|()

@@ -501,7 +501,7 @@ name|COSArray
 name|procSet
 parameter_list|)
 function_decl|;
-comment|/**      * injects appearance streams      *       * @param holderFormStream      * @param innerFormStream      * @param imageFormStream      * @param imageObjectName      * @param imageName      * @param innerFormName      * @param properties      * @throws IOException      */
+comment|/**      * injects appearance streams      *       * @param holderFormStream      * @param innerFormStream      * @param imageFormStream      * @param imageFormName      * @param imageName      * @param innerFormName      * @param properties      * @throws IOException      */
 name|void
 name|injectAppearanceStreams
 parameter_list|(
@@ -515,7 +515,7 @@ name|PDStream
 name|imageFormStream
 parameter_list|,
 name|COSName
-name|imageObjectName
+name|imageFormName
 parameter_list|,
 name|COSName
 name|imageName
