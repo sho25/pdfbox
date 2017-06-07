@@ -1037,7 +1037,9 @@ if|if
 condition|(
 name|nbBytesToRead
 operator|>
-literal|1024
+name|buffer
+operator|.
+name|length
 condition|)
 block|{
 name|cr
@@ -1047,10 +1049,6 @@ operator|.
 name|read
 argument_list|(
 name|buffer
-argument_list|,
-literal|0
-argument_list|,
-literal|1024
 argument_list|)
 expr_stmt|;
 block|}
