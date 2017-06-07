@@ -2336,7 +2336,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// TTF parser is buggy
+comment|// NPE due to TTF parser being buggy
 name|LOG
 operator|.
 name|error
@@ -2445,7 +2445,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// TTF parser is buggy
+comment|// NPE due to TTF parser being buggy
 name|LOG
 operator|.
 name|error
@@ -3363,7 +3363,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// TTF parser is buggy
+comment|// NPE due to TTF parser being buggy
 name|LOG
 operator|.
 name|error

@@ -620,33 +620,12 @@ block|}
 catch|catch
 parameter_list|(
 name|NullPointerException
-name|e
-parameter_list|)
-comment|// TTF parser is buggy
-block|{
-name|fontIsDamaged
-operator|=
-literal|true
-expr_stmt|;
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Could not read embedded OTF for font "
-operator|+
-name|getBaseFont
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|IOException
 name|e
 parameter_list|)
 block|{
+comment|// NPE due to TTF parser being buggy
 name|fontIsDamaged
 operator|=
 literal|true
