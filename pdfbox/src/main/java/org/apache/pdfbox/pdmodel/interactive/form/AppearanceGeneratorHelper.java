@@ -1064,7 +1064,7 @@ name|appearanceStream
 argument_list|)
 expr_stmt|;
 block|}
-comment|// restore the field level appearance;
+comment|// restore the field level appearance
 name|defaultAppearance
 operator|=
 name|acroFormAppearance
