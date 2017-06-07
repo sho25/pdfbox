@@ -619,7 +619,7 @@ comment|// if there are no entries at all. It might be necessary to enhance that
 comment|// if only parts are missing
 specifier|final
 name|String
-name|AdobeDefaultAppearanceString
+name|adobeDefaultAppearanceString
 init|=
 literal|"/Helv 0 Tf 0 g "
 decl_stmt|;
@@ -637,7 +637,7 @@ condition|)
 block|{
 name|setDefaultAppearance
 argument_list|(
-name|AdobeDefaultAppearanceString
+name|adobeDefaultAppearanceString
 argument_list|)
 expr_stmt|;
 block|}
