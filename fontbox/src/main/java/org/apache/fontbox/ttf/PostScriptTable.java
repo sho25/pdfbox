@@ -25,6 +25,34 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A table in a true type font.  *   * @author Ben Litchfield  */
 end_comment
@@ -36,6 +64,21 @@ name|PostScriptTable
 extends|extends
 name|TTFTable
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PostScriptTable
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|float
 name|formatType
@@ -594,6 +637,18 @@ literal|3.0f
 condition|)
 block|{
 comment|// no postscript information is provided.
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"No PostScript name information is provided for the font "
+operator|+
+name|font
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|initialized
 operator|=
