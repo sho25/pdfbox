@@ -645,13 +645,16 @@ index|[
 literal|2
 index|]
 operator|+
+operator|(
+name|long
+operator|)
 name|byteRange
 index|[
 literal|3
 index|]
 decl_stmt|;
 comment|// multiply content length with 2 (because it is in hex in the PDF) and add 2 for< and>
-name|long
+name|int
 name|contentLen
 init|=
 name|sigDict
