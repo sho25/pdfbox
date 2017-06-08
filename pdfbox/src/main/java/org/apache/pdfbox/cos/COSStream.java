@@ -290,6 +290,15 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
+name|setInt
+argument_list|(
+name|COSName
+operator|.
+name|LENGTH
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|scratchFile
