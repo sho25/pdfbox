@@ -313,8 +313,7 @@ name|fontName
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
+elseif|else
 if|if
 condition|(
 name|font
@@ -375,7 +374,6 @@ operator|+
 name|fontName
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|path
