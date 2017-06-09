@@ -491,6 +491,13 @@ argument_list|(
 name|ttf
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|embedSubset
+condition|)
+block|{
+comment|// full embedding
 name|PDStream
 name|stream
 init|=
@@ -535,6 +542,7 @@ argument_list|(
 name|stream
 argument_list|)
 expr_stmt|;
+block|}
 name|dict
 operator|.
 name|setName
