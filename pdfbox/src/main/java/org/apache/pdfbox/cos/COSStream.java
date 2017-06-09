@@ -287,9 +287,6 @@ name|ScratchFile
 name|scratchFile
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|setInt
 argument_list|(
 name|COSName
