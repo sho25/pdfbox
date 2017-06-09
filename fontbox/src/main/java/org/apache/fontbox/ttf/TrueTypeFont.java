@@ -724,7 +724,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * This permit to get the data of the True Type Font      * program representing the stream used to build this       * object (normally from the TTFParser object).      *       * @return COSStream True type font program stream      *       * @throws IOException If there is an error getting the font data.      */
+comment|/**      * Get the data of the TrueType Font      * program representing the stream used to build this       * object (normally from the TTFParser object).      *       * @return COSStream TrueType font program stream      *       * @throws IOException If there is an error getting the font data.      */
 specifier|public
 name|InputStream
 name|getOriginalData
