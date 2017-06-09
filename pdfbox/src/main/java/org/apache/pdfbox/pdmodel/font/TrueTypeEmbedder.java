@@ -425,6 +425,23 @@ argument_list|(
 name|ttfStream
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|isEmbeddingPermitted
+argument_list|(
+name|ttf
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"This font does not permit embedding"
+argument_list|)
+throw|;
+block|}
 name|dict
 operator|.
 name|setName
