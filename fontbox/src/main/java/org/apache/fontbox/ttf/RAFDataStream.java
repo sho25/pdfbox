@@ -325,6 +325,21 @@ name|ttfFile
 argument_list|)
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|long
+name|getOriginalDataSize
+parameter_list|()
+block|{
+return|return
+name|ttfFile
+operator|.
+name|length
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

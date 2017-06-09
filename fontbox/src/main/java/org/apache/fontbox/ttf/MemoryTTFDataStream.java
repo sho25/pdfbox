@@ -586,6 +586,20 @@ name|data
 argument_list|)
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|long
+name|getOriginalDataSize
+parameter_list|()
+block|{
+return|return
+name|data
+operator|.
+name|length
+return|;
+block|}
 block|}
 end_class
 

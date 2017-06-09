@@ -763,6 +763,13 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * This will get the original data size that was used for this stream.      *       * @return The size of the original data.      * @throws IOException If there is an issue reading the data.      */
+specifier|public
+specifier|abstract
+name|long
+name|getOriginalDataSize
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

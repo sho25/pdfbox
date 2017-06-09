@@ -739,6 +739,19 @@ name|getOriginalData
 argument_list|()
 return|;
 block|}
+comment|/**      * Get the data size of the TrueType Font program representing the stream used to build this      * object (normally from the TTFParser object).      *      * @return the size.      *      * @throws IOException If there is an error getting the font data.      */
+specifier|public
+name|long
+name|getOriginalDataSize
+parameter_list|()
+block|{
+return|return
+name|data
+operator|.
+name|getOriginalDataSize
+argument_list|()
+return|;
+block|}
 comment|/**      * Read the given table if necessary. Package-private, used by TTFParser only.      *       * @param table the table to be initialized      *       * @throws IOException if there was an error reading the table.      */
 name|void
 name|readTable

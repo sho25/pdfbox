@@ -223,6 +223,20 @@ name|getOriginalData
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|long
+name|getOriginalDataSize
+parameter_list|()
+block|{
+return|return
+name|stream
+operator|.
+name|getOriginalDataSize
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
