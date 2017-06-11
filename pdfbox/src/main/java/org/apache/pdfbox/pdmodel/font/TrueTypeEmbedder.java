@@ -390,7 +390,7 @@ specifier|final
 name|boolean
 name|embedSubset
 decl_stmt|;
-comment|/**      * Creates a new TrueType font for embedding.      */
+comment|/**      * Creates a new TrueType font for full embedding.      */
 name|TrueTypeEmbedder
 parameter_list|(
 name|PDDocument
@@ -401,9 +401,6 @@ name|dict
 parameter_list|,
 name|InputStream
 name|ttfStream
-parameter_list|,
-name|boolean
-name|embedSubset
 parameter_list|)
 throws|throws
 name|IOException
@@ -418,30 +415,13 @@ name|this
 operator|.
 name|embedSubset
 operator|=
-name|embedSubset
+literal|false
 expr_stmt|;
 name|buildFontFile2
 argument_list|(
 name|ttfStream
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|isEmbeddingPermitted
-argument_list|(
-name|ttf
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"This font does not permit embedding"
-argument_list|)
-throw|;
-block|}
 name|dict
 operator|.
 name|setName
@@ -508,6 +488,23 @@ argument_list|(
 name|ttf
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|isEmbeddingPermitted
+argument_list|(
+name|ttf
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"This font does not permit embedding"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 operator|!

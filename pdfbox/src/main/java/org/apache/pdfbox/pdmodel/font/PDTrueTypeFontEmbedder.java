@@ -226,8 +226,6 @@ argument_list|,
 name|dict
 argument_list|,
 name|ttfStream
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|dict
