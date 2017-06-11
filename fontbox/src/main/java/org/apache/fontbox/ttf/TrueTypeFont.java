@@ -739,7 +739,7 @@ name|getOriginalData
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the data size of the TrueType Font program representing the stream used to build this      * object (normally from the TTFParser object).      *      * @return the size.      *      * @throws IOException If there is an error getting the font data.      */
+comment|/**      * Get the data size of the TrueType Font program representing the stream used to build this      * object (normally from the TTFParser object).      *      * @return the size.      */
 specifier|public
 name|long
 name|getOriginalDataSize
