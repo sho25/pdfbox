@@ -1682,6 +1682,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|PDAppearanceContentStream
 name|contents
 init|=
@@ -1692,7 +1694,8 @@ name|appearanceStream
 argument_list|,
 name|output
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|PDRectangle
 name|bbox
 init|=
@@ -2226,11 +2229,7 @@ operator|.
 name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
-name|contents
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 specifier|private
 name|AffineTransform
@@ -3175,6 +3174,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|OutputStream
 name|out
 init|=
@@ -3185,7 +3186,8 @@ argument_list|()
 operator|.
 name|createOutputStream
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|out
 operator|.
 name|write
@@ -3193,11 +3195,7 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**      * My "not so great" method for calculating the fontsize. It does not work superb, but it      * handles ok.      *       * @return the calculated font-size      * @throws IOException If there is an error getting the font information.      */
 specifier|private
