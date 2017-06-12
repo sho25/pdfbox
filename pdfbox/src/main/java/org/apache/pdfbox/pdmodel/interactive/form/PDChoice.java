@@ -1133,6 +1133,16 @@ operator|.
 name|V
 argument_list|)
 expr_stmt|;
+name|getCOSObject
+argument_list|()
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|I
+argument_list|)
+expr_stmt|;
 block|}
 name|applyChange
 argument_list|()
