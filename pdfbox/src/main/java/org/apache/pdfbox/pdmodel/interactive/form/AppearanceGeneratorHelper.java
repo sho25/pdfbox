@@ -2715,10 +2715,7 @@ name|options
 operator|.
 name|isEmpty
 argument_list|()
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|indexEntries
 operator|.
 name|isEmpty
@@ -2753,7 +2750,6 @@ name|v
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// The first entry which shall be presented might be adjusted by the optional TI key
