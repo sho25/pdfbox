@@ -718,8 +718,18 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Optional: certify
+comment|// can be done only if version is at least 1.5 and if not already set
+comment|// doing this on a PDF/A-1b file fails validation by Adobe preflight (PDFBOX-3821)
+comment|// PDF/A-1b requires PDF version 1.4 max, so don't increase the version on such files.
 if|if
 condition|(
+name|doc
+operator|.
+name|getVersion
+argument_list|()
+operator|>=
+literal|1.5f
+operator|&&
 name|accessPermissions
 operator|==
 literal|0
