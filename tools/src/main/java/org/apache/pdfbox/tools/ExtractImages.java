@@ -715,11 +715,11 @@ literal|"\nOptions:\n"
 operator|+
 literal|"  -password<password>   : Password to decrypt document\n"
 operator|+
-literal|"  -prefix<image-prefix> : Image prefix(default to pdf name)\n"
+literal|"  -prefix<image-prefix> : Image prefix (default to pdf name)\n"
 operator|+
-literal|"  -directJPEG            : Forces the direct extraction of JPEG images "
+literal|"  -directJPEG            : Forces the direct extraction of JPEG/JPX images "
 operator|+
-literal|"regardless of colorspace\n"
+literal|"                           regardless of colorspace or masking\n"
 operator|+
 literal|"<inputfile>            : The PDF document to use\n"
 decl_stmt|;
@@ -1253,7 +1253,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Writes the image to a file with the filename prefix + an appropriate suffix, like "Image.jpg".      * The suffix is automatically set depending on the image compression in the PDF.      * @param pdImage the image.      * @param prefix the filename prefix.      * @param directJPEG if true, force saving JPEG streams as they are in the PDF file.       * @throws IOException When something is wrong with the corresponding file.      */
+comment|/**      * Writes the image to a file with the filename prefix + an appropriate suffix, like "Image.jpg".      * The suffix is automatically set depending on the image compression in the PDF.      * @param pdImage the image.      * @param prefix the filename prefix.      * @param directJPEG if true, force saving JPEG/JPX streams as they are in the PDF file.       * @throws IOException When something is wrong with the corresponding file.      */
 specifier|private
 name|void
 name|write2file
@@ -1284,13 +1284,6 @@ name|suffix
 operator|==
 literal|null
 operator|||
-literal|"jpx"
-operator|.
-name|equals
-argument_list|(
-name|suffix
-argument_list|)
-operator|||
 literal|"jb2"
 operator|.
 name|equals
@@ -1302,6 +1295,23 @@ block|{
 name|suffix
 operator|=
 literal|"png"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"jpx"
+operator|.
+name|equals
+argument_list|(
+name|suffix
+argument_list|)
+condition|)
+block|{
+comment|// use jp2 suffix for file because jpx not known by windows
+name|suffix
+operator|=
+literal|"jp2"
 expr_stmt|;
 block|}
 try|try
@@ -1431,6 +1441,119 @@ argument_list|(
 name|image
 argument_list|,
 name|suffix
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+literal|"jp2"
+operator|.
+name|equals
+argument_list|(
+name|suffix
+argument_list|)
+condition|)
+block|{
+name|String
+name|colorSpaceName
+init|=
+name|pdImage
+operator|.
+name|getColorSpace
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|directJPEG
+operator|||
+operator|!
+name|hasMasks
+argument_list|(
+name|pdImage
+argument_list|)
+operator|&&
+operator|(
+name|PDDeviceGray
+operator|.
+name|INSTANCE
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|colorSpaceName
+argument_list|)
+operator|||
+name|PDDeviceRGB
+operator|.
+name|INSTANCE
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|colorSpaceName
+argument_list|)
+operator|)
+condition|)
+block|{
+comment|// RGB or Gray colorspace: get and write the unmodified JPEG2000 stream
+name|InputStream
+name|data
+init|=
+name|pdImage
+operator|.
+name|createInputStream
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|COSName
+operator|.
+name|JPX_DECODE
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|IOUtils
+operator|.
+name|copy
+argument_list|(
+name|data
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|data
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// for CMYK and other "unusual" colorspaces, the image will be converted
+name|ImageIOUtil
+operator|.
+name|writeImage
+argument_list|(
+name|image
+argument_list|,
+literal|"jpeg2000"
 argument_list|,
 name|out
 argument_list|)
