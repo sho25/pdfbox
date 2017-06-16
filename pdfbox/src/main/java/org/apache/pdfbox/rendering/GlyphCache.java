@@ -97,7 +97,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFont
+name|PDFontLike
 import|;
 end_import
 
@@ -253,7 +253,7 @@ name|fontName
 init|=
 operator|(
 operator|(
-name|PDFont
+name|PDFontLike
 operator|)
 name|font
 operator|)
@@ -353,6 +353,9 @@ name|font
 operator|)
 operator|.
 name|getFontBoxFont
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 operator|+
 literal|")"
