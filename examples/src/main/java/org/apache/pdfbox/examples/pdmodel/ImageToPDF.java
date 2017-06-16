@@ -231,6 +231,9 @@ argument_list|,
 name|doc
 argument_list|)
 decl_stmt|;
+comment|// draw the image at full size at (x=20, y=20)
+try|try
+init|(
 name|PDPageContentStream
 name|contents
 init|=
@@ -241,7 +244,8 @@ name|doc
 argument_list|,
 name|page
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// draw the image at full size at (x=20, y=20)
 name|contents
 operator|.
@@ -256,11 +260,7 @@ argument_list|)
 expr_stmt|;
 comment|// to draw the image at half size at (x=20, y=20) use
 comment|// contents.drawImage(pdImage, 20, 20, pdImage.getWidth() / 2, pdImage.getHeight() / 2);
-name|contents
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|save

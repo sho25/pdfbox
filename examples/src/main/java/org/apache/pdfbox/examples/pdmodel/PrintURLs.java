@@ -635,17 +635,9 @@ block|}
 catch|catch
 parameter_list|(
 name|NoSuchMethodException
-name|e
-parameter_list|)
-block|{         }
-catch|catch
-parameter_list|(
+decl||
 name|IllegalAccessException
-name|e
-parameter_list|)
-block|{         }
-catch|catch
-parameter_list|(
+decl||
 name|InvocationTargetException
 name|e
 parameter_list|)
