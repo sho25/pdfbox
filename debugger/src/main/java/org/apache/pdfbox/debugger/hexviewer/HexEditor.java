@@ -892,6 +892,8 @@ operator|+=
 literal|16
 expr_stmt|;
 break|break;
+default|default:
+break|break;
 block|}
 if|if
 condition|(
