@@ -94,7 +94,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Unreads a single byte.      *      * @param b byte array to push back      * @throws IOException If there is an error while seeking      */
+comment|/**      * Unreads a single byte.      *      * @param b byte array to push back      * @throws IOException if there is an error while unreading      */
 name|void
 name|unread
 parameter_list|(
@@ -104,13 +104,30 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Unreads an array of bytes.      *      * @param bytes byte array to push back      * @throws IOException If there is an error while seeking      */
+comment|/**      * Unreads an array of bytes.      *      * @param bytes byte array to be unread      * @throws IOException if there is an error while unreading      */
 name|void
 name|unread
 parameter_list|(
 name|byte
 index|[]
 name|bytes
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Unreads a portion of an array of bytes.      *      * @param bytes byte array to be unread      * @param start start index      * @param len number of bytes to be unread      * @throws IOException if there is an error while unreading      */
+name|void
+name|unread
+parameter_list|(
+name|byte
+index|[]
+name|bytes
+parameter_list|,
+name|int
+name|start
+parameter_list|,
+name|int
+name|len
 parameter_list|)
 throws|throws
 name|IOException
