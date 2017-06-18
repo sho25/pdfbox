@@ -1190,7 +1190,12 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"The TrueType font does not contain a 'cmap' table"
+literal|"The TrueType font "
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|" does not contain a 'cmap' table"
 argument_list|)
 throw|;
 block|}
