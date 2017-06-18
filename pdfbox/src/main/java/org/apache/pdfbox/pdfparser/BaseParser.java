@@ -71,16 +71,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1331,10 +1321,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This is really a bug in the Document creators code, but it caused a crash      * in PDFBox, the first bug was in this format:      * /Title ( (5)      * /Creator which was patched in 1 place.      * However it missed the case where the Close Paren was escaped      *      * The second bug was in this format      * /Title (c:\)      * /Producer      *      * This patch  moves this code out of the parseCOSString method, so it can be used twice.      *      *      * @param bracesParameter the number of braces currently open.      *      * @return the corrected value of the brace counter      * @throws IOException      */
+comment|/**      * This is really a bug in the Document creators code, but it caused a crash in PDFBox, the first bug was in this      * format: /Title ( (5) /Creator which was patched in 1 place.      *      * However it missed the case where the number of opening and closing parenthesis isn't balanced      *      * The second bug was in this format /Title (c:\) /Producer      *      * This patch moves this code out of the parseCOSString method, so it can be used twice.      *      * @param bracesParameter the number of braces currently open.      *      * @return the corrected value of the brace counter      * @throws IOException      */
 specifier|private
 name|int
-name|checkForMissingCloseParen
+name|checkForEndOfString
 parameter_list|(
 specifier|final
 name|int
@@ -1368,81 +1358,73 @@ argument_list|(
 name|nextThreeBytes
 argument_list|)
 decl_stmt|;
-comment|//lets handle the special case seen in Bull  River Rules and Regulations.pdf
-comment|//The dictionary looks like this
-comment|//    2 0 obj
-comment|//<<
-comment|//        /Type /Info
-comment|//        /Creator (PaperPort http://www.scansoft.com)
-comment|//        /Producer (sspdflib 1.0 http://www.scansoft.com)
-comment|//        /Title ( (5)
-comment|//        /Author ()
-comment|//        /Subject ()
-comment|//
-comment|// Notice the /Title, the braces are not even but they should
-comment|// be.  So lets assume that if we encounter an this scenario
-comment|//<end_brace><new_line><opening_slash> then that
-comment|// means that there is an error in the pdf and assume that
-comment|// was the end of the document.
-comment|//
+comment|// Check the next 3 bytes if available
+comment|// The following cases are valid indicators for the end of the string
+comment|// 1. Next line contains another COSObject: CR + LF + '/'
+comment|// 2. COSDictionary ends in the next line: CR + LF + '>'
+comment|// 3. Next line contains another COSObject: CR + '/'
+comment|// 4. COSDictionary ends in the next line: CR + '>'
 if|if
 condition|(
 name|amountRead
 operator|==
 literal|3
 operator|&&
-operator|(
-operator|(
 name|nextThreeBytes
 index|[
 literal|0
 index|]
 operator|==
 name|ASCII_CR
-comment|// Look for a carriage return
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
+operator|(
 name|nextThreeBytes
 index|[
 literal|1
 index|]
 operator|==
 name|ASCII_LF
-comment|// Look for a new line
 operator|&&
+operator|(
 name|nextThreeBytes
 index|[
 literal|2
 index|]
 operator|==
-literal|0x2f
+literal|'/'
 operator|)
-comment|// Look for a slash /
-comment|// Add a second case without a new line
 operator|||
-operator|(
 name|nextThreeBytes
 index|[
-literal|0
+literal|2
 index|]
 operator|==
-name|ASCII_CR
-comment|// Look for a carriage return
-operator|&&
+literal|'>'
+operator|)
+operator|||
 name|nextThreeBytes
 index|[
 literal|1
 index|]
 operator|==
-literal|0x2f
-operator|)
-operator|)
+literal|'/'
+operator|||
+name|nextThreeBytes
+index|[
+literal|1
+index|]
+operator|==
+literal|'>'
 condition|)
-comment|// Look for a slash /
 block|{
 name|braces
 operator|=
 literal|0
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1455,16 +1437,11 @@ name|seqSource
 operator|.
 name|unread
 argument_list|(
-name|Arrays
-operator|.
-name|copyOfRange
-argument_list|(
 name|nextThreeBytes
 argument_list|,
 literal|0
 argument_list|,
 name|amountRead
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1491,29 +1468,6 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-name|char
-name|openBrace
-decl_stmt|;
-name|char
-name|closeBrace
-decl_stmt|;
-if|if
-condition|(
-name|nextChar
-operator|==
-literal|'('
-condition|)
-block|{
-name|openBrace
-operator|=
-literal|'('
-expr_stmt|;
-name|closeBrace
-operator|=
-literal|')'
-expr_stmt|;
-block|}
-elseif|else
 if|if
 condition|(
 name|nextChar
@@ -1526,7 +1480,13 @@ name|parseCOSHexString
 argument_list|()
 return|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|nextChar
+operator|!=
+literal|'('
+condition|)
 block|{
 throw|throw
 operator|new
@@ -1549,8 +1509,7 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
-comment|//This is the number of braces read
-comment|//
+comment|// This is the number of braces read
 name|int
 name|braces
 init|=
@@ -1595,7 +1554,7 @@ if|if
 condition|(
 name|ch
 operator|==
-name|closeBrace
+literal|')'
 condition|)
 block|{
 name|braces
@@ -1603,7 +1562,7 @@ operator|--
 expr_stmt|;
 name|braces
 operator|=
-name|checkForMissingCloseParen
+name|checkForEndOfString
 argument_list|(
 name|braces
 argument_list|)
@@ -1629,7 +1588,7 @@ if|if
 condition|(
 name|ch
 operator|==
-name|openBrace
+literal|'('
 condition|)
 block|{
 name|braces
@@ -1729,7 +1688,7 @@ case|:
 comment|// PDFBox 276 /Title (c:\)
 name|braces
 operator|=
-name|checkForMissingCloseParen
+name|checkForEndOfString
 argument_list|(
 name|braces
 argument_list|)
