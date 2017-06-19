@@ -1253,24 +1253,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|type
 operator|==
 literal|null
-operator|)
-operator|||
-name|PDStructureElement
-operator|.
-name|TYPE
-operator|.
-name|equals
-argument_list|(
-name|type
-argument_list|)
 condition|)
 block|{
-comment|// A structure element dictionary denoting another structure
-comment|// element
+comment|// A structure element dictionary denoting another structure element
 return|return
 operator|new
 name|PDStructureElement
@@ -1279,19 +1267,29 @@ name|kidDic
 argument_list|)
 return|;
 block|}
-elseif|else
-if|if
+switch|switch
 condition|(
+name|type
+condition|)
+block|{
+case|case
+name|PDStructureElement
+operator|.
+name|TYPE
+case|:
+comment|// A structure element dictionary denoting another structure element
+return|return
+operator|new
+name|PDStructureElement
+argument_list|(
+name|kidDic
+argument_list|)
+return|;
+case|case
 name|PDObjectReference
 operator|.
 name|TYPE
-operator|.
-name|equals
-argument_list|(
-name|type
-argument_list|)
-condition|)
-block|{
+case|:
 comment|// An object reference dictionary denoting a PDF object
 return|return
 operator|new
@@ -1300,22 +1298,12 @@ argument_list|(
 name|kidDic
 argument_list|)
 return|;
-block|}
-elseif|else
-if|if
-condition|(
+case|case
 name|PDMarkedContentReference
 operator|.
 name|TYPE
-operator|.
-name|equals
-argument_list|(
-name|type
-argument_list|)
-condition|)
-block|{
-comment|// A marked-content reference dictionary denoting a
-comment|// marked-content sequence
+case|:
+comment|// A marked-content reference dictionary denoting a marked-content sequence
 return|return
 operator|new
 name|PDMarkedContentReference
@@ -1323,6 +1311,8 @@ argument_list|(
 name|kidDic
 argument_list|)
 return|;
+default|default:
+break|break;
 block|}
 block|}
 elseif|else
