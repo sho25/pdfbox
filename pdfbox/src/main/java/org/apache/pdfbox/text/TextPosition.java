@@ -2149,6 +2149,24 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+literal|"ー"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+comment|// PDFBOX-3833: ー is not a real diacritic like ¨ or ˆ, it just changes the
+comment|// pronunciation of the previous sound, and is printed after the previous glyph
+comment|// http://www.japanesewithanime.com/2017/04/prolonged-sound-mark.html
+comment|// Ignoring it as diacritic avoids trouble if it slightly overlaps with the next glyph.
+return|return
+literal|false
+return|;
+block|}
 name|int
 name|type
 init|=
