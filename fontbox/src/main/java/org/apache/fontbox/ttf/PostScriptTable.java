@@ -929,7 +929,7 @@ block|{
 if|if
 condition|(
 name|gid
-argument_list|<
+operator|<
 literal|0
 operator|||
 name|glyphNames
@@ -937,7 +937,7 @@ operator|==
 literal|null
 operator|||
 name|gid
-argument_list|>
+operator|>=
 name|glyphNames
 operator|.
 name|length
