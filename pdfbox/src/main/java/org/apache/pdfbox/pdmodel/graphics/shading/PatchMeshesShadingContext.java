@@ -437,6 +437,24 @@ operator|+
 name|i
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|colRange
+index|[
+name|i
+index|]
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Range missing in shading /Decode entry"
+argument_list|)
+throw|;
+block|}
 block|}
 name|List
 argument_list|<
