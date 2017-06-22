@@ -3955,6 +3955,12 @@ argument_list|(
 name|linePath
 argument_list|)
 expr_stmt|;
+comment|// PDFBOX-3836: lastClip needs to be reset, because after intersection it is still the same
+comment|// object, thus setClip() would believe that it is cached.
+name|lastClip
+operator|=
+literal|null
+expr_stmt|;
 name|clipWindingRule
 operator|=
 operator|-
