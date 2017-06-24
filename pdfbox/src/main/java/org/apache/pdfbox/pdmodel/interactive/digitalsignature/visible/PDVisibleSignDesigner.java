@@ -405,6 +405,23 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructor usable for signing existing signature fields.      *      * @param imageStream image as a stream      * @throws IOException      */
+specifier|public
+name|PDVisibleSignDesigner
+parameter_list|(
+name|InputStream
+name|imageStream
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// set visible signature image Input stream
+name|readImageStream
+argument_list|(
+name|imageStream
+argument_list|)
+expr_stmt|;
+block|}
 specifier|private
 name|void
 name|calculatePageSizeFromFile
