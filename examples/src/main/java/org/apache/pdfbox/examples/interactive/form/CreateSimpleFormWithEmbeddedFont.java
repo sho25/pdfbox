@@ -182,6 +182,10 @@ specifier|public
 class|class
 name|CreateSimpleFormWithEmbeddedFont
 block|{
+specifier|private
+name|CreateSimpleFormWithEmbeddedFont
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void
