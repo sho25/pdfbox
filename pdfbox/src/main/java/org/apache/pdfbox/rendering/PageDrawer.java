@@ -5687,7 +5687,7 @@ if|if
 condition|(
 name|border
 operator|.
-name|get
+name|getObject
 argument_list|(
 literal|2
 argument_list|)
