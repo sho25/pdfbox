@@ -639,7 +639,7 @@ block|{
 comment|// no postscript information is provided.
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"No PostScript name information is provided for the font "
 operator|+
