@@ -475,6 +475,21 @@ argument_list|(
 name|input
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|nameIndex
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Name index missing in CFF font"
+argument_list|)
+throw|;
+block|}
 name|byte
 index|[]
 index|[]
