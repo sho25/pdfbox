@@ -577,7 +577,7 @@ name|getValue
 argument_list|()
 return|;
 block|}
-comment|/**      * This will get the export values.      *       *<p>The export values are defined in the field dictionaries /Opt key.</p>      *       *<p>The option values are used to define the export values      * for the field to       *<ul>      *<li>hold values in non-Latin writing systems as name objects, which represent the field value, are limited      *      to PDFDocEncoding      *</li>      *<li>allow radio buttons having the same export value to be handled independently      *</li>      *</ul>      *       * @return List containing all possible export values. If there is no Opt entry an empty list will be returned.      */
+comment|/**      * This will get the (optional) export values.      *       *<p>The export values are defined in the field dictionaries /Opt key.</p>      *       *<p>The option values are used to define the export values      * for the field to       *<ul>      *<li>hold values in non-Latin writing systems as name objects, which represent the field value, are limited      *      to PDFDocEncoding      *</li>      *<li>allow radio buttons having the same export value to be handled independently      *</li>      *</ul>      *       * @return List containing all possible export values. If there is no /Opt entry an empty list will be returned.      *       * @see #getOnValues()       */
 specifier|public
 name|List
 argument_list|<
