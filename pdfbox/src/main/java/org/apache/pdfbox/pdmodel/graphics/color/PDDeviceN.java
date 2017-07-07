@@ -1447,7 +1447,7 @@ continue|continue;
 block|}
 else|else
 block|{
-comment|// need to remember key bevause src is modified
+comment|// need to remember key because src is modified
 name|key
 operator|=
 name|src
