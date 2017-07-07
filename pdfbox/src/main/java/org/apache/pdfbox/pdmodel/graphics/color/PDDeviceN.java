@@ -1457,27 +1457,6 @@ index|]
 expr_stmt|;
 block|}
 block|}
-name|int
-index|[]
-name|intSrc
-init|=
-operator|new
-name|int
-index|[
-name|numSrcComponents
-index|]
-decl_stmt|;
-name|raster
-operator|.
-name|getPixel
-argument_list|(
-name|x
-argument_list|,
-name|y
-argument_list|,
-name|intSrc
-argument_list|)
-expr_stmt|;
 comment|// scale to 0..1
 for|for
 control|(
