@@ -343,6 +343,8 @@ name|out
 operator|.
 name|println
 argument_list|(
+name|indentation
+operator|+
 literal|"Destination page: "
 operator|+
 operator|(
@@ -404,6 +406,8 @@ name|out
 operator|.
 name|println
 argument_list|(
+name|indentation
+operator|+
 literal|"Destination page: "
 operator|+
 operator|(
