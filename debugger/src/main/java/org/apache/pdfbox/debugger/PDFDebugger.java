@@ -6102,10 +6102,12 @@ block|{
 if|if
 condition|(
 name|document
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+return|return;
+block|}
 try|try
 block|{
 name|PrinterJob
@@ -6283,7 +6285,6 @@ argument_list|(
 name|e
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 comment|/**      * Exit the Application.      */
