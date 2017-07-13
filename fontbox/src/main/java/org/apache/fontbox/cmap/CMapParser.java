@@ -1566,6 +1566,16 @@ argument_list|>
 operator|)
 name|nextToken
 expr_stmt|;
+if|if
+condition|(
+name|array
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+continue|continue;
+block|}
 name|tokenBytes
 operator|=
 name|array
@@ -1701,7 +1711,13 @@ block|}
 block|}
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * Returns an input stream containing the given "use" CMap.      *      * @param name Name of the given "use" CMap resource.      * @throws IOException if the CMap resource doesn't exist or if there is an error opening its      * stream.      */
+end_comment
+
+begin_function
 specifier|protected
 name|InputStream
 name|getExternalCMap
@@ -1747,6 +1763,9 @@ name|openStream
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 specifier|private
 name|Object
 name|parseNextToken
@@ -2661,6 +2680,9 @@ return|return
 name|retval
 return|;
 block|}
+end_function
+
+begin_function
 specifier|private
 name|void
 name|readUntilEndOfLine
@@ -2717,6 +2739,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 specifier|private
 name|boolean
 name|isWhitespaceOrEOF
@@ -2744,7 +2769,13 @@ operator|==
 literal|0x0A
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/** Is this a standard PDF delimiter character? */
+end_comment
+
+begin_function
 specifier|private
 name|boolean
 name|isDelimiter
@@ -2797,6 +2828,9 @@ literal|false
 return|;
 block|}
 block|}
+end_function
+
+begin_function
 specifier|private
 name|void
 name|increment
@@ -2818,6 +2852,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 specifier|private
 name|void
 name|increment
@@ -2886,6 +2923,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 specifier|private
 name|int
 name|createIntFromBytes
@@ -2932,6 +2972,9 @@ return|return
 name|intValue
 return|;
 block|}
+end_function
+
+begin_function
 specifier|private
 name|String
 name|createStringFromBytes
@@ -2965,6 +3008,9 @@ name|UTF_16BE
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 specifier|private
 name|int
 name|compare
@@ -3047,7 +3093,13 @@ return|return
 literal|0
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Internal class.      */
+end_comment
+
+begin_class
 specifier|private
 specifier|static
 specifier|final
@@ -3069,34 +3121,40 @@ name|name
 operator|=
 name|theName
 expr_stmt|;
-block|}
-block|}
-comment|/**      * Internal class.      */
-specifier|private
-specifier|static
-specifier|final
-class|class
-name|Operator
-block|{
-specifier|private
-name|String
-name|op
-decl_stmt|;
-specifier|private
-name|Operator
-parameter_list|(
-name|String
-name|theOp
-parameter_list|)
-block|{
-name|op
-operator|=
-name|theOp
-expr_stmt|;
-block|}
 block|}
 block|}
 end_class
 
+begin_comment
+comment|/**      * Internal class.      */
+end_comment
+
+begin_class
+specifier|private
+specifier|static
+specifier|final
+class|class
+name|Operator
+block|{
+specifier|private
+name|String
+name|op
+decl_stmt|;
+specifier|private
+name|Operator
+parameter_list|(
+name|String
+name|theOp
+parameter_list|)
+block|{
+name|op
+operator|=
+name|theOp
+expr_stmt|;
+block|}
+block|}
+end_class
+
+unit|}
 end_unit
 
