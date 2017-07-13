@@ -2453,7 +2453,9 @@ name|pdfxRefStream
 init|=
 operator|new
 name|PDFXRefStream
-argument_list|()
+argument_list|(
+name|doc
+argument_list|)
 decl_stmt|;
 comment|// add all entries from the incremental update.
 name|List
