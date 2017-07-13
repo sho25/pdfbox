@@ -815,8 +815,12 @@ init|=
 operator|new
 name|PDShadingType4
 argument_list|(
-operator|new
-name|COSStream
+name|document
+operator|.
+name|getDocument
+argument_list|()
+operator|.
+name|createCOSStream
 argument_list|()
 argument_list|)
 decl_stmt|;
