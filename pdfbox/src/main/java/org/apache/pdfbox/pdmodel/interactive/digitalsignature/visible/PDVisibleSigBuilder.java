@@ -1820,8 +1820,15 @@ init|=
 operator|new
 name|PDFormXObject
 argument_list|(
-operator|new
-name|COSStream
+name|pdfStructure
+operator|.
+name|getTemplate
+argument_list|()
+operator|.
+name|getDocument
+argument_list|()
+operator|.
+name|createCOSStream
 argument_list|()
 argument_list|)
 decl_stmt|;
