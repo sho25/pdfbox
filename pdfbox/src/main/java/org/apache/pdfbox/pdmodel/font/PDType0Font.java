@@ -605,7 +605,7 @@ name|ttf
 argument_list|,
 name|embedSubset
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 return|;
 block|}
