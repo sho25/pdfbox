@@ -602,20 +602,6 @@ name|createInputStream
 argument_list|()
 init|)
 block|{
-if|if
-condition|(
-name|ttf
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// close the replaced TrueType font
-name|ttf
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 name|ttf
 operator|=
 operator|new

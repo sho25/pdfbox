@@ -325,6 +325,10 @@ specifier|private
 name|PDCIDFontType2Embedder
 name|embedder
 decl_stmt|;
+specifier|private
+name|TrueTypeFont
+name|ttf
+decl_stmt|;
 comment|/**      * Constructor for reading a Type0 font from a PDF file.      *       * @param fontDictionary The font dictionary according to the PDF specification.      * @throws IOException if the descendant font is missing.      */
 specifier|public
 name|PDType0Font
@@ -413,6 +417,9 @@ name|ttf
 parameter_list|,
 name|boolean
 name|embedSubset
+parameter_list|,
+name|boolean
+name|closeOnSubset
 parameter_list|)
 throws|throws
 name|IOException
@@ -446,6 +453,18 @@ expr_stmt|;
 name|fetchCMapUCS2
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|closeOnSubset
+condition|)
+block|{
+name|this
+operator|.
+name|ttf
+operator|=
+name|ttf
+expr_stmt|;
+block|}
 block|}
 comment|/**     * Loads a TTF to be embedded into a document as a Type 0 font.     *     * @param doc The PDF document that will hold the embedded font.     * @param file A TrueType font.     * @return A Type0 font with a CIDFontType2 descendant.     * @throws IOException If there is an error reading the font file.     */
 specifier|public
@@ -476,6 +495,8 @@ name|parse
 argument_list|(
 name|file
 argument_list|)
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -510,6 +531,8 @@ name|parse
 argument_list|(
 name|input
 argument_list|)
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -549,6 +572,8 @@ name|input
 argument_list|)
 argument_list|,
 name|embedSubset
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
@@ -579,6 +604,8 @@ argument_list|,
 name|ttf
 argument_list|,
 name|embedSubset
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
@@ -644,6 +671,23 @@ operator|.
 name|subset
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|ttf
+operator|!=
+literal|null
+condition|)
+block|{
+name|ttf
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|ttf
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
