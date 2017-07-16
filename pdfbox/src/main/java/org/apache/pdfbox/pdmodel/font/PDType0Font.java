@@ -458,12 +458,27 @@ condition|(
 name|closeOnSubset
 condition|)
 block|{
+if|if
+condition|(
+name|embedSubset
+condition|)
+block|{
 name|this
 operator|.
 name|ttf
 operator|=
 name|ttf
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// the TTF is fully loaded and it is save to close the underlying data source
+name|ttf
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**     * Loads a TTF to be embedded into a document as a Type 0 font.     *     * @param doc The PDF document that will hold the embedded font.     * @param file A TrueType font.     * @return A Type0 font with a CIDFontType2 descendant.     * @throws IOException If there is an error reading the font file.     */

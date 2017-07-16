@@ -837,6 +837,9 @@ name|ttf
 parameter_list|,
 name|Encoding
 name|encoding
+parameter_list|,
+name|boolean
+name|closeTTF
 parameter_list|)
 throws|throws
 name|IOException
@@ -891,6 +894,18 @@ operator|.
 name|getAdobeGlyphList
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|closeTTF
+condition|)
+block|{
+comment|// the TTF is fully loaded and it is save to close the underlying data source
+name|ttf
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Loads a TTF to be embedded into a document as a simple font.      *       *<p><b>Note:</b> Simple fonts only support 256 characters. For Unicode support, use      * {@link PDType0Font#load(PDDocument, File)} instead.</p>      *      * @param doc The PDF document that will hold the embedded font.      * @param file A TTF file.      * @param encoding The PostScript encoding vector to be used for embedding.      * @return a PDTrueTypeFont instance.      * @throws IOException If there is an error loading the data.      */
 specifier|public
@@ -926,6 +941,8 @@ name|file
 argument_list|)
 argument_list|,
 name|encoding
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
@@ -963,6 +980,40 @@ name|input
 argument_list|)
 argument_list|,
 name|encoding
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Loads a TTF to be embedded into a document as a simple font.      *      *<p>      *<b>Note:</b> Simple fonts only support 256 characters. For Unicode support, use      * {@link PDType0Font#load(PDDocument, InputStream)} instead.      *</p>      *       * @param doc The PDF document that will hold the embedded font.      * @param ttf A true type font      * @param encoding The PostScript encoding vector to be used for embedding.      * @return a PDTrueTypeFont instance.      * @throws IOException If there is an error loading the data.      */
+specifier|public
+specifier|static
+name|PDTrueTypeFont
+name|load
+parameter_list|(
+name|PDDocument
+name|doc
+parameter_list|,
+name|TrueTypeFont
+name|ttf
+parameter_list|,
+name|Encoding
+name|encoding
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|PDTrueTypeFont
+argument_list|(
+name|doc
+argument_list|,
+name|ttf
+argument_list|,
+name|encoding
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -1001,6 +1052,8 @@ argument_list|,
 name|WinAnsiEncoding
 operator|.
 name|INSTANCE
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
@@ -1039,6 +1092,8 @@ argument_list|,
 name|WinAnsiEncoding
 operator|.
 name|INSTANCE
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
