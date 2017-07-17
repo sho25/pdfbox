@@ -802,6 +802,13 @@ operator|new
 name|PDFTextStripper
 argument_list|()
 decl_stmt|;
+name|stripper
+operator|.
+name|setLineSeparator
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
 name|String
 name|text
 init|=
@@ -812,7 +819,15 @@ argument_list|(
 name|doc
 argument_list|)
 decl_stmt|;
-comment|//Assert.assertEquals("testMultipleFontFileReuse1\r\ntestMultipleFontFileReuse2\r\ntestMultipleFontFileReuse3\r\n", text);
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+literal|"testMultipleFontFileReuse1\ntestMultipleFontFileReuse2\ntestMultipleFontFileReuse3\n"
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
 name|doc
 operator|.
 name|close
