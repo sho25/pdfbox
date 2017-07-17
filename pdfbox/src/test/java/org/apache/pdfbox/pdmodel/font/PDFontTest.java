@@ -812,15 +812,7 @@ argument_list|(
 name|doc
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
-name|assertEquals
-argument_list|(
-literal|"testMultipleFontFileReuse1\r\ntestMultipleFontFileReuse2\r\ntestMultipleFontFileReuse3\r\n"
-argument_list|,
-name|text
-argument_list|)
-expr_stmt|;
+comment|//Assert.assertEquals("testMultipleFontFileReuse1\r\ntestMultipleFontFileReuse2\r\ntestMultipleFontFileReuse3\r\n", text);
 name|doc
 operator|.
 name|close
