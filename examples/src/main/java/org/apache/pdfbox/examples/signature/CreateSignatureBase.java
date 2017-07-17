@@ -1113,15 +1113,10 @@ name|Certificate
 operator|.
 name|getInstance
 argument_list|(
-name|ASN1Primitive
-operator|.
-name|fromByteArray
-argument_list|(
 name|certificate
 operator|.
 name|getEncoded
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ContentSigner
