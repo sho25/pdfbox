@@ -823,9 +823,12 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"testMultipleFontFileReuse1\ntestMultipleFontFileReuse2\ntestMultipleFontFileReuse3\n"
+literal|"testMultipleFontFileReuse1\ntestMultipleFontFileReuse2\ntestMultipleFontFileReuse3"
 argument_list|,
 name|text
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doc
