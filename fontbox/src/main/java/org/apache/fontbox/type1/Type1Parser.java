@@ -448,6 +448,9 @@ block|{
 case|case
 literal|"FontInfo"
 case|:
+case|case
+literal|"Fontinfo"
+case|:
 name|readFontInfo
 argument_list|(
 name|readSimpleDict
