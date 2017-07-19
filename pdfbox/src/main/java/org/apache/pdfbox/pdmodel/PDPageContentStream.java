@@ -547,7 +547,7 @@ name|Stack
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/**      * Create a new PDPage content stream.      *      * @param document The document the page is part of.      * @param sourcePage The page to write the contents to.      * @throws IOException If there is an error writing to the page contents.      */
+comment|/**      * Create a new PDPage content stream. This constructor overwrites all existing content streams      * of this page.      *      * @param document The document the page is part of.      * @param sourcePage The page to write the contents to.      * @throws IOException If there is an error writing to the page contents.      */
 specifier|public
 name|PDPageContentStream
 parameter_list|(
@@ -611,7 +611,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a new PDPage content stream.      *      * @param document The document the page is part of.      * @param sourcePage The page to write the contents to.      * @param appendContent Indicates whether content will be overwritten, appended or prepended.      * @param compress Tell if the content stream should compress the page contents.      * @throws IOException If there is an error writing to the page contents.      */
+comment|/**      * Create a new PDPage content stream. If the appendContent parameter is set to      * {@link AppendMode#APPEND}, you may want to use      * {@link #PDPageContentStream(PDDocument, PDPage, PDPageContentStream.AppendMode, boolean, boolean)}      * instead, with the fifth parameter set to true.      *      * @param document The document the page is part of.      * @param sourcePage The page to write the contents to.      * @param appendContent Indicates whether content will be overwritten, appended or prepended.      * @param compress Tell if the content stream should compress the page contents.      * @throws IOException If there is an error writing to the page contents.      */
 specifier|public
 name|PDPageContentStream
 parameter_list|(
