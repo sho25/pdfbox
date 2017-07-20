@@ -6774,20 +6774,9 @@ block|{
 comment|// document catalog
 if|if
 condition|(
-name|COSName
-operator|.
-name|CATALOG
-operator|.
-name|equals
+name|isCatalog
 argument_list|(
 name|dictionary
-operator|.
-name|getCOSName
-argument_list|(
-name|COSName
-operator|.
-name|TYPE
-argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -6938,6 +6927,33 @@ block|}
 block|}
 return|return
 name|trailer
+return|;
+block|}
+comment|/**      * Tell if the dictionary is a PDF catalog. Override this for an FDF catalog.      *       * @param dictionary      * @return       */
+specifier|protected
+name|boolean
+name|isCatalog
+parameter_list|(
+name|COSDictionary
+name|dictionary
+parameter_list|)
+block|{
+return|return
+name|COSName
+operator|.
+name|CATALOG
+operator|.
+name|equals
+argument_list|(
+name|dictionary
+operator|.
+name|getCOSName
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|)
+argument_list|)
 return|;
 block|}
 comment|/**      * This will parse the startxref section from the stream.      * The startxref value is ignored.      *      * @return the startxref value or -1 on parsing error      * @throws IOException If an IO error occurs.      */
