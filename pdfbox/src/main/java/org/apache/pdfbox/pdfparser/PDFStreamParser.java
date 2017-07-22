@@ -411,7 +411,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will parse the tokens in the stream.  This will close the      * stream when it is finished parsing.      *      * @throws IOException If there is an error while parsing the stream.      */
+comment|/**      * This will parse all the tokens in the stream. This will close the stream when it is finished      * parsing. You can then access these with {@link #getTokens() getTokens()}.      *      * @throws IOException If there is an error while parsing the stream.      */
 specifier|public
 name|void
 name|parse
@@ -443,7 +443,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the tokens that were parsed from the stream.      *      * @return All of the tokens in the stream.      */
+comment|/**      * This will get the tokens that were parsed from the stream by the {@link #parse() parse()} method.      *      * @return All of the tokens in the stream.      */
 specifier|public
 name|List
 argument_list|<
