@@ -804,7 +804,7 @@ name|key
 argument_list|)
 return|;
 block|}
-comment|/**      * This will parse a PDF dictionary.      *      * @return The parsed dictionary.      *      * @throws IOException If there is an error reading the stream.      */
+comment|/**      * This will parse a PDF dictionary.      *      * @return The parsed dictionary, never null.      *      * @throws IOException If there is an error reading the stream.      */
 specifier|protected
 name|COSDictionary
 name|parseCOSDictionary

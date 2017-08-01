@@ -4650,10 +4650,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|dict
-operator|!=
-literal|null
-operator|&&
 literal|"XRef"
 operator|.
 name|equals
