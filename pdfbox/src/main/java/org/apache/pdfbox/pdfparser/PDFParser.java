@@ -856,10 +856,6 @@ decl_stmt|;
 if|if
 condition|(
 name|catalogObj
-operator|!=
-literal|null
-operator|&&
-name|catalogObj
 operator|.
 name|getObject
 argument_list|()

@@ -915,7 +915,7 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the document catalog.      *      * Maybe this should move to an object at PDFEdit level      *      * @return catalog is the root of all document activities      *      * @throws IOException If no catalog can be found.      */
+comment|/**      * This will get the document catalog.      *      * @return @return The catalog is the root of the document; never null.      *      * @throws IOException If no catalog can be found.      */
 specifier|public
 name|COSObject
 name|getCatalog
