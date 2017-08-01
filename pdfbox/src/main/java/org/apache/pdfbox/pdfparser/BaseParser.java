@@ -3516,15 +3516,9 @@ decl_stmt|;
 if|if
 condition|(
 name|badString
-operator|==
-literal|null
-operator|||
-name|badString
 operator|.
-name|length
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
 block|{
 name|int
@@ -3609,7 +3603,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will read the next string from the stream.      *      * @return The string that was read from the stream.      *      * @throws IOException If there is an error reading from the stream.      */
+comment|/**      * This will read the next string from the stream.      *      * @return The string that was read from the stream, never null.      *      * @throws IOException If there is an error reading from the stream.      */
 specifier|protected
 name|String
 name|readString
