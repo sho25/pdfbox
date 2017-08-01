@@ -2311,7 +2311,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Standard Encoding Accented Character      *      * Makes an accented character from two other characters.      * @param asb       */
+comment|/**      * Standard Encoding Accented Character      *      * Makes an accented character from two other characters.      * @param asb      */
 specifier|private
 name|void
 name|seac
@@ -2348,13 +2348,6 @@ name|intValue
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|baseName
-operator|!=
-literal|null
-condition|)
-block|{
 try|try
 block|{
 name|Type1CharString
@@ -2405,7 +2398,6 @@ name|fontName
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 comment|// accent character
 name|String
 name|accentName
@@ -2422,13 +2414,6 @@ name|intValue
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|accentName
-operator|!=
-literal|null
-condition|)
-block|{
 try|try
 block|{
 name|Type1CharString
@@ -2506,7 +2491,6 @@ operator|+
 name|fontName
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@
