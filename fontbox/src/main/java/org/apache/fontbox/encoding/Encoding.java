@@ -138,7 +138,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * This will take a character code and get the name from the code.      *      * @param code The character code.      * @return The name of the character.      */
+comment|/**      * This will take a character code and get the name from the code. This method will never return      * null.      *      * @param code The character code.      * @return The name of the character, or ".notdef" if the bame doesn't exist.      */
 specifier|public
 name|String
 name|getName
