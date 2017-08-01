@@ -4944,24 +4944,27 @@ decl_stmt|;
 comment|// find all object streams
 for|for
 control|(
+name|Entry
+argument_list|<
 name|COSObjectKey
-name|key
+argument_list|,
+name|Long
+argument_list|>
+name|entry
 range|:
 name|xrefOffset
 operator|.
-name|keySet
+name|entrySet
 argument_list|()
 control|)
 block|{
 name|Long
 name|offset
 init|=
-name|xrefOffset
+name|entry
 operator|.
-name|get
-argument_list|(
-name|key
-argument_list|)
+name|getValue
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -6448,10 +6451,6 @@ name|genID
 argument_list|)
 condition|)
 block|{
-name|genID
-operator|-=
-literal|48
-expr_stmt|;
 name|tempOffset
 operator|--
 expr_stmt|;
@@ -6760,13 +6759,6 @@ init|=
 name|parseCOSDictionary
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|dictionary
-operator|!=
-literal|null
-condition|)
-block|{
 comment|// document catalog
 if|if
 condition|(
@@ -6896,7 +6888,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO encryption dictionary
-block|}
 block|}
 catch|catch
 parameter_list|(
