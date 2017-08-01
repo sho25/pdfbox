@@ -952,7 +952,7 @@ return|return
 name|catalog
 return|;
 block|}
-comment|/**      * This will get a list of all available objects.      *      * @return A list of all objects.      */
+comment|/**      * This will get a list of all available objects.      *      * @return A list of all objects, never null.      */
 specifier|public
 name|List
 argument_list|<
@@ -1036,28 +1036,13 @@ name|closed
 condition|)
 block|{
 comment|// close all open I/O streams
-name|List
-argument_list|<
-name|COSObject
-argument_list|>
-name|list
-init|=
-name|getObjects
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|list
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
 name|COSObject
 name|object
 range|:
-name|list
+name|getObjects
+argument_list|()
 control|)
 block|{
 name|COSBase
@@ -1085,7 +1070,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 for|for
