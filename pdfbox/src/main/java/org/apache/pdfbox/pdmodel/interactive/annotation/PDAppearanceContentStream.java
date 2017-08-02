@@ -229,10 +229,6 @@ decl_stmt|;
 if|if
 condition|(
 name|components
-operator|!=
-literal|null
-operator|&&
-name|components
 operator|.
 name|length
 operator|>
@@ -351,10 +347,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|components
-operator|!=
-literal|null
-operator|&&
 name|components
 operator|.
 name|length
