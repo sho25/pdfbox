@@ -157,7 +157,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Returns a map of colorants and their associated Separation color space.      * @return map of colorants to color spaces      * @throws IOException If there is an error reading a color space      */
+comment|/**      * Returns a map of colorants and their associated Separation color space.      * @return map of colorants to color spaces, never null.      * @throws IOException If there is an error reading a color space      */
 specifier|public
 name|Map
 argument_list|<

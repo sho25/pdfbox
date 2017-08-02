@@ -386,7 +386,7 @@ operator|=
 name|colorSpace
 expr_stmt|;
 block|}
-comment|/**      * Returns the components of this color value.      * @return the components of this color value      */
+comment|/**      * Returns the components of this color value.      * @return the components of this color value, never null.      */
 specifier|public
 name|float
 index|[]
