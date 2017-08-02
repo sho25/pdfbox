@@ -1232,7 +1232,7 @@ return|return
 name|fd
 return|;
 block|}
-comment|/**      * Returns the FontBox font.      */
+comment|/**      * Returns the FontBox font.      *       * @deprecated       */
 annotation|@
 name|Deprecated
 specifier|public
