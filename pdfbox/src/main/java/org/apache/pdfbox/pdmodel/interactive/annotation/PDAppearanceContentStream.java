@@ -317,6 +317,9 @@ argument_list|(
 literal|"K"
 argument_list|)
 expr_stmt|;
+break|break;
+default|default:
+break|break;
 block|}
 block|}
 comment|/**      * Set the non stroking color.      *       *<p>      * The command is only emitted if the color is not null and the number of      * components is gt 0.      *       * @see PDAbstractContentStream#setNonStrokingColor(PDColor)      */
@@ -437,6 +440,9 @@ argument_list|(
 literal|"k"
 argument_list|)
 expr_stmt|;
+break|break;
+default|default:
+break|break;
 block|}
 block|}
 specifier|public

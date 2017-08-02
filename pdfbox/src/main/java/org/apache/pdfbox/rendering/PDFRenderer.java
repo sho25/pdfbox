@@ -713,6 +713,8 @@ name|getHeight
 argument_list|()
 expr_stmt|;
 break|break;
+default|default:
+break|break;
 block|}
 name|graphics
 operator|.
