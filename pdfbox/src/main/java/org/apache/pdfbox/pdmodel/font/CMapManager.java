@@ -131,7 +131,7 @@ specifier|private
 name|CMapManager
 parameter_list|()
 block|{     }
-comment|/**      * Fetches the predefined CMap from disk (or cache).      *      * @param cMapName CMap name      */
+comment|/**      * Fetches the predefined CMap from disk (or cache).      *      * @param cMapName CMap name      * @return The predefined CMap, never null.      * @throws IOException       */
 specifier|public
 specifier|static
 name|CMap
