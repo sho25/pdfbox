@@ -2381,6 +2381,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
+comment|// never returns null
 specifier|private
 name|byte
 index|[]
@@ -2850,6 +2851,7 @@ name|hasNested
 condition|)
 do|;
 block|}
+comment|// never returns null
 specifier|private
 name|byte
 index|[]
@@ -4943,13 +4945,6 @@ name|cmap
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|glyf
-operator|!=
-literal|null
-condition|)
-block|{
 name|tables
 operator|.
 name|put
@@ -4959,7 +4954,6 @@ argument_list|,
 name|glyf
 argument_list|)
 expr_stmt|;
-block|}
 name|tables
 operator|.
 name|put
@@ -4987,13 +4981,6 @@ argument_list|,
 name|hmtx
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|loca
-operator|!=
-literal|null
-condition|)
-block|{
 name|tables
 operator|.
 name|put
@@ -5003,7 +4990,6 @@ argument_list|,
 name|loca
 argument_list|)
 expr_stmt|;
-block|}
 name|tables
 operator|.
 name|put
