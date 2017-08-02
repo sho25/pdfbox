@@ -729,10 +729,6 @@ decl_stmt|;
 if|if
 condition|(
 name|borderCharacteristics
-operator|!=
-literal|null
-operator|&&
-name|borderCharacteristics
 operator|.
 name|size
 argument_list|()
