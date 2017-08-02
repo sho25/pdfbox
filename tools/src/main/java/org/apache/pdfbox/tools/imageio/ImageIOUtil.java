@@ -920,10 +920,6 @@ decl_stmt|;
 if|if
 condition|(
 name|nodeList
-operator|!=
-literal|null
-operator|&&
-name|nodeList
 operator|.
 name|getLength
 argument_list|()
