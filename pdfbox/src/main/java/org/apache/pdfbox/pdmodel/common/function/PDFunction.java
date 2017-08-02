@@ -360,9 +360,14 @@ condition|)
 block|{
 name|base
 operator|=
+operator|(
+operator|(
+name|COSObject
+operator|)
 name|function
+operator|)
 operator|.
-name|getCOSObject
+name|getObject
 argument_list|()
 expr_stmt|;
 block|}
@@ -382,7 +387,7 @@ name|IOException
 argument_list|(
 literal|"Error: Function must be a Dictionary, but is "
 operator|+
-name|function
+name|base
 operator|.
 name|getClass
 argument_list|()
