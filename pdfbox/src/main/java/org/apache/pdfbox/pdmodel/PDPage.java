@@ -678,6 +678,7 @@ name|iterator
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the content stream(s) of this page as a single input stream.      *      * @return An InputStream, never null. Multiple content streams are concatenated and separated      * with a newline. An empty stream is returned if the page doesn't have any content stream.      * @throws IOException If the stream could not be read      */
 annotation|@
 name|Override
 specifier|public
