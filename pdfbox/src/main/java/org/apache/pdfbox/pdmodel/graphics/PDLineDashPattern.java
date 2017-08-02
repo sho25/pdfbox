@@ -225,7 +225,7 @@ return|return
 name|phase
 return|;
 block|}
-comment|/**      * Returns the dash array.      * @return the dash array      */
+comment|/**      * Returns the dash array.      * @return the dash array, never null.      */
 specifier|public
 name|float
 index|[]

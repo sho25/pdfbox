@@ -2963,13 +2963,6 @@ operator|.
 name|getDashArray
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|dashArray
-operator|!=
-literal|null
-condition|)
-block|{
 comment|// apply the CTM
 for|for
 control|(
@@ -3104,7 +3097,6 @@ operator|=
 literal|null
 expr_stmt|;
 break|break;
-block|}
 block|}
 block|}
 block|}
