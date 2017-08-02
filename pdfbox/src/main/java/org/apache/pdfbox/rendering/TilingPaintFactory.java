@@ -273,6 +273,7 @@ block|}
 comment|// class to characterize a TilingPaint object. It is important that TilingPaint does not
 comment|// keep any objects from this class, so that the weak cache works.
 specifier|private
+specifier|static
 class|class
 name|TilingPaintParameter
 block|{
