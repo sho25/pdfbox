@@ -1365,21 +1365,18 @@ argument_list|(
 name|sysinfo
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|InputStream
 name|cmapStream
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-comment|// extract information from the CMap stream
-name|cmapStream
-operator|=
 name|aCMap
 operator|.
 name|createInputStream
 argument_list|()
-expr_stmt|;
+init|)
+block|{
+comment|// extract information from the CMap stream
 name|CMap
 name|fontboxCMap
 init|=
@@ -1591,16 +1588,6 @@ literal|": The CMap type is damaged"
 argument_list|,
 name|e
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|IOUtils
-operator|.
-name|closeQuietly
-argument_list|(
-name|cmapStream
 argument_list|)
 expr_stmt|;
 block|}
