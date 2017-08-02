@@ -168,6 +168,8 @@ argument_list|,
 name|rangeArray
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|OutputStream
 name|out
 init|=
@@ -175,7 +177,8 @@ name|stream
 operator|.
 name|createOutputStream
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|byte
 index|[]
 name|data
@@ -200,11 +203,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 return|return
 operator|new
 name|PDFunctionType4
