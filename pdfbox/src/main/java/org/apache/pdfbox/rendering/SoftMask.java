@@ -516,12 +516,9 @@ name|int
 name|h
 parameter_list|)
 block|{
-name|WritableRaster
+name|Raster
 name|raster
 init|=
-operator|(
-name|WritableRaster
-operator|)
 name|context
 operator|.
 name|getRaster
