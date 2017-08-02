@@ -644,16 +644,6 @@ index|[
 name|numColorants
 index|]
 expr_stmt|;
-if|if
-condition|(
-name|attributes
-operator|.
-name|getColorants
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 comment|// spot color spaces
 name|Map
 argument_list|<
@@ -748,7 +738,6 @@ index|]
 operator|=
 literal|null
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
