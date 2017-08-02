@@ -357,6 +357,15 @@ literal|1.2f
 block|}
 expr_stmt|;
 comment|//input argument outside Dimension
+name|output
+operator|=
+name|function
+operator|.
+name|eval
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
