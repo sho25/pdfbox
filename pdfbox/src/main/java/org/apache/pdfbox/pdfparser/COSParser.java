@@ -3294,7 +3294,11 @@ block|{
 comment|// parse object stream
 name|PDFObjectStreamParser
 name|parser
-init|=
+decl_stmt|;
+try|try
+block|{
+name|parser
+operator|=
 operator|new
 name|PDFObjectStreamParser
 argument_list|(
@@ -3305,7 +3309,41 @@ name|objstmBaseObj
 argument_list|,
 name|document
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+if|if
+condition|(
+name|isLenient
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"object stream "
+operator|+
+name|objstmObjNr
+operator|+
+literal|" could not be parsed due to an exception"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+else|else
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+block|}
 try|try
 block|{
 name|parser
