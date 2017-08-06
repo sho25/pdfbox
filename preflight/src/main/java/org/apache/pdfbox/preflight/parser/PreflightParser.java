@@ -3037,7 +3037,7 @@ comment|// ---- read offset or object stream object number from xref table
 name|Long
 name|offsetOrObjstmObNr
 init|=
-name|xrefTrailerResolver
+name|document
 operator|.
 name|getXrefTable
 argument_list|()
@@ -3813,7 +3813,7 @@ decl_stmt|;
 name|Long
 name|offset
 init|=
-name|xrefTrailerResolver
+name|document
 operator|.
 name|getXrefTable
 argument_list|()
