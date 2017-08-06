@@ -4581,8 +4581,6 @@ return|return
 name|calculateXRefFixedOffset
 argument_list|(
 name|startXRefOffset
-argument_list|,
-literal|false
 argument_list|)
 return|;
 block|}
@@ -4728,16 +4726,13 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Try to find a fixed offset for the given xref table/stream.      *       * @param objectOffset the given offset where to look at      * @param streamsOnly search for xref streams only      * @return the fixed offset      *       * @throws IOException if something went wrong      */
+comment|/**      * Try to find a fixed offset for the given xref table/stream.      *       * @param objectOffset the given offset where to look at      * @return the fixed offset      *       * @throws IOException if something went wrong      */
 specifier|private
 name|long
 name|calculateXRefFixedOffset
 parameter_list|(
 name|long
 name|objectOffset
-parameter_list|,
-name|boolean
-name|streamsOnly
 parameter_list|)
 throws|throws
 name|IOException
@@ -4771,8 +4766,6 @@ init|=
 name|bfSearchForXRef
 argument_list|(
 name|objectOffset
-argument_list|,
-name|streamsOnly
 argument_list|)
 decl_stmt|;
 if|if
@@ -5697,16 +5690,13 @@ name|originOffset
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Search for the offset of the given xref table/stream among those found by a brute force search.      *       * @param streamsOnly search for xref streams only      * @return the offset of the xref entry      * @throws IOException if something went wrong      */
+comment|/**      * Search for the offset of the given xref table/stream among those found by a brute force search.      *       * @return the offset of the xref entry      * @throws IOException if something went wrong      */
 specifier|private
 name|long
 name|bfSearchForXRef
 parameter_list|(
 name|long
 name|xrefOffset
-parameter_list|,
-name|boolean
-name|streamsOnly
 parameter_list|)
 throws|throws
 name|IOException
@@ -5729,24 +5719,14 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|streamsOnly
-condition|)
-block|{
 name|bfSearchForXRefTables
 argument_list|()
 expr_stmt|;
-block|}
 name|bfSearchForXRefStreams
 argument_list|()
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|streamsOnly
-operator|&&
 name|bfSearchXRefTablesOffsets
 operator|!=
 literal|null
