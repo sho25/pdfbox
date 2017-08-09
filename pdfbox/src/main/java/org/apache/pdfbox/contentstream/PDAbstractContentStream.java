@@ -4578,6 +4578,28 @@ literal|"Tw"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the horizontal scaling to scale / 100.      *      * @param scale number specifying the percentage of the normal width. Default value: 100 (normal      * width).      * @throws IOException If the content stream could not be written.      */
+specifier|public
+name|void
+name|setHorizontalScaling
+parameter_list|(
+name|float
+name|scale
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|writeOperand
+argument_list|(
+name|scale
+argument_list|)
+expr_stmt|;
+name|writeOperator
+argument_list|(
+literal|"Tz"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
