@@ -313,16 +313,8 @@ index|[]
 name|value
 parameter_list|)
 block|{
-name|init
-argument_list|()
-expr_stmt|;
 return|return
-name|awtColorSpace
-operator|.
-name|toRGB
-argument_list|(
 name|value
-argument_list|)
 return|;
 block|}
 annotation|@
