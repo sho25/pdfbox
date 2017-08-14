@@ -762,7 +762,7 @@ literal|0xFF
 operator|)
 argument_list|)
 operator|>
-literal|1
+literal|3
 operator|||
 name|Math
 operator|.
@@ -789,7 +789,7 @@ literal|0xFF
 operator|)
 argument_list|)
 operator|>
-literal|1
+literal|3
 operator|||
 name|Math
 operator|.
@@ -816,7 +816,7 @@ literal|0xFF
 operator|)
 argument_list|)
 operator|>
-literal|1
+literal|3
 operator|)
 condition|)
 block|{
