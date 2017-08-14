@@ -550,22 +550,19 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|InputStream
 name|input
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|input
-operator|=
 name|this
 operator|.
 name|stream
 operator|.
 name|createInputStream
 argument_list|()
-expr_stmt|;
+init|)
+block|{
 comment|// if the embedded profile is sRGB then we can use Java's built-in profile, which
 comment|// results in a large performance gain as it's our native color space, see PDFBOX-2587
 name|ICC_Profile
@@ -813,16 +810,6 @@ throw|throw
 name|e
 throw|;
 block|}
-block|}
-finally|finally
-block|{
-name|IOUtils
-operator|.
-name|closeQuietly
-argument_list|(
-name|input
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Returns true if the given profile is represents sRGB.      */
