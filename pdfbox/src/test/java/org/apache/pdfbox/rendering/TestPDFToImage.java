@@ -742,7 +742,7 @@ condition|(
 name|rgb1
 operator|!=
 name|rgb2
-comment|// don't bother about differences of 1 color step
+comment|// don't bother about small differences
 operator|&&
 operator|(
 name|Math
