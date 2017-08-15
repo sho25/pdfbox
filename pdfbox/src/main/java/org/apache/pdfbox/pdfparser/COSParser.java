@@ -2571,6 +2571,39 @@ name|stmObjects
 argument_list|)
 expr_stmt|;
 block|}
+comment|// java does not have a test for immutable
+elseif|else
+if|if
+condition|(
+operator|!
+operator|(
+name|stmObjects
+operator|instanceof
+name|ArrayList
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+name|obj
+operator|+
+literal|" cannot be assigned to offset "
+operator|+
+name|fileOffset
+operator|+
+literal|", this belongs to "
+operator|+
+name|stmObjects
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|stmObjects
 operator|.
 name|add
