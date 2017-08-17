@@ -75,6 +75,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class provides a glyph to GeneralPath conversion for true type fonts.  * Based on code from Apache Batik, a subproject of Apache XMLGraphics.  *  * @see  *<a href="http://xmlgraphics.apache.org/batik">http://xmlgraphics.apache.org/batik</a>  *   * Contour rendering ported from PDF.js, viewed on 14.2.2015, rev 2e97c0d  *  * @see  *<a href="https://github.com/mozilla/pdf.js/blob/c0d17013a28ee7aa048831560b6494a26c52360c/src/core/font_renderer.js">pdf.js/src/core/font_renderer.js</a>  *  */
 end_comment
@@ -628,6 +638,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|,
 literal|"%d,%d"
 argument_list|,
 name|point
@@ -684,6 +698,9 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
 literal|"%d,%d"
 argument_list|,
 name|point
@@ -751,6 +768,9 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
 literal|"%d,%d %d,%d"
 argument_list|,
 name|ctrlPoint
@@ -932,6 +952,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|,
 literal|"Point(%d,%d,%s,%s)"
 argument_list|,
 name|x
