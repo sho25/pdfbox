@@ -701,6 +701,7 @@ argument_list|(
 name|Locale
 operator|.
 name|US
+argument_list|,
 literal|"%d,%d"
 argument_list|,
 name|point
@@ -771,6 +772,7 @@ argument_list|(
 name|Locale
 operator|.
 name|US
+argument_list|,
 literal|"%d,%d %d,%d"
 argument_list|,
 name|ctrlPoint
