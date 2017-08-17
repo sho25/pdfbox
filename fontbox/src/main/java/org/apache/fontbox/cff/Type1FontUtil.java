@@ -15,6 +15,16 @@ name|cff
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class contains some helper methods handling Type1-Fonts.  *  * @author Villu Ruusmann  */
 end_comment
@@ -92,7 +102,11 @@ argument_list|(
 name|string
 operator|.
 name|toUpperCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
