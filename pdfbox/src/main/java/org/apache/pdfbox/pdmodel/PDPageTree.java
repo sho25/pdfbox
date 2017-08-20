@@ -1034,6 +1034,11 @@ comment|// some files such as PDFBOX-2250-229205.pdf don't have Pages set as the
 comment|// to check for the presence of Kids too
 return|return
 name|node
+operator|!=
+literal|null
+operator|&&
+operator|(
+name|node
 operator|.
 name|getCOSName
 argument_list|(
@@ -1054,6 +1059,7 @@ name|COSName
 operator|.
 name|KIDS
 argument_list|)
+operator|)
 return|;
 block|}
 comment|/**      * Returns the index of the given page, or -1 if it does not exist.      *      * @param page The page to search for.      * @return the zero-based index of the given page, or -1 if the page is not found.      */
