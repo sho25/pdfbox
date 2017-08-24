@@ -166,6 +166,15 @@ argument_list|)
 expr_stmt|;
 name|testInlineImage2ops
 argument_list|(
+literal|"ID\n12345EI \000Q"
+argument_list|,
+literal|"12345"
+argument_list|,
+literal|"Q"
+argument_list|)
+expr_stmt|;
+name|testInlineImage2ops
+argument_list|(
 literal|"ID\n12345EI Q                             "
 argument_list|,
 literal|"12345"

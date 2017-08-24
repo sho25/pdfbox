@@ -1356,6 +1356,10 @@ decl_stmt|;
 if|if
 condition|(
 name|b
+operator|!=
+literal|0
+operator|&&
+name|b
 argument_list|<
 literal|0x09
 operator|||
@@ -1389,6 +1393,10 @@ literal|1
 operator|&&
 operator|!
 operator|(
+name|b
+operator|==
+literal|0
+operator|||
 name|b
 operator|==
 literal|9
@@ -1426,6 +1434,10 @@ operator|-
 literal|1
 operator|&&
 operator|(
+name|b
+operator|==
+literal|0
+operator|||
 name|b
 operator|==
 literal|9
