@@ -2118,7 +2118,7 @@ name|dict
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the optional content properties dictionary.      *      * @param ocProperties the optional properties dictionary      */
+comment|/**      * Sets the optional content properties dictionary. The document version is incremented to 1.5      * if lower.      *      * @param ocProperties the optional properties dictionary      */
 specifier|public
 name|void
 name|setOCProperties
