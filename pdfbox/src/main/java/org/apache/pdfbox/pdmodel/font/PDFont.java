@@ -1929,7 +1929,7 @@ name|boolean
 name|isStandard14
 parameter_list|()
 block|{
-comment|// this logic is based on Acrobat's behaviour, see see PDFBOX-2372
+comment|// this logic is based on Acrobat's behaviour, see PDFBOX-2372
 comment|// embedded fonts never get special treatment
 if|if
 condition|(
