@@ -1157,7 +1157,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Builds the CIDSet entry, required by PDF/A. This lists all CIDs in the font.      */
+comment|/**      * Builds the CIDSet entry, required by PDF/A. This lists all CIDs in the font, including those      * that don't have a GID.      */
 specifier|private
 name|void
 name|buildCIDSet
@@ -1173,13 +1173,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|byte
-index|[]
-name|bytes
+name|int
+name|cidMax
 init|=
-operator|new
-name|byte
-index|[
 name|Collections
 operator|.
 name|max
@@ -1189,6 +1185,15 @@ operator|.
 name|keySet
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|byte
+index|[]
+name|bytes
+init|=
+operator|new
+name|byte
+index|[
+name|cidMax
 operator|/
 literal|8
 operator|+
@@ -1199,11 +1204,15 @@ for|for
 control|(
 name|int
 name|cid
-range|:
-name|cidToGid
-operator|.
-name|keySet
-argument_list|()
+init|=
+literal|0
+init|;
+name|cid
+operator|<=
+name|cidMax
+condition|;
+name|cid
+operator|++
 control|)
 block|{
 name|int
