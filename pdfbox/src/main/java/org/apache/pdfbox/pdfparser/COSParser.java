@@ -1020,27 +1020,24 @@ init|=
 name|startXrefOffset
 decl_stmt|;
 comment|// ---- parse whole chain of xref tables/object streams using PREV reference
-name|long
-name|lastPrev
+name|Set
+argument_list|<
+name|Long
+argument_list|>
+name|prevSet
 init|=
-operator|-
-literal|1
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
 decl_stmt|;
 while|while
 condition|(
 name|prev
 operator|>
 literal|0
-operator|&&
-name|prev
-operator|!=
-name|lastPrev
 condition|)
 block|{
-name|lastPrev
-operator|=
-name|prev
-expr_stmt|;
 comment|// seek to xref table
 name|source
 operator|.
@@ -1386,15 +1383,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 if|if
 condition|(
+name|prevSet
+operator|.
+name|contains
+argument_list|(
 name|prev
-operator|==
-name|lastPrev
+argument_list|)
 condition|)
 block|{
-comment|//TODO better idea needed? PDFBOX-3446
 throw|throw
 operator|new
 name|IOException
@@ -1404,6 +1402,14 @@ operator|+
 name|prev
 argument_list|)
 throw|;
+block|}
+name|prevSet
+operator|.
+name|add
+argument_list|(
+name|prev
+argument_list|)
+expr_stmt|;
 block|}
 comment|// ---- build valid xrefs out of the xref chain
 name|xrefTrailerResolver
