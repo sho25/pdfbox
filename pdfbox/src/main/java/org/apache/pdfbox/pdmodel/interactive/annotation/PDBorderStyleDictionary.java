@@ -212,7 +212,7 @@ name|w
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border width in points, 0 = no border.      *      * @return flaot the width of the border in points      */
+comment|/**      * This will retrieve the border width in points, 0 = no border.      *      * @return The width of the border in points.      */
 specifier|public
 name|float
 name|getWidth
