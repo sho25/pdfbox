@@ -2043,7 +2043,7 @@ name|xfa
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the 'quadding' or justification of the text to be displayed.      * 0 - Left(default)<br>      * 1 - Centered<br>      * 2 - Right<br>      * Please see the QUADDING_CONSTANTS.      *      * @return The justification of the text strings.      */
+comment|/**      * This will get the document-wide default value for the quadding/justification of variable text      * fields.       *<p>      * 0 - Left(default)<br>      * 1 - Centered<br>      * 2 - Right<br>      * See the QUADDING constants of {@link PDVariableText}.      *      * @return The justification of the variable text fields.      */
 specifier|public
 name|int
 name|getQ
@@ -2088,7 +2088,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the quadding/justification of the text.  See QUADDING constants.      *      * @param q The new text justification.      */
+comment|/**      * This will set the document-wide default value for the quadding/justification of variable text      * fields. See the QUADDING constants of {@link PDVariableText}.      *      * @param q The justification of the variable text fields.      */
 specifier|public
 name|void
 name|setQ
