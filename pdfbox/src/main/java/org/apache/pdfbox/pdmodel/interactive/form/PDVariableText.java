@@ -139,6 +139,7 @@ name|PDVariableText
 extends|extends
 name|PDTerminalField
 block|{
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -146,6 +147,7 @@ name|QUADDING_LEFT
 init|=
 literal|0
 decl_stmt|;
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -153,6 +155,7 @@ name|QUADDING_CENTERED
 init|=
 literal|1
 decl_stmt|;
+specifier|public
 specifier|static
 specifier|final
 name|int
