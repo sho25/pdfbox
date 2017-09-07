@@ -7958,6 +7958,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|long
+name|xrefTableStartOffset
+init|=
+name|source
+operator|.
+name|getPosition
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|source
@@ -8246,6 +8254,35 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|currOffset
+operator|>=
+name|xrefTableStartOffset
+operator|&&
+name|currOffset
+operator|<=
+name|source
+operator|.
+name|getPosition
+argument_list|()
+condition|)
+block|{
+comment|// PDFBOX-3923: offset points inside this table - that can't be good
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"XRefTable offset "
+operator|+
+name|currOffset
+operator|+
+literal|" is within xref table for "
+operator|+
+name|currObjID
+argument_list|)
+throw|;
+block|}
 name|int
 name|currGenID
 init|=
