@@ -503,7 +503,7 @@ name|asn1
 operator|.
 name|x509
 operator|.
-name|TBSCertificateStructure
+name|TBSCertificate
 import|;
 end_import
 
@@ -2321,7 +2321,7 @@ name|BadPaddingException
 throws|,
 name|IllegalBlockSizeException
 block|{
-name|TBSCertificateStructure
+name|TBSCertificate
 name|certificate
 decl_stmt|;
 try|try
@@ -2341,7 +2341,7 @@ init|)
 block|{
 name|certificate
 operator|=
-name|TBSCertificateStructure
+name|TBSCertificate
 operator|.
 name|getInstance
 argument_list|(
