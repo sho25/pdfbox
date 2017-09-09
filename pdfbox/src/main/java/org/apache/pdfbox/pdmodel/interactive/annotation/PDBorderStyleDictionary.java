@@ -192,7 +192,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * This will set the border width in points, 0 = no border.      *      * @param w float the width in points      */
+comment|/**      * This will set the border width in points, 0 = no border.      *      * There is a bug in Adobe Reader DC, float values are ignored for text field widgets. As a      * workaround, floats that are integers (e.g. 2.0) are written as integer in the PDF.      *      * @param w float the width in points      */
 specifier|public
 name|void
 name|setWidth
@@ -200,6 +200,33 @@ parameter_list|(
 name|float
 name|w
 parameter_list|)
+block|{
+comment|// PDFBOX-3929 workaround
+if|if
+condition|(
+name|w
+operator|==
+operator|(
+name|int
+operator|)
+name|w
+condition|)
+block|{
+name|getCOSObject
+argument_list|()
+operator|.
+name|setInt
+argument_list|(
+literal|"W"
+argument_list|,
+operator|(
+name|int
+operator|)
+name|w
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|getCOSObject
 argument_list|()
@@ -211,6 +238,7 @@ argument_list|,
 name|w
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * This will retrieve the border width in points, 0 = no border.      *      * @return The width of the border in points.      */
 specifier|public
