@@ -276,6 +276,22 @@ name|index
 parameter_list|)
 block|{
 name|COSBase
+name|filter
+init|=
+name|dictionary
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|FILTER
+argument_list|,
+name|COSName
+operator|.
+name|F
+argument_list|)
+decl_stmt|;
+name|COSBase
 name|obj
 init|=
 name|dictionary
@@ -293,11 +309,18 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|filter
+operator|instanceof
+name|COSName
+operator|&&
 name|obj
 operator|instanceof
 name|COSDictionary
 condition|)
 block|{
+comment|// PDFBOX-3932: The PDF specification requires "If there is only one filter and that
+comment|// filter has parameters, DecodeParms shall be set to the filter’s parameter dictionary"
+comment|// but tests show that Adobe means "one filter name object".
 return|return
 operator|(
 name|COSDictionary
@@ -308,6 +331,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|filter
+operator|instanceof
+name|COSArray
+operator|&&
 name|obj
 operator|instanceof
 name|COSArray
@@ -350,6 +377,17 @@ condition|(
 name|obj
 operator|!=
 literal|null
+operator|&&
+operator|!
+operator|(
+name|filter
+operator|instanceof
+name|COSArray
+operator|||
+name|obj
+operator|instanceof
+name|COSArray
+operator|)
 condition|)
 block|{
 name|LOG
