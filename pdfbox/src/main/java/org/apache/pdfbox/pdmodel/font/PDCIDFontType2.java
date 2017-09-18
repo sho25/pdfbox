@@ -484,7 +484,16 @@ literal|null
 decl_stmt|;
 name|PDStream
 name|stream
+init|=
+literal|null
 decl_stmt|;
+if|if
+condition|(
+name|fd
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|fd
@@ -532,6 +541,7 @@ operator|.
 name|getFontFile
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
