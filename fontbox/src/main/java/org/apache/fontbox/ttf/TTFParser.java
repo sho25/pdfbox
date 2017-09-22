@@ -347,8 +347,6 @@ block|{
 name|parseTables
 argument_list|(
 name|font
-argument_list|,
-name|raf
 argument_list|)
 expr_stmt|;
 block|}
@@ -371,16 +369,13 @@ name|raf
 argument_list|)
 return|;
 block|}
-comment|/**      * Parse all tables and check if all needed tables are present.      *      * @param font the TrueTypeFont instance holding the parsed data.      * @param raf the data stream of the to be parsed ttf font      * @throws IOException If there is an error parsing the TrueType font.      */
+comment|/**      * Parse all tables and check if all needed tables are present.      *      * @param font the TrueTypeFont instance holding the parsed data.      * @throws IOException If there is an error parsing the TrueType font.      */
 specifier|private
 name|void
 name|parseTables
 parameter_list|(
 name|TrueTypeFont
 name|font
-parameter_list|,
-name|TTFDataStream
-name|raf
 parameter_list|)
 throws|throws
 name|IOException
