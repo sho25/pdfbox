@@ -660,8 +660,6 @@ name|IOException
 block|{
 name|TTFTable
 name|table
-init|=
-literal|null
 decl_stmt|;
 name|String
 name|tag
