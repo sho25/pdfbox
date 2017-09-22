@@ -324,9 +324,6 @@ name|xscale
 operator|=
 name|yscale
 operator|=
-operator|(
-name|double
-operator|)
 name|i
 operator|/
 operator|(
@@ -357,9 +354,6 @@ argument_list|()
 decl_stmt|;
 name|xscale
 operator|=
-operator|(
-name|double
-operator|)
 name|i
 operator|/
 operator|(
@@ -376,9 +370,6 @@ argument_list|()
 expr_stmt|;
 name|yscale
 operator|=
-operator|(
-name|double
-operator|)
 name|i
 operator|/
 operator|(
@@ -409,9 +400,6 @@ argument_list|()
 decl_stmt|;
 name|xscale
 operator|=
-operator|(
-name|double
-operator|)
 name|i
 operator|/
 operator|(
@@ -428,9 +416,6 @@ argument_list|()
 expr_stmt|;
 name|scale01
 operator|=
-operator|(
-name|double
-operator|)
 name|i
 operator|/
 operator|(
@@ -447,9 +432,6 @@ argument_list|()
 expr_stmt|;
 name|scale10
 operator|=
-operator|(
-name|double
-operator|)
 name|i
 operator|/
 operator|(
@@ -466,9 +448,6 @@ argument_list|()
 expr_stmt|;
 name|yscale
 operator|=
-operator|(
-name|double
-operator|)
 name|i
 operator|/
 operator|(
