@@ -1553,10 +1553,7 @@ condition|(
 name|cache
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|isAllowedCache
 argument_list|(
 name|xobject
@@ -1572,7 +1569,6 @@ argument_list|,
 name|xobject
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|xobject
