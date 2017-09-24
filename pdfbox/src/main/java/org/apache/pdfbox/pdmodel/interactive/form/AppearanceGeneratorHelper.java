@@ -710,6 +710,42 @@ name|value
 operator|=
 name|apValue
 expr_stmt|;
+comment|// Treat multiline field values in single lines as single lime values.
+comment|// This is in line with how Adobe Reader behaves when enetring text
+comment|// interactively but NOT how it behaves when the field value has been
+comment|// set programmatically and Reader is forced to generate the appearance
+comment|// using PDAcroForm.setNeedAppearances
+comment|// see PDFBOX-3911
+if|if
+condition|(
+name|field
+operator|instanceof
+name|PDTextField
+operator|&&
+operator|!
+operator|(
+operator|(
+name|PDTextField
+operator|)
+name|field
+operator|)
+operator|.
+name|isMultiline
+argument_list|()
+condition|)
+block|{
+name|value
+operator|=
+name|apValue
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\u000D\\u000A|[\\u000A\\u000B\\u000C\\u000D\\u0085\\u2028\\u2029]"
+argument_list|,
+literal|" "
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|PDAnnotationWidget
