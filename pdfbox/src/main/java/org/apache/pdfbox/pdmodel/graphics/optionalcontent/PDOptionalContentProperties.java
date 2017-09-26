@@ -632,15 +632,6 @@ range|:
 name|ocgs
 control|)
 block|{
-name|COSObject
-name|obj
-init|=
-operator|(
-name|COSObject
-operator|)
-name|base
-decl_stmt|;
-comment|//Children must be indirect references
 name|coll
 operator|.
 name|add
@@ -648,13 +639,10 @@ argument_list|(
 operator|new
 name|PDOptionalContentGroup
 argument_list|(
-operator|(
-name|COSDictionary
-operator|)
-name|obj
-operator|.
-name|getObject
-argument_list|()
+name|toDictionary
+argument_list|(
+name|base
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
