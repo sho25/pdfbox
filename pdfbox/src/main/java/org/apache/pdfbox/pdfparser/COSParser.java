@@ -6895,6 +6895,17 @@ comment|// info dictionary
 elseif|else
 if|if
 condition|(
+operator|!
+name|dictionary
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|PARENT
+argument_list|)
+operator|&&
+operator|(
 name|dictionary
 operator|.
 name|containsKey
@@ -6903,8 +6914,7 @@ name|COSName
 operator|.
 name|MOD_DATE
 argument_list|)
-operator|&&
-operator|(
+operator|||
 name|dictionary
 operator|.
 name|containsKey
