@@ -614,9 +614,6 @@ name|void
 name|verifyOrCreateDefaults
 parameter_list|()
 block|{
-comment|// TODO: the handling of the missing properties is suitable
-comment|// if there are no entries at all. It might be necessary to enhance that
-comment|// if only parts are missing
 specifier|final
 name|String
 name|adobeDefaultAppearanceString
@@ -642,26 +639,50 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// DR entry is required
-if|if
-condition|(
+name|PDResources
+name|defaultResources
+init|=
 name|getDefaultResources
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|defaultResources
 operator|==
 literal|null
 condition|)
 block|{
+name|defaultResources
+operator|=
+operator|new
+name|PDResources
+argument_list|()
+expr_stmt|;
+name|setDefaultResources
+argument_list|(
+name|defaultResources
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Adobe Acrobat uses Helvetica as a default font and
 comment|// stores that under the name '/Helv' in the resources dictionary
 comment|// Zapf Dingbats is included per default for check boxes and
 comment|// radio buttons as /ZaDb.
-name|PDResources
-name|resources
-init|=
-operator|new
-name|PDResources
+if|if
+condition|(
+operator|!
+name|defaultResources
+operator|.
+name|getCOSObject
 argument_list|()
-decl_stmt|;
-name|resources
+operator|.
+name|containsKey
+argument_list|(
+literal|"Helv"
+argument_list|)
+condition|)
+block|{
+name|defaultResources
 operator|.
 name|put
 argument_list|(
@@ -677,7 +698,22 @@ operator|.
 name|HELVETICA
 argument_list|)
 expr_stmt|;
-name|resources
+block|}
+if|if
+condition|(
+operator|!
+name|defaultResources
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+literal|"ZaDb"
+argument_list|)
+condition|)
+block|{
+name|defaultResources
 operator|.
 name|put
 argument_list|(
@@ -691,11 +727,6 @@ argument_list|,
 name|PDType1Font
 operator|.
 name|ZAPF_DINGBATS
-argument_list|)
-expr_stmt|;
-name|setDefaultResources
-argument_list|(
-name|resources
 argument_list|)
 expr_stmt|;
 block|}
