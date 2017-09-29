@@ -7722,7 +7722,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO encryption dictionary
+comment|// encryption dictionary, if existing, is lost
+comment|// We can't run "Algorithm 2" from PDF specification because of missing ID
 block|}
 catch|catch
 parameter_list|(
@@ -8902,20 +8903,28 @@ argument_list|()
 condition|)
 block|{
 comment|// PDFBOX-3923: offset points inside this table - that can't be good
-throw|throw
-operator|new
-name|IOException
+comment|// PDFBOX-3935: don't abort (rebuilding trailer would lose encryption
+comment|//              dictionary), just skip
+name|LOG
+operator|.
+name|warn
 argument_list|(
 literal|"XRefTable offset "
 operator|+
 name|currOffset
 operator|+
-literal|" is within xref table for "
+literal|" is within xref table (start offset: "
+operator|+
+name|xrefTableStartOffset
+operator|+
+literal|") for object "
 operator|+
 name|currObjID
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
+else|else
+block|{
 name|int
 name|currGenID
 init|=
@@ -8949,6 +8958,7 @@ argument_list|,
 name|currOffset
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
