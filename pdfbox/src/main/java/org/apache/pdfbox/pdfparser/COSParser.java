@@ -8361,14 +8361,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|long
-name|xrefTableStartOffset
-init|=
-name|source
-operator|.
-name|getPosition
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|source
@@ -8657,44 +8649,6 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|currOffset
-operator|>=
-name|xrefTableStartOffset
-operator|&&
-name|currOffset
-operator|<=
-name|source
-operator|.
-name|getPosition
-argument_list|()
-condition|)
-block|{
-comment|// PDFBOX-3923: offset points inside this table - that can't be good
-comment|// PDFBOX-3935: don't abort (rebuilding trailer would lose encryption
-comment|//              dictionary), just skip
-comment|// alternative fix: in checkXrefOffsets() do clear() before putAll()
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"XRefTable offset "
-operator|+
-name|currOffset
-operator|+
-literal|" is within xref table (start offset: "
-operator|+
-name|xrefTableStartOffset
-operator|+
-literal|") for object "
-operator|+
-name|currObjID
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|int
 name|currGenID
 init|=
@@ -8728,7 +8682,6 @@ argument_list|,
 name|currOffset
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
