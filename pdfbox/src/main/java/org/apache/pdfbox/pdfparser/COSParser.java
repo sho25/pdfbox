@@ -8905,6 +8905,7 @@ block|{
 comment|// PDFBOX-3923: offset points inside this table - that can't be good
 comment|// PDFBOX-3935: don't abort (rebuilding trailer would lose encryption
 comment|//              dictionary), just skip
+comment|// alternative fix: in checkXrefOffsets() do clear() before putAll()
 name|LOG
 operator|.
 name|warn
