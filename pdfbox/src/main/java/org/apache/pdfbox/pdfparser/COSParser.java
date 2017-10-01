@@ -5441,13 +5441,13 @@ name|char
 index|[]
 name|endobjString
 init|=
-literal|"endobj"
+literal|"endo"
 operator|.
 name|toCharArray
 argument_list|()
 decl_stmt|;
 name|boolean
-name|endobjFound
+name|endOfObjFound
 init|=
 literal|false
 decl_stmt|;
@@ -5628,7 +5628,7 @@ name|length
 operator|-
 literal|1
 expr_stmt|;
-name|endobjFound
+name|endOfObjFound
 operator|=
 literal|false
 expr_stmt|;
@@ -5636,6 +5636,9 @@ block|}
 block|}
 block|}
 block|}
+comment|// check for "endo" as abbreviation for "endobj", as the pdf may be cut off
+comment|// in the middle of the keyword, see PDFBOX-3936.
+comment|// We could possibly implement a more intelligent algorithm if necessary
 elseif|else
 if|if
 condition|(
@@ -5645,7 +5648,7 @@ name|endobjString
 argument_list|)
 condition|)
 block|{
-name|endobjFound
+name|endOfObjFound
 operator|=
 literal|true
 expr_stmt|;
@@ -5684,7 +5687,7 @@ name|Long
 operator|.
 name|MAX_VALUE
 operator|||
-name|endobjFound
+name|endOfObjFound
 operator|)
 operator|&&
 name|lastObjOffset
