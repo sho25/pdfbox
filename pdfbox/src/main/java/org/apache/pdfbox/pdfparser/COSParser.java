@@ -8953,12 +8953,10 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|parseObjectDynamically
-argument_list|(
 name|root
-argument_list|,
-literal|false
-argument_list|)
+operator|.
+name|getObject
+argument_list|()
 return|;
 block|}
 block|}

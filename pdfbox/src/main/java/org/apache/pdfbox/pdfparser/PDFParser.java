@@ -741,33 +741,10 @@ name|CATALOG
 argument_list|)
 expr_stmt|;
 block|}
-name|COSObject
-name|catalogObj
-init|=
-name|document
-operator|.
-name|getCatalog
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|catalogObj
-operator|.
-name|getObject
-argument_list|()
-operator|instanceof
-name|COSDictionary
-condition|)
-block|{
+comment|// parse all objects, starting at the root dictionary
 name|parseDictObjects
 argument_list|(
-operator|(
-name|COSDictionary
-operator|)
-name|catalogObj
-operator|.
-name|getObject
-argument_list|()
+name|root
 argument_list|,
 operator|(
 name|COSName
@@ -776,6 +753,7 @@ operator|)
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// parse all objects of the info dictionary
 name|COSBase
 name|infoBase
 init|=
@@ -815,7 +793,6 @@ operator|.
 name|setDecrypted
 argument_list|()
 expr_stmt|;
-block|}
 name|initialParseDone
 operator|=
 literal|true
