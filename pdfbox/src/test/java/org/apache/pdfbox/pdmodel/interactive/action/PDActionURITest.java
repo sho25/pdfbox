@@ -62,7 +62,7 @@ specifier|public
 class|class
 name|PDActionURITest
 block|{
-comment|/**      * PDFBOX-3913: Check that URIs encoded in UTF-8 are also supported.      */
+comment|/**      * PDFBOX-3913: Check that URIs encoded in UTF-8 are also supported.      * PDFBOX-3946: Check that there is no NPE if URI missing.      */
 annotation|@
 name|Test
 specifier|public
