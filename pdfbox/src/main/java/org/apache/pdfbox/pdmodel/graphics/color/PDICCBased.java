@@ -765,7 +765,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Can't read embedded ICC profile ("
 operator|+
