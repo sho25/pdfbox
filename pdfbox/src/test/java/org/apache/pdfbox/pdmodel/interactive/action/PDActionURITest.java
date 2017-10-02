@@ -32,6 +32,18 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNull
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -65,6 +77,14 @@ operator|new
 name|PDActionURI
 argument_list|()
 decl_stmt|;
+name|assertNull
+argument_list|(
+name|actionURI
+operator|.
+name|getURI
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|actionURI
 operator|.
 name|setURI
