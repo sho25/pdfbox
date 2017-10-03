@@ -3588,7 +3588,7 @@ decl_stmt|;
 name|Long
 name|offset
 init|=
-name|document
+name|xrefTrailerResolver
 operator|.
 name|getXrefTable
 argument_list|()
@@ -6707,6 +6707,24 @@ argument_list|,
 literal|"ISO-8859-1"
 argument_list|)
 decl_stmt|;
+name|numbersStr
+operator|=
+name|numbersStr
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\n"
+argument_list|,
+literal|" "
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"  "
+argument_list|,
+literal|" "
+argument_list|)
+expr_stmt|;
 name|String
 index|[]
 name|numbers
@@ -7371,7 +7389,12 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-comment|// skip compressed objects
+name|COSDictionary
+name|dictionary
+init|=
+literal|null
+decl_stmt|;
+comment|// handle compressed objects
 if|if
 condition|(
 name|offset
@@ -7379,8 +7402,66 @@ operator|<
 literal|0
 condition|)
 block|{
+name|parseObjectStream
+argument_list|(
+operator|(
+name|int
+operator|)
+operator|-
+name|offset
+argument_list|)
+expr_stmt|;
+name|COSObject
+name|compressedObject
+init|=
+name|document
+operator|.
+name|getObjectFromPool
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|compressedObject
+operator|!=
+literal|null
+condition|)
+block|{
+name|COSBase
+name|baseObject
+init|=
+name|compressedObject
+operator|.
+name|getObject
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|baseObject
+operator|instanceof
+name|COSDictionary
+condition|)
+block|{
+name|dictionary
+operator|=
+operator|(
+name|COSDictionary
+operator|)
+name|baseObject
+expr_stmt|;
+block|}
+else|else
+block|{
 continue|continue;
 block|}
+block|}
+block|}
+else|else
+block|{
 name|source
 operator|.
 name|seek
@@ -7401,8 +7482,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 if|if
 condition|(
 name|source
@@ -7415,12 +7494,37 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|COSDictionary
+try|try
+block|{
 name|dictionary
-init|=
+operator|=
 name|parseCOSDictionary
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|exception
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Skipped object "
+operator|+
+name|entry
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|", either it's corrupt or not a dictionary"
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+block|}
 comment|// document catalog
 if|if
 condition|(
@@ -7561,28 +7665,6 @@ expr_stmt|;
 block|}
 comment|// encryption dictionary, if existing, is lost
 comment|// We can't run "Algorithm 2" from PDF specification because of missing ID
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|exception
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Skipped object "
-operator|+
-name|entry
-operator|.
-name|getKey
-argument_list|()
-operator|+
-literal|", either it's corrupt or not a dictionary"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 name|trailer
