@@ -6736,6 +6736,32 @@ argument_list|(
 literal|" "
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|numbers
+operator|.
+name|length
+operator|<
+name|nrOfObjects
+operator|*
+literal|2
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Skipped corrupt stream: ("
+operator|+
+name|stmObjNumber
+operator|+
+literal|" 0 at offset "
+operator|+
+name|offset
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 for|for
 control|(
 name|int
