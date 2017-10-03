@@ -6518,7 +6518,7 @@ name|keySet
 argument_list|()
 control|)
 block|{
-name|long
+name|Long
 name|bfOffset
 init|=
 name|bfSearchCOSObjectKeyOffsets
@@ -6533,12 +6533,43 @@ name|offset
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// incomplete object stream found?
+if|if
+condition|(
+name|bfOffset
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Skipped incomplete object stream:"
+operator|+
+name|bfSearchObjStreamsOffsets
+operator|.
+name|get
+argument_list|(
+name|offset
+argument_list|)
+operator|+
+literal|" at "
+operator|+
+name|offset
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 comment|// check if the object was overwritten
 if|if
 condition|(
 name|offset
-operator|==
+operator|.
+name|equals
+argument_list|(
 name|bfOffset
+argument_list|)
 condition|)
 block|{
 name|source
