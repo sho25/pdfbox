@@ -788,6 +788,12 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|// check pages dictionaries
+name|checkPages
+argument_list|(
+name|root
+argument_list|)
+expr_stmt|;
 name|document
 operator|.
 name|setDecrypted
