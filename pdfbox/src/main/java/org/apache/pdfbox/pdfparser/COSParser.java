@@ -6653,6 +6653,22 @@ operator|.
 name|N
 argument_list|)
 expr_stmt|;
+comment|// skip the stream if required values are missing
+if|if
+condition|(
+name|offsetFirstStream
+operator|==
+operator|-
+literal|1
+operator|||
+name|nrOfObjects
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+continue|continue;
+block|}
 name|stream
 operator|=
 name|parseCOSStream
