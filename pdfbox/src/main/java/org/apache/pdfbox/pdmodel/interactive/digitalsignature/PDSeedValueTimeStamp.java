@@ -57,6 +57,7 @@ class|class
 name|PDSeedValueTimeStamp
 block|{
 specifier|private
+specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;

@@ -200,6 +200,7 @@ operator|<<
 literal|6
 decl_stmt|;
 specifier|private
+specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
