@@ -1036,9 +1036,7 @@ init|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Adjust test to 11 when PDFBOX-3785 is fixed"
-argument_list|,
-literal|1
+literal|11
 argument_list|,
 name|doc
 operator|.
@@ -1046,7 +1044,6 @@ name|getNumberOfPages
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//assertEquals(11, doc.getNumberOfPages());
 block|}
 block|}
 comment|/**      * PDFBOX-3947: test parsing of file with broken object stream.      *      * @throws MalformedURLException      * @throws IOException       */
