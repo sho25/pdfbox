@@ -8375,10 +8375,6 @@ decl_stmt|;
 if|if
 condition|(
 name|pages
-operator|!=
-literal|null
-operator|&&
-name|pages
 operator|instanceof
 name|COSDictionary
 condition|)
@@ -8422,10 +8418,6 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|kids
-operator|!=
-literal|null
-operator|&&
 name|kids
 operator|instanceof
 name|COSArray
