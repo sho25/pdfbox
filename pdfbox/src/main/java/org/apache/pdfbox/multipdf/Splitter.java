@@ -344,7 +344,7 @@ operator|=
 name|split
 expr_stmt|;
 block|}
-comment|/**      * This will set the start page.      *      * @param start the start page      * @throws IllegalArgumentException if the start page is smaller than one.      */
+comment|/**      * This will set the start page.      *      * @param start the 1-based start page      * @throws IllegalArgumentException if the start page is smaller than one.      */
 specifier|public
 name|void
 name|setStartPage
@@ -373,7 +373,7 @@ operator|=
 name|start
 expr_stmt|;
 block|}
-comment|/**      * This will set the end page.      *      * @param end the end page      * @throws IllegalArgumentException if the end page is smaller than one.      */
+comment|/**      * This will set the end page.      *      * @param end the 1-based end page      * @throws IllegalArgumentException if the end page is smaller than one.      */
 specifier|public
 name|void
 name|setEndPage
@@ -516,7 +516,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Check if it is necessary to create a new document.      * By default a split occurs at every page.  If you wanted to split      * based on some complex logic then you could override this method.  For example.      *<code>      * protected void splitAtPage()      * {      *     // will split at pages with prime numbers only      *     return isPrime(pageNumber);      * }      *</code>      * @param pageNumber the page number to be checked as splitting page      *       * @return true If a new document should be created.      */
+comment|/**      * Check if it is necessary to create a new document.      * By default a split occurs at every page.  If you wanted to split      * based on some complex logic then you could override this method.  For example.      *<code>      * protected void splitAtPage()      * {      *     // will split at pages with prime numbers only      *     return isPrime(pageNumber);      * }      *</code>      * @param pageNumber the 0-based page number to be checked as splitting page      *       * @return true If a new document should be created.      */
 specifier|protected
 name|boolean
 name|splitAtPage
@@ -526,7 +526,20 @@ name|pageNumber
 parameter_list|)
 block|{
 return|return
+operator|(
 name|pageNumber
+operator|+
+literal|1
+operator|-
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|1
+argument_list|,
+name|startPage
+argument_list|)
+operator|)
 operator|%
 name|splitLength
 operator|==
