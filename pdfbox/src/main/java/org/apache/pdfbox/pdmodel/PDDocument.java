@@ -3318,7 +3318,7 @@ operator|=
 name|encryption
 expr_stmt|;
 block|}
-comment|/**      * This will return the last signature.      *       * @return the last signature as<code>PDSignatureField</code>.      * @throws IOException if no document catalog can be found.      */
+comment|/**      * This will return the last signature from the field tree. Note that this may not be the      * last in time when empty signature fields are created first but signed after other fields.      *       * @return the last signature as<code>PDSignatureField</code>.      * @throws IOException if no document catalog can be found.      */
 specifier|public
 name|PDSignature
 name|getLastSignatureDictionary
@@ -4401,7 +4401,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Save PDF incrementally without closing for external signature creation scenario. The general      * sequence is:      *<pre>      *    PDDocument pdDocument = ...;      *    OutputStream outputStream = ...;      *    SignatureOptions signatureOptions = ...; // options to specify fine tuned signature options or null for defaults      *    PDSignature pdSignature = ...;      *      *    // add signature parameters to be used when creating signature dictionary      *    pdDocument.addSignature(pdSignature, signatureOptions);      *    // prepare PDF for signing and obtain helper class to be used      *    ExternalSigningSupport externalSigningSupport = pdDocument.saveIncrementalForExternalSigning(outputStream);      *    // get data to be signed      *    InputStream dataToBeSigned = externalSigningSupport.getContent();      *    // invoke signature service      *    byte[] signature = sign(dataToBeSigned);      *    // set resulted CMS signature      *    externalSigningSupport.setSignature(signature);      *      *    // last step is to close the document      *    pdDocument.close();      *</pre>      *<p>      * Note that after calling this method, only {@code close()} method may invoked for      * {@code PDDocument} instance and only AFTER {@link ExternalSigningSupport} instance is used.      *</p>      *      * @param output stream to write final PDF      * @return instance to be used for external signing and setting CMS signature      * @throws IOException if the output could not be written      * @throws IllegalStateException if the document was not loaded from a file or a stream or      * signature optionss were not set.      */
+comment|/**      * Save PDF incrementally without closing for external signature creation scenario. The general      * sequence is:      *<pre>      *    PDDocument pdDocument = ...;      *    OutputStream outputStream = ...;      *    SignatureOptions signatureOptions = ...; // options to specify fine tuned signature options or null for defaults      *    PDSignature pdSignature = ...;      *      *    // add signature parameters to be used when creating signature dictionary      *    pdDocument.addSignature(pdSignature, signatureOptions);      *    // prepare PDF for signing and obtain helper class to be used      *    ExternalSigningSupport externalSigningSupport = pdDocument.saveIncrementalForExternalSigning(outputStream);      *    // get data to be signed      *    InputStream dataToBeSigned = externalSigningSupport.getContent();      *    // invoke signature service      *    byte[] signature = sign(dataToBeSigned);      *    // set resulted CMS signature      *    externalSigningSupport.setSignature(signature);      *      *    // last step is to close the document      *    pdDocument.close();      *</pre>      *<p>      * Note that after calling this method, only {@code close()} method may invoked for      * {@code PDDocument} instance and only AFTER {@link ExternalSigningSupport} instance is used.      *</p>      *      * @param output stream to write final PDF      * @return instance to be used for external signing and setting CMS signature      * @throws IOException if the output could not be written      * @throws IllegalStateException if the document was not loaded from a file or a stream or      * signature options were not set.      */
 specifier|public
 name|ExternalSigningSupport
 name|saveIncrementalForExternalSigning
@@ -4427,12 +4427,45 @@ literal|"document was not loaded from a file or a stream"
 argument_list|)
 throw|;
 block|}
+comment|// PDFBOX-3978: getLastSignatureDictionary() not helpful if signing into a template
+comment|// that is not the last signature. So give higher priority to signature with update flag.
+name|PDSignature
+name|foundSignature
+init|=
+literal|null
+decl_stmt|;
+for|for
+control|(
+name|PDSignature
+name|sig
+range|:
+name|getSignatureDictionaries
+argument_list|()
+control|)
+block|{
+name|foundSignature
+operator|=
+name|sig
+expr_stmt|;
+if|if
+condition|(
+name|sig
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|isNeedToBeUpdated
+argument_list|()
+condition|)
+block|{
+break|break;
+block|}
+block|}
 name|int
 index|[]
 name|byteRange
 init|=
-name|getLastSignatureDictionary
-argument_list|()
+name|foundSignature
 operator|.
 name|getByteRange
 argument_list|()
