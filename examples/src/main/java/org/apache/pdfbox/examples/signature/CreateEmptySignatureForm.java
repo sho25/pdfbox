@@ -389,7 +389,10 @@ name|document
 operator|.
 name|save
 argument_list|(
-literal|"target/EmptySignatureForm.pdf"
+name|args
+index|[
+literal|0
+index|]
 argument_list|)
 expr_stmt|;
 block|}
