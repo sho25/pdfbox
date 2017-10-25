@@ -401,6 +401,8 @@ expr_stmt|;
 name|int
 name|accessPermissions
 init|=
+name|SigUtils
+operator|.
 name|getMDPPermission
 argument_list|(
 name|document
@@ -488,6 +490,8 @@ operator|==
 literal|0
 condition|)
 block|{
+name|SigUtils
+operator|.
 name|setMDPPermission
 argument_list|(
 name|document

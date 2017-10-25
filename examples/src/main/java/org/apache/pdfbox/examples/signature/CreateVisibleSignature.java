@@ -746,6 +746,8 @@ block|{
 name|int
 name|accessPermissions
 init|=
+name|SigUtils
+operator|.
 name|getMDPPermission
 argument_list|(
 name|doc
@@ -815,6 +817,8 @@ operator|==
 literal|0
 condition|)
 block|{
+name|SigUtils
+operator|.
 name|setMDPPermission
 argument_list|(
 name|doc
