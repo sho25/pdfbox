@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @author Tilman Hausherr  */
+comment|/**  * Utility class for the signature / timestamp examples.  *   * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -114,7 +114,11 @@ specifier|public
 class|class
 name|SigUtils
 block|{
-comment|/**      * Get the access permissions granted for this document in the DocMDP transform parameters dictionary. Details are      * described in the table "Entries in the DocMDP transform parameters dictionary" in the PDF specification.      *      * @param doc document.      * @return the permission value. 0 means no DocMDP transform parameters dictionary exists. Other return values are      * 1, 2 or 3. 2 is also returned if the DocMDP transform parameters dictionary is found but did not contain a /P      * entry, or if the value is outside the valid range.      */
+specifier|private
+name|SigUtils
+parameter_list|()
+block|{     }
+comment|/**      * Get the access permissions granted for this document in the DocMDP transform parameters      * dictionary. Details are described in the table "Entries in the DocMDP transform parameters      * dictionary" in the PDF specification.      *      * @param doc document.      * @return the permission value. 0 means no DocMDP transform parameters dictionary exists. Other      * return values are 1, 2 or 3. 2 is also returned if the DocMDP transform parameters dictionary      * is found but did not contain a /P entry, or if the value is outside the valid range.      */
 specifier|static
 specifier|public
 name|int
@@ -334,6 +338,7 @@ return|return
 literal|0
 return|;
 block|}
+comment|/**      * Set the access permissions granted for this document in the DocMDP transform parameters      * dictionary. Details are described in the table "Entries in the DocMDP transform parameters      * dictionary" in the PDF specification.      *      * @param doc The document.      * @param signature The signature object.      * @param accessPermissions The permission value (1, 2 or 3).      */
 specifier|static
 specifier|public
 name|void
@@ -441,10 +446,7 @@ literal|"TransformMethod"
 argument_list|,
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-literal|"DocMDP"
-argument_list|)
+name|DOCMDP
 argument_list|)
 expr_stmt|;
 name|referenceDict
