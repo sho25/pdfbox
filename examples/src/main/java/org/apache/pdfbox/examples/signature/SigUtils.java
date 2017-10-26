@@ -119,8 +119,8 @@ name|SigUtils
 parameter_list|()
 block|{     }
 comment|/**      * Get the access permissions granted for this document in the DocMDP transform parameters      * dictionary. Details are described in the table "Entries in the DocMDP transform parameters      * dictionary" in the PDF specification.      *      * @param doc document.      * @return the permission value. 0 means no DocMDP transform parameters dictionary exists. Other      * return values are 1, 2 or 3. 2 is also returned if the DocMDP transform parameters dictionary      * is found but did not contain a /P entry, or if the value is outside the valid range.      */
-specifier|static
 specifier|public
+specifier|static
 name|int
 name|getMDPPermission
 parameter_list|(
