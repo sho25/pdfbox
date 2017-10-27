@@ -804,6 +804,9 @@ block|{
 case|case
 literal|"adbe.pkcs7.detached"
 case|:
+case|case
+literal|"ETSI.CAdES.detached"
+case|:
 name|verifyPKCS7
 argument_list|(
 name|buf
