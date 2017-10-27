@@ -360,26 +360,10 @@ literal|"ETSI.RFC3161"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Optional: certify
-if|if
-condition|(
-name|accessPermissions
-operator|==
-literal|0
-condition|)
-block|{
-name|SigUtils
-operator|.
-name|setMDPPermission
-argument_list|(
-name|document
-argument_list|,
-name|signature
-argument_list|,
-literal|2
-argument_list|)
-expr_stmt|;
-block|}
+comment|// No certification allowed because /Reference not allowed in signature directory
+comment|// see ETSI EN 319 142-1 Part 1 and ETSI TS 102 778-4
+comment|// http://www.etsi.org/deliver/etsi_en%5C319100_319199%5C31914201%5C01.01.00_30%5Cen_31914201v010100v.pdf
+comment|// http://www.etsi.org/deliver/etsi_ts/102700_102799/10277804/01.01.01_60/ts_10277804v010101p.pdf
 comment|// register signature dictionary and sign interface
 name|document
 operator|.
