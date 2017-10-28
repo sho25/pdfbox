@@ -1010,7 +1010,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"name for 'gs' operator not found in resources: /GS7"
+literal|"Missing descendant font array"
 argument_list|)
 condition|)
 block|{
