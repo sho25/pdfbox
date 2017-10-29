@@ -162,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * this class represent certificate seed value dictionary that is in the seed value which puts constraints on  * certificates when signing documents  *  * @author Hossam Hazem  */
+comment|/**  * This class represents a certificate seed value dictionary that is in the seed value which puts  * constraints on certificates when signing documents.  *  * @author Hossam Hazem  */
 end_comment
 
 begin_class
