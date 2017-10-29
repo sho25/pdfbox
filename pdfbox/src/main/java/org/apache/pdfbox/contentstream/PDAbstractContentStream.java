@@ -3905,6 +3905,21 @@ literal|"Error: setMiterLimit is not allowed within a text block."
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|miterLimit
+operator|<=
+literal|0.0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"A miter limit<= 0 is invalid and will not render in Acrobat Reader"
+argument_list|)
+throw|;
+block|}
 name|writeOperand
 argument_list|(
 name|miterLimit
