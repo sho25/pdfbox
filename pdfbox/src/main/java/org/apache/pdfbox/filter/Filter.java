@@ -196,7 +196,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Compression Level System Property. Set this to a value from 0 to 9 to change the zlib deflate      * compression level used to compress /Flate streams. The default value is -1 with is      * {@link Deflater#DEFAULT_COMPRESSION}. To set maximum compression, use      * {@code System.setProperty(Filter.SYSPROP_DEFLATELEVEL, "9");}      */
+comment|/**      * Compression Level System Property. Set this to a value from 0 to 9 to change the zlib deflate      * compression level used to compress /Flate streams. The default value is -1 which is      * {@link Deflater#DEFAULT_COMPRESSION}. To set maximum compression, use      * {@code System.setProperty(Filter.SYSPROP_DEFLATELEVEL, "9");}      */
 specifier|public
 specifier|static
 specifier|final
