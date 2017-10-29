@@ -57,6 +57,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|zip
+operator|.
+name|Deflater
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|imageio
@@ -183,6 +195,15 @@ name|Filter
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|/**      * Compression Level System Property. Set this to a value from 0 to 9 to change the zlib deflate      * compression level used to compress /Flate streams. The default value is -1 with is      * {@link Deflater#DEFAULT_COMPRESSION}. To set maximum compression, use      * {@code System.setProperty(Filter.SYSPROP_DEFLATELEVEL, "9");}      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SYSPROP_DEFLATELEVEL
+init|=
+literal|"org.apache.pdfbox.filter.deflatelevel"
 decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|protected
