@@ -1242,7 +1242,7 @@ block|}
 comment|/**      * (Optional) A certificate seed value dictionary containing information about the certificate      * to be used when signing.      *      * @return dictionary      */
 specifier|public
 name|PDSeedValueCertificate
-name|getCertificate
+name|getSeedValueCertificate
 parameter_list|()
 block|{
 name|COSBase
@@ -1293,7 +1293,7 @@ block|}
 comment|/**      * (Optional) A certificate seed value dictionary containing information about the certificate      * to be used when signing.      *      * @param certificate dictionary      */
 specifier|public
 name|void
-name|setCertificate
+name|setSeedValueCertificate
 parameter_list|(
 name|PDSeedValueCertificate
 name|certificate
