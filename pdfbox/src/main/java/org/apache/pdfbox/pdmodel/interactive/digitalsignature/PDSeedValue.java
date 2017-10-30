@@ -1135,7 +1135,7 @@ block|}
 comment|/**      * (Optional) An array of text strings that specifying possible reasons for signing      * a document. If specified, the reasons supplied in this entry replace those used      * by conforming products.      *      * @param reasons is a list of possible text string that specifying possible reasons      */
 specifier|public
 name|void
-name|setReasonsd
+name|setReasons
 parameter_list|(
 name|List
 argument_list|<
