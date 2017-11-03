@@ -190,6 +190,8 @@ literal|1
 decl_stmt|;
 name|int
 name|compressedRead
+init|=
+literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -211,6 +213,17 @@ argument_list|,
 name|amountToCopy
 argument_list|)
 expr_stmt|;
+comment|// EOF reached?
+if|if
+condition|(
+name|compressedRead
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+break|break;
+block|}
 name|decoded
 operator|.
 name|write
