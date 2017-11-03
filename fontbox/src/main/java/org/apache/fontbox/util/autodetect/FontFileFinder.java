@@ -304,7 +304,7 @@ return|return
 name|results
 return|;
 block|}
-comment|/**      * walk down the driectory tree and search for font files.      *       * @param directory the directory to start at      * @param results names of all found font files      */
+comment|/**      * walk down the directory tree and search for font files.      *       * @param directory the directory to start at      * @param results names of all found font files      */
 specifier|private
 name|void
 name|walk
