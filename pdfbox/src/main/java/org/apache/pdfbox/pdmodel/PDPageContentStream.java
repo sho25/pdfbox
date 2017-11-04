@@ -3093,6 +3093,9 @@ name|IOException
 block|{
 name|writeOperand
 argument_list|(
+operator|(
+name|float
+operator|)
 name|data
 argument_list|)
 expr_stmt|;
