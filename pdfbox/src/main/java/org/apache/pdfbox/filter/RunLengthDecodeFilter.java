@@ -190,8 +190,6 @@ literal|1
 decl_stmt|;
 name|int
 name|compressedRead
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -251,6 +249,17 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
+comment|// EOF reached?
+if|if
+condition|(
+name|dupByte
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+break|break;
+block|}
 for|for
 control|(
 name|int
