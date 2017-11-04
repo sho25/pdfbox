@@ -222,7 +222,7 @@ name|setLeading
 argument_list|(
 literal|12
 operator|*
-literal|1.2
+literal|1.2f
 argument_list|)
 expr_stmt|;
 name|stream
