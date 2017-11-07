@@ -6335,6 +6335,13 @@ operator|.
 name|INFO
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|infoObj
+operator|instanceof
+name|COSObject
+condition|)
+block|{
 name|long
 name|objNumber
 init|=
@@ -6389,6 +6396,7 @@ name|infoFound
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
