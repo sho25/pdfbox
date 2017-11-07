@@ -2039,7 +2039,7 @@ literal|"CS"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color space.  This will add the colorspace to the PDResources      * if necessary.      *      * @param colorSpace The colorspace to write.      * @throws IOException If there is an error writing the colorspace.      * @deprecated Use {@link #setNonStrokingColor} instead.      */
+comment|/**      * Set the stroking color space.  This will add the colorspace to the PDResources      * if necessary.      *      * @param colorSpace The colorspace to write.      * @throws IOException If there is an error writing the colorspace.      * @deprecated Use {@link #setNonStrokingColor(PDColor)} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -2241,7 +2241,7 @@ literal|255f
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color in the DeviceGray color space. Range is 0..255.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameter is invalid.      * @deprecated Use {@link #setStrokingColor(double)} instead.      */
+comment|/**      * Set the stroking color in the DeviceGray color space. Range is 0..255.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameter is invalid.      * @deprecated Use {@link #setStrokingColor(float)} instead.      */
 annotation|@
 name|Deprecated
 specifier|public
