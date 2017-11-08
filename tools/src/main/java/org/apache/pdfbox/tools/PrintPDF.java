@@ -211,6 +211,34 @@ name|PrinterException
 throws|,
 name|IOException
 block|{
+try|try
+block|{
+comment|// force KCMS (faster than LCMS) if available
+name|Class
+operator|.
+name|forName
+argument_list|(
+literal|"sun.java2d.cmm.kcms.KcmsServiceProvider"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"sun.java2d.cmm"
+argument_list|,
+literal|"sun.java2d.cmm.kcms.KcmsServiceProvider"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ClassNotFoundException
+name|e
+parameter_list|)
+block|{
+comment|// do nothing
+block|}
 comment|// suppress the Dock icon on OS X
 name|System
 operator|.
