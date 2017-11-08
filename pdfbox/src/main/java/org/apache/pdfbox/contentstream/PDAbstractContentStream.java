@@ -1072,7 +1072,7 @@ literal|"Tj"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Outputs a string using the correct encoding and subsetting as required.      *      * @text The Unicode text to show.      * @throws IOException If an io exception occurs.      */
+comment|/**      * Outputs a string using the correct encoding and subsetting as required.      *      * @param text The Unicode text to show.      *       * @throws IOException If an io exception occurs.      */
 specifier|protected
 name|void
 name|showTextInternal
