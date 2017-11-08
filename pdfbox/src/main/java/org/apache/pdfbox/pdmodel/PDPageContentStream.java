@@ -1187,12 +1187,10 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Shows the given text at the location specified by the current text matrix.      *      * @param text The Unicode text to show.      * @throws IOException If an io exception occurs.      */
-annotation|@
-name|Override
-specifier|public
+comment|/**      * Outputs a string using the correct encoding and subsetting as required.      *      * @text The Unicode text to show.      * @throws IOException If an io exception occurs.      */
+specifier|protected
 name|void
-name|showText
+name|showTextInternal
 parameter_list|(
 name|String
 name|text
@@ -1305,16 +1303,6 @@ argument_list|)
 argument_list|,
 name|getOutput
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|write
-argument_list|(
-literal|" "
-argument_list|)
-expr_stmt|;
-name|writeOperator
-argument_list|(
-literal|"Tj"
 argument_list|)
 expr_stmt|;
 block|}
