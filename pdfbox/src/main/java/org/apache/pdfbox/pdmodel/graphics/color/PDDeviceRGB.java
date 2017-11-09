@@ -572,7 +572,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"To get more speed on JDK8 or higher, "
+literal|"To get higher rendering speed on JDK8 or later,"
 argument_list|)
 expr_stmt|;
 name|LOG
