@@ -3009,11 +3009,6 @@ argument_list|(
 name|destKArray
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|mergeStructTree
-condition|)
-block|{
 name|updateParentEntry
 argument_list|(
 name|srcKArray
@@ -3021,7 +3016,6 @@ argument_list|,
 name|kDictLevel0
 argument_list|)
 expr_stmt|;
-block|}
 name|newKArray
 operator|.
 name|addAll
