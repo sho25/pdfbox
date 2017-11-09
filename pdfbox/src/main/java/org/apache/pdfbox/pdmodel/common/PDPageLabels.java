@@ -309,7 +309,7 @@ name|PDNumberTreeNode
 argument_list|(
 name|dict
 argument_list|,
-name|COSDictionary
+name|PDPageLabelRange
 operator|.
 name|class
 argument_list|)
@@ -425,17 +425,13 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-operator|new
-name|PDPageLabelRange
-argument_list|(
 operator|(
-name|COSDictionary
+name|PDPageLabelRange
 operator|)
 name|i
 operator|.
 name|getValue
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
