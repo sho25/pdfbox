@@ -154,7 +154,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An object reference.  *   * @author Johannes Koch  */
+comment|/**  * An object reference.  *<p>  * This is described as "Entries in an object reference dictionary" in the PDF specification.  *   * @author Johannes Koch  */
 end_comment
 
 begin_class
