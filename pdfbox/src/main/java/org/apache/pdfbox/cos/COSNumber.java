@@ -37,32 +37,6 @@ name|COSNumber
 extends|extends
 name|COSBase
 block|{
-comment|/**      * @deprecated Use the {@link COSInteger#ZERO} constant instead      */
-annotation|@
-name|Deprecated
-specifier|public
-specifier|static
-specifier|final
-name|COSInteger
-name|ZERO
-init|=
-name|COSInteger
-operator|.
-name|ZERO
-decl_stmt|;
-comment|/**      * @deprecated Use the {@link COSInteger#ONE} constant instead      */
-annotation|@
-name|Deprecated
-specifier|public
-specifier|static
-specifier|final
-name|COSInteger
-name|ONE
-init|=
-name|COSInteger
-operator|.
-name|ONE
-decl_stmt|;
 comment|/**      * This will get the float value of this number.      *      * @return The float value of this object.      */
 specifier|public
 specifier|abstract
