@@ -623,7 +623,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Imports a page from some PDF file as a Form XObject so it can be placed on another page      * in the target document.      * @param sourceDoc the source PDF document that contains the page to be copied      * @param pageNumber the page number of the page to be copied      * @return a Form XObject containing the original page's content      * @throws IOException if an I/O error occurs      */
+comment|/**      * Imports a page from some PDF file as a Form XObject so it can be placed on another page      * in the target document.      *<p>      * You may want to call {@link #wrapInSaveRestore(PDPage) wrapInSaveRestore(PDPage)} before invoking the Form XObject to      * make sure that the graphics state is reset.      *       * @param sourceDoc the source PDF document that contains the page to be copied      * @param pageNumber the page number of the page to be copied      * @return a Form XObject containing the original page's content      * @throws IOException if an I/O error occurs      */
 specifier|public
 name|PDFormXObject
 name|importPageAsForm
@@ -690,7 +690,7 @@ block|}
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|/**      * Imports a page from some PDF file as a Form XObject so it can be placed on another page      * in the target document.      * @param sourceDoc the source PDF document that contains the page to be copied      * @param page the page in the source PDF document to be copied      * @return a Form XObject containing the original page's content      * @throws IOException if an I/O error occurs      */
+comment|/**      * Imports a page from some PDF file as a Form XObject so it can be placed on another page      * in the target document.      *<p>      * You may want to call {@link #wrapInSaveRestore(PDPage) wrapInSaveRestore(PDPage)} before invoking the Form XObject to      * make sure that the graphics state is reset.      *       * @param sourceDoc the source PDF document that contains the page to be copied      * @param page the page in the source PDF document to be copied      * @return a Form XObject containing the original page's content      * @throws IOException if an I/O error occurs      */
 specifier|public
 name|PDFormXObject
 name|importPageAsForm
@@ -1107,7 +1107,7 @@ return|return
 name|form
 return|;
 block|}
-comment|/**      * Places the given form over the existing content of the indicated page (like an overlay).      * The form is enveloped in a marked content section to indicate that it's part of an      * optional content group (OCG), here used as a layer. This optional group is returned and      * can be enabled and disabled through methods on {@link PDOptionalContentProperties}.      * @param targetPage the target page      * @param form the form to place      * @param transform the transformation matrix that controls the placement      * @param layerName the name for the layer/OCG to produce      * @return the optional content group that was generated for the form usage      * @throws IOException if an I/O error occurs      */
+comment|/**      * Places the given form over the existing content of the indicated page (like an overlay).      * The form is enveloped in a marked content section to indicate that it's part of an      * optional content group (OCG), here used as a layer. This optional group is returned and      * can be enabled and disabled through methods on {@link PDOptionalContentProperties}.      *<p>      * You may want to call {@link #wrapInSaveRestore(PDPage) wrapInSaveRestore(PDPage)} before calling this method to make      * sure that the graphics state is reset.      *      * @param targetPage the target page      * @param form the form to place      * @param transform the transformation matrix that controls the placement      * @param layerName the name for the layer/OCG to produce      * @return the optional content group that was generated for the form usage      * @throws IOException if an I/O error occurs      */
 specifier|public
 name|PDOptionalContentGroup
 name|appendFormAsLayer
