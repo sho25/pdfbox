@@ -184,7 +184,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"{ FamilyType = "
+literal|"{ FamilyKind = "
 operator|+
 name|getFamilyKind
 argument_list|()
