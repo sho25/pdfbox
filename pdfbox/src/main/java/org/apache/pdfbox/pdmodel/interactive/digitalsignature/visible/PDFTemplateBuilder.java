@@ -353,11 +353,22 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      *       * @param params      */
+comment|/**      * An array of four numbers in the form coordinate system, giving the coordinates of the left,      * bottom, right, and top edges, respectively, of the form XObject’s bounding box. These      * boundaries shall be used to clip the form XObject and to determine its size for caching.      *      * @param params      *       * @deprecated use {@link #createFormatterRectangle(int[]) createFormatterRectangle(int[])}      */
+annotation|@
+name|Deprecated
 name|void
 name|createFormatterRectangle
 parameter_list|(
 name|byte
+index|[]
+name|params
+parameter_list|)
+function_decl|;
+comment|/**      * An array of four numbers in the form coordinate system, giving the coordinates of the left,      * bottom, right, and top edges, respectively, of the form XObject’s bounding box. These      * boundaries shall be used to clip the form XObject and to determine its size for caching.      *      * @param params      */
+name|void
+name|createFormatterRectangle
+parameter_list|(
+name|int
 index|[]
 name|params
 parameter_list|)
