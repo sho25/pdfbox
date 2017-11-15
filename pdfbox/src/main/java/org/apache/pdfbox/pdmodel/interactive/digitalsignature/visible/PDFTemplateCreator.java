@@ -483,7 +483,7 @@ name|createFormatterRectangle
 argument_list|(
 name|properties
 operator|.
-name|getFormatterRectangleParams
+name|getFormatterRectangleParameters
 argument_list|()
 argument_list|)
 expr_stmt|;

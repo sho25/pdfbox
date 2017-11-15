@@ -208,6 +208,21 @@ literal|50
 block|}
 decl_stmt|;
 specifier|private
+name|int
+index|[]
+name|formatterRectangleParameters
+init|=
+block|{
+literal|0
+block|,
+literal|0
+block|,
+literal|100
+block|,
+literal|50
+block|}
+decl_stmt|;
+specifier|private
 name|AffineTransform
 name|affineTransform
 init|=
@@ -576,7 +591,7 @@ operator|%
 literal|360
 expr_stmt|;
 block|}
-comment|/**      * Adjust signature for page rotation. This is optional, call this after all x and y coordinates      * have been set if you want the signature to be postioned regardless of page orientation.      *      * @return Visible Signature Configuration Object      */
+comment|/**      * Adjust signature for page rotation. This is optional, call this after all x and y coordinates      * have been set if you want the signature to be positioned regardless of page orientation.      *      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|adjustForRotation
@@ -1245,7 +1260,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *       * @return formatter PDRectanle parameters      */
+comment|/**      * @return formatter PDRectangle parameters      * @deprecated use {@link #getFormatterRectangleParameters() getFormatterRectangleParameters()}      */
+annotation|@
+name|Deprecated
 specifier|public
 name|byte
 index|[]
@@ -1256,7 +1273,20 @@ return|return
 name|formatterRectangleParams
 return|;
 block|}
-comment|/**      * Sets formatter PDRectangle      *       * @param formatterRectangleParams      * @return Visible Signature Configuration Object      */
+comment|/**      *       * @return formatter PDRectangle parameters      */
+specifier|public
+name|int
+index|[]
+name|getFormatterRectangleParameters
+parameter_list|()
+block|{
+return|return
+name|formatterRectangleParameters
+return|;
+block|}
+comment|/**      * Sets formatter PDRectangle      *       * @param formatterRectangleParams      * @return Visible Signature Configuration Object      * @deprecated use {@link #formatterRectangleParameters(int[]) formatterRectangleParameters(int[])}      */
+annotation|@
+name|Deprecated
 specifier|public
 name|PDVisibleSignDesigner
 name|formatterRectangleParams
@@ -1271,6 +1301,26 @@ operator|.
 name|formatterRectangleParams
 operator|=
 name|formatterRectangleParams
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets formatter PDRectangle      *       * @param formatterRectangleParameters      * @return Visible Signature Configuration Object      */
+specifier|public
+name|PDVisibleSignDesigner
+name|formatterRectangleParameters
+parameter_list|(
+name|int
+index|[]
+name|formatterRectangleParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|formatterRectangleParameters
+operator|=
+name|formatterRectangleParameters
 expr_stmt|;
 return|return
 name|this
