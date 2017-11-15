@@ -255,7 +255,7 @@ name|SUB_TYPE
 init|=
 literal|"Link"
 decl_stmt|;
-comment|/**      * Custom apperance handler to generate an appearance stream.      */
+comment|/**      * Custom appearance handler to generate an appearance stream.      */
 specifier|private
 name|PDAppearanceHandler
 name|customAppearanceHandler

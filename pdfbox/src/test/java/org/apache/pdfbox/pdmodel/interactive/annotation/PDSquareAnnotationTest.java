@@ -798,7 +798,7 @@ argument_list|,
 name|DELTA
 argument_list|)
 expr_stmt|;
-comment|// test the content of the apperance stream
+comment|// test the content of the appearance stream
 name|PDStream
 name|contentStream
 init|=

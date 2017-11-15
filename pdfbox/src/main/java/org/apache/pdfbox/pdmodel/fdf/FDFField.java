@@ -1901,7 +1901,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will set the appearance dictionary.      *      * @param ap The apperance dictionary.      */
+comment|/**      * This will set the appearance dictionary.      *      * @param ap The appearance dictionary.      */
 specifier|public
 name|void
 name|setAppearanceDictionary
