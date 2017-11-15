@@ -138,7 +138,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a TextMarkup annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF objet to represent as a field.      */
+comment|/**      * Creates a TextMarkup annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF object to represent as a field.      */
 specifier|public
 name|PDAnnotationTextMarkup
 parameter_list|(

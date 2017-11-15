@@ -197,7 +197,7 @@ name|SUB_TYPE_SQUARE
 init|=
 literal|"Square"
 decl_stmt|;
-comment|/**      * Constant for an Eliptical type of annotation.      */
+comment|/**      * Constant for an elliptical type of annotation.      */
 specifier|public
 specifier|static
 specifier|final
@@ -220,7 +220,7 @@ name|subType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a Line annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF objet to represent as a field.      */
+comment|/**      * Creates a Line annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF object to represent as a field.      */
 specifier|public
 name|PDAnnotationSquareCircle
 parameter_list|(
