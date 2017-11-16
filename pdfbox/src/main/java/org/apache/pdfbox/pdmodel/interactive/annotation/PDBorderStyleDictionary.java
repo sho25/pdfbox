@@ -192,7 +192,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * This will set the border width in points, 0 = no border.      *      * There is a bug in Adobe Reader DC, float values are ignored for text field widgets. As a      * workaround, floats that are integers (e.g. 2.0) are written as integer in the PDF.      *      * @param w float the width in points      */
+comment|/**      * This will set the border width in points, 0 = no border.      *      * There is a bug in Adobe Reader DC, float values are ignored for text field widgets. As a      * workaround, floats that are integers (e.g. 2.0) are written as integer in the PDF.      *<p>      * In Adobe Acrobat DC, the values are shown as "0 = Invisible, 1 = Thin, 2 = Medium, 3 = Thick"      * for widget and link annotations.      *      * @param w float the width in points      */
 specifier|public
 name|void
 name|setWidth
