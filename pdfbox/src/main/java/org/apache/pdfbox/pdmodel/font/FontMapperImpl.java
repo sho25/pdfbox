@@ -2016,7 +2016,13 @@ literal|true
 argument_list|)
 return|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|font
+operator|!=
+literal|null
+condition|)
 block|{
 return|return
 operator|new
