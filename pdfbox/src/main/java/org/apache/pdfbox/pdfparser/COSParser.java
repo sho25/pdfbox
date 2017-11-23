@@ -5123,7 +5123,7 @@ operator|>=
 literal|0
 operator|&&
 operator|!
-name|checkObjectKeys
+name|checkObjectKey
 argument_list|(
 name|objectKey
 argument_list|,
@@ -5235,7 +5235,7 @@ block|}
 comment|/**      * Check if the given object can be found at the given offset.      *       * @param objectKey the object we are looking for      * @param offset the offset where to look      * @return returns true if the given object can be dereferenced at the given offset      * @throws IOException if something went wrong      */
 specifier|private
 name|boolean
-name|checkObjectKeys
+name|checkObjectKey
 parameter_list|(
 name|COSObjectKey
 name|objectKey
@@ -5258,21 +5258,10 @@ return|return
 literal|false
 return|;
 block|}
-name|long
-name|objectNr
+name|boolean
+name|objectKeyFound
 init|=
-name|objectKey
-operator|.
-name|getNumber
-argument_list|()
-decl_stmt|;
-name|int
-name|objectGen
-init|=
-name|objectKey
-operator|.
-name|getGeneration
-argument_list|()
+literal|false
 decl_stmt|;
 name|long
 name|originOffset
@@ -5281,16 +5270,6 @@ name|source
 operator|.
 name|getPosition
 argument_list|()
-decl_stmt|;
-name|String
-name|objectString
-init|=
-name|createObjectString
-argument_list|(
-name|objectNr
-argument_list|,
-name|objectGen
-argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -5301,30 +5280,38 @@ argument_list|(
 name|offset
 argument_list|)
 expr_stmt|;
+comment|// try to read the given object/generation number
 if|if
 condition|(
-name|isString
-argument_list|(
-name|objectString
+name|objectKey
 operator|.
-name|getBytes
-argument_list|(
-name|ISO_8859_1
-argument_list|)
-argument_list|)
+name|getNumber
+argument_list|()
+operator|==
+name|readObjectNumber
+argument_list|()
+operator|&&
+name|objectKey
+operator|.
+name|getGeneration
+argument_list|()
+operator|==
+name|readGenerationNumber
+argument_list|()
 condition|)
 block|{
-comment|// everything is ok, return origin object key
-name|source
-operator|.
-name|seek
+comment|// finally tro to read the object marker
+name|readExpectedString
 argument_list|(
-name|originOffset
+name|OBJ_MARKER
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-return|return
+name|objectKeyFound
+operator|=
 literal|true
-return|;
+expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -5345,41 +5332,9 @@ name|originOffset
 argument_list|)
 expr_stmt|;
 block|}
-comment|// no valid object number found
+comment|// return resulting value
 return|return
-literal|false
-return|;
-block|}
-comment|/**      * Create a string for the given object id.      *       * @param objectID the object id      * @param genID the generation id      * @return the generated string      */
-specifier|private
-name|String
-name|createObjectString
-parameter_list|(
-name|long
-name|objectID
-parameter_list|,
-name|int
-name|genID
-parameter_list|)
-block|{
-return|return
-name|Long
-operator|.
-name|toString
-argument_list|(
-name|objectID
-argument_list|)
-operator|+
-literal|" "
-operator|+
-name|Integer
-operator|.
-name|toString
-argument_list|(
-name|genID
-argument_list|)
-operator|+
-literal|" obj"
+name|objectKeyFound
 return|;
 block|}
 specifier|private
