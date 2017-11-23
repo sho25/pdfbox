@@ -637,6 +637,7 @@ return|return
 name|cidSystemInfo
 return|;
 block|}
+comment|/**          * {@inheritDoc}          *<p>          * The method returns null if there is there was an error opening the font.          *           */
 annotation|@
 name|Override
 specifier|public
@@ -731,6 +732,13 @@ literal|"can't happen"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|font
+operator|!=
+literal|null
+condition|)
+block|{
 name|parent
 operator|.
 name|cache
@@ -742,6 +750,7 @@ argument_list|,
 name|font
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|font
 return|;
