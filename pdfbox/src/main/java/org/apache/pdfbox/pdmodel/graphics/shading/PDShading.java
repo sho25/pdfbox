@@ -657,14 +657,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create the correct PD Model shading based on the COS base shading.      *      * @param resourceDictionary the COS shading dictionary      * @return the newly created shading resources object      * @throws IOException if we are unable to create the PDShading object      */
+comment|/**      * Create the correct PD Model shading based on the COS base shading.      *      * @param shadingDictionary the COS shading dictionary      * @return the newly created shading resources object      * @throws IOException if we are unable to create the PDShading object      */
 specifier|public
 specifier|static
 name|PDShading
 name|create
 parameter_list|(
 name|COSDictionary
-name|resourceDictionary
+name|shadingDictionary
 parameter_list|)
 throws|throws
 name|IOException
@@ -677,7 +677,7 @@ decl_stmt|;
 name|int
 name|shadingType
 init|=
-name|resourceDictionary
+name|shadingDictionary
 operator|.
 name|getInt
 argument_list|(
@@ -701,7 +701,7 @@ operator|=
 operator|new
 name|PDShadingType1
 argument_list|(
-name|resourceDictionary
+name|shadingDictionary
 argument_list|)
 expr_stmt|;
 break|break;
@@ -713,7 +713,7 @@ operator|=
 operator|new
 name|PDShadingType2
 argument_list|(
-name|resourceDictionary
+name|shadingDictionary
 argument_list|)
 expr_stmt|;
 break|break;
@@ -725,7 +725,7 @@ operator|=
 operator|new
 name|PDShadingType3
 argument_list|(
-name|resourceDictionary
+name|shadingDictionary
 argument_list|)
 expr_stmt|;
 break|break;
@@ -737,7 +737,7 @@ operator|=
 operator|new
 name|PDShadingType4
 argument_list|(
-name|resourceDictionary
+name|shadingDictionary
 argument_list|)
 expr_stmt|;
 break|break;
@@ -749,7 +749,7 @@ operator|=
 operator|new
 name|PDShadingType5
 argument_list|(
-name|resourceDictionary
+name|shadingDictionary
 argument_list|)
 expr_stmt|;
 break|break;
@@ -761,7 +761,7 @@ operator|=
 operator|new
 name|PDShadingType6
 argument_list|(
-name|resourceDictionary
+name|shadingDictionary
 argument_list|)
 expr_stmt|;
 break|break;
@@ -773,7 +773,7 @@ operator|=
 operator|new
 name|PDShadingType7
 argument_list|(
-name|resourceDictionary
+name|shadingDictionary
 argument_list|)
 expr_stmt|;
 break|break;
