@@ -426,7 +426,7 @@ argument_list|(
 name|textBox
 argument_list|)
 expr_stmt|;
-comment|// Specify the annotation associated with the field
+comment|// Specify the widget annotation associated with the field
 name|PDAnnotationWidget
 name|widget
 init|=
@@ -537,7 +537,7 @@ argument_list|(
 name|fieldAppearance
 argument_list|)
 expr_stmt|;
-comment|// make sure the annotation is visible on screen and paper
+comment|// make sure the widget annotation is visible on screen and paper
 name|widget
 operator|.
 name|setPrinted
@@ -545,7 +545,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// Add the annotation to the page
+comment|// Add the widget annotation to the page
 name|page
 operator|.
 name|getAnnotations
