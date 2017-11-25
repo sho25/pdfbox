@@ -346,7 +346,7 @@ argument_list|(
 name|textBox
 argument_list|)
 expr_stmt|;
-comment|// Specify the annotation associated with the field
+comment|// Specify the widget annotation associated with the field
 name|PDAnnotationWidget
 name|widget
 init|=
