@@ -964,11 +964,25 @@ literal|"#processChildStream(PDContentStream, PDPage) instead"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|form
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|getLength
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|processStream
 argument_list|(
 name|form
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Processes a soft mask transparency group stream.      * @param group      * @throws IOException      */
 specifier|protected
