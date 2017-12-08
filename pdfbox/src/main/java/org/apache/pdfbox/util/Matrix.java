@@ -529,6 +529,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Convenience method to be used when creating a matrix from unverified data. If the parameter      * is a COSArray with at least six numbers, a Matrix object is created from the first six      * numbers and returned. If not, then the identity Matrix is returned.      *      * @param base a COS object, preferably a COSArray with six numbers.      *      * @return a Matrix object.      */
+specifier|public
 specifier|static
 name|Matrix
 name|createMatrix
