@@ -299,7 +299,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No glyph for "
+literal|"No glyph for code "
 operator|+
 name|code
 operator|+
@@ -325,7 +325,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No glyph for "
+literal|"No glyph for code "
 operator|+
 name|code
 operator|+
@@ -408,7 +408,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No glyph for "
+literal|"No glyph for code "
 operator|+
 name|code
 operator|+
