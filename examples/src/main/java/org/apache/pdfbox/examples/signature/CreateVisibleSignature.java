@@ -71,16 +71,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|security
 operator|.
 name|KeyStore
@@ -94,16 +84,6 @@ operator|.
 name|security
 operator|.
 name|KeyStoreException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|MessageDigest
 import|;
 end_import
 
@@ -643,7 +623,7 @@ name|pin
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sign pdf file and create new file that ends with "_signed.pdf".      *      * @param inputFile The source pdf document file.      * @param signedFile The file to be signed.      * @param tsaClient optional TSA client      * @throws IOException      */
+comment|/**      * Sign pdf file and create new file that ends with "_signed.pdf".      *      * @param inputFile The source pdf document file.      * @param signedFile The file to be signed.      * @param tsaUrl optional TSA url      * @throws IOException      */
 specifier|public
 name|void
 name|signPDF
@@ -654,8 +634,8 @@ parameter_list|,
 name|File
 name|signedFile
 parameter_list|,
-name|TSAClient
-name|tsaClient
+name|String
+name|tsaUrl
 parameter_list|)
 throws|throws
 name|IOException
@@ -668,13 +648,13 @@ name|inputFile
 argument_list|,
 name|signedFile
 argument_list|,
-name|tsaClient
+name|tsaUrl
 argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sign pdf file and create new file that ends with "_signed.pdf".      *      * @param inputFile The source pdf document file.      * @param signedFile The file to be signed.      * @param tsaClient optional TSA client      * @param signatureFieldName optional name of an existing (unsigned) signature field      * @throws IOException      */
+comment|/**      * Sign pdf file and create new file that ends with "_signed.pdf".      *      * @param inputFile The source pdf document file.      * @param signedFile The file to be signed.      * @param tsaUrl optional TSA url      * @param signatureFieldName optional name of an existing (unsigned) signature field      * @throws IOException      */
 specifier|public
 name|void
 name|signPDF
@@ -685,8 +665,8 @@ parameter_list|,
 name|File
 name|signedFile
 parameter_list|,
-name|TSAClient
-name|tsaClient
+name|String
+name|tsaUrl
 parameter_list|,
 name|String
 name|signatureFieldName
@@ -694,11 +674,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|setTsaClient
-argument_list|(
-name|tsaClient
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|inputFile
@@ -720,6 +695,11 @@ literal|"Document for signing does not exist"
 argument_list|)
 throw|;
 block|}
+name|setTsaUrl
+argument_list|(
+name|tsaUrl
+argument_list|)
+expr_stmt|;
 comment|// creating output document and prepare the IO streams.
 name|FileOutputStream
 name|fos
@@ -1502,48 +1482,6 @@ argument_list|,
 name|pin
 argument_list|)
 expr_stmt|;
-comment|// TSA client
-name|TSAClient
-name|tsaClient
-init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|tsaUrl
-operator|!=
-literal|null
-condition|)
-block|{
-name|MessageDigest
-name|digest
-init|=
-name|MessageDigest
-operator|.
-name|getInstance
-argument_list|(
-literal|"SHA-256"
-argument_list|)
-decl_stmt|;
-name|tsaClient
-operator|=
-operator|new
-name|TSAClient
-argument_list|(
-operator|new
-name|URL
-argument_list|(
-name|tsaUrl
-argument_list|)
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
-name|digest
-argument_list|)
-expr_stmt|;
-block|}
 name|File
 name|documentFile
 init|=
@@ -1690,7 +1628,7 @@ name|documentFile
 argument_list|,
 name|signedDocumentFile
 argument_list|,
-name|tsaClient
+name|tsaUrl
 argument_list|)
 expr_stmt|;
 block|}
