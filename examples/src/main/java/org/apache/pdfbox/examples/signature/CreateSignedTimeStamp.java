@@ -289,15 +289,6 @@ literal|"Document for signing does not exist"
 argument_list|)
 throw|;
 block|}
-name|FileOutputStream
-name|fos
-init|=
-operator|new
-name|FileOutputStream
-argument_list|(
-name|outFile
-argument_list|)
-decl_stmt|;
 comment|// sign
 try|try
 init|(
@@ -309,6 +300,15 @@ operator|.
 name|load
 argument_list|(
 name|inFile
+argument_list|)
+init|;
+name|FileOutputStream
+name|fos
+operator|=
+operator|new
+name|FileOutputStream
+argument_list|(
+name|outFile
 argument_list|)
 init|)
 block|{

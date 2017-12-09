@@ -548,7 +548,6 @@ argument_list|(
 name|sigBlock
 argument_list|)
 decl_stmt|;
-comment|// System.out.println("INFO: Old Signature: " + Hex.getString(sigBlock));
 name|System
 operator|.
 name|out
