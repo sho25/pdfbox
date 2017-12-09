@@ -681,7 +681,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Extracts last Document-Signature from the document      *       * @param document to get the Signature from      * @return the Signature, where a TimeStamp will be added.<code>null</code> when no Document-Signature available.      * @throws IOException      */
+comment|/**      * Extracts last Document-Signature from the document      *      * @param document to get the Signature from      *       * @return the Signature, where a TimeStamp will be added.<code>null</code> when no      * Document-Signature is available.      *       * @throws IOException      */
 specifier|private
 name|void
 name|getRelevantSignature
@@ -692,6 +692,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// we can't use getLastSignatureDictionary() because this will fail (see PDFBOX-3978)
+comment|// if a signature is assigned to a pre-defined empty signature field that isn't the last.
+comment|// we get the last in time by looking at the offset in the PDF file.
 name|SortedMap
 argument_list|<
 name|Integer
