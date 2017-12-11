@@ -32,7 +32,7 @@ name|int
 name|i
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the flags of the given point.      * @param i the given point      * @return the flags value for the given point      */
+comment|/**      * Returns the flags of the given point. To decode these bit flags, use the static elements of      * {@link GlyfDescript}. See also "Outline flags" in      *<a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6glyf.html">The      * 'glyf' table</a> in the TrueType Reference Manual.      *      * @param i the given point      * @return the flags value for the given point      */
 name|byte
 name|getFlags
 parameter_list|(
