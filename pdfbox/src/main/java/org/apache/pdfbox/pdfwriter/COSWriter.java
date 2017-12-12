@@ -1264,17 +1264,17 @@ specifier|private
 name|COSArray
 name|byteRangeArray
 decl_stmt|;
-comment|/**      * COSWriter constructor comment.      *      * @param os The wrapped output stream.      */
+comment|/**      * COSWriter constructor comment.      *      * @param outputStream The wrapped output stream.      */
 specifier|public
 name|COSWriter
 parameter_list|(
 name|OutputStream
-name|os
+name|outputStream
 parameter_list|)
 block|{
 name|setOutput
 argument_list|(
-name|os
+name|outputStream
 argument_list|)
 expr_stmt|;
 name|setStandardOutput
@@ -2791,7 +2791,7 @@ literal|2
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Write an incremental update for a non signature case. This can be used for e.g. augmenting signatures.      *       * @throws IOException      */
+comment|/**      * Write an incremental update for a non signature case. This can be used for e.g. augmenting      * signatures.      *      * @throws IOException      */
 specifier|private
 name|void
 name|doWriteIncrement
@@ -2799,33 +2799,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|ByteArrayOutputStream
-name|byteOut
-init|=
-operator|(
-name|ByteArrayOutputStream
-operator|)
-name|output
-decl_stmt|;
-name|byteOut
+comment|// write existing PDF
+name|IOUtils
 operator|.
-name|flush
-argument_list|()
-expr_stmt|;
-name|byte
-index|[]
-name|buffer
-init|=
-name|byteOut
-operator|.
-name|toByteArray
-argument_list|()
-decl_stmt|;
-name|SequenceInputStream
-name|signStream
-init|=
-operator|new
-name|SequenceInputStream
+name|copy
 argument_list|(
 operator|new
 name|RandomAccessInputStream
@@ -2833,21 +2810,23 @@ argument_list|(
 name|incrementalInput
 argument_list|)
 argument_list|,
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-name|buffer
-argument_list|)
-argument_list|)
-decl_stmt|;
-comment|// write the data to the incremental output stream
-name|IOUtils
-operator|.
-name|copy
-argument_list|(
-name|signStream
-argument_list|,
 name|incrementalOutput
+argument_list|)
+expr_stmt|;
+comment|// write the actual incremental update
+name|incrementalOutput
+operator|.
+name|write
+argument_list|(
+operator|(
+operator|(
+name|ByteArrayOutputStream
+operator|)
+name|output
+operator|)
+operator|.
+name|toByteArray
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
