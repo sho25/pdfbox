@@ -263,18 +263,6 @@ name|SignerInformationStore
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
-name|tsp
-operator|.
-name|TSPException
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class wraps the TSAClient and the work that has to be done with it. Like Adding Signed  * TimeStamps to a signature, or creating a CMS timestamp attribute (with a signed timestamp)  *  * @author Others  * @author Alexis Suter  */
 end_comment
@@ -339,7 +327,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates a signed timestamp token by the given input stream.      *       * @param content InputStream of the content to sign      * @return      * @throws IOException      */
+comment|/**      * Creates a signed timestamp token by the given input stream.      *       * @param content InputStream of the content to sign      * @return the byte[] of the timestamp token      * @throws IOException      */
 specifier|public
 name|byte
 index|[]
@@ -365,7 +353,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Extend cms signed data with TimeStamp first or to all signers      *      * @param signedData Generated CMS signed data      * @return CMSSignedData Extended CMS signed data      * @throws IOException      * @throws org.bouncycastle.tsp.TSPException      */
+comment|/**      * Extend cms signed data with TimeStamp first or to all signers      *      * @param signedData Generated CMS signed data      * @return CMSSignedData Extended CMS signed data      * @throws IOException      */
 specifier|public
 name|CMSSignedData
 name|addSignedTimeStamp
@@ -375,8 +363,6 @@ name|signedData
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|TSPException
 block|{
 name|SignerInformationStore
 name|signerStore
@@ -408,7 +394,7 @@ name|getSigners
 argument_list|()
 control|)
 block|{
-comment|// This adds a timestamp to every signer (into his unsigend attributes) in the signature.
+comment|// This adds a timestamp to every signer (into his unsigned attributes) in the signature.
 name|newSigners
 operator|.
 name|add
@@ -437,7 +423,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Extend CMS Signer Information with the TimeStampToken into the unsigned Attributes.      *      * @param signer information about signer      * @return information about SignerInformation      */
+comment|/**      * Extend CMS Signer Information with the TimeStampToken into the unsigned Attributes.      *      * @param signer information about signer      * @return information about SignerInformation      * @throws IOException      */
 specifier|private
 name|SignerInformation
 name|signTimeStamp
@@ -447,8 +433,6 @@ name|signer
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|TSPException
 block|{
 name|AttributeTable
 name|unsignedAttributes

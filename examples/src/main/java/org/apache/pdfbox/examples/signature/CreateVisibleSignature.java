@@ -481,7 +481,7 @@ name|zoomPercent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set visible signature properties for new signature fields.      *       * @param name      * @param location      * @param reason      * @param preferredSize      * @param page      * @param visualSignEnabled      * @throws IOException      */
+comment|/**      * Set visible signature properties for new signature fields.      *       * @param name      * @param location      * @param reason      * @param preferredSize      * @param page      * @param visualSignEnabled      */
 specifier|public
 name|void
 name|setVisibleSignatureProperties
@@ -504,8 +504,6 @@ parameter_list|,
 name|boolean
 name|visualSignEnabled
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|visibleSignatureProperties
 operator|.
@@ -545,7 +543,7 @@ name|visibleSignDesigner
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set visible signature properties for existing signature fields.      *       * @param name      * @param location      * @param reason      * @param visualSignEnabled      * @throws IOException      */
+comment|/**      * Set visible signature properties for existing signature fields.      *       * @param name      * @param location      * @param reason      * @param visualSignEnabled      */
 specifier|public
 name|void
 name|setVisibleSignatureProperties
@@ -562,8 +560,6 @@ parameter_list|,
 name|boolean
 name|visualSignEnabled
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|visibleSignatureProperties
 operator|.

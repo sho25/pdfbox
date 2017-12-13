@@ -556,7 +556,7 @@ specifier|private
 name|ShowSignature
 parameter_list|()
 block|{     }
-comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws IOException If there is an error reading the file.      * @throws CertificateException      * @throws java.security.NoSuchAlgorithmException      * @throws java.security.InvalidKeyException      * @throws java.security.NoSuchProviderException      * @throws java.security.SignatureException      * @throws org.bouncycastle.tsp.TSPException      */
+comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws IOException If there is an error reading the file.      * @throws CertificateException      * @throws java.security.NoSuchAlgorithmException      * @throws java.security.NoSuchProviderException      * @throws org.bouncycastle.tsp.TSPException      */
 specifier|public
 specifier|static
 name|void
@@ -573,11 +573,7 @@ name|CertificateException
 throws|,
 name|NoSuchAlgorithmException
 throws|,
-name|InvalidKeyException
-throws|,
 name|NoSuchProviderException
-throws|,
-name|SignatureException
 throws|,
 name|TSPException
 block|{
@@ -611,11 +607,7 @@ name|CertificateException
 throws|,
 name|NoSuchAlgorithmException
 throws|,
-name|InvalidKeyException
-throws|,
 name|NoSuchProviderException
-throws|,
-name|SignatureException
 throws|,
 name|TSPException
 block|{
@@ -1361,6 +1353,9 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|Store
+argument_list|<
+name|X509CertificateHolder
+argument_list|>
 name|certificatesStore
 init|=
 name|signedData
@@ -1394,6 +1389,9 @@ name|next
 argument_list|()
 decl_stmt|;
 name|Collection
+argument_list|<
+name|X509CertificateHolder
+argument_list|>
 name|matches
 init|=
 name|certificatesStore
@@ -1409,9 +1407,6 @@ decl_stmt|;
 name|X509CertificateHolder
 name|certificateHolder
 init|=
-operator|(
-name|X509CertificateHolder
-operator|)
 name|matches
 operator|.
 name|iterator
@@ -1527,7 +1522,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Analyzes the DSS-Dictionary (Document security Store) of the document. Which is used for signature validation.      * The DSS is defined in PAdES Part 4 - Long Term Validation.      *       * @param document      */
+comment|/**      * Analyzes the DSS-Dictionary (Document Security Store) of the document. Which is used for signature validation.      * The DSS is defined in PAdES Part 4 - Long Term Validation.      *       * @param document PDDocument, to get the DSS from      */
 specifier|private
 name|void
 name|analyseDSS
@@ -1669,7 +1664,7 @@ literal|"CRL"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: go through VRIs (wich indirectly point to the DSS-Data)
+comment|// TODO: go through VRIs (which indirectly point to the DSS-Data)
 block|}
 block|}
 comment|/**      * Go through the elements of a COSArray containing each an COSStream to print in Hex.      *       * @param elements COSArray of elements containing a COS Stream      * @param description to append on Print      * @throws IOException      */

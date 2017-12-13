@@ -83,16 +83,6 @@ name|java
 operator|.
 name|security
 operator|.
-name|GeneralSecurityException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
 name|NoSuchAlgorithmException
 import|;
 end_import
@@ -239,18 +229,6 @@ name|CMSSignedData
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
-name|tsp
-operator|.
-name|TSPException
-import|;
-end_import
-
 begin_comment
 comment|/**  * An example for timestamp-singing a PDF for PADeS-Specification. The document will only be changed  * in its existing signature by a signed timestamp (A timestamp and the Hash-Value of the document  * are signed by a Time Stamp Authority (TSA)).  *  * This method only changes the unsigned parameters of a signature, so that it is kept valid.  *  * Use case: sign offline to avoid zero-day attacks against the signing machine. Once the signature  * is there and the pdf is transferred to a network connected machine, one is likely to want to add  * a timestamp. (Ralf Hauser)  *  * @author Alexis Suter  */
 end_comment
@@ -376,7 +354,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Processes the timestamping of the Signature.      *       * @param output Where the new file will be written to      * @param fileName of the existing file containing the pdf      * @throws IOException      */
+comment|/**      * Processes the time-stamping of the Signature.      *       * @param outFile Where the new file will be written to      * @param fileName of the existing file containing the pdf      * @throws IOException      */
 specifier|private
 name|void
 name|processTimeStamping
@@ -484,8 +462,6 @@ decl||
 name|NoSuchAlgorithmException
 decl||
 name|CMSException
-decl||
-name|TSPException
 name|e
 parameter_list|)
 block|{
@@ -498,7 +474,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Create changed Signature with embedded TimeStamp from TSA      *       * @param documentInput Stream of the input file      * @throws IOException      * @throws CMSException      * @throws NoSuchAlgorithmException      * @throws TSPException      */
+comment|/**      * Create changed Signature with embedded TimeStamp from TSA      *       * @param documentBytes byte[] of the input file      * @throws IOException      * @throws CMSException      * @throws NoSuchAlgorithmException      */
 specifier|private
 name|void
 name|processRelevantSignatures
@@ -513,8 +489,6 @@ throws|,
 name|CMSException
 throws|,
 name|NoSuchAlgorithmException
-throws|,
-name|TSPException
 block|{
 name|getRelevantSignature
 argument_list|(
@@ -680,7 +654,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Extracts last Document-Signature from the document      *      * @param document to get the Signature from      *       * @return the Signature, where a TimeStamp will be added.<code>null</code> when no      * Document-Signature is available.      *       * @throws IOException      */
+comment|/**      * Extracts last Document-Signature from the document. The signature will be set on the signature-field.      *      * @param document to get the Signature from      * @throws IOException      */
 specifier|private
 name|void
 name|getRelevantSignature
@@ -926,8 +900,6 @@ name|args
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|GeneralSecurityException
 block|{
 if|if
 condition|(
