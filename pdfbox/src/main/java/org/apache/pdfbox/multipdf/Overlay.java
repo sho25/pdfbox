@@ -2484,7 +2484,7 @@ operator|=
 name|allPagesOverlayFile
 expr_stmt|;
 block|}
-comment|/**      * Sets the all pages overlay PDF.      *       * @param allPagesOverlayPDF the all pages overlay PDF      */
+comment|/**      * Sets the all pages overlay PDF.      *       * @param allPagesOverlayPDF the all pages overlay PDF. This should not be a PDDocument that you      * created on the fly, it should be saved first, if it contains any fonts that are subset.      */
 specifier|public
 name|void
 name|setAllPagesOverlayPDF
