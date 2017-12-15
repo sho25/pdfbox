@@ -5843,6 +5843,18 @@ argument_list|(
 literal|"Volume"
 argument_list|)
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|VP
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"VP"
+argument_list|)
+decl_stmt|;
 comment|// W
 specifier|public
 specifier|static
