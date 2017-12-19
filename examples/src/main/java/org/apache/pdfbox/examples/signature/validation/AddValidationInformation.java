@@ -799,6 +799,20 @@ name|IllegalAccessException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Failed to create new instance of "
+operator|+
+name|clazz
+operator|.
+name|getCanonicalName
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1696,15 +1710,6 @@ name|IOException
 throws|,
 name|GeneralSecurityException
 block|{
-name|args
-operator|=
-operator|new
-name|String
-index|[]
-block|{
-literal|"C:\\Users\\Tilman Hausherr\\Documents\\Java\\PDFBoxPageImageExtraction\\1_only_signed.pdf"
-block|}
-expr_stmt|;
 if|if
 condition|(
 name|args
