@@ -1262,7 +1262,7 @@ name|PDImage
 name|pdImage
 parameter_list|,
 name|String
-name|filename
+name|prefix
 parameter_list|,
 name|boolean
 name|directJPEG
@@ -1322,7 +1322,7 @@ init|=
 operator|new
 name|FileOutputStream
 argument_list|(
-name|filename
+name|prefix
 operator|+
 literal|"."
 operator|+
