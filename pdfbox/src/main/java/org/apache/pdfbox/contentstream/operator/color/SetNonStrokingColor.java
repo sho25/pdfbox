@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * sc: Sets the colour to use for stroking non-stroking operations.  *  * @author John Hewson  */
+comment|/**  * sc: Sets the colour to use for non-stroking operations.  *  * @author John Hewson  */
 end_comment
 
 begin_class

@@ -20,7 +20,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * scn: Sets the colour to use for stroking non-stroking operations.  * Supports Pattern, Separation, DeviceN and ICCBased colour spaces.  *  * @author John Hewson  */
+comment|/**  * scn: Sets the colour to use for non-stroking operations.  * Supports Pattern, Separation, DeviceN and ICCBased colour spaces.  *  * @author John Hewson  */
 end_comment
 
 begin_class
