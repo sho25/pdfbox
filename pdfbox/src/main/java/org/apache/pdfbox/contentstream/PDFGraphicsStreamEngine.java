@@ -1200,7 +1200,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PDFStreamEngine subclass for advanced processing of graphics.  * This class should be subclasses by end users looking to hook into graphics operations.  *  * @author John Hewson  */
+comment|/**  * PDFStreamEngine subclass for advanced processing of graphics.  * This class should be subclassed by end users looking to hook into graphics operations.  *  * @author John Hewson  */
 end_comment
 
 begin_class
