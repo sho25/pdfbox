@@ -392,7 +392,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Verifies whether the certificate is signed by the given public key. Can be done to check      * signature Chain. Idea& code is from user Julius Musseau at:      * https://stackoverflow.com/a/10822177/2497581      *      * @param cert Child certificate to check      * @param key Fathers public key to check      * @return true when the certificate is signed by the public key      * @throws CertificateProccessingException containing the cause, on multiple exception with the      * given data      */
+comment|/**      * Verifies whether the certificate is signed by the given public key. Can be done to check      * signature chain. Idea and code are from Julius Musseau at:      * https://stackoverflow.com/a/10822177/2497581      *      * @param cert Child certificate to check      * @param key Fathers public key to check      * @return true when the certificate is signed by the public key      * @throws CertificateProccessingException containing the cause, on multiple exception with the      * given data      */
 specifier|public
 specifier|static
 name|boolean
