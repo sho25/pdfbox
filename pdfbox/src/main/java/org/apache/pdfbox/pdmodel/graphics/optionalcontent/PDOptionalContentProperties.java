@@ -1150,7 +1150,8 @@ parameter_list|)
 block|{
 name|COSArray
 name|on
-decl_stmt|,
+decl_stmt|;
+name|COSArray
 name|off
 decl_stmt|;
 name|COSDictionary
