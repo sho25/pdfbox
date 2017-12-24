@@ -1445,7 +1445,7 @@ name|PDStream
 name|holderFormStream
 parameter_list|,
 name|PDRectangle
-name|formrect
+name|bbox
 parameter_list|)
 block|{
 name|PDFormXObject
@@ -1468,7 +1468,7 @@ name|holderForm
 operator|.
 name|setBBox
 argument_list|(
-name|formrect
+name|bbox
 argument_list|)
 expr_stmt|;
 name|holderForm
@@ -1654,7 +1654,7 @@ name|PDStream
 name|innerFormStream
 parameter_list|,
 name|PDRectangle
-name|formrect
+name|bbox
 parameter_list|)
 block|{
 name|PDFormXObject
@@ -1677,7 +1677,7 @@ name|innerForm
 operator|.
 name|setBBox
 argument_list|(
-name|formrect
+name|bbox
 argument_list|)
 expr_stmt|;
 name|innerForm
@@ -1822,7 +1822,7 @@ name|PDStream
 name|imageFormStream
 parameter_list|,
 name|PDRectangle
-name|formrect
+name|bbox
 parameter_list|,
 name|AffineTransform
 name|at
@@ -1846,7 +1846,7 @@ name|imageForm
 operator|.
 name|setBBox
 argument_list|(
-name|formrect
+name|bbox
 argument_list|)
 expr_stmt|;
 name|imageForm
@@ -1950,7 +1950,7 @@ name|PDResources
 name|innerFormResource
 parameter_list|,
 name|PDRectangle
-name|formatter
+name|bbox
 parameter_list|)
 throws|throws
 name|IOException
@@ -1978,7 +1978,7 @@ name|n0Form
 operator|.
 name|setBBox
 argument_list|(
-name|formatter
+name|bbox
 argument_list|)
 expr_stmt|;
 name|n0Form

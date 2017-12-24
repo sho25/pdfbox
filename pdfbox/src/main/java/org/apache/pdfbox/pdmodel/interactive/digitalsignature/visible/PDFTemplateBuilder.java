@@ -386,7 +386,7 @@ name|void
 name|createHolderFormResources
 parameter_list|()
 function_decl|;
-comment|/**      * Creates Form      *       * @param holderFormResources      * @param holderFormStream      * @param formrect      */
+comment|/**      * Creates Form      *       * @param holderFormResources      * @param holderFormStream      * @param bbox      */
 name|void
 name|createHolderForm
 parameter_list|(
@@ -397,7 +397,7 @@ name|PDStream
 name|holderFormStream
 parameter_list|,
 name|PDRectangle
-name|formrect
+name|bbox
 parameter_list|)
 function_decl|;
 comment|/**      * Creates appearance dictionary      *       * @param holderForml      * @param signatureField      * @throws IOException      */
@@ -426,7 +426,7 @@ name|void
 name|createInnerFormResource
 parameter_list|()
 function_decl|;
-comment|/**      *       * @param innerFormResources      * @param innerFormStream      * @param formrect      */
+comment|/**      *       * @param innerFormResources      * @param innerFormStream      * @param bbox      */
 name|void
 name|createInnerForm
 parameter_list|(
@@ -437,7 +437,7 @@ name|PDStream
 name|innerFormStream
 parameter_list|,
 name|PDRectangle
-name|formrect
+name|bbox
 parameter_list|)
 function_decl|;
 comment|/**      *       * @param innerForm      * @param holderFormResources      */
@@ -464,7 +464,7 @@ name|void
 name|createImageFormResources
 parameter_list|()
 function_decl|;
-comment|/**      * Creates Image form      *       * @param imageFormResources      * @param innerFormResource      * @param imageFormStream      * @param formrect      * @param affineTransform      * @param img      * @throws IOException      */
+comment|/**      * Creates Image form      *       * @param imageFormResources      * @param innerFormResource      * @param imageFormStream      * @param bbox      * @param affineTransform      * @param img      * @throws IOException      */
 name|void
 name|createImageForm
 parameter_list|(
@@ -478,7 +478,7 @@ name|PDStream
 name|imageFormStream
 parameter_list|,
 name|PDRectangle
-name|formrect
+name|bbox
 parameter_list|,
 name|AffineTransform
 name|affineTransform
@@ -489,7 +489,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Creates the background layer form (n0).      *      * @param innerFormResource      * @param formatter      * @throws IOException      */
+comment|/**      * Creates the background layer form (n0).      *      * @param innerFormResource      * @param bbox      * @throws IOException      */
 name|void
 name|createBackgroundLayerForm
 parameter_list|(
@@ -497,7 +497,7 @@ name|PDResources
 name|innerFormResource
 parameter_list|,
 name|PDRectangle
-name|formatter
+name|bbox
 parameter_list|)
 throws|throws
 name|IOException

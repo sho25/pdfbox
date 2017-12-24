@@ -488,7 +488,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|PDRectangle
-name|formatter
+name|bbox
 init|=
 name|pdfStructure
 operator|.
@@ -544,7 +544,7 @@ name|holderFormResources
 argument_list|,
 name|holderFormStream
 argument_list|,
-name|formatter
+name|bbox
 argument_list|)
 expr_stmt|;
 comment|// that is /AP entry the appearance dictionary.
@@ -592,7 +592,7 @@ operator|.
 name|getInnerFormStream
 argument_list|()
 argument_list|,
-name|formatter
+name|bbox
 argument_list|)
 expr_stmt|;
 name|PDFormXObject
@@ -652,7 +652,7 @@ name|innerFormResource
 argument_list|,
 name|imageFormStream
 argument_list|,
-name|formatter
+name|bbox
 argument_list|,
 name|transform
 argument_list|,
@@ -668,7 +668,7 @@ name|createBackgroundLayerForm
 argument_list|(
 name|innerFormResource
 argument_list|,
-name|formatter
+name|bbox
 argument_list|)
 expr_stmt|;
 comment|// now inject procSetArray
