@@ -528,7 +528,7 @@ name|getEncryptionKeyLength
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Computes the version number of the StandardSecurityHandler      * regarding the encryption key length.      * See PDF Spec 1.6 p 93 and PDF 1.7 AEL3      *      * @return The computed version number.      */
+comment|/**      * Computes the version number of the StandardSecurityHandler based on the encryption key      * length.      * See PDF Spec 1.6 p 93 and PDF 1.7 AEL3      *      * @return The computed version number.      */
 specifier|private
 name|int
 name|computeVersionNumber
@@ -2669,7 +2669,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check for owner password.      *      * @param ownerPassword The owner password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check for owner password.      *      * @param ownerPassword The owner password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param keyLengthInBytes The encryption key length in bytes.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|boolean
 name|isOwnerPassword
@@ -2697,7 +2697,7 @@ name|int
 name|encRevision
 parameter_list|,
 name|int
-name|length
+name|keyLengthInBytes
 parameter_list|,
 name|boolean
 name|encryptMetadata
@@ -2837,7 +2837,7 @@ name|owner
 argument_list|,
 name|encRevision
 argument_list|,
-name|length
+name|keyLengthInBytes
 argument_list|)
 decl_stmt|;
 return|return
@@ -2855,7 +2855,7 @@ name|id
 argument_list|,
 name|encRevision
 argument_list|,
-name|length
+name|keyLengthInBytes
 argument_list|,
 name|encryptMetadata
 argument_list|)
@@ -3075,7 +3075,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * Compute the encryption key.      *      * @param password The password to compute the encrypted key.      * @param o The O entry of the encryption dictionary.      * @param u The U entry of the encryption dictionary.      * @param oe The OE entry of the encryption dictionary.      * @param ue The UE entry of the encryption dictionary.      * @param permissions The permissions for the document.      * @param id The document id.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      * @param isOwnerPassword whether the password given is the owner password (for revision 6)      *      * @return The encrypted key bytes.      *      * @throws IOException If there is an error with encryption.      */
+comment|/**      * Compute the encryption key.      *      * @param password The password to compute the encrypted key.      * @param o The O entry of the encryption dictionary.      * @param u The U entry of the encryption dictionary.      * @param oe The OE entry of the encryption dictionary.      * @param ue The UE entry of the encryption dictionary.      * @param permissions The permissions for the document.      * @param id The document id.      * @param encRevision The revision of the encryption algorithm.      * @param keyLengthInBytes The length of the encryption key in bytes.      * @param encryptMetadata The encryption metadata      * @param isOwnerPassword whether the password given is the owner password (for revision 6)      *      * @return The encrypted key bytes.      *      * @throws IOException If there is an error with encryption.      */
 specifier|public
 name|byte
 index|[]
@@ -3112,7 +3112,7 @@ name|int
 name|encRevision
 parameter_list|,
 name|int
-name|length
+name|keyLengthInBytes
 parameter_list|,
 name|boolean
 name|encryptMetadata
@@ -3168,7 +3168,7 @@ name|id
 argument_list|,
 name|encryptMetadata
 argument_list|,
-name|length
+name|keyLengthInBytes
 argument_list|,
 name|encRevision
 argument_list|)
@@ -3664,7 +3664,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * This will compute the user password hash.      *      * @param password The plain text password.      * @param owner The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param encRevision The revision of the encryption.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return The user password.      *      * @throws IOException if the password could not be computed      */
+comment|/**      * This will compute the user password hash.      *      * @param password The plain text password.      * @param owner The owner password hash.      * @param permissions The document permissions.      * @param id The document id.      * @param encRevision The revision of the encryption.      * @param keyLengthInBytes The length of the encryption key in bytes.      * @param encryptMetadata The encryption metadata      *      * @return The user password.      *      * @throws IOException if the password could not be computed      */
 specifier|public
 name|byte
 index|[]
@@ -3689,7 +3689,7 @@ name|int
 name|encRevision
 parameter_list|,
 name|int
-name|length
+name|keyLengthInBytes
 parameter_list|,
 name|boolean
 name|encryptMetadata
@@ -3726,7 +3726,7 @@ name|id
 argument_list|,
 name|encRevision
 argument_list|,
-name|length
+name|keyLengthInBytes
 argument_list|,
 name|encryptMetadata
 argument_list|,
@@ -4177,7 +4177,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|// steps (a) to (d) of "Algorithm 3: Computing the encryption dictionary?s O (owner password) value".
+comment|// steps (a) to (d) of "Algorithm 3: Computing the encryption dictionary’s O (owner password) value".
 specifier|private
 name|byte
 index|[]
@@ -4371,7 +4371,7 @@ return|return
 name|padded
 return|;
 block|}
-comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param keyLengthInBytes The length of the encryption key in bytes.      * @param encryptMetadata The encryption metadata.      *      * @return true If the plaintext password is the user password.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|boolean
 name|isUserPassword
@@ -4399,7 +4399,7 @@ name|int
 name|encRevision
 parameter_list|,
 name|int
-name|length
+name|keyLengthInBytes
 parameter_list|,
 name|boolean
 name|encryptMetadata
@@ -4436,7 +4436,7 @@ name|id
 argument_list|,
 name|encRevision
 argument_list|,
-name|length
+name|keyLengthInBytes
 argument_list|,
 name|encryptMetadata
 argument_list|)
@@ -4697,7 +4697,7 @@ name|uHash
 argument_list|)
 return|;
 block|}
-comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param length The length of the encryption key.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check if a plaintext password is the user password.      *      * @param password The plaintext password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The permissions set in the PDF.      * @param id The document id used for encryption.      * @param encRevision The revision of the encryption algorithm.      * @param keyLengthInBytes The length of the encryption key in bytes.      * @param encryptMetadata The encryption metadata      *      * @return true If the plaintext password is the user password.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|boolean
 name|isUserPassword
@@ -4724,7 +4724,7 @@ name|int
 name|encRevision
 parameter_list|,
 name|int
-name|length
+name|keyLengthInBytes
 parameter_list|,
 name|boolean
 name|encryptMetadata
@@ -4765,7 +4765,7 @@ name|id
 argument_list|,
 name|encRevision
 argument_list|,
-name|length
+name|keyLengthInBytes
 argument_list|,
 name|encryptMetadata
 argument_list|)
@@ -4795,14 +4795,14 @@ name|id
 argument_list|,
 name|encRevision
 argument_list|,
-name|length
+name|keyLengthInBytes
 argument_list|,
 name|encryptMetadata
 argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Check for owner password.      *      * @param password The owner password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param length The encryption key length.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Check for owner password.      *      * @param password The owner password.      * @param user The u entry of the encryption dictionary.      * @param owner The o entry of the encryption dictionary.      * @param permissions The set of permissions on the document.      * @param id The document id.      * @param encRevision The encryption algorithm revision.      * @param keyLengthInBytes The encryption key length in bytes.      * @param encryptMetadata The encryption metadata      *      * @return True If the ownerPassword param is the owner password.      *      * @throws IOException If there is an error accessing data.      */
 specifier|public
 name|boolean
 name|isOwnerPassword
@@ -4829,7 +4829,7 @@ name|int
 name|encRevision
 parameter_list|,
 name|int
-name|length
+name|keyLengthInBytes
 parameter_list|,
 name|boolean
 name|encryptMetadata
@@ -4859,7 +4859,7 @@ name|id
 argument_list|,
 name|encRevision
 argument_list|,
-name|length
+name|keyLengthInBytes
 argument_list|,
 name|encryptMetadata
 argument_list|)
