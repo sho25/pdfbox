@@ -1675,7 +1675,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// test with owner password => restricted permissions
+comment|// test with user password => restricted permissions
 name|encryptedDoc
 operator|=
 name|PDDocument
