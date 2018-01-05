@@ -299,7 +299,7 @@ specifier|final
 name|COSStream
 name|stream
 decl_stmt|;
-comment|/**      * Creates a new PDStream object.      *       * @param document The document that the stream will be part of.      */
+comment|/**      * Creates a new empty PDStream object.      *       * @param document The document that the stream will be part of.      */
 specifier|public
 name|PDStream
 parameter_list|(
@@ -318,7 +318,7 @@ name|createCOSStream
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Creates a new PDStream object.      *      * @param document The document that the stream will be part of.      */
+comment|/**      * Creates a new empty PDStream object.      *      * @param document The document that the stream will be part of.      */
 specifier|public
 name|PDStream
 parameter_list|(
