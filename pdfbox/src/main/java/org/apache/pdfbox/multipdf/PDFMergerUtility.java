@@ -1332,6 +1332,8 @@ argument_list|()
 decl_stmt|;
 name|PDDestination
 name|openActionDestination
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1353,7 +1355,13 @@ name|getDestination
 argument_list|()
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|openAction
+operator|instanceof
+name|PDDestination
+condition|)
 block|{
 name|openActionDestination
 operator|=
@@ -1363,6 +1371,7 @@ operator|)
 name|openAction
 expr_stmt|;
 block|}
+comment|// note that it can also be something else, e.g. PDActionJavaScript, then do nothing
 if|if
 condition|(
 name|openActionDestination
@@ -2798,10 +2807,7 @@ name|pageDestination
 decl_stmt|;
 if|if
 condition|(
-name|destCatalog
-operator|.
-name|getOpenAction
-argument_list|()
+name|openAction
 operator|instanceof
 name|PDActionGoTo
 condition|)
