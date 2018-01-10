@@ -828,6 +828,8 @@ index|]
 condition|)
 block|{
 comment|// a false result doesn't necessarily mean that the PDF is a fake
+comment|// see this answer why:
+comment|// https://stackoverflow.com/a/48185913/535646
 name|System
 operator|.
 name|out
