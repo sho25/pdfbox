@@ -853,8 +853,20 @@ operator|&&
 name|c
 operator|==
 literal|'.'
+operator|||
+name|c
+operator|==
+literal|'-'
 condition|)
 block|{
+if|if
+condition|(
+name|c
+operator|!=
+literal|'-'
+condition|)
+block|{
+comment|// PDFBOX-4064: ignore "-" in the middle of a number
 name|buf
 operator|.
 name|append
@@ -862,6 +874,7 @@ argument_list|(
 name|c
 argument_list|)
 expr_stmt|;
+block|}
 name|seqSource
 operator|.
 name|read
