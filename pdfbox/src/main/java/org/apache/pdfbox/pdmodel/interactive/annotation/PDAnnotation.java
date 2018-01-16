@@ -2272,6 +2272,12 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Create the appearance entry for this annotation. Not having it may prevent display in some      * viewers. This method is for overriding in subclasses, the default implementation does      * nothing.      */
+specifier|public
+name|void
+name|constructAppearances
+parameter_list|()
+block|{     }
 block|}
 end_class
 
