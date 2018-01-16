@@ -183,8 +183,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This will retrieve the interior color of the drawn area color is in DeviceRGB color space.      *      * @return object representing the color.      */
-annotation|@
-name|Override
 specifier|public
 name|PDColor
 name|getInteriorColor
