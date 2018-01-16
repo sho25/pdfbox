@@ -1207,9 +1207,12 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Bad Dictionary Declaration "
+literal|"Bad dictionary declaration at offset "
 operator|+
 name|seqSource
+operator|.
+name|getPosition
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1496,9 +1499,12 @@ literal|"parseCOSString string should start with '(' or '<' and not '"
 operator|+
 name|nextChar
 operator|+
-literal|"' "
+literal|"' at offset "
 operator|+
 name|seqSource
+operator|.
+name|getPosition
+argument_list|()
 argument_list|)
 throw|;
 block|}
