@@ -231,6 +231,24 @@ name|interactive
 operator|.
 name|annotation
 operator|.
+name|PDAnnotationCircle
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|annotation
+operator|.
 name|PDAnnotationLine
 import|;
 end_import
@@ -267,7 +285,7 @@ name|interactive
 operator|.
 name|annotation
 operator|.
-name|PDAnnotationSquareCircle
+name|PDAnnotationSquare
 import|;
 end_import
 
@@ -1067,16 +1085,12 @@ name|txtLink
 argument_list|)
 expr_stmt|;
 comment|// Now draw a few more annotations
-name|PDAnnotationSquareCircle
+name|PDAnnotationCircle
 name|aCircle
 init|=
 operator|new
-name|PDAnnotationSquareCircle
-argument_list|(
-name|PDAnnotationSquareCircle
-operator|.
-name|SUB_TYPE_CIRCLE
-argument_list|)
+name|PDAnnotationCircle
+argument_list|()
 decl_stmt|;
 name|aCircle
 operator|.
@@ -1174,16 +1188,12 @@ name|aCircle
 argument_list|)
 expr_stmt|;
 comment|// Now a square annotation
-name|PDAnnotationSquareCircle
+name|PDAnnotationSquare
 name|aSquare
 init|=
 operator|new
-name|PDAnnotationSquareCircle
-argument_list|(
-name|PDAnnotationSquareCircle
-operator|.
-name|SUB_TYPE_SQUARE
-argument_list|)
+name|PDAnnotationSquare
+argument_list|()
 decl_stmt|;
 name|aSquare
 operator|.
