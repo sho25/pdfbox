@@ -812,6 +812,24 @@ return|return
 literal|null
 return|;
 block|}
+comment|//TODO this isn't available for all markup annotations, only
+comment|// polygon, polyline, line, square, circle.
+comment|// Thus we need to created more classes (polygon, polyline).
+comment|/**      * This will retrieve the interior color.      *      * @return object representing the color.      */
+specifier|public
+name|PDColor
+name|getInteriorColor
+parameter_list|()
+block|{
+return|return
+name|getColor
+argument_list|(
+name|COSName
+operator|.
+name|IC
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
