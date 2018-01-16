@@ -109,6 +109,24 @@ name|COSString
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
+name|color
+operator|.
+name|PDColor
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class represents the additional fields of a Markup type Annotation. See section 12.5.6 of ISO32000-1:2008  * (starting with page 390) for details on annotation types.  *  * @author Paul King  */
 end_comment
