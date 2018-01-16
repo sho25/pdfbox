@@ -303,6 +303,22 @@ name|preflight
 operator|.
 name|annotation
 operator|.
+name|CircleAnnotationValidator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|annotation
+operator|.
 name|FreeTextAnnotationValidator
 import|;
 end_import
@@ -431,7 +447,7 @@ name|preflight
 operator|.
 name|annotation
 operator|.
-name|SquareCircleAnnotationValidator
+name|SquareAnnotationValidator
 import|;
 end_import
 
@@ -561,7 +577,7 @@ name|put
 argument_list|(
 name|ANNOT_DICTIONARY_VALUE_SUBTYPE_SQUARE
 argument_list|,
-name|SquareCircleAnnotationValidator
+name|SquareAnnotationValidator
 operator|.
 name|class
 argument_list|)
@@ -574,7 +590,7 @@ name|put
 argument_list|(
 name|ANNOT_DICTIONARY_VALUE_SUBTYPE_CIRCLE
 argument_list|,
-name|SquareCircleAnnotationValidator
+name|CircleAnnotationValidator
 operator|.
 name|class
 argument_list|)
