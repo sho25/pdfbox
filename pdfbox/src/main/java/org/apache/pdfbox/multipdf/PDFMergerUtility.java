@@ -3360,7 +3360,7 @@ name|srcField
 range|:
 name|srcAcroForm
 operator|.
-name|getFieldTree
+name|getFields
 argument_list|()
 control|)
 block|{
