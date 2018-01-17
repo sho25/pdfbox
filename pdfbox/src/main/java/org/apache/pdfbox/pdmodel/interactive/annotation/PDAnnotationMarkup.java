@@ -138,15 +138,6 @@ name|SUB_TYPE_CARET
 init|=
 literal|"Caret"
 decl_stmt|;
-comment|/**      * Constant for an Ink type of annotation.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SUB_TYPE_INK
-init|=
-literal|"Ink"
-decl_stmt|;
 comment|/**      * Constant for an Sound type of annotation.      */
 specifier|public
 specifier|static
