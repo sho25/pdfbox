@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Handler to generate the square annotations appearance.  *  */
+comment|/**  * Handler to generate the circle annotations appearance.  *  */
 end_comment
 
 begin_class
