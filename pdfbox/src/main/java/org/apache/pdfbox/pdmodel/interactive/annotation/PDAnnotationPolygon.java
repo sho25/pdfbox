@@ -311,20 +311,20 @@ name|ar
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param squareAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param polygonAppearanceHandler      */
 specifier|public
 name|void
-name|setCustomSquareAppearanceHandler
+name|setCustomPolygonAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|squareAppearanceHandler
+name|polygonAppearanceHandler
 parameter_list|)
 block|{
 name|this
 operator|.
 name|polygonAppearanceHandler
 operator|=
-name|squareAppearanceHandler
+name|polygonAppearanceHandler
 expr_stmt|;
 block|}
 annotation|@

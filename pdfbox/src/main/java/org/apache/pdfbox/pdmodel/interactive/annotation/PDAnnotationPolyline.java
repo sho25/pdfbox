@@ -309,20 +309,20 @@ name|ar
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param squareAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param polylineAppearanceHandler      */
 specifier|public
 name|void
-name|setCustomSquareAppearanceHandler
+name|setCustomPolylineAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|squareAppearanceHandler
+name|polylineAppearanceHandler
 parameter_list|)
 block|{
 name|this
 operator|.
 name|polylineAppearanceHandler
 operator|=
-name|squareAppearanceHandler
+name|polylineAppearanceHandler
 expr_stmt|;
 block|}
 annotation|@
