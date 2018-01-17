@@ -109,24 +109,6 @@ name|COSString
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDColor
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class represents the additional fields of a Markup type Annotation. See section 12.5.6 of ISO32000-1:2008  * (starting with page 390) for details on annotation types.  *  * @author Paul King  */
 end_comment
@@ -146,24 +128,6 @@ name|String
 name|SUB_TYPE_FREETEXT
 init|=
 literal|"FreeText"
-decl_stmt|;
-comment|/**      * Constant for an Polygon type of annotation.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SUB_TYPE_POLYGON
-init|=
-literal|"Polygon"
-decl_stmt|;
-comment|/**      * Constant for an PolyLine type of annotation.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SUB_TYPE_POLYLINE
-init|=
-literal|"PolyLine"
 decl_stmt|;
 comment|/**      * Constant for an Caret type of annotation.      */
 specifier|public
@@ -810,24 +774,6 @@ return|;
 block|}
 return|return
 literal|null
-return|;
-block|}
-comment|//TODO this isn't available for all markup annotations, only
-comment|// polygon, polyline, line, square, circle.
-comment|// Thus we need to created more classes (polygon, polyline).
-comment|/**      * This will retrieve the interior color.      *      * @return object representing the color.      */
-specifier|public
-name|PDColor
-name|getInteriorColor
-parameter_list|()
-block|{
-return|return
-name|getColor
-argument_list|(
-name|COSName
-operator|.
-name|IC
-argument_list|)
 return|;
 block|}
 block|}
