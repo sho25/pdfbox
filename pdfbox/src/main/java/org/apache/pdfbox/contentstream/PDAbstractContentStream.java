@@ -688,7 +688,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a new appearance stream. Note that this is not actually a "page" content stream.      *      * @param appearance The appearance stream to add to.      * @param outputStream The appearances output stream to write to.      * @throws IOException If there is an error writing to the page contents.      */
+comment|/**      * Create a new appearance stream.      *      * @param appearance The appearance stream to add to.      * @param outputStream The appearances output stream to write to.      * @throws IOException If there is an error writing to the page contents.      */
 specifier|public
 name|PDAbstractContentStream
 parameter_list|(
@@ -713,6 +713,41 @@ name|appearance
 operator|.
 name|getResources
 argument_list|()
+expr_stmt|;
+name|formatDecimal
+operator|.
+name|setMaximumFractionDigits
+argument_list|(
+literal|4
+argument_list|)
+expr_stmt|;
+name|formatDecimal
+operator|.
+name|setGroupingUsed
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Create a new appearance stream.      *       * @param outputStream The appearances output stream to write to.      * @throws IOException       */
+specifier|public
+name|PDAbstractContentStream
+parameter_list|(
+name|OutputStream
+name|outputStream
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|output
+operator|=
+name|outputStream
+expr_stmt|;
+name|this
+operator|.
+name|resources
+operator|=
+literal|null
 expr_stmt|;
 name|formatDecimal
 operator|.
