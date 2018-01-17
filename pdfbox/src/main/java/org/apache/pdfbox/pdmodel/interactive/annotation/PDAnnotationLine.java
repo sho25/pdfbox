@@ -245,18 +245,13 @@ block|{
 name|getCOSObject
 argument_list|()
 operator|.
-name|setItem
+name|setName
 argument_list|(
 name|COSName
 operator|.
 name|SUBTYPE
 argument_list|,
-name|COSName
-operator|.
-name|getPDFName
-argument_list|(
 name|SUB_TYPE
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Dictionary value L is mandatory, fill in with arbitary value
