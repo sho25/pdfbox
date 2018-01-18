@@ -811,7 +811,7 @@ name|interactive
 operator|.
 name|annotation
 operator|.
-name|PDAnnotationLink
+name|PDAnnotationInk
 import|;
 end_import
 
@@ -829,7 +829,7 @@ name|interactive
 operator|.
 name|annotation
 operator|.
-name|PDAnnotationMarkup
+name|PDAnnotationLink
 import|;
 end_import
 
@@ -5594,26 +5594,11 @@ if|if
 condition|(
 name|annotation
 operator|instanceof
-name|PDAnnotationMarkup
-operator|&&
-name|annotation
-operator|.
-name|getSubtype
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|PDAnnotationMarkup
-operator|.
-name|SUB_TYPE_INK
-argument_list|)
+name|PDAnnotationInk
 condition|)
 block|{
 name|drawAnnotationInk
 argument_list|(
-operator|(
-name|PDAnnotationMarkup
-operator|)
 name|annotation
 argument_list|)
 expr_stmt|;
@@ -6105,7 +6090,7 @@ specifier|private
 name|void
 name|drawAnnotationInk
 parameter_list|(
-name|PDAnnotationMarkup
+name|PDAnnotationInk
 name|inkAnnotation
 parameter_list|)
 throws|throws
