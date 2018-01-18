@@ -5557,6 +5557,22 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|annotation
+operator|.
+name|getAppearance
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|annotation
+operator|.
+name|constructAppearances
+argument_list|()
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|showAnnotation
@@ -5564,6 +5580,7 @@ argument_list|(
 name|annotation
 argument_list|)
 expr_stmt|;
+comment|//TODO delete these when PDFBOX-3353 done
 if|if
 condition|(
 name|annotation
