@@ -5599,6 +5599,9 @@ condition|)
 block|{
 name|drawAnnotationInk
 argument_list|(
+operator|(
+name|PDAnnotationInk
+operator|)
 name|annotation
 argument_list|)
 expr_stmt|;
