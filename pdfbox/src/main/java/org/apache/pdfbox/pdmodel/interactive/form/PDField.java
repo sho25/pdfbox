@@ -479,7 +479,7 @@ name|FLAG_READ_ONLY
 argument_list|)
 return|;
 block|}
-comment|/**      * sets the field to be required.      *       * @param required The new flag for required.      */
+comment|/**      * sets the flag whether the field is to be required to have a value at the time it is exported      * by a submit-form action.      *      * @param required The new flag for required.      */
 specifier|public
 name|void
 name|setRequired
@@ -502,7 +502,7 @@ name|required
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *       * @return true if the field is required      */
+comment|/**      * @return true if the field is required to have a value at the time it is exported by a      * submit-form action.      */
 specifier|public
 name|boolean
 name|isRequired
