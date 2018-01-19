@@ -136,7 +136,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @author Tilman Hausherr  */
+comment|/**  * Class to collect all sort of border info about annotations.  *   * @author Tilman Hausherr  */
 end_comment
 
 begin_class
@@ -182,6 +182,13 @@ operator|new
 name|AnnotationBorder
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|borderStyle
+operator|==
+literal|null
+condition|)
+block|{
 name|COSArray
 name|border
 init|=
@@ -190,13 +197,6 @@ operator|.
 name|getBorder
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|borderStyle
-operator|==
-literal|null
-condition|)
-block|{
 if|if
 condition|(
 name|border
