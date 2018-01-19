@@ -448,7 +448,7 @@ name|borderCharacteristics
 operator|.
 name|getInt
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 return|;
 block|}
