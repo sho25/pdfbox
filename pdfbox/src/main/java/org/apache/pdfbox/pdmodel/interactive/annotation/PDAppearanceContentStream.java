@@ -503,7 +503,7 @@ name|lineWidth
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the line width. The command is only emitted if the lineWidth is      * different to 1.      *       * @see PDAbstractContentStream#setLineWidth(float)      */
+comment|/**      * Sets the line width. The command is only emitted if the lineWidth is      * different to 1.      *       * @param lineWidth the line width of the path.      * @throws java.io.IOException      * @see PDAbstractContentStream#setLineWidth(float)      */
 specifier|public
 name|void
 name|setLineWidthOnDemand
@@ -541,7 +541,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Close a path.      *       *<p>Dependent on the lineWidth and whether or not there is a background      * to be generated there are different commands to be used for closing a path.      *       * @param lineWidth the line width of the path.      * @param hasBackground shall there be a background color.      * @throws IOException if an IO error occurs while writing to the stream.      */
+comment|/**      * Draw a shape.      *       *<p>Dependent on the lineWidth and whether or not there is a background      * to be generated there are different commands to be used for draw a shape.      *       * @param lineWidth the line width of the path.      * @param hasBackground shall there be a background color.      * @throws IOException if an IO error occurs while writing to the stream.      */
 specifier|public
 name|void
 name|drawShape
