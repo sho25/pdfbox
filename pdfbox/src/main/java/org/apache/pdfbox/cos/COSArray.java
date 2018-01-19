@@ -473,7 +473,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the value of the array as an integer.      *      * @param index The index into the list.      *      * @return The value at that index or -1 if it is null.      */
+comment|/**      * Get the value of the array as an integer.      *      * @param index The index into the list.      *      * @return The value at that index or -1 if does not exist.      */
 specifier|public
 name|int
 name|getInt
@@ -492,7 +492,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the value of the array as an integer, return the default if it does      * not exist.      *      * @param index The value of the array.      * @param defaultValue The value to return if the value is null.      * @return The value at the index or the defaultValue.      */
+comment|/**      * Get the value of the array as an integer, return the default if it does not exist.      *      * @param index The value of the array.      * @param defaultValue The value to return if the value is null.      * @return The value at the index or the defaultValue.      */
 specifier|public
 name|int
 name|getInt
