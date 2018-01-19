@@ -265,6 +265,9 @@ name|getNormalAppearanceAsContentStream
 argument_list|()
 init|)
 block|{
+name|boolean
+name|hasStroke
+init|=
 name|contentStream
 operator|.
 name|setStrokingColorOnDemand
@@ -272,7 +275,7 @@ argument_list|(
 name|getColor
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|contentStream
 operator|.
 name|setBorderLine
@@ -337,6 +340,8 @@ operator|.
 name|drawShape
 argument_list|(
 name|lineWidth
+argument_list|,
+name|hasStroke
 argument_list|,
 literal|false
 argument_list|)
