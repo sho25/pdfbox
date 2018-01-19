@@ -458,7 +458,6 @@ name|bs
 operator|!=
 literal|null
 operator|&&
-operator|(
 name|bs
 operator|.
 name|getCOSObject
@@ -470,7 +469,18 @@ name|COSName
 operator|.
 name|D
 argument_list|)
-operator|)
+operator|&&
+name|bs
+operator|.
+name|getStyle
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|PDBorderStyleDictionary
+operator|.
+name|STYLE_DASHED
+argument_list|)
 condition|)
 block|{
 name|setLineDashPattern
@@ -487,14 +497,11 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
 name|setLineWidthOnDemand
 argument_list|(
 name|lineWidth
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Sets the line width. The command is only emitted if the lineWidth is      * different to 1.      *       * @see PDAbstractContentStream#setLineWidth(float)      */
 specifier|public
