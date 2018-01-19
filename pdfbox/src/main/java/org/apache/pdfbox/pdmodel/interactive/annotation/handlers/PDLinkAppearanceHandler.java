@@ -224,6 +224,29 @@ name|void
 name|generateNormalAppearance
 parameter_list|()
 block|{
+name|PDAnnotationLink
+name|annotation
+init|=
+operator|(
+name|PDAnnotationLink
+operator|)
+name|getAnnotation
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|annotation
+operator|.
+name|getRectangle
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// 660402-p1-AnnotationEmptyRect.pdf has /Rect entry with 0 elements
+comment|//TODO check for qzadpoints before quitting
+return|return;
+block|}
 comment|// Adobe doesn't generate an appearance for a link annotation
 name|float
 name|lineWidth
@@ -250,34 +273,13 @@ name|getColor
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|boolean
-name|hasBackground
-init|=
-name|contentStream
-operator|.
-name|setNonStrokingColorOnDemand
-argument_list|(
-name|getAnnotation
-argument_list|()
-operator|.
-name|getColor
-argument_list|()
-argument_list|)
-decl_stmt|;
-comment|// TODO: handle opacity settings
 name|contentStream
 operator|.
 name|setBorderLine
 argument_list|(
 name|lineWidth
 argument_list|,
-operator|(
-operator|(
-name|PDAnnotationLink
-operator|)
-name|getAnnotation
-argument_list|()
-operator|)
+name|annotation
 operator|.
 name|getBorderStyle
 argument_list|()
@@ -336,7 +338,7 @@ name|drawShape
 argument_list|(
 name|lineWidth
 argument_list|,
-name|hasBackground
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
