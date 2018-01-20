@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the abstract class that represents a text markup annotation Introduced in PDF 1.3 specification, except  * Squiggly lines in 1.4.  *  * @author Paul King  */
+comment|/**  * This is the abstract class that represents a text markup annotation introduced in the PDF 1.3  * specification, except Squiggly lines in 1.4.  *  * @author Paul King  */
 end_comment
 
 begin_class
@@ -86,50 +86,8 @@ name|PDAnnotationTextMarkup
 extends|extends
 name|PDAnnotationMarkup
 block|{
-comment|/**      * The types of annotation.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SUB_TYPE_HIGHLIGHT
-init|=
-literal|"Highlight"
-decl_stmt|;
-comment|/**      * The types of annotation.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SUB_TYPE_UNDERLINE
-init|=
-literal|"Underline"
-decl_stmt|;
-comment|/**      * The types of annotation.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SUB_TYPE_SQUIGGLY
-init|=
-literal|"Squiggly"
-decl_stmt|;
-comment|/**      * The types of annotation.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SUB_TYPE_STRIKEOUT
-init|=
-literal|"StrikeOut"
-decl_stmt|;
-specifier|private
-name|PDAnnotationTextMarkup
-parameter_list|()
-block|{
-comment|// Must be constructed with a subType or dictionary parameter
-block|}
 comment|/**      * Creates a TextMarkup annotation of the specified sub type.      *      * @param subType the subtype the annotation represents      */
-specifier|public
+specifier|protected
 name|PDAnnotationTextMarkup
 parameter_list|(
 name|String
@@ -141,7 +99,7 @@ argument_list|(
 name|subType
 argument_list|)
 expr_stmt|;
-comment|// Quad points are required, set and empty array
+comment|// Quad points are required, set an empty array
 name|setQuadPoints
 argument_list|(
 operator|new
@@ -153,7 +111,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Creates a TextMarkup annotation from a COSDictionary, expected to be a correct object definition.      *      * @param field the PDF object to represent as a field.      */
-specifier|public
+specifier|protected
 name|PDAnnotationTextMarkup
 parameter_list|(
 name|COSDictionary
@@ -248,9 +206,8 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For this annotation. See the SUB_TYPE_XXX      * constants for valid values.      *      * @param subType The subtype of the annotation      */
-specifier|public
-specifier|final
+comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For this annotation.      * See the SUB_TYPE constants in subclasses for valid values.      *      * @param subType The subtype of the annotation      */
+specifier|private
 name|void
 name|setSubtype
 parameter_list|(
@@ -271,7 +228,7 @@ name|subType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence) For this annotation.      *      * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
+comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence) For this      * annotation.      *      * @return The subtype of this annotation, see the SUB_TYPE constants in subclasses for valid      * values.      */
 annotation|@
 name|Override
 specifier|public
