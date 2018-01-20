@@ -249,6 +249,24 @@ name|interactive
 operator|.
 name|annotation
 operator|.
+name|PDAnnotationHighlight
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|annotation
+operator|.
 name|PDAnnotationLine
 import|;
 end_import
@@ -286,24 +304,6 @@ operator|.
 name|annotation
 operator|.
 name|PDAnnotationSquare
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|annotation
-operator|.
-name|PDAnnotationTextMarkup
 import|;
 end_import
 
@@ -751,25 +751,39 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Now add the markup annotation, a highlight to PDFBox text
-name|PDAnnotationTextMarkup
-name|txtMark
+name|PDAnnotationHighlight
+name|txtHighlight
 init|=
 operator|new
-name|PDAnnotationTextMarkup
-argument_list|(
-name|PDAnnotationTextMarkup
-operator|.
-name|SUB_TYPE_HIGHLIGHT
-argument_list|)
+name|PDAnnotationHighlight
+argument_list|()
 decl_stmt|;
-name|txtMark
+name|txtHighlight
 operator|.
 name|setColor
 argument_list|(
-name|blue
+operator|new
+name|PDColor
+argument_list|(
+operator|new
+name|float
+index|[]
+block|{
+literal|0
+block|,
+literal|1
+block|,
+literal|1
+block|}
+argument_list|,
+name|PDDeviceRGB
+operator|.
+name|INSTANCE
+argument_list|)
 argument_list|)
 expr_stmt|;
-name|txtMark
+comment|// 20% transparent
+name|txtHighlight
 operator|.
 name|setConstantOpacity
 argument_list|(
@@ -779,7 +793,6 @@ operator|)
 literal|0.2
 argument_list|)
 expr_stmt|;
-comment|// 20% transparent
 comment|// Set the rectangle containing the markup
 name|float
 name|textWidth
@@ -838,7 +851,7 @@ operator|-
 name|INCH
 argument_list|)
 expr_stmt|;
-name|txtMark
+name|txtHighlight
 operator|.
 name|setRectangle
 argument_list|(
@@ -951,14 +964,14 @@ literal|5
 index|]
 expr_stmt|;
 comment|// y5
-name|txtMark
+name|txtHighlight
 operator|.
 name|setQuadPoints
 argument_list|(
 name|quads
 argument_list|)
 expr_stmt|;
-name|txtMark
+name|txtHighlight
 operator|.
 name|setContents
 argument_list|(
@@ -969,7 +982,7 @@ name|annotations
 operator|.
 name|add
 argument_list|(
-name|txtMark
+name|txtHighlight
 argument_list|)
 expr_stmt|;
 comment|// Now add the link annotation, so the click on "External URL" works
