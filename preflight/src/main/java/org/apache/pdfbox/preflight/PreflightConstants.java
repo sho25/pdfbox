@@ -739,7 +739,7 @@ init|=
 literal|"Underline"
 decl_stmt|;
 name|String
-name|ANNOT_DICTIONARY_VALUE_SUBTYPE_SQUILGGLY
+name|ANNOT_DICTIONARY_VALUE_SUBTYPE_SQUIGGLY
 init|=
 literal|"Squiggly"
 decl_stmt|;

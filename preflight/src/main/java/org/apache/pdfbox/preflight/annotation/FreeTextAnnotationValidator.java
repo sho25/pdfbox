@@ -59,7 +59,7 @@ name|interactive
 operator|.
 name|annotation
 operator|.
-name|PDAnnotationTextMarkup
+name|PDAnnotationMarkup
 import|;
 end_import
 
@@ -90,7 +90,7 @@ name|AnnotationValidator
 block|{
 comment|/**      * PDFBox object which wraps the Annotation dictionary      */
 specifier|protected
-name|PDAnnotationTextMarkup
+name|PDAnnotationMarkup
 name|pdFreeText
 init|=
 literal|null
@@ -117,7 +117,7 @@ operator|.
 name|pdFreeText
 operator|=
 operator|new
-name|PDAnnotationTextMarkup
+name|PDAnnotationMarkup
 argument_list|(
 name|annotDictionary
 argument_list|)

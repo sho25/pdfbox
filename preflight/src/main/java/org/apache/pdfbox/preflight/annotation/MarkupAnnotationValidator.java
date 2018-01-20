@@ -98,7 +98,7 @@ comment|/**  * Validation class for the MarkupAnnotation  */
 end_comment
 
 begin_class
-specifier|public
+specifier|abstract
 class|class
 name|MarkupAnnotationValidator
 extends|extends
@@ -111,7 +111,7 @@ name|pdMarkup
 init|=
 literal|null
 decl_stmt|;
-specifier|public
+specifier|protected
 name|MarkupAnnotationValidator
 parameter_list|(
 name|PreflightContext
@@ -127,24 +127,6 @@ name|ctx
 argument_list|,
 name|annotDictionary
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|pdMarkup
-operator|=
-operator|new
-name|PDAnnotationTextMarkup
-argument_list|(
-name|annotDictionary
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|pdAnnot
-operator|=
-name|this
-operator|.
-name|pdMarkup
 expr_stmt|;
 block|}
 annotation|@

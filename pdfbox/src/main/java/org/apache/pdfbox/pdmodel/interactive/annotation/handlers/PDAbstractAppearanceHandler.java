@@ -244,6 +244,7 @@ implements|implements
 name|PDAppearanceHandler
 block|{
 specifier|private
+specifier|final
 name|PDAnnotation
 name|annotation
 decl_stmt|;
@@ -269,18 +270,24 @@ operator|=
 name|annotation
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 specifier|abstract
 name|void
 name|generateNormalAppearance
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 specifier|public
 specifier|abstract
 name|void
 name|generateRolloverAppearance
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 specifier|public
 specifier|abstract
 name|void
@@ -405,6 +412,7 @@ name|isSubDictionary
 argument_list|()
 condition|)
 block|{
+comment|//TODO replace with "document.getDocument().createCOSStream()"
 name|appearanceEntry
 operator|=
 operator|new
