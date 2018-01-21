@@ -1004,7 +1004,7 @@ operator|.
 name|getCOSObject
 argument_list|()
 operator|.
-name|getString
+name|getNameAsString
 argument_list|(
 name|COSName
 operator|.
@@ -1026,7 +1026,7 @@ operator|.
 name|getCOSObject
 argument_list|()
 operator|.
-name|setString
+name|setName
 argument_list|(
 name|COSName
 operator|.
