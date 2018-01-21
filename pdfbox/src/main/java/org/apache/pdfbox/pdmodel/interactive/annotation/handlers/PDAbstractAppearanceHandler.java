@@ -462,6 +462,7 @@ name|isSubDictionary
 argument_list|()
 condition|)
 block|{
+comment|//TODO replace with "document.getDocument().createCOSStream()"
 name|appearanceEntry
 operator|=
 operator|new
@@ -622,6 +623,23 @@ argument_list|(
 name|opacity
 argument_list|)
 expr_stmt|;
+name|prepareResources
+argument_list|()
+expr_stmt|;
+name|contentStream
+operator|.
+name|setGraphicsStateParameters
+argument_list|(
+name|gs
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Assign the resources dictionary from the appearance entry to the content stream and create      * the resources if needed.      */
+name|void
+name|prepareResources
+parameter_list|()
+block|{
 name|PDAppearanceStream
 name|appearanceStream
 init|=
@@ -666,14 +684,6 @@ name|resources
 argument_list|)
 expr_stmt|;
 block|}
-name|contentStream
-operator|.
-name|setGraphicsStateParameters
-argument_list|(
-name|gs
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Get the annotations normal appearance.      *       *<p>      * This will get the annotations normal appearance. If this is not existent      * an empty appearance entry will be created.      *       * @return the appearance entry representing the normal appearance.      */
 specifier|private
@@ -703,6 +713,7 @@ name|isSubDictionary
 argument_list|()
 condition|)
 block|{
+comment|//TODO replace with "document.getDocument().createCOSStream()"
 name|appearanceEntry
 operator|=
 operator|new
