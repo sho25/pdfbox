@@ -515,6 +515,14 @@ name|getNormalAppearanceAsContentStream
 argument_list|()
 init|)
 block|{
+name|handleOpacity
+argument_list|(
+name|annotation
+operator|.
+name|getConstantOpacity
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Tested with Adobe Reader:
 comment|// text is written first (TODO)
 comment|// width 0 is used by Adobe as such (but results in a visible line in rendering)

@@ -234,6 +234,14 @@ name|getNormalAppearanceAsContentStream
 argument_list|()
 init|)
 block|{
+name|handleOpacity
+argument_list|(
+name|ink
+operator|.
+name|getConstantOpacity
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|cs
 operator|.
 name|setStrokingColor
