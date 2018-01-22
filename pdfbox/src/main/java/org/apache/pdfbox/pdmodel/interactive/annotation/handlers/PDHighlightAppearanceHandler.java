@@ -1786,7 +1786,7 @@ name|os
 operator|.
 name|write
 argument_list|(
-literal|"f%n"
+literal|"f\n"
 operator|.
 name|getBytes
 argument_list|(
