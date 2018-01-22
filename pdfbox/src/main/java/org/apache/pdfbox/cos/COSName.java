@@ -6339,7 +6339,7 @@ name|getBytes
 argument_list|(
 name|Charsets
 operator|.
-name|US_ASCII
+name|UTF_8
 argument_list|)
 decl_stmt|;
 for|for
