@@ -896,7 +896,7 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"%.6f g\n"
+literal|"%.6f g%n"
 argument_list|,
 name|color
 operator|.
@@ -935,7 +935,7 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"%.6f %.6f %.6f rg\n"
+literal|"%.6f %.6f %.6f rg%n"
 argument_list|,
 name|color
 operator|.
@@ -990,7 +990,7 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"%.6f %.6f %.6f %.6f k\n"
+literal|"%.6f %.6f %.6f %.6f k%n"
 argument_list|,
 name|color
 operator|.
@@ -1242,7 +1242,7 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"%.4f %.4f m\n"
+literal|"%.4f %.4f m%n"
 argument_list|,
 name|pathsArray
 index|[
@@ -1301,7 +1301,7 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"%.4f %.4f %.4f %.4f %.4f %.4f c\n"
+literal|"%.4f %.4f %.4f %.4f %.4f %.4f c%n"
 argument_list|,
 name|pathsArray
 index|[
@@ -1398,7 +1398,7 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"%.4f %.4f %.4f %.4f %.4f %.4f c\n"
+literal|"%.4f %.4f %.4f %.4f %.4f %.4f c%n"
 argument_list|,
 name|pathsArray
 index|[
@@ -1478,7 +1478,7 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"%.4f %.4f l\n"
+literal|"%.4f %.4f l%n"
 argument_list|,
 name|pathsArray
 index|[
@@ -1520,7 +1520,7 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"%.4f %.4f l\n"
+literal|"%.4f %.4f l%n"
 argument_list|,
 name|pathsArray
 index|[
@@ -1579,7 +1579,7 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"%.4f %.4f %.4f %.4f %.4f %.4f c\n"
+literal|"%.4f %.4f %.4f %.4f %.4f %.4f c%n"
 argument_list|,
 name|pathsArray
 index|[
@@ -1676,7 +1676,7 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"%.4f %.4f %.4f %.4f %.4f %.4f c\n"
+literal|"%.4f %.4f %.4f %.4f %.4f %.4f c%n"
 argument_list|,
 name|pathsArray
 index|[
@@ -1756,7 +1756,7 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"%.4f %.4f l\n"
+literal|"%.4f %.4f l%n"
 argument_list|,
 name|pathsArray
 index|[
@@ -1786,7 +1786,7 @@ name|os
 operator|.
 name|write
 argument_list|(
-literal|"f\n"
+literal|"f%n"
 operator|.
 name|getBytes
 argument_list|(
