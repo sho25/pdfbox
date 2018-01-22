@@ -568,11 +568,6 @@ name|pathsArray
 index|[
 literal|0
 index|]
-operator|-
-name|rect
-operator|.
-name|getLowerLeftX
-argument_list|()
 decl_stmt|;
 name|float
 name|y1
@@ -581,11 +576,6 @@ name|pathsArray
 index|[
 literal|1
 index|]
-operator|-
-name|rect
-operator|.
-name|getLowerLeftY
-argument_list|()
 decl_stmt|;
 name|float
 name|x2
@@ -594,11 +584,6 @@ name|pathsArray
 index|[
 literal|2
 index|]
-operator|-
-name|rect
-operator|.
-name|getLowerLeftX
-argument_list|()
 decl_stmt|;
 name|float
 name|y2
@@ -607,11 +592,6 @@ name|pathsArray
 index|[
 literal|3
 index|]
-operator|-
-name|rect
-operator|.
-name|getLowerLeftY
-argument_list|()
 decl_stmt|;
 name|String
 name|contents
@@ -874,6 +854,9 @@ operator|>
 literal|0
 condition|)
 block|{
+name|prepareResources
+argument_list|()
+expr_stmt|;
 comment|// don't show if there was trouble before
 name|cs
 operator|.
