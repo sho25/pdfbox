@@ -1887,7 +1887,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a      * string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getString
@@ -1908,7 +1908,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a      * string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getString
@@ -1954,7 +1954,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a      * string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getString
@@ -1980,7 +1980,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a      * string. Null is returned if the entry does not exist in the dictionary.      *      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      */
 specifier|public
 name|String
 name|getString
@@ -2118,12 +2118,9 @@ name|retval
 init|=
 name|defaultValue
 decl_stmt|;
-name|COSDictionary
-name|dic
+name|COSBase
+name|base
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|getDictionaryObject
 argument_list|(
 name|embedded
@@ -2131,14 +2128,19 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|dic
-operator|!=
-literal|null
+name|base
+operator|instanceof
+name|COSDictionary
 condition|)
 block|{
 name|retval
 operator|=
-name|dic
+operator|(
+operator|(
+name|COSDictionary
+operator|)
+name|base
+operator|)
 operator|.
 name|getString
 argument_list|(
