@@ -122,7 +122,7 @@ extends|extends
 name|PDAnnotationMarkup
 block|{
 comment|/**      * Creates a Circle or Square annotation of the specified sub type.      *      * @param subType the subtype the annotation represents.      */
-specifier|public
+specifier|protected
 name|PDAnnotationSquareCircle
 parameter_list|(
 name|String
@@ -136,7 +136,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Constructor.      *      * @param dict The annotations dictionary.      */
-specifier|public
+specifier|protected
 name|PDAnnotationSquareCircle
 parameter_list|(
 name|COSDictionary
