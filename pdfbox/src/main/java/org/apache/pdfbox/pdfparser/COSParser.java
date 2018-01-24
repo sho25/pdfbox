@@ -5461,9 +5461,10 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
+name|isWhitespace
+argument_list|(
 name|nextChar
-operator|==
-literal|' '
+argument_list|)
 operator|&&
 name|isString
 argument_list|(
@@ -5518,7 +5519,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|isSpace
+name|isWhitespace
 argument_list|()
 condition|)
 block|{
@@ -5528,7 +5529,7 @@ name|tempOffset
 operator|>
 name|MINIMUM_SEARCH_OFFSET
 operator|&&
-name|isSpace
+name|isWhitespace
 argument_list|()
 condition|)
 block|{
