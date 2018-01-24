@@ -120,33 +120,6 @@ name|PDAnnotationMarkup
 extends|extends
 name|PDAnnotation
 block|{
-comment|/**      * Constant for a FreeText type of annotation.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SUB_TYPE_FREETEXT
-init|=
-literal|"FreeText"
-decl_stmt|;
-comment|/**      * Constant for an Caret type of annotation.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SUB_TYPE_CARET
-init|=
-literal|"Caret"
-decl_stmt|;
-comment|/**      * Constant for an Sound type of annotation.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SUB_TYPE_SOUND
-init|=
-literal|"Sound"
-decl_stmt|;
 comment|/*      * The various values of the reply type as defined in the PDF 1.7 reference Table 170      */
 comment|/**      * Constant for an annotation reply type.      */
 specifier|public
