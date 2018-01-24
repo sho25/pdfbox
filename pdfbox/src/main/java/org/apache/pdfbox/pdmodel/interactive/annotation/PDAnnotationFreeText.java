@@ -240,7 +240,7 @@ name|defaultStyleString
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the 'quadding' or justification of the text to be displayed.      *       * This is an inheritable attribute.      *<br>      * 0 - Left(default)<br>      * 1 - Centered<br>      * 2 - Right<br>      * Please see the QUADDING_CONSTANTS in {@link PDVariableText }.      *      * @return The justification of the text strings.      */
+comment|/**      * This will get the 'quadding' or justification of the text to be displayed.      *<br>      * 0 - Left (default)<br>      * 1 - Centered<br>      * 2 - Right<br>      * Please see the QUADDING_CONSTANTS in {@link PDVariableText }.      *      * @return The justification of the text strings.      */
 specifier|public
 name|int
 name|getQ
