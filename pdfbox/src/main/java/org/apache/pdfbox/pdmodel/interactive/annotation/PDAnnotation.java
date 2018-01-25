@@ -159,6 +159,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|io
+operator|.
+name|ScratchFile
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDPage
@@ -2365,11 +2379,14 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Create the appearance entry for this annotation. Not having it may prevent display in some      * viewers. This method is for overriding in subclasses, the default implementation does      * nothing.      */
+comment|/**      * Create the appearance entry for this annotation. Not having it may prevent display in some      * viewers. This method is for overriding in subclasses, the default implementation does      * nothing.      *       * @param scratchFile memory handler for buffering of PDF streams.      *                    Passing null will use an in memory buffer {@link ScratchFile.getMainMemoryOnlyInstance()}.      */
 specifier|public
 name|void
 name|constructAppearances
-parameter_list|()
+parameter_list|(
+name|ScratchFile
+name|scratchFile
+parameter_list|)
 block|{     }
 block|}
 end_class
