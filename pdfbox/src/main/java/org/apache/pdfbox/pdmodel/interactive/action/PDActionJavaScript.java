@@ -114,9 +114,6 @@ specifier|public
 name|PDActionJavaScript
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|setSubType
 argument_list|(
 name|SUB_TYPE

@@ -114,12 +114,6 @@ specifier|public
 name|PDActionURI
 parameter_list|()
 block|{
-name|action
-operator|=
-operator|new
-name|COSDictionary
-argument_list|()
-expr_stmt|;
 name|setSubType
 argument_list|(
 name|SUB_TYPE
