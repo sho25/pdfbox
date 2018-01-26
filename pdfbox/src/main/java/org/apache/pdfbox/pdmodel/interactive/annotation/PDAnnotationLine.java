@@ -935,6 +935,8 @@ argument_list|(
 name|COSName
 operator|.
 name|LL
+argument_list|,
+literal|0
 argument_list|)
 return|;
 block|}
@@ -979,6 +981,8 @@ argument_list|(
 name|COSName
 operator|.
 name|LLE
+argument_list|,
+literal|0
 argument_list|)
 return|;
 block|}
@@ -1023,6 +1027,8 @@ argument_list|(
 name|COSName
 operator|.
 name|LLO
+argument_list|,
+literal|0
 argument_list|)
 return|;
 block|}
