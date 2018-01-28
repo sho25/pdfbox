@@ -831,6 +831,7 @@ operator|)
 operator|)
 argument_list|)
 decl_stmt|;
+comment|//TODO rename getCaption() to isCaption() or hasCaption()
 if|if
 condition|(
 name|annotation
@@ -1129,6 +1130,23 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// /CO entry (caption offset)
+name|float
+name|captionHorizontalOffset
+init|=
+name|annotation
+operator|.
+name|getCaptionHorizontalOffset
+argument_list|()
+decl_stmt|;
+name|float
+name|captionVerticalOffset
+init|=
+name|annotation
+operator|.
+name|getCaptionVerticalOffset
+argument_list|()
+decl_stmt|;
 comment|// check contentLength so we don't show if there was trouble before
 if|if
 condition|(
@@ -1163,10 +1181,14 @@ operator|.
 name|getTranslateInstance
 argument_list|(
 name|xOffset
+operator|+
+name|captionHorizontalOffset
 argument_list|,
 name|y
 operator|+
 name|yOffset
+operator|+
+name|captionVerticalOffset
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1184,6 +1206,43 @@ name|cs
 operator|.
 name|endText
 argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|captionVerticalOffset
+operator|!=
+literal|0
+condition|)
+block|{
+comment|// Adobe paints vertical bar to the caption
+name|cs
+operator|.
+name|moveTo
+argument_list|(
+literal|0
+operator|+
+name|lineLength
+operator|/
+literal|2
+argument_list|,
+name|y
+argument_list|)
+expr_stmt|;
+name|cs
+operator|.
+name|lineTo
+argument_list|(
+literal|0
+operator|+
+name|lineLength
+operator|/
+literal|2
+argument_list|,
+name|y
+operator|+
+name|captionVerticalOffset
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1293,6 +1352,7 @@ name|y
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 name|cs
 operator|.
 name|drawShape
@@ -1306,7 +1366,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-block|}
 comment|// do this here and not before showing the text, or the text would appear in the
 comment|// interior color
 name|boolean
@@ -1324,7 +1383,7 @@ argument_list|)
 decl_stmt|;
 comment|// there can be many, many more styles...
 comment|//TODO numbers for arrow size are arbitrary and likely wrong
-comment|// current strategy: angle 30Â°, arrow arm length = 10 * line width
+comment|// current strategy: angle 30°, arrow arm length = 10 * line width
 comment|// cos(angle) = x position
 comment|// sin(angle) = y position
 if|if
