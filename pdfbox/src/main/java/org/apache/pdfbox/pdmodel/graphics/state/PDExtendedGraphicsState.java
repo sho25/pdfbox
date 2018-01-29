@@ -1552,6 +1552,32 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Set the blending mode.      *       * @param bm       */
+specifier|public
+name|void
+name|setBlendMode
+parameter_list|(
+name|BlendMode
+name|bm
+parameter_list|)
+block|{
+name|dict
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|BM
+argument_list|,
+name|BlendMode
+operator|.
+name|getCOSName
+argument_list|(
+name|bm
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Returns the soft mask stored in the COS dictionary      *      * @return the soft mask      */
 specifier|public
 name|PDSoftMask
