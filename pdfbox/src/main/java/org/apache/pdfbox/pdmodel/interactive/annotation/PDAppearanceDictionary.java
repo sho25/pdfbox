@@ -174,6 +174,9 @@ return|return
 operator|new
 name|PDAppearanceEntry
 argument_list|(
+operator|(
+name|COSDictionary
+operator|)
 name|entry
 argument_list|)
 return|;
@@ -253,6 +256,9 @@ return|return
 operator|new
 name|PDAppearanceEntry
 argument_list|(
+operator|(
+name|COSDictionary
+operator|)
 name|entry
 argument_list|)
 return|;
@@ -336,6 +342,9 @@ return|return
 operator|new
 name|PDAppearanceEntry
 argument_list|(
+operator|(
+name|COSDictionary
+operator|)
 name|entry
 argument_list|)
 return|;

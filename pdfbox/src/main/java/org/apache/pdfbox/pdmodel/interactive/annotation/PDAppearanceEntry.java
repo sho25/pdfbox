@@ -139,7 +139,7 @@ implements|implements
 name|COSObjectable
 block|{
 specifier|private
-name|COSBase
+name|COSDictionary
 name|entry
 decl_stmt|;
 specifier|private
@@ -150,7 +150,7 @@ comment|/**      * Constructor for reading.      *       * @param entry      */
 specifier|public
 name|PDAppearanceEntry
 parameter_list|(
-name|COSBase
+name|COSDictionary
 name|entry
 parameter_list|)
 block|{
@@ -260,9 +260,6 @@ block|}
 name|COSDictionary
 name|dict
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|entry
 decl_stmt|;
 name|Map
