@@ -243,6 +243,10 @@ class|class
 name|AppearanceGenerationTest
 block|{
 comment|// delta for comparing equality of float values
+comment|// a difference in float values smaller than this
+comment|// will be treated equal between Adobe and PDFBox
+comment|// values.
+comment|// TODO: revisit that number as our code improves
 specifier|private
 specifier|static
 specifier|final
@@ -323,7 +327,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Test currently disabled as the content stream differs
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|rectangleFullStrokeNoFill

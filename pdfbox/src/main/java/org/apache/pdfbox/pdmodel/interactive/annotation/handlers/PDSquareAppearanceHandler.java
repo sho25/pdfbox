@@ -340,8 +340,6 @@ name|getRectangle
 argument_list|()
 argument_list|,
 name|lineWidth
-operator|/
-literal|2
 argument_list|)
 decl_stmt|;
 name|contentStream
