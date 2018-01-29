@@ -2392,6 +2392,10 @@ operator|instanceof
 name|COSObject
 operator|&&
 name|resources
+operator|!=
+literal|null
+operator|&&
+name|resources
 operator|.
 name|getResourceCache
 argument_list|()
