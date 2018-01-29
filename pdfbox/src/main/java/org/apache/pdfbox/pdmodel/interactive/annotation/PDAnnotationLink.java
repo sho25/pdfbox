@@ -666,7 +666,6 @@ name|toFloatArray
 argument_list|()
 return|;
 block|}
-comment|// Should never happen as this is a required item
 return|return
 literal|null
 return|;
