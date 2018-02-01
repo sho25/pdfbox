@@ -396,6 +396,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|annotation
+operator|.
+name|getColor
+argument_list|()
+operator|==
+literal|null
+operator|||
 name|ab
 operator|.
 name|color
@@ -408,6 +415,9 @@ operator|==
 literal|0
 condition|)
 block|{
+comment|//TODO Annotation border color handling is different here than with shape annotations,
+comment|// consider this when/if refactoring AnnotationBorder class,
+comment|// e.g. set a parameter what to use as default.
 return|return;
 block|}
 comment|// Adjust rectangle even if not empty, see PLPDF.com-MarkupAnnotations.pdf
@@ -872,10 +882,9 @@ comment|//TODO why can't we get a "classic" content stream?
 name|PDColor
 name|color
 init|=
-name|annotation
+name|ab
 operator|.
-name|getColor
-argument_list|()
+name|color
 decl_stmt|;
 switch|switch
 condition|(
