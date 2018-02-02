@@ -936,7 +936,7 @@ condition|)
 block|{
 comment|// quadpoints spec sequence is incorrect, correct one is (4,5 0,1 2,3 6,7)
 comment|// https://stackoverflow.com/questions/9855814/pdf-spec-vs-acrobat-creation-quadpoints
-comment|// for "curvy" highlighting, two BÃ©zier control points are used that seem to have a
+comment|// for "curvy" highlighting, two Bézier control points are used that seem to have a
 comment|// distance of about 1/4 of the height.
 comment|// note that curves won't appear if outside of the rectangle
 name|float
