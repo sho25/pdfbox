@@ -338,16 +338,16 @@ name|q
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the margin between the annotations "outer" rectangle defined by      * /Rect and the border.      *       * @param margin      */
+comment|/**      * This will set the margin between the annotations "outer" rectangle defined by      * /Rect and the border.      *       *<p>This will set an equal offset for all sides</p>      *       * @param differences from the annotations /Rect entry      */
 specifier|public
 name|void
-name|setMargins
+name|setRectDifferences
 parameter_list|(
 name|float
 name|margin
 parameter_list|)
 block|{
-name|setMargins
+name|setRectDifferences
 argument_list|(
 name|margin
 argument_list|,
@@ -359,10 +359,10 @@ name|margin
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the margin between the annotations "outer" rectangle defined by      * /Rect and the border.      *       * @param margin      */
+comment|/**      * This will set the margin between the annotations "outer" rectangle defined by      * /Rect and the border.      *       * @param differences from the annotations /Rect entry      */
 specifier|public
 name|void
-name|setMargins
+name|setRectDifferences
 parameter_list|(
 name|float
 name|marginLeft
@@ -441,11 +441,11 @@ name|margins
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the margin between the annotations "outer" rectangle defined by      * /Rect and the border.      *       * @return the margins. If the entry hasn't been set am empty array is returned.      */
+comment|/**      * This will get the margin between the annotations "outer" rectangle defined by      * /Rect and the border.      *       * @return the differences. If the entry hasn't been set am empty array is returned.      */
 specifier|public
 name|float
 index|[]
-name|getMargins
+name|getRectDifferences
 parameter_list|()
 block|{
 name|COSBase
