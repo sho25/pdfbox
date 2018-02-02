@@ -201,6 +201,13 @@ if|if
 condition|(
 name|border
 operator|.
+name|size
+argument_list|()
+operator|>=
+literal|3
+operator|&&
+name|border
+operator|.
 name|getObject
 argument_list|(
 literal|2
