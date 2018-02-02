@@ -817,6 +817,7 @@ name|resources
 return|;
 block|}
 specifier|public
+specifier|final
 name|void
 name|setResources
 parameter_list|(
