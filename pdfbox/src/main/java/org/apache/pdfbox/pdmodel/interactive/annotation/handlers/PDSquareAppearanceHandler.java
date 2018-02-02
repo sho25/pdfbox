@@ -322,46 +322,121 @@ name|getBorderStyle
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the differences rectangle
-comment|// TODO: this only works for border effect solid. Cloudy needs a different approach.
-name|setRectDifference
-argument_list|(
-name|lineWidth
-argument_list|)
-expr_stmt|;
-comment|// Acrobat applies a padding to each side of the bbox so the line is completely within
-comment|// the bbox.
+comment|// handle the border box
+comment|//
+comment|// There are two options. The handling is not part of the PDF specification but
+comment|// implementation specific to Adobe Reader
+comment|// - if /RD is set the border box is the /Rect entry inset by the respective
+comment|//   border difference.
+comment|// - if /RD is not set the border box is defined by the /Rect entry. The /RD entry will
+comment|//   be set to be the line width and the /Rect is enlarged by the /RD amount
 name|PDRectangle
-name|borderEdge
+name|borderBox
 init|=
+literal|null
+decl_stmt|;
+name|float
+index|[]
+name|rectDifferences
+init|=
+name|annotation
+operator|.
+name|getRectDifferences
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|rectDifferences
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+name|borderBox
+operator|=
 name|getPaddedRectangle
 argument_list|(
 name|getRectangle
 argument_list|()
 argument_list|,
 name|lineWidth
+operator|/
+literal|2
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+comment|// the differences rectangle
+comment|// TODO: this only works for border effect solid. Cloudy needs a different approach.
+name|annotation
+operator|.
+name|setRectDifferences
+argument_list|(
+name|lineWidth
+operator|/
+literal|2
+argument_list|)
+expr_stmt|;
+name|annotation
+operator|.
+name|setRectangle
+argument_list|(
+name|addRectDifferences
+argument_list|(
+name|getRectangle
+argument_list|()
+argument_list|,
+name|annotation
+operator|.
+name|getRectDifferences
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|borderBox
+operator|=
+name|applyRectDifferences
+argument_list|(
+name|getRectangle
+argument_list|()
+argument_list|,
+name|rectDifferences
+argument_list|)
+expr_stmt|;
+name|borderBox
+operator|=
+name|getPaddedRectangle
+argument_list|(
+name|borderBox
+argument_list|,
+name|lineWidth
+operator|/
+literal|2
+argument_list|)
+expr_stmt|;
+block|}
 name|contentStream
 operator|.
 name|addRect
 argument_list|(
-name|borderEdge
+name|borderBox
 operator|.
 name|getLowerLeftX
 argument_list|()
 argument_list|,
-name|borderEdge
+name|borderBox
 operator|.
 name|getLowerLeftY
 argument_list|()
 argument_list|,
-name|borderEdge
+name|borderBox
 operator|.
 name|getWidth
 argument_list|()
 argument_list|,
-name|borderEdge
+name|borderBox
 operator|.
 name|getHeight
 argument_list|()
