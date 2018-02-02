@@ -198,43 +198,43 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the margin between the annotations "outer" rectangle defined by      * /Rect and the boundaries of the underlying caret.      *       *<p>This will set an equal offset for all sides</p>      *       * @param differences from the annotations /Rect entry      */
+comment|/**      * This will set the difference between the annotations "outer" rectangle defined by      * /Rect and boundaries of the underlying.      *       *<p>This will set an equal difference for all sides</p>      *       * @param difference from the annotations /Rect entry      */
 specifier|public
 name|void
 name|setRectDifferences
 parameter_list|(
 name|float
-name|margin
+name|difference
 parameter_list|)
 block|{
 name|setRectDifferences
 argument_list|(
-name|margin
+name|difference
 argument_list|,
-name|margin
+name|difference
 argument_list|,
-name|margin
+name|difference
 argument_list|,
-name|margin
+name|difference
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set the margin between the annotations "outer" rectangle defined by      * /Rect and the boundaries of the underlying caret.      *       * @param differences from the annotations /Rect entry      */
+comment|/**      * This will set the difference between the annotations "outer" rectangle defined by      * /Rect and the border.      *       * @param differenceLeft left difference from the annotations /Rect entry      * @param differenceTop top difference from the annotations /Rect entry      * @param differenceRight right difference from  the annotations /Rect entry      * @param differenceBottom bottom difference from the annotations /Rect entry      *       */
 specifier|public
 name|void
 name|setRectDifferences
 parameter_list|(
 name|float
-name|marginLeft
+name|differenceLeft
 parameter_list|,
 name|float
-name|marginTop
+name|differenceTop
 parameter_list|,
 name|float
-name|marginRight
+name|differenceRight
 parameter_list|,
 name|float
-name|marginBottom
+name|differenceBottom
 parameter_list|)
 block|{
 name|COSArray
@@ -251,7 +251,7 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
-name|marginLeft
+name|differenceLeft
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -262,7 +262,7 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
-name|marginTop
+name|differenceTop
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -273,7 +273,7 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
-name|marginRight
+name|differenceRight
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -284,7 +284,7 @@ argument_list|(
 operator|new
 name|COSFloat
 argument_list|(
-name|marginBottom
+name|differenceBottom
 argument_list|)
 argument_list|)
 expr_stmt|;
