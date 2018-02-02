@@ -301,7 +301,7 @@ name|margins
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the margin between the annotations "outer" rectangle defined by      * /Rect and the boundaries of the underlying caret.      *       * @return the margins. If the entry hasn't been set defaults to 0 on all sides.      */
+comment|/**      * This will get the margin between the annotations "outer" rectangle defined by      * /Rect and the boundaries of the underlying caret.      *       * @return the margins. If the entry hasn't been set am empty array is returned.      */
 specifier|public
 name|float
 index|[]
@@ -344,15 +344,7 @@ return|return
 operator|new
 name|float
 index|[]
-block|{
-literal|0f
-block|,
-literal|0f
-block|,
-literal|0f
-block|,
-literal|0f
-block|}
+block|{}
 return|;
 block|}
 comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param caretAppearanceHandler      */
