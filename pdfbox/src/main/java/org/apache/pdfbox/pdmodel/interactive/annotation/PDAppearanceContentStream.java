@@ -109,43 +109,6 @@ name|PDAbstractContentStream
 implements|implements
 name|Closeable
 block|{
-comment|/**      * This is to choose what to do with the stream: overwrite, append or      * prepend.      */
-specifier|public
-enum|enum
-name|AppendMode
-block|{
-comment|/**          * Overwrite the existing page content streams.          */
-name|OVERWRITE
-block|,
-comment|/**                     * Append the content stream after all existing page content                     * streams.                     */
-name|APPEND
-block|,
-comment|/**                  * Insert before all other page content streams.                  */
-name|PREPEND
-block|;
-specifier|public
-name|boolean
-name|isOverwrite
-parameter_list|()
-block|{
-return|return
-name|this
-operator|==
-name|OVERWRITE
-return|;
-block|}
-specifier|public
-name|boolean
-name|isPrepend
-parameter_list|()
-block|{
-return|return
-name|this
-operator|==
-name|PREPEND
-return|;
-block|}
-block|}
 comment|/**      * Create a new appearance stream.      *      * @param appearance      *            The appearance stream to write to.      * @throws IOException      *             If there is an error writing to the page contents.      */
 specifier|public
 name|PDAppearanceContentStream
