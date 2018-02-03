@@ -1946,8 +1946,6 @@ parameter_list|(
 name|PDColorSpace
 name|colorSpace
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
