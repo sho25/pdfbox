@@ -68,6 +68,7 @@ name|PDFormContentStream
 extends|extends
 name|PDAbstractContentStream
 block|{
+comment|/**      * Create a new form XObject content stream.      *      * @param form The form XObject stream to write to.      *       * @throws IOException If there is an error writing to the form contents.      */
 specifier|public
 name|PDFormContentStream
 parameter_list|(

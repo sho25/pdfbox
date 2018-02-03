@@ -68,6 +68,7 @@ name|PDPatternContentStream
 extends|extends
 name|PDAbstractContentStream
 block|{
+comment|/**      * Create a new tiling pattern content stream.      *      * @param pattern The tiling pattern stream to write to.      *       * @throws IOException If there is an error writing to the form contents.      */
 specifier|public
 name|PDPatternContentStream
 parameter_list|(
