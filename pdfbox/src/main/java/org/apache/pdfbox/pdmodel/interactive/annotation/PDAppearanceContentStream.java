@@ -180,8 +180,6 @@ parameter_list|,
 name|OutputStream
 name|outputStream
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
