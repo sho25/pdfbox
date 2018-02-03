@@ -81,7 +81,7 @@ name|super
 argument_list|(
 name|form
 operator|.
-name|getStream
+name|getContentStream
 argument_list|()
 operator|.
 name|createOutputStream
