@@ -393,13 +393,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the date and time the annotation was created.      *      * @return the creation date/time.      * @throws IOException if there is a format problem when converting the date.      */
+comment|/**      * This will retrieve the date and time the annotation was created.      *      * @return the creation date/time.      */
 specifier|public
 name|Calendar
 name|getCreationDate
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|getCOSObject
