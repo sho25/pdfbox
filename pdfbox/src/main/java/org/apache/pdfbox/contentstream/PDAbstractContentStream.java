@@ -587,12 +587,10 @@ index|[
 literal|32
 index|]
 decl_stmt|;
-comment|/**      * Create a new appearance stream.      *      * @throws IOException If there is an error writing to the page contents.      */
+comment|/**      * Create a new appearance stream.      *      */
 specifier|public
 name|PDAbstractContentStream
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|formatDecimal
 operator|.
@@ -609,15 +607,13 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a new appearance stream.      *       * @param outputStream The appearances output stream to write to.      * @throws IOException       */
+comment|/**      * Create a new appearance stream.      *       * @param outputStream The appearances output stream to write to.      */
 specifier|public
 name|PDAbstractContentStream
 parameter_list|(
 name|OutputStream
 name|outputStream
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|output
 operator|=
