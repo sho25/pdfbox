@@ -183,7 +183,7 @@ literal|"FreeText"
 decl_stmt|;
 specifier|private
 name|PDAppearanceHandler
-name|freeTextAppearanceHandler
+name|customAppearanceHandler
 decl_stmt|;
 specifier|public
 name|PDAnnotationFreeText
@@ -487,20 +487,18 @@ index|[]
 block|{}
 return|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param freeTextAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param appearanceHandler      */
 specifier|public
 name|void
-name|setCustomFreeTextAppearanceHandler
+name|setCustomAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|freeTextAppearanceHandler
+name|appearanceHandler
 parameter_list|)
 block|{
-name|this
-operator|.
-name|freeTextAppearanceHandler
+name|customAppearanceHandler
 operator|=
-name|freeTextAppearanceHandler
+name|appearanceHandler
 expr_stmt|;
 block|}
 annotation|@
@@ -515,7 +513,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|freeTextAppearanceHandler
+name|customAppearanceHandler
 operator|==
 literal|null
 condition|)
@@ -537,7 +535,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|freeTextAppearanceHandler
+name|customAppearanceHandler
 operator|.
 name|generateAppearanceStreams
 argument_list|()

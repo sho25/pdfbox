@@ -165,7 +165,7 @@ literal|"Caret"
 decl_stmt|;
 specifier|private
 name|PDAppearanceHandler
-name|caretAppearanceHandler
+name|customAppearanceHandler
 decl_stmt|;
 specifier|public
 name|PDAnnotationCaret
@@ -347,20 +347,18 @@ index|[]
 block|{}
 return|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param caretAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param appearanceHandler      */
 specifier|public
 name|void
-name|setCustomCaretAppearanceHandler
+name|setCustomAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|caretAppearanceHandler
+name|appearanceHandler
 parameter_list|)
 block|{
-name|this
-operator|.
-name|caretAppearanceHandler
+name|customAppearanceHandler
 operator|=
-name|caretAppearanceHandler
+name|appearanceHandler
 expr_stmt|;
 block|}
 annotation|@
@@ -375,7 +373,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|caretAppearanceHandler
+name|customAppearanceHandler
 operator|==
 literal|null
 condition|)
@@ -397,7 +395,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|caretAppearanceHandler
+name|customAppearanceHandler
 operator|.
 name|generateAppearanceStreams
 argument_list|()

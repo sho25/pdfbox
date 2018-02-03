@@ -109,7 +109,7 @@ literal|"StrikeOut"
 decl_stmt|;
 specifier|private
 name|PDAppearanceHandler
-name|appearanceHandler
+name|customAppearanceHandler
 decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
@@ -139,15 +139,13 @@ block|}
 comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param appearanceHandler      */
 specifier|public
 name|void
-name|setCustomStrikeoutAppearanceHandler
+name|setCustomAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
 name|appearanceHandler
 parameter_list|)
 block|{
-name|this
-operator|.
-name|appearanceHandler
+name|customAppearanceHandler
 operator|=
 name|appearanceHandler
 expr_stmt|;
@@ -164,7 +162,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|appearanceHandler
+name|customAppearanceHandler
 operator|==
 literal|null
 condition|)
@@ -186,7 +184,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|appearanceHandler
+name|customAppearanceHandler
 operator|.
 name|generateAppearanceStreams
 argument_list|()

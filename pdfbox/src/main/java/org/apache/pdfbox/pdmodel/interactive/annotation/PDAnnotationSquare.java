@@ -109,7 +109,7 @@ literal|"Square"
 decl_stmt|;
 specifier|private
 name|PDAppearanceHandler
-name|squareAppearanceHandler
+name|customAppearanceHandler
 decl_stmt|;
 specifier|public
 name|PDAnnotationSquare
@@ -135,20 +135,18 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param squareAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param appearanceHandler      */
 specifier|public
 name|void
-name|setCustomSquareAppearanceHandler
+name|setCustomAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|squareAppearanceHandler
+name|appearanceHandler
 parameter_list|)
 block|{
-name|this
-operator|.
-name|squareAppearanceHandler
+name|customAppearanceHandler
 operator|=
-name|squareAppearanceHandler
+name|appearanceHandler
 expr_stmt|;
 block|}
 annotation|@
@@ -163,7 +161,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|squareAppearanceHandler
+name|customAppearanceHandler
 operator|==
 literal|null
 condition|)
@@ -185,7 +183,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|squareAppearanceHandler
+name|customAppearanceHandler
 operator|.
 name|generateAppearanceStreams
 argument_list|()

@@ -169,7 +169,7 @@ literal|"Polygon"
 decl_stmt|;
 specifier|private
 name|PDAppearanceHandler
-name|polygonAppearanceHandler
+name|customAppearanceHandler
 decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
@@ -455,20 +455,18 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param polygonAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param appearanceHandler      */
 specifier|public
 name|void
-name|setCustomPolygonAppearanceHandler
+name|setCustomAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|polygonAppearanceHandler
+name|appearanceHandler
 parameter_list|)
 block|{
-name|this
-operator|.
-name|polygonAppearanceHandler
+name|customAppearanceHandler
 operator|=
-name|polygonAppearanceHandler
+name|appearanceHandler
 expr_stmt|;
 block|}
 annotation|@
@@ -483,7 +481,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|polygonAppearanceHandler
+name|customAppearanceHandler
 operator|==
 literal|null
 condition|)
@@ -505,7 +503,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|polygonAppearanceHandler
+name|customAppearanceHandler
 operator|.
 name|generateAppearanceStreams
 argument_list|()

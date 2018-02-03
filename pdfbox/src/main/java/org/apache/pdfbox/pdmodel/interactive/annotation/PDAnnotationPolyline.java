@@ -169,7 +169,7 @@ literal|"PolyLine"
 decl_stmt|;
 specifier|private
 name|PDAppearanceHandler
-name|polylineAppearanceHandler
+name|customAppearanceHandler
 decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
@@ -323,20 +323,18 @@ name|ar
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param polylineAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param appearanceHandler      */
 specifier|public
 name|void
-name|setCustomPolylineAppearanceHandler
+name|setCustomAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|polylineAppearanceHandler
+name|appearanceHandler
 parameter_list|)
 block|{
-name|this
-operator|.
-name|polylineAppearanceHandler
+name|customAppearanceHandler
 operator|=
-name|polylineAppearanceHandler
+name|appearanceHandler
 expr_stmt|;
 block|}
 annotation|@
@@ -351,7 +349,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|polylineAppearanceHandler
+name|customAppearanceHandler
 operator|==
 literal|null
 condition|)
@@ -373,7 +371,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|polylineAppearanceHandler
+name|customAppearanceHandler
 operator|.
 name|generateAppearanceStreams
 argument_list|()

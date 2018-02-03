@@ -109,7 +109,7 @@ literal|"Circle"
 decl_stmt|;
 specifier|private
 name|PDAppearanceHandler
-name|circleAppearanceHandler
+name|customAppearanceHandler
 decl_stmt|;
 specifier|public
 name|PDAnnotationCircle
@@ -135,20 +135,18 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param circleAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param appearanceHandler      */
 specifier|public
 name|void
-name|setCustomCircleAppearanceHandler
+name|setCustomAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|circleAppearanceHandler
+name|appearanceHandler
 parameter_list|)
 block|{
-name|this
-operator|.
-name|circleAppearanceHandler
+name|customAppearanceHandler
 operator|=
-name|circleAppearanceHandler
+name|appearanceHandler
 expr_stmt|;
 block|}
 annotation|@
@@ -163,7 +161,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|circleAppearanceHandler
+name|customAppearanceHandler
 operator|==
 literal|null
 condition|)
@@ -185,7 +183,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|circleAppearanceHandler
+name|customAppearanceHandler
 operator|.
 name|generateAppearanceStreams
 argument_list|()

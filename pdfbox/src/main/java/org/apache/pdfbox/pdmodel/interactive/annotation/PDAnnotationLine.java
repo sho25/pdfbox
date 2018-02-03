@@ -174,7 +174,7 @@ name|PDAnnotationMarkup
 block|{
 specifier|private
 name|PDAppearanceHandler
-name|lineAppearanceHandler
+name|customAppearanceHandler
 decl_stmt|;
 comment|/*      * The various values for intent (get/setIT, see the PDF 1.6 reference Table 8.22      */
 comment|/**      * Constant for annotation intent of Arrow.      */
@@ -1374,20 +1374,18 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param lineAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param appearanceHandler      */
 specifier|public
 name|void
-name|setCustomLineAppearanceHandler
+name|setCustomAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|lineAppearanceHandler
+name|appearanceHandler
 parameter_list|)
 block|{
-name|this
-operator|.
-name|lineAppearanceHandler
+name|customAppearanceHandler
 operator|=
-name|lineAppearanceHandler
+name|appearanceHandler
 expr_stmt|;
 block|}
 annotation|@
@@ -1402,7 +1400,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|lineAppearanceHandler
+name|customAppearanceHandler
 operator|==
 literal|null
 condition|)
@@ -1424,7 +1422,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|lineAppearanceHandler
+name|customAppearanceHandler
 operator|.
 name|generateAppearanceStreams
 argument_list|()

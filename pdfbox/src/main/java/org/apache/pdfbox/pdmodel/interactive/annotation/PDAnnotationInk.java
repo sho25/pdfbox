@@ -151,7 +151,7 @@ literal|"Ink"
 decl_stmt|;
 specifier|private
 name|PDAppearanceHandler
-name|inkAppearanceHandler
+name|customAppearanceHandler
 decl_stmt|;
 comment|/**      * Constructor.      */
 specifier|public
@@ -403,20 +403,18 @@ literal|0
 index|]
 return|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param inkAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param appearanceHandler      */
 specifier|public
 name|void
-name|setCustomInkAppearanceHandler
+name|setCustomAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|inkAppearanceHandler
+name|appearanceHandler
 parameter_list|)
 block|{
-name|this
-operator|.
-name|inkAppearanceHandler
+name|customAppearanceHandler
 operator|=
-name|inkAppearanceHandler
+name|appearanceHandler
 expr_stmt|;
 block|}
 annotation|@
@@ -431,7 +429,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|inkAppearanceHandler
+name|customAppearanceHandler
 operator|==
 literal|null
 condition|)
@@ -453,7 +451,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|inkAppearanceHandler
+name|customAppearanceHandler
 operator|.
 name|generateAppearanceStreams
 argument_list|()

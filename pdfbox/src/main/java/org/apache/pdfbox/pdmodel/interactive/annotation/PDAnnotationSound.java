@@ -123,7 +123,7 @@ literal|"Sound"
 decl_stmt|;
 specifier|private
 name|PDAppearanceHandler
-name|soundAppearanceHandler
+name|customAppearanceHandler
 decl_stmt|;
 specifier|public
 name|PDAnnotationSound
@@ -156,20 +156,18 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param soundAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param appearanceHandler      */
 specifier|public
 name|void
-name|setCustomSoundAppearanceHandler
+name|setCustomAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|soundAppearanceHandler
+name|appearanceHandler
 parameter_list|)
 block|{
-name|this
-operator|.
-name|soundAppearanceHandler
+name|customAppearanceHandler
 operator|=
-name|soundAppearanceHandler
+name|appearanceHandler
 expr_stmt|;
 block|}
 annotation|@
@@ -184,7 +182,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|soundAppearanceHandler
+name|customAppearanceHandler
 operator|==
 literal|null
 condition|)
@@ -206,7 +204,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|soundAppearanceHandler
+name|customAppearanceHandler
 operator|.
 name|generateAppearanceStreams
 argument_list|()

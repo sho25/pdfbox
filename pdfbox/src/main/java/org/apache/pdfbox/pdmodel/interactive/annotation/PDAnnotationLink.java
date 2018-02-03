@@ -670,20 +670,18 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param customAppearanceHandler      */
+comment|/**      * Set a custom appearance handler for generating the annotations appearance streams.      *       * @param appearanceHandler      */
 specifier|public
 name|void
 name|setCustomAppearanceHandler
 parameter_list|(
 name|PDAppearanceHandler
-name|customAppearanceHandler
+name|appearanceHandler
 parameter_list|)
 block|{
-name|this
-operator|.
 name|customAppearanceHandler
 operator|=
-name|customAppearanceHandler
+name|appearanceHandler
 expr_stmt|;
 block|}
 annotation|@
