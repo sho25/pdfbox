@@ -122,31 +122,6 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * COSOutputStream constructor comment.      *      * @param out The underlying stream to write to.      * @param position The current position of output stream.      * @deprecated use {@link COSStandardOutputStream#COSStandardOutputStream(java.io.OutputStream, long) }      */
-annotation|@
-name|Deprecated
-specifier|public
-name|COSStandardOutputStream
-parameter_list|(
-name|OutputStream
-name|out
-parameter_list|,
-name|int
-name|position
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|position
-operator|=
-name|position
-expr_stmt|;
-block|}
 comment|/**      * COSOutputStream constructor comment.      *      * @param out The underlying stream to write to.      * @param position The current position of output stream.      */
 specifier|public
 name|COSStandardOutputStream
