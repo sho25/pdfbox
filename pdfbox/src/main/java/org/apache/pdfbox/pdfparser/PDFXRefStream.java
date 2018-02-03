@@ -298,36 +298,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * Create a fresh XRef stream like for a fresh file or an incremental update.      *       * @deprecated use {@link #PDFXRefStream(org.apache.pdfbox.cos.COSDocument)}      */
-annotation|@
-name|Deprecated
-specifier|public
-name|PDFXRefStream
-parameter_list|()
-block|{
-name|this
-operator|.
-name|stream
-operator|=
-operator|new
-name|COSStream
-argument_list|()
-expr_stmt|;
-name|streamData
-operator|=
-operator|new
-name|TreeMap
-argument_list|<>
-argument_list|()
-expr_stmt|;
-name|objectNumbers
-operator|=
-operator|new
-name|TreeSet
-argument_list|<>
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**      * Create a fresh XRef stream like for a fresh file or an incremental update.      *       * @param cosDocument      */
 specifier|public
 name|PDFXRefStream
