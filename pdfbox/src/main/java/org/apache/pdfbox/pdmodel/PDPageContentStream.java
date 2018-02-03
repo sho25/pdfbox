@@ -1040,7 +1040,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a new appearance stream. Note that this is not actually a "page" content stream.      *      * @param doc The document the appearance is part of.      * @param appearance The appearance stream to add to.      * @param outputStream The appearances output stream to write to.      * @throws IOException If there is an error writing to the page contents.      */
+comment|/**      * Create a new appearance stream. Note that this is not actually a "page" content stream.      *      * @param doc The document the appearance is part of.      * @param appearance The appearance stream to add to.      * @param outputStream The appearances output stream to write to.      */
 specifier|public
 name|PDPageContentStream
 parameter_list|(
@@ -1053,8 +1053,6 @@ parameter_list|,
 name|OutputStream
 name|outputStream
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
