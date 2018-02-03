@@ -74,42 +74,6 @@ name|PDViewerPreferences
 implements|implements
 name|COSObjectable
 block|{
-comment|/**      * From PDF Reference: "Neither document outline nor thumbnail images visible".      *       * @deprecated use {@link NON_FULL_SCREEN_PAGE_MODE} instead      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NON_FULL_SCREEN_PAGE_MODE_USE_NONE
-init|=
-literal|"UseNone"
-decl_stmt|;
-comment|/**      * From PDF Reference: "Document outline visible".      *       * @deprecated use {@link NON_FULL_SCREEN_PAGE_MODE} instead      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NON_FULL_SCREEN_PAGE_MODE_USE_OUTLINES
-init|=
-literal|"UseOutlines"
-decl_stmt|;
-comment|/**      * From PDF Reference: "Thumbnail images visible".      *       * @deprecated use {@link NON_FULL_SCREEN_PAGE_MODE} instead      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NON_FULL_SCREEN_PAGE_MODE_USE_THUMBS
-init|=
-literal|"UseThumbs"
-decl_stmt|;
-comment|/**      * From PDF Reference: "Optional content group panel visible".      *       * @deprecated use {@link NON_FULL_SCREEN_PAGE_MODE} instead      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NON_FULL_SCREEN_PAGE_MODE_USE_OPTIONAL_CONTENT
-init|=
-literal|"UseOC"
-decl_stmt|;
 comment|/**      * Enumeration containing all valid values for NonFullScreenPageMode.      */
 specifier|public
 enum|enum
@@ -127,24 +91,6 @@ block|,
 comment|/**          * From PDF Reference: "Optional content group panel visible".          */
 name|UseOC
 block|}
-comment|/**      * Reading direction.      *       * @deprecated use {@link READING_DIRECTION} instead      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|READING_DIRECTION_L2R
-init|=
-literal|"L2R"
-decl_stmt|;
-comment|/**      * Reading direction.      *       * @deprecated use {@link READING_DIRECTION} instead      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|READING_DIRECTION_R2L
-init|=
-literal|"R2L"
-decl_stmt|;
 comment|/**      * Enumeration containing all valid values for ReadingDirection.      */
 specifier|public
 enum|enum
@@ -156,51 +102,6 @@ block|,
 comment|/**          * right to left.          */
 name|R2L
 block|}
-comment|/**      * Boundary constant.      *       * @deprecated use {@link BOUNDARY} instead      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|BOUNDARY_MEDIA_BOX
-init|=
-literal|"MediaBox"
-decl_stmt|;
-comment|/**      * Boundary constant.      *       * @deprecated use {@link BOUNDARY} instead      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|BOUNDARY_CROP_BOX
-init|=
-literal|"CropBox"
-decl_stmt|;
-comment|/**      * Boundary constant.      *       * @deprecated use {@link BOUNDARY} instead      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|BOUNDARY_BLEED_BOX
-init|=
-literal|"BleedBox"
-decl_stmt|;
-comment|/**      * Boundary constant.      *       * @deprecated use {@link BOUNDARY} instead      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|BOUNDARY_TRIM_BOX
-init|=
-literal|"TrimBox"
-decl_stmt|;
-comment|/**      * Boundary constant.      *       * @deprecated use {@link BOUNDARY} instead      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|BOUNDARY_ART_BOX
-init|=
-literal|"ArtBox"
-decl_stmt|;
 comment|/**      * Enumeration containing all valid values for boundaries.      */
 specifier|public
 enum|enum
@@ -564,27 +465,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the non full screen page mode preference.      *      * @param value Set the non full screen page mode preference.      *       * @deprecated      */
-specifier|public
-name|void
-name|setNonFullScreenPageMode
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-block|{
-name|prefs
-operator|.
-name|setName
-argument_list|(
-name|COSName
-operator|.
-name|NON_FULL_SCREEN_PAGE_MODE
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Get the reading direction preference.      *      * @return the reading direction preference.      */
 specifier|public
 name|String
@@ -633,27 +513,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the reading direction preference.      *      * @param value Set the reading direction preference.      *       * @deprecated      */
-specifier|public
-name|void
-name|setReadingDirection
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-block|{
-name|prefs
-operator|.
-name|setName
-argument_list|(
-name|COSName
-operator|.
-name|DIRECTION
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Get the ViewArea preference.  See BOUNDARY enumeration.      *      * @return the ViewArea preference.      */
 specifier|public
 name|String
@@ -677,27 +536,6 @@ name|toString
 argument_list|()
 argument_list|)
 return|;
-block|}
-comment|/**      * Set the ViewArea preference.  See BOUNDARY_XXX constants.      *      * @param value Set the ViewArea preference.      *       * @deprecated      */
-specifier|public
-name|void
-name|setViewArea
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-block|{
-name|prefs
-operator|.
-name|setName
-argument_list|(
-name|COSName
-operator|.
-name|VIEW_AREA
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Set the ViewArea preference.  See BOUNDARY enumeration.      *      * @param value Set the ViewArea preference.      */
 specifier|public
@@ -771,27 +609,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the ViewClip preference.  See BOUNDARY_XXX constants.      *      * @param value Set the ViewClip preference.      *       * @deprecated      */
-specifier|public
-name|void
-name|setViewClip
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-block|{
-name|prefs
-operator|.
-name|setName
-argument_list|(
-name|COSName
-operator|.
-name|VIEW_CLIP
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Get the PrintArea preference.  See BOUNDARY enumeration.      *      * @return the PrintArea preference.      */
 specifier|public
 name|String
@@ -815,27 +632,6 @@ name|toString
 argument_list|()
 argument_list|)
 return|;
-block|}
-comment|/**      * Set the PrintArea preference.  See BOUNDARY_XXX constants.      *      * @param value Set the PrintArea preference.      *       * @deprecated      */
-specifier|public
-name|void
-name|setPrintArea
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-block|{
-name|prefs
-operator|.
-name|setName
-argument_list|(
-name|COSName
-operator|.
-name|PRINT_AREA
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Set the PrintArea preference.  See BOUNDARY enumeration.      *      * @param value Set the PrintArea preference.      */
 specifier|public
@@ -884,27 +680,6 @@ name|toString
 argument_list|()
 argument_list|)
 return|;
-block|}
-comment|/**      * Set the PrintClip preference.  See BOUNDARY_XXX constants.      *      * @param value Set the PrintClip preference.      *       * @deprecated      */
-specifier|public
-name|void
-name|setPrintClip
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-block|{
-name|prefs
-operator|.
-name|setName
-argument_list|(
-name|COSName
-operator|.
-name|PRINT_CLIP
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Set the PrintClip preference.  See BOUNDARY enumeration.      *      * @param value Set the PrintClip preference.      */
 specifier|public
