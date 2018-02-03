@@ -1058,8 +1058,6 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|appearance
-argument_list|,
 name|outputStream
 argument_list|)
 expr_stmt|;
