@@ -775,7 +775,7 @@ argument_list|(
 name|document
 argument_list|)
 decl_stmt|;
-name|setOutput
+name|setOutputStream
 argument_list|(
 name|saveGraphics
 operator|.
@@ -821,7 +821,7 @@ argument_list|,
 name|array
 argument_list|)
 expr_stmt|;
-name|setOutput
+name|setOutputStream
 argument_list|(
 name|contentsToAppend
 operator|.
@@ -876,7 +876,7 @@ argument_list|(
 name|contents
 argument_list|)
 expr_stmt|;
-name|setOutput
+name|setOutputStream
 argument_list|(
 name|contents
 operator|.
@@ -1218,7 +1218,7 @@ argument_list|(
 name|text
 argument_list|)
 argument_list|,
-name|getOutput
+name|getOutputStream
 argument_list|()
 argument_list|)
 expr_stmt|;
