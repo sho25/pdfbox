@@ -565,7 +565,7 @@ operator|=
 name|ctm
 expr_stmt|;
 block|}
-comment|/**      * Returns the CTM at the time the ExtGState was activated.      *      * @return      */
+comment|/**      * Returns the CTM at the time the ExtGState was activated.      *      */
 specifier|public
 name|Matrix
 name|getInitialTransformationMatrix

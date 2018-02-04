@@ -275,7 +275,7 @@ name|init
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Tell if the dictionary is a FDF catalog.      *      * @param dictionary      * @return      */
+comment|/**      * Tell if the dictionary is a FDF catalog.      *      * @param dictionary      * @return true if the dictionary is a FDF catalog      */
 annotation|@
 name|Override
 specifier|protected

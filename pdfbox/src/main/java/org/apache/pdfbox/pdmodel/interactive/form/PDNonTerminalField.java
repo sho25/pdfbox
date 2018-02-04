@@ -668,7 +668,7 @@ name|FT
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
+comment|/**      * Returns the COSBase value of the "V" entry.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      */
 specifier|public
 name|COSBase
 name|getValue

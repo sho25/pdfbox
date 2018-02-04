@@ -313,7 +313,7 @@ operator|=
 name|templateBuilder
 expr_stmt|;
 block|}
-comment|/**      * Returns the PDFTemplateStructure object.      *       * @return      */
+comment|/**      * Returns the PDFTemplateStructure object.      *       */
 specifier|public
 name|PDFTemplateStructure
 name|getPdfStructure
