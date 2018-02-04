@@ -634,35 +634,6 @@ name|getCOSObject
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the stream.      * @return The stream for this object.      * @deprecated use {@link #getCOSObject() }      */
-annotation|@
-name|Deprecated
-specifier|public
-specifier|final
-name|COSStream
-name|getCOSStream
-parameter_list|()
-block|{
-return|return
-name|stream
-operator|.
-name|getCOSObject
-argument_list|()
-return|;
-block|}
-comment|/**      * Returns the stream.      * @return The stream for this object.      * @deprecated Use {@link #getStream()} instead.      */
-annotation|@
-name|Deprecated
-specifier|public
-specifier|final
-name|PDStream
-name|getPDStream
-parameter_list|()
-block|{
-return|return
-name|stream
-return|;
-block|}
 comment|/**      * Returns the stream.      * @return The stream for this object.      */
 specifier|public
 specifier|final
