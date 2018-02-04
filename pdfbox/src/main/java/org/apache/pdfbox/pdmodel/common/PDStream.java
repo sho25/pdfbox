@@ -852,18 +852,6 @@ return|return
 name|is
 return|;
 block|}
-comment|/**      * Get the cos stream associated with this object.      *      * @return The cos object that matches this Java object.      *       * @deprecated use {@link #getCOSObject() }      */
-annotation|@
-name|Deprecated
-specifier|public
-name|COSStream
-name|getStream
-parameter_list|()
-block|{
-return|return
-name|stream
-return|;
-block|}
 comment|/**      * This will get the length of the filtered/compressed stream. This is      * readonly in the PD Model and will be managed by this class.      *       * @return The length of the filtered stream.      */
 specifier|public
 name|int
