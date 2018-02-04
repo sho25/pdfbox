@@ -133,7 +133,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a new appearance stream. Note that this is not actually a "page"      * content stream.      *      * @param appearance      *            The appearance stream to add to.      * @param outputStream      *            The appearances output stream to write to.      * @throws IOException      *             If there is an error writing to the page contents.      */
+comment|/**      * Create a new appearance stream. Note that this is not actually a "page"      * content stream.      *      * @param appearance      *            The appearance stream to add to.      * @param outputStream      *            The appearances output stream to write to.      */
 specifier|public
 name|PDAppearanceContentStream
 parameter_list|(
