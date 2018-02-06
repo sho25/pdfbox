@@ -509,7 +509,7 @@ name|PDAcroForm
 name|cachedAcroForm
 decl_stmt|;
 comment|/**      * Constructor. Internal PDFBox use only! If you need to get the document catalog, call      * {@link PDDocument#getDocumentCatalog()}.      *      * @param doc The document that this catalog is part of.      */
-specifier|public
+specifier|protected
 name|PDDocumentCatalog
 parameter_list|(
 name|PDDocument
@@ -558,7 +558,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Constructor. Internal PDFBox use only! If you need to get the document catalog, call      * {@link PDDocument#getDocumentCatalog()}.      *      * @param doc The document that this catalog is part of.      * @param rootDictionary The root dictionary that this object wraps.      */
-specifier|public
+specifier|protected
 name|PDDocumentCatalog
 parameter_list|(
 name|PDDocument
