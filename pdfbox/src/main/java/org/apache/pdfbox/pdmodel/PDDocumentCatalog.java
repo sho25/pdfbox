@@ -508,7 +508,7 @@ specifier|private
 name|PDAcroForm
 name|cachedAcroForm
 decl_stmt|;
-comment|/**      * Constructor. AcroForm.      *      * @param doc The document that this catalog is part of.      */
+comment|/**      * Constructor. Internal PDFBox use only! If you need to get the document catalog, call      * {@link PDDocument#getDocumentCatalog()}.      *      * @param doc The document that this catalog is part of.      */
 specifier|public
 name|PDDocumentCatalog
 parameter_list|(
@@ -557,7 +557,7 @@ name|root
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param doc The document that this catalog is part of.      * @param rootDictionary The root dictionary that this object wraps.      */
+comment|/**      * Constructor. Internal PDFBox use only! If you need to get the document catalog, call      * {@link PDDocument#getDocumentCatalog()}.      *      * @param doc The document that this catalog is part of.      * @param rootDictionary The root dictionary that this object wraps.      */
 specifier|public
 name|PDDocumentCatalog
 parameter_list|(
