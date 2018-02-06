@@ -533,7 +533,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will retrieve the line ending style for the start point, possible values shown in the LE_ constants section.      *      * @return The ending style for the start point.      */
+comment|/**      * This will retrieve the line ending style for the start point, possible values shown in the LE_ constants section.      *      * @return The ending style for the start point, LE_NONE if missing, never null.      */
 specifier|public
 name|String
 name|getStartPointEndingStyle
@@ -582,6 +582,8 @@ operator|.
 name|getName
 argument_list|(
 literal|0
+argument_list|,
+name|LE_NONE
 argument_list|)
 return|;
 block|}
@@ -711,7 +713,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will retrieve the line ending style for the end point, possible values shown in the LE_ constants section.      *      * @return The ending style for the end point.      */
+comment|/**      * This will retrieve the line ending style for the end point, possible values shown in the LE_ constants section.      *      * @return The ending style for the end point, LE_NONE if missing, never null.      */
 specifier|public
 name|String
 name|getEndPointEndingStyle
@@ -760,6 +762,8 @@ operator|.
 name|getName
 argument_list|(
 literal|1
+argument_list|,
+name|LE_NONE
 argument_list|)
 return|;
 block|}
