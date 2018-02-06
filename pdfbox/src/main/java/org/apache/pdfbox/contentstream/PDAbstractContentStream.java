@@ -924,14 +924,9 @@ block|{
 name|writeOperand
 argument_list|(
 operator|(
-operator|(
 name|Float
 operator|)
 name|obj
-operator|)
-operator|.
-name|floatValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
