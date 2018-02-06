@@ -958,12 +958,9 @@ operator|==
 literal|null
 condition|)
 block|{
-name|COSDictionary
-name|resources
+name|COSBase
+name|base
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|PDPageTree
 operator|.
 name|getInheritableAttribute
@@ -978,9 +975,9 @@ decl_stmt|;
 comment|// note: it's an error for resources to not be present
 if|if
 condition|(
-name|resources
-operator|!=
-literal|null
+name|base
+operator|instanceof
+name|COSDictionary
 condition|)
 block|{
 name|pageResources
@@ -988,7 +985,10 @@ operator|=
 operator|new
 name|PDResources
 argument_list|(
-name|resources
+operator|(
+name|COSDictionary
+operator|)
+name|base
 argument_list|,
 name|resourceCache
 argument_list|)
