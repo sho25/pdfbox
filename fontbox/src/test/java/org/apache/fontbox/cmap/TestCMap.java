@@ -180,7 +180,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * PDFBOX-3997: test unicode that is above the basic bultilingual plane, here: helicopter      * symbol, or D83D DE81 in the Noto Emoji font.      *      * @throws IOException      */
+comment|/**      * PDFBOX-3997: test unicode that is above the basic multilingual plane, here: helicopter      * symbol, or D83D DE81 in the Noto Emoji font.      *      * @throws IOException      */
 specifier|public
 name|void
 name|testPDFBox3997
