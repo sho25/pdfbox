@@ -391,6 +391,13 @@ specifier|private
 name|BoundingBox
 name|fontBBox
 decl_stmt|;
+specifier|private
+name|int
+index|[]
+name|cid2gid
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      * @param parent The parent font.      */
 specifier|public
 name|PDCIDFontType0
@@ -611,6 +618,11 @@ operator|=
 name|cffFont
 expr_stmt|;
 block|}
+name|cid2gid
+operator|=
+name|readCIDToGIDMap
+argument_list|()
+expr_stmt|;
 name|isEmbedded
 operator|=
 literal|true
@@ -1292,6 +1304,24 @@ argument_list|(
 name|code
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|cid2gid
+operator|!=
+literal|null
+operator|&&
+name|isEmbedded
+condition|)
+block|{
+comment|// PDFBOX-4093: despite being a type 0 font, there is a CIDToGIDMap
+name|cid
+operator|=
+name|cid2gid
+index|[
+name|cid
+index|]
+expr_stmt|;
+block|}
 name|Type2CharString
 name|charstring
 init|=
