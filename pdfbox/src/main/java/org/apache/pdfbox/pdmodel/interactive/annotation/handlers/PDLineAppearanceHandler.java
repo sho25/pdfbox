@@ -1044,7 +1044,23 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
-comment|//TODO test with "illegal" char to see what Adobe does
+comment|// Adobe Reader displays placeholders instead
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"line text '"
+operator|+
+name|annotation
+operator|.
+name|getContents
+argument_list|()
+operator|+
+literal|"' can't be shown"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
 block|}
 name|float
 name|xOffset
