@@ -1496,11 +1496,6 @@ name|of
 operator|+=
 literal|8
 expr_stmt|;
-comment|//TODO Adobe puts a "w" (line width). Why?
-comment|//TODO If quadpoints is not present or the conforming reader does not recognize it,
-comment|//     the region specified by the Rect entry should be used.
-comment|//     QuadPoints shall be ignored if any coordinate in the array lies
-comment|//     outside the region specified by Rect
 block|}
 block|}
 block|}
