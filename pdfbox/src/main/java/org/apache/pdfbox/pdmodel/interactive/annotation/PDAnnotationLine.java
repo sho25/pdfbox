@@ -833,10 +833,10 @@ name|cap
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve if the contents are shown as a caption or not.      *      * @return boolean if the content is shown as a caption.      */
+comment|/**      * This will retrieve whether the text specified by the /Contents or /RC entries shall be      * shown as a caption in the appearance of the line.      *      * @return boolean if the contents shall be shown as a caption (default: false).      */
 specifier|public
 name|boolean
-name|getCaption
+name|hasCaption
 parameter_list|()
 block|{
 return|return

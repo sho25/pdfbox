@@ -988,12 +988,11 @@ operator|)
 operator|)
 argument_list|)
 decl_stmt|;
-comment|//TODO rename getCaption() to isCaption() or hasCaption()
 if|if
 condition|(
 name|annotation
 operator|.
-name|getCaption
+name|hasCaption
 argument_list|()
 operator|&&
 operator|!
