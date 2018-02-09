@@ -539,10 +539,6 @@ index|]
 argument_list|)
 condition|)
 block|{
-name|pathsArray
-operator|=
-literal|null
-expr_stmt|;
 name|LOG
 operator|.
 name|warn
@@ -573,6 +569,10 @@ name|rect
 operator|+
 literal|", /QuadPoints are ignored and /Rect is used instead"
 argument_list|)
+expr_stmt|;
+name|pathsArray
+operator|=
+literal|null
 expr_stmt|;
 break|break;
 block|}
