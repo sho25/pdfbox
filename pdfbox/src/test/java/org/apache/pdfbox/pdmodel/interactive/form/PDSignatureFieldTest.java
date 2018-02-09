@@ -47,16 +47,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -184,8 +174,6 @@ specifier|public
 name|void
 name|createDefaultSignatureField
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|PDSignatureField
 name|sigField
@@ -323,8 +311,6 @@ specifier|public
 name|void
 name|setValueForAbstractedSignatureField
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|PDSignatureField
 name|sigField
