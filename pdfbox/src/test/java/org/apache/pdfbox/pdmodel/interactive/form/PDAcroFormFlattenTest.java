@@ -175,16 +175,6 @@ name|Before
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
 begin_comment
 comment|/**  * Test flatten different forms and compare with rendering.  *   * The tests are currently disabled to not run within the CI environment  * as the test results need manual inspection. Enable as needed.  *   */
 end_comment
@@ -636,6 +626,8 @@ argument_list|,
 name|targetFileName
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|testPdf
 init|=
@@ -645,7 +637,8 @@ name|load
 argument_list|(
 name|inputFile
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|testPdf
 operator|.
 name|getDocumentCatalog
@@ -688,11 +681,7 @@ argument_list|(
 name|outputFile
 argument_list|)
 expr_stmt|;
-name|testPdf
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 comment|// compare rendering
 name|TestPDFToImage
 name|testPDFToImage
@@ -812,6 +801,8 @@ argument_list|,
 name|targetFile
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
@@ -826,7 +817,8 @@ name|String
 operator|)
 literal|null
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|String
 name|outputPrefix
 init|=
@@ -918,11 +910,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/* 	 * Get a PDF from URL and copy to file for processing. 	 */
 specifier|private
@@ -948,6 +936,8 @@ argument_list|(
 name|sourceUrl
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|InputStream
 name|is
 init|=
@@ -955,10 +945,10 @@ name|url
 operator|.
 name|openStream
 argument_list|()
-decl_stmt|;
+init|;
 name|OutputStream
 name|os
-init|=
+operator|=
 operator|new
 name|FileOutputStream
 argument_list|(
@@ -970,7 +960,8 @@ argument_list|,
 name|targetFile
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|byte
 index|[]
 name|b
@@ -1013,16 +1004,7 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-name|is
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|os
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/* 	 * Remove renditions for the PDF from the input directory for which there is no 	 * corresponding rendition in the output directory. 	 * Renditions in the output directory which were identical to the ones in the 	 * input directory will have been deleted by the TestPDFToImage utility. 	 */
 specifier|private
