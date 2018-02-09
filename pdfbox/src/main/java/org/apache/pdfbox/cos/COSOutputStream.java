@@ -264,6 +264,15 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|buffer
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 comment|// apply filters in reverse order
 for|for
 control|(
@@ -338,6 +347,10 @@ name|super
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|buffer
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
