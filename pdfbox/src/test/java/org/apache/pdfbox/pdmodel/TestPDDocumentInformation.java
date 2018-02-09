@@ -73,16 +73,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// This document has been selected for this test as it contains custom metadata.
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-comment|// This document has been selected for this test as it contains custom metadata.
-name|doc
-operator|=
 name|PDDocument
 operator|.
 name|load
@@ -93,7 +89,8 @@ argument_list|(
 literal|"src/test/resources/input/hello3.pdf"
 argument_list|)
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 name|PDDocumentInformation
 name|info
 init|=
@@ -289,22 +286,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|doc
-operator|!=
-literal|null
-condition|)
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 block|}
 comment|/**      * PDFBOX-3068: test that indirect /Title element of /Info entry can be found.      *       * @throws Exception       */
 specifier|public
@@ -314,6 +295,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
@@ -330,7 +313,8 @@ argument_list|(
 literal|"PDFBOX-3068.pdf"
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|PDDocumentInformation
 name|documentInformation
 init|=
@@ -349,11 +333,7 @@ name|getTitle
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class

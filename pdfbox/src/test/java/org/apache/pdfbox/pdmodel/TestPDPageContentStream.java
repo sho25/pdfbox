@@ -123,13 +123,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|PDPage
 name|page
 init|=
@@ -144,6 +147,8 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|contentStream
 init|=
@@ -160,7 +165,8 @@ name|OVERWRITE
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// pass a non-stroking color in CMYK color space
 name|contentStream
 operator|.
@@ -180,6 +186,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 comment|// now read the PDF stream and verify that the CMYK values are correct
 name|PDFStreamParser
 name|parser
@@ -330,8 +337,11 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
+try|try
+init|(
+name|PDPageContentStream
 name|contentStream
-operator|=
+init|=
 operator|new
 name|PDPageContentStream
 argument_list|(
@@ -345,7 +355,8 @@ name|OVERWRITE
 argument_list|,
 literal|false
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 comment|// pass a non-stroking color in CMYK color space
 name|contentStream
 operator|.
@@ -365,6 +376,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 comment|// now read the PDF stream and verify that the CMYK values are correct
 name|parser
 operator|=
@@ -492,6 +504,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * PDFBOX-3510: missing content stream should not fail.      *       * @throws IOException       */
 specifier|public
