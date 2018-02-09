@@ -80,6 +80,8 @@ name|TestCOSInteger
 extends|extends
 name|TestCOSNumber
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
