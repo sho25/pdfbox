@@ -1215,16 +1215,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|ByteArrayOutputStream
 name|output
 init|=
 operator|new
 name|ByteArrayOutputStream
 argument_list|()
-decl_stmt|;
+init|;
 name|PDAppearanceContentStream
 name|contents
-init|=
+operator|=
 operator|new
 name|PDAppearanceContentStream
 argument_list|(
@@ -1232,7 +1234,8 @@ name|appearanceStream
 argument_list|,
 name|output
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|PDAppearanceCharacteristicsDictionary
 name|appearanceCharacteristics
 init|=
@@ -1461,16 +1464,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|contents
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|output
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|writeToStream
 argument_list|(
 name|output
@@ -1481,6 +1474,7 @@ argument_list|,
 name|appearanceStream
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Parses an appearance stream into tokens.      */
 specifier|private
@@ -1542,13 +1536,16 @@ argument_list|)
 expr_stmt|;
 comment|// then replace the existing contents of the appearance stream from /Tx BMC
 comment|// to the matching EMC
+try|try
+init|(
 name|ByteArrayOutputStream
 name|output
 init|=
 operator|new
 name|ByteArrayOutputStream
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|ContentStreamWriter
 name|writer
 init|=
@@ -1685,11 +1682,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|output
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|writeToStream
 argument_list|(
 name|output
@@ -1700,6 +1692,7 @@ argument_list|,
 name|appearanceStream
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Generate and insert text content and clipping around it.         */
 specifier|private
