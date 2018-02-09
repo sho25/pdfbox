@@ -175,6 +175,24 @@ name|pdmodel
 operator|.
 name|graphics
 operator|.
+name|color
+operator|.
+name|PDColor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|graphics
+operator|.
 name|form
 operator|.
 name|PDFormXObject
@@ -366,17 +384,20 @@ name|getBorderStyle
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+name|PDColor
+name|color
+init|=
 name|annotation
 operator|.
 name|getColor
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|color
 operator|==
 literal|null
 operator|||
-name|ab
-operator|.
 name|color
 operator|.
 name|getComponents
@@ -387,9 +408,6 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|//TODO Annotation border color handling is different here than with shape annotations,
-comment|// consider this when/if refactoring AnnotationBorder class,
-comment|// e.g. set a parameter what to use as default.
 return|return;
 block|}
 comment|// Adjust rectangle even if not empty, see PLPDF.com-MarkupAnnotations.pdf
@@ -913,8 +931,6 @@ name|frm2CS
 operator|.
 name|setNonStrokingColor
 argument_list|(
-name|ab
-operator|.
 name|color
 argument_list|)
 expr_stmt|;
