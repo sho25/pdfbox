@@ -567,7 +567,7 @@ name|applyChange
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Sets the default value of this field.      *      * @param value Plain text      * @throws IOException if the value could not be set      */
+comment|/**      * Sets the default value of this field.      *      * @param value Plain text      */
 specifier|public
 name|void
 name|setDefaultValue
@@ -575,8 +575,6 @@ parameter_list|(
 name|String
 name|value
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|getCOSObject
 argument_list|()

@@ -199,15 +199,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @see PDTerminalField#PDTerminalField(PDAcroForm)      *      * @param acroForm The acroForm for this field.      * @throws IOException If there is an error while resolving partial name for the signature field      *         or getting the widget object.      */
+comment|/**      * @see PDTerminalField#PDTerminalField(PDAcroForm)      *      * @param acroForm The acroForm for this field.      */
 specifier|public
 name|PDSignatureField
 parameter_list|(
 name|PDAcroForm
 name|acroForm
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -453,8 +451,6 @@ parameter_list|(
 name|PDSignature
 name|value
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|getCOSObject
 argument_list|()

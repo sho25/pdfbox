@@ -427,13 +427,11 @@ name|q
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the fields rich text value.      *       * @return the rich text value string      * @throws IOException if the field dictionary entry is not a text type      */
+comment|/**      * Get the fields rich text value.      *       * @return the rich text value string      */
 specifier|public
 name|String
 name|getRichTextValue
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|getStringOrStream

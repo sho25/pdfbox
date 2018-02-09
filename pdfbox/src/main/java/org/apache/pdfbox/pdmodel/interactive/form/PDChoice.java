@@ -1012,7 +1012,7 @@ name|applyChange
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Sets the default value of this field.      *      * @param value The name of the selected item.      * @throws IOException if the value could not be set      */
+comment|/**      * Sets the default value of this field.      *      * @param value The name of the selected item.      */
 specifier|public
 name|void
 name|setDefaultValue
@@ -1020,8 +1020,6 @@ parameter_list|(
 name|String
 name|value
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|getCOSObject
 argument_list|()

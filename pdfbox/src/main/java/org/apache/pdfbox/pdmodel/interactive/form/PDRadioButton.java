@@ -23,16 +23,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -196,7 +186,7 @@ name|FLAG_RADIOS_IN_UNISON
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the selected export values.      *<p>      * A RadioButton might have an export value to allow field values      * which can not be encoded as PDFDocEncoding or for the same export value       * being assigned to multiple RadioButtons in a group.<br>      * To define an export value the RadioButton must define options {@link #setExportValues(List)}      * which correspond to the individual items within the RadioButton.</p>      *<p>      * The method will either return the corresponding values from the options entry or in case there      * is no such entry the fields value</p>      *       * @return the export value of the field.      * @throws IOException in case the fields value can not be retrieved      */
+comment|/**      * This will get the selected export values.      *<p>      * A RadioButton might have an export value to allow field values      * which can not be encoded as PDFDocEncoding or for the same export value       * being assigned to multiple RadioButtons in a group.<br>      * To define an export value the RadioButton must define options {@link #setExportValues(List)}      * which correspond to the individual items within the RadioButton.</p>      *<p>      * The method will either return the corresponding values from the options entry or in case there      * is no such entry the fields value</p>      *       * @return the export value of the field.      */
 specifier|public
 name|List
 argument_list|<
@@ -204,8 +194,6 @@ name|String
 argument_list|>
 name|getSelectedExportValues
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|Set
 argument_list|<
