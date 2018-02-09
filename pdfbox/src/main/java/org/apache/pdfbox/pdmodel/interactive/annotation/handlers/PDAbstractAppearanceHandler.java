@@ -397,7 +397,7 @@ name|getAppearance
 argument_list|()
 decl_stmt|;
 name|PDAppearanceEntry
-name|appearanceEntry
+name|downAppearanceEntry
 init|=
 name|appearanceDictionary
 operator|.
@@ -406,14 +406,14 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|appearanceEntry
+name|downAppearanceEntry
 operator|.
 name|isSubDictionary
 argument_list|()
 condition|)
 block|{
 comment|//TODO replace with "document.getDocument().createCOSStream()"
-name|appearanceEntry
+name|downAppearanceEntry
 operator|=
 operator|new
 name|PDAppearanceEntry
@@ -427,12 +427,12 @@ name|appearanceDictionary
 operator|.
 name|setDownAppearance
 argument_list|(
-name|appearanceEntry
+name|downAppearanceEntry
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|appearanceEntry
+name|downAppearanceEntry
 return|;
 block|}
 comment|/**      * Get the annotations rollover appearance.      *       *<p>      * This will get the annotations rollover appearance. If this is not      * existent an empty appearance entry will be created.      *       * @return the appearance entry representing the rollover appearance.      */
@@ -447,7 +447,7 @@ name|getAppearance
 argument_list|()
 decl_stmt|;
 name|PDAppearanceEntry
-name|appearanceEntry
+name|rolloverAppearanceEntry
 init|=
 name|appearanceDictionary
 operator|.
@@ -456,14 +456,14 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|appearanceEntry
+name|rolloverAppearanceEntry
 operator|.
 name|isSubDictionary
 argument_list|()
 condition|)
 block|{
 comment|//TODO replace with "document.getDocument().createCOSStream()"
-name|appearanceEntry
+name|rolloverAppearanceEntry
 operator|=
 operator|new
 name|PDAppearanceEntry
@@ -477,12 +477,12 @@ name|appearanceDictionary
 operator|.
 name|setRolloverAppearance
 argument_list|(
-name|appearanceEntry
+name|rolloverAppearanceEntry
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|appearanceEntry
+name|rolloverAppearanceEntry
 return|;
 block|}
 comment|/**      * Set the differences rectangle.      */
@@ -868,7 +868,7 @@ name|getAppearance
 argument_list|()
 decl_stmt|;
 name|PDAppearanceEntry
-name|appearanceEntry
+name|normalAappearanceEntry
 init|=
 name|appearanceDictionary
 operator|.
@@ -877,14 +877,14 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|appearanceEntry
+name|normalAappearanceEntry
 operator|.
 name|isSubDictionary
 argument_list|()
 condition|)
 block|{
 comment|//TODO replace with "document.getDocument().createCOSStream()"
-name|appearanceEntry
+name|normalAappearanceEntry
 operator|=
 operator|new
 name|PDAppearanceEntry
@@ -898,12 +898,12 @@ name|appearanceDictionary
 operator|.
 name|setNormalAppearance
 argument_list|(
-name|appearanceEntry
+name|normalAappearanceEntry
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|appearanceEntry
+name|normalAappearanceEntry
 return|;
 block|}
 specifier|private
@@ -911,7 +911,7 @@ name|PDAppearanceContentStream
 name|getAppearanceEntryAsContentStream
 parameter_list|(
 name|PDAppearanceEntry
-name|appearanceEntry
+name|appearanceEntryToStream
 parameter_list|)
 throws|throws
 name|IOException
@@ -919,7 +919,7 @@ block|{
 name|PDAppearanceStream
 name|appearanceStream
 init|=
-name|appearanceEntry
+name|appearanceEntryToStream
 operator|.
 name|getAppearanceStream
 argument_list|()
