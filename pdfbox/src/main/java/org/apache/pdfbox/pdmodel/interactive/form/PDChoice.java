@@ -662,8 +662,8 @@ decl_stmt|;
 if|if
 condition|(
 name|value
-operator|!=
-literal|null
+operator|instanceof
+name|COSArray
 condition|)
 block|{
 return|return

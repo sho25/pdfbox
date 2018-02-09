@@ -491,14 +491,10 @@ decl_stmt|;
 if|if
 condition|(
 name|value
-operator|==
-literal|null
+operator|instanceof
+name|COSDictionary
 condition|)
 block|{
-return|return
-literal|null
-return|;
-block|}
 return|return
 operator|new
 name|PDSignature
@@ -508,6 +504,10 @@ name|COSDictionary
 operator|)
 name|value
 argument_list|)
+return|;
+block|}
+return|return
+literal|null
 return|;
 block|}
 comment|/**      * Returns the default value, if any.      *      * @return A signature dictionary.      */
