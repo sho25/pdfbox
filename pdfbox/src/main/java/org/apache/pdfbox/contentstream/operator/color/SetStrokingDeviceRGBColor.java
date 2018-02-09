@@ -113,6 +113,8 @@ extends|extends
 name|SetStrokingColor
 block|{
 comment|/**      * RG Set the stroking colour space to DeviceRGB and set the colour to      * use for stroking operations.      *      * @param operator The operator that is being executed.      * @param arguments List      * @throws IOException If the color space cannot be read.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|process

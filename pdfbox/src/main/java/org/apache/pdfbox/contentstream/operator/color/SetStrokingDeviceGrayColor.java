@@ -112,6 +112,8 @@ name|SetStrokingDeviceGrayColor
 extends|extends
 name|SetStrokingColor
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|process
