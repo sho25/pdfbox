@@ -785,6 +785,8 @@ name|tsaUrl
 argument_list|)
 expr_stmt|;
 comment|// creating output document and prepare the IO streams.
+try|try
+init|(
 name|FileOutputStream
 name|fos
 init|=
@@ -793,12 +795,10 @@ name|FileOutputStream
 argument_list|(
 name|signedFile
 argument_list|)
-decl_stmt|;
-try|try
-init|(
+init|;
 name|PDDocument
 name|doc
-init|=
+operator|=
 name|PDDocument
 operator|.
 name|load

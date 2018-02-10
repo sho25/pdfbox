@@ -346,6 +346,9 @@ argument_list|(
 name|tsaUrl
 argument_list|)
 expr_stmt|;
+comment|// sign
+try|try
+init|(
 name|FileOutputStream
 name|fos
 init|=
@@ -354,13 +357,10 @@ name|FileOutputStream
 argument_list|(
 name|outFile
 argument_list|)
-decl_stmt|;
-comment|// sign
-try|try
-init|(
+init|;
 name|PDDocument
 name|doc
-init|=
+operator|=
 name|PDDocument
 operator|.
 name|load

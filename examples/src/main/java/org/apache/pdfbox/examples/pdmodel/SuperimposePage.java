@@ -257,13 +257,16 @@ init|=
 literal|1
 decl_stmt|;
 comment|// create a new PDF and add a blank page
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|PDPage
 name|page
 init|=
@@ -452,11 +455,7 @@ argument_list|(
 name|destPath
 argument_list|)
 expr_stmt|;
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 block|}
