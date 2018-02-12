@@ -2165,7 +2165,7 @@ name|PDAnnotationLine
 operator|.
 name|LE_SLASH
 case|:
-comment|// the line is 18 x linewidth at an angle of 60Â°
+comment|// the line is 18 x linewidth at an angle of 60°
 name|cs
 operator|.
 name|moveTo
