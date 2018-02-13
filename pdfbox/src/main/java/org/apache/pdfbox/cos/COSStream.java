@@ -322,11 +322,9 @@ name|IOException
 block|{
 if|if
 condition|(
-operator|(
 name|randomAccess
 operator|!=
 literal|null
-operator|)
 operator|&&
 name|randomAccess
 operator|.
@@ -343,6 +341,8 @@ operator|+
 literal|"Perhaps its enclosing PDDocument has been closed?"
 argument_list|)
 throw|;
+comment|// Tip for debugging: look at the destination file with an editor, you'll see an
+comment|// incomplete stream at the bottom.
 block|}
 block|}
 comment|/**      * This will get the stream with all of the filters applied.      *      * @return the bytes of the physical (encoded) stream      * @throws IOException when encoding causes an exception      * @deprecated Use {@link #createRawInputStream()} instead.      */
