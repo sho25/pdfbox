@@ -724,6 +724,26 @@ name|TAG
 argument_list|)
 return|;
 block|}
+comment|/**      * Get the "gsub" table for this TTF.      *      * @return The "gsub" table.      * @throws IOException if there was an error reading the table.      */
+specifier|public
+name|GlyphSubstitutionTable
+name|getGsub
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+operator|(
+name|GlyphSubstitutionTable
+operator|)
+name|getTable
+argument_list|(
+name|GlyphSubstitutionTable
+operator|.
+name|TAG
+argument_list|)
+return|;
+block|}
 comment|/**      * Get the data of the TrueType Font      * program representing the stream used to build this       * object (normally from the TTFParser object).      *       * @return COSStream TrueType font program stream      *       * @throws IOException If there is an error getting the font data.      */
 specifier|public
 name|InputStream
