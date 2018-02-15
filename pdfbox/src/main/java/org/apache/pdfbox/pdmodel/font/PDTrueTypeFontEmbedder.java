@@ -509,7 +509,7 @@ decl_stmt|;
 name|int
 name|gid
 init|=
-name|cmap
+name|cmapLookup
 operator|.
 name|getGlyphId
 argument_list|(

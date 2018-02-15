@@ -307,7 +307,7 @@ name|ttf
 decl_stmt|;
 specifier|private
 specifier|final
-name|CmapSubtable
+name|CmapLookup
 name|unicodeCmap
 decl_stmt|;
 specifier|private
@@ -412,7 +412,7 @@ name|unicodeCmap
 operator|=
 name|ttf
 operator|.
-name|getUnicodeCmap
+name|getUnicodeCmapLookup
 argument_list|()
 expr_stmt|;
 comment|// always copy GID 0

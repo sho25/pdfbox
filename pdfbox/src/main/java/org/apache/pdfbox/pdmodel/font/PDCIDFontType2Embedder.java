@@ -608,7 +608,7 @@ name|Integer
 argument_list|>
 name|codes
 init|=
-name|cmap
+name|cmapLookup
 operator|.
 name|getCharCodes
 argument_list|(

@@ -133,6 +133,8 @@ begin_class
 specifier|public
 class|class
 name|CmapSubtable
+implements|implements
+name|CmapLookup
 block|{
 specifier|private
 specifier|static

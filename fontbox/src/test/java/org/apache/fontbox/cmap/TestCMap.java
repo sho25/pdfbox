@@ -47,28 +47,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -77,7 +55,7 @@ name|fontbox
 operator|.
 name|ttf
 operator|.
-name|CmapSubtable
+name|CmapLookup
 import|;
 end_import
 
@@ -106,6 +84,16 @@ operator|.
 name|ttf
 operator|.
 name|TrueTypeFont
+import|;
+end_import
+
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
 import|;
 end_import
 
@@ -255,12 +243,12 @@ name|is
 argument_list|)
 init|)
 block|{
-name|CmapSubtable
+name|CmapLookup
 name|cmap
 init|=
 name|ttf
 operator|.
-name|getUnicodeCmap
+name|getUnicodeCmapLookup
 argument_list|(
 literal|false
 argument_list|)

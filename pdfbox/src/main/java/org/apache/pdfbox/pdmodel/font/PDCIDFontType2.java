@@ -117,7 +117,7 @@ name|fontbox
 operator|.
 name|ttf
 operator|.
-name|CmapSubtable
+name|CmapLookup
 import|;
 end_import
 
@@ -300,7 +300,7 @@ name|isDamaged
 decl_stmt|;
 specifier|private
 specifier|final
-name|CmapSubtable
+name|CmapLookup
 name|cmap
 decl_stmt|;
 comment|// may be null
@@ -590,7 +590,7 @@ name|cmap
 operator|=
 name|ttf
 operator|.
-name|getUnicodeCmap
+name|getUnicodeCmapLookup
 argument_list|(
 literal|false
 argument_list|)
