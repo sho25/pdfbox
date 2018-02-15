@@ -752,6 +752,12 @@ block|{
 if|if
 condition|(
 operator|!
+name|COSName
+operator|.
+name|IDENTITY_V
+operator|.
+name|equals
+argument_list|(
 name|parent
 operator|.
 name|dict
@@ -762,12 +768,6 @@ name|COSName
 operator|.
 name|ENCODING
 argument_list|)
-operator|.
-name|equals
-argument_list|(
-name|COSName
-operator|.
-name|IDENTITY_V
 argument_list|)
 condition|)
 block|{
