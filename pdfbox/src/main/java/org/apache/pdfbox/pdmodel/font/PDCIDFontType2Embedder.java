@@ -265,6 +265,9 @@ name|embedSubset
 parameter_list|,
 name|PDType0Font
 name|parent
+parameter_list|,
+name|boolean
+name|vertical
 parameter_list|)
 throws|throws
 name|IOException
@@ -334,6 +337,12 @@ name|COSName
 operator|.
 name|ENCODING
 argument_list|,
+name|vertical
+condition|?
+name|COSName
+operator|.
+name|IDENTITY_V
+else|:
 name|COSName
 operator|.
 name|IDENTITY_H

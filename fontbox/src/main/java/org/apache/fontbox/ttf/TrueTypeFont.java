@@ -2031,6 +2031,23 @@ name|featureTag
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Enable glyph substitutions for vertical writing.      */
+specifier|public
+name|void
+name|enableVerticalSubstitutions
+parameter_list|()
+block|{
+name|enableGsubFeature
+argument_list|(
+literal|"vrt2"
+argument_list|)
+expr_stmt|;
+name|enableGsubFeature
+argument_list|(
+literal|"vert"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|public
