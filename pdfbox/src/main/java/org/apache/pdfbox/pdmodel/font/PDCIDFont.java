@@ -251,7 +251,6 @@ specifier|private
 name|float
 name|averageWidth
 decl_stmt|;
-specifier|private
 specifier|final
 name|Map
 argument_list|<
@@ -267,7 +266,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// w1y
-specifier|private
 specifier|final
 name|Map
 argument_list|<
@@ -283,7 +281,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// v
-specifier|private
 name|float
 index|[]
 name|dw2
@@ -1508,7 +1505,7 @@ name|int
 name|code
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the GID for the given character code.      *      * @param code character code      * @return GID      */
+comment|/**      * Returns the GID for the given character code.      *      * @param code character code      * @return GID      * @throws java.io.IOException      */
 specifier|public
 specifier|abstract
 name|int
