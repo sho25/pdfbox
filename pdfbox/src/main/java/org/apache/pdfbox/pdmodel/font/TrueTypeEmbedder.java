@@ -367,6 +367,7 @@ specifier|protected
 name|PDFontDescriptor
 name|fontDescriptor
 decl_stmt|;
+comment|/**      * For API backwards compatibility.      *       * @deprecated      */
 annotation|@
 name|Deprecated
 specifier|protected
@@ -374,7 +375,6 @@ specifier|final
 name|CmapSubtable
 name|cmap
 decl_stmt|;
-comment|// for API backwards compatibility
 specifier|protected
 specifier|final
 name|CmapLookup
