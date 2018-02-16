@@ -993,7 +993,7 @@ return|return
 name|annotationFilter
 return|;
 block|}
-comment|/**      * Set the AnnotationFilter.      *       *<p>Allows to only render annotation accepted by the filter.      *       * @param annotationsFilter the AnnotationFilter      */
+comment|/**      * Set the AnnotationFilter.      *       *<p>Allows to only render annotation accepted by the filter.      *       * @param annotationFilter the AnnotationFilter      */
 specifier|public
 name|void
 name|setAnnotationFilter
