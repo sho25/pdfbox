@@ -34,6 +34,14 @@ specifier|public
 interface|interface
 name|CmapLookup
 block|{
+comment|/**      * Returns the GlyphId linked with the given character code.      *      * @param codePointAt the given character code to be mapped      * @return glyphId the corresponding glyph id for the given character code      */
+name|int
+name|getGlyphId
+parameter_list|(
+name|int
+name|codePointAt
+parameter_list|)
+function_decl|;
 comment|/**      * Returns all possible character codes for the given gid, or null if there is none.      *      * @param gid glyph id      * @return a list with all character codes the given gid maps to      */
 name|List
 argument_list|<
@@ -43,14 +51,6 @@ name|getCharCodes
 parameter_list|(
 name|int
 name|gid
-parameter_list|)
-function_decl|;
-comment|/**      * Returns the GlyphId linked with the given character code.      *      * @param codePointAt the given character code to be mapped      * @return glyphId the corresponding glyph id for the given character code      */
-name|int
-name|getGlyphId
-parameter_list|(
-name|int
-name|codePointAt
 parameter_list|)
 function_decl|;
 block|}
