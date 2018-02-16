@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a file attachement.  *  * @author Ben Litchfield  */
+comment|/**  * This is the class that represents a file attachment.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -218,13 +218,17 @@ argument_list|()
 operator|.
 name|getNameAsString
 argument_list|(
-literal|"Name"
+name|COSName
+operator|.
+name|NAME
 argument_list|,
 name|ATTACHMENT_NAME_PUSH_PIN
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the name used to draw the attachement icon. See the ATTACHMENT_NAME_XXX constants.      *      * @param name The name of the visual icon to draw.      */
+comment|/**      * Set the name used to draw the attachment icon. See the ATTACHMENT_NAME_XXX constants.      *      * @param name The name of the visual icon to draw.      * @deprecated use {@link #setAttachmentName(java.lang.String)}.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setAttachementName
@@ -238,7 +242,31 @@ argument_list|()
 operator|.
 name|setName
 argument_list|(
-literal|"Name"
+name|COSName
+operator|.
+name|NAME
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the name used to draw the attachment icon. See the ATTACHMENT_NAME_XXX constants.      *      * @param name The name of the visual icon to draw.      */
+specifier|public
+name|void
+name|setAttachmentName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|getCOSObject
+argument_list|()
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|NAME
 argument_list|,
 name|name
 argument_list|)
