@@ -1815,19 +1815,11 @@ comment|// We don't know what script this should be.
 if|if
 condition|(
 name|lastUsedSupportedScript
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
-comment|// Use past context
-return|return
-name|lastUsedSupportedScript
-return|;
-block|}
-else|else
-block|{
 comment|// We have no past context and (currently) no way to get future context so we guess.
-return|return
 name|lastUsedSupportedScript
 operator|=
 name|scriptList
@@ -1840,8 +1832,12 @@ argument_list|()
 operator|.
 name|next
 argument_list|()
-return|;
+expr_stmt|;
 block|}
+comment|// else use past context
+return|return
+name|lastUsedSupportedScript
+return|;
 block|}
 block|}
 for|for
@@ -1864,10 +1860,12 @@ condition|)
 block|{
 comment|// Use the first recognized tag. We assume a single font only recognizes one version ("ver. 2")
 comment|// of a single script, or if it recognizes more than one that it prefers the latest one.
-return|return
 name|lastUsedSupportedScript
 operator|=
 name|tag
+expr_stmt|;
+return|return
+name|lastUsedSupportedScript
 return|;
 block|}
 block|}
