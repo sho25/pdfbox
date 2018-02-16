@@ -451,11 +451,6 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|contents
-operator|.
-name|saveGraphicsState
-argument_list|()
-expr_stmt|;
 block|}
 comment|// add XMP metadata
 name|XMPMetadata
