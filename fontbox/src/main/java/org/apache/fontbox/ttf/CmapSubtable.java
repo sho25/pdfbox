@@ -2514,6 +2514,8 @@ name|platformIdValue
 expr_stmt|;
 block|}
 comment|/**      * Returns the GlyphId linked with the given character code.      *      * @param characterCode the given character code to be mapped      * @return glyphId the corresponding glyph id for the given character code      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getGlyphId
@@ -2650,6 +2652,8 @@ index|]
 return|;
 block|}
 comment|/**      * Returns all possible character codes for the given gid, or null if there is none.      *      * @param gid glyph id      * @return a list with all character codes the given gid maps to      *       */
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
