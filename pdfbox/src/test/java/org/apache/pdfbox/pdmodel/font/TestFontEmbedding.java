@@ -416,7 +416,7 @@ decl_stmt|;
 name|String
 name|expectedExtractedtext
 init|=
-literal|"「\r\nA\r\nB\r\nC\r\n」"
+literal|"「\nA\nB\nC\n」"
 decl_stmt|;
 name|File
 name|pdf
@@ -668,8 +668,23 @@ argument_list|(
 name|pdf
 argument_list|)
 decl_stmt|;
-comment|// works only on windows?!
-comment|//        assertEquals(expectedExtractedtext, extracted.trim());
+name|assertEquals
+argument_list|(
+name|expectedExtractedtext
+argument_list|,
+name|extracted
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\r"
+argument_list|,
+literal|""
+argument_list|)
+operator|.
+name|trim
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 specifier|private
 name|String
