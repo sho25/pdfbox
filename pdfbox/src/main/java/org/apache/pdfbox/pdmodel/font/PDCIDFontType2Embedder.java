@@ -2090,7 +2090,9 @@ decl_stmt|;
 name|COSArray
 name|inner
 init|=
-literal|null
+operator|new
+name|COSArray
+argument_list|()
 decl_stmt|;
 name|COSArray
 name|outer
@@ -2859,7 +2861,9 @@ decl_stmt|;
 name|COSArray
 name|inner
 init|=
-literal|null
+operator|new
+name|COSArray
+argument_list|()
 decl_stmt|;
 name|COSArray
 name|outer
