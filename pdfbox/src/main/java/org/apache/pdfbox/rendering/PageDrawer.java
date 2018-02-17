@@ -5564,9 +5564,7 @@ comment|// TODO: Improve memory consumption by passing a ScratchFile
 name|annotation
 operator|.
 name|constructAppearances
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 name|super

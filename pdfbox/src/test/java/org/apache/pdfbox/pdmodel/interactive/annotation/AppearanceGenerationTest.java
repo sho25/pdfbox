@@ -409,12 +409,7 @@ expr_stmt|;
 name|annotation
 operator|.
 name|constructAppearances
-argument_list|(
-name|ScratchFile
-operator|.
-name|getMainMemoryOnlyInstance
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|appearanceContentStream
 operator|=

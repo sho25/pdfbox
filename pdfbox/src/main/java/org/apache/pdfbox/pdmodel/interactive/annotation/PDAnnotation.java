@@ -159,20 +159,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
-operator|.
-name|ScratchFile
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|PDPage
@@ -2383,10 +2369,7 @@ comment|/**      * Create the appearance entry for this annotation. Not having i
 specifier|public
 name|void
 name|constructAppearances
-parameter_list|(
-name|ScratchFile
-name|scratchFile
-parameter_list|)
+parameter_list|()
 block|{     }
 block|}
 end_class

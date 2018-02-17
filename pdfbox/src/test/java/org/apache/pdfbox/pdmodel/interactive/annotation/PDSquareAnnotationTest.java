@@ -540,9 +540,7 @@ expr_stmt|;
 name|annotation
 operator|.
 name|constructAppearances
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|annotations
 operator|.

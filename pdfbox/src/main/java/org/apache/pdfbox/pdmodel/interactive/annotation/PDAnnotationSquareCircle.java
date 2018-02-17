@@ -97,20 +97,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
-operator|.
-name|ScratchFile
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|common
@@ -183,10 +169,7 @@ specifier|public
 specifier|abstract
 name|void
 name|constructAppearances
-parameter_list|(
-name|ScratchFile
-name|scratchFile
-parameter_list|)
+parameter_list|()
 function_decl|;
 comment|/**      * This will set interior color of the drawn area color is in DeviceRGB colorspace.      *      * @param ic color in the DeviceRGB color space.      *      */
 specifier|public
