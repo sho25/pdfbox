@@ -132,6 +132,10 @@ specifier|public
 class|class
 name|EmbeddedVerticalFonts
 block|{
+specifier|private
+name|EmbeddedVerticalFonts
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void
