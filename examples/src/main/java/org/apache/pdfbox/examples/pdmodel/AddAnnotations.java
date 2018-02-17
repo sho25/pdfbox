@@ -1958,12 +1958,7 @@ block|{
 name|ann
 operator|.
 name|constructAppearances
-argument_list|(
-name|ScratchFile
-operator|.
-name|getMainMemoryOnlyInstance
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 name|showPageNo
