@@ -3182,8 +3182,6 @@ argument_list|()
 decl_stmt|;
 name|COSArray
 name|destFields
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -3191,12 +3189,11 @@ name|srcFields
 operator|!=
 literal|null
 operator|&&
+operator|!
 name|srcFields
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|>
-literal|0
 condition|)
 block|{
 comment|// if a form is merged multiple times using PDFBox the newly generated
