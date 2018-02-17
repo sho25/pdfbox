@@ -1454,7 +1454,7 @@ name|deltaGlyphID
 operator|=
 name|data
 operator|.
-name|readUnsignedShort
+name|readSignedShort
 argument_list|()
 expr_stmt|;
 name|lookupSubTable
@@ -2891,7 +2891,7 @@ name|LookupTypeSingleSubstFormat1
 extends|extends
 name|LookupSubTable
 block|{
-name|int
+name|short
 name|deltaGlyphID
 decl_stmt|;
 annotation|@
