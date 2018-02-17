@@ -1861,13 +1861,21 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// stretch non-embedded glyph if it does not match the width contained in the PDF
+comment|// Stretch non-embedded glyph if it does not match the height/width contained in the PDF.
+comment|// Vertical fonts have zero X displacement, so the following code scales to 0 if we don't skip it.
+comment|// TODO: How should vertical fonts be handled?
 if|if
 condition|(
 operator|!
 name|font
 operator|.
 name|isEmbedded
+argument_list|()
+operator|&&
+operator|!
+name|font
+operator|.
+name|isVertical
 argument_list|()
 condition|)
 block|{
