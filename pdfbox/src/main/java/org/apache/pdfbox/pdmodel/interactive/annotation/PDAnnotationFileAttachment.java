@@ -226,30 +226,6 @@ name|ATTACHMENT_NAME_PUSH_PIN
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the name used to draw the attachment icon. See the ATTACHMENT_NAME_XXX constants.      *      * @param name The name of the visual icon to draw.      * @deprecated use {@link #setAttachmentName(java.lang.String)}.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|void
-name|setAttachementName
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|getCOSObject
-argument_list|()
-operator|.
-name|setName
-argument_list|(
-name|COSName
-operator|.
-name|NAME
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Set the name used to draw the attachment icon. See the ATTACHMENT_NAME_XXX constants.      *      * @param name The name of the visual icon to draw.      */
 specifier|public
 name|void
