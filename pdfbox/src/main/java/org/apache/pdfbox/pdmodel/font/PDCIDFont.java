@@ -782,6 +782,8 @@ name|intValue
 argument_list|()
 operator|+
 name|j
+operator|/
+literal|3
 decl_stmt|;
 name|COSNumber
 name|w1y
