@@ -237,10 +237,10 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Embed a TTF as vertical CIDFontType2 with subsetting.      *       * @throws IOException       */
+comment|/**      * Embed a monospace TTF as vertical CIDFontType2 with subsetting.      *      * @throws IOException      */
 specifier|public
 name|void
-name|testCIDFontType2VerticalSubset
+name|testCIDFontType2VerticalSubsetMonospace
 parameter_list|()
 throws|throws
 name|IOException
@@ -263,7 +263,7 @@ name|File
 argument_list|(
 name|OUT_DIR
 argument_list|,
-literal|"CIDFontType2V.pdf"
+literal|"CIDFontType2VM.pdf"
 argument_list|)
 decl_stmt|;
 try|try
@@ -437,6 +437,14 @@ name|ENCODING
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|document
+operator|.
+name|save
+argument_list|(
+name|pdf
+argument_list|)
+expr_stmt|;
+comment|// Vertical metrics are fixed during subsetting, so do this after calling save()
 name|COSDictionary
 name|descFontDict
 init|=
@@ -463,38 +471,38 @@ operator|.
 name|DW2
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertNull
 argument_list|(
-literal|880
-argument_list|,
 name|dw2
+argument_list|)
+expr_stmt|;
+comment|// This font uses default values for DW2
+name|COSArray
+name|w2
+init|=
+operator|(
+name|COSArray
+operator|)
+name|descFontDict
 operator|.
-name|getInt
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|W2
+argument_list|)
+decl_stmt|;
+name|assertEquals
 argument_list|(
 literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-operator|-
-literal|1000
 argument_list|,
-name|dw2
+name|w2
 operator|.
-name|getInt
-argument_list|(
-literal|1
-argument_list|)
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|document
-operator|.
-name|save
-argument_list|(
-name|pdf
-argument_list|)
-expr_stmt|;
+comment|// Monospaced font has no entries
 block|}
 comment|// Check text extraction
 name|String
