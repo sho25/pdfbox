@@ -583,6 +583,17 @@ name|widths
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|dict
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|ENCODING
+argument_list|,
+name|encoding
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Returns a PDFontDescriptor for the given PFB.      */
 specifier|static
