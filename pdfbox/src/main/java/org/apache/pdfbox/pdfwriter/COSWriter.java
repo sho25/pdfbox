@@ -5351,6 +5351,15 @@ literal|false
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|idArray
+operator|=
+operator|new
+name|COSArray
+argument_list|()
+expr_stmt|;
+block|}
 comment|// check for an existing documentID
 if|if
 condition|(
