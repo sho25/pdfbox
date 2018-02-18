@@ -3447,8 +3447,8 @@ decl_stmt|;
 if|if
 condition|(
 name|value
-operator|!=
-literal|null
+operator|instanceof
+name|COSDictionary
 condition|)
 block|{
 name|signatures
