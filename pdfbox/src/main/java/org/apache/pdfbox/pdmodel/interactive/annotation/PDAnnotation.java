@@ -2365,7 +2365,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Create the appearance entry for this annotation. Not having it may prevent display in some      * viewers. This method is for overriding in subclasses, the default implementation does      * nothing.      *       * @param scratchFile memory handler for buffering of PDF streams.      *                    Passing null will use an in memory buffer {@link ScratchFile#getMainMemoryOnlyInstance()}.      */
+comment|/**      * Create the appearance entry for this annotation. Not having it may prevent display in some      * viewers. This method is for overriding in subclasses, the default implementation does      * nothing.      *       */
 specifier|public
 name|void
 name|constructAppearances
