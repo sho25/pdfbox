@@ -462,6 +462,55 @@ literal|null
 return|;
 block|}
 block|}
+comment|/**      * Getter for an instance to only use main-memory with the defined maximum.      *       * @param maxMainMemoryBytes maximum number of main-memory to be used;      *<code>-1</code> for no restriction;      *<code>0</code> will also be interpreted here as no restriction      *       * @return instance configured to only use main memory with no size restriction      */
+specifier|public
+specifier|static
+name|ScratchFile
+name|getMainMemoryOnlyInstance
+parameter_list|(
+name|long
+name|maxMainMemoryBytes
+parameter_list|)
+block|{
+try|try
+block|{
+return|return
+operator|new
+name|ScratchFile
+argument_list|(
+name|MemoryUsageSetting
+operator|.
+name|setupMainMemoryOnly
+argument_list|(
+name|maxMainMemoryBytes
+argument_list|)
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{
+comment|// cannot happen for main memory setup
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Unexpected exception occurred creating main memory scratch file instance: "
+operator|+
+name|ioe
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+block|}
 comment|/**      * Returns a new free page, either from free page pool      * or by enlarging scratch file (may be created).      *       * @return index of new page      */
 name|int
 name|getNewPage
