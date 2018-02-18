@@ -4421,6 +4421,21 @@ block|{
 break|break;
 block|}
 block|}
+if|if
+condition|(
+name|foundSignature
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"document does not contain signature fields"
+argument_list|)
+throw|;
+block|}
 name|int
 index|[]
 name|byteRange
