@@ -343,9 +343,16 @@ name|length
 operator|==
 literal|0
 operator|||
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|ab
 operator|.
 name|width
+argument_list|,
+literal|0
+argument_list|)
 operator|==
 literal|0
 condition|)

@@ -1376,7 +1376,14 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|captionVerticalOffset
+argument_list|,
+literal|0
+argument_list|)
 operator|!=
 literal|0
 condition|)
