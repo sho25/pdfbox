@@ -1614,7 +1614,17 @@ name|ClassNotFoundException
 name|e
 parameter_list|)
 block|{
-comment|// do nothing
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Oh-oh, sun.java2d.cmm.kcms.KcmsServiceProvider no longer exists, "
+operator|+
+literal|"so image rendering will be much slower :-("
+argument_list|)
+expr_stmt|;
 block|}
 name|UIManager
 operator|.
