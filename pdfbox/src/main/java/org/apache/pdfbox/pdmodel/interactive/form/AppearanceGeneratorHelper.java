@@ -1390,9 +1390,16 @@ condition|)
 block|{
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|lineWidth
-operator|!=
+argument_list|,
 literal|1
+argument_list|)
+operator|!=
+literal|0
 condition|)
 block|{
 name|contents
@@ -1854,7 +1861,14 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|fontSize
+argument_list|,
+literal|0
+argument_list|)
 operator|==
 literal|0
 condition|)
@@ -3243,7 +3257,14 @@ decl_stmt|;
 comment|// zero is special, it means the text is auto-sized
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|fontSize
+argument_list|,
+literal|0
+argument_list|)
 operator|==
 literal|0
 condition|)

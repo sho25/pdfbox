@@ -688,6 +688,10 @@ argument_list|()
 operator|==
 literal|null
 operator|||
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|widget
 operator|.
 name|getRectangle
@@ -695,9 +699,16 @@ argument_list|()
 operator|.
 name|getHeight
 argument_list|()
+argument_list|,
+literal|0
+argument_list|)
 operator|==
 literal|0
 operator|&&
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|widget
 operator|.
 name|getRectangle
@@ -705,6 +716,9 @@ argument_list|()
 operator|.
 name|getWidth
 argument_list|()
+argument_list|,
+literal|0
+argument_list|)
 operator|==
 literal|0
 operator|||
