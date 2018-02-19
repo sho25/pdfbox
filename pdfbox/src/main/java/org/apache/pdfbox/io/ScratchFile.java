@@ -455,6 +455,8 @@ name|ioe
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|ioe
 argument_list|)
 expr_stmt|;
 return|return
@@ -504,6 +506,8 @@ name|ioe
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|ioe
 argument_list|)
 expr_stmt|;
 return|return
