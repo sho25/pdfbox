@@ -5301,8 +5301,6 @@ argument_list|()
 decl_stmt|;
 name|COSArray
 name|idArray
-init|=
-literal|null
 decl_stmt|;
 name|boolean
 name|missingID
@@ -5358,26 +5356,6 @@ operator|=
 operator|new
 name|COSArray
 argument_list|()
-expr_stmt|;
-block|}
-comment|// check for an existing documentID
-if|if
-condition|(
-name|idArray
-operator|!=
-literal|null
-operator|&&
-name|idArray
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|2
-condition|)
-block|{
-name|missingID
-operator|=
-literal|false
 expr_stmt|;
 block|}
 if|if
