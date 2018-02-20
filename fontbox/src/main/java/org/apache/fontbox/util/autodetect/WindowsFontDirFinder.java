@@ -73,6 +73,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|fontbox
 operator|.
 name|util
@@ -92,6 +120,21 @@ name|WindowsFontDirFinder
 implements|implements
 name|FontDirFinder
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|WindowsFontDirFinder
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Attempts to read windir environment variable on windows (disclaimer: This is a bit dirty but seems to work      * nicely).      */
 specifier|private
 name|String
@@ -226,6 +269,15 @@ name|SecurityException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get Windows font directories - ignoring"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// should continue if this fails
 block|}
 name|String
@@ -263,6 +315,15 @@ name|SecurityException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get Windows font directories - ignoring"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// should continue if this fails
 block|}
 block|}
@@ -470,6 +531,15 @@ name|SecurityException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get Windows font directories - ignoring"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// should continue if this fails
 block|}
 block|}
@@ -536,6 +606,15 @@ name|SecurityException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get Windows font directories - ignoring"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// should continue if this fails
 block|}
 block|}
