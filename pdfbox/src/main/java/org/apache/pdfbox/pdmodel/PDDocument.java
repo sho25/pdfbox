@@ -1045,26 +1045,13 @@ argument_list|,
 name|ioe
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|scratchFile
 operator|=
-operator|new
 name|ScratchFile
-argument_list|(
-name|MemoryUsageSetting
 operator|.
-name|setupMainMemoryOnly
+name|getMainMemoryOnlyInstance
 argument_list|()
-argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ioe2
-parameter_list|)
-block|{}
 block|}
 name|document
 operator|=
@@ -2556,8 +2543,6 @@ parameter_list|(
 name|PDSignatureField
 name|signatureField
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 comment|// "Signature fields that are not intended to be visible shall
 comment|// have an annotation rectangle that has zero height and width."
@@ -3262,7 +3247,7 @@ return|return
 name|encryption
 return|;
 block|}
-comment|/**      * This will set the encryption dictionary for this document.      *       * @param encryption The encryption dictionary(most likely a PDStandardEncryption object)      *       * @throws IOException If there is an error determining which security handler to use.      */
+comment|/**      * This will set the encryption dictionary for this document.      *       * @param encryption The encryption dictionary(most likely a PDStandardEncryption object)      */
 specifier|public
 name|void
 name|setEncryptionDictionary
@@ -3270,8 +3255,6 @@ parameter_list|(
 name|PDEncryption
 name|encryption
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
@@ -3280,13 +3263,11 @@ operator|=
 name|encryption
 expr_stmt|;
 block|}
-comment|/**      * This will return the last signature from the field tree. Note that this may not be the      * last in time when empty signature fields are created first but signed after other fields.      *       * @return the last signature as<code>PDSignatureField</code>.      * @throws IOException if no document catalog can be found.      */
+comment|/**      * This will return the last signature from the field tree. Note that this may not be the      * last in time when empty signature fields are created first but signed after other fields.      *       * @return the last signature as<code>PDSignatureField</code>.      */
 specifier|public
 name|PDSignature
 name|getLastSignatureDictionary
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|List
 argument_list|<
@@ -3327,7 +3308,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Retrieve all signature fields from the document.      *       * @return a<code>List</code> of<code>PDSignatureField</code>s      * @throws IOException if no document catalog can be found.      */
+comment|/**      * Retrieve all signature fields from the document.      *       * @return a<code>List</code> of<code>PDSignatureField</code>s      */
 specifier|public
 name|List
 argument_list|<
@@ -3335,8 +3316,6 @@ name|PDSignatureField
 argument_list|>
 name|getSignatureFields
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|List
 argument_list|<
@@ -3400,7 +3379,7 @@ return|return
 name|fields
 return|;
 block|}
-comment|/**      * Retrieve all signature dictionaries from the document.      *       * @return a<code>List</code> of<code>PDSignatureField</code>s      * @throws IOException if no document catalog can be found.      */
+comment|/**      * Retrieve all signature dictionaries from the document.      *       * @return a<code>List</code> of<code>PDSignatureField</code>s      */
 specifier|public
 name|List
 argument_list|<
@@ -3408,8 +3387,6 @@ name|PDSignature
 argument_list|>
 name|getSignatureDictionaries
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|List
 argument_list|<
