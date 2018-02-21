@@ -69,6 +69,34 @@ name|OutputStream
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class contains various I/O-related methods.  */
 end_comment
@@ -80,6 +108,22 @@ class|class
 name|IOUtils
 block|{
 comment|//TODO PDFBox should really use Apache Commons IO.
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|IOUtils
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|IOUtils
 parameter_list|()
@@ -300,6 +344,15 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"An exception occured while trying to close - ignoring"
+argument_list|,
+name|ioe
+argument_list|)
+expr_stmt|;
 comment|// ignore
 block|}
 block|}
