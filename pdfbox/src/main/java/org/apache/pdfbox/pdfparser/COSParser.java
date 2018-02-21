@@ -4958,6 +4958,17 @@ name|exception
 parameter_list|)
 block|{
 comment|// there wasn't an object of a xref stream
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No Xref stream at given location "
+operator|+
+name|startXRefOffset
+argument_list|,
+name|exception
+argument_list|)
+expr_stmt|;
 name|source
 operator|.
 name|seek
@@ -5321,6 +5332,19 @@ name|exception
 parameter_list|)
 block|{
 comment|// Swallow the exception, obviously there isn't any valid object number
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No valid object at given location "
+operator|+
+name|offset
+operator|+
+literal|" - ignoring"
+argument_list|,
+name|exception
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -6377,6 +6401,15 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"An exception occured during brute force search for trailer - ignoring"
+argument_list|,
+name|exception
+argument_list|)
+expr_stmt|;
 continue|continue;
 block|}
 block|}
@@ -6855,6 +6888,15 @@ name|exception
 parameter_list|)
 block|{
 comment|// save the EOF marker as the following data is most likely some garbage
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"An exception occured during brute force for last EOF - ignoring"
+argument_list|,
+name|exception
+argument_list|)
+expr_stmt|;
 name|lastEOFMarker
 operator|=
 name|tempMarker
@@ -7431,6 +7473,8 @@ operator|+
 literal|" 0 at offset "
 operator|+
 name|offset
+argument_list|,
+name|exception
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -8499,6 +8543,8 @@ operator|+
 name|key
 operator|+
 literal|", either it's corrupt or not a dictionary"
+argument_list|,
+name|exception
 argument_list|)
 expr_stmt|;
 block|}

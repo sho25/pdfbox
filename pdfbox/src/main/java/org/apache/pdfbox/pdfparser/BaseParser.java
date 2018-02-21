@@ -2912,6 +2912,15 @@ name|CharacterCodingException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Character could not be decoded using Charsets.UTF_8 - returning false"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
