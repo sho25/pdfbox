@@ -895,6 +895,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
@@ -904,7 +906,8 @@ name|load
 argument_list|(
 name|byteArray
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|PDPage
 name|page2
 init|=
@@ -1142,11 +1145,7 @@ name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 specifier|private
 name|byte
@@ -1205,6 +1204,8 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|cs
 init|=
@@ -1215,7 +1216,8 @@ name|doc
 argument_list|,
 name|page
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|cs
 operator|.
 name|beginText
@@ -1351,11 +1353,7 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|cs
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|save
