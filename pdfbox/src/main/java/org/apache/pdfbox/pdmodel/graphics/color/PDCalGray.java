@@ -21,6 +21,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -104,6 +124,25 @@ block|}
 argument_list|,
 name|this
 argument_list|)
+decl_stmt|;
+comment|// PDFBOX-4119: cache the results for much improved performance
+comment|// cached values MUST be cloned, because they are modified by the caller.
+comment|// this can be observed in rendering of PDFBOX-1724
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|Float
+argument_list|,
+name|float
+index|[]
+argument_list|>
+name|map1
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
 decl_stmt|;
 comment|/**      * Create a new CalGray color space.      */
 specifier|public
@@ -204,7 +243,7 @@ index|[]
 name|value
 parameter_list|)
 block|{
-comment|// see implementation of toRGB in PDCabRGB, and PDFBOX-2971
+comment|// see implementation of toRGB in PDCalRGB, and PDFBOX-2971
 if|if
 condition|(
 name|wpX
@@ -229,6 +268,31 @@ literal|0
 index|]
 decl_stmt|;
 name|float
+index|[]
+name|result
+init|=
+name|map1
+operator|.
+name|get
+argument_list|(
+name|a
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|result
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|result
+operator|.
+name|clone
+argument_list|()
+return|;
+block|}
+name|float
 name|gamma
 init|=
 name|getGamma
@@ -249,7 +313,8 @@ argument_list|,
 name|gamma
 argument_list|)
 decl_stmt|;
-return|return
+name|result
+operator|=
 name|convXYZtoRGB
 argument_list|(
 name|powAG
@@ -258,6 +323,21 @@ name|powAG
 argument_list|,
 name|powAG
 argument_list|)
+expr_stmt|;
+name|map1
+operator|.
+name|put
+argument_list|(
+name|a
+argument_list|,
+name|result
+operator|.
+name|clone
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|result
 return|;
 block|}
 else|else
