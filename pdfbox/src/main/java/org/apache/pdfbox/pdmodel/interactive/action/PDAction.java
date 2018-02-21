@@ -197,6 +197,7 @@ return|;
 block|}
 comment|/**      * This will get the type of PDF object that the actions dictionary describes.      * If present must be Action for an action dictionary.      *      * @return The Type of PDF object.      */
 specifier|public
+specifier|final
 name|String
 name|getType
 parameter_list|()
@@ -213,7 +214,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This will set the type of PDF object that the actions dictionary describes.      * If present must be Action for an action dictionary.      *      * @param type The new Type for the PDF object.      */
-specifier|public
+specifier|protected
 specifier|final
 name|void
 name|setType
@@ -236,6 +237,7 @@ expr_stmt|;
 block|}
 comment|/**      * This will get the type of action that the actions dictionary describes.      *      * @return The S entry of actions dictionary.      */
 specifier|public
+specifier|final
 name|String
 name|getSubType
 parameter_list|()
@@ -252,7 +254,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This will set the type of action that the actions dictionary describes.      *      * @param s The new type of action.      */
-specifier|public
+specifier|protected
+specifier|final
 name|void
 name|setSubType
 parameter_list|(
