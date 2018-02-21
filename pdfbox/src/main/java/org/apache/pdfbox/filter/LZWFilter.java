@@ -739,6 +739,8 @@ operator|.
 name|warn
 argument_list|(
 literal|"Premature EOF in LZW stream, EOD code missing"
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}

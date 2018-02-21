@@ -403,6 +403,15 @@ parameter_list|)
 block|{
 comment|// JAI can't read CMYK JPEGs using ImageReader#read or ImageIO.read but
 comment|// fortunately ImageReader#readRaster isn't buggy when reading 4-channel files
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't read use read() for RGB image - using readRaster() as fallback"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|raster
 operator|=
 name|reader
@@ -471,6 +480,15 @@ name|e
 parameter_list|)
 block|{
 comment|// we really tried asking nicely, now we're using brute force.
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't read usíng getAdobeTransform() - using getAdobeTransformByBruteForce() as fallback"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|transform
 operator|=
 name|getAdobeTransformByBruteForce
@@ -1624,6 +1642,15 @@ name|NegativeArraySizeException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't read metadata - returning empty string"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|""
 return|;
