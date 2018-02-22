@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Launch paramaters for the windows OS.  *  * @author Ben Litchfield  */
+comment|/**  * Launch parameters for the windows OS.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -83,7 +83,7 @@ name|OPERATION_OPEN
 init|=
 literal|"open"
 decl_stmt|;
-comment|/**      * The print operation for the lanuch.      */
+comment|/**      * The print operation for the launch.      */
 specifier|public
 specifier|static
 specifier|final

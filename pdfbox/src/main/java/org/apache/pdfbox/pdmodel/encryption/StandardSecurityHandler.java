@@ -1437,7 +1437,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Prepare document for encryption.      *      * @param document The documeent to encrypt.      *      * @throws IOException If there is an error accessing data.      */
+comment|/**      * Prepare document for encryption.      *      * @param document The document to encrypt.      *      * @throws IOException If there is an error accessing data.      */
 annotation|@
 name|Override
 specifier|public
