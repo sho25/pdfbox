@@ -1316,6 +1316,20 @@ name|SecurityException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't create writer for "
+operator|+
+name|file
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 for|for

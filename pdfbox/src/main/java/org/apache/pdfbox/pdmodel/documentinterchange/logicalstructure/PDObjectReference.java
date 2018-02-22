@@ -35,6 +35,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -164,6 +192,22 @@ name|PDObjectReference
 implements|implements
 name|COSObjectable
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDObjectReference
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * TYPE of this object.      */
 specifier|public
 specifier|static
@@ -357,6 +401,15 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get the referenced object - returning null instead"
+argument_list|,
+name|exception
+argument_list|)
+expr_stmt|;
 comment|// this can only happen if the target is an XObject.
 block|}
 return|return

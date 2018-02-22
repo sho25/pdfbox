@@ -952,6 +952,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get font name - setting to '?'"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|fontName
 operator|=
 literal|"?"
@@ -1402,6 +1411,8 @@ name|fd
 operator|.
 name|getFontName
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|fontIsDamaged
@@ -2944,6 +2955,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get font matrix box - returning default value"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|fontMatrix
 operator|=
 name|DEFAULT_FONT_MATRIX

@@ -1084,6 +1084,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"An exception occured trying to get the content - returning empty string instead"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|""
 return|;

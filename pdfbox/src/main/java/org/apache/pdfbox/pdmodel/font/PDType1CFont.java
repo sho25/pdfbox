@@ -1193,6 +1193,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get font matrix - returning default value"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|fontMatrix
 operator|=
 name|DEFAULT_FONT_MATRIX

@@ -263,6 +263,15 @@ parameter_list|)
 comment|// can occur on System.getProperty
 block|{
 comment|// PDFBOX-1946 ignore and continue
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error getting system property 'glyphlist_ext' - ignoring"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Returns the Adobe Glyph List (AGL).      */

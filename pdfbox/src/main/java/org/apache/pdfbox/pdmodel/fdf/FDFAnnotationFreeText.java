@@ -312,6 +312,8 @@ operator|.
 name|debug
 argument_list|(
 literal|"Error while evaluating XPath expression"
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}

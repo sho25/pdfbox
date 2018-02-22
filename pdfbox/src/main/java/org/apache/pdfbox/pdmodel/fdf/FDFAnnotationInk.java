@@ -500,6 +500,8 @@ operator|.
 name|debug
 argument_list|(
 literal|"Error while evaluating XPath expression for inklist gestures"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

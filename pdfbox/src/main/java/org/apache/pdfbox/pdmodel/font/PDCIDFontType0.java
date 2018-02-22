@@ -852,6 +852,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get font matrix - returning default value"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|Matrix
@@ -1113,6 +1122,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get font bounding box - returning default value"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|BoundingBox
