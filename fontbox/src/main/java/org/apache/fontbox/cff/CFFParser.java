@@ -125,20 +125,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|lang
-operator|.
-name|model
-operator|.
-name|util
-operator|.
-name|ElementScanner6
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
