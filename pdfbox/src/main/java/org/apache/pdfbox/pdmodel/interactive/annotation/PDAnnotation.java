@@ -988,6 +988,48 @@ name|ANNOT
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For this annotation. See the SUB_TYPE_XXX      * constants for valid values.      *      * @param subType The subtype of the annotation      */
+specifier|protected
+specifier|final
+name|void
+name|setSubtype
+parameter_list|(
+name|String
+name|subType
+parameter_list|)
+block|{
+name|getCOSObject
+argument_list|()
+operator|.
+name|setName
+argument_list|(
+name|COSName
+operator|.
+name|SUBTYPE
+argument_list|,
+name|subType
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This will retrieve the subtype of the annotation.      *      * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
+specifier|public
+specifier|final
+name|String
+name|getSubtype
+parameter_list|()
+block|{
+return|return
+name|getCOSObject
+argument_list|()
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|SUBTYPE
+argument_list|)
+return|;
+block|}
 comment|/**      * The annotation rectangle, defining the location of the annotation on the page in default user space units. This      * is usually required and should not return null on valid PDF documents. But where this is a parent form field with      * children, such as radio button collections then the rectangle will be null.      *       * @return The Rect value of this annotation.      */
 specifier|public
 name|PDRectangle
@@ -2276,26 +2318,6 @@ return|;
 block|}
 return|return
 literal|null
-return|;
-block|}
-comment|/**      * This will retrieve the subtype of the annotation.      *       * @return the subtype      */
-specifier|public
-name|String
-name|getSubtype
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|getCOSObject
-argument_list|()
-operator|.
-name|getNameAsString
-argument_list|(
-name|COSName
-operator|.
-name|SUBTYPE
-argument_list|)
 return|;
 block|}
 comment|/**      * This will set the corresponding page for this annotation.      *       * @param page is the corresponding page      */

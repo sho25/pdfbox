@@ -343,49 +343,6 @@ literal|null
 return|;
 block|}
 block|}
-comment|//TODO setSubtype() and getSubtype() should move up?
-comment|/**      * This will set the sub type (and hence appearance, AP taking precedence) For this annotation. See the SUB_TYPE_XXX      * constants for valid values.      *      * @param subType The subtype of the annotation      */
-specifier|public
-name|void
-name|setSubtype
-parameter_list|(
-name|String
-name|subType
-parameter_list|)
-block|{
-name|getCOSObject
-argument_list|()
-operator|.
-name|setName
-argument_list|(
-name|COSName
-operator|.
-name|SUBTYPE
-argument_list|,
-name|subType
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * This will retrieve the sub type (and hence appearance, AP taking precedence) For this annotation.      *      * @return The subtype of this annotation, see the SUB_TYPE_XXX constants.      */
-annotation|@
-name|Override
-specifier|public
-name|String
-name|getSubtype
-parameter_list|()
-block|{
-return|return
-name|getCOSObject
-argument_list|()
-operator|.
-name|getNameAsString
-argument_list|(
-name|COSName
-operator|.
-name|SUBTYPE
-argument_list|)
-return|;
-block|}
 comment|/**      * This will set the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @param bs the border style dictionary to set. TODO not all annotations may have a BS entry      *      */
 annotation|@
 name|Override
